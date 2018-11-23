@@ -39,7 +39,6 @@ COPY . /tmp
 WORKDIR /tmp
 
 RUN pip install --no-cache-dir -r requirements.txt && \
-    sh -c /tmp/make_config.sh && \
     mkdocs build -d /usr/share/nginx/html
 
 EXPOSE 8000
