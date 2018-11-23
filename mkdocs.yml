@@ -1,0 +1,27 @@
+site_name: CSC computing and storage environment
+nav:
+  - Home: index.md
+  - Accounts: accounts.md
+  - Connecting: connecting.md
+  - Computing: computing.md
+  - Cloud: cloud.md
+  - Storage: storage.md
+  - Applications: applications.md
+  - Support: support.md
+  - All articles:
+    - articles/introduction-to-rahti.md
+    - articles/technical-maturity-of-rahti.md
+    - articles/getting-access-to-rahti.md
+    - articles/using-rahti-web-interface.md
+    - articles/rahti-command-line-usage.md
+    - articles/external-documentation-related-to-rahti.md
+    - articles/contacting-rahti-support.md
+theme:
+  name: readthedocs
+extra_css:
+  - css/extra.css
+extra_javascript:
+  - https://use.fontawesome.com/e51b07f7f1.js
+markdown_extensions:
+  - admonition
+  - attr_list
