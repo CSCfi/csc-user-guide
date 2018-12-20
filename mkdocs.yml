@@ -1,5 +1,5 @@
 site_name: CSC computing and data environment
-nav:
+pages:
   - Home: 'index.md'
   - Accounts: 'accounts.md'
   - Connecting: 'connecting.md'
