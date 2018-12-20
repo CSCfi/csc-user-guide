@@ -1,4 +1,4 @@
-site_name: CSC computing and storage environment
+site_name: CSC computing and data environment
 nav:
   - Home: index.md
   - Accounts: accounts.md
@@ -16,6 +16,7 @@ nav:
     - articles/rahti-command-line-usage.md
     - articles/external-documentation-related-to-rahti.md
     - articles/contacting-rahti-support.md
+    - articles/rspatial-env.md
 theme:
   name: readthedocs
 extra_css:
