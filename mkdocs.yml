@@ -16,6 +16,7 @@ nav:
     - articles/rahti-command-line-usage.md
     - articles/external-documentation-related-to-rahti.md
     - articles/contacting-rahti-support.md
+    - articles/rspatial-env.md
 theme:
   name: readthedocs
 extra_css:
