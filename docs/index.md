@@ -1,3 +1,5 @@
+This page is still work in progress!
+
 # Featured articles
 
 * [Introduction to Rahti](articles/introduction-to-rahti.md)
