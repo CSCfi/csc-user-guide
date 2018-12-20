@@ -1,3 +1,3 @@
 # Computing
 
-Describe computing environment
+Describe computing environment, e.g. Taito, Sisu, Pouta
