@@ -1,3 +1,3 @@
 # Computing
 
-Describe computing environment in more detail
+Describe computing environment
