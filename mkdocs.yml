@@ -1,21 +1,25 @@
 site_name: CSC computing and data environment
-nav:
-  - Home: index.md
-  - Accounts: accounts.md
-  - Connecting: connecting.md
-  - Computing: computing.md
-  - Cloud: cloud.md
-  - Storage: storage.md
-  - Applications: applications.md
-  - Support: support.md
+pages:
+  - Home: 'index.md'
+  - Accounts: 'accounts.md'
+  - Connecting: 'connecting.md'
+  - Computing: 'computing.md'
+  - Cloud: 'cloud.md'
+  - Data: 'data.md'
+  - Applications: 'applications.md'
+  - Support: 'support.md'
   - All articles:
-    - articles/introduction-to-rahti.md
-    - articles/technical-maturity-of-rahti.md
-    - articles/getting-access-to-rahti.md
-    - articles/using-rahti-web-interface.md
-    - articles/rahti-command-line-usage.md
-    - articles/external-documentation-related-to-rahti.md
     - articles/contacting-rahti-support.md
+    - articles/csd.md
+    - articles/external-documentation-related-to-rahti.md
+    - articles/fgci-guide-intro.md
+    - articles/getting-access-to-rahti.md
+    - articles/gromacs.md
+    - articles/introduction-to-rahti.md
+    - articles/rahti-command-line-usage.md
+    - articles/rspatial-env.md
+    - articles/technical-maturity-of-rahti.md
+    - articles/using-rahti-web-interface.md 
 theme:
   name: readthedocs
 extra_css:
