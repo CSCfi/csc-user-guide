@@ -1,4 +1,4 @@
-# CSC user guides
+# CSC user guide
 
 ## Editing the documentation
 
