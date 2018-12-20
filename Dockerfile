@@ -7,8 +7,7 @@ ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
 RUN yum -y install epel-release &&\
     yum -y install nginx python-pip python &&\
-    yum clean all &&\
-    chmod g+rwx /var/run /var/log/nginx
+    yum clean all
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
     chmod -R g+rwx ${ROOT_GROUP_DIRS}
@@ -18,7 +17,6 @@ COPY . /tmp
 WORKDIR /tmp
 
 RUN pip install --no-cache-dir -r requirements.txt && \
-    sh -c /tmp/make_config.sh && \
     mkdocs build -d /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx
