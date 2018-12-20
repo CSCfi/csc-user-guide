@@ -35,8 +35,8 @@ This guide provides a general introduction to the FGCI grid environment. More de
 
  
 
-    FGCI user pages: [https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home](https://confluence.csc.fi/disöslplay/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home)
-    FGI user pages: [https://confluence.csc.fi/display/fgi/FGI+User+Pages](https://confluence.csc.fi/display/fgi/FGI+User+Pages)
+FGCI user pages: [https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home](https://confluence.csc.fi/disöslplay/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home)
+FGI user pages: [https://confluence.csc.fi/display/fgi/FGI+User+Pages](https://confluence.csc.fi/display/fgi/FGI+User+Pages)
 
  
 Table of contents
