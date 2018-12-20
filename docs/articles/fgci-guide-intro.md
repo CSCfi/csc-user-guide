@@ -33,10 +33,8 @@ The last chapter of this guide provides a short introduction to the ARC Grid Mon
 
 This guide provides a general introduction to the FGCI grid environment. More detailed information as well as tutorials and software specific instructions can be found from the FGI web site:
 
- 
-
-    FGCI user pages: [https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home](https://confluence.csc.fi/disöslplay/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home)
-    FGI user pages: [https://confluence.csc.fi/display/fgi/FGI+User+Pages](https://confluence.csc.fi/display/fgi/FGI+User+Pages)
+-FGCI user pages: [https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home](https://confluence.csc.fi/disöslplay/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home)
+-FGI user pages: [https://confluence.csc.fi/display/fgi/FGI+User+Pages](https://confluence.csc.fi/display/fgi/FGI+User+Pages)
 
  
 Table of contents
