@@ -2,7 +2,7 @@
 
 ## Gromacs is a fast and versatile classical molecular dynamics code
 
-Initialise use on Taito like this:
+Initialise use on [Taito] like this:
 
 ```bash
 $ module load gromacs-env
@@ -39,3 +39,5 @@ export OMP_NUM_THREADS=1
 # un/comment to use the older 5.1.x version
 module load gromacs-env/2016.x-snb # change x to the latest version
 ```
+
+[Taito]: http://research.csc.fi/taito-user-guide
