@@ -1,8 +1,9 @@
 # CSC User Guide
 
 This repository contains master data for two websites. Public website 
-(docs.csc.fi) is in sync with 'master' branch and internal development website 
-(URL?) is in sync with 'develop' branch.
+(https://docs.csc.fi) is in sync with 'master' branch and internal development
+website (https://csc-user-guide.rahti-int-app.csc.fi) is in sync with 'develop'
+branch.
 
 ## Contributing
 
