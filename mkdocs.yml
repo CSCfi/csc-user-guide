@@ -9,18 +9,12 @@ pages:
   - Applications: 'applications.md'
   - Support: 'support.md'
   - All articles:
-    - articles/contacting-rahti-support.md
     - articles/csd.md
-    - articles/external-documentation-related-to-rahti.md
     - articles/fgci-guide-intro.md
-    - articles/getting-access-to-rahti.md
     - articles/gromacs.md
-    - articles/introduction-to-rahti.md
-    - articles/rahti-command-line-usage.md
+    - articles/maestro.md
     - articles/rspatial-env.md
     - articles/rspatial-env2.md    
-    - articles/technical-maturity-of-rahti.md
-    - articles/using-rahti-web-interface.md 
 theme:
   name: readthedocs
 extra_css:
