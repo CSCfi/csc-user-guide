@@ -9,12 +9,6 @@ pages:
   - Applications: 'applications.md'
   - Support: 'support.md'
   - All articles:
-    - articles/csd.md
-    - articles/fgci-guide-intro.md
-    - articles/gromacs.md
-    - articles/maestro.md
-    - articles/rspatial-env.md
-    - articles/rspatial-env2.md    
 theme:
   name: readthedocs
 extra_css:
