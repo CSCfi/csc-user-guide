@@ -4,10 +4,9 @@ Work in progress, migration of content from [research.csc.fi/guides](https://res
 
 # Featured articles
 
-* [Introduction to Rahti](articles/introduction-to-rahti.md)
-* [Technical maturity of Rahti](articles/technical-maturity-of-rahti.md)
-* [Getting access to Rahti](articles/getting-access-to-rahti.md)
-* [Using Rahti web interface](articles/using-rahti-web-interface.md)
-* [Rahti command line usage](articles/rahti-command-line-usage.md)
-* [External documentation related to Rahti](articles/external-documentation-related-to-rahti.md)
-* [Contacting Rahti support](articles/contacting-rahti-support.md)
+* [CSD](articles/csd.md)
+* [FGCI User Guide](articles/fgci-guide-intro.md)
+* [Gromacs](articles/gromacs.md)
+* [Maestro](articles/maestro.md)
+* [rspatial-env](articles/rspatial-env.md)
+* [rspatial-env](articles/rspatial-env2.md)
