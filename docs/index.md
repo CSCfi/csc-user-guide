@@ -4,10 +4,10 @@ Work in progress, migration of content from [research.csc.fi/guides](https://res
 
 # Featured articles
 
+* [Changing the password](articles/changing-the-password.md)
+* [Switching between projects](articles/switching-between-projects.md)
 * [Creating a new user account](articles/creating-a-new-user-account.md)
-* [CSD](articles/csd.md)
-* [FGCI User Guide](articles/fgci-guide-intro.md)
-* [Gromacs](articles/gromacs.md)
 * [Maestro](articles/maestro.md)
-* [rspatial-env](articles/rspatial-env.md)
-* [rspatial-env](articles/rspatial-env2.md)
+* [Applying for resources](articles/applying-for-resources.md)
+* [Creating a new project](articles/creating-a-new-project.md)
+* [Gromacs](articles/gromacs.md)
