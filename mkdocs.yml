@@ -9,13 +9,25 @@ pages:
   - Applications: 'applications.md'
   - Support: 'support.md'
   - All articles:
+    - articles/adding-members-to-a-project.md
+    - articles/adding-service-access-for-a-project.md
+    - articles/applying-for-resources.md
+    - articles/changing-the-password.md
+    - articles/creating-a-new-project.md
     - articles/creating-a-new-user-account.md
     - articles/csd.md
     - articles/fgci-guide-intro.md
+    - articles/getting-accounts-for-international-collaborators.md
+    - articles/getting-machine-to-machine-robot-accounts.md
+    - articles/getting-student-accounts-for-a-course.md
     - articles/gromacs.md
+    - articles/joining-a-project.md
     - articles/maestro.md
+    - articles/managing-user-information.md
+    - articles/monitoring-resource-usage.md
     - articles/rspatial-env.md
-    - articles/rspatial-env2.md    
+    - articles/rspatial-env2.md
+    - articles/switching-between-projects.md
 theme:
   name: readthedocs
 extra_css:
