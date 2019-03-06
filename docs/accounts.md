@@ -2,7 +2,7 @@
 
 ## Getting access to CSC services
 
-* [New user](../articles/creating-a-new-user-account.md)
+* [New user](articles/creating-a-new-user-account.md)
 
 ## Projects and services
 
