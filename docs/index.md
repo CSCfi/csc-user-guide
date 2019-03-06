@@ -4,6 +4,7 @@ Work in progress, migration of content from [research.csc.fi/guides](https://res
 
 # Featured articles
 
+* [Creating a new user account](articles/creating-a-new-user-account.md)
 * [CSD](articles/csd.md)
 * [FGCI User Guide](articles/fgci-guide-intro.md)
 * [Gromacs](articles/gromacs.md)
