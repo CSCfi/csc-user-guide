@@ -9,6 +9,7 @@ pages:
   - Applications: 'applications.md'
   - Support: 'support.md'
   - All articles:
+    - articles/creating-a-new-user-account.md
     - articles/csd.md
     - articles/fgci-guide-intro.md
     - articles/gromacs.md
