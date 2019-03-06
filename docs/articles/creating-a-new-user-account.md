@@ -1,1 +1,1 @@
-# Creating a new CSC user account
+# Creating a new user account
