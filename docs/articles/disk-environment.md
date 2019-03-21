@@ -1,7 +1,15 @@
-1.5 Disk environment
+
+1. [ Disk environment ](#discenv)
+2. [ Home directory ](#homedir)
+3. [ Work directory ](#wrkdir)
+4. [ Software installation directory ](#installdir)
+5. [ Monitor ](#monitor)
+
+<a name="discenv"></a>
+Disk environment
 ====================
 
-The CSC supercomputing environment allows researchers to analyse and manage large datasets.  Supercluster taito.csc.fi and supercomputer sisu.csc.fi have a common disk environment and directory structure where on CSC you can work with datasets that contain several terabytes of data. In Taito (and Sisu) you can store data in several personal disk areas. The disk areas available in Taito are listed in Table 1.2 and Figure 1.2 below. Knowing the basic features of different disk areas is essential if you wish to use the CSC computing and storage services effectively. Note that in Taito all directories use the same Lustre-based file server (except $TMPDIR which is local to each node). Thus all directories are visible to both the front-end nodes and the computing nodes of Taito.
+The CSC supercomputing environment allows researchers to analyse and manage large datasets.  Supercomputers puhti.csc.fi and mahti.csc.fi have a common disk environment and directory structure where on CSC you can work with datasets that contain several terabytes of data. In Taito (and Sisu) you can store data in several personal disk areas. The disk areas available in  are listed in table below. Knowing the basic features of different disk areas is essential if you wish to use the CSC computing and storage services effectively. Note that in Taito all directories use the same Lustre-based file server (except $TMPDIR which is local to each node). Thus all directories are visible to both the front-end nodes and the computing nodes of Taito.
 
 In addition to the local directories in Taito, users have access to the CSC archive server, _HPC archive_, which is intended for long term data storage. HPC archive server is used through the iRODS software. Projects that have applied cPouta access can also use the CSC Object Storage service that can be be used as common storage area for CSC computing environment, Virtual Machines in cPouta and local computing environment. ( See CSC Computing environment user's guide [Chapter 3.2](/csc-guide-archiving-data-to-the-archive-servers) and [Chapter 3.3](/csc-guide-object-storage) for more information
 
@@ -23,8 +31,8 @@ Similarly, copying a file _data.txt_ to your work directory could be done with c
 
 In the following chapters you can find more detailed introductions to the usage and features of different user specific disk areas.
 
-  
-1.5.1 Home directory
+<a name="homedir"></a>
+Home directory
 -----------------------
 
 When you log in to CSC, your current directory will first be your home directory. Home directory should be used for initialization and configuration files and frequently accessed small programs and files. The size of the home directory is rather limited, by default it is only 50 GB, since this directory is not intended for large datasets.  
@@ -33,8 +41,8 @@ The files stored in the home directory will be preserved as long as the correspo
   
 Inside linux commands, the home directory can be indicated by the _tilde_ character (~) or by using the environment variable, _$HOME_. Also the command _**cd**_ without any argument will return the user to his/her home directory.  
  
-
-1.5.2 Work directory
+<a name="wrkdir"></a>
+Work directory
 --------------------
 
 The work directory is a place where you can temporarily store large datasets that are actively used. By default, you can have up to 5 terabytes of data in it. This user-specific directory is indicated by the environment variable, $WRKDIR. The Taito and Sisu servers share the same $WRKDIR directory.  
@@ -63,8 +71,8 @@ Please do not use _touch_ command particularly if you have lot of files because 
     **A:** Make a compressed _tar_ file of your data and copy it to HPC archive (see [chapter 3.2](csc-guide-archiving-data-to-the-archive-servers)  of the CSC  Computing environment user guide).
 
  
-
-1.5.3 Software installation directory
+ <a name="installdir"></a>
+Software installation directory
 -------------------------------------
 
 Users of CSC servers are free to install their own application software on CSC's computing servers. The software may be developed locally or downloaded from the internet. The main limitation for the software installation is that  user must be able to do the installation without using the _root_ user account. Further, the software must be installed on user's own private disk areas instead of the common application directories like _/usr/bin_.  
@@ -76,7 +84,8 @@ Sisu and Taito servers have separate $USERAPPL directories. This is reasonable: 
 ![](/documents/48467/84606/Disk_environment_2.jpg/5916ea28-3cfe-49a9-8fbe-bb16d47fd136?t=1383829085000)  
 **Figure 1.2** Storage environment in Sisu and Taito computers.
 
-1.5.4 Monitoring disk usage
+ <a name="monitor"></a>
+Monitoring disk usage
 ---------------------------
 
   
