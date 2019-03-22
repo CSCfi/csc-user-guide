@@ -60,6 +60,7 @@ The $WRKDIR is NOT intended for long term data storage. Files that have not been
 
 Please do not use ```_touch_``` command particularly if you have lot of files because it is metadata heavy operation and will impact $WRKDIR performance for all users.
 
+---
 **$WRKDIR F.A.Q.**
 
 *   **Q:** Can I check what files the cleaning process is about to remove from my $WRKDIR directory?  
@@ -78,7 +79,7 @@ Please do not use ```_touch_``` command particularly if you have lot of files be
      
 *   **Q:** How do I preserve an important dataset I have in $WRKIR?  
     **A:** Make a compressed _tar_ file of your data and copy it to HPC archive (see [chapter 3.2](csc-guide-archiving-data-to-the-archive-servers)  of the CSC  Computing environment user guide).
-
+---
  
  <a name="installdir"></a>
 Software installation directory
