@@ -7,7 +7,7 @@
 
 <a name="discenv"></a>
 Disk environment
-====================
+-----------------------
 
 The CSC supercomputing environment allows researchers to analyse and manage large datasets.  Supercomputers puhti.csc.fi and mahti.csc.fi have a common disk environment and directory structure where on CSC you can work with datasets that contain several terabytes of data. In Taito (and Sisu) you can store data in several personal disk areas. The disk areas available in  are listed in table below. Knowing the basic features of different disk areas is essential if you wish to use the CSC computing and storage services effectively. Note that in Taito all directories use the same Lustre-based file server (except $TMPDIR which is local to each node). Thus all directories are visible to both the front-end nodes and the computing nodes of Taito.
 
@@ -15,6 +15,15 @@ In addition to the local directories in Taito, users have access to the CSC arch
 
 
 ((Table of different storages/areas))
+| Directory or storage area | Intended use                                                                                       | Default quota/user | Storage time                                           | Backup |
+|---------------------------|----------------------------------------------------------------------------------------------------|--------------------|--------------------------------------------------------|--------|
+| $HOME                     | Initialization scripts, source codes, small data files. Not for running programs or research data. | XX GB              | Data will be deleted 90 days after closing the account | ?      |
+| $USERAPPL                 | Users' own application software.                                                                   |                    | Data will be deleted 90 days after closing the account | ?      |
+| $WRKDIR                   | Temporary data storage.                                                                            |                    | 90 days                                                | ?      |
+| $TMPDIR                   | Temporary users' files, scratch, compiling.                                                        |                    | 2 days**                                               | ?      |
+| project                   | Common storage for project members. A project can consist of one or more user accounts.            |                    | Data will be deleted 90 days after closing the project | ?      |
+| HPC archive??             | Long term storage.                                                                                 |                    | Permanent                                              | ?      |
+| Object storage (Allas)??  | Platform independed data stotrage                                                                  |                    | ??                                                     | ?      |
 
 \*The HPC-archive server is used through iRODS commands, and it is not mounted to Taito as a directory.  
 \*\* This applies to the files on the login node $TMPDIR. The files in compute node $TMPDIR are kept for the duration of the batch job and deleted immediately after it.  
@@ -22,13 +31,13 @@ In addition to the local directories in Taito, users have access to the CSC arch
 The directories listed in the table above can be accessed by normal linux commands, excluding the archive server, which is used through the _iRODS_ software. The $HOME and $WRKDIR directories as well as the HPC archive service can also be accessed through the [_MyFiles_]( csc-guide-data-transport-with-scientist-s-user-interface) tool of the Scientist's User Interface WWW service. The $USERAPPL is a subdirectory of $HOME.  
   
 When you are working on command line, you can utilize automatically defined environment variables that contain the directory paths to different disk areas (excluding project disk for which there is no environment variable). So, if you would like to move to your work directory you could do that by writing:
-
+```
 cd $WRKDIR
-
+```
 Similarly, copying a file _data.txt_ to your work directory could be done with command:
-
+```
  cp data.txt $WRKDIR/
-
+```
 In the following chapters you can find more detailed introductions to the usage and features of different user specific disk areas.
 
 <a name="homedir"></a>
@@ -49,7 +58,7 @@ The work directory is a place where you can temporarily store large datasets tha
   
 The $WRKDIR is NOT intended for long term data storage. Files that have not been used for 90 days will be automatically removed. If you want to keep some data in $WRKDIR for longer time periods you can copy it to directory $WRKDIR/DONOTREMOVE. The files under this sub directory will not be removed by the automatic cleaning process. Please note that the DONOTREMOVE directory is not intended for storing data but to keep available ONLY such important data that is frequently needed. Backup copies are not taken of the contents of the work directory (including DONOTREMOVE directory). Thus, if some files are accidentally removed by the user or lost due to physical breaking of the disk, the data is irreversibly lost.
 
-Please do not use _touch_ command particularly if you have lot of files because it is metadata heavy operation and will impact $WRKDIR performance for all users.
+Please do not use ```_touch_``` command particularly if you have lot of files because it is metadata heavy operation and will impact $WRKDIR performance for all users.
 
 **$WRKDIR F.A.Q.**
 
@@ -90,25 +99,26 @@ Monitoring disk usage
 
   
 The amount of data that can be stored to different disk areas is limited either by user specific quotas or by the amount of available free disk space. You can check your disk usage and quotas with the command:
-
+```
 quota
-
+```
 The _quota_ command shows also your disk quotas on different areas. If the disk quota is exceeded, you cannot add more data to the directory. In some directories, the quota can be slightly exceeded temporarily, but after a so-called _grace period_, the disk usage must be returned to the accepted level.  
   
 When a disk area fills up, you should remove unnecessary files, compress existing files and/or move them to the archive server. If you have well-justified reasons to use more disk space than what your quotas allow, you should send a request to the CSC resource manager (resource\_at\_csc.fi).  
   
 When one of your directories is approaching the quota limit, it is reasonable to check which files or folders take up most space. To list the files in your current directory ordered by size, give command:
-
+```
 ls -lSrh
+```
 
 Note however, that this command does not tell how much disk space the files in the subdirectories use. Thus it is often more useful to use the command **du** (disk usage) instead. You can, for example, try command:
-
+```
 du -sh ./\*
-
+```
 This command returns the size of each file or the total disk usage of each subdirectory in your current directory. You can also combine _du_ with _**sort**_ to see what file or directory is the largest item in your current directory:
-
+```
 du -s ./\* | sort -n
-
+```
 Note that as the _du_ command checks all the files in your current directory and running the command may in some cases take several minutes.
 
  
