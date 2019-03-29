@@ -31,6 +31,7 @@ pages:
     - articles/rspatial-env2.md
     - articles/switching-between-projects.md
     - articles/virtual_machine_flavors_and_billing_unit_rates.md
+    - articles/launching_virtual_machine_with_cPouta_web_interface.md
 theme:
   name: readthedocs
 extra_css:
