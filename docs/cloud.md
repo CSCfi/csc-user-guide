@@ -14,6 +14,11 @@
 
 ## Storage in Pouta
 
+* Ephemeral storage
+* Persistent volumes
+* Snapshots
+* Object Storage
+
 ## Creating and 
 
 ## etc
