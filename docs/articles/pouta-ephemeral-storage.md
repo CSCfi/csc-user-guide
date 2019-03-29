@@ -1,4 +1,4 @@
-#Ephemeral storage
+# Ephemeral storage in cPouta
 
 Some Pouta virtual machine flavors have ephemeral storage in addition to a root disk. 
 This works as additional storage for the duration of the instance. This storage does not 
