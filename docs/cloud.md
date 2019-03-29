@@ -14,7 +14,7 @@
 
 ## Storage in Pouta
 
-* [Ephemeral storage](articles/pouta-ephemeral-sorage.md)
+* [Ephemeral storage](articles/pouta-ephemeral-storage.md)
 ## Creating and 
 
 ## etc
