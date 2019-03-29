@@ -15,8 +15,8 @@
 ## Module environment
 * [Module system](articles/module-system.md)
 * [Basic usage of module system](articles/basic-usage-of-modules.md)
-* [Advanced usage of modules](articles/advanced_modules.md)
-* [GPU modules (Puhti AI)](articles/gpu_modules.md)
+* [Advanced usage of modules](articles/advanced-modules.md)
+* [GPU modules (Puhti AI)](articles/gpu-modules.md)
 
 ## Batch jobs
 * [Batch jobs basics](articles/batch-jobs-basics.md)
