@@ -14,11 +14,7 @@
 
 ## Storage in Pouta
 
-* Ephemeral storage
-* Persistent volumes
-* Snapshots
-* Object Storage
-
+* [Ephemeral storage](articles/pouta-ephemeral-sorage.md)
 ## Creating and 
 
 ## etc
