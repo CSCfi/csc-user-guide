@@ -23,12 +23,14 @@ pages:
     - articles/getting-student-accounts-for-a-course.md
     - articles/gromacs.md
     - articles/joining-a-project.md
+    - articles/launching_virtual_machine_with_cPouta_web_interface.md
     - articles/maestro.md
     - articles/managing-user-information.md
     - articles/monitoring-resource-usage.md
     - articles/rspatial-env.md
     - articles/rspatial-env2.md
     - articles/switching-between-projects.md
+    - articles/virtual_machine_flavors_and_billing_unit_rates.md
 theme:
   name: readthedocs
 extra_css:
