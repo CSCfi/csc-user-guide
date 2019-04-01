@@ -1,6 +1,12 @@
 Launching a virtual machine with the cPouta web interface
 -------------------------------------------------------------
 
+---
+**NOTE**
+
+plapla
+---
+
 The web interfaces of the Pouta clouds are available at following addresses:
 
 *   **[https://pouta.csc.fi](https://pouta.csc.fi) (cPouta web interface, accessible**** from internet)**
