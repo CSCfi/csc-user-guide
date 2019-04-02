@@ -1,6 +1,6 @@
 Launching a virtual machine with the cPouta web interface
 -------------------------------------------------------------
-[TOC]
+[TOC] [comment]: <> (To get the table of contents)
 
 The web interfaces of the Pouta clouds are available at following addresses:
 
@@ -131,5 +131,5 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 
 !!! Tip
 Please Note: Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
-
+!!!
 
