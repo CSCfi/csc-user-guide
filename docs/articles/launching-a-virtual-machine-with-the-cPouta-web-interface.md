@@ -1,6 +1,6 @@
-Launching a virtual machine with the cPouta web interface
--------------------------------------------------------------
-[TOC] [comment]: <> (To get the table of contents)
+# Launching a virtual machine with the cPouta web interface
+
+[TOC]
 
 The web interfaces of the Pouta clouds are available at following addresses:
 
