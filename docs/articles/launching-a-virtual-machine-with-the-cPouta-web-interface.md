@@ -1,11 +1,6 @@
 Launching a virtual machine with the cPouta web interface
 -------------------------------------------------------------
-
----
-**NOTE**
-
-plapla
----
+[TOC]
 
 The web interfaces of the Pouta clouds are available at following addresses:
 
@@ -91,6 +86,7 @@ Ingress     TCP           22          22        CIDR           0.0.0.0/0
 
 Opening up ports this widely is not recommended and is not necessary in most cases. Limiting access to a virtual machines to only those networks that actually need to access it is a good security practice.
 
+!!! Tip
 **Please note:**
 
 *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption to the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80 for SSH key injections to work.**
@@ -129,12 +125,4 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 
 **Please Note:** Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
-[Previous chapter](/pouta-flavours)
 
- 
-
-[One level up](/pouta-usage)
-
- 
-
-[Next chapter](/pouta-connecting-a-virtual-machine)
