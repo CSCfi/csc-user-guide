@@ -31,15 +31,19 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
 To finalize the key installation in **Linux** and **Mac OS X** environments, run the following commands in a command shell:
 
+```bash
 cd ~
 mkdir -p .ssh
 chmod 700 .ssh
 mv keyname.pem .ssh
+```
 
 Before using the newly created key, you need to protect it with a passphrase and make the key read only. You can do so with the following commands:
 
+```bash
 ssh-keygen -p -f .ssh/keyname.pem
 chmod 400 .ssh/keyname.pem
+```
 
 Where _keyname.pem_ is the file you downloaded.
 
@@ -68,22 +72,22 @@ To access a virtual machine in the cPouta or ePouta services, you need to allow 
 **Note: "From port" and "To port" define a range of destination ports. It is not possible to specify the source port. Ingress means incoming connections (to the VM). Egress means outgoing connections (from the VM).**
 
 If you know from which subnet you are going to SSH in from e.g. 88.44.55.0/24 add a rule like this (recommended).
-
+```bash
 Direction   IP Protocol   From Port   To port   Source Group   CIDR
 Ingress     TCP           22          22        CIDR           88.44.55.0/24
-
+```
 You can also just open up a port to a single IP. In this case, you take the IP and add "/32" and add it as you would add a network:
-
+```bash
 Direction   IP Protocol   From Port   To port   Source Group   CIDR
 Ingress     TCP           22          22        CIDR           88.44.55.77/32
-
+```
 If you don't know your IP address, you can use [http://www.myipaddress.com](http://www.myipaddress.com) to find out what it is.
 
 You can also open ports to all possible IP addresses. In that case, you would use "0.0.0.0/0" for the network:
-
+```bash
 Direction   IP Protocol   From Port   To port   Source Group   CIDR
 Ingress     TCP           22          22        CIDR           0.0.0.0/0
-
+```
 Opening up ports this widely is not recommended and is not necessary in most cases. Limiting access to a virtual machines to only those networks that actually need to access it is a good security practice.
 
 !!! Tip
@@ -124,5 +128,8 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 **Figure 2.5** Floating IP association dialog
 
 **Please Note:** Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
+
+!!! Tip
+Please Note: Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
 
