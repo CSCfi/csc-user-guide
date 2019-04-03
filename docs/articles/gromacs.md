@@ -14,9 +14,9 @@ This will show all available versions:
 ```bash
 $ module avail gromacs-env
 ```
----
-**NOTE** This is a note of high importance
----
+
+!!! Tip This is a tip of high importance
+
 
 ## Example batch script
 
