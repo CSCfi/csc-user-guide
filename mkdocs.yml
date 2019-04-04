@@ -24,6 +24,7 @@ pages:
     - articles/launching-a-virtual-machine-with-the-cPouta-web-interface.md
     - articles/managing-user-information.md
     - articles/monitoring-resource-usage.md
+    - articles/pouta-ephemeral-storage.md 
     - articles/switching-between-projects.md
     - articles/virtual-machine-flavors-and-billing-unit-rates.md
 theme:
