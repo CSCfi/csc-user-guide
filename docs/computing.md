@@ -24,7 +24,7 @@
 
 ## Batch jobs
 
-* Batch jobs basics](articles/batch-jobs-basics.md)
+* Batch jobs basics <!--articles/batch-jobs-basics.md-->
 * etc etc
 
 ## Interactive use
