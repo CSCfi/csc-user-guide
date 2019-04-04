@@ -1,6 +1,8 @@
 # Launching a virtual machine with the cPouta web interface
 
 [TOC]
+
+
 <!--TOC is to get the table of contents -->
 
 The web interfaces of the Pouta clouds are available at following addresses:
