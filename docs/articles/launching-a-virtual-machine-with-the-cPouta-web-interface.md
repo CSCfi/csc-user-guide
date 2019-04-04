@@ -7,6 +7,12 @@ The web interfaces of the Pouta clouds are available at following addresses:
 *   **[https://pouta.csc.fi](https://pouta.csc.fi) (cPouta web interface, accessible**** from internet)**
 *   **[https://epouta.csc.fi](https://epouta.csc.fi)[ ](https://epouta.csc.fi)(ePouta web interface, accessible only from IPs which you provided for accessing management interfaces of ePouta)**
 
+| URL           | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 This _OpenStack Horizon_ based interface allows you do the basic cloud computing management operations like launch a new Virtual Machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
 
 There are two options for logging in the cPouta's Dashboard: CSC username and password or Haka username and password. If you have a Haka account, you can use it to login if you already have access to cPouta and if you have linked it to your CSC account. You can do the linking by going [here](https://sui.csc.fi/web/sui/add-services) and logging in with Haka credentials. You will be asked to give your CSC username and password. Note that if after logging in after clicking that link you either get the Scientist's User Interface main page or an empty page, the linking has most likely already been done.
