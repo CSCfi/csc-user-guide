@@ -7,7 +7,8 @@
 
 ## Chemistry
 
-* [Maestro](mdmaestro.md)
+* [Gaussian](gaussian.md)
+* [Maestro](maestro.md)
 
 ## Geosciences
 
