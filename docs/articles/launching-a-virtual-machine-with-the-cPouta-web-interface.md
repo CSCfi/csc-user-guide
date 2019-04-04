@@ -91,11 +91,11 @@ Ingress     TCP           22          22        CIDR           0.0.0.0/0
 Opening up ports this widely is not recommended and is not necessary in most cases. Limiting access to a virtual machines to only those networks that actually need to access it is a good security practice.
 
 !!! Tip
-**Please note:**
-
-*   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption to the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80 for SSH key injections to work.**
-*   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
-*   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
+    **Please note:**
+    
+    *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption to the     metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80 for SSH key injections to work.**
+    *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
+    *   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
 
 ### Launching a virtual machine
 
@@ -130,6 +130,6 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 **Please Note:** Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
 !!! Tip
-Please Note: Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
-!!!
+    Please Note: Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
+
 
