@@ -6,7 +6,7 @@ pages:
   - Computing: 'computing.md'
   - Cloud: 'cloud.md'
   - Data: 'data.md'
-  - Applications: 'applications.md'
+  - Applications: 'apps/index.md'
   - Support: 'support.md'
   - All articles:
     - articles/adding-members-to-a-project.md
@@ -15,20 +15,15 @@ pages:
     - articles/changing-the-password.md
     - articles/creating-a-new-project.md
     - articles/creating-a-new-user-account.md
-    - articles/csd.md
     - articles/disk-environment.md
     - articles/fgci-guide-intro.md
     - articles/getting-accounts-for-international-collaborators.md
     - articles/getting-machine-to-machine-robot-accounts.md
     - articles/getting-student-accounts-for-a-course.md
-    - articles/gromacs.md
     - articles/joining-a-project.md
     - articles/launching-a-virtual-machine-with-the-cPouta-web-interface.md
-    - articles/maestro.md
     - articles/managing-user-information.md
     - articles/monitoring-resource-usage.md
-    - articles/rspatial-env.md
-    - articles/rspatial-env2.md
     - articles/switching-between-projects.md
     - articles/virtual-machine-flavors-and-billing-unit-rates.md
 theme:
