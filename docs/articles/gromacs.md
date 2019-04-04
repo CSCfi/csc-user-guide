@@ -38,6 +38,7 @@ non reference style:
 
 ###Table for scaling performance
 
+|||||||||
 |--- |--- |--- |--- |--- |--- |--- |--- |
 ||(Node archictecture / Code optimization to)|cores|gmx 4.5.6|gmx 4.6.7|gmx 5.1.5|gmx 2016.5|gmx 2018.1|
 |Taito|Hsw/Hsw|48|-|-|45.505|48.407|49.369|
