@@ -7,8 +7,8 @@ The web interfaces of the Pouta clouds are available at following addresses:
 *   **[https://pouta.csc.fi](https://pouta.csc.fi) (cPouta web interface, accessible**** from internet)**
 *   **[https://epouta.csc.fi](https://epouta.csc.fi)[ ](https://epouta.csc.fi)(ePouta web interface, accessible only from IPs which you provided for accessing management interfaces of ePouta)**
 
-| URL           | Are           | Cool  |
-| ------------- |:-------------:| -----:|
+| URL           | Service name           | Access |
+| :------------- |:-------------| :-----|
 | [https://pouta.csc.fi](https://pouta.csc.fi)       | cPouta web interface | accessible from internet |
 | [https://epouta.csc.fi](https://epouta.csc.fi)     | ePouta web interface      |  accessible only from IPs which you provided for accessing management interfaces of ePouta |
 
