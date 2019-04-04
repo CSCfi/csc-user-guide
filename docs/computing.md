@@ -2,8 +2,8 @@
 
 ## Hardware
 
-* Hardware <!--articles/hardware.md->
-* Puhti AI <!--articles/puhti-ai.md->
+* Hardware <!--articles/hardware.md-->
+* Puhti AI <!--articles/puhti-ai.md-->
 
 ## Disk environment
 
@@ -12,15 +12,15 @@
 
 ## Shell environment
 
-* Operating system and shell environment <!--articles/shell-environment.md->
+* Operating system and shell environment <!--articles/shell-environment.md-->
 * etc etc
 
 ## Module environment
 
-* Module system <!--articles/module-system.md->
-* Basic usage of module system <!--articles/basic-usage-of-modules.md->
-* Advanced usage of modules <!--articles/advanced-modules.md->
-* GPU modules (Puhti AI) <!--articles/gpu-modules.md->
+* Module system <!--articles/module-system.md-->
+* Basic usage of module system <!--articles/basic-usage-of-modules.md-->
+* Advanced usage of modules <!--articles/advanced-modules.md-->
+* GPU modules (Puhti AI) <!--articles/gpu-modules.md-->
 
 ## Batch jobs
 
