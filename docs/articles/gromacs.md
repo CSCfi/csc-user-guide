@@ -51,7 +51,9 @@ non reference style:
 
 ## Example batch script
 
-other text with br <br> outside table context
+other text with br <br> outside table context 
+
+## Anchor test from Gromacs <a name="ankkuri"></a>
 
 ```
 #!/bin/bash -l
