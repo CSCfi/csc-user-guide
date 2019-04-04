@@ -15,11 +15,15 @@ This will show all available versions:
 $ module avail gromacs-env
 ```
 
-!!! tip This is a tip of high importance
+!!! tip
+    This is a tip of high importance
 
-!!! warning This is a warning of high importance
+!!! warning
+    This is a warning of high importance
 
-!!! note This is a note of high importance
+!!! note
+    This is a note of high importance
+    With two lines
 
 
 ## Example batch script
