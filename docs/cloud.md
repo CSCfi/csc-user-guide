@@ -1,9 +1,9 @@
 # Cloud
 
 ## Concepts of cloud computing
-* [Applying for Pouta access](articles/applying-for-pouta-access.md)
-* [Security Guidelines for Pouta](articles/security-guidelines-for-pouta.md)
-* [Pouta Accounting Principles and Quotas](articles/pouta-accounting-principles-and-quotas.md)
+* Applying for Pouta access <!--articles/applying-for-pouta-access.md-->
+* Security Guidelines for Pouta <!--articles/security-guidelines-for-pouta.md-->
+* Pouta Accounting Principles and Quotas <!--articles/pouta-accounting-principles-and-quotas.md-->
 
 ## Getting access to Pouta service
 
