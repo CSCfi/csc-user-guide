@@ -26,6 +26,11 @@ $ module avail gromacs-env
     
     With two lines
 
+Testing reference style figure
+
+![alt text][logo]
+
+[logo]: https://ampari.object.pouta.csc.fi/ChemistryLogo.jpg "Chemistry logo"
 
 ## Example batch script
 
