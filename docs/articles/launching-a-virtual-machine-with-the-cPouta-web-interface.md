@@ -9,9 +9,8 @@ The web interfaces of the Pouta clouds are available at following addresses:
 
 | URL           | Are           | Cool  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| [https://pouta.csc.fi](https://pouta.csc.fi)       | cPouta web interface | accessible from internet |
+| [https://epouta.csc.fi](https://epouta.csc.fi)     | ePouta web interface      |  accessible only from IPs which you provided for accessing management interfaces of ePouta |
 
 This _OpenStack Horizon_ based interface allows you do the basic cloud computing management operations like launch a new Virtual Machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
 
