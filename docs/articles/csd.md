@@ -1,8 +1,6 @@
 CSD
 ---
 
-### Description
-
 The **Cambridge Structural Database System** has two major components:
 
 *   The Cambridge Structural _Database_ [CSD](http://www.ccdc.cam.ac.uk/products/csd_system)
@@ -31,23 +29,11 @@ Software to access and analyse CSD entries:
 
 ### Available
 
-##### Version on CSC's Servers
+Here's a [link to Gromacs page](gromacs.md#ankkuri) anchor that works
 
-Here's a [link to Gromacs page](gromacs.md#ankkuri) let's see if it woks
-
-2019
+Version 2019 is available on Taito. It is also possible to install the software locally, see above for licensing.
 
 [What's new in 2019](https://downloads.ccdc.cam.ac.uk/documentation/CSDS/2019/Whats_New.pdf)
-
-* * *
-
-##### Versions for Workstations
-
-2019
-
-* * *
-
-### Unix group
 
 * * *
 
@@ -61,7 +47,7 @@ There are three ways to access the CSD System:
 
 The installation media can be downloaded from the CCDC website, but needs the site number and confirmation code of your university. After installation you need to activate the product. To obtain the required codes, contact either CSC Service Desk or the local CSD administrator at your university. It is also possible to batch activate products, ask for details.
 
-Additionally the WebCSD service can be used directly via a browser from the computers within the university's IP range. Access does not need further authentication. If there are problems, contact CSC's servicedesk at csc.fi. WebCSD can also be accessed with an individual username password pair from any location in Finland. Each university can define six such users. Instructions on creating the username and password can be found [here](/documents/48467/73370/WebCSD-access-with-individual-password/390e1df8-fd12-479d-bb2a-0ceba6da9432).
+Additionally the WebCSD service can be used directly via a browser from the computers within the university's IP range. Access does not need further authentication. If there are problems, contact CSC's servicedesk at csc.fi. WebCSD can also be accessed with an individual username password pair from any location in Finland.
 
 CSC is a Nationally Affiliated Center for the CSD System. Those university departments who are not yet members and want to have a local installation please contact Atte Sillanpää via Service Desk. Please note that the size of the databases and programs is more than 6 GB (upto 12 GB).
 
@@ -85,38 +71,6 @@ or to start Mercury, type
 
 ```mercury```
 
-Alternatively, you can just login to nxkajaani.csc.fi via the NoMachine remote desktop client, and choose Applications - Chemistry - CSD from the menu which opens with the mouse right click.
-
-* * *
-
-### Person in Charge
-
-Atte Sillanpää
-
-* * *
-
-### Binary or Module Name(s)
-
-#### License Server(s) and Port(s)
-
-Instructions for researchers: Contact CSC or your local CSD administrator for site number and confirmation code, that are needed to download the software from CCDC, or contact servicedesk@csc.fi.
-
-If the local contacts can't be found, [Zip File](https://kannu.csc.fi/s/lxNtZ1qatr2O5pN) has the "user letters" for 2018, which include the (site specific) site number and corresponding confirmation code that are needed to download and activate the software. Don't send the zip file, but check the site number and confirmation code of the site in question, and send those only.
-
-* * *
-
-### Discipline
-
-Biosciences  
-Chemistry  
-Visualization  
-
-* * *
-
-### Service Level
-
-1
-
 * * *
 
 ### References
@@ -126,22 +80,4 @@ I. J. Bruno, J. C. Cole, P. R. Edgington, M. Kessler, C. F. Macrae, P. McCabe, J
 
 Program specific references can be found here: [http://www.ccdc.cam.ac.uk/support/product\_references/](http://www.ccdc.cam.ac.uk/support/product_references/)
 
-* * *
 
-### Support
-
-servicedesk@csc.fi
-
-* * *
-
-### Manual
-
-* * *
-
-### Revision History
-
-* * *
-
-### Comments
-
-* * *
