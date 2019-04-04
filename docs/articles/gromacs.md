@@ -36,7 +36,19 @@ non reference style:
 
 ![alt text](https://ampari.object.pouta.csc.fi/ChemistryLogo.jpg "Chemistry logo"){ width=90% }
 
+###Table for scaling performance
 
+|||||||||
+|--- |--- |--- |--- |--- |--- |--- |--- |
+||(Node archictecture / Code optimization to)|cores|gmx 4.5.6|gmx 4.6.7|gmx 5.1.5|gmx 2016.5|gmx 2018.1|
+|Taito|Hsw/Hsw|48|-|-|45.505|48.407|49.369|
+|Taito|Hsw/Snb|48|21.523|21.9|38.953|40.987|41.318|
+|Taito|Snb/Snb|48|20.694|20.513|28.559|34.958|39.906|
+|Sisu|Hsw/Hsw|48|-|30.104|39.935|48.979|49.624|
+|Sisu|Hsw/Hsw|96|-|62.499|80.769|86.638|96.194|
+|Taito-gpu|k80:1/Hsw|6|-|-|-|23.964|27.18|
+|Taito-gpu|p100:1/Hsw|7|-|-|-|31.703|55.041|
+|Taito-gpu|p100:4/Hsw|28|-|-|-|-|62.868|
 
 ## Example batch script
 
