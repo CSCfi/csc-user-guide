@@ -32,6 +32,12 @@ Testing reference style figure
 
 [logo]: https://ampari.object.pouta.csc.fi/ChemistryLogo.jpg "Chemistry logo"
 
+non reference style:
+
+![alt text](https://ampari.object.pouta.csc.fi/ChemistryLogo.jpg "Chemistry logo"){ width=90% }
+
+
+
 ## Example batch script
 
 ```
