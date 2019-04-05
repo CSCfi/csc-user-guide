@@ -4,10 +4,14 @@ Work in progress, migration of content from [research.csc.fi/guides](https://res
 
 # Featured articles
 
-* [Changing the password](articles/changing-the-password.md)
-* [Switching between projects](articles/switching-between-projects.md)
-* [Creating a new user account](articles/creating-a-new-user-account.md)
-* [Maestro](apps/maestro.md)
-* [Applying for resources](articles/applying-for-resources.md)
-* [Creating a new project](articles/creating-a-new-project.md)
-* [Gromacs](apps/gromacs.md)
+* [Creating a new project](accounts/creating-a-new-project.md)
+* [CSD](apps/csd.md) (application)
+* [Gaussian](apps/gaussian.md) (application)
+* [Gromacs](apps/gromacs.md) (application)
+* [Maestro](apps/maestro.md) (application)
+* [rspatial-env](apps/rspatial-env.md) (application)
+* [rspatial-env](apps/rspatial-env2.md) (application)
+* [Launching a virtual machine with the cPouta web interface](cloud/launching-a-virtual-machine-with-the-cPouta-web-interface.md)
+* [Pouta ephemeral storage](cloud/pouta-ephemeral-storage.md)
+* [Disk environment](computing/disk-environment.md)
+* [FGCI](computing/fgci-guide-intro.md) (grid)
