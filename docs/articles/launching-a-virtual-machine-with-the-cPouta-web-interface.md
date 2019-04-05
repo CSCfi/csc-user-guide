@@ -114,7 +114,16 @@ In the main page of the Pouta web interface, open the **Instances** view. The pr
 
 **Figure 2.3** Launch instance view.
 
-In the **Details** tab of the _launch instance_ view, first select **Instance Boot Source**. You will most likely want to select "Boot from image" from the dropdown menu. In case you want to be more cloud native, you can select "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance and in an event, if your instance gets accidentally deleted by you or goes in an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as of the previous instance. **Please note:** This approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page. After selecting instance boot source, you can select an _Image_ or a virtual machine _snapshot_ you wish to use from the **Image Name** dropdown menu. After that, give your instance a _name_ and select the _Flavor_ (i.e. size of the virtual machine, see Table 3.1). Under **Access & Security** tab, choose the keypair you have created or added ( see Chapter 3.2.1) and the security groups you wish to use (remember to select the security group for SSH access that you created previously in 3.2.1.2). Then from the **Networking** tab select your own network (your project name). Once you have assigned these parameters for your virtual machine you can click **Launch** to start the virtual machine.
+In the **Details** tab of the _launch instance_ view, first select **Instance Boot Source**. You will most likely want to select "Boot from image" from the dropdown menu. In case you want to be more cloud native, you can select "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance and in an event, if your instance gets accidentally deleted by you or goes in an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as of the previous instance. 
+
+!!! Tip
+
+   **Please note:** 
+   
+   This approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page. 
+   
+   
+After selecting instance boot source, you can select an _Image_ or a virtual machine _snapshot_ you wish to use from the **Image Name** dropdown menu. After that, give your instance a _name_ and select the _Flavor_ (i.e. size of the virtual machine, see Table 3.1). Under **Access & Security** tab, choose the keypair you have created or added ( see Chapter 3.2.1) and the security groups you wish to use (remember to select the security group for SSH access that you created previously in 3.2.1.2). Then from the **Networking** tab select your own network (your project name). Once you have assigned these parameters for your virtual machine you can click **Launch** to start the virtual machine.
 
 ### Adding a public IP for the machine in cPouta
 
@@ -132,9 +141,7 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 
 **Figure 2.5** Floating IP association dialog
 
-**Please Note:** Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
-
 !!! Tip
-    Please Note: Starting 2018, allocated or assigned floating IPs would be billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
+    Please Note: Allocated or assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
 
