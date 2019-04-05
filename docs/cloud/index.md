@@ -10,11 +10,13 @@
 ## Using Pouta
 * [Virtual machine flavors and Billing Unit rates](virtual-machine-flavors-and-billing-unit-rates.md)
 * [Launching a virtual machine with the cPouta web interface](launching-a-virtual-machine-with-the-cPouta-web-interface.md)
-* etc
+* [DNS names for a virtual machines](dns.md)
 
 ## Storage in Pouta
 
 * [Ephemeral storage](pouta-ephemeral-storage.md)
+* [Object storage](object-storage.md)
+
 ## Creating and 
 
 ## etc
