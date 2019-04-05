@@ -1,32 +1,13 @@
 site_name: CSC computing and data environment
-pages:
-  - Home: 'index.md'
-  - Accounts: 'accounts.md'
-  - Connecting: 'connecting.md'
-  - Computing: 'computing.md'
-  - Cloud: 'cloud.md'
-  - Data: 'data.md'
-  - Applications: 'apps/index.md'
-  - Support: 'support.md'
-  - All articles:
-    - articles/adding-members-to-a-project.md
-    - articles/adding-service-access-for-a-project.md
-    - articles/applying-for-resources.md
-    - articles/changing-the-password.md
-    - articles/creating-a-new-project.md
-    - articles/creating-a-new-user-account.md
-    - articles/disk-environment.md
-    - articles/fgci-guide-intro.md
-    - articles/getting-accounts-for-international-collaborators.md
-    - articles/getting-machine-to-machine-robot-accounts.md
-    - articles/getting-student-accounts-for-a-course.md
-    - articles/joining-a-project.md
-    - articles/launching-a-virtual-machine-with-the-cPouta-web-interface.md
-    - articles/managing-user-information.md
-    - articles/monitoring-resource-usage.md
-    - articles/pouta-ephemeral-storage.md 
-    - articles/switching-between-projects.md
-    - articles/virtual-machine-flavors-and-billing-unit-rates.md
+nav:
+  - Home: index.md
+  - Accounts: accounts/index.md
+  - Connecting: connecting/index.md
+  - Computing: computing/index.md
+  - Cloud: cloud/index.md
+  - Data: data/index.md
+  - Applications: apps/index.md
+  - Support: support/index.md
 theme:
   name: readthedocs
   custom_dir: custom_theme/
