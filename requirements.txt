@@ -19,6 +19,6 @@ pytoml==0.1.14
 PyYAML==4.2b1
 singledispatch==3.4.0.3
 six==1.11.0
-tornado==4.5.2
+tornado==5.1.1
 webencodings==0.5.1
 xmltodict==0.11.0
