@@ -78,4 +78,4 @@ I. J. Bruno, J. C. Cole, P. R. Edgington, M. Kessler, C. F. Macrae, P. McCabe, J
 
 Program specific references can be found here: [http://www.ccdc.cam.ac.uk/support/product\_references/](http://www.ccdc.cam.ac.uk/support/product_references/)
 
-Here's a [link to Gromacs page](gromacs.md#ankkuri) anchor that works
+Here's a [link to Gromacs page](./gromacs.md#this-is-an-anchor) anchor. Note that you need to write the title in lower case and replace spaces with dashes in the "anchor".
