@@ -108,37 +108,39 @@ This is not recommended.
 
 
 
-## Making changes to both 'master' and 'develop'
+## Copying changes from 'master' to 'develop'
 
-Urgent changes can be made to all branches at the same time. First
-make changes to the develop branch as described above. Then make the
-same changes to the master branch.
+When you have made changes to 'develop', you can copy them to
+'master'. This is best done file by file. First change to the master
+branch.
 
 ```bash
-git checkout develop
-git log
 git checkout master
-git cherry-pick de3bf342bf519eba0ee54a4fe11fb4e3bd953de5
-git push origin master
 ```
 
-The `log` command is used to get commit hash for the `cherry-pick`
-command.
+Select which files you want to 'merge'.
+
+```bash
+git checkout develop example-file.md
+```
+
+Now `example-file.md` is from the development branch and all the rest
+is from the master branch. Commit and push.
+
+```bash
+git commit
+git push
+```
+
+You can return to the develoment branch with `git checkout develop`.
 
 
 
-## Merging 'master' and 'development'
+## Previewing the website using MkDocs
 
-Merging of branches is best done file by file. (To be written: How to
-merge branches file by file?)
-
-
-
-## Building the website using MkDocs
-
-[MkDocs](http://www.mkdocs.org/) is used to generate static
-documentation pages out of the Markdown files. You can install it on
-your computer by following the instructions given in [MkDocs
+This user guide uses [MkDocs](http://www.mkdocs.org/) to generate
+documentation pages. You can install it on your computer by following
+the instructions given in [MkDocs
 documentation](http://www.mkdocs.org/#installation).
 
 You can start a preview web server from the command line while in the
@@ -151,13 +153,6 @@ mkdocs serve
 This will start a web server on your computer listening on port
 8000. Point your web server to [localhost:8000](http://localhost:8000)
 to get a preview of the documentation.
-
-The configuration for MkDocs is in the mkdocs.yml file in the root of
-this repository. The name of the documentation site, the structure of
-the documentation pages and the theme to use for the site are
-described in this document.
-
-The documentation files themselves are under the docs directory.
 
 
 
