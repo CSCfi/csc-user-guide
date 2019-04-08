@@ -20,10 +20,11 @@
 
 ## Storage in Pouta
 
-* [Ephemeral storage](pouta-ephemeral-storage.md)
 * Persistent volumes
 * Snapshots
-* [Object storage](object-storage.md)
+* [Ephemeral storage](pouta-ephemeral-storage.md)
+* [Object storage](pouta-object-storage.md)
+
 
 
 ## Creating and uploading virtual machine images
