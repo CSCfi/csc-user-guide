@@ -1,15 +1,16 @@
 site_name: CSC computing and data environment
-pages:
-  - Home: 'index.md'
-  - Accounts: 'accounts.md'
-  - Connecting: 'connecting.md'
-  - Computing: 'computing.md'
-  - Cloud: 'cloud.md'
-  - Data: 'data.md'
-  - Applications: 'applications.md'
-  - Support: 'support.md'
+nav:
+  - Home: index.md
+  - Accounts: accounts/index.md
+  - Connecting: connecting/index.md
+  - Computing: computing/index.md
+  - Cloud: cloud/index.md
+  - Data: data/index.md
+  - Applications: apps/index.md
+  - Support: support/index.md
 theme:
   name: readthedocs
+  custom_dir: custom_theme/
 extra_css:
   - css/extra.css
 extra_javascript:
