@@ -1,5 +1,13 @@
 # Using object storage
 
+This document lists the different ways to access CSC object storage
+and manage data.
+
+[TOC]
+
+[comment]: <> (I'd like to top header not to appear in the TOC, the following might solve it)
+[comment]: <> (https://github.com/mkdocs/mkdocs/issues/318)
+
 ### Best practices
 
 The object storage  service is provided over  two different protocols,
@@ -15,9 +23,10 @@ use. Here is a quick list of generic recommendations.
 -   It's better to store a few large objects than a lot of small
     objects.  
 
-### Pseudo-folders
+### Buckets contain pseudo-folders
 
-You can not have containers with other containers inside them. You can
+The top level category for storing objects (files) is a bucket. You 
+can not have buckets with another layer of buckets inside. You can
 however make use of so called pseudo-folders.  
   
 If an object name contains a forward slash "/", it is interpreted as a
@@ -32,31 +41,30 @@ For example, if you add two objects to a container
     cats/cat2.png
 
 listing the  container will show  a folder  called "cats" and  the two
-files
-within it.  
+files within it.  
   
-Please note! This means you can not have empty pseudo-folders, since
-they require at least one object inside them.
+!!! note
+    This means you can not have empty pseudo-folders, since
+    they require at least one object inside them.
 
-### Clients
+### Object Storage Client Summary
 
 There  are several  different ways  of accessing  object storage.   We
-support both the  Swift and S3 protocols to manage  the data. Below is
-just a short list of tools. There are more.
+support both the  Swift and S3 protocols to manage  the data. The list below
+contains just some existing tools. There are more.
 
-|Client|Usable|Chapter In This UserGuide|Notes|
-|--- |--- |--- |--- |
-|Web  client|Yes|4.4.5.6|Use via https://pouta.csc.fi|
-|python-swiftclient|Yes|4.4.5.5|This is the recommended Swift client|
-|s3cmd|Yes|4.4.5.6|This  is  the  recommended  S3 client. Use version 2.0.2  or later.|
-|python-swift  library|Yes|4.4.5.7||
-|libs3|Yes|||
-|python-openstackclient|Yes|||
-|aws-cli|Yes||aws-cli and the boto3 python library.|
-|nordugrid-arc-client|No||Can  be used for grid jobs. Bug reports submitted.|
-|curl|Yes||Extremely simple to use with
-public  objects and temporary URLs|
-|wget|Yes||Same as curl|
+|Client|Usable|Notes|
+|--- |--- |--- |
+|[Web  client](#web-client-openstack-horizon-dashboard)|Yes|Use via https://pouta.csc.fi|
+|[python-swiftclient](#swift-client)|Yes|This is the recommended Swift client|
+|[S3 client](#s3-client)|Yes|This  is  the  recommended  S3 client. Use version 2.0.2  or later.|
+|[python-swift library](#access-via-python-library)|Yes|
+|libs3|Yes||
+|python-openstackclient|Yes||
+|aws-cli|Yes|aws-cli and the boto3 python library.|
+|nordugrid-arc-client|No|Can  be used for grid jobs. Bug reports submitted.|
+|curl|Yes|Extremely simple to use with public  objects and temporary URLs|
+|wget|Yes|Same as curl|
 
 
 ### Web client - Openstack Horizon Dashboard
@@ -104,7 +112,7 @@ called Pictures which is inside a bucket called cats.
     $ md5sum cat.jpg
     22e44aa2b856e4df892b43c63d15138a  cat.jpg
 
-### Metadata
+### Object Storage Metadata
 
 The following command provides details about a bucket:
 
@@ -164,7 +172,7 @@ metadata operations:
 
     $ openstack object set --property foo=bar cats cat3.jpg
 
-### Temp URLs
+### Temp URLs for objects
 
 <http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/>  
   
@@ -172,8 +180,7 @@ If you  want to share  a object from  a private (or  public) container
 with somebody you can create a temporary url. This can be useful for a
 homepage where you want to share an object but not the whole container
 and for a limited period of time.  This can also be useful if you want
-to
-use a private object in a batch job on Taito.  
+to use a private object in a batch job on Taito.  
   
 *Note that everybody who has access to the temporary url has access to
 the  object.* While  it  is possible  to add  Meta  Temp-Url-Key to  a
@@ -269,7 +276,7 @@ from the CLI with:
     | 00000000001                      | 5000000000000000000              | 000000000000000000022            | $username|
     +----------------------------------+----------------------------------+----------------------------------+----------+
 
-### s3cmd
+### s3cmd - command line tools
 
 Please refer to <http://s3tools.org/download> and 
 <http://s3tools.org/usage> for upstream documentation.
@@ -327,8 +334,7 @@ manually changed to https if such a client is used.\**
 ### Giving another project read access to a bucket
 
 "s3cmd setacl" command  needs to use the UUID of  the project you want
-to
-grant access to.  
+to grant access to.  
   
 The ID  can be found at  <https://pouta.csc.fi/dashboard/identity/> or
 with "openstack project show $project\_name". You need access
@@ -360,7 +366,7 @@ View permissions:
        ACL:       other_project_uuid: READ
        ACL:       my_project_uuid: FULL_CONTROL
 
-### Python library
+### Access via Python library
 
 Some details about setting up the client with keystone authentication:
 <https://docs.openstack.org/python-swiftclient/newton/client-api.html>  
