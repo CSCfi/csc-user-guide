@@ -53,8 +53,14 @@ cd csc-user-guide
 
 ## File types
 
-Textual content is written using Markdown language. (To be written:
-Which file types are recommended for images and videos?)
+Textual content written in Markdown language are stored in Git. Images
+and videos are automatically handled by Git Large File Storage, if you
+use certain file formats. Currently the list of supported formats is
+short, but it is easy to add new LFS tracking rules if needed.
+
+* JPEG (file extensions .jpg and .jpeg)
+* PNG (.png)
+* MP4 (.mp4)
 
 
 
