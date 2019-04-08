@@ -8,12 +8,10 @@
 ## Disk environment
 
 * [Disk environment](disk-environment.md)
-* etc etc
 
 ## Shell environment
 
 * Operating system and shell environment <!--shell-environment.md-->
-* etc etc
 
 ## Module environment
 
@@ -24,8 +22,10 @@
 
 ## Batch jobs
 
-* Batch jobs basics <!--batch-jobs-basics.md-->
-* etc etc
+* Batch jobs basics (batch jobs, environment, slurm commands, batch job file, parallel & array jobs) <!--batch-jobs-basics.md-->
+* Advanced batch jobs (hyperthreading, DataWarp (?) )
+* Running GPU programs
+* Resource monitoring
 
 ## Interactive use
 
@@ -38,7 +38,11 @@
 * Available Compilers <!--available-compilers.md-->
 * Mathematical libraries <!--math-libraries.md-->
 * Using MPI <!--using-MPI.md-->
-* etc etc
+* Shared memory and hybrid parallelization
+* Processor architecture specific compiling
+* Debugging Parallel Applications
+* Profiling applications
+* GPU-programs (Compiling, linking & profiling)
 
 ## Grid computing
 
