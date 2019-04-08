@@ -30,11 +30,11 @@ Testing reference style figure
 
 ![alt text][logo]
 
-[logo]: ../images/chemistry-logo.jpg "Chemistry logo"
+[logo]: images/chemistry-logo.jpg "Chemistry logo"
 
 non reference style:
 
-![alt text](../images/chemistry-logo.jpg "Chemistry logo"){ width=90% }
+![alt text](images/chemistry-logo.jpg "Chemistry logo"){ width=90% }
 
 ###Table for scaling performance with br
 
