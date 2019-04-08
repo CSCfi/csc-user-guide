@@ -8,12 +8,10 @@
 ## Disk environment
 
 * [Disk environment](disk-environment.md)
-* etc etc
 
 ## Shell environment
 
 * Operating system and shell environment <!--shell-environment.md-->
-* etc etc
 
 ## Module environment
 
