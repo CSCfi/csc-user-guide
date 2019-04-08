@@ -53,8 +53,6 @@ non reference style:
 
 other text with br <br> outside table context 
 
-## Anchor test from Gromacs <a name="ankkuri"></a>
-
 ```
 #!/bin/bash -l
 #SBATCH -t 00:30:00
@@ -77,4 +75,10 @@ export OMP_NUM_THREADS=1
 # un/comment to use the older 5.1.x version
 module load gromacs-env/2016.x-snb # change x to the latest version
 ```
-<<[CSD.md]
+
+## This is an anchor
+
+csd document points here.
+
+## ankkuri joo
+
