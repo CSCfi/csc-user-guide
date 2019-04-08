@@ -23,7 +23,8 @@
 * Persistent volumes
 * Snapshots
 * [Ephemeral storage](pouta-ephemeral-storage.md)
-* [Object storage](pouta-object-storage.md)
+* [Object storage](object-storage-main.md)
+* [Using Object storage](using-object-storage.md)
 
 
 
