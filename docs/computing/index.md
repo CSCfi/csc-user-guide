@@ -1,16 +1,10 @@
 # Computing
 
-## Hardware
+## Computing environment
 
 * Hardware <!--hardware.md-->
 * Puhti AI <!--puhti-ai.md-->
-
-## Disk environment
-
 * [Disk environment](disk-environment.md)
-
-## Shell environment
-
 * Operating system and shell environment <!--shell-environment.md-->
 
 ## Module environment
