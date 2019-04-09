@@ -1,6 +1,8 @@
 # Creating a new project
 
-<iframe id="kaltura_player" src="https://api.kaltura.nordu.net/p/191/sp/19100/embedIframeJs/uiconf_id/14971191/partner_id/191?iframeembed=true&playerId=kaltura_player&entry_id=0_fo584j08&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[autoPlay]=true&amp;flashvars[loop]=true&amp;&wid=0_m9354g90" width="608" height="402" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" title="Kaltura Player"></iframe>
+<video width=80% autoplay loop muted controls>
+<source src="../videos/create-project.mp4" type="video/mp4">
+</video>
 
 1. On the left navigation menu, choose My Projects.
 1. Scroll down to the end of the page where you can find Create a new project. Click on it.
