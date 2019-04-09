@@ -19,15 +19,12 @@ and Applications*  tool in *Scientist's  User Interface* to  apply for
 cPouta access:
 
 1.  Login to the [Scientist's User Interface] with your Haka account.
-2.   In   the   *Scientist's   User  Interface*,   navigate   to   <a
-    href="https://sui.csc.fi/group/sui/resources-and-applications/"
-    class="external-link">Resources    and    Applications</a> (Please
+2.  In   the   *Scientist's   User  Interface*,   navigate   to   
+    [Resources and Applications] (Please
     ensure you have applied for  computing project at CSC as discussed
     above before this step).
 3.  In *Resources and Applications*,  navigate to *Computing* and from
-    there                             to                            <a
-    href="%20https://sui.csc.fi/group/sui/resources-and-applications/-/applications/cpouta/"
-    class="external-link">cPouta cloud service</a>.
+    there to [cPouta cloud service]
 4.  Use  *Project Selection tool*  to define  a project for  which you
     want to apply cPouta resources.
 5.  Read and accept the *[Terms of Use]* and *send* the application.
@@ -37,7 +34,7 @@ Please        contact       <a        href="mailto:servicedesk@csc.fi"
 class="external-link">servicedesk@csc.fi</a> in    case    you    need
 assistance.
 
-![][1]
+![cPouta application](images/pouta_application.jpg)
 
 **Figure  1.2** Applying  for cPouta  access with  the *Resources  and
 Applications* tool.
@@ -55,7 +52,7 @@ organization's network instead  of going over the  public Internet. To
 get  started with  connecting your  network to  ePouta, please  send a
 request to <servicedesk@csc.fi>.
 
-![][2]
+![ePouta connection](images/epouta-connection.jpg)
 
 **Figure 1.3** Connection between ePouta cloud VMs and Customer's home
 network.
@@ -85,6 +82,8 @@ access   to   the   ePouta    interfaces,   please   send   email   to
 
   [User Accounts and Projects]: https://research.csc.fi/accounts-and-projects
   [Scientist's User Interface]: https://sui.csc.fi
+  [cPouta cloud service]: https://sui.csc.fi/group/sui/resources-and-applications/-/applications/cpouta/
+  [Resources and Applications]: https://sui.csc.fi/group/sui/resources-and-applications/
   [Terms of Use]: https://research.csc.fi/pouta-user-policy
   [1]: https://research.csc.fi/documents/48467/84606/pouta_application.jpg/03a37fe8-8644-4e44-b791-797b2b0d56df?t=1465368539210
   [2]: https://research.csc.fi/documents/48467/294956/epouta-connection.png/4cc1fb43-8f47-403d-b592-9437f6cfdc2f?t=1512632975412
