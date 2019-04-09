@@ -15,3 +15,5 @@
 * Data transport with Scientist's User Interface 
 
 ## Data lake stuff?
+
+## Data analysis guide (A. Kallio)
