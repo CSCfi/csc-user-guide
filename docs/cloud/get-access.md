@@ -6,9 +6,10 @@ taito.csc.fi  or  sisu.csc.fi servers  you  already  have a  computing
 project  at CSC  and Pouta  services will  utilize the  same computing
 quota as Sisu and Taito.
 
-If you don't have a computing project at CSC, you should apply for one
-and  add services  to  it,  as explained  on  the  [User Accounts and
-Projects] page.
+!!! note
+    If you don't have a computing project at CSC, you should apply for one
+    and  add services  to  it,  as explained  on  the  [User Accounts and
+    Projects] page.
 
 The remaining steps are different for cPouta and ePouta clouds.
 
