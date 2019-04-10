@@ -6,6 +6,7 @@
 * [Getting student accounts for a course](getting-student-accounts-for-a-course.md)
 * [Getting machine-to-machine robot accounts](getting-machine-to-machine-robot-accounts.md)
 * [Getting accounts for international collaborators](getting-accounts-for-international-collaborators.md)
+* [Getting access to Pouta](get-access-to-pouta.md)
 
 ## Managing account
 
