@@ -1,7 +1,9 @@
 # Using object storage
 
 This document lists the different ways to access CSC object storage
-and manage data.
+and manage data. You might want to first check the [introductory document](object-storage-definition.md)
+or the [Object storage main page](object-storage-main.md) before
+getting into the command line.
 
 [TOC]
 
@@ -78,7 +80,7 @@ functionalities:  Create,  delete  and  list  containers.  Upload  and
 download  files.  Additionally,  you  can make  containers  public  or
 private.
 
-![This picture is hosted on our object storage!]
+![Horizon web client](images/cats_horizon.png)
 
 ### Swift client
 
@@ -88,7 +90,7 @@ features. The  more advanced  "swift" command line  client is  used in
 the examples.  
   
 This assumes  that you  have the swift  command line  client installed
-(<https://research.csc.fi/pouta-install-client>), and your credentials
+[Installation instructions](install-client.md), and your credentials
 (username,  password) sourced.  Typical  commands  for first-time  use
 might be:
 
@@ -174,19 +176,19 @@ metadata operations:
 
 ### Temp URLs for objects
 
-<http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/>  
   
 If you  want to share  a object from  a private (or  public) container
 with somebody you can create a temporary url. This can be useful for a
 homepage where you want to share an object but not the whole container
 and for a limited period of time.  This can also be useful if you want
-to use a private object in a batch job on Taito.  
+to use a private object in a batch job on Taito. For a more detailed
+description, see [Ceph Documentation on temp urls](http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl)
   
-*Note that everybody who has access to the temporary url has access to
-the  object.* While  it  is possible  to add  Meta  Temp-Url-Key to  a
-container  or objects,  the Temp  Url command  can only  be used  in a
-project wide scope.
-<https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl>  
+!! note
+   Everybody who has access to the temporary url has access to
+   the  object.* While  it  is possible  to add  Meta  Temp-Url-Key to  a
+   container  or objects,  the Temp  Url command  can only  be used  in a
+   project wide scope. See [OpenStack documentation of temp urls](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl)
   
 Create a random key
 
@@ -222,11 +224,10 @@ The openstack  command does  not support  uploading files  larger than
 Static
 Large Object (SLO).  
   
-<https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples>
+The [OpenStack python-swiftclient documentation](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples)
 says  "*Swift has  a single  object size  limit of  5GiB. In  order to
 upload files  larger than  this, we  must create  a large  object that
-consists of
-smaller segments. "*  
+consists of smaller segments.*"
 
 
     $ md5sum /tmp/6GB.zero
@@ -374,8 +375,8 @@ Some details about setting up the client with keystone authentication:
 Some usage examples in CEPH RadosGW swift documentation:
 [http://docs.ceph.com/docs/jewel/radosgw/swift/python/]  
   
-CSC Instructions for how to use the CLI:
-<https://research.csc.fi/pouta-install-client>  
+!!! tip
+    CSC Instructions for how to [install](install-client.md) and [use the CLI](client-usage.md)
   
 The python pip libraries needed for the example below are:
 python-keystoneclient and python-swiftclient  
