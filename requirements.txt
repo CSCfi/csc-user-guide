@@ -1,9 +1,9 @@
 # This is what we actually install
-git-lfs==2.7.1
 mkdocs==1.0.4
 mdx-linkify==1.0
 mdx-environment==0.2.0
 yasha==4.1
+git-lfs==1.5
 
 # These are dependencies of the above
 backports-abc==0.5
