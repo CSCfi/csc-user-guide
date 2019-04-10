@@ -6,8 +6,11 @@ LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
 RUN yum -y install epel-release &&\
-    yum -y install nginx python-pip python &&\
+    yum -y install nginx python-pip python git-lfs &&\
     yum clean all
+
+RUN git lfs install &&\
+    git lfs pull
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
     chmod -R g+rwx ${ROOT_GROUP_DIRS}
