@@ -18,3 +18,6 @@ to find more.
     filesystem but it uses FUSE which is slow.
 -   Unsuitable for  objects/files that  change during  their lifetime
     (e.g.  most databases).
+
+The [Object Storage Use Cases](object-storage-use-cases.md) article gives 
+concrete examples.
