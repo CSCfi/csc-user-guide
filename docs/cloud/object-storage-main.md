@@ -9,32 +9,22 @@ Files on object storage cannot be changed, so one needs to download, change, upl
 instead. Object storage keeps files in buckets, and each bucket has a flat hierarchy,
 i.e. no subfolders.
 
-Currently cPouta access is needed  for Object Storage. [Instructions for getting
-access to Pouta].
+Currently cPouta access is needed  for Object Storage: [Instructions for getting access to Pouta].
 
-The easiest way to get started is to the the web client: [4.4.5 Using object storage]
+The easiest way to get started is to the the web client: [Using object storage]
 For advanced use see Swift and S3 protocols below.
 
-## [Benefits]
+## [Benefits of using object storage](benefits-of-object-storage.md)
 
-## [System Characteristics]
+## [Short description of object storage](object-storage-definition.md)
 
-## [Common use cases]
+## [Common use cases](object-storage-use-cases.md)
 
-## [Quotas and billing]
+## [Quotas and billing](object-storage-quotas-and-billing.md)
 
-## [Using object storage]
+## [Using object storage](using-object-storage.md)
 
-## [Access the object storage from Taito]
+## [Access the object storage from Taito](accessing-the-pouta-object-storage-from-taito.md)
 
-## [Common Error Messages]
+## [Common Error Messages](object-storage-error-msgs.md)
 
-
-  [Instructions for getting access to Pouta]: https://research.csc.fi/pouta-application
-  [Benefits]: https://research.csc.fi/pouta-object-storage-benefits
-  [System Characteristics]: https://research.csc.fi/pouta-object-storage-system-characteristics
-  [Common use cases]: https://research.csc.fi/pouta-object-storage-common-use-cases
-  [Quotas and billing]: https://research.csc.fi/pouta-object-storage-quotas-and-billing
-  [Using object storage]: https://research.csc.fi/pouta-using-object-storage
-  [Access the object storage from Taito]: https://research.csc.fi/accessing-the-pouta-object-storage-from-taito
-  [Common Error Messages]: https://research.csc.fi/pouta-object-storage-common-error-messages
