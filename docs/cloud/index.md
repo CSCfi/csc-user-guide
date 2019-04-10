@@ -26,10 +26,7 @@
 * [Object storage](object-storage-main.md)
     * [Using Object storage](using-object-storage.md)
 
-## Creating and uploading virtual machine images
-
-* Creating images
-* Uploading images
+## [Creating and uploading virtual machine images](adding-images.md)
 
 ## Additional services
 * Sending e-mail from cPouta
