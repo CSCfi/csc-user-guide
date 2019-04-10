@@ -21,7 +21,7 @@ cPouta access:
 
 1.  Login to the [Scientist's User Interface] with your Haka account.
 2.  In   the   *Scientist's   User  Interface*,   navigate   to   
-    [Resources and Applications] (Please
+    [Resources and Applications] (Please
     ensure you have applied for  computing project at CSC as discussed
     above before this step).
 3.  In *Resources and Applications*,  navigate to *Computing* and from
@@ -37,7 +37,7 @@ assistance.
 
 ![cPouta application](images/pouta_application.jpg)
 
-**Figure  1.2** Applying  for cPouta  access with  the *Resources  and
+**Figure** Applying  for cPouta  access with  the *Resources  and
 Applications* tool.
 
 ### For the ePouta service
@@ -55,7 +55,7 @@ request to <servicedesk@csc.fi>.
 
 ![ePouta connection](images/epouta-connection.jpg)
 
-**Figure 1.3** Connection between ePouta cloud VMs and Customer's home
+**Figure** Connection between ePouta cloud VMs and Customer's home
 network.
 
 The above figure shows the connections  to virtual machines and to the
@@ -86,5 +86,3 @@ access   to   the   ePouta    interfaces,   please   send   email   to
   [cPouta cloud service]: https://sui.csc.fi/group/sui/resources-and-applications/-/applications/cpouta/
   [Resources and Applications]: https://sui.csc.fi/group/sui/resources-and-applications/
   [Terms of Use]: https://research.csc.fi/pouta-user-policy
-  [1]: https://research.csc.fi/documents/48467/84606/pouta_application.jpg/03a37fe8-8644-4e44-b791-797b2b0d56df?t=1465368539210
-  [2]: https://research.csc.fi/documents/48467/294956/epouta-connection.png/4cc1fb43-8f47-403d-b592-9437f6cfdc2f?t=1512632975412
