@@ -3,7 +3,7 @@
 ## [Concepts of cloud computing](concepts.md)
 
 ## [Getting access to Pouta service](access-main.md)
-* [Applying for Pouta access](get-access.md)
+* [Applying for Pouta access](../accounts/get-access-to-pouta.md)
 * [Security Guidelines for Pouta](security.md)
 * [Pouta Accounting Principles and Quotas](accounting.md)
 

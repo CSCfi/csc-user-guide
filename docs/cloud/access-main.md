@@ -9,7 +9,7 @@ to get access to Pouta clouds.
     security instructions and the terms of Pouta
     accounting before launching your  first virtual machine.
 
-### [Applying for Pouta access](get-access.md)
+### [Applying for Pouta access](../accounts/get-access-to-pouta.md)
 
 ### [Security Guidelines for Pouta](security.md)
 
