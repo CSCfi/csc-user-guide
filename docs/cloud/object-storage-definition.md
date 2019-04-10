@@ -15,7 +15,7 @@ if somebody  else has a container  called "test" you can  not create a
 container called "test". All container  names are public, so please do
 not put private information in the container name. URLs to objects can
 be in DNS format: https://containername.object.pouta.csc.fi - for this
-reason using  a valid DNS  name ([RFC  1035]) for the  container makes
+reason using  a valid DNS  name ([RFC 1035]) for the  container makes
 things  easier.  Specifically  we   recommend  not  using  upper  case
 characters
 in the container name.  
