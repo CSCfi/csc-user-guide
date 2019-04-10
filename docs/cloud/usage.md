@@ -7,33 +7,21 @@ This  chapter  contains  information  about
 launching virtual  machines in  the Pouta  service. The  first chapter
 lists the available  virtual machine flavors (sizes),  while the other
 chapters introduce the tools to  launch and manage virtual machines in
-Pouta.</span>
+Pouta. Please make sure you are familiar with the [concepts](concepts.md) and
+[security issues](security.md) first.
 
-## [Virtual machine flavors and quotas](vm-flavors-and-billing.md)
+## [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md)
+## [Launching a virtual machine with the cPouta web interface](launch-vm-from-web-gui.md)
+## [DNS names for a virtual machines](additional-services.md#dns-services-in-cpouta)
+## [Connecting to your virtual machine](connecting-to-vm.md)
+## [Command line client tools](command-line-tools.md)
+  * [Install command line tools](install-client.md)
+  * [Using Pouta from the command line]()
+## [Virtual machine lifecycle & saving billing units](vm-lifecycle.md)
+## [Orchestration with Heat](heat-orchestration.md)
+## [Container Orchestration in cPouta](pouta-container-orchestration.md)
+## [Application Development Practises in Pouta](application-dev.md)
 
-## [Launching a virtual machine with the Pouta web interface](launch-vm-from-web-gui.md)
 
-## [Connecting to your virtual machine]
-
-## [Command line client tools]
-
- * [Installation using package manager tools][]  
- * [Using Pouta from the command line]  
-
-## [Virtual machine lifecycle & saving billing units]
-
-## [Orchestration with Heat]
-
-## [Container orchestration with Magnum]
-
-## [Application Development Practices in Pouta]
 
   [Getting access]: access-main.md
-  [Connecting to your virtual machine]: https://research.csc.fi/pouta-connecting-a-virtual-machine
-  [Command line client tools]: https://research.csc.fi/pouta-command-line-tools
-  [Installation using package manager tools]: https://research.csc.fi/pouta-install-client
-  [Using Pouta from the command line]: https://research.csc.fi/pouta-client-usage
-  [Virtual machine lifecycle & saving billing units]: https://research.csc.fi/pouta-vm-lifecycle
-  [Orchestration with Heat]: https://research.csc.fi/pouta-orchestration-with-heat
-  [Container orchestration with Magnum]: https://research.csc.fi/pouta-container-orchestration
-  [Application Development Practices in Pouta]: https://research.csc.fi/application-development-in-pouta
