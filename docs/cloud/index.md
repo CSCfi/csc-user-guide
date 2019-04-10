@@ -14,10 +14,10 @@
 * [Connecting to your virtual machine](connecting-to-vm.md)
 * [Command line client tools](command-line-tools.md)
     * [Install command line tools](install-client.md)
-* Virtual machine lifecycle & saving billing units
-* Orchestration with Heat
-* Container Orchestration in cPouta
-* Application Development Practises in Pouta
+* [Virtual machine lifecycle & saving billing units](vm-lifecycle.md)
+* [Orchestration with Heat](heat-orchestration.md)
+* [Container Orchestration in cPouta](pouta-container-orchestration.md)
+* [Application Development Practises in Pouta](application-dev.md)
 
 ## [Storage in Pouta](storage.md)
 * [Ephemeral storage](ephemeral-storage.md)
