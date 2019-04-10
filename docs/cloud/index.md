@@ -10,7 +10,7 @@
 ## [Using Pouta](usage.md)
 * [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md)
 * [Launching a virtual machine with the cPouta web interface](launch-vm-from-web-gui.md)
-* [DNS names for a virtual machines](dns.md)
+* [DNS names for a virtual machines](additional-services.md#dns-services-in-cpouta)
 * [Connecting to your virtual machine](connecting-to-vm.md)
 * [Command line client tools](command-line-tools.md)
     * [Install command line tools](install-client.md)
@@ -28,10 +28,8 @@
 
 ## [Creating and uploading virtual machine images](adding-images.md)
 
-## Additional services
-* Sending e-mail from cPouta
-* DNS services in cPouta
+## [Additional services in Pouta (email, dns)](additional-services.md)
 
-## FAQ and videos about Pouta
+## [Pouta videos](pouta-videos.md)
 
 ## Known problems and limitations
