@@ -1,5 +1,11 @@
 # Launching a virtual machine with the cPouta web interface
 
+!!! Warning
+
+    You should also get familiar with the security instructions and
+    the terms of Pouta accounting before launching your first virtual
+    machine.
+
 This document explains a simple way to launch a VM. To proceed, you should
 have an account and chapters XXX?? covered. You might also want to take a
 look at the webinar recording [in YouTube](https://www.youtube.com/watch?v=CIO8KRbgDoI).

@@ -2,7 +2,7 @@
 
 The cPouta and ePouta services allow users of CSC to run one or more
 virtual machines. Any CSC user with a computing project can request
-access to the service  as  described  in [Getting access].
+access to the service  as  described  in [Applying for Pouta access].
 This  chapter  contains  information  about
 launching virtual  machines in  the Pouta  service. The  first chapter
 lists the available  virtual machine flavors (sizes),  while the other
@@ -24,4 +24,4 @@ Pouta. Please make sure you are familiar with the [concepts](concepts.md) and
 
 
 
-  [Getting access]: access-main.md
+  [Applying for Pouta access]: ../accounts/get-access-to-pouta.md
