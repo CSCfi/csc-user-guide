@@ -19,7 +19,8 @@
 * [Container Orchestration in cPouta](pouta-container-orchestration.md)
 * [Application Development Practises in Pouta](application-dev.md)
 
-## [Storage in Pouta](storage.md)
+## Storage in Pouta
+* [Available storage options](storage.md)
 * [Ephemeral storage](ephemeral-storage.md)
 * [Persistent volumes](persistent-volumes.md)
 * [Snapshots](snapshots.md)

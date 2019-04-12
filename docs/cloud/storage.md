@@ -17,15 +17,6 @@ not store  any persistent  data here, and the storage should  not be
 considered reliable. For persistent storage you can use volumes and
 Object storage as introduced below.
 
-## [Ephemeral storage](ephemeral-storage.md)
-
-## [Persistent volumes](persistent-volumes.md)
-
-## [Snapshots](snapshots.md)
-
-## [Object Storage](object-storage-main.md)
-### [Using object Storage](using-object-storage.md)
-
 !!! note
     Pouta object storage and Allas are separate services for at least some time
     So, there might be need for pouta object storage subsection in main
