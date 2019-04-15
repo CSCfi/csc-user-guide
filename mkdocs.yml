@@ -1,4 +1,5 @@
 site_name: CSC computing and data environment
+edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/develop/docs"
 nav:
   - Home: index.md
   - Accounts: accounts/index.md
