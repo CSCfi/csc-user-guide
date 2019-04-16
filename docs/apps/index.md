@@ -2,12 +2,15 @@
 
 ## Biosciences
 
+* [Amber](amber.md) Molecuar dynamics engine and tools
 * [CSD](csd.md) Cambridge Crystallographic Database System and tools to access
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 
 ## Chemistry
 
+* [Amber](amber.md) Molecuar dynamics engine and tools
 * [Gaussian](gaussian.md) Versatile quantum chemistry simulation package
+* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Maestro](maestro.md) Drug discovery suite (access limited for consortium)
 * [Turbomole](turbomole.md) Fast DFT and quantum chemistry simulation package
 
