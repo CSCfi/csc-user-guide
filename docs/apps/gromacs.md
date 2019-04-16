@@ -82,8 +82,8 @@ slower and using AVX2_256 SIMD on Haswell speeds up significantly.
 
 ```
 #!/bin/bash -l
-#SBATCH -t 00:30:00
-#SBATCH -p parallel
+#SBATCH --time=00:30:00
+#SBATCH --partition=parallel
 #SBATCH --constraint=snb
 #SBATCH --ntasks-per-node=24
 #SBATCH --nodes=4
