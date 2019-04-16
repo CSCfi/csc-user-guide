@@ -15,3 +15,6 @@
 
 * [rspatial-env](rspatial-env.md)
 * [rspatial-env](rspatial-env2.md)
+
+## A template / syntax examples 
+* [Syntax Example](syntax-example.md)
