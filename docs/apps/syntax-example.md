@@ -1,9 +1,9 @@
 # Syntax Example
 
 Brief introduction of what this code is about.
+There is a way to use html for the top header which will hide it from TOC below.
 
 [TOC]
-
 
 Example on including a picture with the "reference style"
 ![Chemistry logo][logo]
