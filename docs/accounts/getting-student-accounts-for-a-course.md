@@ -14,4 +14,4 @@ course starts. Please send us following details by email:
 
 Also the teacher needs to have her/his own CSC account. We will
 create the accounts for you and details are sent by email and SMS.
-Our email address is servicedesk@csc.fi
+Our email address is servicedesk@csc.fi.
