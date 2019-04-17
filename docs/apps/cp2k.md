@@ -31,7 +31,7 @@ example submit commands for different parallelization schemes. Before
 each project make sure that your job can utilize all the cores you
 request in the batch script!
 
-** Example batch script for Sisu using MPI-only parallelization
+**Example batch script for Sisu using MPI-only parallelization**
 
 ```
 #!/bin/bash -l
@@ -52,7 +52,7 @@ module load cp2k
 aprun -n $ncores cp2k.popt H2O-32.inp > H2O-32_n${ncores}.out
 ```
 
-** Example batch script for Sisu using mixed MPI/OpenMP parallelization
+**Example batch script for Sisu using mixed MPI/OpenMP parallelization**
 
 !!! note
     Mixed parallelization speeds up simulations only in few cases. Always
@@ -95,7 +95,7 @@ echo "Running $exec on $tasks mpi tasks, with $t threads per task on $nodes node
 aprun -n $tasks -N $tasks_per_node -d $OMP_NUM_THREADS -j $ht $alps_param $exec ${input}.inp > ${input}.out
 ```
 
-** Example batch script for Taito
+**Example batch script for Taito**
 
 ```
 #!/bin/bash
