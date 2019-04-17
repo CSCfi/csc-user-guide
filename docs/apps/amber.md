@@ -1,8 +1,10 @@
-## Amber
+<h1> Amber</h1>
 
 Amber is a molecular dynamics package which has as number of additional
 tools for more sophisticated analysis and in particular for NMR
 structure refinement.
+
+[TOC]
 
 ## Available
 
@@ -123,7 +125,7 @@ jobs up to 4 cores. E.g. to test the input of a pmemd run (in serial, just one *
 
 `./pmemd.MPI -O -i mdin -o mdout -p prmtop -c inpcrd`
 
-### References
+## References
 
 When citing Amber 2018 (comprised of AmberTools18 and Amber18) in the
 literature, the following citation should be used:

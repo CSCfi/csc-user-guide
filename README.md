@@ -131,6 +131,7 @@ You can return to the develoment branch with `git checkout develop`.
 
 Overview:
 
+ - Update local repository
  - Make a new branch from the develop branch
  - Work and commit in your new branch
  - Push changes to github
@@ -140,10 +141,11 @@ Overview:
 Method:
 
 ```bash
+git pull
 git checkout develop
-git branch -B $topic
+git branch your_branch_name
 git commit -v
-git push origin $topic
+git push origin your_branch_name
 ```
 
 Now you can ask a person to review and merge the changes. One can request
