@@ -5,6 +5,7 @@ mdx-environment==0.2.0
 yasha==4.1
 mkdocs-material==3.3.0
 pymdown-extensions==5.0
+mkdocs-rtd-dropdown==1.0.2
 
 # These are dependencies of the above
 backports-abc==0.5
