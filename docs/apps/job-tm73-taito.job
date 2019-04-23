@@ -1,0 +1,36 @@
+#!/bin/bash -l
+#SBATCH -p parallel       # queue
+#SBATCH --nodes 2         # number of nodes
+#SBATCH --ntasks-per-node=24 # Tasks per node
+#SBATCH -t 0:20:00        # time as hh:mm:ss
+#SBATCH -J tm73-parallel
+#SBATCH -e jobfile.err%J
+#SBATCH -o jobfile.out%J
+#SBATCH --mem-per-cpu=2000  # requested memory per process in MB
+#SBATCH --tmp=400000        # requested local scratch disk in MB
+                            # max --tmp 400000 (hsw) 1800000 (snb)
+SDIR=`pwd`
+#
+# This is for an MPI-parallel job. aoforce, escf and egrad works only 
+# with SMP (within a single node).    
+#  
+export PARA_ARCH=MPI
+export PARNODES=$SLURM_NPROCS
+module load turbomole/7.3
+export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
+# use the local disks for scratch. If that disk space is not enough
+# redefine TURBOTMPDIR to point to the Lustre parallel disk under /wrk like
+# export TURBOTMPDIR=$WRKDIR/$USER/TURBOTMPDIR.$SLURM_JOB_ID
+# mkdir -p $TURBOTMPDIR
+#
+export TURBOTMPDIR=/tmp/$USER/$SLURM_JOB_ID/turbotmpdir
+#
+# remove possible earlier $tmpdir from control file
+kdg tmpdir
+# 
+# start job
+/usr/bin/time -v  dscf > dscf.out
+/usr/bin/time -v  ricc2 > ricc2.out
+# print some info about resource usage 
+seff $SLURM_JOB_ID
+
