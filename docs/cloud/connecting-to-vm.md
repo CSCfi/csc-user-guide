@@ -114,7 +114,7 @@ instance dropdown menu:
 
 To input text into the console click the grey bar as shown:
 
-![Input text to web console](Screenshot-Instance+Details+-+OpenStack+Dashboard+-+Chromium-1.png)
+![Input text to web console](images/Screenshot-Instance+Details+-+OpenStack+Dashboard+-+Chromium-1.png)
 
 After this you  can login with the user account  and password you have
 created.

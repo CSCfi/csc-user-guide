@@ -2,12 +2,12 @@
 
 ## [Concepts of cloud computing](concepts.md)
 
-## [Getting access to Pouta service](access-main.md)
+## Getting access to Pouta service
 * [Applying for Pouta access](../accounts/get-access-to-pouta.md)
 * [Security Guidelines for Pouta](security.md)
 * [Pouta Accounting Principles and Quotas](accounting.md)
 
-## [Using Pouta](usage.md)
+## Using Pouta
 * [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md)
 * [Launching a virtual machine with the cPouta web interface](launch-vm-from-web-gui.md)
 * [DNS names for a virtual machines](additional-services.md#dns-services-in-cpouta)
@@ -19,7 +19,8 @@
 * [Container Orchestration in cPouta](pouta-container-orchestration.md)
 * [Application Development Practises in Pouta](application-dev.md)
 
-## [Storage in Pouta](storage.md)
+## Storage in Pouta
+* [Available storage options](storage.md)
 * [Ephemeral storage](ephemeral-storage.md)
 * [Persistent volumes](persistent-volumes.md)
 * [Snapshots](snapshots.md)

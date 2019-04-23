@@ -1,8 +1,18 @@
 # Launching a virtual machine with the cPouta web interface
 
-This document explains a simple way to launch a VM. To proceed, you should
-have an account and chapters XXX?? covered. You might also want to take a
-look at the webinar recording [in YouTube](https://www.youtube.com/watch?v=CIO8KRbgDoI).
+!!! Warning
+
+    You should also get familiar with the security instructions and
+    the terms of Pouta accounting before launching your first virtual
+    machine.
+
+This document explains a simple way to launch a virtual machine in the
+Pouta service. Any CSC user with a computing project can request
+access to the service as described in [Applying for Pouta access].
+Please make sure you are familiar with the [concepts](concepts.md) and
+[security issues](security.md) first.  You might also want to take a
+look at the webinar recording [in
+YouTube](https://www.youtube.com/watch?v=CIO8KRbgDoI).
 
 [TOC]
 
@@ -149,3 +159,4 @@ Click the plus to create a new IP, select the IP, select your machine under **In
     Please Note: Allocated or assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
 
+  [Applying for Pouta access]: ../accounts/get-access-to-pouta.md
