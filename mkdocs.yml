@@ -11,8 +11,9 @@ nav:
   - Applications: apps/index.md
   - Support: support/index.md
 theme:
-  name: readthedocs
-  custom_dir: custom_theme/
+#  name: readthedocs
+  name: material
+#  custom_dir: custom_theme/
 extra_css:
   - css/extra.css
 extra_javascript:
@@ -20,3 +21,5 @@ extra_javascript:
 markdown_extensions:
   - admonition
   - attr_list
+  - pymdownx.details
+  - pymdownx.snippets
