@@ -3,8 +3,8 @@ mkdocs==1.0.4
 mdx-linkify==1.0
 mdx-environment==0.2.0
 yasha==4.1
-mkdocs-material
-pymdown-extensions
+mkdocs-material==3.3.0
+pymdown-extensions==5.0
 
 # These are dependencies of the above
 backports-abc==0.5
