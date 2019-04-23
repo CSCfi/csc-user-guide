@@ -10,8 +10,6 @@ particular for AIMD.
 * Taito: 4.1, 5.1
 * Sisu: 4.1, 5.1, 6.1 (with Plumed)
 
-------------------------------------------------------------------------
-
 ## License
 
 CP2k is freely available under the GPL license.
