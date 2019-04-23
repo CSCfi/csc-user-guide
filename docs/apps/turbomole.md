@@ -26,6 +26,28 @@ command:
 
 `module load turbomole/7.3 `
 
+Example job scripts
+
+??? note "Taito"
+        --8<-- "docs/apps/job-tm73-taito.job"
+
+??? note "Puhti"
+        --8<-- "docs/apps/job-tm73-taito.job"
+
+??? note "Mahti"
+        --8<-- "docs/apps/job-tm73-taito.job"
+
+The code looks like:
+
+> 
+ ??? note "Taito"
+>         --8<-- "docs/apps/job-tm73-taito.job"
+> 
+ ??? note "Puhti"
+>         --8<-- "docs/apps/job-tm73-taito.job"
+> 
+ ??? note "Mahti"
+>         --8<-- "docs/apps/job-tm73-taito.job"
 
 For other ways of using it, see our [TmoleX pages]
 
