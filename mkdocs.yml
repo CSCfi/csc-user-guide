@@ -55,8 +55,8 @@ extra_css:
 extra_javascript:
   - https://use.fontawesome.com/e51b07f7f1.js
 markdown_extensions:
-#  - admonition
-#  - attr_list
-#  - pymdownx.details
-#  - pymdownx.snippets
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.snippets
 
