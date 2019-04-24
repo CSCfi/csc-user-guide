@@ -92,6 +92,9 @@ Example for linking to files in the "files" subfolder for display or download
 
 Download an [example batch script for Sisu](files/gmx-sisu-example.job)
 
+??? note "Sisu"
+        --8<-- "docs/apps/files/gmx-sisu-example.job"
+
 An example for embedding a video on youtube:
 
 [![Maestro Standalone](http://img.youtube.com/vi/oQDLa6Bh-q4/0.jpg)](http://www.youtube.com/watch?v=oQDLa6Bh-q4 "Maestro Standalone")

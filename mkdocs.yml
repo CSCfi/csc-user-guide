@@ -12,8 +12,8 @@ nav:
   - Support: support/index.md
 theme:
 #  name: material
-#  name: readthedocs
-  name: 'rtd-dropdown'
+  name: readthedocs
+#  name: 'rtd-dropdown'
   custom_dir: custom_theme/
 extra_css:
   - css/extra.css
