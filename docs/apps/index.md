@@ -20,6 +20,10 @@
 * [rspatial-env](rspatial-env.md)
 * [rspatial-env](rspatial-env2.md)
 
+## Mathematics and Statistics
+
+* [Julia](julia.md) 
+
 ## Miscellaneous
 
 * [NoMachine](nomachine.md) Remote desktop to access CSC HPC capacity
