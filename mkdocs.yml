@@ -7,7 +7,7 @@ nav:
   - Connecting: connecting/index.md
   - Computing: computing/index.md
   - Cloud:
-     - Overview: cloud/index.md
+     - Contents: cloud/index.md
      - Concepts of cloud computing: cloud/concepts.md
      - Security Guidelines for Pouta: cloud/security.md
      - Pouta Accounting Principles and Quotas: cloud/accounting.md
