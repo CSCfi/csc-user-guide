@@ -47,7 +47,8 @@ nav:
   - Support: support/index.md
 theme:
 #  name: material
-  name: readthedocs
+#  name: readthedocs
+  name: windmill
 #  name: 'rtd-dropdown'
   custom_dir: custom_theme/
 extra_css:
