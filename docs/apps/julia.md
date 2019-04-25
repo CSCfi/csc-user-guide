@@ -9,8 +9,7 @@ function library.
 
 On Puhti Julia uses Intel's MKL library.
 
-For a quick introduction and tutorial see  
-<https://github.com/csc-training/julia-introduction> 
+For a quick introduction and tutorial see <https://github.com/csc-training/julia-introduction> 
 
 ------------------------------------------------------------------------
 
@@ -19,8 +18,11 @@ For a quick introduction and tutorial see
 ##### Version on CSC's Servers
 
 Puhti:
-1.0.2
+
 1.1.0 (default)
+
+1.0.2
+
 DEV (newest unstable version of Julia)
 
 ------------------------------------------------------------------------
@@ -56,16 +58,14 @@ typing
  julia
 ~~~~
 
-The recommended way to use Julia interactively is on Taito-shell. If
-more resources are required, one can request an interactive node
+If more resources are required, one can request an interactive node
 directly on a computing node on taito with
 
 ~~~~ western
 srun -c 1 -t 00:10:00 --mem=1G --pty julia
 ~~~~
 
-Here -c is the number of cores, -t is the time limit in hh:mm:ss,  
---mem is the minimum memory and --pty enables the interactive run.
+Here <kbd>-c</kbd> is the number of cores,  <kbd>-t</kbd> is the time limit in hh:mm:ss,  <kbd>--mem</kbd> is the minimum memory and  <kbd>--pty</kbd> enables the interactive run.
 
 #### Installing packages
 
@@ -85,27 +85,9 @@ can be changed with the shell command
 export JULIA_PKGDIR=/your/directory
 ~~~~
 
-*NOTE:*Packages that work for one version of Julia might not work at all for another. Check the required version number.
+**NOTE:** Packages that work for one version of Julia might not work at all for another. Check the required version number.
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-<span style="font-size:16px;">**Serial batch job** </span>
+#### Serial batch job
 
 Sample single-processor Julia batch job on Taito
 
@@ -124,21 +106,12 @@ module load julia-env
 srun julia my_script.jl
 ~~~~
 
--J is our jobname, -o is our output file, -e is our error file  
-<span style="font-weight: normal">-p is the partition we are running on,
--t is the </span><span style="font-weight: normal">maxium time for the
-</span>  
-run –-ntasks is the number of times we run our script –-nodes is how
-many nodes  
-we require and –-mem-per-cpu is the memory requested for each cpu.
+Where <kbd>-J</kbd> is our jobname, <kbd>-o</kbd> is our output file, <kbd>-e</kbd> is our error file, <kbd>-p</kbd> is the partition we are running on,
+ <kbd>-t</kbd> is the maxium time for the run  <kbd>--ntasks</kbd> is the number of times we run our script <kbd>--nodes</kbd> is how many nodes we require and <kbd>--mem-per-cpu</kbd> is the memory requested for each cpu.
 
-This runs the script my\_script.jl one time using one cpu-core
+This runs the script my\_script.jl one time using one cpu-core.
 
- 
-
- 
-
-**Parallel batch jobs**
+#### Parallel batch jobs
 
 Sample multi-processor Julia batch job on Taito
 
@@ -165,10 +138,6 @@ Changing --ntask=4 and removing the -c option would run the script four
 times on one cpu-core each.
 
 For more details about the batch jobs see Taito user guide.
-
- 
-
- 
 
 **Running julia on Taito using multiple workers**
 
