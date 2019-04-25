@@ -81,7 +81,7 @@ instances they are consuming less Billing Units for idle cycles.
 A comparison against the  traditional HPC (High-Performance Computing)
 services that CSC also provides is presented in the following table.
 
-**Table 1.** Comparing the cloud to traditional HPC environments:
+Comparing the cloud to traditional HPC environments:
 
 |                                | Traditional HPC environment                                                                                            | Cloud environment virtual machine                                                                |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -114,10 +114,9 @@ through  a self-service  interface. Users  have flexibility  to choose
 many  aspects of  their environment,  but they  must also  support the
 operating system, middleware, software and data themselves.
 
-![][1]
+![cloud-stack][cloud-stack]
 
-**Figure 1.1** Industry  standard definition IaaS and  the other cloud
-terms.
+Industry  standard definition IaaS and  the other cloud terms.
 
 #### Platform-as-a-Service (PaaS)
 
@@ -167,6 +166,4 @@ applications.   Virtual  machine images  are  the  starting point  for
 creating  new  virtual  machines  and   they  can  be  easily  cloned,
 snapshotted, backed up and managed.
 
-  [1]: https://research.csc.fi/documents/48467/84606/cloud-stack.png/17f44f4a-053d-402c-8dc6-bee72f7590e0?t=1431083454142
-  [Previous chapter]: https://research.csc.fi/pouta-user-guide
-  [Next chapter]: https://research.csc.fi/pouta-access
+  [cloud-stack]: images/cloud-stack.png

@@ -376,7 +376,7 @@ Some usage examples in CEPH RadosGW swift documentation:
 [http://docs.ceph.com/docs/jewel/radosgw/swift/python/]  
   
 !!! tip
-    CSC Instructions for how to [install](install-client.md) and [use the CLI](client-usage.md)
+    CSC Instructions for how to [install](install-client.md) and [use the CLI](command-line-tools.md)
   
 The python pip libraries needed for the example below are:
 python-keystoneclient and python-swiftclient  

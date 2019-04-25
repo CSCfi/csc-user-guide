@@ -451,7 +451,7 @@ work. </span>**We will  maintain these flavors  for a period  of time,
 but they will be removed at some point in the near future.
 
   [CSC Computing environment articles]: ../computing
-  [command line instructions.]: client-usage.md
+  [command line instructions.]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
   [Optimization Service]: https://research.csc.fi/optimization-service
   [Terms of Use]: https://https://research.csc.fi/pouta-user-policy

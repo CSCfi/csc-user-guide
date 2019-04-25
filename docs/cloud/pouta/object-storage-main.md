@@ -24,7 +24,7 @@ For advanced use see Swift and S3 protocols below.
 
 ## [Using object storage](using-object-storage.md)
 
-## [Access the object storage from Taito](accessing-the-pouta-object-storage-from-taito.md)
+## [Access the object storage from Taito](access-pouta-object-storage-from-taito.md)
 
 ## [Common Error Messages](object-storage-error-msgs.md)
 
