@@ -15,6 +15,10 @@
 * [Maestro](maestro.md) Drug discovery suite (access limited for consortium)
 * [Turbomole](turbomole.md) Fast DFT and quantum chemistry simulation package
 
+## Computational Engineering
+
+* [COMSOL Multiphysics](comsol.md) General-purpose simulation software.
+
 ## Geosciences
 
 * [rspatial-env](rspatial-env.md)
@@ -22,7 +26,10 @@
 
 ## Mathematics and Statistics
 
-* [Julia](julia.md) 
+* [GNU Octave](octave.md) High-level interpreted language, primarily intended for numerical computations. 
+* [Julia](julia.md) Open source, high-level, high-performance dynamic programming language for numerical computing.
+* [MATLAB](matlab.md) High-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
+* [SageMath](sagemath.md) Open-source mathematics software.
 
 ## Miscellaneous
 
