@@ -1,6 +1,6 @@
 # Rahti
 
-## [Introduction](introduction/index.md)
+<h2>Introduction</h2>
 * [Background](introduction/background.md)
 * [Service Description](introduction/service_description.md)
 * [SLA](introduction/sla.md)
@@ -22,4 +22,8 @@
 
 ## [External Documentations](ext_docs.md)
 
-## [Contact](contact.md)
+## Support
+
+The main support address for container clouds at CSC:
+
+[rahti-support@csc.fi](mailto:rahti-support@csc.fi)

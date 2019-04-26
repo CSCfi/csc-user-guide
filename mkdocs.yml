@@ -6,12 +6,13 @@ nav:
   - Accounts: accounts/index.md
   - Connecting: connecting/index.md
   - Computing: computing/index.md
-  - Cloud:
+  - Cloud: 
      - Contents: cloud/index.md
      - Concepts of cloud computing: cloud/concepts.md
-     - Pouta:
+     - Pouta: 
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-whatis.md
+        - Applying for Pouta Access: accounts/get-access-to-pouta.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
