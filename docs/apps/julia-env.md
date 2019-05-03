@@ -15,8 +15,8 @@ For a quick introduction and tutorial, see https://github.com/csc-training/julia
 
 ### Puhti
 
-	- 1.1.0 (default)
-	- DEV (newest unstable version of Julia)
+* 1.1.0 (default)
+* DEV (newest unstable version of Julia)
 
 ## License
 Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
@@ -59,7 +59,7 @@ directly on a computing node on Puhti with
 $ srun -c 1 -t 00:10:00 --mem=1G --pty julia
 ```
 
-where <kbd>-c</kbd> is the number of cores,  <kbd>-t</kbd> is the time limit in hh:mm:ss,  <kbd>--mem</kbd> is the minimum memory and  <kbd>--pty</kbd> enables the interactive run, respectively.
+where <var>-c</var> is the number of cores,  <var>-t</var> is the time limit in hh:mm:ss,  <var>--mem</var> is the minimum memory and  <var>--pty</var> enables the interactive run, respectively.
 
 ### Installing packages
 
@@ -106,10 +106,10 @@ module load julia-env
 srun julia my_script.jl
 ```
 
-Where <kbd>-J</kbd> is our jobname, <kbd>-o</kbd> is our output file, <kbd>-e</kbd> is our error file, <kbd>-p</kbd> is the partition we are running on,
- <kbd>-t</kbd> is the maxium time for the run  <kbd>--ntasks</kbd> is the number of times we run our script <kbd>--nodes</kbd> is how many nodes we require and <kbd>--mem-per-cpu</kbd> is the memory requested for each cpu.
+Where <var>-J</var> is our jobname, <var>-o</var> is our output file, <var>-e</var> is our error file, <var>-p</var> is the partition we are running on,
+ <var>-t</var> is the maxium time for the run  <var>--ntasks</var> is the number of times we run our script <var>--nodes</var> is how many nodes we require and <var>--mem-per-cpu</var> is the memory requested for each cpu.
 
-This runs the script <kbd>my\_script.jl</kbd> one time using one cpu-core.
+This runs the script <var>my\_script.jl</var> one time using one cpu-core.
 
 ### Parallel batch jobs
 
@@ -131,7 +131,7 @@ module load julia-env
 srun julia my_script.jl
 ```
 
-This runs the script <kbd>my\_script.jl</kbd> one time using four cpu-cores. Changing <kbd>--ntask=4</kbd> and removing the <kbd>-c</kbd> option would run the script four times on one cpu-core each.
+This runs the script <var>my\_script.jl</var> one time using four cpu-cores. Changing <var>--ntask=4</var> and removing the <var>-c</var> option would run the script four times on one cpu-core each.
 
 For more details about the batch jobs, see Puhti documentation.
 
@@ -152,7 +152,7 @@ After this, we submit a batch job, which will start our Julia instances
 $ sbatch julia.sbatch
 ```
 
-where <kbd>julia.sbatch</kbd> contains
+where <var>julia.sbatch</var> contains
 
 ```bash
 #!/bin/sh
@@ -169,7 +169,7 @@ module load julia-env/0.6.2
 julia slurm.jl
 ```
 
-and the main script <kbd>slurm.jl</kbd>
+and the main script <var>slurm.jl</var>
 
 ```bash
 try
@@ -216,5 +216,5 @@ process id for the Julia instance.
 
 ## More information
 
-* [Julia home page](<https://julialang.org/>)
-* [Documentation](<https://docs.julialang.org/en/stable/>)
+* [Julia home page](https://julialang.org )
+* [Documentation](https://docs.julialang.org)
