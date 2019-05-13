@@ -5,7 +5,7 @@
 # One can easy add whitelisted word into aspell.en.pws. Note that the file can't end with a
 # empty row. 
 ACCEPTED_AMOUNT_OF_TYPOS=$1
-DICTIONARY=$(tests/aspell.en.pws)
+DICTIONARY=tests/aspell.en.pws
 TEMPLATES=$(find docs -name '*.md')
 # the aspell parameters set: english language, utf-8 encoding, home dir and personal dictionary
 # to exclude some of our technical terms we also ignore words with 3 or less characters.
