@@ -24,7 +24,7 @@
 -   Performance:  For the full  hpc-gen1 node flavour (16  cores) some
     slowdown has been observed with some codes when using more than 12
     cores when compared to taito.csc.fi. Please report any performance
-    regressions compared to taito to cloud-support@csc.fi.
+    regressions compared to Taito to cloud-support@csc.fi.
 -   Network:  It's possible to  add the  same floating IP  to multiple
     instances using  the API. There is  no warning or error.  The last
     API call is the one which takes effect.
