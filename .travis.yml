@@ -9,4 +9,4 @@ addons:
 install:
 script:
   # Checks all *.md files with aspell
-  - tests/aspellcheck.bash 3095
+  - bash tests/aspellcheck.bash 3095
