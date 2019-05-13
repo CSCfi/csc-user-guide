@@ -12,4 +12,4 @@ script:
   - ls -l tests/
   # Checks all *.md files with aspell.
   # The number of spelling mistakes that are allowed.
-  - bash tests/aspellcheck.bash 3276
+  - bash tests/aspellcheck.bash 2500
