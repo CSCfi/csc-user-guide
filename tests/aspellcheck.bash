@@ -18,6 +18,14 @@ do
     SUM=$(($SUM + $(cat $t |$COMMAND |wc -l) ))
 done
 
+
+
+echo '---- The 20 most wrongly typed words ----'
+for t in $(echo $TEMPLATES)
+do
+    cat $t |$COMMAND
+done|sort |uniq -c |sort -n |tail -n 20
+
 echo "Number of typos: $SUM"
 
 if [[ $SUM -gt $ACCEPTED_AMOUNT_OF_TYPOS ]]; then
