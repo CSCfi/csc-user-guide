@@ -8,8 +8,6 @@ addons:
       - aspell-en
 install:
 script:
-  - ls -l
-  - ls -l tests/
   # Checks all *.md files with aspell.
   # The number of spelling mistakes that are allowed.
   - bash tests/aspellcheck.bash 2500

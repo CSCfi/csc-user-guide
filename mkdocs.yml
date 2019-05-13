@@ -27,7 +27,7 @@ nav:
      - Concepts of cloud computing: cloud/concepts.md
      - Pouta:
         - Contents: cloud/pouta/index.md
-        - What is Pouta: cloud/pouta/pouta-whati-is.md
+        - What is Pouta: cloud/pouta/pouta-what-is.md
         - Applying for Pouta Access: accounts/get-access-to-pouta.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md

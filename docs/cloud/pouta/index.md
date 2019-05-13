@@ -1,6 +1,6 @@
 <h1>Pouta</h1>
 
-* [What is Pouta?](pouta-whatis.md)
+* [What is Pouta?](pouta-what-is.md)
 
 <h2>Getting access to Pouta service</h2>
 * [Applying for Pouta access](../../accounts/get-access-to-pouta.md)
