@@ -8,8 +8,5 @@ addons:
       - aspell-en
 install:
 script:
-  - TEMPLATES=$(find docs -name '*.md')
-   # the aspell parameters set: english language, utf-8 encoding, home dir and personal dictionary to exclude some of our technical terms
-   # we also ignore words with 3 or less characters. Currently only typos in our e-mail templates were in words with more characters
-  - for t in $(echo $TEMPLATES); do echo $t; cat $t|aspell --lang=en --ignore 3 --encoding=utf-8 --home-dir=. --personal=.aspell.en.pws list; done
-
+  # Checks all *.md files with aspell
+  - tests/aspellcheck.bash 3095
