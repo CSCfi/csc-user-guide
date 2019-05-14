@@ -17,9 +17,9 @@
 ## Batch jobs
 
 * Batch jobs basics (batch jobs, environment, slurm commands, batch job file, parallel & array jobs) <!--batch-jobs-basics.md-->
-* Advanced batch jobs (hyperthreading, DataWarp (?) )
-* Running GPU programs
-* Resource monitoring
+* [Advanced batch jobs](advanced-batch-jobs.md)
+* [Running GPU programs](running-gpu-programs.md)
+* [Resource monitoring](resource-monitoring.md)
 
 ## Interactive use
 
