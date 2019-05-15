@@ -23,7 +23,7 @@
 
 ## Interactive use
 
-* Puhti shell (?) for running interactive jobs <!--shell.md-->
+* [Puhti shell (?) for running interactive jobs](shell.md)
 * [Interactive batch jobs](interactive-batch-jobs.md)
 
 ## Compiling environment
