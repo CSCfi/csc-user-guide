@@ -27,7 +27,7 @@
 ## Mathematics and Statistics
 
 * [GNU Octave](octave.md) High-level interpreted language, primarily intended for numerical computations. 
-* [Julia](julia.md) Open source, high-level, high-performance dynamic programming language for numerical computing.
+* [Julia](julia-env.md) Open source, high-level, high-performance dynamic programming language for numerical computing.
 * [MATLAB](matlab.md) High-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
 * [SageMath](sagemath.md) Open-source mathematics software.
 
