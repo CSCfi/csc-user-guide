@@ -3,6 +3,8 @@ li.toctree-l3,
 a.toctree-l4 {
   display: none;
 }
+.wm-toc-lev4 > .wm-toc-text { padding-left: 56px; }
+.wm-toc-lev4 + .wm-page-toc { padding-left: 56px; }
 
 .td_warn {
   background: #fffc66 !important;
