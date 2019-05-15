@@ -27,8 +27,6 @@
 * [Persistent volumes](persistent-volumes.md)
 * [Snapshots](snapshots.md)
 * [Object storage](object-storage-main.md)
-    * [Short description of object storage](object-storage-definition.md)
-    * [Benefits of using object storage](benefits-of-object-storage.md)
     * [Common use cases](object-storage-use-cases.md)
     * [Using Object storage](using-object-storage.md)
     * [Quotas and billing](object-storage-quotas-and-billing.md)

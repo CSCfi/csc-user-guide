@@ -1,8 +1,8 @@
 # Using object storage
 
 This document lists the different ways to access CSC object storage
-and manage data. You might want to first check the [introductory document](object-storage-definition.md)
-or the [Object storage main page](object-storage-main.md) before
+and manage data. You might want to first check
+the [Object storage main page](object-storage-main.md) before
 getting into the command line.
 
 [TOC]
