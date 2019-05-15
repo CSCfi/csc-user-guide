@@ -7,11 +7,10 @@
 * [Disk environment](disk-environment.md)
 * Operating system and shell environment <!--shell-environment.md-->
 
-## Module environment
+## [Module system](module-system.md)
 
-* Module system <!--module-system.md-->
-* Basic usage of module system <!--basic-usage-of-modules.md-->
-* Advanced usage of modules <!--advanced-modules.md-->
+* [Basic usage of module system](module-system.md#basic-usage)
+* [Advanced usage of modules](module-system.md#advanced-topics)
 * GPU modules (Puhti AI) <!--gpu-modules.md-->
 
 ## Batch jobs
