@@ -1,13 +1,19 @@
 ---
 sudo: false
 dist: trusty
+language:
+python:
+  - "3.4"
 addons:
   apt:
     packages:
       - aspell
       - aspell-en
 install:
+  - pip install -r requirements.txt
 script:
   # Checks all *.md files with aspell.
   # The number of spelling mistakes that are allowed.
   - bash tests/aspellcheck.bash 2500
+  # Testing if there are any warnings
+  - bash tests/checkwarnings.bash
