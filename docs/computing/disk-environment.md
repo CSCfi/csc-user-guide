@@ -1,3 +1,4 @@
+Short description of this article. Then TOC.
 
 1. [ Disk environment ](#discenv)
 2. [ Home directory ](#homedir)
@@ -5,16 +6,13 @@
 4. [ Software installation directory ](#installdir)
 5. [ Monitor ](#monitor)
 
-<a name="discenv"></a>
-Disk environment
------------------------
-
 The CSC supercomputing environment allows researchers to analyse and manage large datasets.  Supercomputers puhti.csc.fi and mahti.csc.fi have a common disk environment and directory structure where on CSC you can work with datasets that contain several terabytes of data. In Taito (and Sisu) you can store data in several personal disk areas. The disk areas available in  are listed in table below. Knowing the basic features of different disk areas is essential if you wish to use the CSC computing and storage services effectively. Note that in Taito all directories use the same Lustre-based file server (except $TMPDIR which is local to each node). Thus all directories are visible to both the front-end nodes and the computing nodes of Taito.
 
 In addition to the local directories in Taito, users have access to the CSC archive server, _HPC archive_, which is intended for long term data storage. HPC archive server is used through the iRODS software. Projects that have applied cPouta access can also use the CSC Object Storage service that can be be used as common storage area for CSC computing environment, Virtual Machines in cPouta and local computing environment. ( See CSC Computing environment user's guide [Chapter 3.2](/csc-guide-archiving-data-to-the-archive-servers) and [Chapter 3.3](/csc-guide-object-storage) for more information
 
 
 ((Table of different storages/areas))
+
 | Directory or storage area | Intended use                                                                                       | Default quota/user | Storage time                                           | Backup |
 |---------------------------|----------------------------------------------------------------------------------------------------|--------------------|--------------------------------------------------------|--------|
 | $HOME                     | Initialization scripts, source codes, small data files. Not for running programs or research data. | XX GB              | Data will be deleted 90 days after closing the account | ?      |

@@ -21,7 +21,7 @@ nav:
      - Monitoring resource usage: accounts/monitoring-resource-usage.md
   - Connecting: connecting/index.md
   - Computing: computing/index.md
-     - The module system: computing/module-system.md
+#     - The module system: computing/module-system.md
   - Cloud:
      - Contents: cloud/index.md
      - Concepts of cloud computing: cloud/concepts.md

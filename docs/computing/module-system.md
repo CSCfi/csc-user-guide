@@ -9,7 +9,7 @@ The module system should be used both in interactive and batch jobs.
 required by a particular application. Module system modifies the
 environment variables of the user's shell so that the correct versions
 of executables are in the path and linker can find the correct version
-of needed libraries. For example, the command *mpicc* points to
+of needed libraries. For example, the command `mpicc` points to
 different compilers depending of the loaded module.
 
 CSC uses a recently developed version of environment modules called
@@ -25,18 +25,19 @@ The syntax of the module commands is:
 
     module command module-name
 
-The currently loaded modules are listed with command:
+The currently loaded modules, i.e. what your current environment is,
+are listed with:
 
     module list
 
-For general module information one uses command *module help*. For
-example, to get more information about loaded module *intel*, one can
-use command:
+For general module information one uses command `module help`. For
+example, to get more information about loaded module `intel`,
+use:
 
     module help intel
 
-New modules can be loaded to your environment using *load* command, for
-example the *trilinos* module can be loaded using command:
+Load new modules to your environment with `load` command, for
+example load the `trilinos` module using:
 
     module load trilinos
 
@@ -46,7 +47,7 @@ conflicting with previously loaded modules, or modules that depend on
 modules that have not been loaded.
 
 Modules that are not needed or that are conflicting with other modules
-can be unloaded using *unload* command:
+can be unloaded using `unload`:
 
     module unload mkl
 
@@ -65,18 +66,18 @@ Most commonly used module commands.
 ### Finding modules
 
 You can list the modules that are compatible with your current module
-set by using command:
+set by using:
 
     module avail
 
 Because of the hierarchical structure of the Lmod system you can not
-load all installed modules using just one *module load* command. The
-*avail* command does not show modules that can not be loaded due to
+load all installed modules using just one `module load` command. The
+`avail` command does not show modules that can not be loaded due to
 conflicts or unmet dependencies. Reason for these protective
-restrictions is to prevent you from loading module combination that do
+restrictions is to prevent you from loading module combinations that do
 not work.
 
-You can get the list of all installed software packages using command:
+You can get the list of all installed software packages using:
 
     module spider
 
@@ -117,9 +118,9 @@ information from the module system is obvious, for example:
 
 More complicated procedures are needed when the module is not compatible
 with currently loaded compiler and/or MPI-library. In these cases the
-*module avail* command does not even list the module and *module load*
+`module avail` command does not even list the module and `module load`
 command can not find it. Easiest way to check what environment is
-required for the desired module is to use *module spider* command with
+required for the desired module is to use `module spider` command with
 version information. For example:
 
     -bash-4.1$ module spider hypre/2.9.0b
@@ -134,7 +135,7 @@ version information. For example:
 
   
 So in this case you will have to load one the listed environments before
-you can proceed with *module load* command.
+you can proceed with `module load` command.
 
 ## Advanced topics
 
