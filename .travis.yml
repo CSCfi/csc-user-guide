@@ -11,7 +11,7 @@ addons:
       - aspell-en
 install:
 #  - pip install --upgrade pip
-  - pip3 install -r requirements.txt
+  - pip install -r requirements.txt
 script:
   # Checks all *.md files with aspell.
   # The number of spelling mistakes that are allowed.
