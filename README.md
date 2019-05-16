@@ -141,7 +141,8 @@ Method:
 ```bash
 git pull
 git checkout develop
-git branch your_branch_name
+git branch -b your_branch_name
+# create some nice content, add files
 git commit -v
 git push origin your_branch_name
 ```
