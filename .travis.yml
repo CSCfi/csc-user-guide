@@ -9,9 +9,12 @@ addons:
     packages:
       - aspell
       - aspell-en
+      - python3
+      - python3-pip
+before_install:
+  - pip install -r requirements.txt
 install:
 #  - pip install --upgrade pip
-  - pip install -r requirements.txt
 script:
   # Checks all *.md files with aspell.
   # The number of spelling mistakes that are allowed.
