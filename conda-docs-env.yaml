@@ -1,0 +1,10 @@
+name: docs
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - pip:
+      - mkdocs
+      - pymdown-extensions
+      - mkdocs-windmill
