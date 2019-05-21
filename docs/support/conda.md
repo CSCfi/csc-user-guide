@@ -245,7 +245,7 @@ conda env update -f <envname>.yaml
 
 As an example, let's use the environment.yaml file [conda-docs-env.yaml]:
 
-´´´
+```
 name: docs
 channels:
   - conda-forge
@@ -256,7 +256,7 @@ dependencies:
       - mkdocs
       - pymdown-extensions
       - mkdocs-windmill
-´´´
+```
 
 The first field, `name: docs`, simply defines the name (and the name of the
 environment root directory under `/envs`) of the Conda environment. The second
@@ -281,4 +281,4 @@ package versions are specified, Conda always installs the latest versions.
 [Spack]: https://spack.io/
 [Miniconda]: https://docs.conda.io/en/latest/miniconda.html
 [Anaconda]: https://www.anaconda.com/distribution/
-[conda-docs-env.yaml]: conda-docs-env.yaml
+[conda-docs-env.yaml]: ../../conda-docs-env.yaml
