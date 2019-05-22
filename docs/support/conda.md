@@ -335,19 +335,16 @@ Conda, as other software packaging solutions that install also all the
 dependencies, tends to eat up disc space. If running out of space, it is quite
 easy to remove old and unused packages.
 
-Command
+Commands
 
 ```bash
+conda env list
 conda env remove -n <envname>
-```
-
-removes the named environment. Command
-
-```bash
 conda clean
 ```
 
-removes unused packages from the local package cache `/pkgs`.
+list the created environments, remove the named environment `<envname>`, and
+remove unused packages from the local package cache `pkgs`, respectively.
 
 ## Creating environments so that other user's can access them
 
