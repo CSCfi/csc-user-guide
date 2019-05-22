@@ -143,7 +143,8 @@ before starting to use Conda.
 Please note that installing packages from different channels to a single Conda
 environment does not always work. That is a bit similar to trying to mix
 packages from Ubuntu and Debian. The solution is to simply set up separate Conda
-environments for different tasks if in doubt about the compatibility.
+environments for different tasks or projects if in doubt about the
+compatibility.
 
 Some of the smaller channels are not always up-to-date or properly maintained,
 and packages from those may break your Conda environment. Fortunately you can do
@@ -180,9 +181,10 @@ cat ~/.bashrc ~/.bash_profile ~/.profile
 If you encounter a broken package, a package that does not have the feature you
 need, or an outdated package, it is possible to re-build the package yourself.
 The details of this are slightly out of the scope of this document, but building
-Conda packages perfectly doable. Basically, you need to install `conda-build`
+Conda packages is perfectly doable. Basically, you need to install `conda-build`
 Conda package, modify the files `meta.yaml` and `build.sh` in the
-`<condaroot>/pkgs/<package>/info/recipe` sub-folder in the Conda package.
+`<condaroot>/pkgs/<package>/info/recipe` sub-folder, rebuild the package, and
+install it into a local channel.
 
 ## Examples
 
@@ -205,9 +207,7 @@ All conda files will be installed under the chosen Conda root install directory,
 here `$WRKDIR/DONOTREMOVE/miniconda3`, with the exception of `.condarc`, which
 will be in the user's home directory. By default, which is also a recommended
 practice, all files installed subsequently with conda go under the same install
-root. The only exception is conda's configuration file, `.condarc`, which goes
-under user's home directory if user saves any settings with `conda config`
-command.
+root.
 
 The option `-b` simply skips some questions and adding the automatic
 initialization lines into user's `.bash_profile`.
@@ -245,16 +245,16 @@ to verify that the Conda configuration is ok.
 
 I recommend
 
-1. installing all conda packages into named environments, which go under `/envs`
-   subdirectory, instead of installing them into the base environment (conda
-   install root), and
+1. installing all conda packages into named environments, which go under the
+   `envs` subdirectory, instead of installing them into the `base` environment
+   directly under conda install root, and
 2. using environment.yaml configuration files instead of adding packages to
    environments directly from the command line.
 
 In practice, you only need to create a single environment.yaml file for each
 your environments, and then use a single conda command
 
-```
+```bash
 conda env create -f <envname>.yaml
 ```
 
@@ -263,7 +263,7 @@ to create the whole environment.
 Updating the packages, or adding new packages to the an existing environment is
 done by modifying the environment.yaml file, and then running
 
-```
+```bash
 conda env update -f <envname>.yaml
 ```
 
@@ -272,7 +272,7 @@ conda env update -f <envname>.yaml
 As the first example, let's use the environment.yaml file [conda-docs-env.yaml],
 that can be used to install [mkdocs] with couple of plugins:
 
-```
+```yaml
 name: docs
 channels:
   - conda-forge
@@ -331,7 +331,11 @@ platform. Also, you can easily share the environment with other developers.
 
 ### Removing unused packages
 
- Command
+Conda, as other software packaging solutions that install also all the
+dependencies, tends to eat up disc space. If running out of space, it is quite
+easy to remove old and unused packages.
+
+Command
 
 ```bash
 conda env remove -n <envname>
