@@ -160,7 +160,7 @@ in [MkDocs documentation](http://www.mkdocs.org/#installation), or with
 [conda](https://docs.conda.io/en/latest/miniconda.html) by simply
 
 ```bash
-conda env create -f conda-docs-env.yaml
+conda env create -f docs/support/conda-docs-env.yaml
 conda activate docs
 ```
 
