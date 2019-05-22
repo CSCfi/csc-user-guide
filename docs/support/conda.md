@@ -66,13 +66,6 @@ detailed instructions in the Example chapter below. Miniconda contains only a
 minimal set of packages, that allow you to run conda commands and install
 additional packages from different channels.
 
-All files created by the installer script go under the install root
-`<condaroot>` that is given at install time. By default, which is also a
-recommended practice, all files installed subsequently with conda go under
-the same install root. The only exception is conda's configuration file,
-`.condarc`, which goes under user's home directory if user saves any settings
-with `conda config` command.
-
 ### Python versions in the install scripts
 
 You can use python 3 version to install environments with python 2 interpreter,
@@ -210,28 +203,35 @@ bash Miniconda3-latest-Linux-x86_64.sh -b -p $WRKDIR/DONOTREMOVE/miniconda3
 
 All conda files will be installed under the chosen Conda root install directory,
 here `$WRKDIR/DONOTREMOVE/miniconda3`, with the exception of `.condarc`, which
-will be in the user's home directory. The option `-b` simply skips some
-questions and adding fo the automatic initialization lines into user's
-`.bash\_profile`.
+will be in the user's home directory. By default, which is also a recommended
+practice, all files installed subsequently with conda go under the same install
+root. The only exception is conda's configuration file, `.condarc`, which goes
+under user's home directory if user saves any settings with `conda config`
+command.
+
+The option `-b` simply skips some questions and adding the automatic
+initialization lines into user's `.bash_profile`.
 
 The Conda install root directory contains basically the following
 subdirectories:
 
-- `/bin`, '/lib', ... the usual Linux directories for the Conda "base"
+- `bin`, `lib`, ... the usual Linux directories for the Conda `base`
   environment
-- `/envs` where all Conda environments will reside
-- `/pkgs` Conda package cache
+- `envs` where all Conda environments will reside
+- `pkgs` Conda package cache
 
 ### Activating conda
 
 If you installed Conda into directory `$WRKDIR/DONOTREMOVE/miniconda3`, you can
-activate conda by sourcing the initialization script
+activate conda with the initialization script:
 
 ```bash
 source $WRKDIR/DONOTREMOVE/miniconda3/etc/profile.d/conda.sh
 ```
 
-This simply sets couple of shell environment variables, a conda command as a shell function, and modifies prompt so that it shows the name of the currently activated Conda environment.
+This simply sets couple of shell environment variables, a conda command as a
+shell function, and modifies prompt so that it shows the name of the currently
+activated Conda environment.
 
 When activating a new conda install, it's a good idea to run
 
@@ -345,7 +345,7 @@ conda clean
 
 removes unused packages from the local package cache `/pkgs`.
 
-### Creating environments so that other user's can access them
+## Creating environments so that other user's can access them
 
 Giving other users an access to your Conda environment is as easy as giving them
 read access to the directory containing the environment, in principle. In
