@@ -24,15 +24,17 @@ NOTE: The term "environment" relates to two separate concepts, here. The term
 *(1) Conda environment*, similar to virtual environment in Python, refers to one
 of the user's software stack root directories, basically. The activation of a
 Conda environment simply means that the path to the `bin` directory of a Conda
-software stack root is appended to the user's *(2) shell environment*'s `PATH`
+software stack root is prepended to the user's *(2) shell environment*'s `PATH`
 environment variable.
 
 ## When to use Conda and what kind of software you should install with it?
 
-Conda is well suited for installing desktop type software, and complex,
-possibly conflicting, package dependencies in Python, LaTex, or R, for example.
-It is designed to be used on personal software installs. Naturally, the software
-installed with it can be made available to others, too. The configuration files, [environment.yaml], for the conda software environments can be easily shared with others.
+Conda is well suited for installing desktop type software, and complex, possibly
+conflicting, package dependencies in Python, LaTex, or R, for example. It is
+designed to be used on personal software installs. Naturally, the software
+installed with it can be made available to others, too. The configuration files,
+[environment.yaml], for the conda software environments can be easily shared
+with others.
 
 ### When to yum, apt, or brew
 
