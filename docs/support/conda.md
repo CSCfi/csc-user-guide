@@ -232,11 +232,10 @@ activate conda tool with the initialization script:
 source $WRKDIR/DONOTREMOVE/miniconda3/etc/profile.d/conda.sh
 ```
 
-This simply sets couple of shell environment variables, a conda command as a
-shell function, and modifies prompt so that it shows the name of the currently
-activated Conda environment.
+This simply sets couple of shell environment variables, and conda command as a
+shell function.
 
-When activating a new conda install, it's a good idea to run
+When activating a new conda install first time, it's a good idea to run
 
 ```bash
 conda info
@@ -280,9 +279,11 @@ conda activate <envname>
 
 This prepends the path to the Conda environment's `bin` directory to your shell
 environment's `PATH` environment variable, so that different commands are first
-searched from the Conda environment. This command also sources the activation
-hooks for this Conda environment in directory `<envroot>/etc/conda/activate.d/`,
-but this is mostly an advanced nice-to-know kind of detail.
+searched from the Conda environment, and modifies the prompt so that it shows
+the name of the currently active Conda environment. This command also sources
+the activation hooks for this Conda environment in directory
+`<envroot>/etc/conda/activate.d/`, but this is mostly an advanced nice-to-know
+kind of detail.
 
 ### Examples of environment.yaml files
 
