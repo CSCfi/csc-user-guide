@@ -283,7 +283,7 @@ searched from the Conda environment, and modifies the prompt so that it shows
 the name of the currently active Conda environment. This command also sources
 the activation hooks for this Conda environment in directory
 `<envroot>/etc/conda/activate.d/`, but this is mostly an advanced nice-to-know
-kind of detail.
+detail.
 
 ### Examples of environment.yaml files
 
@@ -385,5 +385,6 @@ Some ideas for the shell environment setup can be found in file
 [Miniconda]: https://docs.conda.io/en/latest/miniconda.html
 [Anaconda]: https://www.anaconda.com/distribution
 [conda-docs-env.yaml]: conda-docs-env.yaml
+[c-ide.yaml]: c-ide.yaml
 [mkdocs]: https://www.mkdocs.org
 [bash_profile_extras.sh]: bash_profile_extras.sh
