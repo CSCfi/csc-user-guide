@@ -220,10 +220,10 @@ subdirectories:
 - `envs` where all Conda environments will reside
 - `pkgs` Conda package cache
 
-### Activating conda
+### Activating conda tool
 
 If you installed Conda into directory `$WRKDIR/DONOTREMOVE/miniconda3`, you can
-activate conda with the initialization script:
+activate conda tool with the initialization script:
 
 ```bash
 source $WRKDIR/DONOTREMOVE/miniconda3/etc/profile.d/conda.sh
@@ -252,7 +252,7 @@ I recommend
    environments directly from the command line.
 
 In practice, you only need to create a single environment.yaml file for each
-your environments, and then use a single conda command
+your environments, see examples below, and then use a single conda command
 
 ```bash
 conda env create -f <envname>.yaml
@@ -266,6 +266,20 @@ done by modifying the environment.yaml file, and then running
 ```bash
 conda env update -f <envname>.yaml
 ```
+
+### Activating conda environment
+
+Activating Conda environment is done simply by
+
+```bash
+conda activate <envname>
+```
+
+This prepends the path to the Conda environment's `bin` directory to your shell
+environment's `PATH` environment variable, so that different commands are first
+searched from the Conda environment. This command also sources the activation
+hooks for this Conda environment in directory `<envroot>/etc/conda/activate.d/`,
+but this is mostly an advanced nice-to-know kind of detail.
 
 ### Examples of environment.yaml files
 
