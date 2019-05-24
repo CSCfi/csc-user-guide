@@ -339,7 +339,8 @@ The first listed channel is in a local directory. In this case it is used as a
 repository for a self created package, here [GNU Global], which does not(?) have
 an existing Conda package in Anaconda or Conda-forge repositories. Naturally
 this environment can only be created in machine taito.csc.fi, if package
-`global` is included.
+`global` is included. TODO: Move the local channel to CSC's Allas object
+storage!
 
 Adding the environment.yaml file to the source repository of your project is
 probably an excellent idea. This allows an easy way to replicate the same
