@@ -7,11 +7,12 @@ instructions at the Examples chapter :)
 
 ## What is conda
 
-[Conda] is a software install tool that can manage software dependencies. It is
-a bit similar to yum or apt, plus python virtual environments, if you are
-familiar with those. Conda
+[Conda] is a software install tool that can manage software dependencies. It
+allows you to easily create and manage your own software environment(s). It is a
+bit similar to yum or apt, plus python virtual environments, if you are familiar
+with those. Conda
 
-- can be used to install packages in any language
+- Conda packages can install software written in any language
 - works the same in Linux, Mac OS and Windows
 - works the same in machines from laptops to large clusters
 - packages contain pre-compiled binaries, and the recipe they we built with
@@ -22,9 +23,9 @@ familiar with those. Conda
 NOTE: The term "environment" relates to two separate concepts, here. The term
 *(1) Conda environment*, similar to virtual environment in Python, refers to one
 of the user's software stack root directories, basically. The activation of a
-Conda environment simply means that the path to the `bin` directory
-of a Conda software stack root is appended to the user's *(2) shell
-environment*'s `PATH` environment variable.
+Conda environment simply means that the path to the `bin` directory of a Conda
+software stack root is appended to the user's *(2) shell environment*'s `PATH`
+environment variable.
 
 ## When to use Conda and what kind of software you should install with it?
 
