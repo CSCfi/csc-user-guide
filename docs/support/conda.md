@@ -385,6 +385,7 @@ Some ideas for the shell environment setup can be found in file
 [Miniconda]: https://docs.conda.io/en/latest/miniconda.html
 [Anaconda]: https://www.anaconda.com/distribution
 [conda-docs-env.yaml]: conda-docs-env.yaml
-[c-ide.yaml]: c-ide.yaml
 [mkdocs]: https://www.mkdocs.org
+[c-ide.yaml]: c-ide.yaml
+[GNU Global]: https://www.gnu.org/software/global
 [bash_profile_extras.sh]: bash_profile_extras.sh
