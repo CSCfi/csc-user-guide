@@ -359,7 +359,7 @@ Commands
 ```bash
 conda env list
 conda env remove -n <envname>
-conda clean
+conda clean -a
 ```
 
 list the created environments, remove the named environment `<envname>`, and
