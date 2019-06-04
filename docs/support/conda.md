@@ -12,19 +12,19 @@ allows you to easily create and manage your own software environment(s). It is a
 bit similar to yum or apt, plus python virtual environments, if you are familiar
 with those. Conda
 
-- Conda packages can install software written in any language
+- packages can contain software written in any language
 - works the same in Linux, Mac OS and Windows
 - works the same in machines from laptops to large clusters
 - packages contain pre-compiled binaries, and the recipe they we built with
 - does not require administrator privileges to run, unlike yum and apt
-- can create multiple separate software stack roots, called Conda environments
+- can install software into multiple install roots, called Conda environments
 - is designed for single user usage
 
 NOTE: The term "environment" relates to two separate concepts, here. The term
 *(1) Conda environment*, similar to virtual environment in Python, refers to one
-of the user's software stack root directories, basically. The activation of a
-Conda environment simply means that the path to the `bin` directory of a Conda
-software stack root is prepended to the user's *(2) shell environment*'s `PATH`
+of the user's software install root directories, basically. The activation of a
+Conda environment simply means that the path to the `bin` directory in a Conda
+environment root is prepended to the user's *(2) shell environment*'s `PATH`
 environment variable.
 
 ## When to use Conda and what kind of software you should install with it?
@@ -62,7 +62,7 @@ Conda channels are similar to Linux distributions' repositories, such as Ubuntu,
 CentOS or Debian. The most popular Conda channels are commercially maintained
 Anaconda, and community maintained Conda-forge.
 
-## How to install conda
+## How to install Conda
 
 Install Conda by downloading the suitable installer script from [Miniconda], see
 detailed instructions in the Example chapter below. Miniconda contains only a
