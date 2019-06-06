@@ -6,7 +6,7 @@ The efficiency of hyper-threading depends strongly of the program used. You shou
 
 In practice, hyper-threading is taken in use by using <var>aprun</var> with option <var>-j</var> 2 (assigning 2 compute units per core). You can also use aprun option <var>-N</var> 48 to define that the job should be executed with 48 processing elements per node.
 
-```batch
+```
 !/bin/bash -l
 ## MPI parallel job script example, HyperTreading mode
 #SBATCH -J HT_job

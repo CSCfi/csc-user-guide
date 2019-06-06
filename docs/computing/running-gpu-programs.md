@@ -25,7 +25,7 @@ or to request 4 P100 GPUs use
 
 ## Running under GNU environment on one GPU
 Here is a valid script for running under GNU environment that will default any GPU available:
-```batch
+```
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -n 1
@@ -46,7 +46,7 @@ srun ./your_binary
 
 ## Running under PGI environment on one GPU
 The batch job script is very similar as in the GPU environment, the only difference is that different module needs to be loaded. And executable name is also different.
-```batch
+```
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -n 1
@@ -67,7 +67,7 @@ srun ./your_binary
 
 ## Running under GNU environment on multiple GPUs
 Here is a valid script for running under GNU environment, on 2 GPUs on a K80 node:
-```batch
+```
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -n 1
@@ -86,7 +86,7 @@ module list
 srun ./your_binary
 ```
 Here is a valid script for running under GNU environment, on 4 GPUs on K80 a node:
-```batch
+```
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -n 1
@@ -115,7 +115,7 @@ If you are moving a lot of smaller files to the scratch space it the recommended
 - And finally still as part if your batch job you extract that tar file still to the scratch sapce.
 	
 For single node jobs data can be transferred to the <var>${TMPDIR}</var> location with normal file copy commands. These commands need to be run in the job script as you do not have access to the <var>${TMPDIR}</var> directory from outside the job. Below is an example for a single node script.
-```batch
+```
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH -n 1
@@ -135,7 +135,7 @@ cp ${WRKDIR}/your_file.csv ${TMPDIR}/${SLURM_JOB_ID}/your_file.csv
 srun ./your_binary
 ```
 For jobs using multiple compute nodes the copy command needs to be run on all nodes participating in the job, so we need to use srun to run the commands.
-```batch
+```
 #!/bin/bash
 #SBATCH -N 2
 #SBATCH -n 2

@@ -23,7 +23,7 @@ In cases, you can't use puhti-shell / sinteractive ( e.g. in the case of interac
 would launch interactive batch jobs session, running the default command shell <var>($SHELL)</var>. In the command above, one core (<var>-n1</var> ) is reserved for two hours (<var>-t02:00:00</var>). The definition <var>--x11=first</var> sets up the x11 connection so that graphical user interfaces can be used.
 
 Bellow is a sample session where the VMD molecular visualization program is started on an interactive batch job session. Note that after the *srun* command, the commands are not executed in the login node any more. In stead the VMD is now started in one of the computing nodes (node c120 in this case) and thus VMD is not causing extra load to the login node:
-```batch
+```
 [kkayttaj@taito-login4 kkayttaj]$ srun -n1 -t02:00:00 --x11=first --pty $SHELL
 [kkayttaj@c120 kkayttaj]$ module load vmd
 VMD version 1.9.1 is now in use
@@ -33,7 +33,7 @@ VMD version 1.9.1 is now in use
 You can also use interactive batch job sessions to test your software. In these cases you can use *srun* as above or alternatively, first the resource allocation with command *salloc* and then submit jobs with *srun* command.
 
 In the example bellow a request for 48 cores (<var>-n</var> 48) with 1 GB/core (<var>--mem-per-cpu=1000</var>) for 30 minutes (<var>-t00:30:00</var>) is submitted with the *salloc* command. Two full Puhti nodes nodes will be reserved for the interactive job as 24 cores will be used on one node (<var>--ntasks-per-node=24</var>). Once the resource allocation is done the Gromacs jobs can be launched using the *srun* command:
-```batch
+```
 $ salloc -n 48 --ntasks-per-node=24 --mem-per-cpu=1000 -t00:30:00 -p parallel
 $ srun mdrun_mpi -s topol1 -dlb yes
 $ srun mdrun_mpi -s topol2 -dlb yes
