@@ -1,9 +1,8 @@
-#Easy and safe: a_put, a_get, a_find
+# Easy and safe: a_put, a_get, a_find
 
-The Allas object storage system can be used in multiple ways and for many purposes. In many cases effective usage of Allas requires that the user knows thwe features or both Object Storage systems and the software or protocol that is user.
+The Allas object storage system can be used in multiple ways and for many purposes. In many cases effective usage of Allas requires that the user knows the features or both Object Storage systems and the software or protocol that is user.
 
-For those users, that just want to use allas for storing dataa that is used in CSC computing eviroment, CSC provides a set of commands that 
-can be used to move data between CSC computing environment and Allas. The available help tools are
+For those users, that just want to use allas for storing dataa that is used in CSC computing eviroment, CSC provides a set of commands that can be used to move data between CSC computing environment and Allas. The available Allas tools are
   
 * a_put : upload a file or directory to allas
 * a_get : download a stored dataset from allas
@@ -12,48 +11,48 @@ can be used to move data between CSC computing environment and Allas. The availa
 
 ## a_put uploads data to allas.
 
-a_put is used to upload data from the disk environment of Taito or Puhti to 
+<i>a_put</i> is used to upload data from the disk environment of Taito or Puhti to 
 allas storage environmnet. The basic syntax of the command is:
 
 >   a_put directory_or_file
 
 By default this tool performs following operations:
 
-1. Ensures that you have working connection to Allas storage service and 
+1. Ensure that there is a working connection to Allas storage service and 
 defines the project that will be used to store the data.
 
 2. In case of directory, the content of the directory is collected into single file
 (using tar command).
 
-3. Data is compressed using zstdmt command.
+3. Data is compressed using <i>zstdmt</i> command.
 
-4. The compressed data is uploaded to Allas using rclone command and swift protocol.
+4. The compressed data is uploaded to Allas using <i>rclone</i> command and <i>swift</i> protocol.
 
 The location were data is stored in allas can be defined with options
--bucket and -os_file, but defining is non mandatory 
+<i>-bucket</i> and <i>-os_file</i>, but defining these values is normally not needed.
 
  The default option is that data that locates in 
-  a) $WRKDIR(Taito) or $SCRATCH(Puhti) is uploaded to bucket:  username-poject_number-SCRATCH
+  a) $WRKDIR(Taito) or $SCRATCH(Puhti) is uploaded to bucket:  <i>username-poject_number</i>-SCRATCH
 and the data that locates in
-  b) $HOME is uploaded to: username-poject_number-HOME
+  b) $HOME is uploaded to: <i>username-poject_number</i>-HOME
 
-  c) in other cases the data uploaded to: username-poject_number-MISC
+  c) in other cases the data uploaded to: <i>username-poject_number</i>-MISC
 
-For example for user kkaytaj belonging in project_12345,data locating in home directory
-will be uploaded to bucket:  kkayttaj-12345-HOME.
+For example for user <i>kkaytaj</i> belonging in <i>project_12345</i>, data locating in home directory
+will be uploaded to bucket: <i>kkayttaj-12345-HOME</i>.
 
-THe compressed dataset will be stored as one object. The object name depends on the
+The compressed dataset will be stored as one object. The object name depends on the
 file name and location.  The logic used is that the possible subdirectory path in Taito is included 
-in the object name. E.g. a file called test_1.txt in $WRKDIR can be stored with commands:
+in the object name. E.g. a file called <i>test_1.txt</i> in $WRKDIR can be stored with commands:
 
 >     cd $WRKDIR
 
 >     a_put test_1.txt
 
-In this case the file is stored to bucket: kkayttaj-12345-SCRATCH 
-as object: test_1.txt.zst
+In this case the file is stored to bucket: <i>kkayttaj-12345-SCRATCH</i>
+as object: <i>test_1.txt.zst</i>
 
-If you have another file called test_1.txt that locates in location $WRKDIR/project2/sample3
+If you have another file called <i>test_1.txt</i> that locates in <i>$WRKDIR/project2/sample3</i>
 you can store it with commands:
    
 >     cd $WRKDIR/project2/sample3
