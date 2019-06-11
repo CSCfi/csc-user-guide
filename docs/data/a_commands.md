@@ -30,14 +30,13 @@ define the project that will be used to store the data.
 
 The location were data is stored in allas can be defined with options
 <i>-bucket</i> and <i>-os_file</i>, but defining these values is normally not needed as you should us the defaut bucket names.
- The default bucket in allas  depends on the original locayion of the data. If the dadat locates in:
+ The default bucket in allas  depends on the original locayion of the data. Data that locates in:
  
-  *  a) $WRKDIR(Taito) or $SCRATCH(Puhti) is uploaded to bucket:  <i>username-poject_number</i>-SCRATCH
-and the data that locates in
+  * a) $WRKDIR(Taito) or $SCRATCH(Puhti) is uploaded to bucket:  <i>username-poject_number</i>-SCRATCH
   * b) $HOME is uploaded to: <i>username-poject_number</i>-HOME
   * c) in other cases the data uploaded to: <i>username-poject_number</i>-MISC
 
-For example for user <i>kkaytaj</i> belonging in <i>project_12345</i>, data locating in home directory
+For example for user <i>kkaytaj</i> belonging in <i>project_12345</i>, data locating in HOME directory
 will be uploaded to bucket: <i>kkayttaj-12345-HOME</i>.
 
 The compressed dataset will be stored as one object. The object name depends on the
