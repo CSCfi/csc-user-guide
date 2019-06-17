@@ -65,16 +65,16 @@ It is recommended to collect the data to be stored into larger units and compres
 
 In this example we will store the Bowtie2 indexes and genome of the Zebrafish (Danio rerio) to the fish-bucket. Running ls -lh shows that we have the index files available in the current directory
 
->[kkayttaj@c306:~]$ ls -lh
->total 3.2G
->-rw------- 1 kkayttaj csc 440M Mar 12 13:41 Danio_rerio.1.bt2
->-rw------- 1 kkayttaj csc 327M Mar 12 13:41 Danio_rerio.2.bt2
->-rw------- 1 kkayttaj csc 217K Mar 12 13:20 Danio_rerio.3.bt2
->-rw------- 1 kkayttaj csc 327M Mar 12 13:20 Danio_rerio.4.bt2
->-rw------- 1 kkayttaj csc 1.3G Mar 12 13:13 Danio_rerio.GRCz10.dna.toplevel.fa
->-rw------- 1 kkayttaj csc 440M Mar 12 14:03 Danio_rerio.rev.1.bt2
->-rw------- 1 kkayttaj csc 327M Mar 12 14:03 Danio_rerio.rev.2.bt2
->-rw------- 1 kkayttaj csc 599K Mar 12 13:13 log
+<pre>[kkayttaj@c306:~]$ ls -lh
+total 3.2G
+-rw------- 1 kkayttaj csc 440M Mar 12 13:41 Danio_rerio.1.bt2
+-rw------- 1 kkayttaj csc 327M Mar 12 13:41 Danio_rerio.2.bt2
+-rw------- 1 kkayttaj csc 217K Mar 12 13:20 Danio_rerio.3.bt2
+-rw------- 1 kkayttaj csc 327M Mar 12 13:20 Danio_rerio.4.bt2
+-rw------- 1 kkayttaj csc 1.3G Mar 12 13:13 Danio_rerio.GRCz10.dna.toplevel.fa
+-rw------- 1 kkayttaj csc 440M Mar 12 14:03 Danio_rerio.rev.1.bt2
+-rw------- 1 kkayttaj csc 327M Mar 12 14:03 Danio_rerio.rev.2.bt2
+-rw------- 1 kkayttaj csc 599K Mar 12 13:13 log</pre>
 
 The data is collected and compressed to a single file with tar command:
 
