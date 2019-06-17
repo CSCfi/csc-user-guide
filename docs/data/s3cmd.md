@@ -13,8 +13,8 @@ is handy in many ways, but it includes a security aspect too: if your CSC accoun
 ## Configuring s3cmd
 In Taito the s3cmd configuration process can be done by executing commands:
 
-> module load bioconda/3
-> source /appl/opt/allas_conf -mode s3cmd
+<pre> module load bioconda/3
+source /appl/opt/allas_conf -mode s3cmd</pre>
 
 
 The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there is two exceptions:
@@ -28,11 +28,11 @@ This configuration needs to be defined only once. In the future s3cmd will use t
 
 The syntax of the s3cmd command is:
 
->s3cmd -options command parameters
+<pre>s3cmd -options command parameters</pre>
 
 Table 3.2 below lists the most essential s3cmd commands. For more complete list, visit the  s3cmd manual page or execute command:
 
->s3cmd -h
+<pre>s3cmd -h</pre>
 
 Most commonly used s3cmd commands
 s3cmd command 	Function
@@ -51,21 +51,20 @@ In the example below we store a simple dataset to Allas using s3cmd.
 
 First we create a new bucket. The ls command shows that in the beginning we don't have any data in the object storage. After that, we use mb command to create a new bucket called "fish-bucket".
 
->[kkayttaj@c306:~]$ s3cmd ls
->ls
->
->[kkayttaj@c306:~]$ s3cmd mb s3://fish-bucket
->mb s3://fish-bucket/
->Bucket 's3://fish-bucket/' created
->[kkayttaj@c306:~]$ s3cmd ls
->ls
->2018-03-12 13:01  s3://fish-bucket
+<pre>[kkayttaj@c306:~]$ <b>s3cmd ls</b>
+ls
 
+[kkayttaj@c306:~]$ <b>s3cmd mb s3://fish-bucket</b>
+mb s3://fish-bucket/
+Bucket 's3://fish-bucket/' created
+[kkayttaj@c306:~]$ <b>s3cmd ls</b>
+ls
+2018-03-12 13:01  s3://fish-bucket</pre>
 It is recommended to collect the data to be stored into larger units and compress the data before uploading it to the system.
 
 In this example we will store the Bowtie2 indexes and genome of the Zebrafish (Danio rerio) to the fish-bucket. Running ls -lh shows that we have the index files available in the current directory
 
-<pre>[kkayttaj@c306:~]$ ls -lh
+<pre>[kkayttaj@c306:~]$ <b>ls -lh</b>
 total 3.2G
 -rw------- 1 kkayttaj csc 440M Mar 12 13:41 Danio_rerio.1.bt2
 -rw------- 1 kkayttaj csc 327M Mar 12 13:41 Danio_rerio.2.bt2
@@ -78,46 +77,46 @@ total 3.2G
 
 The data is collected and compressed to a single file with tar command:
 
->tar zcf zebrafish.tgz Danio_rerio*
+<pre>tar zcf zebrafish.tgz Danio_rerio*</pre>
 
 The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the the fish-bucket with command s3cmd put:
 
->[kkayttaj@c306:~]$ ls -lh zebrafish.tgz
->-rw------- 1 kkayttaj csc 2.0G Mar 12 15:23 zebrafish.tgz
->
->[kkayttaj@c306:~]$ s3cmd put zebrafish.tgz s3://fish-bucket
->put zebrafish.tgz s3://fish-bucket
->upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 1 of 136, 15MB] [1 of 1]
-> 15728640 of 15728640   100% in    0s    22.49 MB/s  done
->upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 2 of 136, 15MB] [1 of 1]
-> 15728640 of 15728640   100% in    0s    23.17 MB/s  done
->...
->upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 135 of 136, 15MB] [1 of 1]
-> 15728640 of 15728640   100% in    0s    24.13 MB/s  done
->upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 136 of 136, 3MB] [1 of 1]
-> 4002097 of 4002097   100% in    0s     8.96 MB/s  done
->
->[kkayttaj@c306:~]$ s3cmd ls s3://fish-bucket
->ls s3://fish-bucket
->2018-03-12 13:29 2127368497   s3://fish-bucket/zebrafish.tgz
+<pre>[kkayttaj@c306:~]$ <b>ls -lh zebrafish.tgz</b>
+-rw------- 1 kkayttaj csc 2.0G Mar 12 15:23 zebrafish.tgz
 
-Uploading 2 GB of data takes xxxxx. The uploaded file could be retrieved with command:
+[kkayttaj@c306:~]$ s3cmd put zebrafish.tgz s3://fish-bucket
+put zebrafish.tgz s3://fish-bucket
+upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 1 of 136, 15MB] [1 of 1]
+ 15728640 of 15728640   100% in    0s    22.49 MB/s  done
+upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 2 of 136, 15MB] [1 of 1]
+ 15728640 of 15728640   100% in    0s    23.17 MB/s  done
+...
+upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 135 of 136, 15MB] [1 of 1]
+ 15728640 of 15728640   100% in    0s    24.13 MB/s  done
+upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 136 of 136, 3MB] [1 of 1]
+ 4002097 of 4002097   100% in    0s     8.96 MB/s  done>
 
->s3cmd get s3://fish-bucket/zebrafish.tgz
+[kkayttaj@c306:~]$ s3cmd ls s3://fish-bucket
+ls s3://fish-bucket
+2018-03-12 13:29 2127368497   s3://fish-bucket/zebrafish.tgz
+</pre>
+Uploading 2 GB of data takes some time. The uploaded file could be retrieved with command:
+
+<pre>s3cmd get s3://fish-bucket/zebrafish.tgz</pre>
 
 By default this bucket can be accessed only by the project members. However, with s3cmd setacl you can make the file publicly available:
 
 First make the fish-bucket public
 
->s3cmd setacl --acl-public s3://fish-bucket
+<pre>s3cmd setacl --acl-public s3://fish-bucket</pre>
 
 And then make the zebrafish genome file public:
 
->s3cmd setacl --acl-public s3://fish-bucket/zebrafish.tgz
+<pre>s3cmd setacl --acl-public s3://fish-bucket/zebrafish.tgz</pre>
 
 The syntax of URL of the file is:
 
->https://bucket-name.object.pouta.csc.fi/object_name
+<pre>https://bucket-name.object.pouta.csc.fi/object_name</pre>
 
 So in this case the file would be accessible through link:
 
