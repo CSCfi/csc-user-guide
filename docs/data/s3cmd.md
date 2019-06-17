@@ -13,7 +13,7 @@ is handy in many ways, but it includes a security aspect too: if your CSC accoun
 ## Configuring s3cmd
 In Taito the s3cmd configuration process can be done by executing commands:
 
-<pre> module load bioconda/3
+<pre>module load bioconda/3
 source /appl/opt/allas_conf -mode s3cmd</pre>
 
 
@@ -84,7 +84,7 @@ The size of the resulting file is about 2 GB. Now the compressed file can be upl
 <pre>[kkayttaj@c306:~]$ <b>ls -lh zebrafish.tgz</b>
 -rw------- 1 kkayttaj csc 2.0G Mar 12 15:23 zebrafish.tgz
 
-[kkayttaj@c306:~]$ s3cmd put zebrafish.tgz s3://fish-bucket
+[kkayttaj@c306:~]$<b>s3cmd put zebrafish.tgz s3://fish-bucket</b>
 put zebrafish.tgz s3://fish-bucket
 upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 1 of 136, 15MB] [1 of 1]
  15728640 of 15728640   100% in    0s    22.49 MB/s  done
@@ -96,7 +96,7 @@ upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 135 of 136, 1
 upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [part 136 of 136, 3MB] [1 of 1]
  4002097 of 4002097   100% in    0s     8.96 MB/s  done>
 
-[kkayttaj@c306:~]$ s3cmd ls s3://fish-bucket
+[kkayttaj@c306:~]$ <b>s3cmd ls s3://fish-bucket</b>
 ls s3://fish-bucket
 2018-03-12 13:29 2127368497   s3://fish-bucket/zebrafish.tgz
 </pre>
