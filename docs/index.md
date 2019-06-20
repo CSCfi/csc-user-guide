@@ -2,16 +2,9 @@
 
 Work in progress, migration of content from [research.csc.fi/guides](https://research.csc.fi/guides) is underway.
 
-# Featured articles
+| [Accounts](accounts/index.md) | [Connecting](connecting/index.md) |
+  [Computing](computing/index.md) | [Cloud](cloud/index.md) |
 
-* [Creating a new project](accounts/creating-a-new-project.md)
-* [CSD](apps/csd.md) (application)
-* [Gaussian](apps/gaussian.md) (application)
-* [Gromacs](apps/gromacs.md) (application)
-* [Maestro](apps/maestro.md) (application)
-* [rspatial-env](apps/rspatial-env.md) (application)
-* [rspatial-env](apps/rspatial-env2.md) (application)
-* [Launching a virtual machine with the cPouta web interface](cloud/pouta/launch-vm-from-web-gui.md)
-* [Pouta ephemeral storage](cloud/pouta/ephemeral-storage.md)
-* [Disk environment](computing/disk-environment.md)
-* [FGCI](computing/fgci-guide-intro.md) (grid)
+| [Data](data/index.md) | [Applications](apps/index.md) |
+  [Support](support/index.md) [![CSC
+  logo](images/csc-logo.png)](http://www.csc.fi)
