@@ -14,6 +14,6 @@
 * Remote disk mounts 
 * Data transport with Scientist's User Interface 
 
-## Data lake stuff?
-
+## Allas User Guide
+* Allas User Guide
 ## Data analysis guide (A. Kallio)
