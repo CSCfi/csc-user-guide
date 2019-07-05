@@ -19,11 +19,19 @@ nav:
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
      - Monitoring resource usage: accounts/monitoring-resource-usage.md
-  - Connecting: connecting/index.md
-  - Computing: computing/index.md
-#     - The module system: computing/module-system.md
+  - Connecting: 
+     - Connecting to CSC: connecting/index.md
+  - Computing: 
+#     - Overview: computing/index.md
+     - The module system: computing/module-system.md
+     - Resource monitoring: computing/resource-monitoring.md
+     - Running GPU programs: computing/running-gpu-programs.md
+     - Interactive jobs (Puhti-shell): computing/shell.md
+     - Interactive batch jobs: computing/interactive-batch-jobs.md
+     - Advanced batch jobs: computing/advanced-batch-jobs.md
+     - Disk environment: computing/disk-environment.md
+     - FGCI-guide: computing/fgci-guide-intro.md
   - Cloud:
-     - Contents: cloud/index.md
      - Concepts of cloud computing: cloud/concepts.md
      - Pouta:
         - Contents: cloud/pouta/index.md
@@ -60,9 +68,14 @@ nav:
         - FAQ: cloud/pouta/faq.md
      - Rahti:
         - Contents: cloud/rahti/index.md
-  - Data: data/index.md
-  - Applications: apps/index.md
-  - Support: support/index.md
+  - Data: 
+     - Data guide: data/index.md
+  - Applications: 
+     - By discipline: apps/index.md
+     - In alphabetic order: apps/alpha.md
+  - Tutorials: 
+     - Using Conda, best practices: support/conda.md
+     - Basic Taito tutorial: support/tutorials/cmd.md
 theme:
 #  name: material
 #  name: readthedocs
