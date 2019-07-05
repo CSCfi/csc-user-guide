@@ -1,7 +1,6 @@
 <h1> Applications in alphabetic order</h1>
 <!-- grep \* index.md | sort | uniq > alpha.md -->
 
-* [Amber](amber.md) Molecuar dynamics engine and tools
 * [Amber](amber.md) Molecular dynamics engine and tools
 * [CASTEP](castep.md) DFT for periodic systems. Part of Materials Studio suite.
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software.
