@@ -50,5 +50,6 @@ And the same thing in reverse:
 rsync -rP username@taito.csc.fi:/path/to/target/folder /path/to/local
 ```
 
-**Note!** `rsync` will always overwrite any changes made to the target, even if they are newer than the source.
+!!! note
+	`rsync` will always overwrite any changes made to the target, even if they are newer than the source.
 
