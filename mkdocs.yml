@@ -88,8 +88,15 @@ nav:
            - Design patterns: cloud/rahti/tutorials/patterns.md
         - Support: 
            -  Contact support: cloud/rahti/contact.md
-  - Data: 
+  - Data:  
      - Data guide: data/index.md
+     - Moving data between CSC and local environment:
+        - Copying files using scp: data/scp.md
+        - Graphical file transfer tools: data/graphical_transfer.md
+        - Using rsync for data transfer and synchronization: data/rsync.md
+        - Using wget to download data from web sites to CSC: data/wget.md
+        - Sharing and transporting files using Funet FileSender: data/funet.md
+        - Remote disk mounts: data/disk_mount.md  
   - Applications: 
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
