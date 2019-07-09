@@ -19,11 +19,19 @@ nav:
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
      - Monitoring resource usage: accounts/monitoring-resource-usage.md
-  - Connecting: connecting/index.md
-  - Computing: computing/index.md
-#     - The module system: computing/module-system.md
+  - Connecting: 
+     - Connecting to CSC: connecting/index.md
+  - Computing: 
+#     - Overview: computing/index.md
+     - The module system: computing/module-system.md
+     - Resource monitoring: computing/resource-monitoring.md
+     - Running GPU programs: computing/running-gpu-programs.md
+     - Interactive jobs (Puhti-shell): computing/shell.md
+     - Interactive batch jobs: computing/interactive-batch-jobs.md
+     - Advanced batch jobs: computing/advanced-batch-jobs.md
+     - Disk environment: computing/disk-environment.md
+     - FGCI-guide: computing/fgci-guide-intro.md
   - Cloud:
-     - Contents: cloud/index.md
      - Concepts of cloud computing: cloud/concepts.md
      - Pouta:
         - Contents: cloud/pouta/index.md
@@ -59,10 +67,42 @@ nav:
         - Known problems and limitations: cloud/pouta/known-problems.md
         - FAQ: cloud/pouta/faq.md
      - Rahti:
-        - Contents: cloud/rahti/index.md
-  - Data: data/index.md
-  - Applications: apps/index.md
-  - Support: support/index.md
+        - Introduction:
+           - Background: cloud/rahti/introduction/background.md
+           - Sercive description: cloud/rahti/introduction/service_description.md
+           - SLA: cloud/rahti/introduction/sla.md
+           - Technical maturity: cloud/rahti/introduction/technical_maturity.md
+           - Getting access: cloud/rahti/introduction/access.md
+           - Resource billing: cloud/rahti/introduction/billing.md
+        - Usage:
+           - Getting started: cloud/rahti/usage/getting_started.md
+           - Projects and Quota: cloud/rahti/usage/projects_and_quota.md
+           - Security guide: cloud/rahti/usage/security-guide.md
+           - Command line tools: cloud/rahti/usage/cli.md
+        - Extrenal documentation:
+           - Platform documentation: cloud/rahti/ext_docs.md
+        - Tutorials:
+           - Deploying applications from web console: cloud/rahti/tutorials/basic-console.md
+           - Core objects: cloud/rahti/tutorials/elemental_tutorial.md
+           - Utility objects: cloud/rahti/tutorials/advanced_tutorial.md
+           - Design patterns: cloud/rahti/tutorials/patterns.md
+        - Support: 
+           -  Contact support: cloud/rahti/contact.md
+  - Data:  
+     - Data guide: data/index.md
+     - Moving data between CSC and local environment:
+        - Copying files using scp: data/scp.md
+        - Graphical file transfer tools: data/graphical_transfer.md
+        - Using rsync for data transfer and synchronization: data/rsync.md
+        - Using wget to download data from web sites to CSC: data/wget.md
+        - Sharing and transporting files using Funet FileSender: data/funet.md
+        - Remote disk mounts: data/disk_mount.md  
+  - Applications: 
+     - By discipline: apps/index.md
+     - In alphabetic order: apps/alpha.md
+  - Tutorials: 
+     - Using Conda, best practices: support/conda.md
+     - Basic Taito tutorial: support/tutorials/cmd.md
 theme:
 #  name: material
 #  name: readthedocs

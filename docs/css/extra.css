@@ -1,3 +1,6 @@
+.wm-page-toc {display: none !important;}
+.wm-toc-text::after {display: none !important;}
+
 li.toctree-l2,
 li.toctree-l3,
 a.toctree-l4 {
