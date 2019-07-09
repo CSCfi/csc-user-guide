@@ -70,7 +70,7 @@ environments or security policies.</span>
 Before connecting  to your virtual  machine, you can check  its status
 from the *Instances* view of the cPouta/ePouta web interface.
 
-![VM Status check][images/Screenshot-Instances+view+-+OpenStack+Dashboard+-+Chromium.png]
+![VM Status check](images/Screenshot-Instances+view+-+OpenStack+Dashboard+-+Chromium.png)
 
 **Figure** Instances view of the cPouta web interface.
 

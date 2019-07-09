@@ -13,7 +13,7 @@ Taito.
 |--- |--- |
 |swift|Computing  project  `openrc.sh`  file downloaded <br> from https://pouta.csc.fi &  sourced to shell.|
 |s3|Following environment variables present in environment: <br> S3_ACCESS_KEY_ID <br> S3_SECRET_ACCESS_KEY <br> S3_HOSTNAME<br> [(More info here)](persistent-volumes.md)
-|s3cmd|Configuration  file .s3cfg populated [(more info here)][general].|
+|s3cmd|Configuration  file .s3cfg populated [(more info here)](../using-object-storage).|
 
 
   
