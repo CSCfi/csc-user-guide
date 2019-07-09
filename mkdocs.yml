@@ -25,6 +25,10 @@ nav:
 #     - Overview: computing/index.md
      - The module system: computing/module-system.md
      - Resource monitoring: computing/resource-monitoring.md
+     - Available compilers: computing/available-compilers.md
+     - Using MPI: computing/using-MPI.md
+     - Shared memory and hybrid parallelization: computing/shared-memory-and-hybrid-parallelization.md
+     - Debugging parallel applications: computing/debugging-parallel-applications.md
      - Running GPU programs: computing/running-gpu-programs.md
      - Interactive jobs (Puhti-shell): computing/shell.md
      - Interactive batch jobs: computing/interactive-batch-jobs.md
