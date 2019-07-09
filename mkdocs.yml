@@ -100,9 +100,10 @@ nav:
   - Applications: 
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
-  - Tutorials: 
-     - Using Conda, best practices: support/conda.md
-     - Basic Taito tutorial: support/tutorials/cmd.md
+  - Support: 
+     - Tutorials: support/tutorials.md
+     - Contact: support/contact.md
+
 theme:
 #  name: material
 #  name: readthedocs
