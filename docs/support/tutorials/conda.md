@@ -385,8 +385,8 @@ Some ideas for the shell environment setup can be found in file
 [Spack]: https://spack.io
 [Miniconda]: https://docs.conda.io/en/latest/miniconda.html
 [Anaconda]: https://www.anaconda.com/distribution
-[conda-docs-env.yaml]: conda-docs-env.yaml
+[conda-docs-env.yaml]: conda/conda-docs-env.yaml
 [mkdocs]: https://www.mkdocs.org
-[c-ide.yaml]: c-ide.yaml
+[c-ide.yaml]: conda/c-ide.yaml
 [GNU Global]: https://www.gnu.org/software/global
-[bash_profile_extras.sh]: bash_profile_extras.sh
+[bash_profile_extras.sh]: conda/bash_profile_extras.sh
