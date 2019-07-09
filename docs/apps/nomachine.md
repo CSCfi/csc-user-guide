@@ -46,6 +46,6 @@ allowed for all CSC users.
 
 ------------------------------------------------------------------------
 
-  [NoMachine sketch]: images/nomachine.png
+  [NoMachine sketch]: /images/nomachine.png
   [here]: ../accounts/creating-a-new-user-account.md
   [Step-by-step instructions]: https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3
