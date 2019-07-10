@@ -68,6 +68,22 @@ as object:  project2/sample3/test_1.txt.zst
 In addition to the actual data object a second object, containing 
 metadata is created. This metadata object has the same name as the
 main file woth extension: _meta.
+This tool is used to download data that has been uploaded to Allas service using the a_put command.
+The basic syntax of the comand is:
+
+   a_get object_name
+
+By default the object is retrieved and uncompressed 
+
+Options:
+
+-project <project_ID>   Search matches form the buckets of the defined project in stead of the currently configured project. 
+
+-file <file_name>       Retrieve just a specific file or directory from the stored dataset. Note that you need to define
+                        the full path of the file or directory within the sotered object
+
+-target <dir_name>      If this option is defined, a new target directory is created and the data is retrieved there.
+
 
 E.g. 
 >     test_1.txt.zst_meta
@@ -114,3 +130,23 @@ Options:
 
 * <b>-silent </b>                     Ouput just the object names and number of hits. If -file is use too, print object name and 
                              matching file name on one row.
+                             
+## g_get retrieves the stored data
+
+This tool is used to download data that has been uploaded to Allas service using the a_put command.
+The basic syntax of the comand is:
+
+>    a_get object_name
+
+By default the object is retrieved and uncompressed 
+
+Options:
+
+-project <project_ID>   Search matches form the buckets of the defined project in stead of the currently configured project. 
+
+-file <file_name>       Retrieve just a specific file or directory from the stored dataset. Note that you need to define
+                        the full path of the file or directory within the sotered object
+
+-target <dir_name>      If this option is defined, a new target directory is created and the data is retrieved there.
+
+
