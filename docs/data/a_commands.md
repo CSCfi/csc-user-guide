@@ -91,14 +91,14 @@ The query term is procecced as a reqular repression where some characters, for e
 The same regular expression syntax is used with e.g. grep, awk and sed commands.
 The most commonly occurring special characters are listed below:
 
-    the dot (.) is used to define any single character.
-    ^ means the beginning of a line
-    $ means the end of a line
-    [ ] matches any of the characters inside the brackets. For example [abc] would match a,b or c.
-    [^ ] matches any character, except the characters inside the brackets. 
+*the dot (<b>.</b>) is used to define any single character.
+* <b>^</b> means the beginning of a line
+* <b>$</b> means the end of a line
+* <b>[ ]</b> matches any of the characters inside the brackets. For example [abc] would match a,b or c.
+* <b>[^ ]</b> matches any character, except the characters inside the brackets. 
     For example [^abc] would select all rows that contain also other characters
     than just a,b and c.
-    * matchs zero or more of the preceding character or expression
+* <b>*</b> matchs zero or more of the preceding character or expression
     \{n,m\} matches n to m occurrences of the preceding character or expression
 
 
