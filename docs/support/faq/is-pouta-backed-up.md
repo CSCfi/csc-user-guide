@@ -1,6 +1,6 @@
 # Is Pouta backed up?
 
-Mostly not. The servers that control and manage the service are backed up so we can restore the service in case of failures. However all the places where users can store data including  Volumes, Images, Virtual machines and Ephemeral storage are not backed up. It's the users  responsibility to make backups of data as needed.
+Mostly not. The servers that control and manage the service are backed up so we can restore the service in case of failures. However all the places where users can store data including  Volumes, Images, Virtual machines and Ephemeral storage are not backed up. It's the users responsibility to make backups of data as needed.
 
 Some other CSC services have backup, so depending on the type and amount of data users can consider copying data elsewhere.
 

@@ -11,5 +11,4 @@ Alternatives:
 
 Users are free to use any other storage outside of Pouta, either directly or by coping data it to ephemeral storage of volumes. It's possible to use other CSC storage in this way. See:
 
-*   [Can I access my CSC home/wrkdir/project directories?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 *   [How do I access the CSC archive service?](how-to-access-csc-archive-services-from-cpouta.md)
