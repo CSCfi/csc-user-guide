@@ -105,12 +105,12 @@ The most commonly occurring special characters are listed below:
 
 Options:
 
-* <pre>-files</pre>  Lists the names of the matching files inside the objects in addition to the object name.
+* <b>-files</b>  Lists the names of the matching files inside the objects in addition to the object name.
 
-* <pre>-project <i>project_ID</i></pre>   Search matches form the buckets of the defined project in stead of the currently configured project. 
+* <b>-project <i>project_ID</i></b>   Search matches form the buckets of the defined project in stead of the currently configured project. 
 
-* <pre>-bucket <i>bucket_name</i></pre>   By default all the buckets, used by a_put, are searched. Option -bucket allows you to specify a 
+* <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by a_put, are searched. Option -bucket allows you to specify a 
                              single bucket that will be used for the search.
 
-* <pre>-silent </pre>                     Ouput just the object names and number of hits. If -file is use too, print object name and 
+* <b>-silent </b>                     Ouput just the object names and number of hits. If -file is use too, print object name and 
                              matching file name on one row.
