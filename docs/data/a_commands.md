@@ -74,5 +74,43 @@ E.g.
 or 
 >     project2/sample3/test_1.txt.zst_meta
 
-This metadata file is used by the a_find command.
+This metadata file is used by the other a_ command and normally it is not dailplayed to the user.
 
+## a_find
+
+A_find command allows you to list and locate data that has been uploaded to Allas usinng a_put.
+The basic syntax of the comand is:
+
+>    a_find <i>query_term</i>
+
+The query term is compared to the names and original paths of the files that have been uploaded to
+Allas and the matching obects are reported (but not downloaded). Note that data, that has been uploded 
+to Allas using other tools than a_put is not included in this serach process.
+
+The query term is procecced as a reqular repression where some characters, for example dot (.), have a special meaning.
+The same regular expression syntax is used with e.g. grep, awk and sed commands.
+The most commonly occurring special characters are listed below:
+
+    the dot (.) is used to define any single character.
+    ^ means the beginning of a line
+    $ means the end of a line
+    [ ] matches any of the characters inside the brackets. For example [abc] would match a,b or c.
+    [^ ] matches any character, except the characters inside the brackets. 
+    For example [^abc] would select all rows that contain also other characters
+    than just a,b and c.
+    * matchs zero or more of the preceding character or expression
+    \{n,m\} matches n to m occurrences of the preceding character or expression
+
+
+
+Options:
+
+-files                       Lists the names of the matching files inside the objects in addition to the object name.
+
+-project <i>project_ID</i>   Search matches form the buckets of the defined project in stead of the currently configured project. 
+
+-bucket <i>bucket_name</i>   By default all the buckets, used by a_put, are searched. Option -bucket allows you to specify a 
+                             single bucket that will be used for the search.
+
+-silent                      Ouput just the object names and number of hits. If -file is use too, print object name and 
+                             matching file name on one row.
