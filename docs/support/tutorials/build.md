@@ -21,7 +21,26 @@ done, and in where the build process writes required temporary files. Install
 root is where the final results of the build are copied from the build
 directory. Keeping these three separate is a recommended practice.
 
-## Configure, build and install
+## Configure, compile, link, and install
+
+### Build tools
+
+Almost all software packages use some build tool (framework) to orchestrate the
+different steps in the build process.
+
+The most common build tools are GNU autotools and CMake. The details of
+using these is beyond the scope of this document. Usually following the
+instructions that come with the software are enough. If you see a file
+`configure` or `CMakeLists.txt` in the root of the source directory, the
+build tool is likely GNU autotools or CMake, respectively.
+
+There exist a plethora of other build tools and scripts written in Bash, Python,
+etc. Often these are a sign of trouble.
+
+A simple, well documented project can sometimes manage well without a build
+tool. It all depends on the complexity of the software, the size of the source
+code base, the number of external software dependencies, and the number of
+supported platforms.
 
 ### Configuring a build
 
@@ -33,34 +52,21 @@ configuration. In the configuration step, several details are determined:
 - other platform dependent details
 - final install location
 
-#### Build tools
-
-The most common configuration tools are GNU autotools and CMake. The details of
-using these is beyond the scope of this document. Usually following the
-instructions that come with the software are enough. If you see a file
-`configure` or `CMakeLists.txt` in the root of the source directory, the
-configuration tool is likely GNU autotools or CMake, respectively. In a best
-case scenario, the user is only required to tell where the software should
-finally be installed,
+In a best case scenario, the build tool can figure out all the details, and the
+user is only required to tell where the software should finally be installed,
 
 ```
 ./configure --prefix=install-root
 ```
 
+or
+
 ```
 cmake source-root -DCMAKE_INSTALL_PREFIX=install-root
 ```
 
-More commonly, one needs to get a bit more familiar with the build tool in use.
-More examples follow in the sections Compiling, Linking and Installing.
-
-There exist a plethora of other configuration tools and configuration scripts
-written in Bash, Python, etc. Often these are a sign of trouble.
-
-A simple project can often manage well with fully manual configuration and clear
-documentation. It all depends on the complexity of the software, the size of the
-source code base, the number of external software dependencies, and the number
-of supported platforms.
+for GNU Autotools and CMake, respectively. More commonly, one needs to get a bit
+more familiar with the build tool in use.
 
 ### Compiling
 
