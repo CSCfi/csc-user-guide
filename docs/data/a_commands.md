@@ -81,7 +81,7 @@ The basic syntax of the comand is:
 >    a_find <i>query_term</i>
 
 The query term is compared to the names and original paths of the files that have been uploaded to
-Allas and the matching objects are reported (but not downloaded). Note that data, that has been uploded 
+Allas and the matching objects are reported (but not downloaded). Note that data, that has been uploaded 
 to Allas using other tools than <i>a_put</i> is not included in this serach process.
 
 The query term is procecced as a reqular repression where some characters, for example dot (.), have a special meaning.
@@ -104,29 +104,26 @@ Options:
 
 * <b>-files</b>  Lists the names of the matching files inside the objects in addition to the object name.
 
-* <b>-project <i>project_ID</i></b>   Search matches form the buckets of the defined project in stead of the currently configured project. 
+* <b>-project <i>project_ID</i></b>   Search matches from the buckets of the defined project in stead of the currently configured project. 
 
-* <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by a_put, are searched. Option -bucket allows you to specify a 
-                             single bucket that will be used for the search.
+* <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by <i>a_put</a>, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You shuould use these this option also in cases where you have stored data to buckets with non-standard name.
 
-* <b>-silent </b>                     Ouput just the object names and number of hits. If -file is use too, print object name and 
-                             matching file name on one row.
+* <b>-silent </b>            Output just the object names and number of hits. If <i>-file<i> option is uses too, print the object name and matching file name on one row.
                              
 ## g_get retrieves the stored data
 
-This tool is used to download data that has been uploaded to Allas service using the a_put command.
+This tool is used to download data that has been uploaded to Allas service using the <i>a_put</i> command.
 The basic syntax of the comand is:
 
 >    a_get object_name
 
-By default the object is retrieved and uncompressed 
+By default the object is retrieved and uncompressed. By default the data is extacted to a file or directory that was used in  uploading. If a directory or file with the same name already exists, you must either remove the exixting file/directory or guide the downloaded data to new directory defined by -target option.
 
-Options:
+a_get options:
 
-* <b>-project <i>project_ID</i></b>   Search matches form the buckets of the defined project in stead of the currently configured project. 
+* <b>-project <i>project_ID</i></b>  Retrieve data form the buckets of the defined project in stead of the currently configured project. 
 
-* <b>-file <i>file_name</i></b>      Retrieve just a specific file or directory from the stored dataset. Note that you need to define
-                        the full path of the file or directory within the sotered object
+* <b>-file <i>file_name</i></b>      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
 
 * <b>-target <i>dir_name</i></b>      If this option is defined, a new target directory is created and the data is retrieved there.
 
