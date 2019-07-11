@@ -69,7 +69,7 @@ nav:
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
         - Pouta videos: cloud/pouta/pouta-videos.md
         - Known problems and limitations: cloud/pouta/known-problems.md
-        - FAQ: support/faq#pouta
+        - FAQ: /support/faq#pouta
 # valittaa syntaksista, mutta toimii...
      - Rahti:
         - Introduction:
