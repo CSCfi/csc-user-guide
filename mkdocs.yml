@@ -104,7 +104,7 @@ nav:
   - Applications: 
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
-  - Support: 
+  - Support:
      - Tutorials: support/tutorials.md
      - FAQ: support/faq.md
      - Contact: support/contact.md
@@ -118,7 +118,7 @@ extra_javascript:
   - https://use.fontawesome.com/e51b07f7f1.js
 markdown_extensions:
   - toc:
-      toc_depth: 2-3
+      toc_depth: 2-6
   - admonition
   - attr_list
   - pymdownx.details
