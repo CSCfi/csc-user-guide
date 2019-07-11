@@ -147,6 +147,7 @@ Options:
 * <b>-file <i>file_name</i></b>      Retrieve just a specific file or directory from the stored dataset. Note that you need to define
                         the full path of the file or directory within the sotered object
 
-* -target <i>dir_name</i></b>      If this option is defined, a new target directory is created and the data is retrieved there.
+* <b>-target <i>dir_name</i></b>      If this option is defined, a new target directory is created and the data is retrieved there.
+
 
 
