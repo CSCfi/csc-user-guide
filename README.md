@@ -5,6 +5,25 @@ This repository contains master data for two websites. Public website
 development website (https://csc-user-guide-dev.rahtiapp.fi) is in
 sync with 'develop' branch.
 
+## Changelog
+
+### 2019-07-11, Juha
+
+- named the site to Docs CSC, mathing My CSC!
+- locked Windmill theme as it is (?) the only one supporting multi-level (file)
+  hierachy in the navigation
+- configured the toc extension to pick only h2 and h3 tag levels in .md
+  documents, see [module-system.md](docs/computing/module-system.md) as an
+  example
+
+## TODO
+
+- beautify the functionality and the looks according to Ling's advice
+- Collaborate with My CSC development for common look and feel?
+- fix Windmill theme bugs
+    - side navigation does not hide properly if header are too long and browser
+      window is narrow
+
 ## Contributing
 
 How you can contribute depends on whether you are CSC staff or user.
