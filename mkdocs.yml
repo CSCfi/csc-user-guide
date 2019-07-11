@@ -70,7 +70,6 @@ nav:
         - Pouta videos: cloud/pouta/pouta-videos.md
         - Known problems and limitations: cloud/pouta/known-problems.md
         - FAQ: /support/faq#pouta
-# valittaa syntaksista, mutta toimii...
      - Rahti:
         - Introduction:
            - Background: cloud/rahti/introduction/background.md
