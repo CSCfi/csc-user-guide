@@ -1,4 +1,4 @@
-# CSC User Guide
+# Docs CSC
 
 This repository contains master data for two websites. Public website
 (https://docs.csc.fi) is in sync with 'master' branch and internal
