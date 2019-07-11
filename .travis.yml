@@ -18,3 +18,5 @@ script:
   - bash tests/aspellcheck.bash 2500
   # Testing if there are any warnings
   - bash tests/checkwarnings.bash
+  # Testing if the build works
+  - bash tests/checkbuild.bash
