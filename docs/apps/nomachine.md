@@ -30,7 +30,7 @@ allowed for all CSC users.
     applications). If you don't have one, you can get it from [here].
 2.  Download the latest NoMachine **client** (win, mac, linux) from the
     NoMachine site, see detailed instructions from the link below.
-3.  Install and your NoMachine client. See [Step-by-step instructions]
+3.  Install and configure your NoMachine client. See [CSC NoMachine Tutorial]
 4.  Start the NoMachine client and log on to nxkajaani.csc.fi.
 5.  Right click in the Desktop and choose the CSC server you want to use
     (opens an ssh terminal).
@@ -42,10 +42,10 @@ allowed for all CSC users.
 ## More Information
 
 * NoMachine [knowledge base](https://www.nomachine.com/knowledge-base)
-* Direct user support from NoMachine can be accessed via CSC i.e. through servicedesk@csc.fi
+* User support via CSC through servicedesk@csc.fi
 
 ------------------------------------------------------------------------
 
   [NoMachine sketch]: /images/nomachine.png
   [here]: ../accounts/creating-a-new-user-account.md
-  [Step-by-step instructions]: https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3
+  [CSC NoMachine Tutorial]: /support/tutorials/nomachine-usage

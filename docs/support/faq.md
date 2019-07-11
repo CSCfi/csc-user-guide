@@ -1,7 +1,14 @@
 # Frequently Asked Questions
 
 ## General
-
+   - [How to cite CSC in a paper?](faq/how-to-cite-csc.md)
+   - [I'm moving abroad. Can I still use CSC services?](faq/can-i-use-csc-resources-from-abroad.md)
+   - [I cannot login with my username](faq/i-cannot-login-with-my-username.md)
+   - [I have lost my password. How to get a new one?](faq/i-lost-my-password.md)
+   - [X11 remote graphics does not work](faq/x11-remote-graphics-does-not-work.md)
+   - [Why is my batch job queueing so long?](faq/why-is-my-job-queueing-so-long.md)
+   - [How much memory does my batch job need?](faq/how-much-memory-my-job-needs.md)
+   - [I cannot login to Taito/Puhti from NoMachine](faq/i-cannot-login-to-taito-from-nomachine.md)
 
 ## Pouta
    - [How to create default network and router in a Pouta project](faq/how-to-create-default-network-and-router-in-pouta.md)
