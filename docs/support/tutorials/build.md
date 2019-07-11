@@ -3,8 +3,8 @@
 Building software can be tedious, but it is not difficult &mdash; if you are
 familiar with the basic concepts. This document explains the basic concepts.
 
-This document is only relevant for compiled languages such as C, C++, and
-Fortran. Just checking :-)
+The material here is only relevant for compiled languages such as C, C++, and
+Fortran. Just checking ;-)
 
 ## Directories
 
@@ -25,13 +25,15 @@ directory. Keeping these three separate is a recommended practice.
 
 ### Configuring a build
 
-The preparation step before actually building a software is called configuration. In
-the configuration step, several details are determined:
+The preparation step before actually building a software is called
+configuration. In the configuration step, several details are determined:
 
-- optional features of the software are enabled/disabled
-- platform dependent details
-- dependencies, build tools and support libraries
+- which optional features of the software are enabled/disabled
+- build tools' and support libraries' locations
+- other platform dependent details
 - final install location
+
+#### Build tools
 
 The most common configuration tools are GNU autotools and CMake. The details of
 using these is beyond the scope of this document. Usually following the
@@ -41,18 +43,19 @@ configuration tool is likely GNU autotools or CMake, respectively. In a best
 case scenario, the user is only required to tell where the software should
 finally be installed,
 
-```bash
-./configure --prefix=<install root directory>
+```
+./configure --prefix=install-root
 ```
 
-```bash
-cmake <source root> -DCMAKE_INSTALL_PREFIX=<install root directory>
+```
+cmake source-root -DCMAKE_INSTALL_PREFIX=install-root
 ```
 
+More commonly, one needs to get a bit more familiar with the build tool in use.
 More examples follow in the sections Compiling, Linking and Installing.
 
 There exist a plethora of other configuration tools and configuration scripts
-written in Bash, Python, etc. Usually these are a sign of trouble.
+written in Bash, Python, etc. Often these are a sign of trouble.
 
 A simple project can often manage well with fully manual configuration and clear
 documentation. It all depends on the complexity of the software, the size of the
@@ -68,6 +71,8 @@ instruction sets, and different operating systems have different conventions for
 object files (binaries), object files are not necessarily transferable from one
 machine to the next.
 
+#### Pre-processing
+
 Just before compiling the source code, the compilers usually run a preprocessing
 step, which basically does textual replacements to the source code according to
 the preprocessing instructions (source code lines starting with `#`). Common
@@ -76,6 +81,7 @@ current source code file (`#include ...`), conditional inclusion or exclusion of
 the source code (`#ifdef ...`), and definition of preprocessor textual
 replacements and macros (`#define ...`).
 
+#### Compiling object files
 
 Each source file is translated separately to the object code. The mechanism that
 the compiler uses to check the interfaces, basically subroutine arguments and
@@ -93,7 +99,7 @@ source files are to be compiled in parallel.
 | C++      | `.h` `.cpp`  | `.o`           |
 | Fortran  | `.f90`       | `.mod` `.o`    |
 
-Please note, in general only C language object files are compatible between
+Please note, in general *only* C language object files are compatible between
 different C compilers and compiler versions, even in the same machine. With
 Fortran and C++ it is safest to compile all objects, also in all libraries that
 the current project depends on, with the same compiler.
@@ -115,7 +121,6 @@ but not limited to
 - `-g` include symbols for debugging, may turn off performance optimizations
 - `-fbounds-check` check that array indices are within the bounds in Fortran
 - `-Wall`
-- `-fopenmp` create OpenMP thread parallel code
 
 Also, when developing the code, it is a very good practice to compile the code
 with as many different compilers and platforms as possible, to catch as many
@@ -125,6 +130,7 @@ Choosing the best *performance optimization* options is beyond the scope of this
 document, but
 
 - `-O2` is usually a good first guess
+- `-fopenmp` enables OpenMP thread parallel code generation
 
 The options that change how the compiler treats loosely defined language
 constructs, such as `-fdefault-real-8` for Fortran, are usually a "code smell",
@@ -136,3 +142,22 @@ time. In general, the less compiler options you need to give, the better.
 ### Installing
 
 ### Compiler wrappers
+
+### Common issues
+
+#### Library dependencies
+
+Is the required support library (version) already installed? If not, building it
+from the sources is a recursion of this topic...
+
+#### Build tools
+
+What compilation and linking commands the build tool actually runs?
+
+How to tell the build tool which options to add to the compile and link
+commands?
+
+- location of the library header files (.h, .mod) and object libraries (.a,
+  .so)
+- names of the compiler and linker to use
+- other compiler and linker options
