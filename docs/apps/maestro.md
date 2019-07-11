@@ -58,7 +58,7 @@ Note, that to be able to run graphics remotely from a Windows machine, you need 
 
 Although Desmond is available also in the suite provided by Schrödinger Inc. it is possible to use the Academic version obtained directly from D.E.Shaw research, which may have some additional features. That version can be used by all academics in Finland for academic research ([please consult the license agreement](http://www.deshawresearch.com/downloads/download_desmond.cgi/Desmond_2_License.txt)). Instructions for using [Desmond in Taito](/software-details?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_col_id=column-2&p_p_col_count=1&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_assetEntryId=113505&_101_type=content&_101_urlTitle=running-desmond-jobs-in-taito&redirect=%2F-%2Fmaestro "Running Desmond jobs in Taito").
 
-Desmond molecular dynamics runs **very well** on the **Taito GPUs** (3-4 times faster than a full CPU-only Haswell node, i.e. 24 cores). You can submit jobs to the GPGPUs from the GUI or command line from taito or taito-shell (no need to log in on taito-gpu) just select one of the gpu-named queues for your job. We recommed watching the video above on how to accomplish this easily.
+Desmond molecular dynamics runs **very well** on the **Taito GPUs** (3-4 times faster than a full CPU-only Haswell node, i.e. 24 cores). You can submit jobs to the GPGPUs from the GUI or command line from Taito or taito-shell (no need to log in on taito-gpu) just select one of the gpu-named queues for your job. We recommed watching the video above on how to accomplish this easily.
 
 **Installation**
 

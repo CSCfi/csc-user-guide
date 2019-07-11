@@ -59,7 +59,7 @@ typing
 ~~~~
 
 If more resources are required, one can request an interactive node
-directly on a computing node on taito with
+directly on a computing node on Taito with
 
 ~~~~ western
 srun -c 1 -t 00:10:00 --mem=1G --pty julia
