@@ -1,0 +1,5 @@
+# Why can't I connect to my virtual machine in Pouta?
+
+The most common reason for this problem is a [security group](/cloud/pouta/launch-vm-from-web-gui#firewalls-and-security-groups) that is too restrictive. Newly launched virtual machines will by default block all traffic. You may either modify your default security group to allow a minimal set of connections (like, say, ping and ssh from your local machine and nowhere else) or you may create a new security group. This new security group must then be explicitly selected when launching new virtual machines.
+
+If the security group rules are correct and you should be able to connect, there may be a problem with the virtual machine image. You can connect to the console of the virtual machine using the VNC console feature of the web interface. Select "Console" from the dropdown menu that is on the right side of the virtual machine listing on the instances page. Depending on the image, you may need login credentials.

@@ -1,17 +1,9 @@
-# CSC's data management and computing environment user guide
+# CSC computing and data environment
 
-Work in progress, migration of content from [research.csc.fi/guides](https://research.csc.fi/guides) is underway.
+Work in progress, migration of content from
+<https://research.csc.fi/guides> is underway.
 
-# Featured articles
+A collection of topical issues, like how to get started with Puhti and Allas
+will appear on this page.
 
-* [Creating a new project](accounts/creating-a-new-project.md)
-* [CSD](apps/csd.md) (application)
-* [Gaussian](apps/gaussian.md) (application)
-* [Gromacs](apps/gromacs.md) (application)
-* [Maestro](apps/maestro.md) (application)
-* [rspatial-env](apps/rspatial-env.md) (application)
-* [rspatial-env](apps/rspatial-env2.md) (application)
-* [Launching a virtual machine with the cPouta web interface](cloud/pouta/launch-vm-from-web-gui.md)
-* [Pouta ephemeral storage](cloud/pouta/ephemeral-storage.md)
-* [Disk environment](computing/disk-environment.md)
-* [FGCI](computing/fgci-guide-intro.md) (grid)
+- [Installing software using Conda, best practices](support/tutorials/conda.md)

@@ -154,15 +154,21 @@ After the PR has been merged, the branch on github can be deleted.
 
 ## Previewing the website using MkDocs
 
-This user guide uses [MkDocs](http://www.mkdocs.org/) to generate
-documentation pages. You can install it on your computer by following
-the instructions given in [MkDocs
-documentation](http://www.mkdocs.org/#installation).
+This user guide uses [MkDocs](http://www.mkdocs.org/) to generate documentation
+pages. You can install it on your computer by following the instructions given
+in [MkDocs documentation](http://www.mkdocs.org/#installation), or with
+[conda](https://docs.conda.io/en/latest/miniconda.html) by simply
+
+```bash
+conda env create -f docs/support/conda-docs-env.yaml
+conda activate docs
+```
 
 You can start a preview web server from the command line while in the
 root of the project directory.
 
 ```bash
+mkdocs build
 mkdocs serve
 ```
 

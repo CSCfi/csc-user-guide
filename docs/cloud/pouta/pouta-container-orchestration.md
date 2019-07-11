@@ -114,8 +114,8 @@ Deleting a cluster:
 It  is  assumed  that  you  already  have  your  terminal  environment
 configured for OpenStack and a key pair associated with your OpenStack
 account. If not,  see the instructions for  [configuring your terminal
-environment  for  OpenStack][instructions   for  installing  OpenStack
-command line tools] and instructions for [creating a key pair].
+environment  for  OpenStack](../command-line-tools) and instructions for 
+[creating a key pair](../connecting-to-vm).
 
 You will first need to create a cluster template that contains various
 configuration  options for  the  cluster  to be  created.  Here is  an
