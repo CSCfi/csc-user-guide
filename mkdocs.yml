@@ -23,7 +23,7 @@ nav:
      - Connecting to CSC: connecting/index.md
   - Computing: 
 #     - Overview: computing/index.md
-     - The module system: computing/module-system.md
+     - Module system: computing/module-system.md
      - Resource monitoring: computing/resource-monitoring.md
      - Running GPU programs: computing/running-gpu-programs.md
      - Interactive jobs (Puhti-shell): computing/shell.md
@@ -105,16 +105,15 @@ nav:
      - Contact: support/contact.md
 
 theme:
-#  name: material
-#  name: readthedocs
   name: windmill
-#  name: 'rtd-dropdown'
   custom_dir: custom_theme/
 extra_css:
   - css/extra.css
 extra_javascript:
   - https://use.fontawesome.com/e51b07f7f1.js
 markdown_extensions:
+  - toc:
+      toc_depth: 2-3
   - admonition
   - attr_list
   - pymdownx.details
