@@ -106,7 +106,7 @@ Options:
 
 * <b>-project <i>project_ID</i></b>   Search matches from the buckets of the defined project in stead of the currently configured project. 
 
-* <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by <i>a_put</a>, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You shuould use these this option also in cases where you have stored data to buckets with non-standard name.
+* <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by <i>a_put</i>, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You shuould use these this option also in cases where you have stored data to buckets with non-standard name.
 
 * <b>-silent </b>            Output just the object names and number of hits. If <i>-file<i> option is uses too, print the object name and matching file name on one row.
                              
