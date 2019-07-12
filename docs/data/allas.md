@@ -12,11 +12,6 @@ can be accessed over the internet from any location. Further the same data can b
 interfaces: ( command line clients, WWW-interfaces, virtual disk mounts etc.). The data can also be made 
 publicly accessible.
 
-
-
-## Tehcnical details
-  
-
 ## Getting Access
 
 Usage Allas is based on CSC customer projects. To be able to use allas you need to be a memeber in 
@@ -31,9 +26,20 @@ Storing data in Allas consumes billing units with rate xxxx Bu/TbA. Note that in
 
 All the project members have equal access rights to the Allas storage area that has been granted for the project. In practice this means if one user uploads data all the other users can not just read, but also delete the data. Allas itself does not store any information about who has uploaded the data to allas.
 
+## Tehcnical details
+ 
+Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. Some applications crate buckets automatically but Allas users can freely create new buckets too.  The only drawback of buckets is that they must have a name that is unique in Allas. You can't create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user spesific in the bucket name, for instance "2000620-raw-data".
+
+By default a project is allowed to have 1000 buckets each of which can contain 100 000 objects.
+
 
 ## Using Allas in Puhti and Taito
 
+The first step to use Allas is to authenticate to a project in Allas. In Taito and Puhti you can do the autentication with command:
+
+    [user@puhti ~] source /appl/opt/allas_conf
+
+The command above generates and stores authentication information into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL. The authentication is valid for max 3 hours. Note that environment variables are available only for that login session so if you log into Puhti in another session, you need to authenticatate again there to use Allas.
 
 
  1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
