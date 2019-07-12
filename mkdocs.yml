@@ -61,6 +61,7 @@ nav:
      - Rahti:
         - Contents: cloud/rahti/index.md
   - Data: data/index.md
+  - Allas: data/allas.md
   - Applications: apps/index.md
   - Support: support/index.md
 theme:

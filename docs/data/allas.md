@@ -8,7 +8,7 @@ can use Allas to store adn read your data, but if you want to modify your data, 
 a server where you do the modifications and then replace the original object with a new version. 
 
 The benefit of object storage is that it can handel paractically any static data and that the data
-can be accessed over the internet from any location. Further the same data can be accessed through several
+can be accessed over the internet from any location. Furthe-objectsr the same data can be accessed through several
 interfaces: ( command line clients, WWW-interfaces, virtual disk mounts etc.). The data can also be made 
 publicly accessible of for autorised users only.
 
