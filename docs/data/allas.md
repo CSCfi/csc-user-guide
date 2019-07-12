@@ -30,7 +30,7 @@ Data in Allas is arranged into containers called <i>buckets</i>. You can simply 
 
 All buckets must have a name that is unique in Allas. You can't create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user spesific in the bucket name, for instance <i>2000620-raw-data</i>.
 
-The logical sructure if Allas is flat and simple: you have buckets conntaining onjects. You can not have buckets with other buckets inside them and objets stored in a bucket don't have a hirarchy. Even though you can't creare sub-diretories inside a bucket, you can however make use of so called pseudo-folders, based on objet names.
+The logical sructure of Allas is flat and simple: you have buckets conntaining onjects. You can not have buckets with other buckets inside them and objets stored in a bucket don't have a hirarchy. Even though you can't creare sub-diretories inside a bucket, you can however make use of so called pseudo-folders, based on objet names.
 
 If an object name contains a forward slash "/", it is in many applications interpreted as a folder separator. For example, they are shown as folders listings when accessing the data through Pouta web interface. These pseudo-folders are automatically added if you upload whole folders with command line clients.
 
