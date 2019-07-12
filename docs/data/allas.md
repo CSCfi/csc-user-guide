@@ -17,20 +17,15 @@ publicly accessible for authorized users only.
 ## Technical details
   
 
-##Getting Access
+## Getting Access
 
-The usage of Allas is based on CSC customer projects. To be able to use Allas you need to be a member in 
-a CSC project that has a permission to use Allas. If you don't have a CSC account, you must first register as CSC user
-and join or start a computing project, for which Allas has been enabled. All these steps can be done with the
-MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi)
-
+The usage of Allas is based on CSC customer projects. To be able to use Allas you need to be a member in a CSC project that has a permission to use Allas. If you don't have a CSC account, you must first register as CSC user and join or start a computing project, for which Allas has been enabled. All these steps can be done with the MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi)
 
 The usage of Allas is based on project based storage quotas. All the project members have equal access rights to the storage 
 area that has been granted for the project. In practice this means that if one user uploads data to allas, all the other users can read and also delete the data. Allas itself does not store any information about who has uploaded the data to allas.
 
 
-##Using Allas in Puhti and Taito
-
+## Using Allas in Puhti and Taito
 
 
  1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
