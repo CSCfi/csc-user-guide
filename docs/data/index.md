@@ -13,10 +13,8 @@
 * [Funet FileSender to share and transport files](funet.md)
 * [Remote disk mounts](disk_mount.md) 
 
-<h2>Allas User Guide</h2>
-*    [Allas User Guide](./allas.md)
     
-[Allas intro](./allas.md)
+<h2>[Allas Object Storage service](./allas.md)</h2>
 
  1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
 
