@@ -26,7 +26,7 @@ All the project members have equal access rights to the Allas storage area that 
 ## Tehcnical details
  
 ### Storage quota and structure 
-Data in Allas is arranged into containers called <i>buckets</b>. You can simply think them as top level directories. Some applications crate buckets automatically but Allas users can freely create new buckets too. By default a project is allowed to have 1000 buckets each of which can contain 100 000 objects.
+Data in Allas is arranged into containers called <i>buckets</i>. You can simply think them as top level directories. Some applications crate buckets automatically but Allas users can freely create new buckets too. By default a project is allowed to have 1000 buckets each of which can contain 100 000 objects.
 
 All buckets must have a name that is unique in Allas. You can't create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user spesific in the bucket name, for instance <i>2000620-raw-data</i>.
 
