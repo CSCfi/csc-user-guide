@@ -14,7 +14,7 @@
 * [Remote disk mounts](disk_mount.md) 
 
     
-<h2>[Allas Object Storage service](./allas.md)</h2>
+<h2> [Allas Object Storage service](./allas.md) </h2>
 
  1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
 
