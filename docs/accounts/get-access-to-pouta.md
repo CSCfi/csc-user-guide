@@ -35,7 +35,7 @@ Please        contact       <a        href="mailto:servicedesk@csc.fi"
 class="external-link">servicedesk@csc.fi</a> in    case    you    need
 assistance.
 
-![cPouta application](images/pouta_application.jpg)
+![cPouta application](/img/pouta_application.jpg)
 
 **Figure** Applying  for cPouta  access with  the *Resources  and
 Applications* tool.
@@ -53,7 +53,7 @@ organization's network instead  of going over the  public Internet. To
 get  started with  connecting your  network to  ePouta, please  send a
 request to <servicedesk@csc.fi>.
 
-![ePouta connection](images/epouta-connection.jpg)
+![ePouta connection](/img/epouta-connection.jpg)
 
 **Figure** Connection between ePouta cloud VMs and Customer's home
 network.

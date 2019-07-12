@@ -166,4 +166,4 @@ applications.   Virtual  machine images  are  the  starting point  for
 creating  new  virtual  machines  and   they  can  be  easily  cloned,
 snapshotted, backed up and managed.
 
-  [cloud-stack]: images/cloud-stack.png
+  [cloud-stack]: /img/cloud-stack.png
