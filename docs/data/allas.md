@@ -1,4 +1,4 @@
-# Allas object storage
+# Allas object storage service
 
 Allas object storage is a cloud storage service, where you can store and use data over HTTPS.
 Object storage environments, like Allas, manage data as static objects that contain the actual data and
@@ -22,6 +22,24 @@ MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi)
 Allas uses an project based storage areas which have quotas. By default the quota for one project is XXX Tb, but it can be increased if needed. Storing data in Allas consumes billing units with rate xxxx Bu/TbA. Note that in Allas the billing unit consumption is calclulated based on the amount of storted data ( this differs form the disk environments of Puhti and Mahti where the billing is based on the granted quota).
 
 All the project members have equal access rights to the Allas storage area that has been granted for the project. In practice this means if one user uploads data all the other users can not just read, but also delete the data. Allas itself does not store any information about who has uploaded the data to allas.
+
+## Use cases
+
+Allas object storage service is a general purpose storage service. It's usage can be, but does not have to be linked to other CSC services. Below are some sample cases where Allas could be considere to be used as a storage platform
+
+*  <b>Storing datasets for distributed use. </b> There are several cases where you need to access to common data from several locatiomns. In these cases the practice of staging in data to individual servers or computers from the object storage can be used instead of shared file storage.
+
+* <b>Sharing data</b> With object storage you can easily share data, e.g. datasets or research results. You can share these with other projects or open up access to everybody. The data can be accessed and shared in several different ways. By default contents of buckets can only be accessed by authenticated members of your project. By modifying the access control setttings os a project, you cab enable authenticated read access to your datasets to a collaboration project. You can also grant public read access to the data, which is useful for e.g. sharing public scientific results or public datasets.
+
+* <b>Static web content</b> A common way to use object storage is to store static web content there (images, videos, audio, pdfs, downloadable content), and just add links to it from your web page, which can run either inside cPouta or somewhere else.
+
+* <b>Collecting data from different sources</b>
+It's easy to push data to object storage from several different sources. This data can then later be processed as needed.
+An example of this is several data collectors pushing data to be processed. These can be for example scientific instruments, meters or software which harvest social media streams for scientific analysis. These can push their data into object store, and later virtual machines, or compute jobs on Puhti can process this data.
+ 
+* <b>Self-service backups of data</b> Object storage is also often used as a location where you store backups. It's a convenient place to push copies of for example database dumps. 
+
+
 
 ## Tehcnical details
  
@@ -77,6 +95,8 @@ There are several different ways of accessing object storage. We support both th
 | nordugrid-arc-client |	No |	Can be used for grid jobs. Bug reports submitted.|
 | curl |	Yes | Extremely simple to use with public objects and temporary URLs |
 | wget |	Yes | 	Same as curl |
+
+
 
 
 ## Using Allas in Puhti and Taito
