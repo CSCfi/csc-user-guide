@@ -27,6 +27,9 @@ sync with 'develop' branch.
 - before "The Grand opening", create new repository docs-csc-2019, and make
   "Inital commit" from this repo (note the year in the repo name, expecting that
   the repo history needs to be cleaned every now and then...)
+- add version number to [requirements.txt](requirements.txt) and update versions
+  to match
+  [conda-docs-env-0.1.yaml](docs/support/tutorials/conda/conda-docs-env-0.1.yaml)
 
 ## Contributing
 
@@ -183,7 +186,7 @@ in [MkDocs documentation](http://www.mkdocs.org/#installation), or with
 [conda](https://docs.conda.io/en/latest/miniconda.html) by simply
 
 ```bash
-conda env create -f docs/support/conda-docs-env.yaml
+conda env create -f docs/support/tutorials/conda/conda-docs-env-1.0.yaml
 conda activate docs
 ```
 
