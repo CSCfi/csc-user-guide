@@ -6,12 +6,17 @@
 * Using Object Storage in CSC computing environment 
 
 <h2>Moving data between CSC and local environment</h2>
-* [Copying files from linux and Mac OSX machines with scp](scp.md) 
-* [Graphical file transfer tools](graphical_transfer.md) 
-* [Using rsync for data transfer and synchronization](rsync.md)
-* [Using wget to download data from web sites to CSC](wget.md)
-* [Funet FileSender to share and transport files](funet.md)
-* [Remote disk mounts](disk_mount.md) 
+*    [Copying files from linux and Mac OSX machines with scp](./scp.md) 
+
+*    [Graphical file transfer tools](./graphical_transfer.md)
+
+*    [Using rsync for data transfer and synchronization](./rsync.md)
+
+*    [Using wget to download data from web sites to CSC](./wget.md)
+
+*    [Funet FileSender to share and transport files](./funet.md)
+
+*    [Remote disk mounts](./disk_mount.md) 
 
     
 [<h2>Allas Object Storage service</h2>](./allas.md) 

@@ -17,7 +17,7 @@ click==6.7
 html5lib==1.0.1
 Jinja2==2.10.1
 livereload==2.5.1
-Markdown==2.6.10
+#Markdown==2.6.10
 MarkupSafe==1.0
 pytoml==0.1.14
 PyYAML==4.2b1
