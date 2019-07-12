@@ -70,7 +70,7 @@ environments or security policies.</span>
 Before connecting  to your virtual  machine, you can check  its status
 from the *Instances* view of the cPouta/ePouta web interface.
 
-![VM Status check](images/Screenshot-Instances+view+-+OpenStack+Dashboard+-+Chromium.png)
+![VM Status check](/img/Screenshot-Instances+view+-+OpenStack+Dashboard+-+Chromium.png)
 
 **Figure** Instances view of the cPouta web interface.
 
@@ -110,11 +110,11 @@ password into the virtual machine.
 You  can open  a  console  session  by  clicking** Console** from  the
 instance dropdown menu:
 
-![Open console in web GUI](images/console-button-horizon.png)
+![Open console in web GUI](/img/console-button-horizon.png)
 
 To input text into the console click the grey bar as shown:
 
-![Input text to web console](images/Screenshot-Instance+Details+-+OpenStack+Dashboard+-+Chromium-1.png)
+![Input text to web console](/img/Screenshot-Instance+Details+-+OpenStack+Dashboard+-+Chromium-1.png)
 
 After this you  can login with the user account  and password you have
 created.

@@ -80,7 +80,7 @@ functionalities:  Create,  delete  and  list  containers.  Upload  and
 download  files.  Additionally,  you  can make  containers  public  or
 private.
 
-![Horizon web client](images/cats_horizon.png)
+![Horizon web client](/img/cats_horizon.png)
 
 ### Swift client
 

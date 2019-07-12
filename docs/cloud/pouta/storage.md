@@ -18,6 +18,9 @@ considered reliable. For persistent storage you can use volumes and
 Object storage as introduced below.
 
 !!! note
-    Pouta object storage and Allas are separate services for at least some time
+    Pouta object storage and Allas are separate services for at least some time.
     So, there might be need for pouta object storage subsection in main
-    object storage article, which also describes Allas
+    object storage article, which also describes Allas.
+
+## [Ephemeral storage](ephemeral-storage.md)
+## [Persistent volumes](persistent-volumes.md)

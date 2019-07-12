@@ -55,7 +55,7 @@ the slave nodes.  Fault tolerance can be achieved  by running multiple
 copies of an application on multiple  slave nodes and the COE provides
 abstractions that make this easy.
 
-![Container orchestration](images/container-orchestration.png)
+![Container orchestration](/img/container-orchestration.png)
 
 ## Installing the Magnum command line tool
 

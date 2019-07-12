@@ -46,6 +46,6 @@ allowed for all CSC users.
 
 ------------------------------------------------------------------------
 
-  [NoMachine sketch]: /images/nomachine.png
+  [NoMachine sketch]: /img/nomachine.png
   [here]: ../accounts/creating-a-new-user-account.md
   [CSC NoMachine Tutorial]: /support/tutorials/nomachine-usage

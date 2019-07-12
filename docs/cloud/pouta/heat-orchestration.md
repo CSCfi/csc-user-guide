@@ -33,7 +33,7 @@ below. Note that this picture contains  a valid, yet simple example of
 a template, which will build two  instances and display the IP address
 of the first instance.
 
-![Template selection](images/stacks-view.png)
+![Template selection](/img/stacks-view.png)
 
 After choosing "Next"  the web user interface will ask  for stack name
 and your  password. After  this you  can launch  the stack.  After the

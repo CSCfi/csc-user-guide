@@ -17,7 +17,7 @@ could be easily followed by developers considering to build and deploy
 their  application  in Pouta  cloud  environments  are illustrated  in
 the figure below.
 
-![Application development in Pouta](images/pouta_application_development_1.png)
+![Application development in Pouta](/img/pouta_application_development_1.png)
 
 The practices illustrated in above are  only a small set of practices,
 you could additionally follow a larger set of [practices] as mentioned

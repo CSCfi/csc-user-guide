@@ -221,7 +221,7 @@ after logging in:
 To  download this  from within  the  web interface,  navigate to  this
 *Access & Security* screen, and press *Download OpenStack RC File v3.*
 
-![RC file example](images/rc-file-example20190121-b.png)
+![RC file example](/img/rc-file-example20190121-b.png)
 
 Once you  have the  openrc script  from the  web UI,  you can  add the
 environment variables by typing this into a terminal:

@@ -62,7 +62,7 @@ Create Snapshot -menu items work for  the same effect as the above CLI
 command.  The  snapshots  created  will  appear  in  the **Compute  \|
 Images** section.
 
-![Snapshot menu](images/horizon-snapshot-menu.png)
+![Snapshot menu](/img/horizon-snapshot-menu.png)
 
 ### Creating an image from scratch
 
@@ -223,11 +223,11 @@ If you prefer to use the  web interface instead, you can upload images
 from  the  **Compute \|  Images**  section  by clicking  the  **Create
 Image** button:
 
-![Image upload](images/horizon-image-upload2.png)
+![Image upload](/img/horizon-image-upload2.png)
 
 You will be presented with this dialog:
 
-![Image upload dialog](images/horizon-image-upload-dialog.png)
+![Image upload dialog](/img/horizon-image-upload-dialog.png)
 
 In  this  dialog,  for  example   we  are  creating  an  image  called
 "Alpine-linux". You can optionally  add some **Image Description** for
