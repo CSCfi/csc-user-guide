@@ -32,6 +32,47 @@ Data in Allas is arranged into containers called buckets. You can simply think t
 
 By default a project is allowed to have 1000 buckets each of which can contain 100 000 objects.
 
+Allas storage service is provided over two different protocols, <b>Swift</b> and <b>S3</b>. Data uploaded using one protocol is visible with the other protocol. 
+
+Each protocol has serveral different tools you can use. Here is a quick list of generic recommendations.
+
+*   If you have a choice, use the Swift protocol, it's better supported.
+*   In any case, settle on one protocol. Do not mix S3 and Swift.
+*   Avoind uppercase characters in the names of containers/buckets.
+*   It's better to store a few large objects than a lot of small objects.
+     
+
+You can not have buckets with other buckets inside them. You can however make use of so called pseudo-folders.
+
+If an object name contains a forward slash "/", it is in many applications interpreted as a folder separator. For example, they are shown as folders listings when accessing the data through Pouta web interface. These pseudo-folders are automatically added if you upload whole folders with command line clients.
+
+For example, if you add two objects to a container
+
+cats/cat1.png
+cats/cat2.png
+
+listing the container will show a folder called "cats" and the two files within it.
+
+Please note! This means you can not have empty pseudo-folders, since they require at least one object inside them.
+ 
+
+## Clients
+
+There are several different ways of accessing object storage. We support both the Swift and S3 protocols to manage the data. Below is just a short list of tools. There are more.
+Client 	Usable 	Chapter In This User Guide 	Notes
+Web client 	Yes 	4.4.5.6 	Use via https://pouta.csc.fi
+python-swiftclient 	Yes 	4.4.5.5 	This is the recommended Swift client
+s3cmd 	Yes 	4.4.5.6 	
+
+This is the recommended S3 client. Use version 2.0.2 or later.
+python-swift library 	Yes 	4.4.5.7 	 
+libs3 	Yes 	  	 
+python-openstackclient 	Yes 	  	 
+aws-cli 	Yes 	  	aws-cli and the boto3 python library.
+nordugrid-arc-client 	No 	  	Can be used for grid jobs. Bug reports submitted.
+curl 	Yes 	  	Extremely simple to use with public objects and temporary URLs
+wget 	Yes 	  	Same as curl
+
 
 ## Using Allas in Puhti and Taito
 
