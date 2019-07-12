@@ -1,4 +1,4 @@
-# The module system
+# Module system
 
 The module system enables managing several incompatible environments
 within one computer. Use the module command to query available applications,
