@@ -29,6 +29,8 @@ nav:
      - Using MPI: computing/using-MPI.md
      - Shared memory and hybrid parallelization: computing/shared-memory-and-hybrid-parallelization.md
      - Debugging parallel applications: computing/debugging-parallel-applications.md
+     - GPU module environment: computing/gpu-modules.md
+     - Compiling GPU programs: computing/Building-GPU-programs.md
      - Running GPU programs: computing/running-gpu-programs.md
      - Interactive jobs (Puhti-shell): computing/shell.md
      - Interactive batch jobs: computing/interactive-batch-jobs.md
