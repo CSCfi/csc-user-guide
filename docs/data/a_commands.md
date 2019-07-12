@@ -69,7 +69,7 @@ as object:  project2/sample3/test_1.txt.zst
 
 In addition to the actual data object a second object, containing 
 metadata is created. This metadata object has the same name as the
-main file with extension: _meta. This metadata file is used by the 
+main file with extension: <i>_meta</i>. This metadata file is used by the 
 other a_ commands and normally it is not dailplayed to the user.
 
 
