@@ -16,7 +16,7 @@
 <h2>Allas User Guide</h2>
 *    [Allas User Guide](./allas.md)
     
-     [Allas intro](./allas.md)
+[Allas intro](./allas.md)
 
  1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
 
