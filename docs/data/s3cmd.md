@@ -32,15 +32,17 @@ Table 3.2 below lists the most essential s3cmd commands. For more complete list,
 
 
 Most commonly used s3cmd commands
-s3cmd command 	Function
- mb 	 Make a new bucket
- rb 	 Remove a bucket
- ls 	 List objects or bukets
- la 	 List all objects in all buckets
- du 	 Show the disk usage of buckets
- put 	 Put file into a bucket
- get 	 Get file from a bucket
- setacl 	 Modify Access control list for Bucket or Files
+
+| s3cmd command | Function |
+|-----|----|
+| mb 	| Make a new bucket |
+| rb 	| Remove a bucket |
+| ls 	| List objects or bukets |
+| la 	| List all objects in all buckets |
+| du 	| Show the disk usage of buckets |
+| put | Put a file into a bucket |
+| get | Get afile from a bucket |
+| setacl | Modify Access control list for Bucket or Files |
 
 In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure on Object Storage is flat: you can't create a bucket that is inside a bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You can't use a bucket name that is already used by you or some other Object Storage user.
 
