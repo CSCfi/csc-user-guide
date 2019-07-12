@@ -16,4 +16,10 @@
 <h2>Allas User Guide</h2>
 * [Allas User Guide](./allas.md)
 
+ 1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
+
+ 2.  [Advanced tools: Rclone and swift](./rclone.md)
+
+ 3.  [Persistent allas connections: s3cmd](./s3cmd.md)
+
 <h2>Data analysis guide (A. Kallio)</h2>
