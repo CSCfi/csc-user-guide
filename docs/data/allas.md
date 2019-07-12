@@ -36,8 +36,8 @@ If an object name contains a forward slash "/", it is in many applications inter
 
 For example, if you add two objects to a container
 
-cats/cat1.png
-cats/cat2.png
+<pre>cats/cat1.png
+cats/cat2.png</pre>
 
 listing the container will show a folder called "cats" and the two files within it.
 
