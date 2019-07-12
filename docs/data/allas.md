@@ -20,7 +20,7 @@ and join or start a computing project for which Allas has been enabled. All thes
 MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi)
 
 
-Allas uses an project based storage areas which have quotas. By default the quota is XXX Tb, but it can be increased if needed.
+Allas uses an project based storage areas which have quotas. By default the quota for one project is XXX Tb, but it can be increased if needed.
 Storing data in Allas consumes billing units with rate xxxx Bu/TbA. Note that in Allas the billing unit consumption is calclulated directly based on the amount of sorted data ( this differs form the disk environments of Puhti and Mahti where the billing is based on the granted quota).
 
 
@@ -28,22 +28,12 @@ All the project members have equal access rights to the Allas storage area that 
 
 ## Tehcnical details
  
-Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. Some applications crate buckets automatically but Allas users can freely create new buckets too.  The only drawback of buckets is that they must have a name that is unique in Allas. You can't create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user spesific in the bucket name, for instance "2000620-raw-data".
+### Storage quota and structure 
+Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. Some applications crate buckets automatically but Allas users can freely create new buckets too. By default a project is allowed to have 1000 buckets each of which can contain 100 000 objects.
 
-By default a project is allowed to have 1000 buckets each of which can contain 100 000 objects.
+All buckets must have a name that is unique in Allas. You can't create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user spesific in the bucket name, for instance "2000620-raw-data".
 
-Allas storage service is provided over two different protocols, <b>Swift</b> and <b>S3</b>. Data uploaded using one protocol is visible with the other protocol. 
-
-Each protocol has serveral different tools you can use. Here is a quick list of generic recommendations.
-
-*   If you have a choice, use the Swift protocol, it's better supported.
-*   In any case, settle on one protocol. Do not mix S3 and Swift.
-*   Avoind uppercase characters in the names of containers/buckets.
-*   It's better to store a few large objects than a lot of small objects.
-     
-
-You can not have buckets with other buckets inside them. You can however make use of so called pseudo-folders.
-
+Further, you can not have buckets with other buckets inside them. Objets stored in a bucket don't have a hirarchy. So even though you can't creare sub-diretories inside a bucket, you can however make use of so called pseudo-folders.
 If an object name contains a forward slash "/", it is in many applications interpreted as a folder separator. For example, they are shown as folders listings when accessing the data through Pouta web interface. These pseudo-folders are automatically added if you upload whole folders with command line clients.
 
 For example, if you add two objects to a container
@@ -55,6 +45,23 @@ listing the container will show a folder called "cats" and the two files within 
 
 Please note! This means you can not have empty pseudo-folders, since they require at least one object inside them.
  
+
+### Protocols
+
+Allas storage service is provided over two different protocols, <b>Swift</b> and <b>S3</b>. From user perspective one of the main differences between S3 and swift is in authentication. Token based swift uautentication, used in Allas, remains valid for three hours at a time but in the key based s3cmd the connection can be permanently open. The permanent connection of S3 is handy in many ways, but it includes a security aspect too: if your account as CSC in compromised, the object storage space is too.
+
+Because of this secury concern, swift is the recommended protocol to be used in many-user servers like Puhti and Mahti. Thus, for example the CSC specific a_ commands (e.g. a_put and a_get) as well as the standard <i>rclone</i> configutaion in Puhti are based on swift.  However in some cases the the permanent connections provided by S3 protocol may be the most reasonable option. For example in users own virtual machine running in cPouta.
+
+Swift and S3 protocols are not compatible in handling objets. Small objets, that don't need to be split during upload, can be cross used, but splitted object can be used only with the protocol that was used for upload. The size limit for splitting an object depends on settings and protocol. The limit is typically between 500 MB and 5 GB. 
+
+Each protocol has serveral different tools you can use. Here is a quick list of generic recommendations.
+
+*   If you have a choice, use the Swift protocol, it's better supported.
+*   In any case, settle on one protocol. Do not mix S3 and Swift.
+*   Avoind uppercase characters in the names of containers/buckets.
+*   It's better to store a few large objects than a lot of small objects.
+
+
 
 ## Clients
 
