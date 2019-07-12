@@ -14,6 +14,6 @@
 * [Remote disk mounts](disk_mount.md) 
 
 <h2>Allas User Guide</h2>
-* Allas User Guide
+* [Allas User Guide](allas.md)
 
 <h2>Data analysis guide (A. Kallio)</h2>
