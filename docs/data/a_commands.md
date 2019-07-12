@@ -1,12 +1,12 @@
 # a_ Commands, Easy and safe
 
-The Allas object storage system can be used in multiple ways and for many purposes. In many cases effective usage of Allas requires that the user knows the features or both Object Storage systems and the software or protocol that is user.
+The Allas object storage system can be used in multiple ways and for many purposes. In many cases effective usage of Allas requires that the user knows the features of both Object Storage systems and the software or protocol that is used.
 
-For those users, that just want to use allas for storing data that is used in CSC computing eviroment, CSC provides a set of commands that can be used to move data between CSC computing environment and Allas. The available Allas tools are:
+For those users, that just want to use allas for storing data that is in CSC computing eviroment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
 * a_put : upload a file or directory to Allas as one object
 * a_get : download a stored dataset (object) from Allas
-* a_find : check what dataset(object) stored with a_put contains the file you are looking for
+* a_find : check, what dataset(object) stored with a_put contains the file you are looking for
 * a_delete : delete an object from Allas
 * a_info : Display information about an object in Allas
 
@@ -16,7 +16,7 @@ For those users, that just want to use allas for storing data that is used in CS
 <i>a_put</i> is used to upload data from the disk environment of Taito or Puhti to 
 allas storage environmnet. The basic syntax of the command is:
 
->   a_put directory_or_file
+>   a_put <i>directory_or_file</i>
 
 By default this tool performs following operations:
 
