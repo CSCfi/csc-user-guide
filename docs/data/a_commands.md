@@ -108,7 +108,7 @@ Options:
 
 * <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by <i>a_put</i>, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You shuould use these this option also in cases where you have stored data to buckets with non-standard name.
 
-* <b>-silent </b>            Output just the object names and number of hits. If <i>-file<i> option is uses too, print the object name and matching file name on one row.
+* <b>-silent </b>            Output just the object names and number of hits. If <i>-file</i> option is used too, print the object name and matching file name on one row.
                              
 ## g_get retrieves the stored data
 
