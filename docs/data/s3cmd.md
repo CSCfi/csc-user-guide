@@ -1,38 +1,35 @@
 
 # Persistent allas connections: s3cmd
 
-This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with s3cmd client. This client uses
-S3 protocol that differs from the swift protocl that the rclone connection uses. Thus data that has been uploaded to 
-Allas with rclone should not be downloaded with s3cmd an vice versa.
+This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with <b>s3cmd</b> command line client. This client uses
+S3 protocol that differs from the <i>swift</i> protocl that was used in the <i>rclone</i> examples in the previous chapter. Thus data that has been uploaded to Allas with rclone should not be downloaded with s3cmd an vice versa.
 
-From user perspective one of the main differences between s3cmd and swift based rclone is that while rclone connection remains valid 
-for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and allas permanently open. The permanent connection
-is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
+From user perspective one of the main differences between <i>s3cmd</i> and <i>swift</i> based <i>rclone</i> is that rclone connection remains valid for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and allas permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
 
 ## Configuring s3cmd
-In Taito the s3cmd configuration process can be done by executing commands:
+In Taito the <i>s3cmd</i> configuration process can be done by executing commands:
 
 <pre>module load bioconda/3
 source /appl/opt/allas_conf -mode s3cmd</pre>
 
-
 The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there is two exceptions:
 
    1.  It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server. This password is not connected to any other passwords in the CSC environment so you can freely define it. Note however, that this password is stored to the s3cmd configuration file in human readable format so you should not use this password elsewhere. 
-   2.  As the last question the configuration process asks if the configuration is saved. The default is "no" but you should answer y (yes) so that configuration information is stored to file $HOME/.s3cfg.
+   2.  As the last question the configuration process asks if the configuration is saved. The default is "no" but you should answer y (yes) so that configuration information is stored to file <i>$HOME/.s3cfg</i>.
 
-This configuration needs to be defined only once. In the future s3cmd will use this Object Storage connection described in the .s3cfg file automatically. However, if you wish to change the Object Storage project that s3cmd uses, you just need to run the configuration command again.
+This configuration needs to be defined only once. In the future s3cmd will use this Object Storage connection described in the <i>.s3cfg</i> file automatically. However, if you wish to change the Object Storage project that s3cmd uses, you just need to run the configuration command again.
  
-##3.2 Using Object Storage with s3cmd
+## 3.2 Using Object Storage with s3cmd
 
-The syntax of the s3cmd command is:
+The syntax of the <i>s3cmd</i> command is:
 
 <pre>s3cmd -options command parameters</pre>
 
-Table 3.2 below lists the most essential s3cmd commands. For more complete list, visit the  s3cmd manual page or execute command:
+Table 3.2 below lists the most essential s3cmd commands. For more complete list, visit the s3cmd manual page or execute command:
 
 <pre>s3cmd -h</pre>
+
 
 Most commonly used s3cmd commands
 s3cmd command 	Function
