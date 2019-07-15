@@ -18,7 +18,7 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kuberenetes. If you already know about pods, services and routes,
     you might be interested in the
-    "[Advanced concepts](/tutorials/advanced_tutorial)" chapter.
+    "[Advanced concepts](../advanced_tutorial)" chapter.
 
 ## Preparations
 
@@ -93,7 +93,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-"[Projects and quota](/usage/projects_and_quota/#projects_and_quota)").
+"[Projects and quota](../../usage/projects_and_quota/#projects_and_quota)").
 The description can be included in the `new-project` command as follows
 
 ```bash
@@ -332,11 +332,11 @@ spec:
 
 The ReplicationControllers are functionally near ReplicaSets, treated
 in Chapter "[Kubernetes and OpenShift
-Concepts](../introduction/background#kubernetes-and-openshift-concepts)".
+Concepts](../../introduction/background#kubernetes-and-openshift-concepts)".
 And really, a ReplicationController can be transformed in to a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](advanced_tutorial#deploymentconfig)
+object is that [DeploymentConfig](../advanced_tutorial#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note

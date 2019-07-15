@@ -1,16 +1,18 @@
 # Scope and description of the service
 
-The Rahti container cloud service is a cloud computing service. The Rahti
-service is based on OKD, which is a distribution of Kubernetes. The Rahti
-service allows its Users to run their own containerized applications on top of
-it. The Rahti service provides, but is not necessarily limited to, these
-resources:
+!!! note
+    Last updated 30.4.2019
 
-* Hosting of User Applications comprised of container instances and groups of
-  container instances
+Rahti is a cloud computing service that allows Users to host
+applications and make them accessible over the web. The Rahti
+service is based on OKD, which is a distribution of Kubernetes. The main
+features of Rahti are:
+
+* Hosting of containerized applications
 * Storage services
 * Virtual networks for connecting container instances
 * Load balancing of traffic to User Applications
+* An application catalog with templates for ready-to-use common applications
 * Features for replication, rolling updates, auto-recovery and auto-scaling of User Applications
 * Basic default domain name and TLS for hosted User Applications (under rahtiapp.fi)
 

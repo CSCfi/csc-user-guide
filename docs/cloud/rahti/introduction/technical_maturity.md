@@ -1,6 +1,6 @@
 # Technical maturity
 
-The \env{SYSTEM_NAME} container cloud is currently in **beta**. This page lists various
+The Rahti container cloud is currently in **beta**. This page lists various
 aspects of the technical maturity of the system to give you an idea of what
 kinds of workloads it is suitable for at the moment.
 
@@ -10,13 +10,13 @@ kinds of workloads it is suitable for at the moment.
 
 | Maturity indicator          | Current value                                       | Best feasible value                                              |
 |-----------------------------|-----------------------------------------------------|------------------------------------------------------------------|
-| **OpenShift version**       | {: class='td_ok'}\env{OPENSHIFT_VERSION}            | 3.11{: class='td_ok'}                                             |
-| **Service level**           | Best effort (no formal SLA){: class='td_warn'}      | JHS174 level B (99%, service times 7-19){: class='td_ok'}        |
+| **OpenShift version**       | 3.11 {: class='td_ok'}             | 3.11{: class='td_ok'}                                             |
+| **Service level**           | JHS174 level A (97%, service times weekdays 8-16){: class='td_ok'}      | JHS174 level B (99%, service times weekdays 7-19){: class='td_ok'}        |
 | **GlusterFS storage class** | Technical preview{: class='td_warn'}                | Technical preview{: class='td_warn'}                             |
 
 ## Work remaining before production
 
-We're working on several fronts to make \env{SYSTEM_NAME} ready for production.
+We're working on several fronts to make Rahti ready for production.
 These include:
 
   * Storage
@@ -29,7 +29,7 @@ We will describe the details of these areas here.
 ### Storage
 
 The GlusterFS storage that is used for all persistent volumes in
-\env{SYSTEM_NAME} at the moment is only a technology preview according to Red
+Rahti at the moment is only a technology preview according to Red
 Hat, and it has to do additional 2x replication on top of the 3x replication
 already done by Ceph. Thus we have 6x replication of all data, which is
 unnecessary and would be prohibitively expensive for a larger system.
