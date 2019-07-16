@@ -102,7 +102,16 @@ nav:
         - Using rsync for data transfer and synchronization: data/rsync.md
         - Using wget to download data from web sites to CSC: data/wget.md
         - Sharing and transporting files using Funet FileSender: data/funet.md
-        - Remote disk mounts: data/disk_mount.md  
+        - Remote disk mounts: data/disk_mount.md
+     - Allas:
+        - Introduction to Allas storage service: data/Allas/introduction.md
+        - Accessing Allas: data/Allas/accessing_allas.md
+        - Using Allas:
+           - Clients: data/Allas/using_allas/clients.md
+           - Common Use Cases: data/Allas/using_allas/common_use_cases.md
+           - Viewing usage: data/Allas/using_allas/viewing_usage.md
+           - Using Allas for sensitive data: data/Allas/using_allas/allas_for_sensitive_data.md
+           - Common Error Messages: data/Allas/using_allas/error_messages.md
   - Applications: 
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
