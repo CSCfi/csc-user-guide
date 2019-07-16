@@ -107,10 +107,12 @@ nav:
         - Introduction to Allas storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Using Allas:
-           - Clients: data/Allas/using_allas/clients.md
            - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-           - Viewing usage: data/Allas/using_allas/viewing_usage.md
-           - Using Allas for sensitive data: data/Allas/using_allas/allas_for_sensitive_data.md
+           - Clients:
+              - Web client: data/Allas/using_allas/web_client.md
+              - Swift client: data/Allas/using_allas/swift_client.md
+              - s3 client: data/Allas/using_allas/s3_client.md
+              - Python library: data/Allas/using_allas/python_library.md
            - Common Error Messages: data/Allas/using_allas/error_messages.md
   - Applications: 
      - By discipline: apps/index.md
