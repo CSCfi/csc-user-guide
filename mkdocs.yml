@@ -75,7 +75,7 @@ nav:
      - Rahti:
         - Introduction:
            - Background: cloud/rahti/introduction/background.md
-           - Sercive description: cloud/rahti/introduction/service_description.md
+           - Service description: cloud/rahti/introduction/service_description.md
            - SLA: cloud/rahti/introduction/sla.md
            - Technical maturity: cloud/rahti/introduction/technical_maturity.md
            - Getting access: cloud/rahti/introduction/access.md
@@ -85,7 +85,7 @@ nav:
            - Projects and Quota: cloud/rahti/usage/projects_and_quota.md
            - Security guide: cloud/rahti/usage/security-guide.md
            - Command line tools: cloud/rahti/usage/cli.md
-        - Extrenal documentation:
+        - External documentation:
            - Platform documentation: cloud/rahti/ext_docs.md
         - Tutorials:
            - Deploying applications from web console: cloud/rahti/tutorials/basic-console.md
