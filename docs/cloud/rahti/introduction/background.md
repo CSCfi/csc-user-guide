@@ -19,7 +19,7 @@ kernel, while containers share the host system's kernel.
 While many operating systems have container functionality, what we look at more
 specifically in this documentation is containers in the Linux operating system.
 Linux is the most popular operating system for running containers, and it is
-also the operating system used in the \env{SYSTEM_NAME} container cloud. Currently the most
+also the operating system used in the Rahti container cloud. Currently the most
 popular method for using container functionality in Linux is Docker. It provides
 a set of tools that make it easier to use containers compared to using the
 kernel functionality directly. Docker provides:
@@ -104,7 +104,7 @@ servers, directing traffic to the application instances and providing persistent
 storage for databases.
 
 Currently the most popular software for container orchestration is Kubernetes.
-It is based on earlier systems developed at Google over a decade. The \env{SYSTEM_NAME}
+It is based on earlier systems developed at Google over a decade. The Rahti
 system is based on a distribution of Kubernetes called OpenShift that is made by
 Red Hat.
 

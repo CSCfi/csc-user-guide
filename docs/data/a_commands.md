@@ -4,11 +4,11 @@ The Allas object storage system can be used in multiple ways and for many purpos
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
-* a_put : upload a file or directory to Allas as one object
-* a_get : download a stored dataset (object) from Allas
-* a_find : check, what dataset(object) stored with a_put contains the file you are looking for
-* a_delete : delete an object from Allas
-* a_info : Display information about an object in Allas
+- a_put : upload a file or directory to Allas as one object
+- a_get : download a stored dataset (object) from Allas
+- a_find : check, what dataset(object) stored with a_put contains the file you are looking for
+- a_delete : delete an object from Allas
+- a_info : Display information about an object in Allas
 
 
 ## a_put uploads data to Allas.
@@ -16,7 +16,9 @@ For those users, that just want to use Allas for storing data that is in CSC com
 <i>a_put</i> is used to upload data from the disk environment of Taito or Puhti to 
 Allas storage environmet. The basic syntax of the command is:
 
->   a_put <i>directory_or_file</i>
+```
+a_put directory_or_file
+```
 
 By default, this tool performs following operations:
 
@@ -24,11 +26,11 @@ By default, this tool performs following operations:
 define the project that will be used to store the data.
 
 2. In case of directory, the content of the directory is collected into single file
-(using <i>tar</i> command).
+(using `tar` command).
 
-3. Data is compressed using <i>zstdmt</i> command.
+3. Data is compressed using `zstdmt` command.
 
-4. The compressed data is uploaded to Allas using <i>rclone</i> command and <i>swift</i> protocol.
+4. The compressed data is uploaded to Allas using `rclone` command and _swift_ protocol.
 
 The location were data is stored in Allas can be defined with options
 <i>-bucket</i> and <i>-os_file</i>, but defining these values is normally not needed as you should use the default bucket names.
@@ -43,21 +45,23 @@ will be uploaded to bucket: <i>kkayttaj-12345-HOME</i>.
 
 The compressed dataset will be stored as one object. The object name depends on the
 file name and location. The logic used here is such that the possible subdirectory path in Taito is included 
-in the object name. E.g. a file called <i>test_1.txt</i> in $WRKDIR can be stored with commands:
+in the object name. E.g. a file called *test_1.txt* in $WRKDIR can be stored with commands:
 
->     cd $WRKDIR
+```
+cd $WRKDIR
+a_put test_1.txt
+```
 
->     a_put test_1.txt
+In this case the file is stored to bucket: _kkayttaj-12345-SCRATCH_
+as object: *test_1.txt.zst*
 
-In this case the file is stored to bucket: <i>kkayttaj-12345-SCRATCH</i>
-as object: <i>test_1.txt.zst</i>
-
-If you have another file called <i>test_1.txt</i> that locates in <i>$WRKDIR/project2/sample3</i>
+If you have another file called *test_1.txt* that located in _$WRKDIR/project2/sample3_
 you can store it with commands:
    
->     cd $WRKDIR/project2/sample3
-
->      a_put test_1.txt
+```
+cd $WRKDIR/project2/sample3
+a_put test_1.txt
+```
   
 Or commands:
 >     cd $WRKDIR
@@ -99,16 +103,15 @@ The most commonly occurring special characters are listed below:
     \{n,m\} matches n to m occurrences of the preceding character or expression
 
 
-
 Options:
 
-* <b>-files</b>  Lists the names of the matching files inside the objects in addition to the object name.
+- **-files**  Lists the names of the matching files inside the objects in addition to the object name.
 
 * <b>-project <i>project_ID</i></b>   Search matches from the buckets of the defined project instead of the currently configured project. 
 
 * <b>-bucket <i>bucket_name</i></b>   By default all the buckets, used by <i>a_put</i>, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use these this option also in cases where you have stored data to buckets with non-standard name.
 
-* <b>-silent </b>            Output just the object names and number of hits. If <i>-file</i> option is used too, print the object name and matching file name on one row.
+- **-silent**            Output just the object names and number of hits. If `-file` option is used too, print the object name and matching file name on one row.
                              
 ## g_get retrieves the stored data
 
@@ -121,11 +124,12 @@ By default, the object is retrieved and uncompressed. By default the data is ext
 
 a_get options:
 
+
 * <b>-project <i>project_ID</i></b>  Retrieve data form the buckets of the defined project instead of the currently configured project. 
 
-* <b>-file <i>file_name</i></b>      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
+- **-file _file_name_**      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
 
-* <b>-target <i>dir_name</i></b>      If this option is defined, a new target directory is created and the data is retrieved there.
+- **-target _dir_name_**      If this option is defined, a new target directory is created and the data is retrieved there.
 
 
 

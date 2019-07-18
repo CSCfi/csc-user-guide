@@ -28,3 +28,7 @@
    - ...
 
 ## Accounts
+
+## Migration
+
+   - [How do I copy my files from Taito/Sisu to Puhti?](faq/how-do-i-copy-my-files.md)

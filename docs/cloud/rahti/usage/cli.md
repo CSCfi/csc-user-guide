@@ -1,6 +1,6 @@
 # Command line tool usage
 
-\env{SYSTEM_NAME} can be used via the command line either with OpenShift's oc tool
+Rahti can be used via the command line either with OpenShift's oc tool
 or with the kubectl tool from Kubernetes. Certain features specific to OpenShift
 are only available when using the oc tool.
 
