@@ -1,5 +1,10 @@
 # How do I copy my files from Taito/Sisu to Puhti
 
+The new computing environment has a separate storage system from the old computing environment with Taito and Sisu. Therefore, data must be copied over from the old storage to the new one. As we here at CSC are not really aware of what data you have on our disks it is best if you – as an expert – take care of copying your data over. After all, you know best which data you will need in the new environment.
+
+When deciding what data to copy over remember that there are at least three locations to look into: your home directory `$HOME`, your applications direcotry `$USERAPPL` and your working directory `$WRKDIR`. If you are part of a project group, please check also your project directories. And if you are PI for a project this is even more important!
+
+We understand that copying might not be as easy as it sounds but here's some help for that. And there's always someone at our [helpdesk](mailto:servicedesk@csc.fi) to answer your all questions and help you forward.
 
 [TOC]
 
@@ -21,7 +26,7 @@ Using tar and netcat is a bit more efficient way of copying files than scp as it
 
 But this increase in speed doesn't come free. It is a much more _error prone_ method, there's _no error detection_ or correction, and it has _no security_ in it, whatsoever. On top of that, it needs active monitoring and manual checking whether all files were copied correctly.
 
-In general, we do not recommend using this method but for substantially large files (GBs rather than MBs) it is worth considering, but *we do not provide any support* for it.
+In general, we do not recommend using this method but for substantially large files (GBs rather than MBs) it is worth considering. However, *we do not provide support* for it.
 
 ### But if you still insist…
 
