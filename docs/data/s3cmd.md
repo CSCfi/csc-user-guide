@@ -1,10 +1,10 @@
 
-# Persistent allas connections: s3cmd
+# Persistent Allas connections: s3cmd
 
 This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with <b>s3cmd</b> command line client. This client uses
-S3 protocol that differs from the <i>swift</i> protocl that was used in the <i>rclone</i> examples in the previous chapter. Thus data that has been uploaded to Allas with rclone should not be downloaded with s3cmd an vice versa.
+S3 protocol that differs from the <i>swift</i> protocol that was used in the <i>rclone</i> examples in the previous chapter. Thus data that has been uploaded to Allas with rclone should not be downloaded with s3cmd and vice versa.
 
-From user perspective one of the main differences between <i>s3cmd</i> and <i>swift</i> based <i>rclone</i> is that rclone connection remains valid for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and allas permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
+From user perspective one of the main differences between <i>s3cmd</i> and <i>swift</i> based <i>rclone</i> is that rclone connection remains valid for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and Allas permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
 
 ## Configuring s3cmd
@@ -13,7 +13,7 @@ In Taito the <i>s3cmd</i> configuration process can be done by executing command
 <pre>module load bioconda/3
 source /appl/opt/allas_conf -mode s3cmd</pre>
 
-The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there is two exceptions:
+The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there are two exceptions:
 
    1.  It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server. This password is not connected to any other passwords in the CSC environment so you can freely define it. Note however, that this password is stored to the s3cmd configuration file in human readable format so you should not use this password elsewhere. 
    2.  As the last question the configuration process asks if the configuration is saved. The default is "no" but you should answer y (yes) so that configuration information is stored to file <i>$HOME/.s3cfg</i>.
@@ -37,11 +37,11 @@ Most commonly used s3cmd commands
 |-----|----|
 | mb 	| Make a new bucket |
 | rb 	| Remove a bucket |
-| ls 	| List objects or bukets |
+| ls 	| List objects or buckets |
 | la 	| List all objects in all buckets |
 | du 	| Show the disk usage of buckets |
 | put | Put a file into a bucket |
-| get | Get afile from a bucket |
+| get | Get a file from a bucket |
 | setacl | Modify Access control list for Bucket or Files |
 
 In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure on Object Storage is flat: you can't create a bucket that is inside a bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You can't use a bucket name that is already used by you or some other Object Storage user.
@@ -78,7 +78,7 @@ The data is collected and compressed to a single file with tar command:
 
 <pre>tar zcf zebrafish.tgz Danio_rerio*</pre>
 
-The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the the fish-bucket with command s3cmd put:
+The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command s3cmd put:
 
 <pre>[kkayttaj@c306:~]$ <b>ls -lh zebrafish.tgz</b>
 -rw------- 1 kkayttaj csc 2.0G Mar 12 15:23 zebrafish.tgz
@@ -103,7 +103,7 @@ Uploading 2 GB of data takes some time. The uploaded file could be retrieved wit
 
 <pre>s3cmd get s3://fish-bucket/zebrafish.tgz</pre>
 
-By default this bucket can be accessed only by the project members. However, with s3cmd setacl you can make the file publicly available:
+By default, this bucket can be accessed only by the project members. However, with s3cmd setacl you can make the file publicly available:
 
 First make the fish-bucket public
 

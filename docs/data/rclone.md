@@ -1,4 +1,4 @@
-# Using allas with rclone from Puhti and Taito 
+# Using Allas with rclone from Puhti and Taito 
 
 This is the guide how to use Allas when you are logged in to the Puhti computing environment. The first step to use Allas is to authenticate to a project in Allas.
 

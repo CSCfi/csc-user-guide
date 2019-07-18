@@ -19,12 +19,19 @@
 *    [Remote disk mounts](./disk_mount.md) 
 
     
-[<h2>Allas Object Storage service</h2>](./allas.md) 
+<h2>Allas Storage service</h2>
 
- 1.  [Quick and safe: a_put, a_get, a_find](./a_commands.md)
+* [Introduction to Allas Storage service](./Allas/introduction.md){:target="_blank"}
 
- 2.  [Advanced tools: Rclone and swift](./rclone.md)
+* [Accessing Allas](./Allas/accessing_allas.md){:target="_blank"}
 
- 3.  [Persistent allas connections: s3cmd](./s3cmd.md)
+* Using Allas:
+
+     * [Common Use Cases](./Allas/using_allas/common_use_cases.md){:target="_blank"}
+     * [Clients](./Allas/accessing_allas.md#protocols){:target="_blank"}
+     * [Common Error Messages](./Allas/using_allas/error_messages.md){:target="_blank"}
+
+* [Further information](./Allas/further_info.md){:target="_blank"}
+
 
 <h2>Data analysis guide (A. Kallio)</h2>
