@@ -6,8 +6,6 @@ When deciding what data to copy over remember that there are at least three loca
 
 We understand that copying might not be as easy as it sounds but here's some help for that. And there's always someone at our [helpdesk](mailto:servicedesk@csc.fi) to answer your all questions and help you forward.
 
-[TOC]
-
 ## Copy files with scp
 
 The most simple way to copy your files from Taito/Sisu is to use scp, Secure Copy. Assuming you have already set up public key authentication for ssh, copying is as straightforward as:
