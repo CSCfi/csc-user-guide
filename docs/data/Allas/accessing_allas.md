@@ -139,5 +139,3 @@ There are several different ways of accessing object storage. We support both th
 |nordugrid-arc-client | No | | Can be used for grid jobs. Bug reports submitted |
 |curl | Yes | | Extremely simple to use with public objects and temporary URLs |
 |wget | Yes | | Same as curl |
-
-------------------------

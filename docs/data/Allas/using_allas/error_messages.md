@@ -22,4 +22,3 @@ HTTP status code 400 - Your file is much too large. See [Swift client - Files la
 ```bash
 EntityTooLarge
 ```
-------------------

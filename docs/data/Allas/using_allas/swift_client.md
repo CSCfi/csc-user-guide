@@ -157,5 +157,3 @@ tmp/6GB.zero [auth 0.594s, headers 0.881s, total 74.467s, 86.969 MB/s]
 $ md5sum 6GB.zero
 9e6a77a2d5650b2e2a710a08e9e61a81  6GB.zero
 ```
-
-------------------

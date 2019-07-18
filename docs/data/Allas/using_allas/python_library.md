@@ -48,4 +48,3 @@ $ python list_swift.py
 {u'count': 1, u'bytes': 1099122, u'name': u'fishes'}
 {u'count': 0, u'bytes': 0, u'name': u'salmon.jpg'}
 ```
------------------

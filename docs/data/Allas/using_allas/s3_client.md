@@ -86,4 +86,3 @@ $ s3cmd info s3://fishes|grep -i acl
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
 ```
---------------------

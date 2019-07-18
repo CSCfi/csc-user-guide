@@ -174,5 +174,3 @@ Storing data in Allas consumes _billing units_ with rate of xxx Bu/TbA. Accounti
 Unlike most other object storage providers, CSC <u>does not</u> charge for object storage network transfers or API calls.
 
 &nbsp;
-
----------------------
