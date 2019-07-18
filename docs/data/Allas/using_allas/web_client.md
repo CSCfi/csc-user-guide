@@ -40,7 +40,7 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 
 1\. Choose the desired bucket and press the **upload symbol** on the right
 
-<img src="/img/allas_screenshot_upload.png" alt="Upload object">  
+<img src="/img/Allas_screenshot_upload.png" alt="Upload object">  
 **Figure** Uploading an object
 
 2\. Choose the object from your computer and name it (Do not use Scandinavian letters in the name)  
@@ -55,7 +55,7 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 
 If the bucket including the objects is set to be _public_, the objects can be viewed via Internet by anyone who knows the URL. This setting can be changed from [pouta.csc.fi/dashboard/project/containers](https://pouta.csc.fi/dashboard/project/containers/){:target="_blank"} by choosing the container and selecting the **Public Access** setting:
 
-<img src="/img/allas_screenshot_public.png" alt="Making object public or private">
+<img src="/img/Allas_screenshot_public.png" alt="Making object public or private">
 
 **Figure** Making an object public or private
 
@@ -77,7 +77,7 @@ Objects can be removed by clicking the drop-down menu on the right next to the _
 
 Buckets can be removed only when they are empty. In other words, all the objects in a bucket must be removed or moved somewhere else before the bucket can be deleted. Removing a bucket happens from the **trashcan symbol** next to the buckets name. 
 
-<img src="/img/allas_screenshot_delete.png" alt="Removing object or container">
+<img src="/img/Allas_screenshot_delete.png" alt="Removing object or container">
 
 **Figure** Removing an object or a container
 
