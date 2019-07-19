@@ -1,17 +1,10 @@
 
 # Persistent Allas connections: s3cmd
 
-<<<<<<< HEAD
-This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with <b>s3cmd</b> command line client. This client uses
-S3 protocol that differs from the <i>swift</i> protocol that was used in the <i>rclone</i> examples in the previous chapter. Thus data that has been uploaded to Allas with rclone should not be downloaded with s3cmd and vice versa.
-
-From user perspective one of the main differences between <i>s3cmd</i> and <i>swift</i> based <i>rclone</i> is that rclone connection remains valid for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and Allas permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
-=======
 This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with `s3cmd` command line client. This client uses
-S3 protocol that differs from the _swift_ protocl that was used in the `rclone` examples in the previous chapter. Thus data that has been uploaded to Allas with rclone should not be downloaded with s3cmd an vice versa.
+S3 protocol that differs from the _swift_ protocol that was used in the `rclone` examples in the previous chapter. Thus data that has been uploaded to Allas with rclone should not be downloaded with s3cmd an vice versa.
 
-From user perspective one of the main differences between `s3cmd` and _swift_ based `rclone` is that rclone connection remains valid for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and allas permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
->>>>>>> 3460f7683cab3840bc88ed6fec27a02691824ea6
+From user perspective one of the main differences between `s3cmd` and _swift_ based `rclone` is that rclone connection remains valid for three hours at a time but in the case of s3cmd the connection between Puhti/Taito and Allas permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
 
 ## Configuring s3cmd
@@ -46,27 +39,15 @@ s3cmd -h
 
 Most commonly used s3cmd commands
 
-<<<<<<< HEAD
-| s3cmd command | Function |
-|-----|----|
-| mb 	| Make a new bucket |
-| rb 	| Remove a bucket |
-| ls 	| List objects or buckets |
-| la 	| List all objects in all buckets |
-| du 	| Show the disk usage of buckets |
-| put | Put a file into a bucket |
-| get | Get a file from a bucket |
-=======
 | s3cmd command | Function 			|
 |-----	 |----					|
 | mb 	 | Make a new bucket 			|
 | rb 	 | Remove a bucket 			|
-| ls 	 | List objects or bukets 		|
+| ls 	 | List objects or buckets 		|
 | la 	 | List all objects in all buckets 	|
 | du 	 | Show the disk usage of buckets 	|
 | put 	 | Put a file into a bucket 		|
-| get 	 | Get afile from a bucket 		|
->>>>>>> 3460f7683cab3840bc88ed6fec27a02691824ea6
+| get 	 | Get a file from a bucket 		|
 | setacl | Modify Access control list for Bucket or Files |
 
 In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure on Object Storage is flat: you can't create a bucket that is inside a bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You can't use a bucket name that is already used by you or some other Object Storage user.
