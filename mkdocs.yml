@@ -107,8 +107,8 @@ nav:
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Using Allas:
-           - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-           - Clients:
+           - Allas Use Cases: data/Allas/using_allas/common_use_cases.md
+           - Allas Clients:
               - Web client: data/Allas/using_allas/web_client.md
               - Swift client: data/Allas/using_allas/swift_client.md
               - S3 client: data/Allas/using_allas/s3_client.md
