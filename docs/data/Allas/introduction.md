@@ -1,4 +1,3 @@
----------------------------------------
 
 # Introduction to Allas Storage service
 
@@ -9,13 +8,11 @@
 
 **Allas** is part of the _CSC storage portfolio_ and accessible from anywhere on the Internet. We provide various tools (see [Clients](./accessing_allas.md#clients){:target="_blank}) for storing and accessing your data. CSC can also work with you to solve comprehensive data management needs or support large scale data transfer cases.
 
-Allas is connected to all CSC computing environments (**Mahti**, **Puhti** and **the Cloud services**) supporting easy data movements closer to the actual compute or moving results from one compute environment to another. Importantly, the data can also be shared from Allas directly to the Internet enabling fast and easy data sharing practices.
+Allas Object Storage is a storage service to host data for a project lifetime. The data from Allas can also be shared via Internet. Allas cannot be used directly for computing, but CSC computing environments (**Mahti** and **Puhti**) support easy data movements to and from Allas. **Please note:** The files which have not been touched in 90 days will automatically be cleaned from project's [Lustre scratch](../../computing/disk-environment.md){:target="_blank"} (similar mechanism was used in [Taito WRKDIR](https://research.csc.fi/taito-disk-environment#1.5.2){:target="_blank"}) and therefore the data must be moved to Allas after computing.
 
-Allas is a modern object storage system - it comes with the _Amazon Simple Storage Service_ (S3) and _Swift_ interfaces on _CEPH_ storage. In practice, this means that instead of files, the data is stored as objects within buckets. A bucket is simply a container for objects that may also include metadata describing the bucket. 
+Allas is a modern object storage system - it comes with _S3_ and _Swift_ interfaces on _CEPH_ storage. In practice, this means that instead of files, the data is stored as objects within buckets. A bucket is simply a container for objects that may also include metadata describing the bucket. 
 
-In [the user interface](https://pouta.csc.fi/dashboard/project/containers/){:target="_blank"} at CSC's web page objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of how to use buckets and objects within Allas are available below.
-
-Allas Object Storage is a storage service to host data for a project lifetime. Allas is meant for data that is not currently needed for computing. Although, Allas is connected to all CSC computing and cloud services, making the data easily available for processing. Files which have not been touched in 90 days will automatically be cleaned from project's _Lustre_ scratch (similar mechanism was used in [Taito WRKDIR](https://research.csc.fi/taito-disk-environment#1.5.2){:target="_blank"}).
+In [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of how to use buckets and objects within Allas are available below.
 
 &nbsp;
 
@@ -26,7 +23,7 @@ Allas Object Storage is a storage service to host data for a project lifetime. A
 
 **Access Control List**
 
-_Access Control List_ (ACL) mechanism can be used to control access to other Allas users. (See [Wikipedia](https://en.wikipedia.org/wiki/Access-control_list){:target="_blank"})
+_Access Control List_ (ACL) mechanism can be used to control access to other Allas users.
 
 &nbsp;
 
@@ -35,7 +32,7 @@ _Access Control List_ (ACL) mechanism can be used to control access to other All
 
 _Billing units_ describe the consumption of computing and storage resources on CSC systems. 
 In Allas, the amount of data consumes billing units.
-(See [https://research.csc.fi/billing-and-monitoring](https://research.csc.fi/billing-and-monitoring){:target="_blank"})
+(See [Billing and Quotas](#billing-and-quotas))
 
 &nbsp;
 
@@ -61,7 +58,7 @@ _Client software_ is used to access the object storage service (Allas).
 
  * Web browser based access via _OpenStack Horizon_ for basic graphical usage (see [Web client](./using_allas/web_client.md){:target="_blank"})
  * Command line clients such as _Swift_ and _s3cmd_ for power users (see [Swift client](./using_allas/swift_client.md){:target="_blank"} and [S3 client](./using_allas/s3_client.md){:target="_blank"})
- * _Programmable interface_ (API) for those who integrate softwares
+ * _Programmable interface_ (API) for those who integrate software
 
 &nbsp;
 
