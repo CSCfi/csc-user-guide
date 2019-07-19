@@ -118,8 +118,3 @@ To see how much space a bucket has used
 Please contact servicedesk@csc.fi if you have questions.
 
 &nbsp;
-
-
-### Using Allas for sensitive data
-
-Sensitive data can be stored in the Allas provided that the files are encrypted before uploading to the CSC storage system. CSC will not take responsibility of the encryption key management - our platforms cannot be used for storing these keys and transfer of keys from data owner to the user must be made outside of the CSC infrastructure. The buckets are available on the Internet and can be shared using the same processes that apply to all data stored in the Allas service. However, these data cannot be used as part of the CSC sensitive data services (as CSC cannot have access to the encryption keys).
