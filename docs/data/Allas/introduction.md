@@ -12,7 +12,7 @@ Allas Object Storage is a storage service to host data for a project lifetime. T
 
 Allas is a modern object storage system - it comes with _S3_ and _Swift_ interfaces on _CEPH_ storage. In practice, this means that instead of files, the data is stored as objects within buckets. A bucket is simply a container for objects that may also include metadata describing the bucket. 
 
-In [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of how to use buckets and objects within Allas are available below.
+In [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command-line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of how to use buckets and objects within Allas are available below.
 
 &nbsp;
 
@@ -57,7 +57,7 @@ You can get the checksum with command _md5sum_.
 _Client software_ is used to access the object storage service (Allas).
 
  * Web browser based access via _OpenStack Horizon_ for basic graphical usage (see [Web client](./using_allas/web_client.md){:target="_blank"})
- * Command line clients such as _Swift_ and _s3cmd_ for power users (see [Swift client](./using_allas/swift_client.md){:target="_blank"} and [S3 client](./using_allas/s3_client.md){:target="_blank"})
+ * Command-line clients such as _Swift_ and _s3cmd_ for power users (see [Swift client](./using_allas/swift_client.md){:target="_blank"} and [S3 client](./using_allas/s3_client.md){:target="_blank"})
  * _Programmable interface_ (API) for those who integrate software
 
 &nbsp;
@@ -66,7 +66,7 @@ _Client software_ is used to access the object storage service (Allas).
 **Metadata**
 
 _Metadata_ describes an object or bucket and it could be used, for example, to search objects. 
-The basic usage is via _key-value_ pair (See [Wikipedia](https://en.wikipedia.org/wiki/Attribute%E2%80%93value_pair){:target="_blank"}).
+The basic usage is via _key-value_ pair (for example, name: John).
 
 &nbsp;
 
@@ -91,7 +91,7 @@ For further information, see [OpenStack](https://www.openstack.org/){:target="_b
 
 You cannot have buckets with other buckets inside them. You can however make use of so called _pseudo-folders_.
 
-If an object name contains a forward slash "/", it is interpreted as a folder separator. These are shown as folders listings when accessing the data through Pouta web interface. These pseudo-folders are automatically added if you upload whole folders with command line clients.
+If an object name contains a forward slash "/", it is interpreted as a folder separator. These are shown as folders listings when accessing the data through Pouta web interface. These pseudo-folders are automatically added if you upload whole folders with command-line clients.
 
 For example, if you add two objects to a bucket
 ```bash
@@ -99,8 +99,6 @@ fishes/salmon.png
 fishes/bass.png
 ```
 listing the bucket will show a folder called "_fishes_" and the two files within it.
-
-**Please note!** This means that you cannot have empty pseudo-folders, since they require at least one object inside them
 
 &nbsp;
 
@@ -113,12 +111,14 @@ _Allas quota_ defines the maximum amount of data (capacity) which the project is
 &nbsp;
 
 
-## Allas Object Storage Benefits
+## System Characteristics
 
-Object storage is generally used for different purposes than many other storage solutions. It has benefits but also limitations. These are some of the benefits, but once you start using it, you are bound to find more.
+
+The stored objects can be any data type, such as images or compressed data files. In general, you can think of objects as files. Object storage is generally used for different purposes than many other storage solutions. It has benefits but also limitations.
+
+**Benefits**
 
  * The object storage can handle practically any static data
- * You do not need to set up a virtual machine to serve or receive the data
  * The data can be accessed from anywhere using the same URL
  * The data can have different levels of access control
 
@@ -131,30 +131,20 @@ Object storage is generally used for different purposes than many other storage 
 
 More about the functionalities of Allas can be found from chapter [Using Allas](./using_allas/common_use_cases.md){:target="_blank"}.
 
-&nbsp;
-
-
-## System Characteristics
-
-
-The stored objects can be any data type, such as images or compressed data files. In general, you can think of objects as files.
-
 The objects are stored in buckets. A bucket is simply a container for objects. These buckets should not be confused with _dockers_, or other containers used for computing. A bucket basically acts like a filesystem directory, but you can have only one level of them, so you cannot have buckets within buckets.
 
 Each bucket has a name, which must be unique across all users. So if somebody else has a bucket called "_test_", you cannot create a bucket called "_test_". All the bucket names are public, so please <u>do not</u> put private information in the bucket name. You may use, for example, your project id in the bucket name, for example, _2000620-raw-data_.
 
 URLs to objects can be in DNS format: _https://object.pouta.csc.fi/bucketname/objectname_ - for this reason use a valid DNS name (RFC 1035) for the bucket. Specifically, we recommend not using upper case characters or Scandic letters (&auml;, &ouml;, etc.) in the bucket name.
 
-Data objects within the buckets are immutable once they have been uploaded. You can delete an object and upload a new one with the same name, but you cannot do changes to it.
-
-There are three copies of the data you store in the service. These copies are spread across different servers. This protects the data against disk and server failures. **Please note!** This does not protect from e.g. accidental deletion, and you should still make backups of important data.
+Data is spread across different servers, which protects against disk and server failures. **Please note:** This does not protect from e.g. accidental deletion, and you should still make backups of important data.
 
 &nbsp;
 
 
 ## Billing and Quotas
 
-Allas usage is based on project based storage quotas. All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one user uploads data to Allas, all the other users can read and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
+Allas usage is based on project based storage quotas. All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
 
 The default quotas for every project are:
 
@@ -166,7 +156,7 @@ The default quotas for every project are:
 | Object size | 5 GB |
 
 
-Storing data in Allas consumes _billing units_ with rate of xxx Bu/TbA. Accounting and billing information can be found under [Accounting principles and quotas](https://research.csc.fi/pouta-accounting){:target="_blank"}.
+Storing data in Allas consumes _billing units_. Accounting and billing information can be found under [Accounting principles and quotas](https://research.csc.fi/pouta-accounting){:target="_blank"}.
 
 Unlike most other object storage providers, CSC <u>does not</u> charge for object storage network transfers or API calls.
 
