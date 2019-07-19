@@ -1,8 +1,10 @@
--------------------
 
 ## S3 client
 
-To utilize the S3 API, ec2 credentials are required. These are created from the CLI with:
+You need to use ec2 credentials when using S3. You can create S3 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"}.
+
+The ec2 credentials are created from the CLI with:
+
 ```bash
 $ openstack ec2 credentials create
 +----------------------------------+----------------------------------+----------------------------------+----------+
@@ -11,7 +13,7 @@ $ openstack ec2 credentials create
 | 00000000001                      | 5000000000000000000              | 000000000000000000022            | $username|
 +----------------------------------+----------------------------------+----------------------------------+----------+
 ```
-Instructions for installing s3cmd, making objects public with it and giving read access to a bucket for another project are listed below.
+Instructions for installing s3cmd, making objects public with it and giving read access to a bucket for another project are given below.
 
 &nbsp;
 
@@ -33,9 +35,8 @@ $ python3 virtualenv
 $ pip3 install s3cmd
 $ s3cmd
 ```
-You need to use ec2 credentials when using S3. You can create S3 credentials by sourcing your openrc file as in the instructions in Pouta documentation's [chapter 3.4.1.3](https://research.csc.fi/pouta-install-client){:target="_blank"}.
- 
-If you already have created ec2 credentials that you want to reuse, you can find them by issuing:
+
+You can find your ec2 credentials by issuing:
 ```bash
 openstack ec2 credentials list
 ```

@@ -1,4 +1,3 @@
-------------------------
 
 ## Common Error Messages
 

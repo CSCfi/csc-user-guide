@@ -1,4 +1,3 @@
------------------
 
 # Accessing Allas
 
@@ -34,7 +33,7 @@ With Windows and Mac you can use, for example, the software [CyberDuck](https://
 
 5. In the section **Tenant ID:Access Key** type your _Pouta username_ (the one you use in pouta.csc.fi)
 
-6. Type your Pouta password in **Secret Key** part. After that, you can close the bookmark
+6. Type your Pouta password in **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner
 
 7. Now you can right-click the bookmark on the CyberDuck mainpage and choose the option _Connect to server_.
 
@@ -50,12 +49,6 @@ CyberDuck offers some basic functionalities to managing data in object storage:
  * Share buckets
  * Remove object
 
-
-From the RC-file you can find the Tenant ID from the section OS_TENANT_ID (0123456789). Write :OS_USERNAME (your email) right after it. Navigate to the CyberDuck mainmenu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
-
-When you choose the port 5000, the software might change the connection type to _WebDAV_, since it may assume that you do not want to use https-protocol. In this case, switch back the Swift from the drop-down menu. You can now close the bookmark, connect to the server and type your account password.
-
-CyberDuck will create a bucket in case you did not.
 
 ### Linux
 
@@ -87,9 +80,9 @@ With Android you can use the _Android Access_ with _OpenStack Swift_. Alternativ
 
 ## Accessing Allas from Taito
 
-The usage will strongly depend on what you will do with the data. The command line tools _Swift_, _S3_ and _s3cmd_ are already installed on **Taito**. More about the clients in [the next chapter](#protocols).
+The usage will strongly depend on what you will do with the data. The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on **Taito**. More about the clients in [the next chapter](#protocols).
 
-| Command line tool | Requirements |
+| Command-line tool | Requirements |
 | :--------: | --------- |
 | Swift	| Computing project openrc.sh file downloaded from [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} & sourced to shell (more info [here](./using_allas/swift_client.md){:target="_blank"}) |
 | <br/><br/><br/>S3 | Following environment variables present in environment: <br/><br/> S3_ACCESS_KEY_ID <br/> S3_SECRET_ACCESS_KEY <br/> S3_HOSTNAME <br/><br/> More info [here](./using_allas/s3_client.md){:target="_blank"}. |

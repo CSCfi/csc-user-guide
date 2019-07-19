@@ -1,4 +1,3 @@
-----------------------
 
 ## Web client - OpenStack Horizon Dashboard
 

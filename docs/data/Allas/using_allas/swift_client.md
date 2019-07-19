@@ -1,4 +1,4 @@
-----------------
+
 ## Swift client
 
 For basic operations we recommend using the _openstack command line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command line client_ is used in the examples. The instructions for the installation of the Swift command line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}.
