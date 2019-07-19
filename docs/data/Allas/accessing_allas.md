@@ -78,9 +78,9 @@ With Android you can use the _Android Access_ with _OpenStack Swift_. Alternativ
 &nbsp;
 
 
-## Accessing Allas from Taito
+## Accessing Allas from Supercomputers
 
-The usage will strongly depend on what you will do with the data. The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on **Taito**. More about the clients in [the next chapter](#protocols).
+The usage will strongly depend on what you will do with the data. The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Supercomputers (**Taito**, **Puhti** and **Mahti**). More about the clients in [the next chapter](#protocols).
 
 | Command-line tool | Requirements |
 | :--------: | --------- |
