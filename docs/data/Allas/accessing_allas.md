@@ -97,7 +97,7 @@ $ openstack credential delete
 ```
 **Please note!** The ec2 credentials do not work against other Openstack services.
  
-There is also the possibility to create [temp URLs](./using_allas/swift_client.md#temp_urls){:target="_blank"} for the objects you need to access, and use those URLs to access the data from compute jobs from Taito. One benefit of using temp URLs is that no credentials need to be stored in Taito for retrieving the object.
+There is also the possibility to create [temp URLs](./using_allas/swift_client.md#temp_urls){:target="_blank"} for the objects you need to access, and use those URLs to access the data from compute jobs. One benefit of using temp URLs is that no credentials need to be stored for retrieving the object.
 
 &nbsp;
 
@@ -129,6 +129,5 @@ There are several different ways of accessing object storage. We support both th
 | libs3	| Yes | | |	 	 
 | python-openstackclient | Yes | | |
 |aws-cli | Yes | | aws-cli and the boto3 python library |
-|nordugrid-arc-client | No | | Can be used for grid jobs. Bug reports submitted |
 |curl | Yes | | Extremely simple to use with public objects and temporary URLs |
 |wget | Yes | | Same as curl |
