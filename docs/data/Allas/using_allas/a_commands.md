@@ -1,4 +1,4 @@
-# a_ Commands, Easy and safe
+# a_commands, Easy and safe
 
 The Allas object storage system can be used in multiple ways and for many purposes. In many cases, effective usage of Allas requires that the user knows the features of both Object Storage systems and the software or protocol that is used to manage data  in Allas.
 

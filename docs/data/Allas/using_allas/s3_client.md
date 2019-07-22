@@ -1,5 +1,5 @@
 
-## S3 client
+# S3 client
 
 You need to use ec2 credentials when using S3. You can create S3 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"}.
 
@@ -17,7 +17,7 @@ Instructions for installing s3cmd, making objects public with it and giving read
 
 &nbsp;
 
-* **s3cmd**
+## s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download){:target="_blank"} and  [http://s3tools.org/usage](http://s3tools.org/usage){:target="_blank"} for upstream documentation.
  
@@ -52,7 +52,7 @@ Then you need to verify all the settings from the created file.
 
 <a name="s3cmd_public_objects"></a>
 
-* **s3cmd and public objects**
+## s3cmd and public objects
 
 <pre>$ s3cmd put pictures/salmon.jpg s3://fishes/pictures/fishes.jpg -P
 Public URL of the object is: http://object.pouta.csc.fi/fishes/pictures/salmon.jpg</pre>
@@ -61,7 +61,7 @@ Public URL of the object is: http://object.pouta.csc.fi/fishes/pictures/salmon.j
 
 &nbsp;
 
-* **Giving another project read access to a bucket**
+## Giving another project read access to a bucket
 
 "_s3cmd setacl_" command needs to use the UUID of the project you want to grant access to.
  
@@ -87,3 +87,10 @@ $ s3cmd info s3://fishes|grep -i acl
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
 ```
+
+&nbsp;
+
+
+## s3cmd with Supercomputers
+
+Guidance for using s3cmd with the Supercomputers Taito and Puhti: [s3cmd](./s3cmd.md){:target="_blank"}

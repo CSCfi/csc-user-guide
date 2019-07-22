@@ -1,5 +1,5 @@
 
-## Swift client
+# Swift client
 
 For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}.
 
@@ -27,7 +27,7 @@ Instructions for using _Swift_ when viewing and producing metadata, handling tem
 
 &nbsp;
 
-* **Metadata**
+## Metadata
 
 The following command provides details about a bucket:
 
@@ -83,7 +83,7 @@ $ openstack object set --property foo=bar fishes salmon.jpg
 
 <a name="temp_urls"></a>  
 
- * **Temp URLs**
+## Temp URLs
 
 [http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/](http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/){:target="_blank"}
  
@@ -114,7 +114,7 @@ You may set a second key by adding another metadata entry with title "Temp-URL-K
 
 <a name="files_larger_than_5gb"></a>  
 
- * **Files larger than 5 GB**
+## Files larger than 5 GB
 
 Since the openstack command does not support uploading files larger than 5GB, we can use Swift to upload a so-called _Static Large Object_ (SLO).
 

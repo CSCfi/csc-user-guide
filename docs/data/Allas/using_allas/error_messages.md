@@ -1,5 +1,5 @@
 
-## Common Error Messages
+# Common Error Messages
 
 HTTP status code 409 - There is already a bucket with that name:
 ```bash

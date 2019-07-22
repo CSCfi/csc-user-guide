@@ -1,5 +1,5 @@
 
-## Web client - OpenStack Horizon Dashboard
+# Web client - OpenStack Horizon Dashboard
 
 This section includes instructions for using the user friendly **OpenStack Horizon Dashboard**.
 
@@ -19,7 +19,7 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 &nbsp;
 
 
-### Creating a bucket
+## Creating a bucket
 
 1\. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and login
 
@@ -35,7 +35,7 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 &nbsp;
 
 
-### Adding an object to a bucket
+## Adding an object to a bucket
 
 1\. Choose the desired bucket and press the **upload symbol** on the right
 
@@ -50,7 +50,7 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 
 <a name="web_public"></a>
 
-### Viewing objects via Internet
+## Viewing objects via Internet
 
 If the bucket including the objects is set to be _public_, the objects can be viewed via Internet by anyone who knows the URL. This setting can be changed from [pouta.csc.fi/dashboard/project/containers](https://pouta.csc.fi/dashboard/project/containers/){:target="_blank"} by choosing the container and selecting the **Public Access** setting:
 
@@ -63,14 +63,14 @@ A public object named _my_fish_ belonging to a container named _my_fishbucket_ c
 &nbsp;
 
 
-### Downloading an object
+## Downloading an object
 
 Downloading an object happens from the **Download** button on the right side of the object's name.
 
 &nbsp;
 
 
-### Removing objects and buckets
+## Removing objects and buckets
 
 Objects can be removed by clicking the drop-down menu on the right next to the _Download_ button. There will be an option **Delete**.
 

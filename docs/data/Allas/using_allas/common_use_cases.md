@@ -1,10 +1,10 @@
 
-## Common Use Cases
+# Common Use Cases
 
 &nbsp;
 
 
-### Processing data
+## Processing data
 
 To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/){:target="_blank"}.
 
@@ -15,7 +15,7 @@ To use the computing environment, you need to use the open-source, parallel file
 &nbsp;
 
 
-### Sharing data
+## Sharing data
 
 With object storage you can easily share data, e.g. datasets or research results. You can share these with other projects or open up access to everybody.
  
@@ -38,7 +38,7 @@ The data can be accessed and shared in several different ways:
 &nbsp;
 
 
-### Using Allas in Supercomputers
+## Using Allas in Supercomputers
 
 The first step to use Allas is to authenticate to a project in Allas. In Taito and Puhti you can do the authentication with command:
 
@@ -50,18 +50,18 @@ The command above generates and stores authentication information into shell var
 
 You can find some guidance for using Allas in Puhti and Taito below:
 
- * **Using Allas to move data between CSC computing environments:** [Quick and safe: a_put, a_get, a_find](./a_commands.md){:target="_blank"}
+ * **Easy tools for basic usage:** [Quick and safe: a_put, a_get, a_find](./a_commands.md){:target="_blank"}
 
 
- * **Accesing data in Allas directly from Puhti or Taito computing environment:** [Advanced tools: Rclone and swift](./rclone.md){:target="_blank"}
+ * **Advanced functions with rclone:** [Advanced tool: rclone](./rclone.md){:target="_blank"}
 
 
- * **Persistent connections to Allas:** [Persistent Allas connections: s3cmd](./s3cmd.md){:target="_blank"}
+ * **s3cmd and persistent Allas connections:** [s3cmd](./s3cmd.md){:target="_blank"}
 
 &nbsp;
 
  
-### Static web content
+## Static web content
 
 A common way to use object storage is to store static web content there (images, videos, audio, pdfs, downloadable content), and just add links to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish){:target="_blank"}
 
@@ -70,21 +70,21 @@ Uploading data to Allas can be done with any of the clients: [Web client](./web_
 &nbsp;
 
 
-### Storing data for distributed use
+## Storing data for distributed use
 
 There are several cases where you need to access to common data from several locations. In these cases, the practice of staging in data to individual servers or computers from the object storage can be used instead of shared file storage.
 
 &nbsp;
 
 
-### Accessing the same data from multiple CSC platforms
+## Accessing the same data from multiple CSC platforms
 
 Since the data in object store is available from anywhere, you can access the data from both the CSC clusters and from the cloud services. This makes the object store a good place to store data and intermediate and final results in cases where your workflow requires the use of both Taito and Allas, for example.
 
 &nbsp;
 
 
-### Collecting data from different sources
+## Collecting data from different sources
 
 It is easy to push data to object storage from several different sources. This data can then later be processed as needed.
 
@@ -94,14 +94,16 @@ An example of this is several data collectors pushing data to be processed. Thes
 &nbsp;
 
 
-### Self-service backups of data
+## Self-service backups of data
 
 Object storage is also often used as a location where you store backups. It is a convenient place to push copies of such as database dumps.
+
+[a_backup](./a_backup.md){:target="_blank"} is a tool for creating backup copies of files to Allas. **Please note:** <i>a_backup</i> is not a real backup service. It only copies the data to one bucket in Allas which can be removed by any authenticated user.
 
 &nbsp;
 
 
-### Viewing usage
+## Viewing usage
 
 If you are using _s3cmd client_, you can check your project's Object Storage usage with command:
 

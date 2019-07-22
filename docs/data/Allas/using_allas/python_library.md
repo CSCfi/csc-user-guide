@@ -1,5 +1,5 @@
 
-## Python library
+# Python library
 
 Some details about setting up the client with **keystone authentication**: [https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html){:target="_blank"} 
  
