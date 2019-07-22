@@ -61,6 +61,14 @@ Public URL of the object is: http://object.pouta.csc.fi/fishes/pictures/salmon.j
 
 &nbsp;
 
+
+## s3cmd with Supercomputers
+
+Guidance for using s3cmd with the Supercomputers Taito and Puhti: [s3cmd](./s3cmd.md){:target="_blank"}
+
+&nbsp;
+
+
 ## Giving another project read access to a bucket
 
 "_s3cmd setacl_" command needs to use the UUID of the project you want to grant access to.
@@ -87,10 +95,3 @@ $ s3cmd info s3://fishes|grep -i acl
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
 ```
-
-&nbsp;
-
-
-## s3cmd with Supercomputers
-
-Guidance for using s3cmd with the Supercomputers Taito and Puhti: [s3cmd](./s3cmd.md){:target="_blank"}
