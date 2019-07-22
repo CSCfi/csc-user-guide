@@ -1,6 +1,6 @@
 # a_ Commands, Easy and safe
 
-The Allas object storage system can be used in multiple ways and for many purposes. In many cases effective usage of Allas requires that the user knows the features of both Object Storage systems and the software or protocol that is used.
+The Allas object storage system can be used in multiple ways and for many purposes. In many cases, effective usage of Allas requires that the user knows the features of both Object Storage systems and the software or protocol that is used to manage data  in Allas.
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
@@ -28,7 +28,7 @@ define the project that will be used to store the data.
 2. In case of directory, the content of the directory is collected into single file
 (using `tar` command).
 
-3. Data is compressed using `zstdmt` command.
+3. Data is compressed using `zstdmt` command (unless compression is skipped with `-nc` option).
 
 4. The compressed data is uploaded to Allas using `rclone` command and _swift_ protocol.
 
@@ -114,8 +114,13 @@ Options:
 - **-bucket _bucket_name_**   By default all the buckets, used by `a_put`, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use these this option also in cases where you have stored data to buckets with non-standard name.
 
 - **-silent**            Output just the object names and number of hits. If `-file` option is used too, print the object name and matching file name on one row.
+
+## a_info shows information about an uploaded dataset
                              
-## g_get retrieves the stored data
+Command `a_info` allows you to get information about a dataset that has been uploaded to allas using `a_put`.                              
+                             
+                             
+## a_get retrieves the stored data
 
 This tool is used to download data that has been uploaded to Allas service using the `a_put` command.
 The basic syntax of the command is:
