@@ -50,13 +50,13 @@ The command above generates and stores authentication information into shell var
 
 You can find some guidance for using Allas in Puhti and Taito below:
 
- * **Using Allas to move data between CSC computing environments:** [Quick and safe: a_put, a_get, a_find](../../a_commands.md){:target="_blank"}
+ * **Using Allas to move data between CSC computing environments:** [Quick and safe: a_put, a_get, a_find](./a_commands.md){:target="_blank"}
 
 
- * **Accesing data in Allas directly from Puhti or Taito computing environment:** [Advanced tools: Rclone and swift](../../rclone.md){:target="_blank"}
+ * **Accesing data in Allas directly from Puhti or Taito computing environment:** [Advanced tools: Rclone and swift](./rclone.md){:target="_blank"}
 
 
- * **Persistent connections to Allas:** [Persistent Allas connections: s3cmd](../../s3cmd.md){:target="_blank"}
+ * **Persistent connections to Allas:** [Persistent Allas connections: s3cmd](./s3cmd.md){:target="_blank"}
 
 &nbsp;
 

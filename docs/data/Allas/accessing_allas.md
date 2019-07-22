@@ -33,7 +33,7 @@ With Windows and Mac you can use, for example, the software [CyberDuck](https://
 
 5. In the section **Tenant ID:Access Key** type your _Pouta username_ (the one you use in pouta.csc.fi)
 
-6. Type your Pouta password in **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner
+6. Type your Pouta password in **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window
 
 7. Now you can right-click the bookmark on the CyberDuck mainpage and choose the option _Connect to server_.
 
@@ -99,7 +99,7 @@ $ openstack credential delete
  
 There is also the possibility to create [temp URLs](./using_allas/swift_client.md#temp_urls){:target="_blank"} for the objects you need to access, and use those URLs to access the data from compute jobs. One benefit of using temp URLs is that no credentials need to be stored for retrieving the object.
 
-The instructions for using Allas in supercomputers can be found from [the Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers).
+The instructions for using Allas in Supercomputers [the Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers).
 
 &nbsp;
 
