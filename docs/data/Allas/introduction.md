@@ -158,6 +158,6 @@ The default quotas for every project are:
 
 Storing data in Allas consumes _billing units_. Accounting and billing information can be found under [Accounting principles and quotas](https://research.csc.fi/pouta-accounting){:target="_blank"}.
 
-Unlike most other object storage providers, CSC <u>does not</u> charge for object storage network transfers or API calls.
+Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
 &nbsp;

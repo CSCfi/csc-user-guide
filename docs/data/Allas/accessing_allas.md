@@ -99,7 +99,7 @@ $ openstack credential delete
  
 There is also the possibility to create [temp URLs](./using_allas/swift_client.md#temp_urls){:target="_blank"} for the objects you need to access, and use those URLs to access the data from compute jobs. One benefit of using temp URLs is that no credentials need to be stored for retrieving the object.
 
-The instructions for using Allas in Supercomputers [the Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers).
+The instructions for using Allas with Supercomputers can be found from [the Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers).
 
 &nbsp;
 
@@ -124,10 +124,12 @@ There are several different ways of accessing object storage. We support both th
 
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
-| Web client | Yes | [link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} |
-| python-swiftclient | Yes | [link](./using_allas/swift_client.md){:target="_blank"}| This is the recommended Swift client |
-| s3cmd	| Yes | [link](./using_allas/s3_client.md){:target="_blank"} | This is the recommended S3 client. Use version 2.0.2 or later|
-| python-swift-library | Yes | [link](./using_allas/python_library.md){:target="_blank"} |	| 
+| Web client | Yes | [Link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} |
+| python-swiftclient | Yes | [Link](./using_allas/swift_client.md){:target="_blank"}| This is the recommended Swift client |
+| s3cmd	| Yes | [Link](./using_allas/s3_client.md){:target="_blank"} | This is the recommended S3 client. Use version 2.0.2 or later|
+| python-swift-library | Yes | [Link](./using_allas/python_library.md){:target="_blank"} |	| 
+| a_commands | Yes | [Link](./using_allas/a_commands.md){:target="_blank"} | Provides easy-to-use tools for basic usage. Requires Swift and OpentStack |
+| rclone | Yes | [Link](./using_allas/rclone.md){:target="_blank"} | Useful with Supercomputers |
 | libs3	| Yes | | |	 	 
 | python-openstackclient | Yes | | |
 |aws-cli | Yes | | aws-cli and the boto3 python library |
