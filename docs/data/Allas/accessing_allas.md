@@ -99,6 +99,8 @@ $ openstack credential delete
  
 There is also the possibility to create [temp URLs](./using_allas/swift_client.md#temp_urls){:target="_blank"} for the objects you need to access, and use those URLs to access the data from compute jobs. One benefit of using temp URLs is that no credentials need to be stored for retrieving the object.
 
+The instructions for using Allas in supercomputers can be found from [the Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers).
+
 &nbsp;
 
 
