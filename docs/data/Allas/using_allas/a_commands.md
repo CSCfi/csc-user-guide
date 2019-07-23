@@ -120,36 +120,40 @@ The most commonly occurring special characters are listed below:
 
 Options:
 
-- **-files**  Lists the names of the matching files inside the objects in addition to the object name.
+- **-f**, **--files**  Lists the names of the matching files inside the objects in addition to the object name.
 
-- **-project _project_ID_**   Search matches from the buckets of the defined project in stead of the currently configured project. 
+- **-p**,**--project _project_ID_**   Search matches from the buckets of the defined project in stead of the currently configured project. 
 
-- **-bucket _bucket_name_**   By default all the buckets, used by `a_put`, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use these this option also in cases where you have stored data to buckets with non-standard name.
+- **-b**, **--bucket _bucket_name_**   By default all the buckets, used by `a_put`, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use these this option also in cases where you have stored data to buckets with non-standard name.
 
-- **-silent**            Output just the object names and number of hits. If `-file` option is used too, print the object name and matching file name on one row.
+- **-s**, **-silent**            Output just the object names and number of hits. If _-f_ option is used too, print the object            name and matching file names on one row.
+
 
 ## a_info shows information about an uploaded dataset
                              
-Command `a_info` allows you to get information about a dataset that has been uploaded to allas using `a_put`.                              
-                             
+Command `a_info` allows you to get information about a dataset that has been uploaded to allas using `a_put`.    
+
+```
+a_info _object_name_
+```                          
                              
 ## a_get retrieves the stored data
 
 This tool is used to download data that has been uploaded to Allas service using the `a_put` command.
 The basic syntax of the command is:
 ```
-a_get object_name
+a_get _object_name_
 ```
 
 By default, the object is retrieved and uncompressed. By default, the data is extracted to a file or directory that was used in uploading. If a directory or file with the same name already exists, you must either remove the existing file/directory or guide the downloaded data to new directory defined by -target option.
 
 a_get options:
 
-- **-project _project_ID_**  Retrieve data form the buckets of the defined project in stead of the currently configured project. 
+- **-p**, **--project _project_ID_**  Retrieve data form the buckets of the defined project in stead of the currently configured project. 
 
-- **-file _file_name_**      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
+- **-f**, **--file _file_name_**      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
 
-- **-target _dir_name_**      If this option is defined, a new target directory is created and the data is retrieved there.
+- **-t**, **-target _dir_name_**      If this option is defined, a new target directory is created and the data is retrieved there.
 
 
 
