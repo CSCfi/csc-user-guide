@@ -124,11 +124,11 @@ There are several different ways of accessing object storage. We support both th
 
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
-| Web client | Yes | [Link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} |
+| web client | Yes | [Link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} |
 | python-swiftclient | Yes | [Link](./using_allas/swift_client.md){:target="_blank"}| This is the recommended Swift client |
 | s3cmd	| Yes | [Link](./using_allas/s3_client.md){:target="_blank"} | This is the recommended S3 client. Use version 2.0.2 or later|
 | python-swift-library | Yes | [Link](./using_allas/python_library.md){:target="_blank"} |	| 
-| a_commands | Yes | [Link](./using_allas/a_commands.md){:target="_blank"} | Provides easy-to-use tools for basic usage. Requires Swift and OpentStack |
+| a_commands | Yes | [Link](./using_allas/a_commands.md){:target="_blank"} | Provides easy-to-use tools for basic usage. Assumes data is already in CSC computing environment. Requires Swift and OpentStack |
 | rclone | Yes | [Link](./using_allas/rclone.md){:target="_blank"} | Useful with Supercomputers |
 | libs3	| Yes | | |	 	 
 | python-openstackclient | Yes | | |
