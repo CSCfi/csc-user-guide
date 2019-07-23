@@ -111,9 +111,9 @@ The object storage service is provided over two different protocols, **Swift** a
 
 Because of this security concern, Swift is the recommended protocol to be used in many-user servers like Puhti and Mahti. Thus, for example, the CSC specific <i>a_ commands</i> (e.g. _a_put_ and _a_get_) as well as the standard _rclone_ configuration in Puhti are based on Swift. However, in some cases the permanent connections provided by S3 protocol may be the most reasonable option, for example, in users own virtual machine running in cPouta.
 
-Swift and S3 protocols are <u>not</u> compatible in handling objects. Small objects, that don't need to be splitted during upload, can be cross used, but a splitted object can be used only with the protocol that was used for upload. The size limit for splitting an object depends on the settings and on the protocol. The limit is typically between 500 MB and 5 GB.
+Swift and S3 protocols are <u>not</u> compatible in handling objects. Small objects, that don't need to be splitted during upload, can be cross used, but a splitted objects can be used only with the protocol that was used for upload. The size limit for splitting an object depends on the settings and on the protocol. The limit is typically between 500 MB and 5 GB.
 
-Data uploaded using one protocol is visible with the other protocol. Each protocol has several different tools you can use. Here is a quick list of generic recommendations.
+Below is a quick list of generic recommendations for selecting a the protocols and bucket names.
  
  * If you have a choice, use the _Swift_ protocol, it is better supported.
  * In any case, settle on one protocol. Do not mix _S3_ and _Swift_.
