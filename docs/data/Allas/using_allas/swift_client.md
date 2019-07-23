@@ -1,7 +1,7 @@
 
 # Swift client
 
-For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}. In the last section _Configure your terminal environment for OpenStack_ is guidance for downloading the RC file.
+For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}. In the last section <i>Configure your terminal environment for OpenStack</i> is guidance for downloading the RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
@@ -63,7 +63,7 @@ $ swift stat fishes
 X-Container-Bytes-Used-Actual: 1167360
                   X-Timestamp: 1516776076.95812
 ```
-Set a bucket to read-only to the world instead of the default which is private to project only:
+Set a bucket to read-only to the world (make the content visible at URL: <i>object.pouta.csc.fi/bucket_name/object_name</i>) instead of the default which is private to project only:
 ```bash
 swift post fishes --read-acl ".r:*"
 ```
@@ -116,7 +116,7 @@ $ swift post -m "Temp-URL-Key:$RANDOMKEY"
 Create a Temp-URL-Key valid for 86400 seconds (24 hours):
 ```bash
 $ swift tempurl GET 86400 https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg $RANDOMKEY
-/v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
+https://object.pouta.csc.fi/swift/v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
 ```
 (Here the part https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg is the full path to the Switch object)
 
