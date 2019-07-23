@@ -1,6 +1,6 @@
 # a_backup: nearly a self-service backup
 
-CSC does not provide a back-up service as a free service for its' customers. In this chapter we describe a tool called a_backup
+CSC does not provide a back-up service as a free service for its' customers. In this chapter we describe a tool called *a_backup*
 that can be used to make backup copies of files and directories to Allas.  However, you should remember that this tool does not 
 provide a real backup service: The data is stored in one location only and just in a one bucket in Allas. This bucket can be
 removed by an authenticated user with only one command and after that all the backups are irreversibly lost. 
