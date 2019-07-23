@@ -1,4 +1,4 @@
-# a_commands, Easy and safe
+# a_commands, easy and safe
 
 The Allas object storage system can be used in multiple ways and for many purposes. In many cases, effective usage of Allas requires that the user knows the features of both Object Storage systems and the software or protocol that is used to manage data  in Allas.
 
@@ -28,22 +28,23 @@ define the project that will be used to store the data.
 2. In case of directory, the content of the directory is collected into single file
 (using `tar` command).
 
-3. Data is compressed using `zstdmt` command (unless compression is skipped with `-nc` option).
+3. Data is compressed using `zstdmt` command (unless compression is skipped with `-n` option).
 
 4. The compressed data is uploaded to Allas using `rclone` command and _swift_ protocol.
 
-The location were data is stored in Allas can be defined with options
-`-bucket` and `-os_file`, but defining these values is normally not needed as you should use the defaut bucket names.
- The default bucket in Allas depends on the original location of the data. Data that locates in:
+By default a_put uses standard buket and object names that depend on a username, project and the location
+of the data to be uploaded. Data that locates in:
  
   - a) $WRKDIR(Taito) or $SCRATCH(Puhti) is uploaded to bucket: _username-pojectNumber_-SCRATCH
   - b) $HOME is uploaded to: _username-pojectNumber_-HOME
   - c) in other cases the data is uploaded to: _username-pojectNumber_-MISC
-
+  
 For example for user _kkaytaj_ belonging to project _12345_, data locating in HOME directory
 will be uploaded to bucket: _kkayttaj-12345-HOME_.
 
-The compressed dataset will be stored as one object. The object name depends on the
+If yuou wish to use other that the standard bucket, you can define a bukcet name with option _-b_ or _--bucket_.
+
+The compressed dataset will be stored as one object. The by default the object name depends on the
 file name and location. The logic used here is such that the possible subdirectory path in Taito is included 
 in the object name. E.g. a file called *test_1.txt* in $WRKDIR can be stored with commands:
 
@@ -76,6 +77,18 @@ metadata is created. This metadata object has the same name as the
 main file with extension: *_meta*. This metadata file is used by the 
 other *a_* commands and normally it is not displayed to the user.
 
+If you wish to use some other than the default object name you can define it with option: _-o_ or _--os_name_
+
+For example
+```
+cd $WRKDIR
+a_put project2/sample3/test_1.txt -b newbuket1 - o case1.txt -n
+```
+The command abve woud upload file test_1.txt to allas into bucket _newbucket1_ as object _case1.txt_.
+As option _-n_ is used the data is stored in an uncompressed format. 
+
+
+
 
 ## a_find
 
@@ -107,36 +120,40 @@ The most commonly occurring special characters are listed below:
 
 Options:
 
-- **-files**  Lists the names of the matching files inside the objects in addition to the object name.
+- **-f**, **--files**  Lists the names of the matching files inside the objects in addition to the object name.
 
-- **-project _project_ID_**   Search matches from the buckets of the defined project in stead of the currently configured project. 
+- **-p**,**--project _project_ID_**   Search matches from the buckets of the defined project in stead of the currently configured project. 
 
-- **-bucket _bucket_name_**   By default all the buckets, used by `a_put`, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use these this option also in cases where you have stored data to buckets with non-standard name.
+- **-b**, **--bucket _bucket_name_**   By default all the buckets, used by `a_put`, are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use these this option also in cases where you have stored data to buckets with non-standard name.
 
-- **-silent**            Output just the object names and number of hits. If `-file` option is used too, print the object name and matching file name on one row.
+- **-s**, **-silent**            Output just the object names and number of hits. If _-f_ option is used too, print the object            name and matching file names on one row.
+
 
 ## a_info shows information about an uploaded dataset
                              
-Command `a_info` allows you to get information about a dataset that has been uploaded to allas using `a_put`.                              
-                             
+Command `a_info` allows you to get information about a dataset that has been uploaded to allas using `a_put`.    
+
+```
+a_info _object_name_
+```                          
                              
 ## a_get retrieves the stored data
 
 This tool is used to download data that has been uploaded to Allas service using the `a_put` command.
 The basic syntax of the command is:
 ```
-a_get object_name
+a_get _object_name_
 ```
 
 By default, the object is retrieved and uncompressed. By default, the data is extracted to a file or directory that was used in uploading. If a directory or file with the same name already exists, you must either remove the existing file/directory or guide the downloaded data to new directory defined by -target option.
 
 a_get options:
 
-- **-project _project_ID_**  Retrieve data form the buckets of the defined project in stead of the currently configured project. 
+- **-p**, **--project _project_ID_**  Retrieve data form the buckets of the defined project in stead of the currently configured project. 
 
-- **-file _file_name_**      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
+- **-f**, **--file _file_name_**      Retrieve just a specific file or directory from the stored dataset. Note that you need to define the full path of the file or directory within the stored object
 
-- **-target _dir_name_**      If this option is defined, a new target directory is created and the data is retrieved there.
+- **-t**, **-target _dir_name_**      If this option is defined, a new target directory is created and the data is retrieved there.
 
 
 
