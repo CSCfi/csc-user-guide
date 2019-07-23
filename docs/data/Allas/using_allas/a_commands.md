@@ -11,7 +11,7 @@ For those users, that just want to use Allas for storing data that is in CSC com
 - a_info : Display information about an object in Allas
 
 
-## a_put uploads data to Allas.
+## a_put uploads data to Allas
 
 `a_put` is used to upload data from the disk environment of Taito or Puhti to 
 Allas storage environment. The basic syntax of the command is:

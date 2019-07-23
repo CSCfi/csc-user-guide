@@ -1,4 +1,4 @@
-# Using Allas with rclone from Puhti and Taito 
+﻿# Using Allas with rclone from Puhti and Taito 
 
 This is the guide how to use Allas when you are logged in to the Puhti computing environment. The first step to use Allas is to authenticate to a project in Allas.
 
@@ -16,7 +16,7 @@ rclone mkdir allas:2000620-raw-data
 ```
 
 ```shell
-$ rclone lsd allas:
+$ rclone ls allas:
 0 2019-06-06 14:43:40         0 2000620-raw-data
 ```
 This is how you upload a file into that bucket and list the content of that bucket: 
@@ -34,7 +34,7 @@ $ rclone ls allas:2000620-raw-data
 Download the file back is done with the same copy command:
 
 ```
-rclone copy allas:2000620-raw-data/file.dat .
+rclone copy allas:2000620-raw-data/file.dat
 ```
 
 Note that if you give a destination parameter name in the download command, rclone creates a directory where the download goes:

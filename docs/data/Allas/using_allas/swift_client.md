@@ -1,7 +1,16 @@
 
 # Swift client
 
-For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}.
+For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}. In the last section _Configure your terminal environment for OpenStack_ is guidance for downloading the RC file.
+
+Once you have the RC file, you can add the environment variables with the following command:
+
+```bash
+source <project_name_here>-openrc.sh
+```
+
+You will be asked to type in a password. Use the password for your CSC account. **Note:** Using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Please note:** Everytime you open a new terminal this must be done again.
+
 
 Typical commands for first-time use might be:
 ```bash
@@ -10,7 +19,13 @@ $ swift list
 $ swift stat
 $ swift download <bucket name> <file name>
 ```
-The below example uploads a file called _salmon.jpg_ into a pseudo-folder called _pictures_ which is inside a bucket called _fishes_.
+
+You can create a new bucket and add a file in it with command:
+```bash
+$ swift upload <new bucket name> <file name>
+```
+
+The below example uploads a file called _salmon.jpg_ into a pseudo-folder called _pictures_ which is inside a bucket called _fishes_. After that the file is downloaded.
 ```bash
 $ md5sum pictures/salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  pictures/salmon.jpg
@@ -23,6 +38,7 @@ pictures/salmon.jpg [auth 0.664s, headers 0.925s, total 0.969s, 3.605 MB/s]
 $ md5sum salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  salmon.jpg
 ```
+
 Instructions for using _Swift_ when viewing and producing metadata, handling temporary URLs and processing large files (over 5 GB) are listed below.
 
 &nbsp;
@@ -44,8 +60,6 @@ $ swift stat fishes
                 Accept-Ranges: bytes
                    X-Trans-Id: txUUID-cpouta-production-kaj
              X-Storage-Policy: default-placement
-```
-```bash
 X-Container-Bytes-Used-Actual: 1167360
                   X-Timestamp: 1516776076.95812
 ```
@@ -69,7 +83,7 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
       X-Trans-Id: tx0000000000000000001d6-q-q-cpouta-production-kaj
 ```
 
-Note how the above file was uploaded with the _s3cmd client_ and it added the extra S3Cmd-Attrs metadata compared to one uploaded with Swift or S3. ETag is the "_hash_" when viewing the file details in the Allas dashboard.
+Note how the above file was uploaded with the _s3cmd client_ and it added the extra S3Cmd-Attrs metadata compared to one uploaded with Swift or S3. ETag is the "_hash_" when viewing the file details in the Pouta dashboard.
 
 Removing a metadata field (in this case _Temp-URL-Key_, which is discussed in more detail in the next section) with swift is done with:
 ```bash
@@ -104,6 +118,8 @@ Create a Temp-URL-Key valid for 86400 seconds (24 hours):
 $ swift tempurl GET 86400 https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg $RANDOMKEY
 /v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
 ```
+(Here https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg is the full path to the Switch object)
+
 Use the previously created Temp URL to download the object:
 ```bash
 $ curl "https://object.pouta.csc.fi/swift/v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675" > salmon.jpg

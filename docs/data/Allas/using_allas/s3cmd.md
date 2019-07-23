@@ -95,6 +95,7 @@ The data is collected and compressed to a single file with tar command:
 ```
 tar zcf zebrafish.tgz Danio_rerio*
 ```
+<a id="s3cmd-put"></a>
 
 
 The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command s3cmd put:
@@ -125,6 +126,7 @@ $ s3cmd ls s3://fish-bucket
 ls s3://fish-bucket
 2018-03-12 13:29 2127368497   s3://fish-bucket/zebrafish.tgz
 ```
+<a id="s3cmd-get"></a>
 
 Uploading 2 GB of data takes some time. The uploaded file could be retrieved with command:
 
