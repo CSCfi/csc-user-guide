@@ -118,7 +118,7 @@ Create a Temp-URL-Key valid for 86400 seconds (24 hours):
 $ swift tempurl GET 86400 https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg $RANDOMKEY
 /v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
 ```
-(Here https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg is the full path to the Switch object)
+(Here the part https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg is the full path to the Switch object)
 
 Use the previously created Temp URL to download the object:
 ```bash
