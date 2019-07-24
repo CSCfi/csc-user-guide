@@ -2,7 +2,7 @@
 
 There is currently no _read-only_ mode in Allas. Each project member have full access to the data, which causes a risk: they can accidentally overwrite or delete data.
 
-However, it is possible to make your bucket public, which makes the content available to view via URLs. The URL to an object in a public bucket is form <i>object.pouta.csc.fi/bucket_name/object_name</i>.
+However, it is possible to make your bucket public, which makes the content available to view ('read-only') via URLs. The URL to an object in a public bucket is form <i>object.pouta.csc.fi/bucket_name/object_name</i>.
 
 Here is guidance for setting the bucket public with:
 
