@@ -5,6 +5,7 @@ The Allas object storage system can be used in multiple ways and for many purpos
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
 - a_put : upload a file or directory to Allas as one object
+- a_publish: upload a file to Allas into a bucket that allows public access over the internet
 - a_get : download a stored dataset (object) from Allas
 - a_find : check, what dataset(object) stored with a_put contains the file you are looking for
 - a_delete : delete an object from Allas
@@ -86,6 +87,55 @@ a_put project2/sample3/test_1.txt -b newbuket1 - o case1.txt -n
 ```
 The command abve woud upload file test_1.txt to allas into bucket _newbucket1_ as object _case1.txt_.
 As option _-n_ is used the data is stored in an uncompressed format. 
+
+
+## a_publish 
+
+a_publish copies a file to Allas into a bucket that can be publicly accessed. Thus anyone, with the address (URL) of the 
+uploaded data object can read and download the data with a web browser or tools like wget and curl. 
+a_pubish works mostly like a_put but there are some diferences: 
+1) a_publish can upload only files, not directories, 
+2) files are not compressed but they uploaded as they are 
+3) the access control of the target bucket is set so that it available in read-only mode to the internet.
+
+The basic syntax of the command is:
+
+```
+a_publish file name
+```
+By default the file is uploaded to a bucket : _username-pojectNumber_-pub. You can define other bucket names too using option _-b_ but you should note that this command will make all data in the bucket publicly accessible, including data that has been previously uploaded to the bucket.
+
+The pubic URL of dataobject is:
+
+https://object.pouta.csc.fi/_username_-_projectNumber_-pub/_object_name_
+
+An object uploaded with _a_publish_ can be removed from Allas with command _a_delete_.
+
+Sample session with _a_public_. Uploading document prsenetation.pdf to the default public bucket in Allas
+
+
+```
+> **a_publish presentation.pdf** 
+Files to be uploaded:  presentation.pdf
+Bucket: kkayttaj-1234567-pub
+Processing: presentation.pdf
+Checking total size of presentation.pdf. Please wait.
+
+Uploading data to allas.
+Transferred:        4.188M / 4.188 MBytes, 100%, 7.700 MBytes/s, ETA 0s
+Errors:                 0
+Checks:                 0 / 0, -
+Transferred:            1 / 1, 100%
+Elapsed time:       500ms
+Confirming upload...
+presentation.pdf OK
+
+Adding metadata for uploaded presentation.pdf
+presentation.pdf uploaded to kkayttaj-1234567-pub
+Publick link: https://object.pouta.csc.fi/kkayttaj-1234567-pub/presentation.pdf
+
+Upload ready
+```
 
 
 
