@@ -79,8 +79,6 @@ Now you are able to use the [Swift client](./using_allas/swift_client.md){:targe
 
 &nbsp;
 
-&nbsp;
-
 
 ## Accessing Allas from Supercomputers
 
