@@ -27,6 +27,11 @@
 ## Rahti
    - ...
 
+## Allas
+   - [How to move data between Puhti and Allas?](faq/how-to-move-data-between-puhti-and-allas.md)
+   - [What to do for data in Allas after project ends?](faq/what-to-do-for-data-in-allas-after-project-ends.md)
+   - [Is it possible to make data in Allas read-only?](faq/is-it-possible-to-make-data-in-allas-read-only.md)
+
 ## Accounts
 
 ## Migration
