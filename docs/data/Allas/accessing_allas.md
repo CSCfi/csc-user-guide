@@ -11,6 +11,8 @@ a CSC project that has permission to use Allas. If you don't have a CSC account,
 and join or start a computing project for which Allas has been enabled. All these steps can be done in the
 MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi){:target="_blank"}
 
+The easiest way to use Allas is through the [web client](./using_allas/web_client.md){:target="_blank"} which offers basic tools for managing your data.
+
 The following guidelines describe step by step how to establish Allas with different operating systems.
 
 &nbsp;
@@ -18,10 +20,10 @@ The following guidelines describe step by step how to establish Allas with diffe
 
 ## Accessing Allas using
 
-<font color="red">v---------------Still-in-progress---------------v</font>
+
 ### Windows and Mac
 
-With Windows and Mac you can use, for example, the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
+With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
 
 1. Install **CyberDuck**
 
@@ -29,19 +31,21 @@ With Windows and Mac you can use, for example, the software [CyberDuck](https://
 
 3. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_
 
-4. As **Server** type _pouta.csc.fi_ and choose **Port** 5001
+4. As **Server** write _pouta.csc.fi_ and choose **Port** _5001_
 
 5. In the section **Tenant ID:Access Key** type your _Pouta username_ (the one you use in pouta.csc.fi)
 
 6. Type your Pouta password in **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window
 
-7. Now you can right-click the bookmark on the CyberDuck mainpage and choose the option _Connect to server_.
+7. Now you can choose the _Bookmarks_ icon (second from the left) under the _Open Connection_ option on the top left corner
+ 
+8. Next, right-click the created bookmark on the CyberDuck mainpage and choose the option _Connect to server_
 
-8. Type your _project's name_ in the **Tenant Name** section (for example project_2001234) and **Login**
+9. Type your _project's name_ in the **Tenant Name** section (for example <i>project_2001234</i>) and **Login**
 
-9. Now you should be able to see the content of your project (which might be empty)
+10. Now you should be able to see the content of your project (which might be empty)
 
-CyberDuck offers some basic functionalities to managing data in object storage:
+CyberDuck offers some basic functionalities for managing data in object storage:
 
  * Upload objects
  * Edit objects
@@ -52,27 +56,27 @@ CyberDuck offers some basic functionalities to managing data in object storage:
 
 ### Linux
 
-Get Openstack RC-file:
+1. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and **Login**
 
- * **Access & Security | API Access**
+2. Navigate to **Compute | Access & Security | API Access**
 
- * Edit the OpenStack password to the lowest line.
+3. Download the **Openstack RC File v3** from the upper right corner
 
-Now you can use the _Swift_ client.
+4. Now you can add the environment variables by typing the following command into terminal:
 
-### Android
+```bash
+source <project_name_here>-openrc.sh
+```
 
-With Android you can use the _Android Access_ with _OpenStack Swift_. Alternatively, you can also use the _Remote Desktop_.
+You will be asked to type in a password. Use the password for your CSC account. Note that using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. You will need to do this again if you open a new terminal.
 
- * OpenStack Swift
-    * Android Access
- * Remote Desktop
+Now you are able to use the [Swift client](./using_allas/swift_client.md){:target="_blank"}.
+
 
 ### Web
 
- * Web client - OpenStack Horizon Dashboard
+ * [Web client - OpenStack Horizon Dashboard](./using_allas/web_client.md){:target="_blank"}
 
-<font color="red">^---------------Still-in-progress---------------^</font>
 &nbsp;
 
 &nbsp;
