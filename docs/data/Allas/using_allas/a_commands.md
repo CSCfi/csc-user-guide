@@ -4,6 +4,7 @@ The Allas object storage system can be used in multiple ways and for many purpos
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
+- a_list : lists buckets and objects in Allas
 - a_put : upload a file or directory to Allas as one object
 - a_publish: upload a file to Allas into a bucket that allows public access over the internet
 - a_get : download a stored dataset (object) from Allas
