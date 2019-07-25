@@ -13,6 +13,8 @@ will appear on this page.
 - [How to move data between Puhti and Allas?](support/faq/how-to-move-data-between-puhti-and-allas.md)
 - [What to do for data in Allas after project ends?](support/faq/what-to-do-for-data-in-allas-after-project-ends.md)
 - [Is it possible to make data in Allas read-only?](support/faq/is-it-possible-to-make-data-in-allas-read-only.md)
+- [Is it possible to move data in Allas to new project?](support/faq/is-it-possible-to-move-data-in-allas-to-new-project.md)
+- [What to do for data in Allas after project ends?](support/faq/what-to-do-for-data-in-allas-after-project-ends.md)
 
 
 - [I have lost my password. How to get a new one?](support/faq/i-lost-my-password.md)
