@@ -1,9 +1,9 @@
 <h1>Data</h1>
 
 <h2>Directories and data storage at CSC</h2>
-* User specific directories at the servers of CSC 
-* Archiving data to the HPC archive (?) and IDA storage services 
-* Using Object Storage in CSC computing environment 
+* [User specific directories at the servers of CSC](https://csc-user-guide-dev.rahtiapp.fi/#computing/disk-environment/){:target="_blank"}
+
+* [CSC data management and storage services](https://research.csc.fi/data-management){:target="_blank"}
 
 <h2>Moving data between CSC and local environment</h2>
 *    [Copying files from linux and Mac OSX machines with scp](./scp.md) 
