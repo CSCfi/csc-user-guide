@@ -1,7 +1,7 @@
 
 # Swift client
 
-For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}. In the last section <i>Configure your terminal environment for OpenStack</i> is guidance for downloading the RC file.
+For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section <i>Configure your terminal environment for OpenStack</i> is guidance for downloading the RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
@@ -127,6 +127,28 @@ $ curl "https://object.pouta.csc.fi/swift/v1/fishes/pictures/salmon.jpg?temp_url
 You may set a second key by adding another metadata entry with title "Temp-URL-Key-2".
 
 &nbsp;
+
+## Giving another project read and write access to a bucket
+
+You can give another project read and write rights to a bucket. Giving project _project1_ read rights to bucket <i>my_fishbucket</i> happens with command:
+```bash
+$ swift post my_fishbucket -r "project1:*"
+```
+Write access can be given similarly by replacing the _-r_ (_read_) with _-w_ (_write_):
+```bash
+$ swift post my_fishbucket -w "project1:*"
+```
+The _*_ mark after the project name defines that all the project members in the project gets the rights.
+
+You can also give read and write access only to certain members of another project:
+```bash
+$ swift post my_fishbucket -r "project2:member1"
+$ swift post my_fishbucket -w \
+   "project3:member1,project3:member2,project5:member1,project6:*"
+```
+
+&nbsp;
+
 
 <a name="files_larger_than_5gb"></a>  
 
