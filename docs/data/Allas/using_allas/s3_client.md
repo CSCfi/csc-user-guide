@@ -20,11 +20,11 @@ $ openstack ec2 credentials create
 | 00000000001                      | 5000000000000000000              | 000000000000000000022            | $username|
 +----------------------------------+----------------------------------+----------------------------------+----------+
 ```
-Instructions for installing s3cmd, making objects public with it and giving read access to a bucket for another project are given below.
+Instructions for installing and using s3cmd are given below. For more examples of s3cmd usage, see [s3tools.org](https://s3tools.org/s3cmd-howto){:target="_blank"}.
 
 &nbsp;
 
-## s3cmd
+## Getting started with s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download){:target="_blank"} and  [http://s3tools.org/usage](http://s3tools.org/usage){:target="_blank"} for upstream documentation.
  

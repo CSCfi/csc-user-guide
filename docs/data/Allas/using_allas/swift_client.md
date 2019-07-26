@@ -39,7 +39,7 @@ $ md5sum salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  salmon.jpg
 ```
 
-Instructions for using _Swift_ when viewing and producing metadata, handling temporary URLs and processing large files (over 5 GB) are listed below.
+Instructions for using _Swift_ when viewing and producing metadata, handling temporary URLs and access rights and processing large files (over 5 GB) are listed below.
 
 &nbsp;
 
