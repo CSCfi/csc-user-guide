@@ -1,7 +1,14 @@
 
 # S3 client
 
+
 You need to use ec2 credentials when using S3. You can create S3 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"}.
+
+Once you have the RC file, you can add the environment variables with the following command:
+
+```bash
+source <project_name_here>-openrc.sh
+```
 
 The ec2 credentials are created from the CLI with:
 
@@ -40,13 +47,75 @@ You can find your ec2 credentials by issuing:
 ```bash
 openstack ec2 credentials list
 ```
-Once you have your ec2 credentials you will need to use the Access and Secret in the next command. The interactive command "s3cmd --configure" is good for first-time use. It creates a $HOME/.s3cfg file, adds access keys and ids from above, points to pouta object store and adds an encryption key. It is probably a good idea to create a password when you get to the option. 
+Once you have your ec2 credentials you will need to use the _Access_ and _Secret_ in the next command. The interactive command "_s3cmd --configure_" is good for first-time use. It creates a $HOME/.s3cfg file, adds access keys and ids from above, points to pouta object store and adds an encryption key. It is probably a good idea to create a password when you get to the option. 
  
 Alternatively, you can create a working file by adding your Access and Secret to the following oneliner:
 ```bash
 $ s3cmd --configure --access_key=YOUR_EC_ACCESS_KEY_HERE --secret_key=YOUR_EC_SECRET_KEY_HERE --host=object.pouta.csc.fi --region=US --host-bucket='%(bucket)s.object.pouta.csc.fi'
 ```
 Then you need to verify all the settings from the created file.
+
+&nbsp;
+
+
+## Create buckets and upload objects
+
+You can create a new bucket with command:
+
+```bash
+s3cmd mb s3://my-bucket
+```
+
+Uploading a file into a bucket happens with command:
+
+```bash
+s3cmd put my_file s3://my_bucket
+```
+&nbsp;
+
+
+## Listing buckets and objects
+
+You can list buckets with command
+```bash
+s3cmd ls
+```
+
+Listing objects:
+```bash
+s3cmd ls s3://my_bucket
+```
+&nbsp;
+
+
+## Downloading objects
+
+You can download an object with command
+```bash
+s3cmd get s3://my_bucket/my_file new_file_name
+```
+With md5sum you can check the file has not been corrupted:
+```bash
+md5sum my_file new_file_name
+   39bcb6992e461b269b95b3bda303addf  my_file
+   39bcb6992e461b269b95b3bda303addf  new_file_name
+```
+Checksums are equal between the original and the downloaded file. Looks good!
+
+&nbsp;
+
+## Deleting objects and buckets
+
+You can delete an object with command
+```bash
+s3cmd del s3://my_bucket/my_file
+```
+
+And bucket:
+```bash
+s3cmd rb s3://my_bucket
+```
+**Note:** You can only delete empty buckets.
 
 &nbsp;
 
@@ -57,7 +126,7 @@ Then you need to verify all the settings from the created file.
 <pre>$ s3cmd put pictures/salmon.jpg s3://fishes/pictures/fishes.jpg -P
 Public URL of the object is: http://object.pouta.csc.fi/fishes/pictures/salmon.jpg</pre>
 
-**Note** that the above client outputs an URL which has http:// (which is not open in the object storage firewall). A URL like this needs to be manually changed to https if such a client is used.
+**Note** that the above client outputs an URL which has http:// (which is not open in the object storage firewall). An URL like this needs to be manually changed to https if such a client is used.
 
 &nbsp;
 
