@@ -112,6 +112,8 @@ nav:
               - Web client: data/Allas/using_allas/web_client.md
               - Swift client: data/Allas/using_allas/swift_client.md
               - S3 client: data/Allas/using_allas/s3_client.md
+              - rclone: data/Allas/using_allas/rclone.md
+              - a_commands: data/Allas/using_allas/a_commands.md
               - Python library: data/Allas/using_allas/python_library.md
            - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Further information: data/Allas/further_info.md
