@@ -43,6 +43,7 @@ A _bucket_ is simply a container for objects that may also include metadata desc
 
 &nbsp;
 
+<a id="checksum"></a>
 
 **Checksum**
 
