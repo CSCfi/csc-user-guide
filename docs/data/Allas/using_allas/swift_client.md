@@ -1,7 +1,7 @@
 
 # Swift client
 
-For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section <i>Configure your terminal environment for OpenStack</i> is guidance for downloading the RC file.
+For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading the RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
@@ -11,19 +11,97 @@ source <project_name_here>-openrc.sh
 
 You will be asked to type in a password. Use the password for your CSC account. **Note:** Using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Please note:** Everytime you open a new terminal this must be done again.
 
+&nbsp;
 
-Typical commands for first-time use might be:
-```bash
-$ swift auth
-$ swift list
-$ swift stat
-$ swift download <bucket name> <file name>
-```
+
+## Create buckets and upload objects
 
 You can create a new bucket and add a file in it with command:
 ```bash
-$ swift upload <new bucket name> <file name>
+$ swift upload <new_bucket_name> <file_name>
 ```
+
+Adding a file to a existing bucket happens with the same command:
+```bash
+$ swift upload <old_bucket_name> <file_name>
+```
+**Note** This might cause a warning "_Warning: failed to create container 'old_bucket_name': 409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
+If the next line shows the file name, it means it was successfully uploaded.
+
+```bash
+$ swift upload my_fishes fish.jpg
+Warning: failed to create container 'my_fishes': 409 Conflict: BucketAlreadyExists
+fish.jpg
+```
+&nbsp;
+
+
+## List content of projects and buckets
+
+To list the buckets of a project use command:
+```bash
+$ swift list
+my_fishbucket
+my_fishes
+```
+Listing the content of a certain bucket:
+```bash
+$ swift list my_fishes
+fish.jpg
+```
+&nbsp;
+
+
+## Download an object or a bucket
+
+Downloading an object happens with command:
+```bash
+$ swift download <bucket_name> <file_name>
+```
+If you want to rename the object as you download it, you can add <i>-o new_name</i> at the end of the command:
+```bash
+$ swift download <bucket_name> <file_name> -o <new_name>
+```
+You can also download a whole bucket at once:
+```bash
+$ swift download <bucket_name>
+```
+&nbsp;
+
+
+## Remove buckets and objects
+
+Removing buckets and object happens with _delete_ command:
+Deleting a file:
+```bash
+$ swift delete <bucket_name> <file_name>
+```
+For example:
+```bash
+$ swift delete my_fishes useless_fish.jpg
+useless_fish.jpg
+```
+
+Unlike with web client and s3cmd, with Swift you can **delete the whole bucket at once**:
+```bash
+$ swift delete <my_old_bucket>
+```
+For example:
+```bash
+$ swift delete old_fishbucket
+old_fish.png
+useless_salmon.jpg
+too_tiny_bass.jpg
+$ swift list old_fishbucket
+Container u'old_fishbucket' not found
+```
+&nbsp;
+
+## Pseudofolders and checksum
+
+In case you want to observe whether the object has changed, you can use [checksum](../introduction.md#checksum){:target="_blank"} with command <i>md5sum</i>.
+
+Pseudofolders can be handled by adding the name of pseudofolder in front of the file name: <i>my_pseudofolder_name/my_object</i>
 
 The below example uploads a file called _salmon.jpg_ into a pseudo-folder called _pictures_ which is inside a bucket called _fishes_. After that the file is downloaded.
 ```bash
@@ -33,11 +111,12 @@ $ swift upload fishes pictures/salmon.jpg
 pictures/salmon.jpg
 $ swift list fishes
 pictures/salmon.jpg
-$ swift download fishes pictures/salmon.jpg -o salmon.jpg
+$ swift download fishes pictures/salmon.jpg -o my_renamed_salmon.jpg
 pictures/salmon.jpg [auth 0.664s, headers 0.925s, total 0.969s, 3.605 MB/s]
-$ md5sum salmon.jpg
-22e44aa2b856e4df892b43c63d15138a  salmon.jpg
+$ md5sum my_renamed_salmon.jpg
+22e44aa2b856e4df892b43c63d15138a  my_renamed_salmon.jpg
 ```
+**Note** how the checksums with the object <i>salmon.jpg</i> and the renamed version <i>my_renamed_salmon.jpg</i> are the same since the file is same and has not changed. 
 
 Instructions for using _Swift_ when viewing and producing metadata, handling temporary URLs and access rights and processing large files (over 5 GB) are listed below.
 
@@ -138,7 +217,7 @@ Write access can be given similarly by replacing the _-r_ (_read_) with _-w_ (_w
 ```bash
 $ swift post my_fishbucket -w "project1:*"
 ```
-The _*_ mark after the project name defines that all the project members in the project gets the rights.
+The sign _*_ after the project name defines that all the project members in the project gets the rights.
 
 You can also give read and write access only to certain members of another project:
 ```bash
@@ -146,6 +225,15 @@ $ swift post my_fishbucket -r "project2:member1"
 $ swift post my_fishbucket -w \
    "project3:member1,project3:member2,project5:member1,project6:*"
 ```
+
+**Please note:** If you have allowed access for specific projects, making it public and disabling it will remove the previous access permissions on metadata.
+
+If you allow _-w_ access for a project, it can upload files to your bucket and remove your files. However, you are not allowed to download those uploaded files unless the sender shares the bucket with you
+```bash
+swift post <your_bucket_name> -r "your_project:*"
+```
+or you set the project public and then download the file.
+
 
 &nbsp;
 
