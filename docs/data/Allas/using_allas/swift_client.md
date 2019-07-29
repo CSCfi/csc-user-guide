@@ -21,7 +21,7 @@ You can create a new bucket and add a file in it with command:
 $ swift upload <new_bucket_name> <file_name>
 ```
 
-Adding a file to a existing bucket happens with the same command:
+Adding a file to a existing bucket can be done with the same command:
 ```bash
 $ swift upload <old_bucket_name> <file_name>
 ```

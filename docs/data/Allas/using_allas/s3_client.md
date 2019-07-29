@@ -66,7 +66,7 @@ You can create a new bucket with command:
 s3cmd mb s3://my-bucket
 ```
 
-Uploading a file into a bucket happens with command:
+Uploading a file into a bucket can be done with command:
 
 ```bash
 s3cmd put my_file s3://my_bucket
