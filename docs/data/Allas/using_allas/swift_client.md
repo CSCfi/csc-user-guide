@@ -36,9 +36,9 @@ fish.jpg
 &nbsp;
 
 
-## List content of projects and buckets
+## List objects and buckets
 
-To list the buckets of a project use command:
+To list the buckets belonging to a project use command:
 ```bash
 $ swift list
 my_fishbucket
@@ -52,7 +52,7 @@ fish.jpg
 &nbsp;
 
 
-## Download an object or a bucket
+## Download objects and buckets
 
 Downloading an object happens with command:
 ```bash
@@ -69,7 +69,7 @@ $ swift download <bucket_name>
 &nbsp;
 
 
-## Remove buckets and objects
+## Remove objects and buckets
 
 Removing buckets and object happens with _delete_ command:
 Deleting a file:
