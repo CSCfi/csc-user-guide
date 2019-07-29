@@ -25,7 +25,7 @@ Adding a file to a existing bucket can be done with the same command:
 ```bash
 $ swift upload <old_bucket_name> <file_name>
 ```
-**Note** This might cause a warning "_Warning: failed to create container 'old_bucket_name': 409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
+**Note** This might cause a warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
 If the next line shows the file name, it means it was successfully uploaded.
 
 ```bash
@@ -146,6 +146,8 @@ Set a bucket to read-only to the world (make the content visible at URL: <i>obje
 ```bash
 swift post fishes --read-acl ".r:*"
 ```
+More about the access management in [Giving another project read and write access to a bucket](#giving-another-project-read-and-write-access-to-a-bucket).
+
 More details about a file:
 ```bash
 $ swift stat fishes pictures/salmon.jpg
@@ -226,13 +228,18 @@ $ swift post my_fishbucket -w \
    "project3:member1,project3:member2,project5:member1,project6:*"
 ```
 
-**Please note:** If you have allowed access for specific projects, making it public and disabling it will remove the previous access permissions on metadata.
+**Please note:** If you have allowed access for specific projects, making the shared project public and private again will remove the previous access permissions on metadata.
 
-If you allow _-w_ access for a project, it can upload files to your bucket and remove your files. However, you are not allowed to download those uploaded files unless the sender shares the bucket with you
+If you allow _-w_ access for another project, it can upload files to your bucket and remove your files. 
+However, you have not access to those uploaded files until either you or the sender shares the bucket with your project:
 ```bash
-swift post <your_bucket_name> -r "your_project:*"
+$ swift post <your_bucket_name> -r "your_project:*"
 ```
-or you set the project public and then download the file.
+For example:
+```bash
+$ swift post my_fishbucket -r "project22:*,project34:*"
+```
+Alternatively, you can set the project public and then access the file.
 
 
 &nbsp;
