@@ -140,8 +140,7 @@ Guidance for using s3cmd with the Supercomputers Taito and Puhti: [s3cmd](./s3cm
 
 ## Giving another project read access to a bucket
 
-"_s3cmd setacl_" command needs to use the UUID of the project you want to grant access to.
- 
+"_s3cmd setacl_" command needs to use the UUID (_universally unique identifier_) of the project you want to grant access to.
 The ID can be found at <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or with "_openstack project show $project_name_". You need access (membership) to the project to find out the UUID.
  
 In the Pouta Web UI you only see buckets that members of your project have created. If your project has been granted project read access to a bucket with the s3cmd client, the following applies to other members of your project:
