@@ -134,9 +134,17 @@ More about the functionalities of Allas can be found from chapter [Using Allas](
 
 The objects are stored in buckets. A bucket is simply a container for objects. These buckets should not be confused with _dockers_, or other containers used for computing. A bucket basically acts like a filesystem directory, but you can have only one level of them, so you cannot have buckets within buckets.
 
-Each bucket has a name, which must be unique across all users. So if somebody else has a bucket called "_test_", you cannot create a bucket called "_test_". All the bucket names are public, so please <u>do not</u> put private information in the bucket name. You may use, for example, your project id in the bucket name, for example, _2000620-raw-data_.
+Each bucket has a name, which must be unique across all users. So if somebody else has a bucket called "_test_", you cannot create a bucket called "_test_". All the bucket names are public, so please do <u>not</u> put private information in the bucket name. You may use, for example, your project id in the bucket name, for example, _2000620-raw-data_.
 
 URLs to objects can be in DNS format: _https://object.pouta.csc.fi/bucketname/objectname_ - for this reason use a valid DNS name (RFC 1035) for the bucket. Specifically, we recommend not using upper case characters or Scandic letters (&auml;, &ouml;, etc.) in the bucket name.
+
+Below is a short checklist concerning naming of a bucket.
+
+** Bucket name:**
+
+ * Do <u>not</u> use uppercase characters or Scandic letters (&auml;, &ouml;, etc.)  
+ * Do <u>not</u> put private information (since the bucket names are public)  
+ * Must be unique across all users (you may use your project id in the bucket name, for example, _2000620-raw-data_)
 
 Data is spread across different servers, which protects against disk and server failures. **Please note:** This does not protect from e.g. accidental deletion, and you should still make backups of important data.
 
