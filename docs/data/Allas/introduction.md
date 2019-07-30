@@ -6,7 +6,7 @@
 
 ## What is Allas?
 
-**Allas** is part of the _CSC storage portfolio_ and accessible from anywhere on the Internet. We provide various tools (see [Clients](./accessing_allas.md#clients){:target="_blank}) for storing and accessing your data. CSC can also work with you to solve comprehensive data management needs or support large scale data transfer cases.
+**Allas** is part of the CSC storage portfolio and accessible from anywhere on the Internet. We provide various tools (see [Accessing Allas](./accessing_allas.md){:target="_blank}) for storing and accessing your data. CSC can also work with you to solve comprehensive data management needs and support large scale data transfer cases.
 
 Allas Object Storage is a storage service to host data for a project lifetime. The data from Allas can also be shared via Internet. Allas cannot be used directly for computing, but CSC computing environments (**Mahti** and **Puhti**) support easy data movements to and from Allas. **Please note:** The files which have not been touched in 90 days will automatically be cleaned from project's [Lustre scratch](../../computing/disk-environment.md){:target="_blank"} (similar mechanism was used in [Taito WRKDIR](https://research.csc.fi/taito-disk-environment#1.5.2){:target="_blank"}) and therefore the data must be moved to Allas after computing.
 
