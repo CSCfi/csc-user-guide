@@ -8,7 +8,7 @@
 
 To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/){:target="_blank"}.
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system (Lustre) before computing. This can be done with the stage-in mechanism described in the User Guide. (_Insert link_)
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. This can be done with the stage-in mechanism described in the User Guide. (_Insert link_)
 
 * **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. The stage-out mechanism is described in the User Guide. **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
 
@@ -33,7 +33,7 @@ The data can be accessed and shared in several different ways:
 * **Public:** You can also have ACLs granting public read access to the data, which is useful for e.g. sharing public scientific results or public datasets.
 
  
-* **Temp URLs:** A temp URL is a unique URL to access an object. These URLs can be time limited. Anybody with the URL can access the object, but the URL is not feasible to just guess. This is a good way to somewhat securely share data to a limited audience, who do not need to have their own Allas accounts. Temp URLs are created per object, not per bucket. Temp URLs are a feature of Swift. In S3 the corresponding feature is called _a Signed URL_. Please see the differences between using the [Swift and S3 protocols](../accessing_allas.md#protocols){:target="_blank"}.
+* **Temp URLs:** A temp URL is a unique URL to access an object. These URLs can be time limited. Anybody with the URL can access the object, but the URL is not feasible to just guess. This is a good way to somewhat securely share data to a limited audience, who do not need to have their own Allas accounts. Temp URLs are created per object, not per bucket. [Temp URLs](./swift_client.md#temp-urls){:target="_blank"} are a feature of Swift. In S3 the corresponding feature is called *a Signed URL*. See the differences between using the [Swift and S3 protocols](../accessing_allas.md#protocols){:target="_blank"}.
 
 &nbsp;
 
@@ -63,9 +63,9 @@ You can find some guidance for using Allas in Puhti and Taito below:
  
 ## Static web content
 
-A common way to use object storage is to store static web content there (images, videos, audio, pdfs, downloadable content), and just add links to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish){:target="_blank"}
+A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add links to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish){:target="_blank"}
 
-Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md){:target="_blank"}, [Swift client](./swift_client.md){:target="_blank"} or [S3 client](./s3_client.md){:target="_blank"}.
+Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#adding-an-object-to-a-bucket){:target="_blank"}, [Swift client](./swift_client.md#create-buckets-and-upload-objects){:target="_blank"} or [S3 client](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}.
  
 &nbsp;
 
@@ -79,7 +79,7 @@ There are several cases where you need to access to common data from several loc
 
 ## Accessing the same data from multiple CSC platforms
 
-Since the data in object store is available from anywhere, you can access the data from both the CSC clusters and from the cloud services. This makes the object store a good place to store data and intermediate and final results in cases where your workflow requires the use of both Taito and Allas, for example.
+Since the data in object store is available from anywhere, you can access the data from both the CSC clusters and from the cloud services. This makes the object store a good place to store data and intermediate and final results in cases where your workflow requires the use of, for example, both Taito and Allas.
 
 &nbsp;
 
@@ -89,7 +89,7 @@ Since the data in object store is available from anywhere, you can access the da
 It is easy to push data to object storage from several different sources. This data can then later be processed as needed.
 
 
-An example of this is several data collectors pushing data to be processed. These could be, for example, scientific instruments, meters or software which harvest social media streams for scientific analysis. These can push their data into object store, and later virtual machines, or compute jobs on Puhti can process this data.
+An example of this is several data collectors pushing data to be processed. These could be, for example, scientific instruments, meters or software which harvest social media streams for scientific analysis. These can push their data into object store, and later virtual machines or compute jobs on Puhti can process this data.
  
 &nbsp;
 
