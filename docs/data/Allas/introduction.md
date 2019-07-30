@@ -143,7 +143,7 @@ Below is a short checklist concerning naming of a bucket.
 ** Bucket name:**
 
  * Do <u>not</u> use uppercase characters or Scandic letters (&auml;, &ouml;, etc.)  
- * Do <u>not</u> put private information (since the bucket names are public)  
+ * Do <u>not</u> include sensitive information (since the bucket names are public)  
  * Must be unique across all users (you may use your project id in the bucket name, for example, _2000620-raw-data_)
 
 Data is spread across different servers, which protects against disk and server failures. **Please note:** This does not protect from e.g. accidental deletion, and you should still make backups of important data.
