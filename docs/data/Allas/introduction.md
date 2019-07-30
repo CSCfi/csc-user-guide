@@ -12,7 +12,7 @@ Allas Object Storage is a storage service to host data for a project lifetime. T
 
 Allas is a modern object storage system - it comes with _S3_ and _Swift_ interfaces on _CEPH_ storage. In practice, this means that instead of files, the data is stored as objects within buckets. A bucket is simply a container for objects that may also include metadata describing the bucket. 
 
-In [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command-line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of how to use buckets and objects within Allas are available below.
+In [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command-line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of tools to use to manage buckets and objects within Allas are available in section [Protocols](./accessing_allas.md#protocols){:target="_blank"}.
 
 &nbsp;
 
@@ -57,8 +57,8 @@ You can get the checksum with command _md5sum_.
 
 _Client software_ is used to access the object storage service (Allas).
 
- * Web browser based access via _OpenStack Horizon_ for basic graphical usage (see [Web client](./using_allas/web_client.md){:target="_blank"})
- * Command-line clients such as _Swift_ and _s3cmd_ for power users (see [Swift client](./using_allas/swift_client.md){:target="_blank"} and [S3 client](./using_allas/s3_client.md){:target="_blank"})
+ * Web browser based access via [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} for basic graphical usage
+ * Command-line clients such as [Swift](./using_allas/swift_client.md){:target="_blank"} and [s3cmd](./using_allas/s3_client.md){:target="_blank"} for power users
  * _Programmable interface_ (API) for those who integrate software
 
 &nbsp;
@@ -82,7 +82,7 @@ _Object storage_ refers to a computer data storage that manages data as objects 
 **OpenStack**
 
 _OpenStack cloud management middleware_ can be used to access Allas.
-_Horizon web user interface_ offers some basic functionalities (see [Web client](./using_allas/web_client.md){:target="_blank"}).
+[OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} offers some basic functionalities.
 For further information, see [OpenStack](https://www.openstack.org/){:target="_blank"}.
 
 &nbsp;
@@ -92,14 +92,14 @@ For further information, see [OpenStack](https://www.openstack.org/){:target="_b
 
 You cannot have buckets with other buckets inside them. You can however make use of so called _pseudo-folders_.
 
-If an object name contains a forward slash "/", it is interpreted as a folder separator. These are shown as folders listings when accessing the data through Pouta web interface. These pseudo-folders are automatically added if you upload whole folders with command-line clients.
+If an object name contains a forward slash "/", it is interpreted as a folder separator. These are shown as folders listings when accessing the data through the web interface. These pseudo-folders are automatically added if you upload whole folders with command-line clients.
 
 For example, if you add two objects to a bucket
 ```bash
 fishes/salmon.png
 fishes/bass.png
 ```
-listing the bucket will show a folder called "_fishes_" and the two files within it.
+listing the bucket will show a folder called _fishes_ and the two files within it.
 
 &nbsp;
 
@@ -145,7 +145,7 @@ Data is spread across different servers, which protects against disk and server 
 
 ## Billing and Quotas
 
-Allas usage is based on project based storage quotas. All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
+Allas usage is based on project based storage quotas. All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read, edit and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
 
 The default quotas for every project are:
 
