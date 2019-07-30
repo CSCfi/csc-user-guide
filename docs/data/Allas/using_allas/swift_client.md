@@ -151,6 +151,12 @@ In case you want to observe whether the object has changed, you can use [checksu
 
 Pseudofolders can be handled by adding the name of pseudofolder in front of the file name: <i>my_pseudofolder_name/my_object</i>
 
+Creating a pseudofolder _fishes_ in to bucket <i>my_fishbucket</i> and adding object _salmon.jpg_ in to it can be done with command:
+```bash
+$ swift upload my_fishbucket/fishes salmon.jpg
+fishes/salmon.jpg
+```
+
 The below example uploads a file called _salmon.jpg_ into a pseudo-folder called _pictures_ which is inside a bucket called _fishes_. After that the file is downloaded.
 ```bash
 $ md5sum pictures/salmon.jpg
