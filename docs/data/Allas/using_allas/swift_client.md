@@ -242,16 +242,26 @@ Post a Temp-URL-Key to the whole project. **Please note:** If someone changes th
 ```bash
 $ swift post -m "Temp-URL-Key:$RANDOMKEY" 
 ```
+To get your <i>OS_PROJECT_ID</i> use command _env_:
+```bash
+$ env | grep -i project
+OS_PROJECT_NAME=project_123456
+OS_PROJECT_ID=<os_project_id>
+```
+Save the full path to the Swift object (Replace the *os_project_id* with your OS_PROJECT_ID):
+```bash
+$ MYURL=https://object.pouta.csc.fi/swift/v1/AUTH_os_project_id/my_fishbucket/bigfish.jpg
+```
+
 Create a Temp-URL-Key valid for 86400 seconds (24 hours):
 ```bash
-$ swift tempurl GET 86400 https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg $RANDOMKEY
-https://object.pouta.csc.fi/swift/v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
+$ swift tempurl GET 86400 $MYURL $RANDOMKEY
+https://object.pouta.csc.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
 ```
-(Here the part "https://object.pouta.csc.fi/swift/v1/AUTH_$PROJECT_ID/fishes/pictures/salmon.jpg" is the full path to the Switch object)
 
 Use the previously created Temp URL to download the object:
 ```bash
-$ curl "https://object.pouta.csc.fi/swift/v1/fishes/pictures/salmon.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675" > salmon.jpg
+$ curl https://object.pouta.csc.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675> bigfish.jpg
 ```
 You may set a second key by adding another metadata entry with title "Temp-URL-Key-2".
 
