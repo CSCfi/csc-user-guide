@@ -16,7 +16,12 @@ You will be asked to type in a password. Use the password for your CSC account. 
 
 ## Create buckets and upload objects
 
-You can create a new bucket and add a file in it with command:
+Creating a new empty container can be done with command:
+```bash
+$ swift post <new_bucket_name>
+```
+
+You can also create a new bucket and add a file in it with command:
 ```bash
 $ swift upload <new_bucket_name> <file_name>
 ```
@@ -68,6 +73,32 @@ $ swift download <bucket_name>
 ```
 &nbsp;
 
+## Move objects
+
+You can copy data from one container to another with command _copy_. The command below copies <i>file.txt</i> from _bucket1_ to _bucket2_.
+```bash
+$ swift copy --destination /bucket2 bucket1 file.txt
+```
+**Note:** In case there is no bucket called _bucket2_, Swift will create a new bucket with that name. However, even if there is a bucket called _bucket2_, Swift will claim that it created a new one even though it just copied the file to the already existing one:
+```bash
+$ swift copy --destination /other_bucket my_fishbucket bigfish.jpg
+created container other_bucket
+my_fishbucket/bigfish.jpg copied to /other_bucket/bigfish.jpg
+$ swift list other_bucket
+bigfish.jpg
+my_fish.png
+```
+
+You can also rename the file as you copy it:
+```bash
+$ swift copy --destination /new_bucket/newname.txt my_fishbucket myfile.txt
+created container new_bucket
+my_fishbucket/myfile.txt copied to /new_bucket/newname.txt
+```
+For further information about the <i>copy</i> command, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
+
+
+&nbsp;
 
 ## Remove objects and buckets
 
@@ -96,6 +127,23 @@ $ swift list old_fishbucket
 Container u'old_fishbucket' not found
 ```
 &nbsp;
+
+
+## Download or delete whole projects
+
+You can download whole project with command:
+```bash
+$ swift download --all
+```
+
+Deleting whole project is done with:
+```bash
+$ swift delete --all
+```
+**Please note:** Be careful with this command since it deletes all the content of the project and there might not be any backup of the data.
+
+&nbsp;
+
 
 ## Pseudofolders and checksum
 
