@@ -1,12 +1,12 @@
 
 # Swift client
 
-For basic operations we recommend using the _openstack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading the RC file.
+For basic operations we recommend using the _OpenStack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
 ```bash
-source <project_name_here>-openrc.sh
+$ source <project_name_here>-openrc.sh
 ```
 
 You will be asked to type in a password. Use the password for your CSC account. **Note:** Using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Please note:** Everytime you open a new terminal this must be done again.
@@ -16,7 +16,7 @@ You will be asked to type in a password. Use the password for your CSC account. 
 
 ## Create buckets and upload objects
 
-Creating a new empty container can be done with command:
+Creating a new empty bucket can be done with command:
 ```bash
 $ swift post <new_bucket_name>
 ```
@@ -30,13 +30,13 @@ Adding a file to a existing bucket can be done with the same command:
 ```bash
 $ swift upload <old_bucket_name> <file_name>
 ```
-**Note** This might cause a warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
-If the next line shows the file name, it means it was successfully uploaded.
+**Note:** This might cause a warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
+If the next line shows the file name, it was successfully uploaded to the existing bucket.
 
 ```bash
-$ swift upload my_fishes fish.jpg
-Warning: failed to create container 'my_fishes': 409 Conflict: BucketAlreadyExists
-fish.jpg
+$ swift upload my_fishbucket my_fish.jpg
+Warning: failed to create container 'my_fishbucket': 409 Conflict: BucketAlreadyExists
+my_fish.jpg
 ```
 &nbsp;
 
@@ -47,19 +47,21 @@ To list the buckets belonging to a project use command:
 ```bash
 $ swift list
 my_fishbucket
-my_fishes
+my_bigfishes
 ```
 Listing the content of a certain bucket:
 ```bash
-$ swift list my_fishes
-fish.jpg
+$ swift list my_fishbucket
+my_fish.jpg
+salmon.jpg
+bass.png
 ```
 &nbsp;
 
 
 ## Download objects and buckets
 
-Downloading an object happens with command:
+Downloading an object can be done with command:
 ```bash
 $ swift download <bucket_name> <file_name>
 ```
@@ -81,19 +83,19 @@ $ swift copy --destination /bucket2 bucket1 file.txt
 ```
 **Note:** In case there is no bucket called _bucket2_, Swift will create a new bucket with that name. However, even if there is a bucket called _bucket2_, Swift will claim that it created a new one even though it just copied the file to the already existing one:
 ```bash
-$ swift copy --destination /other_bucket my_fishbucket bigfish.jpg
+$ swift copy --destination /other_bucket my_bigfishes bigfish.jpg
 created container other_bucket
-my_fishbucket/bigfish.jpg copied to /other_bucket/bigfish.jpg
+my_bigfishes/bigfish.jpg copied to /other_bucket/bigfish.jpg
 $ swift list other_bucket
 bigfish.jpg
-my_fish.png
+other_file.txt
 ```
 
 You can also rename the file as you copy it:
 ```bash
-$ swift copy --destination /new_bucket/newname.txt my_fishbucket myfile.txt
+$ swift copy --destination /new_bucket/newname.jpg my_fishbucket my_fish.jpg
 created container new_bucket
-my_fishbucket/myfile.txt copied to /new_bucket/newname.txt
+my_fishbucket/my_fish.jpg copied to /new_bucket/newname.jpg
 ```
 For further information about the <i>copy</i> command, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
 
@@ -102,18 +104,18 @@ For further information about the <i>copy</i> command, see [OpenStack Docs](http
 
 ## Remove objects and buckets
 
-Removing buckets and object happens with _delete_ command:
+Removing buckets and objects can be done with _delete_ command:
 Deleting a file:
 ```bash
 $ swift delete <bucket_name> <file_name>
 ```
 For example:
 ```bash
-$ swift delete my_fishes useless_fish.jpg
+$ swift delete my_fishbucket useless_fish.jpg
 useless_fish.jpg
 ```
 
-Unlike with web client and s3cmd, with Swift you can **delete the whole bucket at once**:
+Unlike with Web client and s3cmd, with Swift you can **delete the whole bucket at once**:
 ```bash
 $ swift delete <my_old_bucket>
 ```
@@ -126,6 +128,8 @@ too_tiny_bass.jpg
 $ swift list old_fishbucket
 Container u'old_fishbucket' not found
 ```
+**Please note:** This deletes the bucket permanently and the data is lost if there is no backup of it, so before using this command be sure you do not need the data anymore or that you have a copy of the data somewhere else.
+
 &nbsp;
 
 
@@ -140,7 +144,7 @@ Deleting whole project is done with:
 ```bash
 $ swift delete --all
 ```
-**Please note:** Be careful with this command since it deletes all the content of the project and there might not be any backup of the data.
+**Please note:** Be careful with this command since it deletes all the content of the project and there might not be any backup of the data. Before using this command, be sure you do not need the data anymore or that you have a copy of the data somewhere else.
 
 &nbsp;
 
@@ -149,43 +153,42 @@ $ swift delete --all
 
 In case you want to observe whether the object has changed, you can use [checksum](../introduction.md#checksum){:target="_blank"} with command <i>md5sum</i>.
 
-Pseudofolders can be handled by adding the name of pseudofolder in front of the file name: <i>my_pseudofolder_name/my_object</i>
+Pseudofolders can be handled by adding the name of the pseudofolder in front of the file name: <i>my_pseudofolder_name/my_file</i>
 
-Creating a pseudofolder _fishes_ in to bucket <i>my_fishbucket</i> and adding object _salmon.jpg_ in to it can be done with command:
+Creating a pseudofolder _pictures_ in to bucket <i>my_bigfishes</i> and adding object _bass.png_ in it can be done with command:
 ```bash
-$ swift upload my_fishbucket/fishes salmon.jpg
-fishes/salmon.jpg
+$ swift upload my_bigfishes/pictures bass.png
+pictures/bass.png
 ```
 
-The below example uploads a file called _salmon.jpg_ into a pseudo-folder called _pictures_ which is inside a bucket called _fishes_. After that the file is downloaded.
+The below example uploads a file called _salmon.jpg_ into a pseudo-folder called _fishes_ which is inside a bucket called _my_fishbucket_. After that the file is downloaded.
 ```bash
-$ md5sum pictures/salmon.jpg
-22e44aa2b856e4df892b43c63d15138a  pictures/salmon.jpg
-$ swift upload fishes pictures/salmon.jpg
-pictures/salmon.jpg
-$ swift list fishes
-pictures/salmon.jpg
-$ swift download fishes pictures/salmon.jpg -o my_renamed_salmon.jpg
-pictures/salmon.jpg [auth 0.664s, headers 0.925s, total 0.969s, 3.605 MB/s]
+$ md5sum salmon.jpg
+22e44aa2b856e4df892b43c63d15138a  salmon.jpg
+$ swift upload my_fishbucket/fishes salmon.jpg
+fishes/salmon.jpg
+$ swift list my_fishbucket
+fishes/salmon.jpg
+my_fish.jpg
+$ swift download my_fishbucket fishes/salmon.jpg -o my_renamed_salmon.jpg
+fishes/salmon.jpg [auth 0.664s, headers 0.925s, total 0.969s, 3.605 MB/s]
 $ md5sum my_renamed_salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  my_renamed_salmon.jpg
 ```
 **Note** how the checksums with the object <i>salmon.jpg</i> and the renamed version <i>my_renamed_salmon.jpg</i> are the same since the file is same and has not changed. 
 
-Instructions for using _Swift_ when viewing and producing metadata, handling temporary URLs and access rights and processing large files (over 5 GB) are listed below.
-
 &nbsp;
 
-## Metadata
+## Managing metadata
 
 The following command provides details about a bucket:
 
 ```bash
-$ swift stat fishes
+$ swift stat my_fishbucket
                       Account: AUTH_$PROJECT_UUID
-                    Container: fishes
-                      Objects: 1
-                        Bytes: 1162342
+                    Container: my_fishbucket
+                      Objects: 4
+                        Bytes: 2162342
                      Read ACL:
                     Write ACL:
                       Sync To:
@@ -198,16 +201,16 @@ X-Container-Bytes-Used-Actual: 1167360
 ```
 Set a bucket to read-only to the world (make the content visible at URL: <i>object.pouta.csc.fi/bucket_name/object_name</i>) instead of the default which is private to project only:
 ```bash
-swift post fishes --read-acl ".r:*"
+$ swift post my_fishbucket --read-acl ".r:*"
 ```
-More about the access management in [Giving another project read and write access to a bucket](#giving-another-project-read-and-write-access-to-a-bucket).
+More about the access management in section [Giving another project read and write access to a bucket](#giving-another-project-read-and-write-access-to-a-bucket).
 
 More details about a file:
 ```bash
-$ swift stat fishes pictures/salmon.jpg
+$ swift stat my_fishbucket fishes/salmon.jpg
          Account: AUTH_$PROJECT_ID
-       Container: fishes
-          Object: Pictures/salmon.jpg
+       Container: my_fishbucket
+          Object: fishes/salmon.jpg
     Content Type: image/jpeg
   Content Length: 63220
    Last Modified: Wed, 24 Jan 2018 10:17:03 GMT
@@ -218,15 +221,15 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
       X-Trans-Id: tx0000000000000000001d6-q-q-cpouta-production-kaj
 ```
 
-Note how the above file was uploaded with the _s3cmd client_ and it added the extra S3Cmd-Attrs metadata compared to one uploaded with Swift or S3. ETag is the "_hash_" when viewing the file details in the Pouta dashboard.
+Note that the above file was uploaded with the _s3cmd client_ and it added the extra S3Cmd-Attrs metadata compared to one uploaded with Swift or S3. ETag is the "_hash_" when viewing the file details in the Pouta dashboard.
 
 Removing a metadata field (in this case _Temp-URL-Key_, which is discussed in more detail in the next section) with swift is done with:
 ```bash
 $ swift post -m "Temp-URL-Key:"
 ```
-You can alternatively use the openstack command for some of the metadata operations:
+You can alternatively use the OpenStack command for some of the metadata operations:
 ```bash
-$ openstack object set --property foo=bar fishes salmon.jpg
+$ openstack object set --property foo=bar my_fishbucket my_fish.jpg
 ```
 &nbsp;
 
@@ -234,11 +237,11 @@ $ openstack object set --property foo=bar fishes salmon.jpg
 
 ## Temp URLs
 
-[http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/](http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/){:target="_blank"}
+_Ceph_ documentation of Temp URLs: [http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/](http://docs.ceph.com/docs/luminous/radosgw/swift/tempurl/){:target="_blank"}
  
-If you want to share an object from a private (or public) bucket with somebody, you can create a temporary URL. This can be useful for a homepage where you want to share an object but not the whole bucket and for a limited period of time. This can also be useful if you want to use a private object in a batch job on _Puhti_ or _Taito_.
+If you want to share an object from a private (or public) bucket with somebody, you can create a temporary URL. This can be useful for a homepage where you want to share an object but not the whole bucket and only for a limited period of time. This can also be useful if you want to use a private object in a batch job on Puhti or Taito.
  
-**Note** that everybody who has access to the temporary URL has access to the object. While it is possible to add Meta Temp-URL-Key to a bucket or objects, the Temp URL command can only be used in a project wide scope (see [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl){:target="_blank"}).
+**Note:** Everyone who has access to the temporary URL has access to the object. While it is possible to add Meta Temp-URL-Key to a bucket or objects, the Temp URL command can only be used in a project wide scope (see [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl){:target="_blank"}).
  
 Create a random key
 ```bash
@@ -275,7 +278,7 @@ You may set a second key by adding another metadata entry with title "Temp-URL-K
 
 ## Giving another project read and write access to a bucket
 
-You can give another project read and write rights to a bucket. Giving project _project1_ read rights to bucket <i>my_fishbucket</i> happens with command:
+You can give another project read and write rights to a bucket. Giving project _project1_ read rights to bucket <i>my_fishbucket</i> can be done with command:
 ```bash
 $ swift post my_fishbucket -r "project1:*"
 ```
@@ -301,7 +304,7 @@ $ swift post <your_bucket_name> -r "your_project:*"
 ```
 For example:
 ```bash
-$ swift post my_fishbucket -r "project22:*,project34:*"
+$ swift post my_fishbucket -r "project_1234:*,project_4567:*"
 ```
 Alternatively, you can set the project public and then access the file.
 
@@ -313,7 +316,7 @@ Alternatively, you can set the project public and then access the file.
 
 ## Files larger than 5 GB
 
-Since the openstack command does not support uploading files larger than 5GB, we can use Swift to upload a so-called _Static Large Object_ (SLO).
+Since the OpenStack command does not support uploading files larger than 5GB, we can use Swift to upload a so-called _Static Large Object_ (SLO).
 
 According to [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples){:target="_blank"}:
 
@@ -326,12 +329,12 @@ $ stat /tmp/6GB.zero
 File: '/tmp/6GB.zero'
 Size: 6424625152      Blocks: 12548104   IO Block: 4096   regular file
 ...
-$ swift upload fishes /tmp/6GB.zero
-Object PUT failed: https://object.pouta.csc.fi:443/swift/v1/fishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
+$ swift upload my_bigfishes /tmp/6GB.zero
+Object PUT failed: https://object.pouta.csc.fi:443/swift/v1/my_bigfishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
 ```
 So instead you can do:
 ```bash
-$ swift upload fishes --use-slo --segment-size 1G /tmp/6GB.zero
+$ swift upload my_bigfishes --use-slo --segment-size 1G /tmp/6GB.zero
 tmp/6GB.zero segment 3
 tmp/6GB.zero segment 5
 tmp/6GB.zero segment 1
@@ -342,14 +345,14 @@ tmp/6GB.zero
 ```
 This creates a new bucket as follow:
 ```bash
-$ swift list |grep fishes
-fishes
-fishes_segments
+$ swift list |grep my_bigfishes
+my_bigfishes
+my_bigfishes_segments
 ```
 Download of the whole 6GB.zero can be done with:
 
 ```bash
-$ swift download fishes tmp/6GB.zero -o /tmp/6GB.zero
+$ swift download my_bigfishes tmp/6GB.zero -o /tmp/6GB.zero
 tmp/6GB.zero [auth 0.594s, headers 0.881s, total 74.467s, 86.969 MB/s]
 $ md5sum 6GB.zero
 9e6a77a2d5650b2e2a710a08e9e61a81  6GB.zero

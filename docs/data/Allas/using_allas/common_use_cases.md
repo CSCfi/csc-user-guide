@@ -41,8 +41,9 @@ The data can be accessed and shared in several different ways:
 ## Using Allas in Supercomputers
 
 The first step to use Allas is to authenticate to a project in Allas. In Taito and Puhti you can do the authentication with command:
-
+```bash
     [user@puhti ~] source /appl/opt/allas_conf
+```
 
 The command above generates and stores authentication information into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL. The authentication is valid for max 3 hours.  
 
@@ -106,16 +107,19 @@ Object storage is also often used as a location where you store backups. It is a
 ## Viewing usage
 
 If you are using _s3cmd client_, you can check your project's Object Storage usage with command:
-
-	s3cmd du -H
+```bash
+$ s3cmd du -H
+```
 
 In the case you use _swift client_, you can check it with command:
- 
-	swift stat
+```bash 
+$ swift stat
+```
 
 To see how much space a bucket has used
- 
-	swift stat $bucketname
+```bash
+$ swift stat $bucketname
+```
 
 Please contact servicedesk@csc.fi if you have questions.
 
