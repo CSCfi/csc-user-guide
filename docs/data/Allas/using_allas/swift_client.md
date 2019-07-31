@@ -1,7 +1,7 @@
 
 # Swift client
 
-For basic operations we recommend using the _OpenStack command-line client_. It can access the object storage, but it is limited in its features. The more advanced _Swift command-line client_ is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
+For basic operations we recommend using the [OpenStack command-line client](../../../cloud/pouta/install-client.md#overview-of-openstack-command-line-tools){:target="_blank"}. It can access the object storage, but it is limited in its features. The more advanced *Swift command-line client* is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
