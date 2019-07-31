@@ -138,6 +138,8 @@ Each bucket has a name, which must be unique across all users. So if somebody el
 
 URLs to objects can be in DNS format: _https://object.pouta.csc.fi/bucketname/objectname_ - for this reason use a valid DNS name (RFC 1035) for the bucket. Specifically, we recommend not using upper case characters or Scandic letters (&auml;, &ouml;, etc.) in the bucket name.
 
+<a id="naming_bucket"></a>
+
 Below is a short checklist concerning naming of a bucket.
 
 ** Bucket name:**
