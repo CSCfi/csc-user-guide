@@ -74,7 +74,7 @@ s3cmd put my_file s3://my_bucket
 &nbsp;
 
 
-## Listing buckets and objects
+## List objects and buckets
 
 You can list buckets belonging to the project with command:
 ```bash
@@ -88,7 +88,7 @@ s3cmd ls s3://my_bucket
 &nbsp;
 
 
-## Downloading objects
+## Download objects
 
 You can download an object with command:
 ```bash
@@ -106,7 +106,7 @@ Checksums are equal between the original and the downloaded file. Looks good!
 
 &nbsp;
 
-## Deleting objects and buckets
+## Delete objects and buckets
 
 You can delete an object with command
 ```bash
