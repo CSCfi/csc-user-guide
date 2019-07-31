@@ -10,7 +10,7 @@ Once you have the RC file, you can add the environment variables with the follow
 source <project_name_here>-openrc.sh
 ```
 
-The ec2 credentials are created from the CLI with:
+The ec2 credentials are created from the CLI (command-line interface) with:
 
 ```bash
 $ openstack ec2 credentials create
@@ -76,12 +76,12 @@ s3cmd put my_file s3://my_bucket
 
 ## Listing buckets and objects
 
-You can list buckets with command
+You can list buckets belonging to the project with command:
 ```bash
 s3cmd ls
 ```
 
-Listing objects:
+And objects belonging to a bucket:
 ```bash
 s3cmd ls s3://my_bucket
 ```
@@ -90,11 +90,13 @@ s3cmd ls s3://my_bucket
 
 ## Downloading objects
 
-You can download an object with command
+You can download an object with command:
 ```bash
 s3cmd get s3://my_bucket/my_file new_file_name
 ```
-With md5sum you can check the file has not been corrupted:
+*new_file_name* defines a name for the downloaded file in case you want to rename it.
+
+With md5sum you can check that the file has not been changed or corrupted:
 ```bash
 md5sum my_file new_file_name
    39bcb6992e461b269b95b3bda303addf  my_file
@@ -111,7 +113,7 @@ You can delete an object with command
 s3cmd del s3://my_bucket/my_file
 ```
 
-And bucket:
+Deleting a bucket can be done with command:
 ```bash
 s3cmd rb s3://my_bucket
 ```
@@ -123,10 +125,12 @@ s3cmd rb s3://my_bucket
 
 ## s3cmd and public objects
 
-<pre>$ s3cmd put pictures/salmon.jpg s3://fishes/pictures/fishes.jpg -P
-Public URL of the object is: http://object.pouta.csc.fi/fishes/pictures/salmon.jpg</pre>
+```bash
+$ s3cmd put fishes/salmon.jpg s3://my_fishbucket/fishes/salmon.jpg -P
+Public URL of the object is: http://object.pouta.csc.fi/my_fishbucket/fishes/salmon.jpg
+```
 
-**Note** that the above client outputs an URL which has http:// (which is not open in the object storage firewall). An URL like this needs to be manually changed to https if such a client is used.
+**Note:** The above client outputs an URL which has http:// (which is not open in the object storage firewall). An URL like this needs to be manually changed to https if such a client is used.
 
 &nbsp;
 
@@ -151,15 +155,15 @@ In the Pouta Web UI you only see buckets that members of your project have creat
  
 Granting read access:
 ```bash
-$ s3cmd setacl --acl-grant=read:$other_project_uuid s3://fishes
+$ s3cmd setacl --acl-grant=read:$other_project_uuid s3://my_fishbucket
 ```
 Revoking read access:
 ```bash
-$ s3cmd setacl --acl-revoke=read:$other_project_uuid s3://fishes
+$ s3cmd setacl --acl-revoke=read:$other_project_uuid s3://my_fishbucket
 ```
 View permissions:
 ```bash
-$ s3cmd info s3://fishes|grep -i acl
+$ s3cmd info s3://my_fishbucket|grep -i acl
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
 ```
