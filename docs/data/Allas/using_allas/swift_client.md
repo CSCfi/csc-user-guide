@@ -181,6 +181,12 @@ $ md5sum my_renamed_salmon.jpg
 
 ## Managing metadata
 
+You can define metadata to an object with command:
+```bash
+$ swift post my_fishbucket my_fish.jpg --meta foo:bar
+```
+
+
 The following command provides details about a bucket:
 
 ```bash
@@ -223,13 +229,9 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
 
 Note that the above file was uploaded with the _s3cmd client_ and it added the extra S3Cmd-Attrs metadata compared to one uploaded with Swift or S3. ETag is the "_hash_" when viewing the file details in the Pouta dashboard.
 
-Removing a metadata field (in this case _Temp-URL-Key_, which is discussed in more detail in the next section) with swift is done with:
+Removing a metadata field (in this case _Temp-URL-Key_, which is discussed in more detail in the next section) is done with command:
 ```bash
 $ swift post -m "Temp-URL-Key:"
-```
-You can alternatively use the OpenStack command for some of the metadata operations:
-```bash
-$ openstack object set --property foo=bar my_fishbucket my_fish.jpg
 ```
 &nbsp;
 

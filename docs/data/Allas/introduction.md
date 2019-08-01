@@ -119,16 +119,16 @@ The stored objects can be any data type, such as images or compressed data files
 
 **Benefits**
 
- * The object storage can handle practically any static data
- * The data can be accessed from anywhere using URL
- * The data can have different levels of access control
+ * The object storage can handle practically any static data.
+ * The data can be accessed from anywhere using URL.
+ * The data can have different levels of access control.
 
 
 **Limitations**
 
- * Object storage cannot be properly mounted on virtual machines. There are some tools to help this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as filesystem but it uses _FUSE_ which is slow
- * Unsuitable for files that change during their lifetime (e.g. most databases)
- * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing and then you can replace the previous version with the new one
+ * Object storage cannot be properly mounted on virtual machines. There are some tools to help this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as filesystem but it uses _FUSE_ which is slow.
+ * Unsuitable for files that change during their lifetime (e.g. most databases).
+ * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing and then you can replace the previous version with the new one.
 
 More about the functionalities of Allas can be found from chapter [Using Allas](./using_allas/common_use_cases.md){:target="_blank"}.
 
@@ -144,9 +144,10 @@ Below is a short checklist concerning naming of a bucket.
 
 **When naming a bucket:**
 
- * Do <u>not</u> use uppercase characters or Scandic letters (&auml;, &ouml;, etc.)  
- * Do <u>not</u> include sensitive information (since the bucket names are public)  
- * Must be unique across all users (you may use your project id in the bucket name, for example, _2000620-raw-data_)
+ * Do <u>not</u> use uppercase characters or Scandic letters (&auml;, &ouml;, etc.).
+ * Do <u>not</u> include sensitive information (since the bucket names are public). 
+ * Must be unique across all users (you may use your project id in the bucket name, for example, _2000620-raw-data_).
+ * It is <u>not</u> possible to rename a bucket, so consider the name carefully. 
 
 Data is spread across different servers, which protects against disk and server failures. **Please note:** This does not protect from e.g. accidental deletion, and you should still make backups of important data.
 
