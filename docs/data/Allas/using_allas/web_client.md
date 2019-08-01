@@ -1,7 +1,7 @@
 
 # Web client - OpenStack Horizon Dashboard
 
-This chapter includes instructions for using Allas with the user friendly _OpenStack Horizon Dashboard_. The OpenStack documentation on managing buckets over the web interface can be found from: [https://docs.openstack.org/horizon/latest/user/manage-containers.html](https://docs.openstack.org/horizon/latest/user/manage-containers.html){:target="_blank"}
+This chapter includes instructions for using Allas with the user-friendly _OpenStack Horizon Dashboard_. The OpenStack documentation on managing buckets over the web interface can be found from: [https://docs.openstack.org/horizon/latest/user/manage-containers.html](https://docs.openstack.org/horizon/latest/user/manage-containers.html){:target="_blank"}
 
 The OpenStack dashboard has a small subset of the Object Storage functionalities. The available operations are:
 
@@ -37,9 +37,9 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 !["Upload object"](/img/Allas_screenshot_upload.png)  
 **Figure** Uploading an object
 
-2\. Choose the object from your computer and name it (Do not use Scandinavian letters: &auml;, &ouml;, etc. in the name)  
+2\. Choose the object from your computer and name it. **Note:** Do <u>not</u> use Scandinavian letters (&auml;, &ouml;, etc.) in the name  
 
-3\. Upload the object and it will appear to the container. You can also create folders for the objects with the **+Folder** button next to the upload symbol, for example, in need to organize objects into folders
+3\. Upload the object and it will appear to your container. You can also create pseudofolders for the objects with the **+Folder** button next to the upload symbol, for example, in need to organize objects into folders.
  
 &nbsp;
 
@@ -67,7 +67,7 @@ Downloading an object can be done from the **Download** button on the right side
 
 ## Removing objects and buckets
 
-Objects can be removed by clicking the drop-down menu on the right next to the _Download_ button. There will be an option **Delete**.
+Objects can be removed by expanding the drop-down menu on the right next to the _Download_ button. There will be an option **Delete**.
 
 Buckets can be removed only when they are empty. Hence all the objects in a bucket must be removed or moved somewhere else before the bucket can be deleted. Removing a bucket can be done from the **trashcan symbol** next to the buckets name. 
 

@@ -120,21 +120,21 @@ The stored objects can be any data type, such as images or compressed data files
 **Benefits**
 
  * The object storage can handle practically any static data
- * The data can be accessed from anywhere using the same URL
+ * The data can be accessed from anywhere using URL
  * The data can have different levels of access control
 
 
 **Limitations**
 
- * Object storage cannot be properly mounted on virtual machines. There are some tools to help this, but they have their limitations. For example, _svfs_ can be used to mount _swift_ as filesystem but it uses _FUSE_ which is slow
- * Unsuitable for objects/files that change during their lifetime (e.g. most databases)
+ * Object storage cannot be properly mounted on virtual machines. There are some tools to help this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as filesystem but it uses _FUSE_ which is slow
+ * Unsuitable for files that change during their lifetime (e.g. most databases)
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing and then you can replace the previous version with the new one
 
 More about the functionalities of Allas can be found from chapter [Using Allas](./using_allas/common_use_cases.md){:target="_blank"}.
 
 The objects are stored in buckets. A bucket is simply a container for objects. These buckets should not be confused with _dockers_, or other containers used for computing. A bucket basically acts like a filesystem directory, but you can have only one level of them, so you cannot have buckets within buckets.
 
-Each bucket has a name, which must be unique across all users. So if somebody else has a bucket called "_test_", you cannot create a bucket called "_test_". All the bucket names are public, so please do <u>not</u> put private information in the bucket name. You may use, for example, your project id in the bucket name, for example, _2000620-raw-data_.
+Each bucket has a name, which must be unique across all users. So if somebody else has a bucket called "_test_", you cannot create a bucket called "_test_". All the bucket names are public, so please do <u>not</u> put private information in the bucket name. You may use, for example, your project id in the bucket name, such as _2000620-raw-data_.
 
 URLs to objects can be in DNS format: _https://object.pouta.csc.fi/bucketname/objectname_ - for this reason use a valid DNS name (RFC 1035) for the bucket. Specifically, we recommend not using upper case characters or Scandic letters (&auml;, &ouml;, etc.) in the bucket name.
 
@@ -142,7 +142,7 @@ URLs to objects can be in DNS format: _https://object.pouta.csc.fi/bucketname/ob
 
 Below is a short checklist concerning naming of a bucket.
 
-** Bucket name:**
+**When naming a bucket:**
 
  * Do <u>not</u> use uppercase characters or Scandic letters (&auml;, &ouml;, etc.)  
  * Do <u>not</u> include sensitive information (since the bucket names are public)  

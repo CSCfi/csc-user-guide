@@ -6,7 +6,7 @@
 
 ## Getting Access to Allas
 
-Usage of Allas is based on CSC customer projects. To be able to use Allas you need to be a member in 
+Usage of **Allas** is based on CSC customer projects. To be able to use Allas you need to be a member in 
 a CSC project that has permission to use Allas. If you do not have a CSC account, you must first register as a CSC user
 and join or start a computing project for which Allas has been enabled. All these steps can be done in the
 MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi){:target="_blank"}
@@ -41,7 +41,7 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
  
 8. Next, right-click the created bookmark and choose the option **Connect to server**
 
-9. Type your _project's name_ in the **Tenant Name** section (for example, <i>project_2001234</i>) and **Login**
+9. Type your _project's name_ in the **Tenant Name** section (for example, <i>project_123456</i>) and **Login**
 
 10. Now you should be able to see the content of your project (which might be empty)
 
@@ -68,7 +68,7 @@ CyberDuck offers some basic functionalities for managing data in object storage:
 source <project_name_here>-openrc.sh
 ```
 
-You will be asked to type in a password. Use the password for your CSC account. Note that using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. You will need to do this again if you open a new terminal.
+You will be asked to type in a password. Use the password for your CSC account. Note that using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Note:** You will need to do this again if you open a new terminal.
 
 Now you are able to use the [Swift client](./using_allas/swift_client.md){:target="_blank"}.
 
@@ -84,7 +84,7 @@ OpenStack Horizon web interface provides easy-to-use basic functions for data ma
 
 ## Accessing Allas from Supercomputers
 
-The usage will strongly depend on what you will do with the data. The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Supercomputers (**Taito**, **Puhti** and **Mahti**). More about the clients in [the next section](#protocols).
+The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Supercomputers (**Taito**, **Puhti** and **Mahti**). The best client for you depends on what you will do with the data. Information about the clients in [the next section](#protocols).
 
 | Command-line tool | Requirements |
 | :--------: | --------- |
@@ -99,11 +99,11 @@ For S3 use cases, you can also store the ec2 credentials with the job. This is t
 ```bash 
 $ openstack credential delete
 ```
-**Please note:** The ec2 credentials do not work against other Openstack services.
+**Please note:** The ec2 credentials do not work against other OpenStack services.
  
-There is also the possibility to create [Temp URLs](./using_allas/swift_client.md#temp_urls){:target="_blank"} for the objects you need to access and you can use those URLs to access the data from compute jobs. One benefit of using Temp URLs is that no credentials need to be stored for retrieving the object.
+There is also the possibility to create [Temp URLs](./using_allas/common_use_cases.md#sharing-data){:target="_blank"} for the objects you need to access and you can use those URLs to access the data from compute jobs. One benefit of using Temp URLs is that no credentials need to be stored for retrieving the object.
 
-The instructions for using Allas with Supercomputers can be found from [the Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers){:target="_blank"}.
+The instructions for using Allas with Supercomputers can be found from the [Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers){:target="_blank"}.
 
 &nbsp;
 
@@ -113,7 +113,7 @@ The instructions for using Allas with Supercomputers can be found from [the Use 
 
 The object storage service is provided over two different protocols, _Swift_ and _S3_. From user perspective one of the main differences between S3 and Swift is in the authentication. Token based Swift authentication, used in Allas, remains valid for three hours at a time but in the key based S3 the connection can be permanently open. The permanent connection of S3 is handy in many ways, but it includes a security aspect too: if your server where you use Allas is compromised, the object storage space will be compromised too.
 
-Because of this security concern, Swift is the recommended protocol to be used in many-user servers like Puhti and Mahti. Thus, for example, the CSC specific <i>a_ commands</i> (e.g. _a_put_ and _a_get_) as well as the standard _rclone_ configuration in Puhti are based on Swift. However, in some cases the permanent connections provided by S3 protocol may be the most reasonable option, for example, in users own virtual machine running in cPouta.
+Because of this security concern, Swift is the recommended protocol to be used in many-user servers like Mahti and Puhti. Thus, for example, the CSC specific <i>a_ commands</i> (e.g. _a_put_ and _a_get_) as well as the standard _rclone_ configuration in Puhti are based on Swift. However, in some cases the permanent connections provided by S3 protocol may be the most reasonable option, for example, in users own virtual machine running in cPouta.
 
 Swift and S3 protocols are <u>not</u> compatible in handling objects. Small objects, that do not need to be splitted during upload, can be cross used, but splitted objects can be used only with the protocol that was used for upload. The size limit for splitting an object depends on the settings and on the protocol. The limit is typically between 500 MB and 5 GB.
 

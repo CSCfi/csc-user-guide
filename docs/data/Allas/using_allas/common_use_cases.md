@@ -8,9 +8,13 @@
 
 To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/){:target="_blank"}.
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. This can be done with the stage-in mechanism described in the User Guide. (_Insert link_)
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend a_command [a_get](./a_commands.md#a_get-retrieves-the-stored-data){:target="_blank"}, [swift download](./swift_client.md#download-objects-and-buckets){:target="_blank"} or [s3cmd get](./s3_client.md#download-objects){:target="_blank"}.
 
-* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. The stage-out mechanism is described in the User Guide. **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
+* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend a_command [a_put](./a_commands.md#a_put-uploads-data-to-allas){:target="_blank"}, [swift upload](./swift_client.md#create-buckets-and-upload-objects){:target="_blank"} or [s3cmd put](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}. **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
+
+**Please note:** As discussed in the [Protocols section](../accessing_allas.md#protocols){:target="_blank"}, we recommend to use just one protocol - do not mix Swift and S3.
+
+Please take a look also at [Using Allas in Supercomputers](#using-allas-in-supercomputers).
 
 &nbsp;
 
@@ -33,23 +37,23 @@ The data can be accessed and shared in several different ways:
 * **Public:** You can also have ACLs granting public read access to the data, which is useful for e.g. sharing public scientific results or public datasets.
 
  
-* **Temp URLs:** A temp URL is a unique URL to access an object. These URLs can be time limited. Anybody with the URL can access the object, but the URL is not feasible to just guess. This is a good way to somewhat securely share data to a limited audience, who do not need to have their own Allas accounts. Temp URLs are created per object, not per bucket. [Temp URLs](./swift_client.md#temp-urls){:target="_blank"} are a feature of Swift. In S3 the corresponding feature is called *a Signed URL*. See the differences between using the [Swift and S3 protocols](../accessing_allas.md#protocols){:target="_blank"}.
+* **Temp URLs:** A temp URL is a unique URL to access an object. These URLs can be time-limited. Anyone with the URL can access the object, but the URL is not feasible to just guess. This is a good way to somewhat securely share data to a limited audience, who do not need to have their own Allas accounts. Temp URLs are created per object, not per bucket. [Temp URLs](./swift_client.md#temp-urls){:target="_blank"} are a feature of Swift. In S3 the corresponding feature is called *a Signed URL*. See the differences between using the [Swift and S3 protocols](../accessing_allas.md#protocols){:target="_blank"}.
 
 &nbsp;
 
 
 ## Using Allas in Supercomputers
 
-The first step to use Allas is to authenticate to a project in Allas. In Taito and Puhti you can do the authentication with command:
+The first step is to authenticate to a project in Allas. In Taito and Puhti you can do the authentication with command:
 ```bash
     [user@puhti ~] source /appl/opt/allas_conf
 ```
 
 The command above generates and stores authentication information into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL. The authentication is valid for max 3 hours.  
 
-**Please note:** The environment variables are available only for that login session so if you log into Puhti in another session, you need to authenticate again there to use Allas.
+**Please note:** The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to use Allas.
 
-You can find some guidance for using Allas in Puhti and Taito below:
+You can find some guidance for using Allas from Puhti and Taito below:
 
  * **Easy tools for basic usage:** [Quick and safe: a_put, a_get, a_find](./a_commands.md){:target="_blank"}
 
@@ -80,7 +84,7 @@ There are several cases where you need to access to common data from several loc
 
 ## Accessing the same data from multiple CSC platforms
 
-Since the data in object store is available from anywhere, you can access the data from both the CSC clusters and from the cloud services. This makes the object store a good place to store data and intermediate and final results in cases where your workflow requires the use of, for example, both Taito and Allas.
+Since the data in object storage is available from anywhere, you can access the data from both the CSC clusters and from the cloud services. This makes the object storage a good place to store data and intermediate and final results in cases where your workflow requires the use of, for example, both Allas and Taito.
 
 &nbsp;
 
@@ -111,7 +115,7 @@ If you are using _s3cmd client_, you can check your project's Object Storage usa
 $ s3cmd du -H
 ```
 
-In the case you use _swift client_, you can check it with command:
+In the case you use _Swift client_, you can check it with command:
 ```bash 
 $ swift stat
 ```
