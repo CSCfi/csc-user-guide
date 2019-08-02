@@ -20,7 +20,7 @@ The following guidelines describe step by step how to establish Allas with diffe
 
 ## Accessing Allas from Supercomputers
 
-The instructions for using Allas with Supercomputers can be found from the [Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers){:target="_blank"}.
+The instructions for accessing and using Allas with Supercomputers can be found from the [Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers){:target="_blank"}.
 
 &nbsp;
 
