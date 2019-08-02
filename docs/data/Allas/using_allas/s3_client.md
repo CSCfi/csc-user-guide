@@ -94,7 +94,7 @@ You can download an object with command:
 ```bash
 s3cmd get s3://my_bucket/my_file new_file_name
 ```
-*new_file_name* defines a name for the downloaded file in case you want to rename it.
+*new_file_name* (optional) defines a name for the downloaded file in case you want to rename it.
 
 With md5sum you can check that the file has not been changed or corrupted:
 ```bash
@@ -102,7 +102,7 @@ md5sum my_file new_file_name
    39bcb6992e461b269b95b3bda303addf  my_file
    39bcb6992e461b269b95b3bda303addf  new_file_name
 ```
-Checksums are equal between the original and the downloaded file. Looks good!
+Checksums are equal between the original and the downloaded file. So good so far.
 
 &nbsp;
 
