@@ -142,7 +142,7 @@ URLs to objects can be in DNS format: _https://object.pouta.csc.fi/bucketname/ob
 
 Below is a short checklist concerning naming of a bucket.
 
-**When naming a bucket:**
+**Checklist for naming a bucket:**
 
  * Do <u>not</u> use uppercase characters or Scandic letters (&auml;, &ouml;, etc.).
  * Do <u>not</u> include sensitive information (since the bucket names are public). 
