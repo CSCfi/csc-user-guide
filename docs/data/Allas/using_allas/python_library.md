@@ -1,15 +1,19 @@
 
 # Python library
 
-Some details about setting up the client with **keystone authentication**: [https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html){:target="_blank"} 
+Some details about setting up the client with **Keystone authentication**:  
+[https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html){:target="_blank"} 
  
-Some usage examples in **CEPH RadosGW Swift** documentation: [http://docs.ceph.com/docs/jewel/radosgw/swift/python/](http://docs.ceph.com/docs/jewel/radosgw/swift/python/){:target="_blank"}
+Some usage examples in **CEPH RadosGW Swift** documentation:  
+ [http://docs.ceph.com/docs/jewel/radosgw/swift/python/](http://docs.ceph.com/docs/jewel/radosgw/swift/python/){:target="_blank"}
  
-CSC Instructions for how to use the **CLI**: [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}
+CSC Instructions for how to use the **CLI**:  
+ [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}
  
-The **python pip libraries** needed for the example below are: _python-keystoneclient_ and _python-swiftclient_.
+The **Python pip libraries** needed for the example below are:  
+ _python-keystoneclient_ and _python-swiftclient_.
  
-Then create this script:
+Now you can create this script:
 ```bash
 salmon << EOF > list_swift.py
 from keystoneauth1 import session
