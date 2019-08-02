@@ -4,13 +4,14 @@ The Allas object storage system can be used in multiple ways and for many purpos
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
-- *a_list* : lists buckets and objects in Allas
+- *a_list* : list buckets and objects in Allas
 - *a_put* : upload a file or directory to Allas as one object
 - *a_publish* : upload a file to Allas into a bucket that allows public access over the internet
 - *a_get* : download a stored dataset (object) from Allas
 - *a_find* : search and locate data that has been uploaded with a_put
 - *a_delete* : delete an object from Allas
 - *a_info* : display information about an object in Allas
+- *a_backup* : create a backup copy of data in Allas
 
 
 ## a_put uploads data to Allas
@@ -206,5 +207,9 @@ a_get options:
 
 - **-t**, **-target _dir_name_** :      If this option is defined, a new target directory is created and the data is retrieved there.
 
+
+## a_backup
+
+For *a_backup* documentation, see [a_backup](./a_backup.md){:target="_blank"}.
 
 
