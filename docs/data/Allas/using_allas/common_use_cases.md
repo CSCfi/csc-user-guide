@@ -42,7 +42,7 @@ The data can be accessed and shared in several different ways:
 &nbsp;
 
 
-## Using Allas in Supercomputers
+## Using Allas with Supercomputers
 
 The first step is to authenticate to a project in Allas. In Taito and Puhti you can do the authentication with command:
 ```bash
