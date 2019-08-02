@@ -31,7 +31,7 @@ Adding a file to a existing bucket can be done with the same command:
 $ swift upload <old_bucket_name> <file_name>
 ```
 **Note:** This might cause a warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
-If the next line shows the file name, it was successfully uploaded to the existing bucket.
+If the next line shows the file name, it was successfully uploaded to the already existing bucket.
 
 ```bash
 $ swift upload my_fishbucket my_fish.jpg
@@ -43,7 +43,7 @@ my_fish.jpg
 
 ## List objects and buckets
 
-To list the buckets belonging to a project use command:
+To list the buckets belonging to the project use command:
 ```bash
 $ swift list
 my_fishbucket
@@ -97,7 +97,7 @@ $ swift copy --destination /new_bucket/newname.jpg my_fishbucket my_fish.jpg
 created container new_bucket
 my_fishbucket/my_fish.jpg copied to /new_bucket/newname.jpg
 ```
-For further information about the <i>copy</i> command, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
+For further information about the command <i>copy</i>, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
 
 
 &nbsp;
@@ -105,9 +105,9 @@ For further information about the <i>copy</i> command, see [OpenStack Docs](http
 ## Remove objects and buckets
 
 Removing buckets and objects can be done with _delete_ command:
-Deleting a file:
+Deleting an object:
 ```bash
-$ swift delete <bucket_name> <file_name>
+$ swift delete <bucket_name> <object_name>
 ```
 For example:
 ```bash
@@ -227,7 +227,7 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
       X-Trans-Id: tx0000000000000000001d6-q-q-cpouta-production-kaj
 ```
 
-Note that the above file was uploaded with the _s3cmd client_ and it added the extra S3Cmd-Attrs metadata compared to one uploaded with Swift or S3. ETag is the "_hash_" when viewing the file details in the Pouta dashboard.
+Note that the above file was uploaded with the _s3cmd client_ and it added the extra _S3Cmd-Attrs_ metadata compared to one uploaded with Swift or S3. _ETag_ is the _hash_ when viewing the file details in the Pouta dashboard.
 
 Removing a metadata field (in this case _Temp-URL-Key_, which is discussed in more detail in the next section) is done with command:
 ```bash
@@ -243,7 +243,7 @@ _Ceph_ documentation of Temp URLs: [http://docs.ceph.com/docs/luminous/radosgw/s
  
 If you want to share an object from a private (or public) bucket with somebody, you can create a temporary URL. This can be useful for a homepage where you want to share an object but not the whole bucket and only for a limited period of time. This can also be useful if you want to use a private object in a batch job on Puhti or Taito.
  
-**Note:** Everyone who has access to the temporary URL has access to the object. While it is possible to add Meta Temp-URL-Key to a bucket or objects, the Temp URL command can only be used in a project wide scope (see [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl){:target="_blank"}).
+**Note:** Everyone who has access to the temporary URL has access to the object. While it is possible to add Meta Temp-URL-Key to a bucket or object, the Temp URL command can only be used in a project wide scope (see [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl){:target="_blank"}).
  
 Create a random key
 ```bash
@@ -259,7 +259,7 @@ $ env | grep -i project
 OS_PROJECT_NAME=project_123456
 OS_PROJECT_ID=<os_project_id>
 ```
-Save the full path to the Swift object (Replace the *os_project_id* with your OS_PROJECT_ID):
+Save the full path to the Swift object (Replace the part *os_project_id* with your OS_PROJECT_ID):
 ```bash
 $ MYURL=https://object.pouta.csc.fi/swift/v1/AUTH_os_project_id/my_fishbucket/bigfish.jpg
 ```
@@ -299,7 +299,7 @@ $ swift post my_fishbucket -w \
 
 **Please note:** If you have allowed access for specific projects, making the shared project public and private again will remove the previous access permissions on metadata.
 
-If you allow _-w_ access for another project, it can upload files to your bucket and remove your files. 
+In case you allow _-w_ access for another project, the members of the other project can upload files to your bucket and remove your files. 
 However, you have not access to those uploaded files until either you or the sender shares the bucket with your project:
 ```bash
 $ swift post <your_bucket_name> -r "your_project:*"
