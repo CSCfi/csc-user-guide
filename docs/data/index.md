@@ -28,7 +28,7 @@
 * Using Allas:
 
      * [Common Use Cases](./Allas/using_allas/common_use_cases.md){:target="_blank"}
-     * [Clients](./Allas/accessing_allas.md#protocols){:target="_blank"}
+     * [Protocols](./Allas/accessing_allas.md#protocols){:target="_blank"}
      * [Common Error Messages](./Allas/using_allas/error_messages.md){:target="_blank"}
 
 * [Further information](./Allas/further_info.md){:target="_blank"}
