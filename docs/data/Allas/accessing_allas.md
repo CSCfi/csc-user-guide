@@ -18,10 +18,14 @@ The following guidelines describe step by step how to establish Allas with diffe
 &nbsp;
 
 
-## Accessing Allas using
+## Accessing Allas from Supercomputers
+
+The instructions for using Allas with Supercomputers can be found from the [Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers){:target="_blank"}.
+
+&nbsp;
 
 
-### Windows and Mac
+## Accessing Allas with Windows and Mac
 
 With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
 
@@ -53,8 +57,25 @@ CyberDuck offers some basic functionalities for managing data in object storage:
  * Share buckets
  * Remove objects
 
+&nbsp;
 
-### Linux
+
+## Accessing Allas with Linux
+
+
+The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Supercomputers (**Taito**, **Puhti** and **Mahti**). The best client for you depends on what you will do with the data. More information about the clients in [the next section](#protocols).
+
+| Command-line tool | Requirements |
+| :--------: | --------- |
+| a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md){:target="_blank"}. |
+| Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh (more info [below](#openrc)). |
+| <br/><br/><br/>S3 | Following environment variables present in environment: <br/><br/> S3_ACCESS_KEY_ID <br/> S3_SECRET_ACCESS_KEY <br/> S3_HOSTNAME <br/><br/> More info [here](./using_allas/s3_client.md){:target="_blank"}. |
+| s3cmd	| Configuration file .s3cfg populated (more info [here](./using_allas/s3_client.md){:target="_blank"}). |
+
+
+<a id="openrc"></a>
+
+**Getting openrc file:**
 
 1. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and **Login**
 
@@ -73,27 +94,7 @@ You will be asked to type in a password. Use the password for your CSC account. 
 Now you are able to use the [Swift client](./using_allas/swift_client.md){:target="_blank"}.
 
 
-### Web
-
-OpenStack Horizon web interface provides easy-to-use basic functions for data management in Allas:
-
-[Web client - OpenStack Horizon Dashboard](./using_allas/web_client.md){:target="_blank"}
-
-&nbsp;
-
-
-## Accessing Allas from Supercomputers
-
-The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Supercomputers (**Taito**, **Puhti** and **Mahti**). The best client for you depends on what you will do with the data. Information about the clients in [the next section](#protocols).
-
-| Command-line tool | Requirements |
-| :--------: | --------- |
-| Swift	| Computing project openrc.sh file downloaded from [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} & sourced to shell (more info [here](./using_allas/swift_client.md){:target="_blank"}) |
-| <br/><br/><br/>S3 | Following environment variables present in environment: <br/><br/> S3_ACCESS_KEY_ID <br/> S3_SECRET_ACCESS_KEY <br/> S3_HOSTNAME <br/><br/> More info [here](./using_allas/s3_client.md){:target="_blank"}. |
-| s3cmd	| Configuration file .s3cfg populated (more info [here](./using_allas/s3_client.md){:target="_blank"}) |
- 
-
-You can use any of the commands to stage in the data you need to process to the project/scratch disk and process the data like you would process any other data.
+**About S3:**
  
 For S3 use cases, you can also store the ec2 credentials with the job. This is the recommended way of accessing objects from a compute job. When you do not need the credentials anymore you can delete them with:
 ```bash 
@@ -103,7 +104,14 @@ $ openstack credential delete
  
 There is also the possibility to create [Temp URLs](./using_allas/common_use_cases.md#sharing-data){:target="_blank"} for the objects you need to access and you can use those URLs to access the data from compute jobs. One benefit of using Temp URLs is that no credentials need to be stored for retrieving the object.
 
-The instructions for using Allas with Supercomputers can be found from the [Use Cases](./using_allas/common_use_cases.md#using-allas-in-supercomputers){:target="_blank"}.
+&nbsp;
+
+
+## Accessing Allas from Web
+
+OpenStack Horizon web interface provides easy-to-use basic functions for data management in Allas:
+
+[Web client - OpenStack Horizon Dashboard](./using_allas/web_client.md){:target="_blank"}
 
 &nbsp;
 
