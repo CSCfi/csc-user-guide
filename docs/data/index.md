@@ -34,4 +34,4 @@
 * [Further information](./Allas/further_info.md){:target="_blank"}
 
 
-<h2>Data analysis guide (A. Kallio)</h2>
+<!--- <h2>Data analysis guide (A. Kallio)</h2> -->
