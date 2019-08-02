@@ -6,7 +6,7 @@ For those users, that just want to use Allas for storing data that is in CSC com
   
 - *a_list* : lists buckets and objects in Allas
 - *a_put* : upload a file or directory to Allas as one object
-- *a_publish*: upload a file to Allas into a bucket that allows public access over the internet
+- *a_publish* : upload a file to Allas into a bucket that allows public access over the internet
 - *a_get* : download a stored dataset (object) from Allas
 - *a_find* : search and locate data that has been uploaded with a_put
 - *a_delete* : delete an object from Allas
@@ -171,13 +171,13 @@ The most commonly occurring special characters are listed below:
 
 Options:
 
-- **-f**, **--files**:  Lists the names of the matching files inside the objects in addition to the object name.
+- **-f**, **--files** :  Lists the names of the matching files inside the objects in addition to the object name.
 
-- **-p**,**--project _project_ID_**:   Search matches from the buckets of the defined project instead of the currently configured project. 
+- **-p**,**--project _project_ID_** :   Search matches from the buckets of the defined project instead of the currently configured project. 
 
-- **-b**, **--bucket _bucket_name_**:   By default, all the buckets used by `a_put` are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use this option also in cases where you have stored data to a bucket with a non-standard name.
+- **-b**, **--bucket _bucket_name_** :   By default, all the buckets used by `a_put` are searched. Option -bucket allows you to specify a single bucket that will be used for the search. You should use this option also in cases where you have stored data to a bucket with a non-standard name.
 
-- **-s**, **-silent**: Outputs just the object names and number of hits. If _-f_ option is used too, prints the object            name and matching file names on one row.
+- **-s**, **-silent** : Outputs just the object names and number of hits. If _-f_ option is used too, prints the object            name and matching file names on one row.
 
 
 ## a_info shows information about an uploaded dataset
@@ -200,11 +200,11 @@ By default, the object is retrieved and uncompressed. By default, the data is ex
 
 a_get options:
 
-- **-p**, **--project _project_ID_**:  Retrieves data from the buckets of the defined project instead of the currently configured project. 
+- **-p**, **--project _project_ID_** :  Retrieves data from the buckets of the defined project instead of the currently configured project. 
 
-- **-f**, **--file _file_name_**:      Retrieves just a specific file or directory from the stored dataset. **Note:** You need to define the full path of the file or directory within the stored object
+- **-f**, **--file _file_name_** :      Retrieves just a specific file or directory from the stored dataset. **Note:** You need to define the full path of the file or directory within the stored object
 
-- **-t**, **-target _dir_name_**:      If this option is defined, a new target directory is created and the data is retrieved there.
+- **-t**, **-target _dir_name_** :      If this option is defined, a new target directory is created and the data is retrieved there.
 
 
 
