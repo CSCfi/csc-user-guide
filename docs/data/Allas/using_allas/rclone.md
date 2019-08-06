@@ -93,14 +93,10 @@ $ rclone sync mydata allas:2000620-raw-data/mydata
 
 ```
 $ rclone ls allas:2000620-raw-data
-
-677972 mydata/file1.txt
-
-10927 mydata/setA/file2.txt
-
-1116 mydata/setB/file3.txt
-
-5075 mydata/setB/file4.txt
+   677972 mydata/file1.txt
+    10927 mydata/setA/file2.txt
+     1116 mydata/setB/file3.txt
+     5075 mydata/setB/file4.txt
 ```
 
 
