@@ -6,4 +6,4 @@ through which you can use **Allas**.
 - [S3 client](using_allas/s3_client.md)
 - [rclone](using_allas/rclone.md)
 - [a_commands](using_allas/a_commands.md)
-- [Python](library using_allas/python_library.md)
+- [Python](using_allas/python_library.md)
