@@ -4,7 +4,6 @@ edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/develop/docs"
 nav:
   - Home: index.md
   - Accounts:
-     - Contents: accounts/index.md
      - Creating a new user account: accounts/creating-a-new-user-account.md
      - Getting student accounts for a course: accounts/getting-student-accounts-for-a-course.md
      - Getting machine-to-machine robot accounts: accounts/getting-machine-to-machine-robot-accounts.md
