@@ -32,6 +32,7 @@
      * [Common Error Messages](./Allas/using_allas/error_messages.md){:target="_blank"}
 
 * [Further information](./Allas/further_info.md){:target="_blank"}
+* [cPouta object storage and Allas](./Allas/allas_cpouta_change.md){:target="_blank"}
 
 
 <!--- <h2>Data analysis guide (A. Kallio)</h2> -->
