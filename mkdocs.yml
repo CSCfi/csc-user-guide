@@ -94,14 +94,12 @@ nav:
         - Support: 
            -  Contact support: cloud/rahti/contact.md
   - Data:  
-     - Data guide: data/index.md
-     - Moving data between CSC and local environment:
-        - Copying files using scp: data/scp.md
-        - Graphical file transfer tools: data/graphical_transfer.md
-        - Using rsync for data transfer and synchronization: data/rsync.md
-        - Using wget to download data from web sites to CSC: data/wget.md
-        - Sharing and transporting files using Funet FileSender: data/funet.md
-        - Remote disk mounts: data/disk_mount.md
+     - Copying files using scp: data/scp.md
+     - Graphical file transfer tools: data/graphical_transfer.md
+     - Using rsync for data transfer and synchronization: data/rsync.md
+     - Using wget to download data from web sites to CSC: data/wget.md
+     - Sharing and transporting files using Funet FileSender: data/funet.md
+     - Remote disk mounts: data/disk_mount.md
      - Allas:
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
