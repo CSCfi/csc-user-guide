@@ -11,7 +11,10 @@ For those users, that just want to use Allas for storing data that is in CSC com
 - *a_find* : search and locate data that has been uploaded with a_put
 - *a_delete* : delete an object from Allas
 - *a_info* : display information about an object in Allas
-- *a_backup* : create a backup copy of data in Allas
+
+In addition to the above command, there is saparate tool to create incremental backups:
+
+- *a_backup* : create a backup copy of a local dataset into a backup repository in Allas
 
 
 ## a_put uploads data to Allas
@@ -31,7 +34,10 @@ defines the project that will be used to store the data.
 2. In case of directory, the content of the directory is collected into a single file
 (using `tar` command).
 
-3. Data is compressed using `zstdmt` command (unless compression is skipped with `-n` option).
+3. By default, option --compress (-c), is used. This means that the data is compressed using zstdmt command.
+This is the recommended way if you will be using the data only in CSC computing servers.  If you plan to use the 
+uploaded data in other servers, where zstdmt compression may not be available, you can disable compression with 
+option --nc (-n).
 
 4. The compressed data is uploaded to Allas using `rclone` command and _swift_ protocol.
 
@@ -96,8 +102,8 @@ As option _-n_ is used, the data is stored in an uncompressed format.
 a_publish copies a file to Allas into a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
 uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. 
 a_publish works mostly like a_put but there are some differences: 
-1) a_publish can upload only files, not directories, 
-2) files are not compressed but they uploaded as they are 
+1) a_publish can upload only files, not directories. 
+2) files are not compressed but they uploaded as they are. 
 3) the access control of the target bucket is set so that it is available in read-only mode to the internet.
 
 The basic syntax of the command is:
@@ -112,6 +118,7 @@ The public URL to a data object is:
 https://object.pouta.csc.fi/_username_-_projectNumber_-pub/_object_name_
 
 An object uploaded with _a_publish_ can be removed from Allas with command _a_delete_.
+
 
 Sample session with _a_public_. Uploading document presentation.pdf to the default public bucket in Allas:
 
