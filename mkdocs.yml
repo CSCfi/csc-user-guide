@@ -93,26 +93,20 @@ nav:
            - Design patterns: cloud/rahti/tutorials/patterns.md
         - Support: 
            -  Contact support: cloud/rahti/contact.md
-  - Data:  
-     - Copying files using scp: data/scp.md
-     - Graphical file transfer tools: data/graphical_transfer.md
-     - Using rsync for data transfer and synchronization: data/rsync.md
-     - Using wget to download data from web sites to CSC: data/wget.md
-     - Sharing and transporting files using Funet FileSender: data/funet.md
-     - Remote disk mounts: data/disk_mount.md
-     - Allas:
+  - Data:
+     - Moving data:
+        - Copying files using scp: data/scp.md
+        - Graphical file transfer tools: data/graphical_transfer.md
+        - Using rsync for data transfer and synchronization: data/rsync.md
+        - Using wget to download data from web sites to CSC: data/wget.md
+        - Sharing and transporting files using Funet FileSender: data/funet.md
+        - Remote disk mounts: data/disk_mount.md
+     - Allas object storage:
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
-        - Using Allas:
-           - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-           - Allas Clients:
-              - Web client: data/Allas/using_allas/web_client.md
-              - Swift client: data/Allas/using_allas/swift_client.md
-              - S3 client: data/Allas/using_allas/s3_client.md
-              - rclone: data/Allas/using_allas/rclone.md
-              - a_commands: data/Allas/using_allas/a_commands.md
-              - Python library: data/Allas/using_allas/python_library.md
-           - Common Error Messages: data/Allas/using_allas/error_messages.md
+        - Common Use Cases: data/Allas/using_allas/common_use_cases.md
+        - Allas Clients: data/Allas/clients.md
+        - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Further information: data/Allas/further_info.md
   - Applications: 
      - By discipline: apps/index.md
