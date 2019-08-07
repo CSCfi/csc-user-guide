@@ -4,7 +4,9 @@ We are releasing a new object storage service, Allas, which will be central for 
 
 You might wonder how this affects cPouta object storage users?
 
-In short, Allas is an evolution of cPouta object storage. If you are already using cPouta object storage, you can keep using it as you are currently doing.
+In short, Allas is an evolution of cPouta object storage. If you are already using cPouta object storage, you can keep using it as you are currently doing. All your data will be carried over to Allas.
+
+CAVEAT: VERSIONED BUCKETS
 
 ## What should I know about this change?
 
