@@ -15,3 +15,4 @@
 
 - Add a general style guide
 - Add more detailed instructions for contribution.
+- Add guide for puhti.
