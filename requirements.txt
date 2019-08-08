@@ -3,6 +3,10 @@ mkdocs==1.0.4
 mdx-linkify==1.0
 mdx-environment==0.2.0
 yasha==4.1
+#mkdocs-material==3.3.0
+pymdown-extensions==5.0
+mkdocs-windmill==1.0.0
+#mkdocs-rtd-dropdown==1.0.2
 
 # These are dependencies of the above
 backports-abc==0.5
@@ -13,7 +17,7 @@ click==6.7
 html5lib==1.0.1
 Jinja2==2.10.1
 livereload==2.5.1
-Markdown==2.6.10
+#Markdown==2.6.10
 MarkupSafe==1.0
 pytoml==0.1.14
 PyYAML==4.2b1

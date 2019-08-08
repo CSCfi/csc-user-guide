@@ -1,20 +1,22 @@
-site_name: CSC computing and data environment
+site_name: Docs CSC
+repo_url: "https://github.com/CSCfi/csc-user-guide/"
+edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/develop/docs"
 nav:
   - Home: index.md
-  - Accounts: accounts/index.md
-  - Connecting: connecting/index.md
-  - Computing: computing/index.md
-  - Cloud: cloud/index.md
-  - Data: data/index.md
-  - Applications: apps/index.md
-  - Support: support/index.md
+
 theme:
-  name: readthedocs
+  name: windmill
   custom_dir: custom_theme/
+extra:
+  logo: img/CSC_LOGO_nega_pad.png
 extra_css:
   - css/extra.css
 extra_javascript:
   - https://use.fontawesome.com/e51b07f7f1.js
 markdown_extensions:
+  - toc:
+      toc_depth: 2-6
   - admonition
   - attr_list
+  - pymdownx.details
+  - pymdownx.snippets
