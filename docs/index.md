@@ -1,3 +1,5 @@
-# CSC's data management and computing environment user guide
+# Welcome to Docs CSC!
 
-Work in progress, migration of content from [research.csc.fi/guides](https://research.csc.fi/guides) is underway.
+Work in progress, migration of content from
+<https://research.csc.fi/guides> is underway.
+
