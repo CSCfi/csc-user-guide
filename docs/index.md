@@ -1,11 +1,35 @@
-# Welcome to Docs CSC!
+---
+template: main-index.html
+---
 
-Work in progress, migration of content from
-<https://research.csc.fi/guides> is underway.
+# ![csc-docs-logo](img/logo-16.svg) Welcome to CSC Docs! 
 
-A collection of topical issues, like how to get started with Puhti and Allas
-will appear on this page.
+!!! Overview
+    
+    CSC Docs contains all user guides and FAQs related to CSC services.
 
+    * In order to navigate across the CSC user guide, click on the topics on
+      the left hand side of the navigation bar
+    * Or use the search functionality
+
+    ***Work in progress, migration of content from
+    <https://research.csc.fi/guides> is underway.***
+
+    A collection of topical issues, like how to get started with Puhti and Allas
+    will appear on this page.
+
+
+
+
+<h1 id="quicklinktitle"> Quick links </h1>
+
+<span id="index-quicklinks">
+[Rahti User Guide](cloud/rahti/introduction/background.md)
+[Mahti User Guide]()
+[Pouta User Guide](cloud/pouta/pouta-what-is.md)
+[Allas User Guide](data/Allas/introduction.md)
+</span>
+  
 - [Installing software using Conda, best practices](support/tutorials/conda.md)
 - [How do I copy my files from Taito/Sisu to Puhti](support/faq/how-do-i-copy-my-files.md)
 

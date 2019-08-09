@@ -1,7 +1,8 @@
 site_name: Docs CSC
-repo_url: "https://github.com/CSCfi/csc-user-guide/"
+# repo_url: "https://github.com/CSCfi/csc-user-guide/"
+# repo_url: false
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/develop/docs"
-nav:
+nav: 
   - Home: index.md
   - Accounts:
      - Creating a new user account: accounts/creating-a-new-user-account.md
@@ -119,9 +120,11 @@ nav:
 
 theme:
   name: windmill
-  custom_dir: custom_theme/
+  custom_dir: mkdocs_csc
 extra:
   logo: img/CSC_LOGO_nega_pad.png
+  article_nav: false
+  footer: false
 extra_css:
   - css/extra.css
 extra_javascript:

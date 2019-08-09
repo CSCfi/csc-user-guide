@@ -1,0 +1,58 @@
+{# Side-pane with table of contents #}
+<nav class="wm-toc-pane">
+  {# Optional link to the repository #}
+  {%- block repo %}
+
+    {# {%- if config.repo_url %} #}
+    {%- if false %}
+    <ul class="wm-toctree wm-toc-repo">
+      <li class="wm-toc-li wm-toc-lev1">
+      <a class="wm-article-link wm-toc-text" href="{{ config.repo_url }}">
+        {# DEBUG #}
+        {% include 'repo-icon.html' %}
+        {{ config.repo_name }}
+      </a>
+      </li>
+    </ul>
+    {%- else %}
+    {%- endif %}
+
+  {%- endblock %}
+
+  {% if not config.extra.include_topbar %}
+
+<style>
+.wm-toc-pane {
+  padding-top: 0px;
+}
+</style>
+  {% endif %}
+
+  {%- block site_nav %}
+  <div class="site-title">
+    <a href="/" >
+  {{ config.site_name }}
+  <a>
+  </div>
+
+    {# <div class="wm-top-tool pull-right wm-vcenter"> #}
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="{{ base_url }}/search.html">
+        {# Button to show search-box on small screens #}
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-left"></ul>
+        </div>
+      </form>
+    {# </div> #}
+
+  <ul class="wm-toctree">
+    {%- set navlevel = 1 %}
+    {%- for nav_item in nav %}
+        {% include 'nav-item.html' %}
+    {%- endfor %}
+  </ul>
+  {%- endblock %}
+
+</nav>
+
