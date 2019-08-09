@@ -1,5 +1,13 @@
 # a_commands, easy and safe
 
+In order to use these tools, you must first open connection to Allas storage service with
+command:
+```
+source /appl/opt/allas_conf
+```
+
+The connection remains open for three hours.
+
 The Allas object storage system can be used in multiple ways and for many purposes. In many cases, effective usage of Allas requires that the user knows the features of both Object Storage systems and the software or protocol that is used to manage data  in Allas.
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
