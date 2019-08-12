@@ -1,7 +1,7 @@
 # Puhti quick start guide
 A quick start guide for new Puhti users. It is assumed
 that you have previously used CSC cluster resources like Taito/Sisu.
-
+Go to <my.csc.fi> to view your projects and their project numbers.
 
 ### Connecting to Puhti
 
@@ -42,7 +42,8 @@ will give you a boost library without mpi support and
 ```
 module purge
 module load gcc
-module load 
+module load hpcx-mpi
+module load boost
 ```
 will give you a boost library with mpi support.
 
@@ -76,12 +77,14 @@ There are also basic machine learning libraries for Python in the module _python
 
 
 ### Batch scripts
-You have to specify your billing project in the batch script with the `--account=project_<project_<id>` 
+You have to specify your billing project in the batch script with the `--account=project_<project_number>` 
 flag. Failing to do so will cause your job to be held with the reason “_AssocMaxJobsLimit_”.
 Running `srun` directly also requires the flag.
 
-A simple script file is shown below, substitute the ID part of project_<project_<id> with your own project id and change the resource
+Two simple script files are shown below, substitute the `<project_number>` with your own project number and change the resource
 requirement to best suit your needs.
+
+**Serial job**
 
 ```
 #!/bin/bash
@@ -90,14 +93,27 @@ requirement to best suit your needs.
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:20:00
 #SBATCH --partition=serial
-#SBATCH --output output.txt
-#SBATCH --error errors.txt
 #SBATCH --mem-per-cpu=2G
-#SBATCH --account=project_<project_id>
+#SBATCH --account=project_<project_number>
 
-srun hostname
+srun <your command>
 ```
-submit your script file with:
+**Parallel job**
+
+```
+#!/bin/bash
+#SBATCH --ntasks-per-node=40
+#SBATCH --nodes=3
+#SBATCH --cpus-per-task=1
+#SBATCH --time=01:00:00
+#SBATCH --partition=parallel
+#SBATCH --mem-per-cpu=2G
+#SBATCH --account=project_<project_number>
+
+srun <your command>
+```
+
+Submit your script file with:
 ```
 sbatch script_name
 ```
@@ -131,30 +147,48 @@ GPU queues are available from the normal login nodes.
 
 _Information about the different queues:_
 
-|  Module command|  Time Limit   |Job node limit | Number of nodes | Memory | Cores/GPUs node   |
+| Queue		 |  Time Limit   |Job node limit | Number of nodes | Memory | Cores/GPUs node   |
 |----------------|---------------|---------------|-----------------|--------|-------------------|
-|Serial\*\*      |  3 days       | 1 node        |     772         | 190G   | 40 cores          |
-|	         |               |               |     92          | 382G   |                   |
-|                |               |               |     12          | 774G   |                   |
-|parallel\*\*    |  3 days       | 100 nodes     |     772         | 190G   | 40 cores          |
-|                |               |               |     92          | 382G   |                   |
-|                |               |               |     12          | 774G   |                   |
+|Serial\*\*      |  3 days       | 1 node        |     532         | 190G   | 40 cores          |
+|	         |               |               |     132          | 382G   |                   |
+|                |               |               |     12          | 764G   |                   |
+|parallel\*\*    |  3 days       | 100 nodes     |     532         | 190G   | 40 cores          |
+|                |               |               |     132          | 382G   |                   |
+|                |               |               |     12          | 764G   |                   |
 |hugemem         |  3 days       |  1 node       |     6           | 1532G  | 40 cores          |
 |gputest         |  30 minutes   |  2 nodes      |     2           | 382G   | 40 cores + 4 GPUs |
 |gpu             |  3 days       |  160 GPUs     |     78          | 382G   | 40 cores + 4 GPUs |
 
+\*\* the serial and parallel partitions overlap, so the same nodes are in use in both partitions
+
+You can also get information about the queues with the commands:
+```
+sinfo
+```
+or
+
+```
+scontrol show partition <queue_name>
+```
+
 
 ### Network
 
-- Login nodes can access the internet 
+- Login nodes can access the Internet 
 - It is currently not possible to ssh to the compute nodes
-- Compute nodes **do not** currently have internet access 
+- Compute nodes **do not** currently have Internet access 
 
 ### Storage
-The **project based** shared storage can be found under `/scratch/project_<project_id>`.
-Note that this folder is shared by **all users** in a project.
 
-The nodes do not have local storage. The local storage in the GPU nodes is not currently accessible.
+The **project based** shared storage can be found under `/scratch/project_<project_id>`.
+Note that this folder is shared by **all users** in a project. This folder is not meant for long term data storage
+and files that have not been used for 90 days will be automatically removed. There is also a persistent **project based**
+storage with a default quota of 50 GB. It is located under `/projappl/project_<project_id>`. 
+
+Each user can store up to 10 GB of data in their home directory (`$HOME`).
+
+
+Currently the nodes do not have local storage. The local storage in the GPU nodes is also not currently accessible.
 
 
 
