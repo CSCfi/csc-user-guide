@@ -86,7 +86,7 @@ Time is given in format __hh:mm:ss__. Maximum time depends on the queue selected
 The next set of options set the number of cores and nodes to use. They depend on the type of job and are discussed in more detail in the job type specific articles:
 
 - [Serial and Thread Based Batch Jobs](serial-and-thread-based-batch-jobs.md)
-- [MPI Based Bath Jobs](MPI-batch-jobs.md)
+- [MPI Based Bath Jobs](mpi-batch-jobs.md)
 - [Array jobs](array-jobs.md)
 
 
