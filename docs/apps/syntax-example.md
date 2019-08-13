@@ -9,7 +9,7 @@ Example on including a picture with the "reference style"
 ![Chemistry logo][logo]
 
 Please put all images in "img" folder in root (where docs is), not in local subfolder.
-And with the complete syntax including width limit.
+And with the complete syntax including width limit, if you like.
 
 ![alt text](/img/chemistry-logo.jpg "Chemistry logo"){ width=90% }
 
