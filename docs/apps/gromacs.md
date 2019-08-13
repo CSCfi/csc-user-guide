@@ -9,39 +9,35 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Sisu,Taito: 4.6.7, 5.1.5, 2018.6, 2019.1
--   Taito-GPU: 5.1.5, 2016.5, 2018.5
+-   Puhti: 2018.6-plumed, 2018.7, 2019.3
 -   Check available versions with `module avail gromacs`
--   Some versions include also Plumed (see module command output)
--   Gromacs is also available on the [Finnish Grid Infrastructure] (FGI). 
-    Please see below for the example on how to run Gromacs on the.
+-   Some versions include also Plumed
+-   Gromacs is also available on the [Finnish Grid and Cloud Infrastructure] (FGCI). 
+    Please see below for the example on how to run Gromacs on Puhti.
 
 !!! note
-    Gromacs versions with the hsw (Haswell) tag won't run on the login
-    node, but give better performance on Haswell compute nodes. For
-    preparing jobs (gmx grompp, etc.) use the snb modules on the login node,
-    but the appropriate version in your batch script. The same applies also
-    for GPU enabled versions. Some modules have only `mdrun_mpi` for parallel
-    runs. See output of module command whether to use `gmx_mpi mdrun` or
-    `mdrun_mpi`.
+    Puhti has only the parallel version installed (gmx_mpi), but it can
+    be used for grompp, editconf etc. similarly to the serial version.
+    Instead of gmx grompp ... give gmx_mpi grompp
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
 
 ## Usage
 
-Initialise use on Taito like this:
+Initialise Gromacs on Puhti like this:
 
 ```bash
 $ module load gromacs-env
 ```
 
-which will initialise the default module.
+which will enable the default module.
 
-This will show all available versions:
+This will show recommended versions:
 ```bash
 $ module avail gromacs-env
 ```
+Use `module spider` to locate other versions.
 
 **Notes about performance**
 
@@ -50,7 +46,7 @@ The most important are:
 
 -   If you run in parallel, make a scaling test for each system - don't use more cores than is efficient. 
     Scaling depends on many aspects of your system and used algorithms, not just size.
--   Use a recent version - there has been significant speedup over the years (see table below)
+-   Use a recent version - there has been significant speedup over the years
 -   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag) for mdrun
 
 For a more complete description, consult the 
@@ -58,58 +54,41 @@ For a more complete description, consult the
 
 We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
-results are comparable. See below for a brief performance test using the
-d.dppc system (~100k atoms, PME).
+results are comparable.
 
-||(Node archictecture / </br> Code optimization to)|cores|gmx </br> 4.5.6|gmx </br> 4.6.7|gmx </br> 5.1.5|gmx </br> 2016.5|gmx </br> 2018.1|
-|--- |--- |--- |--- |--- |--- |--- |--- |
-|Taito|Hsw/Hsw|48|-|-|45.505|48.407|49.369|
-|Taito|Hsw/Snb|48|21.523|21.9|38.953|40.987|41.318|
-|Taito|Snb/Snb|48|20.694|20.513|28.559|34.958|39.906|
-|Sisu|Hsw/Hsw|48|-|30.104|39.935|48.979|49.624|
-|Sisu|Hsw/Hsw|96|-|62.499|80.769|86.638|96.194|
-|Taito-gpu|k80:1/Hsw|6|-|-|-|23.964|27.18|
-|Taito-gpu|p100:1/Hsw|7|-|-|-|31.703|55.041|
-|Taito-gpu|p100:4/Hsw|28|-|-|-|-|62.868|
+Note, a scaling test with a very large system (1M particles) may take a while to load balance optimally. It's better to increase the number of nodes, in your production simulation, if you see better performance than in the scaling test, than run very long scaling tests in advance.
 
-From the table we can see that it does not make sense to use
-but one GPU for this job and one P100 GPU is faster than two
-full Haswell nodes (i.e. 48 cores), but using four full nodes
-still improves speed practically linearly. Old versions are
-slower and using AVX2_256 SIMD on Haswell speeds up significantly.
-
-**Example batch script for Taito**
+**Example batch script for Puhti**
 
 ```
 #!/bin/bash -l
 #SBATCH --time=00:30:00
 #SBATCH --partition=parallel
-#SBATCH --constraint=snb
-#SBATCH --ntasks-per-node=24
+#SBATCH --ntasks-per-node=40
 #SBATCH --nodes=4
+#SBATCH --project=project_20XXXXX
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
 # this script runs a 96 core (4 full Haswell nodes) gromacs job, requesting 30 minutes time
 
-export OMP_NUM_THREADS=1
+module load gromacs-env
 
-module load gromacs-env/2018.6 # change version as needed
-
-srun mdrun_mpi -s topol -maxh 0.5 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
 
-Submit the script with `sbatch script_name.sh`
+!!! note
+    Note, you *must* fill in the computing project code in your script.
+    Otherwise, your job will not run. This project will be used for
+    billing the cpu usage.
 
-Download an [example batch script for Sisu](files/gmx-sisu-example.job)
+Submit the script with `sbatch script_name.sh`
 
 **Example input files**
 
 To run a Gromacs job, you will need a few inputfiles, which
 can be processed into a tpr-file required by the molecular
-dynamics engine mdrun or mdrun_mpi. To run your first Gromacs
-simulation, download this [simple input example] and follow the instructions
-in the README.txt.
+dynamics engine `mdrun`.
 
 **Visualizing trajectories**
 
@@ -120,6 +99,10 @@ visualized with the following programs:
 -   [VMD] visualizing program for large biomolecular systems.
 
 **Visualising XY-plots**
+
+!!! note
+    Remote graphics are not yet available in Puhti. Copy the files
+    to Taito or to a local machine for visual analysis.
 
 Gromacs tools produce output files made for the Grace program. These
 data can be visualized with program Grace. To start working with Grace,
@@ -170,16 +153,12 @@ for methods applied in your setup.
 -   Gromacs [documentation]
 -   A very useful Gromacs Users [Mailing list]
 -   [The PRODRG Server] for online creation of small molecule topology
--   If you want to compile your own version, have a look at the options
-    used in the CSC installations. The cmake -files can be found in the
-    installation directories (`which gmx` ...)
 
   [documentation]: http://manual.gromacs.org/documentation
   [Finnish Grid Infrastructure]: https://confluence.csc.fi/display/fgi/FGI+User+Pages
   [PyMOL]: http://www.pymol.org/
   [VMD]: http://www.ks.uiuc.edu/Research/vmd/
   [Gromacs performance checklist]: http://www.gromacs.org/Documentation/Performance_checklist
-  [simple input example]: files/gmx-sample.tar.gz "Sample input for Gromacs"
   [Tutorials on the Gromacs website]: http://www.gromacs.org/Documentation/Tutorials
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
   [HOW-TO]: http://www.gromacs.org/Documentation/How-tos
