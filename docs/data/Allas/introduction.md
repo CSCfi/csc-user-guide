@@ -6,13 +6,22 @@
 
 ## What is Allas?
 
-**Allas** is part of the CSC storage portfolio and accessible from anywhere on the Internet. We provide various tools (see [Accessing Allas](./accessing_allas.md){:target="_blank}) for storing and accessing your data. CSC can also work with you to solve comprehensive data management needs and support large scale data transfer cases.
+**Allas** is part of the CSC storage portfolio and accessible from anywhere on the Internet. It is a storage service to host data for a project lifetime. The data from Allas can also be shared via Internet.
 
-Allas Object Storage is a storage service to host data for a project lifetime. The data from Allas can also be shared via Internet. Allas cannot be used directly for computing, but CSC computing environments (**Mahti** and **Puhti**) support easy data movements to and from Allas. **Please note:** The files which have not been touched in 90 days will automatically be cleaned from project's [Lustre scratch](../../computing/disk-environment.md){:target="_blank"} (similar mechanism was used in [Taito WRKDIR](https://research.csc.fi/taito-disk-environment#1.5.2){:target="_blank"}) and therefore the data must be moved to Allas after computing.
+Allas is a modern object storage system - it comes with _S3_ and _Swift_ interfaces on _CEPH_ storage. In practice, this means that instead of files, the data is stored as objects within buckets. A bucket is simply a container for objects that may also include metadata describing the bucket. This means also that in order to use Allas you need software tools to access it, you can not simply see it as an ordinary disk storage. There are four flavors of tools to access Allas:
 
-Allas is a modern object storage system - it comes with _S3_ and _Swift_ interfaces on _CEPH_ storage. In practice, this means that instead of files, the data is stored as objects within buckets. A bucket is simply a container for objects that may also include metadata describing the bucket. 
+![Allas access flavors](/img/allas-access-flawors.png)
 
-In [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} objects and buckets can be created, deleted or updated. Objects can be either private (accessible only by project members) or public (accessible by anyone from Internet). The command-line options are far more richer on managing metadata and accessing to the buckets and objects. Examples of tools to use to manage buckets and objects within Allas are available in section [Protocols](./accessing_allas.md#protocols){:target="_blank"}.
+1. To access Allas from CSC’ supercomputers (such as **Puhti**) you have ready to use tools preinstalled in the environment. The tools are mostly the same you could also install to your local environment to access Allas. **Please note:** Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](../../computing/disk-environment.md){:target="_blank}) so your data must be moved to Allas after computing. The instructions for accessing and using Allas with CSC's supercomputers can be found from [Using Allas with Supercomputers](./using_allas/common_use_cases.md#using-allas-with-supercomputers){:target="_blank"}.
+
+2. To access Allas with a browser you naturally do not have to install anything special on your computer, so this is by far the simplest way to access Allas. On the other hand, the browser user interface has a bunch of limitations compared to other access flavors, most notable are less performance and upload/download only a single file at the time. The instructions for accessing and using Allas with a browser can be found from [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"}.
+
+3. To access Allas with a GUI client you have to install a suitable GUI client in to your server/laptop. The client needs to be capable to use swift or s3 access protocol. Instructions to use one such client can be found from [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-and-mac){:target="_blank"}.
+
+4. To access Allas with command-line commands you need to install such client software in to your server/laptop. This is the most flexible way to access Allas but requires more effort from you than other access flavors. The client software needs to be capable to use swift or s3 access protocol. Instructions to use one such client can be found from [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-with-linux){:target="_blank"} and [Protocols](./accessing_allas.md#protocols){:target="_blank"}.
+
+In addition to these access flavors you can also see how to use Allas based on [Common Use Cases](./using_allas/common_use_cases.md){:target="_blank"}.
+
 
 &nbsp;
 

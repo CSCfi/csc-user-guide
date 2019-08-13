@@ -23,8 +23,6 @@ An example of a simple batch job file.
 #SBATCH --tasks=1
 #SBATCH --mem=6000
 
-#
-
 module load myprog/1.2.3
 myprog -i input -o output
 ```
@@ -34,7 +32,7 @@ The batch job file starts with a shebang line:
 ```
 #!/bin/bash -l
 ```
-I tells the computer the file should be executed as bash script. Option <var>-l</var> makes bash act as if it was invoked as a login shell. It is needed to make sure things like the module system work as expected.
+I tells the computer the file should be executed as bash script. Option `-l` makes bash act as if it was invoked as a login shell. It is needed to make sure things like the module system work as expected.
 
 The shebang line is followed by a number of lines starting with #SBATCH. These lines are passed on to the batch job system. They should have all the resource reservations and any other instructions necessary. 
 
@@ -62,7 +60,7 @@ The next two lines capture the stdout and stderr to a file:
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 ```
-Stdout and stderr comprise the text that would be printed to screen if the program was run in interactive mode. Typically normal output goes to stdout and error messages go to stderr, but it depends on the program. It is a good idea to always capture at least stderr (option <var>-e</var>) as it is helpful in trobleshooting failed jobs. It also a good idea to include <var>%j</var> to the file name. It will be replaced with the <var>jobid</var> number in the actual file name. This way the files will not get accidentally overwritten by other jobs. It will also preserve the <var>jobid</var>, which is useful in troubleshooting, checking the resource usage after the job is finished, etc.
+Stdout and stderr comprise the text that would be printed to screen if the program was run in interactive mode. Typically normal output goes to stdout and error messages go to stderr, but it depends on the program. It is a good idea to always capture at least stderr (option `--error`) as it is helpful in trobleshooting failed jobs. It also a good idea to include `%j` to the file name. It will be replaced with the job ID number in the actual file name. This way the files will not get accidentally overwritten by other jobs. It will also preserve the job ID, which is useful in troubleshooting, checking the resource usage after the job is finished, etc.
 
 The next options set the billing project for the job. 
 ```
@@ -73,24 +71,27 @@ You can check you projects in [My CSC](https://my.csc.fi) in the "My Projects" t
 id -gn
 ```
 
-The partition i.e. queue need to be set according to the job requirements.
+The partition i.e. queue needs to be set according to the job requirements.
 ```
-#SBATCH --partition=serial
+#SBATCH --partition=<partition>
 ```
 
-Time resevation is set with option <var>--time</var>
+Time resevation is set with option `--time`
 ```
 #SBATCH --time=10:00:00
 ```
-Time is given in format hh:mm:ss. Maximum time depends on the queue selected. When time reservation ends, the job is terminated whether it is finished or not, so time reservations should be sufficient. Job will consume billing units according to it's actual runtime. On the other hand too long time reservations can cause the job to spend longer in the queue.
+Time is given in format __hh:mm:ss__. Maximum time depends on the queue selected. When time reservation ends, the job is terminated whether it is finished or not, so time reservations should be sufficient. Job will consume billing units according to it's actual runtime. On the other hand too long time reservations can cause the job to spend longer in the queue.
 
 
-The next set of options set the number of cores and nodes to use. They depend on the type of job and are discussed in more detail in the relevant articles.
+The next set of options set the number of cores and nodes to use. They depend on the type of job and are discussed in more detail in the job type specific articles:
 
+- [Serial and Thread Based Batch Jobs](serial-and-thread-based-batch-jobs.md)
+- [MPI Based Bath Jobs](mpi-batch-jobs.md)
+- [Array jobs](array-jobs.md)
 
 
 ##Running batch jobs
-A batch job is submitted to the queue wit command
+A batch job is submitted to the queue with command
 ```
 sbatch <batch_job_file>
 ```
@@ -99,5 +100,8 @@ To check that the job was submitted correctly use command
 ```
 squeue -u <username>
 ```
-
-For more information on managing batch jobs, please see XXXX.
+A submitted batch job can be cancelled with:
+```
+scancel <jobid>
+```
+More information on running and managing batch jobs in [Managing Batch Jobs](managing-batch-jobs.md).

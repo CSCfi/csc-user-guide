@@ -29,25 +29,32 @@ The instructions for accessing and using Allas with Supercomputers can be found 
 
 With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
 
-1. Install **CyberDuck**
+1\. Install **CyberDuck**.
 
-2. Navigate to the CyberDuck mainmenu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
+2\. Navigate to the CyberDuck mainmenu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
 
-3. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_
+!["New bookmark"](/img/cyberduck_create_bookmark.png)
+**Figure** Creating a new bookmark
 
-4. As **Server** write _pouta.csc.fi_ and choose **Port** _5001_
+3\. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_
 
-5. In the section **Tenant ID:Access Key** type your _Pouta username_ (the one you use in pouta.csc.fi)
+4\. As **Server** write _pouta.csc.fi_ and choose **Port** _5001_.
 
-6. Type your Pouta password in the **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window
+5\. In the section **Tenant ID:Access Key** type (without spaces) first the desired _project's name_, then add "**:**" and after that your _Pouta username_ (the one you use in pouta.csc.fi). Thus, it should be in form of *projectname:username*. For example, *project_123456:john*.
 
-7. Navigate to the top left corner to the icons under the _Open Connection_ and choose the **Bookmarks icon** (second from the left)
+6\. Type your Pouta password in the **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window.
+
+!["Filling information for a bookmark"](/img/cyberduck_bookmark_info.png)
+**Figure** Filling the information for a bookmark
+
+7\. Navigate to the top left corner to the icons under the _Open Connection_ and choose the **Bookmarks icon** (second from the left).
  
-8. Next, right-click the created bookmark and choose the option **Connect to server**
+8\. Next, right-click with mouse the created bookmark and choose the option **Connect to server**.
 
-9. Type your _project's name_ in the **Tenant Name** section (for example, <i>project_123456</i>) and **Login**
+!["Connecting to server"](/img/cyberduck_connect.png)
+**Figure** connecting to server
 
-10. Now you should be able to see the content of your project (which might be empty)
+Now you should be able to see the content of your project (which might be empty).
 
 CyberDuck offers some basic functionalities for managing data in object storage:
 
@@ -65,12 +72,13 @@ CyberDuck offers some basic functionalities for managing data in object storage:
 
 The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Supercomputers (**Taito**, **Puhti** and **Mahti**). The best client for you depends on what you will do with the data. More information about the clients in [the next section](#protocols).
 
+
 | Command-line tool | Requirements |
 | :--------: | --------- |
 | a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md){:target="_blank"}. |
-| Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh (more info [below](#openrc)). |
-| <br/><br/><br/>S3 | Following environment variables present in environment: <br/><br/> S3_ACCESS_KEY_ID <br/> S3_SECRET_ACCESS_KEY <br/> S3_HOSTNAME <br/><br/> More info [here](./using_allas/s3_client.md){:target="_blank"}. |
-| s3cmd	| Configuration file .s3cfg populated (more info [here](./using_allas/s3_client.md){:target="_blank"}). |
+| Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh, more info [below](#openrc). |
+| S3 | More info [here](./using_allas/s3_client.md){:target="_blank"}. |
+| s3cmd	| Configuration file .s3cfg populated. More info [here](./using_allas/s3_client.md){:target="_blank"}. |
 
 
 <a id="openrc"></a>
@@ -83,7 +91,10 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 
 3. Download the **Openstack RC File v3** from the upper right corner
 
-4. Now you can add the environment variables by typing the following command into terminal:
+!["Getting openrc file"](/img/rc-file-example20190121-b.png)
+**Figure** Getting openrc file
+
+Now you can add the environment variables by typing the following command into terminal:
 
 ```bash
 source <project_name_here>-openrc.sh
@@ -135,14 +146,14 @@ There are several different ways of accessing object storage. We support both th
 
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
-| web client | Yes | [Link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"} |
-| python-swiftclient | Yes | [Link](./using_allas/swift_client.md){:target="_blank"}| This is the recommended Swift client |
-| s3cmd	| Yes | [Link](./using_allas/s3_client.md){:target="_blank"} | This is the recommended S3 client. Use version 2.0.2 or later|
+| web client | Yes | [Link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"}. Provides basic functions. |
+| a_commands | Yes | [Link](./using_allas/a_commands.md){:target="_blank"} | Provides easy-to-use tools for basic usage. Assumes data is already in CSC computing environment. Requires Swift and OpenStack. |
+| python-swiftclient | Yes | [Link](./using_allas/swift_client.md){:target="_blank"}| This is the recommended Swift client. |
+| s3cmd	| Yes | [Link](./using_allas/s3_client.md){:target="_blank"} | This is the recommended S3 client. Use version 2.0.2 or later. |
 | python-swift-library | Yes | [Link](./using_allas/python_library.md){:target="_blank"} |	| 
-| a_commands | Yes | [Link](./using_allas/a_commands.md){:target="_blank"} | Provides easy-to-use tools for basic usage. Assumes data is already in CSC computing environment. Requires Swift and OpenStack |
-| rclone | Yes | [Link](./using_allas/rclone.md){:target="_blank"} | Useful with Supercomputers |
+| rclone | Yes | [Link](./using_allas/rclone.md){:target="_blank"} | Useful with Supercomputers. |
 | libs3	| Yes | | |	 	 
 | python-openstackclient | Yes | | |
-|aws-cli | Yes | | aws-cli and the boto3 python library |
-|curl | Yes | | Extremely simple to use with public objects and temporary URLs |
-|wget | Yes | | Same as curl |
+|aws-cli | Yes | | aws-cli and the boto3 python library. |
+|curl | Yes | | Extremely simple to use with public objects and temporary URLs. |
+|wget | Yes | | Same as curl. |
