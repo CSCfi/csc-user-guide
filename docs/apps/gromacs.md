@@ -11,9 +11,7 @@ systems. It also comes with plenty of analysis scripts.
 
 -   Puhti: 2018.6-plumed, 2018.7, 2019.3
 -   Check available versions with `module avail gromacs`
--   Some versions include also Plumed
--   Gromacs is also available on the [Finnish Grid and Cloud Infrastructure] (FGCI). 
-    Please see below for the example on how to run Gromacs on Puhti.
+-   Some versions are GPU-aware, or include also Plumed
 
 !!! note
     Puhti has only the parallel version installed (gmx_mpi), but it can
@@ -65,12 +63,12 @@ Note, a scaling test with a very large system (1M particles) may take a while to
 #SBATCH --time=00:30:00
 #SBATCH --partition=parallel
 #SBATCH --ntasks-per-node=40
-#SBATCH --nodes=4
+#SBATCH --nodes=2
 #SBATCH --project=project_20XXXXX
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
-# this script runs a 96 core (4 full Haswell nodes) gromacs job, requesting 30 minutes time
+# this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
 
 module load gromacs-env
 
