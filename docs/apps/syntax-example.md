@@ -91,10 +91,10 @@ Submit the script with `sbatch script_name.sh`
 Example for linking to files in the "files" subfolder for display or download
 (think about naming them in a clever way - it's the same folder for all software):
 
-Download an [example batch script for Sisu](files/gmx-sisu-example.job)
+Download an [example batch script for Sisu](files/gmx-puhti-example.job)
 
-??? note "Sisu"
-        --8<-- "docs/apps/files/gmx-sisu-example.job"
+??? note "Puhti"
+        --8<-- "docs/apps/files/gmx-puhti-example.job"
 
 An example for embedding a video on youtube:
 
