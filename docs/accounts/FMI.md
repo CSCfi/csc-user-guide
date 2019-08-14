@@ -1,1 +1,4 @@
+## FMI partition specific instructions
+The Puhti FMI partition is available only for users from FMI. The FMI users, however, can also use the general Puhti system.
+### Projects and FMI partition
 
