@@ -157,3 +157,41 @@ There are several different ways of accessing object storage. We support both th
 |aws-cli | Yes | | aws-cli and the boto3 python library. |
 |curl | Yes | | Extremely simple to use with public objects and temporary URLs. |
 |wget | Yes | | Same as curl. |
+
+
+Below is a rough table summarizing the available operations with four of the clients. Web client suits well for a basic user who manages with the simple basic functions. The a_commands offer easy-to-use functions for a basic user using Allas with supercomputers. Power users might want to consider the clients Swift and s3cmd. The table shows only the most central functions of the power clients concerning data management in Allas, but there are more.
+
+
+| | &nbsp;&nbsp;&nbsp; web client | &nbsp;&nbsp;&nbsp; a_commands | &nbsp;&nbsp;&nbsp;&nbsp; swift &nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s3cmd &nbsp;|
+| :----- | :-----: | :----: | :-----: | :----: |
+| Usage | _Basic_ | _Basic_ | _Power_ | _Power_ |
+| **Create buckets** | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Upload objects** | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **List** | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>  |
+| **Download** | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Remove** | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>&#8226; | <font color="green">&#x2714;</font>&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226; |
+| **Managing access rights** | | | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Move objects** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Edit metadata** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Upload large files** (over 5 GB) | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Download whole project** | | | <font color="green">&#x2714;</font> | |
+| **Remove whole project** | | | <font color="green">&#x2714;</font> | |
+
+
+
+
+<div align="right">&#8226; Only empty buckets</div>
+
+
+
+
+

@@ -26,99 +26,26 @@ In addition to these access flavors you can also see how to use Allas based on [
 &nbsp;
 
 
-## Allas Object Storage related terms and concepts  
+## Billing and Quotas
+
+Allas usage is based on project based storage quotas. All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read, edit and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
+
+The default quotas for every project are:
+
+| Resource | Limit |
+| :-------- |:------- |
+| Storage amount | 1 TiB |
+| Buckets per project | 1 000 |
+| Objects per bucket | 100 000 |
+| Object size | 5 GB |
+
+
+Storing data in Allas consumes _billing units_. Accounting and billing information can be found under [Accounting principles and quotas](https://research.csc.fi/pouta-accounting){:target="_blank"}.
+
+Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
 &nbsp;
 
-**Access Control List**
-
-_Access Control List_ (ACL) mechanism can be used to control access to other Allas users.
-
-&nbsp;
-
-
-**Billing unit**
-
-_Billing units_ describe the consumption of computing and storage resources on CSC systems. 
-In Allas, the amount of data consumes billing units.
-(See [Billing and Quotas](#billing-and-quotas))
-
-&nbsp;
-
-
-**Bucket**
-
-A _bucket_ is simply a container for objects that may also include metadata describing the bucket.
-
-&nbsp;
-
-<a id="checksum"></a>
-
-**Checksum**
-
-_Checksum_ is a hashed string computed of an object to observe if the object has changed (data integrity). 
-You can get the checksum with command _md5sum_.
-
-&nbsp;
-
-
-**Client**
-
-_Client software_ is used to access the object storage service (Allas).
-
- * Web browser based access via [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} for basic graphical usage
- * Command-line clients such as [Swift](./using_allas/swift_client.md){:target="_blank"} and [s3cmd](./using_allas/s3_client.md){:target="_blank"} for power users
- * _Programmable interface_ (API) for those who integrate software
-
-&nbsp;
-
-
-**Metadata**
-
-_Metadata_ describes an object or bucket and it could be used, for example, to search objects. 
-The basic usage is via _key-value_ pair (for example, name: John).
-
-&nbsp;
-
-
-**Object Storage**
-
-_Object storage_ refers to a computer data storage that manages data as objects instead of files or blocks. Typically, an object consists of the data itself, metadata and a unique identifier. Generally, the data can be anything, for example an image or audio.
-
-&nbsp;
-
-
-**OpenStack**
-
-_OpenStack cloud management middleware_ can be used to access Allas.
-[OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} offers some basic functionalities.
-For further information, see [OpenStack](https://www.openstack.org/){:target="_blank"}.
-
-&nbsp;
-
-
-**Pseudo-folder**
-
-You cannot have buckets with other buckets inside them. You can however make use of so called _pseudo-folders_.
-
-If an object name contains a forward slash "/", it is interpreted as a folder separator. These are shown as folders listings when accessing the data through the web interface. These pseudo-folders are automatically added if you upload whole folders with command-line clients.
-
-For example, if you add two objects to a bucket
-```bash
-fishes/salmon.png
-fishes/bass.png
-```
-listing the bucket will show a folder called _fishes_ and the two files within it.
-
-&nbsp;
-
-
-**Quota**
-
-_Allas quota_ defines the maximum amount of data (capacity) which the project is allowed to store in Allas. 
-(See [Billing and Quotas](#billing-and-quotas))
-
-&nbsp;
 
 
 ## System Characteristics
@@ -159,26 +86,5 @@ Below is a short checklist concerning naming of a bucket.
  * It is <u>not</u> possible to rename a bucket, so consider the name carefully. 
 
 Data is spread across different servers, which protects against disk and server failures. **Please note:** This does not protect from e.g. accidental deletion, and you should still make backups of important data.
-
-&nbsp;
-
-
-## Billing and Quotas
-
-Allas usage is based on project based storage quotas. All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read, edit and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
-
-The default quotas for every project are:
-
-| Resource | Limit |
-| :-------- |:------- |
-| Storage amount | 1 TiB |
-| Buckets per project | 1000 |
-| Objects per bucket | 100 000 |
-| Object size | 5 GB |
-
-
-Storing data in Allas consumes _billing units_. Accounting and billing information can be found under [Accounting principles and quotas](https://research.csc.fi/pouta-accounting){:target="_blank"}.
-
-Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
 &nbsp;
