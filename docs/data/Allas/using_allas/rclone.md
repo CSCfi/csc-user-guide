@@ -11,6 +11,7 @@ The command above generates and stores authentication information into shell var
 Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. The only drawback of buckets is that they must have unique names - you can not create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user specific in the bucket name, for instance: _2000620-raw-data_. See [checklist](../introduction.md#naming_bucket){:target="_blank"} for naming a bucket.
 
 Guidance for using rclone with Allas is given below.
+
 &nbsp;
 
 ## Create buckets and upload objects
