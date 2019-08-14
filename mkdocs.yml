@@ -8,7 +8,7 @@ nav:
      - Creating new user account: accounts/creating-new-user-account.md
      - Getting student accounts for course: accounts/getting-student-accounts-for-course.md
      - Getting machine-to-machine robot accounts: accounts/getting-machine-to-machine-robot-accounts.md
-     - Getting accounts without Haka or Virtu: accounts/getting-accounts-without-haka-or-virtu.md
+     - Getting account without Haka or Virtu: accounts/getting-account-without-haka-or-virtu.md
      - Getting access to Pouta: accounts/get-access-to-pouta.md
      - Changing password: accounts/changing-password.md
      - Managing user information: accounts/managing-user-information.md
