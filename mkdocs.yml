@@ -110,6 +110,7 @@ nav:
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
+        - Allas Object Storage related terms and concepts: data/Allas/terms_and_concepts.md
   - Applications: 
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
