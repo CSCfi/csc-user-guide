@@ -3,9 +3,7 @@
 This document shows how you can create a new project. Before you can
 do that, you need to have a user account.
 
-<video width=80% autoplay loop muted controls>
-<source src="../videos/create-project.mp4" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kz4G_ZSeN7Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. On the left navigation menu, choose My Projects.
 1. Scroll down to the end of the page where you can find Create a new
@@ -19,7 +17,10 @@ have read and accepted the General Terms of Use for..."
 
 !!! Note
 
-    Only users whose home organization is a Finnish high education
-    institution or a state research institute can create projects at
-    [CSC Customer Portal](https://sui.csc.fi). Others need to contact
-    servicedesk@csc.fi.
+    The right project type is Academic, if your work belongs to any of
+    the [free-of-charge use
+    cases](https://research.csc.fi/free-of-charge-use-cases). Otherwise
+    the right project type is Commercial. Academic projects can be
+    opened only by employees of Finnish higher education institutions,
+    state research institutes and CSC. Commercial projects can be
+    opened by anyone.
