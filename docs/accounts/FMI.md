@@ -1,4 +1,4 @@
-## FMI partition specific instructions
+## Puhti FMI partition specific instructions
 The Puhti FMI partition is available only for users from FMI. The FMI users, however, can also use the general Puhti system and CSC's other services.
 ### Projects: Puhti-FMI vs. Puhti and CSC:s other services
 A project can only use either the FMI partition or the general partition and CSC's other services, not both. Hence, if an FMI project PI wants use both the general partition/CSC's other services and the FMI partition, he or she must create separate projects.
