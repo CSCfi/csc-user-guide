@@ -159,7 +159,7 @@ There are several different ways of accessing object storage. We support both th
 |wget | Yes | | Same as curl. |
 
 
-Below is a rough table summarizing the available operations with four of the clients. Web client suits well for a basic user who manages with the simple basic functions. The a_commands offer easy-to-use functions for a basic user using Allas with supercomputers. Power users might want to consider the clients Swift and s3cmd. The table shows only the most central functions of the power clients concerning data management in Allas, but there are more.
+Below is a rough table summarizing the available operations with four of the clients. Web client suits well for a basic user who manages with the simple basic functions. The a_commands offer easy-to-use functions for a basic user using Allas either from own computer or from supercomputer. Power users might want to consider the clients Swift and s3cmd. The table shows only the most central functions of the power clients concerning data management in Allas, but there are more.
 
 
 | | &nbsp;&nbsp;&nbsp; web client | &nbsp;&nbsp;&nbsp; a_commands | &nbsp;&nbsp;&nbsp;&nbsp; swift &nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s3cmd &nbsp;|
