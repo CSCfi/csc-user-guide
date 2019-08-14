@@ -27,6 +27,7 @@ This chapter gives guidance for the following operations:
  * _Create_ buckets
  * _Upload_ objects
  * _List_ objects and buckets
+ * _Download_ objects and buckets
  * _Move_ objects
  * _Delete_ objects and buckets
  * Make a bucket _public_
@@ -100,7 +101,7 @@ s3cmd ls s3://my_bucket
 &nbsp;
 
 
-## Download objects
+## Download objects and buckets
 
 You can download an object with command:
 ```bash
@@ -115,6 +116,11 @@ md5sum my_file new_file_name
    39bcb6992e461b269b95b3bda303addf  new_file_name
 ```
 Checksums are equal between the original and the downloaded file. So good so far.
+
+You can also download a whole bucket at once with command:
+```bash
+s3cmd get s3://my_bucket/*
+```
 
 &nbsp;
 
