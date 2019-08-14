@@ -1,4 +1,4 @@
-# Getting an account without Haka or Virtu
+# Getting account without Haka or Virtu
 
 The preferred method of registration for CSC is to use the Haka or
 Virtu login. If it is not available, the alternative method is to send

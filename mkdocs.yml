@@ -5,17 +5,17 @@ edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/develop/docs"
 nav: 
   - Home: index.md
   - Accounts:
-     - Creating a new user account: accounts/creating-a-new-user-account.md
-     - Getting student accounts for a course: accounts/getting-student-accounts-for-a-course.md
+     - Creating new user account: accounts/creating-new-user-account.md
+     - Getting student accounts for course: accounts/getting-student-accounts-for-course.md
      - Getting machine-to-machine robot accounts: accounts/getting-machine-to-machine-robot-accounts.md
-     - Getting accounts for international collaborators: accounts/getting-accounts-for-international-collaborators.md
+     - Getting accounts without Haka or Virtu: accounts/getting-accounts-without-haka-or-virtu.md
      - Getting access to Pouta: accounts/get-access-to-pouta.md
-     - Changing the password: accounts/changing-the-password.md
+     - Changing password: accounts/changing-password.md
      - Managing user information: accounts/managing-user-information.md
-     - Joining a project: accounts/joining-a-project.md
-     - Creating a new project: accounts/creating-a-new-project.md
-     - Adding members to a project: accounts/adding-members-to-a-project.md
-     - Adding service access for a project: accounts/adding-service-access-for-a-project.md
+     - Joining project: accounts/joining-project.md
+     - Creating new project: accounts/creating-new-project.md
+     - Adding members to project: accounts/adding-members-to-project.md
+     - Adding service access for project: accounts/adding-service-access-for-project.md
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
      - Monitoring resource usage: accounts/monitoring-resource-usage.md

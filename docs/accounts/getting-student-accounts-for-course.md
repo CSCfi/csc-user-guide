@@ -1,4 +1,4 @@
-# Getting student accounts for a course
+# Getting student accounts for course
 
 If you are a teacher and you need to order accounts for your students,
 here is what you need to do.
