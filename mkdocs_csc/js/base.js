@@ -308,7 +308,10 @@ function collapseAndRemove(collapsibleElem) {
 
 function renderPageToc(parentElem, pageUrl, pageToc) {
   var ul = $('<ul class="wm-toctree">');
-  var toc_nav_level = parentElem[parentElem.length-1].classList[1].substr(-1);
+  var toc_nav_level = 1;
+  if (parentElem.length > 0) {
+    toc_nav_level = parentElem[parentElem.length-1].classList[1].substr(-1);
+  }
 
   function addItem(tocItem) {
     ul.append($('<li class="wm-toc-li">')
