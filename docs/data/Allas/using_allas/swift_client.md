@@ -11,6 +11,21 @@ $ source <project_name_here>-openrc.sh
 
 You will be asked to type in a password. Use the password for your CSC account. **Note:** Using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Please note:** Everytime you open a new terminal this must be done again.
 
+This chapter includes instructions for the following operations:
+
+ * _Create_ buckets
+ * _Upload_ objects
+ * _List_ objects and buckets
+ * _Download_ objects and buckets
+ * _Move_ objects
+ * _Remove_ objects and buckets
+ * Download and remove _whole projects_
+ * Manage _pseudofolders_ and _checksum_
+ * Add _metadata_
+ * Create _Temp URLs_
+ * Manage _access rights_
+ * Upload _large files_ (over 5 GB)
+
 &nbsp;
 
 
@@ -77,7 +92,7 @@ $ swift download <bucket_name>
 
 ## Move objects
 
-You can copy data from one container to another with command _copy_. The command below copies <i>file.txt</i> from _bucket1_ to _bucket2_.
+You can copy data from one bucket to another with command _copy_. The command below copies <i>file.txt</i> from _bucket1_ to _bucket2_.
 ```bash
 $ swift copy --destination /bucket2 bucket1 file.txt
 ```
