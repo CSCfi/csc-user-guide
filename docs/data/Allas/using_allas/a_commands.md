@@ -20,7 +20,7 @@ For those users, that just want to use Allas for storing data that is in CSC com
 - *a_delete* : delete an object from Allas
 - *a_info* : display information about an object in Allas
 
-In addition to the above command, there is saparate tool to create incremental backups:
+In addition to the above command, there is separate tool to create incremental backups:
 
 - *a_backup* : create a backup copy of a local dataset into a backup repository in Allas
 
