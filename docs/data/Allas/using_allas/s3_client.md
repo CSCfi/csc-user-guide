@@ -22,6 +22,17 @@ $ openstack ec2 credentials create
 ```
 Instructions for installing and using s3cmd are given below. For more examples of s3cmd usage, see [s3tools.org](https://s3tools.org/s3cmd-howto){:target="_blank"}.
 
+This chapter gives guidance for the following operations:
+
+ * _Create_ buckets
+ * _Upload_ objects
+ * _List_ objects and buckets
+ * _Move_ objects
+ * _Delete_ objects and buckets
+ * Make a bucket _public_
+ * Use s3cmd with _Supercomputers_
+ * Manage _access rights_
+
 &nbsp;
 
 ## Getting started with s3cmd
@@ -54,6 +65,7 @@ Alternatively, you can create a working file by adding your Access and Secret to
 $ s3cmd --configure --access_key=YOUR_EC_ACCESS_KEY_HERE --secret_key=YOUR_EC_SECRET_KEY_HERE --host=object.pouta.csc.fi --region=US --host-bucket='%(bucket)s.object.pouta.csc.fi'
 ```
 Then you need to verify all the settings from the created file.
+
 
 &nbsp;
 
@@ -106,6 +118,27 @@ Checksums are equal between the original and the downloaded file. So good so far
 
 &nbsp;
 
+## Move objects
+
+You can copy an object to another bucket with command:
+```bash
+s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
+```
+For example,
+```bash
+s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket
+remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/bigfish'
+```
+
+In addition, you can rename the file when copying it:
+```bash
+s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/new-name
+remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
+```
+
+
+&nbsp;
+
 ## Delete objects and buckets
 
 You can delete an object with command
@@ -125,6 +158,7 @@ s3cmd rb s3://my_bucket
 
 ## s3cmd and public objects
 
+You can make a bucket public with command:
 ```bash
 $ s3cmd put fishes/salmon.jpg s3://my_fishbucket/fishes/salmon.jpg -P
 Public URL of the object is: http://object.pouta.csc.fi/my_fishbucket/fishes/salmon.jpg
