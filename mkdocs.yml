@@ -41,7 +41,7 @@ nav:
      - Pouta:
 #        - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
-        - Applying for Pouta Access: accounts/get-access-to-pouta.md
+        - Applying for Pouta Access: accounts/adding-service-access-for-project.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
