@@ -10,7 +10,7 @@ registered CSC user before we can make you the course accounts.
 * The number of accounts needed
 
 We will create the accounts for you and the account details are sent
-to you by e-mail and SMS. Our email address is servicedesk@csc.fi.
+to you by email and SMS. Our email address is servicedesk@csc.fi.
 
 !!! Note
 
