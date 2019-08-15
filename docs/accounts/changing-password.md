@@ -12,9 +12,9 @@ If you are logged in to MyCSC, do as follows.
 
 If you are not logged in, do as follows.
 
-1. Go to https://my.csc.fi
-1. Click on Get Started
-1. Click on CSC Login
+1. Go to https://my.csc.fi.
+1. Click on Get Started.
+1. Click on CSC Login.
 1. Click Forgot your password?
 1. Enter your CSC username and click Next.
 1. You will receive an email to the address associated with your CSC
