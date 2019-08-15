@@ -1,7 +1,7 @@
 # Creating new user account
 
-This document shows how you can create a user account for you, if your
-home organization is a member of Haka or Virtu federation.
+If your home organization is a member of Haka or Virtu federation, you
+can create a user account for you as self-service.
 
 1. Go to [MyCSC](http://my.csc.fi).
 1. Click on Virtu or Haka depending on which federation your home
