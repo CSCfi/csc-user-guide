@@ -23,6 +23,13 @@
 
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software.
 
+## Data Analytics and Machine Learning
+
+* [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
+* [PyTorch](pytorch.md) Machine learning framework for Python and related libraries
+* [Tensorflow](tensorflow.md) Deep learning library for Python
+* [MXNet](mxnet.md) Deep learning library for Python
+
 ## Geosciences
 
 * [rspatial-env](rspatial-env.md)

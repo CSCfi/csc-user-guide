@@ -15,9 +15,13 @@
 * [Maestro](maestro.md) Drug discovery suite (access limited for consortium)
 * [MaterialsStudio](materialsstudio.md) Computational chemistry suite with lots of functionality. GUI runs on windows only.
 * [MATLAB](matlab.md) High-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
+* [MXNet](mxnet.md) Deep learning library for Python
 * [NoMachine](nomachine.md) Remote desktop to access CSC HPC capacity
+* [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
+* [PyTorch](pytorch.md) Machine learning framework for Python and related libraries
 * [rspatial-env](rspatial-env2.md)
 * [rspatial-env](rspatial-env.md)
 * [SageMath](sagemath.md) Open-source mathematics software.
 * [Syntax Example](syntax-example.md) Not a software, but a kind of template and shortcut for markdown syntax
+* [Tensorflow](tensorflow.md) Deep learning library for Python
 * [Turbomole](turbomole.md) Fast DFT and quantum chemistry simulation package
