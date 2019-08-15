@@ -6,7 +6,7 @@ can do that, the person you are adding must have a user account.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7n5dluy7tjM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. On the left navigation menu, choose My Projects.
-1. Click on the project that you want the new person to join.
+1. Choose the project that you want the new person to join.
 1. Under Members, fill in the username of the new person.
 1. Click on the plus button.
 
