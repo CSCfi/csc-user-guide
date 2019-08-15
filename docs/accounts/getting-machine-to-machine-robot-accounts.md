@@ -7,7 +7,7 @@ details by email.
 
 * Project identifier (e.g. 2001679, uef4713) of the project that your
   service uses
-* CSC service which your service runs on (e.g. cPouta, Rahti)
-* Project manager's mobile number (where the password is sent via SMS)
+* CSC service which your service uses (e.g. cPouta, Rahti)
+* Your mobile number (where the password is sent via SMS)
 
 Our email address is servicedesk@csc.fi.
