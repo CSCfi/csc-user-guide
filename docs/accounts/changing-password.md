@@ -14,7 +14,7 @@ If you are not logged in:
 
 1. Go to [MyCSC](adding-member-to-project.md).
 1. Click on Get Started.
-1. Click on CSC Login.
+1. Choose on CSC Login.
 1. Click Forgot your password?
 1. Enter your CSC username and click Next.
 1. You will receive an email to the address associated with your CSC
