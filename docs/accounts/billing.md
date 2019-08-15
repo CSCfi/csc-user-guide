@@ -7,6 +7,7 @@ In the billing scheme the BU consumption rate of a compute job depends linearly 
 * each reserved core consumes **5** BUs per hour
 * each starting 10 GiB block of reserved memory consumes **5** BUs per hour
 * each reserved GPU consumes **30** BUs per hour
+
 and the total BU consumption per hour is the sum of the above terms:
 
 We plan to introduce similar billing for the fast local NVME disks.
