@@ -10,7 +10,7 @@ this way.
 
 The application should include the following information:
 
-* Project identifier (e.g. 2001696, uef4713)
+* Project identifier (e.g. 2001679, uef4713)
 * Collaborator's name, organization and e-mail address
 * Period of time for which the right for use is applied
 
