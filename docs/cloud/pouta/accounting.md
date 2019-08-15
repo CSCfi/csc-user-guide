@@ -98,7 +98,6 @@ visibility of what flavors are available in the future.
 We try to always have free storage and floating IP resources, if quota
 for them has been allocated.
 
-  [Accounts and Projects]: ../../accounts/index.md
   [flavors page]: vm-flavors-and-billing.md
   [virtual machine lifecycle page]: vm-lifecycle.md
   [TebiByte]: https://en.wikipedia.org/wiki/Tebibyte
