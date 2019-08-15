@@ -8,7 +8,7 @@ In the billing scheme the BU consumption rate of a compute job depends linearly 
 * each starting 10 GiB block of reserved memory consumes **5** BUs per hour
 * each reserved GPU consumes **30** BUs per hour
 
-and the total BU consumption per hour is the sum of the above terms:
+and the total BU consumption per hour is the sum of the above terms. Thus a job uses BUs as follows:
 > Total BUs = ( NCores * 5 + N10GiBMemblocks * 5 + NGPUs * 30 ) * Walltime 
 
 We plan to introduce similar billing for the fast local NVME disks.
