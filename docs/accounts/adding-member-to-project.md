@@ -15,5 +15,10 @@ remove him or her by clicking the X button next to the username.
 
 !!! Note
 
+    Project manager is the only person who can add members to the
+    project.
+
+!!! Note
+
     Project members get notifications when they are added to projects,
     but no notifications are sent when they are removed from it.
