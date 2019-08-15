@@ -1,6 +1,6 @@
 # PyTorch
 
-Machine learning framework for Python and related libraries.
+Machine learning framework for Python.
 
 ## Available
 
