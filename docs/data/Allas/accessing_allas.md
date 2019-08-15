@@ -30,7 +30,7 @@ The instructions for accessing and using Allas with Supercomputers can be found 
 With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
 
 !!! note
-    Please note that a directory uploaded with Cyberduck may not be
+    Please note that a directory uploaded with CyberDuck may not be
     downloadable with one command using some other client software
     with s3 protocol connection to Allas.
 
