@@ -2,7 +2,16 @@ site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
 nav:
   - Home: index.md
-  - Appllications:
+  - Accounts:
+     - Creating new user account: accounts/creating-new-user-account.md
+     - Changing password: accounts/changing-password.md
+     - Managing user information: accounts/managing-user-information.md
+     - Creating new project: accounts/creating-new-project.md
+     - Adding member to project: accounts/adding-member-to-project.md
+     - Adding service access for project: accounts/adding-service-access-for-project.md
+     - Applying for resources: accounts/applying-for-resources.md
+     - Switching between projects: accounts/switching-between-projects.md
+  - Applications:
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
   - Support:
