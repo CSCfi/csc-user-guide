@@ -14,4 +14,3 @@
   [conda-docs-env-0.1.yaml](docs/support/tutorials/conda/conda-docs-env-0.1.yaml)
 
 - Add a general style guide
-- Add more detailed instructions for contribution.
