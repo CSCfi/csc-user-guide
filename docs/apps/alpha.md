@@ -1,4 +1,7 @@
 <h1> Applications in alphabetic order</h1>
-<!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq > tmp;mv tmp alpha.md -->
-
+<!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [MXNet](mxnet.md) Deep learning library for Python
+* [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
+* [PyTorch](pytorch.md) Machine learning framework for Python
+* [TensorFlow](tensorflow.md) Deep learning library for Python
