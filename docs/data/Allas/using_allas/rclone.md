@@ -21,7 +21,7 @@ Creating a bucket can be done with command:
 $ rclone mkdir allas:2000620-raw-data
 ```
 
-Upload a file with command _copy_:
+Upload a file with command ```rclone copy```:
 ```
 $ rclone copy file.dat allas:2000620-raw-data/
 ```
@@ -46,7 +46,7 @@ $ rclone ls allas:2000620-raw-data
 
 ## Download objects
 
-Downloading a file is done with the same _copy_ command:
+Downloading a file is done with the same ```rclone copy``` command:
 
 ```
 $ rclone copy allas:2000620-raw-data/file.dat
