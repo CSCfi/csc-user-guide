@@ -11,8 +11,8 @@ From user perspective one of the main differences between `s3cmd` and _swift_ ba
 In Taito the `s3cmd` configuration process can be done by executing commands:
 
 ```
-module load bioconda/3
-source /appl/opt/allas_conf -mode s3cmd
+$ module load bioconda/3
+$ source /appl/opt/allas_conf -mode s3cmd
 ```
 
 The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there are two exceptions:
@@ -27,13 +27,13 @@ This configuration needs to be defined only once. In the future s3cmd will use t
 The syntax of the `s3cmd` command is:
 
 ```
-s3cmd -options command parameters
+$ s3cmd -options command parameters
 ```
 
 The table below lists the most essential s3cmd commands. For more complete list, visit the s3cmd manual page or execute command:
 
 ```
-s3cmd -h
+$ s3cmd -h
 ```
 
 
@@ -93,7 +93,7 @@ total 3.2G
 The data is collected and compressed to a single file with tar command:
 
 ```
-tar zcf zebrafish.tgz Danio_rerio*
+$ tar zcf zebrafish.tgz Danio_rerio*
 ```
 <a id="s3cmd-put"></a>
 
@@ -131,7 +131,7 @@ ls s3://fish-bucket
 Uploading 2 GB of data takes some time. The uploaded file could be retrieved with command:
 
 ```
-s3cmd get s3://fish-bucket/zebrafish.tgz
+$ s3cmd get s3://fish-bucket/zebrafish.tgz
 ```
 
 By default, this bucket can be accessed only by the project members. However, with s3cmd setacl you can make the file publicly available:
@@ -139,12 +139,12 @@ By default, this bucket can be accessed only by the project members. However, wi
 First make the fish-bucket public:
 
 ```
-s3cmd setacl --acl-public s3://fish-bucket
+$ s3cmd setacl --acl-public s3://fish-bucket
 ```
 
 And then make the zebrafish genome file public:
 ```
-s3cmd setacl --acl-public s3://fish-bucket/zebrafish.tgz
+$ s3cmd setacl --acl-public s3://fish-bucket/zebrafish.tgz
 ```
 
 The syntax of URL of the file is:

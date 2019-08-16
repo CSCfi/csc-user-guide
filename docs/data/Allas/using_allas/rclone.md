@@ -3,7 +3,7 @@
 This chapter guides to use Allas with _rclone_ when you are logged in to Puhti computing environment. The first step is to authenticate to a project in Allas.
 
 ```
-source /appl/opt/allas_conf
+$ source /appl/opt/allas_conf
 ```
 
 The command above generates and stores authentication information into shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL`. The authentication is valid for max 3 hours. **Note:** The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
