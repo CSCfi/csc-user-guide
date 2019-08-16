@@ -2,6 +2,9 @@ site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
 nav:
   - Home: index.md
+  - Appllications:
+     - By discipline: apps/index.md
+     - In alphabetic order: apps/alpha.md
   - Support:
      - Tutorials: support/tutorials.md
 theme:
