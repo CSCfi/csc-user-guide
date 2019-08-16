@@ -7,7 +7,7 @@ You need to use ec2 credentials when using S3. You can create S3 credentials by 
 Once you have the RC file, you can add the environment variables with the following command:
 
 ```bash
-source <project_name_here>-openrc.sh
+$ source <project_name_here>-openrc.sh
 ```
 
 The ec2 credentials are created from the CLI (command-line interface) with:
@@ -57,7 +57,7 @@ $ s3cmd
 
 You can find your ec2 credentials by issuing:
 ```bash
-openstack ec2 credentials list
+$ openstack ec2 credentials list
 ```
 Once you have your ec2 credentials you will need to use the _Access_ and _Secret_ in the next command. The interactive command "_s3cmd --configure_" is good for first-time use. It creates a $HOME/.s3cfg file, adds access keys and ids from above, points to pouta object store and adds an encryption key. It is probably a good idea to create a password when you get to the option. 
  
@@ -76,13 +76,13 @@ Then you need to verify all the settings from the created file.
 You can create a new bucket with command:
 
 ```bash
-s3cmd mb s3://my-bucket
+$ s3cmd mb s3://my-bucket
 ```
 
 Uploading a file into a bucket can be done with command:
 
 ```bash
-s3cmd put my_file s3://my_bucket
+$ s3cmd put my_file s3://my_bucket
 ```
 &nbsp;
 
@@ -91,13 +91,23 @@ s3cmd put my_file s3://my_bucket
 
 You can list buckets belonging to the project with command:
 ```bash
-s3cmd ls
+$ s3cmd ls
 ```
 
 And objects belonging to a bucket:
 ```bash
-s3cmd ls s3://my_bucket
+$ s3cmd ls s3://my_bucket
 ```
+
+To display information about a bucket use command:
+```bash
+$ s3cmd info s3://my_bucket
+```
+And information about an object:
+```bash
+$ s3cmd info s3://my_bucket/my_file
+```
+
 &nbsp;
 
 
@@ -105,13 +115,13 @@ s3cmd ls s3://my_bucket
 
 You can download an object with command:
 ```bash
-s3cmd get s3://my_bucket/my_file new_file_name
+$ s3cmd get s3://my_bucket/my_file new_file_name
 ```
 *new_file_name* (optional) defines a name for the downloaded file in case you want to rename it.
 
 With md5sum you can check that the file has not been changed or corrupted:
 ```bash
-md5sum my_file new_file_name
+$ md5sum my_file new_file_name
    39bcb6992e461b269b95b3bda303addf  my_file
    39bcb6992e461b269b95b3bda303addf  new_file_name
 ```
@@ -119,7 +129,7 @@ Checksums are equal between the original and the downloaded file. So good so far
 
 You can also download a whole bucket at once with command:
 ```bash
-s3cmd get s3://my_bucket/*
+$ s3cmd get s3://my_bucket/*
 ```
 
 &nbsp;
@@ -128,17 +138,17 @@ s3cmd get s3://my_bucket/*
 
 You can copy an object to another bucket with command:
 ```bash
-s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
+$ s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
 ```
 For example,
 ```bash
-s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket
+$ s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket
 remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/bigfish'
 ```
 
 In addition, you can rename the file when copying it:
 ```bash
-s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/new-name
+$ s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/new-name
 remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
 ```
 
@@ -149,12 +159,12 @@ remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
 
 You can delete an object with command
 ```bash
-s3cmd del s3://my_bucket/my_file
+$ s3cmd del s3://my_bucket/my_file
 ```
 
 Deleting a bucket can be done with command:
 ```bash
-s3cmd rb s3://my_bucket
+$ s3cmd rb s3://my_bucket
 ```
 **Note:** You can only delete empty buckets.
 
