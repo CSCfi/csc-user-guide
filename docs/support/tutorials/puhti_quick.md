@@ -184,7 +184,7 @@ scontrol show partition <queue_name>
 
 The **project based** shared storage can be found under `/scratch/project_<project_id>`.
 Note that this folder is shared by **all users** in a project. This folder is not meant for long term data storage
-and files that have not been used for 90 days will be automatically removed. There is also a persistent **project based**
+and files that have not been used for 90 days will be automatically removed. The default quota for this folder is 1 TB. There is also a persistent **project based**
 storage with a default quota of 50 GB. It is located under `/projappl/project_<project_id>`. 
 
 Each user can store up to 10 GB of data in their home directory (`$HOME`).
