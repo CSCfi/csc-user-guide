@@ -187,7 +187,7 @@ Public URL of the object is: http://object.pouta.csc.fi/my_fishbucket/fishes/sal
 
 ## s3cmd with Supercomputers
 
-Guidance for using s3cmd with the Supercomputers Taito and Puhti: [s3cmd](./s3cmd.md){:target="_blank"}
+For guidance to using s3cmd with the Supercomputers Taito and Puhti, see [s3cmd](./s3cmd.md){:target="_blank"}
 
 &nbsp;
 

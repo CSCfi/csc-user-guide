@@ -14,7 +14,7 @@ To use the computing environment, you need to use the open-source, parallel file
 
 **Please note:** As discussed in the [Protocols section](../accessing_allas.md#protocols){:target="_blank"}, we recommend to use just one protocol - do not mix Swift and S3.
 
-Please take a look also at [Using Allas in Supercomputers](#using-allas-in-supercomputers).
+Please take also a look at [Using Allas in Supercomputers](#using-allas-in-supercomputers).
 
 &nbsp;
 
