@@ -1,14 +1,14 @@
 
 # Persistent Allas connections: s3cmd
 
-This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with `s3cmd` command-line client. This client uses
-S3 protocol that differs from the _swift_ protocol that is used in the [rclone](./rclone.md){:target="_blank"} examples. Thus, data that has been uploaded to Allas with rclone should not be downloaded with s3cmd and vice versa.
+This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with **s3cmd** command-line client. This client uses
+_S3_ protocol that differs from the _Swift_ protocol that is used in the [rclone](./rclone.md){:target="_blank"} examples. Thus, data that has been uploaded to Allas with rclone should not be downloaded with s3cmd and vice versa.
 
-From user perspective one of the main differences between `s3cmd` and _swift_ based `rclone` is that rclone connection remains valid for three hours at a time but with s3cmd the connection between Puhti/Taito and Allas will be permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
+From user perspective one of the main differences between s3cmd and Swift based _rclone_ is that rclone connection remains valid for three hours at a time but with s3cmd the connection between Puhti/Taito and Allas will be permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
 
 ## Configuring s3cmd
-In Taito the `s3cmd` configuration process can be done by executing commands:
+In Taito, the `s3cmd` configuration process can be done by executing commands:
 
 ```
 $ module load bioconda/3
@@ -18,7 +18,7 @@ $ source /appl/opt/allas_conf -mode s3cmd
 The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there are two exceptions:
 
    1.  It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server. This password is not connected to any other passwords in the CSC environment so you can freely define it. **Note:** This password is however stored to the s3cmd configuration file in human readable format so you should not use this password elsewhere. 
-   2.  As the last question the configuration process asks if the configuration is saved. The default is "no" but you should answer y (yes) so that configuration information is stored to file _$HOME/.s3cfg_.
+   2.  As the last question the configuration process asks if the configuration is saved. The default is "no" but you should answer "y (yes)", so that configuration information is stored to file _$HOME/.s3cfg_.
 
 This configuration needs to be defined only once. In the future s3cmd will use this Object Storage connection described in the _.s3cfg_ file automatically. However, if you wish to change the Object Storage project that s3cmd uses, you just need to run the configuration command again.
  
@@ -134,7 +134,7 @@ Uploading 2 GB of data takes some time. The uploaded file could be retrieved wit
 $ s3cmd get s3://fish-bucket/zebrafish.tgz
 ```
 
-By default, this bucket can be accessed only by the project members. However, with s3cmd setacl you can make the file publicly available:
+By default, this bucket can be accessed only by the project members. However, with command `s3cmd setacl` you can make the file publicly available:
 
 First make the fish-bucket public:
 

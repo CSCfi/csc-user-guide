@@ -112,7 +112,7 @@ Now you are able to use the [Swift client](./using_allas/swift_client.md){:targe
 
 **About S3:**
  
-For S3 use cases, you can also store the ec2 credentials with the job. This is the recommended way of accessing objects from a compute job. When you do not need the credentials anymore you can delete them with:
+For S3 use cases, you can also store the ec2 credentials with the job, which is the recommended way of accessing objects from a compute job. When you do not need the credentials anymore you can delete them with:
 ```bash 
 $ openstack credential delete
 ```
