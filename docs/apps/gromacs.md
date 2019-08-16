@@ -10,8 +10,8 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018.6-plumed, 2018.7, 2019.3
--   Check available versions with `module avail gromacs`
--   Some versions are GPU-aware, or include also Plumed
+-   Check recommended version(s) with `module avail gromacs`
+-   Some versions include also Plumed
 
 !!! note
     Puhti has only the parallel version installed (gmx_mpi), but it can
@@ -23,19 +23,14 @@ Gromacs is free software available under LGPL, version 2.1.
 
 ## Usage
 
-Initialise Gromacs on Puhti like this:
+Initialise recommended version of Gromacs on Puhti like this:
 
 ```bash
 $ module load gromacs-env
 ```
-
-which will enable the default module.
-
-This will show recommended versions:
-```bash
-$ module avail gromacs-env
-```
-Use `module spider` to locate other versions.
+Use `module spider` to locate other versions. To load these modules, you
+need to first load its dependencies, which are shown with
+`module spider gromacs/version`.
 
 **Notes about performance**
 
@@ -46,6 +41,7 @@ The most important are:
     Scaling depends on many aspects of your system and used algorithms, not just size.
 -   Use a recent version - there has been significant speedup over the years
 -   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag) for mdrun
+-   For large jobs, use full nodes (multiples of 40 cores) see example below.
 
 For a more complete description, consult the 
 [Gromacs performance checklist] on the Gromacs page.
@@ -54,9 +50,9 @@ We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
 results are comparable.
 
-Note, a scaling test with a very large system (1M particles) may take a while to load balance optimally. It's better to increase the number of nodes, in your production simulation, if you see better performance than in the scaling test, than run very long scaling tests in advance.
+Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, IF you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
 
-**Example batch script for Puhti**
+**Example parallel batch script for Puhti**
 
 ```
 #!/bin/bash -l
@@ -64,7 +60,7 @@ Note, a scaling test with a very large system (1M particles) may take a while to
 #SBATCH --partition=parallel
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
-#SBATCH --project=project_20XXXXX
+#SBATCH --account=project_20XXXXX
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
@@ -76,7 +72,30 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
 
 !!! note
-    Note, you *must* fill in the computing project code in your script.
+    To avoid multi node parallel jobs to spread over more nodes
+    than necessary, don't use the --ntasks flag, but specify --nodes and
+    --ntasks-per-node=40 to get full nodes. This minimizes connection
+    overhead and fragmentation of node reservations.
+
+**Example serial batch script for Puhti**
+```
+#!/bin/bash -l
+#SBATCH --time=00:30:00
+#SBATCH --partition=serial
+#SBATCH --ntasks=1
+#SBATCH --account=project_20XXXXX
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+# this script runs a 1 core gromacs job, requesting 30 minutes time
+
+module load gromacs-env
+
+srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
+```
+
+!!! note
+    You *must* fill in the computing project code in your script.
     Otherwise, your job will not run. This project will be used for
     billing the cpu usage.
 
@@ -102,18 +121,7 @@ visualized with the following programs:
     Remote graphics are not yet available in Puhti. Copy the files
     to Taito or to a local machine for visual analysis.
 
-Gromacs tools produce output files made for the Grace program. These
-data can be visualized with program Grace. To start working with Grace,
-issue the command:
-
-`module load grace`
-
-To plot all energy components in the energy.xvg file give:
-
-`xmgrace -nxy energy.xvg`
-
-Alternatively, you can use the general plotting tool [gnuplot](http://www.gnuplot.info/).
-
+Gromacs tools produce output files made for the Grace program.
 
 ## References
 
@@ -145,11 +153,10 @@ for methods applied in your setup.
 
 -   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
 -   [Tutorials on the Gromacs website]  
--   [More tutorials] on the Bevanlab pages
+-   [More tutorials] by Justin A. Lemkul
 -   [Lots of material at BioExcel EU project]
 -   [HOW-TO] section on the Gromacs pages
 -   Gromacs [documentation]
--   A very useful Gromacs Users [Mailing list]
 -   [The PRODRG Server] for online creation of small molecule topology
 
   [documentation]: http://manual.gromacs.org/documentation
@@ -161,5 +168,4 @@ for methods applied in your setup.
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
   [HOW-TO]: http://www.gromacs.org/Documentation/How-tos
   [Lots of material at BioExcel EU project]: http://bioexcel.eu/software/gromacs/
-  [More tutorials]: http://www.bevanlab.biochem.vt.edu/Pages/Personal/justin/gmx-tutorials/
-  [Mailing list]: http://www.gromacs.org/Support/Mailing_Lists/Search
+  [More tutorials]: http://www.mdtutorials.com/gmx/
