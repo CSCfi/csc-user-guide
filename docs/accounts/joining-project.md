@@ -1,1 +1,0 @@
-# Joining project

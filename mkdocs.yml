@@ -11,7 +11,6 @@ nav:
      - Getting account without Haka or Virtu: accounts/getting-account-without-haka-or-virtu.md
      - Changing password: accounts/changing-password.md
      - Managing user information: accounts/managing-user-information.md
-     - Joining project: accounts/joining-project.md
      - Creating new project: accounts/creating-new-project.md
      - Adding member to project: accounts/adding-member-to-project.md
      - Adding service access for project: accounts/adding-service-access-for-project.md
