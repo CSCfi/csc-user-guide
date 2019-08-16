@@ -1,7 +1,7 @@
 # Changing password
 
-If you want to change the password of your CSC user account, you can
-do it in [MyCSC](https://my.csc.fi).
+There are two ways to change the password of your CSC user account,
+depending on whether you are logged in to MyCSC or not.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dsZpJ88mep8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
