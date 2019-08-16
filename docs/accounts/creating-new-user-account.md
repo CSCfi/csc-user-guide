@@ -3,7 +3,8 @@
 There are three different types of user account that you can get for
 CSC: ordinary accounts for general use (which you can get with or
 without Haka or Virtu), student accounts for cources and robot
-accounts for managing own services.
+accounts for managing own services. Below are instructions on how you
+can get them.
 
 ## Getting account with Haka or Virtu
 
