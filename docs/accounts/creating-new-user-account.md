@@ -73,7 +73,7 @@ to you by email and SMS. Our email address is servicedesk@csc.fi.
 ## Getting machine-to-machine robot account
 
 If you are a registered CSC user and need another account to manage
-services that you run on CSC services, we can create a
+services that you run in CSC services, we can create a
 machine-to-machine robot account for you. Please send us the following
 details by email.
 
