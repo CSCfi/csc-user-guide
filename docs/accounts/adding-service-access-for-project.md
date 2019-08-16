@@ -10,7 +10,7 @@ the service for the project and (2) members approve it for themselves.
 
 ## Project manager
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GMo20kLi9Bs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1cMkuo0mV5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Go to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
@@ -29,6 +29,8 @@ approval.
 
 When you get an email telling that some service access is pending your
 approval, you know that you need to approve the service for you.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w9bPMQCoHVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Go to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.

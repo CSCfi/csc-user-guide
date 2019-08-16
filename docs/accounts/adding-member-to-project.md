@@ -3,7 +3,7 @@
 This document shows how you can add a member to a project. Before you
 can do that, the person you are adding must have a user account.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7n5dluy7tjM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QM-MlRs_pCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Go to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.

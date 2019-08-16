@@ -3,7 +3,7 @@
 This document shows how you can create a new project. Before you can
 do that, you need to have a user account.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Kz4G_ZSeN7Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r9fVWveBQy0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Go to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
