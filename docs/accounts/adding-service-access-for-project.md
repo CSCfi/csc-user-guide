@@ -7,6 +7,7 @@ and IDA; and database service Kaivos.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GMo20kLi9Bs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+1. Go to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
 1. Click on the project that you want to use with the service.
 1. Under Services, choose the service.
