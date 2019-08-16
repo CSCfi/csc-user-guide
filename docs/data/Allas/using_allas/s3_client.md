@@ -59,7 +59,7 @@ You can find your ec2 credentials by issuing:
 ```bash
 $ openstack ec2 credentials list
 ```
-Once you have your ec2 credentials you will need to use the _Access_ and _Secret_ in the next command. The interactive command "_s3cmd --configure_" is good for first-time use. It creates a $HOME/.s3cfg file, adds access keys and ids from above, points to pouta object store and adds an encryption key. It is probably a good idea to create a password when you get to the option. 
+Once you have your ec2 credentials you will need to use the _Access_ and _Secret_ in the next command. The interactive command ```s3cmd --configure ``` is good for first-time use. It creates a _$HOME/.s3cfg_ file, adds access keys and ids from above, points to pouta object store and adds an encryption key. It is probably a good idea to create a password when you get to the option. 
  
 Alternatively, you can create a working file by adding your Access and Secret to the following oneliner:
 ```bash
@@ -117,7 +117,7 @@ You can download an object with command:
 ```bash
 $ s3cmd get s3://my_bucket/my_file new_file_name
 ```
-*new_file_name* (optional) defines a name for the downloaded file in case you want to rename it.
+The parameter *new_file_name* (optional) defines a name for the downloaded file in case you want to rename it.
 
 With md5sum you can check that the file has not been changed or corrupted:
 ```bash
@@ -194,8 +194,10 @@ Guidance for using s3cmd with the Supercomputers Taito and Puhti: [s3cmd](./s3cm
 
 ## Giving another project read access to a bucket
 
-"_s3cmd setacl_" command needs to use the UUID (_universally unique identifier_) of the project you want to grant access to.
-The ID can be found at <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or with "_openstack project show $project_name_". You need access (membership) to the project to find out the UUID.
+You can control the access rights with command ```s3cmd setacl ```.
+This command needs to use the UUID (_universally unique identifier_) of the project you want to grant access to.
+The ID can be found at <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or with command
+```openstack project show $project_name ```. You need access (membership) to the project to find out the UUID.
  
 In the Pouta Web UI you only see buckets that members of your project have created. If your project has been granted project read access to a bucket with the s3cmd client, the following applies to other members of your project:
  

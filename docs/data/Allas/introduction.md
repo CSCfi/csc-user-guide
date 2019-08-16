@@ -66,7 +66,7 @@ The stored objects can be any data type, such as images or compressed data files
  * Unsuitable for files that change during their lifetime (e.g. most databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing and then you can replace the previous version with the new one.
 
-More about the functionalities of Allas can be found from chapter [Using Allas](./using_allas/common_use_cases.md){:target="_blank"}.
+More about the functionalities of Allas can be found from chapter [Common Use Cases](./using_allas/common_use_cases.md){:target="_blank"}.
 
 The objects are stored in buckets. A bucket is simply a container for objects. These buckets should not be confused with _dockers_, or other containers used for computing. A bucket basically acts like a filesystem directory, but you can have only one level of them, so you cannot have buckets within buckets.
 

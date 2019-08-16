@@ -92,7 +92,7 @@ $ swift download <bucket_name>
 
 ## Move objects
 
-You can copy data from one bucket to another with command _copy_. The command below copies <i>file.txt</i> from _bucket1_ to _bucket2_.
+You can copy data from one bucket to another with command ```swift copy```. The command below copies <i>file.txt</i> from _bucket1_ to _bucket2_.
 ```bash
 $ swift copy --destination /bucket2 bucket1 file.txt
 ```
@@ -112,15 +112,14 @@ $ swift copy --destination /new_bucket/newname.jpg my_fishbucket my_fish.jpg
 created container new_bucket
 my_fishbucket/my_fish.jpg copied to /new_bucket/newname.jpg
 ```
-For further information about the command <i>copy</i>, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
+For further information about the command <i>swift copy</i>, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
 
 
 &nbsp;
 
 ## Remove objects and buckets
 
-Removing buckets and objects can be done with _delete_ command:
-Deleting an object:
+Removing buckets and objects can be done with command ```swift delete```. Deleting an object:
 ```bash
 $ swift delete <bucket_name> <object_name>
 ```
@@ -143,7 +142,7 @@ too_tiny_bass.jpg
 $ swift list old_fishbucket
 Container u'old_fishbucket' not found
 ```
-**Please note:** This deletes the bucket permanently and the data is lost if there is no backup of it, so before using this command be sure you do not need the data anymore or that you have a copy of the data somewhere else.
+**Please note:** This deletes the bucket permanently and the data is lost if there is no backup of it, so before using this command make sure you do not need the data anymore or that you have a copy of the data in somewhere else.
 
 &nbsp;
 
@@ -159,14 +158,14 @@ Deleting whole project is done with:
 ```bash
 $ swift delete --all
 ```
-**Please note:** Be careful with this command since it deletes all the content of the project and there might not be any backup of the data. Before using this command, be sure you do not need the data anymore or that you have a copy of the data somewhere else.
+**Please note:** Be careful with this command since it deletes all the content of the project and there might not be any backup of the data. Before using this command, make sure you do not need the data anymore or that you have a copy of the data in somewhere else.
 
 &nbsp;
 
 
 ## Pseudofolders and checksum
 
-In case you want to observe whether the object has changed, you can use [checksum](../introduction.md#checksum){:target="_blank"} with command <i>md5sum</i>.
+In case you want to observe whether the object has changed, you can use [checksum](../terms_and_concepts.md#checksum){:target="_blank"} with command ```md5sum```.
 
 Pseudofolders can be handled by adding the name of the pseudofolder in front of the file name: <i>my_pseudofolder_name/my_file</i>
 
