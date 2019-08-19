@@ -24,6 +24,8 @@ In addition to the above command, there is separate tool to create incremental b
 
 - *a_backup* : create a backup copy of a local dataset into a backup repository in Allas
 
+!!! note
+	If you use a_commands outside of supercomputers, we recommend to use rclone version 1.48 or newer, since a_commands might not work with older versions.
 
 ## a_put uploads data to Allas
 

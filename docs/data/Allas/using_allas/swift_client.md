@@ -26,6 +26,10 @@ This chapter includes instructions for the following operations:
  * Manage _access rights_
  * Upload _large files_ (over 5 GB)
 
+
+!!! note
+	If you use Swift outside of supercomputers, make sure your Swift version is not too old, since the older Swift versions might not work with Allas.
+
 &nbsp;
 
 
