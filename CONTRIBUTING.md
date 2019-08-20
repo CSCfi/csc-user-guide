@@ -64,17 +64,44 @@ else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
 
 
-
 ## Making changes directly to 'master'
 
 This is not recommended.
 
 
+## Making changes using GitHub Pull Requests(PR) and branches
 
-## Copying changes from 'develop' to 'master'
+Overview:
+
+ - Update local repository
+ - Make a new branch from the master branch
+ - Work and commit in your new branch (e.g. checkout from develop as below)
+ - Push changes to github
+ - Make a pull request to merge changes from your new branch into the master branch
+ - Ask a person to review and merge the changes
+
+Method:
+
+```bash
+git pull
+git checkout master
+git checkout -b your_branch_name
+# create some nice content, add files
+git commit -v
+git push origin your_branch_name
+```
+
+Now you can ask a person to review and merge the changes. One can request
+reviewers in the Github web interface.
+
+After the PR has been merged, the branch on github can be deleted. This is the
+preferred way to make larger changes in the develop branch as well, just replace master
+above with develop.
+
+## Copying a single file from 'develop' to 'master'
 
 When you have made changes to 'develop', you can copy them to
-'master'. This is best done file by file. First change to the master
+'master'. This can be done file by file. First change to the master
 branch.
 
 ```bash
@@ -95,34 +122,10 @@ git commit -v
 git push
 ```
 
-You can return to the develoment branch with `git checkout develop`.
+You can return to the develoment branch with `git checkout develop`, but to
+get the changes into master, you need to make a Pull Request at the web GUI,
+see above.
 
-## Making changes using GitHub Pull Requests(PR) and branches
-
-Overview:
-
- - Update local repository
- - Make a new branch from the develop branch
- - Work and commit in your new branch
- - Push changes to github
- - Make a pull request to merge changes from your new branch into the develop branch
- - Ask a person to review and merge the changes
-
-Method:
-
-```bash
-git pull
-git checkout develop
-git checkout -b your_branch_name
-# create some nice content, add files
-git commit -v
-git push origin your_branch_name
-```
-
-Now you can ask a person to review and merge the changes. One can request
-reviewers in the Github web interface.
-
-After the PR has been merged, the branch on github can be deleted.
 
 ## Previewing the website using MkDocs
 
