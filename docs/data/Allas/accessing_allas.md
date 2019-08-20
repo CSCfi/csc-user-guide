@@ -9,11 +9,11 @@
 Usage of **Allas** is based on CSC customer projects. To be able to use Allas you need to be a member in 
 a CSC project that has permission to use Allas. If you do not have a CSC account, you must first register as a CSC user
 and join or start a computing project for which Allas has been enabled. All these steps can be done in the
-MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi){:target="_blank"}
+MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi){:target="_blank"}.
 
 The easiest way to use Allas is through the [web client](./using_allas/web_client.md){:target="_blank"} which offers basic tools for managing your data.
 
-The following guidelines describe step by step how to establish Allas with different operating systems.
+Below is given guidelines describing step by step how to establish Allas with different operating systems.
 
 &nbsp;
 
@@ -32,7 +32,7 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 !!! note
     Please note that a directory uploaded with CyberDuck may not be
     downloadable with one command using some other client software
-    with s3 protocol connection to Allas.
+    with S3 protocol connection to Allas.
 
 1\. Install **CyberDuck**.
 
@@ -41,11 +41,11 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 !["New bookmark"](/img/cyberduck_create_bookmark.PNG)
 **Figure** Creating a new bookmark
 
-3\. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_
+3\. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_.
 
-4\. As **Server** write _pouta.csc.fi_ and choose **Port** _5001_.
+4\. As **Server**, write _pouta.csc.fi_ and choose **Port** _5001_.
 
-5\. In the section **Tenant ID:Access Key** type (without spaces) first the desired _project's name_, then add "**:**" and after that your _Pouta username_ (the one you use in pouta.csc.fi). Thus, it should be in form of *projectname:username*. For example, *project_123456:john*.
+5\. In the section **Tenant ID:Access Key**, type (without spaces) first the desired _project's name_, then add "**:**" and after that your _Pouta username_ (the one you use in *pouta.csc.fi*). Thus, it should be in form of *projectname:username*. For example, *project_123456:john*.
 
 6\. Type your Pouta password in the **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window.
 
@@ -90,11 +90,11 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 
 **Getting openrc file:**
 
-1. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and **Login**
+1. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and **Login**.
 
-2. Navigate to **Compute | Access & Security | API Access**
+2. Navigate to **Compute | Access & Security | API Access**.
 
-3. Download the **Openstack RC File v3** from the upper right corner
+3. Download the **Openstack RC File v3** from the upper right corner.
 
 !["Getting openrc file"](/img/rc-file-example20190121-b.png)
 **Figure** Getting openrc file
@@ -135,7 +135,7 @@ OpenStack Horizon web interface provides easy-to-use basic functions for data ma
 ## Protocols
 
 
-The object storage service is provided over two different protocols, _Swift_ and _S3_. From user perspective one of the main differences between S3 and Swift is in the authentication. Token based Swift authentication, used in Allas, remains valid for three hours at a time but in the key based S3 the connection can be permanently open. The permanent connection of S3 is handy in many ways, but it includes a security aspect too: if your server where you use Allas is compromised, the object storage space will be compromised too.
+The object storage service is provided over two different protocols, _Swift_ and _S3_. From user perspective one of the main differences between S3 and Swift is in the authentication. The token based Swift authentication, used in Allas, remains valid for three hours at a time but in the key based S3 the connection can be permanently open. The permanent connection of S3 is handy in many ways, but it includes a security aspect too: if your server where you use Allas is compromised, the object storage space will be compromised too.
 
 Because of this security concern, Swift is the recommended protocol to be used in many-user servers like Mahti and Puhti. Thus, for example, the CSC specific <i>a_ commands</i> (e.g. _a_put_ and _a_get_) as well as the standard _rclone_ configuration in Puhti are based on Swift. However, in some cases the permanent connections provided by S3 protocol may be the most reasonable option, for example, in users own virtual machine running in cPouta.
 

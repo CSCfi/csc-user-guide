@@ -103,7 +103,7 @@ An example of this is several data collectors pushing data to be processed. Thes
 
 Object storage is also often used as a location where you store backups. It is a convenient place to push copies of such as database dumps.
 
-[a_backup](./a_backup.md){:target="_blank"} is a tool for creating backup copies of files to Allas. **Please note:** <i>a_backup</i> is not a real backup service. It only copies the data to one bucket in Allas which can be removed by any authenticated user.
+[a_backup](./a_backup.md){:target="_blank"} is a tool for creating backup copies of files to Allas. **Please note:** <i>a_backup</i> is not a real backup service. It only copies the data in to another bucket in Allas which can be removed by any authenticated user.
 
 &nbsp;
 
@@ -115,7 +115,7 @@ If you are using _s3cmd client_, you can check your project's Object Storage usa
 $ s3cmd du -H
 ```
 
-In the case you use _Swift client_, you can check it with command:
+In the case you use _Swift client_, you can check the usage with command:
 ```bash 
 $ swift stat
 ```
