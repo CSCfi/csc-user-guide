@@ -107,7 +107,7 @@ The command above would upload file *test_1.txt* to Allas into bucket _newbucket
 As option _-n_ is used, the data is stored in an uncompressed format. 
 
 
-##a_list
+## a_list
 
 You can list all the buckets belonging to the project with command:
 ```
