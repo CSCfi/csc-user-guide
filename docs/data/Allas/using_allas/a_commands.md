@@ -12,8 +12,8 @@ The Allas object storage system can be used in multiple ways and for many purpos
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for moving data between CSC computing environment and Allas. The available Allas tools are:
   
-- *a_list* : list buckets and objects in Allas
 - *a_put* : upload a file or directory to Allas as one object
+- *a_list* : list buckets and objects in Allas
 - *a_publish* : upload a file to Allas into a bucket that allows public access over the internet
 - *a_get* : download a stored dataset (object) from Allas
 - *a_find* : search and locate data that has been uploaded with a_put
@@ -105,6 +105,18 @@ a_put project2/sample3/test_1.txt -b newbuket1 - o case1.txt -n
 ```
 The command above would upload file *test_1.txt* to Allas into bucket _newbucket1_ as object _case1.txt_.
 As option _-n_ is used, the data is stored in an uncompressed format. 
+
+
+##a_list
+
+You can list all the buckets belonging to the project with command:
+```
+a_list
+```
+Displaying the objects including to a bucket can be done with command:
+```
+a_list bucket_name
+```
 
 
 ## a_publish 
@@ -203,7 +215,7 @@ Options:
 Command `a_info` allows you to get information about a dataset that has been uploaded to Allas using `a_put`.    
 
 ```
-a_info _object_name_
+a_info object_name
 ```                          
                              
 ## a_get retrieves the stored data
@@ -211,7 +223,7 @@ a_info _object_name_
 This tool is used to download data that has been uploaded to Allas service using the `a_put` command.
 The basic syntax of the command is:
 ```
-a_get _object_name_
+a_get object_name
 ```
 
 By default, the object is retrieved and uncompressed. By default, the data is extracted to a file or directory that was used in uploading. If a directory or file with the same name already exists, you must either remove the existing file/directory or guide the downloaded data to new directory defined by *-target* option.
