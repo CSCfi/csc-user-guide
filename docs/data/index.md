@@ -35,4 +35,14 @@
 * [cPouta object storage and Allas](./Allas/allas_cpouta_change.md){:target="_blank"}
 
 
-<!--- <h2>Data analysis guide (A. Kallio)</h2> -->
+## Data analysis guide
+
+*    [Getting started](datanalytics/getting-started.md)
+
+*    [Data Wrangling](datanalytics/data-wrangling.md)
+
+*    [Big data processing](datanalytics/big-data-processing.md)
+
+*    [Data engineering](datanalytics/data-engineering.md)
+
+*    [Machine learning](datanalytics/machine-learning.md)
