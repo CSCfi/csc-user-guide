@@ -7,8 +7,7 @@ particular for AIMD.
 
 ## Available
 
-* Taito: 4.1, 5.1
-* Sisu: 4.1, 5.1, 6.1 (with Plumed)
+* Puhti: 6.1
 
 ## License
 
@@ -18,36 +17,34 @@ CP2k is freely available under the GPL license.
 
 Check which versions are available:
 
-    module avail cp2k
+    module spider cp2k
 
-In your batch script, give:
+In your batch script load all required modules shown with spider:
 
-    module load cp2k
+    module load intel/19.0.4 hpcx-mpi/2.4.0 cp2k/6.1
 
 Loading the module points you to the installation directory, which has
 example submit commands for different parallelization schemes. Before
 each project make sure that your job can utilize all the cores you
 request in the batch script!
 
-**Example batch script for Sisu using MPI-only parallelization**
+**Example batch script for Puhti using MPI-only parallelization**
 
 ```
-#!/bin/bash -l
-#SBATCH --time=00:05:00
-#SBATCH -J CP2K
-#SBATCH --partition=test
-#SBATCH --nodes=8
+#!/bin/bash
+#SBATCH -J cp2k-test
+#SBATCH -t 00:10:00
+#SBATCH --ntasks-per-node=40
+#SBATCH --nodes=2
+#SBATCH --mem-per-cpu=2000
+#SBATCH --partition=parallel
+#SBATCH --account=project_200XXX
 
-(( ncores = SLURM_NNODES * 24 ))
-# this calculates the number of cores based on reserved nodes above (-N flag for Slurm)
-export CP2K_DATA_DIR=/appl/chem/cp2k/data
+module load intel/19.0.4  hpcx-mpi/2.4.0 cp2k/6.1
+export CP2K_DATA_DIR=$CP2K_INSTALL_ROOT/share/data
 
-module load cp2k
+srun cp2k.popt H2O-32.inp > H2O-32.out
 
-# 8 nodes, 24 cores per node = 192 processes
-# choose parameters carefully
-
-aprun -n $ncores cp2k.popt H2O-32.inp > H2O-32_n${ncores}.out
 ```
 
 **Example batch script for Sisu using mixed MPI/OpenMP parallelization**
@@ -55,17 +52,24 @@ aprun -n $ncores cp2k.popt H2O-32.inp > H2O-32_n${ncores}.out
 !!! note
     Mixed parallelization speeds up simulations only in few cases. Always
     perform a scaling test for each new system and simulation type.
-
+    Preinstalled version not yet available on Puhti.
 ```
+
+TO BE FIXED...
+
 #!/bin/bash -l
 #SBATCH --time=00:15:00
-#SBATCH -J CP2K
 #SBATCH --partition=test
-#SBATCH --nodes=8
+#SBATCH --nodes=2
 #SBATCH --no-requeue
+#SBATCH --ncpus-per-task=2
+#SBATCH --tasks-per-node=20
 
 module load cp2k
 export CP2K_DATA_DIR=/appl/chem/cp2k/data
+
+# check if all resources would be used
+echo $SLURM_NNODES
 
 input=input_bulk_HFX_3
 ht=1                   # no hyperthreading
@@ -77,8 +81,8 @@ exec="cp2k.psmp"
 #---------------------DO NOT TOUCH-----------------------------------
 #Compute and set  stuff, do not change
 nodes=$SLURM_NNODES
-#sisu has 2 x 12 cores
-cores_per_node=24
+#puhti has 2 x 20 cores
+cores_per_node=40
 total_units=$(echo $nodes $cores_per_node $ht | gawk '{print $1*$2*$3}')
 units_per_node=$(echo $cores_per_node $ht | gawk '{print $1*$2}')
 tasks=$(echo $total_units $t  | gawk '{print $1/$2}')
@@ -90,7 +94,7 @@ export OMP_NUM_THREADS=$t
 # Launch the OpenMP job to the allocated compute node
 echo "Running $exec on $tasks mpi tasks, with $t threads per task on $nodes nodes ($ht threads per physical core)"
 
-aprun -n $tasks -N $tasks_per_node -d $OMP_NUM_THREADS -j $ht $alps_param $exec ${input}.inp > ${input}.out
+srun -n $tasks -N $tasks_per_node -d $OMP_NUM_THREADS -j $ht $alps_param $exec ${input}.inp > ${input}.out
 ```
 
 **Example batch script for Taito**
