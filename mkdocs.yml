@@ -16,6 +16,7 @@ nav:
      - In alphabetic order: apps/alpha.md
   - Support:
      - Tutorials: support/tutorials.md
+     - Contact: support/contact.md
 theme:
   name: windmill
   custom_dir: mkdocs_csc
