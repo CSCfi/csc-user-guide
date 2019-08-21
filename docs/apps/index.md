@@ -14,6 +14,7 @@
 * [Desmond](desmond.md) Classical molecular dynamics for biosystems. Uses free for academics Maestro as GUI.
 * [DMol3](dmol3.md) DFT for molecules. Part of Materials Studio suite.
 * [Gaussian](gaussian.md) Versatile quantum chemistry simulation package
+* [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Maestro](maestro.md) Drug discovery suite (access limited for consortium)
 * [MaterialsStudio](materialsstudio.md) Computational chemistry suite with lots of functionality. GUI runs on windows only.
