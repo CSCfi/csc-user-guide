@@ -27,7 +27,7 @@ The instructions for accessing and using Allas with Supercomputers can be found 
 
 ## Accessing Allas with Windows and Mac
 
-With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
+With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}. See the [list of functions](#cyberfunctions) CyberDuck offers for data management.
 
 !!! note
     Please note that a directory uploaded with CyberDuck may not be
@@ -62,12 +62,17 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 Now you should be able to see the content of your project (which might be empty).
 
 CyberDuck offers some basic functionalities for managing data in object storage:
+<a name=cyberfunctions></a>
 
- * Upload objects
- * Edit objects
- * Edit metadata
- * Share buckets
- * Remove objects
+
+ * _Create_ buckets
+ * _Upload_ objects
+ * _List_ objects and buckets
+ * _Download_ object and buckets
+ * _Edit_ objects
+ * _Edit_ metadata
+ * _Share_ objects
+ * _Remove_ objects and buckets
 
 &nbsp;
 
