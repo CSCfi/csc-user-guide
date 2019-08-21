@@ -20,8 +20,11 @@ Some features of the software:
 ## Available 
 
 -   Puhti: 1.4.0, 1.5.2
--   Taito: 
 -   Check all available versions (and default version) with `module avail gpaw`
+
+### PAW Setups
+
+All installations use version **0.9.20000** of GPAW's PAW Setups. 
 
 ## License
 GPAW is free software available under GPL, version 3+
@@ -31,7 +34,7 @@ GPAW is free software available under GPL, version 3+
 Initialize default version:
 
 ```bash
-$ module load gromacs
+$ module load gpaw
 ```
 
 A specific version can be initialized with `module load gpaw/version`, e.g.
@@ -57,7 +60,6 @@ module load gpaw
 
 srun gpaw-python input.py
 ```
-
 
 
 ## More information
