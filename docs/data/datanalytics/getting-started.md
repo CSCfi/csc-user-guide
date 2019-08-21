@@ -10,6 +10,12 @@ After that you can [login](/connecting/) to Puhti environment.
 
 The Puhti environment supports a [wide list of applications](/apps/alpha/) for you to choose by default. Just [load](/computing/module-system/) the ones you need for your work or [build your own](/computing/module-system/#using-your-own-module-files).
 
+How data flows through different services during data analysis phases?
+
+[R for Data Science](https://r4ds.had.co.nz/introduction.html) by H. Wickham and G Grolemund describes the overall process of data analytics quite well. Below is an adaptation of that process picture adapted with different CSC services and how they are positioned in different phases.
+
+![Typical data science project with CSC environment](/img/datanalytics-data-in-process.png)
+
 <!-- @tolonenj: Describing how preprocessing data is often a lot of work (“data wrangling”)-->
 
 Let's get started!
