@@ -26,7 +26,7 @@ With object storage you can easily share data, e.g. datasets or research results
 The data can be accessed and shared in several different ways:
  
 * **Private - default:** By default, if you do not specify anything else, contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
-	* [Web client](./web_client.md#web_public){:target="_blank"}
+	* [Web client](./web_client.md#view-objects-via-internet){:target="_blank"}
 	* [Swift client](./swift_client.md#temp_urls){:target="_blank"}
 	* [S3 client](./s3_client.md#s3cmd_public_objects){:target="_blank"}
  
@@ -70,7 +70,7 @@ You can find some guidance for using Allas from Puhti and Taito below:
 
 A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add links to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish){:target="_blank"}
 
-Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#adding-an-object-to-a-bucket){:target="_blank"}, [Swift client](./swift_client.md#create-buckets-and-upload-objects){:target="_blank"} or [S3 client](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}.
+Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#upload-an-object){:target="_blank"}, [Swift client](./swift_client.md#create-buckets-and-upload-objects){:target="_blank"} or [S3 client](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}.
  
 &nbsp;
 

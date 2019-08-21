@@ -77,7 +77,7 @@ Then you need to verify all the settings from the created file.
 You can create a new bucket with command:
 
 ```bash
-$ s3cmd mb s3://my-bucket
+$ s3cmd mb s3://my_bucket
 ```
 
 Uploading a file into a bucket can be done with command:
@@ -118,7 +118,7 @@ You can download an object with command:
 ```bash
 $ s3cmd get s3://my_bucket/my_file new_file_name
 ```
-The parameter *new_file_name* (optional) defines a name for the downloaded file in case you want to rename it.
+The parameter *new_file_name* is optional - it defines a new name for the downloaded file in case you want to rename it.
 
 With md5sum you can check that the file has not been changed or corrupted:
 ```bash
@@ -137,7 +137,7 @@ $ s3cmd get s3://my_bucket/*
 
 ## Move objects
 
-You can copy an object to another bucket with command:
+You can copy an object in to another bucket with command:
 ```bash
 $ s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
 ```
@@ -149,7 +149,7 @@ remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/bigfish'
 
 In addition, you can rename the file when copying it:
 ```bash
-$ s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/new-name
+$ s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/newname
 remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
 ```
 
@@ -200,7 +200,7 @@ This command needs to use the UUID (_universally unique identifier_) of the proj
 The ID can be found at <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or with command
 ```openstack project show $project_name ```. You need access (membership) to the project to find out the UUID.
  
-In the Pouta Web UI you only see buckets that members of your project have created. If your project has been granted project read access to a bucket with the s3cmd client, the following applies to other members of your project:
+In the Pouta Web UI you only see buckets that the members of your project have created. If your project has been granted project read access to a bucket with the s3cmd client, the following applies to other members of your project:
  
  * Can list and fetch files with the python-swiftclient 
  * "_swift list_" does <u>not</u> display the bucket

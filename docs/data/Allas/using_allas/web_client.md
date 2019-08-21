@@ -6,7 +6,7 @@ This chapter includes instructions for using Allas with the user-friendly _OpenS
 The OpenStack dashboard has a small subset of the Object Storage functionalities. The available operations are:
 
 * _Create_ a new bucket
-* _Upload_ an object to a bucket
+* _Upload_ an object
 * _View_ objects and buckets
 * _Download_ an object
 * _Remove_ objects and buckets
@@ -15,7 +15,7 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 &nbsp;
 
 
-## Creating a bucket
+## Create a bucket
 
 1\. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and login
 
@@ -25,12 +25,12 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
 !["Creating a container"](/img/allas_screenshot_create_container.png)  
 **Figure** Creating a container
 
-3\. Press the **+Container** button and name the bucket ([Checklist for naming a bucket](../introduction.md#naming_bucket){:target="_blank"}). If you choose to make the bucket *Public*, the content of the bucket can be [viewed via Internet](#viewing-objects-via-internet).
+3\. Press the **+Container** button and name the bucket ([Checklist for naming a bucket](../introduction.md#naming_bucket){:target="_blank"}). If you choose to make the bucket *Public*, the content of the bucket can be [viewed via Internet](#view-objects-via-internet).
  
 &nbsp;
 
 
-## Adding an object to a bucket
+## Upload an object
 
 1\. Choose the desired bucket and press the **upload symbol** on the right
 
@@ -43,9 +43,8 @@ The OpenStack dashboard has a small subset of the Object Storage functionalities
  
 &nbsp;
 
-<a name="web_public"></a>
 
-## Viewing objects via Internet
+## View objects via Internet
 
 If the bucket including the objects is set to be _public_, the objects can be viewed via Internet by anyone who knows the URL. This setting can be changed from [pouta.csc.fi/dashboard/project/containers](https://pouta.csc.fi/dashboard/project/containers/){:target="_blank"} by choosing the container and selecting the **Public Access** setting:
 
@@ -58,14 +57,14 @@ A public object called _my_fish_ belonging to a container called _my_fishbucket_
 &nbsp;
 
 
-## Downloading an object
+## Download an object
 
 Downloading an object can be done from the **Download** button on the right side of the object's name.
 
 &nbsp;
 
 
-## Removing objects and buckets
+## Remove objects and buckets
 
 Objects can be removed by expanding the drop-down menu on the right next to the _Download_ button. There will be an option **Delete**.
 

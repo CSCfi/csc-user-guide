@@ -123,8 +123,8 @@ For further information about the command <i>swift copy</i>, see [OpenStack Docs
 
 ## Remove objects and buckets
 
-Removing buckets and objects can be done with command ```swift delete```. Deleting an object:
-```bash
+Removing objects and buckets can be done with command ```swift delete```. Deleting an object:
+```bash 
 $ swift delete <bucket_name> <object_name>
 ```
 For example:
@@ -133,7 +133,7 @@ $ swift delete my_fishbucket useless_fish.jpg
 useless_fish.jpg
 ```
 
-Unlike with Web client and s3cmd, with Swift you can **delete the whole bucket at once**:
+Unlike with web client and s3cmd, with Swift you can **delete a whole bucket at once**:
 ```bash
 $ swift delete <my_old_bucket>
 ```
