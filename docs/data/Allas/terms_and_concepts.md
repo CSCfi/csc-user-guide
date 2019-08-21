@@ -37,11 +37,13 @@ You can get the checksum with command _md5sum_.
 
 **Client**
 
-_Client software_ is used to access the object storage service (Allas).
+_Client software_ is used to access the object storage service (Allas). There are three types of clients:
 
  * Web browser based access via [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} for basic graphical usage
  * Command-line clients such as [Swift](./using_allas/swift_client.md){:target="_blank"} and [s3cmd](./using_allas/s3_client.md){:target="_blank"} for power users
  * _Programmable interface_ (API) for those who integrate software
+
+More about the clients in [Protocols](./accessing_allas.md#protocols){target="_blank"}.
 
 &nbsp;
 
@@ -76,12 +78,12 @@ You cannot have buckets with other buckets inside them. You can however make use
 
 If an object name contains a forward slash "/", it is interpreted as a folder separator. These are shown as folders listings when accessing the data through the web interface. These pseudo-folders are automatically added if you upload whole folders with command-line clients.
 
-For example, if you add two objects to a bucket
+For example, if you add two objects:
 ```bash
 fishes/salmon.png
 fishes/bass.png
 ```
-listing the bucket will show a folder called _fishes_ and the two files within it.
+in to a bucket, listing the bucket will show a folder called _fishes_ and the two files within it.
 
 &nbsp;
 
