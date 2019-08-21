@@ -33,6 +33,7 @@ This chapter gives guidance for the following operations:
  * Make a bucket _public_
  * Use s3cmd with _Supercomputers_
  * Manage _access rights_
+ * Create _temporary URLs_
 
 &nbsp;
 
@@ -219,3 +220,22 @@ $ s3cmd info s3://my_fishbucket|grep -i acl
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
 ```
+
+&nbsp;
+
+
+## Temporary URLs
+
+With s3cmd, you can create temporary URLs to objects. They are called _signed URLs_. Creating a signed URL valid for 3600 seconds (3 hours) can be done with command:
+```bash
+$ s3cmd signurl s3://bigbucket/bigfish +3600
+http://bigbucket.object.pouta.csc.fi/bigfish?AWSAccessKeyId=0a69a52ea4bc3a36839bc1e&Expires=1565951124&Signature=YEIjLFCaexvJ7rhusMV7E%3D
+```
+!!! note 
+	The given URL does not work like that, but fortunately it can be fixed easily: just change _http_ to _https_ and move the _bucketname_ from the beginning after _object.pouta.csc.fi/_ and add "/" between the bucketname and the objectname:
+	http<span style="background-color: #A4D1F9">s</span>://object.pouta.csc.fi/<span style="background-color: #A4D1F9">bigbucket/</span>bigfish?AWSAccessKey
+	Id=0a69a52ea4bc3a36839bc1e&Expires=1565951124&Signature=YEIjLFCaexvJ7rhusMV7E%3D
+
+
+&nbsp;
+
