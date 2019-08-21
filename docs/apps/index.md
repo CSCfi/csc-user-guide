@@ -7,6 +7,7 @@
 ## Chemistry
 
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [GPAW](gpaw.md) Versatile DFT package
 
 ## Computational Engineering
 
