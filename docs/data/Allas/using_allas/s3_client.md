@@ -130,7 +130,7 @@ Checksums are equal between the original and the downloaded file. So good so far
 
 You can also download a whole bucket at once with command:
 ```bash
-$ s3cmd get s3://my_bucket/*
+$ s3cmd get -r s3://my_bucket/
 ```
 
 &nbsp;
