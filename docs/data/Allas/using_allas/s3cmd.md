@@ -17,10 +17,10 @@ $ source /appl/opt/allas_conf -mode s3cmd
 
 The configuration process asks first your CSC password. Then it lists your cPouta projects and asks you to define the name of the cPouta project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Pouta Object Storage connection. In most cases you can just accept the proposed default values, but there are two exceptions:
 
-   1.  It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server. This password is not connected to any other passwords in the CSC environment so you can freely define it. **Note:** This password is however stored to the s3cmd configuration file in human readable format so you should not use this password elsewhere. 
-   2.  As the last question the configuration process asks if the configuration is saved. The default is "no" but you should answer "y (yes)", so that configuration information is stored to file _$HOME/.s3cfg_.
+   1.  It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server. This password is not connected to any other passwords in the CSC environment, so you can freely define it. **Note:** This password is however stored to the s3cmd configuration file in a human readable format, so you should not use this password elsewhere. 
+   2.  As the last question the configuration process asks if the configuration is saved. The default is "*no*" but you should answer "*y (yes)*", so that configuration information is stored to the file _$HOME/.s3cfg_.
 
-This configuration needs to be defined only once. In the future s3cmd will use this Object Storage connection described in the _.s3cfg_ file automatically. However, if you wish to change the Object Storage project that s3cmd uses, you just need to run the configuration command again.
+This configuration needs to be defined only once. In the future, s3cmd will use this Object Storage connection described in the _.s3cfg_ file automatically. However, if you wish to change the Object Storage project that s3cmd uses, you just need to run the configuration command again.
  
 ## Using Object Storage with s3cmd
 
@@ -30,14 +30,14 @@ The syntax of the `s3cmd` command is:
 $ s3cmd -options command parameters
 ```
 
-The table below lists the most essential s3cmd commands. For more complete list, visit the s3cmd manual page or execute command:
+The table below lists the most essential s3cmd commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage){:target="_blank"} or execute command:
 
-```
+```bash
 $ s3cmd -h
 ```
 
 
-Most commonly used s3cmd commands
+Most commonly used s3cmd commands:
 
 | s3cmd command | Function 			|
 |-----	 |----					|
@@ -50,11 +50,11 @@ Most commonly used s3cmd commands
 | get 	 | Get a file from a bucket 		|
 | setacl | Modify Access control list for bucket or objects |
 
-In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure on Object Storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You can't use a bucket name that is already used by you or some other Object Storage user (see [checklist](../introduction.md#naming_bucket){:target="_blank"} for naming a bucket).
+In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in Object Storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You cannot use a bucket name that is already used by you or some other Object Storage user (see [checklist](../introduction.md#naming_bucket){:target="_blank"} for naming a bucket).
 
 In the example below we store a simple dataset to Allas using s3cmd.
 
-First we create a new bucket. The ls command shows that in the beginning we do not have any data in the object storage. After that, we use mb command to create a new bucket called "fish-bucket".
+First we create a new bucket. The command `s3cmd ls` shows that in the beginning we do not have any data in the object storage. After that, we use command `s3cmd mb` to create a new bucket called _fish-bucket_.
 
 ```shell
 $ s3cmd ls
@@ -75,7 +75,7 @@ ls
 ```
 It is recommended to collect the data to be stored into larger units and compress the data before uploading it to the system.
 
-In this example we will store the Bowtie2 indexes and genome of the Zebrafish (Danio rerio) to the fish-bucket. Running ls -lh shows that we have the index files available in the current directory:
+In this example we will store the Bowtie2 indexes and genome of the Zebrafish (Danio rerio) to the fish-bucket. Running `ls -lh` shows that we have the index files available in the current directory:
 
 ```shell
 $ ls -lh
@@ -90,7 +90,7 @@ total 3.2G
 -rw------- 1 kkayttaj csc 599K Mar 12 13:13 log
 ```
 
-The data is collected and compressed to a single file with tar command:
+The data is collected and compressed to a single file with `tar` command:
 
 ```
 $ tar zcf zebrafish.tgz Danio_rerio*
@@ -98,7 +98,7 @@ $ tar zcf zebrafish.tgz Danio_rerio*
 <a id="s3cmd-put"></a>
 
 
-The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command s3cmd put:
+The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command `s3cmd put`:
 
 ```shell
 $ ls -lh zebrafish.tgz
