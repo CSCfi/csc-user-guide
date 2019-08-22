@@ -17,12 +17,12 @@ Guidance for using rclone with Allas is given below.
 ## Create buckets and upload objects
 
 Creating a bucket can be done with command:
-```
+```bash
 $ rclone mkdir allas:2000620-raw-data
 ```
 
 Upload a file with command ```rclone copy```:
-```
+```bash
 $ rclone copy file.dat allas:2000620-raw-data/
 ```
 &nbsp;
@@ -31,14 +31,14 @@ $ rclone copy file.dat allas:2000620-raw-data/
 
 You can list all the buckets belonging to the project:
 
-```
+```bash
 $ rclone ls allas:
 0 2019-06-06 14:43:40         0 2000620-raw-data
 ```
 
 You can also list the content of a bucket: 
 
-```
+```bash
 $ rclone ls allas:2000620-raw-data
 677972 file.dat
 ```
@@ -48,22 +48,22 @@ $ rclone ls allas:2000620-raw-data
 
 Downloading a file is done with the same ```rclone copy``` command:
 
-```
+```bash
 $ rclone copy allas:2000620-raw-data/file.dat
 ```
 
 **Note:** If you give a destination parameter name in the download command, rclone creates a directory where the download goes:
-```
+```bash
 $ rclone copy allas:2000620-raw-data/file.dat doh
 
 ```
 
-```
+```bash
 $ ls doh
 file.dat
 ```
 
-```
+```bash
 $ ls -ld doh
 drwxr-xr-x  3 user  staff  96 Jun  6 14:58 doh
 ```

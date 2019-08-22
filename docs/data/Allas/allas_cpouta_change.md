@@ -12,13 +12,13 @@ CAVEAT: VERSIONED BUCKETS
 
 ## What should I know about this change?
 
-Allas will be a new service at CSC. All existing projects with cPouta access will also have Allas access by default. Any projects requesting cPouta access after the service launch, will only get access to cPouta, not Allas. Allas access will have to be requested separately.
+Allas will be a new service at CSC. All existing projects with cPouta access will also have Allas access by default. Any projects requesting cPouta access after the service launch will only get access to cPouta, not Allas. Allas access will have to be requested separately.
 
 Any data uploaded to Allas is by default found under the "_a3s.fi_" domain instead of "_object.pouta.csc.fi_" domain. The old domain name can still be used to access data.
 
-The Billing Unit cost of Allas will drop significantly compared to Pouta. The performance of the service is also much improved.
+The _billing unit_ costs of Allas will drop significantly compared to Pouta. The performance of the service is also much improved.
 
-The documentation of Allas can in the future be found here: <font color="red">INSERT LINK</font>. The old cPouta object storage documentation will be deprecated.
+In the future, the documentation of Allas can be found here: <font color="red">INSERT LINK</font>. The old cPouta object storage documentation will be deprecated.
 
 When is Allas released, and what happens then?
 

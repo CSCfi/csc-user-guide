@@ -27,12 +27,13 @@ The instructions for accessing and using Allas with Supercomputers can be found 
 
 ## Accessing Allas with Windows and Mac
 
-With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}.
+With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}. See the [list of functions](#cyberfunctions) CyberDuck offers for data management.
 
 !!! note
     Please note that a directory uploaded with CyberDuck may not be
     downloadable with one command using some other client software
-    with S3 protocol connection to Allas.
+    with S3 protocol connection to Allas. For more information, see
+    [directory object error](using_allas/directory_object_error.md){:target="_blank"}.
 
 1\. Install **CyberDuck**.
 
@@ -62,12 +63,21 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 Now you should be able to see the content of your project (which might be empty).
 
 CyberDuck offers some basic functionalities for managing data in object storage:
+<a name=cyberfunctions></a>
 
- * Upload objects
- * Edit objects
- * Edit metadata
- * Share buckets
- * Remove objects
+
+ * _Create_ buckets
+ * _Upload_ objects
+ * _List_ objects and buckets
+ * _Download_ object and buckets
+ * _Edit_ objects
+ * _Edit_ metadata
+ * _Share_ objects
+ * _Remove_ objects and buckets
+
+
+CyberDuck user interface is quite easy to use. The different data management options can be seen by either right-clicking the wanted bucket/object with mouse or choosing the bucket/object and then clicking the **Action** button on the menu bar. To navigate back to the previous directory use backspace. Feel free to explore and discover more about the possibilities of CyberDuck.
+
 
 &nbsp;
 

@@ -1,6 +1,12 @@
 
 # Swift client
 
+!!! note
+	If you use Allas from a Supercomputer, all the required packages and software are already installed and you can skip the installation and openrc downloading below. What you have to do is to run the command 
+	`$ source /appl/opt/allas_conf`
+	to authenticate to a project in Allas.
+
+
 For basic operations we recommend using the [OpenStack command-line client](../../../cloud/pouta/install-client.md#overview-of-openstack-command-line-tools){:target="_blank"}. It can access the object storage, but it is limited in its features. The more advanced *Swift command-line client* is used in the examples. The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
@@ -28,7 +34,7 @@ This chapter includes instructions for the following operations:
 
 
 !!! note
-	If you use Swift outside of supercomputers, make sure your Swift version is not too old, since the older Swift versions might not work with Allas.
+	If you use Swift outside of Supercomputers, make sure your Swift version is not too old, since the older Swift versions might not work with Allas.
 
 &nbsp;
 

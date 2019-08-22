@@ -49,6 +49,7 @@ The number of OpenMP threads is specified with an environment variable OMP_NUM_T
 #SBATCH -J my_openmp
 #SBATCH -e my_output_err_%j
 #SBATCH -o my_output_%j
+#SBATCH --account=project_<project_id>
 #SBATCH --mem=2000
 #SBATCH -t 01:00:00
 # Thread parallel code will need one task (process)
@@ -95,6 +96,7 @@ Running a hybrid job can be done as above with the exception that more nodes are
 #SBATCH -J my_hybrid
 #SBATCH -e my_output_err_%j
 #SBATCH -o my_output_%j
+#SBATCH --account=project_<project_id>
 #SBATCH --mem-per-cpu=1000
 #SBATCH -t 02:00:00
 # Number of compute nodes
@@ -120,7 +122,7 @@ srun ./my_hybrid_exe
 Because each compute node on Puhti contains two 20-core processors it might be useful to try hybrid MPI/OpenMP job that has 2 mpi processes per compute node. In the next batch job example one MPI process is allocated per socket (each compute node has two sockets and one socket has one 20-core processor). Total core (and thread) count is 320 (16 mpi process and each mpi process has 20 OpenMP threads).
  
 ```
-#!/bin/bash --login
+#!/bin/bash -l
 ## Hybrid MPI/OpenMP example. Please read carefully and do necessary changes.
 ## 
 ## The number of compute nodes for a 8 node MPI/OpenMP job (16*20=320)
@@ -146,6 +148,7 @@ Because each compute node on Puhti contains two 20-core processors it might be u
 #SBATCH -J jobname
 #SBATCH -o jobname_%j.out
 #SBATCH -e jobname_%j.err
+#SBATCH --account=project_<project_id>
 #SBATCH -t 01:01:00
 ## export the OMP_NUM_THREADS variable using correct number of OpenMP threads 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
