@@ -4,29 +4,29 @@ MPI (Message Passing Interface) is a standard specification for message passing 
 
 ## Compiling and linking MPI programs
 
-IntelMPI and OpenMPI are available. The IntelMPI is the default MPI library. Systems might have many installed releases and they can be listed this way:
+IntelMPI and OpenMPI (= hpcx-mpi) are available. Systems might have many installed releases and they can be listed this way:
 
 ```
-module spider intelmpi
-module spider openmpi
+module spider intel-mpi
+module spider hpcx-mpi
 ```
 Before selecting a MPI release an Intel or a Gnu compiler release must be selected. When a compiler and MPI library
 has been loaded there are MPI compiler wrappers for compiling Fortran, C and C++ MPI programs.
 
 The Intel compiler wrappers for MPI libraries.
 
-| language  | OpenMPI wrapper <br/>(Intel compiler + OpenMPI library)| IntelMPI wrapper <br/>(Intel compiler + IntelMPI library) | 
+| language  | hpcx-mpi wrapper <br/>(Intel compiler + OpenMPI library)| IntelMPI wrapper <br/>(Intel compiler + IntelMPI library) | 
 | :------------- |:-------------| :-----|
 | Fortran   | mpifort  | mpiifort |
-| C         | mpigcc   | mpiicc |
+| C         | mpicc    | mpiicc |
 | C++       | mpic++   | mpiicpc |
 
 The Gnu compiler wrappers for MPI libraries.
 
-| language  | OpenMPI wrapper <br/>(Gnu compiler + OpenMPI library) | IntelMPI wrapper  <br/>(Gnu compiler + IntelMPI library) | 
+| language  | hpcx-mpi wrapper <br/>(Gnu compiler + OpenMPI library) | IntelMPI wrapper  <br/>(Gnu compiler + IntelMPI library) | 
 | :------------- |:-------------| :-----|
 | Fortran   | mpifort  | mpif90 |
-| C         | mpigcc   | mpigcc |
+| C         | mpicc    | mpigcc |
 | C++       | mpic++   | mpigxx |
 
 These wrappers take care of compiler and linker directives for compiling MPI programs. Users do not need to specify include file locations, MPI libraries or their locations.
