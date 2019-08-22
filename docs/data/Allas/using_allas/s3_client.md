@@ -2,6 +2,12 @@
 # S3 client
 
 
+!!! note
+	If you use Allas from a Supercomputer, all the required packages and software are already installed and you can skip the openrc downloading and the installation chapter *Getting started with s3cmd* below. What you have to do is to run the command 
+	`$ source /appl/opt/allas_conf`
+	to authenticate to a project in Allas.
+
+
 You need to use ec2 credentials when using S3. You can create S3 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"}.
 
 Once you have the RC file, you can add the environment variables with the following command:
@@ -188,7 +194,7 @@ Public URL of the object is: http://object.pouta.csc.fi/my_fishbucket/fishes/sal
 
 ## s3cmd with Supercomputers
 
-For guidance to using s3cmd with the Supercomputers Taito and Puhti, see [s3cmd](./s3cmd.md){:target="_blank"}
+For guidance to using s3cmd with the Supercomputers Taito and Puhti, see [s3cmd](./s3cmd.md){:target="_blank"}.
 
 &nbsp;
 
