@@ -75,6 +75,10 @@ CyberDuck offers some basic functionalities for managing data in object storage:
  * _Share_ objects
  * _Remove_ objects and buckets
 
+
+CyberDuck user interface is quite easy to use. The different data management options can be seen by either right-clicking the wanted bucket/object with mouse or choosing the bucket/object and then clicking the **Action** button on the menu bar. To navigate back to the previous directory use backspace. Feel free to explore and discover more about the possibilities of CyberDuck.
+
+
 &nbsp;
 
 
