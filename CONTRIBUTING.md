@@ -177,8 +177,11 @@ content of the user guides by pointing your browser to
 
 ## Hosting the website on OpenShift
 
+Install & authorize command line tools. For reference, see
+[rahti documentation](https://rahti.csc.fi/tutorials/elemental_tutorial/#preparations).
+
 The Dockerfile is also made to be compatible with OpenShift, so it
-should work with the source-to-image mechanism when using `oc
+works with the source-to-image mechanism when using `oc
 new-app`. First create a new project to host the user guide.
 
 ```bash
@@ -192,9 +195,36 @@ cluster you are running this in. Someone else may have already taken
 You can then run `oc new-app` to create the user guide deployment.
 
 ```bash
-oc new-app https://github.com/CSCfi/csc-user-guide#master
+oc new-app https://github.com/CSCfi/csc-user-guide#feature-a --name=csc-user-guide-feature-a
 ```
 
-In the command above, the `#master` at the end specifies the branch to
-use. If you have a feature branch that you would like to test on
-OpenShift, you can specify a branch different from master.
+In the command above, the `#feature-a` at the end specifies the branch to
+use. The option `--name=` is free to be chosen.
+
+Now Rahti will build an image and a small webserver that can be exposed to
+internet with the `oc expose` command:
+
+```bash
+oc expose svc/csc-user-guide-feature-a --hostname=cug-user-guide-feature-a.rahtiapp.fi
+```
+
+You are free to choose any unused hostname.
+
+Rebuilding the content is done with `oc start-build` command:
+
+```bash
+oc start-build csc-user-guide-feature-a
+```
+
+Or by setting up a webhook (see [Rahti User
+Guide](https://rahti.csc.fi/tutorials/patterns/#webhooks).)
+
+If you always do your features in the branch with the same name, you only have
+to issue `oc start-build` command to have your preview of the user-guide updated.
+
+When you are sure you don't ever need the preview website again, please either
+delete your project or clean it with `oc delete`:
+
+```bash
+oc delete all -l app=csc-user-guide-feature-a
+```
