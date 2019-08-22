@@ -32,8 +32,8 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 !!! note
     Please note that a directory uploaded with CyberDuck may not be
     downloadable with one command using some other client software
-    with S3 protocol connection to Allas. For more information see
-    [directory object error](using_allas/directory_object_error.md)
+    with S3 protocol connection to Allas. For more information, see
+    [directory object error](using_allas/directory_object_error.md){:target="_blank"}
 
 1\. Install **CyberDuck**.
 
