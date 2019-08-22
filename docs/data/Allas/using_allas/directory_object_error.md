@@ -13,9 +13,9 @@ or
 Content Type: application/x-directory
 ```
 
-to them. That does not make them a directory. Such software are for instance Cyberduck and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use s3cmd.
+to them. That does not make them a directory. Such software are for instance CyberDuck and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use s3cmd.
 
-For instance a Cyberduck uploaded directory structure
+For instance, a CyberDuck uploaded directory structure
 
 ```
 data4.dat
@@ -39,7 +39,7 @@ ls -r s3://idev1clitest/
 2019-08-20 07:22     10240   s3://idev1clitest/mydata/subdir/data3.dat
 ```
 
-There are zero sized objects mydata and mydata/subdir. The problem those extra objects cause is that when trying to dowload that structure with s3cmd the zero sized object is downloaded to a file which then prevents creating a directory with the same name and subsequently also prevents downloading the files inside that directory:
+There are zero sized objects mydata and mydata/subdir. The problem those extra objects cause is that when trying to download that structure with s3cmd the zero sized object is downloaded to a file which then prevents creating a directory with the same name and subsequently also prevents downloading the files inside that directory:
 
 ```
 $ s3cmd get -r s3://idev1clitest/
