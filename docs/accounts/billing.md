@@ -1,5 +1,5 @@
 ## Billing
-For Puhti a new billing scheme is introduced. Taito billing is not changed.
+For Puhti a new billing scheme is introduced. Taito and cloud billing is not changed.
 ### Puhti compute billing
 Puhti is a heterogenous system with CPU, GPU and IO nodes and nodes with varying amount of memory. Moreover, it is possible to use only a fraction of a node and its various resources. The billing scheme tries to charge the billing units (BUs) in fair way based on the reserved amount of node resources.
 
@@ -19,3 +19,6 @@ The default 1 TiB work/project disk quota is free. Increased quota is charged as
 * 1 TiB consumes **50 000** BUs per year.
 
 #### Allas object storage billing
+
+### Estimating the billing units
+To make it easier for customers to estimate how much billing units they need, there is a calculator available at https://research.csc.fi/billing-and-monitoring for Taito and cloud. For Puhti there is an Excel workbook which a user can download.
