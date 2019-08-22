@@ -1,0 +1,18 @@
+#!/bin/bash -l
+#SBATCH --time=00:10:00
+#SBATCH --partition=serial
+#SBATCH --job-name=GMX
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=40
+#SBATCH --account=project_20XXXXX
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+(( ncores = SLURM_NNODES * 24 ))
+# this script runs a one full node (40 cores) md job
+#requesting 10 minutes time, stopping after 0.1 x 1h = 6 minutes of runtime
+
+module load gromacs-env
+
+srun gmx_mpi mdrun -s topol -dlb yes -maxh 0.1
+

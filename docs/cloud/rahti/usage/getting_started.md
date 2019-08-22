@@ -9,14 +9,14 @@ inside a project.
 
 You can either select applications to run from the application catalog that is
 visible when first logging in or launch any applications that you like using the
-primitives described in the [background chapter](/introduction/background).
+primitives described in the [background chapter](../../introduction/background).
 
 ## Using the web interface
 
-You can login at \env{OSO_WEB_UI_URL} (see [Getting access](../introduction/access)
+You can login at https://rahti.csc.fi:8443 (see [Getting access](../../introduction/access)
 for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page_3.7.png)
 
 After logging in, you should proceed to [create a
-project](/usage/projects_and_quota/) in which to run your application(s).
+project](../../usage/projects_and_quota/) in which to run your application(s).

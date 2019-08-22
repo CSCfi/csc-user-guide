@@ -15,7 +15,11 @@
 
 ## Batch jobs
 
-* Batch jobs basics (batch jobs, environment, slurm commands, batch job file, parallel & array jobs) <!--batch-jobs-basics.md-->
+* [Batch job basics](batch-job-basics.md)
+* [Serial and thread based batch jobs](serial-and-thread-based-batch-jobs.md)
+* [MPI based batch jobs](mpi-batch-jobs.md)
+* [Array jobs](array-jobs.md)
+* [Managing batch jobs](managing-batch-jobs.md)
 * [Advanced batch jobs](advanced-batch-jobs.md)
 * [Running GPU programs](running-gpu-programs.md)
 * [Resource monitoring](resource-monitoring.md)

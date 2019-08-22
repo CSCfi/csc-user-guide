@@ -15,7 +15,7 @@ After this you can specify the email address of the recipient or get a sharable 
 It is possible to administer your files while they are waiting for the pick-up. Click the _My Transfers_ button to do this.
 
  **Funet FileSender upload page**
- ![Funet FileSender upload page](images/funet_upload.png){.center width=100%}
+ ![Funet FileSender upload page](/img/funet_upload.png){.center width=100%}
 
 
 #### Download data from FileSender
@@ -23,7 +23,7 @@ It is possible to administer your files while they are waiting for the pick-up. 
 The recipient will get an email that contains an URL to the download page of the submitted files. The sharable link will also point to the download page. You can start the download by pressing the "_Download_" button. 
 
  **Funet FileSender download page**
- ![Funet FileSender download page](images/funet_download.png){.center width=100%}
+ ![Funet FileSender download page](/img/funet_download.png){.center width=100%}
 
 You can also right click on the download buttons and "Copy Link Location" to get the download URL to the file. The URL can then be used to download the file using another tool, for example [wget](wget.md).
 

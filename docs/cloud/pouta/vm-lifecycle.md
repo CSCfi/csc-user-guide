@@ -85,7 +85,7 @@ machine is deleted, you are no longer billed for that virtual machine.
 The figure below  tries to illustrate state  transitions between these
 states.
 
-![Virtual machine lifecycle](images/instance-lifecycle-1.png)
+![Virtual machine lifecycle](/img/instance-lifecycle-1.png)
 
 In  the  above section,  we  have  discussed  main states  of  virtual
 machines in Pouta. However, theoretically  there are other states too,

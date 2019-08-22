@@ -17,7 +17,7 @@ script:
   # The number of spelling mistakes that are allowed.
   # Test will work properly when dictionary is large enough
   # Now set so that tests are ok
-  - bash tests/aspellcheck.bash 10000
+  - bash tests/aspellcheck.bash 10000 >/dev/null
   # Testing if there are any warnings
   - bash tests/checkwarnings.bash
   # Testing if the build works

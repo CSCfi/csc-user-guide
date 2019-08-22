@@ -10,7 +10,7 @@ snapshots and  volume snapshots. Both  snapshot types can  be utilized
 when creating  a new instance,  image snapshots being the  more common
 use case for this.
 
-![Snapshot types](images/Screenshot-Horizon-Instances-Bootsource.png)
+![Snapshot types](/img/Screenshot-Horizon-Instances-Bootsource.png)
 
 Image snapshots  hold the state of  a given instance's root  disk, and
 thus can typically  be used as a bootable image.  **Please note** that

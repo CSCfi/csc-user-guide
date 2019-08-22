@@ -8,10 +8,10 @@ There is a way to use html for the top header which will hide it from TOC below.
 Example on including a picture with the "reference style"
 ![Chemistry logo][logo]
 
-Please put all images in "images" folder in root (where docs is), not in a subfolder of pwd.
-And with the complete syntax including width limit.
+Please put all images in "img" folder in root (where docs is), not in local subfolder.
+And with the complete syntax including width limit, if you like.
 
-![alt text](/images/chemistry-logo.jpg "Chemistry logo"){ width=90% }
+![alt text](/img/chemistry-logo.jpg "Chemistry logo"){ width=90% }
 
 ## Available
 
@@ -91,7 +91,7 @@ Submit the script with `sbatch script_name.sh`
 Example for linking to files in the "files" subfolder for display or download
 (think about naming them in a clever way - it's the same folder for all software):
 
-Download an [example batch script for Sisu](files/gmx-sisu-example.job)
+<!-- Download an [example batch script for Sisu](files/gmx-sisu-example.job) TODO: gmx-sisu-example.job is missing -->
 
 ??? note "Sisu"
         --8<-- "docs/apps/files/gmx-sisu-example.job"
@@ -117,5 +117,5 @@ Cite your work with the following references:
 -   [Tutorials on the Gromacs website]
 
 
-[logo]: /images/chemistry-logo.jpg "Chemistry logo"
+[logo]: /img/chemistry-logo.jpg "Chemistry logo"
 [Tutorials on the Gromacs website]: http://www.gromacs.org/Documentation/Tutorials

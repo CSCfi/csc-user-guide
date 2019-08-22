@@ -44,7 +44,7 @@ If you are already familiar with SSH keys, you can use your existing SSH keys to
 
 If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you. Go to **Access & Security** and from **Key Pairs** select **Create Key Pair**. Give your key a name and click **Create**. Now you will get a "_keyname.pem_" to save. Save it under your home directory.
 
-![ssh key pairs](images/pouta-user-guide-keypairs.png)
+![ssh key pairs](/img/pouta-user-guide-keypairs.png)
 
 **Figure** The Access & Security subpage in the cPouta web interface
 
@@ -68,7 +68,7 @@ Where _keyname.pem_ is the file you downloaded.
 
 In **Windows** environments the downloaded private key can be loaded for example to the Putty SSH client. This is done by using the puttygen tool to load your private key (.pem) and save it into (password protected) .ppk format which Putty can use. Putty and puttygen are available at [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html). Using these programs does not require administrator privileges. As with Linux, in Windows it is also important to store the keyfile in a secure location with limited permissions.
 
-![Screenshot puttygen](images/Screenshot-puttygen-ppk2.png)
+![Screenshot puttygen](/img/Screenshot-puttygen-ppk2.png)
 
 **Figure** Saving the private key into password protected .ppk format with puttygen
 
@@ -124,7 +124,7 @@ Once the SSH keys and security groups, discussed in Chapter 3.2.1, have been set
 
 In the main page of the Pouta web interface, open the **Instances** view. The process to launch a new virtual machine is now started by clicking the **Launch Instance** button in the top of the view. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
 
-![Launch cPouta instance](images/pouta-launch-instance.jpg)
+![Launch cPouta instance](/img/pouta-launch-instance.jpg)
 
 **Figure** Launch instance view.
 
@@ -145,13 +145,13 @@ When a virtual machine is launched, it only gets a _NATed internal network_. Thi
 
 When the _Instances_ view shows that your machine is _Active_ and in the _Running_ state, select **Associate Floating IP** from the drop down menu that shows up when you click the arrow symbol next to the "Create Snapshot" button.
 
-![Associate floating IP menu](images/associate-floating-ip-menu.png)
+![Associate floating IP menu](/img/associate-floating-ip-menu.png)
 
 **Figure** Floating IP association options
 
 Click the plus to create a new IP, select the IP, select your machine under **Instance** and click **Associate**. It will take some minutes before you are able to see the second, public IP address, in the _Instances view_. Once also the second IP is shown, your machine has a public IP and is accessible from the Internet.
 
-![Assign IP](images/pouta-assign-ip.jpg)
+![Assign IP](/img/pouta-assign-ip.jpg)
 
 **Figure** Floating IP association dialog
 
@@ -159,4 +159,4 @@ Click the plus to create a new IP, select the IP, select your machine under **In
     Please Note: Allocated or assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
 
-  [Applying for Pouta access]: ../../accounts/get-access-to-pouta.md
+  [Applying for Pouta access]: ../../accounts/adding-service-access-for-project.md

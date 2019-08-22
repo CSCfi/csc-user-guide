@@ -1,0 +1,95 @@
+<style>
+
+h1[id="quicklinktitle"] {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #2980b9;
+  margin-bottom: 1em;
+}
+
+.wm-page-content img[alt="csc-docs-logo"] {
+  max-width: 200%;
+  display: inline-block;
+  height: 1.5em;
+  padding: 0px;
+  line-height: 0;
+  background-color: rgba(0,0,0,0);
+  border: 0;
+  border-radius: 0px;
+  margin: 0px auto 0px auto;
+}
+
+span#index-quicklinks {
+  display: -webkit-flex;
+  display: flex;
+  max-width: 700px;
+  margin-bottom: 0px;
+  margin-top:0px;
+}
+
+span#index-quicklinks a {
+flex: 1;
+background-color: #025b96;
+color: #ffffff;
+text-align: center;
+margin: 0px;
+margin-left: 5px;
+margin-right: 5px;
+padding-top: 1em;
+padding-bottom: 1em;
+vertical-align: middle;
+text-decoration: none;
+}
+
+span#index-quicklinks a:hover {
+  background-color: #002F5F 
+}
+
+#overview-whatsnew {
+  display: flex;
+  width: 100%;
+}
+
+.admonition.overview, .admonition.whatsnew {
+  display: inline-block;
+  width: 100%;
+  color: #000000;
+  vertical-align: top;
+  align: center;
+  margin-bottom: 0px;
+  margin-top: 1em;
+}
+
+.admonition.overview {
+  background-color: #E8F6FF;
+  /*margin-right: -2.5%;
+  margin-left: -2.5%;*/
+}
+.admonition.overview p.admonition-title{
+  color: #2980B9;
+}
+
+.admonition.whatsnew {
+  background-color: #FBF6E3;
+  margin-left: 0.5pt;
+}
+
+.admonition.whatsnew p.admonition-title {
+  color: #2980B9;
+}
+
+
+</style>
+
+
+{% extends "base.html" %}
+
+{% block footer %}
+{% if config.extra.footer %}
+<hr/>
+Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. <br/>
+
+<a href='https://github.com/CSCfi/csc-user-guide/issues/new?title=Issue with page: "{{ page.title }}"&body=Address to the article: {{page.canonical_url }}'>File a bug report for this article </a> (requires a github accout)
+
+{% endif %}
+{% endblock %}

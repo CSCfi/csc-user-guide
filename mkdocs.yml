@@ -1,21 +1,16 @@
 site_name: Docs CSC
-repo_url: "https://github.com/CSCfi/csc-user-guide/"
+# repo_url: "https://github.com/CSCfi/csc-user-guide/"
+# repo_url: false
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/develop/docs"
-nav:
+nav: 
   - Home: index.md
   - Accounts:
-     - Contents: accounts/index.md
-     - Creating a new user account: accounts/creating-a-new-user-account.md
-     - Getting student accounts for a course: accounts/getting-student-accounts-for-a-course.md
-     - Getting machine-to-machine robot accounts: accounts/getting-machine-to-machine-robot-accounts.md
-     - Getting accounts for international collaborators: accounts/getting-accounts-for-international-collaborators.md
-     - Getting access to Pouta: accounts/get-access-to-pouta.md
-     - Changing the password: accounts/changing-the-password.md
+     - Creating new user account: accounts/creating-new-user-account.md
+     - Changing password: accounts/changing-password.md
      - Managing user information: accounts/managing-user-information.md
-     - Joining a project: accounts/joining-a-project.md
-     - Creating a new project: accounts/creating-a-new-project.md
-     - Adding members to a project: accounts/adding-members-to-a-project.md
-     - Adding service access for a project: accounts/adding-service-access-for-a-project.md
+     - Creating new project: accounts/creating-new-project.md
+     - Adding member to project: accounts/adding-member-to-project.md
+     - Adding service access for project: accounts/adding-service-access-for-project.md
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
      - Monitoring resource usage: accounts/monitoring-resource-usage.md
@@ -42,7 +37,7 @@ nav:
      - Pouta:
 #        - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
-        - Applying for Pouta Access: accounts/get-access-to-pouta.md
+        - Applying for Pouta Access: accounts/adding-service-access-for-project.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
@@ -75,7 +70,7 @@ nav:
      - Rahti:
         - Introduction:
            - Background: cloud/rahti/introduction/background.md
-           - Sercive description: cloud/rahti/introduction/service_description.md
+           - Service description: cloud/rahti/introduction/service_description.md
            - SLA: cloud/rahti/introduction/sla.md
            - Technical maturity: cloud/rahti/introduction/technical_maturity.md
            - Getting access: cloud/rahti/introduction/access.md
@@ -85,7 +80,7 @@ nav:
            - Projects and Quota: cloud/rahti/usage/projects_and_quota.md
            - Security guide: cloud/rahti/usage/security-guide.md
            - Command line tools: cloud/rahti/usage/cli.md
-        - Extrenal documentation:
+        - External documentation:
            - Platform documentation: cloud/rahti/ext_docs.md
         - Tutorials:
            - Deploying applications from web console: cloud/rahti/tutorials/basic-console.md
@@ -94,15 +89,23 @@ nav:
            - Design patterns: cloud/rahti/tutorials/patterns.md
         - Support: 
            -  Contact support: cloud/rahti/contact.md
-  - Data:  
-     - Data guide: data/index.md
-     - Moving data between CSC and local environment:
+  - Data:
+     - Moving data:
         - Copying files using scp: data/scp.md
         - Graphical file transfer tools: data/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/rsync.md
         - Using wget to download data from web sites to CSC: data/wget.md
         - Sharing and transporting files using Funet FileSender: data/funet.md
-        - Remote disk mounts: data/disk_mount.md  
+        - Remote disk mounts: data/disk_mount.md
+     - Allas object storage:
+        - Introduction to Allas Storage service: data/Allas/introduction.md
+        - Accessing Allas: data/Allas/accessing_allas.md
+        - Common Use Cases: data/Allas/using_allas/common_use_cases.md
+        - Allas Clients: data/Allas/clients.md
+        - Common Error Messages: data/Allas/using_allas/error_messages.md
+        - Further information: data/Allas/further_info.md
+        - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
+        - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
   - Applications: 
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
@@ -113,9 +116,11 @@ nav:
 
 theme:
   name: windmill
-  custom_dir: custom_theme/
+  custom_dir: mkdocs_csc
 extra:
   logo: img/CSC_LOGO_nega_pad.png
+  article_nav: false
+  footer: false
 extra_css:
   - css/extra.css
 extra_javascript:

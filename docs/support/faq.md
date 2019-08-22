@@ -27,4 +27,15 @@
 ## Rahti
    - ...
 
+## Allas
+   - [How to move data between Puhti and Allas?](faq/how-to-move-data-between-puhti-and-allas.md)
+   - [Is it possible to make data in Allas read-only?](faq/is-it-possible-to-make-data-in-allas-read-only.md)
+   - [Can I have a personal project or bucket in Allas?](faq/can-i-have-a-personal-project-or-bucket-in-allas.md)
+   - [Is it possible to move data in Allas to new project?](faq/is-it-possible-to-move-data-in-allas-to-new-project.md)
+   - [What to do for data in Allas after project ends?](faq/what-to-do-for-data-in-allas-after-project-ends.md)
+
 ## Accounts
+
+## Migration
+
+   - [How do I copy my files from Taito/Sisu to Puhti?](faq/how-do-i-copy-my-files.md)

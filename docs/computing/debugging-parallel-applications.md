@@ -24,17 +24,17 @@ Enter a launching command to start TotalView on the application you would like t
 salloc -n 8 -t 00:30:00 -p parallel totalview srun -a ./my_parallel_prog
 ```
 Totalview Startup Parameters window may appear. Just clik Ok button (in a basic case).
-![Startup Parameters window](images/StarupParameters1.png)
+![Startup Parameters window](/img/StarupParameters1.png)
 TotalView Root and Process window appear. Click the GO  button in the Totalview process window. A pop-up window appears, asking if you want to stop the job. 
 Select Yes in this pop-up window.
-![Process window](images/ProcessWindowTotalview1.png) 
+![Process window](/img/ProcessWindowTotalview1.png) 
 **Figure** Totalview Process window
 
-![Popup window](images/QuestionDoYouWantToStopJob1.png)
+![Popup window](/img/QuestionDoYouWantToStopJob1.png)
 **Figure** PopUp window
 
 
-![Root window](images/RootTotalview.png)
+![Root window](/img/RootTotalview.png)
 
 **Figure** Totalview Root window
 
@@ -68,19 +68,19 @@ totalview
 ```
 From the Start a Debugging Session (see image, blue boundary line) select "a running program (attach)".
 
-![Start a Debugging Session](images/StartDebuggingSession1.png)
+![Start a Debugging Session](/img/StartDebuggingSession1.png)
 
 **Figure**  Debug session type "attach to a running application"
 
 Next window called Attach to running program(s) will open.  By Clicking the "H+" button the "Add Host" window will open. There it is possible to add the host(s) where an application processes are running. Add the first compute node name from the list "NODELIST" (in this example c579) and clik "Ok" button. The processes from the selected node(s) will appear. Now the processes can be selected/deselected by clicking. Select (double-click) the upper srun process (see blue arrow). Then click green "Start Session" button.
 
-![Choose and attach to processes](images/attachtouppersrun1.png)
+![Choose and attach to processes](/img/attachtouppersrun1.png)
 
 **Figure**  Attach to running program(s)
 
 After some time the Totalview Process window and Root window will pop up. See which rank is on the Process window (Rank 1 in this example). From the Root window choose "unknown line" from the same Rank (1 in this example) by clicking "unknown line" (the line that has black background). Then by clicking source code file from the Stack Trace pane (the line that has black background) the source code will appear on the Source pane and it is possible to see in which code line is the Totalview Program Counter (the yellow line on the Source pane). Now normal Totalview debugging process may continue.
 
-![Choose and attach to processes](images/attachrunning2.png)
+![Choose and attach to processes](/img/attachrunning2.png)
 
 **Figure**  Debugging session is ready to continue.
 

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block footer %}
+{% if config.extra.footer %}
+<hr/>
+Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. <br/>
+
+<a href='https://github.com/CSCfi/csc-user-guide/issues/new?title=Issue with page: "{{ page.title }}"&body=Address to the article: {{page.canonical_url }}'>File a bug report for this article </a> (requires a github accout)
+
+{% endif %}
+{% endblock %}

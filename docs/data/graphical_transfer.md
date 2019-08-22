@@ -22,7 +22,7 @@ Once the connection is opened, FileZilla shows two interactive file listings sid
 
 Once you have the right directories open in both local and the remote site, you can copy files or directories between the sites simply by selecting a file or folder with mouse and dragging it to the other site. For other operations, try right-clicking a file or a folder.
 
- ![FileZilla interface.](images/filezilla.jpg)
+ ![FileZilla interface.](/img/filezilla.jpg)
 
 #### File transfer in Windows with WinSCP
 
@@ -61,7 +61,7 @@ When using copy and paste, select your local files you want to upload e.g. insid
 
 You can use the Windows Explorer's _"Send To"_ feature to upload files to server. To set this feature on, use the installer or select the feature in preferences ("add upload short cut to Explorer's 'sent to' context menu").
 
-![](images/Winscp1.jpg)
+![](/img/Winscp1.jpg)
 
 **Downloading files from CSC environment**
 
@@ -70,7 +70,7 @@ The easiest methods for downloading files are drag and drop with a mouse and usi
 
 You can register WinSCP to handle SFTP and SCP protocol URL addresses. To register this feature, use the installer or select the feature in preferences ("Register to handle sftp:// and scp:// addresses"). Then you can type URL in your web browser and WinSCP allows you to download the file.
 
-![](images/Winscp2.jpg)
+![](/img/Winscp2.jpg)
 
 **Further documentation**
 
