@@ -5,15 +5,15 @@ There are no real directories in Allas. Some client software incorrectly want to
 
 ```
 Content Type: application/directory
-```
-
-or
-
-```
 Content Type: application/x-directory
+Content Type: binary/octet-stream
 ```
 
-to them. That does not make them a directory. Such software are for instance CyberDuck and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use s3cmd.
+to them or add slash character at the end of the name.
+
+**That does not make them a directory.**
+
+Such software are for instance CyberDuck, Nextcloud and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use s3cmd.
 
 For instance, a CyberDuck uploaded directory structure
 
@@ -28,7 +28,7 @@ mydata
 
 listed with s3cmd looks like this
 
-```
+``` bash
 $ s3cmd ls -r s3://idev1clitest/
 ls -r s3://idev1clitest/
 2019-08-20 07:25   1048576   s3://idev1clitest/data4.dat
@@ -41,7 +41,7 @@ ls -r s3://idev1clitest/
 
 There are zero sized objects mydata and mydata/subdir. The problem those extra objects cause is that when trying to download that structure with s3cmd the zero sized object is downloaded to a file which then prevents creating a directory with the same name and subsequently also prevents downloading the files inside that directory:
 
-```
+``` bash
 $ s3cmd get -r s3://idev1clitest/
 get -r s3://idev1clitest/
 download: 's3://idev1clitest/data4.dat' -> './data4.dat'  [1 of 6]
@@ -55,4 +55,5 @@ ERROR: Skipping ./mydata/subdir/data3.dat: Not a directory
 $ 
 ```
 
+You can download such hierarchy with s3 by first creating each local directory and downloading then files by directory level.
 
