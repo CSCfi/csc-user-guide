@@ -3,15 +3,13 @@
 
 There are no real directories in Allas. Some client software incorrectly want to create zero sized objects in Allas and attach metadata like
 
-```
+``` bash
 Content Type: application/directory
 Content Type: application/x-directory
 Content Type: binary/octet-stream
 ```
 
-to them or add slash character at the end of the name.
-
-**That does not make them a directory.**
+to them or add slash character at the end of the name. **That does not make them a directory.**
 
 Such software are for instance CyberDuck, Nextcloud and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use s3cmd.
 
