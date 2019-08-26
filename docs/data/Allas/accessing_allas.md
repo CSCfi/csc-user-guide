@@ -93,7 +93,6 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 | a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md){:target="_blank"}. |
 | Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh, more info [below](#openrc). |
 | S3 | More info [here](./using_allas/s3_client.md){:target="_blank"}. |
-| s3cmd	| Configuration file .s3cfg populated. More info [here](./using_allas/s3_client.md){:target="_blank"}. |
 
 
 <a id="openrc"></a>
@@ -145,11 +144,11 @@ OpenStack Horizon web interface provides easy-to-use basic functions for data ma
 ## Protocols
 
 
-The object storage service is provided over two different protocols, _Swift_ and _S3_. From user perspective one of the main differences between S3 and Swift is in the authentication. The token based Swift authentication, used in Allas, remains valid for three hours at a time but in the key based S3 the connection can be permanently open. The permanent connection of S3 is handy in many ways, but it includes a security aspect too: if your server where you use Allas is compromised, the object storage space will be compromised too.
+The object storage service is provided over two different protocols, _Swift_ and _S3_. From user perspective one of the main differences between S3 and Swift is in the authentication. The token based Swift authentication, used in Allas, remains valid for three hours at a time, but in the key based S3 the connection can stay permanently open. The permanent connection of S3 is handy in many ways, but it includes a security aspect too: if your server where you use Allas is compromised, the object storage space will be compromised too.
 
-Because of this security concern, Swift is the recommended protocol to be used in many-user servers like Mahti and Puhti. Thus, for example, the CSC specific <i>a_ commands</i> (e.g. _a_put_ and _a_get_) as well as the standard _rclone_ configuration in Puhti are based on Swift. However, in some cases the permanent connections provided by S3 protocol may be the most reasonable option, for example, in users own virtual machine running in cPouta.
+Because of this security concern, Swift is the recommended protocol to be used in many-user servers, such as Mahti and Puhti. Thus, for example, the CSC specific *a_commands* as well as the standard _rclone_ configuration in Puhti are based on Swift. However, in some cases the permanent connections provided by S3 protocol may be the most reasonable option, for example, in users own virtual machine running in cPouta.
 
-Swift and S3 protocols are <u>not</u> compatible in handling objects. Small objects, that do not need to be splitted during upload, can be cross used, but splitted objects can be used only with the protocol that was used for upload. The size limit for splitting an object depends on the settings and on the protocol. The limit is typically between 500 MB and 5 GB.
+Swift and S3 protocols are <u>not</u> compatible when handling objects. Small objects, that do not need to be splitted during upload, can be cross used, but splitted objects can be used only with the protocol that was used for the upload. The size limit for splitting an object depends on the settings and on the protocol. The limit is typically between 500 MB and 5 GB.
 
 Below is a quick list of generic recommendations for selecting the protocol.
  
@@ -157,7 +156,7 @@ Below is a quick list of generic recommendations for selecting the protocol.
  * In any case, settle on one protocol. Do not mix _S3_ and _Swift_.
  * It is better to store a few large objects than a lot of small objects.
 
-There are several different ways of accessing object storage. We support both the _Swift_ and _S3_ protocols to manage the data. Below is just a short list of tools. There are more.
+There are several different ways of accessing object storage. We support both the Swift and S3 protocols to manage the data. Below is just a short list of tools. There are more.
 
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
@@ -174,7 +173,7 @@ There are several different ways of accessing object storage. We support both th
 |wget | Yes | | Same as curl. |
 
 
-Below is a rough table summarizing the available operations with four of the clients. Web client suits well for a basic user who manages with the simple basic functions. The a_commands offer easy-to-use functions for a basic user using Allas either from own computer or from supercomputer. Power users might want to consider the clients Swift and s3cmd. The table shows only the most central functions of the power clients concerning data management in Allas, but there are more.
+Below is a rough table summarizing the available operations with four of the clients. _Web client_ suits well for a basic user who manages with the simple basic functions. The *a_commands* offer easy-to-use functions for a basic user using Allas either from own computer or from supercomputer. Power users might want to consider the clients _Swift_ and _s3cmd_. The table shows only the most central functions of the power clients concerning data management in Allas, but feel free to explore more.
 
 
 | | &nbsp;&nbsp;&nbsp; web client | &nbsp;&nbsp;&nbsp; a_commands | &nbsp;&nbsp;&nbsp;&nbsp; swift &nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s3cmd &nbsp;|

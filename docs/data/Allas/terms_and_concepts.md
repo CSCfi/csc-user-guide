@@ -5,7 +5,7 @@
 
 **Access Control List**
 
-_Access Control List_ (ACL) mechanism can be used to control access to other Allas users.
+_Access Control List_ (ACL) mechanism can be used to control other Allas users' access to your buckets.
 
 &nbsp;
 
@@ -21,7 +21,7 @@ In Allas, the amount of data consumes billing units.
 
 **Bucket**
 
-A _bucket_ is simply a container for objects that may also include metadata describing the bucket.
+A _bucket_ is simply a container for objects and may also include metadata describing the bucket.
 
 &nbsp;
 
@@ -30,20 +30,20 @@ A _bucket_ is simply a container for objects that may also include metadata desc
 **Checksum**
 
 _Checksum_ is a hashed string computed of an object to observe if the object has changed (data integrity). 
-You can get the checksum with command _md5sum_.
+You can get the checksum with command `md5sum`.
 
 &nbsp;
 
 
 **Client**
 
-_Client software_ is used to access the object storage service (Allas). There are three types of clients:
+_Client software_ is used to access an object storage service, such as Allas. There are three types of clients:
 
- * Web browser based access via [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} for basic graphical usage
- * Command-line clients such as [Swift](./using_allas/swift_client.md){:target="_blank"} and [s3cmd](./using_allas/s3_client.md){:target="_blank"} for power users
- * _Programmable interface_ (API) for those who integrate software
+ * Web browser based access via [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} for basic graphical usage.
+ * Command-line clients such as [Swift](./using_allas/swift_client.md){:target="_blank"} and [s3cmd](./using_allas/s3_client.md){:target="_blank"} for power users.
+ * _Programmable interface_ (API) for those who integrate software.
 
-More about the clients in [Protocols](./accessing_allas.md#protocols){target="_blank"}.
+More about the clients in section [Protocols](./accessing_allas.md#protocols){target="_blank"}.
 
 &nbsp;
 
@@ -56,9 +56,9 @@ The basic usage is via _key-value_ pair (for example, name: John).
 &nbsp;
 
 
-**Object Storage**
+**Object storage**
 
-_Object storage_ refers to a computer data storage that manages data as objects instead of files or blocks. Typically, an object consists of the data itself, metadata and a unique identifier. Generally, the data can be anything, for example an image or audio.
+_Object storage_ refers to a computer data storage that manages data as objects instead of files or blocks. Typically, an object consists of the data itself, metadata and a unique identifier. In general, the data can be anything, for example an image or audio.
 
 &nbsp;
 
@@ -66,7 +66,7 @@ _Object storage_ refers to a computer data storage that manages data as objects 
 **OpenStack**
 
 _OpenStack cloud management middleware_ can be used to access Allas.
-[OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} offers some basic functionalities.
+[OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"} offers some basic functionalities for data management in Allas.
 For further information, see [OpenStack](https://www.openstack.org/){:target="_blank"}.
 
 &nbsp;
