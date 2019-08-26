@@ -17,13 +17,14 @@ Some features of the software:
 
 [TOC]
 
-## Available 
+## Available
 
 -   Puhti: 1.4.0, 1.5.2
--   Taito: 
+-   Taito: 0.9.0, 0.10.0, 0.11.0, 1.1.0, 1.2.0, 1.3.0, 1.4.0
 -   Check all available versions (and default version) with `module avail gpaw`
 
 ## License
+
 GPAW is free software available under GPL, version 3+
 
 ## Usage
@@ -57,8 +58,6 @@ module load gpaw
 
 srun gpaw-python input.py
 ```
-
-
 
 ## More information
 
