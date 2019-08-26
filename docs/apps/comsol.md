@@ -1,6 +1,4 @@
-## COMSOL Multiphysics
-
-### Description
+# COMSOL Multiphysics
 
 The COMSOL Multiphysics<sup>®</sup> simulation environment facilitates
 all steps in the modeling process—defining your geometry, specifying
@@ -12,73 +10,53 @@ structural mechanics and electromagnetic analyses. Material properties,
 source terms and boundary conditions can all be arbitrary functions of
 the dependent variables.
 
-------------------------------------------------------------------------
+[TOC]
 
-### Available
+## Available
 
-##### Version on CSC's Servers
+-  Puhti: 5.4
 
-Taito: 5.4, 5.3a and 5.3
+## License
+The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions.
 
-------------------------------------------------------------------------
+## Usage
 
-### Usage
-
-The recommend method to use COMSOL at CSC is via the [NoMachine] client
-on taito-shell. **The terms of use of this software allow its use for
-only the affiliates (staff and students) of Finnish higher education
-institutions.**
-
-After logging in to Taito, type
-
-    module load comsol 
-
-then
-
-    comsol
-
-If you want to use an older version, for example 5.2a, then type
-
-    module load comsol/53a
-
-Sometimes, you may encounter errors relating to OpenGL rendering during
-the start-up. The solution is to force COMSOL to start with software
-rendering using command
-
-    comsol -3drend sw
-
-#### More information
-
-The following modules are available:
+The following modules are currently available:
 
 -   Acoustics
 -   AC/DC
 -   CAD Import
 -   CFD
 -   Heat Transfer
+-   Particle Tracing
 -   Structural Mechanics
 
-------------------------------------------------------------------------
+To start using COMSOL, login to Puhti
 
-### Discipline
+```bash
+$ ssh -Y <cscusername>@puhti.csc.fi
+```
 
-Computational Engineering  
-Other  
+Then
+```bash
+$ module load comsol 
+```
 
-------------------------------------------------------------------------
+and
+```bash
+$ comsol
+```
 
-### References
+Sometimes, you may encounter errors relating to OpenGL rendering during
+the start-up. The solution is to force COMSOL to start with software
+rendering using command
 
-------------------------------------------------------------------------
+```bash
+$ comsol -3drend sw
+```
 
-### Support
+## More information
 
-servicedesk@csc.fi
+- COMSOL Multiphysics home page: [https://www.comsol.com](https://www.comsol.com)
 
-------------------------------------------------------------------------
 
-### Manual
-
-------------------------------------------------------------------------
-
-  [NoMachine]: https://research.csc.fi/-/nomachine
