@@ -10,11 +10,11 @@ You can give another project read-only access to your bucket with [Swift](../../
 
 
 ** &#8226; Sharing URL**  
-In addition, it is possible to make a bucket public, which makes the content available for viewing ('_read-only_') via URLs. The URL to an object in a public bucket is in form of <i>object.pouta.csc.fi/bucket_name/object_name</i> and it can be shared only to wanted audience.
+In addition, it is possible to make a bucket public, which makes the content available for viewing ('_read-only_') via URLs. The URL to an object in a public bucket is in form of <i>object.pouta.csc.fi/bucket_name/object_name</i> and it can be shared only to the wanted audience.
 
 Here is guidance for setting the bucket public with:
 
-* [Web client](../../data/Allas/using_allas/web_client.md#viewing-objects-via-internet){target="_blank"}
+* [Web client](../../data/Allas/using_allas/web_client.md#view-objects-via-internet){target="_blank"}
 * [Swift client](../../data/Allas/using_allas/swift_client.md#temp-urls){target="_blank"}
 * [S3 client](../../data/Allas/using_allas/s3_client.md#s3cmd-and-public-objects){target="_blank"}
 * [a_commands](../../data/Allas/using_allas/a_commands.md#a_publish){target="_blank"}

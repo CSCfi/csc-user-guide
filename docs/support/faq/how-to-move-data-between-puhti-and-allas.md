@@ -1,6 +1,6 @@
 # How to move data from Puhti to Allas and vice versa?
 
-There are several options on how to move your data between Puhti and Allas. This page gives you guidance for the clients <i>a_commands</i>, _swift_, _rclone_ and _s3cmd_.
+There are several options on how to move your data between Puhti and Allas. This page gives you guidance for the data movement with clients <i>a_commands</i>, _swift_, _rclone_ and _s3cmd_.
 
 All the required packages and software needed for the clients are already installed on Puhti. To authenticate to a project you need to run command `$ source /appl/opt/allas_conf`.
 
@@ -37,7 +37,7 @@ Uploading a file called _file.dat_ to that bucket can be done with command `rclo
 $ rclone copy file.dat allas:2000620-raw-data/
 ```
 
-Downloading the file back to Puhti is done with the same _copy_ command:
+Downloading the file back to Puhti is done with the same `rclone copy` command:
 
 ```bash
 $ rclone copy allas:2000620-raw-data/file.dat

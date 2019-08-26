@@ -42,7 +42,7 @@ conn = swiftclient.Connection(
 resp_headers, containers = conn.get_account()
 
 for container in containers:
-   print container
+   print(container)
 EOF
 ```
 Use it to list objects:
