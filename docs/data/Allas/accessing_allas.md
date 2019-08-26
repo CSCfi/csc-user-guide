@@ -93,7 +93,6 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 | a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md){:target="_blank"}. |
 | Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh, more info [below](#openrc). |
 | S3 | More info [here](./using_allas/s3_client.md){:target="_blank"}. |
-| s3cmd	| Configuration file .s3cfg populated. More info [here](./using_allas/s3_client.md){:target="_blank"}. |
 
 
 <a id="openrc"></a>
