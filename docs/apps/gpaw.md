@@ -32,7 +32,7 @@ GPAW is free software available under GPL, version 3+
 Initialize default version:
 
 ```bash
-$ module load gromacs
+$ module load gpaw
 ```
 
 A specific version can be initialized with `module load gpaw/version`, e.g.
