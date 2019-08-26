@@ -156,7 +156,7 @@ Below is a quick list of generic recommendations for selecting the protocol.
  * In any case, settle on one protocol. Do not mix _S3_ and _Swift_.
  * It is better to store a few large objects than a lot of small objects.
 
-There are several different ways of accessing object storage. We support both the _Swift_ and _S3_ protocols to manage the data. Below is just a short list of tools. There are more.
+There are several different ways of accessing object storage. We support both the Swift and S3 protocols to manage the data. Below is just a short list of tools. There are more.
 
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
@@ -173,7 +173,7 @@ There are several different ways of accessing object storage. We support both th
 |wget | Yes | | Same as curl. |
 
 
-Below is a rough table summarizing the available operations with four of the clients. Web client suits well for a basic user who manages with the simple basic functions. The a_commands offer easy-to-use functions for a basic user using Allas either from own computer or from supercomputer. Power users might want to consider the clients Swift and s3cmd. The table shows only the most central functions of the power clients concerning data management in Allas, but there are more.
+Below is a rough table summarizing the available operations with four of the clients. _Web client_ suits well for a basic user who manages with the simple basic functions. The *a_commands* offer easy-to-use functions for a basic user using Allas either from own computer or from supercomputer. Power users might want to consider the clients _Swift_ and _s3cmd_. The table shows only the most central functions of the power clients concerning data management in Allas, but feel free to explore more.
 
 
 | | &nbsp;&nbsp;&nbsp; web client | &nbsp;&nbsp;&nbsp; a_commands | &nbsp;&nbsp;&nbsp;&nbsp; swift &nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s3cmd &nbsp;|
