@@ -12,8 +12,8 @@ The actual compiler commands for building serial application with the two suites
 
 | Compiler suite           | C  | C++ | Fortran |
 | :------------- |:-------------| :-----| :----- |
-| [Intel (https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started)  | icc  | icpc | ifort |
-| [GNU (https://gcc.gnu.org)  | gcc  | g++ | gfortran | 
+| [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started)  | icc  | icpc | ifort |
+| [GNU](https://gcc.gnu.org)  | gcc  | g++ | gfortran | 
 
 Intel and GNU compilers use different compiler options, table below lists recommended basic 
 optimization flags. It is best to start from the safe level and then move up to intermediate or 
