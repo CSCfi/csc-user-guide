@@ -13,20 +13,11 @@ squeue -u <username>
 ```
 A submitted batch job can be cancelled with:
 ```
-cancel <jobid>
+scancel <jobid>
 ```
 
-You can also submit jobs directly from the commandline using
+When a batch job has finished it is good to run `seff` command to check the efficiency of your job. The syntax of the seff command is:
 ```
-srun [OPTIONS] [EXECUTABLE] [EXECUTABLE ARGUMENTS]
+seff jobid
 ```
-The same options defined with `#SBATCH` are usable with `srun`.
 
-!!! Note
-    When using `srun` directly the command only returns once the job has been
-    completed. If you interrupt the command or lose your connection, the job
-    will be canceled. Due to this we do not recommend using srun directly for
-    any larger jobs.
-
-More information on managing batch jobs can be found in
-[Managing Batch Jobs](managing-batch-jobs.md).

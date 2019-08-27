@@ -20,7 +20,6 @@ nav:
         - Getting started: computing/running/getting-started.md
         - Creating a batch job script: computing/running/creating-job-scripts.md
         - Submitting a job: computing/running/submitting-jobs.md
-        - Managing jobs: computing/running/managing-batch-jobs.md
         - MPI jobs: computing/running/mpi-batch-jobs.md
         - Serial and shared memory jobs: computing/running/serial-and-thread-based-batch-jobs.md
         - Array jobs: computing/running/array-jobs.md
