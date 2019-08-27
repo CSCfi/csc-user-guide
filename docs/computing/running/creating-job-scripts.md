@@ -9,9 +9,9 @@ An example of a simple batch job script.
 #!/bin/bash -l
 #SBATCH --job-name=myTest
 #SBATCH --account=project_<project_id>
-#SBATCH --partition=small
 #SBATCH --time=02:00:00
 #SBATCH --mem-per-cpu=2G
+#SBATCH --partition=small
 
 module load myprog/1.2.3
 
@@ -49,13 +49,6 @@ set it will cause your job to be held with the reason "_AssocMaxJobsLimit_"**
 You can check you projects in [My CSC](https://my.csc.fi) in the "My Projects"
 tab.
 
-The partition needs to be set according to the job requirements.
-```
-#SBATCH --partition=small
-```
-
-The currently available partitions can be found [here](batch-job-partitions.md).
-
 Time reservation is set with option `--time`
 
 ```
@@ -74,6 +67,14 @@ it's actual runtime.
 
 sets the required memory per requested cpu-core. If you go over the requested
 memory, your job will be terminated.
+
+The partition needs to be set according to the job requirements.
+```
+#SBATCH --partition=small
+```
+
+!!! Note
+    The currently available partitions can be found [here](batch-job-partitions.md).
 
 
 After defining all the required resources in the batch job script, we define
