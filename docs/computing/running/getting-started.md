@@ -11,8 +11,7 @@ This chapter goes through the basics of creating and submitting batch jobs
 using the SLURM (Simple Linux Utility for Resource Management) batch job
 system.
 
-!!! Note
-    Key concepts of the CSC batch job system:
+!!! Key concepts of the CSC batch job system:
 
     - **Jobs do not run instantly, but are put in a queue**
         - Jobs are executed when there are available resources and depending
