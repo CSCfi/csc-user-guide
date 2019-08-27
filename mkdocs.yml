@@ -12,8 +12,8 @@ nav:
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
   - Applications:
-     - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
+     - By discipline: apps/index.md
   - Support:
      - Tutorials: support/tutorials.md
      - Contact: support/contact.md
