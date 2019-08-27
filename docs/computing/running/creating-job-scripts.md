@@ -73,8 +73,8 @@ The partition needs to be set according to the job requirements.
 #SBATCH --partition=small
 ```
 
-!!! Note
-    The currently available partitions can be found [here](batch-job-partitions.md).
+!!! Note "Available partitions"
+    The currently available batch job partitions can be found [here](batch-job-partitions.md).
 
 
 After defining all the required resources in the batch job script, we define
