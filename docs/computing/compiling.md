@@ -5,7 +5,7 @@
 C/C++ and Fortran applications can be build with Intel or GNU
 compiler suites. The Intel module is loaded by default, and it can changed to
 GNU with the command:  FIXME: what is default?
-```bash
+```
 module swap intel gcc
 ```
 
