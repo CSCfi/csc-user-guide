@@ -58,5 +58,3 @@ $ comsol -3drend sw
 ## More information
 
 - COMSOL Multiphysics home page: [https://www.comsol.com](https://www.comsol.com)
-
-
