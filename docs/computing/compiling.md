@@ -42,7 +42,7 @@ module spider gcc
 There are currently three MPI environments available: **hpcx-mpi**, **mpich**, and **intel-mpi**. 
 We recommend to start with **hpcx-mpi**, and try then others if your applications does not work or 
 performs badly. All MPI implementations can be used with both Intel and GNU compiler suites. The
-MPI environment is taken into use with `module`, i.e.
+MPI environments are used via `module load` i.e.
 
 ```
 module load hpcx-mpi
@@ -51,16 +51,21 @@ module load hpcx-mpi
 When building MPI applications, one should use *mpixxx* compiler wrappers, which differ depending
 on the compiler suite and MPI environment (XXX table is not correct yet XXX):
 
-| Compiler suite  | hpcx-mpi wrapper | mpich wrapper | intel-mpi wrapper |
-| :------------- |:-------------| :-----| :-----|
-| Intel          | mpifort     |mpifort, mpiicc, mpi  | mpiifort |
-| GNU         | mpigcc, mpig++, mpif90 | mpigcc   | mpiicc |
+| Compiler suite  | hpcx-mpi or mpich | intel-mpi |
+| :-------------- |:------------------| :---------|
+| Intel           | mpifort, mpicc, mpicpc |mpiifort, mpiicc, mpiicpc  |
+| GNU             | mpigcc, mpig++, mpif90 | mpigcc, ... |  
 
 
 ## Building OpenMP and hybrid applications
 
 Additional compiler and linker flags are needed when building OpenMP or MPI/OpenMP hybrid 
 applications:
+
+| Compiler suite  | OpenMP flag |
+| :------------- |:-------------|
+| Intel          | -qopenmp     |
+| GNU            | -fopenmp     |
 
 
 
