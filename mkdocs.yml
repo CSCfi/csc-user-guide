@@ -11,6 +11,14 @@ nav:
      - Adding service access for project: accounts/adding-service-access-for-project.md
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
+  - Computing: computing/index.md
+     - Systems: computing/system.md
+     - Disk areas: computing/disk.md
+     - Module environment: computing/modules.md
+     - Running jobs: computing/running.md
+     - Compiling: computing/compiling.md
+#     - Debugging: computing/debugging.md
+#     - Performance analysis: computing/performance.md
   - Applications:
      - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
