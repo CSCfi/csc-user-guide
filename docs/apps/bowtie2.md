@@ -65,7 +65,7 @@ id -g
 You can check all the projects that you belong to, with command:
 
 ```
-grups
+groups
 ``` 
 
 Use MyCSC (https://my.csc.fi) to obtain more specific information about a
