@@ -1,6 +1,6 @@
 # COMSOL Multiphysics
 
-The COMSOL Multiphysics<sup>®</sup> simulation environment facilitates
+The COMSOL Multiphysics simulation environment facilitates
 all steps in the modeling process—defining your geometry, specifying
 your physics, meshing, solving and then post-processing your results.
 
