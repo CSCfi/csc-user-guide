@@ -1,7 +1,9 @@
 <h1> Applications</h1>
 
 ## Biosciences
-
+* [BAMtools](bamtools.md)
+* [Bioconda](bioconda.md)
+* [BioPerl](bioperl.md)
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 
 ## Chemistry
