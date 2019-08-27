@@ -1,7 +1,8 @@
-# Available batch job partitions
+# Batch job partitions
+
+## Puhti batch job partitions
 
 Currently, the following batch are available in **Puhti** for normal nodes:
-
 
 | Partition      |  Time Limit   | Max tasks | Max nodes | Max memory per node |
 |----------------|---------------|-----------|-----------|---------------------|
@@ -14,11 +15,22 @@ Currently, the following batch are available in **Puhti** for normal nodes:
 
 For GPU nodes the following partitions exist:
 
-
 | Partition      |  Time Limit   | Max GPUs  | Max nodes | Max memory per node|
 |----------------|---------------|-----------|-----------|--------------------|
 |gpu_test        |  0.5 hour     |  8        |   2       |    382 GiB         |
 |gpu             |   3 days      |  80       |   20      |    382 GiB         |
+
+
+
+
+!!! note "Notes on partitions"
+
+    - ** Only request the memory you need **
+        - Jobs will be able to run sooner, since in each partition most of the nodes have less memory than the maximum amount.
+        - The billing is based on requested memory, and not used memory.
+    - ** Only use longrun partitions if you have to ** 
+        - These partitions have stricter limits and lower priority
+
 
 
 
