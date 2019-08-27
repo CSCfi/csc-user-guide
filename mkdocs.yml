@@ -12,6 +12,7 @@ nav:
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
   - Computing:
+     - Overview: computing/overview.md
      - Systems: computing/system.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
