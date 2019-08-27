@@ -2,9 +2,9 @@
 
 ## Building CPU applications
 
-In CSC clusters C/C++ and Fortran applications can be build with Intel or GNU
+C/C++ and Fortran applications can be build with Intel or GNU
 compiler suites. The Intel module is loaded by default, and it can changed to
-GNU with the command:
+GNU with the command:  FIXME: what is default?
 
 ```bash
 module swap intel gcc
@@ -112,8 +112,8 @@ module load hpcx-mpi
 ```
 
 When building MPI applications, one should use *mpixxx* compiler wrappers,
-which differ depending on the compiler suite and MPI environment (XXX table
-is not correct yet XXX):
+which differ depending on the compiler suite and MPI environment (FIXME: table
+is not correct yet):
 
 | Compiler suite | hpcx-mpi or mpich      | intel-mpi                 |
 | :------------- | :--------------------- | :------------------------ |
