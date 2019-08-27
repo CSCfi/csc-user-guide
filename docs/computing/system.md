@@ -4,9 +4,9 @@
 ## Puhti supercomputer
 
 Puhti supercomputer was taken in use in August 2019. It is a cluster
-like system, with a variety of different node types. It is targeted at
-a wide range of workloads, and also larger simulations can be run
-before Mahti is enabled.
+system by Atos, with a variety of different node types. It is targeted
+at a wide range of workloads, and also larger simulations can be run
+before Mahti is in use.
 
 
 ### CPU nodes
@@ -24,12 +24,12 @@ The 682 compute nodes have a mix of memory sizes:
    * 768 GB on 12 nodes
    * 1.5 TB on 6 nodes
 
-Interconnect is based HDR InfiniBand by Mellanox. Nodes are connected
+Interconnect is based on HDR InfiniBand by Mellanox. Nodes are connected
 with a 100Gbps HDR100 link, and the topology is a fat tree with a
 blocking factor of approximately 2:1.
 
 
-## GPU nodes
+### GPU nodes
 
 The Puhti-AI Artificial intelligence partition has in total 80 nodes
 with a total peak performance of 2.7 Petaflops. Each node has two
@@ -45,7 +45,7 @@ bandwidth in a non-blocking fat-tree topology.
      
 
 
-## Storage
+### Storage
 
 Puhti has a 5+ PB Lustre parallel storage system providing space for home, project and scratch storage. 
 
