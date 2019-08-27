@@ -4,6 +4,13 @@
 * [BAMtools](bamtools.md)
 * [Bioconda](bioconda.md)
 * [BioPerl](bioperl.md)
+* [BLAST](blast.md)
+* [Bowtie2](bowtie2.md)
+* [CD-hit](cd-hit.md)
+* [Diamond](diamond.md)
+* [Samtools](samtools.md)
+* [Stacks](stacks.md)
+* [Trinity](trinity.md)
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 
 ## Chemistry
