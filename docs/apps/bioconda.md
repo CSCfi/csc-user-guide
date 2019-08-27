@@ -51,7 +51,7 @@ conda create -n my_biotools bedops
 source activate my_biotools
 ```
 After this, commands included in bedops tools can be used. For example:
-```
+```bash
 vcf2bed
 ```
 To deactivate the current conda environment, run command:
