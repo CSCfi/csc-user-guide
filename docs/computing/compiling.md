@@ -1,4 +1,6 @@
-# Compiling C/C++ and Fortran applications
+# Compiling applications
+
+## Building CPU applications
 
 In CSC clusters C/C++ and Fortran applications can be build with Intel or GNU
 compiler suites. The Intel module is loaded by default, and it can changed to
@@ -39,6 +41,57 @@ All available versions of the compiler suites can be found with
 module spider intel
 module spider gcc
 ```
+
+## Building GPU applications
+
+Both CUDA and OpenACC programming models are supported on Puhti. To use them,
+one needs to load specific modules (`module load cuda` for CUDA or
+`module load pgi` for OpenACC).
+
+
+### CUDA
+
+The CUDA compiler (`nvcc`) takes care of compiling CUDA code for the target
+GPU device and passing on the rest to a non-CUDA compiler (`gcc`).
+
+To generate code for a given target device, one needs to tell the CUDA
+compiler what compute capability the target device supports. On Puhti, the
+GPUs (Volta V100) support compute capability 7.0, so one needs specify it with
+`-gencode arch=compute_70,code=sm_70`.
+
+For example, to compile a CUDA kernel (`example.cu`) on Puhti, the command
+would be:
+
+```
+nvcc -gencode arch=compute_70,code=sm_70 example.cu
+```
+
+In principle, one can also target multiple GPU architectures by repeating the
+`-gencode` multiple times for different compute capabilities. On Puhti this is
+not necessary, since there is only one type of GPUs.
+
+
+### OpenACC
+
+OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`, `mpicc`,
+`mpifort`). To enable OpenACC support, one needs to give `-acc` flag to the
+compiler.
+
+To generate code for a given target device, one needs to tell the compiler
+what compute capability the target device supports. On Puhti, the GPUs (Volta
+V100) support compute capability 7.0, so one needs to specify it with
+`-ta=tesla:cc70`.
+
+For example, to compile C code that uses OpenACC directives (`example.c`) on
+Puhti, the command would be:
+
+```
+pgcc -acc -ta=tesla:cc70 example.c
+```
+
+To get information about what the compiler actually did with the OpenACC
+directives, one can e.g. use `-Minfo=all`.
+
 
 ## Building MPI applications
 
