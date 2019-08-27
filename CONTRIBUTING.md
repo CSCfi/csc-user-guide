@@ -21,9 +21,9 @@ cloned.
 cd csc-user-guide
 ```
 
-## Making changes to 'develop'
+## Making changes
 
-The csc-user-guide repository uses the 'develop' as the default
+The csc-user-guide repository uses the 'master' as the default
 branch. When you have cloned the repository, this branch is what you
 see. If you are unsure which branch you are in, you can run `git
 branch`. The active branch can be changed with the `git checkout`
@@ -46,6 +46,39 @@ git commit -v
 git push
 ```
 
+
+## Making changes directly to 'master'
+
+This is not recommended.
+
+## Making changes using GitHub Pull Requests(PR) and branches
+
+Overview:
+
+ - Update local repository
+ - Make a new branch from the master branch
+ - Work and commit in your new branch
+ - Push changes to github
+ - Make a pull request to merge changes from your new branch into the develop branch
+ - Ask a person to review and merge the changes
+
+Method:
+
+```bash
+git pull
+git checkout master
+git checkout -b your_branch_name
+# create some nice content, add files
+git status
+git commit -v
+git push origin your_branch_name
+```
+
+Now you can ask a person to review and merge the changes. One can request
+reviewers in the Github web interface.
+
+After the PR has been merged, the branch on github can be deleted.
+
 Tip 1. Git uses [Vim](https://www.vim.org) as the default editor for commit
 messages. It is possible to change the default editor, but below are
 the most important commands if you do not want to do it right now.
@@ -62,67 +95,6 @@ message](https://chris.beams.io/posts/git-commit/).
 Tip 3. If pushing fails, the most probable reason is that somebody
 else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
-
-
-
-## Making changes directly to 'master'
-
-This is not recommended.
-
-
-
-## Copying changes from 'develop' to 'master'
-
-When you have made changes to 'develop', you can copy them to
-'master'. This is best done file by file. First change to the master
-branch.
-
-```bash
-git checkout master
-```
-
-Select which files you want to 'merge'.
-
-```bash
-git checkout develop example-file.md
-```
-
-Now `example-file.md` is from the development branch and all the rest
-is from the master branch. Commit and push.
-
-```bash
-git commit -v
-git push
-```
-
-You can return to the develoment branch with `git checkout develop`.
-
-## Making changes using GitHub Pull Requests(PR) and branches
-
-Overview:
-
- - Update local repository
- - Make a new branch from the develop branch
- - Work and commit in your new branch
- - Push changes to github
- - Make a pull request to merge changes from your new branch into the develop branch
- - Ask a person to review and merge the changes
-
-Method:
-
-```bash
-git pull
-git checkout develop
-git checkout -b your_branch_name
-# create some nice content, add files
-git commit -v
-git push origin your_branch_name
-```
-
-Now you can ask a person to review and merge the changes. One can request
-reviewers in the Github web interface.
-
-After the PR has been merged, the branch on github can be deleted.
 
 ## Previewing the website using MkDocs
 
