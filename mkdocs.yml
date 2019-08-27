@@ -11,7 +11,7 @@ nav:
      - Adding service access for project: accounts/adding-service-access-for-project.md
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
-  - Computing: computing/index.md
+  - Computing:
      - Systems: computing/system.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
