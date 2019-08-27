@@ -61,7 +61,7 @@ conda deactivate
 ```
 Next time you need to use vcf2bed, it is enough that you run the set-up commands:
 
-```
+```bash
 module load bioconda
 source activate my_biotools
 vcf2bed
