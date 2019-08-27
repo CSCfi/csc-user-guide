@@ -51,6 +51,10 @@ git push
 
 This is not recommended.
 
+## Making changes in the web GUI
+
+In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request".
+
 ## Making changes using GitHub Pull Requests(PR) and branches
 
 Overview:
