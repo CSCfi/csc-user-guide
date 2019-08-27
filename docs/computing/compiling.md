@@ -5,9 +5,11 @@
 In CSC clusters C/C++ and Fortran applications can be build with Intel or GNU
 compiler suites. The Intel module is loaded by default, and it can changed to
 GNU with the command:
-```
+
+```bash
 module swap intel gcc
 ```
+
 Different applications function better with different suites, so selection
 needs to be done on case by case basis.
 
@@ -41,7 +43,7 @@ above).
 
 All available versions of the compiler suites can be found with
 
-```
+```bash
 module spider intel
 module spider gcc
 ```
@@ -66,7 +68,7 @@ GPUs (Volta V100) support compute capability 7.0, so one needs specify it with
 For example, to compile a CUDA kernel (`example.cu`) on Puhti, the command
 would be:
 
-```
+```bash
 nvcc -gencode arch=compute_70,code=sm_70 example.cu
 ```
 
@@ -77,9 +79,8 @@ not necessary, since there is only one type of GPUs.
 
 ### OpenACC
 
-OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`, `mpicc`,
-`mpifort`). To enable OpenACC support, one needs to give `-acc` flag to the
-compiler.
+OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`, `mpicc`,). 
+To enable OpenACC support, one needs to give `-acc` flag to the compiler.
 
 To generate code for a given target device, one needs to tell the compiler
 what compute capability the target device supports. On Puhti, the GPUs (Volta
@@ -89,7 +90,7 @@ V100) support compute capability 7.0, so one needs to specify it with
 For example, to compile C code that uses OpenACC directives (`example.c`) on
 Puhti, the command would be:
 
-```
+```bash
 pgcc -acc -ta=tesla:cc70 example.c
 ```
 
@@ -102,10 +103,11 @@ directives, one can e.g. use `-Minfo=all`.
 There are currently three MPI environments available: **hpcx-mpi**,
 **mpich**, and **intel-mpi**. We recommend to start with **hpcx-mpi**, and
 try then others if your applications does not work or performs badly. All MPI
-implementations can be used with both Intel and GNU compiler suites. The MPI
+implementations can be used with both Intel and GNU compiler suites. With 
+the PGI compiler for GPUs one can use **hpcx-mpi** and **mpich**. The MPI
 environments are used via `module load` i.e.
 
-```
+```bash
 module load hpcx-mpi
 ```
 
@@ -117,7 +119,7 @@ is not correct yet XXX):
 | :------------- | :--------------------- | :------------------------ |
 | Intel          | mpifort, mpicc, mpicpc | mpiifort, mpiicc, mpiicpc |
 | GNU            | mpigcc, mpig++, mpif90 | mpigcc, ...               |
-
+| PGI            | mpicc, mpifort         | Not available             |
 
 ## Building OpenMP and hybrid applications
 
