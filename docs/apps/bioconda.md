@@ -62,7 +62,7 @@ conda deactivate
 Next time you need to use vcf2bed, it is enough that you run the set-up commands:
 
 <pre>
-<b>module load bioconda<b>
+<b>module load bioconda</b>
 source activate my_biotools
 vcf2bed jkjkjkkj
 </pre>
