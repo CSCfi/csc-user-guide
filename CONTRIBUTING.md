@@ -29,33 +29,15 @@ see. If you are unsure which branch you are in, you can run `git
 branch`. The active branch can be changed with the `git checkout`
 command.
 
-Before you start to edit the content, pull the changes made by others
-to your local copy of the repo.
-
-```bash
-git pull
-```
-
-After editing the files, try to push them to GitHub. The commands are
-given below. See also the tips after the commands.
-
-```bash
-git status
-git add example-file.md
-git commit -v
-git push
-```
-
-
 ## Making changes directly to 'master'
 
 This is not recommended.
 
-## Making changes in the web GUI
+## Making changes using pull requests in the web GUI
 
 In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request".
 
-## Making changes using GitHub Pull Requests(PR) and branches
+## Making changes using pull requests on the command line
 
 Overview:
 
@@ -73,6 +55,7 @@ git pull
 git checkout master
 git checkout -b your_branch_name
 # create some nice content, add files
+git add example-file.md
 git status
 git commit -v
 git push origin your_branch_name
