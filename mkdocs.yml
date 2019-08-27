@@ -24,6 +24,7 @@ nav:
         - Serial and shared memory jobs: computing/running/serial-and-thread-based-batch-jobs.md
         - Array jobs: computing/running/array-jobs.md
         - Example job scripts: computing/running/example-job-scripts.md
+        - Available batch job partitions: computing/running/batch-job-partitions.md
      - Compiling: computing/compiling.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md

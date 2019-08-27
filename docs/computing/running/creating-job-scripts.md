@@ -9,7 +9,7 @@ An example of a simple batch job script.
 #!/bin/bash -l
 #SBATCH --job-name=myTest
 #SBATCH --account=project_<project_id>
-#SBATCH --partition=serial
+#SBATCH --partition=small
 #SBATCH --time=02:00:00
 #SBATCH --mem-per-cpu=2G
 
@@ -49,27 +49,12 @@ set it will cause your job to be held with the reason "_AssocMaxJobsLimit_"**
 You can check you projects in [My CSC](https://my.csc.fi) in the "My Projects"
 tab.
 
-The partition i.e. queue needs to be set according to the job requirements.
+The partition needs to be set according to the job requirements.
 ```
-#SBATCH --partition=serial
+#SBATCH --partition=small
 ```
-Different queues have different limits and available resources.
 
-
-_Information about the different queues:_
-
-| Queue          |  Time Limit   |Job node limit | Number of nodes | Memory | Cores/GPUs node   |
-|----------------|---------------|---------------|-----------------|--------|-------------------|
-|Serial\*\*      |  3 days       | 1 node        |     532         | 190G   | 40 cores          |
-|                |               |               |     132         | 382G   |                   |
-|                |               |               |     12          | 764G   |                   |
-|parallel\*\*    |  3 days       | 100 nodes     |     532         | 190G   | 40 cores          |
-|                |               |               |     132         | 382G   |                   |
-|                |               |               |     12          | 764G   |                   |
-|hugemem         |  3 days       |  1 node       |     6           | 1532G  | 40 cores          |
-|gputest         |  30 minutes   |  2 nodes      |     2           | 382G   | 40 cores + 4 GPUs |
-|gpu             |  3 days       |  160 GPUs     |     78          | 382G   | 40 cores + 4 GPUs |
-
+The currently available partitions can be found [here](batch-job-partitions.md).
 
 Time reservation is set with option `--time`
 
