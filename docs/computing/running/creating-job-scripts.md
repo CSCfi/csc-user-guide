@@ -73,7 +73,7 @@ The partition needs to be set according to the job requirements.
 #SBATCH --partition=small
 ```
 
-!!! Note
+!!! Available partitions
     The currently available partitions can be found [here](batch-job-partitions.md).
 
 
