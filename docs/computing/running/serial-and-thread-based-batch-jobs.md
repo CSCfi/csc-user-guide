@@ -1,4 +1,4 @@
-# Serial and Thread Based Batch Jobs
+# Serial and shared memory batch jobs
 Serial jobs and shared memory jobs need to be run inside one computing node. Thus the jobs are limited by the hardware specifications of the available in nodes. In Puhti each node has two processors with 20 cores each, so 40 cores in total.
 
 Sbatch option `--cpus-per-task` is used the define the number of computing cores that the batch job task will use. Option `--nodes=1` ensures that all the reserved cores will be located in the same node and `--ntasks=1` will assign all the reserved computing cores for the one same task.

@@ -34,7 +34,7 @@ Command `scontrol` allows to view SLURM configuration and state. To check when t
 ```
 scontrol show job <jobid> 
 ```
-can be used. A row "StartTime=..." gives an estimate on the job start-up time. It may happen that the job execution time can not be approximated, in which case "StartTime= Unknown". Note, that the "StartTime" may change, e.g., be shortened, as the time goes.
+can be used. A row "StartTime=..." gives a very rough estimate on the job start-up time. It may happen that the job execution time can not be approximated, in which case "StartTime= Unknown". Note, that the "StartTime" may change as jobs terminate early and people submit new jobs.
 
 The `sacct` command can be used to study the log file of the batch job system. Thus it can show information about both active jobs and jobs that have already finished. By default the sacct command shows information about users' own jobs. The sacct command has a wide selection of options and parameters that can be used to select the data to be displayed. 
 

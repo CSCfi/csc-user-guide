@@ -1,7 +1,6 @@
 
 #Batch job Basics 
 
-[TOC]
 
 
 CSC uses a batch job systems to execute computing tasks on our supercomputers. 
@@ -11,15 +10,13 @@ This chapter goes through the basics of creating and submitting batch jobs using
 **The key concepts of the CSC batch job system:**
 
 - Jobs do not run instantly, but are put in a queue
-    - Jobs are executed when there are availabe resources and depending on a priority score 
+    - Jobs are executed when there are available resources and depending on a priority score 
     - The priority score for a job exists to ensure fair sharing of computational resources between all the users of the cluster
-
 - The start time for a job can't be predicted
-    - Depends heavily on acctual runtimes for all user jobs and submission of new jobs
-
+    - Depends heavily on actual runtimes for all user jobs and submission of new jobs
 - Computational resources (runtime, memory, number of cores, etc. ) are requested explicitly.
+    - If the time or memory limits are exceeded, the job will terminated.
 
-- If you go over the time or memory limit, your job will terminated.
 
 
 
@@ -30,7 +27,7 @@ A batch job file will contain definitions for resources to be reserved for the j
 An example of a simple batch job file.
 
 ```
-/bin/bash -l
+#!/bin/bash -l
 #SBATCH --job-name=myTest
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=serial
@@ -41,17 +38,18 @@ module load myprog/1.2.3
 
 myprog -i input -o output
 ```
-The first line with `/bin/bash -l` tells that the file should be interpreted as a bash script (the `-l` flag invokes a login shell, which is
+The first line with `#!/bin/bash -l` tells that the file should be interpreted as a bash script (the `-l` flag invokes a login shell, which is
 needed for the module system to work properly) . 
 
 Lines starting with `#SBATCH` are arguments to the batch system.  
-We will present some of the options, for a list of all possible options,
+We are only using a small part of the options. For a list of all possible options,
 see the [slurm documentation](https://slurm.schedmd.com/srun.html).
 
-The general syntax  is:
+The general syntax for a `#SBATCH` option  is:
 ```
 #SBATCH option_name argument
 ```
+In our example:  
 
 ```
 #SBATCH --jobname=myTest
@@ -92,34 +90,30 @@ Time reservation is set with option `--time`
 ```
 #SBATCH --time=10:00:00
 ```
-Time is given in format __hh:mm:ss__ (optionally __d-hh:mm:ss__, where __d__ is days). Maximum time depends on the queue selected. When time reservation ends, the job is terminated whether it is finished or not, so time reservations should be sufficient. Job will consume billing units according to it's actual runtime. 
+Time is given in the format __hh:mm:ss__ (optionally __d-hh:mm:ss__, where __d__ is days). Maximum time depends on the queue selected. When time reservation ends, the job is terminated whether it is finished or not, so time reservations should be sufficient. Job will consume billing units according to it's actual runtime. 
 
 ```
 #SBATCH --mem-per-cpu=2G
 ```
 sets the required memory per requested cpu-core. If you go over the requested memory, your job will be terminated. 
 
+
+After defining all the required resources in the batch job file, we define what 
+commands we want to run. 
+
 ```
 module load myprog/1.2.3 
-```
-Is needed to make the right modules available for the jobs. For more information about
-modules see [modules](/this/link/is/broken).
-
-
-The example batch script file above runs the command  
-
-```
 myprog -i input -o output 
 ```
-on one node using a single core. Multiple commands can be run in one batch script.
+Note that for modules to be available to batch jobs,
+they need to be loaded in the batch job script.
 
 
 
+For batch jobs using multiple cores and nodes see the following sections:
 
-To run programs using multiple cores and nodes see the following sections:
-
-- [Serial and Thread Based Batch Jobs](serial-and-thread-based-batch-jobs.md)
-- [MPI Based Bath Jobs](mpi-batch-jobs.md)
+- [Serial and shared memory jobs](serial-and-thread-based-batch-jobs.md)
+- [MPI based jobs](mpi-batch-jobs.md)
 - [Array jobs](array-jobs.md)
 
 
@@ -143,7 +137,7 @@ You can also submit jobs directly from the commandline using
 ```
 srun [OPTIONS] [EXECUTABLE] [EXECUTABLE ARGUMENTS] 
 ```
-The same options define with `#SBATCH` are usable with `srun`.
+The same options defined with `#SBATCH` are usable with `srun`.
 
 !!! Note
     When using `srun` directly the command only returns once the job has been completed. 
@@ -152,5 +146,5 @@ The same options define with `#SBATCH` are usable with `srun`.
 
 
 
-More information on running and managing batch jobs in [Managing Batch Jobs](managing-batch-jobs.md).
+More information on managing batch jobs in [Managing Batch Jobs](managing-batch-jobs.md).
 
