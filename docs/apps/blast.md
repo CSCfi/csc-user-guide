@@ -11,20 +11,20 @@ In Puhti you can use pb (Parallel Blast) command for large sets of query sequenc
 
 The most commonly used BLAST commands are:
 
-    **blastn** search hits for a nucleotide sequence from nucleotide database
-    **blastp** search hits for a protein sequence from protein database
-    **blastx** search hits for a nucleotide sequence from protein database
-    **psiblast** do iterative search for a protein sequence from protein database
-    **rpsblast** search hits for a protein sequence from protein profile database
-    **rpstblastn** search hits for a nucleotide sequence from protein profile database
-    **tblastn** search hits for a protein sequence from nucleotide database
-    **tblastx** search hits for a nucleotide sequence from nucleotide database by using the protein translations of both query and database sequences.
+*   **blastn** search hits for a nucleotide sequence from nucleotide database
+*   **blastp** search hits for a protein sequence from protein database
+*   **blastx** search hits for a nucleotide sequence from protein database
+*   **psiblast** do iterative search for a protein sequence from protein database
+*   **rpsblast** search hits for a protein sequence from protein profile database
+*   **rpstblastn** search hits for a nucleotide sequence from protein profile database
+*   **tblastn** search hits for a protein sequence from nucleotide database
+*   **tblastx** search hits for a nucleotide sequence from nucleotide database by using the protein translations of both query and database sequences.
 
 Other blast commands
 
-    **blastdbcmd** retrieve a sequence or a set of sequences form BLAST databases
-    **makeblastdb** create a new BLAST database
-    **blast_formatter** reformat a BLAST archive formatted BLAST result file.
+*    **blastdbcmd** retrieve a sequence or a set of sequences form BLAST databases
+*    **makeblastdb** create a new BLAST database
+*    **blast_formatter** reformat a BLAST archive formatted BLAST result file.
 
 
 ## Available
