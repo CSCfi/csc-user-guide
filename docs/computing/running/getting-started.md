@@ -27,9 +27,8 @@ system.
 
 To get started with running your application, you need to:
 
-1. [Create a batch job script](create-job-scripts.md)
+1. [Create a batch job script](creating-job-scripts.md)
 2. [Submit a batch job](submitting-jobs.md)
-3. [(optional) Manage your job](managing-batch-jobs.md)
 
 If you are already familiar with SLURM, you can also just look at our
 [example batch job scripts](example-job-scripts.md).
