@@ -26,9 +26,13 @@ the results are correct and that the program has better performance.
 
 | Optimisation level | Intel       | GNU               |
 | :----------------- | :---------- | :---------------- |
-| **Safe**           | -O2 -fp-model precise -fp-model source <br/> (Use all three options. Also options <br/> -fp-model precise -fp-model source with **intermediate** and **aggressive** flags to can be utilized to improve the consistency and reproducibility of floating-point results) | -O2	  |
-| **Intermediate**   | -O2 -xHost  | -O3 -march=native |
-| **Aggressive**     | -O3 -xHost -opt-prefetch -unroll-aggressive <br/> -no-prec-div -fp-model fast=2	  | -O3 -march=native <br/> -ffast-math -funroll-loops   |
+| **Safe**           | -O2 -xCORE-AVX512 -fp-model strict | -O2 -march=cascadelake |
+| **Intermediate**   | -O2 -xCORE-AVX512 | -O3 -march=cascadelake |
+| **Aggressive**     | -O3 -xCORE-AVX512 -fast | -O3 -march=cascadelake -ffast-math -funroll-loops |
+
+Please note that not all applications benefit from the AVX-512 vector set
+(`-xCORE-AVX512` or `-march=cascadelake`). It may be a good idea to test also
+with AVX2 (`-xCORE-AVX2` or `-mavx2`) and compare the performance.
 
 Detailed list of options for Intel and GNU compiler can be found from man
 pages (`man icc/ifort`, `man gcc/gfortran` when corresponding programming
