@@ -3,12 +3,15 @@
 ## Building CPU applications
 
 C/C++ and Fortran applications can be build with Intel or GNU
-compiler suites. The Intel module is loaded by default, and it can changed to
-GNU with the command:  FIXME: what is default?
+compiler suites. The compiler suite is selected via the [Modules](modules.md) 
+system, i.e.
 ```
-module swap intel gcc
+module load intel
 ```
-
+or 
+```
+module load gcc
+```
 Different applications function better with different suites, so selection
 needs to be done on case by case basis.
 
@@ -41,7 +44,7 @@ environment is loaded, or in the compiler manuals on the Web (see links
 above).
 
 All available versions of the compiler suites can be found with
-```bash
+```
 module spider intel
 module spider gcc
 ```
@@ -113,8 +116,8 @@ is not correct yet):
 
 | Compiler suite | hpcx-mpi or mpich      | intel-mpi                 |
 | :------------- | :--------------------- | :------------------------ |
-| Intel          | mpifort, mpicc, mpicpc | mpiifort, mpiicc, mpiicpc |
-| GNU            | mpigcc, mpig++, mpif90 | mpigcc, ...               |
+| Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
+| GNU            | mpif90, mpicc, mpicxx | mpif90, mpicc, mpicxx      |
 
 ## Building OpenMP and hybrid applications
 
