@@ -29,7 +29,7 @@ the results are correct and that the program has better performance.
 | :----------------- | :---------- | :---------------- |
 | **Safe**           | -O2 -xCASCADELAKE -fp-model strict | -O2 -march=cascadelake |
 | **Intermediate**   | -O2 -xCASCADELAKE | -O3 -march=cascadelake |
-| **Aggressive**     | -O3 -xCASCADELAKE -fast | -O3 -march=cascadelake -ffast-math -funroll-loops |
+| **Aggressive**     | -O3 -xCASCADELAKE -fp-model fast=2 -no-prec-div | -O3 -march=cascadelake -ffast-math -funroll-loops |
 
 Please note that not all applications benefit from the AVX-512 vector set
 (`-xCASCADELAKE` or `-march=cascadelake`). It may be a good idea to test also
