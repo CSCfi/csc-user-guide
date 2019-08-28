@@ -1,6 +1,6 @@
 # Disk areas
 
-In puhti there are three main disk areas: home, projappl and scratch. 
+In Puhti there are three main disk areas: home, projappl and scratch. 
 
 
 **Home:** Each user can store up to 10 GB of data in their home directory
