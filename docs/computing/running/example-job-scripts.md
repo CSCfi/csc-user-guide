@@ -8,13 +8,13 @@ Below are example job scripts for running different types of programs:
     If you copy them (please do!), remember to change at least the resources
     (time, tasks etc.) to match your needs and to replace `myprog <options>`
     with the executable (and options) of the program you wish to run as well
-    as the `<project_id>` with your project ID.
+    as `<project_id>` with your project ID.
 
 ## OpenMP
 
 ```
 #!/bin/bash -l
-#SBATCH --jobname=example
+#SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=small
 #SBATCH --time=02:00:00
@@ -29,7 +29,7 @@ srun myprog <options>
 
 ```
 #!/bin/bash -l
-#SBATCH --jobname=example
+#SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=large
 #SBATCH --time=02:00:00
