@@ -1,14 +1,14 @@
 # Example batch job scripts
 
-Below are example job scripts for running different types of programs.
+Below are example job scripts for running different types of programs:
 
 [TOC]
 
 !!! note
-    If you copy them (please do!), remember to change the resources (time,
-    tasks etc.) to match your needs and to replace `myprog <options>` with
-    the executable (and options) of the program you wish to run as well as
-    the `<project_id>` with your project ID.
+    If you copy them (please do!), remember to change at least the resources
+    (time, tasks etc.) to match your needs and to replace `myprog <options>`
+    with the executable (and options) of the program you wish to run as well
+    as the `<project_id>` with your project ID.
 
 ## OpenMP
 
