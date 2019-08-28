@@ -29,8 +29,8 @@ nav:
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
   - Applications:
-     - By discipline: apps/index.md
      - In alphabetic order: apps/alpha.md
+     - By discipline: apps/index.md
   - Support:
      - Tutorials: support/tutorials.md
      - Contact: support/contact.md

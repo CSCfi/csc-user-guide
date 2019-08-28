@@ -1,8 +1,8 @@
 # Managing user information
 
-You can edit your profile information as follows.
+How to edit the profile information:
 
 1. Go to [MyCSC](http://my.csc.fi).
-1. On the left navigation menu, choose My profile.
-1. Find the pieces of information that you want to change.
-1. After you have made the changes, click Save.
+1. Choose _My profile_ in the navigation menu on the left.
+1. Locate and modify the information.
+1. Click _Save_.
