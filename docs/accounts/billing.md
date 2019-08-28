@@ -17,9 +17,9 @@ and the total BU consumption per hour is the sum of the above terms. Thus a job 
 
 ### Storage billing
 
-#### Lustre/work disk billing
+#### Lustre project disk billing
 
-The default 1 TiB work/project disk quota is free. Increased quota is charged as follows:
+The default 1 TiB project disk quota is free. Increased quota is charged as follows:
 * 1 TiB consumes **50 000** BUs per year.
 
 #### Allas object storage billing
