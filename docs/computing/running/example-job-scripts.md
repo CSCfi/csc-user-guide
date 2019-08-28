@@ -22,6 +22,9 @@ Below are example job scripts for running different types of programs:
 #SBATCH --cpus-per-task=6
 #SBATCH --mem-per-cpu=4000
 
+# set the number of threads based on the --cpus-per-task above
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
 srun myprog <options>
 ```
 
