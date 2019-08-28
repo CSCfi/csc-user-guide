@@ -23,7 +23,7 @@ module system to work properly) .
 
 Lines starting with `#SBATCH` are arguments to the batch system.
 We are only using a small part of the options. For a list of all possible
-options, see the [slurm documentation](https://slurm.schedmd.com/srun.html).
+options, see the [Slurm documentation](https://slurm.schedmd.com/sbatch.html).
 
 The general syntax for a `#SBATCH` option is:
 
