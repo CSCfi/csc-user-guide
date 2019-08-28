@@ -6,7 +6,7 @@
 #!/bin/bash -l
 #SBATCH --jobname=example
 #SBATCH --account=project_<project_id>
-#SBATCH --partition=serial
+#SBATCH --partition=small
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
@@ -22,7 +22,7 @@ srun myprog <options>
 #!/bin/bash -l
 #SBATCH --jobname=example
 #SBATCH --account=project_<project_id>
-#SBATCH --partition=parallel
+#SBATCH --partition=large
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=50
 #SBATCH --mem-per-cpu=4000
