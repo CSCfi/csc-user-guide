@@ -27,12 +27,12 @@ the results are correct and that the program has better performance.
 
 | Optimisation level | Intel       | GNU               |
 | :----------------- | :---------- | :---------------- |
-| **Safe**           | -O2 -xCORE-AVX512 -fp-model strict | -O2 -march=cascadelake |
-| **Intermediate**   | -O2 -xCORE-AVX512 | -O3 -march=cascadelake |
-| **Aggressive**     | -O3 -xCORE-AVX512 -fast | -O3 -march=cascadelake -ffast-math -funroll-loops |
+| **Safe**           | -O2 -xCASCADELAKE -fp-model strict | -O2 -march=cascadelake |
+| **Intermediate**   | -O2 -xCASCADELAKE | -O3 -march=cascadelake |
+| **Aggressive**     | -O3 -xCASCADELAKE -fast | -O3 -march=cascadelake -ffast-math -funroll-loops |
 
 Please note that not all applications benefit from the AVX-512 vector set
-(`-xCORE-AVX512` or `-march=cascadelake`). It may be a good idea to test also
+(`-xCASCADELAKE` or `-march=cascadelake`). It may be a good idea to test also
 with AVX2 (`-xCORE-AVX2` or `-mavx2`) and compare the performance.
 
 Detailed list of options for Intel and GNU compiler can be found from man
