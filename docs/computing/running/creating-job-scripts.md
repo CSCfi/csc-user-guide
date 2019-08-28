@@ -6,7 +6,7 @@ the job and the commands the user wants to run.
 An example of a simple batch job script.
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=myTest
 #SBATCH --account=project_<project_id>
 #SBATCH --time=02:00:00
@@ -17,9 +17,8 @@ module load myprog/1.2.3
 
 srun myprog -i input -o output
 ```
-The first line with `#!/bin/bash -l` tells that the file should be interpreted
-as a bash script (the `-l` flag invokes a login shell, which is needed for the
-module system to work properly) .
+The first line with `#!/bin/bash` tells that the file should be interpreted
+as a bash script.
 
 Lines starting with `#SBATCH` are arguments to the batch system.
 We are only using a small part of the options. For a list of all possible
