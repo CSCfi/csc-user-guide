@@ -6,7 +6,7 @@ The Puhti FMI partition is available only for users from FMI. The FMI users, how
 
 A project can only use either the FMI partition or the general partition and CSC's other services, not both. Hence, if an FMI project manager wants use both the general partition/CSC's other services and the FMI partition, he or she must create separate projects.
 
-A project for the general partition and CSC's other services is created as described in [https://docs.csc.fi/#accounts/creating-new-project/](https://docs.csc.fi/#accounts/creating-new-project/). For project type please choose Academic and add Puhti and/or other services as needed as described in [https://docs.csc.fi/#accounts/adding-service-access-for-project/](https://docs.csc.fi/#accounts/adding-service-access-for-project/).
+A project for the general partition and CSC's other services is created as described in [Creating new project](https://docs.csc.fi/#accounts/creating-new-project/) page. For project type please choose Academic and add Puhti and/or other services as needed as described in [Adding service access for project](https://docs.csc.fi/#accounts/adding-service-access-for-project/) page.
 
 A project for the FMI partition is created similarly, but for the service Puhti-FMI is chosen. 
 
