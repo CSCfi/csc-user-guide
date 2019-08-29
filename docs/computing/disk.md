@@ -12,8 +12,6 @@ familiar with them before you start using Puhti.
 
 
 
-
-
 ## Home directory
 
 Each Puhti user has a home directory (`$HOME`) that can contain up to 10 GB of
@@ -48,12 +46,30 @@ space for the data that is used in Puhti. Scratch directory is not meant for
 long term data storage and **files that have not been used for 90 days will
 be automatically removed**.
 
-Note that this folder is shared by **all users** in a project.
+## ProjAppl directory
 
-As the path of the project directory is dependent on the project ID, you must
-first find out the project number you want to use. You can check the project
-names from [MyCSC portal](https://my.csc.fi).
+Each project has also a 50 GB project application disk space in the directory
+`/projappl/project_<project_id>`.
 
+It is meant for storing applications you have compiled yourself, libraries
+etc. that you share among the project. It is not a personal storage space, but
+is shared with all the members of the project team.
+
+It is not meant for running applications, use scratch instead for that
+purpose.
+
+## Using Scratch and ProjAppl directories 
+
+As the paths of the project specific directories is dependent on the project ID, 
+you must first find out the project number you want to use. You can check the project
+names from [MyCSC portal](https://my.csc.fi). Note that not all CSC projects 
+do have Puhti access so you won't necessary find a *scratch* or *projappl* directory 
+for all your CSC projects.
+
+To get an overview of your directories in Puhti, run command:
+```
+csc-workspaces
+```
 For example, if you are member in two projects: *project_2002291*
 and *project_3587167*, then you have access to their scratch directories:
 ```
@@ -67,10 +83,6 @@ cd /scratch/project_2002291
 Please note that not all CSC projects do have Puhti access so you won't
 necessary find a *scratch* or *projappl* directory for all your CSC projects.
 
-To get an overview of your directories in Puhti, run command:
-```
-csc-workspaces
-```
 If you are mostly using just one project in Puhti, you can set the
 environment variables $SCRATCH and $PROJAPPL to point to the *scratch* and
 *projappl* directories of a CSC project. This setting can be done with
@@ -79,21 +91,15 @@ command:
 csc-workspaces set <i>project_ID</i>
 </pre>
 
-Scratch folder is accessible for all the members of the project. However the
-files and directories are not automatically accessible for other group members.
-If you want to have your data available for your group members, you have to
-either change the default access permissions with the `umask` command before
-you start working with your data, or by using the `chmod` command after you
-have created new files and folders.
+Scartach and ProjAppl directories are shared by **all users** in a project. Also all new files 
+and directories are fully accessible for other group members (including read, write and
+execution permissions). If you want to restrict access from your group members, you can 
+reset the permissions with _chmod_ command.
 
-For example, to give all group members read-only permissions to all new files,
-you can use the command:
-```
-umask 027
-```
-Alternatively you can run command:
+For example, to set read-only permissions for your group members for directory _my_directory_ , 
+you can use command:
 <pre>
-chmod -R g+rx <i>new_directory</i> 
+chmod -R g-w my_directory
 </pre>
 
 
@@ -101,19 +107,6 @@ As mentioned earlier, scratch directory is intended for only processing data.
 Any data that should be preserved for a longer time should be copied to the
 Allas storage server. Instructions for backuping files from Puhti to Allas will 
 appear here, once the Allas storage service becomes available.
-
-
-## ProjAppl directory
-
-Each project has also a 50 GB project application disk space in the directory
-`/projappl/project_<project_id>`.
-
-It is meant for storing applications you have compiled yourself, libraries
-etc. that you share among the project. It is not a personal storage space, but
-is shared with all the members of the project team.
-
-It is not meant for running applications, use scratch instead for that
-purpose.
 
 
 ## Increasing Quotas
