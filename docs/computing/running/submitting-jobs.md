@@ -16,8 +16,5 @@ A submitted batch job can be cancelled with:
 scancel <jobid>
 ```
 
-When a batch job has finished it is good to run `seff` command to check the efficiency of your job. The syntax of the seff command is:
-```
-seff jobid
-```
+
 
