@@ -4,11 +4,11 @@ In Puhti there are three main disk areas: **home**, **projappl** and
 **scratch**. These directories have specifics purpose and you should be
 familiar with them before you start using Puhti.
 
-|              | Default quota | Personal/project | Environment variable | path                             | Cleaning      |
-| ------------ | ------------- | ---------------- | -------------------- | -------------------------------- | ------------- |
-| **home**     | 10 GiB        | Personal         | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
-| **projappl** | 50 GiB        | Project          | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
-| **scratch**  | 1 TiB         | Project          | Not available        | /scratch/project_\<project_id\>  | Yes - 90 days |
+|              | Default quota | Owner    | Environment variable | Path                                            | Cleaning      |
+| ------------ | ------------- | -------- | -------------------- | ----------------------------------------------- | ------------- |
+| **home**     | 10 GiB        | Personal | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
+| **projappl** | 50 GiB        | Project  | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
+| **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
 
 
 ## Home directory
@@ -86,8 +86,8 @@ the Allas storage service becomes available.
 
 ## ProjAppl directory
 
-Each project has also a project application disk space (default quota 50 GB)
-in the directory `/projappl/project_<project_id>`.
+Each project has also a 50 GB project application disk space in the directory
+`/projappl/project_<project_id>`.
 
 It is meant for storing applications you have compiled yourself, libraries
 etc. that you share among the project. It is not a personal storage space, but
