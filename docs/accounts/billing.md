@@ -16,7 +16,8 @@ In the billing scheme the BU consumption rate of a compute job depends linearly 
  * each reserved GPU consumes **60** BUs per hour.
 
 and the total BU consumption per hour is the sum of the above terms. Thus a job uses BUs as follows:
-> Total BUs = ( NCores * 1 + MemGiBs * 0.1 + NVMeGiBs * 0.006 + NGPUs * 60 ) * Walltime hours
+
+` Total BUs = ( NCores * 1 + MemGiBs * 0.1 + NVMeGiBs * 0.006 + NGPUs * 60 ) * Walltime hours `
 
 ### Lustre scratch disk billing
 
