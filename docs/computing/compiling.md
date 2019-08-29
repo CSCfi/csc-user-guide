@@ -121,13 +121,12 @@ module load hpcx-mpi
 ```
 
 When building MPI applications, one should use *mpixxx* compiler wrappers,
-which differ depending on the compiler suite and MPI environment (FIXME: table
-is not correct yet):
+that differ depending on the compiler suite and the MPI environment:
 
 | Compiler suite | hpcx-mpi or mpich      | intel-mpi                 |
 | :------------- | :--------------------- | :------------------------ |
 | Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
-| GNU            | mpif90, mpicc, mpicxx | mpif90, mpicc, mpicxx      |
+| GNU            | mpif90, mpicc, mpicxx  | mpif90, mpicc, mpicxx     |
 
 
 ## Building OpenMP and hybrid applications
