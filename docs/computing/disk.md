@@ -111,7 +111,7 @@ appear here, once the Allas storage service becomes available.
 
 ## Increasing Quotas
 
-Allas storage server is the preferred service for storing research data at CSC. 
+Allas storage service is the preferred site for storing research data at CSC. 
  
 The size of scratch directory can be increased, but only if the analysis task requires that 
 all the data is simultaneously available on the disc environment of Puhti. In these cases, send a request to
