@@ -50,7 +50,7 @@ puhti_default
 or 
 <pre>
 puhti_default <i>project_ID</i>
-<pre>
+</pre>
 
 To permanently set environment variables $SCRATCH and $PROCJAPPL to pont to the scratch and projappl directories of your most used CSC project. 
 
