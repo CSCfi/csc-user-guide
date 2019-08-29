@@ -4,7 +4,6 @@ A batch job script will contain definitions for resources to be reserved for
 the job and the commands the user wants to run.
 
 An example of a simple batch job script.
-
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
@@ -109,12 +108,22 @@ If the application has some command line option to set the number of threads/pro
 
 ## MPI Based Batch Jobs
 
-- In MPI jobs each task has its own memory allocation and thus the tasks can be distributed between nodes.
-- The number of MPI tasks to launch is set with the `--ntasks` option. 
-- If more fine tuned control is needed, the exact number of nodes and number of tasks per node can be specified with
+ In MPI jobs each task has its own memory allocation and thus the tasks can be distributed between nodes.
+ 
+ The number of MPI tasks to launch is set with:
+``` 
+ --ntasks=<number_of_mpi_tasks>
+```
+ 
+ If more fine tuned control is needed, the exact number of nodes and number of tasks per node can be specified with
 `--nodes` and `--ntasks-per-node` respectively.
-- MPI programs can **not** be started with mpirun or mpiexec, `srun` has to be used.
-- To request more cores per MPI task, you can use the argument `--cpus-per-task`.The default value is one core per task. 
-- It is recommended to request memory using the `--mem-per-cpu` option.
+
+To request more cores per MPI task, you can use the argument `--cpus-per-task`.The default value is one core per task. 
+It is recommended to request memory using the `--mem-per-cpu` option.
+
+
+!!! Note
+    - MPI programs can **not** be started with mpirun or mpiexec, `srun` has to be used
+    - A MPI module has to be loaded in the batch job script for the submisson to work properly.
 
 
