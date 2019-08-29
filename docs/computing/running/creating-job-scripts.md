@@ -3,6 +3,11 @@
 A batch job script will contain definitions for resources to be reserved for
 the job and the commands the user wants to run.
 
+[TOC]
+
+
+## Basic batch job script
+
 An example of a simple batch job script.
 ```
 #!/bin/bash
@@ -101,12 +106,16 @@ In the case of threads-based jobs, the `--mem` option is recommended for memory 
 
 In most cases it is most efficient match the number of reserved cores to the number of threads or processes an application uses, but you should check the documentation for application specific details.
 
-If the application has some command line option to set the number of threads/processes/cores to use, it should always be set to make sure the software behaves as expected. Some applications use just one core by default even if more are reserved. Some other applications may try to use all the cores in the node even if only some are reserved. Environment variable __$SLURM_CPUS_PER_TASK__ can be used instead of a number. This way the command does need to be edited if `--cpus-per-task` is changed.
+If the application has some command line option to set the number of threads/processes/cores to use,
+it should always be set to make sure the software behaves as expected. Some applications use just one core by default even if more are reserved.
+Some other applications may try to use all the cores in the node even if only some are reserved. 
+Environment variable `$SLURM_CPUS_PER_TASK` can be used instead of a number. This way the command does need to be edited if `--cpus-per-task` is changed. Use the environment variable `OMP_NUM_THREADS` to set the number of threads a program is using. 
 
 
 
 
-## MPI Based Batch Jobs
+
+## MPI based batch jobs
 
  In MPI jobs each task has its own memory allocation and thus the tasks can be distributed between nodes.
  
@@ -124,7 +133,7 @@ It is recommended to request memory using the `--mem-per-cpu` option.
 
 !!! Note
     - MPI programs can **not** be started with mpirun or mpiexec, `srun` has to be used
-    - A MPI module has to be loaded in the batch job script for the submisson to work properly.
+    - A MPI module has to be loaded in the batch job script for the submission to work properly.
 
 ## Additional resources in batch jobs
 
@@ -132,7 +141,7 @@ It is recommended to request memory using the `--mem-per-cpu` option.
 ### Local storage 
 
 Some nodes in Puhti have a local fast storage available for jobs.
-The local storage is good for IO-intesive programs.
+The local storage is good for IO-intensive programs.
 
 The local storage is available on:
     - All gpu-nodes (`gpu` and `gputest` partitions)
@@ -160,5 +169,12 @@ available on the `gpu` and `gputest` partitions using the option:
 --gres=gpu:v100:<number_of_gpus_per_node>
 ```
 The `--gres` reservation is on a per node basis. There are 4 GPUs per gpu-node. 
+
+Multiple resources are requested with a comma separated list.
+So if you need both GPU and local storage the syntax is:
+```
+--gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_memory_per_node>
+```
+
 
 
