@@ -23,23 +23,31 @@ details can be found from the [Lmod homepage].
 
 The syntax of the module commands is:
 
-    module command module-name
+```text
+module command module-name
+```
 
 The currently loaded modules, i.e. what your current environment is,
 are listed with:
 
-    module list
+```text
+module list
+```
 
 For general module information one uses command `module help`. For
 example, to get more information about loaded module `intel`,
 use:
 
-    module help intel
+```text
+module help intel
+```
 
 Load new modules to your environment with `load` command, for
 example load the `intel-mpi` module using:
 
-    module load intel-mpi
+```text
+module load intel-mpi
+```
 
 Note that you can only load modules that are compatible with other
 modules that you have loaded. That is, you can not load modules that are
@@ -49,9 +57,11 @@ modules that have not been loaded.
 Modules that are not needed or that are conflicting with other modules
 can be unloaded using `unload`:
 
-    module unload intel-mkl
+```text
+module unload intel-mkl
+```
 
-Most commonly used module commands.
+Here is a list of most commonly used module commands:
 
 |  Module command               |  Description                                  |
 |-------------------------------|-----------------------------------------------|
@@ -68,7 +78,9 @@ Most commonly used module commands.
 You can list the modules that are compatible with your current module
 set by using:
 
-    module avail
+```text
+module avail
+```
 
 Because of the hierarchical structure of the Lmod system you can not
 load all installed modules using just one `module load` command. The
@@ -79,36 +91,53 @@ not work.
 
 You can get the list of all installed software packages using:
 
-    module spider
+```text
+module spider
+```
 
 You can also give the name or part of the name of the module as an
 argument, for example:
 
-    module spider int
+```text
+module spider int
+```
 
 will list all modules with string "int" in the name. More detailed
 description of a module can be printed using the full module name with
 version number, for example:
 
-    module spider fftw/3.3.8
+```text
+module spider fftw/3.3.8
+```
 
 ### Solving module dependencies
 
 Some modules depend on other modules. In these cases the
 information from the module system is is an error message, for example:
 
-    module load parallel-netcdf
+```text
+$ module load parallel-netcdf
 
-Lmod has detected the following error:  These module(s) exist but cannot be loaded as requested: "parallel-netcdf"
+Lmod has detected the following error:  These module(s) exist but 
+cannot be loaded as requested: "parallel-netcdf"
 Try: "module spider parallel-netcdf" to see how to load the module(s). 
    
-    module spider parallel-netcdf
+$ module spider parallel-netcdf
 
-For detailed information about a specific "parallel-netcdf" module (including how to load the modules) use the module's full name.
+----------------------------------------------------------------------------
+  parallel-netcdf:
+----------------------------------------------------------------------------
+     Versions:
+        parallel-netcdf/1.8.0
+
+----------------------------------------------------------------------------
+  For detailed information about a specific "parallel-netcdf" module 
+  (including how to load the modules) use the module's full name.
   For example:
 
-     module spider parallel-netcdf/1.8.0
-
+$ module spider parallel-netcdf/1.8.0
+----------------------------------------------------------------------------
+```
 
 In these cases the
 `module avail` command does not even list the module and `module load`
@@ -116,18 +145,19 @@ command can not find it. Easiest way to check what environment is
 required for the desired module is to use `module spider` command with
 version information. For example:
 
-    module spider parallel-netcdf/1.8.0
-    ------------------------------------------------------------------
-     parallel-netcdf: parallel-netcdf/1.8.0
-    ------------------------------------------------------------------
-     You will need to load all module(s) on any one of the lines below before 
-     the "parallel-netcdf/1.8.0" module is available to load.
+```text
+$ module spider parallel-netcdf/1.8.0
+------------------------------------------------------------------
+ parallel-netcdf: parallel-netcdf/1.8.0
+------------------------------------------------------------------
+ You will need to load all module(s) on any one of the lines below before 
+ the "parallel-netcdf/1.8.0" module is available to load.
 
-     gcc/9.1.0  hpcx-mpi/2.4.0
-     intel/19.0.4  hpcx-mpi/2.4.0
-    ...
-
-  
+ gcc/9.1.0  hpcx-mpi/2.4.0
+ intel/19.0.4  hpcx-mpi/2.4.0
+...
+```
+ 
 So in this case you will have to load one the listed environments before
 you can proceed with `module load` command.
 
@@ -146,17 +176,19 @@ compiler there is a module for a supported MPI library. When user
 switches the compiler module, the module system tries to find the
 correct versions of loaded modules:
 
-    module list
-    Currently Loaded Modules:
-      1) gcc/9.1.0   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
+```text
+$ module list
+Currently Loaded Modules:
+ 1) gcc/9.1.0   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
 
-    module swap gcc intel
-    Due to MODULEPATH changes the following modules have been reloaded:
-     1) hpcx-mpi/2.4.0     2) parallel-netcdf/1.8.0
+$ module swap gcc intel
+Due to MODULEPATH changes the following modules have been reloaded:
+ 1) hpcx-mpi/2.4.0     2) parallel-netcdf/1.8.0
 
-    module list
-    Currently Loaded Modules:
-     1) intel/19.0.4   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
+$ module list
+Currently Loaded Modules:
+ 1) intel/19.0.4   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
+```
 
 If a correct version is not found, the module system *deactivates* these
 modules. In practice, the module is unloaded, but it is marked so that
@@ -177,6 +209,8 @@ directory. For example, if you add the module files to
 **$HOME/modulefiles**, you can access them after you add the path to the
 modules search path using command:
 
-    module use $HOME/modulefiles
+```text
+module use $HOME/modulefiles
+```
 
   [Lmod homepage]: https://lmod.readthedocs.io/en/latest/
