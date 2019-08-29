@@ -54,13 +54,7 @@ puhti_default <i>project_ID</i>
 
 To permanently set environment variables $SCRATCH and $PROCJAPPL to pont to the scratch and projappl directories of your most used CSC project. 
 
-
-
-
-
-```
-groups
-```
+## Projaappl directory
 
 **Projappl:** Project application folder for storing applications you have compiled yourself, libraries,
 etc. there is also a persistent **project based** storage with a
@@ -71,15 +65,6 @@ project team.
 
 It is not meant for running applications, use scratch for that
 purpose.
-
-
-
-|        |  Default quota   | Personal/project |  Environment variable |  path                          | Cleaning       |
-|--------|------------------|------------------|-----------------------|--------------------------------|----------------|  
-| Home   | 10 GiB           | Personal         | $(HOME)               | /home/<user-name>              |  No            | 
-| Projappl | 50 GiB         | Project          |   Not available       | /projappl/project_<project_id> | No             |
-| Scratch | 1 TiB           | Project          |   Not available       | /scratch/project_<project_id>  | Yes - 90 days  |
-
 
 
 
