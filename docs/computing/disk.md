@@ -47,8 +47,13 @@ csc-workspaces
 ```
 If you are mostly using just one project in Puhti, you can set environment variables $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. This setting can be done with commmad:
 <pre>
-csc-defproj <i>project_ID</i>
+csc-workspaces set <i>project_ID</i>
 </pre>
+
+Scratch folder is accessible for all the members of the project. 
+
+As mentoned earlier, scratch directory is intended for only processing data. The data, that should be preserverd for longer time should be copied to Allas storage server. Backup file from Puhti to Allas will ppeaer here, once Allas storageservice becomes available. 
+
 
 
 
