@@ -6,7 +6,7 @@ Collection of Python libraries for data analytics and machine learning.
 
 The `python-data` module is available on Puhti only.
 
-Activates a conda environment that comes with a recent version of Python, and includes several data analytics and machine learning libraries, for example:
+Includes a recent version of Python and several data analytics and machine learning libraries, for example:
 
 - [Dask](https://dask.org/): Scalable analytics in Python
 - [Gensim](https://radimrehurek.com/gensim/): Topic modelling
@@ -29,25 +29,24 @@ All packages are licensed under various free and open source licenses (FOSS).
 
 To use this software on Puhti, initialize it with:
 
-```bash
-$ module load python-data
+```text
+module load python-data
 ```
 
 to access the default version.
 
 This will show all available versions:
 
-```bash
-$ module avail python-data
+```text
+module avail python-data
 ```
 
 Versions are numbered as `X.Y.Z-N`, where `X.Y.Z` is the version of the Python interpreter included, and `N` is a running version number starting from 1.
 
 To check the exact packages and version included a specific module, you can run for example:
 
-```bash
-$ module load python-data/3.7.3-1
-$ conda list
+```text
+module help python-data/3.7.3-1
 ```
 
 !!! note 

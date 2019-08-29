@@ -10,7 +10,7 @@ The `pytorch` module is available on Puhti only.  Currently supported PyTorch ve
 - 1.1.0
 - 1.0.1
 
-Activates a conda environment that includes [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.  Also includes all the packages from [Python Data](python-data.md).
+Includes [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.  Also includes all the packages from [Python Data](python-data.md).
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 
@@ -24,23 +24,22 @@ PyTorch is BSD-style licensed, as found in the [LICENSE file](https://github.com
 
 To use this software on Puhti, initialize it with:
 
-```bash
-$ module load pytorch
+```text
+module load pytorch
 ```
 
 to access the default version.
 
 This will show all available versions:
 
-```bash
-$ module avail pytorch
+```text
+module avail pytorch
 ```
 
 To check the exact packages and version included a specific module, you can run for example:
 
-```bash
-$ module load pytorch/1.2.0
-$ conda list
+```text
+module help pytorch/1.2.0
 ```
 
 !!! note 
