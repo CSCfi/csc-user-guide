@@ -20,8 +20,9 @@ and other small personal data. If you fill up your home directory so that no new
 
 Note, that home directory is the only user specific directory in Puhti. Other directories are project specific so if you are a memeber in several projects you can have access to several _scratch_ or _projappl_ directories, but still you have just one home directory. Home directory is not automatically backed up by CSC (the same applies to all directories in Puhti), so if some data is accidentally deleted by the user, it can't be recovered.
 
+## Scratch directory
 
-**Scratch:** Each project has 1 TB of scartch disk space in directory `/scratch/project_<project_id>`.
+Each project has 1 TB of scartch disk space in directory `/scratch/<project_id>`.
 This fast paralle scratch space is intented to be used as a temporary storage space for the data that is used in Puhti.
 Scratch directory is not meant for long term data storage and files that have not been used for 90 days will be
 automatically removed.
@@ -42,6 +43,19 @@ Moving to scratch directory of project_2002291 is done with command:
 ```
 cd /scratch/project_2002291
 ```
+If you are mostly using just one project in Puhti, you can use command
+```
+puhti_default
+```
+or 
+<pre>
+puhti_default <i>project_ID</i>
+<pre>
+
+To permanently set environment variables $SCRATCH and $PROCJAPPL to pont to the scratch and projappl directories of your most used CSC project. 
+
+
+
 
 
 ```
