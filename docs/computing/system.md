@@ -22,12 +22,14 @@ nodes** with a total peak performance of 2.7 Petaflops. Each node has
 two latest generation Intel Xeon processors, code name Cascade Lake,
 with 20 cores each running at 2.1 GHz. They also have four Nvidia
 Volta V100 GPUs with 32 GB of memory each. The nodes are equipped with
-384 GB of main memory and 3.6 TB of fast local storage.
-
-This partition is engineered to allow GPU intensive workloads to scale
-well to multiple nodes. The interconnect is based on a dual rail
-HDR100 interconnect network connectivity providing 200Gbps aggregate
+384 GB of main memory and 3.6 TB of fast local storage. This partition
+is engineered to allow GPU intensive workloads to scale well to
+multiple nodes. The interconnect is based on a dual rail HDR100
+interconnect network connectivity providing 200Gbps aggregate
 bandwidth in a non-blocking fat-tree topology.
+
+
+The detailed list of nodes is as follows:
 
 
 | Name      |  Number of nodes |  Compute       | Cores                  | Memory  | Local disk |     
