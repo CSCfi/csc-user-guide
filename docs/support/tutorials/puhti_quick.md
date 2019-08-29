@@ -1,4 +1,5 @@
-# Puhti quick start guide
+# Moving to Puhti from Taito and Sisu
+
 A quick start guide for Puhti users. It is assumed
 that you have previously used CSC cluster resources like Taito/Sisu. If not,
 you can start by looking [here](../../computing/overview.md).
@@ -82,6 +83,7 @@ More information about billing [here](../../accounts/billing.md)
 - It is currently not possible to ssh to the compute nodes
 - Compute nodes **do not** currently have Internet access 
 
+
 ## Storage
 
 The **project based** shared storage can be found under `/scratch/project_<project_id>`.
@@ -90,3 +92,10 @@ and files that have not been used for 90 days will be automatically removed. The
 storage with a default quota of 50 GB. It is located under `/projappl/project_<project_id>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
 
 More detailed information about storage can be found [here](../../computing/disk.md).
+
+
+## Moving data 
+Moving larger data sets is recommended to be done once Allas object storage is in production.
+In the meanwhile you can use for example `rsync` or `scp` to move data to Puhti. 
+
+
