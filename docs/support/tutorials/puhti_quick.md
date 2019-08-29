@@ -25,6 +25,7 @@ before MPI and other libraries appear.
 More information about modules [here](../../computing/modules.md).
 
 ## Compilers
+
 The system comes with two compiler families installed, the Intel and GCC compilers. 
 We have installed both the 18 and 19 versions of the Intel compiler, and for GCC 9.1, 8.3 and 7.4 are available.
 The pgi compiler 19.7 is available for building gpu applications.
@@ -72,6 +73,7 @@ and example batch job scripts are found [here](../../computing/running/example-j
     flag. Failing to do so will cause your job to be held with the reason “_AssocMaxJobsLimit_”.
     Running `srun` directly also requires the flag.
 
+More information about billing [here](../../accounts/billing.md)
 
 ## Network
 
