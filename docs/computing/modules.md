@@ -2,7 +2,7 @@
 
 The module system enables managing several incompatible software environments
 within one computer. Use the module command to query available applications,
-libraries or compiler suites and dynamically initialize them for use. 
+libraries or compiler suites and dynamically initialize them for use.
 The module system should be used both in interactive and batch jobs.
 
 *Environment modules* provide a convenient way to set up everything
@@ -10,11 +10,11 @@ required by a particular application. Module system modifies the
 environment variables of the user's shell so that the correct versions
 of executables are in the path and linker can find the correct version
 of needed libraries. For example, the command `mpicc` points to
-different compilers depending of the loaded module.
+different compilers depending on the loaded module.
 
 CSC uses environment modules called
 **Lmod**. It is developed at Texas Advanced Computing Center (TACC) and
-it is implemented using *Lua* programming language. More technical
+is implemented using the *Lua* programming language. More technical
 details can be found from the [Lmod homepage].
 
 [TOC]
@@ -34,16 +34,15 @@ are listed with:
 module list
 ```
 
-For general module information one uses command `module help`. For
-example, to get more information about loaded module `intel`,
-use:
+For general information about a module, one uses command `module help`. For
+example, to get more information about loaded module `intel`, use:
 
 ```text
 module help intel
 ```
 
 Load new modules to your environment with `load` command, for
-example load the `intel-mpi` module using:
+example to load the `intel-mpi` module use:
 
 ```text
 module load intel-mpi
@@ -118,10 +117,10 @@ information from the module system is an error message, for example:
 ```text
 $ module load parallel-netcdf
 
-Lmod has detected the following error:  These module(s) exist but 
+Lmod has detected the following error:  These module(s) exist but
 cannot be loaded as requested: "parallel-netcdf"
-Try: "module spider parallel-netcdf" to see how to load the module(s). 
-   
+Try: "module spider parallel-netcdf" to see how to load the module(s).
+
 $ module spider parallel-netcdf
 
 ----------------------------------------------------------------------------
@@ -131,7 +130,7 @@ $ module spider parallel-netcdf
         parallel-netcdf/1.8.0
 
 ----------------------------------------------------------------------------
-  For detailed information about a specific "parallel-netcdf" module 
+  For detailed information about a specific "parallel-netcdf" module
   (including how to load the modules) use the module's full name.
   For example:
 
@@ -150,14 +149,14 @@ $ module spider parallel-netcdf/1.8.0
 ------------------------------------------------------------------
  parallel-netcdf: parallel-netcdf/1.8.0
 ------------------------------------------------------------------
- You will need to load all module(s) on any one of the lines below before 
+ You will need to load all module(s) on any one of the lines below before
  the "parallel-netcdf/1.8.0" module is available to load.
 
  gcc/9.1.0  hpcx-mpi/2.4.0
  intel/19.0.4  hpcx-mpi/2.4.0
 ...
 ```
- 
+
 So in this case you will have to load one the listed environments before
 you can proceed with `module load` command.
 
