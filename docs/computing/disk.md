@@ -37,22 +37,21 @@ For example if you are member inpouta projects, _project_2002291_ and _project_3
 /scratch/project_2002291
 /scratch/project_3587167
 ```
-Note that all CSC projects do not have Puhti access so you don't necessary find a _scratch_ or _projappl_ directory for all your CSC projects.
-
 Moving to scratch directory of project_2002291 is done with command:
 ```
 cd /scratch/project_2002291
 ```
-If you are mostly using just one project in Puhti, you can use command
+Note that all CSC projects do not have Puhti access so you don't necessary find a _scratch_ or _projappl_ directory for all your CSC projects. To get an overview of your directories in Puhti, run command:
 ```
-puhti_default
+puhti_workspaces
 ```
-or 
+If you are mostly using just one project in Puhti, you can set environment variables $SCRATCH and $PROCJAPPL to pont to the scratch and projappl directories of your most used CSC project. This setting can be done with commmad:
 <pre>
-puhti_default <i>project_ID</i>
+puhti_default_project <i>project_ID</i>
 </pre>
 
-To permanently set environment variables $SCRATCH and $PROCJAPPL to pont to the scratch and projappl directories of your most used CSC project. 
+
+
 
 ## Projaappl directory
 
