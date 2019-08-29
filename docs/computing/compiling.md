@@ -111,8 +111,11 @@ directives, one can e.g. use `-Minfo=all`.
 ## Building MPI applications
 
 There are currently three MPI environments available: **hpcx-mpi**,
-**mpich**, and **intel-mpi**. We recommend to start with **hpcx-mpi**, and
-try then others if your applications does not work or performs badly. All MPI
+**mpich**, and **intel-mpi**. The default is **hpcx-mpi**, which we also
+recommend as the first one to try.
+
+If **hpcx-mpi** doesn't work for your application, or it performs badly, you
+can then also try the other ones to see if they work better. All MPI
 implementations can be used with both Intel and GNU compiler suites. PGI
 compiler cannot at the moment be used with MPI. The MPI environments are used
 via `module load` i.e.
