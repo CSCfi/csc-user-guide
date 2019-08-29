@@ -16,8 +16,8 @@ template: main-index.html
 <h1 id="quicklinktitle"> Quick links </h1>
 
 <span id="index-quicklinks">
-[Getting started](computing/overview.md) 
-[Puhti quick start guide](support/tutorials/puhti_quick.md)
+[Getting started with Puhti](computing/overview.md) 
+[Moving to Puhti from Taito and Sisu ](support/tutorials/puhti_quick.md)
 </span>
 
 
