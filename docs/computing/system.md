@@ -3,7 +3,7 @@
 
 ## Puhti supercomputer
 
-Puhti supercomputer was taken in use in August 2019. It is a cluster
+Puhti supercomputer was taken in use on September 2, 2019. It is a cluster
 system by Atos, with a variety of different node types. It is targeted
 at a wide range of workloads, and also larger simulations can be run
 before Mahti is in use.
