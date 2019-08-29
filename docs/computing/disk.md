@@ -1,7 +1,7 @@
 # Disk areas
 
 In Puhti there are three main disk areas: **home**, **projappl** and
-**scratch**. These directories have specifics purpose and you should be
+**scratch**. These directories have specific purpose and you should be
 familiar with them before you start using Puhti.
 
 |              | Default quota | Owner    | Environment variable | Path                                            | Cleaning      |
@@ -39,7 +39,7 @@ directory.
 ## Scratch directory
 
 Each project has 1 TB of scratch disk space in directory
-`/scratch/<project_id>`. 
+`/scratch/<project_id>`.
 
 This fast parallel scratch space is intended to be used as a temporary storage
 space for the data that is used in Puhti. Scratch directory is not meant for
@@ -58,26 +58,24 @@ is shared with all the members of the project team.
 It is not meant for running applications, use scratch instead for that
 purpose.
 
-## Using Scratch and ProjAppl directories 
+## Using Scratch and ProjAppl directories
 
-As the paths of the project specific directories is dependent on the project ID, 
-you must first find out the project number you want to use. You can check the project
-names from [MyCSC portal](https://my.csc.fi). Note that not all CSC projects 
-do have Puhti access so you won't necessary find a *scratch* or *projappl* directory 
-for all your CSC projects.
+As the paths of the project specific directories is dependent on the project
+ID, you must first find out the project number you want to use. You can check
+the project names from [MyCSC portal](https://my.csc.fi).
 
 To get an overview of your directories in Puhti, run command:
-```
+```text
 csc-workspaces
 ```
 For example, if you are member in two projects: *project_2002291*
 and *project_3587167*, then you have access to their scratch directories:
-```
+```text
 /scratch/project_2002291
 /scratch/project_3587167
 ```
 Moving to the scratch directory of project_2002291 is done with the command:
-```
+```text
 cd /scratch/project_2002291
 ```
 Please note that not all CSC projects do have Puhti access so you won't
@@ -91,32 +89,36 @@ command:
 csc-workspaces set <i>project_ID</i>
 </pre>
 
-Scratch and ProjAppl directories are shared by **all the members of the project**. Also all new files 
-and directories are fully accessible for other group members (including read, write and
-execution permissions). If you want to restrict access from your group members, you can 
-reset the permissions with _chmod_ command.
+Scratch and ProjAppl directories are shared by **all the members of the
+project**. Also all new files and directories are fully accessible for other
+group members (including read, write and execution permissions). If you want
+to restrict access from your group members, you can reset the permissions with
+*chmod* command.
 
-For example, to set read-only permissions for your group members for directory _my_directory_ , 
-you can use command:
-<pre>
+For example, to set read-only permissions for your group members for directory
+*my_directory*, you can use command:
+```text
 chmod -R g-w my_directory
-</pre>
-
+```
 
 As mentioned earlier, scratch directory is intended for only processing data.
 Any data that should be preserved for a longer time should be copied to the
-Allas storage server. Instructions for back-uping files from Puhti to Allas will 
-appear here, once the Allas storage service becomes available.
+Allas storage server. Instructions for backing up files from Puhti to Allas
+will appear here, once the Allas storage service becomes available.
 
 
 ## Increasing Quotas
 
-Allas storage server is the preferred service for storing research data at CSC. 
- 
-The size of scratch directory can be increased, but only if the analysis task requires that 
-all the data is simultaneously available on the disc environment of Puhti. In these cases, send a request to
-*servicedesk@csc.fi*. In the request indicate the project, storage size needed, purpose and 
-duration of the scratch quota extension. Note that the extended scratch quota consumes your CSC Billing unit quota
-regardless of how much data you actually have in the scratch directory. Further, even after quota is
-increased, the automatic cleaning process will continue removing idle files the scratch directory. 
+Allas storage service is the preferred site for storing research data that is
+processed at CSC.
 
+The size of the scratch directory can be increased, but only if the analysis
+task requires that all the data is simultaneously available on the disk
+environment of Puhti. In these cases, send a request to *servicedesk@csc.fi*.
+In the request, please indicate the project, storage size needed, purpose and
+duration of the scratch quota extension.
+
+Note that the extended scratch quota consumes your CSC Billing unit quota
+regardless of how much data you actually have in the scratch directory.
+Furthermore, even after quota is increased, the automatic cleaning process
+will continue removing idle files from the scratch directory.

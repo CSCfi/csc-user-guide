@@ -1,6 +1,7 @@
 # Puhti quick start guide
 A quick start guide for Puhti users. It is assumed
-that you have previously used CSC cluster resources like Taito/Sisu.
+that you have previously used CSC cluster resources like Taito/Sisu. If not,
+you can start by looking [here](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Puhti or view your projects and their project numbers
 if you already have access.**
