@@ -28,14 +28,14 @@ recommended basic optimization flags. It is best to start from the safe level
 and then move up to intermediate or even aggressive, while making sure that
 the results are correct and that the program has better performance.
 
-| Optimisation level | Intel       | GNU               |
-| :----------------- | :---------- | :---------------- |
-| **Safe**           | -O2 -xCASCADELAKE -fp-model precise | -O2 -march=cascadelake |
-| **Intermediate**   | -O2 -xCASCADELAKE | -O3 -march=cascadelake |
-| **Aggressive**     | -O3 -xCASCADELAKE -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=cascadelake -ffast-math -funroll-loops |
+| Optimisation level | Intel                        | GNU               |
+| :----------------- | :--------------------------- | :---------------- |
+| **Safe**           | -O2 -xHost -fp-model precise | -O2 -march=native |
+| **Intermediate**   | -O2 -xHost                   | -O3 -march=native |
+| **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
 
 Please note that not all applications benefit from the AVX-512 vector set
-(`-xCASCADELAKE` or `-march=cascadelake`). It may be a good idea to test also
+(`-xHost` or `-march=native`). It may be a good idea to test also
 with AVX2 (`-xCORE-AVX2` or `-mavx2`) and compare the performance.
 
 Detailed list of options for Intel and GNU compiler can be found from man
