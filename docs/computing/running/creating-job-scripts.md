@@ -126,4 +126,39 @@ It is recommended to request memory using the `--mem-per-cpu` option.
     - MPI programs can **not** be started with mpirun or mpiexec, `srun` has to be used
     - A MPI module has to be loaded in the batch job script for the submisson to work properly.
 
+## Additional resources in batch jobs
+
+
+### Local storage 
+
+Some nodes in Puhti have a local fast storage available for jobs.
+The local storage is good for IO-intesive programs.
+
+The local storage is available on:
+    - All gpu-nodes (`gpu` and `gputest` partitions)
+    - IO nodes shared by the `small`, `large` and `longrun` partitions.
+
+To use the local storage, you need to request it using the `--gres` flag in your job submissions.
+
+```
+--gres=nvme:<local_memory_per_node>
+```
+, where the amount of memory is given in GB (with a maximum of 3600 GB/ per node). The local storage reservation is on a per node basis.
+
+The local storage is available at
+```
+/run/nvme/job_${SLURM_JOB_ID}
+```
+on each node.
+
+
+### GPUs
+
+Puhti has 320 NVIDIA Tesla V100 GPUs. The GPUs are 
+available on the `gpu` and `gputest` partitions using the option:
+```
+--gres=gpu:v100:<number_of_gpus_per_node>
+```
+The `--gres` reservation is on a per node basis. There are 4 GPUs per gpu-node. 
+
 
