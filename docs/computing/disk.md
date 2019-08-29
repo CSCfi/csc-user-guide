@@ -43,11 +43,11 @@ cd /scratch/project_2002291
 ```
 Note that all CSC projects do not have Puhti access so you don't necessary find a _scratch_ or _projappl_ directory for all your CSC projects. To get an overview of your directories in Puhti, run command:
 ```
-puhti_workspaces
+csc-workspaces
 ```
 If you are mostly using just one project in Puhti, you can set environment variables $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. This setting can be done with commmad:
 <pre>
-puhti_default_project <i>project_ID</i>
+csc-defproj <i>project_ID</i>
 </pre>
 
 
