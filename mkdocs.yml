@@ -11,6 +11,8 @@ nav:
      - Adding service access for project: accounts/adding-service-access-for-project.md
      - Applying for resources: accounts/applying-for-resources.md
      - Switching between projects: accounts/switching-between-projects.md
+     - Billing: accounts/billing.md
+     - FMI: accounts/FMI.md
   - Computing:
      - Overview: computing/overview.md
      - Systems: computing/system.md
