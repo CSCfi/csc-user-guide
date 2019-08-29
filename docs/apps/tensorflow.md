@@ -10,7 +10,7 @@ The `tensorflow` module is available on Puhti only.  Currently supported TensorF
 - 1.13.1
 - 1.13.1-hvd (with [Horovod](https://github.com/horovod/horovod) support)
 
-Activates a conda environment that includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.  Also includes all the packages from [Python Data](python-data.md).
+Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.  Also includes all the packages from [Python Data](python-data.md).
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 
@@ -24,23 +24,22 @@ TensorFlow is licensed under [Apache License 2.0](https://github.com/tensorflow/
 
 To use this software on Puhti, initialize it with:
 
-```bash
-$ module load tensorflow
+```text
+module load tensorflow
 ```
 
 to access the default version.
 
 This will show all available versions:
 
-```bash
-$ module avail tensorflow
+```text
+module avail tensorflow
 ```
 
 To check the exact packages and version included a specific module, you can run for example:
 
-```bash
-$ module load tensorflow/1.14.0
-$ conda list
+```text
+module help tensorflow/1.14.0
 ```
 
 !!! note 
