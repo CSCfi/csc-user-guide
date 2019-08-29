@@ -144,6 +144,7 @@ Some nodes in Puhti have a local fast storage available for jobs.
 The local storage is good for IO-intensive programs.
 
 The local storage is available on:
+
     - All gpu-nodes (`gpu` and `gputest` partitions)
     - IO nodes shared by the `small`, `large` and `longrun` partitions.
 
@@ -154,11 +155,7 @@ To use the local storage, you need to request it using the `--gres` flag in your
 ```
 , where the amount of memory is given in GB (with a maximum of 3600 GB/ per node). The local storage reservation is on a per node basis.
 
-The local storage is available at
-```
-/run/nvme/job_${SLURM_JOB_ID}
-```
-on each node.
+You can use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
 
 ### GPUs
