@@ -6,9 +6,9 @@ familiar with them before you start using Puhti.
 
 |              | Default quota | Personal/project | Environment variable | path                             | Cleaning      |
 | ------------ | ------------- | ---------------- | -------------------- | -------------------------------- | ------------- |
-| **home**     | 10 GiB        | Personal         | `$(HOME)`            | `/home/<user-name>`              | No            |
-| **projappl** | 50 GiB        | Project          | Not available        | `/projappl/project_<project_id>` | No            |
-| **scratch**  | 1 TiB         | Project          | Not available        | `/scratch/project_<project_id>`  | Yes - 90 days |
+| **home**     | 10 GiB        | Personal         | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
+| **projappl** | 50 GiB        | Project          | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
+| **scratch**  | 1 TiB         | Project          | Not available        | /scratch/project_\<project_id\>  | Yes - 90 days |
 
 
 ## Home directory
