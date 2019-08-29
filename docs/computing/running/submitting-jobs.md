@@ -11,7 +11,7 @@ To check that the job was submitted correctly use command
 ```
 squeue -u <username>
 ```
-A submitted batch job can be cancelled with:
+A submitted batch job can be canceled with:
 ```
 scancel <jobid>
 ```

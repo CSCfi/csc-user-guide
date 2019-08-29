@@ -10,7 +10,7 @@ before Mahti is in use.
 
 
 **Puhti** has in total **682 CPU nodes**, with a theoretical peak
-performance of 1.8 Petaflops. Each node is equiped with two latest
+performance of 1.8 Petaflops. Each node is equipped with two latest
 generation Intel Xeon processors, code name Cascade Lake, with 20
 cores each running at 2.1 GHz.  Interconnect is based on HDR
 InfiniBand by Mellanox. Nodes are connected with a 100Gbps HDR100
@@ -50,4 +50,4 @@ Puhti has a 5+ PB Lustre parallel storage system providing space for home, proje
 
 
 
-     
+

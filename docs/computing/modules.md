@@ -113,7 +113,7 @@ module spider fftw/3.3.8
 ### Solving module dependencies
 
 Some modules depend on other modules. In these cases the
-information from the module system is is an error message, for example:
+information from the module system is an error message, for example:
 
 ```text
 $ module load parallel-netcdf
