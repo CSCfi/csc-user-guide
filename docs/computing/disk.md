@@ -76,7 +76,18 @@ command:
 csc-workspaces set <i>project_ID</i>
 </pre>
 
-Scratch folder is accessible for all the members of the project.
+Scratch folder is accessible for all the members of the project. However the
+files and directories are not automatically accessible for other group members.
+If you want to have your data available for your group members, you have to
+either change the default access permissions with the `umask` command before
+you start working with your data, or by using the `chmod` command after you
+have created new files and folders.
+
+For example, to give all group members read-only permissions to all new files,
+you can use the command:
+```
+umask 027
+```
 
 As mentioned earlier, scratch directory is intended for only processing data.
 Any data that should be preserved for a longer time should be copied to the
