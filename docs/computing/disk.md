@@ -11,6 +11,9 @@ familiar with them before you start using Puhti.
 | **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
 
 
+
+
+
 ## Home directory
 
 Each Puhti user has a home directory (`$HOME`) that can contain up to 10 GB of
@@ -38,9 +41,9 @@ directory.
 ## Scratch directory
 
 Each project has 1 TB of scratch disk space in directory
-`/scratch/<project_id>`.
+`/scratch/<project_id>`. 
 
-This fast parallel scratch space is intented to be used as a temporary storage
+This fast parallel scratch space is intended to be used as a temporary storage
 space for the data that is used in Puhti. Scratch directory is not meant for
 long term data storage and **files that have not been used for 90 days will
 be automatically removed**.
@@ -88,11 +91,16 @@ you can use the command:
 ```
 umask 027
 ```
+Alternatively you can run command:
+<pre>
+chmod -R g+rx <i>new_directory</i> 
+</pre>
+
 
 As mentioned earlier, scratch directory is intended for only processing data.
 Any data that should be preserved for a longer time should be copied to the
-Allas storage server. Backup files from Puhti to Allas will appear here, once
-the Allas storage service becomes available.
+Allas storage server. Instructions for backuping files from Puhti to Allas will 
+appear here, once the Allas storage service becomes available.
 
 
 ## ProjAppl directory
@@ -106,3 +114,16 @@ is shared with all the members of the project team.
 
 It is not meant for running applications, use scratch instead for that
 purpose.
+
+
+## Increasing Quotas
+
+Allas storage server is the preferred service for storing research data at CSC.
+ 
+The size of scratch directory can be increased, but only if the analysis task requires that 
+the data is available on the disc environment of Puhti. In these cases, send a request to
+*servicedesk@csc.fi*. In the request indicate the project, storage size needed, purpose and 
+duration of the disk extension. Note that extended scratch disk quota consume use your CSC Billing unit quota
+regardless of how much data you actually have in the scratch directory. Further, even after quota is
+increased, the automatic cleaning process will continue removing idle files the scratch directory. 
+
