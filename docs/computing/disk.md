@@ -18,7 +18,7 @@ However, typically you should move further to your projects _scratch directory_ 
 This is because your home directory is not ment for data analysis or computing, but just for storing configurations files, 
 and other small personal data. If you fill up your home directory so that no new files can't be created there, it will couse many problems for your account.
 
-Note, that home directory is the only user specific directory in Puhti. Other directories are project specific so if you are a memeber in several projects you can have access to several _scratch_ or _projappl_ directories, but still you have just one home directory. Home directory is not automatically backed up by CSC (as well as any other directory in Puhti), so if some data is accidentally lost, it can't be recovered.
+Note, that home directory is the only user specific directory in Puhti. Other directories are project specific so if you are a memeber in several projects you can have access to several _scratch_ or _projappl_ directories, but still you have just one home directory. Home directory is not automatically backed up by CSC (the same applies to all directories in Puhti), so if some data is accidentally lost, it can't be recovered.
 
 
 **Scratch:** Each project has 1 TB of scartch disk space in directory `/scratch/project_<project_id>`.
