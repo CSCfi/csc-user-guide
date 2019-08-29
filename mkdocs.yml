@@ -14,6 +14,21 @@ nav:
      - Switching between projects: accounts/switching-between-projects.md
      - Billing: accounts/billing.md
      - FMI: accounts/FMI.md
+  - Computing:
+     - Overview: computing/overview.md
+     - Systems: computing/system.md
+     - Disk areas: computing/disk.md
+     - Module environment: computing/modules.md
+     - Running jobs: 
+        - Getting started: computing/running/getting-started.md
+        - Creating a batch job script: computing/running/creating-job-scripts.md
+        - Submitting a job: computing/running/submitting-jobs.md
+        - Available batch job partitions: computing/running/batch-job-partitions.md
+        - Array jobs: computing/running/array-jobs.md
+        - Example job scripts: computing/running/example-job-scripts.md
+     - Compiling: computing/compiling.md
+#     - Debugging: computing/debugging.md
+#     - Performance analysis: computing/performance.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md

@@ -45,7 +45,7 @@ A specific version can be initialized with `module load gpaw/version`, e.g.
 ```
 #!/bin/bash -l
 #SBATCH --time=00:30:00
-#SBATCH --partition=parallel
+#SBATCH --partition=large
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=2GB
