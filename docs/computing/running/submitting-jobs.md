@@ -16,5 +16,14 @@ A submitted batch job can be cancelled with:
 scancel <jobid>
 ```
 
+To view information about your jobs use:
+
+```
+sacct
+```
+The information includes the state of the jobs (PENDING/RUNNING/COMPLETED/FAILED) and JobID. 
 
 
+By default the `sacct` command shows information about users' own jobs. 
+The `sacct` command has a wide selection of options and parameters that can be used to select the data to be displayed.
+The full set of options and parameters are described [here](https://slurm.schedmd.com/sacct.html).

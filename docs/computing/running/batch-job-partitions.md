@@ -23,6 +23,20 @@ For GPU nodes, the following partitions exist. Note that for each GPU one should
 | gpu             | 3 days        | 80          |   20         |   GPU                        |382 GiB   | 3600 GiB |
 
 
+You can also get information about the partition with the commands:
+
+```
+sinfo
+
+```
+
+or
+```
+scontrol show partition <partition_name>
+
+```
+
+
 !!! note "Notes on partitions"
 
     - ** Only request the memory you need **
