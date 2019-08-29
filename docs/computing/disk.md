@@ -91,7 +91,7 @@ command:
 csc-workspaces set <i>project_ID</i>
 </pre>
 
-Scartach and ProjAppl directories are shared by **all users** in a project. Also all new files 
+Scratch and ProjAppl directories are shared by **all the members of the project**. Also all new files 
 and directories are fully accessible for other group members (including read, write and
 execution permissions). If you want to restrict access from your group members, you can 
 reset the permissions with _chmod_ command.
@@ -105,18 +105,18 @@ chmod -R g-w my_directory
 
 As mentioned earlier, scratch directory is intended for only processing data.
 Any data that should be preserved for a longer time should be copied to the
-Allas storage server. Instructions for backuping files from Puhti to Allas will 
+Allas storage server. Instructions for back-uping files from Puhti to Allas will 
 appear here, once the Allas storage service becomes available.
 
 
 ## Increasing Quotas
 
-Allas storage server is the preferred service for storing research data at CSC.
+Allas storage server is the preferred service for storing research data at CSC. 
  
 The size of scratch directory can be increased, but only if the analysis task requires that 
-the data is available on the disc environment of Puhti. In these cases, send a request to
+all the data is simultaneously available on the disc environment of Puhti. In these cases, send a request to
 *servicedesk@csc.fi*. In the request indicate the project, storage size needed, purpose and 
-duration of the disk extension. Note that extended scratch disk quota consume use your CSC Billing unit quota
+duration of the scratch quota extension. Note that the extended scratch quota consumes your CSC Billing unit quota
 regardless of how much data you actually have in the scratch directory. Further, even after quota is
 increased, the automatic cleaning process will continue removing idle files the scratch directory. 
 
