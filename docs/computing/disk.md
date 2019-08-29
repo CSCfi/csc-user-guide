@@ -60,14 +60,13 @@ purpose.
 
 ## Using Scratch and ProjAppl directories
 
-As the paths of the project specific directories is dependent on the project
-ID, you must first find out the project number you want to use. You can check
-the project names from [MyCSC portal](https://my.csc.fi).
-
 To get an overview of your directories in Puhti, run command:
 ```text
 csc-workspaces
 ```
+This will show all scratch and projappl folders you have access to through active projects with Puhti access. 
+You can also find the project names from the [MyCSC portal](https://my.csc.fi).
+
 For example, if you are member in two projects: *project_2002291*
 and *project_3587167*, then you have access to their scratch directories:
 ```text
@@ -110,13 +109,13 @@ will appear here, once the Allas storage service becomes available.
 ## Increasing Quotas
 
 
-The size of the scratch directory can be increased, but only if the
-analysis task requires that all the data is simultaneously available
-on the disk environment of Puhti. In these cases, send a request to
+The quota of the scratch directory can be increased, but only if the
+analysis or compute task requires more data to be simultaneously available
+on the disk environment of Puhti than allowed by the quota. In these cases,  send a request to
 *servicedesk@csc.fi*.  In the request, please indicate the project,
 storage size needed, purpose and duration of the scratch quota
 extension. In the future, the process for increase quotas will be
-improved.
+improved. Please allow for some delay in serving these requests.
 
 Data that is not under active computing should be stored in the  Allas
 storage service.
