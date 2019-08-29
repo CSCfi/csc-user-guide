@@ -1,7 +1,7 @@
 # Disk areas
 
 In Puhti there are three main disk areas: **home**, **projappl** and
-**scratch**. These directories have specifics purpose and you should be
+**scratch**. These directories have specific purpose and you should be
 familiar with them before you start using Puhti.
 
 |              | Default quota | Owner    | Environment variable | Path                                            | Cleaning      |
@@ -67,17 +67,17 @@ do have Puhti access so you won't necessary find a *scratch* or *projappl* direc
 for all your CSC projects.
 
 To get an overview of your directories in Puhti, run command:
-```
+```text
 csc-workspaces
 ```
 For example, if you are member in two projects: *project_2002291*
 and *project_3587167*, then you have access to their scratch directories:
-```
+```text
 /scratch/project_2002291
 /scratch/project_3587167
 ```
 Moving to the scratch directory of project_2002291 is done with the command:
-```
+```text
 cd /scratch/project_2002291
 ```
 Please note that not all CSC projects do have Puhti access so you won't
@@ -98,9 +98,9 @@ reset the permissions with _chmod_ command.
 
 For example, to set read-only permissions for your group members for directory _my_directory_ , 
 you can use command:
-<pre>
+```text
 chmod -R g-w my_directory
-</pre>
+```
 
 
 As mentioned earlier, scratch directory is intended for only processing data.
