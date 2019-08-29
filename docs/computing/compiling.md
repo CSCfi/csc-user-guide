@@ -3,12 +3,12 @@
 ## Building CPU applications
 
 C/C++ and Fortran applications can be build with Intel or GNU
-compiler suites. The compiler suite is selected via the [Modules](modules.md) 
+compiler suites. The compiler suite is selected via the [Modules](modules.md)
 system, i.e.
 ```
 module load intel
 ```
-or 
+or
 ```
 module load gcc
 ```
@@ -52,9 +52,20 @@ module spider gcc
 ## Building GPU applications
 
 Both CUDA and OpenACC programming models are supported on Puhti. To use them,
-one needs to load specific modules (`module load cuda` for CUDA or
-`module load pgi` for OpenACC).
+one needs to load specific modules.
 
+For example, to load CUDA 10.1 environment, the command is:
+```bash
+module load gcc/8.3.0 cuda/10.1.168
+```
+
+and to load the PGI compiler for OpenACC, the command is:
+```bash
+module load pgi
+```
+
+For more detailed information about the available modules, please see `module
+spider cuda` or `module spider pgi`.
 
 ### CUDA
 
@@ -76,10 +87,9 @@ In principle, one can also target multiple GPU architectures by repeating the
 `-gencode` multiple times for different compute capabilities. On Puhti this is
 not necessary, since there is only one type of GPUs.
 
-
 ### OpenACC
 
-OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`). 
+OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`).
 To enable OpenACC support, one needs to give `-acc` flag to the compiler.
 
 To generate code for a given target device, one needs to tell the compiler
@@ -103,7 +113,7 @@ directives, one can e.g. use `-Minfo=all`.
 There are currently three MPI environments available: **hpcx-mpi**,
 **mpich**, and **intel-mpi**. We recommend to start with **hpcx-mpi**, and
 try then others if your applications does not work or performs badly. All MPI
-implementations can be used with both Intel and GNU compiler suites. PGI 
+implementations can be used with both Intel and GNU compiler suites. PGI
 compiler cannot at the moment be used with MPI. The MPI environments are used
 via `module load` i.e.
 ```bash
@@ -118,6 +128,7 @@ is not correct yet):
 | :------------- | :--------------------- | :------------------------ |
 | Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
 | GNU            | mpif90, mpicc, mpicxx | mpif90, mpicc, mpicxx      |
+
 
 ## Building OpenMP and hybrid applications
 
