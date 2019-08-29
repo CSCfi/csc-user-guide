@@ -18,14 +18,14 @@ However, typically you should move further to your projects _scratch directory_ 
 This is because your home directory is not ment for data analysis or computing, but just for storing configurations files, 
 and other small personal data. If you fill up your home directory so that no new files can't be created there, it will couse many problems for your account.
 
-Note, that home directory is the only user specific directory in Puhti. Other directories are project specific so if you are a memeber in several projects you can have access to several _scratch_ or _projappl_ directories, but still you have just one home directory. Home directory is not automatically backed up by CSC (the same applies to all directories in Puhti), so if some data is accidentally deleted by the user, it can't be recovered.
+Note, that home directory is the only user specific directory in Puhti. Other directories are project specific. If you are a memeber in several projects you have access to several _scratch_ or _projappl_ directories, but still you have just one home directory. Home directory is not automatically backed up by CSC (the same applies to all directories in Puhti), so if some data is accidentally deleted by the user, it can't be recovered.
 
 ## Scratch directory
 
 Each project has 1 TB of scartch disk space in directory `/scratch/<project_id>`.
 This fast paralle scratch space is intented to be used as a temporary storage space for the data that is used in Puhti.
-Scratch directory is not meant for long term data storage and files that have not been used for 90 days will be
-automatically removed.
+Scratch directory is not meant for long term data storage and **files that have not been used for 90 days will be
+automatically removed**.
 
 Note that this folder is shared by **all users** in a project. 
 
@@ -45,7 +45,7 @@ Note that all CSC projects do not have Puhti access so you don't necessary find 
 ```
 puhti_workspaces
 ```
-If you are mostly using just one project in Puhti, you can set environment variables $SCRATCH and $PROCJAPPL to pont to the scratch and projappl directories of your most used CSC project. This setting can be done with commmad:
+If you are mostly using just one project in Puhti, you can set environment variables $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. This setting can be done with commmad:
 <pre>
 puhti_default_project <i>project_ID</i>
 </pre>
@@ -55,7 +55,7 @@ puhti_default_project <i>project_ID</i>
 
 ## Projaappl directory
 
-**Projappl:** Project application folder for storing applications you have compiled yourself, libraries,
+Project application folder for storing applications you have compiled yourself, libraries,
 etc. there is also a persistent **project based** storage with a
 default quota of 50 GB. It is located under
 `/projappl/project_<project_id>`.  Project based means that this is
