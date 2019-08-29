@@ -109,16 +109,20 @@ will appear here, once the Allas storage service becomes available.
 
 ## Increasing Quotas
 
-Allas storage service is the preferred site for storing research data that is
-processed at CSC.
 
-The size of the scratch directory can be increased, but only if the analysis
-task requires that all the data is simultaneously available on the disk
-environment of Puhti. In these cases, send a request to *servicedesk@csc.fi*.
-In the request, please indicate the project, storage size needed, purpose and
-duration of the scratch quota extension.
+The size of the scratch directory can be increased, but only if the
+analysis task requires that all the data is simultaneously available
+on the disk environment of Puhti. In these cases, send a request to
+*servicedesk@csc.fi*.  In the request, please indicate the project,
+storage size needed, purpose and duration of the scratch quota
+extension. In the future, the process for increase quotas will be
+improved.
 
-Note that the extended scratch quota consumes your CSC Billing unit quota
-regardless of how much data you actually have in the scratch directory.
-Furthermore, even after quota is increased, the automatic cleaning process
-will continue removing idle files from the scratch directory.
+Data that is not under active computing should be stored in the  Allas
+storage service.
+
+Note that the extended scratch quota consumes your CSC Billing unit
+quota regardless of how much data you actually have in the scratch
+directory. See [billing](../accounts/billing.md) for details.
+Furthermore, even after quota is increased, the automatic cleaning
+process will continue removing idle files from the scratch directory.
