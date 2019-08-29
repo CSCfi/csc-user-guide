@@ -162,10 +162,10 @@ you can proceed with `module load` command.
 
 ## Advanced topics
 
-In general, libraries built with one compiler need to be linked with
-applications using the same compiler. For example, you can not use the
-MPI Fortran90 module compiled with Intel compilers with *gfortran*, but
-you have to use a version compiled with *gfortran*. Environment modules
+In general, applications and their dependencies should be compiled and
+linked using the same compiler. In some cases this is a strict
+requirement. For example, you can not use the MPI Fortran90 module
+compiled with Intel compilers with *gfortran*. Environment modules
 have several mechanisms that prevent the user from setting up a
 non-working environment.
 
