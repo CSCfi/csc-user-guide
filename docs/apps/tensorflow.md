@@ -48,13 +48,13 @@ module help tensorflow/1.14.0
 
 ### Horovod
 
-Modules that support [Horovod](https://github.com/horovod/horovod) have the `-hvd` postfix in their name.  Note that we might not support Horovod for all TensorFlow versions. (To see all modules try `module avail tensorflow`).  To take TensorFlow with Horovod support into use, you can run for example:
+Modules that support [Horovod](https://github.com/horovod/horovod) have the `-hvd` postfix in their name.  Note that we might not support Horovod for all TensorFlow versions. (To see all modules try `module avail tensorflow`).  To take TensorFlow with Horovod (and OpenMPI) support into use, you can run for example:
 
 ```text
 module load tensorflow/1.13.1-hvd
 ```
 
-Below is an example slurm batch script that uses 8 GPUs across two nodes.  We also reserve 10 CPUs for each GPU.
+Below is an example slurm batch script that uses 8 tasks across two nodes.  Each task has one GPU and 10 CPUs.
 
 ```bash
 #!/bin/bash
@@ -71,7 +71,7 @@ module load tensorflow/1.13.1-hvd
 
 export NCCL_DEBUG=INFO
 
-srun python3 $*
+srun python3 your_script_here.py
 ```
 
 
