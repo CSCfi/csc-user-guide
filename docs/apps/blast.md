@@ -2,6 +2,8 @@
 
 BLAST (Basic Local Alignment Search Tool) is the most frequently used sequence homology search tool. Given a query sequence (nucleotide or protein), BLAST compares it to a sequence database and picks out sequences with significant similarity to the probe sequence. BLAST uses a heuristic search protocol, which makes search very fast compared to non-heuristic methods. The heuristics used may however cause BLAST to fail to find all significant hits.
 
+[TOC]
+
 The command line version of NCBI-BLAST allows a user to modify all parameters of BLAST, to use special methods like PSI-BLAST and PHI-BLAST, and to analyze large data sets.
 
 In Puhti you can use pb (Parallel Blast) command for large sets of query sequences. The pb program splits a large search jobs into several subjobs, that are executed simultaneously (more below).
@@ -9,22 +11,21 @@ In Puhti you can use pb (Parallel Blast) command for large sets of query sequenc
 
 The most commonly used BLAST commands are:
 
-    **blastn** search hits for a nucleotide sequence from nucleotide database
-    **blastp** search hits for a protein sequence from protein database
-    **blastx** search hits for a nucleotide sequence from protein database
-    **psiblast** do iterative search for a protein sequence from protein database
-    **rpsblast** search hits for a protein sequence from protein profile database
-    **rpstblastn** search hits for a nucleotide sequence from protein profile database
-    **tblastn** search hits for a protein sequence from nucleotide database
-    **tblastx** search hits for a nucleotide sequence from nucleotide database by using the protein translations of both query and database sequences.
+*   **blastn** search hits for a nucleotide sequence from nucleotide database
+*   **blastp** search hits for a protein sequence from protein database
+*   **blastx** search hits for a nucleotide sequence from protein database
+*   **psiblast** do iterative search for a protein sequence from protein database
+*   **rpsblast** search hits for a protein sequence from protein profile database
+*   **rpstblastn** search hits for a nucleotide sequence from protein profile database
+*   **tblastn** search hits for a protein sequence from nucleotide database
+*   **tblastx** search hits for a nucleotide sequence from nucleotide database by using the protein translations of both query and database sequences.
 
-Oter blast commands
+Other blast commands
 
-    **blastdbcmd** retrieve a sequence or a set of sequences form BLAST databases
-    **makeblastdb** create a new BLAST database
-    **blast_formatter** reformat a BLAST archive formatted BLAST result file.
+*    **blastdbcmd** retrieve a sequence or a set of sequences form BLAST databases
+*    **makeblastdb** create a new BLAST database
+*    **blast_formatter** reformat a BLAST archive formatted BLAST result file.
 
-[TOC]
 
 ## Available
 
