@@ -64,8 +64,9 @@ To get an overview of your directories in Puhti, run command:
 ```text
 csc-workspaces
 ```
-This will show all scratch and projappl folders you have access to through active projects with Puhti access. 
-You can also find the project names from the [MyCSC portal](https://my.csc.fi).
+It will show all Scratch and ProjAppl directories you have access to through
+active projects with Puhti access. You can find out the project names (and
+other project information) at the [MyCSC portal](https://my.csc.fi).
 
 For example, if you are member in two projects: *project_2002291*
 and *project_3587167*, then you have access to their scratch directories:
@@ -111,7 +112,8 @@ will appear here, once the Allas storage service becomes available.
 
 The quota of the scratch directory can be increased, but only if the
 analysis or compute task requires more data to be simultaneously available
-on the disk environment of Puhti than allowed by the quota. In these cases,  send a request to
+on the disk environment of Puhti than allowed by the quota. In these cases,
+send a request to
 *servicedesk@csc.fi*.  In the request, please indicate the project,
 storage size needed, purpose and duration of the scratch quota
 extension. In the future, the process for increase quotas will be
