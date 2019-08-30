@@ -13,7 +13,7 @@ Below are example job scripts for running different types of programs:
 ## Serial
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=small
@@ -27,7 +27,7 @@ srun myprog <options>
 ## OpenMP
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=small
@@ -45,7 +45,7 @@ srun myprog <options>
 ## MPI
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=large
@@ -59,7 +59,7 @@ srun myprog <options>
 ## Single GPU
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=gpu
@@ -77,7 +77,7 @@ srun myprog <options>
 ## Multiple GPUs
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=gpu
