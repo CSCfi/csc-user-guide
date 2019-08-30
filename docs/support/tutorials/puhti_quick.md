@@ -80,8 +80,8 @@ More information about billing [here](../../accounts/billing.md)
 ## Network
 
 - Login nodes can access the Internet 
+- Compute nodes can access the Internet 
 - It is currently not possible to ssh to the compute nodes
-- Compute nodes **do not** currently have Internet access 
 
 
 ## Storage
