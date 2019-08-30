@@ -145,8 +145,8 @@ The local storage is good for IO-intensive programs.
 
 The local storage is available on:
 
-    - All gpu-nodes (`gpu` and `gputest` partitions)
-    - IO nodes shared by the `small`, `large` and `longrun` partitions.
+* GPU nodes in `gpu` and `gputest` partitions
+* IO nodes shared by the `small`, `large` and `longrun` partitions
 
 To use the local storage, you need to request it using the `--gres` flag in your job submissions.
 
