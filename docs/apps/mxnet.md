@@ -34,10 +34,10 @@ This will show all available versions:
 module avail mxnet
 ```
 
-To check the exact packages and versions included a specific module, you can run for example:
+To check the exact packages and versions included in the loaded module you can run:
 
 ```text
-module help mxnet/1.5.0
+list-packages
 ```
 
 !!! note 

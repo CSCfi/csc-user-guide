@@ -36,10 +36,10 @@ This will show all available versions:
 module avail pytorch
 ```
 
-To check the exact packages and versions included a specific module, you can run for example:
+To check the exact packages and versions included in the loaded module you can run:
 
 ```text
-module help pytorch/1.2.0
+list-packages
 ```
 
 !!! note 
