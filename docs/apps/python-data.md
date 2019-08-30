@@ -43,10 +43,10 @@ module avail python-data
 
 Versions are numbered as `X.Y.Z-N`, where `X.Y.Z` is the version of the Python interpreter included, and `N` is a running version number starting from 1.
 
-To check the exact packages and versions included a specific module, you can run for example:
+To check the exact packages and versions included in the loaded module you can run:
 
 ```text
-module help python-data/3.7.3-1
+list-packages
 ```
 
 !!! note 
