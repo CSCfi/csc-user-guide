@@ -13,7 +13,7 @@ Below are example job scripts for running different types of programs:
 ## Serial
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=small
@@ -27,7 +27,7 @@ srun myprog <options>
 ## OpenMP
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=small
@@ -45,13 +45,49 @@ srun myprog <options>
 ## MPI
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=project_<project_id>
 #SBATCH --partition=large
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=80
 #SBATCH --mem-per-cpu=4000
+
+srun myprog <options>
+```
+
+## Single GPU
+
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=project_<project_id>
+#SBATCH --partition=gpu
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=8000
+#SBATCH --gres=gpu:v100:1
+
+module load gcc/8.3.0 cuda/10.1.168
+
+srun myprog <options>
+```
+
+## Multiple GPUs
+
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=project_<project_id>
+#SBATCH --partition=gpu
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=8000
+#SBATCH --gres=gpu:v100:4
+
+module load gcc/8.3.0 cuda/10.1.168
 
 srun myprog <options>
 ```
