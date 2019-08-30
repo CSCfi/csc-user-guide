@@ -7,6 +7,7 @@ Deep learning framework for Python.
 The `tensorflow` module is available on Puhti only.  Currently supported TensorFlow versions:
 
 - 1.14.0
+- 1.14.0-cpu (optimized for CPU usage, no GPU support)
 - 1.13.1
 - 1.13.1-hvd (with [Horovod](https://github.com/horovod/horovod) support)
 
@@ -14,7 +15,7 @@ Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 
-If you think that some important TensorFlow-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
 ## License
 
@@ -48,7 +49,9 @@ module help tensorflow/1.14.0
 
 ### Horovod
 
-Modules that support [Horovod](https://github.com/horovod/horovod) have the `-hvd` postfix in their name.  Note that we might not support Horovod for all TensorFlow versions. (To see all modules try `module avail tensorflow`).  To take TensorFlow with Horovod (and OpenMPI) support into use, you can run for example:
+[Horovod](https://github.com/horovod/horovod) is a supported method for running multi-GPU and multi-node jobs with TensorFlow. Horovod uses MPI and NCCL for interprocess communication. See also [MPI based batch jobs](../computing/running/creating-job-scripts.md#mpi-based-batch-jobs).
+
+Modules that support Horovod have the `-hvd` postfix in their name.  Note that we might not support Horovod for all TensorFlow versions. (To see all modules try `module avail tensorflow`).  To take TensorFlow with Horovod support into use, you can run for example:
 
 ```text
 module load tensorflow/1.13.1-hvd
