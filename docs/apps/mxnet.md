@@ -34,7 +34,7 @@ This will show all available versions:
 module avail mxnet
 ```
 
-To check the exact packages and version included a specific module, you can run for example:
+To check the exact packages and versions included a specific module, you can run for example:
 
 ```text
 module help mxnet/1.5.0
@@ -42,8 +42,7 @@ module help mxnet/1.5.0
 
 !!! note 
 
-    Note that Puhti login nodes are not intended for heavy
-    computing. Please use slurm batch jobs instead.
+    Note that Puhti login nodes are not intended for heavy computing, please use slurm batch jobs instead. See our [instructions on how to use the batch job system](../computing/running/getting-started.md).
 
 ## More information
 

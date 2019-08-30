@@ -36,7 +36,7 @@ This will show all available versions:
 module avail tensorflow
 ```
 
-To check the exact packages and version included a specific module, you can run for example:
+To check the exact packages and versions included a specific module, you can run for example:
 
 ```text
 module help tensorflow/1.14.0
@@ -44,8 +44,36 @@ module help tensorflow/1.14.0
 
 !!! note 
 
-    Note that Puhti login nodes are not intended for heavy
-    computing. Please use slurm batch jobs instead.
+    Note that Puhti login nodes are not intended for heavy computing, please use slurm batch jobs instead. See our [instructions on how to use the batch job system](../computing/running/getting-started.md).
+
+### Horovod
+
+Modules that support [Horovod](https://github.com/horovod/horovod) have the `-hvd` postfix in their name.  Note that we might not support Horovod for all TensorFlow versions. (To see all modules try `module avail tensorflow`).  To take TensorFlow with Horovod support into use, you can run for example:
+
+```text
+module load tensorflow/1.13.1-hvd
+```
+
+Below is an example slurm batch script that uses 8 GPUs across two nodes.  We also reserve 10 CPUs for each GPU.
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=2
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=10
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:v100:4
+#SBATCH --time=1:00:00
+#SBATCH --mem=32G
+#SBATCH --account=project_<project_id>
+
+module load tensorflow/1.13.1-hvd
+
+export NCCL_DEBUG=INFO
+
+srun python3 $*
+```
+
 
 ## More information
 
