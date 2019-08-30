@@ -56,7 +56,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## GPU
+## Single GPU
 
 ```
 #!/bin/bash -l
@@ -68,6 +68,24 @@ srun myprog <options>
 #SBATCH --cpus-per-task=10
 #SBATCH --mem-per-cpu=8000
 #SBATCH --gres=gpu:v100:1
+
+module load gcc/8.3.0 cuda/10.1.168
+
+srun myprog <options>
+```
+
+## Multiple GPUs
+
+```
+#!/bin/bash -l
+#SBATCH --job-name=example
+#SBATCH --account=project_<project_id>
+#SBATCH --partition=gpu
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=8000
+#SBATCH --gres=gpu:v100:4
 
 module load gcc/8.3.0 cuda/10.1.168
 
