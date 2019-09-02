@@ -3,13 +3,12 @@
 Conda is a package management tool that is used to distribute and install software tools together with their dependencies. In Puhti, the __bioconda module__
 takes in use a CSC maintained Conda environment (Python3 based miniconda3) together with channel settings that enable easy usage of the Bioconda repository.
 
-The Bioconda environment is used for two purposes in Paito:
+The Bioconda environment is used for two purposes in Puhti:
 
--    Some software tools, maintained by CSC, are installed and used as conda environments.
+-    Some software tools, maintained by CSC, are installed and used as Conda environments.
 -    Puhti users can use bioconda module to install tools, available in Bioconda repository, to their own personal Conda environments.
 
 
-[TOC]
 
 ## Available
 
