@@ -62,7 +62,7 @@ purpose.
 
 To get an overview of your directories in Puhti, run command:
 ```text
-csc-workspaces
+csc-workspaces quota
 ```
 It will show all Scratch and ProjAppl directories you have access to through
 active projects with Puhti access. You can find out the project names (and
