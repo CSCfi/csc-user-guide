@@ -191,16 +191,35 @@ laptops, etc.
 
 If you are planning to install Conda packages yourself, instead of using system
 applications that are installed with Conda by someone else, like [bioconda](../../apps/bioconda.md) or
-geoconda in puhti.csc.fi, I recommend installing a personal copy of Miniconda3
-as
+geoconda in puhti.csc.fi, I recommend installing a personal copy of Miniconda3.
+
+As Conda packages may take significant storage space it is not recommended to 
+to install Miniconda3 to your home directory. In stead you should install it to 
+the [ProjAppl]( ../../computing/disks.md) directory of your Puhti project.
+
+To get an overview of your directories in Puhti, run command:
+```text
+csc-workspaces quota
+```
+You can pick the path of your ProjAppl directory from the ouput of the command above or if you 
+are mostly using just one project in Puhti, you can set the environment variables 
+$SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. 
+This setting can be done with command:
+```text
+csc-workspaces set <project_ID>
+```
+Below we assume that $PROJAPPL has been defined. After that the actual installation 
+can be done with commands:
 
 ```
+bash
+cd $SCRATCH
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -b -p $WRKDIR/DONOTREMOVE/miniconda3
+bash Miniconda3-latest-Linux-x86_64.sh -b -p $PROJAPPL/miniconda3
 ```
 
 All conda files will be installed under the chosen Conda root install directory,
-here `$WRKDIR/DONOTREMOVE/miniconda3`, with the exception of `.condarc`, which
+here `$PROJAPPL/miniconda3`, with the exception of `.condarc`, which
 will be in the user's home directory. By default, which is also a recommended
 practice, all files installed subsequently with conda go under the same install
 root.
@@ -218,11 +237,11 @@ subdirectories:
 
 ### Activating conda tool
 
-If you installed Conda into directory `$WRKDIR/DONOTREMOVE/miniconda3`, you can
+If you installed Conda into directory `$PROJAPPL/miniconda3`, you can
 activate conda tool with the initialization script:
 
 ```bash
-source $WRKDIR/DONOTREMOVE/miniconda3/etc/profile.d/conda.sh
+source $PROJAPPL/miniconda3/etc/profile.d/conda.sh
 ```
 
 This simply sets couple of shell environment variables, and conda command as a
@@ -318,7 +337,7 @@ As a second, more complex example, let's look at an environment for C program de
 ```yaml
 name: c-ide
 channels:
-  - /wrk/jle/DONOTREMOVE/conda/channels/csc-forge-based
+  - /projappl/project_123456/conda/channels/csc-forge-based
   - conda-forge
   - defaults
   - anaconda
