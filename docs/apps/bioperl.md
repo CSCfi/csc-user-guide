@@ -24,19 +24,19 @@ data in ways that are typically difficult or impossible with web based systems.
 
 ## Usage
 In Puhti, bioperl can be taken in use with command:
-```
+```text
 module load biokit
 ```
 After this you can launch a bioperl program with command:
-```
+```text
 perl my_bioperl_code.pm
 ```
 Alternatively you can change the perl definition in the first line of your code to
-```
+```text
 #!/bin/env perl
 ```
 and execute the perl program:
-```
+```text
 ./my_bioperl_code.pm
 ```
 

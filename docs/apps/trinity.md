@@ -13,26 +13,21 @@ The Trinity module at CSC also includes TransDecoder and Trinonate tools (in Tai
 ## Available
 Version on CSC's Servers
 
-Puhti: 
+Puhti: 2.8.5
 Taito: 2.3.2 , 2.4.0, 2.5.1, 2.6.5, 2.6.6
 
 
-## Using Trinity in Puhti and Taito
+## Using Trinity 
+
 
 In Puhti, Trinity is set up with command:
-```
+```text
 module load biokit
 ```
-
-In Taito Trinity is set up with commands
-```
-module load biokit/4.9.3
-module load trinity
-```
-The biokit module sets up a set of commonly used bioinformatics tools. In Taito, Trinity needs a separate set up command too. The reason for this is that Trinity uses older version of SAMtools software (0.1.19) than what is the default in the biokit selection.
+The biokit module sets up a set of commonly used bioinformatics tools.
 
 Trinity should be used using interactively in Taito-shell or preferably through the batch job system. Below is a sample batch job file for Trinity.
-```
+```text
 #!/bin/bash -l
 #SBATCH -J trinity
 #SBATCH -o output_%j.txt
@@ -41,32 +36,35 @@ Trinity should be used using interactively in Taito-shell or preferably through 
 #SBATCH -n 1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=6
-#SBATCH --mem-per-cpu=4000
+#SBATCH --mem=24000
+#SBARCH --account=project_1234567
+#
 #
 
-module load biokit/4.9.3
 module load trinity
 
 Trinity --seqType fq --max_memory 22G --left reads.left.fq --right \
 reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
-The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. About 4 GB of memory is reserved for each core so the total memory reservation is 6 * 4 GB= 24 GB. Note 1: since Trinity version 2.0 the memory is reserved with option --max_memory not -JM.
+The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. About 4 GB of memory is reserved for each core so the total memory reservation is 6 * 4 GB= 24 GB. In Puhti you muts batch job option
+`--account=` to define the project to be used, so you should replace project_1234567 with your own project ID. You can check your proects
+with command: `csc-workspaces`.
 
 In the actual Trinity command the number of computing cores to be used (--CPU) is set using environment variable: $SLURM_CPUS_PER_TASK. This variable contains the value set the --cpus-per-task SLURM option.
 
-In Puhti and Taito you can also use distributed computing to speed up the trinity job. When definition:
-```
+In Puhti you can also use distributed computing to speed up the trinity job. When definition:
+```text
 --grid_exec sbatch_commandlist
 ```
 is added to the command, some phases of the analysis tasks are executed as a set of parallel subjobs. 
 For large Trinity tasks the settings of the _sbatch_commandlist_ tool are too limited. In these cases 
 replace _sbatch_commandlist_ with _sbatch_commandlist_trinity_.
-```
+```text
 --grid_exec sbatch_commandlist_trinity
 ```
 When the batch job file is ready, it can be submitted to the batch queue system with command:
-```
+```text
 sbatch batch_job_file
 ```
 More information about running batch jobs, can be found from the chapter three of the Taito user guide.

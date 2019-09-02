@@ -8,9 +8,6 @@ human genome (2.9 GB for paired-end).
 There are two versions of Bowtie available: Bowtie2 and Bowtie.  The more recent Bowtie2 program differs 
 significantly from its ancestor Bowtie. For example the command line options are different for these two tools.
 
-
-[TOC]
-
 ## Available
 
 -   Puhti: 2.3.5.1
@@ -19,7 +16,7 @@ significantly from its ancestor Bowtie. For example the command line options are
 
 ## Usage
 
-In Puhti, Bowtie2 can be taken in use as port of biokit module collection:
+In Puhti, Bowtie2 can be taken in use as part of the _biokit_ module collection:
 
 ```bash
 module load biokit
@@ -91,7 +88,7 @@ bowtie2-build genome.fasta genome
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-In the batch job example above one task (-n 1) is executed. The Bowtie2 job uses 16 cores (--cpus-per-task=16 ) with total of 6 GB of memory (--mem=6000). The maximum duration of the job is four hours (-t 04:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). The projet that will be uses is project_123456.
+In the batch job example above one task (-n 1) is executed. The Bowtie2 job uses 16 cores (--cpus-per-task=16 ) with total of 16 GB of memory (--mem=16000). The maximum duration of the job is four hours (-t 04:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). The project that will be used is project_123456.
 
 You can submit the batch job file to the batch job system with command:
 

@@ -4,8 +4,8 @@
 
 
 EMBOSS (European Molecular Biology Open Software Suite) package contains over 200 programs for sequence analysis. 
-EMBOSS is designed for classical sequence analysis were the amount of seqences are less than 100 000. Becuase of that most of the
-tools are not effective for raw NGS datasets where you have milloins sequences (reads).
+EMBOSS is designed for classical sequence analysis were the amount of seqences are less than 100 000. Because of that, 
+most of the tools are not effective for raw NGS datasets where you have milloins sequences (reads).
 Examples of application areas of EMBOSS tools are given below.
 
 *    Sequence alignment
@@ -27,8 +27,8 @@ Examples of application areas of EMBOSS tools are given below.
 
 Version on CSC's Servers
 
-Puhti: 6.5.7
-
+-   Puhti: 6.5.7
+-   [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSSS tools.
 ## Usage
 
 To make EMBOSS programs available in Puhti super-cluster, give command:
@@ -37,7 +37,7 @@ To make EMBOSS programs available in Puhti super-cluster, give command:
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including EMBOSS. Note however that there are bioinformatics tools in Taito, that have a separate setup commands.
+The biokit module sets up a set of commonly used bioinformatics tools, including EMBOSS. Note however that there are bioinformatics tools in Puhti, that have a separate setup commands.
 
 After loading biokit, you can start any of the EMBOSS programs by typing its name. For example:
 ```text

@@ -10,8 +10,8 @@ FastQC is a  quality control tool for high throughput sequence data.
 
 ###Version on CSC's Servers
 
-Puhti: 0:11.8 
-[Chipster](https://chipster.csc.fi) graphical user interface
+-   Puhti: 0:11.8 
+-   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ##Usage
 

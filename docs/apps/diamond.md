@@ -14,26 +14,26 @@ The key features of Diamond are:
 ## Available
 *   Diamond 0.9.25 is available in Puhti
 
-Usage
+## Usage
 
 To use Diamond, run first command:
-```
+```text
 module load biokit
 ```
-Afrer that, you can check the diamond help with command:
-```
+Afrer that, you can check the Diamond help with command:
+```text
 diamond help
 ```
-CSC provides Diamond indexes for Uniprot databases (swiss, trembl) and NCBI non redundant database (nr). Location of these databases is defined with environment variable $DIAMONDDB.  For example searching hits for a set of nucleotide sequeces  from the SwissProt database could be done with  command:
-```
+CSC provides Diamond indexes for Uniprot databases (swiss, trembl) and NCBI non redundant database (nr). Location of these databases is defined with environment variable `$DIAMONDDB`.  For example searching hits for a set of nucleotide sequeces from the SwissProt database could be done with  command:
+```text
 diamond blastx --query nuc.fasta -d $DIAMONDDB/swiss --out diamond_results.txt -p 4 --max-target-seqs 500
 ```
 You can also do searches against your own protein sequence database.  In this case you must first calculate Diamond indexes for your reference protein set with command diamond makedb. For example:
-```
+```text
 diamond makedb --in refrerence_proteins.fasta -d my_ref -p 4
 ```
 The command above creates a Diamond index file ( my_ref.dmnd) that can be used as the query database:
-```
+```text
 diamond blastx --query nuc.fasta -d my_ref --out diamond_results2.txt -p 4 --max-target-seqs 500
 ```
 

@@ -44,7 +44,7 @@ conda deactivate
 
 You can use the bioconda module to install software packages available in the Bioconda repository to your personal Conda environments. 
 In the example below a new Conda environment, containing _bedops_ package is created:
-```
+```text
 module load bioconda
 conda create -n my_biotools bedops
 source activate my_biotools

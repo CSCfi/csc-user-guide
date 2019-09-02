@@ -15,7 +15,7 @@ Taito: 0.1.19, 1.4, 1.8, 1.9
 Usage
 
 To use SAMtools in Puhti you can use initialization command:
-```
+```text
 module load biokit
 ```
 
@@ -29,13 +29,14 @@ samtools
 SAMtool jobs should either be run in Taito-shell or be executed as batch jobs. Below is a sample batch job file, 
 for running a SAMtools job in Taito:
 
-```
+```text
 #!/bin/bash -l
 #SBATCH -J samtools
 #SBATCH -o output_%j.txt
 #SBATCH -e errors_%j.txt
 #SBATCH -t 04:00:00
-#SBATCH --mem-per-cpu=4000
+#SBATCH --mem=4000
+#SBATCH --account=project_1234567
 #SBATCH -n 1
 
 #Convert SAM file to BAM
@@ -48,10 +49,11 @@ samtools sort aln.bam aln-sorted
 samtools index aln-sorted.bam
 ```
 In the batch job example above one task (-n 1) is executed. The maximum duration of the job is four hours 
-(-t 04:00:00 ) and the reserved memory size is about 4 GB (--mem-per-cpu=4000).
+(-t 04:00:00 ) and the reserved memory size is about 4 GB (--mem=4000). You must cange the --account 
+setting, so that it defines the project from which the computing will be billed.
 
 You can submit the batch job file to the batch job system with command:
-```
+```text
 sbatch batch_job_file.bash
 ```
 Check the chapter 3 of the Taito user guide for more information about running batch jobs.
