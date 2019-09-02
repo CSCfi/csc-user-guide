@@ -1,20 +1,18 @@
 # Overview
 
-Puhti is CSCs new supercomputer. It will be available for CSC users on
-September 2. It contains CPU nodes with a range a memory sizes, and
-also a large GPU partition (Puhti-AI). Please see
-[specifications](system.md) for details on the nodes and storage
-systems.
+Puhti is CSC's supercomputer. It has been available for CSC users since
+2 September 2019. It contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI). Please see the
+[specifications](system.md) for details on the nodes and storage systems.
 
-## Getting access to Puhti
+## Accessing Puhti
 
-To get access please go to [my.csc.fi](https://my.csc.fi) to apply for
-access to Puhti. Further instructions are give in the Accounts section
+To gain access, please go to [my.csc.fi](https://my.csc.fi) to apply for
+access to Puhti. Further instructions are provided in the Accounts section
 of this user guide.
 
 ## Connecting to Puhti
 
-Connect using a normal ssh-client:
+Connect using a ssh client:
 ```
 $ ssh <csc_username>@puhti.csc.fi
 ```
