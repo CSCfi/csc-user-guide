@@ -46,6 +46,10 @@ list-packages
 
     Note that Puhti login nodes are not intended for heavy computing, please use slurm batch jobs instead. See our [instructions on how to use the batch job system](../computing/running/getting-started.md).
 
+### Local storage
+
+The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts.md#local-storage).
+
 ## More information
 
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
