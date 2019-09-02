@@ -190,8 +190,8 @@ laptops, etc.
 ### Installing conda
 
 If you are planning to install Conda packages yourself, instead of using system
-applications that are installed with Conda by someone else, like bioconda or
-geoconda in taito.csc.fi, I recommend installing a personal copy of Miniconda3
+applications that are installed with Conda by someone else, like [bioconda](../../apps/bioconda.md) or
+geoconda in puhti.csc.fi, I recommend installing a personal copy of Miniconda3
 as
 
 ```
