@@ -40,7 +40,7 @@ If you wish to get the output in sam format you can use option `-a`.
 For different data types minimap2 needs to be tuned for optimal performance and accuracy.
 With option `-x` you can take in use case specific parameter sets, pre-defined and recommended by the minimap2 developers.
  
-1.  Map long noisy genomic reads (_map-pb_ and _map-ont_). 
+####  Map long noisy genomic reads (_map-pb_ and _map-ont_). 
 
 *   PacBio subreads (_map-db_):
 ```text
@@ -52,7 +52,7 @@ minimap2 -ax map-pb  ref.fa pacbio-reads.fq > aln.sam
 minimap2 -ax map-ont ref.fa ont-reads.fq > aln.sam 
 ```
 
-2.  Map long mRNA/cDNA reads (splice)
+####  Map long mRNA/cDNA reads (splice)
 
 *   PacBio Iso-seq/traditional cDNA
 ```text
@@ -74,7 +74,7 @@ minimap2 -ax splice -uf -k14 ref.fa direct-rna.fq > aln.sam
 minimap2 -ax splice --splice-flank=no SIRV.fa SIRV-seq.fa
 ```
 
-3.  Find overlaps between long reads (_ava-pb_ and _aca-ont_)
+#### Find overlaps between long reads (_ava-pb_ and _aca-ont_)
 *   PacBio read overlap
 ```text
 minimap2 -x ava-pb  reads.fq reads.fq > ovlp.paf
@@ -84,7 +84,7 @@ minimap2 -x ava-pb  reads.fq reads.fq > ovlp.paf
 minimap2 -x ava-ont reads.fq reads.fq > ovlp.paf
 ```
 
-4.  Map short accurate genomic reads (sr)
+####  Map short accurate genomic reads (sr)
 Note, minimap2 does work well with short spliced reads.
 
 *   single-end alignment
@@ -93,40 +93,23 @@ minimap2 -ax sr ref.fa reads-se.fq > aln.sam
 ```
 *   paired-end alignment
 ```text
-minimap2 -ax sr ref.fa read1.fq read2.fq > aln.sam    
+minimap2 -ax sr ref.fa read1.fq read2.fq > aln.sam
 ```
 *   paired-end alignment
 ```text
 minimap2 -ax sr ref.fa reads-interleaved.fq > aln.sam 
 ```
 
-5.  Full genome/assembly alignment _asm5_
+####  Full genome/assembly alignment _asm5_
 assembly to assembly
 ```text
-minimap2 -ax asm5 ref.fa asm.fa > aln.sam  
+minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 ```
 
-**Example batch script for Puhti**
+## Example batch script for Puhti
 
 In Puhti, minimap2 jobs should be run as batch jobs. Below is a sample batch job file, 
-for running a minima2 paired end alignment in Puhti. The recent Bowtie2 versions scale well, so you can effecteively use up 
-to 16 cores in your batch job.
-
-Note that the batch job file must definbe define the project that will be used.
-You cab check your current  project with comamnd:
-
-```
-id -g
-```
-
-You can check all the projects that you belong to, with command:
-
-```
-groups
-``` 
-
-Use MyCSC (https://my.csc.fi) to obtain more specific information about a
-specific project.
+for running a minimap2 paired end alignment in Puhti.
 
 
 ```text
@@ -148,14 +131,14 @@ minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 
 ```
 
-In the batch job example above one task (-n 1) is executed. The Bowtie2 job uses 8 cores (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000). The maximum duration of the job is four hours (-t 04:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing the _project_XXXXXX_ with your project ID. (You can use command `csc-workspaces` to see what project you have in Puhti). 
+In the batch job example above one task (-n 1) is executed. The Minimap2 job uses 8 cores (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000). The maximum duration of the job is four hours (-t 04:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing the _project_XXXXXX_ with your project ID. (You can use command `csc-workspaces` to see what projects you have in Puhti). 
 
 You can submit the batch job file to the batch job system with command:
 
 ```
 sbatch batch_job_file.bash
 ```
-
+See the [Puhti user guide](https://docs.csc.fi/#computing/running/getting-started) for more information about running batch jobs.
 
 ## Support
 

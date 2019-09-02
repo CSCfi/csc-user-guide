@@ -95,7 +95,7 @@ You can submit the batch job file to the batch job system with command:
 ```
 sbatch batch_job_file.bash
 ```
-
+See the [Puhti user guide](https://docs.csc.fi/#computing/running/getting-started) for more information about running batch jobs.
 ## References
 
 When you use Bowtie2, please cite:
