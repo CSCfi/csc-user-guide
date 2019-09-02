@@ -13,6 +13,7 @@
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Minimap2](minimap2.md) Short read aligner.
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data.
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
