@@ -385,9 +385,11 @@ remove unused packages from the local package cache `pkgs`, respectively.
 ## Creating environments so that other user's can access them
 
 Giving other users an access to your Conda environment is as easy as giving them
-read access to the directory containing the environment, in principle. In
-practice it is very easy to update packages, and then forget to give read access
-to the updated files. Also, some additional considerations need to be made, if
+read access to the directory containing the environment, in principle. If you use $PROJAPPL in 
+Puhti this is the defult setting.
+
+In other environmnets, like a local server or a Virtual Machine it is very easy to update packages, 
+and then forget to give read access to the updated files. Also, some additional considerations need to be made, if
 multiple persons are maintaining the environment, and accidental overwrites
 and other mistakes are to be avoided.
 
