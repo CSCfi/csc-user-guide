@@ -6,18 +6,20 @@ CD-HIT can be used for clustering large sequence sets or removing identical or h
 CD-HIT is often used as a tool to produce a non-redundant sequence set for further analysis of a large sequence set. 
 CD-HIT recognizes fasta and fastq sequence formats.
 
-#Available
+## Available
 Version on CSC's Servers
 
 Puhti: 4.8.1 
-Taito: 4.6.8
-Usage
 
-The setup command for CD-HIT in Taito cluster is:
+## Usage
 
+The setup command for CD-HIT in Puhti cluster is:
+```text
 module load biokit
+```
 
 After the setup command, the server recognizes CD-HIT commands. The CD-HIT package has many programs. The most notable are:
+
 | Program | Description |
 |---------|-------------|
 |cd-hit |Clustering and redundance removal tool for protein sequences|
@@ -26,16 +28,16 @@ After the setup command, the server recognizes CD-HIT commands. The CD-HIT packa
 |cd-hit-est-2d | Tool to compare two nucleic sequence sets |
 |cd-hit-454 | A program to identify artificial duplicates from raw 454 sequencing reads |
 |cd-hit	| Cluster peptide sequences	|
-|psi-cd-hit	| Cluster proteins at <40% cutoff	|
+|psi-cd-hit	| Cluster proteins at less than 40% cutoff	|
 |cd-hit-lap	| Identify overlapping reads |
 |cd-hit-dup | Identify duplicates from single or paired Illumina reads |	
 |cd-hit-454 | Identify duplicates from 454 reads |
 |h-cd-hit | Hierarchical clustering |	
  
 
-A ful list of programs can be found in the CD-HIT user guide.
+A full list of programs can be found in the CD-HIT user guide.
 
-You can list the command line options of CD-HIT programs by using option -help. For example:
+You can list the command line options of CD-HIT programs by using option `-help`. For example:
 ```
 cd-hit -help
 ```
@@ -57,4 +59,4 @@ servicedesk@csc.fi
 
 *   [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki)
 
-* [CD-HIT home page](http://weizhongli-lab.org/cd-hit/)
+*   [CD-HIT home page](http://weizhongli-lab.org/cd-hit/)

@@ -43,7 +43,7 @@ The default parameters, that STAR uses, are typical for mapping 2x76 or 2x101 Il
 ```text
 /appl/soft/bio/star/STAR-2.7.2a/source/parametersDefault
 ```
-In Pugti, all heavier computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based 
+In Puhti, all heavier computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based 
 parallelization. Bellow is a sample batch job file for STAR. The job uses six computing cores from a single computing node. 
 The memory reservation is 24 GB (4GB/core * 6 cores). Note that you must change the _--account_ setting to match you poject.
 ```text
@@ -55,7 +55,7 @@ The memory reservation is 24 GB (4GB/core * 6 cores). Note that you must change 
 #SBATCH -n 1
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=6
-#SBATCH --account=project_123456
+#SBATCH --account=project_1234567
 #SBATCH --mem=24000
 
 # calculate indexes. You don't need to recalculte the indexes if they already exist.
