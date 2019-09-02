@@ -395,7 +395,7 @@ Probability of these mistakes can be minimized by creating a separate
 project/Unix group and user accounts for environment maintainers, and then
 performing the environment maintenance task within a special shell environment.
 Some ideas for the shell environment setup can be found in file
-[bash_profile_extras.sh].
+[bash_profile_extras.sh]. 
 
 [Conda]: https://docs.conda.io/en/latest
 [environment.yaml]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file
