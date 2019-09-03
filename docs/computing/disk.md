@@ -11,6 +11,14 @@ familiar with them before you start using Puhti.
 | **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
 
 
+There is also a quota on the number of files
+
+|              | Default quota      |
+| ------------ | -------------      |
+| **home**     | 100 000 files      |
+| **projappl** | 100 000 files      |
+| **scratch**  | 1 000 000 files    |
+
 
 ## Home directory
 
