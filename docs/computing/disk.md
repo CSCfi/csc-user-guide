@@ -11,6 +11,14 @@ familiar with them before you start using Puhti.
 | **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
 
 
+There is also a quota on the number of files
+
+|              | Default quota      |
+| ------------ | -------------      |
+| **home**     | 100 000 files      |
+| **projappl** | 100 000 files      |
+| **scratch**  | 1 000 000 files    |
+
 
 ## Home directory
 
@@ -62,7 +70,7 @@ purpose.
 
 To get an overview of your directories in Puhti, run command:
 ```text
-csc-workspaces
+csc-workspaces quota
 ```
 It will show all Scratch and ProjAppl directories you have access to through
 active projects with Puhti access. You can find out the project names (and
