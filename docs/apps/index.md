@@ -27,9 +27,9 @@
 
 ## Computational Engineering
 
-* [CFDEM](cfdem.md)  Sofware for simulating fluid-granular systems
+* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
-* [OpenFOAM](openfoam.md) Software for computational fluid dynamics 
+* [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems.
 
 ## Data Analytics and Machine Learning
 
