@@ -1,5 +1,6 @@
 <h1> Applications in alphabetic order</h1>
 <!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
+* [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [MXNet](mxnet.md) Deep learning library for Python
