@@ -199,7 +199,7 @@ the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project.
 
 To get an overview of your directories in Puhti, run command:
 ```text
-csc-workspaces quota
+csc-workspaces 
 ```
 You can pick the path of your ProjAppl directory from the ouput of the command above or if you 
 are mostly using just one project in Puhti, you can set the environment variables 
