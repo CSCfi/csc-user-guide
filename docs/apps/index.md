@@ -8,12 +8,14 @@
 * [Bowtie2](bowtie2.md) Short read aligner. 
 * [BWA](bwa.md) Short read aligner.
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool.
+* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides.
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI.
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Minimap2](minimap2.md) Short read aligner.
+* [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems.
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data.
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
