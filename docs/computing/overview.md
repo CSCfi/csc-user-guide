@@ -33,10 +33,10 @@ ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 
 ## Using Puhti
 
-* [System](system.md) 
-* [Disk areas](disk.md) What places are there for storing data on Puhti 
-* [Modules](modules.md) How to find the programs you need
-* [Applications]()
-* [Running jobs](running/getting-started.md)
-* [Compiling applications](compiling.md) How to build 
+* [System](system.md): What computational resources does Puhti have
+* [Disk areas](disk.md): What places are there for storing data on Puhti 
+* [Modules](modules.md): How to find the programs you need
+* [Applications](../apps/index.md): Application specific instructions.
+* [Running jobs](running/getting-started.md): How to run programs on Puhti 
+* [Compiling applications](compiling.md): Using compilers and building your applications   
 
