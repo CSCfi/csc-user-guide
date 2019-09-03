@@ -1,5 +1,12 @@
 # Compiling applications
 
+## General instructions
+
+- Whenever possible, use the [local disk](disk.md#login-nodes) on the login-node to compile your software.
+    - Compiling on the local disk is much faster and shifts load from the shared filesystem. 
+
+
+
 ## Building CPU applications
 
 C/C++ and Fortran applications can be build with Intel or GNU

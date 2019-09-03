@@ -1,6 +1,9 @@
 # Disk areas
 
-In Puhti there are three main disk areas: **home**, **projappl** and
+[TOC]
+
+
+In Puhti there are three main shared disk areas: **home**, **projappl** and
 **scratch**. These directories have specific purpose and you should be
 familiar with them before you start using Puhti.
 
@@ -135,3 +138,20 @@ quota regardless of how much data you actually have in the scratch
 directory. See [billing](../accounts/billing.md) for details.
 Furthermore, even after quota is increased, the automatic cleaning
 process will continue removing idle files from the scratch directory.
+
+
+## Additional disk areas
+
+### Login nodes
+
+All of the login nodes have 2900 GiB of fast local storage. The storage
+is located under `$TMPDIR` and is separate for each login node.  
+
+The local storage is good for compiling applications and performing 
+pre- and postprocessing that require heavy IO operations, for example packing and unpacking 
+archive files. Remember to move your data to a shared disk area afterwards. 
+
+### Compute nodes 
+
+The IO- and gpu-nodes have local fast storage available for jobs.
+For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage) 

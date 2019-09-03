@@ -41,12 +41,19 @@ The detailed list of nodes is as follows:
 | BM        |  12              | Xeon Gold 6230 | 2 x 20 cores @ 2.1 GHz | 1.5 TiB |            |
 | GPU       |  80              | Xeon Gold 6230<br>Nvidia V100  | 2 x 20 cores @ 2.1 GHz<br> 4 GPUs connected with NVLink | 384 GiB<br>4 x 32GB |  3600 GiB  |
 
+In addition to the compute nodes above, Puhti has two login nodes with 40 cores and 2900 GiB [local disk]() each. 
 
+!!! warning "Important"
+    The login nodes can be used for **light** pre- and postprocessing, compiling
+    applications and moving data. All other tasks are to be done using the 
+    [batch job system](running/getting-started.md). Programs not adhering to these
+    rules will be terminated without warning.
 
 
 ### Storage
 
-Puhti has a 5+ PB Lustre parallel storage system providing space for home, project and scratch storage. 
+Puhti has a 5+ PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
+[project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storage. 
 
 
 
