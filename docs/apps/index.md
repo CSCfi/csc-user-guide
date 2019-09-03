@@ -27,7 +27,9 @@
 
 ## Computational Engineering
 
+* [CFDEM](cfdem.md)  Sofware for simulating fluid-granular systems
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
+* [OpenFOAM](openfoam.md) Software for computational fluid dynamics 
 
 ## Data Analytics and Machine Learning
 

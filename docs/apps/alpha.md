@@ -6,11 +6,13 @@
 * [BLAST](blast.md)
 * [Bowtie2](bowtie2.md)
 * [CD-hit](cd-hit.md)
+* [CFDEM](cfdem.md)
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Diamond](diamond.md)
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [MXNet](mxnet.md) Deep learning library for Python
+* [OpenFOAM](openfoam.md)
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [Samtools](samtools.md)
