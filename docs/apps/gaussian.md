@@ -23,6 +23,6 @@ subg16 time jobname <billing project id>
 ``` 
 (run the plain subg16 command for details)
 For optimal performance of Gaussian jobs on CSC's servers it is beneficial to make some efficiency considerations.
-
 Some hints on how to estimate memory and disk requirements can be found [here](http://gaussian.com/running/?tabid=3).
+
 
