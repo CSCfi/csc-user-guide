@@ -190,12 +190,12 @@ laptops, etc.
 ### Installing conda
 
 If you are planning to install your own Conda, instead of using system
-applications that are installed with Conda by someone else, like [bioconda](../../apps/bioconda.md) or
+applications that are installed with Conda by someone else, like bioconda or
 geoconda in puhti.csc.fi, I recommend installing a project specific copy of Miniconda3.
 
 As Conda packages may take significant storage space it is not recommended to 
 to install Miniconda3 to your home directory. In stead you should install it to 
-the [ProjAppl]( ../../computing/disks.md) directory of your Puhti project.
+the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project.
 
 To get an overview of your directories in Puhti, run command:
 ```text
