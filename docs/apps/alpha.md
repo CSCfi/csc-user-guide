@@ -6,6 +6,7 @@
 * [BLAST](blast.md)
 * [Bowtie2](bowtie2.md)
 * [CD-hit](cd-hit.md)
+* [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Diamond](diamond.md)
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics

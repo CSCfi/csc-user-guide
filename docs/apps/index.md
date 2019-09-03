@@ -27,6 +27,8 @@
 
 ## Computational Engineering
 
+* [COMSOL Multiphysics](comsol.md) General-purpose simulation software
+
 ## Data Analytics and Machine Learning
 
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
