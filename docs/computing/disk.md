@@ -9,13 +9,15 @@ Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please 
 | **scratch**  |  Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
 
 
-There are the default quotas, see #increasing-quotas for instructions on how to increase it:
+There are the default quotas:
 
 |              | Capacity   | Number of files   |
 | -------------| --------   | -------------     |
 | **home**     | 10 GiB     | 100 000 files     |
 | **projappl** | 50 GiB     | 100 000 files     |
 | **scratch**  | 1 TiB      | 1 000 000 files   |
+
+See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
 
 
 ## Home directory
