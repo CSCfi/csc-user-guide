@@ -34,4 +34,14 @@ $ORCADIR/orca orca_4.2.0.inp > orca_4.2.0.out
 !!! note
     Please remember to adjust %pal nproc in your input file according to the total number of requested MPI tasks (nodes * ntasks-per-node) 
 
+## References
 
+Cite your work with the following references:
+
+The generic reference for ORCA is:
+- Neese, F. (2012) The ORCA program system, Wiley Interdiscip. Rev.: Comput. Mol. Sci., 2, 73-78.
+
+Please do not only cite the above generic reference, but also cite in addition the original
+papers that report the development and ORCA implementation of the methods you have used in
+your studies! The publications that describe the functionality implemented in ORCA are
+given in the manual.

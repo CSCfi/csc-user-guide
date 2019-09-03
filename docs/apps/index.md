@@ -24,7 +24,7 @@
 
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
-
+* [ORCA](orca.md) General purpose quantum chemistry package
 ## Computational Engineering
 
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
