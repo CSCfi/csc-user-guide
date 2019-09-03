@@ -2,20 +2,20 @@
 
 Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes before using Puhti.
 
-|              | Default quota | Owner    | Environment variable | Path                                            | Cleaning      |
-| ------------ | ------------- | -------- | -------------------- | ----------------------------------------------- | ------------- |
-| **home**     | 10 GiB        | Personal | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
-| **projappl** | 50 GiB        | Project  | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
-| **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
+|              |  Owner    | Environment variable | Path                                            | Cleaning      |
+| ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
+| **home**     |  Personal | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
+| **projappl** |  Project  | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
+| **scratch**  |  Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
 
 
-There are quotas for the number of files:
+There are the default quotas, see #increasing-quotas for instructions on how to increase it:
 
-|              | Default quota      |
-| ------------ | -------------      |
-| **home**     | 100 000 files      |
-| **projappl** | 100 000 files      |
-| **scratch**  | 1 000 000 files    |
+|              | Capacity   | Number of files   |
+| -------------| --------   | -------------     |
+| **home**     | 10 GiB     | 100 000 files     |
+| **projappl** | 50 GiB     | 100 000 files     |
+| **scratch**  | 1 TiB      | 1 000 000 files   |
 
 
 ## Home directory
@@ -62,7 +62,7 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 An overview of your directories in Puhti:
 ```text
-csc-workspaces quota
+csc-workspaces 
 ```
 The above command displays all _scratch_ and _projappl_ directories you have access to within
 active projects with Puhti access. You can find the projects' names and
