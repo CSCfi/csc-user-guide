@@ -22,8 +22,10 @@
 
 ## Chemistry
 
+* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
+* [ORCA](orca.md) General purpose quantum chemistry package
 
 ## Computational Engineering
 
