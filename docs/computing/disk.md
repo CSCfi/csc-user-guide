@@ -62,7 +62,7 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 An overview of your directories in Puhti:
 ```text
-csc-workspaces quota
+csc-workspaces 
 ```
 The above command displays all _scratch_ and _projappl_ directories you have access to within
 active projects with Puhti access. You can find the projects' names and

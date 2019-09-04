@@ -6,12 +6,14 @@
 * [BLAST](blast.md)
 * [Bowtie2](bowtie2.md)
 * [CD-hit](cd-hit.md)
+* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Diamond](diamond.md)
 * [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [MXNet](mxnet.md) Deep learning library for Python
+* [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
