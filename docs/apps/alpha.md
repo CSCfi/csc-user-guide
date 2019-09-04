@@ -13,6 +13,7 @@
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [MXNet](mxnet.md) Deep learning library for Python
+* [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PyTorch](pytorch.md) Machine learning framework for Python
