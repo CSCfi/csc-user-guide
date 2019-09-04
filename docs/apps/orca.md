@@ -17,15 +17,15 @@ The free version is available only for academic use at academic institutions.
 - Example parallel batch script for Puhti
 
 ```
-#!/bin/bash -l
-#SBATCH -p small 
+#!/bin/bash
+#SBATCH --partition=small
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40
 #SBATCH --account=<your billing project>
-#SBATCH -t 0:30:00 # time as hh:mm:ss
-#SBATCH -J orca-4.2
-#SBATCH -e jobfile.err%J
-#SBATCH -o jobfile.out%J
+#SBATCH --time=0:30:00 # time as hh:mm:ss
+#SBATCH --job-name=orca-4.2
+#SBATCH --error=jobfile.err%J
+#SBATCH --output=jobfile.out%J
 export ORCADIR=<path to your ORCA directory>/orca_4_2_0_linux_x86-64_shared_openmpi314
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 module load hpcx-mpi/2.4.0
