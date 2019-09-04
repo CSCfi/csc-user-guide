@@ -19,6 +19,7 @@ $ ssh <csc_username>@puhti.csc.fi
 
 ## Using Puhti
 
+* [Connecting Puhti](connecting.md)
 * [Disk areas](disk.md)
 * [Modules](modules.md)
 * [Running jobs](running/getting-started.md)
