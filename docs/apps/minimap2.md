@@ -122,7 +122,7 @@ for running a minimap2 paired end alignment in Puhti.
 #SBATCH -n 1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=8
-#SBATCH --account=project_XXXXXX
+#SBATCH --account=<project>
 #SBATCH --mem=16000
 #
 
@@ -131,7 +131,13 @@ minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 
 ```
 
-In the batch job example above one task (-n 1) is executed. The Minimap2 job uses 8 cores (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000). The maximum duration of the job is four hours (-t 04:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing the _project_XXXXXX_ with your project ID. (You can use command `csc-workspaces` to see what projects you have in Puhti). 
+In the batch job example above one task (-n 1) is executed. The Minimap2 job
+uses 8 cores (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000).
+The maximum duration of the job is four hours (-t 04:00:00 ). All the cores
+are assigned from one computing node (--nodes=1 ). In addition to the resource
+reservations, you have to define the billing project for your batch job. This
+is done by replacing the _<project>_ with the name of your project. (You can
+use command `csc-workspaces` to see what projects you have in Puhti).
 
 You can submit the batch job file to the batch job system with command:
 

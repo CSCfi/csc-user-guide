@@ -48,7 +48,7 @@ reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
 The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. About 4 GB of memory is reserved for each core so the total memory reservation is 6 * 4 GB= 24 GB. In Puhti you muts batch job option
-`--account=` to define the project to be used, so you should replace project_1234567 with your own project ID. You can check your proects
+`--account=` to define the project to be used, so you should replace project_1234567 with your own project. You can check your proects
 with command: `csc-workspaces`.
 
 In the actual Trinity command the number of computing cores to be used (--CPU) is set using environment variable: $SLURM_CPUS_PER_TASK. This variable contains the value set the --cpus-per-task SLURM option.

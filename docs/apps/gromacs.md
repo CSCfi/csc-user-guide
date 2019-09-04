@@ -60,7 +60,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 #SBATCH --partition=large
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
-#SBATCH --account=project_20XXXXX
+#SBATCH --account=<project>
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
@@ -83,7 +83,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 #SBATCH --time=00:30:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
-#SBATCH --account=project_20XXXXX
+#SBATCH --account=<project>
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
@@ -95,9 +95,9 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
 
 !!! note
-    You *must* fill in the computing project code in your script.
-    Otherwise, your job will not run. This project will be used for
-    billing the cpu usage.
+    You *must* fill in the computing project name in your script (replace
+    <project> with it). Otherwise, your job will not run. This project will be
+    used for billing the cpu usage.
 
 Submit the script with `sbatch script_name.sh`
 
