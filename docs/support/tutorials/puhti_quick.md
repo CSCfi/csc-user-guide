@@ -71,7 +71,7 @@ Instructions on how to submit jobs can be found [here](../../computing/running/c
 and example batch job scripts are found [here](../../computing/running/example-job-scripts.md)
 
 !!! note "Very important change!!"
-    You have to specify your billing project in your batch script with the `--account=project_<project_number>` 
+    You have to specify your billing project in your batch script with the `--account=<project>`
     flag. Failing to do so will cause your job to be held with the reason “_AssocMaxJobsLimit_”.
     Running `srun` directly also requires the flag.
 
@@ -86,10 +86,10 @@ More information about billing [here](../../accounts/billing.md)
 
 ## Storage
 
-The **project based** shared storage can be found under `/scratch/project_<project_id>`.
+The **project based** shared storage can be found under `/scratch/<project>`.
 Note that this folder is shared by **all users** in a project. This folder is not meant for long term data storage
 and files that have not been used for 90 days will be automatically removed. The default quota for this folder is 1 TB. There is also a persistent **project based**
-storage with a default quota of 50 GB. It is located under `/projappl/project_<project_id>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
+storage with a default quota of 50 GB. It is located under `/projappl/<project>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
 
 More detailed information about storage can be found [here](../../computing/disk.md).
 

@@ -5,8 +5,8 @@ Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please 
 |              | Default quota | Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ | ------------- | -------- | -------------------- | ----------------------------------------------- | ------------- |
 | **home**     | 10 GiB        | Personal | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
-| **projappl** | 50 GiB        | Project  | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
-| **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
+| **projappl** | 50 GiB        | Project  | Not available        | <small>`/projappl/<project>`</small> | No            |
+| **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/<project>`</small>  | Yes - 90 days |
 
 
 There are quotas for the number of files:
@@ -40,7 +40,7 @@ to several _scratch_ or _projappl_ directories, but still have only one home dir
 ## Scratch directory
 
 Each project has 1 TB of scratch disk space in the directory
-`/scratch/<project_id>`.
+`/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage
 space for the data that is used in Puhti. The scratch directory is not intended for
@@ -50,7 +50,7 @@ be automatically removed**.
 ## ProjAppl directory
 
 Each project has also a 50 GB project application disk space in the directory
-`/projappl/project_<project_id>`.
+`/projappl/project_<project>`.
 
 It is intended for storing applications you have compiled yourself and libraries
 etc. that you are sharing within the project. It is not a personal storage space but it
@@ -85,7 +85,7 @@ If you are mostly involved in only one Puhti project, you can set the
 environment variables $SCRATCH and $PROJAPPL to point at the _scratch_ and
 _projappl_ directories of a CSC project:
 <pre>
-csc-workspaces set <i>project_ID</i>
+csc-workspaces set <i>project</i>
 </pre>
 
 The _scratch_ and _projappl_ directories are shared by **all the members of the

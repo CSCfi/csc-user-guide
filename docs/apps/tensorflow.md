@@ -72,7 +72,7 @@ Below is an example slurm batch script that uses 8 tasks across two nodes.  Each
 #SBATCH --gres=gpu:v100:4
 #SBATCH --time=1:00:00
 #SBATCH --mem=32G
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 
 module load tensorflow/1.13.1-hvd
 
