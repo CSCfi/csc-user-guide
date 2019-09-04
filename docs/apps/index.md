@@ -31,6 +31,7 @@
 
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
+* [Elmer](elmer.md) Open source multi-physics FEM package
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems.
 
 ## Data Analytics and Machine Learning
