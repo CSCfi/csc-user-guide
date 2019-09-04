@@ -4,6 +4,7 @@
 
 - Whenever possible, use the [local disk](disk.md#login-nodes) on the login-node to compile your software.
     - Compiling on the local disk is much faster and shifts load from the shared filesystem. 
+    - The local disk is cleaned frequently, so move your files after compiling has finished. 
 
 
 

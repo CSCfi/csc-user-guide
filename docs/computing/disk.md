@@ -137,9 +137,14 @@ is located under `$TMPDIR` and is separate for each login node.
 
 The local storage is good for compiling applications and performing 
 pre- and postprocessing that require heavy IO operations, for example packing and unpacking 
-archive files. Remember to move your data to a shared disk area afterwards. 
+archive files. 
+
+!!! Note
+    The local storage is meant for **temporary** storage and is cleaned frequently.
+    Remember to move your data to a shared disk area after completing your task. 
 
 ### Compute nodes 
 
-The IO- and gpu-nodes have local fast storage available for jobs.
-For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage) 
+The IO- and gpu-nodes have local fast storage available upon request for jobs.
+For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage). 
+**Do not use `$TMPDIR` for storage on compute nodes.**

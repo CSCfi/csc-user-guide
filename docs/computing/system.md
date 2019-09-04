@@ -40,7 +40,8 @@ A detailed list of the nodes:
 | BM        |  12              | Xeon Gold 6230 | 2 x 20 cores @ 2,1 GHz | 1,5 TiB |            |
 | GPU       |  80              | Xeon Gold 6230<br>Nvidia V100  | 2 x 20 cores @ 2,1 GHz<br> 4 GPUs connected with NVLink | 384 GiB<br>4 x 32 GB |  3600 GiB  |
 
-In addition to the compute nodes above, Puhti has two login nodes with 40 cores and 2900 GiB [local disk]() each. 
+In addition to the compute nodes above, Puhti has two login nodes with 40 cores and 2900 GiB
+[local disk](disk.md#login-nodes) each. 
 
 !!! warning "Important"
     The login nodes can be used for **light** pre- and postprocessing, compiling
