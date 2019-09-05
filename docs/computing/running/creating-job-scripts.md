@@ -157,6 +157,10 @@ To use the local storage, you need to request it using the `--gres` flag in your
 
 You can use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
+!!! Note
+    The local storage is wiped after the job has finished, so move any data you want to keep to
+    the shared disk area.
+
 
 ### GPUs
 

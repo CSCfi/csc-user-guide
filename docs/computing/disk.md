@@ -126,3 +126,25 @@ quota regardless of how much data you actually have in the scratch
 directory. See [billing](../accounts/billing.md) for details.
 Furthermore, even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the _scratch_ directory.
+
+
+## Additional disk areas
+
+### Login nodes
+
+All of the login nodes have 2900 GiB of fast local storage. The storage
+is located under `$TMPDIR` and is separate for each login node.  
+
+The local storage is good for compiling applications and performing 
+pre- and postprocessing that require heavy IO operations, for example packing and unpacking 
+archive files. 
+
+!!! Note
+    The local storage is meant for **temporary** storage and is cleaned frequently.
+    Remember to move your data to a shared disk area after completing your task. 
+
+### Compute nodes 
+
+The IO- and gpu-nodes have local fast storage available upon request for jobs.
+For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage). 
+**Do not use `$TMPDIR` for storage on compute nodes.**
