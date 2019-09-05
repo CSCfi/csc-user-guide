@@ -9,6 +9,7 @@
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Diamond](diamond.md)
+* [Elmer] (elmer.md) Open source multi-physics FEM package 
 * [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics

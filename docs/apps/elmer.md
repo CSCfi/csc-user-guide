@@ -1,10 +1,10 @@
 # Elmer
 
 Elmer is CSC's open source Finite Element multi-physics simulation package.  It covers modules for fluid and solid mechanics,
-accoustics, electro-magneto dynamics 
+acoustics, electro-magneto dynamics 
 
 Elmer utilizes third-party open source programs for pre- (e.g., Gmsh) and post-processing (e.g., ParaView, Visit).
-The version installed includes Elmer/Ice solvers needed for glaciological simulations (iece-sheets, glaciers).
+The version installed includes Elmer/Ice solvers needed for glaciological simulations (ice-sheets, glaciers).
 Elmer utilizes the MPI library for parallel computing with some solvers already having OpenMP parallel threading
 directives implemented.
 
@@ -31,13 +31,13 @@ $ module load elmer/latest
 **Example parallel batch script for Puhti**
 
 ```
-#!/bin/bash -l
+#!/bin/bash 
 #SBATCH --time=00:30:00
-#SBATCH --partition=parallel
+#SBATCH --partition=small
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=1
-#SBATCH --mem-per-cpu=2GB
-#SBATCH --account=project_20XXXXX
+#SBATCH --mem-per-cpu=2G
+#SBATCH --account=<project>
 
 # this script runs a 40 core (1 full node) Elmer job, requesting 30 minutes time
 # and 2 GB of memory for each core
