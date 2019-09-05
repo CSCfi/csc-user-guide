@@ -26,7 +26,7 @@ Gromacs is free software available under LGPL, version 2.1.
 Initialise recommended version of Gromacs on Puhti like this:
 
 ```bash
-$ module load gromacs-env
+$ module load gromacs
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with

@@ -26,6 +26,7 @@
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [NAMD](namd.md) Highly scalable classical molecular dynamics
 
 ## Computational Engineering
 
