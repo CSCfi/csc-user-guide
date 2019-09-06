@@ -46,7 +46,7 @@ as a batch job using eight cores.
 ```text
 #!/bin/bash
 #SBATCH --job-name=qiime_denoise
-#SBATCH --account=project_200XXXX 
+#SBATCH --account=<project> 
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
@@ -70,8 +70,9 @@ srun qiime dada2 denoise-single \
   --o-denoising-stats stats-dada2.qza \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
-The sample job above project project_200XXXXX ( use `csc-workspaces` to check your Puhti projects). Maximum running time is 
-set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization, the process is considered as one job that
+
+In the example above _<project>_ sould be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
+Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization, the process is considered as one job that
  should be executed within one node (`--ntasks=1`, `--ntasks=1`). The job reserves eight cores `--cpus-per-task=8` that 
 can use in total up to 16 GB of memory  (` --mem=16G`). Note that the nubmer of cores to be used needs to be defined in 
 actual qiime command too. That is done with Megahit option `--p-n-threads`. In this case we use $SLURM_CPUS_PER_TASK 
