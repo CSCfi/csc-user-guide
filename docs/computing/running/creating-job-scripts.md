@@ -152,9 +152,9 @@ The local storage is available on:
 To use the local storage, you need to request it using the `--gres` flag in your job submissions.
 
 ```
---gres=nvme:<local_memory_per_node>
+--gres=nvme:<local_storage_space_per_node>
 ```
-, where the amount of memory is given in GB (with a maximum of 3600 GB/ per node). The local storage reservation is on a per node basis.
+, where the amount of space is given in GB (with a maximum of 3600 GB/ per node). The local storage reservation is on a per node basis.
 
 You can use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
@@ -175,7 +175,7 @@ The `--gres` reservation is on a per node basis. There are 4 GPUs per gpu-node.
 Multiple resources are requested with a comma separated list.
 So if you need both GPU and local storage the syntax is:
 ```
---gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_memory_per_node>
+--gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
 
 
