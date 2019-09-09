@@ -66,7 +66,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
 
-module load gromacs-env
+module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
@@ -89,7 +89,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 
 # this script runs a 1 core gromacs job, requesting 30 minutes time
 
-module load gromacs-env
+module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
