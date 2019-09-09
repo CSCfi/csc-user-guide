@@ -49,7 +49,7 @@ other listings.
 
 sets the billing project for the job. **This argument is mandatory, failing to
 set it will cause your job to be held with the reason "_AssocMaxJobsLimit_"**
-You should replace *\<project\>* with the Unix group of the project which you 
+You should replace `<project>` with the Unix group of the project which you 
 can find in [My CSC](https://my.csc.fi) in the "My Projects" tab. More 
 information about [billing](../../accounts/billing.md).
 
