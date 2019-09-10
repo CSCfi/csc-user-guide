@@ -57,7 +57,7 @@ be automatically removed**.
 ## ProjAppl directory
 
 Each project has also a 50 GB project application disk space in the directory
-`/projappl/project_<project>`.
+`/projappl/<project>`.
 
 It is intended for storing applications you have compiled yourself and libraries
 etc. that you are sharing within the project. It is not a personal storage space but it
