@@ -2,11 +2,12 @@
 
 Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes before using Puhti.
 
+
 |              |  Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
-| **home**     |  Personal | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
-| **projappl** |  Project  | Not available        | <small>`/projappl/project_<project_id>`</small> | No            |
-| **scratch**  |  Project  | Not available        | <small>`/scratch/project_<project_id>`</small>  | Yes - 90 days |
+| **home**     |  Personal | `$(HOME)`            | <small>`/user/<user-name>`</small>              | No            |
+| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small> | No            |
+| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>  | Yes - 90 days |
 
 
 There are the default quotas:
@@ -42,7 +43,7 @@ to several _scratch_ or _projappl_ directories, but still have only one home dir
 ## Scratch directory
 
 Each project has 1 TB of scratch disk space in the directory
-`/scratch/<project_id>`.
+`/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage
 space for the data that is used in Puhti. The scratch directory is not intended for
@@ -52,7 +53,7 @@ be automatically removed**.
 ## ProjAppl directory
 
 Each project has also a 50 GB project application disk space in the directory
-`/projappl/project_<project_id>`.
+`/projappl/project_<project>`.
 
 It is intended for storing applications you have compiled yourself and libraries
 etc. that you are sharing within the project. It is not a personal storage space but it
@@ -87,7 +88,7 @@ If you are mostly involved in only one Puhti project, you can set the
 environment variables $SCRATCH and $PROJAPPL to point at the _scratch_ and
 _projappl_ directories of a CSC project:
 <pre>
-csc-workspaces set <i>project_ID</i>
+csc-workspaces set <i>project</i>
 </pre>
 
 The _scratch_ and _projappl_ directories are shared by **all the members of the
@@ -128,3 +129,25 @@ quota regardless of how much data you actually have in the scratch
 directory. See [billing](../accounts/billing.md) for details.
 Furthermore, even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the _scratch_ directory.
+
+
+## Additional disk areas
+
+### Login nodes
+
+All of the login nodes have 2900 GiB of fast local storage. The storage
+is located under `$TMPDIR` and is separate for each login node.  
+
+The local storage is good for compiling applications and performing 
+pre- and postprocessing that require heavy IO operations, for example packing and unpacking 
+archive files. 
+
+!!! Note
+    The local storage is meant for **temporary** storage and is cleaned frequently.
+    Remember to move your data to a shared disk area after completing your task. 
+
+### Compute nodes 
+
+The IO- and gpu-nodes have local fast storage available upon request for jobs.
+For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage). 
+**Do not use `$TMPDIR` for storage on compute nodes.**

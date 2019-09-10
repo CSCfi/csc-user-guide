@@ -22,12 +22,18 @@
 
 ## Chemistry
 
+* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
+* [ORCA](orca.md) General purpose quantum chemistry package
+* [NAMD](namd.md) Highly scalable classical molecular dynamics
 
 ## Computational Engineering
 
+* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
+* [Elmer](elmer.md) Open source multi-physics FEM package
+* [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems.
 
 ## Data Analytics and Machine Learning
 

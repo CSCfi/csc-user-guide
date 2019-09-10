@@ -8,14 +8,14 @@ Below are example job scripts for running different types of programs:
     If you copy them (please do!), remember to change at least the resources
     (time, tasks etc.) to match your needs and to replace `myprog <options>`
     with the executable (and options) of the program you wish to run as well
-    as `<project_id>` with your project ID.
+    as `<project>` with the name of your project.
 
 ## Serial
 
 ```
 #!/bin/bash
 #SBATCH --job-name=example
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
@@ -29,7 +29,7 @@ srun myprog <options>
 ```
 #!/bin/bash
 #SBATCH --job-name=example
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
@@ -47,7 +47,7 @@ srun myprog <options>
 ```
 #!/bin/bash
 #SBATCH --job-name=example
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition=large
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=80
@@ -61,7 +61,7 @@ srun myprog <options>
 ```
 #!/bin/bash
 #SBATCH --job-name=example
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition=gpu
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
@@ -79,7 +79,7 @@ srun myprog <options>
 ```
 #!/bin/bash
 #SBATCH --job-name=example
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition=gpu
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=4

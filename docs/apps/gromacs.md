@@ -26,7 +26,7 @@ Gromacs is free software available under LGPL, version 2.1.
 Initialise recommended version of Gromacs on Puhti like this:
 
 ```bash
-$ module load gromacs-env
+$ module load gromacs
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
@@ -60,13 +60,13 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 #SBATCH --partition=large
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
-#SBATCH --account=project_20XXXXX
+#SBATCH --account=<project>
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
 
-module load gromacs-env
+module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
@@ -83,21 +83,21 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 #SBATCH --time=00:30:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
-#SBATCH --account=project_20XXXXX
+#SBATCH --account=<project>
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
 # this script runs a 1 core gromacs job, requesting 30 minutes time
 
-module load gromacs-env
+module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
 
 !!! note
-    You *must* fill in the computing project code in your script.
-    Otherwise, your job will not run. This project will be used for
-    billing the cpu usage.
+    You *must* fill in the computing project name in your script (replace
+    <project> with it). Otherwise, your job will not run. This project will be
+    used for billing the cpu usage.
 
 Submit the script with `sbatch script_name.sh`
 

@@ -199,14 +199,14 @@ the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project.
 
 To get an overview of your directories in Puhti, run command:
 ```text
-csc-workspaces quota
+csc-workspaces 
 ```
 You can pick the path of your ProjAppl directory from the ouput of the command above or if you 
 are mostly using just one project in Puhti, you can set the environment variables 
 $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. 
 This setting can be done with command:
 ```text
-csc-workspaces set <project_ID>
+csc-workspaces set <project>
 ```
 Below we assume that $PROJAPPL has been defined. After that the actual installation 
 can be done with commands:
