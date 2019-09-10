@@ -5,9 +5,9 @@ Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please 
 
 |              |  Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
-| **home**     |  Personal | `$(HOME)`            | <small>`/user/<user-name>`</small>              | No            |
-| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small> | No            |
-| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>  | Yes - 90 days |
+| **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No            |
+| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No            |
+| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
 
 
 There are the default quotas:
@@ -26,9 +26,13 @@ See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for
 Each Puhti user has a home directory (`$HOME`) that can contain up to 10 GB of
 data.
 
-The home directory is the default directory where you begin after logging in
-to Puhti. However, typically you should change to your project's _scratch_
-directory when working with Puhti because the **home directory is not intended for data analysis or computing**. Its purpose is to store configuration files and other minor personal data. A home directory exceeding its capacity causes various account problems.
+The home directory is the default directory where you begin after
+logging in to Puhti. However, typically you should change to your
+project's _scratch_ directory when working with Puhti because the
+**home directory is not intended for data analysis or computing**. Its
+purpose is to store configuration files and other minor personal
+data. A home directory exceeding its capacity causes various account
+problems.
 
 The home directory is the only user-specific directory in Puhti. All other directories
 are project-specific. If you are a member of several projects, you also have access
@@ -67,11 +71,13 @@ An overview of your directories in Puhti:
 ```text
 csc-workspaces 
 ```
+
 The above command displays all _scratch_ and _projappl_ directories you have access to within
 active projects with Puhti access. You can find the projects' names and
-other project information at the [MyCSC portal](https://my.csc.fi).
+other project information at the [MyCSC portal](https://my.csc.fi). In MyCSC it is the "unix group" that
+defines the name of the disk folders in _scratch_ and _projappl_ directories. 
 
-For example, if you are member in two projects, _project_2002291_
+For example, if you are member in two projects, with unix groups _project_2002291_
 and _project_3587167_, then you have access to their scratch directories:
 ```text
 /scratch/project_2002291
