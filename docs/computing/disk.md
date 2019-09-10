@@ -2,20 +2,23 @@
 
 Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes before using Puhti.
 
-|              | Default quota | Owner    | Environment variable | Path                                            | Cleaning      |
-| ------------ | ------------- | -------- | -------------------- | ----------------------------------------------- | ------------- |
-| **home**     | 10 GiB        | Personal | `$(HOME)`            | <small>`/home/<user-name>`</small>              | No            |
-| **projappl** | 50 GiB        | Project  | Not available        | <small>`/projappl/<project>`</small> | No            |
-| **scratch**  | 1 TiB         | Project  | Not available        | <small>`/scratch/<project>`</small>  | Yes - 90 days |
+
+|              |  Owner    | Environment variable | Path                                            | Cleaning      |
+| ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
+| **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No            |
+| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No            |
+| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
 
 
-There are quotas for the number of files:
+There are the default quotas:
 
-|              | Default quota      |
-| ------------ | -------------      |
-| **home**     | 100 000 files      |
-| **projappl** | 100 000 files      |
-| **scratch**  | 1 000 000 files    |
+|              | Capacity   | Number of files   |
+| -------------| --------   | -------------     |
+| **home**     | 10 GiB     | 100 000 files     |
+| **projappl** | 50 GiB     | 100 000 files     |
+| **scratch**  | 1 TiB      | 1 000 000 files   |
+
+See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
 
 
 ## Home directory
@@ -23,9 +26,13 @@ There are quotas for the number of files:
 Each Puhti user has a home directory (`$HOME`) that can contain up to 10 GB of
 data.
 
-The home directory is the default directory where you begin after logging in
-to Puhti. However, typically you should change to your project's _scratch_
-directory when working with Puhti because the **home directory is not intended for data analysis or computing**. Its purpose is to store configuration files and other minor personal data. A home directory exceeding its capacity causes various account problems.
+The home directory is the default directory where you begin after
+logging in to Puhti. However, typically you should change to your
+project's _scratch_ directory when working with Puhti because the
+**home directory is not intended for data analysis or computing**. Its
+purpose is to store configuration files and other minor personal
+data. A home directory exceeding its capacity causes various account
+problems.
 
 The home directory is the only user-specific directory in Puhti. All other directories
 are project-specific. If you are a member of several projects, you also have access
@@ -50,7 +57,7 @@ be automatically removed**.
 ## ProjAppl directory
 
 Each project has also a 50 GB project application disk space in the directory
-`/projappl/project_<project>`.
+`/projappl/<project>`.
 
 It is intended for storing applications you have compiled yourself and libraries
 etc. that you are sharing within the project. It is not a personal storage space but it
@@ -64,11 +71,13 @@ An overview of your directories in Puhti:
 ```text
 csc-workspaces 
 ```
+
 The above command displays all _scratch_ and _projappl_ directories you have access to within
 active projects with Puhti access. You can find the projects' names and
-other project information at the [MyCSC portal](https://my.csc.fi).
+other project information at the [MyCSC portal](https://my.csc.fi). In MyCSC it is the "unix group" that
+defines the name of the disk folders in _scratch_ and _projappl_ directories. 
 
-For example, if you are member in two projects, _project_2002291_
+For example, if you are member in two projects, with unix groups _project_2002291_
 and _project_3587167_, then you have access to their scratch directories:
 ```text
 /scratch/project_2002291
