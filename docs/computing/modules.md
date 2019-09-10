@@ -1,76 +1,72 @@
-# Module system
+# The module system
 
-The module system enables managing several incompatible software environments
-within one computer. Use the module command to query available applications,
-libraries or compiler suites and dynamically initialize them for use.
-The module system should be used both in interactive and batch jobs.
+The module system enables managing several mutually incompatible software environments
+within one computer. Use the `module` command to query the available applications,
+libraries or compiler suites, and dynamically initialize them.
+The module system should be used for both interactive and batch jobs.
 
-*Environment modules* provide a convenient way to set up everything
-required by a particular application. Module system modifies the
+The **environment modules** provide a convenient way to set up everything
+required by a particular application. The module system modifies the
 environment variables of the user's shell so that the correct versions
-of executables are in the path and linker can find the correct version
-of needed libraries. For example, the command `mpicc` points to
-different compilers depending on the loaded module.
+of executables are in the path and the linker can find the correct version
+of the required libraries. For example, the command `mpicc` points to
+different compilers depending on the module loaded.
 
-CSC uses environment modules called
-**Lmod**. It is developed at Texas Advanced Computing Center (TACC) and
-is implemented using the *Lua* programming language. More technical
-details can be found from the [Lmod homepage].
+CSC uses **Lmod** environment modules. They are developed at the Texas Advanced Computing Center (TACC) and implemented using the _Lua_ programming language. More technical details can be found on the [Lmod homepage].
 
 [TOC]
 
 ## Basic usage
 
-The syntax of the module commands is:
+The syntax of the module command:
 
 ```text
 module command module-name
 ```
 
-The currently loaded modules, i.e. what your current environment is,
-are listed with:
+Listing the modules loaded (including your current environment):
 
 ```text
 module list
 ```
 
-For general information about a module, one uses command `module help`. For
-example, to get more information about loaded module `intel`, use:
+The command `module help` provides general information about a module. For
+example, to get more information about the module `intel`, use:
 
 ```text
 module help intel
 ```
 
-Load new modules to your environment with `load` command, for
-example to load the `intel-mpi` module use:
+Load new modules to your environment with the command `load`. For
+example, to load the `intel-mpi` module, use:
 
 ```text
 module load intel-mpi
 ```
 
-Note that you can only load modules that are compatible with other
-modules that you have loaded. That is, you can not load modules that are
+Note that you can only load modules that are compatible with the other
+loaded modules. That is, you cannot load modules that are
 conflicting with previously loaded modules, or modules that depend on
 modules that have not been loaded.
 
-Modules that are not needed or that are conflicting with other modules
+Modules that are not needed or conflict with other modules
 can be unloaded using `unload`:
 
 ```text
 module unload intel-mkl
 ```
 
-Here is a list of most commonly used module commands:
+The most commonly used module commands:
 
-|  Module command               |  Description                                  |
-|-------------------------------|-----------------------------------------------|
-| module help *modulename*      | Show information about a module.              |
-| module load *modulename*      | Loads the given environment module.           |
-| module unload *modulename*    | Unloads the given environment module.         |
-| module list                   | List the loaded modules.                      |
-| module avail                  | List modules that are available to be loaded. |
-| module spider *name*          | Searches the entire list of possible modules. |
-| module swap *module1 module2* | Replaces a module with a second module.       |
+|  Module command               |  Description                     |
+|-------------------------------|----------------------------------|
+| module help *modulename*      | Information about a module.      |
+| module load *modulename*      | Loads the environment module.    |
+| module unload *modulename*    | Unloads the environment module.  |
+| module list                   | List the loaded modules.         |
+| module avail                  | List all available modules.      |
+| module spider *name*          | Searches the entire module list. |
+| module swap *module1 module2* | Replace a module with another.   |
 
 ### Finding modules
 
@@ -81,29 +77,26 @@ set by using:
 module avail
 ```
 
-Because of the hierarchical structure of the Lmod system you can not
-load all installed modules using just one `module load` command. The
-`avail` command does not show modules that can not be loaded due to
-conflicts or unmet dependencies. Reason for these protective
-restrictions is to prevent you from loading module combinations that do
-not work.
+Because of the hierarchical structure of the _Lmod_ system, it is not possible to
+load all installed modules simply using a single `module load` command. The
+`avail` command does not show modules that cannot be loaded due to
+conflicts or unmet dependencies. These protective
+restrictions prevent the loading of incompatible module combinations.
 
-You can get the list of all installed software packages using:
+List all installed software packages:
 
 ```text
 module spider
 ```
 
-You can also give the name or part of the name of the module as an
-argument, for example:
+List modules by name:
 
 ```text
 module spider int
 ```
 
-will list all modules with string "int" in the name. More detailed
-description of a module can be printed using the full module name with
-version number, for example:
+The above command will list all modules with the string _int_ in their name. A more detailed
+description of a module can be printed using the full module name with a version number:
 
 ```text
 module spider fftw/3.3.8
@@ -111,8 +104,7 @@ module spider fftw/3.3.8
 
 ### Solving module dependencies
 
-Some modules depend on other modules. In these cases the
-information from the module system is an error message, for example:
+Some modules depend on other modules. If a required module is missing, the module system prints an error message:
 
 ```text
 $ module load parallel-netcdf
@@ -138,10 +130,8 @@ $ module spider parallel-netcdf/1.8.0
 ----------------------------------------------------------------------------
 ```
 
-In these cases the
-`module avail` command does not even list the module and `module load`
-command can not find it. Easiest way to check what environment is
-required for the desired module is to use `module spider` command with
+In such cases, the `module avail` command excludes the module from the list and the `module load`
+command cannot find it. The easiest way to find out the required environment is to use the `module spider` command with the
 version information. For example:
 
 ```text
@@ -157,23 +147,23 @@ $ module spider parallel-netcdf/1.8.0
 ...
 ```
 
-So in this case you will have to load one the listed environments before
-you can proceed with `module load` command.
+In this case, you will have to load one the listed environments before
+proceeding with `module load` command.
 
 ## Advanced topics
 
 In general, applications and their dependencies should be compiled and
 linked using the same compiler. In some cases this is a strict
-requirement. For example, you can not use the MPI Fortran90 module
-compiled with Intel compilers with *gfortran*. Environment modules
-have several mechanisms that prevent the user from setting up a
-non-working environment.
+requirement. For example, you can not use the _MPI Fortran90_ module
+compiled with Intel compilers with _gfortran_. Environment modules
+have several mechanisms that prevent the user from setting up an 
+incompatible environment.
 
-The module hierarchy helps us to keep the compiler and MPI library
+The module hierarchy contributes to keeping the compiler and MPI library
 settings compatible with each other. In practice, for each supported
-compiler there is a module for a supported MPI library. When user
+compiler, there is a module for a supported MPI library. When the user
 switches the compiler module, the module system tries to find the
-correct versions of loaded modules:
+correct versions of the loaded modules:
 
 ```text
 $ module list
@@ -189,24 +179,24 @@ Currently Loaded Modules:
  1) intel/19.0.4   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
 ```
 
-If a correct version is not found, the module system *deactivates* these
+If the correct version is not found, the module system _deactivates_ these
 modules. In practice, the module is unloaded, but it is marked so that
 when the compiler/MPI configuration is changed, the system tries to find
-a correct version automatically.
+the correct version automatically.
 
 This hierarchy is implemented by changing the **$MODULEPATH** variable.
 Every compiler module adds its own path to the module path so that
-software modules compatible with that specific compiler can be listed.
+the software modules compatible with that specific compiler can be listed.
 When the compiler module is unloaded, this path is removed from the
-module path. Same applies also to the MPI modules.
+module path. The same applies to the MPI modules as well.
 
 ### Using your own module files
 
-If you want to use modules to control the software packages that you
-install by yourself, you can add your own modules files to your home
-directory. For example, if you add the module files to
-**$HOME/modulefiles**, you can access them after you add the path to the
-modules search path using command:
+If you want to control the software packages using modules
+installed by yourself, you can place your own module files in your home
+directory. For example, if you include module files in
+**$HOME/modulefiles**, you can access them after adding the path to the
+module search path using the command:
 
 ```text
 module use $HOME/modulefiles
