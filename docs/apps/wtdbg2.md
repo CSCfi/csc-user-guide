@@ -62,7 +62,6 @@ module load biokit
 wtdbg2 -x rs -g100m -t $SLURM_CPUS_PER_TASK -i SRR5439404_subreads.fastq.gz -fo c_elegas_test
 
 wtpoa-cns -t $SLURM_CPUS_PER_TASK -i c_elegas_test.ctg.lay.gz -fo c_elegabs.ctg.fa
-
 ```
 In the example above _<project>_ sould be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects. Maximum running time is set to 12 hours (`--time=12:00:00`). As wtdbg2 uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--ntasks=1`). The job reserves 32 cores `--cpus-per-task=32` that can use in total up to 64 GB of memory  (` --mem=64G`). Note that the number of cores to be used needs to be defined in wtdbg2 and wtpoa-cns commands too. That is done with option `-t`. In this case we use `$SLURM_CPUS_PER_TASK` variable that contains the _cpus-pre-task_  value ( we could as well use `-t 32` but then we have to remember to change the value if number of the reserved CPU:s is changed).
 
