@@ -65,11 +65,8 @@ This number of cores is then given to the ipyrad command with option `-c`. Furth
 
 In the sample case here we will use 16 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to small partition (#SBATCH -p longrun). In this case we reserve 168 hours ( 7 days). Further, in step 3 the clustering commands are executed using only one thread (-t 1 ).
 ```text
-
 #!/bin/bash -l
-###
-## name of your job
-#SBATCH -J ipyrad
+#SBATCH -J ipyrad_s3
 #SBATCH -e ipyrad_err_%j
 #SBATCH -o ipyrad_output_%j
 #SBATCH --mem=128G
@@ -80,11 +77,9 @@ In the sample case here we will use 16 cores in one node. If the run time is exp
 #SBATCH --cpus-per-task=20
 #SBATCH -p small
 
-
 module load bioconda
 source activate ipyrad
 ipyrad -p params-run1.txt -s 3 -c 20 -t 1 
-
 ```
 
 
@@ -98,9 +93,7 @@ For the setps 4-7 maximum of 8 cores is recommended. Thread assigning option sho
 
 ```text
 #!/bin/bash -l
-###
-## name of your job
-#SBATCH -J ipyrad
+#SBATCH -J ipyrad_s4567
 #SBATCH -e ipyrad_err_%j
 #SBATCH -o ipyrad_output_%j
 #SBATCH --mem=128G
@@ -120,7 +113,7 @@ More information about runnig batch jobs can be found from the [batch job sectio
 
 ## Using cPouta for very long ipyrad jobs
 
-The maximum run time in Puhti is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check using-cpouta-for-biosciences for more details.
+The maximum run time in Puhti is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check [using-cpouta-for-biosciences](https://research.csc.fi/using-cpouta-for-biosciences) for more details.
 
 
 
