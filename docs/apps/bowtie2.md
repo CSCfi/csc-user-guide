@@ -71,12 +71,12 @@ specific project.
 
 ```
 #!/bin/bash -l
-#SBATCH -J bowtie2
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 04:00:00
-#SBATCH -p serial
-#SBATCH -n 1
+#SBATCH --job-name=bowtie2
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --time=04:00:00
+#SBATCH --partition=small
+#SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=16
 #SBATCH --account=project_123456
@@ -88,7 +88,10 @@ bowtie2-build genome.fasta genome
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-In the batch job example above one task (-n 1) is executed. The Bowtie2 job uses 16 cores (--cpus-per-task=16 ) with total of 16 GB of memory (--mem=16000). The maximum duration of the job is four hours (-t 04:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). The project that will be used is project_123456.
+In the batch job example above one task (-n 1) is executed. The Bowtie2 job uses 16 cores (--cpus-per-task=16 ) with total of 16 GB of memory (--mem=16000). 
+The maximum duration of the job is four hours (-t 04:00:00 ). 
+All the cores are assigned from one computing node (--nodes=1 ). 
+I the example the project that will be used is project_123456. This value shuold be replaced by the name of your computing project.
 
 You can submit the batch job file to the batch job system with command:
 
