@@ -67,13 +67,13 @@ In Puhti, the velvet jobs should be executed through the batch job system. Below
 
 ```text
 #!/bin/bash
-#SBATCH -J velvet
-#SBATCH -o output_velvet2.txt
-#SBATCH -e errors_velvet2.txt
+#SBATCH --job-name=velvet
+#SBATCH --output=put=output_velvet2.txt
+--error=errors_velvet2.txt
 #SBATCH --account=<project>
-#SBATCH -t 4-00:00:00
-#SBATCH -n 1
-#SBATCH -p longrun
+#SBATCH --time=4-00:00:00
+#SBATCH --ntasks=1
+#SBATCH --partition=longrun
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G

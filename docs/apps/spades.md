@@ -53,7 +53,7 @@ Sample SPAdes batch job file:
 #SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --out=spades_out
+#SBATCH --output==spades_out
 #SBATCH	--err=sprdes_err
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=2G

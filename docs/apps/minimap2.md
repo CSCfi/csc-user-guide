@@ -114,12 +114,12 @@ for running a minimap2 paired end alignment in Puhti.
 
 ```text
 #!/bin/bash -l
-#SBATCH -J bowtie2
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 04:00:00
-#SBATCH -p serial
-#SBATCH -n 1
+#SBATCH --job-name=bowtie2
+#SBATCH --output=put=output_%j.txt
+--error=errors_%j.txt
+#SBATCH --time=04:00:00
+#SBATCH --partition=small
+#SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=8
 #SBATCH --account=<project>

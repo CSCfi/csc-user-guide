@@ -88,11 +88,11 @@ bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2
 In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job in Puhti:
 ```text
 #!/bin/bash -l
-#SBATCH -J bwa
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 12:00:00
-#SBATCH -n 1
+#SBATCH --job-name=bwa
+#SBATCH --output=put=output_%j.txt
+--error=errors_%j.txt
+#SBATCH --time=12:00:00
+#SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32000

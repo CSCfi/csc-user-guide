@@ -29,11 +29,11 @@ The biokit module sets up a set of commonly used bioinformatics tools.
 Trinity should be used using interactively in Taito-shell or preferably through the batch job system. Below is a sample batch job file for Trinity.
 ```text
 #!/bin/bash -l
-#SBATCH -J trinity
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 48:00:00
-#SBATCH -n 1
+#SBATCH --job-name=trinity
+#SBATCH --output=put=output_%j.txt
+--error=errors_%j.txt
+#SBATCH --time=48:00:00
+#SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=24000

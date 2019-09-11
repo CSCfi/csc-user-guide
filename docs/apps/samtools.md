@@ -31,13 +31,13 @@ for running a SAMtools job in Taito:
 
 ```text
 #!/bin/bash -l
-#SBATCH -J samtools
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 04:00:00
+#SBATCH --job-name=samtools
+#SBATCH --output=put=output_%j.txt
+--error=errors_%j.txt
+#SBATCH --time=04:00:00
 #SBATCH --mem=4000
 #SBATCH --account=project_1234567
-#SBATCH -n 1
+#SBATCH --ntasks=1
 
 #Convert SAM file to BAM
 samtools view -bS aln.sam > aln.bam

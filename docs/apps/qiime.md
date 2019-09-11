@@ -50,8 +50,8 @@ as a batch job using eight cores.
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --out=qiime_out_8
-#SBATCH --err=qiime_err_8
+#SBATCH --output==qiime_out_8
+#SBATCH --error=qiime_err_8
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --partition=small

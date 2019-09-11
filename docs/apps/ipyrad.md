@@ -63,19 +63,19 @@ The parallelization implementation of ipyrad requires that you always have only 
 
 This number of cores is then given to the ipyrad command with option `-c`. Further, if you are using more than one node you should define that MPI is in use (--MPI) and that the commands of the pipeline are executed using only one computing core (`-t`).
 
-In the sample case here we will use 16 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to small partition (#SBATCH -p longrun). In this case we reserve 168 hours ( 7 days). Further, in step 3 the clustering commands are executed using only one thread (-t 1 ).
+In the sample case here we will use 16 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to small partition (#SBATCH --partition=longrun). In this case we reserve 168 hours ( 7 days). Further, in step 3 the clustering commands are executed using only one thread (-t 1 ).
 ```text
 #!/bin/bash -l
-#SBATCH -J ipyrad_s3
-#SBATCH -e ipyrad_err_%j
-#SBATCH -o ipyrad_output_%j
+#SBATCH --job-name=ipyrad_s3
+--error=ipyrad_err_%j
+#SBATCH --output=put=ipyrad_output_%j
 #SBATCH --mem=128G
 #SBATCH --account=<project>
-#SBATCH -t 72:00:00
-#SBATCH -n 1
+#SBATCH --time=72:00:00
+#SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
-#SBATCH -p small
+#SBATCH --partition=small
 
 module load bioconda
 source activate ipyrad
@@ -93,16 +93,16 @@ For the setps 4-7 maximum of 8 cores is recommended. Thread assigning option sho
 
 ```text
 #!/bin/bash -l
-#SBATCH -J ipyrad_s4567
-#SBATCH -e ipyrad_err_%j
-#SBATCH -o ipyrad_output_%j
+#SBATCH --job-name=ipyrad_s4567
+--error=ipyrad_err_%j
+#SBATCH --output=put=ipyrad_output_%j
 #SBATCH --mem=128G
 #SBATCH --account=<project>
-#SBATCH -t 72:00:00
-#SBATCH -n 1
+#SBATCH --time=72:00:00
+#SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH -p small
+#SBATCH --partition=small
 
 module load bioconda
 source activate ipyrad
