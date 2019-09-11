@@ -7,6 +7,7 @@ The Puhti FMI partition is available only for users from FMI using projects with
 
 A project can only use either the FMI partition or the general partition and CSC's other services, not both. That is, a project can have **either**
 * Puhti-FMI (and optionally Allas when it becomes available) 
+
 **or** (this is an exclusive or)
 * e.g Puhti and cPouta (or any other service available for all research institute projects) and *not* Puhti-FMI
 
