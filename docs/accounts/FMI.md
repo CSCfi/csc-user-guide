@@ -9,7 +9,7 @@ A project can only use either the FMI partition or the general partition and CSC
 * Puhti-FMI (and optionally Allas when it becomes available) 
 
 **or** (this is an exclusive or)
-* e.g Puhti and cPouta (or any other service available for all research institute projects) and *not* Puhti-FMI
+* e.g Puhti and cPouta (or any other service available for all research institute projects) and **not** Puhti-FMI
 
 as included services. Hence, if an FMI project manager wants use both the general partition/CSC's other services and the FMI partition, he or she must create separate projects.
 
