@@ -89,8 +89,8 @@ In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=bwa
-#SBATCH --output=put=output_%j.txt
---error=errors_%j.txt
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1  

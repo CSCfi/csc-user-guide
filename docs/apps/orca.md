@@ -24,8 +24,8 @@ The free version is available only for academic use at academic institutions.
 #SBATCH --account=<your billing project>
 #SBATCH --time=0:30:00 # time as hh:mm:ss
 #SBATCH --job-name=orca-4.2
---error=jobfile.err%J
-#SBATCH --output=put=jobfile.out%J
+#SBATCH --error=jobfile.err%J
+#SBATCH --output=jobfile.out%J
 export ORCADIR=<path to your ORCA directory>/orca_4_2_0_linux_x86-64_shared_openmpi314
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 module load hpcx-mpi/2.4.0

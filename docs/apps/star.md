@@ -49,8 +49,8 @@ The memory reservation is 24 GB (4GB/core * 6 cores). Note that you must change 
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=STAR
-#SBATCH --output=put=STAR.stdout
---error=STAR.stderr
+#SBATCH --output=STAR.stdout
+#SBATCH --error=STAR.stderr
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --nodes=1

@@ -72,8 +72,8 @@ specific project.
 ```
 #!/bin/bash -l
 #SBATCH --job-name=bowtie2
-#SBATCH --output=put=output_%j.txt
---error=errors_%j.txt
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --time=04:00:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
