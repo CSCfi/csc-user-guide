@@ -123,6 +123,45 @@ More information about runnig batch jobs can be found from the [batch job sectio
 The maximum run time in Puhti is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check using-cpouta-for-biosciences for more details.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 After that you can start Qiime2 with command:
 ```text
 qiime
