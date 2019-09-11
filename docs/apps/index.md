@@ -22,6 +22,7 @@
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
 * [Trinity](trinity.md) Traskriptome assembly tool
+* [wtdbg2](wtdbg2.md)Fast assembler for long-read data
 
 ## Chemistry
 
