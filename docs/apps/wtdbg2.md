@@ -52,7 +52,7 @@ The actutal assembly task was executed with the batch job below:
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --output==wtdbg2_out_32_%j
-#SBATCH	--err=wtdbg2_err_32_%j
+#SBATCH --error=wtdbg2_err_32_%j
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=64G
 #SBATCH --partition=small
