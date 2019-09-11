@@ -37,7 +37,7 @@ Trinity should be used using interactively in Taito-shell or preferably through 
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=24000
-#SBARCH --account=project_1234567
+#SBATCH --account=project_1234567
 #
 #
 
