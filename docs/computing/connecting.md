@@ -3,7 +3,7 @@
 
 ## Using Putty to connect to Puhti
 
-In the case of using PuTTY in Windows, you should specify, that you want connect _Host Name_: **puhti.csc.fi** (using the default port 22 and SSH connection type). Once you click the _Open_ button a new terminal session will ask for your CSC-username and password.
+In the case of using [PuTTY](https://putty.org/) in Windows, you should specify, that you want connect _Host Name_: **puhti.csc.fi** (using the default port 22 and SSH connection type). Once you click the _Open_ button a new terminal session will ask for your CSC-username and password.
 
 Once the terminal connection to Puhti is open you can start using it with the Linux command line tools (bash shell). Introduction to
 operating command line linux can be found for example from [here](https://research.csc.fi/csc-guide-linux-basics-for-csc). You can have several Puhti connections open in the same time.
