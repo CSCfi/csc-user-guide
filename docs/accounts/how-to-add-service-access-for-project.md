@@ -46,3 +46,9 @@ user account when the service access has been granted.
 
     Project manager is the only person who can add or remove services
     of the project.
+
+!!! Note
+
+    The rights to access the language resources of Kielipankki (the
+    Language Bank of Finland) are obtained from
+    [Kielipankki](https://www.kielipankki.fi/access/) directly.
