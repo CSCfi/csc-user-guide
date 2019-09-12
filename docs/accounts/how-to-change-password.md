@@ -23,8 +23,8 @@ user account. Click on the link and follow the instructions.
 !!! Note
 
      The password must have 12 characters or more, contain both upper
-     and lowercase letters and at least 1 number. No special
-     characters are allowed.
+     and lowercase letters and at least 1 number. Allowed characters
+     are:  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~.
 
 !!! Note
 
