@@ -23,4 +23,4 @@
 * [Stacks](stacks.md)
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [Trinity](trinity.md)
-* [VASP](vasp.md)
+* [VASP](vasp.md) Ab initio DFT electronic structures
