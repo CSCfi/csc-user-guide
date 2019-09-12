@@ -51,11 +51,17 @@ srun vasp_std
 For more options and details, see [Creating a batch job
 script](https://docs.csc.fi/#computing/running/creating-job-scripts/).
 
+
 ### Performance optimization
 
-The provided prebuild executables are built as "vanilla" as possible,
-and provide a reasonable baseline. The performance optimization for
-large experiments should be done per case basis. The commands that
-created the prebuilt executables are in
+First, the performance of VASP depends crucially on the parameters in
+the INCAR file that control how the different k-points, bands and FFT
+coefficients are distributed among the MPI tasks, and that the correct
+version (std/gam/ncl) of the executable is used.
+
+Second, the provided prebuild executables are built as "vanilla" as
+possible, and provide a reasonable baseline. The performance
+optimization for large experiments should be done per case basis. The
+commands that created the prebuilt executables are in
 `VASPROOT/README-<version>.sh`, and can be used as a starting point
 for building more optimized, and/or otherwise modified executables.
