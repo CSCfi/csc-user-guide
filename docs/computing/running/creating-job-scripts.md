@@ -12,7 +12,7 @@ An example of a simple batch job script.
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --time=02:00:00
 #SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
@@ -44,13 +44,14 @@ sets the name of the job. It can be used to identify a job in the queue and
 other listings.
 
 ```
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 ```
 
 sets the billing project for the job. **This argument is mandatory, failing to
 set it will cause your job to be held with the reason "_AssocMaxJobsLimit_"**
-You can check you projects in [My CSC](https://my.csc.fi) in the "My Projects"
-tab. More information about [billing](../../accounts/billing.md). 
+You should replace `<project>` with the Unix group of the project which you 
+can find in [My CSC](https://my.csc.fi) in the "My Projects" tab. More 
+information about [billing](../../accounts/billing.md).
 
 Time reservation is set with option `--time`
 
@@ -151,11 +152,15 @@ The local storage is available on:
 To use the local storage, you need to request it using the `--gres` flag in your job submissions.
 
 ```
---gres=nvme:<local_memory_per_node>
+--gres=nvme:<local_storage_space_per_node>
 ```
-, where the amount of memory is given in GB (with a maximum of 3600 GB/ per node). The local storage reservation is on a per node basis.
+, where the amount of space is given in GB (with a maximum of 3600 GB/ per node). The local storage reservation is on a per node basis.
 
 You can use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
+
+!!! Note
+    The local storage is wiped after the job has finished, so move any data you want to keep to
+    the shared disk area.
 
 
 ### GPUs
@@ -170,7 +175,7 @@ The `--gres` reservation is on a per node basis. There are 4 GPUs per gpu-node.
 Multiple resources are requested with a comma separated list.
 So if you need both GPU and local storage the syntax is:
 ```
---gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_memory_per_node>
+--gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
 
 

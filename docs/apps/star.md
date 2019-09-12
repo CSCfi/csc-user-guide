@@ -48,11 +48,11 @@ parallelization. Bellow is a sample batch job file for STAR. The job uses six co
 The memory reservation is 24 GB (4GB/core * 6 cores). Note that you must change the _--account_ setting to match you poject.
 ```text
 #!/bin/bash -l
-#SBATCH -J STAR
-#SBATCH -o STAR.stdout
-#SBATCH -e STAR.stderr
-#SBARCH -p small
-#SBATCH -n 1
+#SBATCH --job-name=STAR
+#SBATCH --output=STAR.stdout
+#SBATCH --error=STAR.stderr
+#SBATCH --partition=small
+#SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=6
 #SBATCH --account=project_1234567

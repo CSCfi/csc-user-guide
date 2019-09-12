@@ -17,14 +17,15 @@ Some features of the software:
 
 [TOC]
 
-## Available 
+## Available
 
 -   Puhti: 1.4.0, 1.5.2
--   Check all available versions (and default version) with `module avail gpaw`
+-   Check all available versions (and default version) with
+    `module avail gpaw`
 
 ### PAW Setups
 
-All installations use version **0.9.20000** of GPAW's PAW Setups. 
+All installations use version **0.9.20000** of GPAW's PAW Setups.
 
 ## License
 GPAW is free software available under GPL, version 3+
@@ -49,12 +50,12 @@ A specific version can be initialized with `module load gpaw/version`, e.g.
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=2GB
-#SBATCH --account=project_20XXXXX
+#SBATCH --account=<project>
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
-# this script runs a 80 core (2 full nodes) gpaw job, requesting 30 minutes time
-# and 2 GB of memory for each core
+# this script runs a 80 core (2 full nodes) gpaw job, requesting
+# 30 minutes time and 2 GB of memory for each core
 
 module load gpaw
 

@@ -41,7 +41,7 @@ Each of the subtasks requires less than 2 hours of computing time and less than 
 #SBATCH --jobname array_job
 #SBATCH --output array_job_out_%A_%a.txt
 #SBATCH --error array_job_err_%A_%a.txt
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition small
 #SBATCH --timet 02:00:00
 #SBATCH --ntask 1
@@ -95,7 +95,7 @@ to read a certain line form the name list file. In this case the actual command 
 #SBATCH --jobname array_job
 #SBATCH --output array_job_out_%A_%a.txt
 #SBATCH --error array_job_err_%A_%a.txt
-#SBATCH --account=project_<project_id>
+#SBATCH --account=<project>
 #SBATCH --partition small
 #SBATCH --timet 02:00:00
 #SBATCH --ntask 1

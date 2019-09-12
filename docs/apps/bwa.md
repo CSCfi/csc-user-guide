@@ -88,15 +88,15 @@ bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2
 In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job in Puhti:
 ```text
 #!/bin/bash -l
-#SBATCH -J bwa
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 12:00:00
-#SBATCH -n 1
+#SBATCH --job-name=bwa
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --time=12:00:00
+#SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32000
-#SBATCH --account=project_XXXXXX
+#SBATCH --account=<project>
 #
 
 #load the bio tools
@@ -111,7 +111,7 @@ bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq re
  
 
 In the batch job example above one BWA task (-n 1) is executed. The BWA job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000). The maximum duration of the job is twelve hours (-t 08:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing
-the _project_XXXXXX_ with your project ID. (You can use command `csc-workspaces` to see what project you have in Puhti). 
+the _<project>_ with the name of your project. (You can use command `csc-workspaces` to see what project you have in Puhti).
 
 You can submit the batch job file to the batch job system with command:
 ```text

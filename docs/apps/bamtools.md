@@ -4,7 +4,6 @@ BamTools provides both a programmer's API and an end-user's toolkit for handling
 BAM files.
 
 
-[TOC]
 
 ## Available
 

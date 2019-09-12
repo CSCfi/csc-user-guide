@@ -29,15 +29,15 @@ The biokit module sets up a set of commonly used bioinformatics tools.
 Trinity should be used using interactively in Taito-shell or preferably through the batch job system. Below is a sample batch job file for Trinity.
 ```text
 #!/bin/bash -l
-#SBATCH -J trinity
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -t 48:00:00
-#SBATCH -n 1
+#SBATCH --job-name=trinity
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --time=48:00:00
+#SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=24000
-#SBARCH --account=project_1234567
+#SBATCH --account=project_1234567
 #
 #
 
@@ -48,7 +48,7 @@ reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
 The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. About 4 GB of memory is reserved for each core so the total memory reservation is 6 * 4 GB= 24 GB. In Puhti you muts batch job option
-`--account=` to define the project to be used, so you should replace project_1234567 with your own project ID. You can check your proects
+`--account=` to define the project to be used, so you should replace project_1234567 with your own project. You can check your proects
 with command: `csc-workspaces`.
 
 In the actual Trinity command the number of computing cores to be used (--CPU) is set using environment variable: $SLURM_CPUS_PER_TASK. This variable contains the value set the --cpus-per-task SLURM option.
