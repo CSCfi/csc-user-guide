@@ -1,4 +1,4 @@
-# Creating new user account
+# How to create new user account
 
 There are three different types of user account that you can get for
 CSC: ordinary accounts for general use (which you can get with or

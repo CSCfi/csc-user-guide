@@ -1,4 +1,4 @@
-# Adding member to project
+# How to add member to project
 
 This document shows how you can add a member to a project. Before you
 can do that, the person you are adding must have a user account.

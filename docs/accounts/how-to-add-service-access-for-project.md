@@ -1,4 +1,4 @@
-# Adding service access for project
+# How to add service access for project
 
 This document shows how you can add service access for your project.
 Available are the following services: computing services Puhti and

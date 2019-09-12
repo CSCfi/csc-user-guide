@@ -1,4 +1,4 @@
-# Changing password
+# How to change password
 
 There are two ways to change the password of your CSC user account,
 depending on whether you are logged in to MyCSC or not.

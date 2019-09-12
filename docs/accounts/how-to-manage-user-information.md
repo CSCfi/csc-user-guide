@@ -1,4 +1,4 @@
-# Managing user information
+# How to manage user information
 
 How to edit the profile information:
 

@@ -1,4 +1,4 @@
-# Creating new project
+# How to create new project
 
 This document shows how you can create a new project. Before you can
 do that, you need to have a user account.
