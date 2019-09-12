@@ -45,8 +45,7 @@ to see more detailed information.
 #SBATCH --account=<project>
 
 module load vasp
-
-srun ${VASP_BINDIR}/vasp_std
+srun vasp_std
 ```
 
 For more options and details, see [Creating a batch job
