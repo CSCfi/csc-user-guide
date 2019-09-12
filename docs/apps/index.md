@@ -31,6 +31,7 @@
 * [GPAW](gpaw.md) Versatile DFT package
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [VASP](vasp.md) Ab initio DFT electronic structures
 
 ## Computational Engineering
 
@@ -50,6 +51,10 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
 
 ## Mathematics and Statistics
+
+## Physics
+
+* [VASP](vasp.md) Ab initio DFT electronic structures
 
 ## Miscellaneous
 
