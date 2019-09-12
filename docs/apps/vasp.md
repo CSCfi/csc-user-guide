@@ -34,7 +34,7 @@ module show vasp
 
 to see more detailed information.
 
-### An example batch job script for s small test
+### An example batch job script for a small test
 
 ```bash
 #!/bin/bash
