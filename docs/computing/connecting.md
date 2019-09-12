@@ -15,7 +15,7 @@ If you wish to use applications that use graphics you have to use X-term connect
 
 Depending on your local _ssh_ version, you may also need to add option `-X` or `-Y` to your ssh command:
 ```
-ssh -X <csc_username>@puhti-login2.csc.fi
+ssh -X <csc_username>@puhti.csc.fi
 ```
 
 In _Putty_, X11 forwarding is enabled in the connection settings (Connection -> SSH -> X11: Enable X11 forwarding).
