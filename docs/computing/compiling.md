@@ -2,15 +2,14 @@
 
 ## General instructions
 
-- Whenever possible, use the [local disk](disk.md#login-nodes) on the login-node to compile your software.
-    - Compiling on the local disk is much faster and shifts load from the shared filesystem. 
-    - The local disk is cleaned frequently, so move your files after compiling has finished. 
-
+- Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
+    - Compiling on the local disk is much faster and shifts load from the shared file system. 
+    - The local disk is cleaned frequently, so please move your files elsewhere after compiling. 
 
 
 ## Building CPU applications
 
-C/C++ and Fortran applications can be build with Intel or GNU
+C/C++ and Fortran applications can be built with Intel or GNU
 compiler suites. The compiler suite is selected via the [Modules](modules.md)
 system, i.e.
 ```
@@ -20,21 +19,21 @@ or
 ```
 module load gcc
 ```
-Different applications function better with different suites, so selection
-needs to be done on case by case basis.
+Different applications function better with different suites, so the selection
+needs to be done on a case-by-case basis.
 
-The actual compiler commands for building serial application with the two
-suites are:
+The actual compiler commands for building a serial application with the two
+suites:
 
 | Compiler suite | C  | C++ | Fortran |
 | :------------- | :- | :-- | :------ |
 | [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started) | icc | icpc | ifort |
 | [GNU](https://gcc.gnu.org) | gcc | g++ | gfortran |
 
-Intel and GNU compilers use different compiler options, table below lists
-recommended basic optimization flags. It is best to start from the safe level
-and then move up to intermediate or even aggressive, while making sure that
-the results are correct and that the program has better performance.
+Intel and GNU compilers use different compiler options. The recommended basic optimization 
+flags are listed in the table below. It is recommended to start from the safe level
+and then move up to intermediate or even aggressive, while making sure the results are 
+correct and the program's performance has improved.
 
 | Optimisation level | Intel                        | GNU               |
 | :----------------- | :--------------------------- | :---------------- |
@@ -43,15 +42,14 @@ the results are correct and that the program has better performance.
 | **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
 
 Please note that not all applications benefit from the AVX-512 vector set
-(`-xHost` or `-march=native`). It may be a good idea to test also
-with AVX2 (`-xCORE-AVX2` or `-mavx2`) and compare the performance.
+(`-xHost` or `-march=native`). It may be a good idea to also test AVX2 
+(`-xCORE-AVX2` or `-mavx2`) and compare the performance.
 
-Detailed list of options for Intel and GNU compiler can be found from man
-pages (`man icc/ifort`, `man gcc/gfortran` when corresponding programming
-environment is loaded, or in the compiler manuals on the Web (see links
-above).
+A detailed list of options for the Intel and GNU compilers can be found on the _man_
+pages (`man icc/ifort`, `man gcc/gfortran` when the corresponding programming
+environment is loaded, or in the compiler manuals (see the links above).
 
-All available versions of the compiler suites can be found with
+List all available versions of the compiler suites:
 ```
 module spider intel
 module spider gcc
@@ -59,15 +57,15 @@ module spider gcc
 
 ## Building GPU applications
 
-Both CUDA and OpenACC programming models are supported on Puhti. To use them,
-one needs to load specific modules.
+Both the CUDA and OpenACC programming models are supported on Puhti. 
+Specific modules have to be loaded in order to use them.
 
-For example, to load CUDA 10.1 environment, the command is:
+For example, to load the CUDA 10.1 environment:
 ```bash
 module load gcc/8.3.0 cuda/10.1.168
 ```
 
-and to load the PGI compiler for OpenACC, the command is:
+Or to load the PGI compiler for OpenACC:
 ```bash
 module load pgi
 ```
@@ -77,61 +75,58 @@ spider cuda` or `module spider pgi`.
 
 ### CUDA
 
-The CUDA compiler (`nvcc`) takes care of compiling CUDA code for the target
+The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
 GPU device and passing on the rest to a non-CUDA compiler (`gcc`).
 
-To generate code for a given target device, one needs to tell the CUDA
+To generate code for a given target device, tell the CUDA
 compiler what compute capability the target device supports. On Puhti, the
-GPUs (Volta V100) support compute capability 7.0, so one needs specify it with
+GPUs (Volta V100) support compute capability 7.0. Specify this using
 `-gencode arch=compute_70,code=sm_70`.
 
-For example, to compile a CUDA kernel (`example.cu`) on Puhti, the command
-would be:
+For example, compiling a CUDA kernel (`example.cu`) on Puhti:
 ```bash
 nvcc -gencode arch=compute_70,code=sm_70 example.cu
 ```
 
-In principle, one can also target multiple GPU architectures by repeating the
-`-gencode` multiple times for different compute capabilities. On Puhti this is
-not necessary, since there is only one type of GPUs.
+In principle, it is also possible to target multiple GPU architectures by repeating 
+`-gencode` multiple times for different compute capabilities. However, this is
+not necessary on Puhti, since there is only one type of GPU.
 
 ### OpenACC
 
 OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`).
 To enable OpenACC support, one needs to give `-acc` flag to the compiler.
 
-To generate code for a given target device, one needs to tell the compiler
+To generate code for a given target device, tell the compiler
 what compute capability the target device supports. On Puhti, the GPUs (Volta
-V100) support compute capability 7.0, so one needs to specify it with
-`-ta=tesla:cc70`.
+V100) support compute capability 7.0. Specify it with `-ta=tesla:cc70`.
 
-For example, to compile C code that uses OpenACC directives (`example.c`) on
-Puhti, the command would be:
+For example, to compiling C code that uses OpenACC directives (`example.c`):
 
 ```bash
 pgcc -acc -ta=tesla:cc70 example.c
 ```
 
-To get information about what the compiler actually did with the OpenACC
-directives, one can e.g. use `-Minfo=all`.
+For information about what the compiler actually does with the OpenACC
+directives, use `-Minfo=all`.
 
 
 ## Building MPI applications
 
 There are currently three MPI environments available: **hpcx-mpi**,
-**mpich**, and **intel-mpi**. The default is **hpcx-mpi**, which we also
-recommend as the first one to try.
+**mpich**, and **intel-mpi**. The default is **hpcx-mpi**, which is 
+also recommended to begin with.
 
-If **hpcx-mpi** doesn't work for your application, or it performs badly, you
-can then also try the other ones to see if they work better. All MPI
-implementations can be used with both Intel and GNU compiler suites. PGI
-compiler cannot at the moment be used with MPI. The MPI environments are used
-via `module load` i.e.
+If **hpcx-mpi** is incompatible with your application or delivers insufficient performance, 
+please try another environment. All MPI
+implementations can be used with both Intel and GNU compiler suites. The PGI
+compiler cannot presently be used with MPI. The MPI environments can be used
+via `module load`, i.e.
 ```bash
 module load hpcx-mpi
 ```
 
-When building MPI applications, one should use *mpixxx* compiler wrappers,
+When building MPI applications, use _mpixxx_ compiler wrappers
 that differ depending on the compiler suite and the MPI environment:
 
 | Compiler suite | hpcx-mpi or mpich      | intel-mpi                 |
