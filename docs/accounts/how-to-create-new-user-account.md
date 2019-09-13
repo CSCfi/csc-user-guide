@@ -38,9 +38,6 @@ The application should include the following information:
 * Collaborator's name, organization and email address
 * Period of time for which the right for use is applied
 
-The applications are always approved if [eligibility
-criteria](https://research.csc.fi/free-of-charge-use-cases) are met.
-
 Our email address is servicedesk@csc.fi.
 
 !!! Note
