@@ -1,29 +1,25 @@
 # Submitting a batch job
 
-A batch job is submitted to the queue with the command
+Submit to the queue:
 ```
 sbatch <batch_job_file>
 ```
-When the job is successfully launched, the command prints out a line, telling
-the ID number of the submitted job.
+When the job is successfully launched, the command prints out the ID number of the submitted job.
 
-To check that the job was submitted correctly use command
+Check that the job was submitted correctly:
 ```
 squeue -u <username>
 ```
-A submitted batch job can be canceled with:
+Cancel a submitted batch job with:
 ```
 scancel <jobid>
 ```
-
-To view information about your jobs use:
-
+Information about your jobs:
 ```
 sacct
 ```
-The information includes the state of the jobs (PENDING/RUNNING/COMPLETED/FAILED) and JobID. 
+The information includes the state of the jobs (PENDING/RUNNING/COMPLETED/FAILED) and the JobID. 
 
+By default, the `sacct` command displays information about the users' own jobs. It also has a wide selection of options and parameters that can be used to select which data is displayed.
 
-By default the `sacct` command shows information about users' own jobs. 
-The `sacct` command has a wide selection of options and parameters that can be used to select the data to be displayed.
-The full set of options and parameters are described [here](https://slurm.schedmd.com/sacct.html).
+[All options and parameters](https://slurm.schedmd.com/sacct.html).
