@@ -4,7 +4,7 @@ On the Dashboard of MyCSC, there is a chart showing how much resources
 you have left in one of your projects. You can change that project as
 follows.
 
-1. Go to [MyCSC](https://my.csc.fi).
+1. Login to [MyCSC](https://my.csc.fi).
 1. On the left navigation menu, choose My profile.
 1. Select the Default billing project.
 1. Click on Save.

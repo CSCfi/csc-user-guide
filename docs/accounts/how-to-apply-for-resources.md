@@ -2,7 +2,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WQIO0x5GxSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-1. Go to [MyCSC](https://my.csc.fi).
+1. Login to [MyCSC](https://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
 1. Click on the project that need more resources.
 1. Under Resource applications, click Apply for resources.

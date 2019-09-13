@@ -12,7 +12,7 @@ the service for the project and (2) members approve it for themselves.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1cMkuo0mV5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-1. Go to [MyCSC](http://my.csc.fi).
+1. Login to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
 1. Click on the project that you want to use with the service.
 1. Under Services, choose the service.
@@ -32,7 +32,7 @@ approval, you know that you need to approve the service for you.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w9bPMQCoHVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-1. Go to [MyCSC](http://my.csc.fi).
+1. Login to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
 1. Click on the project that has been added with the new service.
 1. Under Services, choose the service. It has a bell symbol next to

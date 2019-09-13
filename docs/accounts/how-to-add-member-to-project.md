@@ -5,7 +5,7 @@ can do that, the person you are adding must have a user account.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QM-MlRs_pCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-1. Go to [MyCSC](http://my.csc.fi).
+1. Login to [MyCSC](http://my.csc.fi).
 1. On the left navigation menu, choose My Projects.
 1. Choose the project that you want the new person to join.
 1. Under Members, fill in the username of the new person.
