@@ -19,7 +19,7 @@ For GPU nodes, the following partitions exist. Note that for each GPU one should
 
 | Partition       | Time<br>Limit | Max<br>GPUs | Max<br>Nodes             | [Node-types](../system.md)   | Max<br> Mem  | Max<br> Local storage (nvme) |  
 |-----------------|---------------|-------------|--------------|------------------------------|----------|-------------|
-| gpu_test        | 0.5 hour      | 8           |   2          |   GPU                        | 382 GiB  | 3600 GiB |
+| gputest        | 0.5 hour      | 8           |   2          |   GPU                        | 382 GiB  | 3600 GiB |
 | gpu             | 3 days        | 80          |   20         |   GPU                        |382 GiB   | 3600 GiB |
 
 
