@@ -24,7 +24,7 @@ By default the latest gdal module is loaded. If you want a specific version you 
 
 `module load gcc/9.1.0 gdal/[VERSION]-omp`
 
-Or if you want to utilize gdal from a conda environment you can load the [geoconda](../apps/geoconda/) module
+Or if you want to utilize gdal from a conda environment you can load the [geoconda](../#apps/geoconda/) module
 
 `module load geoconda`
 
@@ -35,7 +35,7 @@ You can test if gdal loaded succesfully with following
 `gdalinfo --version`
 
 !!! note
-    The supported file formats vary slightly between the gdal installations. For now, the PostGIS driver is not available in gdal/3.0.1
+    The supported file formats vary slightly between the gdal installations. For instance, the PostGIS driver is not yet available in gdal/3.0.1
 
 ## License and citing
 

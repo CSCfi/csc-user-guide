@@ -87,7 +87,7 @@ You can add more Python packages to Geoconda for your own use with `pip`, for ex
 If you do not give the installation folder as target, the packages are by default installed to your home directory under
 `.local/lib/python3.7/site-packages`
 
-If you would like to make a own conda enviroment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda/). Or then you can use [bioconda](../apps/bioconda/).
+If you would like to make a own conda enviroment, it is recommended to make also own [Miniconda installation](../#support/tutorials/conda/). Or then you can use [bioconda](../#apps/bioconda/).
 
 
 ## License and citing
