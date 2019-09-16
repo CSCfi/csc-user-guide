@@ -65,9 +65,9 @@ replace _sbatch_commandlist_ with _sbatch_commandlist_trinity_.
 ```text
 --grid_exec sbatch_commandlist_trinity
 ```
-When Trinity is executed with _--grid_exec_ option in genrates large amount of temporaray files and it 
-is very likely, that you will exceed the default limit of 100 000 files. Tuhus it is avisable to apply for 
-a larger file number quota for Puhti scratch before submitting large trinity jobs. You can send the request
+When Trinity is executed with _--grid_exec_ option in generates large amount of temporary files and it 
+is very likely, that you will exceed the default limit of 100 000 files. Thus it is advisable to apply for 
+a larger file number quota for Puhti scratch before submitting large Trinity jobs. You can send the request
 to servicedesk@csc.fi.
 
 
