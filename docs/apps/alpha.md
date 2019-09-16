@@ -11,6 +11,8 @@
 * [Diamond](diamond.md)
 * [Elmer] (elmer.md) Open source multi-physics FEM package 
 * [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
+* [GDAL](gdal.md) Translator library for geospatial data formats
+* [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [MXNet](mxnet.md) Deep learning library for Python
