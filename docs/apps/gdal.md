@@ -6,9 +6,9 @@
 
 The `gdal` module is available in Puhti with following versions:
 
-* 3.0.1 
-* 2.4.2
 * 2.4.2 via conda
+* 3.0.1 stand-alone
+* 2.4.2 stand-alone
 
 (If you think that some important GDAL version is missing from here, you can ask for installation from servicedesk@csc.fi.)
 
@@ -16,7 +16,11 @@ The `gdal` module is available in Puhti with following versions:
 
 ### Using gdal
 
-The gdal module can be loaded with 
+GDAL is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+
+`module load geoconda`
+
+If you need to use a stand-alone version of gdal or plan to build software on top of gdal, you can load gdal with
 
 `module load gcc/9.1.0 gdal`
 
@@ -24,18 +28,16 @@ By default the latest gdal module is loaded. If you want a specific version you 
 
 `module load gcc/9.1.0 gdal/[VERSION]-omp`
 
-Or if you want to utilize gdal from a conda environment you can load the [geoconda](../apps/geoconda.md) module
-
-`module load geoconda`
-
-If you plan to work also with python or other GIS libraries, the conda environment is probably the best option
-
 You can test if gdal loaded succesfully with following
 
 `gdalinfo --version`
 
+
+
 !!! note
-    The supported file formats vary slightly between the gdal installations. For instance, the PostGIS driver is not yet available in gdal/3.0.1
+    The stand-alone versions don't have python bindings installed so e.g __gdal_calc__ works only in the geoconda installation. Also, the supported file formats vary slightly between the gdal installations. For instance, the PostGIS driver is not yet available in gdal/3.0.1 but is included in the others
+
+
 
 ## License and citing
 
