@@ -24,7 +24,7 @@ By default the latest gdal module is loaded. If you want a specific version you 
 
 `module load gcc/9.1.0 gdal/[VERSION]-omp`
 
-Or if you want to utilize gdal from a conda environment you can load the [geoconda](../#apps/geoconda/) module
+Or if you want to utilize gdal from a conda environment you can load the [geoconda](../apps/geoconda.md) module
 
 `module load geoconda`
 
