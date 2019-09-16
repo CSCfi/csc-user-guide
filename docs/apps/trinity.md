@@ -47,11 +47,13 @@ Trinity --seqType fq --max_memory 22G --left reads.left.fq --right \
 reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
-The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. About 4 GB of memory is reserved for each core so the total memory reservation is 6 * 4 GB= 24 GB. In Puhti you muts batch job option
-`--account=` to define the project to be used, so you should replace project_1234567 with your own project. You can check your proects
-with command: `csc-workspaces`.
+The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. 
+About 4 GB of memory is reserved for each core so the total memory reservation is 6 * 4 GB= 24 GB. In Puhti you must use batch job option
+`--account=` to define the project to be used. You should replace project_1234567 used in the example,  with your own project. You can check your 
+projects with command: `csc-workspaces`.
 
-In the actual Trinity command the number of computing cores to be used (--CPU) is set using environment variable: $SLURM_CPUS_PER_TASK. This variable contains the value set the --cpus-per-task SLURM option.
+In the actual Trinity command the number, of computing cores to be used (--CPU) is set using environment variable: $SLURM_CPUS_PER_TASK. 
+This variable contains the value set the --cpus-per-task SLURM option.
 
 In Puhti you can also use distributed computing to speed up the trinity job. When definition:
 ```text
@@ -63,6 +65,12 @@ replace _sbatch_commandlist_ with _sbatch_commandlist_trinity_.
 ```text
 --grid_exec sbatch_commandlist_trinity
 ```
+When Trinity is executed with _--grid_exec_ option in genrates large amount of temporaray files and it 
+is very likely, that you will exceed the default limit of 100 000 files. Tuhus it is avisable to apply for 
+a larger file number quota for Puhti scratch before submitting large trinity jobs. You can send the request
+to servicedesk@csc.fi.
+
+
 When the batch job file is ready, it can be submitted to the batch queue system with command:
 ```text
 sbatch batch_job_file
@@ -70,6 +78,8 @@ sbatch batch_job_file
 More information about running batch jobs, can be found from the chapter three of the Taito user guide.
 
 Please check the Trinity site to get hints for estimating the required resources,
+
+
 
  
 ## Using autoTrinotate in Taito
