@@ -11,7 +11,7 @@ The following partitions (aka queues) are currently available in **Puhti** for n
 | large           | 3 days        | 4000         |   100                    |  M, L, IO                    | 382 Gib  | 3600 GiB | 
 | longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
 | hugemem         | 3 days        | 160          |   4                      |  XL, BM                      | 1534 GiB |         |
-| hugemem_longrun | 14 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
+| hugemem_longrun | 7 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
 
 
 The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 10 cores/task.
