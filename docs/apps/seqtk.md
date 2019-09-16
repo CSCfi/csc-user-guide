@@ -6,8 +6,6 @@
 Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. It seamlessly parses both FASTA and FASTQ files which can also be optionally compressed by gzip.
 
 
-llumina BaseSpace command line client,`bs`, can be used to retrievie data from the Illumina BaseSpace environment to Puhti.
-
 ## Available
 
 *    bs version 1.0.0 is available in Puhti
