@@ -13,11 +13,11 @@ the service for the project and (2) members approve it for themselves.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1cMkuo0mV5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Login to [MyCSC](http://my.csc.fi).
-1. On the left navigation menu, choose My Projects.
-1. Click on the project that you want to use with the service.
-1. Under Services, choose the service.
+1. Choose _My Projects_ in the navigation menu on the left.
+1. Click the project that you want to use with the service.
+1. Under _Services_, choose the service.
 1. Read the terms of service, tick that you have read and accept them.
-Click on Apply for Access.
+Click _Apply for Access_.
 1. You will receive an email to the address associated with your CSC
 user account when the service access has been granted.
 
@@ -33,12 +33,12 @@ approval, you know that you need to approve the service for you.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w9bPMQCoHVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Login to [MyCSC](http://my.csc.fi).
-1. On the left navigation menu, choose My Projects.
-1. Click on the project that has been added with the new service.
-1. Under Services, choose the service. It has a bell symbol next to
+1. Choose _My Projects_ in the navigation menu on the left.
+1. Click the project that has been added with the new service.
+1. Under _Services_, choose the service. It has a bell symbol next to
 it.
 1. Read the terms of service, tick that you have read and accept them.
-Click on Apply for Access.
+Click _Apply for Access_.
 1. You will receive an email to the address associated with your CSC
 user account when the service access has been granted.
 

@@ -5,9 +5,9 @@ you have left in one of your projects. You can change that project as
 follows.
 
 1. Login to [MyCSC](https://my.csc.fi).
-1. On the left navigation menu, choose My profile.
+1. Choose _My Profile_ in the navigation menu on the left.
 1. Select the Default billing project.
-1. Click on Save.
+1. Click _Save_.
 
 The selected default billing project is migrated to several services:
 

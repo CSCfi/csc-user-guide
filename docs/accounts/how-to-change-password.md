@@ -7,18 +7,18 @@ depending on whether you are logged in to MyCSC or not.
 
 If you are logged in:
 
-1. Go to My profile and click Change password.
-1. Give your current password and the new password twice. Click on Save.
+1. Go to _My Profile_ and click _Change Password_.
+1. Give your current password and the new password twice. Click _Save_.
 
 If you are not logged in:
 
 1. Go to [MyCSC](http://my.csc.fi).
-1. Click on Log in.
-1. Choose on CSC Login.
-1. Click on Forgot your password?
-1. Enter your CSC username and click Next.
+1. Click _Log in_.
+1. Choose _CSC Login_.
+1. Click _Forgot Your Password_?
+1. Enter your CSC username and click _Next_.
 1. You will receive an email to the address associated with your CSC
-user account. Click on the link and follow the instructions.
+user account. Click the link and follow the instructions.
 
 !!! Note
 

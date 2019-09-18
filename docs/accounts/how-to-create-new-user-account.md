@@ -12,8 +12,8 @@ If your home organization is a member of Haka or Virtu federation, you
 can create a user account for you as self-service.
 
 1. Go to [MyCSC](http://my.csc.fi).
-1. Click on Log in or Getting started.
-1. Click on Virtu or Haka depending on which federation your home
+1. Click _Log in_ or _Getting Started_.
+1. Click Virtu or Haka depending on which federation your home
 organization belongs.
 1. Select your home organization and login to their identity service.
 1. Fill in your information on the Sign up page.
