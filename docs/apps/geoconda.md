@@ -31,7 +31,7 @@ includes following python packages:
 
 Additionally geoconda includes:
 
--   [spyder] - Scientific PYthon Development EnviRonment with graphical interface (similar to RStudio for R). 
+-   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
 -   [GDAL/OGR](GDAL) commandline tools 2.4.2 
 -   [QGIS](QGIS) 3.8.1
 -   [LasTools](LasTools) 20171231
@@ -40,7 +40,7 @@ Additionally geoconda includes:
     list.
     
 !!! note
-    If you want to use Spyer, QGIS, ncview or other tools with graphical user interface, you should connect to Puhti using -X connection.
+    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using -X connection.
 
 Python has also packages for parallel computing, for example
 **multiprocessing**. In our examples there is two cases using Python
@@ -61,7 +61,7 @@ The `geoconda` module is available in Puhti:
 
 ### Using geoconda
 
-For using Pythong packages and other tools listed above, initialize it with:
+For using Python packages and other tools listed above, you can initialize them with:
 
 `module load geoconda`
 
@@ -87,7 +87,7 @@ You can add more Python packages to Geoconda for your own use with `pip`, for ex
 If you do not give the installation folder as target, the packages are by default installed to your home directory under
 `.local/lib/python3.7/site-packages`
 
-If you would like to make a own conda enviroment, it is recommended to make also own [Miniconda installation](../#support/tutorials/conda/). Or then you can use [bioconda](bioconda).
+If you would like to make a own conda enviroment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda](../apps/bioconda.md).
 
 
 ## License and citing

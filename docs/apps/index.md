@@ -48,6 +48,7 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 
 ## Geosciences
+* [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
 
 ## Mathematics and Statistics
