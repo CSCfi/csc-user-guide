@@ -10,4 +10,4 @@ How to edit the profile information:
 !!! Note
 
     You cannot change your username or email address. If your email
-    address changes, contact servicedesk@csc.fi.
+    address changes, please contact us at servicedesk@csc.fi.

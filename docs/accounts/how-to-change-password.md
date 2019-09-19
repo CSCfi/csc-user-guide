@@ -28,4 +28,5 @@ user account. Click the link and follow the instructions.
 
 !!! Note
 
-    If you do not know your CSC username, contact servicedesk@csc.fi.
+    If you do not know your CSC username, contact us at
+    servicedesk@csc.fi.
