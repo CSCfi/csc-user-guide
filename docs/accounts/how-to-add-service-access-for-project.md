@@ -8,6 +8,12 @@ and IDA; and database service Kaivos.
 Service access has two-step approval: (1) The project manager approves
 the service for the project and (2) members approve it for themselves.
 
+!!! Note
+
+    The rights to access the language resources of Kielipankki (the
+    Language Bank of Finland) are obtained from
+    [Kielipankki](https://www.kielipankki.fi/access/) directly.
+
 ## Project manager
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1cMkuo0mV5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -45,10 +51,6 @@ user account when the service access has been granted.
 !!! Note
 
     Project manager is the only person who can add or remove services
-    of the project.
-
-!!! Note
-
-    The rights to access the language resources of Kielipankki (the
-    Language Bank of Finland) are obtained from
-    [Kielipankki](https://www.kielipankki.fi/access/) directly.
+    of the project. Service access is usually valid for one year,
+    after which it must be renewed to keep the access. If you want to
+    stop using the service earlier, contact us at servicedesk@csc.fi.

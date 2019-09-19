@@ -25,3 +25,6 @@ have read and accepted the General Terms of Use for..."
     opened only by employees of Finnish higher education institutions,
     state research institutes and CSC. Commercial projects can be
     opened by anyone.
+
+Project are usually valid for one year at a time, but they can be
+extended. To extend a project, contact us at servicedesk@csc.fi.

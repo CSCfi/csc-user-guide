@@ -81,3 +81,16 @@ details by email.
 * Your mobile number (where the password is sent via SMS)
 
 Our email address is servicedesk@csc.fi.
+
+## Expiration of user accounts
+
+If you have been granted an account for a fixed period, the account is closed when this period ends. Accounts created with Haka or Virtu do not have such an end date, and they are kept open as long as you change the account's password once a year.
+
+All accounts are immediately closed if their owner is not reachable, i.e. emails sent to him or her bounce back.
+
+!!! Note
+
+    If you want to close your account, just omit the annual password
+    change. The account will be closed in one month after the password
+    has expired. If you want to get your account to be closed earlier,
+    contact us at servicedesk@csc.fi
