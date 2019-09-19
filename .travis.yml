@@ -24,3 +24,13 @@ script:
   - bash tests/checkwarnings.bash
   # Testing if the build works
   - bash tests/checkbuild.bash
+
+  # Testing style-guide and slurm erros
+  # Valid slurm commands
+  - bash tests/check_commands.sh
+  # Valid partitions
+  - bash tests/check_partitions.sh
+  # Dont set mail on by default
+  - bash tests/check_mail_commented.sh
+  # Use long slurm flags
+  - bash tests/check_long_slurm_flags.sh
