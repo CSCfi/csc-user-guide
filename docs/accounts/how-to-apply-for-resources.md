@@ -2,6 +2,8 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WQIO0x5GxSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Resource applications are submitted as follows:
+
 1. Login to [MyCSC](https://my.csc.fi).
 1. Choose _My Projects_ in the navigation menu on the left.
 1. Click the project that need more resources.
