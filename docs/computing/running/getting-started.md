@@ -22,7 +22,7 @@ system.
         - It depends heavily on the actual runtimes for all user jobs and 
           whether new jobs are submitted.
     - **Computational resources (runtime, memory, number of cores) are requested explicitly**
-        - If the time or memory limits are exceeded, the job will terminated.
+        - If the time or memory limits are exceeded, the job will be terminated.
 
 To get started with running your application:
 
