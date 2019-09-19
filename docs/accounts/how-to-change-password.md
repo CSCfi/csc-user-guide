@@ -20,13 +20,11 @@ If you are not logged in:
 1. You will receive an email to the address associated with your CSC
 user account. Click the link and follow the instructions.
 
-!!! Note
+!!! Notes
 
      The password must have 12 characters or more, contain both upper
      and lowercase letters and at least 1 number. Allowed characters
      are:  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~.
-
-!!! Note
 
     If you do not know your CSC username, contact us at
     servicedesk@csc.fi.

@@ -16,13 +16,11 @@ submission.
 1. When the application has been processed, you will receive another
 email that tells how much resources you have been granted.
 
-!!! Note
+!!! Notes
 
     Academic projects are asked to fill in the science area,
     publications, etc. If those are irrelevant for your work, your
     project type should probably be Commercial.
-
-!!! Note
 
     All members of the project can submit resource applications.
 

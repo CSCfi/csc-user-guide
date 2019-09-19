@@ -14,12 +14,10 @@ can do that, the person you are adding must have a user account.
 When you no longer want to have this user in your project, you can
 remove him or her by clicking the X button next to the username.
 
-!!! Note
+!!! Notes
 
     Project manager is the only person who can add members to the
     project.
-
-!!! Note
 
     Project members get notifications when they are added to projects,
     but no notifications are sent when they are removed from it.
