@@ -16,7 +16,7 @@ submission.
 1. When the application has been processed, you will receive another
 email that tells how much resources you have been granted.
 
-!!! Notes
+!!! Note
 
     Academic projects are asked to fill in the science area,
     publications, etc. If those are irrelevant for your work, your

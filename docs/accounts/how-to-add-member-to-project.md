@@ -14,7 +14,7 @@ can do that, the person you are adding must have a user account.
 When you no longer want to have this user in your project, you can
 remove him or her by clicking the X button next to the username.
 
-!!! Notes
+!!! Note
 
     Project manager is the only person who can add members to the
     project.
