@@ -13,10 +13,10 @@ can create a user account for you as self-service.
 
 1. Go to [MyCSC](http://my.csc.fi).
 1. Click _Log in_ or _Getting Started_.
-1. Click Virtu or Haka depending on which federation your home
+1. Click _Virtu_ or _Haka_ depending on which federation your home
 organization belongs.
 1. Select your home organization and login to their identity service.
-1. Fill in your information on the Sign up page.
+1. Fill in your information on the _Sign Up_ page.
 1. Set your password using 12 characters or more, contain both upper
 and lowercase letters and at least 1 number. No special characters are
 allowed.
@@ -45,7 +45,7 @@ Our email address is servicedesk@csc.fi.
     If you cannot use Haka or Virtu, and do not have a project to
     join, you may get an account if your home organization has a
     contract with CSC or you have been granted resources through some
-    programme. Contact us at servicedesk@csc.fi and provide details
+    program. Contact us at servicedesk@csc.fi and provide details
     about your use case, and we will check your eligibility.
 
 ## Getting student accounts for course

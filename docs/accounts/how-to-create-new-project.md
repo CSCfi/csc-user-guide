@@ -11,9 +11,9 @@ do that, you need to have a user account.
 Project_. Click it.
 1. Fill in the project name and description.
 1. Select the project type.
-1. Does your project handle personal data? Select Yes or No.
-1. Tick the boxes "I am eligible to be a Project manager..." and "I
-have read and accepted the General Terms of Use for..."
+1. Does your project handle personal data? Select _Yes_ or _No_.
+1. Tick the boxes _I am eligible to be a Project manager..._ and _I
+have read and accepted the General Terms of Use for..._
 1. Click _Create Project_.
 
 !!! Note
