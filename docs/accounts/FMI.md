@@ -30,7 +30,7 @@ Puhti FMI partition comprises of an additional 240 nodes with 192 GB of memory. 
 FMI partition projects can access the `/fmi/` folder in Puhti. This folder has a global quota of 750 TiB. Project folders for FMI projects are located at
 `/fmi/projappl/<projectname>` and `/fmi/scratch/<projectname>` respectively. The command `csc-workspaces` can be used to list the project folders. The global quota is divided 
 between __projappl__ and __scratch__ as follows: 
-```
+```text
 /fmi/projappl    50 TiB
 /fmi/scratch    700 TiB
 ```
@@ -40,12 +40,12 @@ between __projappl__ and __scratch__ as follows:
     Per project usage will be tracked, and per project quotas may be imposed at a later date.
 
 
-A cleaning script is run periodically on `/fmi/scratch`. The cleaning removes any unused files older than 90 days. 
+**A cleaning script is run periodically on `/fmi/scratch`. The cleaning removes any unused files older than 90 days.** 
 
 ### Usage
 
 At the moment the fmi partition is acceessed using the normal puhti login nodes. This is a temporary solution, before the puhti-fmi login node is installed.
 
-Puhti usage is similar to the normal Puhti system, the main difference is that fmi projects use the fmi partition instead of the normal partitions (small, large, etc.).
+Puhti usage is similar to the normal Puhti system, the main difference is that fmi projects use the `fmi` and `fmi_test` partitions instead of the normal partitions (small, large, etc.).
 
 
