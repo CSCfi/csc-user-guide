@@ -41,7 +41,7 @@ Each of the subtasks requires less than two hours of computing time and less tha
 #SBATCH --error array_job_err_%A_%a.txt
 #SBATCH --account=<project>
 #SBATCH --partition small
-#SBATCH --timet 02:00:00
+#SBATCH --time 02:00:00
 #SBATCH --ntask 1
 #SBATCH --mem-per-cpu=4000
 #SBATCH --array=1-50
@@ -95,7 +95,7 @@ reads a certain line from the name list file. In this case, the actual command s
 #SBATCH --error array_job_err_%A_%a.txt
 #SBATCH --account=<project>
 #SBATCH --partition small
-#SBATCH --timet 02:00:00
+#SBATCH --time 02:00:00
 #SBATCH --ntask 1
 #SBATCH --mem-per-cpu=4000
 #SBATCH --array=1-50
