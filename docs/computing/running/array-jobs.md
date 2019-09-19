@@ -36,7 +36,7 @@ my_prog inputfile outputfile
 Each of the subtasks requires less than two hours of computing time and less than 4 GB of memory. We can perform all 50 analysis tasks with the following batch job script:
 ```
 #!/bin/bash -l
-#SBATCH --jobname array_job
+#SBATCH --job-name array_job
 #SBATCH --output array_job_out_%A_%a.txt
 #SBATCH --error array_job_err_%A_%a.txt
 #SBATCH --account=<project>
@@ -90,7 +90,7 @@ sed –n <row_number> inputfile
 reads a certain line from the name list file. In this case, the actual command script could be
 ```
 #!/bin/bash -l
-#SBATCH --jobname array_job
+#SBATCH --job-name array_job
 #SBATCH --output array_job_out_%A_%a.txt
 #SBATCH --error array_job_err_%A_%a.txt
 #SBATCH --account=<project>
