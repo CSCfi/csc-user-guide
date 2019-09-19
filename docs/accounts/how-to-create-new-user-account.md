@@ -51,7 +51,7 @@ Our email address is servicedesk@csc.fi.
 ## Getting student accounts for course
 
 If you are a teacher and you wish to get course accounts for your
-students, please send us the following details by email. You must be a
+students, send us the following details by email. You must be a
 registered CSC user before we can make you the course accounts.
 
 * Start and end date of the course
@@ -72,7 +72,7 @@ to you by email and SMS. Our email address is servicedesk@csc.fi.
 
 If you are a registered CSC user and need another account to manage
 services that you run in CSC services, we can create a
-machine-to-machine robot account for you. Please send us the following
+machine-to-machine robot account for you. Send us the following
 details by email.
 
 * Project identifier (e.g. 2001679, uef4713) of the project that your
