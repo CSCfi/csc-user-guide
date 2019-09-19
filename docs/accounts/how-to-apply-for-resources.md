@@ -23,3 +23,7 @@ email that tells how much resources you have been granted.
 !!! Note
 
     All members of the project can submit resource applications.
+
+Resource applications cannot be edited after their submission, but you
+may ask us to reject them. You can then submit another
+application. Our email address is servicedesk@csc.fi.
