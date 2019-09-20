@@ -1,4 +1,4 @@
-# Creating new user account
+# How to create new user account
 
 There are three different types of user account that you can get for
 CSC: ordinary accounts for general use (which you can get with or
@@ -12,10 +12,11 @@ If your home organization is a member of Haka or Virtu federation, you
 can create a user account for you as self-service.
 
 1. Go to [MyCSC](http://my.csc.fi).
-1. Click on Virtu or Haka depending on which federation your home
+1. Click _Log in_ or _Getting Started_.
+1. Click _Virtu_ or _Haka_ depending on which federation your home
 organization belongs.
 1. Select your home organization and login to their identity service.
-1. Fill in your information on the Sign up page.
+1. Fill in your information on the _Sign Up_ page.
 1. Set your password using 12 characters or more, contain both upper
 and lowercase letters and at least 1 number. No special characters are
 allowed.
@@ -37,9 +38,6 @@ The application should include the following information:
 * Collaborator's name, organization and email address
 * Period of time for which the right for use is applied
 
-The applications are always approved if [eligibility
-criteria](https://research.csc.fi/free-of-charge-use-cases) are met.
-
 Our email address is servicedesk@csc.fi.
 
 !!! Note
@@ -47,13 +45,13 @@ Our email address is servicedesk@csc.fi.
     If you cannot use Haka or Virtu, and do not have a project to
     join, you may get an account if your home organization has a
     contract with CSC or you have been granted resources through some
-    programme. Contact us at servicedesk@csc.fi and provide details
+    program. Contact us at servicedesk@csc.fi and provide details
     about your use case, and we will check your eligibility.
 
 ## Getting student accounts for course
 
 If you are a teacher and you wish to get course accounts for your
-students, please send us the following details by email. You must be a
+students, send us the following details by email. You must be a
 registered CSC user before we can make you the course accounts.
 
 * Start and end date of the course
@@ -74,7 +72,7 @@ to you by email and SMS. Our email address is servicedesk@csc.fi.
 
 If you are a registered CSC user and need another account to manage
 services that you run in CSC services, we can create a
-machine-to-machine robot account for you. Please send us the following
+machine-to-machine robot account for you. Send us the following
 details by email.
 
 * Project identifier (e.g. 2001679, uef4713) of the project that your
@@ -83,3 +81,16 @@ details by email.
 * Your mobile number (where the password is sent via SMS)
 
 Our email address is servicedesk@csc.fi.
+
+## Expiration of user accounts
+
+If you have been granted an account for a fixed period, the account is closed when this period ends. Accounts created with Haka or Virtu do not have such an end date, and they are kept open as long as you change the account's password once a year.
+
+All accounts are immediately closed if their owner is not reachable, i.e. emails sent to him or her bounce back.
+
+!!! Note
+
+    If you want to close your account, just omit the annual password
+    change. The account will be closed in one month after the password
+    has expired. If you want to get your account to be closed earlier,
+    contact us at servicedesk@csc.fi
