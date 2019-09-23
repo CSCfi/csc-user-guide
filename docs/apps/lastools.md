@@ -1,6 +1,6 @@
 # LAStools
 
-[LAStools](https://rapidlasso.com/lastools) is a collection of tools for LiDAR processing. 
+[LAStools](https://rapidlasso.com/lastools) is a collection of tools for LiDAR data processing. 
 
 ## Usage
 
@@ -28,12 +28,12 @@ Puhti installation includes only the open source tools of LAStools
 * lasprecision - analyses the actual precision of the LIDAR points
 
 !!! note
-    For now Puhti does not support running __.exe__ files so if you need to install/run the closed source tools, use the Taito cluster [LAStools documentation](https://research.csc.fi/-/lastools)
+    For now, Puhti does not support running __.exe__ files so if you need to install/run the closed source tools, use the Taito cluster. [Taito & LAStools documentation](https://research.csc.fi/-/lastools)
 
 
 ## License and citing
 
-For LAStools please read the [LICENSE](http://lastools.org/LICENSE.txt) for information on the legal use and licensing of LAStools. 
+For information on the legal use and licensing of LAStools, please read the [LAStools LICENSE](http://lastools.org/LICENSE.txt).
 
 In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
