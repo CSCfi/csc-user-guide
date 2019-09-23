@@ -26,7 +26,7 @@ If you need to use a stand-alone version of gdal or plan to build software on to
 
 By default the latest gdal module is loaded. If you want a specific version you can specify the version number
 
-`module load gcc/9.1.0 gdal/[VERSION]-omp`
+`module load gcc/9.1.0 gdal/<VERSION>-omp`
 
 You can test if gdal loaded succesfully with following
 
@@ -41,15 +41,7 @@ You can test if gdal loaded succesfully with following
 
 ## License and citing
 
-In general GDAL/OGR is licensed under an MIT/X style license with the following terms:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-The full licensing terms are available in the [LICENSE.TXT](https://raw.githubusercontent.com/OSGeo/gdal/master/gdal/LICENSE.TXT) file.
+GDAL/OGR is licensed under an [MIT/X style license](https://gdal.org/license.html)
 
 In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
