@@ -15,12 +15,14 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
+* [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [Samtools](samtools.md)
 * [Stacks](stacks.md)
 * [TensorFlow](tensorflow.md) Deep learning library for Python
