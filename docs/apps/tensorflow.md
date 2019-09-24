@@ -100,7 +100,7 @@ module load tensorflow/1.13.1-hvd
 
 export NCCL_DEBUG=INFO
 
-srun python3 your_script_here.py
+srun python3 myprog.py <options>
 ```
 
 
