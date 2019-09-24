@@ -67,7 +67,11 @@ srun python3 myprog.py <options>
 
 ### Local storage
 
-The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts.md#local-storage).
+The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts.md#local-storage).  For example to use 100 GB of local storage, just change the `gres` line in the above batch script example to:
+
+```bash
+#SBATCH --gres=gpu:v100:1,nvme:100
+```
 
 ### Horovod
 
