@@ -1,8 +1,8 @@
 # QGIS
 
-[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing, and in analysis of geospatial data. QGIS supports a very wide range of vector and raster formats, and also common API protocols WMS, WMTS, WCS and WFS.
+[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysising geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
 
-In Puhti, QGIS can be used for example to visualize the results from other sources (lastools, grass, python)
+In Puhti, QGIS could be used for example to visualize the resulting files from other sources (lastools, grass, python)
 
 ## Available
 
