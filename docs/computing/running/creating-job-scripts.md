@@ -35,7 +35,7 @@ The general syntax of a `#SBATCH` option:
 
 In our example,
 ```
-#SBATCH --jobname=myTest
+#SBATCH --job-name=myTest
 ```
 sets the name of the job. It can be used to identify a job in the queue and
 other listings.
