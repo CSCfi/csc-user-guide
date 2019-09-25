@@ -49,7 +49,9 @@
 
 ## Geosciences
 * [GDAL](gdal.md) Translator library for geospatial data formats
-* [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
+* [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
+* [LAStools](lastools.md) Toolbox for LiDAR datasets
+* [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 
 ## Mathematics and Statistics
 

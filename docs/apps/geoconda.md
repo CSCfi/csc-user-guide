@@ -32,9 +32,9 @@ includes following python packages:
 Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   [GDAL/OGR](GDAL) commandline tools 2.4.2 
--   [QGIS](QGIS) 3.8.1
--   [LasTools](LasTools) 20171231
+-   [GDAL/OGR](../apps/gdal.md) commandline tools 2.4.2 
+-   [QGIS](../apps/qgis.md)) 3.8.1
+-   [LasTools](../apps/lastools.md)) 20171231
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.7/bin`for full
     list.
