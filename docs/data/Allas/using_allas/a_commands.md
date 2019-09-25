@@ -1,8 +1,5 @@
 # a_ commands, easy and safe
 
-<<<<<<< HEAD
-
-=======
 The Allas object storage system can be used in multiple ways and for many purposes. In many cases, effective usage of Allas requires that the user knows the features of both object storage system and the software or protocol that is used to manage data  in Allas.
 
 For those users, that just want to use Allas for storing data that is in CSC computing environment, CSC provides a set of commands for managing and moving data between CSC computing environment and Allas. The available tools are:
@@ -17,14 +14,13 @@ For those users, that just want to use Allas for storing data that is in CSC com
 | a_find | Search and locate data that has been uploaded with a_put |
 | a_delete | Delete an object from Allas |
 | a_info | Display information about an object in Allas |
->>>>>>> ea5136b17c371be5e0e176abb28a30738bd880d5
 
-In addition to the above commands, there is separate tool to create incremental backups:
+In addition to the above commands, there is separate tools for other purposes:
 
- * a_backup : Create a backup copy of a local dataset into a backup repository in Allas
+ * a_backup : Create a backup copy of a local dataset into a backup repository in Allas.
+ * allas_mount : Mount a bucket in allas to be used and read-only dirctory in your local environment.
 
-
-If you use a_commands outside of the Supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for installinh these tools.
+If you use a_ commands outside of the Supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for installing these tools.
 	
 ## opening connection
 
@@ -34,19 +30,10 @@ source /appl/opt/allas_conf
 ```
 The connection remains open for three hours.	
 
-## Opening connection
-
-In order to use these tools, you must first open connection to Allas storage service with
-command:
-```
-source /appl/opt/allas_conf
-```
-
-The connection remains open for three hours.
 
 ## a_put uploads data to Allas
 
-`a_put` is used to upload data from the disk environment of Taito or Puhti to 
+`a_put` is used to upload data from the disk environment of Taito and Puhti to 
 Allas storage environment. The basic syntax of the command is:
 
 ```
@@ -59,7 +46,7 @@ By default, this tool performs following operations:
 defines the project that will be used to store the data.
 
 2.    In case of directory, the content of the directory is collected into a single file
-(using `tar` command).
+using `tar` command.
 
 3.    By default, option `--compress` (`-c`), is used. This means that the data is compressed using _zstdmt_ command.
 This is the recommended way if you will be using the data only in CSC computing servers.  If you plan to use the 
@@ -109,9 +96,8 @@ a_put project2/sample3/test_1.txt
 In this case the file is stored to bucket: *kkayttaj-12345-WRKDIR* 
 as object:  *project2/sample3/test_1.txt.zst*
 
-In addition to the actual data object, a second object containing 
-metadata is created. This metadata object has the same name as the
-main file with extension: *_ameta*. This metadata file is used by the 
+In addition to the actual data object, a second object containing metadata is created. This metadata object has the 
+same name as the main object with extension: *_ameta*. This metadata file is used by the 
 other *a_commands* and normally it is not displayed to the user, but if you study the buckets
 with tools like _swift_ or _rclone_ you will see these metadatafiles too.
 
@@ -156,7 +142,7 @@ a_publish works mostly like a_put but there are some differences:
 
 The basic syntax of the command is:
 
-```
+```text
 a_publish file_name
 ```
 By default, the file is uploaded to a bucket _username-projectNumber_-pub. You can define other bucket names too using option _-b_, but you should note that this command will make all data in the bucket publicly accessible, including data that has been previously uploaded to the bucket.
@@ -207,7 +193,7 @@ a_flip works mostly like a_publish but there are some differences:
 
 The basic syntax of the command is:
 
-```
+```text
 a_flip file_name
 ```
 The file is uploaded to a bucket _username-projectNumber_-flip. The URL to the uploaded object is:
@@ -222,7 +208,7 @@ removes all objects that were uploaded more than two days ago.
 
 a_find command allows you to list and locate data that has been uploaded to Allas using `a_put`.
 The basic syntax of the command is:
-```
+```text
 a_find query_term
 ```
 
@@ -252,7 +238,7 @@ Options:
 
 - **-p**,**--project _project_ID_** :   Search matches from the buckets of the defined project instead of the currently configured project. 
 
-- **-b**, **--bucket _bucket_name_** :   By default, all the buckets used by `a_put` are searched. Option </br>*-bucket* allows you to specify a single bucket that will be used for the search. You should use this option also in cases where you have stored data to a bucket with a non-standard name.
+- **-b**, **--bucket _bucket_name_** :   By default, all the default buckets used by `a_put` are searched. Option </br>*-bucket* allows you to specify a single bucket that will be used for the search. You should use this option also in cases where you have stored data to a bucket with a non-standard name.
 
 - **-s**, **-silent** : Outputs just the object names and number of hits. If _-f_ option is used too, prints the object            name and matching file names on one row.
 
@@ -261,7 +247,7 @@ Options:
                              
 Command `a_info` allows you to get information about a dataset that has been uploaded to Allas using `a_put`.    
 
-```
+```text
 a_info object_name
 ```                          
                              
@@ -269,7 +255,7 @@ a_info object_name
 
 This tool is used to download data that has been uploaded to Allas service using the `a_put` command.
 The basic syntax of the command is:
-```
+```text
 a_get object_name
 ```
 
@@ -286,6 +272,6 @@ a_get options:
 
 ## a_backup
 
-For *a_backup* documentation, see [a_backup](./a_backup.md){:target="_blank"}.
+For *a_backup* documentation, see [a_backup](./a_backup.md).
 
 
