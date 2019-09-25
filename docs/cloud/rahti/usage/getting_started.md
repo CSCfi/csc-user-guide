@@ -13,7 +13,7 @@ primitives described in the [background chapter ](/cloud/rahti/introduction/back
 
 ## Using the web interface
 
-You can login at \env{OSO_WEB_UI_URL} (see [Getting access](../introduction/access)
+You can login at https://rahti.csc.fi:8443 (see [Getting access](/cloud/rahti/introduction/access)
 for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page_3.7.png)

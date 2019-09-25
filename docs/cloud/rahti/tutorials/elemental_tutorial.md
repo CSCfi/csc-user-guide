@@ -332,11 +332,11 @@ spec:
 
 The ReplicationControllers are functionally near ReplicaSets, treated
 in Chapter "[Kubernetes and OpenShift
-Concepts](../introduction/background#kubernetes-and-openshift-concepts)".
+Concepts](/cloud/rahti/introduction/background#kubernetes-and-openshift-concepts)".
 And really, a ReplicationController can be transformed in to a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](advanced_tutorial#deploymentconfig)
+object is that [DeploymentConfig](/cloud/rahti/tutorials/advanced_tutorial#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note

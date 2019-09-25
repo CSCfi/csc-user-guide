@@ -30,7 +30,7 @@ various objects, such as *Pods*, *Services*, *Routes*, *DeploymentConfigs*, and
 
 For deeper insight in to the created objects, please see
 
-* [Core objects](elemental_tutorial) for introduction to fundamental objects on
+* [Core objects](/cloud/rahti/tutorials/elemental_tutorial) for introduction to fundamental objects on
   which OpenShift/Kubernetes applications are built upon.
-* [Utility objects](advanced_tutorial) how managing application in
+* [Utility objects](/cloud/rahti/tutorials/advanced_tutorial) how managing application in
   OpenShift/Kubernetes further streamlined using higher abstraction level objects.

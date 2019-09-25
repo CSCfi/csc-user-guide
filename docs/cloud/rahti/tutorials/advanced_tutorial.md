@@ -4,19 +4,19 @@ In this example we'll explore OpenShift's extensions *DeploymentConfig*,
 *ImageStream* and *BuildConfig* by creating the `serveapp` using them. Their
 role in the process is as follows:
 
-* [BuildConfig](advanced_tutorial#buildconfig) objects build container images
+* [BuildConfig](/cloud/rahti/tutorials/advanced_tutorial#buildconfig) objects build container images
   based on source files.
-* [ImageStream](advanced_tutorial#imagestream) objects abstract images and
+* [ImageStream](/cloud/rahti/tutorials/advanced_tutorial#imagestream) objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by, e.g., BuildConfig.
-* [DeploymentConfig](advanced_tutorial#deploymentconfig) objects create new
-  [ReplicationControllers](elemental_tutorial#replicationcontroller) based on
+* [DeploymentConfig](/cloud/rahti/tutorials/advanced_tutorial#deploymentconfig) objects create new
+  [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on
   the new images.
 
 ## DeploymentConfig
 
 DeploymentConfigs are objects that create
-[ReplicationControllers](elemental_tutorial#replicationcontroller) according to
+[ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) according to
 `spec.template`. They differ from ReplicationControllers in a sense that 
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig will perform
@@ -30,7 +30,7 @@ Chapter "[Background ](/cloud/rahti/introduction/background)" except that Deploy
 trigger updates only when `spec.template` is changed. Furthermore, Deployment
 is a pure Kubernetes concept and DeploymentConfig is an OpenShift extension.
 
-Recall that [ReplicationControllers](elemental_tutorial#replicationcontroller)
+Recall that [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller)
 are objects that make sure that a requested number of replicas of the pod defined in the
 `spec.template` are running.
 
