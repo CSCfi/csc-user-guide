@@ -1,34 +1,58 @@
 
 
 get_all_local_links(){
-    grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" docs  | grep -v "http" | grep -v "mailto:servicedesk@csc\.fi" \
+    grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" docs  | grep -v "http" | grep -v "mailto:.*@csc\.fi" \
     | sed 's/\[.*\](//g'  | tr -d ")" \
     | sed 's/#/:/g' | sed 's/^/\.\//g'
 }
 
 
-
-
-get_full_link_info(){
+parser(){
+    links="$1"
+    mode="$2"
+    md_ending="$3"
+        
+    files=$(echo "$links" | cut -d ':' -f1)
+    file_folders="$(echo "$files" | rev |cut -d"/" -f1 --complement | rev  | sed 's/$/\//g')"
+    file_names=$(echo "$files" | rev | cut -d"/" -f1 | rev)
+    line_numbers=$(echo "$links" | cut -d ':' -f2)
+    file_links_relative=$(echo "$links" | cut -d ':' -f3 | sed 's/ //g')
     
-        links="$(get_all_local_links)"
-        files=$(echo "$links" | cut -d ':' -f1)
-        file_folders="$(echo "$files" | rev |cut -d"/" -f1 --complement | rev  | sed 's/$/\//g')"
-        file_names=$(echo "$files" | rev | cut -d"/" -f1 | rev)
-        line_numbers=$(echo "$links" | cut -d ':' -f2)
-        file_links_relative=$(echo "$links" | cut -d ':' -f3 | sed 's/ //g')
-        section_links=$(echo "$links" | cut -d ':' -f4)
-        merged_path="$(paste <(echo "$file_folders") <(echo "$file_links_relative") -d "" )"
+    section_links=$(echo "$links" | cut -d ':' -f4)
+    
+    if [[ "$mode" == "relative" ]];then
+        merged_path="$(paste <(echo "$file_folders") <(echo "$file_links_relative" ) -d ""  )"
         file_links_absolute=$(readlink -ev -- $(echo "$merged_path") 2>&1 | sed 's/^readlink.*/#INVALID LINK/g')
-        file_links_absolute=$(echo "$file_links_absolute"  | sed 's@'$PWD'@\.@g')
-        final_line=$(paste <(echo "$file_folders") \
+    else
+        if [[ ! -z "$file_links_relative" ]];then
+        # Absolute path + .md ending => not a valid path
+        echo "$file_links_relative" >> temp.temp
+        merged_path="$(echo "$file_links_relative" | sed 's/\.md\s*$/ERR/g'  | sed 's/^/\.\/docs/g' |  sed 's/\/[^.][A-Z,a-z,0-9,-,_]*$/&\.md/g' | sed 's/\/$/\.md/g'  )"
+        file_links_absolute=$(readlink -ev -- $(echo "$merged_path") 2>&1 | sed 's/^readlink.*/#INVALID LINK/g')
+        fi
+    fi
+    file_links_absolute=$(echo "$file_links_absolute"  | sed 's@'$PWD'@\.@g')
+    final_line=$(paste <(echo "$file_folders") \
                            <(echo "$file_names") \
                            <(echo "$line_numbers") \
                            <(echo "$file_links_relative") \
                            <(echo "$file_links_absolute") \
                            <(echo "$section_links") \
                            -d ":" )
-        echo "$final_line"
+    echo "$final_line"
+
+
+}
+
+
+get_full_link_info(){
+
+        all_links="$(get_all_local_links)"
+        relative_links="$(echo "$all_links" | grep -v "^.*:.*:\s*/")"
+        absolute_links="$(echo "$all_links" | grep    "^.*:.*:\s*/" )"
+
+
+        echo -e "$(parser "$relative_links" "relative")\n$(parser "$absolute_links" "absolute")" 
 
 }
 get_invalid_file_path(){
