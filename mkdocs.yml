@@ -51,6 +51,7 @@ nav:
          - Background: cloud/rahti/introduction/background.md
          - Technical maturity: cloud/rahti/introduction/technical_maturity.md
          - Getting access: cloud/rahti/introduction/access.md
+         - Billing: cloud/rahti/introduction/billing.md
        - Usage:
          - Getting started: cloud/rahti/usage/getting_started.md
          - Projects and quota: cloud/rahti/usage/projects_and_quota.md
