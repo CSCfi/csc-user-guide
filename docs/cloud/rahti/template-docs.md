@@ -1,4 +1,11 @@
-Here you will find the list of templates supported by CSC.
+# Rahti Templates
+
+Rahti supports templating service deployment code allowing its re-use. The
+templates documented here are available to be launched on the Rahti Service
+Catalog.
+
+The Service Catalog also lists default templates bundled with OKD which are not
+documented here.
 
 ## Minio
 

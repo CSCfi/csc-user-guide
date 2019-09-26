@@ -1,3 +1,5 @@
+# Rahti Container Cloud
+
 Welcome to the Rahti container cloud! If you are not yet
 familiar with container technology or container orchestration systems such as
 Kubernetes or OpenShift, you could start by reading a generic introduction to

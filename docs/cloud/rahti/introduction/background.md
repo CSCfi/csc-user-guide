@@ -1,7 +1,3 @@
-**Topics:**
-
-[TOC]
-
 ## Containers
 
 Containers are a technology that is based on operating system kernel features
