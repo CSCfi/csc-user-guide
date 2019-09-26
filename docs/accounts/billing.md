@@ -29,7 +29,7 @@ The default 1 TiB scratch disk quota is free. Increased quota is charged as foll
 
 Allas object storage is charged based on usage as follows:
 
-* 1 TiB consumes **3.5** BUs per hour.
+* 1 TiB consumes **1** BUs per hour.
 
 ## Estimating the billing units
 
