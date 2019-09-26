@@ -9,7 +9,7 @@
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Diamond](diamond.md)
-* [Elmer] (elmer.md) Open source multi-physics FEM package 
+* [Elmer](elmer.md) Open source multi-physics FEM package
 * [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
