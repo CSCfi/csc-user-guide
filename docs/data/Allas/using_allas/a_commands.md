@@ -32,7 +32,18 @@ After that you can open connection to Allas storage service with command:
 ```text
 allas_conf
 ```
-The connection remains open for three hours.	
+The connection remains open for three hours. You can re-run the _allas_conf_ command at anytime
+to continue the validity of the connection for three more hours or to switch to use another allas 
+project. 
+
+By default allas_conf lists your projects that have access to Allas, but if you know the name of the project, you
+can give it as an argument. For example:
+
+```text
+allas_conf project_123456
+```
+Note that the Allas project don't need to be the same as the project you are using in Puhti or Taito.
+
 
 ## a_put uploads data to Allas
 
