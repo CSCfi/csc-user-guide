@@ -18,7 +18,7 @@ as included services. Hence, if an FMI project manager wants use both the genera
 
 However, all the data is available across the projects.
 
-A project for the general partition and CSC's other services is created as described in [Creating new project](https://docs.csc.fi/accounts/creating-new-project/) page. For project type choose Academic and add Puhti and/or other services as needed as described in [Adding service access for project](https://docs.csc.fi/accounts/adding-service-access-for-project/) page.
+A project for the general partition and CSC's other services is created as described in [Creating new project](how-to-create-new-project.md) page. For project type choose Academic and add Puhti and/or other services as needed as described in [Adding service access for project](how-to-add-service-access-for-project.md) page.
 
 A project for the FMI partition is created similarly, but for the service Puhti-FMI is chosen. 
 

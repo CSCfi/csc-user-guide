@@ -69,7 +69,7 @@ In Puhti, the velvet jobs should be executed through the batch job system. Below
 #!/bin/bash
 #SBATCH --job-name=velvet
 #SBATCH --output=put=output_velvet2.txt
---error=errors_velvet2.txt
+#SBATCH --error=errors_velvet2.txt
 #SBATCH --account=<project>
 #SBATCH --time=4-00:00:00
 #SBATCH --ntasks=1
@@ -95,7 +95,7 @@ The batch job can be launched with command
 sbatch script_file_name
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](https://docs.csc.fi/#computing/running/getting-started/).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 
