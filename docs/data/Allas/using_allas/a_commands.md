@@ -17,8 +17,10 @@ For those users, that just want to use Allas for storing data that is in CSC com
 
 In addition to the above commands, there is separate tools for other purposes:
 
- * a_backup : Create a backup copy of a local dataset into a backup repository in Allas.
- * allas_mount : Mount a bucket in allas to be used and read-only dirctory in your local environment.
+ * __allas_conf__ : Set up and open connection to Allas
+ * __a_backup__ : Create a backup copy of a local dataset into a backup repository in Allas.
+ * __allas_mount__ : Mount a bucket in allas to be used as read-only directory in your local environment.
+ 
 
 If you use a_ commands outside of the Supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for installing these tools.
 	
