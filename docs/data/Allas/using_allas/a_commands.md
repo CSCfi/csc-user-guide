@@ -24,12 +24,15 @@ If you use a_ commands outside of the Supercomputers, check the [allas-cli-utils
 	
 ## opening connection
 
-In order to use these tools, you must first open connection to Allas storage service with command:
+In order to use these tools in Puhti and Taito, you must first load a_ commands with:
 ```text
-source /appl/opt/allas_conf
+module load allas
+```
+After that you can open connection to Allas storage service with command:
+```text
+allas_conf
 ```
 The connection remains open for three hours.	
-
 
 ## a_put uploads data to Allas
 
