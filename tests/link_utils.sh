@@ -33,7 +33,11 @@ get_all_local_links(){
 parser(){
     links="$1"
     mode="$2"
-    md_ending="$3"
+
+    if [[ -z "$links" ]];then
+        return 0
+    fi
+
         
     files=$(echo "$links" | cut -d ':' -f1)
     file_folders="$(echo "$files" | rev |cut -d"/" -f1 --complement | rev  | sed 's/$/\//g')"
@@ -48,7 +52,6 @@ parser(){
         # A .md ending is required for markdown files
         merged_path="$(paste <(echo "$file_folders") <(echo "$file_links_relative" ) -d ""  )"
     else
-        if [[ ! -z "$file_links_relative" ]];then
         # Absolute path + .md ending => not a valid path so we put a ERR to cause an error
         # Absolute paths start from ./docs/
         # In order to check if the absolute path is valid we need to append .md to it 
@@ -56,7 +59,6 @@ parser(){
         # We only do one pass over file -> links of the form ![image](img/picture) (no ending and not a markdown file)
         # will give a false positive of being broken. The only fix for this is to check files without an ending twice.
         merged_path="$(echo "$file_links_relative" | sed 's/\.md\s*$/ERR/g'  | sed 's/^/\.\/docs/g' |  sed 's/\/[^.][A-Z,a-z,0-9,-,_]*$/&\.md/g' | sed 's/\/$/\.md/g'  )"
-        fi
     fi
     # Using readlink to check if a file exist + resolve relative paths (../../ etc.)
     # readlink give the full path so we remove everything above ./docs
