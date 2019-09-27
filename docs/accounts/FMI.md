@@ -20,9 +20,7 @@ However, all the data is available across the projects.
 
 A project for the general partition and CSC's other services is created as described in [Creating new project](https://docs.csc.fi/accounts/creating-new-project/) page. For project type choose Academic and add Puhti and/or other services as needed as described in [Adding service access for project](https://docs.csc.fi/accounts/adding-service-access-for-project/) page.
 
-A project for the FMI partition is created similarly, but for the service Puhti-FMI is chosen. 
-
-For the time being, an additional step is required: The project manager must send an email with the project identifying number to servicedesk@csc.fi and ask that Puhti-FMI is added to the project. Jobs can be submitted to the FMI partition only after servicedesk has confirmed the access.
+A project for Puhti-FMI partition is created similarly, but choose FMI for the project type. Only Puhti-FMI, Allas and IDA are available as services for the FMI projects.
 
 ### Puhti FMI partition
 
