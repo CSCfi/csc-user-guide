@@ -22,15 +22,13 @@ parser(){
     
     if [[ "$mode" == "relative" ]];then
         merged_path="$(paste <(echo "$file_folders") <(echo "$file_links_relative" ) -d ""  )"
-        file_links_absolute=$(readlink -ev -- $(echo "$merged_path") 2>&1 | sed 's/^readlink.*/#INVALID LINK/g')
     else
         if [[ ! -z "$file_links_relative" ]];then
         # Absolute path + .md ending => not a valid path
-        echo "$file_links_relative" >> temp.temp
         merged_path="$(echo "$file_links_relative" | sed 's/\.md\s*$/ERR/g'  | sed 's/^/\.\/docs/g' |  sed 's/\/[^.][A-Z,a-z,0-9,-,_]*$/&\.md/g' | sed 's/\/$/\.md/g'  )"
-        file_links_absolute=$(readlink -ev -- $(echo "$merged_path") 2>&1 | sed 's/^readlink.*/#INVALID LINK/g')
         fi
     fi
+    file_links_absolute=$(readlink -ev -- $(echo "$merged_path") 2>&1 | sed 's/^readlink.*/#INVALID LINK/g')
     file_links_absolute=$(echo "$file_links_absolute"  | sed 's@'$PWD'@\.@g')
     final_line=$(paste <(echo "$file_folders") \
                            <(echo "$file_names") \
