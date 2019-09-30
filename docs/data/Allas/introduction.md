@@ -25,7 +25,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * You have to use specific tools to use object storage. Object storage cannot be properly mounted for local disk-like usage. There are some tools to help this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as filesystem, but it uses _FUSE_ which is slow.
  * Unsuitable for files that change constantly during their lifetime (e.g. most SQL databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing and then you can replace the previous version with the new one.
- * Files larger than 5 GB must be divided into smaller segments, see [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb){:target="_blank"}.
+ * Files larger than 5 GB must be divided into smaller segments ( normally this is done automatically during upload), see [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb){:target="_blank"}.
 
 
 ## Different flavors for using Allas
@@ -34,14 +34,8 @@ You cannot mount Allas direcly to a computer.  This means that in order to use A
 
 ![Allas access flavors](/img/allas-access-flawors.png)
 
-
-
-<<<<<<< HEAD
-1. In CSC computing environment (e.g. **Puhti**) you have ready-to-use tools, provided by CSC, to access Allas . The tools are mostly the same you could also install to your local environment. In the CSC computing environment Allas should be used to store any data that needs to be preserved for longer than just few weeks. Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](../../computing/disk-environment.md){:target="_blank}), so your data must be moved to Allas after computing. The instructions for accessing and using Allas with CSC's supercomputers can be found from [Using Allas with Supercomputers](./using_allas/common_use_cases.md#using-allas-with-supercomputers){:target="_blank"}.
-=======
 1. In CSC computing environment (e.g. **Puhti**) you have ready-to-use tools, provided by CSC, to access Allas. The tools are mostly the same you could also install to your local environment.  
 In the CSC computing environment Allas should be used to store any data that needs to be preserved for longer than just few weeks. Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](../../computing/disk-environment.md){:target="_blank}), so your data must be moved to Allas after computing. The instructions for accessing and using Allas with CSC's supercomputers can be found from [Using Allas with Supercomputers](./using_allas/common_use_cases.md#using-allas-with-supercomputers){:target="_blank"}.
->>>>>>> ea5136b17c371be5e0e176abb28a30738bd880d5
 
 2. WWW access to Allas is provided by the web interface of cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). To access Allas with a browser you naturally do not have to install anything special on your computer, so this is by far the simplest way to access Allas. On the other hand, the browser user interface has a bunch of limitations compared to other access flavors, most notable are less performance and upload/download only a single file at the time. The instructions for accessing and using Allas with a browser can be found from [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"}.
 
@@ -57,15 +51,15 @@ In addition to these access flavors you can also see how to use Allas based on [
 
 ## Billing and Quotas
 
-Allas usage is founded on project based storage quotas. The default quota for a new project is 1 TB, but that can be increased if needed. Allas is the preferred storage site for any large datasets in CSC environment, so you should not hesitate to request larger quota for Allas, if you need to work with larger data sets. 
+Allas usage is founded on project based storage quotas. The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for any large datasets in CSC environment, so you should not hesitate to request larger quota for Allas, if you need to work with larger data sets. 
 
- All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read, edit and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
+All the project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all the other project members can read, edit and also delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
 
 The default quotas for every project are:
 
 | Resource | Limit |
 | :-------- |:------- |
-| Storage amount | 1 TiB |
+| Storage amount | 10 TiB |
 | Buckets per project | 1 000 |
 | Objects per bucket | 100 000 |
 
