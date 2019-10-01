@@ -1,15 +1,18 @@
 
 # Swift client
 
-!!! note
-	If you use Allas from a Supercomputer, all the required packages and software are already installed and you can skip the installation section and openrc downloading below. What you have to do is to run the command 
-	`source /appl/opt/allas_conf`
-	to authenticate to a project in Allas.
+Pythom Swift client is command line tool for using object storage systems like Allas. If you use Allas from a Puhti or Taito, all the required packages and software are already installed and you cat take them in use with command:
 
+```text
+module load allas
+```
+After that you need to open connection to allas with command:
+```text
+allas_conf
+```
+The allas_conf command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists your projects in Allas and asks you to define the project that will be used. After that _allas_conf_ generates autheticates the connection to the selected project in Allas. The authentication information is stored into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
 
-This chapter gives guidance for data management in Allas with the advanced _Swift client_. If you believe that basic operations are enough to fulfill your need, we recommend either the [OpenStack command-line client](../../../cloud/pouta/install-client.md#overview-of-openstack-command-line-tools){:target="_blank"} or [Web client](./web_client.md){:target="_blank"}. 
-
-The instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
+If you want to use swift from some other linux server, the instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
