@@ -1,6 +1,6 @@
 # Using Allas with rclone from Puhti and Taito 
 
-This chapter guides to use Allas with [rclone](https://rclone.org/) in Puhti or Taito computing environments. _rclone_ provides a vere powerful and versatile way to use Allas and other object storage services. It is able to use both S3 and swift protocols (as well as many other protocole), but in the case of Allas, swift protocol is prefered and that is also the default option at CSC servers.
+This chapter guides to use Allas with [rclone](https://rclone.org/) in Puhti or Taito computing environments. _rclone_ provides a vere powerful and versatile way to use Allas and other object storage services. It is able to use both S3 and swift protocols (as well as many other protocols), but in the case of Allas, swift protocol is prefered and that is also the default option at CSC servers.
 
 The basic syntax of rclone is
 <pre>
