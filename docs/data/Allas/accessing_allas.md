@@ -9,13 +9,7 @@
 Usage of **Allas** is based on CSC customer projects. To be able to use Allas you need to be a member in 
 a CSC project that has permission to use Allas. If you do not have a CSC account, you must first register as a CSC user
 and join or start a computing project for which Allas has been enabled. All these steps can be done in the
-MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi){:target="_blank"}.
-
-The easiest way to use Allas is through the [web client](./using_allas/web_client.md){:target="_blank"} which offers basic tools for managing your data.
-
-Below is given guidelines describing step by step how to establish Allas with different operating systems.
-
-&nbsp;
+MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
 
 
 ## Accessing Allas in CSC computing environmnet
