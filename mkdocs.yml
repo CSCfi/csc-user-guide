@@ -30,6 +30,16 @@ nav:
      - Compiling: computing/compiling.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
+  - Data:
+     - Allas object storage:
+        - Introduction to Allas Storage service: data/Allas/introduction.md
+        - Accessing Allas: data/Allas/accessing_allas.md
+        - Common Use Cases: data/Allas/using_allas/common_use_cases.md
+        - Allas Clients: data/Allas/clients.md
+        - Common Error Messages: data/Allas/using_allas/error_messages.md
+        - Further information: data/Allas/further_info.md
+        - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
+        - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
