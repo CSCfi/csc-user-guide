@@ -33,7 +33,7 @@ The syntax of the `s3cmd` command is:
 s3cmd -options command parameters
 ```
 
-The table above lists the most essential s3cmd commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage){:target="_blank"} or execute command:
+The table above lists the most essential s3cmd commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage) or execute command:
 
 ```bash
 s3cmd -h
@@ -66,9 +66,9 @@ pip3 install s3cmd
 s3cmd
 ```
 
-Please refer to [http://s3tools.org/download](http://s3tools.org/download){:target="_blank"} and  [http://s3tools.org/usage](http://s3tools.org/usage){:target="_blank"} for upstream documentation.
+Please refer to [http://s3tools.org/download](http://s3tools.org/download) and  [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
-You need to use ec2 credentials when using S3. You can create ec2 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](https://research.csc.fi/pouta-install-client){:target="_blank"}.
+You need to use ec2 credentials when using S3. You can create ec2 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](https://research.csc.fi/pouta-install-client).
 
 Once you have the RC file, you can add the environment variables with the following command:
 

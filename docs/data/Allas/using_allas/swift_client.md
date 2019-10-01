@@ -119,7 +119,7 @@ $ swift copy --destination /new_bucket/newname.jpg my_fishbucket my_fish.jpg
 created container new_bucket
 my_fishbucket/my_fish.jpg copied to /new_bucket/newname.jpg
 ```
-For further information about the command <i>swift copy</i>, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy){:target="_blank"}.
+For further information about the command <i>swift copy</i>, see [OpenStack Docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy).
 
 
 &nbsp;
@@ -172,7 +172,7 @@ swift delete --all
 
 ## Pseudofolders and checksum
 
-In case you want to observe whether the object has changed, you can use [checksum](../terms_and_concepts.md#checksum){:target="_blank"} with command ```md5sum```.
+In case you want to observe whether the object has changed, you can use [checksum](../terms_and_concepts.md#checksum) with command ```md5sum```.
 
 Pseudofolders can be handled by adding the name of the pseudofolder in front of the file name: <i>my_pseudofolder_name/my_file</i>
 
@@ -260,7 +260,7 @@ swift post -m "Temp-URL-Key:"
  
 If you want to share an object from a private (or public) bucket with somebody, you can create a temporary URL. This can be useful for a homepage where you want to share an object but not the whole bucket and only for a limited period of time. This can also be useful if you want to use a private object in a batch job on Puhti or Taito.
  
-**Note:** Everyone who has access to the temporary URL has access to the object. While it is possible to add Meta Temp-URL-Key to a bucket or object, the Temp URL command can only be used in a project wide scope (see [OpenStack documentation of temp URLs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl){:target="_blank"}).
+**Note:** Everyone who has access to the temporary URL has access to the object. While it is possible to add Meta Temp-URL-Key to a bucket or object, the Temp URL command can only be used in a project wide scope (see [OpenStack documentation of temp URLs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl)).
  
 Create a random key:
 ```bash
@@ -338,7 +338,7 @@ Alternatively, you can set the project public and then access the file.
 
 Since the OpenStack command does not support uploading files larger than 5GB, we can use Swift to upload a so-called _Static Large Object_ (SLO).
 
-According to [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples){:target="_blank"}:
+According to [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples):
 
 "_Swift has a single object size limit of 5GiB. In order to upload files larger than this, we must create a large object that consists of smaller segments._"
 

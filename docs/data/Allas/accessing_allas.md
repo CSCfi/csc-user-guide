@@ -44,13 +44,13 @@ After opening you can start using Allas with one of the following options. Note 
 
 ## Accessing Allas with Windows and Mac
 
-With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}. See the [list of functions](#cyberduck-functions) CyberDuck offers for data management.
+With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/). See the [list of functions](#cyberduck-functions) CyberDuck offers for data management.
 
 !!! note
     Please note that a directory uploaded with CyberDuck may not be
     downloadable with one command using some other client software
     with S3 protocol connection to Allas. For more information, see
-    [directory object error](using_allas/directory_object_error.md){:target="_blank"}.
+    [directory object error](using_allas/directory_object_error.md).
 
 1\. Install **CyberDuck**.
 
@@ -108,15 +108,15 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 
 | Command-line tool | Requirements |
 | :--------: | --------- |
-| a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md){:target="_blank"}. |
+| a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md). |
 | Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh, more info [below](#getting-openrc-file). |
-| S3 | More info [here](./using_allas/s3_client.md){:target="_blank"}. |
+| S3 | More info [here](./using_allas/s3_client.md). |
 
 
 
 ### Getting openrc file
 
-1. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and **Login**.
+1. Go to [pouta.csc.fi](https://pouta.csc.fi/) and **Login**.
 
 2. Navigate to **Compute | Access & Security | API Access**.
 
@@ -133,7 +133,7 @@ source <project_name_here>-openrc.sh
 
 You will be asked to type in a password. Use the password for your CSC account. Note that using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Note:** You will need to do this again if you open a new terminal.
 
-Now you are able to use the [Swift client](./using_allas/swift_client.md){:target="_blank"}.
+Now you are able to use the [Swift client](./using_allas/swift_client.md).
 
 
 **About S3:**
@@ -144,7 +144,7 @@ openstack credential delete
 ```
 **Please note:** The ec2 credentials do not work against other OpenStack services.
  
-There is also the possibility to create [Temp URLs](./using_allas/common_use_cases.md#sharing-data){:target="_blank"} for the objects you need to access and you can use those URLs to access the data from compute jobs. One benefit of using Temp URLs is that no credentials need to be stored for retrieving the object.
+There is also the possibility to create [Temp URLs](./using_allas/common_use_cases.md#sharing-data) for the objects you need to access and you can use those URLs to access the data from compute jobs. One benefit of using Temp URLs is that no credentials need to be stored for retrieving the object.
 
 &nbsp;
 
@@ -153,7 +153,7 @@ There is also the possibility to create [Temp URLs](./using_allas/common_use_cas
 
 OpenStack Horizon web interface provides easy-to-use basic functions for data management in Allas:
 
-[Web client - OpenStack Horizon Dashboard](./using_allas/web_client.md){:target="_blank"}
+[Web client - OpenStack Horizon Dashboard](./using_allas/web_client.md)
 
 &nbsp;
 
@@ -177,12 +177,12 @@ There are several different ways of accessing object storage. We support both th
 
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
-| web client | Yes | [Link](./using_allas/web_client.md){:target="_blank"} | Use via [https://pouta.csc.fi](https://pouta.csc.fi){:target="_blank"}. Provides basic functions. |
-| a_commands | Yes | [Link](./using_allas/a_commands.md){:target="_blank"} | Provides easy-to-use tools for basic usage. Assumes data is already in CSC computing environment. Requires Swift and OpenStack. |
-| python-swiftclient | Yes | [Link](./using_allas/swift_client.md){:target="_blank"}| This is the recommended Swift client. |
-| s3cmd	| Yes | [Link](./using_allas/s3_client.md){:target="_blank"} | This is the recommended S3 client. Use version 2.0.2 or later. |
-| python-swift-library | Yes | [Link](./using_allas/python_library.md){:target="_blank"} |	| 
-| rclone | Yes | [Link](./using_allas/rclone.md){:target="_blank"} | Useful with Supercomputers. |
+| web client | Yes | [Link](./using_allas/web_client.md) | Use via [https://pouta.csc.fi](https://pouta.csc.fi). Provides basic functions. |
+| a_commands | Yes | [Link](./using_allas/a_commands.md) | Provides easy-to-use tools for basic usage. Assumes data is already in CSC computing environment. Requires Swift and OpenStack. |
+| python-swiftclient | Yes | [Link](./using_allas/swift_client.md)| This is the recommended Swift client. |
+| s3cmd	| Yes | [Link](./using_allas/s3_client.md) | This is the recommended S3 client. Use version 2.0.2 or later. |
+| python-swift-library | Yes | [Link](./using_allas/python_library.md) |	| 
+| rclone | Yes | [Link](./using_allas/rclone.md) | Useful with Supercomputers. |
 | libs3	| Yes | | |	 	 
 | python-openstackclient | Yes | | |
 |aws-cli | Yes | | aws-cli and the boto3 python library. |

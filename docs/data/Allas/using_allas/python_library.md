@@ -4,7 +4,7 @@
 This chapter gives guidance for using Allas with **Python**. The instructions includes some commonly used basic operations but feel free to discover more.
 
 CSC instructions for how to install Python and the required libraries can be found from:  
-[https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client){:target="_blank"}.
+[https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client).
 
 Download the **OpenStack RC File v3** as guided in the last chapter *3.4.1.3 Configure your terminal environment for OpenStack*.
 
@@ -89,7 +89,7 @@ In the example above:
 | OS_PROJECT_NAME | = project_name | = *project_123456* |
 
 For further information of *Keystone authentication*, see:  
-[https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html){:target="_blank"} 
+[https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html) 
 
 
 &nbsp; 

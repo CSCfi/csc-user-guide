@@ -6,13 +6,13 @@
 
 ## Processing data
 
-To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/){:target="_blank"}.
+To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/).
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_command a_get](./a_commands.md#a_get-retrieves-the-stored-data){:target="_blank"}, [swift download](./swift_client.md#download-objects-and-buckets){:target="_blank"} or [s3cmd get](./s3_client.md#download-objects){:target="_blank"}.
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_command a_get](./a_commands.md#a_get-retrieves-the-stored-data), [swift download](./swift_client.md#download-objects-and-buckets) or [s3cmd get](./s3_client.md#download-objects).
 
-* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_command a_put](./a_commands.md#a_put-uploads-data-to-allas){:target="_blank"}, [swift upload](./swift_client.md#create-buckets-and-upload-objects){:target="_blank"} or [s3cmd put](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}. **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
+* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_command a_put](./a_commands.md#a_put-uploads-data-to-allas), [swift upload](./swift_client.md#create-buckets-and-upload-objects) or [s3cmd put](./s3_client.md#create-buckets-and-upload-objects). **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
 
-**Please note:** As discussed in the section [Protocols](../accessing_allas.md#protocols){:target="_blank"}, we recommend to use just one protocol - do not mix Swift and S3.
+**Please note:** As discussed in the section [Protocols](../accessing_allas.md#protocols), we recommend to use just one protocol - do not mix Swift and S3.
 
 Please take also a look at [Using Allas in Supercomputers](#using-allas-with-supercomputers).
 
@@ -26,9 +26,9 @@ With object storage you can easily share data, e.g. datasets or research results
 The data can be accessed and shared in several different ways:
  
 * **Private - default:** By default, if you do not specify anything else, contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
-	* [Web client](./web_client.md#view-objects-via-internet){:target="_blank"}
-	* [Swift client](./swift_client.md#temp-urls){:target="_blank"}
-	* [S3 client](./s3_client.md#s3cmd-and-public-objects){:target="_blank"}
+	* [Web client](./web_client.md#view-objects-via-internet)
+	* [Swift client](./swift_client.md#temp-urls)
+	* [S3 client](./s3_client.md#s3cmd-and-public-objects)
  
 
 * **Access Control Lists:** Access Control Lists (ACLs) work on buckets, not on objects. With ACLs you can share your data in a limited fashion to other projects. You can e.g. enable authenticated read access to your datasets to a collaboration project.
@@ -37,7 +37,7 @@ The data can be accessed and shared in several different ways:
 * **Public:** You can also have ACLs granting public read access to the data, which is useful for e.g. sharing public scientific results or public datasets.
 
  
-* **Temp URLs:** A temp URL is a unique URL to access an object. These URLs are time-limited and the duration can be determined. Anyone with the URL can access the object, but the URL is not feasible to just guess. This is a good way to somewhat securely share data to a limited audience, who do not need to have their own Allas accounts. Temp URLs are created per object, not per bucket. You can create temp URLs with [Swift](./swift_client.md#temp-urls){:target="_blank"} or [S3](./s3_client.md#temporary-urls){:target="_blank"}.
+* **Temp URLs:** A temp URL is a unique URL to access an object. These URLs are time-limited and the duration can be determined. Anyone with the URL can access the object, but the URL is not feasible to just guess. This is a good way to somewhat securely share data to a limited audience, who do not need to have their own Allas accounts. Temp URLs are created per object, not per bucket. You can create temp URLs with [Swift](./swift_client.md#temp-urls) or [S3](./s3_client.md#temporary-urls).
 
 &nbsp;
 
@@ -45,9 +45,9 @@ The data can be accessed and shared in several different ways:
  
 ## Static web content
 
-A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add link to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish){:target="_blank"}
+A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add link to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish)
 
-Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#upload-an-object){:target="_blank"}, [a_commands](./a_commands.md#a_put-uploads-data-to-allas){:target="_blank"}, [Swift client](./swift_client.md#create-buckets-and-upload-objects){:target="_blank"} or [S3 client](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}.
+Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#upload-an-object), [a_commands](./a_commands.md#a_put-uploads-data-to-allas), [Swift client](./swift_client.md#create-buckets-and-upload-objects) or [S3 client](./s3_client.md#create-buckets-and-upload-objects).
  
 &nbsp;
 
@@ -80,7 +80,7 @@ An example of this could be several data collectors pushing data to be processed
 
 Object storage is also often used as a location where you store backups. It is a convenient place to push copies of such as database dumps.
 
-[a_backup](./a_backup.md){:target="_blank"} is part of the *a_commands* and it works as a tool for creating backup copies of files to Allas. **Please note:** a_backup is not a real backup service. It only copies the data in to another bucket in Allas which can be easily removed or overwrited by any authenticated user.
+[a_backup](./a_backup.md) is part of the *a_commands* and it works as a tool for creating backup copies of files to Allas. **Please note:** a_backup is not a real backup service. It only copies the data in to another bucket in Allas which can be easily removed or overwrited by any authenticated user.
 
 &nbsp;
 
@@ -89,11 +89,11 @@ Object storage is also often used as a location where you store backups. It is a
 
 Files larger than 5 GB must be divided into smaller segments before uploading. 
 
-* *a_command a_put* splits large files automatically: [a_put](./a_commands.md#a_put-uploads-data-to-allas){:target="_blank"}
+* *a_command a_put* splits large files automatically: [a_put](./a_commands.md#a_put-uploads-data-to-allas)
 
-* With _Swift_ you can make use of _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb){:target="_blank"}
+* With _Swift_ you can make use of _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
 
-* _s3cmd_ splits large files automatically: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects){:target="_blank"}
+* _s3cmd_ splits large files automatically: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects)
 
 &nbsp;
 

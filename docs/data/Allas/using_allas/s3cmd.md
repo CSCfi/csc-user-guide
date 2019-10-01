@@ -2,7 +2,7 @@
 # Persistent Allas connections: s3cmd
 
 This chapter describes how you can use the Allas Object Storage service from Taito and Puhti with **s3cmd** command-line client. This client uses
-_S3_ protocol that differs from the _Swift_ protocol that is used in the [rclone](./rclone.md){:target="_blank"} examples. Thus, data that has been uploaded to Allas with rclone should not be downloaded with s3cmd and vice versa.
+_S3_ protocol that differs from the _Swift_ protocol that is used in the [rclone](./rclone.md) examples. Thus, data that has been uploaded to Allas with rclone should not be downloaded with s3cmd and vice versa.
 
 From user perspective one of the main differences between s3cmd and Swift based _rclone_ is that rclone connection remains valid for three hours at a time but with s3cmd the connection between Puhti/Taito and Allas will be permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
@@ -30,7 +30,7 @@ The syntax of the `s3cmd` command is:
 $ s3cmd -options command parameters
 ```
 
-The table below lists the most essential s3cmd commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage){:target="_blank"} or execute command:
+The table below lists the most essential s3cmd commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage) or execute command:
 
 ```bash
 $ s3cmd -h
@@ -50,7 +50,7 @@ Most commonly used s3cmd commands:
 | get 	 | Get a file from a bucket 		|
 | setacl | Modify Access control list for bucket or objects |
 
-In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in Object Storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You cannot use a bucket name that is already used by you or some other Object Storage user. See [checklist](../introduction.md#naming-buckets){:target="_blank"} for naming a bucket.
+In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in Object Storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You cannot use a bucket name that is already used by you or some other Object Storage user. See [checklist](../introduction.md#naming-buckets) for naming a bucket.
 
 In the example below we store a simple dataset to Allas using s3cmd.
 

@@ -5,7 +5,7 @@ that can be used to make backup copies of files and directories to Allas.  Howev
 provide a real backup service - the data is stored in one location only and just in one bucket in Allas. This bucket can be
 removed by an authenticated user with only one command and after that all the backups are irreversibly lost. 
 
-`a_backup` tool provides an easy-to-use command-line interface to the [restic](https://restic.readthedocs.io/){:target="_blank"} backup tool.
+`a_backup` tool provides an easy-to-use command-line interface to the [restic](https://restic.readthedocs.io/) backup tool.
  `a_backup` automatically creates a project specific backup 
 repository to the Allas storage service at CSC and uses that for making cumulative backups.
 
