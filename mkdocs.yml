@@ -28,6 +28,8 @@ nav:
         - Array jobs: computing/running/array-jobs.md
         - Example job scripts: computing/running/example-job-scripts.md
      - Compiling: computing/compiling.md
+     - Containers:
+        - Running existing containers: computing/containers/run-existing.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
   - Applications:
