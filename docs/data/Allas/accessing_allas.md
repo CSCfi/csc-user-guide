@@ -18,11 +18,36 @@ Below is given guidelines describing step by step how to establish Allas with di
 &nbsp;
 
 
-## Accessing Allas with Supercomputers
+## Accessing Allas in CSC computing environmnet
 
-The instructions for accessing and using Allas with Supercomputers can be found from [Using Allas with Supercomputers](./using_allas/common_use_cases.md#using-allas-with-supercomputers){:target="_blank"}.
+In order to use Allas in Puhti or Taito you must first load allas module:
+```text
+module load allas
+```
+After that you can open access to the Allas partiotion of a specific project. This is done with command:
+```text
+allas_conf
+```
+or 
+```text
+allas_conf project_name
+```
+The allas_conf command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists your projects in Allas and asks you to define the project that will be used (if you haven't defined the project name as an argument). After that allas_conf generates rclone configuration file for Allas service and autheticates the connection to the selected project in Allas. In one session you can have the connection open to only one Allas project at a time. The project that you are using in Allas does not need to match to the project you are using in Puhti or Taito and you can switch to another project by executing _allas_conf_ again. 
 
-&nbsp;
+The authentication information is stored into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
+
+After opening you can start using Allas with one of the following options. Note that data that is uploaded with one method is not necessary readable with another method.
+
+###Allas client software options for Puhti and Taito:
+* **Easy tools for basic usage:** [Quick and safe: a_commands](./a_commands.md){:target="_blank"}
+
+
+* **Advanced functions with rclone:** [Advanced tool: rclone](./rclone.md){:target="_blank"}
+
+
+* **S3 client and persistent Allas connections:** [S3 client](./s3_client.md#s3cmd-with-supercomputers){:target="_blank"}
+
+* **A wide range of functionalities:** [Swift client](./swift_client.md){:target="_blank}
 
 
 ## Accessing Allas with Windows and Mac
