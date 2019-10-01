@@ -56,6 +56,24 @@ srun myprog <options>
 srun myprog <options>
 ```
 
+## MPI + OpenMP
+
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=4000
+
+# set the number of threads based on --cpus-per-task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+srun myprog <options>
+```
+
 ## Single GPU
 
 ```
