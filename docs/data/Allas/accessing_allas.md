@@ -12,7 +12,7 @@ and join or start a computing project for which Allas has been enabled. All thes
 MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
 
 
-## Accessing Allas in CSC computing environmnet
+## Accessing Allas in CSC computing environment
 
 In order to use Allas in Puhti or Taito you must first load allas module:
 ```text
