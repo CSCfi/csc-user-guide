@@ -42,31 +42,6 @@ The data can be accessed and shared in several different ways:
 &nbsp;
 
 
-## Using Allas with Supercomputers
-
-The first step in order to use Allas with a Supercomputer is to authenticate to a project in Allas. In Taito and Puhti you can do the authentication with command:
-```bash
-    [user@puhti ~] source /appl/opt/allas_conf
-```
-
-The command above generates and stores authentication information into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL. The authentication is valid for max 3 hours.  
-
-**Please note:** The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to use Allas.
-
-You can find some guidance for using Allas from Puhti and Taito below:
-
- * **Easy tools for basic usage:** [Quick and safe: a_commands](./a_commands.md){:target="_blank"}
-
-
- * **Advanced functions with rclone:** [Advanced tool: rclone](./rclone.md){:target="_blank"}
-
-
- * **S3 client and persistent Allas connections:** [S3 client](./s3_client.md#s3cmd-with-supercomputers){:target="_blank"}
-
-* **A wide range of functionalities:** [Swift client](./swift_client.md){:target="_blank}
-
-&nbsp;
-
  
 ## Static web content
 
