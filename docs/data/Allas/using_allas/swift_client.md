@@ -12,15 +12,6 @@ allas_conf
 ```
 The allas_conf command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists your projects in Allas and asks you to define the project that will be used. After that _allas_conf_ generates autheticates the connection to the selected project in Allas. The authentication information is stored into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
 
-If you want to use swift from some other linux server, the instructions for the installation of the Swift command-line client can be found from [pouta/install-client](../../../cloud/pouta/install-client.md){:target="_blank"}. In the last section [Configure your terminal environment for OpenStack](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"} is guidance for downloading a RC file.
-
-Once you have the RC file, you can add the environment variables with the following command:
-
-```bash
-source <project_name_here>-openrc.sh
-```
-
-You will be asked to type in a password. Use the password for your CSC account. **Note:** Using Haka credentials with the command-line interface is not yet supported. After doing this, the current terminal session will have the proper environment variables for using the command-line tools. **Please note:** Everytime you open a new terminal this must be done again.
 
 This chapter includes instructions for the following operations:
 
@@ -42,11 +33,7 @@ This chapter includes instructions for the following operations:
 | upload --use-slo | Upload files larger than 5 GB |
 
 
-
-!!! note
-	If you use Swift outside of Supercomputers, make sure your Swift version is not too old, since the older Swift versions might not work with Allas.
-
-&nbsp;
+You can installa and use Swift also outside CSC computing environment, but in that case make sure thatyour Swift version is not too old, since the older Swift versions might not work with Allas.
 
 
 ## Create buckets and upload objects
@@ -211,7 +198,6 @@ $ md5sum my_renamed_salmon.jpg
 ```
 **Note** how the checksums with the object <i>salmon.jpg</i> and the renamed version <i>my_renamed_salmon.jpg</i> are the same since the file is same and has not changed. 
 
-&nbsp;
 
 ## Managing metadata
 
