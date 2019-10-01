@@ -32,16 +32,14 @@ The authentication information is stored into shell variables OS_AUTH_TOKEN and 
 
 After opening you can start using Allas with one of the following options. Note that data that is uploaded with one method is not necessary readable with another method.
 
-###Allas client software options for Puhti and Taito:
-* **Easy tools for basic usage:** [Quick and safe: a_commands](./a_commands.md){:target="_blank"}
+**Allas client software options for Puhti and Taito:**
+* **Easy tools for basic usage:** [Quick and safe: a_commands](./a_commands.md)
 
+* **Advanced functions with rclone:** [Advanced tool: rclone](./rclone.md)
 
-* **Advanced functions with rclone:** [Advanced tool: rclone](./rclone.md){:target="_blank"}
+* **S3 client and persistent Allas connections:** [S3 client](./s3_client.md#s3cmd-with-supercomputers)
 
-
-* **S3 client and persistent Allas connections:** [S3 client](./s3_client.md#s3cmd-with-supercomputers){:target="_blank"}
-
-* **A wide range of functionalities:** [Swift client](./swift_client.md){:target="_blank}
+* **A wide range of functionalities:** [Swift client](./swift_client.md)
 
 
 ## Accessing Allas with Windows and Mac
