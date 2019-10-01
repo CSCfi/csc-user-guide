@@ -164,10 +164,9 @@ By default, the file is uploaded to a bucket _username-projectNumber_-pub. You c
 
 The public URL to a data object is:
 
-https://a3s.fi/_username_-_projectNumber_-pub/_object_name_
+`https://a3s.fi/username-projectNumber-pub/object_name`
 
 An object uploaded with _a_publish_ can be removed from Allas with command _a_delete_.
-
 
 Sample session with _a_public_. Uploading document _presentation.pdf_ to the default public bucket in Allas:
 
@@ -204,7 +203,7 @@ a_flip copies a file to Allas into a bucket that can be publicly accessed. Thus,
 uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. 
 a_flip works mostly like a_publish but there are some differences: 
     1) only the predfined bucket name ( _username-projectNumber_-flip ) can be used
-    2) When the command is executed, it automatically deletes objects that are older than two days
+    2) When the command is executed, it checks the content of the flip bucket and deletes objects that are older than two days
 
 The basic syntax of the command is:
 
@@ -214,9 +213,6 @@ a_flip file_name
 The file is uploaded to a bucket _username-projectNumber_-flip. The URL to the uploaded object is:
 
 https://a3s.fi/username-projectNumber-flip/file_name
-
-After uploading the file to the public flip bucket, the command checks the the content of the bucket and
-removes all objects that were uploaded more than two days ago. 
 
 
 ## a_find
@@ -244,8 +240,6 @@ The most commonly occurring special characters are listed below:
     than just a, b and c.
 - ** * ** matches zero or more of the preceding characters or expression  
     `\{n,m\}` matches n to m occurrences of the preceding characters or expression.
-
-
 
 Options:
 
