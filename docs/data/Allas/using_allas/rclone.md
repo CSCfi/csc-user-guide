@@ -7,8 +7,7 @@ The basic syntax of rclone is
 rclone <i>subcommand optons source:path dest:path</i> 
 </pre>
 
-Below is a list of most frequently used rclone commands. You can check more extended list form the [Rclone manual pages]( https://rclone.org/docs/) or by typimh command: rclone in Puhti or in Taito
-
+Below is a list of most frequently used rclone commands. You can check more extended list form the [Rclone manual pages]( https://rclone.org/docs/) or by typing command: `rclone` in Puhti or in Taito
 
 *    [rclone copy]( https://rclone.org/commands/rclone_copy/)- Copy files from source to dest, skipping already copied.
 *    [rclone sync](https://rclone.org/commands/rclone_sync/)- Make source and dest identical, modifying destination only.
@@ -26,35 +25,32 @@ Below is a list of most frequently used rclone commands. You can check more exte
 *    [rclone copyurl](https://rclone.org/commands/rclone_copyurl/)- Copy urls content to destination without saving it in tmp storage.
 
 
+## Authentication
 
-
-The first step is to authenticate to a project in Allas.
+The first step is to authenticate to a project in Allas. This can be done with commands:
 
 ```
 module load allas
 allas_conf
 ```
 
-The command above generates and stores authentication information into shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL`. The authentication is valid for max 3 hours. **Note:** The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
+The `allas_conf` command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists
+your projectc in Allas and ask you to define the project that will be used. After that _allas_conf_ generates rclone configuration file for Allas service and autheticates the connections to a selected project in Allas. The authentication information is stored into shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL`. The authentication is valid for max 3 hours. Hoverver you can refrresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
 
-Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. The only drawback of buckets is that they must have unique names - you can not create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user specific in the bucket name, for instance: _2000620-raw-data_. See [checklist](../introduction.md#naming_bucket){:target="_blank"} for naming a bucket.
-
-Guidance for using rclone with Allas is given below.
-
-&nbsp;
 
 ## Create buckets and upload objects
 
-Creating a bucket can be done with command:
+Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. All buckets in allas must have unique names  - you can not create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user specific in the bucket name, for instance: _2000620-raw-data_. See [checklist](../introduction.md#naming_bucket) for naming a bucket.
+
+In the case of _rclone_ creating a bucket can be done with command:
 ```bash
 rclone mkdir allas:2000620-raw-data
 ```
-
-Upload a file with command ```rclone copy```:
+You can upload a file with command ```rclone copy```:
 ```bash
 rclone copy file.dat allas:2000620-raw-data/
 ```
-&nbsp;
+The command above creates object _file.dat_ in bucket _2000620-raw-data_.
 
 ## List buckets and objects
 
