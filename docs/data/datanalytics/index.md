@@ -26,5 +26,5 @@
 
 * [Working in Puhti with Python and scikit-learn](machine-learning.md#working-in-puhti-with-python-and-scikit-learn)
 * [Choosing between TensorFlow+Keras and PyTorch](machine-learning.md#choosing-between-tensorflow-keras-and-pytorch)
-* [Using TensorFlow+Keras in Puhti-AI](machine-learning.md#using-tensorflow-keras-in-puthi-ai)
+* [Using TensorFlow+Keras in Puhti-AI](machine-learning.md#using-tensorflow-keras-in-puhti-ai)
 * [Using PyTorch in Puhti-AI](machine-learning.md#using-pytorch-in-puhti-ai)

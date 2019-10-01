@@ -14,7 +14,7 @@ To use the computing environment, you need to use the open-source, parallel file
 
 **Please note:** As discussed in the section [Protocols](../accessing_allas.md#protocols){:target="_blank"}, we recommend to use just one protocol - do not mix Swift and S3.
 
-Please take also a look at [Using Allas in Supercomputers](#using-allas-in-supercomputers).
+Please take also a look at [Using Allas in Supercomputers](#using-allas-with-supercomputers).
 
 &nbsp;
 
@@ -27,8 +27,8 @@ The data can be accessed and shared in several different ways:
  
 * **Private - default:** By default, if you do not specify anything else, contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
 	* [Web client](./web_client.md#view-objects-via-internet){:target="_blank"}
-	* [Swift client](./swift_client.md#temp_urls){:target="_blank"}
-	* [S3 client](./s3_client.md#s3cmd_public_objects){:target="_blank"}
+	* [Swift client](./swift_client.md#temp-urls){:target="_blank"}
+	* [S3 client](./s3_client.md#s3cmd-and-public-objects){:target="_blank"}
  
 
 * **Access Control Lists:** Access Control Lists (ACLs) work on buckets, not on objects. With ACLs you can share your data in a limited fashion to other projects. You can e.g. enable authenticated read access to your datasets to a collaboration project.

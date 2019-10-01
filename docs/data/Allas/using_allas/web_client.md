@@ -27,7 +27,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 !["Creating a container"](/img/allas_screenshot_create_container.png)  
 **Figure** Creating a container
 
-3\. Press the **+Container** button and name the bucket (see [Checklist for naming a bucket](../introduction.md#naming_bucket){:target="_blank"}). If you choose to make the bucket *Public*, the content of the bucket can be [viewed via Internet](#view-objects-via-internet).
+3\. Press the **+Container** button and name the bucket (see [Checklist for naming a bucket](../introduction.md#naming-buckets){:target="_blank"}). If you choose to make the bucket *Public*, the content of the bucket can be [viewed via Internet](#view-objects-via-internet).
  
 &nbsp;
 

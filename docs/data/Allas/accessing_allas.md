@@ -27,7 +27,7 @@ The instructions for accessing and using Allas with Supercomputers can be found 
 
 ## Accessing Allas with Windows and Mac
 
-With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}. See the [list of functions](#cyberfunctions) CyberDuck offers for data management.
+With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/){:target="_blank"}. See the [list of functions](#cyberduck-functions) CyberDuck offers for data management.
 
 !!! note
     Please note that a directory uploaded with CyberDuck may not be
@@ -62,8 +62,9 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 
 Now you should be able to see the content of your project (which might be empty).
 
+### CyberDuck functions
+
 CyberDuck offers some basic functionalities for managing data in object storage:
-<a name=cyberfunctions></a>
 
 
  * _Create_ buckets
@@ -91,13 +92,12 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 | Command-line tool | Requirements |
 | :--------: | --------- |
 | a_commands | Usage on Puhti. See the instructions [here](./using_allas/a_commands.md){:target="_blank"}. |
-| Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh, more info [below](#openrc). |
+| Swift	| On Puhti you can setup the environmental variables with:</br>`source /appl/opt/allas_conf` </br>Elsewhere, download and source openrc.sh, more info [below](#getting-openrc-file). |
 | S3 | More info [here](./using_allas/s3_client.md){:target="_blank"}. |
 
 
-<a id="openrc"></a>
 
-**Getting openrc file:**
+### Getting openrc file
 
 1. Go to [pouta.csc.fi](https://pouta.csc.fi/){:target="_blank"} and **Login**.
 

@@ -50,7 +50,7 @@ Most commonly used s3cmd commands:
 | get 	 | Get a file from a bucket 		|
 | setacl | Modify Access control list for bucket or objects |
 
-In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in Object Storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You cannot use a bucket name that is already used by you or some other Object Storage user. See [checklist](../introduction.md#naming_bucket){:target="_blank"} for naming a bucket.
+In Object Storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in Object Storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the Object Storage system. You cannot use a bucket name that is already used by you or some other Object Storage user. See [checklist](../introduction.md#naming-buckets){:target="_blank"} for naming a bucket.
 
 In the example below we store a simple dataset to Allas using s3cmd.
 
@@ -95,7 +95,6 @@ The data is collected and compressed to a single file with `tar` command:
 ```
 $ tar zcf zebrafish.tgz Danio_rerio*
 ```
-<a id="s3cmd-put"></a>
 
 
 The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command `s3cmd put`:
@@ -126,7 +125,6 @@ $ s3cmd ls s3://fish-bucket
 ls s3://fish-bucket
 2018-03-12 13:29 2127368497   s3://fish-bucket/zebrafish.tgz
 ```
-<a id="s3cmd-get"></a>
 
 Uploading 2 GB of data takes some time. The uploaded file could be retrieved with command:
 

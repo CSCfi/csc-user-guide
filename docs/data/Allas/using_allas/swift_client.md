@@ -266,7 +266,6 @@ swift post -m "Temp-URL-Key:"
 ```
 &nbsp;
 
-<a name="temp_urls"></a>  
 
 ## Temp URLs
  
@@ -345,7 +344,6 @@ Alternatively, you can set the project public and then access the file.
 &nbsp;
 
 
-<a name="files_larger_than_5gb"></a>  
 
 ## Files larger than 5 GB
 

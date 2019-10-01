@@ -7,7 +7,7 @@ _S3_ protocol that differs from the _Swift_ protocol that is used in the [rclone
 
 From user perspective one of the main differences between s3cmd and Swift based _rclone_ is that rclone connection remains valid for three hours at a time but with s3cmd the connection will stay permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
-In object storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in object storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the object storage system. You cannot use a bucket name that is already used by you or some other object storage user. See [checklist](../introduction.md#naming_bucket){:target="_blank"} for naming a bucket.
+In object storage the files are stored as objects that locate in buckets. The buckets resemble folders in normal file systems. There are however some differences compared to folders. Firstly, the file structure in object storage is flat: you cannot create a bucket that is inside another bucket. Secondly, all bucket names must be unique throughout the object storage system. You cannot use a bucket name that is already used by you or some other object storage user. See [checklist](../introduction.md#naming-buckets){:target="_blank"} for naming a bucket.
 
 This chapter gives guidance for the most commonly used s3cmd operations:
 
@@ -226,7 +226,6 @@ s3cmd rb s3://my_bucket
 
 &nbsp;
 
-<a name="s3cmd_public_objects"></a>
 
 ## s3cmd and public objects
 
@@ -336,7 +335,6 @@ The data is collected and compressed to a single file with `tar` command:
 ```
 $ tar zcf zebrafish.tgz Danio_rerio*
 ```
-<a id="s3cmd-put"></a>
 
 
 The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command `s3cmd put`:
@@ -366,7 +364,6 @@ $ s3cmd ls s3://fish-bucket
 ls s3://fish-bucket
 2018-03-12 13:29 2127368497   s3://fish-bucket/zebrafish.tgz
 ```
-<a id="s3cmd-get"></a>
 
 Uploading 2 GB of data takes some time. The uploaded file could be retrieved with command:
 

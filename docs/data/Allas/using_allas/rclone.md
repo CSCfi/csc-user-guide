@@ -40,7 +40,7 @@ your projects in Allas and asks you to define the project that will be used. Aft
 
 ## Create buckets and upload objects
 
-Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. All buckets in allas must have unique names  - you can not create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user specific in the bucket name, for instance: _2000620-raw-data_. See [checklist](../introduction.md#naming_bucket) for naming a bucket.
+Data in Allas is arranged into containers called buckets. You can simply think them as top level directories. All buckets in allas must have unique names  - you can not create a bucket if some other project has already used that bucket name. So it is a good rule of thumb to have something project or user specific in the bucket name, for instance: _2000620-raw-data_. See [checklist](../introduction.md#naming-buckets) for naming a bucket.
 
 In the case of _rclone_ creating a bucket can be done with command:
 ```bash

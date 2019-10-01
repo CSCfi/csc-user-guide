@@ -17,7 +17,7 @@ HTTP status code 403 - You have reached a quota limit. Contact servicedesk@csc.f
 ```bash
 QuotaExceeded
 ```
-HTTP status code 400 - Your file is much too large. See [Swift client - Files larger than 5 GB](./swift_client.md#files_larger_than_5gb){:target="_blank}.
+HTTP status code 400 - Your file is much too large. See [Swift client - Files larger than 5 GB](./swift_client.md#files-larger-than-5-gb){:target="_blank}.
 ```bash
 EntityTooLarge
 ```
