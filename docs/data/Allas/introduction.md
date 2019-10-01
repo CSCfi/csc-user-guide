@@ -63,7 +63,7 @@ The default quotas for every project are:
 | :-------- |:------- |
 | Storage amount | 10 TiB |
 | Buckets per project | 1 000 |
-| Objects per bucket | 100 000 |
+| Objects per bucket | 500 000 |
 
 
 Storing data in Allas consumes _billing units_. Accounting and billing information can be found under [Accounting principles and quotas](https://research.csc.fi/pouta-accounting){:target="_blank"}.
