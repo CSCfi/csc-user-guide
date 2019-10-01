@@ -7,7 +7,7 @@ The basic syntax of rclone is
 rclone <i>subcommand optons source:path dest:path</i> 
 </pre>
 
-Below is a list of most frequently used rclone commands. You can check more extended list form the [Rclone manual pages] ( https://rclone.org/docs/) or by typimh command: rclone in Puhti or in Taito
+Below is a list of most frequently used rclone commands. You can check more extended list form the [Rclone manual pages]( https://rclone.org/docs/) or by typimh command: rclone in Puhti or in Taito
 
 
 *    [rclone copy]( https://rclone.org/commands/rclone_copy/)- Copy files from source to dest, skipping already copied.
