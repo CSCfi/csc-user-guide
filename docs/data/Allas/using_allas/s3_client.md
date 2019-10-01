@@ -71,7 +71,7 @@ s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download){:target="_blank"} and  [http://s3tools.org/usage](http://s3tools.org/usage){:target="_blank"} for upstream documentation.
 
-You need to use ec2 credentials when using S3. You can create ec2 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](../../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack){:target="_blank"}.
+You need to use ec2 credentials when using S3. You can create ec2 credentials by sourcing your openrc file as in the instructions in [Pouta documentation](https://research.csc.fi/pouta-install-client){:target="_blank"}.
 
 Once you have the RC file, you can add the environment variables with the following command:
 
