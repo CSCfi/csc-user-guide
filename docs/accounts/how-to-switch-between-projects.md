@@ -11,14 +11,13 @@ follows:
 
 The selected default billing project is migrated to several services:
 
-* On Puhti, the billing project dictates the default group ownership
-  of new files that you create. (There is one Linux group for each
-  project.)
-* On Taito, the usage is by default charged to the billing
+* In Puhti, the billing project dictates the default group ownership
+  of new files you create (there is one Linux group for each
+  project).
+* In Taito, the usage is by default charged to the billing
   project. The billing project also dictates the default group
-  ownership of new files that you create. (There is one Linux group
-  for each project.)
-* On Rahti, the usage is by default charged to the billing project.
+  ownership of new files you create (there is one Linux group
+  for each project).
+* In Rahti, the usage is by default charged to the billing project.
 
-See service-specific instructions under Computing, Cloud and Data, to
-find out more details about project selection in each service.
+See service-specific instructions under _Computing, Cloud and Data_ for more details about project selection in each service.
