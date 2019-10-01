@@ -26,6 +26,9 @@ For __X11 forwarding__ to be enabled you need to install a suitable program for 
 
 It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/) library
 
+!!! note
+    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive Puhti-shells are made available later in 2019. Use the batch job system on Puhti or run analysis on taito-shell.
+
 ## License and citing
 
 QGIS is licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo).

@@ -1,6 +1,6 @@
 # SNAP
 
-[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all relevant remote sensing satellites.
+[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common remote sensing satellites.
 
 ## Available
 
@@ -20,11 +20,11 @@ __SNAP__ is available in Puhti with following versions:
 
 ## Usage
 
-### Using SNAP with graphical user interface
-
 SNAP is included in the __snap__ module and can be loaded with
 
 `module load snap`
+
+### Using SNAP with graphical user interface
 
 If you have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface of SNAP with
 
@@ -32,17 +32,24 @@ If you have connected with a ssh connection that has __X11 forwarding__ enabled,
 
 For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../computing/connecting.md#Using graphics)
 
-### Graph Processing Tool (gpt) command
+!!! note
+    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive Puhti-shells are made available later in 2019. Use the batch job system on Puhti or run analysis on taito-shell.
 
-The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. 
+### Using SNAP with Graph Processing Tool (gpt) command
 
-There is a also a custom __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs). It solves the problem of multiple jobs using and creating a cache folder to the same location. It can be used for example in the following way.
+The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. It can be run with
+
+`gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>`
+
+More information on the [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
+
+There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs). It solves the problem of multiple jobs using and creating a cache folder to the same location and using the same input file. It can be used for example in the following way.
 
 `gpt_array /scratch/<project>/snap_cache/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
 
-### Python library snappy
+### Using SNAP with the Python library snappy
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module like above, a conda environment is also loaded that has python 2.7 and snappy installed so you can just start python and import snappy. This conda environment also includes pandas, numpy, geopandas, rasterio, rasterstats and spyder. If you need additional libraries, contact __servicedesk@csc.fi__.
+It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with __module load snap__, a conda environment is also loaded that has python 2.7 and snappy installed so you can just start python and import snappy. This conda environment also includes pandas, numpy, geopandas, rasterio, rasterstats and spyder. If you need additional libraries, contact __servicedesk@csc.fi__.
 
 ## License and citing
 
@@ -53,6 +60,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 ### References
 
 * [SNAP homepage](http://step.esa.int/main/toolboxes/snap/)
+* [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 * [SNAP wiki](https://senbox.atlassian.net/wiki/spaces/SNAP/overview)
 * [SNAP tutorials](http://step.esa.int/main/doc/tutorials/)
 * [snappy Python examples](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python)
