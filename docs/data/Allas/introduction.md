@@ -22,10 +22,10 @@ The stored objects can be of any data type, such as images or compressed data fi
 
 **Limitations**
 
- * You have to use specific tools to use object storage. Object storage cannot be properly mounted for local disk-like usage. There are some tools to help this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as filesystem, but it uses _FUSE_ which is slow.
+ * You have to use specific tools to use object storage. Object storage cannot be properly mounted for local disk-like usage. There are some tools that can do this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as filesystem, but it uses _FUSE_ which is slow.
  * Unsuitable for files that change constantly during their lifetime (e.g. most SQL databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing and then you can replace the previous version with the new one.
- * Files larger than 5 GB must be divided into smaller segments ( normally this is done automatically during upload), see [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb){:target="_blank"}.
+ * Files larger than 5 GB must be divided into smaller segments (normally this is done automatically during upload), see [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
 
 
 ## Different flavors for using Allas
@@ -34,8 +34,10 @@ You cannot mount Allas direcly to a computer.  This means that in order to use A
 
 ![Allas access flavors](/img/allas-access-flawors.png)
 
-1. In CSC computing environment (e.g. **Puhti**) you have ready-to-use tools, provided by CSC, to access Allas. The tools are mostly the same you could also install to your local environment.  
-In the CSC computing environment Allas should be used to store any data that needs to be preserved for longer than just few weeks. Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](../../computing/disk-environment.md){:target="_blank}), so your data must be moved to Allas after computing. The instructions for accessing and using Allas with CSC's supercomputers can be found from [Using Allas with Supercomputers](./using_allas/common_use_cases.md#using-allas-with-supercomputers){:target="_blank"}.
+1. In CSC computing environment (e.g. **Puhti**) you have ready-to-use tools, provided by CSC, to access Allas. These tools are mostly the same you could also install to any linux environment like a virtual machine in cPouta or local Linux server.  
+In the CSC computing environment Allas should be used to store any data that needs to be preserved for longer than just few weeks. Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](https://docs.csc.fi/#computing/disk/)), so your data must be moved to Allas after computing. 
+
+The instructions for accessing and using Allas with CSC's supercomputers can be found from [Using Allas with Supercomputers](./using_allas/common_use_cases.md#using-allas-with-supercomputers){:target="_blank"}.
 
 2. WWW access to Allas is provided by the web interface of cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). To access Allas with a browser you naturally do not have to install anything special on your computer, so this is by far the simplest way to access Allas. On the other hand, the browser user interface has a bunch of limitations compared to other access flavors, most notable are less performance and upload/download only a single file at the time. The instructions for accessing and using Allas with a browser can be found from [OpenStack Horizon web interface](./using_allas/web_client.md){:target="_blank"}.
 
