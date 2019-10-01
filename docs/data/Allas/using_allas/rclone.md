@@ -35,7 +35,7 @@ allas_conf
 ```
 
 The `allas_conf` command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists
-your projectc in Allas and ask you to define the project that will be used. After that _allas_conf_ generates rclone configuration file for Allas service and autheticates the connections to a selected project in Allas. The authentication information is stored into shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL`. The authentication is valid for max 3 hours. Hoverver you can refrresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
+your projects in Allas and asks you to define the project that will be used. After that _allas_conf_ generates rclone configuration file for Allas service and autheticates the connection to the selected project in Allas. The authentication information is stored into shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
 
 
 ## Create buckets and upload objects
@@ -51,6 +51,12 @@ You can upload a file with command ```rclone copy```:
 rclone copy file.dat allas:2000620-raw-data/
 ```
 The command above creates object _file.dat_ in bucket _2000620-raw-data_.
+If you you would use `rclone move` in stead of `rclone copy` the local version of the uploaded file (file.dat)
+would be deleted after copying.
+
+_copy_ and _move_ subcommands can only work woth files. If you would like to copy all the files in directory, you 
+should used _copyto_ or _moveto_ subcommands.
+
 
 ## List buckets and objects
 
@@ -71,13 +77,13 @@ $ rclone ls allas:2000620-raw-data
 
 ## Download objects
 
-Downloading a file is done with the same ```rclone copy``` command:
+Downloading a file is done with the same `rclone copy` and `rclone copyto` commands:
 
 ```bash
 rclone copy allas:2000620-raw-data/file.dat
 ```
 
-**Note:** If you give a destination parameter name in the download command, rclone creates a directory where the download goes:
+If you give a destination parameter name in the download command, rclone creates a directory where the download goes:
 ```bash
 rclone copy allas:2000620-raw-data/file.dat doh
 ```
@@ -93,9 +99,11 @@ drwxr-xr-x  3 user  staff  96 Jun  6 14:58 doh
 ```
 &nbsp;
 
-## Copy a directory
+## Synchronizing a directory
 
-Copying a directory can be done using the `rclone copy` command or the `rclone sync` command. Consider a folder with the following structure:
+One way of moving data between data Allas and computing environment is sychronization. The diffrerence between copying and synchronizing is that wile copying only adds new objets or files from source to the destination, synchronization can also remove data from the destination, in order to make the destination match the source. This feature makes synchronization very effective but also potentially very dangerous.
+
+Consider a folder _mydata_  with the following structure:
 
 ```
 $ ls -R mydata
@@ -123,6 +131,32 @@ $ rclone ls allas:2000620-raw-data
      1116 mydata/setB/file3.txt
      5075 mydata/setB/file4.txt
 ```
+Now, let's assume thet we got some new data (_file5.txt_ and _file6.txt_) that we store in subdirectory _mydata/setC_ and in the same time remove file _mydata/setB/file3.txt_. When the same _rclone sync_ command is exeuted again, the new data is added to allas and object _mydata/setB/file3.txt_ is removed.
+
+```bash
+rclone sync mydata allas:2000620-raw-data/mydata
+
+rclone ls allas:2000620-raw-data
+   677972 mydata/file1.txt
+    10927 mydata/setA/file2.txt
+     5075 mydata/setB/file4.txt
+     1265 mydata/setC/file5.txt
+     4327 mydata/setC/file6.txt
+     
+```
+In the examples above Allas has been used as the destinntion that is changed. Howerver the command can be used in the other direction too. Command:
+
+```text
+rclone sync mydata allas:2000620-raw-data/mydata mydata
+```
+Will bring the uploaded data back from Allas to _mydata_ directory. Note however that if you have added new data to _mydata_ after you have synchrozied the directory with Allas, this data will be erased.
+
+
+
+
+
+
+
 
 
 
