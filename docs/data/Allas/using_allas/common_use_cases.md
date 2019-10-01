@@ -12,7 +12,9 @@ To use the computing environment, you need to use the open-source, parallel file
 
 * **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_command a_put](./a_commands.md#a_put-uploads-data-to-allas), [swift upload](./swift_client.md#create-buckets-and-upload-objects) or [s3cmd put](./s3_client.md#create-buckets-and-upload-objects). **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
 
-**Please note:** As discussed in the section [Protocols](../accessing_allas.md#protocols), we recommend to use just one protocol - do not mix Swift and S3.
+!!! note
+    As discussed in the section [Protocols](../accessing_allas.md#protocols), we recommend 
+    to use just one protocol - do not mix Swift and S3.
 
 Please take also a look at [Using Allas in Supercomputers](#using-allas-with-supercomputers).
 
