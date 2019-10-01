@@ -66,12 +66,10 @@ The default quotas for every project are:
 | Objects per bucket | 500 000 |
 
 
-Storing data in Allas consumes _billing units_. In Allas, the billing is based in the amount data stored in Allas. The rate is
-such that storing 1 TiB of data in Allas consumes 10000 BU /TiB in a year.
+Storing data in Allas consumes _billing units_. In Allas, the billing is based in the amount data stored in Allas. The rate is 1BU/TiBh meaning that 1 TB of data stored in allas consumes 24 BU in a day and 8760 Bu in a year.
 
 Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
-&nbsp;
 
 
 
