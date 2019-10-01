@@ -18,7 +18,7 @@ In order to use Allas in Puhti or Taito you must first load allas module:
 ```text
 module load allas
 ```
-After that you can open access to the Allas partiotion of a specific project. This is done with command:
+After that you can open access to the Allas storage space of a specific project. This is done with command:
 ```text
 allas_conf
 ```
