@@ -74,26 +74,25 @@ option `--nc` (`-n`).
 By default a_put uses standard bucket and object names that depend on username, project and the location
 of the data to be uploaded. Data that locates in:
 
-*    a) $WRKDIR (Taito) is uploaded to bucker: _project_Number_username_-WRKDIR
-*    b) $SCRATCH (Puhti) is uploaded to bucket: _projectNumber_-SCRATCH
-*    c) $PROJAPPL (Puhti) is uploaded to bucket: _projectNumber_-PROJAPPL 
-*    b) $HOME is uploaded to: _username-projectNumber_-HOME
-*    c) in other cases the data is uploaded to: _username-projectNumber_-MISC
+*    a) $WRKDIR (Taito) is uploaded to bucket: _username_projectNumber_-taito-WRKDIR
+*    b) $SCRATCH (Puhti) is uploaded to bucket: _projectNumber_-puhti-SCRATCH
+*    c) $PROJAPPL (Puhti) is uploaded to bucket: _projectNumber_-puhti-PROJAPPL 
+*    d) in other cases the data is uploaded to: _username-projectNumber_-MISC
   
 For example, for user _kkayttaj_, belonging to project _12345_, data locating in HOME directory
-will be uploaded to bucket: _kkayttaj-12345-HOME_.
+will be uploaded to bucket: _kkayttaj-12345-MISC_.
 
 If you wish to use other than the standard bucket, you can define a bucket name with option _-b_ or  
 _--bucket_.
 
-The compressed dataset will be stored as one object. By default, the object name depends on the file name and location. The logic used here is such that the possible subdirectory path in Puhti or Taito is included in the object name, e.g. a file called *test_1.txt* in $WRKDIR can be stored with commands:
+The compressed dataset will be stored as one object. By default, the object name depends on the file name and location. The logic used here is such that the possible subdirectory path in Puhti or Taito is included in the object name, e.g. a file called *test_1.txt* in $WRKDIR in Taito can be stored with commands:
 
 ```text
 cd $WRKDIR
 a_put test_1.txt
 ```
 
-In this case the file is stored to bucket: _kkayttaj-12345-WRKDIR_
+In this case the file is stored to bucket: _kkayttaj-12345-taito-WRKDIR_
 as object: *test_1.txt.zst*
 
 If you have another file called *test_1.txt* that locates in _$WRKDIR/project2/sample3_
@@ -109,7 +108,7 @@ Or commands:
 cd $WRKDIR
 a_put project2/sample3/test_1.txt
 ```
-In this case the file is stored to bucket: *kkayttaj-12345-WRKDIR* 
+In this case the file is stored to bucket: *kkayttaj-12345-taito-WRKDIR* 
 as object:  *project2/sample3/test_1.txt.zst*
 
 In addition to the actual data object, a second object containing metadata is created. This metadata object has the 
@@ -118,7 +117,7 @@ other *a_commands* and normally it is not displayed to the user, but if you stud
 with tools like _swift_ or _rclone_ you will see these metadatafiles too.
 
 If you wish to use some other name than the default object name you can define it with option: _-o_ or  
-_--os_name_
+_--object_
 
 For example:
 ```text
