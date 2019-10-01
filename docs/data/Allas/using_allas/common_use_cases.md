@@ -4,21 +4,21 @@
 &nbsp;
 
 
-## Processing data
+## Processing data on HPC systems
 
-To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/).
+To use the computing environment in Taito or Puhti, you need to use the open-source, parallel file system [Lustre](http://lustre.org/). On these filesystems your files will be automatically removed after 90 days. One main use case of Allas is to store data that is not in active in the HPC systems. Before you start to work on it you need to stage the data in, and after the data is not in active use you can stage it out. 
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_command a_get](./a_commands.md#a_get-retrieves-the-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
 
-* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_command a_put](./a_commands.md#a_put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
+
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_get](./a_commands.md#a_get-retrieves-the-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
+
+* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_put](./a_commands.md#a_put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). 
 
 !!! note
     As discussed in the section [Protocols](../accessing_allas.md#protocols), we recommend 
     to use Swift protocol on Allas. It is important not to mix the usage of Swift and S3, these protocols are not completely compatitable.
 
-Please take also a look at [Using Allas in Supercomputers](#using-allas-with-supercomputers).
 
-&nbsp;
 
 
 ## Sharing data
