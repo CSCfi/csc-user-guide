@@ -1,9 +1,38 @@
 # Using Allas with rclone from Puhti and Taito 
 
-This chapter guides to use Allas with _rclone_ when you are logged in to Puhti computing environment. The first step is to authenticate to a project in Allas.
+This chapter guides to use Allas with [rclone](https://rclone.org/) in Puhti or Taito computing environments. _rclone_ provides a vere powerful and versatile way to use Allas and other object storage services. It is able to use both S3 and swift protocols (as well as many other protocole), but in the case of Allas, swift protocol is prefered and that is also the default option at CSC servers.
+
+The basic syntax of rclone is
+<pre>
+rclone <i>subcommand optons source:path dest:path</i> 
+</pre>
+
+Below is a list of most frequently used rclone commands. You can check more extended list form the [Rclone manual pages] ( https://rclone.org/docs/) or by typimh command: rclone in Puhti or in Taito
+
+
+*    [rclone copy]( https://rclone.org/commands/rclone_copy/)- Copy files from source to dest, skipping already copied.
+*    [rclone sync](https://rclone.org/commands/rclone_sync/)- Make source and dest identical, modifying destination only.
+*    [rclone move](https://rclone.org/commands/rclone_move/)- Move files from source to dest.
+*    [rclone delete](https://rclone.org/commands/rclone_delete/)- Remove the contents of path.
+*    [rclone mkdir](https://rclone.org/commands/rclone_mkdir/)- Make the path if it doesn’t already exist.
+*    [rclone rmdir](https://rclone.org/commands/rclone_rmdir/)- Remove the path.
+*    [rclone check](https://rclone.org/commands/rclone_check/)- Check if the files in the source and destination match.
+*    [rclone ls](https://rclone.org/commands/rclone_ls/)- List all the objects in the path with size and path.
+*    [rclone lsd](https://rclone.org/commands/rclone_lsd/)- List all directories/containers/buckets in the path.
+*    [rclone lsl](https://rclone.org/commands/rclone_lsl/)- List all the objects in the path with size, modification time and path..
+*    [rclone cat](https://rclone.org/commands/rclone_cat)/ - Concatenate any files and send them to stdout.
+*    [rclone copyto](https://rclone.org/commands/rclone_copyto/) - Copy files from source to dest, skipping already copied.
+*    [rclone moveto](https://rclone.org/commands/rclone_moveto/)- Move file or directory from source to dest.
+*    [rclone copyurl](https://rclone.org/commands/rclone_copyurl/)- Copy urls content to destination without saving it in tmp storage.
+
+
+
+
+The first step is to authenticate to a project in Allas.
 
 ```
-source /appl/opt/allas_conf
+module load allas
+allas_conf
 ```
 
 The command above generates and stores authentication information into shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL`. The authentication is valid for max 3 hours. **Note:** The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
