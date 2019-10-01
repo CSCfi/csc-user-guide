@@ -1,6 +1,6 @@
 # Using Allas with rclone from Puhti and Taito 
 
-This chapter guides to use Allas with [rclone](https://rclone.org/) in Puhti or Taito computing environments. _rclone_ provides a vere powerful and versatile way to use Allas and other object storage services. It is able to use both S3 and swift protocols (as well as many other protocols), but in the case of Allas, swift protocol is prefered and that is also the default option at CSC servers.
+This chapter guides to use Allas with [rclone](https://rclone.org/) in Puhti or Taito computing environments. _rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both S3 and swift protocols (as well as many other protocols), but in the case of Allas, swift protocol is preferred and that is also the default option at CSC servers.
 
 The basic syntax of rclone is
 <pre>
@@ -10,8 +10,8 @@ rclone <i>subcommand optons source:path dest:path</i>
 Below is a list of most frequently used rclone commands. You can check more extended list form the [Rclone manual pages]( https://rclone.org/docs/) or by typing command: `rclone` in Puhti or in Taito
 
 *    [rclone copy]( https://rclone.org/commands/rclone_copy/)- Copy files from source to dest, skipping already copied.
-*    [rclone sync](https://rclone.org/commands/rclone_sync/)- Make source and dest identical, modifying destination only.
-*    [rclone move](https://rclone.org/commands/rclone_move/)- Move files from source to dest.
+*    [rclone sync](https://rclone.org/commands/rclone_sync/)- Make source and destination identical, modifying destination only.
+*    [rclone move](https://rclone.org/commands/rclone_move/)- Move files from source to destination.
 *    [rclone delete](https://rclone.org/commands/rclone_delete/)- Remove the contents of path.
 *    [rclone mkdir](https://rclone.org/commands/rclone_mkdir/)- Make the path if it doesn’t already exist.
 *    [rclone rmdir](https://rclone.org/commands/rclone_rmdir/)- Remove the path.
@@ -20,8 +20,8 @@ Below is a list of most frequently used rclone commands. You can check more exte
 *    [rclone lsd](https://rclone.org/commands/rclone_lsd/)- List all directories/containers/buckets in the path.
 *    [rclone lsl](https://rclone.org/commands/rclone_lsl/)- List all the objects in the path with size, modification time and path..
 *    [rclone cat](https://rclone.org/commands/rclone_cat)/ - Concatenate any files and send them to stdout.
-*    [rclone copyto](https://rclone.org/commands/rclone_copyto/) - Copy files from source to dest, skipping already copied.
-*    [rclone moveto](https://rclone.org/commands/rclone_moveto/)- Move file or directory from source to dest.
+*    [rclone copyto](https://rclone.org/commands/rclone_copyto/) - Copy files from source to destination, skipping already copied.
+*    [rclone moveto](https://rclone.org/commands/rclone_moveto/)- Move file or directory from source to destination.
 *    [rclone copyurl](https://rclone.org/commands/rclone_copyurl/)- Copy urls content to destination without saving it in tmp storage.
 
 
@@ -54,7 +54,7 @@ The command above creates object _file.dat_ in bucket _2000620-raw-data_.
 If you you would use `rclone move` in stead of `rclone copy` the local version of the uploaded file (file.dat)
 would be deleted after copying.
 
-_copy_ and _move_ subcommands can only work woth files. If you would like to copy all the files in directory, you 
+_copy_ and _move_ subcommands can only work with files. If you would like to copy all the files in directory, you 
 should used _copyto_ or _moveto_ subcommands.
 
 
@@ -101,7 +101,7 @@ drwxr-xr-x  3 user  staff  96 Jun  6 14:58 doh
 
 ## Synchronizing a directory
 
-One way of moving data between data Allas and computing environment is sychronization. The diffrerence between copying and synchronizing is that wile copying only adds new objets or files from source to the destination, synchronization can also remove data from the destination, in order to make the destination match the source. This feature makes synchronization very effective but also potentially very dangerous.
+One way of moving data between data Allas and computing environment is synchronization. The diffrerence between copying and synchronizing is that wile copying only adds new objects or files from source to the destination, synchronization can also remove data from the destination, in order to make the destination match the source. This feature makes synchronization very effective but also potentially very dangerous.
 
 Consider a folder _mydata_  with the following structure:
 
@@ -131,7 +131,7 @@ $ rclone ls allas:2000620-raw-data
      1116 mydata/setB/file3.txt
      5075 mydata/setB/file4.txt
 ```
-Now, let's assume thet we got some new data (_file5.txt_ and _file6.txt_) that we store in subdirectory _mydata/setC_ and in the same time remove file _mydata/setB/file3.txt_. When the same _rclone sync_ command is exeuted again, the new data is added to allas and object _mydata/setB/file3.txt_ is removed.
+Now, let's assume that we got some new data (_file5.txt_ and _file6.txt_) that we stored to subdirectory _mydata/setC_ and in the same time remove file _mydata/setB/file3.txt_. When the same _rclone sync_ command is executed again, the new data is added to Allas and object _mydata/setB/file3.txt_ is removed.
 
 ```bash
 rclone sync mydata allas:2000620-raw-data/mydata
@@ -144,12 +144,12 @@ rclone ls allas:2000620-raw-data
      4327 mydata/setC/file6.txt
      
 ```
-In the examples above Allas has been used as the destinntion that is changed. Howerver the command can be used in the other direction too. Command:
+In the examples above Allas has been used as the destination that is changed. However the command can be used in the other direction too. Command:
 
 ```text
 rclone sync mydata allas:2000620-raw-data/mydata mydata
 ```
-Will bring the uploaded data back from Allas to _mydata_ directory. Note however that if you have added new data to _mydata_ after you have synchrozied the directory with Allas, this data will be erased.
+Will bring the uploaded data back from Allas to _mydata_ directory. Note however that if you have added new data to _mydata_ after you have synchronizied the directory with Allas, this data will be erased.
 
 
 
