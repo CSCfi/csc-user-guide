@@ -22,9 +22,6 @@ unset XDG_RUNTIME_DIR PROMPT_COMMAND
 # Do the actual conversion
 # NOTE: the Docker image is downloaded straight from NGC
 singularity build pytorch_19.09-py3.sif docker://nvcr.io/nvidia/pytorch:19.09-py3
-
-# Optional: test the new image in the interactive prompt
-singularity shell --nv pytorch_19.09-py3.sif
 ```
 
 Note that the Singularity image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but in a [project scratch](/computing/disk/#scratch-directory) or [projappl](/computing/disk/#projappl-directory) folder.
