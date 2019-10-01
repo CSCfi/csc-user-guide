@@ -8,13 +8,13 @@
 
 To use the computing environment, you need to use the open-source, parallel file system [Lustre](http://lustre.org/).
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_command a_get](./a_commands.md#a_get-retrieves-the-stored-data), [swift download](./swift_client.md#download-objects-and-buckets) or [s3cmd get](./s3_client.md#download-objects).
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_command a_get](./a_commands.md#a_get-retrieves-the-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
 
-* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_command a_put](./a_commands.md#a_put-uploads-data-to-allas), [swift upload](./swift_client.md#create-buckets-and-upload-objects) or [s3cmd put](./s3_client.md#create-buckets-and-upload-objects). **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
+* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_command a_put](./a_commands.md#a_put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). **Please note:** your files will be automatically removed from Lustre scratch if they have not been touched for 90 days.
 
 !!! note
     As discussed in the section [Protocols](../accessing_allas.md#protocols), we recommend 
-    to use just one protocol - do not mix Swift and S3.
+    to use Swift protocol on Allas. It is important not to mix the usage of Swift and S3, these protocols are not completely compatitable.
 
 Please take also a look at [Using Allas in Supercomputers](#using-allas-with-supercomputers).
 
