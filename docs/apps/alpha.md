@@ -24,6 +24,7 @@
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [Samtools](samtools.md)
+* [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Stacks](stacks.md)
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [Trinity](trinity.md)
