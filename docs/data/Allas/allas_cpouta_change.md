@@ -1,14 +1,10 @@
 # Allas and cPouta object storage, what changes?
 
-We are releasing a new object storage service, **Allas**, which will be central for data management at CSC.
+We have releases a new object storage service, **Allas**, which will be central for data management at CSC.
 
 You might wonder how this affects cPouta object storage users?
 
 In short, Allas is an evolution of cPouta object storage. If you are already using cPouta object storage, you can keep using it as you are currently doing. All your data will be carried over to Allas.
-
-<font color="red">
-CAVEAT: VERSIONED BUCKETS
-</font>
 
 ## What should I know about this change?
 
@@ -18,14 +14,12 @@ Any data uploaded to Allas is by default found under the "_a3s.fi_" domain inste
 
 The _billing unit_ costs of Allas will drop significantly compared to Pouta. The performance of the service is also much improved.
 
-In the future, the documentation of Allas can be found here: <font color="red">INSERT LINK</font>. The old cPouta object storage documentation will be deprecated.
+In the future, the documentation of Allas can be found here. The old cPouta object storage documentation will be deprecated.
 
 When is Allas released, and what happens then?
 
-The release date for the Allas service is <font color="red">x.y.2019</font>. The following things will change at that time:
+The technical release date for the Allas service was 29.9.2019. The following things changed:
 
  * The default domain name for that data will change from _object.pouta.csc.fi_ to _a3s.fi_. The old names will keep working.
  * The default URLs to access the service will change. The old URLs will keep working.
-   * <font color="red">ENTER EXACT CHANGES HERE</font>
  * When a project request service access to cPouta, they no longer get Allas access automatically.
-
