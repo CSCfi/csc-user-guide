@@ -33,7 +33,7 @@ This chapter includes instructions for the following operations:
 | upload --use-slo | Upload files larger than 5 GB |
 
 
-You can installa and use Swift also outside CSC computing environment, but in that case make sure thatyour Swift version is not too old, since the older Swift versions might not work with Allas.
+You can install and use Swift also outside CSC computing environment, but in that case make sure that your Swift version is not too old, since the older Swift versions might not work with Allas.
 
 
 ## Create buckets and upload objects
