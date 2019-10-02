@@ -32,7 +32,7 @@ The stored objects can be of any data type, such as images or compressed data fi
 
 You cannot mount Allas direcly to a computer.  This means that in order to use Allas you need software tools to access it. There are four flavors of tools to access Allas:
 
-![Allas access flavors](/img/allas-access-flawors.png)
+![Allas access flavors](img/allas-access-flawors.png)
 
 1. In CSC computing environment (e.g. **Puhti**) you have ready-to-use tools, provided by CSC, to access Allas. These tools are mostly the same you could also install to any linux environment like a virtual machine in cPouta or local Linux server.  
 In the CSC computing environment Allas should be used to store any data that needs to be preserved for longer than just few weeks. Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](https://docs.csc.fi/#computing/disk/)), so your data must be moved to Allas after computing. 
