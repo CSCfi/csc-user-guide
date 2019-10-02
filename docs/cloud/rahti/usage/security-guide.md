@@ -21,7 +21,7 @@ you need to add your certificate data in the Route object.
 
 Access to the services should be limited to selected networks through
 **whitelists** whenever applicable (See Chapter
-"[Routes](/cloud/rahti/tutorials/elemental_tutorial#routes)"). This is relevant whenever
+"[Routes](../../tutorials/elemental_tutorial#route)"). This is relevant whenever
 the access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target, e.g., service passwords

@@ -3,7 +3,7 @@
 This tutorial guides how to set up a static web server in Rahti.
 
 1.  Create project. For instructions how to do that, see
-    "[Projects and quota ](/cloud/rahti/usage/projects_and_quota/#projects_and_quota)".
+    "[Projects and quota ](../../usage/projects_and_quota/#projects_and_quota)".
 
 2.  On the catalog screen, select "Apache HTTP Server".
     ![Select-httpd](img/select-http.png)
@@ -30,7 +30,7 @@ various objects, such as *Pods*, *Services*, *Routes*, *DeploymentConfigs*, and
 
 For deeper insight in to the created objects, please see
 
-* [Core objects](/cloud/rahti/tutorials/elemental_tutorial) for introduction to fundamental objects on
+* [Core objects](elemental_tutorial) for introduction to fundamental objects on
   which OpenShift/Kubernetes applications are built upon.
-* [Utility objects](/cloud/rahti/tutorials/advanced_tutorial) how managing application in
+* [Utility objects](advanced_tutorial) how managing application in
   OpenShift/Kubernetes further streamlined using higher abstraction level objects.
