@@ -91,8 +91,8 @@ Allas is used by a client softwar, that takes care of moving data to and from Al
 | Client | Usable | Chapter | Notes |
 | :-------- | :-------: | :--------: | :------- |
 | web client | Yes | [Link](./using_allas/web_client.md) | Use via [https://pouta.csc.fi](https://pouta.csc.fi). Provides basic functions. |
-| a_commands | Yes | [Link](./using_allas/a_commands.md) | Provides easy-to-use tools for basic usage. Assumes data is already in CSC computing environment. Requires Swift and OpenStack. |
-| python-swiftclient | Yes | [Link](./using_allas/swift_client.md)| This is the recommended Swift client. |
+| a_commands | Yes | [Link](./using_allas/a_commands.md) | Provides easy-to-use tools for basic usage. Requires Rclone, Swift and OpenStack. |
+| swift python-swiftclient | Yes | [Link](./using_allas/swift_client.md)| This is the recommended Swift client. |
 | s3cmd	| Yes | [Link](./using_allas/s3_client.md) | This is the recommended S3 client. Use version 2.0.2 or later. |
 | python-swift-library | Yes | [Link](./using_allas/python_library.md) |	| 
 | rclone | Yes | [Link](./using_allas/rclone.md) | Useful with Supercomputers. |
