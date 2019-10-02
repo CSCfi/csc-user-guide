@@ -288,7 +288,6 @@ http://bigbucket.a3s.fi/bigfish?AWSAccessKeyId=0a69a52ea4bc3a36839bc1e&Expires=1
 
 ## Usage example
 
-
 In this example we store a simple dataset to Allas using s3cmd.
 
 First we create a new bucket. The command `s3cmd ls` shows that in the beginning we do not have any data in the object storage. After that, we use command `s3cmd mb` to create a new bucket called _fish-bucket_.
@@ -303,9 +302,7 @@ ls
 $ s3cmd mb s3://fish-bucket
 mb s3://fish-bucket/
 Bucket 's3://fish-bucket/' created
-```
 
-```shell
 $ s3cmd ls
 ls
 2018-03-12 13:01  s3://fish-bucket
@@ -336,19 +333,15 @@ $ tar zcf zebrafish.tgz Danio_rerio*
 
 The size of the resulting file is about 2 GB. Now the compressed file can be uploaded to the fish-bucket with command `s3cmd put`:
 
-```shell
+```text
 $ ls -lh zebrafish.tgz
 -rw------- 1 kkayttaj csc 9.3G Mar 12 15:23 zebrafish.tgz
-```
 
-```shell
+$ s3cmd put zebrafish.tgz s3://fish-bucket
 put zebrafish.tgz s3://fish-bucket
 upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [1 of 1]
  2081306836 of 2081306836   100% in   39s    50.16 MB/s  done
-```
-
-
-```shell
+ 
 $ s3cmd ls s3://fish-bucket
 ls s3://fish-bucket
 2019-10-01 12:11 9982519261   s3://fish-bucket/zebrafish.tgz
