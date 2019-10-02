@@ -77,7 +77,7 @@ Unlike most other object storage providers, CSC does <u>not</u> charge for objec
 
 The objects are stored in buckets. A bucket is simply a container for objects. These buckets should not be confused with _dockers_, or other containers used for computing. A bucket basically acts like a filesystem directory, but you can have only one level of them, so you cannot have buckets within buckets.
 
-![Allas projects and buckets](/img/allas_projects_and_buckets.PNG)
+![Allas projects and buckets](img/allas_projects_and_buckets.PNG)
 **Figure** Data structure in Allas
 
 Each bucket has a name, which must be unique across all Allas users. So, if somebody else has a bucket called "_test_", you cannot create a bucket called "_test_". All the bucket names are public, so please do <u>not</u> put private information in the bucket name. You may use, for example, your project id in the bucket name, such as _2000620-raw-data_.

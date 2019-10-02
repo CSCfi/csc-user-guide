@@ -24,7 +24,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 2\. On the left bar menu, navigate to **Project | Object Store | Containers**  
 (Container equals to a bucket)  
 
-!["Creating a container"](/img/allas_screenshot_create_container.png)  
+!["Creating a container"](img/allas_screenshot_create_container.png)  
 **Figure** Creating a container
 
 3\. Press the **+Container** button and name the bucket (see [Checklist for naming a bucket](../introduction.md#naming-buckets)). If you choose to make the bucket *Public*, the content of the bucket can be [viewed via Internet](#view-objects-via-internet).
@@ -36,7 +36,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 
 1\. Choose the desired bucket and press the **upload symbol** on the right
 
-!["Upload object"](/img/Allas_screenshot_upload.png)  
+!["Upload object"](img/Allas_screenshot_upload.png)  
 **Figure** Uploading an object
 
 2\. Choose the object from your computer and name it. **Note:** Do <u>not</u> use Scandinavian letters (&auml;, &ouml;, etc.) in the name  
@@ -50,7 +50,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 
 If the bucket including the objects is set to be _public_, the objects can be viewed via Internet by anyone who knows the URL. This setting can be changed from [pouta.csc.fi/dashboard/project/containers](https://pouta.csc.fi/dashboard/project/containers/) by choosing the container and selecting the **Public Access** setting:
 
-!["Making object public or private"](/img/Allas_screenshot_public.png)
+!["Making object public or private"](img/Allas_screenshot_public.png)
 
 **Figure** Making an object public or private
 
@@ -72,7 +72,7 @@ Objects can be removed by expanding the drop-down menu on the right next to the 
 
 Buckets can be removed only when they are empty. Hence all the objects in a bucket must be removed or moved somewhere else before the bucket can be deleted. Removing a bucket can be done from the **trashcan symbol** next to the buckets name. 
 
-!["Removing object or container"](/img/Allas_screenshot_delete.png)
+!["Removing object or container"](img/Allas_screenshot_delete.png)
 
 **Figure** Removing an object or a bucket
 

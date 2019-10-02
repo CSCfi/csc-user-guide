@@ -54,7 +54,7 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 
 2\. Navigate to the CyberDuck mainmenu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
 
-!["New bookmark"](/img/cyberduck_create_bookmark.PNG)
+!["New bookmark"](img/cyberduck_create_bookmark.PNG)
 **Figure** Creating a new bookmark
 
 3\. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_.
@@ -65,14 +65,14 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 
 6\. Type your Pouta password in the **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window.
 
-!["Filling information for a bookmark"](/img/cyberduck_bookmark_info.PNG)
+!["Filling information for a bookmark"](img/cyberduck_bookmark_info.PNG)
 **Figure** Filling the information for a bookmark
 
 7\. Navigate to the top left corner to the icons under the _Open Connection_ and choose the **Bookmarks icon** (second from the left).
  
 8\. Next, right-click with mouse the created bookmark and choose the option **Connect to server**.
 
-!["Connecting to server"](/img/cyberduck_connect.PNG)
+!["Connecting to server"](img/cyberduck_connect.PNG)
 **Figure** connecting to server
 
 Now you should be able to see the content of your project (which might be empty).
@@ -120,7 +120,7 @@ The command-line tools _Swift_, _S3_ and _s3cmd_ are already installed on Superc
 
 3. Download the **Openstack RC File v3** from the upper right corner.
 
-!["Getting openrc file"](/img/rc-file-example20190121-b.png)
+!["Getting openrc file"](img/rc-file-example20190121-b.png)
 **Figure** Getting openrc file
 
 Now you can add the environment variables by typing the following command into terminal:
