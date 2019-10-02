@@ -22,7 +22,11 @@ If you have connected with a ssh connection that has __X11 forwarding__ enabled,
 
 `qgis`
 
+<<<<<<< HEAD
 For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../computing/connecting.md)
+=======
+For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../#computing/connecting)
+>>>>>>> da27462aace8aa2b1a94e0756b649e43bc7078db
 
 It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/) library
 
