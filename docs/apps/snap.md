@@ -30,7 +30,7 @@ If you have connected with a ssh connection that has __X11 forwarding__ enabled,
 
 `snap`
 
-For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../computing/connecting.md#Using graphics)
+For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../#computing/connecting)
 
 !!! note
     Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive Puhti-shells are made available later in 2019. Use the batch job system on Puhti or run analysis on taito-shell.
@@ -43,7 +43,7 @@ The Graph Processing Tool __gpt__ is a command line tool used for bulk processin
 
 More information on the [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 
-There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs). It solves the problem of multiple jobs using and creating a cache folder to the same location and using the same input file. It can be used for example in the following way.
+There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../#computing/running/array-jobs/#_top). It solves the problem of multiple jobs using and creating a cache folder to the same location and using the same input file. It can be used for example in the following way.
 
 `gpt_array /scratch/<project>/snap_cache/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
 
