@@ -31,7 +31,8 @@ nav:
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
   - Data:
-     - Allas object storage:
+     - Allas object storage: 
+        - Allas object storage: data/Allas/index.md 
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
