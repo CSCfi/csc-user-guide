@@ -30,14 +30,14 @@ The allas_conf command above asks for your CSC password (the same that you use t
 
 The authentication information is stored into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
 
-After opening you can start using Allas with one of the following options. Note that data that is uploaded with one method is not necessary readable with another method.
+After opening you can start using Allas with one of the following options. Note that the tools utilize two diffrent protocols: Swftt and S3. Data that is uploaded with one protocol is not necessary readable with another protocol.
 
 **Allas client software options for Puhti and Taito:**
 
-* **Easy tools for basic usage:** [Quick and safe: a_commands](./using_allas/a_commands.md)
-* **Advanced functions with rclone:** [Advanced tool: rclone](./using_allas/rclone.md)
-* **A wide range of functionalities:** [Swift client](./using_allas/swift_client.md)
-* **S3 client and persistent Allas connections:** [S3 client](./using_allas/s3_client.md#s3cmd-with-supercomputers)
+* **a_tools for basic usage:**(Swift protocol) [Quick and safe: a_commands](./using_allas/a_commands.md)
+* **Advanced functions with rclone:**(Swift protocol) [Advanced tool: rclone](./using_allas/rclone.md)
+* **A wide range of functionalities:**(Swift protocol) [Swift client](./using_allas/swift_client.md)
+* **S3 client and persistent Allas connections:** (S3 protocol) [S3 client](./using_allas/s3_client.md#s3cmd-with-supercomputers)
 
 
 ## Accessing Allas with Windows and Mac
