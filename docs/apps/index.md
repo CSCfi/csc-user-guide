@@ -54,6 +54,7 @@
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 
 ## Mathematics and Statistics
+* [SageMath](sagemath.md) Free open-source mathematics software system
 
 ## Physics
 

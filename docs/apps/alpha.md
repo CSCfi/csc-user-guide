@@ -23,6 +23,7 @@
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
+* [SageMath](sagemath.md) Free open-source mathematics software system
 * [Samtools](samtools.md)
 * [Stacks](stacks.md)
 * [TensorFlow](tensorflow.md) Deep learning library for Python
