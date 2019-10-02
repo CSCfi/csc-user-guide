@@ -44,10 +44,7 @@ After opening you can start using Allas with one of the following options. Note 
 
 With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/). See the [list of functions](#cyberduck-functions) CyberDuck offers for data management.
 
-!!! note
-    Please note that a directory uploaded with CyberDuck may not be
-    downloadable with one command using some other client software
-    with S3 protocol connection to Allas. For more information, see
+The instructions below describe how to open a Swift protocol based Cybeduck conneition to Allas. With this setup Cybeduck is compatible with _rclone_, _swift_ and _a_tools_ but not with the s3cmd that is based on S3 protocol. For more information, see
     [directory object error](using_allas/directory_object_error.md).
 
 1\. Install **CyberDuck**.
@@ -59,11 +56,11 @@ With Windows and Mac we recommend the software [CyberDuck](https://cyberduck.io/
 
 3\. In the first drop-down menu, choose _Swift (OpenStack Object Storage)_.
 
-4\. As **Server**, write _pouta.csc.fi_ and choose **Port** _5001_.
+4\. As **Server**, write _pouta.csc.fi_ and choose **Port** _5001_. 
 
-5\. In the section **Tenant ID:Access Key**, type (without spaces) first the desired _project's name_, then add "**:**" and after that your _Pouta username_ (the one you use in *pouta.csc.fi*). Thus, it should be in form of *projectname:username*. For example, *project_123456:john*.
+5\. In the section **Tenant ID:Access Key**, type (without spaces) first the desired _project's name_, then add "**:**" and after that your _Pouta username_ (this is the CSC user accout that you use in Puhti, Taito and cPouta ). Thus, it should be in form of *projectname:username*. For example, *project_123456:john*.
 
-6\. Type your Pouta password in the **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window.
+6\. Type your CSC password in the **Secret Key** part. After that, you can close the bookmark by clicking X on the upper right corner of the pop-up window.
 
 !["Filling information for a bookmark"](img/cyberduck_bookmark_info.PNG)
 **Figure** Filling the information for a bookmark
