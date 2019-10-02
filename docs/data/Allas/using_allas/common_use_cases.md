@@ -10,9 +10,9 @@ To use the computing environment in Taito or Puhti, you need to use the open-sou
 
 
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_get](./a_commands.md#a_get-retrieves-the-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_get](./a_commands.md#a-get-retrieves-the-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
 
-* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_put](./a_commands.md#a_put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). 
+* **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_put](./a_commands.md#a-put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). 
 
 !!! note
     We recommend using the Swift protocol on Allas. It is important not to mix the usage of Swift and S3, these protocols are not completely compatitable.
@@ -48,7 +48,7 @@ The data can be accessed and shared in several different ways:
 
 A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add link to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish)
 
-Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#upload-an-object), [a_commands](./a_commands.md#a_put-uploads-data-to-allas), [Swift client](./swift_client.md#create-buckets-and-upload-objects) or [S3 client](./s3_client.md#create-buckets-and-upload-objects).
+Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#upload-an-object), [a_commands](./a_commands.md#a-put-uploads-data-to-allas), [Swift client](./swift_client.md#create-buckets-and-upload-objects) or [S3 client](./s3_client.md#create-buckets-and-upload-objects).
  
 &nbsp;
 
@@ -90,7 +90,7 @@ Object storage is also often used as a location where you store backups. It is a
 
 Files larger than 5 GB must be divided into smaller segments before uploading. 
 
-* *a_command a_put* splits large files automatically: [a_put](./a_commands.md#a_put-uploads-data-to-allas)
+* *a_command a_put* splits large files automatically: [a_put](./a_commands.md#a-put-uploads-data-to-allas)
 
 * With _Swift_ you can make use of _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
 
