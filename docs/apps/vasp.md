@@ -48,8 +48,7 @@ module load vasp
 srun vasp_std
 ```
 
-For more options and details, see [Creating a batch job
-script](https://docs.csc.fi/#computing/running/creating-job-scripts/).
+For more options and details, see [Creating a batch job script](../computing/running/creating-job-scripts.md).
 
 
 ### Performance optimization
