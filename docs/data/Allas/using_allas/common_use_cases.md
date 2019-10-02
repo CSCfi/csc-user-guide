@@ -15,8 +15,7 @@ To use the computing environment in Taito or Puhti, you need to use the open-sou
 * **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_put](./a_commands.md#a_put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). 
 
 !!! note
-    As discussed in the section [Protocols](../accessing_allas.md#protocols), we recommend 
-    to use Swift protocol on Allas. It is important not to mix the usage of Swift and S3, these protocols are not completely compatitable.
+    We recommend using the Swift protocol on Allas. It is important not to mix the usage of Swift and S3, these protocols are not completely compatitable.
 
 
 

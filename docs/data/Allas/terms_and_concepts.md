@@ -44,7 +44,6 @@ _Client software_ is used to access an object storage service, such as Allas. Th
  * Command-line clients such as [Swift](./using_allas/swift_client.md) and [s3cmd](./using_allas/s3_client.md) for power users.
  * _Programmable interface_ (API) for those who integrate software.
 
-More about the clients in section [Protocols](./accessing_allas.md#protocols){target="_blank"}.
 
 &nbsp;
 

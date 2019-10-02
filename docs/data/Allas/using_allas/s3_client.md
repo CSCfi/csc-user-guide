@@ -2,7 +2,7 @@
 # S3 client
 
 This chapter describes how you can use the Allas object storage service with **s3cmd** command-line client. This client uses
-_S3_ protocol that differs from the _Swift_ protocol that is used in the [rclone](./rclone.md), [swift](./swift,md) and [a_ commands](./a_commands.md) examples. Thus, data that has been uploaded to Allas with these tools should not be downloaded with s3cmd and vice versa.
+_S3_ protocol that differs from the _Swift_ protocol that is used in the [rclone](./rclone.md), [swift](./swift_client.md) and [a_ commands](./a_commands.md) examples. Thus, data that has been uploaded to Allas with these tools should not be downloaded with s3cmd and vice versa.
 
 From user perspective one of the main differences between s3cmd and Swift based tools is that rclone, swift and a-tools connections remain valid for three hours at a time but with s3cmd the connection will stay permanently open. The permanent connection is handy in many ways, but it includes a security aspect too: if your CSC account is compromised, the object storage space is too.
 
