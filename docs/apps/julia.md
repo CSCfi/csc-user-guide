@@ -83,7 +83,7 @@ More information about Julia's package manager you can found from its [documenta
 Sample single-processor Julia batch job on Puhti
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash 
 #SBATCH --job-name=julia_serial
 #SBATCH --account=<project>
 #SBATCH --partition=small
