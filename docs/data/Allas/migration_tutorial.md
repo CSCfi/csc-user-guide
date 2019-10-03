@@ -6,6 +6,15 @@ you have copy the data elsewhere before 1.1. 2020.
 The new Allas object storage service provides one way to move your data away from Taito.  
 The new Puhti server, that is replacing Taito, don’t provide permanent storage space so even if you would continue  your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas by doing the migration through Allas.
 
+Tutorial provides two examples of moving datat first fromm Taito to Allas and then from Allas to Puhti.
+The first example uses a-commands (a-put, a-get) while in the second example the same data is transported using
+rclone.
+
+The approaches used here are besed on interactively executed commands and thus they apply only for relatively small datasetss ( less than 100 GB).
+
+
+
+
 ## 1. Get access to Allas
 By default the CSC computing projects do not have access to Allas. Thus the first first thing is to add 
 Allas service for your project.  This is done with the [MyCSC](https://my.csc.fi) interface. 
