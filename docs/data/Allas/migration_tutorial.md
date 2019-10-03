@@ -91,11 +91,10 @@ as object:
 In this case we used the default bucket and object names assigned by _a-put_, but other bucket and object 
 names coulud be defined with command line options `-b`  and `-o`.
 Now command a-list shows that I have one bucket in Allas and that the bucket contains one object.
-<pre>
-[kkayttaj@taito-login3:zebrafish><b> a-list</b>
+<pre>[kkayttaj@taito-login3:zebrafish><b> a-list</b>
 kkayttaj-2001659-taito-WRKDIR
 [kkayttaj@taito-login3:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
-kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
 Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
 upload data to Allas one directory at a time and store the data in bugger chunks. For example to upload the 
