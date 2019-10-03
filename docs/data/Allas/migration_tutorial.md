@@ -39,7 +39,7 @@ Please include to your quota request:
 *    amount Allas space needed
 *    a shot description of the data to be stored 
 
-#<a name="e1"></a> Migration example 1: A-commands
+# Migration example 1: A-commands <a name="e1"></a>
 
 ## A. Uploading data from Taito to Allas
 
