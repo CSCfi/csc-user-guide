@@ -6,8 +6,8 @@ you have copy the data elsewhere before 1.1. 2020.
 The new Allas object storage service provides one way to move your data away from Taito.  
 The new Puhti server, that is replacing Taito, don’t provide permanent storage space so even if you would continue  your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas by doing the migration through Allas.
 
-Tutorial provides two examples of moving datat first fromm Taito to Allas and then from Allas to Puhti.
-The first example uses a-commands (a-put, a-get) while in the second example the same data is transported using
+Tutorial provides two examples of moving datat first from Taito to Allas and then from Allas to Puhti.
+[The first example](#e1) uses a-commands (a-put, a-get) while in the second example the same data is transported using
 rclone.
 
 The approaches used here are besed on interactively executed commands and thus they apply only for relatively small datasetss ( less than 100 GB).
@@ -39,7 +39,7 @@ Please include to your quota request:
 *    amount Allas space needed
 *    a shot description of the data to be stored 
 
-# Migration example 1: A-commands
+#<a name="e1"></a> Migration example 1: A-commands
 
 ## A. Uploading data from Taito to Allas
 
