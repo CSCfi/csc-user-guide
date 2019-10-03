@@ -51,6 +51,11 @@ parser(){
         # Relative path > correct path in the project is given by joining the folder for the file where the link is and the link itself 
         # A .md ending is required for markdown files
         merged_path="$(paste <(echo "$file_folders") <(echo "$file_links_relative" ) -d ""  )"
+    
+    elif [[ "$mode" == "relative_no_ending"  ]];then
+
+        merged_path="$(paste <(echo "$file_folders") <(echo "$file_links_relative" | sed 's/^...//g' | sed 's/\/*$/\.md/' ) -d ""  )"
+        echo "$merged_path" > temp.temp
     else
         # Absolute path + .md ending => not a valid path so we put a ERR to cause an error
         # Absolute paths start from ./docs/
@@ -85,10 +90,11 @@ get_full_link_info(){
 
         all_links="$(get_all_local_links)"
         relative_links="$(echo "$all_links" | grep -v "^.*:.*:\s*/")"
+        relative_links_ending="$(echo "$relative_links" | grep -E   "^[^:]*:[^:]*:.*\.[^./]|^[^:]*:[^:]*::")"
+        relative_links_no_ending="$(echo "$relative_links" | grep -v -E "^[^:]*:[^:]*:.*\.[^./]|^[^:]*:[^:]*::")"
         absolute_links="$(echo "$all_links" | grep    "^.*:.*:\s*/" )"
 
-
-        echo -e "$(parser "$relative_links" "relative")\n$(parser "$absolute_links" "absolute")" 
+        echo -e "$(parser "$relative_links_ending" "relative")\n$(parser "$relative_links_no_ending" "relative_no_ending")\n$(parser "$absolute_links" "absolute")" 
 
 }
 # Get all links where the file path is invalid
