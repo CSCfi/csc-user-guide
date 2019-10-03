@@ -54,7 +54,7 @@ file is named as _megahit_job.sh_ then the submission command is:
 ```text
 sbatch megahit_job.sh 
 ```
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](https://docs.csc.fi/#computing/running/getting-started/).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 
