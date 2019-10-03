@@ -262,7 +262,7 @@ cd kkayttaj/
 I can now use command `rclone lsd` to check the available buckets in Allas:
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone lsd allas:</b>
   3268222761 2019-10-03 10:01:42         8 2001659-genomes
-  2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR
+  2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR</pre>
 Now I can see two buckets: _2001659-genomes_ is the one that was just created in this 
 example while _kkayttaj-2001659-taito-WRKDIR originates_ form the previous a-command example.  
 Next we list objects in the 2001659-genomes bucket:
@@ -277,6 +277,7 @@ Next we list objects in the 2001659-genomes bucket:
       715 zebrafish/Danio_rerio.GRCz10.fa.fa</pre>
 
 Finally I use `rclone copyto` command to copy the data to Puhti into new directory _zebrafish2_. 
+
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
 Errors:                 0
