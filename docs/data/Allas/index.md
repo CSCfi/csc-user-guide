@@ -23,4 +23,4 @@ Wellcome to the user guide of the Allas object storage service.
 
 ## Tutorials:
 
-* [Moving data from Taito to Puhtin with Allas](./migration_tutorial.md)
+* [Using Allas to migrate your data from Taito to Puhti](./migration_tutorial.md)
