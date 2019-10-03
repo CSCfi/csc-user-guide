@@ -8,10 +8,14 @@ Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FA
 
 ## Available
 
-*    bs version 1.0.0 is available in Puhti
+*  Seqtk version 1.3-r106 is available in Puhti
 
 ## Usage
 
+Seqtk in included in the biokit module:
+```text
+module load biokit
+```
 
 Seqtk command syntax is:
 ```text
