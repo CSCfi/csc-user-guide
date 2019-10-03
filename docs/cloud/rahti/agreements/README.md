@@ -18,3 +18,4 @@ yum install pandoc pandoc-pdf
 pandoc  sla.md pdf_metadata.yml -o /tmp/rahti-sla.pdf
 ```
 
+
