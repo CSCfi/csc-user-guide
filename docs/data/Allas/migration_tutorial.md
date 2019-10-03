@@ -264,7 +264,7 @@ I can now use command `rclone lsd` to check the available buckets in Allas:
   3268222761 2019-10-03 10:01:42         8 2001659-genomes
   2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR</pre>
 Now I can see two buckets: _2001659-genomes_ is the one that was just created in this 
-example while _kkayttaj-2001659-taito-WRKDIR originates_ form the previous a-command example.  
+example while _kkayttaj-2001659-taito-WRKDIR_ originates form the previous a-command example.  
 Next we list objects in the 2001659-genomes bucket:
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone ls allas:2001659-genomes</b>
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
