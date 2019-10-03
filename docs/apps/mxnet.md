@@ -50,5 +50,5 @@ The GPU nodes in Puhti have fast local storage which is useful for IO-intensive 
 
 ## More information
 
-- [MXNet Python Tutorials](https://mxnet.apache.org/versions/master/tutorials/index.html#python-tutorials)
+- [MXNet Python Tutorials](https://mxnet.apache.org/api/python/docs/tutorials/)
 - [MXNet Python API](https://mxnet.apache.org/versions/master/api/python/index.html)
