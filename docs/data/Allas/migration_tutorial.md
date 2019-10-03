@@ -179,7 +179,7 @@ were previously uploaded from Taito to Allas.
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> ls zebrafish/</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
-Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
+Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 
 # Migration example 2: rclone
 
