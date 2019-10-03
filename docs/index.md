@@ -17,7 +17,7 @@ template: main-index.html
 
 <span id="index-quicklinks">
 [Getting started with Puhti](computing/overview.md) 
-[Moving to Puhti from Taito and Sisu](support/tutorials/puhti_quick.md)\
+[Moving to Puhti from Taito and Sisu](support/tutorials/puhti_quick.md)<br>
 [Getting started with Allas](data/Allas/index.md)
 </span>
 
