@@ -121,7 +121,7 @@ As an individual compressed object (genomes/zebrafish/Danio_rerio.GRCz10.fa.zst)
 and as part of the _genomes/zebrafish.tar.zst_ object.
 
 ## B. Download in Puhti
-Next I download the same data to Puhti. After connecting to puhti.csc.fi and move to the scratch directory of 
+Next I download the same data to Puhti. After connecting to puhti.csc.fi i go to the scratch directory of 
 project  2001659 and load allas module:
 ```text
 cd /scratch/project_2001659
@@ -244,7 +244,7 @@ After copying the files I use `rclone ls` to see what has been uploaded
 
 ## B. Downloading the data to Puhti
 
-Next I download the same data to Puhti.  After connecting to puhti.csc.fi and move to the scratch directory of 
+Next I download the same data to Puhti.  After connecting to puhti.csc.fi I go to the scratch directory of 
 project  2001659 and load allas module:
 ```text
 cd /scratch/project_2001659
