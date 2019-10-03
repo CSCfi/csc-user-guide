@@ -5,6 +5,7 @@
 ./docs/connecting/index.md
 ./docs/data/index.md
 ./docs/cloud/index.md
+./docs/data/Allas/index.md
 
 # For some reason the following files have not been added to the software listing
 # This should not happen! Don't commit stuff to master you are not going to make 
