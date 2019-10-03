@@ -7,7 +7,7 @@ The new Allas object storage service provides one way to move your data away fro
 The new Puhti server, that is replacing Taito, don’t provide permanent storage space so even if you would continue  your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas by doing the migration through Allas.
 
 Tutorial provides two examples of moving datat first from Taito to Allas and then from Allas to Puhti.
-[The first example](#e1) uses a-commands (a-put, a-get) while in the second example the same data is transported using
+[The first example](#e1) uses a-commands (a-put, a-get) while in [the second example](#e2) the same data is transported using
 rclone.
 
 The approaches used here are besed on interactively executed commands and thus they apply only for relatively small datasetss ( less than 100 GB).
@@ -189,7 +189,7 @@ were previously uploaded from Taito to Allas.
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 
-# Migration example 2: rclone
+# Migration example 2: rclone <a name="e2"></a>
 
 ## A. Uploading data in Taito
 Rclone is the power user tool for Allas. It is good in cases where the data do not compress much and in cases where 
