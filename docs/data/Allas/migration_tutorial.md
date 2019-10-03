@@ -45,13 +45,13 @@ Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to Taito and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first login to Taito-shell and set up the Allas environment in with command:
 ```text
 module load allas
 ```
 Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-<pre><b>[kkayttaj@taito-login3:~> allas-conf</b>
+<pre>[kkayttaj@c311:~><b> allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
 Checking projects available for your account.
@@ -83,7 +83,6 @@ In the end of the upload process the command reports:
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
 Upload ready
 ```
-
 So in this case the file was uploaded to Allas into bucket:
    _kkayttaj-2001659-taito-WRKDIR_
 as object:
@@ -91,9 +90,9 @@ as object:
 In this case we used the default bucket and object names assigned by _a-put_, but other bucket and object 
 names coulud be defined with command line options `-b`  and `-o`.
 Now command a-list shows that I have one bucket in Allas and that the bucket contains one object.
-<pre>[kkayttaj@taito-login3:zebrafish><b> a-list</b>
+<pre>[kkayttaj@c311:zebrafish><b> a-list</b>
 kkayttaj-2001659-taito-WRKDIR
-[kkayttaj@taito-login3:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
+[kkayttaj@c311:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
 Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
@@ -112,7 +111,7 @@ In the end of the upload process the command reports:
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 ```
 After this I have another object in kkayttaj-2001659-taito-WRKDIR bucket:
-<pre>[kkayttaj@taito-login3:genomes><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
+<pre>[kkayttaj@c311:genomes><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
@@ -197,13 +196,13 @@ Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to Taito and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first login to Taito-shell and set up the Allas environment in with command:
 ```text
 module load allas
 ```
 Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-<pre><b>[kkayttaj@taito-login3:~> allas-conf</b>
+<pre>[kkayttaj@c311:~><b> allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
 Checking projects available for your account.
@@ -230,9 +229,9 @@ In stead of _a-put_, that was used in the previous example, I now use command `r
 files from the given directory to Allas.  In the case of _rclone_ there is no default bucket. I stead I have 
 to define a bucket to be used. This example I use bucket name _2001659-genomes_ and define that each object 
 should have prefix _zebarfish_. 
-<pre>[kkayttaj@taito:genomes><b>rclone copyto zebrafish/ allas:2001659-genomes/zebrafish</b></pre>
+<pre>[kkayttaj@c311:genomes><b>rclone copyto zebrafish/ allas:2001659-genomes/zebrafish</b></pre>
 After copying the files I use `rclone ls` to see what has been uploaded 
-<pre>[kkayttaj@taito:genomes><b>rclone ls allas:2001659-genomes/zebrafish</b>
+<pre>[kkayttaj@c311:genomes><b>rclone ls allas:2001659-genomes/zebrafish</b>
 450646234 Danio_rerio.GRCz10.91.1.bt2
 334651392 Danio_rerio.GRCz10.91.2.bt2
    187325 Danio_rerio.GRCz10.91.3.bt2
@@ -249,13 +248,13 @@ project  2001659 and load allas module:
 ```text
 cd /scratch/project_2001659
 module load allas
-```text
+```
 In this case I know that I want to use Allas with project project_2001659 so I can give the project name as an argument for allas-conf command: 
 ```text
 allas-conf project_2001659
-```text
+```
 Now the configuration process asks just for the CSC password and then sets up the connection to Allas project project_2001659.
-As the Puhti scratch directory is shared by all project members, I make a my own subdirectory (kkayttaj) and go there:
+As the Puhti scratch directory is shared by all project members, I make a my own subdirectory (kkayttaj), if it is not yet created, and go there:
 ```text
 mkdir kkayttaj
 cd kkayttaj/
