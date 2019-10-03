@@ -10,8 +10,11 @@ llumina BaseSpace command line client,`bs`, can be used to retrievie data from t
 *    bs version 1.0.0 is available in Puhti
 
 ## Usage
-
-The Illumina BaseSpace command line client starts with command:
+First load the biokit module
+```text
+module load biokit
+```
+When biokit is loaded, the Illumina BaseSpace command line client starts with command:
 ```text
 bs
 ```
