@@ -95,7 +95,7 @@ module load julia
 srun julia my_script.jl
 ```
 
-This runs the script <var>my\_script.jl</var> one time using one cpu-core. You can find more information about batch jobs on Puhti from the [user guide](https://docs.csc.fi/#computing/running/getting-started/).
+This runs the script <var>my\_script.jl</var> one time using one cpu-core. You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
 
 ## More information
 
