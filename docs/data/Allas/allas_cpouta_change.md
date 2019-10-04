@@ -10,7 +10,7 @@ In short, Allas is an evolution of cPouta object storage. If you are already usi
 
 Allas will be a new service at CSC. All existing projects with cPouta access will also have Allas access by default. Any projects requesting cPouta access after the service launch will only get access to cPouta, not Allas. Allas access will have to be requested separately.
 
-Any data uploaded to Allas is by default found under the "_a3s.fi_" domain instead of "_object.pouta.csc.fi.fi_" domain. The old domain name can still be used to access data.
+Any data uploaded to Allas is by default found under the "_a3s.fi_" domain instead of "_object.pouta.csc.fi_" domain. The old domain name can still be used to access data.
 
 The _billing unit_ costs of Allas will drop significantly compared to Pouta. The performance of the service is also much improved.
 
