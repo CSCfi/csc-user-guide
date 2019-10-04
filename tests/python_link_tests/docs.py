@@ -1,6 +1,6 @@
 
 import subprocess
-
+import sys
 def run_bash(command):
     command_as_list=command.split(" ")
     Output=subprocess.run(command_as_list,capture_output=True)
@@ -63,9 +63,9 @@ class Docs:
 
 
         if(output==""):
-            print("No broken file links found")
+            return(0,"No broken file links found")
         else:
-            print(output[:-1])
+            return(1,output[:-1])
 
 
 class Internal_link:
@@ -157,4 +157,6 @@ if __name__ == "__main__":
     csc_docs=Docs()
     csc_docs.dump_data()
     csc_docs.parse_data()
-    csc_docs.report_broken_links()
+    result = csc_docs.report_broken_links()
+    print(result[1])
+    sys.exit(result[0])
