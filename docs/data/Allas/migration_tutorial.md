@@ -33,7 +33,7 @@ members can use the Allas storage area.
 
 The default storage quota in Allas is 10 TB.  As this space is shared with all project members it is quite 
 possible that this is not enough. In that case you should estimate how much space is needed and then send 
-a request for more space. The request should be sent to **servicedesk@csc.fi**.
+a request for more space. The request should be sent to **servicedesk@csc.fi**. XX
 Please include to your quota request:
 
    *    ID/name of your project
