@@ -39,6 +39,6 @@ In problem situation, send an email to servicedesk@csc.fi.
 * [PALM documentation](https://palm.muk.uni-hannover.de/trac/wiki/doc)
 * [PALM movie gallery](https://palm.muk.uni-hannover.de/trac/wiki/gallery/movies)
 * [PALM Tutorial](https://palm.muk.uni-hannover.de/trac/wiki/doc/tut/palm#Exercisepresentations)
-* [Puhti server user guide](https://docs.csc.fi/)
+
 
 
