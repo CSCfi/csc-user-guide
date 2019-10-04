@@ -39,9 +39,10 @@ In the CSC computing environment Allas should be used to store any data that nee
 
 2. WWW access to Allas is provided by the web interface of cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). To access Allas with a browser you naturally do not have to install anything special on your computer, so this is by far the simplest way to access Allas. On the other hand, the browser user interface has a bunch of limitations compared to other access flavors, most notable are less performance and upload/download only a single file at the time. The instructions for accessing and using Allas with a browser can be found from [OpenStack Horizon web interface](./using_allas/web_client.md).
 
-3. To access Allas with a GUI client you have to install a suitable GUI client in to your server/laptop. The client needs to be capable to use Swift or S3 access protocol. Instructions to use one such client can be found from [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-and-mac).
+3. To access Allas with command-line commands you need to install Swift or S3 protocol supporting client software in to your server/laptop. This is the most flexible way to access Allas, but it requires more effort from you than other access flavors. Instructions to use one such client can be found from [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-csc-computing-environment-and-other-linux-platforms).
 
-4. To access Allas with command-line commands you need to install Swift or S3 protocol supporting client software in to your server/laptop. This is the most flexible way to access Allas, but it requires more effort from you than other access flavors. Instructions to use one such client can be found from [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-csc-computing-environment-and-other-linux-platforms).
+4. To access Allas with a GUI client you have to install a suitable GUI client in to your server/laptop. The client needs to be capable to use Swift or S3 access protocol. Instructions to use one such client can be found from [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-and-mac).
+
 
 In addition to these access flavors you can also see how to use Allas based on [Common Use Cases](./using_allas/common_use_cases.md).
 
