@@ -28,7 +28,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * Files larger than 5 GB must be divided into smaller segments (normally this is done automatically during upload), see [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
 
 
-## Different clients for using Allas
+## Different ways to use Allas
 
 You cannot mount Allas direcly to a computer.  This means that in order to use Allas you need software tools to access it. There are four main ways to access Allas:
 
