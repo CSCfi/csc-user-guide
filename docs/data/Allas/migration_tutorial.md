@@ -36,9 +36,9 @@ possible that this is not enough. In that case you should estimate how much spac
 a request for more space. The request should be sent to servicedesk@csc.fi.
 Please include to your quota request:
 
-*    ID/name of your project
-*    amount Allas space needed
-*    a shot description of the data to be stored 
+   *    ID/name of your project
+   *    amount Allas space needed
+   *    a shot description of the data to be stored 
 
 # Migration example 1: A-commands <a name="e1"></a>
 
