@@ -20,6 +20,6 @@ When is Allas released, and what happens then?
 
 The technical release date for the Allas service was 29.9.2019. The following things changed:
 
- * The default domain name for that data will change from _a3s.fi_ to _a3s.fi_. The old names will keep working.
+ * The default domain name for that data will change from _object.pouta.csc.fi_ to _a3s.fi_. The old names will keep working.
  * The default URLs to access the service will change. The old URLs will keep working.
  * When a project request service access to cPouta, they no longer get Allas access automatically.
