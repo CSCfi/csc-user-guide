@@ -54,6 +54,18 @@ class Docs:
     def file_exist(self,name):
         return this.files.has_key(name)
 
+    def report_broken_links(self):
+        output=""
+        for fileo in self.files.values():
+            for link in fileo.links:
+                if(link.file_link_is_broken):
+                    output+="Link " +link.link_file_target+ " in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
+
+
+        if(output==""):
+            print("No broken file links found")
+        else:
+            print(output[:-1])
 
 
 class Internal_link:
@@ -115,12 +127,14 @@ class Internal_link:
             res=run_bash(command)
             if(res.returncode==0):
                 self.file_link_is_broken=False
-                self.valid_site_target= res.stdout
+
+                abs_path_len=len(run_bash("pwd").stdout)
+
+                self.valid_site_target= str(res.stdout[abs_path_len:-1],'utf-8')
             else:
-                print(self.line_number,self.link_file_target,"in file",self.source_file.path+"/"+self.source_file.name,"con_path:", path_to_check  )
                 self.file_link_is_broken=True
-
-
+        else:
+            self.file_link_is_broken=False
     def has_section_link():
         return self.lin_section != ""
 
@@ -143,3 +157,4 @@ if __name__ == "__main__":
     csc_docs=Docs()
     csc_docs.dump_data()
     csc_docs.parse_data()
+    csc_docs.report_broken_links()
