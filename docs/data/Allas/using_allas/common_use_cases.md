@@ -46,7 +46,7 @@ The data can be accessed and shared in several different ways:
  
 ## Static web content
 
-A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add link to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://object.pouta.csc.fi/my_fishbucket/my_fish)
+A common way to use object storage is to store static web content there, such as images, videos, audio, pdfs or downloadable content, and just add link to it from your web page, which can run either inside Allas or somewhere else. [Here is an example](https://a3s.fi/my_fishbucket/my_fish)
 
 Uploading data to Allas can be done with any of the clients: [Web client](./web_client.md#upload-an-object), [a_commands](./a_commands.md#a-put-uploads-data-to-allas), [Swift client](./swift_client.md#create-buckets-and-upload-objects) or [S3 client](./s3_client.md#create-buckets-and-upload-objects).
  

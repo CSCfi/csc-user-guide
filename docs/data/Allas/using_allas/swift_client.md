@@ -225,7 +225,7 @@ $ swift stat my_fishbucket
 X-Container-Bytes-Used-Actual: 1167360
                   X-Timestamp: 1516776076.95812
 ```
-Set a bucket to read-only to the world (make the content visible at URL: <i>object.pouta.csc.fi/bucket_name/object_name</i>) instead of the default which is private to project only:
+Set a bucket to read-only to the world (make the content visible at URL: <i>a3s.fi/bucket_name/object_name</i>) instead of the default which is private to project only:
 ```bash
 swift post my_fishbucket --read-acl ".r:*"
 ```
@@ -279,19 +279,19 @@ OS_PROJECT_ID=<os_project_id>
 Save the full path to the Swift object (Replace the part *"os_project_id"* with your OS_PROJECT_ID):
 
 ```bash
-MYURL=https://object.pouta.csc.fi/swift/v1/AUTH_"os_project_id"/my_fishbucket/bigfish.jpg
+MYURL=https://a3s.fi/swift/v1/AUTH_"os_project_id"/my_fishbucket/bigfish.jpg
 ```
 
 
 Create a Temp-URL-Key valid for 86400 seconds (24 hours):
 ```bash
 $ swift tempurl GET 86400 $MYURL $RANDOMKEY
-https://object.pouta.csc.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
+https://a3s.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
 ```
 
 Use the previously created Temp URL to download the object:
 ```bash
-$ curl https://object.pouta.csc.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675> bigfish.jpg
+$ curl https://a3s.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675> bigfish.jpg
 ```
 You may set a second key by adding another metadata entry with title "*Temp-URL-Key-2*".
 
@@ -351,7 +351,7 @@ File: '/tmp/6GB.zero'
 Size: 6424625152      Blocks: 12548104   IO Block: 4096   regular file
 ...
 $ swift upload my_bigfishes /tmp/6GB.zero
-Object PUT failed: https://object.pouta.csc.fi:443/swift/v1/my_bigfishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
+Object PUT failed: https://a3s.fi:443/swift/v1/my_bigfishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
 ```
 It failed with message `EntityTooLarge`, so instead you can do:
 ```bash

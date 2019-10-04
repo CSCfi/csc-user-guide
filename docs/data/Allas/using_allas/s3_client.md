@@ -97,7 +97,7 @@ Once you have your ec2 credentials you will need to use the _Access_ and _Secret
  
 Alternatively, you can create a working file by adding your Access and Secret to the following oneliner:
 ```bash
-s3cmd --configure --access_key=YOUR_EC_ACCESS_KEY_HERE --secret_key=YOUR_EC_SECRET_KEY_HERE --host=object.pouta.csc.fi --region=US --host-bucket='%(bucket)s.object.pouta.csc.fi'
+s3cmd --configure --access_key=YOUR_EC_ACCESS_KEY_HERE --secret_key=YOUR_EC_SECRET_KEY_HERE --host=a3s.fi --region=US --host-bucket='%(bucket)s.a3s.fi'
 ```
 Then you need to verify all the settings from the created file.
 
@@ -278,8 +278,8 @@ $ s3cmd signurl s3://bigbucket/bigfish +3600
 http://bigbucket.a3s.fi/bigfish?AWSAccessKeyId=0a69a52ea4bc3a36839bc1e&Expires=1565951124&Signature=YEIjLFCaexvJ7rhusMV7E%3D
 ```
 !!! note 
-	The given URL does not work like that, but fortunately it can be fixed easily: just change _http_ to _https_ and move the _bucketname_ from the beginning after _object.pouta.csc.fi/_ and add "/" after it:
-	http<span style="background-color: #A4D1F9">s</span>://object.pouta.csc.fi/<span style="background-color: #A4D1F9">bigbucket/</span>bigfish?AWSAccessKey
+	The given URL does not work like that, but fortunately it can be fixed easily: just change _http_ to _https_ and move the _bucketname_ from the beginning after _a3s.fi/_ and add "/" after it:
+	http<span style="background-color: #A4D1F9">s</span>://a3s.fi/<span style="background-color: #A4D1F9">bigbucket/</span>bigfish?AWSAccessKey
 	Id=0a69a52ea4bc3a36839bc1e&Expires=1565951124&Signature=YEIjLFCaexvJ7rhusMV7E%3D
 
 
