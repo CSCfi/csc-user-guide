@@ -15,7 +15,7 @@ get_all_headders(){
 }
 
 get_all_nav_links(){
-cat $1  | grep "^\s*[^#]*\.md" | cut -d":" -f 2 | sed 's/^\s/\/docs\//g' | grep -v "#"
+cat $1  | grep "^\s*[^#]*\.md" | cut -d":" -f 2 | sed 's/^\s/docs\//g' | grep -v "#"
 }
 
 

@@ -19,6 +19,8 @@ class Docs:
         self.input_files  = list(map(lambda x: self.working_dir+x,self.input_files))
         self.bash_script_name=self.working_dir+"get_all_data.sh"
         self.files={}
+        self.nav_links=[]
+        self.whitelist=[]
 
     def dump_data(self):
         command = " ".join(["bash",self.bash_script_name]+self.input_files)  
@@ -50,9 +52,57 @@ class Docs:
                     source_file.add_link(Internal_link(source_file,data[1],data[2],data[3]))
                 else:
                     source_file.add_link(Internal_link(source_file,data[1],data[2]))
+    
+        # Parse links
+        with open(self.input_files[3]) as fp:
+            for line in fp:
+                self.nav_links.append(line.strip())
 
-    def file_exist(self,name):
-        return this.files.has_key(name)
+        # Parse whitelist
+        with open(self.working_dir+"whitelist") as fp:
+            for line in fp:
+                pars=line.strip()
+                if(pars[0]!='#'):
+                    self.whitelist.append(pars)
+
+    def file_exists(self,file_path):
+        return file_path in self.files
+
+  
+    def convert_site_to_doc_links(self):
+        for fileo in self.files.values():
+            for link in fileo.links:
+                if(not link.file_link_is_broken):
+                    file_path="docs/"+link.valid_site_target[5:]
+                    if(link.link_file_target==""):
+                        file_path=fileo.path+"/"+fileo.name
+                    if(self.file_exists(file_path)):
+                        link.valid_docs_target=file_path
+                    else:
+                        file_path=file_path[:-11]+".md"
+                        if(self.file_exists(file_path)):
+                            link.valid_docs_target=file_path
+                        else:
+                            file_path="docs/"+link.valid_site_target[5:]         
+                            file_path=file_path[:-4]+"md"
+                            if(self.file_exists(file_path)):
+                                link.valid_docs_target=file_path
+                            
+
+    def list_of_file_links(self):
+        return [link.valid_docs_target for fileo in self.files.values() for link in fileo.links]
+
+
+    def hidden_files(self):
+        file_links=self.list_of_file_links()
+        hidden=[]
+        for filo in self.files.values():
+            file_path=filo.path+"/"+filo.name
+            if(file_path not in file_links and file_path not in self.nav_links and filo.is_markdown_file and file_path not in self.whitelist):
+                print(file_path)
+                hidden.append(filo.path+"/"+filo.name)
+
+        return (len(hidden),hidden) 
 
     def report_broken_links(self):
         output=""
@@ -68,6 +118,8 @@ class Docs:
             return(1,output[:-1])
 
 
+
+
 class Internal_link:
     def __init__(self,f,ln,ft,st=""):
         self.source_file=f
@@ -75,9 +127,9 @@ class Internal_link:
         self.link_file_target=ft
         self.link_section_target=st
         # Default value is True
-        self.valid_html_target=""
-        self.valid_md_target=""
         self.file_link_is_broken=True
+        self.valid_site_target=""
+        self.valid_docs_target=""
         
         # No file target, so the link must point to
         # a section in the same file (which must be .md)
@@ -157,6 +209,7 @@ if __name__ == "__main__":
     csc_docs=Docs()
     csc_docs.dump_data()
     csc_docs.parse_data()
+    csc_docs.convert_site_to_doc_links()
+    csc_docs.hidden_files()
     result = csc_docs.report_broken_links()
-    print(result[1])
     sys.exit(result[0])
