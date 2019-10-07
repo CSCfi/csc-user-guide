@@ -28,23 +28,22 @@ The stored objects can be of any data type, such as images or compressed data fi
  * Files larger than 5 GB must be divided into smaller segments (normally this is done automatically during upload), see [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
 
 
-## Different flavors for using Allas
+## Different ways to use Allas
 
-You cannot mount Allas direcly to a computer.  This means that in order to use Allas you need software tools to access it. There are four flavors of tools to access Allas:
+You cannot mount Allas direcly to a computer.  This means that in order to use Allas you need software tools to access it. There are four main ways to access Allas:
 
-![Allas access flavors](img/allas-access-flawors.png)
+![Allas access clients](img/allas-access-flavors.png)
 
 1. In CSC computing environment (e.g. **Puhti**) you have ready-to-use tools, provided by CSC, to access Allas. These tools are mostly the same you could also install to any linux environment like a virtual machine in cPouta or local Linux server.  
 In the CSC computing environment Allas should be used to store any data that needs to be preserved for longer than just few weeks. Supercomputer's own storage has a policy to delete idle data (see [Computing disk environment](../../computing/disk.md)), so your data must be moved to Allas after computing. 
 
-2. WWW access to Allas is provided by the web interface of cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). To access Allas with a browser you naturally do not have to install anything special on your computer, so this is by far the simplest way to access Allas. On the other hand, the browser user interface has a bunch of limitations compared to other access flavors, most notable are less performance and upload/download only a single file at the time. The instructions for accessing and using Allas with a browser can be found from [OpenStack Horizon web interface](./using_allas/web_client.md).
+2. WWW access to Allas is provided by the web interface of cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). To access Allas with a browser you naturally do not have to install anything special on your computer, so this is by far the simplest way to access Allas. On the other hand, the browser user interface has a bunch of limitations compared to other clients, most notable are less performance and upload/download only a single file at the time. The instructions for accessing and using Allas with a browser can be found from [OpenStack Horizon web interface](./using_allas/web_client.md).
 
 3. To access Allas with command-line commands you need to install Swift or S3 protocol supporting client software in to your server/laptop. This is the most flexible way to access Allas, but it requires more effort from you than other access flavors. Instructions to use one such client can be found from [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-csc-computing-environment-and-other-linux-platforms).
 
 4. To access Allas with a GUI client you have to install a suitable GUI client in to your server/laptop. The client needs to be capable to use Swift or S3 access protocol. Instructions to use one such client can be found from [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-and-mac).
 
-
-In addition to these access flavors you can also see how to use Allas based on [Common Use Cases](./using_allas/common_use_cases.md).
+In addition to these clients you can also see how to use Allas based on [Common Use Cases](./using_allas/common_use_cases.md).
 
 
 &nbsp;
