@@ -25,6 +25,7 @@
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
+* [SageMath](sagemath.md) Free open-source mathematics software system
 * [Samtools](samtools.md)
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format

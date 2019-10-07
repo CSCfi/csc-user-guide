@@ -59,6 +59,7 @@
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 
 ## Mathematics and Statistics
+* [SageMath](sagemath.md) Free open-source mathematics software system
 
 ## Physics
 
