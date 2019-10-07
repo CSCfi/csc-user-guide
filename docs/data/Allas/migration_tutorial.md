@@ -112,15 +112,15 @@ as object:
   _genomes/zebrafish/Danio_rerio.GRCz10.fa.zst_
 In this case we used the default bucket and object names assigned by _a-put_, but other bucket and object 
 names coulud be defined with command line options `-b`  and `-o`.
-Now command a-list shows that I have one bucket in Allas and that the bucket contains one object.
+Now command _a-list_ shows that I have one bucket in Allas and that the bucket contains one object.
 <pre>[kkayttaj@c311:zebrafish><b> a-list</b>
 kkayttaj-2001659-taito-WRKDIR
 [kkayttaj@c311:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
 Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
-upload data to Allas one directory at a time and store the data in bugger chunks. For example to upload the 
-zebrafish directory I first go to the genomes directory:
+upload data to Allas one directory at a time and store the data in bigger chunks. For example to upload the 
+zebrafish directory I first go to the _genomes_ directory:
 ```text
 cd $WRKDIR/genomes
 ```
@@ -185,8 +185,8 @@ Query: Danio_rerio.GRCz10.fa
 Total of 3 hits were found in 2 objects
 -------------------------------------------------</pre>
 
-The a-find report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
-two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that a-find finds 
+The _a-find_ report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
+two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that _a-find_ finds 
 matches only from objects that were uploaded with _a-put_.
 
 Now lets’ download the data to Puhti. This is done with `a-get` command:
@@ -207,8 +207,8 @@ Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2  Danio_rerio.GRCz10.91.
 
 ## A. Uploading data in Taito
 Rclone is the power user tool for Allas. It is good in cases where the data do not compress much and in cases where 
-the data must be stored so that each file is stored as a separete object.
-Rclone provides very effective way to use Allas, but you should use it very carefully as rclone operations overwrite 
+the data must be stored so that each file is stored as a separate object.
+Rclone provides an effective way to use Allas, but you should use it carefully as rclone operations overwrite 
 and remove data both in Allas an in the local disk environment without notifying or asking for confirmation.
 
 This example uses the same data as the previous case:  in my Taito $WRKDIR I have a sub directory: _genomes/zebrafish_ 
@@ -250,7 +250,7 @@ cd $WRKDIR/genomes/zebrafish
 In stead of _a-put_, that was used in the previous example, I now use command `rclone copyto` to copy all the 
 files from the given directory to Allas.  In the case of _rclone_ there is no default bucket. I stead I have 
 to define a bucket to be used. This example I use bucket name _2001659-genomes_ and define that each object 
-should have prefix _zebarfish_. 
+should have prefix _zebarfish_.
 <pre>[kkayttaj@c311:genomes><b>rclone copyto zebrafish/ allas:2001659-genomes/zebrafish</b></pre>
 After copying the files I use `rclone ls` to see what has been uploaded 
 <pre>[kkayttaj@c311:genomes><b>rclone ls allas:2001659-genomes/zebrafish</b>
@@ -265,8 +265,8 @@ After copying the files I use `rclone ls` to see what has been uploaded
 
 ## B. Downloading the data to Puhti
 
-Next I download the same data to Puhti.  After connecting to puhti.csc.fi I go to the scratch directory of 
-project  2001659 and load allas module:
+Next I download the same data to Puhti.  After connecting to _puhti.csc.fi_ I go to the scratch directory of 
+project_2001659 and load allas module:
 ```text
 cd /scratch/project_2001659
 module load allas
@@ -298,7 +298,7 @@ Next we list objects in the 2001659-genomes bucket:
 1362788082 zebrafish/Danio_rerio.GRCz10.fa
       715 zebrafish/Danio_rerio.GRCz10.fa.fa</pre>
 
-Finally I use `rclone copyto` command to copy the data to Puhti into new directory _zebrafish2_. 
+Finally I use `rclone copyto` command to copy the data from Allas to Puhti into new directory _zebrafish2_. 
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
