@@ -134,7 +134,7 @@ class Docs:
         output=""
         for fileo in self.files.values():
             for link in fileo.links:
-                if(link.link_section_target!=""):
+                if(link.link_section_target!="" and not link.file_link_is_broken):
                     command="grep -- " +"\"" + link.link_section_target  +  "\"" +" " + link.valid_site_target 
                     grep_res=run_bash(command)
                     if(grep_res.returncode!=0):
