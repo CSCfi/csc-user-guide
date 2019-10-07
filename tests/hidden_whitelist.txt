@@ -1,0 +1,16 @@
+# List files here that are hidden/not added for a reason
+# Also state the reason and add the file as soon as possible
+# The following three files are ignored as they are empty and only
+# exist to "save" the parent folder to git
+./docs/connecting/index.md
+./docs/data/index.md
+./docs/cloud/index.md
+./docs/data/Allas/index.md
+
+# For some reason the following files have not been added to the software listing
+# This should not happen! Don't commit stuff to master you are not going to make 
+# available.
+# These should be fixed ASAP. 
+./docs/apps/grid_blast.md
+./docs/apps/ipyrad.md
+./docs/apps/velvet.md

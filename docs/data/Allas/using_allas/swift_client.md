@@ -336,11 +336,11 @@ Alternatively, you can set the project public and then access the file.
 
 ## Files larger than 5 GB
 
-Since the OpenStack command does not support uploading files larger than 5GB, we can use Swift to upload a so-called _Static Large Object_ (SLO).
+Swift has a single object size limit of 5GiB. In order to upload files
+larger than this, one must create a large object that consists of
+smaller segments. To achieve this we can use Swift to upload a
+so-called _Static Large Object_ (SLO).
 
-According to [https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#more-complex-examples):
-
-"_Swift has a single object size limit of 5GiB. In order to upload files larger than this, we must create a large object that consists of smaller segments._"
 
 Trying to upload a large file:
 ```bash
