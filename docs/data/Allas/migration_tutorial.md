@@ -4,10 +4,12 @@ Taito.csc.fi cluster will be closed in the end of 2019. If you have some data th
 to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) 
 you have copy the data elsewhere before 1.1. 2020. 
 
-The new Allas object storage service provides one way to move your data away from Taito.  
+The new Allas object storage service provides one way to move your data away from Taito. 
+
 *    [Allas user guide](./index.md)
 
 Taito is replaced by the new Puhti cluster:
+
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
 The new Puhti server, that is replacing Taito, don’t provide permanent storage space so even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas by doing the migration through Allas.
@@ -39,7 +41,7 @@ members can use the Allas storage area.
 
 The default storage quota in Allas is 10 TB.  As this space is shared with all project members it is quite 
 possible that this is not enough. In that case you should estimate how much space is needed and then send 
-a request for more space. The request should be sent to **servicedesk@csc.fi**. XX
+a request for more space. The request should be sent to **servicedesk@csc.fi**.
 Please include to your quota request:
 
    *    ID/name of your project
