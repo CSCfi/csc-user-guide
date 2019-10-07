@@ -3,7 +3,7 @@ import subprocess
 import sys
 def run_bash(command):
     command_as_list=command.split(" ")
-    Output=subprocess.run(command_as_list)#,capture_output=True)
+    Output=subprocess.run(command_as_list,stdout=subprocess.PIPE)#,capture_output=True)
     return Output
 
 
@@ -30,6 +30,7 @@ class Docs:
     def dump_data(self):
         command = " ".join(["bash",self.bash_script_name]+self.input_files)  
         run_bash(command)
+
     def parse_data(self):
 
         # Parse file names
