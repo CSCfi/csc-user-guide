@@ -55,6 +55,8 @@
 
 ## Mathematics and Statistics
 
+* [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
+
 ## Physics
 
 * [VASP](vasp.md) Ab initio DFT electronic structures
