@@ -50,7 +50,12 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 
 ## Geosciences
-* [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
+* [GDAL](gdal.md) Translator library for geospatial data formats
+* [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
+* [LAStools](lastools.md) Toolbox for LiDAR datasets
+* [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
+* [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
+* [SNAP](snap.md) Remote sensing toolbox for satellites
 
 ## Mathematics and Statistics
 

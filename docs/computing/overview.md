@@ -22,6 +22,9 @@ to a specific login node, use the command:
 ```
 ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 ```
+For instructions on how to connect using Putty or establishing
+a graphical connection, see the [connecting](connecting.md) page.
+
 
 !!! warning "Important"
     The login nodes can be used for **light** pre- and postprocessing, compiling

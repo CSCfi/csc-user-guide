@@ -49,7 +49,7 @@ _hpcx-mpi_ first, this one is from the network vendor and is based on OpenMPI.
  **You will need to have the MPI module loaded when submitting your jobs.**
 
 More information about [building](../../computing/compiling.md#building-mpi-applications) and
-[running](../../computing/running/creating-job-scripts.md/#mpi-based-batch-jobs) MPI applications. 
+[running](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) MPI applications. 
 
 
 ## Applications

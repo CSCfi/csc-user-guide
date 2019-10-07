@@ -1,11 +1,11 @@
 # Example batch job scripts
 
-Below are example job scripts for running different types of programs:
+Example job scripts for running different types of programs:
 
 [TOC]
 
 !!! note
-    If you copy them (please do!), remember to change at least the resources
+    If you use the scripts (please do!), do not forget to change the resources
     (time, tasks etc.) to match your needs and to replace `myprog <options>`
     with the executable (and options) of the program you wish to run as well
     as `<project>` with the name of your project.
@@ -36,7 +36,7 @@ srun myprog <options>
 #SBATCH --cpus-per-task=6
 #SBATCH --mem-per-cpu=4000
 
-# set the number of threads based on the --cpus-per-task above
+# set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
@@ -52,6 +52,24 @@ srun myprog <options>
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=80
 #SBATCH --mem-per-cpu=4000
+
+srun myprog <options>
+```
+
+## MPI + OpenMP
+
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=4000
+
+# set the number of threads based on --cpus-per-task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```

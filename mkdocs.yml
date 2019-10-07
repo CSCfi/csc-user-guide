@@ -3,15 +3,16 @@ edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
 nav:
   - Home: index.md
   - Accounts:
-     - MyCSC: accounts/mycsc.md
-     - Creating new user account: accounts/creating-new-user-account.md
-     - Changing password: accounts/changing-password.md
-     - Managing user information: accounts/managing-user-information.md
-     - Creating new project: accounts/creating-new-project.md
-     - Adding member to project: accounts/adding-member-to-project.md
-     - Adding service access for project: accounts/adding-service-access-for-project.md
-     - Applying for resources: accounts/applying-for-resources.md
-     - Switching between projects: accounts/switching-between-projects.md
+     - Overview: accounts/index.md
+     - How to create new user account: accounts/how-to-create-new-user-account.md
+     - How to change password: accounts/how-to-change-password.md
+     - How to manage user information: accounts/how-to-manage-user-information.md
+     - How to create new project: accounts/how-to-create-new-project.md
+     - How to add member to project: accounts/how-to-add-member-to-project.md
+     - How to add service access for project: accounts/how-to-add-service-access-for-project.md
+     - How to apply for resources: accounts/how-to-apply-for-resources.md
+     - How to switch between projects: accounts/how-to-switch-between-projects.md
+     - How to monitor resource usage: accounts/how-to-monitor-resource-usage.md
      - Billing: accounts/billing.md
      - FMI: accounts/FMI.md
   - Computing:
@@ -29,6 +30,17 @@ nav:
      - Compiling: computing/compiling.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
+  - Data:
+     - Allas object storage: 
+        - Allas object storage: data/Allas/index.md 
+        - Introduction to Allas Storage service: data/Allas/introduction.md
+        - Accessing Allas: data/Allas/accessing_allas.md
+        - Common Use Cases: data/Allas/using_allas/common_use_cases.md
+        - Allas Clients: data/Allas/clients.md
+        - Common Error Messages: data/Allas/using_allas/error_messages.md
+        - Further information: data/Allas/further_info.md
+        - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
+        - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
