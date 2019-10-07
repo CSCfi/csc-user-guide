@@ -1,6 +1,6 @@
 ---
 sudo: false
-dist: trusty
+dist: bionic
 addons:
   apt:
     packages:
@@ -8,7 +8,9 @@ addons:
       - aspell-en
       - python3
       - python3-pip
+      - python3-setuptools
 before_install:
+  - pip3 install --user wheel
   - pip3 install --user --requirement requirements.txt
 install:
 #  - pip install --upgrade pip
@@ -27,13 +29,13 @@ script:
  
  #Testing link related things
  # Test if any links in the markdown point to no-existing files
-  - bash tests/check_broken_file_links.sh
+  - python3 tests/python_link_tests/check_broken_file_links.py
   # Test if any section links (so file.md#section) in the markdown are invalid 
-  - bash tests/check_broken_section_links.sh
+  - python3 tests/python_link_tests/check_broken_section_links.py
   # Test if any http urls point to docs.csc.fi
   - bash tests/check_internal_url.sh 
   # Check if there are any files which are not referenced at all.
-  - bash tests/check_hidden_files.sh
+  - python3 tests/python_link_tests/check_hidden_files.py
 
 
   # Testing style-guide and slurm erros
