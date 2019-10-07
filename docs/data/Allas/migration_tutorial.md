@@ -15,10 +15,14 @@ Taito is replaced by the new Puhti cluster:
 The new Puhti server, that is replacing Taito, don’t provide permanent storage space so even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas by doing the migration through Allas.
 
 Tutorial provides two examples of moving datat first from Taito to Allas and then from Allas to Puhti.
-[The first example](#e1) uses a-commands (a-put, a-get) while in [the second example](#e2) the same data is transported using
-rclone.
 
-The approaches used here are besed on interactively executed commands and thus they apply only for relatively small datasetss ( less than 100 GB).
+1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
+2.   [The second example](#e2) the same data is transported using rclone.
+
+The first apprach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
+the second option (rclone) is good for cases where the data will be use otside CSC too.
+
+The tutoruals are besed on interactively executed commands and thus they apply only for relatively small datasetss ( max some hundreds of GBs).
 
 
 
