@@ -13,11 +13,13 @@
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
+* [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
@@ -38,7 +40,8 @@
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Elmer](elmer.md) Open source multi-physics FEM package
-* [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems.
+* [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
+* [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 
 ## Data Analytics and Machine Learning
 
@@ -56,6 +59,7 @@
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 
 ## Mathematics and Statistics
+* [SageMath](sagemath.md) Free open-source mathematics software system
 
 ## Physics
 

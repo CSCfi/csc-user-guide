@@ -15,16 +15,20 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
+* [SageMath](sagemath.md) Free open-source mathematics software system
 * [Samtools](samtools.md)
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
+* [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Stacks](stacks.md)
 * [TensorFlow](tensorflow.md) Deep learning library for Python
