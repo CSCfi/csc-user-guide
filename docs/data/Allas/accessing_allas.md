@@ -25,20 +25,20 @@ module load allas
 ```
 After that you can open access to the Allas storage space of a specific project. This is done with command:
 ```text
-allas_conf
+allas-conf
 ```
 or 
 ```text
-allas_conf project_name
+allas-conf project_name
 ```
-The allas_conf command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists your projects in Allas and asks you to define the project that will be used (if you haven't defined the project name as an argument). After that allas_conf generates rclone configuration file for Allas service and autheticates the connection to the selected project in Allas. In one session you can have the connection open to only one Allas project at a time. The project that you are using in Allas does not need to match to the project you are using in Puhti or Taito and you can switch to another project by executing _allas_conf_ again. 
+The allas-conf command above asks for your CSC password (the same that you use to login to CSC servers). After that it lists your projects in Allas and asks you to define the project that will be used (if you haven't defined the project name as an argument). After that allas-conf generates rclone configuration file for Allas service and autheticates the connection to the selected project in Allas. In one session you can have the connection open to only one Allas project at a time. The project that you are using in Allas does not need to match to the project you are using in Puhti or Taito and you can switch to another project by executing _allas-conf_ again. 
 
-The authentication information is stored into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas_conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
+The authentication information is stored into shell variables OS_AUTH_TOKEN and OS_STORAGE_URL that are valid for max 3 hours. Hoverver you can refresh the authentication at any time my running _allas-conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
 
-After opening you can start using Allas with one of the following options. Note that the tools utilize two diffrent protocols: Swftt and S3. Data that is uploaded with one protocol is not necessary readable with another protocol. 
+After opening you can start using Allas with one of the following options. Note that the tools utilize two different protocols: Swftt and S3. Data that is uploaded with one protocol is not necessary readable with another protocol. 
 **Allas client software options for Puhti and Taito and other linux servers**
 
-* **a_tools for basic usage:**(Swift protocol) [Quick and safe: a_commands](./using_allas/a_commands.md)
+* **a-tools for basic usage:**(Swift protocol) [Quick and safe: a-commands](./using_allas/a_commands.md)
 * **Advanced functions with rclone:**(Swift protocol) [Advanced tool: rclone](./using_allas/rclone.md)
 * **A wide range of functionalities:**(Swift protocol) [Swift client](./using_allas/swift_client.md)
 * **S3 client and persistent Allas connections:** (S3 protocol) [S3 client](./using_allas/s3_client.md#s3cmd-with-supercomputers)
