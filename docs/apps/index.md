@@ -13,11 +13,13 @@
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
+* [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
