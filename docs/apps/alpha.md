@@ -15,6 +15,7 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools.
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
@@ -25,6 +26,7 @@
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [Samtools](samtools.md)
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
+* [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Stacks](stacks.md)
 * [TensorFlow](tensorflow.md) Deep learning library for Python
