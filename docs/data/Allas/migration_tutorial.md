@@ -87,7 +87,7 @@ project_2000982   Services for science Kalle Kayttaja
 project_2001659   CSC user's maintenance Ossi Huikonen
 project_2000136   dis Jana Poranen
 Please define the Project ID of the project to be used:
-project_2001659
+<b>project_2001659</b>
 allas definition already found in the rclone configuration file.
 Configuration was not changed.
 Swift connection configured successfully.
@@ -238,7 +238,7 @@ project_2000982   Services for science Kalle Kayttaja
 project_2001659   CSC user's maintenance Ossi Huikonen
 project_2000136   dis Jana Poranen
 Please define the Project ID of the project to be used:
-project_2001659
+<b>project_2001659</b>
 allas definition already found in the rclone configuration file.
 Configuration was not changed.
 Swift connection configured successfully.
