@@ -20,7 +20,7 @@ Tutorial provides two examples of moving datat first from Taito to Allas and the
 2.   [The second example](#e2) the same data is transported using rclone.
 
 The first apprach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
-the second option (rclone) is good for cases where the data will be use otside CSC too.
+the second option (rclone) is good for cases where the data will be use outside CSC too.
 
 The tutoruals are besed on interactively executed commands and thus they apply only for relatively small datasetss ( max some hundreds of GBs).
 
