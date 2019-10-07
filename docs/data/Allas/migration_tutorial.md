@@ -5,7 +5,7 @@ to preserve in the directories of Taito ( including $HOME, $WRKDIR and project d
 you have copy the data elsewhere before 1.1. 2020. 
 
 The new Allas object storage service provides one way to move your data away from Taito.  
-*    [Allas user guide](../index.md)
+*    [Allas user guide](./index.md)
 
 Taito is replaced by the new Puhti cluster:
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
