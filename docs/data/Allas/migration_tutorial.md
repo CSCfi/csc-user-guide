@@ -88,9 +88,8 @@ project_2001659   CSC user's maintenance Ossi Huikonen
 project_2000136   dis Jana Poranen
 Please define the Project ID of the project to be used:
 <b>project_2001659</b>
-allas definition already found in the rclone configuration file.
-Configuration was not changed.
-Swift connection configured successfully.
+
+allas connection configured successfully.
 </pre>
 Allas-conf procedure above defines an Allas-connection that is valid for next three hours. 
 Next I go to the _zebrafish_ directory.
@@ -239,9 +238,8 @@ project_2001659   CSC user's maintenance Ossi Huikonen
 project_2000136   dis Jana Poranen
 Please define the Project ID of the project to be used:
 <b>project_2001659</b>
-allas definition already found in the rclone configuration file.
-Configuration was not changed.
-Swift connection configured successfully.
+
+allas connection configured successfully.
 </pre>
 Allas-conf procedure above defines an Allas-connection that is valid for next three hours. 
 Next I go to the _zebrafish_ directory.
