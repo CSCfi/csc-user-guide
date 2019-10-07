@@ -10,6 +10,7 @@ addons:
       - python3-pip
       - python3-setuptools
 before_install:
+  - pip3 install --user wheel
   - pip3 install --user --requirement requirements.txt
 install:
 #  - pip install --upgrade pip
