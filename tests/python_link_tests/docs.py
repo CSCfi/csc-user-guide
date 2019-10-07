@@ -3,7 +3,7 @@ import subprocess
 import sys
 def run_bash(command):
     command_as_list=command.split(" ")
-    Output=subprocess.run(command_as_list,capture_output=True)
+    Output=subprocess.run(command_as_list)#,capture_output=True)
     return Output
 
 
@@ -121,7 +121,7 @@ class Docs:
         for fileo in self.files.values():
             for link in fileo.links:
                 if(link.file_link_is_broken):
-                    output+="Link " +link.link_file_target+ " in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
+                    output+="The file link " +link.link_file_target+" in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
 
 
         if(output==""):
@@ -137,7 +137,7 @@ class Docs:
                     command="grep -- " +"\"" + link.link_section_target  +  "\"" +" " + link.valid_site_target 
                     grep_res=run_bash(command)
                     if(grep_res.returncode!=0):
-                        output+="Link " +link.link_file_target+ " in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
+                        output+="The section link " +link.link_file_target+"#" +link_link_section_target+ " in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
                     
 
 
