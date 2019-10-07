@@ -22,6 +22,11 @@ class Docs:
         self.nav_links=[]
         self.whitelist=[]
 
+
+        self.dump_data()
+        self.parse_data()
+        self.convert_site_to_doc_links()
+
     def dump_data(self):
         command = " ".join(["bash",self.bash_script_name]+self.input_files)  
         run_bash(command)
@@ -65,6 +70,9 @@ class Docs:
                 if(pars[0]!='#'):
                     self.whitelist.append(pars)
 
+        
+
+
     def file_exists(self,file_path):
         return file_path in self.files
 
@@ -93,18 +101,22 @@ class Docs:
         return [link.valid_docs_target for fileo in self.files.values() for link in fileo.links]
 
 
-    def hidden_files(self):
+    def report_hidden_files(self):
         file_links=self.list_of_file_links()
-        hidden=[]
+        output=""
         for filo in self.files.values():
             file_path=filo.path+"/"+filo.name
             if(file_path not in file_links and file_path not in self.nav_links and filo.is_markdown_file and file_path not in self.whitelist):
-                print(file_path)
-                hidden.append(filo.path+"/"+filo.name)
+                output+= filo.path+"/"+filo.name + "\n"
 
-        return (len(hidden),hidden) 
+        if(output!=""):
+            output="The following files have no links pointing to them and are not whitelisted:\n"+output
+            return(1,output[:-1])
+        else:
+            output="No hidden files found"
+            return (0,output) 
 
-    def report_broken_links(self):
+    def report_broken_file_links(self):
         output=""
         for fileo in self.files.values():
             for link in fileo.links:
@@ -117,6 +129,23 @@ class Docs:
         else:
             return(1,output[:-1])
 
+    def report_broken_section_links(self):
+        output=""
+        for fileo in self.files.values():
+            for link in fileo.links:
+                if(link.link_section_target!=""):
+                    command="grep -- " +"\"" + link.link_section_target  +  "\"" +" " + link.valid_site_target 
+                    grep_res=run_bash(command)
+                    if(grep_res.returncode!=0):
+                        output+="Link " +link.link_file_target+ " in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
+                    
+
+
+        if(output==""):
+            return(0,"No broken section links found")
+
+        else:
+            return(1,output[:-1])
 
 
 
@@ -133,62 +162,67 @@ class Internal_link:
         
         # No file target, so the link must point to
         # a section in the same file (which must be .md)
-        if(ft!=""):
-            self.is_absolute= ft[0]=='/'         
-            self.ends_with_md=ft[-3:]==".md"
-            self.source_is_index=self.source_file.is_index_file
-            self.target_is_index= ft[-8:]=="index.md"
-            self.has_other_ending=("." in ft and not self.ends_with_md)
-            source=""
-            target=""
+       
+        if(ft=="" and st==""):
+            return
 
-            source=self.source_file.path
-            source="site/"+source[5:]
+        if(ft==""):
+            self.link_file_target=self.source_file.name
 
-            if(not self.source_is_index):
-                target="../"+target
-                source=source+"/"+self.source_file.name
-                source=source[:-3]+"/"
-                
-            if(self.is_absolute):
-                source="site/"
-                target=self.link_file_target
-                
-                if(not self.has_other_ending):
-                    target=target+"/index.html"
+        self.is_absolute= self.link_file_target[0]=='/'         
+        self.ends_with_md=self.link_file_target[-3:]==".md"
+        self.source_is_index=self.source_file.is_index_file
+        self.target_is_index= self.link_file_target[-8:]=="index.md"
+        self.has_other_ending=("." in self.link_file_target and not self.ends_with_md)
+        source=""
+        target=""
 
-            else:
-                target=target+self.link_file_target
-                if(self.ends_with_md):
-                    target=target[:-3]
-               
-                if(self.target_is_index):
-                   target=target[:-5]
+        source=self.source_file.path
+        source="site/"+source[5:]
 
-                if(not self.has_other_ending):
-                    target=target +"/index.html"
+        if(not self.source_is_index):
+            target="../"+target
+            source=source+"/"+self.source_file.name
+            source=source[:-3]+"/"
+            
+        if(self.is_absolute):
+            source="site/"
+            target=self.link_file_target
+            
+            if(not self.has_other_ending):
+                target=target+"/index.html"
+
+        else:
+            target=target+self.link_file_target
+            if(self.ends_with_md):
+                target=target[:-3]
+           
+            if(self.target_is_index):
+               target=target[:-5]
+
+            if(not self.has_other_ending):
+                target=target +"/index.html"
 
 
-            path_to_check=source+"/"+target 
+        path_to_check=source+"/"+target 
         
 
 
 
 
-            command="readlink -ev -- " +path_to_check
-            res=run_bash(command)
-            if(res.returncode==0):
-                self.file_link_is_broken=False
-
-                abs_path_len=len(run_bash("pwd").stdout)
-
-                self.valid_site_target= str(res.stdout[abs_path_len:-1],'utf-8')
-            else:
-                self.file_link_is_broken=True
-        else:
+        command="readlink -ev -- " +path_to_check
+        res=run_bash(command)
+        if(res.returncode==0):
             self.file_link_is_broken=False
-    def has_section_link():
-        return self.lin_section != ""
+
+            abs_path_len=len(run_bash("pwd").stdout)
+
+            self.valid_site_target= str(res.stdout[abs_path_len:-1],'utf-8')
+        else:
+            self.file_link_is_broken=True
+
+        
+
 
 
 # Not naming this just file
@@ -205,11 +239,3 @@ class Doc_file:
         self.links.append(link)
 
 
-if __name__ == "__main__":
-    csc_docs=Docs()
-    csc_docs.dump_data()
-    csc_docs.parse_data()
-    csc_docs.convert_site_to_doc_links()
-    csc_docs.hidden_files()
-    result = csc_docs.report_broken_links()
-    sys.exit(result[0])
