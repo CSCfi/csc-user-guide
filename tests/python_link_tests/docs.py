@@ -1,4 +1,4 @@
-
+import re
 import subprocess
 import sys
 def run_bash(command):
@@ -174,18 +174,23 @@ class Internal_link:
         self.ends_with_md=self.link_file_target[-3:]==".md"
         self.source_is_index=self.source_file.is_index_file
         self.target_is_index= self.link_file_target[-8:]=="index.md"
-        self.has_other_ending=("." in self.link_file_target and not self.ends_with_md)
+        self.has_file_ending=re.search("\.[A-Z,a-z,0-9]*$",ft) !=None
+        self.has_other_ending=(self.has_file_ending and not self.ends_with_md)
         source=""
         target=""
 
         source=self.source_file.path
         source="site/"+source[5:]
 
+        
         if(not self.source_is_index):
             target="../"+target
             source=source+"/"+self.source_file.name
             source=source[:-3]+"/"
-            
+
+        if(not self.has_file_ending and ft!=""):
+            target=""
+
         if(self.is_absolute):
             source="site/"
             target=self.link_file_target
