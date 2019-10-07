@@ -26,7 +26,8 @@ A summary of the most commonly used Allas tools.
    * [Directory errors](./using_allas/directory_object_error.md )
    
 
-3.    [Allas and cPouta object storage, what changes?](./allas_cpouta_change.md) CSC has previously provided Pouta Object Storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to the old Pouta Object Storage users.
+### 3.  [Allas and cPouta object storage, what changes?](./allas_cpouta_change.md) 
+CSC has previously provided Pouta Object Storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to the old Pouta Object Storage users.
 
 ## Tutorials:
 
