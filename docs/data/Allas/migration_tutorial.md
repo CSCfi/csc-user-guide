@@ -1,14 +1,14 @@
 # Using Allas to migrate your data from Taito to Puhti 
 
-Taito.csc.fi cluster will be closed in the end of 2019. If you have some data that you want 
+Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want 
 to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) 
 you have copy the data elsewhere before 1.1. 2020. 
 
-The new Allas object storage service provides a platform that yu can use to store your data that is currently in Taito. 
+The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito. 
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server, that is replacing Taito, don’t provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
+The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
@@ -17,10 +17,10 @@ This tutorial provides two examples of moving data first from Taito to Allas and
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
 
-The first apprach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
+The first approach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
 the second option (rclone) is good for cases where the data will be use outside CSC too.
 
-The tutoruals are besed on interactively executed commands and thus they apply only for relatively small datasets ( max some hundreds of GBs).
+The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets ( max some hundreds of GBs).
 
 
 
@@ -212,7 +212,7 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 # Migration example 2: rclone <a name="e2"></a>
 
 ## A. Uploading data in Taito
-Rclone is the power user tool for Allas. It is good in cases where the data don't compress much and in cases where 
+Rclone is the power user tool for Allas. It is good in cases where the data does not compress much and in cases where 
 the data must be stored so that each file is stored as a separate object.
 Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations overwrite 
 and remove data both in Allas an in the local disk environment without notifying or asking for confirmation.
