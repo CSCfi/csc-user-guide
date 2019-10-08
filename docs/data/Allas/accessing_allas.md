@@ -35,7 +35,7 @@ Start using Allas with one of the following options. Note that the tools utilize
 
 **Allas client software options for Puhti and Taito and other linux servers**
 
-* **a-tools for basic use:**(Swift protocol) [Quick and safe: a_commands](./using_allas/a_commands.md)
+* **a-tools for basic use:**(Swift protocol) [Quick and safe: a-commands](./using_allas/a_commands.md)
 * **Advanced functions with rclone:**(Swift protocol) [Advanced tool: rclone](./using_allas/rclone.md)
 * **A wide range of functionalities:**(Swift protocol) [Swift client](./using_allas/swift_client.md)
 * **S3 client and persistent Allas connections:** (S3 protocol) [S3 client](./using_allas/s3_client.md#s3cmd-with-supercomputers)
