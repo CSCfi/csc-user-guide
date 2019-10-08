@@ -33,9 +33,9 @@ In the CSC computing environment, Allas should be used to store any data that ne
 
 2. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. The instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
 
-3. To access Allas with command line commands, client software supporting the _Swift_ or _S3_ protocol is required. This is the most flexible way to access Allas, but it requires more effort from than other access methods. Instructions to use a command line client: [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-csc-computing-environment-and-other-linux-platforms).
+3. To access Allas with command line commands, client software supporting the _Swift_ or _S3_ protocol is required. This is the most flexible way to access Allas, but it requires more effort from than other access methods. Instructions to use a command line client: [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
 
-4. To access Allas with a GUI client, a suitable GUI client is required. The client needs to be capable to use the _Swift_ or _S3_ access protocol. Instructions to use a GUI client: [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-and-mac).
+4. To access Allas with a GUI client, a suitable GUI client is required. The client needs to be capable to use the _Swift_ or _S3_ access protocol. Instructions to use a GUI client: [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac).
 
 See also the [common Use cases](./using_allas/common_use_cases.md).
 
