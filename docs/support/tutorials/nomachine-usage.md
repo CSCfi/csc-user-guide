@@ -5,7 +5,7 @@ connection to CSC and how to further tailor the settings.
 
 [TOC]
 
-TODO: add video of the steps below in here.
+A short video will appear in here.
 
 ## Why use NoMachine at all?
 
