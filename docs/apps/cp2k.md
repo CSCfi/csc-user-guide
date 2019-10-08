@@ -30,7 +30,7 @@ utilize all the cores you request in the batch script.
 
 ```
 #!/bin/bash
-#SBATCH -t 00:10:00
+#SBATCH --time=00:10:00
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=2GB
