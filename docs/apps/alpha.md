@@ -26,6 +26,7 @@
 * [Minimap2](minimap2.md) Short read aligner
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows

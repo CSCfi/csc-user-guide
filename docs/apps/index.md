@@ -67,4 +67,4 @@
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
 ## Miscellaneous
-
+* [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
