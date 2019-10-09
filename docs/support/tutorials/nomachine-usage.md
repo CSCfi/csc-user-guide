@@ -62,7 +62,7 @@ If something is not working, before contacting ServiceDesk, please check if your
 
 - To get rid of the scroll bars, maximise your NX window and select the 1:1 icon (Resize remote screen) from the "peel menu".
 
-- The default font in the terminal is ugly and small. To improve, start gnome-terminal (write `gnome-terminal` on the command line) as the first thing, when you have a terminal in either Taito or Sisu. The font is then resizable on the fly.
+- The default font in the terminal is ugly and small. To improve, start gnome-terminal (write `gnome-terminal` on the command line) as the first thing, when you have a terminal in either Taito or Puhti. The font is then resizable on the fly.
 
 - In Windows, if you have problems in the installation, try disabling "direct draw" from the advanced settings.
 
