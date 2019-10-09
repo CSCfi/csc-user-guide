@@ -28,6 +28,7 @@
 
 ## Chemistry
 
+* [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
