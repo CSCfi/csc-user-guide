@@ -30,7 +30,7 @@ To load a module for a stable version of Julia, use the following command
 $ module load julia
 ```
 
-To use the pre-compiled binaries, load the corresponding module with
+If you need to install and use ARPACK package, it is recommended to use pre-compiled binaries instead.
 
 ```bash
 $ module load julia/1.1.1-pre-compiled
