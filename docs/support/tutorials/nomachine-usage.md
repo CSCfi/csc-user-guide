@@ -52,7 +52,6 @@ Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https:/
 ## Recommended tips
 
 1.   To get rid of the scroll bars at the edges of your screen take the mouse to the upper right corner (peel menu) and click "resize remote screen".
-2.   To improve cognitive ergonomy, start a `gnome-terminal` in the fluxbox terminal as the first thing, once logged in Taito/Puhti/... It looks nicer and you can change font size (ctrl-+)
 
 ## Known issues
 
