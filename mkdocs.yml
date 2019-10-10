@@ -49,9 +49,9 @@ nav:
        - Home: cloud/rahti/index.md
        - Introduction:
          - Background: cloud/rahti/introduction/background.md
-         - Technical maturity: cloud/rahti/introduction/technical_maturity.md
+         # - Technical maturity: cloud/rahti/introduction/technical_maturity.md
          - Getting access: cloud/rahti/introduction/access.md
-         - Billing: cloud/rahti/introduction/billing.md
+         # - Billing: cloud/rahti/introduction/billing.md # Uncomment when billing is enabled
        - Usage:
          - Getting started: cloud/rahti/usage/getting_started.md
          - Projects and quota: cloud/rahti/usage/projects_and_quota.md
@@ -63,11 +63,11 @@ nav:
          - Utility objects: cloud/rahti/tutorials/advanced_tutorial.md
          - Design patterns: cloud/rahti/tutorials/patterns.md
        - Template documentation: cloud/rahti/template-docs.md
-       - Contact: cloud/rahti/contact.md
+       # - Contact: cloud/rahti/contact.md
        - External documentation: cloud/rahti/ext_docs.md
-       - Agreements:
-         - Terms of Use: cloud/rahti/agreements/terms_of_use.md
-         - Service Level Agreement: cloud/rahti/agreements/sla.md
+       # - Agreements:
+       #   - Terms of Use: cloud/rahti/agreements/terms_of_use.md
+       #   - Service Level Agreement: cloud/rahti/agreements/sla.md
   - Support:
      - Tutorials: support/tutorials.md
      - Contact: support/contact.md
