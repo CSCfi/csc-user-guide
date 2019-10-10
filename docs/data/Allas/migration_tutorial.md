@@ -322,9 +322,9 @@ Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
+</pre>
 
-
-# Migration example 3: Uploading large files from Taito to allas <a name="e2"></a>
+# Migration example 3: Uploading large files from Taito to allas <a name="e3"></a>
 
 In the previous two examples the actual amount of data was rether moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
 of the token based Allas authentiication.
