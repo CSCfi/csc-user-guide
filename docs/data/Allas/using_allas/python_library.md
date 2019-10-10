@@ -23,7 +23,7 @@ This page includes Python scripts for the following operations:
 ## Create a connection
 
 This Python script creates a connection to the server:
-```bash
+```python
 from keystoneauth1 import session
 from keystoneauth1.identity import v3
 import swiftclient
@@ -50,7 +50,7 @@ conn = swiftclient.Connection(
 
 Alternatively, you can enter the information directly in the script from the downloaded RC file:
 
-```bash
+```python
 import swiftclient
 
 _authurl = 'https://pouta.csc.fi:5001/v3'
@@ -91,7 +91,7 @@ For further information of *Keystone authentication*, see:
 
 Create a new bucket using the following script:
 
-```bash
+```python
 bucket_name='snakebucket'
 conn.put_container(bucket_name)
 ```
@@ -101,7 +101,7 @@ conn.put_container(bucket_name)
 
 Upload an object called `my_snake.txt` to the bucket `snakebucket`:
 
-```bash
+```python
 object_name='my_snake.txt'
 with open(object_name, 'r') as f:
     conn.put_object(bucket_name, object_name,
@@ -113,7 +113,7 @@ with open(object_name, 'r') as f:
 ## List buckets and objects
 
 List all buckets belonging to a project:
-```bash
+```python
 resp_headers, containers = conn.get_account()
 
 for container in containers:
@@ -121,7 +121,7 @@ for container in containers:
 ```
 
 And all objects belonging to a bucket:
-```bash
+```python
 for info in conn.get_container('snakebucket')[1]:
     print('{0}\t{1}\t{2}'.format(info['name'], info['bytes'], info['last_modified']))
 ```
@@ -131,18 +131,18 @@ for info in conn.get_container('snakebucket')[1]:
 
 Download an object using the following script:
 
-```bash
+```python
 my_obj = conn.get_object(bucket_name, object_name)[1]
 with open('new_name_for_file.txt', 'w') as f:
     f.write(my_obj)
 ```
 
 **Please note:** If you get the error
-```bash
+```python
 TypeError: write() argument must be str, not bytes
 ```
 add the condition
-```bash
+```python
 if type(my_obj)==bytes:
     my_obj = my_obj.decode('utf-8')
 ```
@@ -152,13 +152,13 @@ before opening the file.
 ## Remove buckets and objects
 
 Delete a bucket using the following script:
-```bash
+```python
 conn.delete_container(bucket_name)
 ```
 
 **Note:** Only empty buckets can be removed.
 
 Remove an object:
-```bash
+```python
 conn.delete_object(bucket_name, 'my_snake.txt')
 ```
