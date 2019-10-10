@@ -11,7 +11,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | a-publish | Upload a file to Allas into a bucket that allows public access over the internet |
 | a-flip | Upload a file temporarily to Allas into a bucket that allows public access over the internet |
 | a-get | Download a stored dataset (object) from Allas |
-| a-find | Search and locate data uploaded with *a_put* |
+| a-find | Search and locate data uploaded with *a-put* |
 | a-delete | Delete an object in Allas |
 | a-info | Display information about an object in Allas |
 
