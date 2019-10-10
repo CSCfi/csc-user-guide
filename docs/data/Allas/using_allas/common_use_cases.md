@@ -21,8 +21,9 @@ Sharing data, e.g. datasets or research results, is easy in the object storage. 
  
 The data can be accessed and shared in a variety of ways:
  
-* **Private - default:** By default, if not specified otherwise, the contents of buckets can only be accessed by authenticated members of the project. **Private**/**Public** settings can be managed using
-	* [Web client](./web_client.md#view-objects-via-internet)
+
+* **Private - default:** By default, if you do not specify anything else, contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
+	* [Web client](./web_client.md#view-objects-via-the-internet)
 	* [Swift client](./swift_client.md#temp-urls)
 	* [S3 client](./s3_client.md#s3cmd-and-public-objects)
  
