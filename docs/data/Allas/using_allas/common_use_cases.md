@@ -10,7 +10,7 @@ To use the computing environment in Taito or Puhti, you need to use the open-sou
 
 
 
-* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_get](./a_commands.md#a-get-retrieves-the-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
+* **Copying data from object storage to Lustre (stage-in):** You need to copy data to the parallel file system Lustre before computing. To download objects from Allas we recommend [a_get](./a_commands.md#a-get-retrieves-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets).
 
 * **Copying data from Lustre to object storage (stage-out):** After computation you should copy the files to Allas. To upload the data to Allas we recommend [a_put](./a_commands.md#a-put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects). 
 
