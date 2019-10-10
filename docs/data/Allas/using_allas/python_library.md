@@ -1,14 +1,12 @@
 
-# Python library
+# Using Allas with Python
 
-This chapter gives guidance for using Allas with **Python**. The instructions includes some commonly used basic operations but feel free to discover more.
-
-CSC instructions for how to install Python and the required libraries can be found from:  
+CSC's instructions for installing Python and which libraries are required:  
 [https://research.csc.fi/pouta-install-client](https://research.csc.fi/pouta-install-client).
 
-Download the **OpenStack RC File v3** as guided in the last chapter *3.4.1.3 Configure your terminal environment for OpenStack*.
+Download the **OpenStack RC File v3** as instructed in the last chapter *3.4.1.3 Configure your terminal environment for OpenStack*.
 
-The **Python pip libraries** needed for the examples below are:  
+The **Python pip libraries** required for the examples:  
  *python-keystoneclient* and *python-swiftclient*.
 
 This page includes Python scripts for the following operations:
@@ -22,13 +20,10 @@ This page includes Python scripts for the following operations:
 | Download an object |
 | Remove buckets and objects |
 
-&nbsp; 
-
 ## Create a connection
 
 This Python script creates a connection to the server:
-
-```bash
+```python
 from keystoneauth1 import session
 from keystoneauth1.identity import v3
 import swiftclient
@@ -53,9 +48,9 @@ conn = swiftclient.Connection(
 )
 ```
 
-Alternatively, you can write the information directly to the script from the downloaded RC file:
+Alternatively, you can enter the information directly in the script from the downloaded RC file:
 
-```bash
+```python
 import swiftclient
 
 _authurl = 'https://pouta.csc.fi:5001/v3'
@@ -78,7 +73,7 @@ conn = swiftclient.Connection(
 ```
 
   
-In the example above:
+In the above example:
 
 | | | |
 |-|-|-|
@@ -92,26 +87,21 @@ For further information of *Keystone authentication*, see:
 [https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html) 
 
 
-&nbsp; 
-
 ## Create a bucket
 
-You can create a new bucket with script:
+Create a new bucket using the following script:
 
-```bash
+```python
 bucket_name='snakebucket'
 conn.put_container(bucket_name)
 ```
 
-&nbsp; 
-
-
 
 ## Upload an object
 
-Uploading an object called "my_snake.txt" to bucket "snakebucket" can be done with script:
+Upload an object called `my_snake.txt` to the bucket `snakebucket`:
 
-```bash
+```python
 object_name='my_snake.txt'
 with open(object_name, 'r') as f:
     conn.put_object(bucket_name, object_name,
@@ -119,63 +109,56 @@ with open(object_name, 'r') as f:
                     content_type='text/plain')
 ```
 
-&nbsp; 
-
 
 ## List buckets and objects
 
-You can list all the buckets belonging to the project with the following script:
-
-```bash
+List all buckets belonging to a project:
+```python
 resp_headers, containers = conn.get_account()
 
 for container in containers:
    print(container)
 ```
 
-And all the objects belonging to a bucket:
-
-```bash
+And all objects belonging to a bucket:
+```python
 for info in conn.get_container('snakebucket')[1]:
     print('{0}\t{1}\t{2}'.format(info['name'], info['bytes'], info['last_modified']))
 ```
 
-&nbsp; 
-
 
 ## Download an object
 
-Yoy can download an object with script:
+Download an object using the following script:
 
-```bash
+```python
 my_obj = conn.get_object(bucket_name, object_name)[1]
 with open('new_name_for_file.txt', 'w') as f:
     f.write(my_obj)
 ```
 
-**Please note:** If you get error:
-```bash
+**Please note:** If you get the error
+```python
 TypeError: write() argument must be str, not bytes
 ```
-add condition:
-```bash
+add the condition
+```python
 if type(my_obj)==bytes:
     my_obj = my_obj.decode('utf-8')
 ```
 before opening the file.
 
-&nbsp; 
-
 
 ## Remove buckets and objects
 
-Deleting a bucket can be done with script:
-```bash
+Delete a bucket using the following script:
+```python
 conn.delete_container(bucket_name)
 ```
+
 **Note:** Only empty buckets can be removed.
 
-You can remove an object with script:
-```bash
+Remove an object:
+```python
 conn.delete_object(bucket_name, 'my_snake.txt')
 ```

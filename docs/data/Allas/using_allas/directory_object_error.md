@@ -1,20 +1,17 @@
 
 # Directory object error
 
-There are no real directories in Allas. Some client software incorrectly want to create zero sized objects in Allas and attach metadata like
-
+There are no actual directories in Allas. Some client software may incorrectly create zero-sized objects and metadata or add a slash character at the end of the name.
 ``` bash
 Content Type: application/directory
 Content Type: application/x-directory
 Content Type: binary/octet-stream
 ```
+**That does not make it a directory.**
 
-to them or add slash character at the end of the name. **That does not make them a directory.**
+Such software is e.g. Cyberduck, Nextcloud and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use _s3cmd_.
 
-Such software are for instance CyberDuck, Nextcloud and s3fuse. This makes sense only when all users using that data use similar tools and especially do not use s3cmd.
-
-For instance, a CyberDuck uploaded directory structure
-
+For instance, a Cyberduck-uploaded directory structure
 ```
 data4.dat
 mydata
@@ -23,8 +20,7 @@ mydata
 └── subdir
     └── data3.dat
 ```
-
-listed with s3cmd looks like this
+listed with s3cmd:
 
 ``` bash
 $ s3cmd ls -r s3://idev1clitest/
@@ -37,7 +33,7 @@ ls -r s3://idev1clitest/
 2019-08-20 07:22     10240   s3://idev1clitest/mydata/subdir/data3.dat
 ```
 
-There are zero sized objects mydata and mydata/subdir. The problem those extra objects cause is that when trying to download that structure with s3cmd the zero sized object is downloaded to a file which then prevents creating a directory with the same name and subsequently also prevents downloading the files inside that directory:
+There are zero-sized objects mydata and _mydata/subdir_. The problem this kind of extra objects cause is that when trying to download the structure with s3cmd, the zero-sized object is downloaded to a file, preventing the creation of a directory with the same name, and subsequently also preventing downloading the files inside the directory:
 
 ``` bash
 $ s3cmd get -r s3://idev1clitest/
@@ -53,5 +49,4 @@ ERROR: Skipping ./mydata/subdir/data3.dat: Not a directory
 $
 ```
 
-You can download such hierarchy with s3 by first creating each local directory and downloading then files by directory level.
-
+You can download a hierarchy of this kind with _s3_ by first creating each local directory and then downloading the files by the directory level.
