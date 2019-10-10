@@ -12,10 +12,11 @@ The new Puhti server, that is replacing Taito, does not provide permanent storag
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
-This tutorial provides two examples of moving data first from Taito to Allas and then from Allas to Puhti.
+This tutorial provides tree examples of moving data first from Taito to Allas and then from Allas to Puhti.
 
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
+3.   [The third example](#ex3) focuses in uploading large files from Taito to Allas 
 
 The first approach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
 the second option (rclone) is good for cases where the data will be use outside CSC too.
@@ -321,3 +322,20 @@ Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
+
+
+# Migration example 3: Uploading large files from Taito to allas <a name="e2"></a>
+
+In the previous two examples the actual amount of data was rether moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
+of the token based Allas authentiication.
+
+I this example we use a-put to upload se set of large files from Taito to allas. In this case we use taito-shell as a platform for runnig the process.
+
+First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
+we have two options:
+
+1. Using NoMachine virtual desktop to connect Taito shell
+2. Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+
+
+
