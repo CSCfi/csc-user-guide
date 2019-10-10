@@ -382,8 +382,18 @@ The difference between these two commands is that rclone will be able to start c
  
 _a-put_ command on the other hand, utilizes the active_token process launched by the allas-conf. This active_token process generates a new authentication token befor the the old one has expired. a-put is able to switch to use the new token and thus it will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
  
- 
- 
+I can now leave the session running in the background by pressing: _Ctrl-a d_.
+
+Now I can logout from Taito, but the screen session in taito-login3 and the taito-shell session within it is preserved.
+
+To reattach to this session, I first connect to the Taito login node where the screen session is running. For example:
+```text
+ssh taito-login3.csc.fi
+```
+Then,  I reattach the screen session with command:
+```
+screen -R
+``` 
 
 
 
