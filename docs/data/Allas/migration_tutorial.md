@@ -326,10 +326,10 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 
 # Migration example 3: Uploading large files from Taito to Allas <a name="e3"></a>
 
-In the previous two examples the actual amount of data was rether moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
-of the token based Allas authentiication.
+In the previous two examples the actual amount of data was rather moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
+of the token based Allas authentication.
 
-I this example we use _a-put_ to upload a set of large files from Taito to Allas. In this case we use _taito-shell_ as a platform for runnig the process but you could use taito login nodes too.
+In this example we use _a-put_ to upload a set of large files from Taito to Allas. We use _taito-shell_ as a platform for running the process but you could use login nodes of Taito too.
 
 First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
 we have two options:
@@ -352,7 +352,7 @@ allas-conf
 ```
 allas-conf woks here just like in the previous examples.
 
-Then I move to my_data directory where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in these dirctories: 
+Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
 <pre>
 [kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
@@ -365,23 +365,23 @@ Then I move to my_data directory where I have a set subdirectories (50, 90, 100)
 -rw-rwxr-x 1 biosci csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
-Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is noyt used, _a-put_ does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
+Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, _a-put_ does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
 
-Next I launch the upload process. In this case I don't use the default bukect name but we assign the name to be _2000136-uniref_
+Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
 
 ```text
  a-put -b  2000136-uniref -nc  */*.gz
 ```
-This command starts loading the files, listed above, to Allas.
+This command starts loading the files, listed above, to Allas. You couls
 
 I could launch the same upload alternative with _rclone copy_:
 
 ```text
 rclone copy */*.gz allas:2000136-uniref
 ```
-The difference between these two commands is that rclone will be able to start copyting a new file, only as long as the authentication token, that was used when the command was launced, is valid. Thus if the total process tekes longer that 3 hours the new upload processes fail and last files will not be copied to Allas.
+The difference between these two commands is that rclone will be able to start copying a new file, only as long as the authentication token, that was used when the command was launced, is valid. Thus if the total process takes longer that 3 hours the new upload processes fail and last files will not be copied to Allas.
  
-_a-put_ command on the other hand, utilizes the active_token process lauched by the allas-conf. This active_token process generates a new authentication token befor the the old one has expired. a-put is able to switch to use the new token and thus it will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
+_a-put_ command on the other hand, utilizes the active_token process launched by the allas-conf. This active_token process generates a new authentication token befor the the old one has expired. a-put is able to switch to use the new token and thus it will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
  
  
  
