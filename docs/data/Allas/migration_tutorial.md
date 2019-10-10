@@ -345,6 +345,13 @@ ssh taito-login3.csc.fi
 screen
 sinteractive
 ```
+To use Allas I first load _allas module_ and use `allas-conf` to establish the connection to Allas.
+```text
+module load allas
+allas-conf
+```
+Alls conf woks here just like in the previous examples.
+
 Then I move to my_data directory wheere I have a set subdirectries(50, 90, 100) and list the gzip-compressed files in these dirctories: 
 
 <pre>
@@ -358,14 +365,31 @@ Then I move to my_data directory wheere I have a set subdirectries(50, 90, 100) 
 -rw-rwxr-x 1 biosci csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
-Most of the modern non-ascii file formats (i.e. binary data) that are used to store large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, in this case a-put does not accept directories, only individueal files.
+Most of the modern non-ascii file formats (i.e. binary data) that are used to store large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is noyt used, _a-put_ does not accept directories, only individueal files. Because of that is is good to run a check, like the _ls -lh_ command above, to check that input  will contain only files.
 
-To use Allas I first load allas module and use `allas-conf` to establish the connection to Allas.
+Next we launch the upload process. In this case we don't use the default bukect name but we assifn the name to be _2000136-uniref_
+
 ```text
-module load allas
-allas-conf
+ a-put -b  2000136-uniref -nc  */*.gz
 ```
-Alls conf woks here just like in the previous examples.
+This command starts loading the files, listed above, to Allas.
+
+You could launch the same upload alternative with rclone copy
+
+```text
+rclone copy */*.gz allas:2000136-uniref
+```
+The difference with the two commands is that rclone will be able to start copyting a new file, only as long as the authentication token that was used when the command was launced, is valid. Thus if the total process tekes longer that 3 hours the new upload processed fail and last files will not be copied to Allas.
+ 
+a-put command  on the other hand, utilizes the active_token process lauched by the allas-conf. This active_token process launches a new authentication token befor the the old one has expired. This way a-put will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
+ 
+ 
+ 
+
+
+
+
+
 
 
 
