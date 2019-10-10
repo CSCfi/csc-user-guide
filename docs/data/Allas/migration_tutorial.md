@@ -334,9 +334,8 @@ In this example we use _a-put_ to upload a set of large files from Taito to Alla
 First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
 we have two options:
 
-1.     Using [NoMachine virtual desktop](https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3) to connect Taito shell
-
-2.     Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+1.    Using [NoMachine virtual desktop](https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3) to connect Taito shell
+2.    Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
 
 In this example I have used the second alternative and opened the connection to taito-shell with commands:
 
