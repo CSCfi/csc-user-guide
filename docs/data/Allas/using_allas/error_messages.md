@@ -30,7 +30,7 @@ QuotaExceeded
 
 ### HTTP status code 400
 
-THe file is too large. See [Swift client - Files larger than 5 GB](./swift_client.md#files-larger-than-5-gb){:target="_blank}.
+THe file is too large. See [Swift client - Files larger than 5 GB](./swift_client.md#files-larger-than-5-gb).
 ```bash
 EntityTooLarge
 ```
