@@ -94,14 +94,14 @@ storage with a default quota of 50 GB. It is located under `/projappl/<project>`
 More detailed information about storage can be found [here](../../computing/disk.md).
 
 
-## Moving data 
+## Moving data from Taito to Puhti
 
 Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) you have copy the data elsewhere before 1.1. 2020.
 
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito.
 The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
 
-*    [Data migration tutorials](../../data/Allas/using_allas/migration_tutoria.md)
+*    [Data migration tutorials](../../data/Allas/migration_tutoria.md)
 *    [Allas user guide](../../data/Allas/index.md)
 
 
