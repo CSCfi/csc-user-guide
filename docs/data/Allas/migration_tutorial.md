@@ -2,7 +2,7 @@
 
 Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want 
 to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) 
-you have copy the data elsewhere before 1.1. 2020. 
+you have to copy the data elsewhere before 1.1. 2020. 
 
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito. 
 
