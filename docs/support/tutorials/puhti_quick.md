@@ -101,7 +101,7 @@ Taito.csc.fi cluster will be closed at the end of 2019. If you have some data th
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito.
 The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
 
-*    [Data migration tutorials](../../data/Allas/migration_tutoria.md)
+*    [Data migration tutorials](../../data/Allas/migration_tutorial.md)
 *    [Allas user guide](../../data/Allas/index.md)
 
 
