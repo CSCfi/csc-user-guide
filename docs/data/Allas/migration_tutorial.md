@@ -334,8 +334,50 @@ I this example we use a-put to upload se set of large files from Taito to allas.
 First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
 we have two options:
 
-1. Using NoMachine virtual desktop to connect Taito shell
-2. Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+1.     Using NoMachine virtual desktop to connect Taito shell
+
+2.     Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+
+In this example I have used the second alternative and opened the connection to taito-shell with commands:
+
+```text
+ssh taito-login3.csc.fi
+screen
+sinteractive
+```
+Then I move to my_data directory wheere I have a set subdirectries(50, 90, 100) and list the gzip-compressed files in these dirctories: 
+
+<pre>
+[kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
+[kkayttaj@c311:genomes> <b>ls -lh */*.gz</b>
+-rw-rwxr-x 1 biosci csc  45G May  8 12:57 100/uniref100.fasta.gz
+-rw-rwxr-x 1 biosci csc  61G Jun  5 13:09 100/uniref100.xml.gz
+-rw-rwxr-x 1 biosci csc 589M Jun  5 13:09 50/uniref50.fasta.gz
+-rw-rwxr-x 1 biosci csc  17G Jun  5 13:09 50/uniref50.xml.gz
+-rw-r-xr-x 1 biosci csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
+-rw-rwxr-x 1 biosci csc  33G Jun  5 13:09 90/uniref90.xml.gz
+</pre>
+
+Most of the modern non-ascii file formats (i.e. binary data) that are used to store large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, in this case a-put does not accept directories, only individueal files.
+
+To use Allas I first load allas module and use `allas-conf` to establish the connection to Allas.
+```text
+module load allas
+allas-conf
+```
+Alls conf woks here just like in the previous examples.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
