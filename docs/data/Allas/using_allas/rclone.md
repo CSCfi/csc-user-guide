@@ -31,11 +31,11 @@ A more extensive list can be found on the [Rclone manual pages]( https://rclone.
 The first step is to authenticate to a project in Allas:
 ```
 module load allas
-allas_conf
+allas-conf
 ```
 
-The `allas_conf` command asks for your CSC password (the same you use to login to CSC servers). It lists
-your projects in Allas and asks you to define the project that will be used. Then _allas_conf_ generates a rclone configuration file for the Allas service and autheticates the connection to the selected project. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to three hours. However, you can refresh the authentication at any time by running _allas_conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
+The `allas-conf` command asks for your CSC password (the same you use to login to CSC servers). It lists
+your projects in Allas and asks you to define the project that will be used. Then _allas-conf_ generates a rclone configuration file for the Allas service and autheticates the connection to the selected project. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to three hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
 
 ## Create buckets and upload objects
 
