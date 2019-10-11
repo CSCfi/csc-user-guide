@@ -16,7 +16,7 @@ This tutorial provides tree examples of moving data first from Taito to Allas an
 
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
-3.   [The third example](#ex3) focuses in uploading large files from Taito to Allas 
+3.   [The third example](#e3) focuses in uploading large files from Taito to Allas 
 
 The first approach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
 the second option (rclone) is good for cases where the data will be use outside CSC too.
