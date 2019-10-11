@@ -12,7 +12,8 @@ Unlike data upload tools such as `a-put`, `s3cmd put` or `rclone copy`, allas-ba
 
 In order to use this tool, first open a connection to Allas:
 ```
-allas_conf
+module load allas
+allas-conf
 ```
 A connection remains open for three hours.
 
