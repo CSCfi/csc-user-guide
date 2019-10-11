@@ -408,8 +408,8 @@ span.input-group-btn {
 
 .wm-toc-lev1 > .wm-toc-text { padding-left: 14px; }
 .wm-toc-lev2 > .wm-toc-text { padding-left: 28px; background-color: rgb(227,227,227); color: rgb(64,64,64);}
-.wm-toc-lev3 > .wm-toc-text { padding-left: 42px; }
-.wm-toc-lev4 > .wm-toc-text { padding-left: 56px; }
+.wm-toc-lev3 > .wm-toc-text { padding-left: 42px; background-color: rgb(227,227,227); color: rgb(64,64,64);}
+.wm-toc-lev4 > .wm-toc-text { padding-left: 56px; background-color: rgb(227,227,227); color: rgb(64,64,64);}
 
 /* .wm-toc-lev1 + .wm-page-toc { margin-left: 14px; } */
 /* .wm-toc-lev2 + .wm-page-toc { margin-left: 28px; } */
