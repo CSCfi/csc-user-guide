@@ -31,16 +31,16 @@ module load allas
 ```
 Then open a connection to Allas:
 ```text
-allas_conf
+allas-conf
 ```
-The connection remains open for three hours. You can rerun the _allas_conf_ command at any time
+The connection remains open for three hours. You can rerun the _allas-conf_ command at any time
 to extend the validity of the connection for three more hours or to switch to another Allas 
 project. 
 
-By default, *allas_conf* lists your projects that have access to Allas, but if you know the name of the project, you
+By default, *allas-conf* lists your projects that have access to Allas, but if you know the name of the project, you
 can give it as an argument:
 ```text
-allas_conf project_123456
+allas-conf project_123456
 ```
 Note that the Allas project does not need to be the same as the project you are using in Puhti or Taito.
 

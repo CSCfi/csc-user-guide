@@ -93,7 +93,7 @@ You need to verify all settings in the created file.
 Configure `s3cmd` in Taito or Puhti:
 ```
 module load allas
-source /appl/opt/allas_conf --mode s3cmd
+allas-conf --mode s3cmd
 ```
 
 The configuration process asks first your CSC password. Then it lists your Allas projects and asks you to define the name of the project to be used. During the next configuration steps, the system asks you for values that will be used for the Allas connection. In most cases, you can accept the proposed default values, but there are two exceptions:

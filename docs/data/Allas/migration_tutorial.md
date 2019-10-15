@@ -2,7 +2,7 @@
 
 Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want 
 to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) 
-you have copy the data elsewhere before 1.1. 2020. 
+you have to copy the data elsewhere before 1.1. 2020. 
 
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito. 
 
@@ -12,10 +12,11 @@ The new Puhti server, that is replacing Taito, does not provide permanent storag
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
-This tutorial provides two examples of moving data first from Taito to Allas and then from Allas to Puhti.
+This tutorial provides tree examples of moving data first from Taito to Allas and then from Allas to Puhti.
 
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
+3.   [The third example](#e3) focuses in uploading large files from Taito to Allas 
 
 The first approach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
 the second option (rclone) is good for cases where the data will be use outside CSC too.
@@ -321,3 +322,98 @@ Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
+</pre>
+
+# Migration example 3: Uploading large files from Taito to Allas <a name="e3"></a>
+
+In the previous two examples the actual amount of data was rather moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
+of the token based Allas authentication.
+
+In this example we use _a-put_ to upload a set of large files from Taito to Allas. We use _taito-shell_ as a platform for running the process but you could use login nodes of Taito too.
+
+First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
+we have two options:
+
+1.    Using [NoMachine virtual desktop](https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3) to connect Taito shell
+2.    Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+
+In this example I have used the second alternative and opened the connection to taito-shell with commands:
+
+```text
+ssh taito-login3.csc.fi
+screen
+sinteractive
+```
+To use Allas I first load _allas module_ and use `allas-conf` to establish the connection to Allas.
+```text
+module load allas
+allas-conf
+```
+allas-conf woks here just like in the previous examples.
+
+Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
+
+<pre>
+[kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
+[kkayttaj@c311:genomes> <b>ls -lh */*.gz</b>
+-rw-rwxr-x 1 biosci csc  45G May  8 12:57 100/uniref100.fasta.gz
+-rw-rwxr-x 1 biosci csc  61G Jun  5 13:09 100/uniref100.xml.gz
+-rw-rwxr-x 1 biosci csc 589M Jun  5 13:09 50/uniref50.fasta.gz
+-rw-rwxr-x 1 biosci csc  17G Jun  5 13:09 50/uniref50.xml.gz
+-rw-r-xr-x 1 biosci csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
+-rw-rwxr-x 1 biosci csc  33G Jun  5 13:09 90/uniref90.xml.gz
+</pre>
+
+Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, _a-put_ does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
+
+Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
+
+```text
+ a-put -b  2000136-uniref -nc  */*.gz
+```
+This command starts loading the files, listed above, to Allas. You couls
+
+I could launch the same upload alternative with _rclone copy_:
+
+```text
+for f in */*.gz
+do
+rclone copy $f allas:2000136-uniref
+done
+```
+The difference between these two commands is that rclone will be able to start copying a new file, only as long as the authentication token, that was used when the command was launced, is valid. Thus if the total process takes longer that 3 hours the new upload processes fail and last files will not be copied to Allas.
+ 
+_a-put_ command on the other hand, utilizes the active_token process launched by the allas-conf. This active_token process generates a new authentication token befor the the old one has expired. a-put is able to switch to use the new token and thus it will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
+ 
+I can now leave the session running in the background by pressing: _Ctrl-a d_.
+
+Now I can logout from Taito, but the screen session in taito-login3 and the taito-shell session within it is preserved.
+
+To reattach to this session, I first connect to the Taito login node where the screen session is running. For example:
+```text
+ssh taito-login3.csc.fi
+```
+Then,  I reattach the screen session with command:
+```
+screen -R
+``` 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
