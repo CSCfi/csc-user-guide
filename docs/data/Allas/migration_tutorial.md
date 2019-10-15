@@ -376,7 +376,10 @@ This command starts loading the files, listed above, to Allas. You couls
 I could launch the same upload alternative with _rclone copy_:
 
 ```text
-rclone copy */*.gz allas:2000136-uniref
+for f in */*.gz
+do
+rclone copy $f allas:2000136-uniref
+done
 ```
 The difference between these two commands is that rclone will be able to start copying a new file, only as long as the authentication token, that was used when the command was launced, is valid. Thus if the total process takes longer that 3 hours the new upload processes fail and last files will not be copied to Allas.
  
