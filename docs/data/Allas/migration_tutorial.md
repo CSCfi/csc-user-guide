@@ -356,12 +356,12 @@ Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 10
 <pre>
 [kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
 [kkayttaj@c311:my_data> <b>ls -lh */*.gz</b>
--rw-rwxr-x 1 biosci csc  45G May  8 12:57 100/uniref100.fasta.gz
--rw-rwxr-x 1 biosci csc  61G Jun  5 13:09 100/uniref100.xml.gz
--rw-rwxr-x 1 biosci csc 589M Jun  5 13:09 50/uniref50.fasta.gz
--rw-rwxr-x 1 biosci csc  17G Jun  5 13:09 50/uniref50.xml.gz
--rw-r-xr-x 1 biosci csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
--rw-rwxr-x 1 biosci csc  33G Jun  5 13:09 90/uniref90.xml.gz
+-rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
+-rw-rwxr-x 1 kkayttaj csc  61G Jun  5 13:09 100/uniref100.xml.gz
+-rw-rwxr-x 1 kkayttaj csc 589M Jun  5 13:09 50/uniref50.fasta.gz
+-rw-rwxr-x 1 kkayttaj csc  17G Jun  5 13:09 50/uniref50.xml.gz
+-rw-r-xr-x 1 kkayttaj csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
+-rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
 Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, _a-put_ does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
