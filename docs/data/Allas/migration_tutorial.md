@@ -355,7 +355,7 @@ Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 10
 
 <pre>
 [kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
-[kkayttaj@c311:genomes> <b>ls -lh */*.gz</b>
+[kkayttaj@c311:my_data> <b>ls -lh */*.gz</b>
 -rw-rwxr-x 1 biosci csc  45G May  8 12:57 100/uniref100.fasta.gz
 -rw-rwxr-x 1 biosci csc  61G Jun  5 13:09 100/uniref100.xml.gz
 -rw-rwxr-x 1 biosci csc 589M Jun  5 13:09 50/uniref50.fasta.gz
@@ -369,7 +369,7 @@ Most of the modern non-ascii file formats (i.e. binary data) that are used for l
 Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
 
 ```text
- a-put -b  2000136-uniref -nc  */*.gz
+ a-put -b  2000136-uniref --nc  */*.gz
 ```
 This command starts loading the files, listed above, to Allas. You couls
 
@@ -381,9 +381,6 @@ do
 rclone copy $f allas:2000136-uniref
 done
 ```
-The difference between these two commands is that rclone will be able to start copying a new file, only as long as the authentication token, that was used when the command was launced, is valid. Thus if the total process takes longer that 3 hours the new upload processes fail and last files will not be copied to Allas.
- 
-_a-put_ command on the other hand, utilizes the active_token process launched by the allas-conf. This active_token process generates a new authentication token befor the the old one has expired. a-put is able to switch to use the new token and thus it will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
  
 I can now leave the session running in the background by pressing: _Ctrl-a d_.
 
