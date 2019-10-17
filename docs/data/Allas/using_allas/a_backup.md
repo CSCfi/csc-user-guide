@@ -21,7 +21,7 @@ A connection remains open for three hours.
 
 Operations `allas-backup` can be used for:
 
- - `allas-backup <file_name>`  or `allas-backup add <file_name>`   
+ - `allas-backup <file_or_directory>`  or `allas-backup add <file_or_directory>`   
  	Adds a new backup version (snapshot) of a file or directory in the backup repository.
 
  - `allas-backup list`   

@@ -355,13 +355,13 @@ Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 10
 
 <pre>
 [kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
-[kkayttaj@c311:genomes> <b>ls -lh */*.gz</b>
--rw-rwxr-x 1 biosci csc  45G May  8 12:57 100/uniref100.fasta.gz
--rw-rwxr-x 1 biosci csc  61G Jun  5 13:09 100/uniref100.xml.gz
--rw-rwxr-x 1 biosci csc 589M Jun  5 13:09 50/uniref50.fasta.gz
--rw-rwxr-x 1 biosci csc  17G Jun  5 13:09 50/uniref50.xml.gz
--rw-r-xr-x 1 biosci csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
--rw-rwxr-x 1 biosci csc  33G Jun  5 13:09 90/uniref90.xml.gz
+[kkayttaj@c311:my_data> <b>ls -lh */*.gz</b>
+-rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
+-rw-rwxr-x 1 kkayttaj csc  61G Jun  5 13:09 100/uniref100.xml.gz
+-rw-rwxr-x 1 kkayttaj csc 589M Jun  5 13:09 50/uniref50.fasta.gz
+-rw-rwxr-x 1 kkayttaj csc  17G Jun  5 13:09 50/uniref50.xml.gz
+-rw-r-xr-x 1 kkayttaj csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
+-rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
 Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, _a-put_ does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
@@ -369,7 +369,7 @@ Most of the modern non-ascii file formats (i.e. binary data) that are used for l
 Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
 
 ```text
- a-put -b  2000136-uniref -nc  */*.gz
+ a-put -b  2000136-uniref --nc  */*.gz
 ```
 This command starts loading the files, listed above, to Allas. You couls
 
@@ -381,9 +381,6 @@ do
 rclone copy $f allas:2000136-uniref
 done
 ```
-The difference between these two commands is that rclone will be able to start copying a new file, only as long as the authentication token, that was used when the command was launced, is valid. Thus if the total process takes longer that 3 hours the new upload processes fail and last files will not be copied to Allas.
- 
-_a-put_ command on the other hand, utilizes the active_token process launched by the allas-conf. This active_token process generates a new authentication token befor the the old one has expired. a-put is able to switch to use the new token and thus it will preserve an active connection to Allas as long as the session where allas-conf is launched, stays active.
  
 I can now leave the session running in the background by pressing: _Ctrl-a d_.
 
