@@ -3,7 +3,7 @@
 CSC does not provide a backup service as a free service for its customers. In this chapter, we describe a tool called _allas-backup_
 that can be used to make backup copies of files and directories in Allas. However, this tool does not 
 provide an actual backup service – the data is stored in only one location and one bucket in Allas. This bucket can be
-removed by an authenticated user with a single command, irreversibly erasing all backups. 
+removed by an authenticated user with a single command, irreversibly erasing all backups.  
 
 The _allas-backup_ tool provides an easy-to-use command line interface for the [restic](https://restic.readthedocs.io/) backup tool.
 _allas-backup_ automatically creates a project specific backup repository in the Allas storage service at CSC and uses it for cumulative backups.
