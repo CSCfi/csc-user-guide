@@ -93,7 +93,7 @@ Please define the Project ID of the project to be used:
 
 allas connection configured successfully.
 </pre>
-Allas-conf procedure above defines an Allas-connection that is valid for next three hours. 
+Allas-conf procedure above defines an Allas-connection that is valid for next eight hours. 
 Next I go to the _zebrafish_ directory.
 ```text
 cd $WRKDIR/genomes/zebrafish
@@ -251,7 +251,7 @@ Please define the Project ID of the project to be used:
 
 allas connection configured successfully.
 </pre>
-Allas-conf procedure above defines an Allas-connection that is valid for next three hours. 
+Allas-conf procedure above defines an Allas-connection that is valid for next eightt hours. 
 Next I go to the _zebrafish_ directory.
 ```text
 cd $WRKDIR/genomes/zebrafish

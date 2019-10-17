@@ -33,8 +33,8 @@ Then open a connection to Allas:
 ```text
 allas-conf
 ```
-The connection remains open for three hours. You can rerun the _allas-conf_ command at any time
-to extend the validity of the connection for three more hours or to switch to another Allas 
+The connection remains open for eight hours. You can rerun the _allas-conf_ command at any time
+to extend the validity of the connection for eight more hours or to switch to another Allas 
 project. 
 
 By default, *allas-conf* lists your projects that have access to Allas, but if you know the name of the project, you

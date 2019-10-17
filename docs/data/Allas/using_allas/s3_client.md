@@ -4,7 +4,7 @@
 This chapter describes how to use the Allas object storage service with the **s3cmd** command line client. This client uses
 the _S3_ protocol that differs from the _Swift_ protocol used in the [rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. Thus, data that has been uploaded to Allas using these tools should not be downloaded with s3cmd and vice versa.
 
-From the user perspective, one of the main differences between s3cmd and Swift based tools is that rclone, swift and a-tools connections remain valid for three hours at a time but with s3cmd, the connection remains open permanently. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
+From the user perspective, one of the main differences between s3cmd and Swift based tools is that rclone, swift and a-tools connections remain valid for eight hours at a time but with s3cmd, the connection remains open permanently. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
 
 In the object storage, files are stored as objects in buckets. Buckets resemble folders in normal file systems. There are, however, some differences. Firstly, the file structure in the object storage is flat: you cannot create a bucket inside another bucket. Secondly, all bucket names must be unique throughout the object storage system. You cannot use a bucket name that is already used by you or some other object storage user. See the [checklist](../introduction.md#naming-buckets) for how to name a bucket.
 
