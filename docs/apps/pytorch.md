@@ -6,6 +6,7 @@ Machine learning framework for Python.
 
 The `pytorch` module is available on Puhti only.  Currently supported PyTorch versions:
 
+- 1.3.0
 - 1.2.0
 - 1.1.0
 - 1.0.1
@@ -58,7 +59,7 @@ Example batch script for reserving one GPU and 10 CPUs in a single node:
 #SBATCH --time=1:00:00
 #SBATCH --gres=gpu:v100:1
 
-module load pytorch/1.2.0
+module load pytorch/1.3.0
 srun python3 myprog.py <options>
 ```
 
