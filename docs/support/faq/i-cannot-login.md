@@ -23,9 +23,9 @@ others:
 
 1. Your account is locked. The most common reasons are:
 
-  1. You have not changed your password for a year.
-  1. We have sent email to you but it bounces back.
-  1. Your account was granted for a fixed period and the time is up.
+ 1. You have not changed your password for a year.
+ 1. We have sent email to you but it bounces back.
+ 1. Your account was granted for a fixed period and the time is up.
 
 You need to contact us to get your account unlocked. Our email address is
 servicedesk@csc.fi.
