@@ -12,8 +12,8 @@ in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until the
 maintenance is completed or the issue is resolved.
 1. Your project does not have access to the service that you are trying to
 login, or the access has expired. Check the services linked to your projects at
-MyCSC. You may need to [add service access for your
-project](../../accounts/how-to-add-service-access-for-project.md) or [create new
+MyCSC. You may want to [add service access for your
+project](../../accounts/how-to-add-service-access-for-project.md) or [create a new
 project](../../accounts/how-to-create-new-project.md).
 
 ## I cannot login to MyCSC
