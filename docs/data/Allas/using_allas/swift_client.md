@@ -233,10 +233,6 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
 
 Note that the above file was uploaded with the _s3cmd client_, and therefore there is additional metadata _S3Cmd-Attrs_ compared to a file uploaded with Swift or S3. _ETag_ is the _hash_ when viewing the file details in the Pouta dashboard.
 
-Remove a metadata field (in this case, _Temp-URL-Key_, which is discussed in more detail in the next section):
-```text
-swift post -m "Temp-URL-Key:"
-```
 
 
 ## Giving another project read and write access to a bucket
