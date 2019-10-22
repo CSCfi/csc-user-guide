@@ -10,7 +10,7 @@ login problems affecting other services:
 1. The service you are trying to login is down or has issues. See notifications
 in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until the
 maintenance is completed or the issue is resolved.
-2. Your project does not have access to the service that you are trying to
+1. Your project does not have access to the service that you are trying to
 login, or the access has expired. Check the services linked to your projects at
 MyCSC. You may need to [add service access for your
 project](../../accounts/how-to-add-service-access-for-project.md) or [create new
@@ -23,9 +23,9 @@ others:
 
 1. Your account is locked. The most common reasons are:
 
-  * You have not changed your password for a year.
-  * We have sent email to you but it bounces back.
-  * Your account was granted for a fixed period and the time is up.
+  1. You have not changed your password for a year.
+  1. We have sent email to you but it bounces back.
+  1. Your account was granted for a fixed period and the time is up.
 
 You need to contact us to get your account unlocked. Our email address is
 servicedesk@csc.fi.
