@@ -1,5 +1,7 @@
 <h1> Applications in alphabetic order</h1>
 <!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
+* [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
+* [ANSYS](ansys.md) ANSYS Academic engineering simulation software software suite
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
@@ -23,6 +25,7 @@
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
+* [LD-DYNA](lsdyna.md) General-purpose finite element program
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MXNet](mxnet.md) Deep learning library for Python
