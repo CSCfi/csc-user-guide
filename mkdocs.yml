@@ -20,7 +20,7 @@ nav:
      - Systems: computing/system.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
-     - Running jobs:
+     - Running jobs: 
         - Getting started: computing/running/getting-started.md
         - Creating a batch job script: computing/running/creating-job-scripts.md
         - Submitting a job: computing/running/submitting-jobs.md
@@ -31,8 +31,8 @@ nav:
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
   - Data:
-     - Allas object storage:
-        - Allas object storage: data/Allas/index.md
+     - Allas object storage: 
+        - Allas object storage: data/Allas/index.md 
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
@@ -46,7 +46,6 @@ nav:
      - By discipline: apps/index.md
   - Support:
      - Tutorials: support/tutorials.md
-     - FAQ: support/faq/index.md
      - Contact: support/contact.md
 theme:
   name: windmill
