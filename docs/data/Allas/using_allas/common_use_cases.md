@@ -31,7 +31,6 @@ The data can be accessed and shared in a variety of ways:
 
  * **Public:** You can also have ACLs granting public read access to the data, which is useful for e.g. sharing public scientific results or public datasets.
  
-* **Temp URLs:** A temp URL is a unique URL for accessing an object. These URLs are time-limited, and the duration can be determined. Anyone can access the object with the URL, but the URL is not feasible to guess. This is a good way to somewhat securely share data to a limited audience that does not need to have personal Allas accounts. Temp URLs are created per object, not per bucket. You can create temp URLs with [Swift](./swift_client.md#temp-urls) or [S3](./s3_client.md#temporary-urls).
 
 ## Static web content
 
