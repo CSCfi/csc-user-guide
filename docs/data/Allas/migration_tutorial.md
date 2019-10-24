@@ -12,7 +12,7 @@ The new Puhti server, that is replacing Taito, does not provide permanent storag
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
-This tutorial provides tree examples of moving data first from Taito to Allas and then from Allas to Puhti.
+This tutorial provides three examples of moving data first from Taito to Allas and then from Allas to Puhti.
 
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
