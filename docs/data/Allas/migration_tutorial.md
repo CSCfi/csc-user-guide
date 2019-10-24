@@ -117,7 +117,7 @@ So in this case the file was uploaded to Allas into bucket:
    _kkayttaj-2001659-taito-WRKDIR_
 as object:
   _genomes/zebrafish/Danio_rerio.GRCz10.fa.zst_ .
-In this case I used the default bucket and object names assigned by _a-put_, but other bucket and object 
+In this case I used the default bucket and object names assigned by `a-put`, but other bucket and object 
 names coulud be defined with command line options `-b`  and `-o`.
 Now command _a-list_ shows that I have one bucket in Allas and that the bucket contains one object.
 <pre>[kkayttaj@c311:zebrafish><b> a-list</b>
@@ -131,7 +131,7 @@ zebrafish directory I first go to the _genomes_ directory:
 ```text
 cd $WRKDIR/genomes
 ```
-and then use _a-put_ to upload the whole zebrafish directory to Allas as one object.
+and then use `a-put` to upload the whole zebrafish directory to Allas as one object.
 ```text
 a-put zebrafish/
 ```
@@ -195,7 +195,7 @@ Total of 3 hits were found in 2 objects
 
 The _a-find_ report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
 two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
-matches only from objects that were uploaded with _a-put_.
+matches only from objects that were uploaded with `a-put`.
 
 Now lets’ download the data to Puhti. This is done with `a-get` command:
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> a-get kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst</b>
@@ -264,7 +264,7 @@ cd $WRKDIR/genomes/zebrafish
 In stead of _a-put_, that was used in the previous example, I now use command `rclone copyto` to copy all the 
 files from the given directory to Allas. In the case of _rclone_ there is no default bucket. In stead I have 
 to define a bucket to be used. This example I use bucket name _2001659-genomes_ and
-define that each object name should have prefix _zebarfish_.
+define that each object name should have prefix _zebrafish_.
 
 <pre>[kkayttaj@c311:genomes><b>rclone copyto zebrafish/ allas:2001659-genomes/zebrafish</b></pre>
 
