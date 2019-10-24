@@ -95,7 +95,7 @@ allas connection configured successfully.
 </pre>
 
 !!! note
-    Remember, that _allas-conf_ gives you access to obects of one project at a time in Allas.
+    Remember, that _allas-conf_ gives you access to objects of one project at a time in Allas.
     
 Allas-conf procedure above defines an Allas-connection that is valid for next eight hours. 
 Next I go to the _zebrafish_ directory.
