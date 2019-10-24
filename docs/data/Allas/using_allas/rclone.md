@@ -30,7 +30,7 @@ A more extensive list can be found on the [Rclone manual pages]( https://rclone.
 ## Authentication
 
 The first step is to authenticate to a project in Allas:
-```
+```text
 module load allas
 allas-conf
 ```
@@ -43,11 +43,11 @@ your projects in Allas and asks you to define the project that will be used. The
 The data in Allas is arranged into containers called buckets. You can consider them top level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets) for how to name a bucket.
 
 In the case of _rclone_, create a bucket:
-```bash
+```text
 rclone mkdir allas:2000620-raw-data
 ```
 Upload a file using the command ```rclone copy```:
-```bash
+```text
 rclone copy file.dat allas:2000620-raw-data/
 ```
 The command above creates an object _file.dat_ in the bucket _2000620-raw-data_.
@@ -59,46 +59,41 @@ The _copy_ and _move_ subcommands only work with files. If you would like to cop
 ## List buckets and objects
 
 List all the buckets belonging to a project:
-```bash
-$ rclone ls allas:
+<pre>$ <b>rclone ls allas:</b>
 0 2019-06-06 14:43:40         0 2000620-raw-data
-```
+</pre>
 
 List the content of a bucket: 
-```bash
-$ rclone ls allas:2000620-raw-data
+<pre>$ <b>rclone ls allas:2000620-raw-data</b>
 677972 file.dat
-```
+</pre>
 
 ## Download objects
 
 Use the same `rclone copy` and `rclone copyto` commands to download a file:
-```bash
+```text
 rclone copy allas:2000620-raw-data/file.dat
 ```
 
 If you include a destination parameter in the download command, rclone creates a directory for the download:
-```bash
+```text
 rclone copy allas:2000620-raw-data/file.dat doh
 ```
 
-```bash
-$ ls doh
-file.dat
-```
+<pre>$ <b>ls doh</b>
+file.dat</pre>
 
-```bash
-$ ls -ld doh
+<pre>$ <b>ls -ld doh</b>
 drwxr-xr-x  3 user  staff  96 Jun  6 14:58 doh
-```
+</pre>
 
 ## Synchronizing a directory
 
 One way of moving data between data Allas and computing environment is synchronization. The diffrerence between copying and synchronizing is that wile copying only adds new objects or files from source to the destination, synchronization can also remove data from the destination, in order to make the destination match the source. This feature makes synchronization very effective but also potentially very dangerous.
 
 For example, a folder named _mydata_ has the following structure:
-```
-$ ls -R mydata
+<pre>
+$ <b>ls -R mydata</b>
 
 mydata/:
 file1.txt  setA  setB
@@ -108,35 +103,33 @@ file2.txt
 
 mydata/setB:
 file3.txt  file4.txt
-```
+</pre>
 
 An example of using _sync_ (note that the destination parameter requires the folder name (_mydata_)):
 
-```bash
+```text
 rclone sync mydata allas:2000620-raw-data/mydata
 ```
 
-```
-$ rclone ls allas:2000620-raw-data
+<pre>$ <b>rclone ls allas:2000620-raw-data</b>
    677972 mydata/file1.txt
     10927 mydata/setA/file2.txt
      1116 mydata/setB/file3.txt
      5075 mydata/setB/file4.txt
-```
+</pre>
 
 Let us assume that we are storing new data (_file5.txt_ and _file6.txt_) in the subdirectory _mydata/setC_ and simultaneously removing the file _mydata/setB/file3.txt_. When the _rclone sync_ command is executed again, the new data is added to Allas andthe  object _mydata/setB/file3.txt_ is removed.
 
-```bash
-rclone sync mydata allas:2000620-raw-data/mydata
+<pre><b>rclone sync mydata allas:2000620-raw-data/mydata</b>
 
-rclone ls allas:2000620-raw-data
+<b>rclone ls allas:2000620-raw-data</b>
    677972 mydata/file1.txt
     10927 mydata/setA/file2.txt
      5075 mydata/setB/file4.txt
      1265 mydata/setC/file5.txt
      4327 mydata/setC/file6.txt
-     
-```
+</pre>
+
 In the examples above, Allas has been used as the destination that is changed. However, the command can be used in the reverse direction as well:
 ```text
 rclone sync mydata allas:2000620-raw-data/mydata mydata
