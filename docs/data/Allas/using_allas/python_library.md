@@ -141,12 +141,12 @@ with open('new_name_for_file.txt', 'w') as f:
 ```python
 TypeError: write() argument must be str, not bytes
 ```
-add the condition
+open the file in binary mode
 ```python
-if type(my_obj)==bytes:
-    my_obj = my_obj.decode('utf-8')
+with open('new_name_for_file.txt', 'bw') as f:
+    f.write(my_obj)
 ```
-before opening the file.
+instead of text mode.
 
 
 ## Remove buckets and objects
