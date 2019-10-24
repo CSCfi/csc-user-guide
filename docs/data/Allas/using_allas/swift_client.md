@@ -233,51 +233,7 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
 
 Note that the above file was uploaded with the _s3cmd client_, and therefore there is additional metadata _S3Cmd-Attrs_ compared to a file uploaded with Swift or S3. _ETag_ is the _hash_ when viewing the file details in the Pouta dashboard.
 
-Remove a metadata field (in this case, _Temp-URL-Key_, which is discussed in more detail in the next section):
-```text
-swift post -m "Temp-URL-Key:"
-```
 
-## Temp URLs
- 
-If you want to share an object in a private (or public) bucket with somebody, you can create a temporary URL. This can be useful for a homepage where you want to share an object (but not the whole bucket) for a limited period of time. This can also be useful if you want to use a private object in a batch job on Puhti or Taito.
- 
-**Note:** Everyone who has access to the temporary URL has access to the object. While it is possible to add a _Meta Temp-URL-Key_ to a bucket or object, the Temp URL command can only be used in the project-wide scope (see [OpenStack documentation of temp URLs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-tempurl)).
- 
-Create a random key:
-```text
-RANDOMKEY="my-super-secret-key"
-```
-
-Post a Temp-URL-Key to the whole project. **Please note:** If someone changes the project-wide Temp Key, all Temp URLs stop working. You should coordinate changes like these within your computing project.
-```text
-swift post -m "Temp-URL-Key:$RANDOMKEY" 
-```
-
-Display your <i>OS_PROJECT_ID</i> using thecommand `env`:
-```text
-$ env | grep -i project
-OS_PROJECT_NAME=project_123456
-OS_PROJECT_ID=<os_project_id>
-```
-
-Save the full path in the Swift object (Replace the part *"os_project_id"* with your OS_PROJECT_ID):
-```text
-MYURL=https://object.pouta.csc.fi/swift/v1/AUTH_"os_project_id"/my_fishbucket/bigfish.jpg
-```
-
-Create a Temp-URL-Key valid for 86400 seconds (24 hours):
-```text
-$ swift tempurl GET 86400 $MYURL $RANDOMKEY
-https://object.pouta.csc.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675
-```
-
-Use a previously created Temp URL to download the object:
-```text
-$ curl https://object.pouta.csc.fi/swift/v1/AUTH_6e3f5db8e08940f481744240af8701e5/my_fishbucket/bigfish.jpg?temp_url_sig=9a118ddda22c83c7a6cd49c013389f0507c007ca&temp_url_expires=1514648675> bigfish.jpg
-```
-
-You can set another key by adding another metadata entry with the title "*Temp-URL-Key-2*".
 
 ## Giving another project read and write access to a bucket
 
