@@ -1,7 +1,7 @@
 # Using Allas to migrate your data from Taito to Puhti 
 
 Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want 
-to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) 
+to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories) 
 you have to copy the data elsewhere before 1.1. 2020. 
 
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito. 
@@ -18,10 +18,10 @@ This tutorial provides tree examples of moving data first from Taito to Allas an
 2.   [The second example](#e2) the same data is transported using rclone.
 3.   [The third example](#e3) focuses in uploading large files from Taito to Allas 
 
-The first approach is useful in cases where the data is mainly used in CSC computing environment (Taito, Puhti, Mahti). While
-the second option (rclone) is good for cases where the data will be use outside CSC too.
+The first approach is useful in cases where the data is mainly used in the CSC computing environment (Taito, Puhti, Mahti). While
+the second option (rclone) is good for cases where the data will be used outside CSC too.
 
-The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets ( max some hundreds of GBs).
+The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets (max some hundreds of GBs).
 
 
 
@@ -93,6 +93,10 @@ Please define the Project ID of the project to be used:
 
 allas connection configured successfully.
 </pre>
+
+!!! note
+    Remember, that _allas-conf_ gives you access to obects of one project at a time in Allas.
+    
 Allas-conf procedure above defines an Allas-connection that is valid for next eight hours. 
 Next I go to the _zebrafish_ directory.
 ```text
@@ -122,7 +126,7 @@ kkayttaj-2001659-taito-WRKDIR
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
 Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
-upload data to Allas one directory at a time and store the data in bigger chunks. For example to upload the 
+upload data to Allas one directory at a time and store the data in bigger chunks. For example, to upload the 
 zebrafish directory I first go to the _genomes_ directory:
 ```text
 cd $WRKDIR/genomes
@@ -172,8 +176,8 @@ kkayttaj-2001659-taito-WRKDIR
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
-Locating my data is easy as there is just two objects in the bucket, but as more data is added to Allas, 
-locating a specific file from dozens of  buckets containing hundreds of objects, may be difficult. 
+Locating my data is easy as there are just two objects in the bucket, but as more data is added to Allas, 
+locating a specific file from dozens of buckets containing hundreds of objects, may be difficult. 
 In that case, you can search for a specific file with command: `a-find`. In this case I could check if 
 some object contains file Danio_rerio.GRCz10.fa with command:
 
@@ -190,7 +194,7 @@ Total of 3 hits were found in 2 objects
 -------------------------------------------------</pre>
 
 The _a-find_ report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
-two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that _a-find_ finds 
+two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
 matches only from objects that were uploaded with _a-put_.
 
 Now lets’ download the data to Puhti. This is done with `a-get` command:
@@ -215,13 +219,13 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 ## A. Uploading data in Taito
 Rclone is the power user tool for Allas. It is good in cases where the data does not compress much and in cases where 
 the data must be stored so that each file is stored as a separate object.
-Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations overwrite 
-and remove data both in Allas an in the local disk environment without notifying or asking for confirmation.
+Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can overwrite 
+and remove data both in Allas and in the local disk environment without notifying or asking for confirmation.
 
 *    [Using Allas with rclone from Puhti and Taito](./using_allas/rclone.md)
 
-This example uses the same data as the previous case:  in my Taito $WRKDIR I have a sub directory: _genomes/zebrafish_ 
-that contains eight files listed below:
+This example uses the same data as the previous case:  in my Taito $WRKDIR I have a sub directory:
+_genomes/zebrafish_  that contains eight files listed below:
 <pre><b>ls $WRKDIR/genomes/zebrafish</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.4.bt2  
@@ -258,11 +262,14 @@ cd $WRKDIR/genomes/zebrafish
 ```
 
 In stead of _a-put_, that was used in the previous example, I now use command `rclone copyto` to copy all the 
-files from the given directory to Allas.  In the case of _rclone_ there is no default bucket. I stead I have 
-to define a bucket to be used. This example I use bucket name _2001659-genomes_ and define that each object name  
-should have prefix _zebarfish_.
+files from the given directory to Allas. In the case of _rclone_ there is no default bucket. In stead I have 
+to define a bucket to be used. This example I use bucket name _2001659-genomes_ and
+define that each object name should have prefix _zebarfish_.
+
 <pre>[kkayttaj@c311:genomes><b>rclone copyto zebrafish/ allas:2001659-genomes/zebrafish</b></pre>
+
 After copying the files I use `rclone ls` to see what has been uploaded to Allas. 
+
 <pre>[kkayttaj@c311:genomes><b>rclone ls allas:2001659-genomes/zebrafish</b>
 450646234 Danio_rerio.GRCz10.91.1.bt2
 334651392 Danio_rerio.GRCz10.91.2.bt2
@@ -281,7 +288,7 @@ project_2001659 and load allas module:
 cd /scratch/project_2001659
 module load allas
 ```
-In this case I know that I want to use Allas with project project_2001659 so I can give the project name as an argument for _allas-conf_ command: 
+In this case I know that I want to use Allas with project project_2001659 so I can give the project name as an argument for `allas-conf` command: 
 ```text
 allas-conf project_2001659
 ```
@@ -292,12 +299,15 @@ mkdir kkayttaj
 cd kkayttaj/
 ```
 I can now use command `rclone lsd` to check the available buckets in Allas:
+
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone lsd allas:</b>
   3268222761 2019-10-03 10:01:42         8 2001659-genomes
   2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR</pre>
+  
 Now I can see two buckets: _2001659-genomes_ is the one that was just created in this 
 example while _kkayttaj-2001659-taito-WRKDIR_ originates form the previous a-command example.  
 Next we list objects in the 2001659-genomes bucket:
+
 <pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone ls allas:2001659-genomes</b>
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
 334651392 zebrafish/Danio_rerio.GRCz10.91.2.bt2
@@ -329,7 +339,7 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 In the previous two examples the actual amount of data was rather moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
 of the token based Allas authentication.
 
-In this example we use _a-put_ to upload a set of large files from Taito to Allas. We use _taito-shell_ as a platform for running the process but you could use login nodes of Taito too.
+In this example we use `a-put` to upload a set of large files from Taito to Allas. We use _taito-shell_ as a platform for running the process but you could use login nodes of Taito too.
 
 First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
 we have two options:
@@ -349,7 +359,7 @@ To use Allas I first load _allas module_ and use `allas-conf` to establish the c
 module load allas
 allas-conf
 ```
-allas-conf woks here just like in the previous examples.
+allas-conf works here just like in the previous examples.
 
 Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
@@ -364,16 +374,16 @@ Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 10
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
-Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, _a-put_ does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
+Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, `a-put` does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
 
 Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
 
 ```text
  a-put -b  2000136-uniref --nc  */*.gz
 ```
-This command starts loading the files, listed above, to Allas. You couls
+This command starts loading the files, listed above, to Allas.
 
-I could launch the same upload alternative with _rclone copy_:
+I could launch the same upload alternative with `rclone copy`:
 
 ```text
 for f in */*.gz
