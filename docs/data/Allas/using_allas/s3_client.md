@@ -132,11 +132,11 @@ s3cmd get s3://my_bucket/my_file new_file_name
 The parameter *new_file_name* is optional. It defines a new name for the downloaded file.
 
 Using the command `md5sum`, you can check that the file has not been changed or corrupted:
-```text
-$ md5sum my_file new_file_name
+<pre>
+$ <b>md5sum my_file new_file_name</b>
    39bcb6992e461b269b95b3bda303addf  my_file
    39bcb6992e461b269b95b3bda303addf  new_file_name
-```
+</pre>
 In the above example, the checksums match between the original and the downloaded file.
 
 Download an entire bucket:
@@ -152,16 +152,16 @@ s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
 ```
 
 For example:
-```text
-$ s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket
+<pre>
+$ <b>s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket</b>
 remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/bigfish'
-```
+</pre>
 
 Rename the file while copying it:
-```text
-$ s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/newname
+<pre>
+$ <b>s3cmd cp s3://bigbucket/bigfish s3://my-new-bucket/newname</b>
 remote copy: 's3://bigbucket/bigfish' -> 's3://my-new-bucket/newname'
-```
+</pre>
 
 ## Delete objects and buckets
 
@@ -179,10 +179,10 @@ s3cmd rb s3://my_bucket
 ## s3cmd and public objects
 
 In this example, the object _salmon.jpg_ in the pseudo folder _fishes_ is made public:
-```text
-$ s3cmd put fishes/salmon.jpg s3://my_fishbucket/fishes/salmon.jpg -P
+<pre>
+$ <b>s3cmd put fishes/salmon.jpg s3://my_fishbucket/fishes/salmon.jpg -P</b>
 Public URL of the object is: http://a3s.fi/my_fishbucket/fishes/salmon.jpg
-```
+</pre>
 
 **Note:** The above client outputs a URL with `http://` (which is not open in the object storage firewall). The URL needs to be manually changed to `https` if this kind of a client is used.
 
@@ -202,31 +202,16 @@ s3cmd setacl --acl-grant=read:$other_project_uuid s3://my_fishbucket
 ```
 
 View permissions:
-```text
-$ s3cmd info s3://my_fishbucket|grep -i acl
+<pre>
+$ <b>s3cmd info s3://my_fishbucket|grep -i acl</b>
    ACL:       other_project_uuid: READ
    ACL:       my_project_uuid: FULL_CONTROL
-```
+</pre>
 
 Revoke read access:
 ```text
 s3cmd setacl --acl-revoke=read:$other_project_uuid s3://my_fishbucket
 ```
-
-## Temporary URLs
-
-With s3cmd, you can create temporary URLs for objects. They are called _signed URLs_. 
-
-Create a signed URL valid for 3600 seconds (three hours):
-```text
-$ s3cmd signurl s3://bigbucket/bigfish +3600
-http://bigbucket.a3s.fi/bigfish?AWSAccessKeyId=0a69a52ea4bc3a36839bc1e&Expires=1565951124&Signature=YEIjLFCaexvJ7rhusMV7E%3D
-```
-
-!!! note 
-	The given URL does not work that way, but fortunately it can be fixed easily: change _http_ to _https_, move _bucketname_ from the beginning to _object.pouta.csc.fi/_ and add "/" after it:
-	http<span style="background-color: #A4D1F9">s</span>://object.pouta.csc.fi/<span style="background-color: #A4D1F9">bigbucket/</span>bigfish?AWSAccessKey
-	Id=0a69a52ea4bc3a36839bc1e&Expires=1565951124&Signature=YEIjLFCaexvJ7rhusMV7E%3D
 
 ## Use example
 
