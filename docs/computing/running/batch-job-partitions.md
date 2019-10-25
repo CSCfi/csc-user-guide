@@ -6,7 +6,7 @@ The following partitions (aka queues) are currently available in **Puhti** for n
 
 | Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../system.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
-| test            | 0,5 hours     | 160          |   4                      |  M                           | 382 GiB  |          |
+| test            | 15 min       | 80          |   2                      |  M                           | 382 GiB  |          |
 | small           | 3 days        | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB |
 | large           | 3 days        | 4000         |   100                    |  M, L, IO                    | 382 Gib  | 3600 GiB | 
 | longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
