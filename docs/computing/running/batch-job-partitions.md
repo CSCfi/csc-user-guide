@@ -6,7 +6,7 @@ The following partitions (aka queues) are currently available in **Puhti** for n
 
 | Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../system.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
-| test            | 15 min       | 80          |   2                      |  M                           | 382 GiB  |          |
+| test            | 15 minutes       | 80          |   2                      |  M                           | 382 GiB  |          |
 | small           | 3 days        | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB |
 | large           | 3 days        | 4000         |   100                    |  M, L, IO                    | 382 Gib  | 3600 GiB | 
 | longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
@@ -18,7 +18,7 @@ The following partitions are available on GPU nodes. Note that for each GPU, you
 
 | Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes             | [Node types](../system.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
 |-----------------|---------------|-------------|--------------|------------------------------|----------|-------------|
-| gputest         | 0,5 hours     | 8           |   2          |   GPU                        | 382 GiB  | 3600 GiB    |
+| gputest         | 15 minutes     | 8           |   2          |   GPU                        | 382 GiB  | 3600 GiB    |
 | gpu             | 3 days        | 80          |   20         |   GPU                        | 382 GiB  | 3600 GiB    |
 
 
