@@ -208,7 +208,7 @@ X-Container-Bytes-Used-Actual: 1167360
                   X-Timestamp: 1516776076.95812
 ```
 
-Set a bucket as read-only to the world (make the content visible at the URL: <i>object.pouta.csc.fi/bucket_name/object_name</i>) instead of the default (private to the project):
+Set a bucket as read-only to the world (make the content visible at the URL: <i>a3s.fi/bucket_name/object_name</i>) instead of the default (private to the project):
 ```text
 swift post my_fishbucket --read-acl ".r:*"
 ```
@@ -286,7 +286,7 @@ File: '/tmp/6GB.zero'
 Size: 6424625152      Blocks: 12548104   IO Block: 4096   regular file
 ...
 $ swift upload my_bigfishes /tmp/6GB.zero
-Object PUT failed: https://object.pouta.csc.fi:443/swift/v1/my_bigfishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
+Object PUT failed: https://a3s.fi:443/swift/v1/my_bigfishes/tmp/6GB.zero 400 Bad Request   EntityTooLarge
 ```
 
 It fails with the message `EntityTooLarge`, so instead:

@@ -46,7 +46,7 @@ If the bucket containing the objects is set to _public_, the objects can be view
 !["Making object public or private"](img/Allas_screenshot_public.png)
 **Figure** Making an object public or private
 
-For example, the public object called _my_fish_ in the container _my_fishbucket_ can be viewed with the URL _object.pouta.csc.fi/my_fishbucket/my_fish_
+For example, the public object called _my_fish_ in the container _my_fishbucket_ can be viewed with the URL _a3s.fi/my_fishbucket/my_fish_
 
 ## Download an object
 

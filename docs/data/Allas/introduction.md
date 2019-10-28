@@ -134,7 +134,7 @@ In Allas, objects are stored in buckets. A bucket is a data object container. Bu
 
 Each bucket has a name that must be unique across all Allas users. If another user has a bucket called "_test_", another bucket called "_test_" cannot be created. All bucket names are public, so please do <u>not</u> include any confidential information in the bucket name. You may, for example, use your project ID, e.g. _2000620-raw-data_.
 
-Object URLs can be in the DNS format, e.g. _https://object.pouta.csc.fi/bucketname/objectname_. Please use a valid DNS name (RFC 1035). We recommend not using upper case or non-ASCII (&auml;, &ouml; etc.) characters.
+Object URLs can be in the DNS format, e.g. _https://a3s.fi/bucketname/objectname_. Please use a valid DNS name (RFC 1035). We recommend not using upper case or non-ASCII (&auml;, &ouml; etc.) characters.
 
 It is <u>not</u> possible to rename a bucket. 
 
