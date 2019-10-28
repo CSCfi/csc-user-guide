@@ -166,9 +166,9 @@ cd kkayttaj/
 ```
 With command _a-list_ I can now see the objects I just uploaded from Taito to Allas
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a_list</b> 
+<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list</b> 
 kkayttaj-2001659-taito-WRKDIR
-[kkayttaj@puhti-login2 kkayttaj]$ <b>a_list kkayttaj-2001659-taito-WRKDIR</b>
+[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
@@ -347,11 +347,13 @@ sinteractive
 To use Allas I first load _allas module_ and use `allas-conf` to establish the connection to Allas.
 ```text
 module load allas
-allas-conf
+allas-conf -k
 ```
-allas-conf woks here just like in the previous examples.
+Here allas-conf is used with option `-k`. This option saves the allas password to a environment variable (OS_PASSWORD) so that
+the connection to allas can be later on automatically re-configured without need to define the password again.
 
-Then I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
+After opening the alla connection I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in 
+these directories: 
 
 <pre>
 [kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
