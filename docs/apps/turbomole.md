@@ -27,11 +27,11 @@ $ module load turbomole/7.4.1
 
 ```
 #!/bin/bash
-#SBATCH -p test
-#SBATCH --nodes 2
+#SBATCH --partition=test
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH -t 0:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00           # time as hh:mm:ss
 
 ulimit -s unlimited
 export PARA_ARCH=MPI         # use MPI 
@@ -49,11 +49,11 @@ seff $SLURM_JOBID
 
 ```
 #!/bin/bash
-#SBATCH -p test
-#SBATCH --nodes 1            # for SMP only 1 is possible
+#SBATCH --partition=test
+#SBATCH --nodes=1            # for SMP only 1 is possible
 #SBATCH --cpus-per-task=40   # SMP threads
 #SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH -t 0:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as hh:mm:ss
 
 ulimit -s unlimited
 export PARA_ARCH=SMP         # use SMP threads   
@@ -76,11 +76,11 @@ seff $SLURM_JOBID
 
 ```
 #!/bin/bash
-#SBATCH -p test
-#SBATCH --nodes 1
+#SBATCH --partition=test
+#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH -t 0:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as hh:mm:ss
 #SBATCH --gres=nvme:100      # requested local disk in GB
 
 ulimit -s unlimited
