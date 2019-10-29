@@ -12,7 +12,7 @@ operating command line linux can be found for example from [here](https://resear
 ## Using graphics
 
 NoMachine virtual desktop is the recommended way to use applications that use graphics in Puhti. It is possible to use X-term connections too, but NoMachne is Faster and better in many ways. On of the benefits of NoMachine virtual desktop is that you can 
-keep your Puhti connection active, eventhough the connection to the virtual desktop is closed. Thus NoMachine is a good option for long interactive processes.
+keep your Puhti connection active, even though the connection to the virtual desktop is closed. Thus NoMachine is a good option for long interactive processes, with or whitout graphics.
 
 *   [NoMachie instructions for Puhti](../support/tutorials/nomachine-usage.md)
 
