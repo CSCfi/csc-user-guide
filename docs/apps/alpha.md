@@ -46,5 +46,6 @@
 * [STAR](star.md) Short read aligner
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [Trinity](trinity.md) Traskriptome assembly tool
+* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [wtdbg2](wtdbg2.md)Fast assembler for long-read data
