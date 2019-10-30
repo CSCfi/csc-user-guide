@@ -38,6 +38,7 @@ export PARA_ARCH=MPI         # use MPI
 export MPI_USESRUN=1
 export SLURM_MPI_TYPE=pmi2
 export SLURM_CPU_BIND=none
+export I_MPI_PIN_DOMAIN=auto,compact
 module load turbomole/7.4.1
 export PARNODES=$SLURM_NTASKS # for MPI
 export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
@@ -60,6 +61,7 @@ export PARA_ARCH=SMP         # use SMP threads
 export MPI_USESRUN=1
 export SLURM_MPI_TYPE=pmi2
 export SLURM_CPU_BIND=none
+export I_MPI_PIN_DOMAIN=auto,compact
 module load turbomole/7.4.1
 export PARNODES=$SLURM_CPUS_PER_TASK  # for SMP
 export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
@@ -88,6 +90,7 @@ export PARA_ARCH=MPI         # use MPI
 export MPI_USESRUN=1
 export SLURM_MPI_TYPE=pmi2
 export SLURM_CPU_BIND=none
+export I_MPI_PIN_DOMAIN=auto,compact
 module load turbomole/7.4.1
 # define local disk as scratch
 export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
