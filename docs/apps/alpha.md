@@ -15,7 +15,7 @@
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
-* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
+* [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [GPAW](gpaw.md) Versatile DFT package
