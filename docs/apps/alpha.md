@@ -15,7 +15,7 @@
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
-* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
+* [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [GPAW](gpaw.md) Versatile DFT package
@@ -46,5 +46,6 @@
 * [STAR](star.md) Short read aligner
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [Trinity](trinity.md) Traskriptome assembly tool
+* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [wtdbg2](wtdbg2.md)Fast assembler for long-read data

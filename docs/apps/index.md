@@ -29,11 +29,12 @@
 ## Chemistry
 
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
-* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
+* [Gaussian](gaussian.md) Versatile computational chemistry package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
-* [ORCA](orca.md) General purpose quantum chemistry package
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [ORCA](orca.md) General purpose quantum chemistry package
+* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
 ## Computational Engineering
