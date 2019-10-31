@@ -44,7 +44,7 @@ Once you have the regions file created you can launch you analysis task with com
 freebayes-puhti -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-The _freebayes-puhti_ will execute your freebayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. The freebayes-puhti allows each subjob to use 16 GB of memory and to run for 24 hours. For massive freebayes jobs this may not be sufficient. In that case you can try to use options `-mem` and `-time` to extend the limits. _-mem_ option 
+The _freebayes-puhti_ will execute your freebayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default freebayes-puhti allows each subjob to use 16 GB of memory and to run for 24 hours. For massive freebayes jobs this may not be sufficient. In that case you can try to use options `-mem` and `-time` to extend the limits. _-mem_ option 
 defines the memory reservation in Gigabytes and _-time_ the time reservation in hours. For example, extending the task to 64 GB of memory and 48 hours of running time could be done with command:
 
 ```text
