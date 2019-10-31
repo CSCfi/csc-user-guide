@@ -30,9 +30,10 @@
 
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [Gaussian](gaussian.md) Versatile computational chemistry package
-* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [GPAW](gpaw.md) Versatile DFT package
+* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
