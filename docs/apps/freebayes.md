@@ -51,14 +51,13 @@ defines the memory reservation in Gigabytes and _-time_ the time reservation in 
 freebayes-puhti -mem 64 -time 48 -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-Once freebayes is launched, it starts monitoring the progres of the job. As the job may take several days, the connection
-may break or you may need to close the connection. This does not harm the actual computing task. You can use command
+Once freebayes is launched, it starts monitoring the progress of the job. As the job may take several days, the connection
+may break or you may need to close the connection. This does not harm the actual computing task. Once all subjobs have completed, you can use command `freebaues-puht-recover` to collect the resluts. For example
 
 ```text
 freebayes-puhti-recover freebayes_jobnum_tmp 
 ```
-Where the freebayes_jobnum_tmp is the temporary Freebayes directory that was creatd by the freebays-puhti command to the same directory 
-where the command was launched.
+Where the freebayes_jobnum_tmp is the temporary Freebayes directory that was creatd by the freebays-puhti command to the same directory where the command was launched.
 
 
 
