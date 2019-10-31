@@ -19,7 +19,7 @@ It includes most standard and state of the art methods for ground state calculat
 Initialise Turbomole on Puhti like this:
 
 ```bash
-$ module load turbomole/7.4.1 
+module load turbomole/7.4.1 
 ```
 
 
