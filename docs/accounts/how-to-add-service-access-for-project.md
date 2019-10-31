@@ -28,7 +28,7 @@ user account when the service access has been granted.
 
 ## Member
 
-When a project manager is granted service acces, other
+When a project manager is granted service access, other
 members receive a message that their service access awaits their
 approval.
 
