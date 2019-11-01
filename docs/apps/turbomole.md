@@ -78,7 +78,7 @@ seff $SLURM_JOBID
 
 ```
 #!/bin/bash
-#SBATCH --partition=test
+#SBATCH --partition=small
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed
