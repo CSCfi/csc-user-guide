@@ -11,10 +11,10 @@ FreeBayes uses short-read alignments (BAM files) for any number of individuals f
 
 ## Available
 
-*    Freebayes version 1.3.1 is available in Puhti
+*    FreeBayes version 1.3.1 is available in Puhti
 
 ## Usage
-First load the bioconda module and activate freebayes environment
+First load the bioconda module and activate FreeBayes environment
 ```text
 module load bioconda
 source activate freebayes
@@ -25,7 +25,7 @@ After this you can launch Freebayes. For example:
 freebayes -f reference.fa input.bam > results.vcf
 ```
 
-Freebayes analysis jobs can be computationally heavy and should be run as batch jobs in Puhti.
+FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs in Puhti.
 
 In Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
 This tool also speeds up the analysis by running the ananlysis as several simultaneous tasks in parallel.
@@ -44,26 +44,26 @@ Once you have the regions file created you can launch you analysis task with com
 freebayes-puhti -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-`freebayes-puhti` will execute your freebayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default `freebayes-puhti` allows each subjob to use 16 GB of memory and to run for 24 hours. For massive freebayes jobs this may not be sufficient. In that case you can try to use options `-mem` and `-time` to extend the limits. `-mem` option 
+`freebayes-puhti` will execute your FreeBayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default `freebayes-puhti` allows each subjob to use 16 GB of memory and to run for 24 hours. For massive FreeBayes jobs this may not be sufficient. In that case you can try to use options `-mem` and `-time` to extend the limits. `-mem` option 
 defines the memory reservation in Gigabytes `-time` the time reservation in hours. For example, extending the task to 64 GB of memory and 48 hours of running time could be done with command:
 
 ```text
 freebayes-puhti -mem 64 -time 48 -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-Once launched, freebayes starts monitoring the progress of the job. As the job may take several days, the connection
+Once launched, FreeBayes starts monitoring the progress of the job. As the job may take several days, the connection
 may break or you may need to close the connection. This does not harm the actual computing task. Once all subjobs have completed, you can use command `freebayes-puhti-recover` to collect the results. For example:
 
 ```text
 freebayes-puhti-recover freebayes_jobnum_tmp 
 ```
-Where the freebayes_jobnum_tmp is the temporary Freebayes directory that was created by the `freebayes-puhti` command to the same directory where the command was launched.
+Where the freebayes_jobnum_tmp is the temporary FreeBayes directory that was created by the `freebayes-puhti` command to the same directory where the command was launched.
 
 
 
 ## Manual
 
-More detailed information about using Freebayes can be found form the links below :
+Detailed information on FreeBayes functionality:
 
 *   [Freebayes home page](https://github.com/ekg/freebayes/blob/master/README.md)
 *   [Reference publication](https://arxiv.org/abs/1207.3907)
