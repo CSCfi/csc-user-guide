@@ -11,7 +11,19 @@ operating command line linux can be found for example from [here](https://resear
 
 ## Using graphics
 
-If you wish to run applications that display graphics you have to use X-term connections, for which we recommed [NoMachine](../apps/nomachine.md). Alternatively, to be able to use X-term based tools your local computer must have an X11 server (often called as X window server program) installed and running. In linux and MacOSX machines X11 server is normally installed and running automatically. In Windows machines, an X server program must be installed to the users local machine. In addition to several commercial xterm programs there are also some free ones like [Xming](http://www.straightrunning.com/XmingNotes/) or [MobaXterm](https://mobaxterm.mobatek.net/).
+[NoMachine](../apps/nomachine.md) virtual desktop is the recommended way to use graphical applications in Puhti.
+It is possible to use X-term connections too, but NoMachine is faster and better in many ways.
+In addition to fast remote graphics, NoMachine enables you to 
+keep your Puhti remote terminals active, even if you closed your local computer. 
+Therefore, NoMachine is a good option for long interactive processes, with or without graphics.
+
+*   [NoMachine tutorial for Puhti](../support/tutorials/nomachine-usage.md)
+
+If you for some reason want to use a slower, X-term based graphical connection, your local computer must have an X11 server
+(often called as X window server program) installed and running. In linux and MacOSX an X11 server is 
+normally installed automatically, while for Windows, it needs to be installed separetely. 
+In addition to several commercial xterm programs there are also some free ones 
+like [MobaXterm](https://mobaxterm.mobatek.net/) or [Xming](http://www.straightrunning.com/XmingNotes/).
 
 Depending on your local _ssh_ version, you may also need to add option `-X` or `-Y` to your ssh command:
 ```
