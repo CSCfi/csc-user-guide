@@ -29,7 +29,7 @@ your application development is the key-takeaway of this section. Now,
 let's discuss in detail the practices illustrated in above figure with
 code examples wherever applicable.
 
-### Stateless & Disposable Application
+### Stateless and Disposable Application
 
 If possible try to develop your application in the form of distributed
 stateless  processes/modules which  are  responsible for  computation.

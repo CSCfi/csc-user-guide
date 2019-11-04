@@ -1,5 +1,12 @@
 # Container orchestration with Magnum
 
+!!! note
+    Magnum is currently a technology preview feature available
+    only in  cPouta. Some  functionality may be  incomplete or  not work
+    correctly. Kubernetes on top of Fedora Atomic is currently the only
+    supported platform. Docker Swarm may also work.
+
+
 This article explains how to use the OpenStack tool 
 *Magnum* for  creating container  orchestration
 engine (COE) deployments.  It can deploy Kubernetes,  Docker Swarm and
@@ -11,13 +18,6 @@ is also  exactly the same as  if the resources created  by Magnum were
 created manually.
 
 [TOC]
-
-
-!!! note
-    Magnum is currently a technology preview feature available
-    only in  cPouta. Some  functionality may be  incomplete or  not work
-    correctly. Kubernetes on top of  Fedora Atomic is currently the only
-    supported platform. Docker Swarm may also work.
 
 
 ## Container orchestration basics
