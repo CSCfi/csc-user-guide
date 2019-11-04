@@ -3,7 +3,7 @@
 * [What is Pouta?](pouta-what-is.md)
 
 <h2>Getting access to Pouta service</h2>
-* [Applying for Pouta access](../../accounts/adding-service-access-for-project.md)
+* [Applying for Pouta access](../../accounts/how-to-add-service-access-for-project.md)
 * [Security Guidelines for Pouta](security.md)
 * [Pouta Accounting Principles and Quotas](accounting.md)
 
