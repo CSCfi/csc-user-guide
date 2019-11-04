@@ -26,13 +26,6 @@
 * [Ephemeral storage](ephemeral-storage.md)
 * [Persistent volumes](persistent-volumes.md)
 * [Snapshots](snapshots.md)
-* [Object storage](object-storage-main.md)
-    * [Common use cases](object-storage-use-cases.md)
-    * [Using Object storage](using-object-storage.md)
-    * [Quotas and billing](object-storage-quotas-and-billing.md)
-    * [Using object storage](using-object-storage.md)
-    * [Access the object storage from Taito](access-pouta-object-storage-from-taito.md)
-    * [Common Error Messages](object-storage-error-msgs.md)
 
 <h2>Pouta videos</h2>
 * [Pouta videos](pouta-videos.md)

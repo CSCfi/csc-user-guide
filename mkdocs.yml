@@ -30,6 +30,34 @@ nav:
      - Compiling: computing/compiling.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
+  - Cloud:
+     - Concepts of cloud computing: cloud/concepts.md
+     - Pouta:
+        - Contents: cloud/pouta/index.md
+        - What is Pouta: cloud/pouta/pouta-what-is.md
+        - Applying for Pouta Access: accounts/how-to-add-service-access-for-project.md
+        - Security Guidelines for Pouta: cloud/pouta/security.md
+        - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
+        - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+        - Getting started with Pouta:
+            - Launching a virtual machine with the cPouta web interface: cloud/pouta/launch-vm-from-web-gui.md
+            - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
+            - Install command line tools: cloud/pouta/install-client.md
+            - Command line client tools: cloud/pouta/command-line-tools.md
+            - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
+        - Storage in Pouta:
+            - Available storage options: cloud/pouta/storage.md
+            - Ephemeral storage: cloud/pouta/ephemeral-storage.md
+            - Persistent volumes: cloud/pouta/persistent-volumes.md
+            - Snapshots: cloud/pouta/snapshots.md
+        - Images: cloud/pouta/adding-images.md
+        - Orchestration with Heat: cloud/pouta/heat-orchestration.md
+        - Container Orchestration in cPouta: cloud/pouta/pouta-container-orchestration.md
+        - Application Development Practises in Pouta: cloud/pouta/application-dev.md
+        - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
+        - Pouta videos: cloud/pouta/pouta-videos.md
+        - Known problems and limitations: cloud/pouta/known-problems.md
+        - FAQ: /support/faq#pouta
   - Data:
      - Allas object storage: 
         - Allas object storage: data/Allas/index.md 

@@ -22,9 +22,7 @@ storage and floating IPs.
 |------------------|--------------------|
 | Virtual machines | See [flavors page] |
 | Storage volumes  | 3,5 BU / TiB hour  |
-| Object storage   | 3,5 BU / TiB hour  |
 | Floating IPs     | 0,2 BU / hour      |
-
 
 
 Please note that virtual machines consume BUs regardless you are using
