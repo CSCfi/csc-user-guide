@@ -1,5 +1,7 @@
 <h1> Applications in alphabetic order</h1>
 <!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
+* [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
+* [ANSYS](ansys.md) ANSYS Academic engineering simulation software software suite
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
@@ -15,19 +17,23 @@
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
-* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
+* [Freebayes](freebayes.md) Genetic variant detector
+* [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
+* [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
+* [LD-DYNA](lsdyna.md) General-purpose finite element program
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
+* [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
@@ -46,5 +52,7 @@
 * [STAR](star.md) Short read aligner
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [Trinity](trinity.md) Traskriptome assembly tool
+* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [wtdbg2](wtdbg2.md)Fast assembler for long-read data
+* [Velvet](velvet.md) Genome assembler
+* [wtdbg2](wtdbg2.md) Fast assembler for long-read data

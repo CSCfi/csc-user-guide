@@ -12,8 +12,10 @@
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
+* [Freebayes](freebayes.md) Genetic variant detector
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
+* [Ipyrad] (ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
@@ -24,23 +26,29 @@
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
 * [Trinity](trinity.md) Traskriptome assembly tool
-* [wtdbg2](wtdbg2.md)Fast assembler for long-read data
+* [Velvet](velvet.md) Genome assembler
+* [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 
 ## Chemistry
 
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
-* [Gaussian](gaussian.md) Various capabilities for electronic structure modeling
-* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GPAW](gpaw.md) Versatile DFT package
-* [ORCA](orca.md) General purpose quantum chemistry package
+* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
+* [ORCA](orca.md) General purpose quantum chemistry package
+* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
 ## Computational Engineering
 
-* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
+* [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
+* [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
+* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Elmer](elmer.md) Open source multi-physics FEM package
+* [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 
