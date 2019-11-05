@@ -32,4 +32,5 @@ CSC has previously provided Pouta Object Storage service that is now merged to t
 ## Tutorials:
 
 * [Using Allas to migrate your data from Taito to Puhti](./migration_tutorial.md)
+* [Using Allas in batch jobs](./allas_batchjobs.md)
 
