@@ -1,16 +1,15 @@
 ### Connecting to your virtual machine
 
 This article describes several ways to connect to a running virtual machine.
-Prerequisites include proper [firewall settings](launch-vm-from-web-gui#firewalls-and-security-groups)
-and a [floating IP](launch-vm-from-web-gui#adding-a-public-ip-for-the-machine-in-cpouta).
+Prerequisites include proper [firewall settings](../launch-vm-from-web-gui#Firewalls-and-security-groups)
+and a [floating IP](../launch-vm-from-web-gui#adding-a-public-ip-for-the-machine-in-cpouta).
 
 ### Keypair based SSH connection
 
 When your virtual machine has a  public Floating IP assigned in cPouta
 cloud (or VM local  IP in case of ePouta) and  a [security group] that
 allows  SSH,  you   can  open  a  remote  SSH   connection  into  your
-instance. Any standard SSH client  should work. More details about SSH
-based terminal connections are  available in the [connecting to CSC article](../connections) 
+instance. Any standard SSH client  should work.
 
 A new  virtual machine will only  have a default user  account and the
 *root*  or *administrator*  account or  in  some cases  only the  root

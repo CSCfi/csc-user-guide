@@ -139,7 +139,7 @@ In the **Details** tab of the _launch instance_ view, first select **Instance Bo
    
 After selecting instance boot source, you can select an _Image_ or a virtual machine _snapshot_ you wish to use from the **Image Name** dropdown menu. After that, give your instance a _name_ and select the _Flavor_ (i.e. size of the virtual machine, see Table 3.1). Under **Access & Security** tab, choose the keypair you have created or added ( see Chapter 3.2.1) and the security groups you wish to use (remember to select the security group for SSH access that you created previously in 3.2.1.2). Then from the **Networking** tab select your own network (your project name). Once you have assigned these parameters for your virtual machine you can click **Launch** to start the virtual machine.
 
-### Adding a public IP for the machine in cPouta
+# Adding a public IP for the machine in cPouta
 
 When a virtual machine is launched, it only gets a _NATed internal network_. This means that the machine can access the Internet and other virtual machines in cPouta, but you can not access it from the Internet. To be able to access your virtual machine, you need to add a public IP address for it.
 
