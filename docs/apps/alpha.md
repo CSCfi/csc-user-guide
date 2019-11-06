@@ -27,7 +27,7 @@
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
-* [LD-DYNA](lsdyna.md) General-purpose finite element program
+* [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MXNet](mxnet.md) Deep learning library for Python
