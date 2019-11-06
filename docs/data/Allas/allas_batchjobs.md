@@ -65,8 +65,8 @@ Where the _my_long_job.sh_ could look like:
 #SBATCH --time=48:00:00
 #SBATCH --mem-per-cpu=1G
 #SBATCH --partition=small
-#SBATCH -o allas_output_%j.txt
-#SBATCH -e allas_errors_%j.txt
+#SBATCH --output=allas_output_%j.txt
+#SBATCH --error=allas_errors_%j.txt
 
 #download data
 a-get 178-data-bucket/dataset34/data2.txt.zst
@@ -88,8 +88,8 @@ the batch job script could look like
 #SBATCH --time=48:00:00
 #SBATCH --mem-per-cpu=1G
 #SBATCH --partition=small
-#SBATCH -o allas_output_%j.txt
-#SBATCH -e allas_errors_%j.txt
+#SBATCH --output=allas_output_%j.txt
+#SBATCH --error=allas_errors_%j.txt
 
 #make sure connection to Allas is open
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
