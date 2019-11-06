@@ -32,7 +32,7 @@ Other information
 ### 3.  [Allas and cPouta object storage, what changes?](./allas_cpouta_change.md) 
 CSC has previously provided Pouta Object Storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to the old Pouta Object Storage users.
 
-## Tutorials:
+## Tutorials: 
 
 * [Using Allas to migrate your data from Taito to Puhti](./migration_tutorial.md)
 * [Using Allas in batch jobs](./allas_batchjobs.md)
