@@ -50,8 +50,18 @@ We recommend you to set up your simulations on your local
 computer, generate and save the input files, copy them to Puhti and then 
 run them from the command line on Puhti. Note, that Maestro jobs
 are not run via batch scripts like most other applications at CSC, but
-via Schrödinger binaries and a set of flags and options for them. The
-best way is use scripts written by the Maestro GUI as explained above.
+via Schrödinger binaries and a set of flags and options for them.
+For example, a Desmond workflow could be run with:
+
+```
+"${SCHRODINGER}/utilities/multisim" -JOBNAME 2hhb_test -HOST gputest \
+-maxjob 1 -cpu 1 -m 2hhb_test.msj -c 2hhb_test.cfg -description "Molecular Dynamics" \
+2hhb_test.cms -mode umbrella -set stage[1].set_family.md.jlaunch_opt=["-gpu"] \
+-o 2hhb_test-out.cms -lic "DESMOND_GPGPU:16"
+
+```
+
+This is a bit complicated and is best to write out from the Maestro GUI as explained above.
 
 To run such a script in Puhti you first need to initialize Maestro with
  `module load maestro` and then run the script.
