@@ -33,17 +33,22 @@ Mark Johnson (ÅA), Petri Pihko (JYU),  Olli Pentikäinen (JYU),
 Henri Xhaard (UH), Tero Aittokallio (UH/FIMM) and Jari Valkonen (UH). 
 The licensing is IP-address or local username based. To install 
 Maestro locally, the researchers within the consortium should 
-contact servicedesk and send user information (details in the 
-installation instructions in Scientist's User Interface, see 
-below). The usage is restricted by the 
+contact servicedesk and send new user information. The usage 
+is restricted by the 
 [EULA](http://www.schrodinger.com/salesagreements/20/7/).
 
 ##Usage
 
 It is recommended to download and install Maestro on your 
-own computer (Linux, Mac or Windows). You can download it 
-from [Scientist's Interface](https://sui.csc.fi) (requires 
-a user account at CSC).
+own computer, see below.
+
+**Local Installation**
+
+Maestro can be installed on a Linux, Mac or Windows computer. 
+Download the appropriate files from [www.schrodinger.com](http://www.schrodinger.com/)
+You don't need a license to _download_ the software, but you'll need
+to configure licensing before you can run it.
+Contact Atte via servicedesk@csc.fi for license configuration details.
 
 **Standalone usage on Puhti**
 
@@ -54,29 +59,20 @@ are not run via batch scripts like most other applications at CSC, but
 via Schrödinger binaries and a set of flags and options for them. The
 best way is use scripts written by the Maestro GUI as explained above.
 
-To run such a script in Puhti you first need to initialize Maestro with `module load maestro`
-and then run the script.
+To run such a script in Puhti you first need to initialize Maestro with
+ `module load maestro` and then run the script.
 
-
-Alternatively, you can watch a video tutorial on how to do it:  
+The following video tutorial walks you through it:  
 
 [![Maestro Standalone](http://img.youtube.com/vi/oQDLa6Bh-q4/0.jpg)](http://www.youtube.com/watch?v=oQDLa6Bh-q4 "Maestro Standalone")
 
 !!! note
     We do not recommend running the Maestro GUI remotely on Puhti.
-    It _can_ be done via NoMachine, but there are some known glitches
+    It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
     and the performance is not very good.
 
 Desmond molecular dynamics runs **very well** on GPUs. We recommed watching 
 the video above on how to accomplish this easily.
-
-**Local Installation**
-
-Maestro can be installed on a Linux, Mac or Windows computer. 
-Download the appropriate files from [www.schrodinger.com] You
-don't need a license to download the software, but you'll need
-to configure licensing before you can run it.
-Contact Atte via servicedesk@csc.fi for details.
 
 ## References
 
@@ -94,4 +90,4 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 * Scientific questions related to Maestro modules: mailto:info@schrodinger.com
 
 
-![www.schrodinger.com](http://www.schrodinger.com/)
+
