@@ -15,14 +15,8 @@ Puhti: 2019.3
 ## License
 
 The Maestro license consists of floating licenses and tokens.
-Different modules 
-use a different amount of tokens (0-8). The license 
-allows for several simultaneous jobs with each module. 
-More information of the Maestro modules can be found at the 
-Schrödinger www page: [www.schrodinger.com]
-
 It is possible for one user to take up all licenses for a 
-certain module. If  licenses run out, contact Atte via Service Desk.
+certain module. If licenses run out, contact Atte via Service Desk.
 
 **Consortium**
 
@@ -45,9 +39,9 @@ own computer, see below.
 **Local Installation**
 
 Maestro can be installed on a Linux, Mac or Windows computer. 
-Download the appropriate files from [www.schrodinger.com](http://www.schrodinger.com/)
+Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
 You don't need a license to _download_ the software, but you'll need
-to configure licensing before you can run it.
+to configure licensing before you can _run_ it.
 Contact Atte via servicedesk@csc.fi for license configuration details.
 
 **Standalone usage on Puhti**
@@ -62,7 +56,7 @@ best way is use scripts written by the Maestro GUI as explained above.
 To run such a script in Puhti you first need to initialize Maestro with
  `module load maestro` and then run the script.
 
-The following video tutorial walks you through it:  
+The following video tutorial walks you through it (Taito and Puhti work similarly):  
 
 [![Maestro Standalone](http://img.youtube.com/vi/oQDLa6Bh-q4/0.jpg)](http://www.youtube.com/watch?v=oQDLa6Bh-q4 "Maestro Standalone")
 
