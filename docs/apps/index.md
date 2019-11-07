@@ -15,7 +15,8 @@
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
-* [Ipyrad] (ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
@@ -35,6 +36,7 @@
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
