@@ -48,6 +48,7 @@
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 * [SPAdes](spades.md) Genome assembly
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [STAR](star.md) Short read aligner
