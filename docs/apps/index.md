@@ -68,6 +68,7 @@
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 
 ## Mathematics and Statistics
 * [SageMath](sagemath.md) Free open-source mathematics software system

@@ -41,7 +41,7 @@ The Graph Processing Tool __gpt__ is a command line tool used for bulk processin
 
 `gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>`
 
-Some relevant __gpt__ option include
+Some relevant __gpt__ options include
 
 * __-q__    Number of threads the gpt instance will use. Set it to the number of CPU cores requested or more
 * __-c__    Cache size in bytes. Change this if storage space becomes an issue
@@ -49,7 +49,7 @@ Some relevant __gpt__ option include
 
 More information on the [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 
-There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable $SLURM_ARRAY_TASK_ID and make sure each job has an individual cache folder.
+There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable __$SLURM_ARRAY_TASK_ID__ and make sure each job has an individual cache folder.
 
 `gpt_array /scratch/<project>/snap_cache/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
 
