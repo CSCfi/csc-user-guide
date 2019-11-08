@@ -1,7 +1,7 @@
 <h1> Applications in alphabetic order</h1>
 <!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
 * [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
-* [ANSYS](ansys.md) ANSYS Academic engineering simulation software software suite
+* [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
@@ -9,7 +9,7 @@
 * [Bowtie2](bowtie2.md) Short read aligner 
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
-* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling.
+* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
@@ -24,10 +24,11 @@
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
-* [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Ipyrad] (ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
+* [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MXNet](mxnet.md) Deep learning library for Python
