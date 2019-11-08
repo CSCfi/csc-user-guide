@@ -49,7 +49,7 @@ Some relevant __gpt__ option include
 
 More information on the [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 
-There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. On array job you can define that cache folder dynamically with the iterating environment variable $SLURM_ARRAY_TASK_ID
+There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable $SLURM_ARRAY_TASK_ID and make sure each job has an individual cache folder.
 
 `gpt_array /scratch/<project>/snap_cache/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
 
