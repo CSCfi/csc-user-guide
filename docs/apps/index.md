@@ -15,9 +15,10 @@
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
-* [Ipyrad] (ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
-* [Minimap2](minimap2.md) Short read aligner
+* [Minimap2](minimap2.md) Short read alignerhttps://github.com/CSCfi/csc-user-guide/pull/207/conflicts
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
@@ -35,6 +36,7 @@
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
@@ -67,6 +69,7 @@
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 
 ## Mathematics and Statistics
 * [SageMath](sagemath.md) Free open-source mathematics software system
