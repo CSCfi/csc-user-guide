@@ -29,6 +29,7 @@
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
+* [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MXNet](mxnet.md) Deep learning library for Python
