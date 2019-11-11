@@ -1,6 +1,6 @@
 # Lidarconda
 
-Lidarconda is a collection of LiDAR data related Python packages installed on Python 3.7
+Lidarconda is a collection of LiDAR data related Python packages and stand-alone tools
 
 ## Available
 
@@ -11,7 +11,7 @@ The `lidarconda` module is available in Puhti:
 ### Installed libraries
 
 * pdal (2.0.1)
-* lastools (20171231)
+* lastools (20171231) - stand-alone tool
 * laspy (1.6.0)
 * laxpy (0.1.9)
 * laszip (3.4.1)
