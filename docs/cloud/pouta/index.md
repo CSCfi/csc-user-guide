@@ -27,8 +27,7 @@
 * [Persistent volumes](persistent-volumes.md)
 * [Snapshots](snapshots.md)
 
-<h2>Pouta videos</h2>
+<h2>Self study and troubleshooting</h2>
 * [Pouta videos](pouta-videos.md)
-
-<h2>Known problems and limitations</h2>
 * [Known problems and limitations](known-problems.md)
+* [Pouta FAQ](../../support/faq/#pouta)

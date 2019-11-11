@@ -1,8 +1,8 @@
 ### Connecting to your virtual machine
 
 This article describes several ways to connect to a running virtual machine.
-Prerequisites include proper [firewall settings](../launch-vm-from-web-gui#Firewalls-and-security-groups)
-and a [floating IP](../launch-vm-from-web-gui#adding-a-public-ip-for-the-machine-in-cpouta).
+Prerequisites include proper [firewall settings](../launch-vm-from-web-gui/#Firewalls-and-security-groups)
+and a [floating IP](../launch-vm-from-web-gui/#adding-a-public-ip-for-the-machine-in-cpouta).
 
 ### Keypair based SSH connection
 

@@ -55,8 +55,10 @@ nav:
         - Container Orchestration in cPouta: cloud/pouta/pouta-container-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
-        - Pouta videos: cloud/pouta/pouta-videos.md
-        - Known problems and limitations: cloud/pouta/known-problems.md
+        - Self study and troubleshooting:
+             - Pouta videos: cloud/pouta/pouta-videos.md
+             - Known problems and limitations: cloud/pouta/known-problems.md
+             - Pouta FAQ: support/faq#pouta
   - Data:
      - Allas object storage: 
         - Allas object storage: data/Allas/index.md 
