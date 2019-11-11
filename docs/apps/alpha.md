@@ -27,6 +27,7 @@
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
+* [Lidarconda](lidarconda.md) Collection of LiDAR data related Python packages
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
