@@ -72,8 +72,8 @@ nav:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
   - Support:
-     - FAQ: support/faq.md
      - Tutorials: support/tutorials.md
+     - FAQ: support/faq.md
      - Contact: support/contact.md
 
 theme:
