@@ -57,23 +57,6 @@ nav:
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
         - Pouta videos: cloud/pouta/pouta-videos.md
         - Known problems and limitations: cloud/pouta/known-problems.md
-        - FAQ:
-            - How to create default network and router in a Pouta project: cloud/pouta/faq/how-to-create-default-network-and-router-in-pouta.md
-            - How can I use FGCI grid form Pouta: cloud/pouta/faq/how-to-use-fgci-from-pouta.md
-#            - How do I migrate away from legacy Pouta instances?: cloud/pouta/faq/
-            - How do I use cPouta GPU for rendering?: cloud/pouta/faq/how-to-use-cpouta-gpu-for-rendering.md
-            - How can I mount my Pouta Object Storage bucket to a VM running in cPouta: cloud/pouta/faq/how-to-mount-os-bucket-for-cpouta.md
-#            - How do I migrate my data away from legacy volumes?: cloud/pouta/faq/
-            - Do you offer SSL certificates?: cloud/pouta/faq/do-you-offer-ssl-certificates.md
-            - Can I run MPI applications on Pouta?: cloud/pouta/faq/can-i-run-mpi-applications-on-pouta.md
-            - How fast is the Pouta network?: cloud/pouta/faq/how-fast-is-the-pouta-network.md
-            - Why can't I connect to my virtual machine in Pouta?: cloud/pouta/faq/why-cant-i-connect-to-my-vm-in-pouta.md
-            - How do I access the CSC archive service from cPouta?: cloud/pouta/faq/how-to-access-csc-archive-services-from-cpouta.md
-            - Can I access my CSC home/wrkdir/project directories from ePouta?: cloud/pouta/faq/how-to-access-home-wrkdir-projdir-from-epouta.md
-            - What are volumes? How do I use them?: cloud/pouta/faq/what-are-volumes-and-how-to-use.md
-            - Is Pouta backed up?: cloud/pouta/faq/is-pouta-backed-up.md
-            - How can I store data on Pouta? : cloud/pouta/faq/how-to-store-data-in-pouta.md
-            - What does it cost to use Pouta?: cloud/pouta/faq/what-does-it-cost-to-use-pouta.md
   - Data:
      - Allas object storage: 
         - Allas object storage: data/Allas/index.md 
@@ -91,6 +74,23 @@ nav:
   - Support:
      - Tutorials: support/tutorials.md
      - Contact: support/contact.md
+  - FAQ:
+      - How to create default network and router in a Pouta project: cloud/pouta/faq/how-to-create-default-network-and-router-in-pouta.md
+      - How can I use FGCI grid form Pouta: cloud/pouta/faq/how-to-use-fgci-from-pouta.md
+#      - How do I migrate away from legacy Pouta instances?: cloud/pouta/faq/
+      - How do I use cPouta GPU for rendering?: cloud/pouta/faq/how-to-use-cpouta-gpu-for-rendering.md
+      - How can I mount my Pouta Object Storage bucket to a VM running in cPouta: cloud/pouta/faq/how-to-mount-os-bucket-for-cpouta.md
+#      - How do I migrate my data away from legacy volumes?: cloud/pouta/faq/
+      - Do you offer SSL certificates?: cloud/pouta/faq/do-you-offer-ssl-certificates.md
+      - Can I run MPI applications on Pouta?: cloud/pouta/faq/can-i-run-mpi-applications-on-pouta.md
+      - How fast is the Pouta network?: cloud/pouta/faq/how-fast-is-the-pouta-network.md
+      - Why can't I connect to my virtual machine in Pouta?: cloud/pouta/faq/why-cant-i-connect-to-my-vm-in-pouta.md
+      - How do I access the CSC archive service from cPouta?: cloud/pouta/faq/how-to-access-csc-archive-services-from-cpouta.md
+      - Can I access my CSC home/wrkdir/project directories from ePouta?: cloud/pouta/faq/how-to-access-home-wrkdir-projdir-from-epouta.md
+      - What are volumes? How do I use them?: cloud/pouta/faq/what-are-volumes-and-how-to-use.md
+      - Is Pouta backed up?: cloud/pouta/faq/is-pouta-backed-up.md
+      - How can I store data on Pouta? : cloud/pouta/faq/how-to-store-data-in-pouta.md
+      - What does it cost to use Pouta?: cloud/pouta/faq/what-does-it-cost-to-use-pouta.md
 theme:
   name: windmill
   custom_dir: mkdocs_csc
