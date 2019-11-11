@@ -1,6 +1,7 @@
 # Frequently Asked Questions
 
 ## General
+* [X11 remote graphics does not work](x11-graphics.md)
 
 ## Accounts
 
