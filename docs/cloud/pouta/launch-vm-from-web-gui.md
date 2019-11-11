@@ -28,7 +28,7 @@ The web interfaces of the Pouta clouds are available at following addresses:
 
 This _OpenStack Horizon_ based interface allows you do the basic cloud computing management operations like launch a new Virtual Machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
 
-There are two options for logging in the cPouta's Dashboard: CSC username and password or Haka username and password. If you have a Haka account, you can use it to login if you already have access to cPouta and if you have linked it to your CSC account. You can do the linking by going [here](https://sui.csc.fi/web/sui/add-services) and logging in with Haka credentials. You will be asked to give your CSC username and password. Note that if after logging in after clicking that link you either get the Scientist's User Interface main page or an empty page, the linking has most likely already been done.
+There are two options for logging in the cPouta's Dashboard: CSC username and password or Haka username and password. If needed, old accounts can be linked at [sui.csc.fi](https://sui.csc.fi/web/sui/add-services) and logging in with Haka credentials. You will be asked to give your CSC username and password. Note that if after logging in after clicking that link you either get the Scientist's User Interface main page or an empty page, the linking has most likely already been done.
 
 For ePouta dashboard you can only login using CSC username and password.
 
@@ -139,7 +139,7 @@ In the **Details** tab of the _launch instance_ view, first select **Instance Bo
    
 After selecting instance boot source, you can select an _Image_ or a virtual machine _snapshot_ you wish to use from the **Image Name** dropdown menu. After that, give your instance a _name_ and select the _Flavor_ (i.e. size of the virtual machine, see Table 3.1). Under **Access & Security** tab, choose the keypair you have created or added ( see Chapter 3.2.1) and the security groups you wish to use (remember to select the security group for SSH access that you created previously in 3.2.1.2). Then from the **Networking** tab select your own network (your project name). Once you have assigned these parameters for your virtual machine you can click **Launch** to start the virtual machine.
 
-# Adding a public IP for the machine in cPouta
+## Adding a public IP for the machine in cPouta
 
 When a virtual machine is launched, it only gets a _NATed internal network_. This means that the machine can access the Internet and other virtual machines in cPouta, but you can not access it from the Internet. To be able to access your virtual machine, you need to add a public IP address for it.
 
