@@ -23,6 +23,21 @@ the second option (rclone) is good for cases where the data will be used outside
 
 The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets (max some hundreds of GBs).
 
+## NEW! Datamangler
+
+A new temporary server,Datamangler, was taken in use on Novmber 12th. 2019 to support data migration from Taito to Allas.
+Datamangler includes a set of nodes that have access to the Taito disk area and fast connection to Allas service. Datamangler should be used for data transport only. 
+
+To contact Datamagler, use addess: datamangler.csc.fi. For example
+
+```text
+  ssh csc-user-account@datamangler.csc.fi
+```
+
+The instructions below are written before Datamangler was available. You can still continue using 
+Taito logn nodes or Taito-shell to migrate your data to Allas, but the very same data transport commands and procedures
+should work in Datamanger too, with fastter data transport rate.
+
 
 
 
