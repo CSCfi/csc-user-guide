@@ -37,7 +37,30 @@ You can test if gdal loaded succesfully with following
 !!! note
     The stand-alone versions don't have python bindings installed so e.g __gdal_calc__ works only in the geoconda installation. Also, the supported file formats vary slightly between the gdal installations. For instance, the PostGIS driver is not yet available in gdal/3.0.1 but is included in the others
 
+## Using files directly from Allas
 
+It is possible to read files from Allas directly with GDAL, but not to write.
+
+__Public files__ in Allas can be read with `vsicurl`:  
+```
+gdalinfo /vsicurl/https://a3s.fi/swift/v1/AUTH_9da5d87785e2440b95d52f31392a3973/gis-open/T34VFM_20180829T100019_clipped_scaled_1_2.tif
+```
+
+* The first part of URL you can see at least in the Allas web interface, next to the check-box where the bucket is made public.
+* gis-open is the name of the bucket
+* T34VFM_20180829T100019_clipped_scaled_1_2.tif is the name of the file.
+
+For __private files__ you first have to set up the connection in Puhti or Taito and then the files is read with `vsiswift`:
+
+```
+module load allas
+allas-conf
+export SWIFT_AUTH_TOKEN=$OS_AUTH_TOKEN 
+export SWIFT_STORAGE_URL=$OS_STORAGE_URL
+gdalinfo /vsiswift/<name_of_your_bucket>/<name_of_your_file>
+```
+
+The export commands are needed because GDAL is looking for different environment variables than what allas-conf is writing.
 
 ## License and citing
 
