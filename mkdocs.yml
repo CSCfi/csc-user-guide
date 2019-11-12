@@ -20,7 +20,7 @@ nav:
      - Systems: computing/system.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
-     - Running jobs: 
+     - Running jobs:
         - Getting started: computing/running/getting-started.md
         - Creating a batch job script: computing/running/creating-job-scripts.md
         - Submitting a job: computing/running/submitting-jobs.md
@@ -60,8 +60,8 @@ nav:
              - Known problems and limitations: cloud/pouta/known-problems.md
              - Pouta FAQ: /support/faq#pouta
   - Data:
-     - Allas object storage: 
-        - Allas object storage: data/Allas/index.md 
+     - Allas object storage:
+        - Allas object storage: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
@@ -99,7 +99,7 @@ nav:
        #   - Service Level Agreement: cloud/rahti/agreements/sla.md
   - Support:
      - Tutorials: support/tutorials.md
-     - FAQ: support/faq.md
+     - FAQ: support/faq/index.md
      - Contact: support/contact.md
 
 theme:
