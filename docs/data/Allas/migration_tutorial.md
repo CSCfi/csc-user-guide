@@ -238,7 +238,7 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to Taito or Taito-shell and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
 ```text
 module load allas
 ```
