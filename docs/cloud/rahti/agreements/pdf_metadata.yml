@@ -1,0 +1,10 @@
+---
+geometry: "left=2cm,right=2cm,top=5cm,bottom=3cm,headheight=4cm,footskip=3cm"
+header-includes:
+    - \usepackage{fancyhdr}
+    - \usepackage{graphicx}
+    - \pagestyle{fancy}
+    - \fancyhead[LO,LE]{}
+    - \fancyhead[RO,RE]{\includegraphics[width=5cm]{logo.png}}
+    - \fancyfoot[CO,CE]{\includegraphics[width=\textwidth]{footer.png}}
+---
