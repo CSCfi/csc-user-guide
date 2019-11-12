@@ -8,7 +8,7 @@ The new Allas object storage service provides a platform that you can use to sto
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
+The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer term copy of your data to Allas. This is achieved by data migration from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
@@ -23,28 +23,33 @@ the second option (rclone) is good for cases where the data will be used outside
 
 The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets (max some hundreds of GBs).
 
+## NEW! Datamangler
+
+A new temporary service, Datamangler, was taken in use on Novmber 12th 2019 to support data migration from Taito to Allas.
+Datamangler includes a set of nodes that have access to the Taito disk area and fast connection to Allas service. Datamangler should be used for data transport only. 
+
+To access Datamangler, use address: datamangler.csc.fi. For example
+
+```text
+  ssh csc-user-account@datamangler.csc.fi
+```
+
+We recommend you to use Datamangler to transfer your files to Allas, as their transfer capacity is significantly greater
+than from Taito login node or Taito-shell. All of them have the same data transport commands and procedures.
 
 
 
 ## 1. Get access to Allas
-By default the CSC computing projects do not have access to Allas. Thus the first first thing is to add 
+By default the CSC computing projects do not have access to Allas. Thus, the first thing is to add 
 Allas service for your project.  This is done with the [MyCSC](https://my.csc.fi) interface. 
 Note that only the project manager can apply for the access. Once access is granted all project 
 members can use the Allas storage area.
 
 
-
-
-
-
-
-
-
-
-
 The default storage quota in Allas is 10 TB.  As this space is shared with all project members it is quite 
 possible that this is not enough. In that case you should estimate how much space is needed and then send 
-a request for more space. The request should be sent to **servicedesk@csc.fi**.
+a request for more space. Note, that files stored in Allas consume billing units.
+The request should be sent to **servicedesk@csc.fi**.
 Please include to your quota request:
 
    *    ID/name of your project
@@ -58,8 +63,8 @@ Please include to your quota request:
 ## A. Uploading data from Taito to Allas
 
 A-commands are Allas specific help tools that allow you to have an easy start with Allas.  
-A-commands pack, compress and move data automatically. This reduces the storage space needed but on
-the other hand makes the storage process slower. A-commands are a good option for miscellaneous data 
+A-commands pack, compress and move data automatically. This reduces the storage space needed, but on
+the other hand, makes the storage process slower. A-commands are a good option for miscellaneous data 
 that compresses well and is mostly used in CSC environment. 
 
 
@@ -71,7 +76,7 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to Taito or Taito-shell and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
 ```text
 module load allas
 ```
@@ -233,7 +238,7 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to Taito or Taito-shell and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
 ```text
 module load allas
 ```
