@@ -137,8 +137,8 @@ a-list bucket_name/begining_of_the_object
 
 `a-publish` copies a file to Allas in a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
 uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. 
-a_publish works similarly to a_put with some differences: 
-1) a_publish can upload only files, not directories. 
+a-publish works similarly to a-put with some differences: 
+1) a-publish can upload only files, not directories. 
 2) The files are not compressed but uploaded as they are. 
 3) The access control of the target bucket is set so that it is available in read-only mode.
 
@@ -153,7 +153,7 @@ The public URL of a data object:
 
 An object uploaded with _a-publish_ can be removed from Allas using the command _a-delete_.
 
-A sample session with _a_publish_, uploading the document _presentation.pdf_ to the default public bucket in Allas:
+A sample session with _a-publish_, uploading the document _presentation.pdf_ to the default public bucket in Allas:
 
 ```text
 > **a-publish presentation.pdf** 
@@ -209,7 +209,7 @@ a-find query_term
 
 The query term is compared to the names and original paths of the files that have been uploaded to
 Allas, and matching objects are reported (but not downloaded). **Note:** Data uploaded 
-to Allas using other tools than `a_put` is not included in this search process.
+to Allas using other tools than `a-put` is not included in this search process.
 
 The query term is processed as a regular repression where some characters, e.g. period (.), have a special meaning.
 The same regular expression syntax is used with e.g. the *grep*, *awk* and *sed* commands.

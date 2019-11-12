@@ -2,7 +2,7 @@
 
 OpenFOAM (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD), ([OpenFOAM in Wikipedia](https://en.wikipedia.org/wiki/OpenFOAM)). OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics ([by OpenCFD Ltd](https://www.esi-group.com/engineering-services/consulting-services/openfoam/what-openfoam)).
 
-There are three different varaints of OpenFOAM, of which at CSC - IT Center for Science computer platforms are  currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com). 
+There are three different variants of OpenFOAM, of which at CSC - IT Center for Science computer platforms are  currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com). 
 
 ## License
 

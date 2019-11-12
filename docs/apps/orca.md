@@ -26,9 +26,10 @@ The free version is available only for academic use at academic institutions.
 #SBATCH --job-name=orca-4.2
 #SBATCH --error=jobfile.err%J
 #SBATCH --output=jobfile.out%J
+module purge
+module load intel/19.0.4 hpcx-mpi/2.4.0 intel-mkl/2019.0.4
 export ORCADIR=<path to your ORCA directory>/orca_4_2_0_linux_x86-64_shared_openmpi314
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
-module load hpcx-mpi/2.4.0
 $ORCADIR/orca orca_4.2.0.inp > orca_4.2.0.out
 ```
 !!! note

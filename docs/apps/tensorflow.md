@@ -6,6 +6,8 @@ Deep learning framework for Python.
 
 The `tensorflow` module is available on Puhti only.  Currently supported TensorFlow versions:
 
+- 2.0.0
+- 2.0.0-hvd (with [Horovod](https://github.com/horovod/horovod) support)
 - 1.14.0
 - 1.14.0-cpu (optimized for CPU usage, no GPU support)
 - 1.13.1
