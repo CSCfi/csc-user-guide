@@ -30,4 +30,4 @@
 <h2>Self study and troubleshooting</h2>
 * [Pouta videos](pouta-videos.md)
 * [Known problems and limitations](known-problems.md)
-* [Pouta FAQ](../../support/faq/#pouta)
+* [Pouta FAQ](../../support/faq/index.md#pouta)
