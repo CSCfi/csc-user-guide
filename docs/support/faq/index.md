@@ -2,6 +2,7 @@
 
 ## General
 * [X11 remote graphics does not work](x11-graphics.md)
+* [How to get access to Puhti](how-to-get-puhti-access.md)
 
 ## Accounts
 
