@@ -4,4 +4,4 @@ The problem is likely your keyboard mapping in the remote desktop. Don't try too
 
 To fix this, please consult the known issues section in the [CSC NoMachine Tutorial]
 
-  [CSC NoMachine Tutorial]: ../support/tutorials/nomachine-usage.md
+  [CSC NoMachine Tutorial]: ../tutorials/nomachine-usage.md
