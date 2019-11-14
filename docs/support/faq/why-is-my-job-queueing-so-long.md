@@ -9,4 +9,4 @@ the jobs really need.
 
 Computing time is not so critical here (unless it is short, like less than 30 minutes or so, in which case the backfiller might find a slot for your job before it would run due to its actual priority), but requesting too much memory will surely make the job queue longer.
 
-You might want to check FAQ entry: [How to estimate how much memory my batch job needs]()
+You might want to check FAQ entry: [How to estimate how much memory my batch job needs](how-much-memory-my-job-needs.md)

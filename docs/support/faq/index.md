@@ -5,6 +5,10 @@
 * [How to get access to Puhti](how-to-get-puhti-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 
+## Batch jobs
+* [Why is my job queuing so long?](why-is-my-job-queueing-so-long.md)
+* [How to estimate how much memory my job needs?](how-much-memory-my-job-needs.md)
+
 ## Accounts
 
 * [I cannot login. What to do?](i-cannot-login.md)
