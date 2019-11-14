@@ -26,3 +26,4 @@
 * [Is Pouta backed up?](is-pouta-backed-up.md)
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
+* [I cannot login to Puhti from NoMachine](cannot-login-from-nomachine.md)
