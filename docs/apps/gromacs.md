@@ -56,7 +56,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 
 ```
 #!/bin/bash -l
-#SBATCH --time=00:30:00
+#SBATCH --time=00:15:00
 #SBATCH --partition=large
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
@@ -80,7 +80,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 **Example serial batch script for Puhti**
 ```
 #!/bin/bash -l
-#SBATCH --time=00:30:00
+#SBATCH --time=00:15:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --account=<project>
