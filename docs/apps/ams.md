@@ -70,7 +70,7 @@ seff $SLURM_JOBID
 ```
 ### The AMS-GUIs
 
-The present CSC license also allows CSC users to install the Graphical User Interfaces on their local workstations. For details contact CSC Service Desk , servicedesk@csc.fi .
+The present CSC license also allows CSC users to install the Graphical User Interfaces on their local workstations. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) .
 
 ## References
 
