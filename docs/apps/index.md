@@ -70,6 +70,7 @@
 * [Lidarconda](lidarconda.md) Collection of LiDAR data related Python packages
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
+* [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
