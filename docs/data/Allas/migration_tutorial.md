@@ -177,7 +177,7 @@ cd /scratch/project_2001659
 module load allas
 ```
 In this case I know that I want to use Allas with project project_2001659 so I can give the project name as an 
-argument for allas-conf command: 
+argument for `allas-conf` command: 
 ```text
 allas-conf project_2001659
 ```
@@ -245,8 +245,9 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 ## A. Uploading data in Taito
 Rclone is the power user tool for Allas. It is good in cases where the data does not compress much and in cases where 
 the data must be stored so that each file is stored as a separate object.
-Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can overwrite 
-and remove data both in Allas and in the local disk environment without notifying or asking for confirmation.
+!!! warning
+    Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can _overwrite_ 
+    and _remove_ data both in Allas and in the local disk environment without notifying or asking for confirmation.
 
 *    [Using Allas with rclone from Puhti and Taito](./using_allas/rclone.md)
 
