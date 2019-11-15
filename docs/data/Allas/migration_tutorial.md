@@ -422,8 +422,16 @@ screen -r
 
 # Migration example 4: Uploading complex directory structures from Taito to Allas <a name="e4"></a>
 
+Some workflows and software can create utilize coplex daurcotory structures to stoere and manage data. Thus you can have directories that have thousands or even millions of individual files. Copying of this kind of datasets from Taito to Allas is not
+always straught forward. The most reasonble way to upload this kind of data, depends on the case. This example shows some alternative ways how to upload this kind of files.
 
+Now lest assume that we have a directory stucture that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in directory "road_cameras" so that each loaction has its' own subdirectory (10 derectories). Inside this sub-directory we have directory level for year( 5 directories) and day (365 directories, each containing 144 small images). 
 
+For example
+
+road_cameras/site_57/2017/day211/image_654887.jpg
+
+Thus the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
 
 
