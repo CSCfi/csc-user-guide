@@ -12,11 +12,12 @@ The new Puhti server, that is replacing Taito, does not provide permanent storag
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
-This tutorial provides three examples of moving data first from Taito to Allas and then from Allas to Puhti.
+This tutorial provides four examples of moving data first from Taito to Allas and then from Allas to Puhti.
 
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
 3.   [The third example](#e3) focuses in uploading large files from Taito to Allas 
+4.   [The fourth example](#e4) studies case where the dataset to be copied includes large amount iof files
 
 The first approach is useful in cases where the data is mainly used in the CSC computing environment (Taito, Puhti, Mahti). While
 the second option (rclone) is good for cases where the data will be used outside CSC too.
@@ -428,11 +429,55 @@ always straught forward. The most reasonble way to upload this kind of data, dep
 Now lest assume that we have a directory stucture that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in directory "road_cameras" so that each loaction has its' own subdirectory (10 derectories). Inside this sub-directory we have directory level for year( 5 directories) and day (365 directories, each containing 144 small images). 
 
 For example
-
-road_cameras/site_57/2017/day211/image_654887.jpg
+```text
+road_cameras/site_7/2017/day211/image_654887.jpg
+```
 
 Thus the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
+In principle you could copy all the 2,6 million files as separeate objects to Allas, but in that case you should split the data into multiple buckets as by default one bucket can have in maximum 1 million objects.  You could for example run a separate rcloce command for each _site_ directory and put data from each site to a seite specific bucket. For example
+
+```text
+rclone road_cameras/site_1 allas:20000136_road_cameras_site_1/
+```
+Thus you would end up to create ten buckets each containing 262 800 objects. 
+
+However it is quite probable that this approach is the most effective way for storing and re-using the data.
+As anoter extereme, your could use _a-put_ and collect all the data into one compressed object. If you do that you
+must add option _--skip-filelist_ to the _a-put_ command. By default _a-put_ collects detailed metadata of each file to the _ameta_ file. However, if you have thousands of files, collecting this information  will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names, but no other information, of the files to the metadatafile. This already speeds up the preprocessing significantly. However, as in this case the naming has been systematic, storing of the file names to the metadata files can be just ignored (--skip-filelist), which is the fastest option.
+
+```text
+ a-put --skip-filelist road_cameras/
+```
+This approach would store all the 2,6 million files into one object. 
+
+In practice the optimal way of storing the data is often between the two extremes. So instead you could apply packing in some higer level in the hierarchy.
+
+For example command:
+
+```text
+ a-put --skip-filelist road_cameras/site_*
+ ```
+ Would in this case produce 10 objects, each containing all the information form one camera site.
+ Alternatively, you could do the compression so that data from each year in each camera is collected to one object:
+ 
+ ```text
+ a-put --skip-filelist road_cameras/site_*/20*
+ ```
+ This last option would store the data into 50 objects. Daily based objects might be most handy for using the data later on, 
+ but preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
+
+Of the copying alternatives listed above, direct _rclone_ is clearly the fastest. However, if you have started the _a-put_ command inside a screen session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
+
+
+
+
+
+
+
+
+
+ 
 
 
 
