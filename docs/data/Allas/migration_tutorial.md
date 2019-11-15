@@ -4,11 +4,11 @@ Taito.csc.fi cluster will be closed at the end of 2019. If you have some data th
 to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories) 
 you have to copy the data elsewhere before 1.1. 2020. 
 
-The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito. 
+The new Allas object storage service provides a platform that you can use to store your data that is currently in the disks of Taito. 
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer term copy of your data to Allas. This is achieved by data migration from Taito to Puhti through Allas.
+The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
@@ -43,7 +43,8 @@ than from Taito login node or Taito-shell. All of them have the same data transp
 By default the CSC computing projects do not have access to Allas. Thus, the first thing is to add 
 Allas service for your project.  This is done with the [MyCSC](https://my.csc.fi) interface. 
 Note that only the project manager can apply for the access. Once access is granted all project 
-members can use the Allas storage area.
+members must visit MyCSC service and accept the term of use for Allas, before they can use the Allas 
+storage area.
 
 
 The default storage quota in Allas is 10 TB.  As this space is shared with all project members it is quite 
@@ -82,27 +83,22 @@ module load allas
 ```
 Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-<pre>[kkayttaj@c311:~><b> allas-conf</b>
+<pre>[kkayttaj@datamangler03:~><b> allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
 Checking projects available for your account.
 Please wait.
-You have access to following Allas projects:
-Project ID        Description
---------------------------------------------
-project_2000982   Services for science Kalle Kayttaja
-project_2001659   CSC user's maintenance Ossi Huikonen
-project_2000136   dis Jana Poranen
-Please define the Project ID of the project to be used:
-<b>project_2001659</b>
+1) project_2000982     2) project_2001659     3) project_2000136      4) abort allas_conf
+Please choose a project by giving an item number form the list above: <b>2</b>
 
 allas connection configured successfully.
+Connection stays active for eight hours.
 </pre>
 
-!!! note
-    Remember, that _allas-conf_ gives you access to objects of one project at a time in Allas.
+Allas-conf opens a connection to the specified Allas project for eight hours. If you want to start using some
+other project, you need to run allas-conf again. However in one shell session, you can have only one Allas project active at a time.
     
-Allas-conf procedure above defines an Allas-connection that is valid for next eight hours. 
+
 Next I go to the _zebrafish_ directory.
 ```text
 cd $WRKDIR/genomes/zebrafish
@@ -113,10 +109,16 @@ a-put Danio_rerio.GRCz10.fa
 ```
 In the end of the upload process the command reports:
 ```text
-1 files from Danio_rerio.GRCz10.fa uploaded to bucket kkayttaj-2001659-taito-WRKDIR in 
-Allas as one compressed file: 
+-------------------------------------------------------------------------------
+1 files from Danio_rerio.GRCz10.fa uploaded to bucket kkayttaj-2001659-taito-WRKDIR in Allas as one compressed file: 
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
-Upload ready
+-----------------------------------------------------------------
+
+Upload summary:
+              Date                      Name  Files Size(kB)         Location in allas
+ 15.11.19 09:11:53     Danio_rerio.GRCz10.fa      1  1330852 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish
+-----------------------------------------------------------------
+OK
 ```
 So in this case the file was uploaded to Allas into bucket:
    _kkayttaj-2001659-taito-WRKDIR_
@@ -125,9 +127,9 @@ as object:
 In this case I used the default bucket and object names assigned by `a-put`, but other bucket and object 
 names coulud be defined with command line options `-b`  and `-o`.
 Now command _a-list_ shows that I have one bucket in Allas and that the bucket contains one object.
-<pre>[kkayttaj@c311:zebrafish><b> a-list</b>
+<pre>[kkayttaj@datamangler03:zebrafish><b> a-list</b>
 kkayttaj-2001659-taito-WRKDIR
-[kkayttaj@c311:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
+[kkayttaj@datamangler03:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
 Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
@@ -142,12 +144,20 @@ a-put zebrafish/
 ```
 In the end of the upload process the command reports:
 ```text
-8 files from zebrafish uploaded to bucket kkayttaj-2001659-taito-WRKDIR in Allas 
-as one compressed file: 
+
+-------------------------------------------------------------------------------
+8 files from zebrafish uploaded to bucket kkayttaj-2001659-taito-WRKDIR in Allas as one compressed file: 
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
+-----------------------------------------------------------------
+
+Upload summary:
+              Date                      Name  Files Size(kB)         Location in allas
+ 15.11.19 09:11:39                 zebrafish      8  3191664 kkayttaj-2001659-taito-WRKDIR/genomes
+-----------------------------------------------------------------
+OK
 ```
 After this I have another object in kkayttaj-2001659-taito-WRKDIR bucket:
-<pre>[kkayttaj@c311:genomes><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
+<pre>[kkayttaj@datamangler03:genomes><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
 
@@ -244,21 +254,16 @@ module load allas
 ```
 Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-<pre>[kkayttaj@c311:~><b> allas-conf</b>
+<pre>[kkayttaj@datamangler03:~><b> allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
 Checking projects available for your account.
 Please wait.
-You have access to following Allas projects:
-Project ID        Description
---------------------------------------------
-project_2000982   Services for science Kalle Kayttaja
-project_2001659   CSC user's maintenance Ossi Huikonen
-project_2000136   dis Jana Poranen
-Please define the Project ID of the project to be used:
-<b>project_2001659</b>
+1) project_2000982     2) project_2001659     3) project_2000136      4) abort allas_conf
+Please choose a project by giving an item number form the list above: <b>2</b>
 
 allas connection configured successfully.
+Connection stays active for eight hours.
 </pre>
 Allas-conf procedure above defines an Allas-connection that is valid for next eightt hours. 
 Next I go to the _zebrafish_ directory.
@@ -344,37 +349,37 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 In the previous two examples the actual amount of data was rather moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
 of the token based Allas authentication.
 
-In this example we use `a-put` to upload a set of large files from Taito to Allas. We use _taito-shell_ as a platform for running the process but you could use login nodes of Taito too.
+In this example we use `a-put` to upload a set of large files from Taito to Allas. We use _datamangler.csc.fi_ as a platform for running the process as it provides faster connection to Allas, than Taito or Taito-shell.
 
-First thing to do is to open a taito-shell connection that we can keep running for a long time. For that 
+First thing to do is to open a Datamagler connection that we can keep running for a long time. For that 
 we have two options:
 
 1.    Using [NoMachine virtual desktop](https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3) to connect Taito shell
-2.    Using screen command in the login nodes of Taito as described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+2.    Using screen command ia way that resembles the Taito-shell case described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
 
-In this example I have used the second alternative and opened the connection to taito-shell with commands:
+In this example I have used the second alternative and opened the connection to Datamangler with commands:
 
 ```text
-ssh taito-login3.csc.fi
+ssh datamangler.csc.fi
 screen
-sinteractive
 ```
-To use Allas I first load _allas module_ and use `allas-conf` to establish the connection to Allas.
+The _screen_ command starts a virtual session in the Datamangler. You can leave this virtual screen session running in the backgound and log out from Datamangler but you should check which datamangler node (datamangler01, datamangler02, datamangler03..) your session is running, because you most log in to the very same node to re-connect your _screen_ session
+later on.
+
+In the screen session I first load _allas module_ and use `allas-conf` to establish the connection to Allas.
 ```text
 module load allas
 allas-conf -k
 ```
+Here _allas-conf_ is used with option `-k`. This option saves the allas password to a environment variable ($OS_PASSWORD) so that
+the connection to Allas can be later on automatically re-configured without need to define the password again.
 
-Here allas-conf is used with option `-k`. This option saves the allas password to a environment variable (OS_PASSWORD) so that
-the connection to allas can be later on automatically re-configured without need to define the password again.
-
-
-After opening the alla connection I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in 
+After opening the Allas connection I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in 
 these directories: 
 
 <pre>
-[kkayttaj@c311:~> <b>cd $WRKDIR/my_data</b>
-[kkayttaj@c311:my_data> <b>ls -lh */*.gz</b>
+[kkayttaj@datamangler03:~> <b>cd $WRKDIR/my_data</b>
+[kkayttaj@datamangler03:my_data> <b>ls -lh */*.gz</b>
 -rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
 -rw-rwxr-x 1 kkayttaj csc  61G Jun  5 13:09 100/uniref100.xml.gz
 -rw-rwxr-x 1 kkayttaj csc 589M Jun  5 13:09 50/uniref50.fasta.gz
@@ -403,21 +408,19 @@ done
  
 I can now leave the session running in the background by pressing: _Ctrl-a d_.
 
-Now I can logout from Taito, but the screen session in taito-login3 and the taito-shell session within it is preserved.
+Now I can logout from Datamagler, but the screen session in the Datamangler node I use (in this case _datamangler03_ )and the is preserved and active.
 
-To reattach to this session, I first connect to the Taito login node where the screen session is running. For example:
+To reattach to this session, I first connect to the Datamangler node where the screen session is running. For example:
 ```text
-ssh taito-login3.csc.fi
+ssh datamangler03.csc.fi
 ```
 Then,  I reattach the screen session with command:
 ```
-screen -R
+screen -r
 ``` 
 
 
-
-
-
+# Migration example 4: Uploading complex directory structures from Taito to Allas <a name="e4"></a>
 
 
 
