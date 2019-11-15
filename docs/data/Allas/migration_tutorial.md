@@ -221,18 +221,19 @@ two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rer
 matches only from objects that were uploaded with `a-put`.
 
 Now let's download the data to Puhti. This is done with `a-get` command:
-```
+```text
 [kkayttaj@puhti-login2 kkayttaj]$ a-get kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 Starting to copy data from allas...
 Object:
   kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst 
 copied and uncompressed from allas into:
   zebrafish
-  ```
+```
+
 After this, the current working directory in Puhti has a new directory, _zebrafish_, that contains the files that 
 were previously uploaded from Taito to Allas.
 
-```
+```text
 [kkayttaj@puhti-login2 kkayttaj]$ ls zebrafish/
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
