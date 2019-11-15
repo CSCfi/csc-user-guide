@@ -50,7 +50,7 @@ srun --gres=gpu:v100:1 pmemd.cuda.MPI -O -i mdin -r restrt -x mdcrd -o mdout
 
 !!! note
     If you want to use more than one GPGPU, perform scaling tests to verify that
-    the jobs become faster. The rule of thumb is that when you double the resources,
+    the jobs really become faster. The rule of thumb is that when you double the resources,
     the job duration should shrink at least 1.5 fold.
     For overall performance info, consult [Amber benchmark scaling info].
 
@@ -75,7 +75,7 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
 
 !!! tip
-    pmemd.CUDA is much more efficient than the pmemd.MPI, so use the CPU-only 
+    `pmemd.CUDA` is way faster than `pmemd.MPI`, so use the CPU-only 
     version if you cannot use the CUDA version. If Amber performance
     is not fast enough, consider using [Gromacs](gromacs.md), which can be
     an order of magnitude faster. In particular, for large scale or very long MD
@@ -83,8 +83,8 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 
 **Interactive jobs**
 
-Sometimes it is more convenient to run a small job, like system
-preparations, interactively. To prevent load on the login node, these
+Sometimes it is more convenient to run a small jobs, like system
+preparations, interactively. To prevent excessive load on the login node, these
 kinds of jobs should be run as interactive batch jobs. You can request
 a shell on a compute node with access to a single core with:
 
@@ -97,7 +97,7 @@ you can run the `paramfit` task directly with:
 
 ## References
 
-When citing Amber 2018 (comprised of AmberTools18 and Amber18) in the
+When citing Amber 2018 in the
 literature, the following citation should be used:
   
 D.A. Case, I.Y. Ben-Shalom, S.R. Brozell, D.S. Cerutti, T.E. Cheatham,
@@ -111,11 +111,13 @@ Smith, R. Salomon-Ferrer, J. Swails, R.C. Walker, J. Wang, H. Wei, R.M.
 Wolf, X. Wu, L. Xiao, D.M. York and P.A. Kollman (2018), AMBER 2018,
 University of California, San Francisco.
 
+* [More on citations](http://ambermd.org/CiteAmber.php)
+
 ## More Information
 
-The Amber home page: <http://ambermd.org/> has an extensive manual
+The Amber home page: [http://ambermd.org/](http://ambermd.org/) has an extensive manual
 and useful tutorials.
 
   [acedemic license text here]: http://ambermd.org/LicenseAmber18.pdf
-  [Amber benchmark scaling info]: http://ambermd.org/gpus/benchmarks.htm
+  [Amber benchmark scaling info]: http://ambermd.org/GPUPerformance.php
   [NoMachine remote desktop]: nomachine.md
