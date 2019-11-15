@@ -32,7 +32,7 @@ Datamangler includes a set of nodes that have access to the Taito disk area and 
 To access Datamangler, use address: datamangler.csc.fi. For example
 
 ```text
-  ssh csc-user-account@datamangler.csc.fi
+ssh csc-user-account@datamangler.csc.fi
 ```
 
 We recommend you to use Datamangler to transfer your files to Allas, as their transfer capacity is significantly greater
@@ -413,7 +413,7 @@ Most of the modern non-ascii file formats, (i.e. binary data) that are used for 
 Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
 
 ```text
- a-put -b  2000136-uniref --nc  */*.gz
+a-put -b  2000136-uniref --nc  */*.gz
 ```
 This command starts loading the files, listed above, to Allas.
 
@@ -474,7 +474,7 @@ As another extreme, your could use `a-put` and collect all the data into one com
 must add the option _--skip-filelist_ to the `a-put` command. By default `a-put` collects detailed metadata of **each** file to the _ameta_ file. However, if you have thousands of files, collecting this information will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names - but **no** other information - of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored altogether (--skip-filelist), which is the fastest option.
 
 ```text
- a-put --skip-filelist road_cameras/
+a-put --skip-filelist road_cameras/
 ```
 This approach would store all the 2,6 million files into one object. 
 
@@ -483,14 +483,14 @@ In practice, the optimal way of storing the data is often between these two extr
 For example:
 
 ```text
- a-put --skip-filelist road_cameras/site_*
- ```
+a-put --skip-filelist road_cameras/site_*
+```
 This would produce 10 objects, each containing all the information from one camera site.
 Alternatively, you could do the compression so, that data from each year in each camera is collected to one object:
  
- ```text
- a-put --skip-filelist road_cameras/site_*/20*
- ```
+```text
+a-put --skip-filelist road_cameras/site_*/20*
+```
 This last option would store the data into 50 objects. Day-based objects for each camera might be most handy for using the data later on, but as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
 
 Copying millions of files to Allas will take a long time regardless of the way you are using. If you have started the `a-put` command inside a `screen` session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
