@@ -13,8 +13,8 @@ structure refinement.
 ## License
 
 Amber can be used on CSC servers by all not-for-profit institute and
-university researchers irrespective of nationality or location. The full
-Acedemic license text can be found in [here].
+university researchers irrespective of nationality or location. Look for
+the [acedemic license text here].
 
 ## Usage
 
@@ -22,14 +22,14 @@ Start using the AmberTools with:
   
 `module load amber`
 
-This will set `$AMBERHOME` and put the binaries in the path. Run Amber
+This will set `$AMBERHOME` and put the AmberTools binaries in the path. Run Amber
 production jobs in the batch queues, see below. Lightweight system preparation
 can be done on the login node as well (short serial AmberTools jobs).
 
 Molecular dynamics jobs are best run with `pmemd.CUDA`. They are much faster
-on GPGPUs than on CPUs. Using `pmemd.CUDA` requires
-a different module, but that module does not have all the AmberTools available.
-Our tests show that for moderate sizeds systems the most efficient setup
+on GPGPUs than on CPUs. Please note, that using `pmemd.CUDA` requires
+a different module `amber/18-cuda`, but it does not have all the AmberTools available.
+Our tests show that for moderate sized systems the most efficient setup
 is one V100 GPGPU card and one CPU core. An example batch script would be:
 
 ```
@@ -58,8 +58,9 @@ You can find example inputs from the amber tests directory:
 
 `ls $AMBERHOME/test`
 
-The non-CUDA aware tools can be run as batch jobs e.g. with the following way:
+The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. with the following way:
 
+```
 #!/bin/bash -l
 #SBATCH --time=00:10:00
 #SBATCH --partition=test
@@ -71,28 +72,28 @@ The non-CUDA aware tools can be run as batch jobs e.g. with the following way:
 module load amber/18
 
 srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
-
-TODO: run scaling tests!
-TODO: not edited below this...
+```
 
 !!! tip
-    Parallel Amber jobs seem to run most efficiently, if one uses a power of
-    two number of cores (2,4,8,16,32,64), but CPU-only performance is low
-    compared to GPGPU. Test for scaling ([Amber Benchmarks][Amber benchmark
-    scaling info]).  The pmemd module scales up to some tens of cores, but
-    is much slower than e.q. [Gromacs](gromacs.md). For large scale or very long MD
+    pmemd.CUDA is much more efficient than the pmemd.MPI, so use the CPU-only 
+    version if you cannot use the CUDA version. If Amber performance
+    is not fast enough, consider using [Gromacs](gromacs.md), which can be
+    an order of magnitude faster. In particular, for large scale or very long MD
     simulations consider using a better scaling MD engine.
 
 **Interactive jobs**
 
 Sometimes it is more convenient to run a small job, like system
 preparations, interactively. To prevent load on the login node, these
-kinds of jobs should be run as interactive batch jobs. ADD LINK
+kinds of jobs should be run as interactive batch jobs. You can request
+a shell on a compute node with access to a single core with:
 
-Once you've logged on a compute node in an allocation requesting e.g.
-4 cores (and tasks), you can run a pmemd.MPI job as:
+`srun -n 1 -p test -t 00:05:00 --account=<project> --pty /bin/bash`
 
-`pmemd.MPI -O -i mdin -o mdout -p prmtop -c inpcrd`
+Then, once you have the resources (you might need to wait), 
+you can run the `paramfit` task directly with:
+
+`paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat`
 
 ## References
 
@@ -113,8 +114,8 @@ University of California, San Francisco.
 ## More Information
 
 The Amber home page: <http://ambermd.org/> has an extensive manual
-and tutorials.
+and useful tutorials.
 
-  [here]: http://ambermd.org/LicenseAmber18.pdf
+  [acedemic license text here]: http://ambermd.org/LicenseAmber18.pdf
   [Amber benchmark scaling info]: http://ambermd.org/gpus/benchmarks.htm
   [NoMachine remote desktop]: nomachine.md
