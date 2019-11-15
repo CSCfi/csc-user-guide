@@ -426,13 +426,21 @@ screen -r
 Some workflows and software create complex direcotory structures to store and manage data. Thus you can have directories that have thousands or even millions of individual files. Copying of this kind of datasets from Taito to Allas takes time and is not
 always straight forward. The most reasonable way to upload this kind of data depends on the case. This example shows some alternative ways how to upload this kind of directories.
 
+First we open screen session in Datamangler and set up Allas connection just like in the previous example:
+
+```text
+ssh datamangler.csc.fi
+screen
+module load allas
+allas-conf -k
+```
+
 Now lets assume that we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in directory "road_cameras" so that each location has its' own sub-directory (10 directories). Inside this sub-directory we have directory level for each year( 5 directories) and day (365 directories), each containing 144 small image files. 
 
 For example
 ```text
 road_cameras/site_7/2017/day211/image_654887.jpg
 ```
-
 Thus the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
 In principle you could copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as by default one bucket can have in maximum 1 million objects.  You could for example run a separate _rclone_ command for each _site_ directory and put data from each site to a site specific bucket. For example
