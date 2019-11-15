@@ -34,12 +34,12 @@ For example, to a run a GPU job with the PyTorch image created above you could u
 
 ```bash
 #!/bin/bash
-#SBATCH --account <project> 
+#SBATCH --account=<project> 
 #SBATCH --cpus-per-task=10 
 #SBATCH --partition=gpu 
 #SBATCH --gres=gpu:v100:1 
 #SBATCH --time=1:00:00 
-#SBATCH --mem=16G
+#SBATCH --mem=16G  # Total amount of memory reserved for job
 
 srun singularity exec --nv --bind /projappl:/projappl --bind /scratch:/scratch \
     /path/to/pytorch_19.10-py3.sif \
