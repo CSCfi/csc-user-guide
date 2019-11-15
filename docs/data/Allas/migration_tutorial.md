@@ -359,7 +359,7 @@ Checks:                 0 / 0, -
 Transferred:            8 / 8, 100%
 Elapsed time:        9.6s
 
-[kkayttaj@puhti-login2 kkayttaj]$<b> ls zebrafish2</b>
+[kkayttaj@puhti-login2 kkayttaj]$ ls zebrafish2
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
@@ -445,7 +445,7 @@ screen -r
 Some workflows and software create complex directory structures to store and manage data. You might have directories that have thousands or even millions of individual files. Copying these kinds of datasets from Taito to Allas will take time and won't
 always be straight forward. The most reasonable way to upload these kind of data depends on the case. This example shows some alternatives on how to upload them.
 
-First, we open a screen session on Datamangler and set up an Allas connection just like in the previous example:
+First, we open a `screen` session on Datamangler and set up an Allas connection just like in the previous example:
 
 ```text
 ssh csc-username@datamangler.csc.fi
