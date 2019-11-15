@@ -94,7 +94,7 @@ Please choose a project by giving an item number form the list above: <b>2</b>
 
 allas connection configured successfully.
 Connection stays active for eight hours.
-</pre>
+</pre> 
 
 Allas-conf opens a connection to the specified Allas project for eight hours. If you want to start using some
 other project, you need to run allas-conf again. However in one shell session, you can have only one Allas project active at a time.
