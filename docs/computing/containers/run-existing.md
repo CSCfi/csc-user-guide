@@ -24,7 +24,7 @@ unset XDG_RUNTIME_DIR PROMPT_COMMAND
 singularity build pytorch_19.10-py3.sif docker://nvcr.io/nvidia/pytorch:19.10-py3
 ```
 
-Note that the Singularity image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in a [project scratch directory](/computing/disk/#scratch-directory).
+Note that the Singularity image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project appliction directory [projappl](/computing/disk). 
 
 ## Run batch job using a container
 
