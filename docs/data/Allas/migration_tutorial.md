@@ -232,7 +232,7 @@ copied and uncompressed from allas into:
 After this, the current working directory in Puhti has a new directory, _zebrafish_, that contains the files that 
 were previously uploaded from Taito to Allas.
 
-````
+```
 [kkayttaj@puhti-login2 kkayttaj]$ ls zebrafish/
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
