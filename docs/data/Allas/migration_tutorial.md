@@ -82,8 +82,8 @@ To copy the content of this directory to Allas, I first login to datamangler.csc
 module load allas
 ```
 Then, I open a connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
-then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-```
+then lists those Allas projects that are accessible for me. In this case I select _project_2001659_.
+```text
 [kkayttaj@datamangler03:~> allas-conf
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
@@ -381,7 +381,7 @@ we have two options:
 In this example I have used the second alternative and opened the connection to Datamangler with commands:
 
 ```text
-ssh datamangler.csc.fi
+ssh csc-username@datamangler.csc.fi
 screen
 ```
 The `screen` command starts a virtual session in the Datamangler. You can leave this virtual screen session running in the backgound and log out from Datamangler but you should check which datamangler node (datamangler01, datamangler02, datamangler03, ...) your session is running on, because you most log on to the very same node to re-connect to your `screen` session
@@ -398,8 +398,8 @@ the connection to Allas can be later on automatically re-configured without need
 After opening the Allas connection I move to directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
 ```
-[kkayttaj@datamangler03:~> <b>cd $WRKDIR/my_data</b>
-[kkayttaj@datamangler03:my_data> <b>ls -lh */*.gz</b>
+[kkayttaj@datamangler03:~> cd $WRKDIR/my_data
+[kkayttaj@datamangler03:my_data> ls -lh */*.gz
 -rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
 -rw-rwxr-x 1 kkayttaj csc  61G Jun  5 13:09 100/uniref100.xml.gz
 -rw-rwxr-x 1 kkayttaj csc 589M Jun  5 13:09 50/uniref50.fasta.gz
@@ -432,7 +432,7 @@ Now, I can logout from Datamagler, but the screen session remains active in the 
 
 To connect to this session, I first connect to the Datamangler node where the screen session is running. For example:
 ```text
-ssh <myusername>@datamangler03.csc.fi
+ssh csc-username@datamangler03.csc.fi
 ```
 Then,  I reattach the screen session with command:
 ```
@@ -448,13 +448,13 @@ always be straight forward. The most reasonable way to upload these kind of data
 First, we open a screen session on Datamangler and set up an Allas connection just like in the previous example:
 
 ```text
-ssh datamangler.csc.fi
+ssh csc-username@datamangler.csc.fi
 screen
 module load allas
 allas-conf -k
 ```
 
-Now lets assume that we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in a directory "road_cameras" so that each location has its own sub-directory (10 directories). Inside each sub-directory we have directory level for each year (5 directories) and for each day (365 directories), each containing 144 small image files. 
+Suppose we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in a directory "road_cameras" so that each location has its own sub-directory (10 directories). Inside each subdirectory we have another layer for each year (5 subdirectories) each containing subdirectories for every day of the year (further 365 subdirectories), each containing 144 small image files. 
 
 For example
 ```text
@@ -462,7 +462,7 @@ road_cameras/site_7/2017/day211/image_654887.jpg
 ```
 Thus, the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
-In principle, you _could_ copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as, by default, one bucket can have in maximum 1 million objects.  You could for example run a separate `rclone` command for each _site_ directory and put data from each site to a site specific bucket. For example:
+In principle, you _could_ copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as one bucket can have in maximum 1 million objects.  You could, for example, run a separate `rclone` command for each _site_ directory and put data from each site to a site specific bucket. For example:
 
 ```text
 rclone road_cameras/site_1 allas:20000136_road_cameras_site_1/
@@ -471,7 +471,7 @@ This way you would end up creating ten buckets each containing 262 800 objects.
 
 However, this approach _could_ be the most effective way for storing and re-using the data.
 As another extreme, your could use `a-put` and collect all the data into one compressed object. If you do that you
-must add option _--skip-filelist_ to the `a-put` command. By default `a-put` collects detailed metadata of **each** file to the _ameta_ file. However, if you have thousands of files, collecting this information will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names - but **no** other information - of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored (--skip-filelist), which is the fastest option.
+must add the option _--skip-filelist_ to the `a-put` command. By default `a-put` collects detailed metadata of **each** file to the _ameta_ file. However, if you have thousands of files, collecting this information will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names - but **no** other information - of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored altogether (--skip-filelist), which is the fastest option.
 
 ```text
  a-put --skip-filelist road_cameras/
