@@ -16,10 +16,10 @@ This tutorial provides four examples of moving data first from Taito to Allas an
 
 1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
 2.   [The second example](#e2) the same data is transported using rclone.
-3.   [The third example](#e3) focuses in uploading large files from Taito to Allas 
-4.   [The fourth example](#e4) studies case where the dataset to be copied includes large amount iof files
+3.   [The third example](#e3) focuses on uploading large files from Taito to Allas 
+4.   [The fourth example](#e4) handles the case where the dataset to be copied includes *large* amount of files
 
-The first approach is useful in cases where the data is mainly used in the CSC computing environment (Taito, Puhti, Mahti). While
+The first approach is useful in cases where the data is mainly used within the CSC computing environment (Taito, Puhti, Mahti). While
 the second option (rclone) is good for cases where the data will be used outside CSC too.
 
 The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets (max some hundreds of GBs).
@@ -43,8 +43,8 @@ than from Taito login node or Taito-shell. All of them have the same data transp
 ## 1. Get access to Allas
 By default the CSC computing projects do not have access to Allas. Thus, the first thing is to add 
 Allas service for your project.  This is done with the [MyCSC](https://my.csc.fi) interface. 
-Note that only the project manager can apply for the access. Once access is granted all project 
-members must visit MyCSC service and accept the term of use for Allas, before they can use the Allas 
+Note that only the project manager can apply for the access. Once access is granted, all project 
+members must visit MyCSC web service and accept the term of use for Allas, before they can use the Allas 
 storage area.
 
 
@@ -82,7 +82,7 @@ To copy the content of this directory to Allas, I first login to datamangler.csc
 ```text
 module load allas
 ```
-Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
+Then I open a connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
 <pre>[kkayttaj@datamangler03:~><b> allas-conf</b>
 Please enter CSC password for account kkayttaj: 
@@ -96,8 +96,8 @@ allas connection configured successfully.
 Connection stays active for eight hours.
 </pre> 
 
-Allas-conf opens a connection to the specified Allas project for eight hours. If you want to start using some
-other project, you need to run allas-conf again. However in one shell session, you can have only one Allas project active at a time.
+`allas-conf` opens a connection to the specified Allas project for eight hours. If you want to start using some
+other project, you need to run `allas-conf` again. However, in one shell session, you can have only one Allas project active at a time.
     
 
 Next I go to the _zebrafish_ directory.
@@ -356,7 +356,7 @@ First thing to do is to open a Datamagler connection that we can keep running fo
 we have two options:
 
 1.    Using [NoMachine virtual desktop](https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3) to connect Taito shell
-2.    Using screen command ia way that resembles the Taito-shell case described [here](https://research.csc.fi/taito-faq/-/asset_publisher/ZJfZFkUtMsij/content/6-how-do-i-start-long-running-jobs-in-taito-shell-?)
+2.    Using the `screen` command as way that resembles the Taito-shell case described [here](https://research.csc.fi/-/6-how-do-i-start-long-running-jobs-in-taito-shell-)
 
 In this example I have used the second alternative and opened the connection to Datamangler with commands:
 
@@ -364,21 +364,20 @@ In this example I have used the second alternative and opened the connection to 
 ssh datamangler.csc.fi
 screen
 ```
-The _screen_ command starts a virtual session in the Datamangler. You can leave this virtual screen session running in the backgound and log out from Datamangler but you should check which datamangler node (datamangler01, datamangler02, datamangler03..) your session is running, because you most log in to the very same node to re-connect your _screen_ session
+The `screen` command starts a virtual session in the Datamangler. You can leave this virtual screen session running in the backgound and log out from Datamangler but you should check which datamangler node (datamangler01, datamangler02, datamangler03, ...) your session is running on, because you most log on to the very same node to re-connect to your `screen` session
 later on.
 
-In the screen session I first load _allas module_ and use `allas-conf` to establish the connection to Allas.
+In the screen session I first load the _allas module_ and use `allas-conf` to establish the connection to Allas.
 ```text
 module load allas
 allas-conf -k
 ```
-Here _allas-conf_ is used with option `-k`. This option saves the allas password to a environment variable ($OS_PASSWORD) so that
+Here `allas-conf` is used with option `-k`. This option saves the allas password to a environment variable ($OS_PASSWORD) so that
 the connection to Allas can be later on automatically re-configured without need to define the password again.
 
-After opening the Allas connection I move to directory _my_data_ where I have a set subdirectories (50, 90, 100). I list the gzip-compressed files in 
-these directories: 
+After opening the Allas connection I move to directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
-<pre>
+```
 [kkayttaj@datamangler03:~> <b>cd $WRKDIR/my_data</b>
 [kkayttaj@datamangler03:my_data> <b>ls -lh */*.gz</b>
 -rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
@@ -387,9 +386,9 @@ these directories:
 -rw-rwxr-x 1 kkayttaj csc  17G Jun  5 13:09 50/uniref50.xml.gz
 -rw-r-xr-x 1 kkayttaj csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
-</pre>
+```
 
-Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For this kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, `a-put` does not accept directories, only individual files. Because of that is is good to run a check, like the _ls -lh_ command above, to ensure that input will contain only files.
+Most of the modern non-ascii file formats, (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus, these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For thiese kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, `a-put` does not accept directories, only individual files. Because of that it is good to run a check, like the `ls -lh` command above, to ensure that input will contain only files.
 
 Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
 
@@ -407,13 +406,13 @@ rclone copy $f allas:2000136-uniref
 done
 ```
  
-I can now leave the session running in the background by pressing: _Ctrl-a d_.
+I can now leave the session running in the background by pressing: `Ctrl-a d`.
 
-Now I can logout from Datamagler, but the screen session in the Datamangler node I use (in this case _datamangler03_ )and the is preserved and active.
+Now, I can logout from Datamagler, but the screen session remains active in the Datamangler node I use (in this case _datamangler03_ ).
 
-To reattach to this session, I first connect to the Datamangler node where the screen session is running. For example:
+To connect to this session, I first connect to the Datamangler node where the screen session is running. For example:
 ```text
-ssh datamangler03.csc.fi
+ssh <myusername>@datamangler03.csc.fi
 ```
 Then,  I reattach the screen session with command:
 ```
@@ -423,10 +422,10 @@ screen -r
 
 # Migration example 4: Uploading complex directory structures from Taito to Allas <a name="e4"></a>
 
-Some workflows and software create complex direcotory structures to store and manage data. Thus you can have directories that have thousands or even millions of individual files. Copying of this kind of datasets from Taito to Allas takes time and is not
-always straight forward. The most reasonable way to upload this kind of data depends on the case. This example shows some alternative ways how to upload this kind of directories.
+Some workflows and software create complex directory structures to store and manage data. You might have directories that have thousands or even millions of individual files. Copying these kinds of datasets from Taito to Allas will take time and won't
+always be straight forward. The most reasonable way to upload these kind of data depends on the case. This example shows some alternatives on how to upload them.
 
-First we open screen session in Datamangler and set up Allas connection just like in the previous example:
+First, we open a screen session on Datamangler and set up an Allas connection just like in the previous example:
 
 ```text
 ssh datamangler.csc.fi
@@ -435,64 +434,43 @@ module load allas
 allas-conf -k
 ```
 
-Now lets assume that we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in directory "road_cameras" so that each location has its' own sub-directory (10 directories). Inside this sub-directory we have directory level for each year( 5 directories) and day (365 directories), each containing 144 small image files. 
+Now lets assume that we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in a directory "road_cameras" so that each location has its own sub-directory (10 directories). Inside each sub-directory we have directory level for each year (5 directories) and for each day (365 directories), each containing 144 small image files. 
 
 For example
 ```text
 road_cameras/site_7/2017/day211/image_654887.jpg
 ```
-Thus the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
+Thus, the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
-In principle you could copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as by default one bucket can have in maximum 1 million objects.  You could for example run a separate _rclone_ command for each _site_ directory and put data from each site to a site specific bucket. For example
+In principle, you _could_ copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as, by default, one bucket can have in maximum 1 million objects.  You could for example run a separate `rclone` command for each _site_ directory and put data from each site to a site specific bucket. For example:
 
 ```text
 rclone road_cameras/site_1 allas:20000136_road_cameras_site_1/
 ```
-Thus you would end up creating ten buckets each containing 262 800 objects. 
+This way you would end up creating ten buckets each containing 262 800 objects. 
 
-However it is quite probable that this approach is the most effective way for storing and re-using the data.
-As another extreme, your could use _a-put_ and collect all the data into one compressed object. If you do that you
-must add option _--skip-filelist_ to the _a-put_ command. By default _a-put_ collects detailed metadata of each file to the _ameta_ file. However, if you have thousands of files, collecting this information  will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names, but no other information, of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing of the file names to the metadata files can be just ignored (--skip-filelist), which is the fastest option.
+However, this approach _could_ be the most effective way for storing and re-using the data.
+As another extreme, your could use `a-put` and collect all the data into one compressed object. If you do that you
+must add option _--skip-filelist_ to the `a-put` command. By default `a-put` collects detailed metadata of **each** file to the _ameta_ file. However, if you have thousands of files, collecting this information will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names - but **no** other information - of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored (--skip-filelist), which is the fastest option.
 
 ```text
  a-put --skip-filelist road_cameras/
 ```
 This approach would store all the 2,6 million files into one object. 
 
-In practice the optimal way of storing the data is often between these two extremes. So instead you could apply packing in some higer level in the hierarchy.
+In practice, the optimal way of storing the data is often between these two extremes. As a compromise, you could apply packing in some higher level in the hierarchy.
 
-For example command:
+For example:
 
 ```text
  a-put --skip-filelist road_cameras/site_*
  ```
- Would in this case produce 10 objects, each containing all the information form one camera site.
- Alternatively, you could do the compression so that data from each year in each camera is collected to one object:
+This would produce 10 objects, each containing all the information from one camera site.
+Alternatively, you could do the compression so, that data from each year in each camera is collected to one object:
  
  ```text
  a-put --skip-filelist road_cameras/site_*/20*
  ```
- This last option would store the data into 50 objects. Day based objects for each camera might be most handy for using the data later on, but preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
+This last option would store the data into 50 objects. Day-based objects for each camera might be most handy for using the data later on, but as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
 
-Copying millions of files to Allas will take a long time regardless of the way you are using. If you have started the _a-put_ command inside a _screen_ session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
+Copying millions of files to Allas will take a long time regardless of the way you are using. If you have started the `a-put` command inside a `screen` session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
