@@ -307,7 +307,8 @@ After copying the files I use `rclone ls` to see what has been uploaded to Allas
 450646234 Danio_rerio.GRCz10.91.rev.1.bt2
 334651392 Danio_rerio.GRCz10.91.rev.2.bt2
 1362788082 Danio_rerio.GRCz10.fa
-      715 Danio_rerio.GRCz10.fa.fai```
+      715 Danio_rerio.GRCz10.fa.fai
+```
 
 ## B. Downloading the data to Puhti
 
