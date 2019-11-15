@@ -74,9 +74,9 @@ module load amber/18
 srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
 
-!!! tip
-    `pmemd.CUDA` is way faster than `pmemd.MPI`, so use the CPU-only 
-    version if you cannot use the CUDA version. If Amber performance
+!!! note
+    `pmemd.CUDA` is way faster than `pmemd.MPI`, so use a CPU-only 
+    version only in case you cannot use the CUDA version. If Amber performance
     is not fast enough, consider using [Gromacs](gromacs.md), which can be
     an order of magnitude faster. In particular, for large scale or very long MD
     simulations consider using a better scaling MD engine.
