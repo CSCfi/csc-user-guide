@@ -55,9 +55,7 @@ The request should be sent to **servicedesk@csc.fi**.
 Please include to your quota request:
 
    *    ID/name of your project
-   
    *    amount Allas space needed
-   
    *    a shot description of the data to be stored 
 
 # Migration example 1: A-commands <a name="e1"></a>
@@ -71,20 +69,22 @@ that compresses well and is mostly used in CSC environment.
 
 
 In this example in my Taito $WRKDIR I have a sub directory: _genomes/zebrafish_ that contains eight files listed below:
-<pre><b>ls $WRKDIR/genomes/zebrafish</b>
+```text
+ls $WRKDIR/genomes/zebrafish
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.4.bt2  
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
-</pre>
+```
 
 To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
 ```text
 module load allas
 ```
-Then I open a connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
+Then, I open a connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-<pre>[kkayttaj@datamangler03:~><b> allas-conf</b>
+```
+[kkayttaj@datamangler03:~> allas-conf
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
 Checking projects available for your account.
@@ -94,7 +94,7 @@ Please choose a project by giving an item number form the list above: <b>2</b>
 
 allas connection configured successfully.
 Connection stays active for eight hours.
-</pre> 
+```
 
 `allas-conf` opens a connection to the specified Allas project for eight hours. If you want to start using some
 other project, you need to run `allas-conf` again. However, in one shell session, you can have only one Allas project active at a time.
@@ -128,10 +128,12 @@ as object:
 In this case I used the default bucket and object names assigned by `a-put`, but other bucket and object 
 names coulud be defined with command line options `-b`  and `-o`.
 Now command _a-list_ shows that I have one bucket in Allas and that the bucket contains one object.
-<pre>[kkayttaj@datamangler03:zebrafish><b> a-list</b>
+```text
+[kkayttaj@datamangler03:zebrafish> a-list
 kkayttaj-2001659-taito-WRKDIR
-[kkayttaj@datamangler03:zebrafish><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
-kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
+[kkayttaj@datamangler03:zebrafish> a-list kkayttaj-2001659-taito-WRKDIR
+kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+```
 
 Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
 upload data to Allas one directory at a time and store the data in bigger chunks. For example, to upload the 
@@ -145,7 +147,6 @@ a-put zebrafish/
 ```
 In the end of the upload process the command reports:
 ```text
-
 -------------------------------------------------------------------------------
 8 files from zebrafish uploaded to bucket kkayttaj-2001659-taito-WRKDIR in Allas as one compressed file: 
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
@@ -158,11 +159,13 @@ Upload summary:
 OK
 ```
 After this I have another object in kkayttaj-2001659-taito-WRKDIR bucket:
-<pre>[kkayttaj@datamangler03:genomes><b> a-list kkayttaj-2001659-taito-WRKDIR</b>
+```text
+[kkayttaj@datamangler03:genomes> a-list kkayttaj-2001659-taito-WRKDIR
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
-kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
+kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+```
 
-Note that in fact the file _Danio_rerio.GRCz10.fa_ is now stored to Allas two times: 
+Note, that in fact the file _Danio_rerio.GRCz10.fa_ is now stored to Allas two times: 
 As an individual compressed object (genomes/zebrafish/Danio_rerio.GRCz10.fa.zst)
 and as part of the _genomes/zebrafish.tar.zst_ object.
 
@@ -184,20 +187,23 @@ As the Puhti scratch directory is shared by all project members, I make a my own
 mkdir kkayttaj
 cd kkayttaj/
 ```
-With command _a-list_ I can now see the objects I just uploaded from Taito to Allas
+With command `a-list` I can now see the objects I just uploaded from Taito to Allas
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list</b> 
+```text
+[kkayttaj@puhti-login2 kkayttaj]$ a-list 
 kkayttaj-2001659-taito-WRKDIR
 [kkayttaj@puhti-login2 kkayttaj]$ <b>a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
-kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst</pre>
+kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+```
 
 Locating my data is easy as there are just two objects in the bucket, but as more data is added to Allas, 
 locating a specific file from dozens of buckets containing hundreds of objects, may be difficult. 
 In that case, you can search for a specific file with command: `a-find`. In this case I could check if 
 some object contains file Danio_rerio.GRCz10.fa with command:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-find -a Danio_rerio.GRCz10.fa</b>
+```text
+[kkayttaj@puhti-login2 kkayttaj]$ a-find -a Danio_rerio.GRCz10.fa 
 ----------------------------------------------
 Checking bucket: kkayttaj-2001659-taito-WRKDIR
 Object: kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst 
@@ -207,28 +213,32 @@ includes 1 file names that that match query: Danio_rerio.GRCz10.fa
 ------------------------------------------------ 
 Query: Danio_rerio.GRCz10.fa
 Total of 3 hits were found in 2 objects
--------------------------------------------------</pre>
+-------------------------------------------------
+```
 
-The _a-find_ report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
+The `a-find` report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
 two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
 matches only from objects that were uploaded with `a-put`.
 
-Now lets’ download the data to Puhti. This is done with `a-get` command:
-<pre>[kkayttaj@puhti-login2 kkayttaj]$<b> a-get kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst</b>
+Now let's download the data to Puhti. This is done with `a-get` command:
+```
+[kkayttaj@puhti-login2 kkayttaj]$ a-get kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 Starting to copy data from allas...
 Object:
   kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst 
 copied and uncompressed from allas into:
-  zebrafish</pre>
+  zebrafish
+  ```
 After this, the current working directory in Puhti has a new directory, _zebrafish_, that contains the files that 
 were previously uploaded from Taito to Allas.
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$<b> ls zebrafish/</b>
+````
+[kkayttaj@puhti-login2 kkayttaj]$ ls zebrafish/
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
-Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
-
+Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
+```
 
 # Migration example 2: rclone <a name="e2"></a>
 
@@ -242,12 +252,13 @@ and remove data both in Allas and in the local disk environment without notifyin
 
 This example uses the same data as the previous case:  in my Taito $WRKDIR I have a sub directory:
 _genomes/zebrafish_  that contains eight files listed below:
-<pre><b>ls $WRKDIR/genomes/zebrafish</b>
+```text
+ls $WRKDIR/genomes/zebrafish
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.4.bt2  
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2  
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
-</pre>
+```
 
 To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
 ```text
@@ -255,7 +266,8 @@ module load allas
 ```
 Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
 then lists those Allas projects that are accessible for me. In this case I select project_2001659.
-<pre>[kkayttaj@datamangler03:~><b> allas-conf</b>
+```text
+[kkayttaj@datamangler03:~> allas-conf 
 Please enter CSC password for account kkayttaj: 
 xxxxxxxxxx
 Checking projects available for your account.
@@ -265,23 +277,27 @@ Please choose a project by giving an item number form the list above: <b>2</b>
 
 allas connection configured successfully.
 Connection stays active for eight hours.
-</pre>
-Allas-conf procedure above defines an Allas-connection that is valid for next eightt hours. 
-Next I go to the _zebrafish_ directory.
+```
+
+The `allas-conf` procedure above defines an Allas-connection that is valid for next eight hours. 
+Next, I go to the _zebrafish_ directory.
 ```text
 cd $WRKDIR/genomes/zebrafish
 ```
 
-In stead of _a-put_, that was used in the previous example, I now use command `rclone copyto` to copy all the 
-files from the given directory to Allas. In the case of _rclone_ there is no default bucket. In stead I have 
-to define a bucket to be used. This example I use bucket name _2001659-genomes_ and
-define that each object name should have prefix _zebrafish_.
+Instead of `a-put`, that was used in the previous example, I now use command `rclone copyto` to copy all the 
+files from the given directory to Allas. In the case of `rclone` there is no default bucket. Instead, I have 
+to define a bucket to be used. In this example I use a bucket name _2001659-genomes_ and
+define each object name to have the prefix _zebrafish_.
 
-<pre>[kkayttaj@c311:genomes><b>rclone copyto zebrafish/ allas:2001659-genomes/zebrafish</b></pre>
+```text
+[kkayttaj@c311:genomes> rclone copyto zebrafish/ allas:2001659-genomes/zebrafish
+```
 
 After copying the files I use `rclone ls` to see what has been uploaded to Allas. 
 
-<pre>[kkayttaj@c311:genomes><b>rclone ls allas:2001659-genomes/zebrafish</b>
+```text
+[kkayttaj@c311:genomes> rclone ls allas:2001659-genomes/zebrafish
 450646234 Danio_rerio.GRCz10.91.1.bt2
 334651392 Danio_rerio.GRCz10.91.2.bt2
    187325 Danio_rerio.GRCz10.91.3.bt2
@@ -289,7 +305,7 @@ After copying the files I use `rclone ls` to see what has been uploaded to Allas
 450646234 Danio_rerio.GRCz10.91.rev.1.bt2
 334651392 Danio_rerio.GRCz10.91.rev.2.bt2
 1362788082 Danio_rerio.GRCz10.fa
-      715 Danio_rerio.GRCz10.fa.fai</pre>
+      715 Danio_rerio.GRCz10.fa.fai```
 
 ## B. Downloading the data to Puhti
 
@@ -311,15 +327,18 @@ cd kkayttaj/
 ```
 I can now use command `rclone lsd` to check the available buckets in Allas:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone lsd allas:</b>
+```text
+[kkayttaj@puhti-login2 kkayttaj]$ rclone lsd allas:
   3268222761 2019-10-03 10:01:42         8 2001659-genomes
-  2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR</pre>
-  
+  2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR
+```
+
 Now I can see two buckets: _2001659-genomes_ is the one that was just created in this 
 example while _kkayttaj-2001659-taito-WRKDIR_ originates form the previous a-command example.  
 Next we list objects in the 2001659-genomes bucket:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone ls allas:2001659-genomes</b>
+```text
+[kkayttaj@puhti-login2 kkayttaj]$ rclone ls allas:2001659-genomes
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
 334651392 zebrafish/Danio_rerio.GRCz10.91.2.bt2
    187325 zebrafish/Danio_rerio.GRCz10.91.3.bt2
@@ -327,11 +346,12 @@ Next we list objects in the 2001659-genomes bucket:
 450646234 zebrafish/Danio_rerio.GRCz10.91.rev.1.bt2
 334651392 zebrafish/Danio_rerio.GRCz10.91.rev.2.bt2
 1362788082 zebrafish/Danio_rerio.GRCz10.fa
-      715 zebrafish/Danio_rerio.GRCz10.fa.fa</pre>
+      715 zebrafish/Danio_rerio.GRCz10.fa.fa```
 
 Finally I use `rclone copyto` command to copy the data from Allas to Puhti into new directory _zebrafish2_. 
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$<b> rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
+```text
+[kkayttaj@puhti-login2 kkayttaj]$ rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
 Errors:                 0
 Checks:                 0 / 0, -
@@ -343,8 +363,7 @@ Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
-</pre>
-
+```
 # Migration example 3: Uploading large files from Taito to Allas <a name="e3"></a>
 
 In the previous two examples the actual amount of data was rather moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
@@ -355,7 +374,7 @@ In this example we use `a-put` to upload a set of large files from Taito to Alla
 First thing to do is to open a Datamagler connection that we can keep running for a long time. For that 
 we have two options:
 
-1.    Using [NoMachine virtual desktop](https://research.csc.fi/csc-guide-connecting-the-servers-of-csc#1.3.3) to connect Taito shell
+1.    Using [NoMachine virtual desktop](/apps/nomachine.md) to connect Taito shell
 2.    Using the `screen` command as way that resembles the Taito-shell case described [here](https://research.csc.fi/-/6-how-do-i-start-long-running-jobs-in-taito-shell-)
 
 In this example I have used the second alternative and opened the connection to Datamangler with commands:
