@@ -374,7 +374,7 @@ In this example we use `a-put` to upload a set of large files from Taito to Alla
 First thing to do is to open a Datamagler connection that we can keep running for a long time. For that 
 we have two options:
 
-1.    Using [NoMachine virtual desktop](/apps/nomachine.md) to connect Taito shell
+1.    Using [NoMachine virtual desktop](../../apps/nomachine.md) to connect Taito shell
 2.    Using the `screen` command as way that resembles the Taito-shell case described [here](https://research.csc.fi/-/6-how-do-i-start-long-running-jobs-in-taito-shell-)
 
 In this example I have used the second alternative and opened the connection to Datamangler with commands:
