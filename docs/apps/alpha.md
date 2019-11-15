@@ -46,6 +46,7 @@
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
+* [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
