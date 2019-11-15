@@ -423,10 +423,10 @@ screen -r
 
 # Migration example 4: Uploading complex directory structures from Taito to Allas <a name="e4"></a>
 
-Some workflows and software can create utilize coplex daurcotory structures to stoere and manage data. Thus you can have directories that have thousands or even millions of individual files. Copying of this kind of datasets from Taito to Allas is not
-always straught forward. The most reasonble way to upload this kind of data, depends on the case. This example shows some alternative ways how to upload this kind of files.
+Some workflows and software create complex direcotory structures to store and manage data. Thus you can have directories that have thousands or even millions of individual files. Copying of this kind of datasets from Taito to Allas takes time and is not
+always straight forward. The most reasonable way to upload this kind of data depends on the case. This example shows some alternative ways how to upload this kind of directories.
 
-Now lest assume that we have a directory stucture that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in directory "road_cameras" so that each loaction has its' own subdirectory (10 derectories). Inside this sub-directory we have directory level for year( 5 directories) and day (365 directories, each containing 144 small images). 
+Now lets assume that we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in directory "road_cameras" so that each location has its' own sub-directory (10 directories). Inside this sub-directory we have directory level for each year( 5 directories) and day (365 directories), each containing 144 small image files. 
 
 For example
 ```text
@@ -435,23 +435,23 @@ road_cameras/site_7/2017/day211/image_654887.jpg
 
 Thus the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
-In principle you could copy all the 2,6 million files as separeate objects to Allas, but in that case you should split the data into multiple buckets as by default one bucket can have in maximum 1 million objects.  You could for example run a separate rcloce command for each _site_ directory and put data from each site to a seite specific bucket. For example
+In principle you could copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as by default one bucket can have in maximum 1 million objects.  You could for example run a separate _rclone_ command for each _site_ directory and put data from each site to a site specific bucket. For example
 
 ```text
 rclone road_cameras/site_1 allas:20000136_road_cameras_site_1/
 ```
-Thus you would end up to create ten buckets each containing 262 800 objects. 
+Thus you would end up creating ten buckets each containing 262 800 objects. 
 
 However it is quite probable that this approach is the most effective way for storing and re-using the data.
-As anoter extereme, your could use _a-put_ and collect all the data into one compressed object. If you do that you
-must add option _--skip-filelist_ to the _a-put_ command. By default _a-put_ collects detailed metadata of each file to the _ameta_ file. However, if you have thousands of files, collecting this information  will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names, but no other information, of the files to the metadatafile. This already speeds up the preprocessing significantly. However, as in this case the naming has been systematic, storing of the file names to the metadata files can be just ignored (--skip-filelist), which is the fastest option.
+As another extreme, your could use _a-put_ and collect all the data into one compressed object. If you do that you
+must add option _--skip-filelist_ to the _a-put_ command. By default _a-put_ collects detailed metadata of each file to the _ameta_ file. However, if you have thousands of files, collecting this information  will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names, but no other information, of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing of the file names to the metadata files can be just ignored (--skip-filelist), which is the fastest option.
 
 ```text
  a-put --skip-filelist road_cameras/
 ```
 This approach would store all the 2,6 million files into one object. 
 
-In practice the optimal way of storing the data is often between the two extremes. So instead you could apply packing in some higer level in the hierarchy.
+In practice the optimal way of storing the data is often between these two extremes. So instead you could apply packing in some higer level in the hierarchy.
 
 For example command:
 
@@ -464,10 +464,9 @@ For example command:
  ```text
  a-put --skip-filelist road_cameras/site_*/20*
  ```
- This last option would store the data into 50 objects. Daily based objects might be most handy for using the data later on, 
- but preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
+ This last option would store the data into 50 objects. Day based objects for each camera might be most handy for using the data later on, but preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
 
-Of the copying alternatives listed above, direct _rclone_ is clearly the fastest. However, if you have started the _a-put_ command inside a screen session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
+Copying millions of files to Allas will take a long time regardless of the way you are using. If you have started the _a-put_ command inside a _screen_ session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
 
 
 
