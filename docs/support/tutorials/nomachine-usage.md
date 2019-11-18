@@ -51,7 +51,9 @@ Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https:/
 
 ## Recommended tips
 
-1.   To get rid of the scroll bars at the edges of your screen take the mouse to the upper right corner (peel menu) and click "resize remote screen".
+1. To get rid of the scroll bars at the edges of your screen take the mouse to the upper right corner (peel menu) and click "resize remote screen".
+
+2. The default font in the terminal is ugly and small. Use the initial terminal to launch new prettier terminals. In taito, you can launch gnome-terminal, write `gnome-terminal` on the command line, and you will get a customizable terminal with resizable fonts. In puhti you can launch regular xterm with some options, for example, write `xterm -fs 12 -fa "Bitstream"`.
 
 ## Known issues
 
@@ -60,8 +62,6 @@ If something is not working, before contacting ServiceDesk, please check if your
 - Deselect "Match the client resolution upon reconnection" -option from the Display menu (access from "peel menu"). GUIs will work better.
 
 - To get rid of the scroll bars, maximise your NX window and select the 1:1 icon (Resize remote screen) from the "peel menu".
-
-- The default font in the terminal is ugly and small. To improve, start gnome-terminal (write `gnome-terminal` on the command line) as the first thing, when you have a terminal in either Taito or Puhti. The font is then resizable on the fly.
 
 - In Windows, if you have problems in the installation, try disabling "direct draw" from the advanced settings.
 
