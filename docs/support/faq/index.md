@@ -4,7 +4,7 @@
 * [X11 remote graphics does not work](x11-graphics.md)
 * [How to get access to Puhti](how-to-get-puhti-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
-* [Can I still use CSC services if I'm moving abroad?] (Can-I-use-csc-services-abroad.md)
+* [Can I still use CSC services if I'm moving abroad?](Can-I-use-csc-services-abroad.md)
 
 ## Batch jobs
 * [Why is my job queuing so long?](why-is-my-job-queueing-so-long.md)
