@@ -13,8 +13,9 @@ Here is an example how to build a Singularity image from Nvidia's PyTorch Docker
 # We'll reserve 100GB NVME for fast temporary disk space
 srun -A <project> --gres=nvme:100 -t 1:00:00 --mem=16G --pty $SHELL
 
-# Let's use the NVME space as $TMPDIR
-export TMPDIR=$LOCAL_SCRATCH
+# Let's use the NVME space for temporary storage
+export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
+export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
 
 # This is just to avoid some annoying warnings
 unset XDG_RUNTIME_DIR PROMPT_COMMAND
@@ -38,7 +39,7 @@ For example, to a run a GPU job with the PyTorch image created above you could u
 #SBATCH --cpus-per-task=10 
 #SBATCH --partition=gpu 
 #SBATCH --gres=gpu:v100:1 
-#SBATCH --time=1:00:00 
+#SBATCH --time=10
 #SBATCH --mem=16G  # Total amount of memory reserved for job
 
 srun singularity exec --nv --bind /projappl:/projappl --bind /scratch:/scratch \
