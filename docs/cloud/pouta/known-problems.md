@@ -9,7 +9,7 @@
     instance  does not  have security  group predefined  as of  parent
     instance,   please  select   the appropriate security  group   for
     child instances before launching them.
--    Resizing  inside  a  flavor family  (so  within  standard.\*)  is
+-   Resizing  inside  a  flavor family  (so  within  standard.\*)  is
     possible   except  for   IO  flavors.   Resizing  between   flavor
     families mostly  do  not work  because  of  the different  storage
     backends. If you use a volume  for the root disk then some resizes
@@ -17,14 +17,6 @@
     then it's possibly  dangerous.  Always test resizes with  a VM you
     can spare  first. If your virtual  machines end  up in  an "error"
     state please contact us if this happens.
--   Creating  large ephemeral  disks for  legacy flavors takes  a long
-    time.   A newly  launched (legacy  flavor) instance  with a  large
-    ephemeral disk  will stay  in the "Spawning"  state for  some time
-    because of this.
--   Performance:  For the full  hpc-gen1 node flavour (16  cores) some
-    slowdown has been observed with some codes when using more than 12
-    cores when compared to taito.csc.fi. Please report any performance
-    regressions compared to Taito to cloud-support@csc.fi.
 -   Network:  It's possible to  add the  same floating IP  to multiple
     instances using  the API. There is  no warning or error.  The last
     API call is the one which takes effect.
