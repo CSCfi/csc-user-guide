@@ -64,7 +64,7 @@ vdb    253:16   0  80G  0 disk
 5. Take a backup of grub <pre><code>$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-`date +"%F"`</pre></code>
 7. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. *NOTE:* This might not be the correct solution for your specific problem
 8. Log out from the instances and `unrescue` the instance <pre><code>nova unrescue $INSTANCE_UUID</pre></code>
-9. If the instances comes up successfully ssh into the instance and reinstall the kernel
+9. If the instance comes up successfully ssh into the instance and reinstall the kernel
     <pre><code>yum reinstall kernel</pre></code>
-10. It would be a good idea to verify that restarts works after the kernel reinstallation. 
+10. It would be a good idea to verify that a restart works after the kernel reinstallation. 
 
