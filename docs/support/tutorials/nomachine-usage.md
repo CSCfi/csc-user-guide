@@ -51,7 +51,9 @@ Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https:/
 
 ## Recommended tips
 
-1.   To get rid of the scroll bars at the edges of your screen take the mouse to the upper right corner (peel menu) and click "resize remote screen".
+1. To get rid of the scroll bars at the edges of your screen take the mouse to the upper right corner (peel menu) and click "resize remote screen".
+
+2. The default font in the terminal is ugly and small. Use the initial terminal to launch new prettier terminals. In taito, you can launch gnome-terminal, write `gnome-terminal` on the command line, and you will get a customizable terminal with resizable fonts. In puhti you can launch regular xterm with some options, for example, write `xterm -fs 12 -fa "Bitstream"`.
 
 ## Known issues
 
@@ -60,8 +62,6 @@ If something is not working, before contacting ServiceDesk, please check if your
 - Deselect "Match the client resolution upon reconnection" -option from the Display menu (access from "peel menu"). GUIs will work better.
 
 - To get rid of the scroll bars, maximise your NX window and select the 1:1 icon (Resize remote screen) from the "peel menu".
-
-- The default font in the terminal is ugly and small. To improve, start gnome-terminal (write `gnome-terminal` on the command line) as the first thing, when you have a terminal in either Taito or Puhti. The font is then resizable on the fly.
 
 - In Windows, if you have problems in the installation, try disabling "direct draw" from the advanced settings.
 
@@ -77,4 +77,4 @@ If something is not working, before contacting ServiceDesk, please check if your
 
 - The terminal window handle is bar outside desktop. If you open the NoMachine remote connection on a smaller screen than you used last time, some terminal window handle bars (that you can use to drag them) may be outside the screen. You can drag the window my pressing "alt" on your keyboard and dragging with left mouse button directly from the terminal window. Mouse pointer turns to a "hand" symbol when the terminal can be dragged.
 
-- Sometimes your remote desktop session may "freeze" e.g. due to insufficient memory on the gateway machine. When you try to make a new session, the client may default to the old frozen session. You may try the following workaround. In the opening dialog click "configure" and change the desktop from e.g. gnome to KDE. Save, and connect. You should now get an option to kill the old session and start a new one. Instead of the KDE desktop you'll get the same fluxbox that is started with the gnome choice.
+- Connection problems in Macs may be caused by local extra user account "nx", created by installing Desktop version instead of Client version of NoMachine. The extra user account may persist even after replacing Desktop version with Client version. Installing Client version and removing extra user account in local Mac solves the issue.
