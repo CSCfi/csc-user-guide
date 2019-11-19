@@ -4,22 +4,6 @@ This article explains how to manage images in Pouta.
 
 [TOC]
 
-CSC provides a  set of standard images that are  well suited for cloud
-use. In most  cases you can use these images  instead of creating your
-own.   These images  are  created automatically  using  a tool  called
-diskimage-builder.  If  you are  interested in  the details  about how
-these images  are created,  see this [GitHub page]. These  images are
-updated at regular intervals so  that they contain the latest security
-updates at the time virtual machines are launched.
-
-It  is possible  that for  some  use cases  the automatically  created
-images are  not suitable. In this  case it is possible  to create your
-own images and use them instead.  However, there are some caveats that
-you need to consider when creating  your own images that you would not
-need to  consider when using  the default images. This  page documents
-some of these caveats and gives instructions on how to upload your own
-virtual machine images to Pouta clouds (cPouta/ePouta).
-
 ## Creating images
 
 There  are two  different  options for  creating  new virtual  machine
