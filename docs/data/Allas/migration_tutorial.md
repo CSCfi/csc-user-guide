@@ -392,7 +392,7 @@ After opening the Allas connection I move to directory _my_data_ where I have a 
 -rw-rwxr-x 1 kkayttaj csc  17G Jun  5 13:09 50/uniref50.xml.gz
 -rw-r-xr-x 1 kkayttaj csc 4.2G Jul  6 09:46 90/uniref90.fasta.gz
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
-<pre>
+</pre>
 
 Most of the modern non-ascii file formats, (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus, these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For thiese kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, `a-put` does not accept directories, only individual files. Because of that it is good to run a check, like the `ls -lh` command above, to ensure that input will contain only files.
 
