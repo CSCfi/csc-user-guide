@@ -42,13 +42,13 @@ To interactively use R on Puhti's computational nodes, run this command after in
 srun -n1 -t hh:mm:ss --x11=first --mem=4G --pty --account=project_id -p partition R --no-save 
 ```
 
-For information on available partitions, see [here](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/running/batch-job-partitions.md).
+For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
 
 **Note:** RStudio is currently unavailable on Puhti, but is included in future installation plans.
 
 #### Non-interactive use
 
-You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/running/creating-job-scripts.md) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/running/array-jobs.md).
+You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](../computing/running/creating-job-scripts.md) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](../computing/running/array-jobs.md).
 
 Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only).
 
@@ -86,7 +86,7 @@ installed_packages <- library()$results[,1]
 
 Additional R package installations can be arranged via two separate routes:
 
-- Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](https://docs.csc.fi/#computing/disk/#projappl-directory) for information on ProjAppl)
+- Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](../computing/disk.md#projappl-directory) for information on ProjAppl)
 
 - Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 

@@ -1,6 +1,7 @@
 <h1> Applications</h1>
 
 ## Biosciences
+
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
@@ -64,6 +65,7 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 
 ## Geosciences
+
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
@@ -76,6 +78,9 @@
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 
 ## Mathematics and Statistics
+
+* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
@@ -85,4 +90,5 @@
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
 ## Miscellaneous
+
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
