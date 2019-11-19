@@ -42,28 +42,29 @@ To interactively use R on Puhti's computational nodes, run this command after in
 srun -n1 -t hh:mm:ss --x11=first --mem=4G --pty --account=project_id -p partition R --no-save 
 ```
 
-For information on available partitions, see [here](https://docs.csc.fi/#computing/running/batch-job-partitions/#puhti-partitions).
+For information on available partitions, see [here](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/running/batch-job-partitions.md).
 
 **Note:** RStudio is currently unavailable on Puhti, but is included in future installation plans.
 
 #### Non-interactive use
 
-You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](https://docs.csc.fi/#computing/running/creating-job-scripts/) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](https://docs.csc.fi/#computing/running/array-jobs/).
+You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/running/creating-job-scripts.md) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/running/array-jobs.md).
 
 Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only).
 
 ```
 #!/bin/bash -l
-#SBATCH -J r_single_proc
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
-#SBATCH -p test
-#SBATCH -t 00:05:00
+#SBATCH --job-name=r_single_proc
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env
+module load r-env/3.6.1
 srun Rscript --no-save myrscript.R
 ```
 
