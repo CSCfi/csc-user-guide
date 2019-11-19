@@ -20,11 +20,17 @@ you can look in our [advanced images page](../adding-images)
 /* openstack image list --public */
 
 ## What is the main differences between the images that CSC provides?
-Most of the images comes with the pre-configured username `cloud-user`
-there are some exceptions to this rule. We are making sure that the
-images are updated before releasing them and we also test that they work
-other than that the images are pretty vanilla, one exception are CUDA
-images that comes pre-installed with that latest CUDA drivers.
+Most of the images that are provided by CSC is mostly the same as upstream.
+
+* Most of the images comes with the pre-configured username `cloud-user`
+there are some exceptions to this rule.
+* We are making sure that the images are updated before releasing them
+so that we are sure that they work.
+* The `-Cuda` images that comes pre-installed with that latest CUDA drivers.
+* We enable automatic updates.
+* We disable password login
+* We sometimes add some nice to have package like vim,ntp. We try to keep
+them at a minimum.
 
 ## Images
 
