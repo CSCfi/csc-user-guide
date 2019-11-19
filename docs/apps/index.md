@@ -32,6 +32,7 @@
 
 ## Chemistry
 
+* [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [Gaussian](gaussian.md) Versatile computational chemistry package

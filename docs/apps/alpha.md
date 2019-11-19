@@ -1,6 +1,7 @@
 <h1> Applications in alphabetic order</h1>
 <!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
 * [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
+* [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
