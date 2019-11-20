@@ -10,10 +10,7 @@
 ##
 # -w there's also a -w argument to misspell, it fixes the errors instead of just 
 #   outputting them
-# use extglob to test all files except mkdocs*
-shopt -s extglob
-misspell -error !(mkdocs*)*
+find . -type f -name '*.yml' -o -name '*.md'|xargs misspell -error
 if [ "$?" == 0 ]; then
   echo "No commonly misspelled English words found"
 fi
-shopt -u extglob
