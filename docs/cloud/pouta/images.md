@@ -20,61 +20,61 @@ you can look in our [advanced images page](../adding-images)
 /* openstack image list --public */
 
 ## What is the main differences between the images that CSC provides?
-Most of the images that are provided by CSC is mostly the same as upstream.
+The images provided by CSC are mostly the same as upstream.
 
-* Most of the images comes with the pre-configured username `cloud-user`
-there are some exceptions to this rule.
+* Most of the images comes with the pre-configured username `cloud-user`,
+though there are some exceptions to this rule.
 * We are making sure that the images are updated before releasing them
 so that we are sure that they work.
-* The `-Cuda` images that comes pre-installed with that latest CUDA drivers.
+* The `-Cuda` images come pre-installed with the latest CUDA drivers.
 * We enable automatic updates.
-* We disable password login
-* We sometimes add some nice to have package like vim,ntp. We try to keep
-them at a minimum.
+* We disable password login.
+* We sometimes add some nice to have packages like vim or ntp. We try to
+keep additional packages at a minimum.
 
 ## Images
 
 ### CentOS-7
 CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
 is the distribution that the Pouta admins are most accustomed to, at least
-when it comes to work. This is the second newest major release of CentOS 
-as of writing we are still waiting for CentOS-8 cloud images to be released
-before we start providing CentOS-8 as well.
+when it comes to work. This is the second newest major release of CentOS.
+At the time of writing we are still waiting for CentOS-8 cloud images to be
+released before we start providing CentOS-8 as well.
 
 ### CentOS-6
 This is the oldest version of CentOS that we provide in Pouta. You should
 probably not use this version if you don't have a really good reason why.
-We will remove our pre-made CentOS-6 images once CentOS-6 is end of life
-November 2020
+We will remove our pre-made CentOS-6 images once CentOS-6 is at end of life
+November 2020.
 
 ### CentOS-7-Cuda
-This is the same as CentOS-7 but it comes with pre-installed NVIDIA drivers
-these are useful in combination with the GPU-flavors since you don't need
+This is the same as CentOS-7 but it comes with pre-installed NVIDIA drivers.
+These are useful in combination with the GPU-flavors since you don't need
 to download the drivers yourself. We try to always have the latest NVIDIA
-drivers installed but sometimes we are lagging a bit behind. These are
-quite huge so you can get by well with the normal CentOS-7 image if you
-are not using a GPU-flavor.
+drivers installed, but sometimes we are lagging a bit behind. These images
+are quite huge, so you should use the normal CentOS-7 image if you are not
+using a GPU-flavor VM.
 
 ### ScientificLinux-7 and ScientificLinux-6
-These are basically CentOS-7/CentOS-6 but a bit of different topping. Some
+These are basically CentOS-7/CentOS-6 but with a bit different topping. Some
 research organizations are using ScientificLinux. If you are unsure you
-probably prefer CentOS-7
+should prefer CentOS-7.
 
 
-### Ubuntu-18.04
-Some like chocolate some like strawberry this is the choice for those that
+### Ubuntu-18.04 LTS
+Some like chocolate, some like strawberry. This is the choice for those that
 don't want to use CentOS. Note that Ubuntu-18.04 is that one image that
-has `ubuntu` as default username instance of `cloud-user`.
+has `ubuntu` as default username instance of `cloud-user`, since it was the
+first image type we started to provide directly from upstream.
 
-### Ubuntu-16.04
-If you for some reason needs an older version of Ubuntu then this is the one
-that have long time support.
+### Ubuntu-16.04 LTS
+If you for some reason need an older version of Ubuntu.
 
 ### Ubuntu-16.04-Cuda
-Similar to CentOS-7-Cuda, comes with NVIDIA drivers pre-installed but there
-are very little reason to use it if you are not using GPU-flavors.
+Similar to CentOS-7-Cuda, comes with NVIDIA drivers pre-installed. There
+is very little reason to use this if you are not using GPU-flavors.
 
-## Snowflakes images
+## Snowflake images
 These images you should probably not use if you don't have a really good
 reason. You might be better of [creating your own image](../adding-images)
 
@@ -84,15 +84,14 @@ servicedesk@csc.fi
 ### cirros
 This is a really small image which can be used to boot instance really fast.
 This can be useful to doing tests in Pouta, like does the network work or
-how fast can one launch an instances. You should not use these for long
-times and you should always delete the instance when you don't need it
-anymore. There are very little reason for using this image and if you are
-unsure CentOS and Ubuntu are 98% of the time a better choice.
+how fast can one launch an instances. You should not use this for persistent
+VMs, and you should always delete the instance when you are done with
+testing. There is very little reason for end-users using this image and if
+you are unsure, CentOS and Ubuntu are a better choice 99% of the time.
 
 ### Ubuntu-14.04
-Ubuntu-14.04 has been end of life for some time we have not gotten around
-to remove it since we have not noticed since we are usually only using
-CentOS-7.
+Ubuntu-14.04 has been at End of Standard Support for some time and will go
+EOL in 2022. We recommend to use newer Ubuntu images.
 
 ### Fedora-Atomic-25
 You probably don't want to use this if you are not sure. We will most likely
