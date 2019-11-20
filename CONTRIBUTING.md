@@ -47,7 +47,7 @@ This is not recommended, and master branch is protected.
 
 ## Making changes using pull requests in the web GUI
 
-In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file.
+In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file. If you found an error in the pull request of your own branch, you can commit to it directly instead of creating another pull request (the two choices at the bottom).
 
 ## Making changes using pull requests on the command line
 
