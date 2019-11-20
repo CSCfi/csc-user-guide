@@ -112,7 +112,7 @@ public pool by deleting it.
 
     openstack floating ip delete <address>
 
-By doing this  you save billing usage and maintain  an efficent use of
+By doing this  you save billing usage and maintain  an efficient use of
 public IPs. 
 
 ##### Authorization to connect to virtual machines

@@ -62,7 +62,7 @@ julia> ]
 (v1.1) pkg> add Example
 ```
 
-After adding a packge, it can be loaded in Julia:
+After adding a package, it can be loaded in Julia:
 
 ```bash
 julia> using Example

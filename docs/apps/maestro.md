@@ -74,7 +74,7 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
     It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
     and the performance is not very good.
 
-Desmond molecular dynamics runs **very well** on GPUs. We recommed watching 
+Desmond molecular dynamics runs **very well** on GPUs. We recommend watching 
 the video above on how to accomplish this easily.
 
 ## References

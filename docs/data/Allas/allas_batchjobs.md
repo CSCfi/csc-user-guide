@@ -1,6 +1,6 @@
 # Using Allas in batch jobs
 
-The Allas initation command`allas-conf` opens Allas connection that is valid for eight hours.
+The Allas initiation command`allas-conf` opens Allas connection that is valid for eight hours.
 In the case of interactive usage, this eight hour limit is not very problematic as _allas-conf_ can be 
 executed again to extend the validity of the connection.
 

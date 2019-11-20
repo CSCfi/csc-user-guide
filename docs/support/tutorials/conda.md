@@ -201,7 +201,7 @@ To get an overview of your directories in Puhti, run command:
 ```text
 csc-workspaces 
 ```
-You can pick the path of your ProjAppl directory from the ouput of the command above or if you 
+You can pick the path of your ProjAppl directory from the output of the command above or if you 
 are mostly using just one project in Puhti, you can set the environment variables 
 $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. 
 This setting can be done with command:

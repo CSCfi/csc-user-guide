@@ -36,7 +36,7 @@ Other blast commands
 At CSC, BLAST searches can be executed in several ways:
 
 -    using  the Chipster platform
--    interavtively with normal BLAST commans in Taito-shell
+-    interavtively with normal BLAST commands in Taito-shell
 -    as batch jobs with pb command in Puhti
 -    in FGCI grid with gb command in Taito
 

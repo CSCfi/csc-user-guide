@@ -73,7 +73,7 @@ wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --mode s3cmd --user your-csc-username
 ```
 Note that you shoud use the `--user` to  define your CSC-username for the command. The configuration command first asks your 
-CSC password and then asks you to define the Allas project. After that the tool creates a key file for S3 conection to and stores it to the default location.
+CSC password and then asks you to define the Allas project. After that the tool creates a key file for S3 connection to and stores it to the default location.
 
 
 ## s3cmd with supercomputers

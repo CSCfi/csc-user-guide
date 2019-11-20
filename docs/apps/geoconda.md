@@ -9,7 +9,7 @@ includes following python packages:
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
 -   [fiona] - reads and writes spatial data files.
 -   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
--   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarly PostGIS.
+-   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   [igraph](https://igraph.org/python/) - for fast routing.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
@@ -87,7 +87,7 @@ You can add more Python packages to Geoconda for your own use with `pip`, for ex
 If you do not give the installation folder as target, the packages are by default installed to your home directory under
 `.local/lib/python3.7/site-packages`
 
-If you would like to make a own conda enviroment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda](../apps/bioconda.md).
+If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda](../apps/bioconda.md).
 
 
 ## License and citing

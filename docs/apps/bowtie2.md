@@ -24,7 +24,7 @@ module load biokit
 The biokit modules sets up a set of commonly used bioinformatics tools, including  Bowtie2. (Note however that there are bioinformatics tools in Puhti,
  that have a separate setup commands.)
 
-In typical bowtie2 run you first need to index the reference genome with bowtie2-build command. You should do this in scartch directory in stead of your 
+In typical bowtie2 run you first need to index the reference genome with bowtie2-build command. You should do this in scratch directory in stead of your 
 home directory. For example;
 
 ```bash

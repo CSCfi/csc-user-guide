@@ -10,7 +10,7 @@ LAStools is included in the [geoconda](../apps/geoconda.md) and [lidarconda](../
 
 `module load geoconda` (or lidarconda)
 
-You can test LAStools loaded succesfully with
+You can test LAStools loaded successfully with
 
 `lasinfo -h`
 

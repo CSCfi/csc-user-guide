@@ -14,7 +14,7 @@ SAGA GIS is included in the __saga-gis__ module and can be loaded with
 
 `module load gcc/9.1.0 saga-gis`
 
-You can test that the program loaded succesfully and print the command line tools help information with
+You can test that the program loaded successfully and print the command line tools help information with
 
 `saga_cmd -h`
 
