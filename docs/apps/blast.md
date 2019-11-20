@@ -58,7 +58,7 @@ blastp -query proteinseq.fasta -evalue 0.001 -db uniprot -outfmt 7 -out result.t
 ```
 Would run the same search as described above, except that the  e-value threshold would be set to 0.001(-evalue 0.001) and the out put is printed out a a table (-outfmt 7).
 
-##Usage of pb (Parallel BLAST)  at CSC
+## Usage of pb (Parallel BLAST)  at CSC
 
 If your query sequence set contains less than 20 sequences then Taito-shell is probable the most effective platforms for the search. However, if your query set contains hundreds or thousands of sequences then utilizing the taito.csc.fi cluster is more  effective. For this kind of massive blast searches you can utilize the `pb` command in Puhti. _pb_ (Parallel BLAST) is designed for situations, where the query file includes large amount of sequences. It splits the query task into several subjobs, that can be run simultaneously using the resources of the server very effectively. For large sets of query sequences, _pb: can speed up the search up to 50 fold. Two sample _pb_ commands for puhti.csc.fi:
 ```text
@@ -74,7 +74,7 @@ The pb program also allows users to do BLAST searches against their own fasta fo
 ```text
 pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 ```
-##Using genome data from ensembl with pb
+## Using genome data from ensembl with pb
 
 _pb_ command can also automatically retrieve a species specific dataset from the Ensembl or Ensembl genomes servers and use the dataset as the search database. This is done by replacing the `-db` option with option `-ensembl_dna` (retrieves the genomic DNA),  `-ensenmbl_cdna` (retrieves the cDNA sequences)  or `-ensembl_prot` (retrieves the protein sequences). The latin name of a species or taxonomy index number is given as an argument for the ensembl options. You should use underscore (_) in stead of space in the species name.
 
@@ -92,6 +92,12 @@ You can see the list of species, available at Ensembl and Ensembl genomes databa
 ```text
 ensemblfetch -names
 ```
+## Running BLAST in FGCI gird with gb
+
+**gb** (grib blast) is currenty availabe in Taito, but not in Puhti.
+*  [gb instructions](./grid_blast.md)
+
+
 <p>Below is a list of BLAST databases maintained at the servers of CSC.</p>
 
 <table>
