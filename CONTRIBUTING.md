@@ -24,18 +24,30 @@ cd csc-user-guide
 ## Making changes
 
 The csc-user-guide repository uses the 'master' as the default
-branch. When you have cloned the repository, this branch is what you
-see. If you are unsure which branch you are in, you can run `git
-branch`. The active branch can be changed with the `git checkout`
-command.
+branch. You can make changes in web gui or on command line.
+
+Overview: 
+ - Create your own branch from master (or work in an already existing branch, if agreed)
+ - Create / bring there the content you want to work with. Pay attention to file naming!
+ - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
+ - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (=apps) for example)
+ - Make a pull request for your work to be added to Master 
+    - You can also aim it at someone specifically (recommended)
+    - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
+    - Write meaningful pull request messages, so it is easier for reviewers to do their job.
+    - Communicate! Use "WIP" (=Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
+    - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
+ - Once PR has been accepted, remove the temporary branch
+
+Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people. 
 
 ## Making changes directly to 'master'
 
-This is not recommended.
+This is not recommended, and master branch is protected.
 
 ## Making changes using pull requests in the web GUI
 
-In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request".
+In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file.
 
 ## Making changes using pull requests on the command line
 
@@ -48,15 +60,20 @@ Overview:
  - Make a pull request to merge changes from your new branch into the develop branch
  - Ask a person to review and merge the changes
 
+When you have cloned the repository, master branch is what you
+see. If you are unsure which branch you are in, you can run `git
+branch`. The active branch can be changed with the `git checkout`
+command.
+
 Method:
 
 ```bash
 git pull
-git checkout master
-git checkout -b your_branch_name
-# create some nice content, add files
+git checkout master # switch to master branch 
+git checkout -b your_branch_name # create a new (temporary) branch and switch to it
+# create some nice content, add files 
 git add example-file.md
-git status
+git status # check the status
 git commit -v
 git push origin your_branch_name
 ```
@@ -82,6 +99,23 @@ message](https://chris.beams.io/posts/git-commit/).
 Tip 3. If pushing fails, the most probable reason is that somebody
 else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
+
+## Content and formatting instructions
+
+ - Put all images in root images folder
+ - Try to make standalone articles with a good name (user knows to select it from the left menu)
+ - Write SLURM flags in long format (--nodes instead of -N, etc.)
+ - All examples should use minimum viable reserved resources. I.e don't write examples with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. Users tend to use these as default values.
+ - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
+ - When in doubt, check how other pages are formatted
+ - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
+If you don't want any syntax highlighting, just use \`\`\`text
+For a list of all supported languages see: http://pygments.org/docs/lexers/
+
+## Previewing 
+
+Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
 
 ## Previewing the website using MkDocs
 
