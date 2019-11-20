@@ -123,14 +123,14 @@ as follows:
 openstack server remove volume <server> <volume>
 ```
 
-## Transfering volumes between other Pouta projects
+## Transferring volumes between other Pouta projects
 
 Occasionally,   you  may have  need  of  transferring your  persistent
 volumes between Pouta projects. For  example, you may need to transfer
 large data  sets or  bootable volumes to  colleagues in  another Pouta
 project. This  can be done  using volume transfers.   Volume transfers
 between  projects  in  Pouta  are fast,  avoid  data  duplication  and
-unnecessary data transfers  over the network. Transfering  a volume to
+unnecessary data transfers  over the network. Transferring  a volume to
 another project  means that your project  no longer has access  to it.
 Please note Pouta volume transfer  works within same cloud environment
 i.e.  you can  transfer volume from one cPouta project  to another but

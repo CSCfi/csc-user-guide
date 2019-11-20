@@ -14,7 +14,7 @@ structure refinement.
 
 Amber can be used on CSC servers by all not-for-profit institute and
 university researchers irrespective of nationality or location. Look for
-the [acedemic license text here].
+the [academic license text here].
 
 ## Usage
 
@@ -118,6 +118,6 @@ University of California, San Francisco.
 The Amber home page: [http://ambermd.org/](http://ambermd.org/) has an extensive manual
 and useful tutorials.
 
-  [acedemic license text here]: http://ambermd.org/LicenseAmber18.pdf
+  [academic license text here]: http://ambermd.org/LicenseAmber18.pdf
   [Amber benchmark scaling info]: http://ambermd.org/GPUPerformance.php
   [NoMachine remote desktop]: nomachine.md

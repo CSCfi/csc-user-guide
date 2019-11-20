@@ -130,7 +130,7 @@ a-list bucket_name
 ```
 Typing a part of an object's name lists a subset of objects:
 ```text
-a-list bucket_name/begining_of_the_object
+a-list bucket_name/beginning_of_the_object
 ```
 
 ## a-publish 
@@ -180,12 +180,12 @@ Upload ready
 
 ## a-flip
 
-`a-flip` is a tool to make individual files temporarily available over the internet. It is intented for situations where you
+`a-flip` is a tool to make individual files temporarily available over the internet. It is intended for situations where you
 want to make a copy of a file visible on the internet for a short while e.g. for copying to another platform shared with a co-worker.
 
 a-flip copies a file to Allas into a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
 uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. 
-a-flip works similiarly to a-publish with some differences: 
+a-flip works similarly to a-publish with some differences: 
     1) Only the predfined bucket name (_username-projectNumber_-flip) can be used.
     2) Upon execution, it checks the content of the flip bucket and deletes objects that are older than two days.
 

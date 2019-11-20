@@ -40,7 +40,7 @@ Start using Allas with one of the following options. Note that the tools utilize
 * **A wide range of functionalities:**(Swift protocol) [Swift client](./using_allas/swift_client.md)
 * **S3 client and persistent Allas connections:** (S3 protocol) [S3 client](./using_allas/s3_client.md#s3cmd-with-supercomputers)
 
-The client software listed above can be used in other linux servers as well, e.g. a virtual machine running in cPouta or your own Linux-based laptop. In that case, you need to install the client sofware and configure the connection to Allas yourself. Instructions: [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils)
+The client software listed above can be used in other linux servers as well, e.g. a virtual machine running in cPouta or your own Linux-based laptop. In that case, you need to install the client software and configure the connection to Allas yourself. Instructions: [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils)
 
 ## Accessing Allas with Windows or Mac
 

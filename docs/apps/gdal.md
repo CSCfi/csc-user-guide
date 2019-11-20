@@ -28,7 +28,7 @@ By default the latest gdal module is loaded. If you want a specific version you 
 
 `module load gcc/9.1.0 gdal/<VERSION>-omp`
 
-You can test if gdal loaded succesfully with following
+You can test if gdal loaded successfully with following
 
 `gdalinfo --version`
 

@@ -7,7 +7,7 @@
       window is narrow
     - confusing(?) '#' in the address bar
 - before "The Grand opening", create new repository docs-csc-2019, and make
-  "Inital commit" from this repo (note the year in the repo name, expecting that
+  "Initial commit" from this repo (note the year in the repo name, expecting that
   the repo history needs to be cleaned every now and then...)
 - add version number to [requirements.txt](requirements.txt) and update versions
   to match

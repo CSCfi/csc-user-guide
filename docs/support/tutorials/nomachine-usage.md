@@ -11,7 +11,7 @@ A short video will appear in here.
 
 **Pros:**
 
-- Enables remote grahpics from CSC servers for Windows users
+- Enables remote graphics from CSC servers for Windows users
 - Improved remote graphics performance for Linux and Mac users
 - Suspendable session - continue later with all terminals etc. as they were, even from a different computer
 - Easy way to leave jobs running e.g. on Taito-shell while logging off from laptop

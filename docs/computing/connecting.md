@@ -21,7 +21,7 @@ Therefore, NoMachine is a good option for long interactive processes, with or wi
 
 If you for some reason want to use a slower, X-term based graphical connection, your local computer must have an X11 server
 (often called as X window server program) installed and running. In linux and MacOSX an X11 server is 
-normally installed automatically, while for Windows, it needs to be installed separetely. 
+normally installed automatically, while for Windows, it needs to be installed separately. 
 In addition to several commercial xterm programs there are also some free ones 
 like [MobaXterm](https://mobaxterm.mobatek.net/) or [Xming](http://www.straightrunning.com/XmingNotes/).
 
