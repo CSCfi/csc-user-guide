@@ -39,7 +39,7 @@ Note that Puhti login nodes are not intended for heavy computing. To use R in Pu
 To interactively use R on Puhti's computational nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
 
 ```
-srun -n1 -t hh:mm:ss --x11=first --mem=4G --pty --account=project_id -p partition R --no-save 
+srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id  --partition=partition R --no-save
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
