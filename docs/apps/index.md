@@ -69,8 +69,8 @@
 
 ## Mathematics and Statistics
 * [SageMath](sagemath.md) Free open-source mathematics software system
-
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
+* [Octave](octave.md) High-level interpreted language for numerical computations.
 
 ## Physics
 

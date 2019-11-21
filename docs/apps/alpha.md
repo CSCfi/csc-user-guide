@@ -33,6 +33,7 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
+* [Octave](octave.md) High-level interpreted language for numerical computations
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
