@@ -31,7 +31,7 @@ Packages ['Structure Handling'](https://octave.sourceforge.io/struct/index.html)
 
 ### Octave batch jobs
 
-Example about serial batch job on Puhti
+Example about a serial batch script job on Puhti
 
 ```bash
 #!/bin/bash
