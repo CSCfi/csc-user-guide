@@ -113,13 +113,13 @@ srun myprog <options>
  
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
-  --account=<project_id> --partition=test myprog
+  --account=<project> --partition=test myprog
 ```
   
 Note, you may need to wait for a while for resources to come available. The following will send you an email when the resources have been granted: 
 
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
-  --account=<project_id> --partition=small --mail-type=BEGIN \
+  --account=<project> --partition=small --mail-type=BEGIN \
   --mail-user=<your email address> myprog
 ```
