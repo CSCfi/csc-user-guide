@@ -111,12 +111,8 @@ srun myprog <options>
 ```
 ## Interactive with X11 graphics
  
-```
-srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
-  --account=<project> --partition=test myprog
-```
-  
-Note, you may need to wait for a while for resources to come available. The following will send you an email when the resources have been granted: 
+Give this directly on the command line instead via a file and `sbatch`.
+Note, as you may need to queue, it's convenient to ask for an email once the resources have been granted. 
 
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
