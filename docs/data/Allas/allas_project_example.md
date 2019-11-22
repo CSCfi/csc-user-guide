@@ -25,7 +25,7 @@ Then Saara [creates two research projects](../../accounts/how-to-create-new-proj
 
 Once the CSC projects are established, Saara [activates Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 Tb) will not be enough for the coming data set, she sends a request for 90 TB Allas quota for the project “Data management of HiaNo project” to servicedesk@csc.fi.
 
-Finally, Saara [adds Pekka to both CSC projects](../../how-to-add-member-to-project.md)
+Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-member-to-project.md)
 , and asks him to take care of the details of the coming data.  
 
 ## Act 2. Data arrives ##
@@ -83,3 +83,13 @@ Xi and Laura can now start working with the data. They register themselves to CS
 
 Xi and Laura need to re-visist MyCSC again and accept the services if the research project. After that thy can download that  research data they need to any machine that is able to connect Allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
 
+As storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC, and if needed [apply for more billing units](../../accounts/how-to-apply-for-resouces.md). ( 80 TB consumes 700 800 Bu in year). Fortunately HiaNo is an academic research project so Saara don’t need to pay for the billing units she applies.
+
+
+## Act 4. The End ##
+
+After four years of intensive research, that has expanded to several institutes in Finland and abroad, the HiaNo project has produced few theses and a pile of high quality publications (all acknowledging the usage of CSC resources).  
+
+Now the data is no longer actively used. Part of the data, that was imported to Allas, has been published in international research databases. Some datasets have been moved to [IDA]( https://ida.fairdata.fi) so that a DOI identifier and metadata can be liked to the data to make it reusable by other researchers. Some data can now be just deleted and some remaining parts are moved to buckets of new HiaNo2 project.
+
+At this stage Pekka cleans the remaining data objects from Allas after which Saara informs CSC that the project can be closed.
