@@ -81,5 +81,5 @@ swift post hiano-project-sample1 -r "project_2000333:*"
 ```
 Xi and Laura can now start working with the data. They register themselves to CSC  using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them only to CSC project “HiaNo research project ” (project_2000333).
 
-Xi and Laura need to re-visist MyCSC again and accept the services if the research project. After that thy can download that  research data they need to any machine that is able to connect allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
+Xi and Laura need to re-visist MyCSC again and accept the services if the research project. After that thy can download that  research data they need to any machine that is able to connect Allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
 
