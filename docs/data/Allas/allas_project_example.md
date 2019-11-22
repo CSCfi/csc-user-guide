@@ -17,8 +17,7 @@ The analysis takes some weeks and produce 80 Tb of data that the research group 
 
 To store and make this data available for the research project Saara and Pekka, who is taking care of the data management,  
 decide to use the Allas service of CSC. Data is not sensitive human data so using Allas in OK. 
-As a first step Saara and Pekka login to [MyCSC portal](https://my.csc.fi) and [register themselves as CSC users] 
-(https://docs.csc.fi/#accounts/how-to-create-new-user-account/).
+As a first step Saara and Pekka login to [MyCSC portal](https://my.csc.fi) and [register themselves as CSC users](../../accounts/how-to-create-new-user-account/).
 
 Then Saara [creates two research projects](../../accounts/how-to-create-new-project/) at CSC. One called _Data management of HiaNo project_
 that gets project ID: project_2000444  another called _HiaNo research project_  
