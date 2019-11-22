@@ -81,9 +81,9 @@ swift post hiano-project-sample1 -r "project_2000333:*"
 ```
 Xi and Laura can now start working with the data. They register themselves to CSC  using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them only to CSC project “HiaNo research project ” (project_2000333).
 
-Xi and Laura need to re-visist MyCSC again and accept the services if the research project. After that thy can download that  research data they need to any machine that is able to connect Allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
+Xi and Laura need to re-visist MyCSC again and accept the services of the research project. After that thy can download that  research data they need to any machine that is able to connect Allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
 
-As storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC, and if needed [apply for more billing units](../../accounts/how-to-apply-for-resouces.md). ( 80 TB consumes 700 800 Bu in year). Fortunately HiaNo is an academic research project so Saara don’t need to pay for the billing units she applies.
+Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed [apply for more billing units](../../accounts/how-to-apply-for-resouces.md). ( 80 TB consumes 700 800 Bu in year). Fortunately HiaNo is an academic research project so Saara don’t need to pay for the billing units she applies.
 
 
 ## Act 4. The End ##
