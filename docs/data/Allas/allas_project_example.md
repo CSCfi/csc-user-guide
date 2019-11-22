@@ -22,11 +22,9 @@ To store and make this data available for the research project Saara and Pekka, 
 decide to use the Allas service of CSC. Data is not sensitive human data so using Allas in OK. 
 As a first step Saara and Pekka login to [MyCSC portal](https://my.csc.fi) and [register themselves as CSC users](../../accounts/how-to-create-new-user-account.md).
 
-Then Saara [creates two research projects](../../accounts/how-to-create-new-project.md) at CSC. One called _Data management of HiaNo project_ that gets project ID: project_2000444  another called _HiaNo research project_  
-that gets project DI: project_2000333.
+Then Saara [creates two research projects](../../accounts/how-to-create-new-project.md) at CSC. One called _Data management of HiaNo project_ that gets project ID: project_2000444  another called _HiaNo research project_ that gets project DI: project_2000333.
 
-Once the CSC projects are established, 
-Saara [activates Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects.  As Saara knows that the default storage space of Allas (10 Tb) will not be enough for the coming data set, she sends a request for 90 TB Allas quota for the project “Data management of HiaNo project” to servicedesk@csc.fi.
+Once the CSC projects are established, Saara [activates Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 Tb) will not be enough for the coming data set, she sends a request for 90 TB Allas quota for the project “Data management of HiaNo project” to servicedesk@csc.fi.
 
 Finally, Saara [adds Pekka to both CSC projects](../../how-to-add-member-to-project.md)
 , and asks him to take care of the details of the coming data.  
