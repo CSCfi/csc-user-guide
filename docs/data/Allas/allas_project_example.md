@@ -1,4 +1,4 @@
-# Using Allas to host a data set for a research group #
+# Using Allas to host a data set for a research project #
 
 
 ### Roles of the play ###
