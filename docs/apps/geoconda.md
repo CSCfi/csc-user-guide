@@ -12,11 +12,14 @@ includes following python packages:
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   [igraph](https://igraph.org/python/) - for fast routing.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
+-   [laspy](https://pythonhosted.org/laspy/tut_part_1.html)
+-   [laxpy](https://github.com/brycefrank/laxpy)
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
 -   [pyproj] - performs cartographic transformations and geodetic computations.
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs.
 -   **[pysal]** - spatial analysis functions.    
+-   [pdal](https://pdal.io/) - for lidar data
 -   **[rasterio]** - access to geospatial raster data.
 -   [rasterstats] - for summarizing geospatial raster datasets based on
     vector geometries. It includes functions for zonal statistics and
@@ -28,12 +31,13 @@ includes following python packages:
 -   [xarray](http://xarray.pydata.org) - for multidimensional raster data. 
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
-
+    
 Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   [GDAL/OGR](../apps/gdal.md) commandline tools 2.4.2 
--   [QGIS](../apps/qgis.md)) 3.8.1
+-   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.2
+-   [PDAL](../apps/pdal.md) 2.0.1
+-   [QGIS](../apps/qgis.md)) 3.10.0
 -   [LasTools](../apps/lastools.md)) 20171231
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.7/bin`for full
