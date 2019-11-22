@@ -4,8 +4,11 @@
 ### Roles of the play ###
 
 **Saara**:   A professor coordinating an inspiring research project.
+
 **Pekka**:  Researcher that takes care of the data management of the project.
+
 **Mats**:    Technician working in Analysis Service Center.
+
 **Xi and Laura**:   Researchers working in the research project. 
  
 
