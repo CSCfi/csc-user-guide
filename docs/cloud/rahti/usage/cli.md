@@ -1,24 +1,23 @@
 # Command line tool usage
 
-Rahti can be used via the command line either with OpenShift's oc tool
-or with the kubectl tool from Kubernetes. Certain features specific to OpenShift
+Rahti can be used via the command line either with OpenShift's _oc_ tool
+or with the _kubectl_ tool from Kubernetes. Certain features specific to OpenShift
 are only available when using the oc tool.
 
 ## The "Command Line Tools" page in the OpenShift web UI
 
-The information for downloading the oc tool and logging in from the command line
-can be found in the "Command Line Tools" page in the web interface. After
-logging in to the web interface, you can find the page here:
+Instructions for downloading the oc tool and logging in via the command line
+can be found in the "Command Line Tools" page in the web interface:
 
 ![Command line tools](img/cli_help_menu_3.7.png)
 
-The oc tool is a single binary that just needs to be placed in your path. You
-can find the oc command to login in one the fields on the page. There is a
-button next to it to copy the command to the clipboard:
+The oc tool is a single binary that only needs to be included in your _path_. 
+The oc login command to login can be found in one of the fields on the page. There is a
+button next to it for copying the command to the clipboard:
 
 ![OpenShift Command Line Tools page](img/openshift_cli_dialog_3.7.png)
 
-Copy the command and paste it into a terminal to start using OpenShift via the
+Copy the command and paste it in a terminal to start using OpenShift via the
 command line.
 
 !!! note
@@ -36,7 +35,7 @@ oc help <command>
 
 **Examples:**
 
-Authorize CLI tool to the cluster:
+Authorize the CLI tool to the cluster:
 
 ```bash
 oc login https://rahti.csc.fi:8443 --token=<secret access token>
@@ -65,19 +64,19 @@ Show all pods in the current namespace:
 oc get pods
 ```
 
-Show all pods in namespace `<my-other-name-space>`:
+Show all pods in the namespace `<my-other-name-space>`:
 
 ```bash
 oc get pods -n <my-other-namespace>
 ```
 
-Show all pods that have key-value -pair `app: myapp` in `metadata.labels`:
+Show all pods that have the key-value pair `app: myapp` in `metadata.labels`:
 
 ```bash
 oc get pods --selector app=myapp
 ```
 
-Output specifications of pod `mypod`
+Print the specifications of the pod `mypod`
 
 ```bash
 oc get pod mypod -o yaml
@@ -86,18 +85,18 @@ oc get pod mypod -o yaml
 ### Other useful commands
 
 * `oc create` creates an object. Example: `oc create -f file.yaml`
-* `oc replace` replaces object. Example: `oc replace -f file.yaml`
-* `oc delete` deletes object in openshit. Example: `oc delete rc
+* `oc replace` replaces an object. Example: `oc replace -f file.yaml`
+* `oc delete` deletes an object in OpenShift. Example: `oc delete rc
   myreplicationcontroller`
-* `oc apply` modifies object according to input. Example `oc apply -f
+* `oc apply` modifies an object according to the input. Example `oc apply -f
   file.yaml`
-* `oc explain` prints out API documentation. Example: `oc explain dc.spec`
-* `oc edit` loads object from API to local editor chosen by `$EDITOR`
+* `oc explain` prints out the API documentation. Example: `oc explain dc.spec`
+* `oc edit` loads an object from the API to the local editor chosen by the `$EDITOR`
   environment variable. Example: `oc edit DeploymentConfig mydc`
 
 ## Abbreviations
 
-Object types have abbreviations that are recognized on CLI:
+Object types have abbreviations that are recognized in the CLI:
 
 |Abbreviation |Meaning|
 |-----:|:-------|
@@ -108,9 +107,9 @@ Object types have abbreviations that are recognized on CLI:
 |`rc`|`ReplicationController`|
 |`pvc`|`PersistentVolumeClaim`|
 
-## More documentation
+## Further documentation
 
-See the official documentation for more information on using the command line
+See the official documentation for more information about using the command line
 interface:
 
 * [OpenShift documentation: CLI reference](https://docs.okd.io/latest/cli_reference/index.html)
