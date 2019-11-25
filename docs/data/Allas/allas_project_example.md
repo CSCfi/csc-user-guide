@@ -28,7 +28,7 @@ Once the CSC projects are established, Saara [activates Allas, Puhti and cPouta 
 Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-member-to-project.md)
 , and asks him to take care of the details of the coming data.  
 
-## Act 2. Data arrives ##
+## Act 2. Creatig a shared bucket ##
 
 Mats from the Analysis Service Center contacts Pekka and tells that the results are now available and asks how he should deliver the data. Mats has an account at CSC ( _msundber_ in project _project_2000111_) with Allas enabled, so Pekka proposes that data is uploaded to Allas. For that purpose Pekka creates a bucket to Allas and sets is so, that Mats is able to use it.
 
@@ -52,11 +52,23 @@ Pekka included the project name in the bucket name (_hiano-project-sample1_) to 
 
 Next Pekka uses _swift post_ command to [modify the access rights of the new bucket](./using_allas/swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) so that Mats (user _msundber_ from Allas _project_2000111_) is able so use it .
 ```text
-swift post hiano-project-sample1 -r "project_2000111:msundber"
-swift post hiano-project-sample1 -w "project_2000111:msundber"
+swift post hiano-project-sample1 -r "project_2000444:*,project_2000111:msundber"
+swift post hiano-project-sample1 -w "project_2000444:*,project_2000111:msundber"
 swift stat hiano-project-sample1
 ```
-Then Pekka needs to send the name of the bucket to Mats as normal Allas listing commands don’t show the name for Mats who is not member in the project that owns the bucket.
+In Allas, large files (over 5GB) are split during the upload and stored as several objects to a bucket, which is normally automatically created. This bucket is has name extension `_segments`. For example in this case the name would be _hiano-project-sample1_segments_. Normally users should not directly interact with the segments-buckets, but in this case there is an exception. Pekka will now manually create the segments bucket too, to ensure that it is created (and thus owned) by the same project and to be able set access rights for this bucket too.
+
+```text
+a-put --nc -b hiano-project-sample1_segments README.txt
+a-list hiano-project-sample1_segments
+swift post hiano-project-sample1_segments -r "project_2000444:*,project_2000111:msundber"
+swift post hiano-project-sample1_segments -w "project_2000444:*,project_2000111:msundber"
+swift stat hiano-project-sample1_segments
+```
+Now Pekka has prepaired a bukect ( and the correpondind _segments_ bucket) into which the data can be imported by Mats. 
+Pekka still needs to send the name of the bucket to Mats as normal Allas listing commands don’t show the name for Mats who is not member in the project that owns the bucket.
+
+## Act 3. Upoloading data
 
 Mats has [Allas tools](https://github.com/CSCfi/allas-cli-utils) installed in the front end server of the measurement device in Analysis Service Center. Thus he can upload the data directly from the front end server to the _hiano-project-sample1_ bucket in Allas. For example:
 ```text
@@ -65,11 +77,13 @@ rclone copy sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample1/sample1
 As there is a large amount of data to be transported the upload takes few days and it needs to be done as several batches. When Mats tells that he is ready with the data uploads, Pekka closes the shared bucket with commands
 ```text
 swift post hiano-project-sample1 -r ""
+swift post hiano-project-sample1_segments -r ""
 swift post hiano-project-sample1 -w ""
+swift post hiano-project-sample1_segments -w ""
 swift stat hiano-project-sample1
 ```
 
-## Act 3. Using data for research ##
+## Act 4. Using data for research ##
 
 Once the data is available the actual analysis work starts. There will be several users using the data set during the research project. Pekka knows that if all the users would use the data with full access rights (read and write) there is a danger that somebody accidentally deletes of overwrites the some part of the data. Because of that it is agreed that while the data is hosted by the data management project (project_2000444), the researchers access the data through the _HiaNo research project _ (project_2000333).
 
@@ -86,7 +100,7 @@ Xi and Laura need to re-visist MyCSC again and accept the services of the resear
 Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed [apply for more billing units](../../accounts/how-to-apply-for-resources.md). ( 80 TB consumes 700 800 Bu in year). Fortunately HiaNo is an academic research project so Saara don’t need to pay for the billing units she applies.
 
 
-## Act 4. The End ##
+## Act 5. The End ##
 
 After four years of intensive research, that has expanded to several institutes in Finland and abroad, the HiaNo project has produced few theses and a pile of high quality publications (all acknowledging the usage of CSC resources).  
 
