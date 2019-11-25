@@ -36,7 +36,7 @@ Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
 -   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.2
--   [PDAL](../apps/pdal.md) 2.0.1
+-   [PDAL] 2.0.1
 -   [QGIS](../apps/qgis.md)) 3.10.0
 -   [LasTools](../apps/lastools.md)) 20171231
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
