@@ -36,9 +36,9 @@ Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
 -   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.2
--   [PDAL](../apps/pdal.md) 2.0.1
--   [QGIS](../apps/qgis.md)) 3.10.0
--   [LasTools](../apps/lastools.md)) 20171231
+-   [PDAL] 2.0.1
+-   [QGIS](../apps/qgis.md) 3.10.0
+-   [LasTools](../apps/lastools.md) 20171231
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.7/bin`for full
     list.
@@ -91,7 +91,7 @@ You can add more Python packages to Geoconda for your own use with `pip`, for ex
 If you do not give the installation folder as target, the packages are by default installed to your home directory under
 `.local/lib/python3.7/site-packages`
 
-If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda](../apps/bioconda.md).
+If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda].
 
 
 ## License and citing
@@ -134,15 +134,15 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [scikit-learn]: https://scikit-learn.org/stable/
   [pdal]: https://github.com/PDAL/python
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
-  [SNAP]: https://research.csc.fi/-/snap
+  [SNAP]: snap.md
   [spyder]: https://pythonhosted.org/spyder/
-  [-X connection or NoMachine for Windows users]: https://research.csc.fi/csc-guide-connecting-the-servers-of-csc
+  [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
   [zonal statistics]: https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats
   [focal mean]: https://github.com/csc-training/geocomputing/tree/master/python/focal_mean
   [geo-env]: https://research.csc.fi/-/geo-env
   [Python]: https://research.csc.fi/-/python
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
-  [Bioconda]: https://research.csc.fi/-/bioconda
+  [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
   [Essential Python Geospatial Libraries]: http://spatialdemography.org/essential-python-geospatial-libraries/
   [Geoprocessing with Python using Open Source GIS]: http://www.gis.usu.edu/%7Echrisg/python/2009/
