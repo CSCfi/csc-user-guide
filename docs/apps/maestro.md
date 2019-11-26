@@ -3,13 +3,13 @@
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
 for drug design and Materials Science. It can be used to build, edit, run and analyse 
 chemical model systems. Maestro is available for consortium members during 
-2019. 
+2019, but will be open to all academic users in 2020.
 
 [TOC]
 
 ## Available
 
-Puhti: 2019.3
+Puhti: 2019.3, 2019.4
 
 
 ## License
@@ -72,7 +72,9 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
 !!! note
     We do not recommend running the Maestro GUI remotely on Puhti.
     It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
-    and the performance is not very good.
+    and the performance is not very good. Also, no heavy tasks should be
+    done on the login nodes. Please consult the
+    [policy on the computing overview.](../computing/overview.md)
 
 Desmond molecular dynamics runs **very well** on GPUs. We recommend watching 
 the video above on how to accomplish this easily.
