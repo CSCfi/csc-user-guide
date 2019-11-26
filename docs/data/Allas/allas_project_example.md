@@ -88,7 +88,7 @@ swift stat hiano-project-sample001
 
 Once the data is available the actual analysis work starts. There will be several users using the data set during the research project. Pekka knows that if all the users would use the data with full access rights (read and write) there is a danger that somebody accidentally deletes of overwrites the some part of the data. Because of that it is agreed that while the data is hosted by the data management project (project_2000444), the researchers access the data through the _HiaNo research project_  (project_2000333).
 
-To enable that Pekka gives read access to the _hiano-project-sample1_ bucket for project _project_2000333_, but not write access.
+To enable that Pekka gives read access to the _hiano-project-sample001_ bucket for project _project_2000333_, but not write access.
 ```text
 module load allas
 allas-conf 2000444
@@ -96,7 +96,7 @@ swift post hiano-project-sample001 -r "project_2000333:*,project_2000444:*"
 ```
 Xi and Laura can now start working with the data. They register themselves to CSC  using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them only to CSC project “HiaNo research project ” (project_2000333).
 
-Xi and Laura need to re-visist MyCSC again and accept the services of the research project. After that thy can download that  research data they need to any machine that is able to connect Allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
+Xi and Laura need to re-visist MyCSC again and accept the services of the research project. After that thy can download the  research data they need to any machine that is able to connect Allas: Puhti, a vitual machine in cPouta or their own laptop. As new researchers come along to the project Saara adds them to project_2000333 so that they can access the data.
 
 Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed [apply for more billing units](../../accounts/how-to-apply-for-resources.md). ( 80 TB consumes 700 800 Bu in year). Fortunately HiaNo is an academic research project so Saara don’t need to pay for the billing units she applies.
 
