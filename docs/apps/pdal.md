@@ -12,7 +12,7 @@ PDAL is available in the following versions:
 
 ### Using pdal
 
-PDAL is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+PDAL and pdal Python library are included in the [geoconda](../apps/geoconda.md) module and can be loaded with
 
 `module load geoconda`
 
