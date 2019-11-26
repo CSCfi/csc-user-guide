@@ -29,7 +29,6 @@
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
-* [Lidarconda](lidarconda.md) Collection of LiDAR data related Python packages
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
@@ -39,10 +38,12 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
+* [Octave](octave.md) High-level interpreted language for numerical computations
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [PDAL](pdal.md) Open source command line application for point cloud translations and processing
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
