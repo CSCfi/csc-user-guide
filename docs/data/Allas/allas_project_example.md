@@ -86,7 +86,7 @@ swift stat hiano-project-sample001
 
 ## Act 4. Using data for research ##
 
-Once the data is available the actual analysis work starts. There will be several users using the data set during the research project. Pekka knows that if all the users would use the data with full access rights (read and write) there is a danger that somebody accidentally deletes of overwrites the some part of the data. Because of that it is agreed that while the data is hosted by the data management project (project_2000444), the researchers access the data through the _HiaNo research project _ (project_2000333).
+Once the data is available the actual analysis work starts. There will be several users using the data set during the research project. Pekka knows that if all the users would use the data with full access rights (read and write) there is a danger that somebody accidentally deletes of overwrites the some part of the data. Because of that it is agreed that while the data is hosted by the data management project (project_2000444), the researchers access the data through the _HiaNo research project_  (project_2000333).
 
 To enable that Pekka gives read access to the _hiano-project-sample1_ bucket for project _project_2000333_, but not write access.
 ```text
