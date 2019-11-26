@@ -18,7 +18,8 @@ Professor Saara is running a large research project called HiaNo in a Finnish un
 The project has just send a set of samples to the Analysis Service Center to be processed and analyzed. 
 The analysis takes some weeks and produce 80 Tb of data that the research group will use for the actual research.
 
-To store and make this data available for the research project Saara and Pekka, who is taking care of the data management, decide to use the Allas service of CSC. Data is not sensitive human data so using Allas in OK. 
+Saara and Pekka, who is taking care of the data management, study the [storage options provided by CSC](https://research.csc.fi/data-management). They decide to use the Allas service of CSC for storing sharing the data during the research project. Data is not sensitive human data so using Allas in OK. 
+
 As a first step Saara and Pekka login to [MyCSC portal](https://my.csc.fi) and [register themselves as CSC users](../../accounts/how-to-create-new-user-account.md).
 
 Then Saara [creates two research projects](../../accounts/how-to-create-new-project.md) at CSC. One called _Data management of HiaNo project_ that gets project ID: project_2000444  another called _HiaNo research project_ that gets project DI: project_2000333.
@@ -45,42 +46,42 @@ Then he creates a new bucket in Allas. There is many ways to do this, but this t
 
 ```text
 echo “This bucket is used to host the original data of HiaNo project sample1” > README.txt
-a-put --nc -b hiano-project-sample1 README.txt
-a-list hiano-project-sample1 
+a-put --nc -b hiano-project-sample001 README.txt
+a-list hiano-project-sample001 
 ```
-Pekka included the project name in the bucket name (_hiano-project-sample1_) to make sure that the bucket name is unique through the whole Allas service. _a-list_ command shows that the bucket was successfully created.
+Pekka included the project name in the bucket name (_hiano-project-sample001_) to make sure that the bucket name is unique through the whole Allas service. _a-list_ command shows that the bucket was successfully created.
 
 Next Pekka uses _swift post_ command to [modify the access rights of the new bucket](./using_allas/swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) so that Mats (user _msundber_ from Allas _project_2000111_) is able so use it .
 ```text
-swift post hiano-project-sample1 -r "project_2000444:*,project_2000111:msundber"
-swift post hiano-project-sample1 -w "project_2000444:*,project_2000111:msundber"
-swift stat hiano-project-sample1
+swift post hiano-project-sample001 -r "project_2000444:*,project_2000111:msundber"
+swift post hiano-project-sample001 -w "project_2000444:*,project_2000111:msundber"
+swift stat hiano-project-sample001
 ```
-In Allas, large files (over 5GB) are split during the upload and stored as several objects to a bucket, which is normally automatically created. This bucket is has name extension `_segments`. For example in this case the name would be _hiano-project-sample1_segments_. Normally users should not directly interact with the segments-buckets, but in this case there is an exception. Pekka will now manually create the segments bucket too, to ensure that it is created (and thus owned) by the same project and to be able set access rights for this bucket too.
+In Allas, large files (over 5GB) are split during the upload and stored as several objects to a bucket, which is normally automatically created. This bucket is has name extension `_segments`. For example in this case the name would be _hiano-project-sample001_segments_. Normally users should not directly interact with the segments-buckets, but in this case there is an exception. Pekka will now manually create the _segments_ bucket too, to ensure that it is created (and thus owned) by the same project and to be able set access rights for this bucket.
 
 ```text
-a-put --nc -b hiano-project-sample1_segments README.txt
-a-list hiano-project-sample1_segments
-swift post hiano-project-sample1_segments -r "project_2000444:*,project_2000111:msundber"
-swift post hiano-project-sample1_segments -w "project_2000444:*,project_2000111:msundber"
-swift stat hiano-project-sample1_segments
+a-put --nc -b hiano-project-sample001_segments README.txt
+a-list hiano-project-sample001_segments
+swift post hiano-project-sample001_segments -r "project_2000444:*,project_2000111:msundber"
+swift post hiano-project-sample001_segments -w "project_2000444:*,project_2000111:msundber"
+swift stat hiano-project-sample001_segments
 ```
 Now Pekka has prepaired a bukect ( and the correpondind _segments_ bucket) into which the data can be imported by Mats. 
 Pekka still needs to send the name of the bucket to Mats as normal Allas listing commands don’t show the name for Mats who is not member in the project that owns the bucket.
 
-## Act 3. Upoloading data
+## Act 3. Uploading data
 
 Mats has [Allas tools](https://github.com/CSCfi/allas-cli-utils) installed in the front end server of the measurement device in Analysis Service Center. Thus he can upload the data directly from the front end server to the _hiano-project-sample1_ bucket in Allas. For example:
 ```text
-rclone copy sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample1/sample1/cannel43/aa_3278830.dat
+rclone copy sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample001/sample1/cannel43/aa_3278830.dat
 ```
 As there is a large amount of data to be transported the upload takes few days and it needs to be done as several batches. When Mats tells that he is ready with the data uploads, Pekka closes the shared bucket with commands
 ```text
-swift post hiano-project-sample1 -r ""
-swift post hiano-project-sample1_segments -r ""
-swift post hiano-project-sample1 -w ""
-swift post hiano-project-sample1_segments -w ""
-swift stat hiano-project-sample1
+swift post hiano-project-sample001 -r ""
+swift post hiano-project-sample001_segments -r ""
+swift post hiano-project-sample001 -w ""
+swift post hiano-project-sample001_segments -w ""
+swift stat hiano-project-sample001
 ```
 
 ## Act 4. Using data for research ##
@@ -91,7 +92,7 @@ To enable that Pekka gives read access to the _hiano-project-sample1_ bucket for
 ```text
 module load allas
 allas-conf 2000444
-swift post hiano-project-sample1 -r "project_2000333:*"
+swift post hiano-project-sample001 -r "project_2000333:*,project_2000444:*"
 ```
 Xi and Laura can now start working with the data. They register themselves to CSC  using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them only to CSC project “HiaNo research project ” (project_2000333).
 
