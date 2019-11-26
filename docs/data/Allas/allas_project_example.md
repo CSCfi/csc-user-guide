@@ -18,7 +18,7 @@ Professor Saara is running a large research project called HiaNo in a Finnish un
 The project has just send a set of samples to the Analysis Service Center to be processed and analyzed. 
 The analysis takes some weeks and produce 80 Tb of data that the research group will use for the actual research.
 
-Saara and Pekka, who is taking care of the data management, study the [storage options provided by CSC](https://research.csc.fi/data-management). They decide to use the Allas service of CSC for storing sharing the data during the research project. Data is not sensitive human data so using Allas in OK. 
+Saara and Pekka, who is taking care of the data management, study the [storage options provided by CSC](https://research.csc.fi/data-management). They decide to use the Allas service of CSC for storing and sharing the data during the research project. Data is not sensitive human data so using Allas in OK. 
 
 As a first step Saara and Pekka login to [MyCSC portal](https://my.csc.fi) and [register themselves as CSC users](../../accounts/how-to-create-new-user-account.md).
 
