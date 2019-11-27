@@ -2,7 +2,7 @@
 
 How to set up a static web server in Rahti.
 
-1.  Create a project. [Instructions](../../usage/projects_and_quota/)".
+1.  Create a project. [Instructions](../../usage/projects_and_quota/)
 
 2.  In the catalog view, select _Apache HTTP Server_.
     ![Select-httpd](img/select-http.png)
