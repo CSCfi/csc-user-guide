@@ -6,9 +6,11 @@ IDA is a general storage service for scientific data. It is part of the [Fairdat
 
 
 IDA uses in-house developed www interface and client tool `ida` that is available in the computing servers of CSC.
-The files that are in these storage systems can be managed through client interfaces but the content of the archived files can't be studied or modified. In stead, the stored file must be first retrieved back to the CSC servers or to some other computer in order to analyse or modify the dataset. In that sense IDA resembles very much the Allas storage environment but ida and Allas are designed to serve bit different use cases. Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing enviroments. Ida on the other hand is desinged for storing and sharing more structured and stable datasets, that are not used and modified in daily bases. 
+The files that are in IDA can be managed through client interfaces but the content of the archived files can't be studied or modified. In stead, the stored file must be first retrieved back to the CSC servers or to some other computer in order to analyse or modify the dataset. In that sense IDA resembles very much the [Allas storage environment](../Allas/intoduction.md) However, IDA and Allas are designed to serve different use cases:
+    # Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing enviroments.         
+    # IDA is desinged for storing and sharing more structured and stable datasets, that are not used and modified in daily bases. 
 
-In a typical research project the data is first stored to Allas. When the research work has produced a more refined dataset form the originbal data, it can be store to IDA so that metadata and persistent identifiers can be attached to the data. 
+In a typical research project the raw data is first stored in Allas. When the research work has produced a more refined dataset form the original data, it can be stored to IDA so that metadata and persistent identifiers can be attached to the data. 
 
 
 ## Configuring and using IDA in Puhti ##
