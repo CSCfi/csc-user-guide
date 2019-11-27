@@ -1,3 +1,5 @@
+# Patterns
+
 ## Persistent storage
 
 Persistent storage is requested from the cluster using `PersistentVolumeClaim` objects:
