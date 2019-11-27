@@ -27,8 +27,10 @@ a graphical connection, see the [connecting](connecting.md) page.
 
 
 !!! warning "Important"
-    The login nodes can be used for **light** pre- and postprocessing, compiling
-    applications and moving data. All other tasks are to be done using the 
+    The login nodes can be used for compiling, moving data and **light** pre- and postprocessing. 
+    **Light** means that these **one-core-jobs**
+    should finish in **minutes** and require **a few GiB** of memory at maximum. 
+    All other (including interactive) tasks are to be done using the 
     [batch job system](running/getting-started.md). Programs not adhering to these
     rules will be terminated without warning.
 
