@@ -28,9 +28,9 @@ This information can be obtained from the [personal information page of the IDA 
 The configuration is stored to your home directory so you need to do it only once.
 
 Once you have configured the connection, you can start operating with IDA. The basic syntax of ida commands is:
-```text
-ida task -options target_in_ida target_in_taito
-```
+<pre>
+ida <em>task</em> -<em>options target_in_ida target_in_puhti</em>
+</pre>
 
 To check the content of you staging area in IDA, give command:
 ```text
