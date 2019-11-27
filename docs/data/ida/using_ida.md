@@ -58,11 +58,11 @@ Uploading and downloading files and directories between Puhti and IDA is done wi
 ida download <em>target_in_ida local_file</em> 
 </pre>
 
-For example command:
+For example in Puhti, command:
 ```text
 ida upload test123/data1 test_data
 ```
-will upload file: _test_data_ from Taito to the IDA staging area and store the data there to directory _test123_ with name _data1_. The directory test123 will be automatically created to the staging area, if it does not already exist.
+will upload file: _test_data_ from Puhti to the IDA staging area and store the data there to directory _test123_ with name _data1_. The directory test123 will be automatically created to the staging area, if it does not already exist.
 
 If your download a directory, the downloaded files are stored to Puhti as a zip archive. Thus you should define the local target file to have name extension .zip. For example:
 ```text
