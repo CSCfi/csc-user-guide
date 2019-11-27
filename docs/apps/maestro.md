@@ -79,6 +79,10 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
 Desmond molecular dynamics runs **very well** on GPUs. We recommend watching 
 the video above on how to accomplish this easily.
 
+Maestro gives a warning for using a `schrodinger.hosts`file from your home directory. This is
+not an issue: that file cannot be made available in the installation directory, so please
+ignore that warning, but consider any others you may see.
+
 ## References
 
 Please cite the Maestro modules in all published work as described 
