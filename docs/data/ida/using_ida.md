@@ -4,7 +4,7 @@ IDA is a general storage service for scientific data. It is part of the [Fairdat
   * [https://ida.fairdata.fi](https://ida.fairdata.fi)
 
 IDA uses in-house developed www interface and client tool `ida` that is available in the computing servers of CSC.
-The files that are in IDA can be managed through client interfaces but the content of the archived files can't be studied or modified. In stead, the stored file must be first retrieved back to the CSC servers or to some other computer in order to analyse or modify the dataset. In that sense IDA resembles very much the [Allas storage environment](../Allas/intoduction.md). However, IDA and Allas are designed to serve different use cases:
+The files that are in IDA can be managed through client interfaces but the content of the archived files can't be studied or modified. In stead, the stored file must be first retrieved back to the CSC servers or to some other computer in order to analyse or modify the dataset. In that sense IDA resembles very much the [Allas storage environment](../Allas/introduction.md). However, IDA and Allas are designed to serve different use cases:
   * Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing environments.          
   * IDA is designed for storing and sharing more structured and stable datasets, that are not used and modified in daily bases. 
 
