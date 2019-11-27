@@ -1,4 +1,4 @@
-# Rahti Container Cloud
+# Rahti container cloud
 
 Welcome to the Rahti container cloud! If you are not yet
 familiar with container technology or container orchestration systems such as

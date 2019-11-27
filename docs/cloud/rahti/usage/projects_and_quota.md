@@ -5,7 +5,7 @@
 !!! note
     Projects in OpenShift are separate from CSC computing projects. A single CSC
     computing project can have access to multiple projects in OpenShift.
-    Each CSC computing project with access to Rahti gets a *group* in
+    Each CSC computing project with access to Rahti receives a *group* in
     OpenShift.
 
 !!! note
@@ -15,22 +15,22 @@
 All projects in OpenShift must be mapped to a CSC computing project. This
 mapping is used to determine which CSC computing project a given resource
 belongs to for billing and other purposes. If you only have one CSC computing
-project with access to Rahti, this mapping will be done for you
+project with access to Rahti, this mapping will be done 
 automatically. If you have more than one CSC computing project, you need to
-specify which of them to use. You can do so by entering `csc_project: ` followed
-by the name or number of your CSC computing project in the *Description* field
+specify which of them to use. You can do so by entering `csc_project:` followed
+by the name or number of your CSC computing project in the _Description_ field
 when creating a new project in OpenShift. You can also enter other text in the
-description field as well if you want to have a human readable description for
+description field if you want to have a human-readable description for
 the project you are creating.
 
-For example, if you have Rahti access via project_1000123, you would
-enter this in the *Description* field:
+For example, if you have Rahti access via *project_1000123*, you would
+enter the following in the _Description_ field:
 
 ```yaml
 csc_project: project_1000123
 ```
 
-You could also enter a human readable description for the project, in which case
+You can also enter a human-readable description for the project, in which case
 the field could look like this:
 
 ```yaml
@@ -40,30 +40,30 @@ csc_project: project_1000123
 ```
 
 This would make it so that any usage within that OpenShift project is billed
-from the billing unit quota of project_1000123. Note that project_1000123 must
-have Rahti access and you must be a member of that computing project
+to the billing unit quota of project_1000123. Note that project_1000123 must
+have Rahti access and you must be a member of that computing project,
 or the OpenShift project creation will fail.
 
 If you would like to know which CSC computing projects you are a member of, you
 can view a list in the [My Projects
 tool](https://sui.csc.fi/group/sui/my-projects) of the Scientist's User
 Interface. You can also set a default billing project with the same tool. Select
-the project that you would like to have as your default billing project and
+the project you would like to have as your default billing project and
 click "Set As Billing Project". After doing this, the default billing project
-will be selected as the billing project for OpenShift projects that don't
+will be selected as the billing project for OpenShift projects that don not
 explicitly specify one.
 
 If you would like to know which CSC computing project an OpenShift project is
-associated with, you can do so using the oc command line tool. You can find
+associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](/cloud/rahti/usage/cli). For example, if your OpenShift project was called
-my-openshift-project, you would run this:
+instructions ](/cloud/rahti/usage/cli). For example, if your OpenShift project is called
+*my-openshift-project*, you would run:
 
 ```bash
 oc get project my-openshift-project -o yaml
 ```
 
-This should produce output like this:
+This should produce the following output:
 
 ```yaml
 apiVersion: project.openshift.io/v1
@@ -87,32 +87,31 @@ status:
 ```
 
 In the output above, you can find the associated CSC computing project under
-`metadata.labels.csc_project`. In this case the project is `1000123`.
-Unfortunately this information is not available via a web user interface yet.
+`metadata.labels.csc_project`. In this case, the project is `1000123`.
+Unfortunately, this information is not available via a web interface yet.
 
 !!! note
-    It is not possible for normal users to change the csc_project label
+    It is not possible for normal users to change the *csc_project* label
     after a project has been created. If you would like to change the label for
-    an existing project, please [contact support ](/cloud/rahti/contact). You can also create
+    an existing project, please [contact the support](/cloud/rahti/contact). You can also create
     a completely new project if you want to use a different label.
-
 
 ## Creating a project
 
-Click the blue "Create Project" button to create a project and you will be
-presented with this view:
+Click the blue "Create Project" button to create a project, and you will be
+presented with the following view:
 
 ![OpenShift new project dialog](img/new_project_dialog_3.7.png)
 
-Here you'll need to pick a unique name that is not in use by any other project
-in the system. You can also enter a human readable display name and a
+You need to pick a unique name that is not in use by any other project
+in the system. You can also enter a human-readable display name and a
 description for the project. You may also enter a CSC
-computing project here in the Description field as described above. Once
-you've filled in the fields, click "Create" and you will see the application
-catalog where you can pick from various application templates or import your
-own.
+computing project in the _Description_ field as described above. Once
+you have filled in the fields, click "Create", and you will see the application
+catalog where you can pick an application template or import your
+own one.
 
-For more information about using the web user interface, you can refer to the
+For more information about using the web interface, refer to the
 [official OpenShift documentation](https://docs.okd.io/). You can find
 out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
@@ -124,7 +123,7 @@ Two kinds of quota are applied in OpenShift:
 * Total number of projects per user
 * Resources created inside a project
 
-By default, users can create **up to five projects**. Each of these then has its
+By default, users can create **up to five projects**. Each of them has its
 own quota for the following resources:
 
 | Resource                         | Default |
@@ -135,7 +134,7 @@ own quota for the following resources:
 | RAM per pod                      | 8 GiB   |
 | RAM per container                | 8 GiB   |
 
-You can find the resource usage and quota for a project from the project view in
+You can find the resource usage and quota of a project in the project view in
 the web interface under Resources -> Quota. Alternatively, you can use the oc
 command line tool:
 
@@ -145,36 +144,35 @@ oc get limitranges -o yaml
 ```
 
 If you need to create more projects or you need more resources in a project for
-your application, you can apply for more quota by contacting Rahti
-support. See the  [Contact page ](/cloud/rahti/contact) for instructions. Quota requests are
+your application, you can apply for more quota by contacting the Rahti
+support. See the [Contact page ](/cloud/rahti/contact) for instructions. Quota requests are
 handled on a case-by-case basis depending on the currently available resources
 in Rahti and the use case.
 
 ## Sharing projects with other users
 
-OpenShift has a flexible role based access control system that allows you to
-give access to projects you've created to other users and groups in the system.
+OpenShift has a flexible role-based access control system that allows you to
+give access to projects you have created to other users and groups in the system.
 You can give e.g. full admin, basic user, edit or read only access to other
 users and groups in the system for collaboration.
 
-You can edit project membership in the web interface via Resources ->
-Membership. You can either give access rights to individuals users or groups by
-selecting either the Users or the Groups tab and clicking Edit Membership in the
+You can edit project memberships in the web interface via Resources ->
+Membership. You can either give access rights to individual users or groups by
+selecting either the _Users_ or _Groups_ tab and clicking _Edit Membership_ in the
 top right corner.
 
-Note that it is important to use the correct usernames when sharing projects
-with others. OpenShift allows you to freely enter any username and won't tell
-you if you've entered a non-existent username. The usernames are also case
-sensitive. You can find out what your username in OpenShift is from either the
-web interface or via the command line:
+Note that it is important to use correct usernames when sharing projects
+with others. OpenShift allows you to freely enter any username and will not notify
+you for having entered a non-existent username. Usernames are also case-sensitive. 
+You can find out your username in OpenShift via either the
+web interface or the command line:
 
 1. In the web interface, click the question mark symbol in the top bar and
    select "Command Line Tools". You can find your username above the text box
    that has the login command.
-2. If you have an active command line session, you can use the `oc whoami`
-   command.
+2. If you have an active command line session, you can use the command `oc whoami`.
 
-If you would like to share a project you've created with members of the same CSC
-computing project, you can do so by selecting the Groups tab, clicking Edit
-Membership and entering the name of the computing project and a role in the
+If you would like to share a project you have created with members of the same CSC
+computing project, you can do so by selecting the _Groups_ tab, clicking _Edit
+Membership_, and entering the name of the computing project and a role in the
 dropdown menu on the right for the members of that computing project.
