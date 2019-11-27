@@ -17,7 +17,7 @@ Each IDA project has two storage areas: _staging area_ and _frozen area_. The st
 
 The command line client of IDA, `ida`, enables data transport between Puhti and IDA. Data can uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data to the frozen area of publishing data is possible only through the [IDA WWW interface](https://ida.csc.fi).
 
-Before you can start using IDA client in Taito you must set up your IDA connection by running command.
+Before you can start using IDA client in Puhti you must set up your IDA connection by running command.
 
 ```text
 ida_configure
