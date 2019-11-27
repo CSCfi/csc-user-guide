@@ -23,7 +23,7 @@ module load r-env
 module load rstudio
 ```
 
-Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use RStudio in Puhti, please request an interactive job on a compute node.
+For information on `r-env`, see the user documentation [here](./r-env.md). Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use RStudio in Puhti, please request an interactive job on a compute node.
 
 #### Interactive use
 

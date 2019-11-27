@@ -32,11 +32,11 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Note that Puhti login nodes are not intended for heavy computing. To use R in Puhti, please either request an interactive job on a computing node or submit a non-interactive batch job in Slurm. 
+Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. 
 
 #### Interactive use
 
-To interactively use R on Puhti's computational nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+To interactively use R on Puhti's compute nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
 
 ```
 srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id --partition=partition R --no-save
