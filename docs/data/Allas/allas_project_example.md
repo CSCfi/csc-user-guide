@@ -93,6 +93,7 @@ To enable this Pekka gives read access to the _hiano-project-sample001_ bucket f
 module load allas
 allas-conf 2000444
 swift post hiano-project-sample001 -r "project_2000333:*,project_2000444:*"
+swift post hiano-project-sample001_segments -r "project_2000333:*,project_2000444:*"
 ```
 Xi and Laura can now start working with the data. They register themselves to CSC using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them only to CSC project “HiaNo research project ” (project_2000333).
 
