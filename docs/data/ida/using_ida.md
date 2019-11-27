@@ -1,11 +1,11 @@
 # Using IDA storage service in the CSC computing environment #
 
-IDA is a general storage service for scientific data. It is part of the [Fairdata.fi]( https://www.fairdata.fi/) research data management environment and not directly linked to the CSC computing environment. Even though CSC produces and hosts the IDA service and users need to register to CSC, the storage space is granted by the home organization of the user (Finnish higher education institute, state reserach institute) or by the Academy of Finland based on a funding decision. IDA users can use the storage space from both their own computers and from the servers of CSC. IDA can also be used to publish or share datasets. More information about applying storage space from IDA can be found from through IDA's website:
+IDA is a general storage service for scientific data. It is part of the [Fairdata.fi]( https://www.fairdata.fi/) research data management environment and not directly linked to the CSC computing environment. Even though CSC produces and hosts the IDA service and users need to register to CSC, the storage space is granted by the home organization of the user (Finnish higher education institute, state reserach institute) or by the Academy of Finland based on a funding decision. IDA users can use the storage space from both their own computers and from the servers of CSC. More information about applying storage space from IDA can be found from through IDA's website:
 
     [https://ida.fairdata.fi](https://ida.fairdata.fi)
 
 
-IDA uses in-house developed www interface and client tool `ida that is available in the computing servers of CSC.
+IDA uses in-house developed www interface and client tool `ida` that is available in the computing servers of CSC.
 The files that are in these storage systems can be managed through client interfaces but the content of the archived files can't be studied or modified. In stead, the stored file must be first retrieved back to the CSC servers or to some other computer in order to analyse or modify the dataset. In that sense IDA resembles very much the Allas storage environment but ida and Allas are designed to serve bit different use cases. Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing enviroments. Ida on the other hand is desinged for storing and sharing more structured and stable datasets, that are not used and modified in daily bases. 
 
 In a typical research project the data is first stored to Allas. When the research work has produced a more refined dataset form the originbal data, it can be store to IDA so that metadata and persistent identifiers can be attached to the data. 
