@@ -1,6 +1,6 @@
 # Using IDA storage service in the CSC computing environment #
 
-IDA is a general storage service for scientific data. It is part of the Fairdata.fi research data management environment and not directly linked to the CSC computing environment. Even though CSC produces and hosts the IDA service and users need to register to CSC, the storage space is granted by the home organization of the user (Finnish higher education institute, state reserach institute) or by the Academy of Finland based on a funding decision. IDA users can use the storage space from both their own computers and from the servers of CSC. IDA can also be used to publish or share datasets. More information about applying storage space from IDA can be found from through IDA's website:
+IDA is a general storage service for scientific data. It is part of the [Fairdata.fi]( https://www.fairdata.fi/) research data management environment and not directly linked to the CSC computing environment. Even though CSC produces and hosts the IDA service and users need to register to CSC, the storage space is granted by the home organization of the user (Finnish higher education institute, state reserach institute) or by the Academy of Finland based on a funding decision. IDA users can use the storage space from both their own computers and from the servers of CSC. IDA can also be used to publish or share datasets. More information about applying storage space from IDA can be found from through IDA's website:
 
     [https://ida.fairdata.fi](https://ida.fairdata.fi)
 
