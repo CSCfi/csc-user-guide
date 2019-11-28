@@ -34,6 +34,7 @@
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
