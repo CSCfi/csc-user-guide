@@ -93,7 +93,11 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 ## More information
 
 * Manual including tutorials come with the Maestro GUI.
-* The [Schrödinger website support](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
+* The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
+   * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)
+   * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp)
+   * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
+   * [Downloadble tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions 
 * Issues on how to run Maestro on CSC environment: [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)
