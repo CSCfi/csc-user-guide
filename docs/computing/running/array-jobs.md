@@ -122,7 +122,7 @@ By default the billing project is set based on the name of the scratch directory
 
 After submitting an array job, `sabatch_commandlist` monitors the progress of the job and finishes only when the array job has finished. Thus this command can be used in workflows (including batch job scripts), where only certain steps of the workflow can utilize array jobs based parallel computing.
 
-As an example, lets assume we have a gzip compressed tar-archive file my_data.tgz containing a directory with a large number of files. To create a new compressed archive, that includes also a md5 checksum file for each file we would need to: (1) un-compress and un-pack my_data.tgz,  (2) execute md5sum for each file and finally (3) pack and compress the my_data directory again. The second step of the workflow could be executed using a for-loop, but we could also use the loop just to generate a list of md5sum commands, that can be processed with _sbatch_commandist_ .
+As an example, lets assume we have a gzip compressed tar-archive file my_data.tgz containing a directory with a large number of files. To create a new compressed archive, that includes also a md5 checksum file for each file we would need to: (1) un-compress and un-pack my_data.tgz,  (2) execute _md5sum_ for each file and finally (3) pack and compress the my_data directory again. The second step of the workflow could be executed using a for-loop, but we could also use the loop just to generate a list of _md5sum_ commands, that can be processed with _sbatch_commandist_ .
 ```text
 #!/bin/bash -l
 #SBATCH --job-name workfow
@@ -152,5 +152,5 @@ rm -f md5commands.txt
 cd ..
 tar zcf my_data_with_md5.tgz my_data
 rm -rf my_data
-```text
+```
 Note that the batch job script above is not an array job, but it launches a another batch job that is an array job.
