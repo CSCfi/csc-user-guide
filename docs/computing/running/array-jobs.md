@@ -115,7 +115,7 @@ In Puhti, you can use command `sbatch_commandlist` to execute a list of commands
 The sytax of this command is:
 ```text
 sbatch_commandlist -commands commandlist
-```text
+```
 
 Options `-t` and `-mem` can be used to modify the time and memory reservation of the subjobs (default 12 h, 8GB).
 By default the billing project is set based on the name of the scratch directory where this command is executed, but if needed, it can be assigned using optipon `-project`
