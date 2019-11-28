@@ -60,7 +60,7 @@ For example, a Desmond workflow could be run with:
 -o 2hhb_test-out.cms -lic "DESMOND_GPGPU:16"
 
 ```
-This is a bit complicated and is best to write it out from the Maestro GUI as explained above.
+This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
 
 To run such a script in Puhti you first need to initialize Maestro with
  `module load maestro` and then run the script.
