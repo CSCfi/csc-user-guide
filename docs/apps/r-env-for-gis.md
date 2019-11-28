@@ -71,3 +71,4 @@ citation("package") # for citing R packages
 ## References
 
 * [Spatial analysis examples (CSC)](https://github.com/csc-training/geocomputing/tree/master/R)
+* [Tutorial for geospatial R tools](https://datacarpentry.org/r-raster-vector-geospatial/)
