@@ -2,7 +2,7 @@
 
 ## Persistent storage
 
-Persistent storage is requested from the cluster using `PersistentVolumeClaim` objects:
+Persistent storage is requested in the cluster using `PersistentVolumeClaim` objects:
 
 *`pvc.yaml`*
 
@@ -19,14 +19,14 @@ spec:
       storage: 1Gi
 ```
 
-Persistent storage can be requested also from the web console.
+Persistent storage can be requested also via the web console.
 
 This will request a 1 GiB persistent storage that can be mounted in read-write
 mode by multiple nodes.
 
 The persistent volume can be used in a pod by specifying `spec.volumes`
-(defines volumes to attach) and `spec.containers.volumeMounts` (defines where
-to mount attached volumes in the container's filesystem):
+(defines the volumes to attach) and `spec.containers.volumeMounts` (defines where
+to mount the attached volumes in the container's filesystem):
 
 *`pvc-pod.yaml`*:
 
@@ -53,9 +53,9 @@ spec:
 
 ## InitContainer
 
-*InitContainer* is a container in a pod that is meant run to completion before
+_InitContainer_ is a container in a pod that is intended run to completion before
 the main containers are started. Data from the init containers can be
-transferred to the main container using, e.g., empty volume mounts
+transferred to the main container using e.g. empty volume mounts.
 
 *`pod-init.yaml`*:
 
