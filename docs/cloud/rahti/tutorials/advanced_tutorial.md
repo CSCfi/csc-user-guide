@@ -1,14 +1,14 @@
 # Using OpenShift extensions
 
-In this example we'll explore OpenShift's extensions *DeploymentConfig*,
-*ImageStream* and *BuildConfig* by creating the `serveapp` using them. Their
-role in the process is as follows:
+In this example, we explore OpenShift's extensions *DeploymentConfig*,
+*ImageStream* and *BuildConfig* by creating the `serveapp` using them. The extensions'
+role in the process:
 
 * [BuildConfig](/cloud/rahti/tutorials/advanced_tutorial#buildconfig) objects build container images
-  based on source files.
+  based on the source files.
 * [ImageStream](/cloud/rahti/tutorials/advanced_tutorial#imagestream) objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
-  uploaded into them by, e.g., BuildConfig.
+  uploaded into them by e.g. BuildConfig.
 * [DeploymentConfig](/cloud/rahti/tutorials/advanced_tutorial#deploymentconfig) objects create new
   [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on
   the new images.
@@ -17,22 +17,22 @@ role in the process is as follows:
 
 DeploymentConfigs are objects that create
 [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) according to
-`spec.template`. They differ from ReplicationControllers in a sense that 
+`spec.template`. They differ from ReplicationControllers in the sense that 
 DeploymentConfig objects may start new ReplicationControllers based on the state of
-`spec.triggers`. In the example below, the DeploymentConfig will perform
+`spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
-"serveimagestream:latest". For other update strategies see "[Deployment
+`serveimagestream:latest`. For other update strategies, see "[Deployment
 Strategies](https://docs.okd.io/latest/dev_guide/deployments/deployment_strategies.html)"
 in the OpenShift documentation.
 
-DeploymentConfig objects function similarly to Deployments described in the
-Chapter "[Background ](/cloud/rahti/introduction/background)" except that Deployments
-trigger updates only when `spec.template` is changed. Furthermore, Deployment
-is a pure Kubernetes concept and DeploymentConfig is an OpenShift extension.
+DeploymentConfig objects function similarly to deployments described in the
+chapter [Background](/cloud/rahti/introduction/background) except that deployments
+trigger updates only when `spec.template` is changed. Furthermore, deployment
+is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 
 Recall that [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller)
 are objects that make sure that a requested number of replicas of the pod defined in the
-`spec.template` are running.
+`spec.template` is running.
 
 *`deploymentconfig.yaml`*:
 
@@ -71,18 +71,18 @@ spec:
     type: ImageChange
 ```
 
-In this case, the DeploymentConfig object will listen to *ImageStream* object
+In this case, the DeploymentConfig object listens to the *ImageStream* object
 `serveimagestream:latest`.
 
 ## ImageStream
 
 ImageStreams simplify image names and get triggered by a BuildConfig if new
-images are being uploaded to the registry. In the case where a new image is
+images are uploaded to the registry. When a new image is
 uploaded, it can trigger its listeners to act. In the case of our
 DeploymentConfig, the action triggered would be to do an update for the pods
 that it is meant to deploy.
 
-A simple ImageStream object looks like this:
+A simple ImageStream object:
 
 *`imagestream.yaml`*:
 
@@ -100,9 +100,9 @@ spec:
 
 ## BuildConfig
 
-A BuildConfig objects create container images according to specific rules. In
-the following example the Docker strategy is used to build trivial extension
-of `httpd` image shipped with openshift.
+BuildConfig objects create container images according to specific rules. In
+the following example, the _Docker_ strategy is used to build a trivial extension
+of the `httpd` image shipped with OpenShift.
 
 *`buildconfig.yaml`*:
 
@@ -127,7 +127,7 @@ spec:
 ```
 
 After creating the build object (here named `serveimg-generate`), we can
-request openshift cluster to build the image with
+request the OpenShift cluster to build the image:
 
 ```bash
  oc start-build serveimg-generate
