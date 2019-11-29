@@ -11,6 +11,10 @@ This chapter introduces the basics of creating and submitting batch jobs
 using the SLURM (Simple Linux Utility for Resource Management) batch job
 system.
 
+Note that also [interactive tasks](interactive-usage.md) (other than
+compiling, moving data and light  pre- and postprocessing) are to be
+done via batch job system. 
+
 !!! note "Key concepts of the CSC batch job system"
 
     - **Jobs do not run instantly but are put in a queue**

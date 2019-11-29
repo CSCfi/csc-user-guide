@@ -1,5 +1,6 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
+site_url: "https://docs.csc.fi"
 nav:
   - Home: index.md
   - Accounts:
@@ -27,6 +28,7 @@ nav:
         - Available batch job partitions: computing/running/batch-job-partitions.md
         - Array jobs: computing/running/array-jobs.md
         - Example job scripts: computing/running/example-job-scripts.md
+        - Interactive usage: computing/running/interactive-usage.md
      - Compiling: computing/compiling.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
