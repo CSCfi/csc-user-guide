@@ -45,9 +45,10 @@ In addition to the compute nodes above, Puhti has two login nodes with 40 cores 
 
 !!! warning "Important"
     The login nodes can be used for **light** pre- and postprocessing, compiling
-    applications and moving data. All other tasks are to be done using the 
-    [batch job system](running/getting-started.md). Programs not adhering to these
-    rules will be terminated without warning.
+    applications and moving data. All other tasks are to be done in the 
+	compute nodes using the [batch job system](running/getting-started.md). 
+	Programs not adhering to these rules will be terminated without warning. 
+	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
 
 
 ### Storage

@@ -6,7 +6,7 @@
 
 The `gdal` module is available in Puhti with following versions:
 
-* 2.4.2 via conda
+* 2.4.2 via conda ([geoconda](geoconda.md), [mapnik](mapnik.md))
 * 3.0.1 stand-alone
 * 2.4.2 stand-alone
 
