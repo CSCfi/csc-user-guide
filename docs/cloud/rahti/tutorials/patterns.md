@@ -91,17 +91,17 @@ spec:
 ```
 
 Here we run an init container that uses the `perl` image and writes text
-to the `index.html` file on the shared volume.
+in the `index.html` file on the shared volume.
 
 The shared volume is defined in `spec.volumes` and "mounted" in
 `spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
 
 ## Jobs
 
-*Jobs* are run-to-completion Pods, except that they operate on the same level
-as ReplicationControllers, in the sense that they too define template for pod
+_Jobs_ are run-to-completion pods, except that they operate on the same level
+as ReplicationControllers, in the sense that they too define the template for the pod
 to be launched instead of directly describing the pod. The difference is,
-however, that *Jobs* are not restarted when they finish.
+however, that *jobs* are not restarted when they finish.
 
 *`job.yaml`*:
 
@@ -144,8 +144,8 @@ spec:
   backoffLimit: 4
 ```
 
-This job will name the pod automatically and the pod can be queried with
-job-name label:
+This job names the pod automatically, and the pod can be queried with
+a job-name label:
 
 ```bash
 $ oc get pods --selector job-name=pi
@@ -153,7 +153,7 @@ NAME       READY     STATUS      RESTARTS   AGE
 pi-gj7xg   0/1       Completed   0          3m
 ```
 
-Thus the standard output of the job is:
+The standard output of the job:
 
 ```bash
 $ oc logs pi-gj7xg
@@ -161,15 +161,15 @@ helloing so much here! Lets hello from /mountdata/hello.txt too:
 this hello is from the initcontainer
 ```
 
-There may be only one object of given name in the project namespace, thus the
-job cannot be run twice unless the first instance of it is removed. The pod,
-however, needs not to be cleaned.
+There may only be one object with a given name in the project namespace, thus the
+job cannot be run twice unless its first instance is removed. The pod,
+however, needs not be cleaned.
 
 ## Passing configuration data to containers: ConfigMap and Secrets
 
-**ConfigMaps** are useful in collecting configuration-type data in Kuberentes'
+**ConfigMaps** are useful in collecting configuration type data in Kubernetes
 objects. Their contents are communicated to containers by environmental
-variables or by volume mounts.
+variables or volume mounts.
 
 *`configmap.yaml`*:
 
@@ -186,8 +186,8 @@ data:
     baz=notbar
 ```
 
-The following pod imports the value of `data.prop.a` to `DATA_PROP_A`
-environment variable and creates files `data.prop.a`, `data.prop.b` and
+The following pod imports the value of `data.prop.a` to the `DATA_PROP_A`
+environment variable and creates the files `data.prop.a`, `data.prop.b` and
 `data.prop.long` inside `/etc/my-config`:
 
 *`configmap-pod.yaml`*:
@@ -225,8 +225,8 @@ spec:
       mountPath: /etc/my-config
 ```
 
-The output log, given by command `oc logs confmap-cont` of this container
-should be
+The output log, provided with the command `oc logs confmap-cont` of this container,
+should be:
 
 ```
 fo=bar
@@ -235,14 +235,13 @@ DATA_PROP_A=hello
 ```
 
 **Secrets** behave much like ConfigMaps, but once created, they are stored in
-base64 encoded form and their contents are not displayed by default with the
-`oc describe` command. There is an example of a Secret in the Webhooks section.
+a _base64_ encoded form, and their contents are not displayed by default with the
+command `oc describe`. There is an example of a secret in the _Webhooks_ section.
 
 ## Webhooks
 
 Rahti supports Generic, GitHub, GitLab and Bitbucket webhooks. They are
-particularly useful in triggering builds. The syntax for BuildConfig is as
-follows:
+particularly useful in triggering builds. The BuildConfig syntax:
 
 ```yaml
 spec:
@@ -253,7 +252,7 @@ spec:
         name: webhooksecret
 ```
 
-Now the Secret `webhooksecret` should have
+Now the secret `webhooksecret` should have:
 
 ```yaml
 apiVersion: v1
@@ -265,9 +264,9 @@ metadata:                                           #  base64 encoding
   namespace: mynamespace     # set this to your project namespace
 ```
 
-When the BuildConfig is configured to trigger from the webhook and the
-corresponding secret exists, the webhook URL can be found by using (assuming we
-added the webhook to `serveimg-generate`) `oc describe` command:
+When the BuildConfig is configured to trigger by the webhook and the
+corresponding secret exists, the webhook URL can be found by using the command `oc describe` (assuming we
+included the webhook in `serveimg-generate`):
 
 ```
 $ oc describe bc/serveimg-generate
@@ -282,18 +281,18 @@ Webhook GitHub:
 .
 ```
 
-Finally, the GitHub WebHook payload url is the url above with `<secret>`
-replaced with base64 decoded string of the value of `data.WebHookSecretKey`
-above and the content type is `application/json`.
+Finally, the GitHub WebHook payload URL is the URL above with `<secret>`
+replaced with the base64 decoded string of the value of `data.WebHookSecretKey`
+above, and the content type is `application/json`.
 
 ## Custom domain names and secure transport
 
 Custom domain names and HTTPS secure data transport are implemented in the
-Route object level. They are controlled with the keywords `spec.host` and
+route object level. They are controlled with the keywords `spec.host` and
 `spec.tls`.
 
-The public DNS CNAME record of the custom domain name should point to `rahtiapp.fi`
-and the custom DNS name is placed in the `spec.host` entry of the Route object:
+The public DNS CNAME record of the custom domain name should point to `rahtiapp.fi`,
+and the custom DNS name is placed in the `spec.host` entry of the route object:
 
 *`route-with-dns.yaml`*:
 
@@ -344,32 +343,31 @@ spec:
       -----END PRIVATE KEY-----
 ```
 
-This definition will create a Route with the private key placed in
+This definition creates a route with the private key placed in
 `spec.tls.key` and the certificates placed in `spec.tls.certificate`. In this example,
-the HTTP traffic is redirected to use the HTTPS protocol due to `Redirect` setting in
-`spec.tls.insecureEdgeTerminationPolicy` and the TLS termination is handled by the
-Route object, in the sense that the traffic coming from the Service `serve` is assumed
-to be non-encrypted (`spec.tls.termination: edge`). Other termination policies
-include:
+HTTP traffic is redirected to use the HTTPS protocol due to the `Redirect` setting in
+`spec.tls.insecureEdgeTerminationPolicy`, and the TLS termination is handled by the
+route object, in the sense that traffic coming from the service `serve` is assumed
+to be non-encrypted (the `spec.tls.termination: edge`). Other termination policies:
 
-* `passthrough`: Assume that the TLS-connection is terminated internally at the
-  Pod and just forward the encrypted traffic
-* `reencrypt`: Terminate the TLS-connection at the Router and open another
-  secure connection which must be terminated at the Pod
+* `passthrough`: Assume that the TLS connection is terminated internally in the
+  pod and forward the encrypted traffic.
+* `reencrypt`: Terminate the TLS connection in the router and open another
+  secure connection that must be terminated at the pod.
 
 !!! Caution
 
-    Always treat contents of the field `spec.tls.key` in the Route objects with
-    special case, since the private TLS key should be never exposed to
+    Always treat the contents of the field `spec.tls.key` in the route objects with
+    special care, since the private TLS key should be never exposed to
     non-trusted parties.
 
 !!! Hint
 
     letsencrypt.org provides free and open certificates. Routes can be
-    automated to be secure ones with a third party
+    automated to be secure with a third-party
     [openshift-acme controller](https://github.com/tnozicka/openshift-acme)
-    by annotating the Route objects.
+    by annotating the route objects.
 
-    Another way of utilizing the certificates provided by Let's Encrypt's is to
+    Another way of utilizing the certificates provided by Let's Encrypt is to
     use the [`certbot`](https://certbot.eff.org/) tool on the debug console and
-    renewing the certificate with, e.g., CronJob controller.
+    renewing the certificate with e.g. the CronJob controller.
