@@ -94,7 +94,7 @@ ensemblfetch -names
 ```
 ## Running BLAST in FGCI gird with gb
 
-**gb** (grib blast) is currenty availabe in Taito, but not in Puhti.
+**gb** (grib blast) is currently available in Taito, but not in Puhti.
 *  [gb instructions](./grid_blast.md)
 
 
