@@ -4,6 +4,7 @@
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
+* [ArcGIS](arcgis.md) ArcGIS software suite for working with spatial data 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
