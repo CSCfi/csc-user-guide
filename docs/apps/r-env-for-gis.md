@@ -20,6 +20,7 @@ module load r-env
 
 ### Installed spatial R libraries
 
+* [fasterize](https://cran.r-project.org/web/packages/fasterize/index.html) -  a faster replacement for rasterize() from the 'raster' package 
 * [geoR](https://cran.r-project.org/web/packages/geoR/index.html) - geostatistical analysis including traditional, likelihood-based and Bayesian methods
 * [geoRglm](https://cran.r-project.org/web/packages/geoRglm/index.html) - functions for inference in generalised linear spatial models, extension to the geoR package
 * [geosphere](https://cran.r-project.org/web/packages/geosphere/index.html) - spherical trigonometry for geographic coordinates (lat, lon)
@@ -33,11 +34,11 @@ module load r-env
 * [ncdf4](https://cran.r-project.org/web/packages/ncdf4/index.html) - read, write and modify NetCDF-files
 * [RandomFields](https://cran.r-project.org/web/packages/RandomFields/index.html) - simulation and analysis of random fields
 * [raster](https://cran.r-project.org/web/packages/raster/index.html) - main package for raster data
-* [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html) - bindings to GDAL and PROJ4 libraries, for basic data reading and writing
+* [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html) - bindings to GDAL and PROJ libraries, for basic data reading and writing
 * [rgeos](https://cran.r-project.org/web/packages/rgeos/index.html) - binding to GEOS library, for topology operations on geometries
 * [rlas](https://cran.r-project.org/web/packages/rlas/index.html) - read and write 'las' and 'laz' file formats
 * [RSAGA](https://cran.r-project.org/web/packages/RSAGA/index.html) - for using SAGA GIS commands from R
-* [sf](https://cran.r-project.org/web/packages/sf/index.html) - main package for vector data, bindings to GDAL, GEOS and PROJ4 libraries. Works with tidyverse packages. Similar functionality, but newer and better than sp
+* [sf](https://cran.r-project.org/web/packages/sf/index.html) - main package for vector data, bindings to GDAL, GEOS and PROJ libraries. Works with tidyverse packages. Similar functionality, but newer and better than sp
 * [sp](https://cran.r-project.org/web/packages/sp/index.html) - older main package for vector data
 * [spacetime](https://cran.r-project.org/web/packages/spacetime/index.html) - for working with spatio-temporal data
 * [spatial](https://cran.r-project.org/web/packages/spatial/index.html) - for kriging and point pattern analysis
@@ -45,7 +46,7 @@ module load r-env
 * [spdep](https://cran.r-project.org/web/packages/spdep/index.html) - spatial dependence: weighting schemes, statistics and models
 * [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html) - for analysing point patterns
 * [viridis](https://cran.r-project.org/web/packages/viridis/index.html) - color maps for map plotting
-* [fasterize](https://cran.r-project.org/web/packages/fasterize/index.html) -  a faster replacement for rasterize() from the 'raster' package 
+
 
 You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md)
 
@@ -70,5 +71,10 @@ citation("package") # for citing R packages
 
 ## References
 
+* [Geocomputation with R (book)](https://geocompr.robinlovelace.net/)
+* [CSC course on spatial R](https://www.csc.fi/web/training/-/spatial-data-analysis-with-1)
+* [Intro to GIS and Spatial analysis](https://mgimond.github.io/Spatial/index.html)
+* [List of spatial R packages](https://cran.r-project.org/web/views/Spatial.html)
+* [Spatial data science with R](https://rspatial.org/index.html)
 * [Spatial analysis examples (CSC)](https://github.com/csc-training/geocomputing/tree/master/R)
 * [Tutorial for geospatial R tools](https://datacarpentry.org/r-raster-vector-geospatial/)
