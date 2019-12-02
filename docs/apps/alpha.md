@@ -4,6 +4,7 @@
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
+* [ArcGIS](arcgis.md) ArcGIS software suite for working with spatial data 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
@@ -50,6 +51,7 @@
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
