@@ -118,7 +118,7 @@ sbatch_commandlist -commands commandlist
 ```
 
 Options `-t` and `-mem` can be used to modify the time and memory reservation of the subjobs (default 12 h, 8GB).
-By default the billing project is set based on the name of the scratch directory where this command is executed, but if needed, it can be assigned using optipon `-project`
+By default the billing project is set based on the name of the scratch directory where this command is executed, but if needed, it can be assigned using option `-project`
 
 After submitting an array job, `sabatch_commandlist` monitors the progress of the job and finishes only when the array job has finished. Thus this command can be used in workflows (including batch job scripts), where only certain steps of the workflow can utilize array jobs based parallel computing.
 
