@@ -69,6 +69,8 @@ citation() # for citing R
 citation("package") # for citing R packages
 ```
 
+In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+
 ## References
 
 * [Geocomputation with R (book)](https://geocompr.robinlovelace.net/)
