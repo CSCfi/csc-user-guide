@@ -6,7 +6,7 @@
 (Geographic Information System) tools. It can be used in desktop, server, web
 and mobile environments.
 
-CSC organizes ArcGIS software consortium for Finnish universitites and
+CSC organizes ArcGIS software consortium for Finnish universities and
 universities of applied sciences. The members of current consortium are
 listed at the end of this page. If interested in joining a consortium,
 please contact CSC.
@@ -206,7 +206,7 @@ for it from CSC.
 | Novia AMK               | Johan Nordström, Leif Östman         |
 | University of Oulu      | Lauri Aho                            |
 | TUT, Tampere AMK        | it-lisenssit at tut.fi               |
-| Univesity of Turku      | sovellukset at utu.fi, Leena Laurila |
+| University of Turku      | sovellukset at utu.fi, Leena Laurila |
 | Åbo Akademi             | Mats Lipkin                          |
 
 ------------------------------------------------------------------------
