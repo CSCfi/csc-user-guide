@@ -53,7 +53,7 @@ You can also install your own additional libraries. Just follow the instructions
 
 ### Parallel computing 
 
-Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel amoung our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
+Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
 
 Other than those, you have to parallelize your own R code which can be done with libraries like __Rmpi__ and __snow__.
 
