@@ -88,6 +88,7 @@ nav:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
              - Pouta FAQ: /support/faq#pouta
+     - FGCI: cloud/fgci/fgci-user-guide.md
   - Data:
      - Allas object storage:
         - Allas object storage: data/Allas/index.md
