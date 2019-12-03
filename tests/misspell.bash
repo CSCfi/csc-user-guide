@@ -13,4 +13,7 @@
 find . -type f -name '*.yml' -o -name '*.md'|xargs misspell -error
 if [ "$?" == 0 ]; then
   echo "No commonly misspelled English words found"
+  exit 0
+else
+  exit 1
 fi

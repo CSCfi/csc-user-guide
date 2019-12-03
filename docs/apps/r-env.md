@@ -4,7 +4,7 @@ R is an open-source language and environment for statistical computing and graph
 
 ## Available
 
-The `r-env` module module has been built for diverse use cases and includes 800+ pre-installed R packages, including support for geospatial analyses. Several [Bioconductor](https://www.bioconductor.org/) packages are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
+The `r-env` module module has been built for diverse use cases and includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md). Several [Bioconductor](https://www.bioconductor.org/) packages are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
 
 Currently supported R versions:
 
@@ -16,7 +16,7 @@ Currently supported Bioconductor versions:
 
 Other software included in the module:
 
-- GRASS 7.8.0 and Saga-GIS 7.3.0 (with R 3.6.1)
+- Saga-GIS 7.3.0 (with R 3.6.1)
 
 ## Licenses
 

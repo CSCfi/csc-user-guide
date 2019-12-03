@@ -16,12 +16,6 @@ before_install:
 install:
 #  - pip install --upgrade pip
 script:
-  # Checks all *.md files with aspell.
-  # The number of spelling mistakes that are allowed.
-  # Test will work properly when dictionary is large enough
-  # Currently not in use. Enable when there is a proper plan
-  # for usage
-  #- bash tests/aspellcheck.bash 10000
 
   # Checks all files for commonly misspelled English words with client9's misspell
   - bash tests/misspell.bash
