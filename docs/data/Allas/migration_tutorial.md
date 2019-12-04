@@ -448,10 +448,10 @@ road_cameras/site_7/2017/day211/image_654887.jpg
 ```
 Thus, the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
 
-In principle, you _could_ copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as one bucket can have in maximum 1 million objects.  You could, for example, run a separate `rclone` command for each _site_ directory and put data from each site to a site specific bucket. For example:
+In principle, you _could_ copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as one bucket can have in maximum 0,5 million objects.  You could, for example, run a separate `rclone` command for each _site_ directory and put data from each site to a site specific bucket. For example:
 
 ```text
-rclone road_cameras/site_1 allas:20000136_road_cameras_site_1/
+rclone copyto road_cameras/site_1 allas:20000136_road_cameras_site_1/
 ```
 This way you would end up creating ten buckets each containing 262 800 objects. 
 

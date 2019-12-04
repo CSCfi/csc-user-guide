@@ -4,7 +4,7 @@ R is an open-source language and environment for statistical computing and graph
 
 ## Available
 
-The `r-env` module module has been built for diverse use cases and includes 800+ pre-installed R packages, including support for geospatial analyses. Several [Bioconductor](https://www.bioconductor.org/) packages are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
+The `r-env` module module has been built for diverse use cases and includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md). Several [Bioconductor](https://www.bioconductor.org/) packages are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
 
 Currently supported R versions:
 
@@ -16,7 +16,7 @@ Currently supported Bioconductor versions:
 
 Other software included in the module:
 
-- GRASS 7.8.0 and Saga-GIS 7.3.0 (with R 3.6.1)
+- Saga-GIS 7.3.0 (with R 3.6.1)
 
 ## Licenses
 
@@ -32,19 +32,19 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Note that Puhti login nodes are not intended for heavy computing. To use R in Puhti, please either request an interactive job in a computing node or submit a non-interactive batch job in Slurm. 
+Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. 
 
 #### Interactive use
 
-To interactively use R on Puhti's computational nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+To interactively use R on Puhti's compute nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
 
 ```
-srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id  --partition=partition R --no-save
+srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id --partition=partition R --no-save
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
 
-**Note:** RStudio is currently unavailable on Puhti, but is included in future installation plans.
+If you prefer to use RStudio for interactive work, `r-env` can also be used together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
 #### Non-interactive use
 

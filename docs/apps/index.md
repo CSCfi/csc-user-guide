@@ -29,6 +29,7 @@
 * [STAR](star.md) Short read aligner
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
+* [VMD](vmd.md) Molecular visualization program 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 
 ## Chemistry
@@ -40,12 +41,14 @@
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
+* [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
+* [VMD](vmd.md) Molecular visualization program 
 
 ## Computational Engineering
 
@@ -67,12 +70,15 @@
 
 ## Geosciences
 
+* [ArcGIS](arcgis.md) ArcGIS software suite for working with spatial data 
+* [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
-* [Lidarconda](lidarconda.md) Collection of LiDAR data related Python packages
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
+* [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
+* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [SNAP](snap.md) Remote sensing toolbox for satellites
@@ -82,9 +88,13 @@
 
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 
+* [RStudio](rstudio.md) Integrated development environment for R
+
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
+
+* [Octave](octave.md) High-level interpreted language for numerical computations.
 
 ## Physics
 
