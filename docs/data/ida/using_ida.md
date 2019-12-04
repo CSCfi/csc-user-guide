@@ -1,13 +1,15 @@
 # Using IDA storage service in the CSC computing environment #
 
 IDA is a general storage service for research data. It is part of the [Fairdata.fi]( https://www.fairdata.fi/) research data management environment and not directly linked to the CSC computing environment. Even though CSC produces and hosts the IDA service and the IDA storage space is applied to a CSC project, the storage space is granted by the home organization of the user (Finnish higher education institute or state research institute) or based on an Academy of Finland funding decision. IDA users can use the storage space from both their own computers and from the servers hosted by CSC. More information about applying for IDA storage space can be found from through IDA's website:
-  *  [https://www.fairdata.fi/en/ida/](https://www.fairdata.fi/en/ida/)
+
+ * [https://www.fairdata.fi/en/ida/](https://www.fairdata.fi/en/ida/)
 
 IDA can be used with a web browser user interface interface as well as with a command line client tool `ida` that is available on the computing servers hosted by CSC and also available for download from [GitHub](https://github.com/CSCfi/ida2-command-line-tools).
 
 The storage of files in IDA can be managed using the web and command line client interfaces; however, the contents of the stored files can't be modified directly. Instead, a stored file must be first retrieved from IDA to either another CSC hosted server or some other computer in order to analyse or modify the data. In that sense IDA resembles very much the [Allas storage environment](../Allas/introduction.md). However, IDA and Allas are designed to serve different use cases:
-  *  Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing environments.          
-  *  IDA is designed for storing and sharing well defined and stable datasets, that are not used and modified on a daily basis. 
+
+ * Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing environments.          
+ * IDA is designed for storing and sharing well defined and stable datasets, that are not used and modified on a daily basis. 
 
 In a typical research project the raw data is first stored in Allas. When the research work has produced a more refined dataset form the original data, it can be stored to IDA so that metadata and persistent identifiers can be associated with the data via additional services. 
 
