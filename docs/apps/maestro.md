@@ -60,7 +60,7 @@ For example, a Desmond workflow could be run with:
 -o 2hhb_test-out.cms -lic "DESMOND_GPGPU:16"
 
 ```
-This is a bit complicated and is best to write it out from the Maestro GUI as explained above.
+This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
 
 To run such a script in Puhti you first need to initialize Maestro with
  `module load maestro` and then run the script.
@@ -79,7 +79,7 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
 Desmond molecular dynamics runs **very well** on GPUs. We recommend watching 
 the video above on how to accomplish this easily.
 
-Maestro gives a warning for using a `schrodinger.hosts`file from your home directory. This is
+Maestro gives a warning for using a `schrodinger.hosts` file from your home directory. This is
 not an issue: that file cannot be made available in the installation directory, so please
 ignore that warning, but consider any others you may see.
 
@@ -93,10 +93,11 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 ## More information
 
 * Manual including tutorials come with the Maestro GUI.
-* The [Schrödinger website support](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
+* The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
+   * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)
+   * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp) Requires registration, which may take a while to complete.
+   * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
+   * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions 
 * Issues on how to run Maestro on CSC environment: [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)
-
-
-
