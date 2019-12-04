@@ -26,7 +26,7 @@ Note that the default cPouta user account
 allows users to launch only a subset of the available virtual machine
 flavors.
 
-### Standard flavors (with markdown syntax)
+### Standard flavors
 
 
 |Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
