@@ -47,7 +47,7 @@ The following tools are available in FORCE. Notice __some of the commands have .
 * force-mosaic.sh                       - Virtual mosaicking of data products
 * force-qai-inflate                     - Inflate QAI bit layers
 * force-tile-finder                     - Convert geographic coordinates to tile and pixel coordinates
-* force-tabulate-grid                   - Extract the processing gridas ESRI shapefile
+* force-tabulate-grid                   - Extract the processing grids ESRI shapefile
 
 ## Using FORCE to download sentinel images
 
