@@ -15,7 +15,7 @@ Downloading complete tables or databases from the database can be done with comm
 
 or just from one or more tables:
 
-<pre> mysqldump --set-gtid-purged=OFF -u <i>db_user_account</i> -h kaivos.csc.fi -p <i>database</i> <i>table_name</i> > <i>table</i>_dump.txt
+<pre> mysqldump --set-gtid-purged=OFF -u <i>db_user_account</i> -h kaivos.csc.fi -p <i>database</i> <i>table_name</i> > <i>table</i>_dump.txt</pre>
 
 
 When _mysqldump_ is used with the default settings, the result files contain MySQL commands that are needed to create and populate the selected database tables. Mysqldump locks the table in the beginning of the copying. Because of this only the _dbname_admin_ user account of the database can launch the command by default. In the case of other user accounts ( _dbname_read_ or _dbname_user_ )  `--skip-lock-tables` option should be added to the _mysqldump_ command.
