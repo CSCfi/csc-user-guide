@@ -26,7 +26,7 @@ Instead of giving the SQL commands interactively, you can also write the SQL com
 
 or
 <pre>mysql -u <i>db_user_account</i> -p -h kaivos.csc.fi --local \
---skip-column-names --quick <i>db_name</i> < <i>commands.sql</i> > <i>output.txt</i>
+--skip-column-names --quick <i>db_name</i> < <i>commands.sql</i> > <i>output.txt</i></pre>
 
 In the latter command, the `--skip-column-names` option is used to print out only the data produced by the SQL commands. Otherwise names of the selected columns would be printed too. The `--quick` option makes the client to print each row as it is received instead of storing it to the cache first.
 
