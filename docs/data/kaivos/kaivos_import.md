@@ -22,7 +22,7 @@ When _mysqldump_ is used with the default settings, the result files contain MyS
 
 You can import the <i>database</i>_dump.txt file as follows:
  
-<pre>mysql -u <i>database_user_account</i> -h kaivos.csc.fi -p <i>database</i> < <i>database</i>_dump.txt
+<pre>mysql -u <i>database_user_account</i> -h kaivos.csc.fi -p <i>database</i> < <i>database</i>_dump.txt</pre>
 
  
 ## Example: Importing data with mysqlimport
