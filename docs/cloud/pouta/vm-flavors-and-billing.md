@@ -1,8 +1,7 @@
 # Virtual machine flavors and billing unit rates
 
 This article lists the types (flavors) of virtual machines and their
-cost in billing units. Normally billing units are not invoiced for
-academic use, learn more in here LINKTOBEADDED.
+cost in billing units.
 
 [TOC]
 
@@ -450,7 +449,7 @@ virtual   machines   that  use   these   flavors   will  continue   to
 work. </span>**We will  maintain these flavors  for a period  of time,
 but they will be removed at some point in the near future.
 
-  [CSC Computing environment articles]: ../computing
+  [CSC Computing environment articles]: https://research.csc.fi/computing
   [command line instructions.]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
   [Optimization Service]: https://research.csc.fi/optimization-service
