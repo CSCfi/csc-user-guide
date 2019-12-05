@@ -1,4 +1,4 @@
-5. Using kaivos.csc.fi directly from your local computer
+# 5. Using kaivos.csc.fi directly from your local computer
 
 The MySQL databases in kaivos.csc.fi can be directly accessed only from the computing servers of CSC. However, you can make the database visible to your own computer using your CSC user account and port forwarding through an _ssh tunnel_.
 
