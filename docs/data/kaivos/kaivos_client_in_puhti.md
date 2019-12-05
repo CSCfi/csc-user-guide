@@ -8,7 +8,7 @@ Once the database user accounts have been received from CSC the user can start t
 
 In command line usage, users open the connection from Puhti to the _kaivos.csc.fi_ server, which provides the database service. To be able to use MySQL commands you need to first load the environment:
 
-text```
+```text
 module load mysql
 ```
 
