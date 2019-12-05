@@ -18,16 +18,13 @@ In this guide you can find information about getting started with the database s
 ### [2.2 Setting default values for MySQL connection](kaivos_client_in_puhti.md#22-Setting-default-values-for-MySQL-connection)
 ### [2.3 Graphical Interfaces](kaivos_client_in_puhti.md#23-Graphical-Interfaces)
 ### [2.4 Following the disk usage in kaivos.csc.fi](kaivos_client_in_puhti.md#24-Following-the-disk-usage-in-kaivos.csc.fi)
-
  
 ## [3. Data import and export](kaivos_import.md)
-### [3.1 Importing and exporting data between CSC servers and Kaivos](kaivos_import.md)
  
 ## [4. Using MySQL client through batch job system](kaivos_batch_job.md)
  
 ## [5. Using kaivos.csc.fi directly from your local computer](kaivos_remote.md)
-
-
  
 ## [6. Using Perl MySQL API at CSC](kaivos_perl.md)
+
 ## 7. Python MySQL API at CSC
