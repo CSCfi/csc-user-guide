@@ -31,4 +31,3 @@ In this guide you can find information about getting started with the database s
  
 ## [6. Using Perl MySQL API at CSC](kaivos_perl.md)
 ## 7. Python MySQL API at CSC
-  	  	Next chapter 	    	 
