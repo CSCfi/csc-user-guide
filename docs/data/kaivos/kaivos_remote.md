@@ -7,7 +7,7 @@ In linux and MacOSX machines an ssh tunnel from your local computer to kaivos.cs
 <pre>ssh -l <i>csc_username</i> -L 3306:kaivos.csc.fi:3306 puhti.csc.fi -N</pre>
 The `-N` option in the end of the connection command blocks the command shell after the connection is established. Once the connection is closed also the port forwarding becomes disabled. Note that the ssh command above uses your CSC user account and password, not the database user account.
 
-In Windows machines you can use e.g. plink program to open the tunnel. Plink can only be used through the command prompt. Below is a sample command for using plink:
+In Windows machines you can use e.g. plink program to open the tunnel. [Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) can only be used through the command prompt. Below is a sample command for using plink:
 
 <pre>plink -L 3306:kaivos.csc.fi:3306 <i>taito_username</i>@puhti.csc.fi</pre>
 
