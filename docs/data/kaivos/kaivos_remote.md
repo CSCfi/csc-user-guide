@@ -20,5 +20,6 @@ And the syntax for mysqlimport:
 
 <pre>mysqlimport -h 127.0.0.1 -u <i>db_user_account</i> --local --compress --password <i>database_name</i> <i>input_file.table</i></pre>
 
-In the same way, you can make your databases visible in your local computer using locally installed graphical MySQL interfaces, like MySQL Workbench. The only major limitation with the port forwarding is that normally ssh tunnels are not very stable. You may need to reopen the ssh connection every now and then and you should not trust that the tunnel remains usable for several hours.
+In the same way, you can make your databases visible in your local computer using locally installed graphical MySQL interfaces, like [MySQL Workbench](https://www.mysql.com/products/workbench/). The only major limitation with the port forwarding is that normally ssh tunnels are not very stable. You may need to reopen the ssh connection every now and then and you should not trust that the tunnel remains usable for several hours.
+
 For the security reasons we recommend that you always close the ssh connection when you stop using the database.
