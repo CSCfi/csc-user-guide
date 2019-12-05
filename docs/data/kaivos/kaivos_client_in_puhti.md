@@ -86,7 +86,7 @@ In the following example we create a new table called results into an empty data
 First we connect to the database with the MySQL client:
 
 ```text
-mysql –u DB_A_admin -h kaivos.csc.fi –p DB_A
+mysql -u DB_A_admin -h kaivos.csc.fi -p DB_A
 ```
 
 Next we create a new table that contains three columns: _id_ , _value_ and _comment_ . The id column is in this case defined to be a unique integer, the value column contains floating point numbers and the comment column text data (a non binary string with max. 30 characters). Note that in real life you normally define many other features like the primary key column and auto filling etc. when you create a new table.
@@ -96,15 +96,15 @@ CREATE TABLE results (id INT UNIQUE, value FLOAT, comment VARCHAR(30));
 Note the semicolon (;) that is used as end character in SQL commands.
 
 You can now use SQL command `SHOW TABLES` to see which tables your database contains.
-```text
-mysql> SHOW TABLES;
+<pre>
+mysql> <b>SHOW TABLES;</b>
 +----------------+
 | Tables_in_DB_A |
 +----------------+
 | results        |
 +----------------+
 1 row in set (0.01 sec)
-```
+</pre>
 Data can be inserted to the table with the SQL command `INSERT INTO`. Below we insert three new lines to the table:
 ```text
 mysql> INSERT INTO results (id, value, comment) VALUES (1, 27.45, "Test case");
