@@ -29,7 +29,15 @@ Puhti installation includes only the open source tools of LAStools
 
 ### Using a licensed version
 
-If you have a LAStools license, you can use it by downloading and unzipping __LAStools__ to your own folder, adding your license file to it and running the __.exe__ files with command __wine64__. 
+If you have a LAStools license, you can use it by downloading and unzipping __LAStools__ to your own files
+
+```
+cd $HOME
+wget https://lastools.github.io/download/LAStools.zip
+unzip LAStools.zip
+```
+
+Then just add your license file to the /bin folder and you can start running the __.exe__ files using the command __wine64__
 
 Notice you can only use the 64-bit versions of the tools with wine64
 
@@ -37,6 +45,53 @@ Here is an example of running __lasinfo64.exe__ with __wine64__
 
 `module load wine`
 `wine64 lasinfo64.exe -i <LAS file>`
+
+### Finnish National Land Survey's lidar data in Puhti
+
+The Finnish national lidar data is already stored in Puhti. You can find it from filepath __/appl/data/geo/mml/laserkeilaus__
+
+### LAStools and array jobs
+
+If you are processing large number of lidar files with LAStools, the best practice would be to use an [batch array job](../computing/running/array-jobs.md)
+
+First create a text file with filepaths to the lidar files. This is one way of doing it
+
+```
+cd folder_with_laz_files
+ls -d "$PWD/"*.laz > lazfilepaths.txt
+```
+
+Create an batch array job script that takes this list as an argument. This example had 12 files
+
+```
+#!/bin/bash -l
+#SBATCH --account=<YOUR_PROJECT>
+#SBATCH --job-name las2las_test
+#SBATCH --output array_job_out_%A_%a.txt
+#SBATCH --error array_job_err_%A_%a.txt
+#SBATCH --time 00:10:00
+#SBATCH --ntasks 1
+#SBATCH --mem-per-cpu=1000
+#SBATCH --array=1-12
+#SBATCH --partition small
+
+### load geoconda that has the open source lastools commands
+module load geoconda
+
+### read a filepath to the .laz file given in the list of files
+filepath=$(sed -n "$SLURM_ARRAY_TASK_ID"p $1)
+
+### retrieve just the filename from the filepath and remove extension
+filename="${filepath##*/}"
+filename="${filename%.*}"
+
+### extract the first returns only and save to a .las file in directory out/ (needs to exist)
+las2las -i $filepath -o out/$filename.las -first_only
+```
+
+Now you can submit the job with 
+
+`sbatch las2las_test.sh lazfilepaths.txt`
 
 ## License and citing
 
