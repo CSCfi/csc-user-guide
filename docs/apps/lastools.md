@@ -27,9 +27,16 @@ Puhti installation includes only the open source tools of LAStools
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII
 * lasprecision - analyses the actual precision of the LIDAR points
 
-!!! note
-    For now, Puhti does not support running __.exe__ files so if you need to install/run the closed source tools, use the Taito cluster. [Taito & LAStools documentation](https://research.csc.fi/-/lastools)
+### Using a licensed version
 
+If you have a LAStools license, you can use it by downloading and unzipping __LAStools__ to your own folder, adding your license file to it and running the __.exe__ files with command __wine64__. 
+
+Notice you can only use the 64-bit versions of the tools with wine64
+
+Here is an example of running __lasinfo64.exe__ with __wine64__
+
+`module load wine`
+`wine64 lasinfo64.exe -i <LAS file>`
 
 ## License and citing
 
