@@ -6,7 +6,7 @@
 
 ### Using LAStools
 
-LAStools is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+LAStools is included in the [geoconda](geoconda.md) module and can be loaded with
 
 `module load geoconda` 
 
@@ -16,7 +16,7 @@ You can test LAStools loaded successfully with
 
 ### LAStools commands
 
-Puhti installation includes only the open source tools of LAStools
+Puhti installation includes only the open source tools of LAStools.
 
 * laszip - compresses the LAS files in a completely lossless manner
 * lasinfo - prints out a quick overview of the contents of a LAS file
@@ -29,26 +29,28 @@ Puhti installation includes only the open source tools of LAStools
 
 ### Using a licensed version
 
-If you have a LAStools license, you can use it by downloading and unzipping __LAStools__ to your own files
+Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl](../computing/disk.md) disk area.
 
 ```
-cd $HOME
+cd /projappl/<your_project>
 wget https://lastools.github.io/download/LAStools.zip
 unzip LAStools.zip
 ```
 
-Then just add your license file to the /bin folder and you can start running the __.exe__ files using the command __wine64__
+Then just add your license file to the /bin folder and you can start running the __.exe__ files with __wine64__
 
 Notice you can only use the 64-bit versions of the tools with wine64
 
 Here is an example of running __lasinfo64.exe__ with __wine64__
 
-`module load wine`
-`wine64 lasinfo64.exe -i <LAS file>`
+```
+module load wine
+wine64 lasinfo64.exe -i <LAS file>
+```
 
 ### Finnish National Land Survey's lidar data in Puhti
 
-The Finnish national lidar data is already stored in Puhti. You can find it from filepath __/appl/data/geo/mml/laserkeilaus__
+The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_taito).
 
 ### LAStools and array jobs
 
@@ -58,7 +60,7 @@ First create a text file with filepaths to the lidar files. This is one way of d
 
 ```
 cd folder_with_laz_files
-ls -d "$PWD/"*.laz > lazfilepaths.txt
+ls -d -1 "$PWD/"*.laz > lazfilepaths.txt
 ```
 
 Create an batch array job script that takes this list as an argument. This example had 12 files
@@ -79,14 +81,14 @@ Create an batch array job script that takes this list as an argument. This examp
 module load geoconda
 
 ### read a filepath to the .laz file given in the list of files
-filepath=$(sed -n "$SLURM_ARRAY_TASK_ID"p $1)
+inputfilepath=$(sed -n "$SLURM_ARRAY_TASK_ID"p $1)
 
 ### retrieve just the filename from the filepath and remove extension
-filename="${filepath##*/}"
-filename="${filename%.*}"
+outputfilename="${filepath##*/}"
+outputfilename="${filename%.*}"
 
 ### extract the first returns only and save to a .las file in directory out/ (needs to exist)
-las2las -i $filepath -o out/$filename.las -first_only
+las2las -i $inputfilepath -o out/$outputfilename.las -first_only
 ```
 
 Now you can submit the job with 
