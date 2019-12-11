@@ -36,6 +36,9 @@ CPU BU: 1.30
 Mem BU: 0.51
 ```
 
+To get more detailed information about the performance of your program, you
+should use one of the profiling tools available (see below).
+
 
 ## Intel Trace Analyzer and Collector (ITAC)
 
