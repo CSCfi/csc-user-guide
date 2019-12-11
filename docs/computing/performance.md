@@ -48,6 +48,8 @@ module load intel-itac
 export LD_PRELOAD=libVT.so
 ```
 
+FIXME: add explanations and links to external documentation
+
 
 ## NVIDIA profiler (nvprof)
 
@@ -55,3 +57,5 @@ export LD_PRELOAD=libVT.so
 module load gcc/8.3.0
 module load cuda
 ```
+
+FIXME: add example commands and links to external documentation
