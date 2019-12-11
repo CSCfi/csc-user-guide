@@ -31,7 +31,7 @@ nav:
         - Interactive usage: computing/running/interactive-usage.md
      - Compiling: computing/compiling.md
 #     - Debugging: computing/debugging.md
-#     - Performance analysis: computing/performance.md
+     - Performance analysis: computing/performance.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
   - Cloud:
