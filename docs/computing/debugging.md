@@ -15,3 +15,5 @@ salloc --nodes=2 --ntasks-per-node=20 --time=00:30:00 --partition=large \
 ```
 
 User's Guide (puhti.csc.fi): /appl/opt/ddt/19.1.2/doc/userguide-forge.pdf
+
+FIXME: add links to external documentation
