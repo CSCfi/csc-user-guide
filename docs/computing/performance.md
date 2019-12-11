@@ -1,8 +1,19 @@
 # Performance Analysis
 
+Slurm job efficiency report (command: `seff`) gives a quick summary of
+requested and used resources for both running and finished batch jobs.
+
 ```bash
 seff <JOBID>
 ```
+
+It is an easy way to get an overall picture of how efficiently the CPUs were
+used (CPU Efficiency) and how much of the allocated memory was actually used
+(Memory Efficiency).
+
+!!! note "Hint"
+    you may add the `seff` command to the end of your batch job script to
+    always get an efficiency report for your jobs: `seff $SLURM_JOBID`
 
 Example output for a single node job that utilised CPUs efficiently (CPU
 Efficiency: 94.47%), but used only a fraction of the available memory (Memory
