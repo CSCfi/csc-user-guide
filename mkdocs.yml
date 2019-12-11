@@ -30,10 +30,10 @@ nav:
         - Example job scripts: computing/running/example-job-scripts.md
         - Interactive usage: computing/running/interactive-usage.md
      - Compiling: computing/compiling.md
-     - Containers:
-        - Running existing containers: computing/containers/run-existing.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
+     - Containers:
+        - Running existing containers: computing/containers/run-existing.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti: 
