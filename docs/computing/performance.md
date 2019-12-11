@@ -15,9 +15,7 @@ used (CPU Efficiency) and how much of the allocated memory was actually used
     you may add the `seff` command to the end of your batch job script to
     always get an efficiency report for your jobs: `seff $SLURM_JOBID`
 
-Example output for a single node job that utilised CPUs efficiently (CPU
-Efficiency: 94.47%), but used only a fraction of the available memory (Memory
-Efficiency: 14.16%):
+Example output for a single node job:
 ```bash
 puhti-login2:~$ seff 366910
 Job ID: 366910
