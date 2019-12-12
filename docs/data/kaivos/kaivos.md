@@ -10,7 +10,7 @@ Other option is to use kaivos.csc.fi database service, that is hosted by CSC. Th
 In this guide you can find information about getting started with the database service and instructions for using it. The actual SQL command language is not discussed in this document in detail. Please use the MariaDB manual or some of the many SQL guides published for an introduction to SQL databases.
 
  
-## [1. Getting a database account](kaivos_account.md)
+## [1. Getting a database account](kaivos-account.md)
 
  
 ## [2. MySQL client programs at CSC](kaivos_client_in_puhti.md)
