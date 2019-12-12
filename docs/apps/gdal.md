@@ -42,8 +42,9 @@ You can test if gdal loaded successfully with following
 
 It is possible to __read__ files from Allas directly with GDAL, but not to write.
 The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
- * Python: gdal, geopandas, fiona and rasterio. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
- * R: sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+ * [Python](geoconda.md): gdal, geopandas, fiona and rasterio. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
+ * [R](r-env-for-gis.md): sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+ * [QGIS](qgis.md)
 
 For results, write them first to Puhti scratch and move later to Allas. 
 
