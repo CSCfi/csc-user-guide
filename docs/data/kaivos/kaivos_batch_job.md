@@ -16,7 +16,7 @@ Then we create the actual batch job script. The script below reserves 12 h time 
 #!/bin/bash -l
 #SBATCH --job-name=mysql_job
 #SBATCH --output=output_%j.txt
-#SBATCH --erros=errors_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --time=12:00:00
 #SBATCH --account=project_example
 #SBATCH --ntasks=1
@@ -49,7 +49,7 @@ Below is a sample batch job script, called as kaivos.bash,  that utilizes kaivos
 #!/bin/bash -l
 #SBATCH --job.name=mysql_job
 #SBATCH --output=output_%j.txt
-#SBATCH --errors=errors_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --time=12:00:00
 #SBATCH --account=project_2000136
 #SBATCH --ntasks=1
