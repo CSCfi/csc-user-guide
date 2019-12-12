@@ -20,6 +20,7 @@ module load r-env
 
 ### Installed spatial R libraries
 
+* [aws.s3](https://cran.r-project.org/web/packages/aws.s3/) - for working with S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R).
 * [fasterize](https://cran.r-project.org/web/packages/fasterize/index.html) -  a faster replacement for rasterize() from the 'raster' package 
 * [geoR](https://cran.r-project.org/web/packages/geoR/index.html) - geostatistical analysis including traditional, likelihood-based and Bayesian methods
 * [geoRglm](https://cran.r-project.org/web/packages/geoRglm/index.html) - functions for inference in generalised linear spatial models, extension to the geoR package
@@ -47,8 +48,11 @@ module load r-env
 * [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html) - for analysing point patterns
 * [viridis](https://cran.r-project.org/web/packages/viridis/index.html) - color maps for map plotting
 
-
 You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md)
+
+`r-env` loads also:
+ * [GDAL](gdal.md) 2.4.2 and its commandline tools.
+ * [Saga-GIS](saga-gis.md) 7.2.0.
 
 
 ### Parallel computing 
@@ -58,7 +62,7 @@ Some R packages like __raster__ and __spatial.tools__ include functions that sup
 Other than those, you have to parallelize your own R code which can be done with libraries like __Rmpi__ and __snow__.
 
 !!! note
-    Parallel computing with snow and Rmpi (like on Taito) does not work at the moment in Puhti. That capability is coming soon.
+    Parallel computing with `Rmpi` (like on Taito) does not work at the moment in Puhti. `snow` seems to work.
 
 ## Citation
 
