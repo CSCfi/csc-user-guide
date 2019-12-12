@@ -5,6 +5,7 @@ development of python scripts for geoinformatics applications. It
 includes following python packages:
 
 -   [ArcGIS Python API](https://developers.arcgis.com/python/) - provides simple and efficient tools for sophisticated vector and raster analysis, geocoding, map making, routing and directions. 
+-   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
 -   [fiona] - reads and writes spatial data files.
@@ -28,6 +29,7 @@ includes following python packages:
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scikit-learn] - machine learning for Python.
 -   [skimage] -  algorithms for image processing.
+-   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
 -   [xarray](http://xarray.pydata.org) - for multidimensional raster data. 
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
