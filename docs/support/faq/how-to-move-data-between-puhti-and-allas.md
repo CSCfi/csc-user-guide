@@ -1,12 +1,12 @@
 # How to move data from Puhti to Allas and vice versa?
 
-There are several options on how to move your data between Puhti and Allas. This page gives you guidance for the data movement with clients <i>a_commands</i>, _swift_, _rclone_ and _s3cmd_.
+There are several options on how to move your data between Puhti and Allas. This page gives you guidance for the data movement with clients <i>a-commands</i>, _swift_, _rclone_ and _s3cmd_.
 
 All the required packages and software needed for the clients are already installed on Puhti. To authenticate to a project you need to run command `source /appl/opt/allas_conf`.
 
 ## Move data with a_commands
 
-[a_commands](../../data/Allas/using_allas/a_commands.md){target="_blank"} provides easy-to-use tools for basic usage of Allas. The functions to use for data movement between Puhti and Allas are:
+[a-commands](../../data/Allas/using_allas/a_commands.md){target="_blank"} provides easy-to-use tools for basic usage of Allas. The functions to use for data movement between Puhti and Allas are:
 
 * [a_put](../../data/Allas/using_allas/a_commands.md#a_put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
 * [a_get](../../data/Allas/using_allas/a_commands.md#a_get-retrieves-the-stored-data){target="_blank"}: Move data from Allas to Puhti 
