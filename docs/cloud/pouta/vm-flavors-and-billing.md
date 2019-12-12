@@ -1,8 +1,7 @@
 # Virtual machine flavors and billing unit rates
 
 This article lists the types (flavors) of virtual machines and their
-cost in billing units. Normally billing units are not invoiced for
-academic use, learn more in here LINKTOBEADDED.
+cost in billing units.
 
 [TOC]
 
@@ -26,7 +25,7 @@ Note that the default cPouta user account
 allows users to launch only a subset of the available virtual machine
 flavors.
 
-### Standard flavors (with markdown syntax)
+### Standard flavors
 
 
 |Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
@@ -64,29 +63,12 @@ has been used. This applies to all tables.
 
 ### GPU flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
+|Flavor|Cores|GPUs |Memory <br/>(* GiB)|Disk (root) GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | gpu.1.1gpu | 14 | 1 | 120 | 80 (SSD/RAID1) | 80 | 8.5 | 60  |
 | gpu.1.2gpu | 28 | 2 | 240 | 80 (SSD/RAID1) | 80 | 8.5 | 120 |
 | gpu.1.4gpu | 56 | 4 | 480 | 80 (SSD/RAID1) | 80 | 8.5 | 240 |
 
-### Deprecated flavors
-
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc-gen1.1core  | 1  | 3.7 | 80 (RAID0)  | 0            | 80  | 3.7 | 2  |
-| hpc-gen1.4core  | 4  | 15  | 80 (RAID0)  | 0            | 80  | 3.7 | 8  |
-| hpc-gen1.8core  | 8  | 30  | 80 (RAID0)  | 0            | 80  | 3.7 | 16 |
-| hpc-gen1.16core | 16 | 60  | 80 (RAID0)  | 0            | 80  | 3.7 | 32 |
-| hpc-gen2.2core  | 2  | 10  | 80 (RAID0)  | 0            | 80  | 5   | 4  |
-| hpc-gen2.8core  | 8  | 40  | 80 (RAID0)  | 0            | 80  | 5   | 15 |
-| hpc-gen2.16core | 16 | 80  | 80 (RAID0)  | 0            | 80  | 5   | 30 |
-| tiny            | 1  | 1   | 10  (RAID0) | 110 (RAID0)  | 120 | 1   | 2  |
-| mini            | 1  | 3.5 | 10  (RAID0) | 110 (RAID0)  | 120 | 1.7 | 2  |
-| small           | 4  | 15  | 10  (RAID0) | 220  (RAID0) | 230 | 3.8 | 8  |
-| medium          | 8  | 30  | 10  (RAID0) | 440  (RAID0) | 450 | 3.8 | 16 |
-| large           | 12 | 45  | 10  (RAID0) | 660  (RAID0) | 670 | 3.8 | 24 |
-| fullnode        | 16 | 60  | 10  (RAID0) | 900  (RAID0) | 910 | 3.8 | 32 |
 
 
 ##ePouta flavors
@@ -144,23 +126,6 @@ Billing Unit coefficients.
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | gpu.2.1gpu | 20 | 180 | 80 (SSD/RAID0) | 1000 (SSD/RAID0) | 1080 | 9 | 100 (140) |
 
-
-### Deprecated flavors
-
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc.mini              | 2  | 3.5 | 80         | 0            | 80   | 1.8  | 5   |
-| hpc.small             | 4  | 7   | 80         | 0            | 80   | 1.8  | 10  |
-| hpc.medium.haswell    | 8  | 40  | 80         | 0            | 80   | 5    | 20  |
-| hpc.large.haswell     | 16 | 80  | 80         | 0            | 80   | 5    | 40  |
-| hpc.xlarge.haswell    | 32 | 156 | 80         | 0            | 80   | 5    | 80  |
-| hpc.medium.westmere   | 8  | 14  | 80         | 0            | 80   | 1.8  | 8   |
-| hpc.large.westmere    | 16 | 28  | 80         | 0            | 80   | 1.8  | 16  |
-| hpc.xlarge.westmere   | 23 | 41  | 80         | 0            | 80   | 1.8  | 24  |
-| hpc.largemem.westmere | 23 | 90  | 80         | 0            | 80   | 4    | 36  |
-| tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) | 3330 | 15.2 | 200 |
-| tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) | 6580 | 15.2 | 400 |
-  
 
 **\*** Not all memory amounts round  exactly to GiB, the closest value
 has been used.
@@ -441,7 +406,7 @@ in the snapshot, only the TB VM root disk.
 -   Flavor disk: Local SSD disks, RAID-0
 -   Your instance can be lost due to a single node or disk failure.
 
-### Deprecated flavors
+## Deprecated flavors
 
 This  is  the  set  of   original  flavors  that  has  been  available
 since launch. **You should  not launch any new  virtual machines using
@@ -450,7 +415,7 @@ virtual   machines   that  use   these   flavors   will  continue   to
 work. </span>**We will  maintain these flavors  for a period  of time,
 but they will be removed at some point in the near future.
 
-  [CSC Computing environment articles]: ../computing
+  [CSC Computing environment articles]: https://research.csc.fi/computing
   [command line instructions.]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
   [Optimization Service]: https://research.csc.fi/optimization-service
