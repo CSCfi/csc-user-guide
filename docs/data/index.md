@@ -3,4 +3,4 @@
 
 *  [Allas storage service](./Allas/index.md)
 *  IDA storage service
-*  [Kaivos] (./kaivos/kaivos.md)
+*  [Kaivos database service](./kaivos/kaivos.md)
