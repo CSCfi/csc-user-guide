@@ -14,7 +14,7 @@ In addition, it is possible to make a bucket public, which makes the content ava
 
 ## Additional guidance for setting the bucket public
 
-* [Web client](../../data/Allas/using_allas/web_client.md#view-objects-via-internet){target="_blank"}
-* [Swift client](../../data/Allas/using_allas/swift_client.md#temp-urls){target="_blank"}
+* [Web client](../../data/Allas/using_allas/web_client.md#view-objects-via-the-internet){target="_blank"}
+* [Swift client](../../data/Allas/using_allas/swift_client.md#giving-another-project-read-and-write-access-to-a-bucket){target="_blank"}
 * [S3 client](../../data/Allas/using_allas/s3_client.md#s3cmd-and-public-objects){target="_blank"}
-* [a-commands](../../data/Allas/using_allas/a_commands.md#a_publish){target="_blank"}
+* [a-commands](../../data/Allas/using_allas/a_commands.md#a-publish){target="_blank"}
