@@ -8,8 +8,8 @@ All the required packages and software needed for the clients are already instal
 
 [a-commands](../../data/Allas/using_allas/a_commands.md){target="_blank"} provides easy-to-use tools for basic usage of Allas. The functions to use for data movement between Puhti and Allas are:
 
-* [a-put](../../data/Allas/using_allas/a_commands.md#a_put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
-* [a-get](../../data/Allas/using_allas/a_commands.md#a_get-retrieves-the-stored-data){target="_blank"}: Move data from Allas to Puhti 
+* [a-put](../../data/Allas/using_allas/a_commands.md#a-put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
+* [a-get](../../data/Allas/using_allas/a_commands.md#a-get-retrieves-the-stored-data){target="_blank"}: Move data from Allas to Puhti 
 
 ## Move data with Swift
 
