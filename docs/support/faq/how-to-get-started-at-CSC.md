@@ -8,7 +8,7 @@ We have collected some useful material in the following locations:
 * [Services for research](https://research.csc.fi/home)
 * [Services by discipline](https://research.csc.fi/sciences)
 * [Tutorials](../../support/tutorials.md)
-* [Frequently Asked Questions](../../support/faq.md)
+* [Frequently Asked Questions](index.md)
 * [Contact us](../../support/contact.md)
 * [Collection of training materials](https://www.csc.fi/en/web/training/materials)
 
