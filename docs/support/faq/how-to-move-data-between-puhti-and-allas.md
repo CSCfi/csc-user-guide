@@ -2,7 +2,7 @@
 
 There are several options on how to move your data between Puhti and Allas. This page gives you guidance for the data movement with clients <i>a_commands</i>, _swift_, _rclone_ and _s3cmd_.
 
-All the required packages and software needed for the clients are already installed on Puhti. To authenticate to a project you need to run command `$ source /appl/opt/allas_conf`.
+All the required packages and software needed for the clients are already installed on Puhti. To authenticate to a project you need to run command `source /appl/opt/allas_conf`.
 
 ## Move data with a_commands
 
@@ -16,10 +16,10 @@ All the required packages and software needed for the clients are already instal
 _Swift client_ provides functions _upload_ and _download_ for data movement:
 
 ```bash
-$ swift upload <bucket name> <file name>
+swift upload <bucket name> <file name>
 ```
 ```bash
-$ swift download <bucket name> <file name>
+swift download <bucket name> <file name>
 ```
 For more information, see [Swift client](../../data/Allas/using_allas/swift_client.md){target="_blank"}.
 
@@ -28,25 +28,25 @@ For more information, see [Swift client](../../data/Allas/using_allas/swift_clie
 Also, with client _rclone_ you can move data between Puhti and Allas. Creating a bucket called _2000620-raw-data_ to Allas can be done with command:
 
 ```bash
-$ rclone mkdir allas:2000620-raw-data
+rclone mkdir allas:2000620-raw-data
 ```
 
 Uploading a file called _file.dat_ to that bucket can be done with command `rclone copy`:
 
 ```bash
-$ rclone copy file.dat allas:2000620-raw-data/
+rclone copy file.dat allas:2000620-raw-data/
 ```
 
 Downloading the file back to Puhti is done with the same `rclone copy` command:
 
 ```bash
-$ rclone copy allas:2000620-raw-data/file.dat
+rclone copy allas:2000620-raw-data/file.dat
 ```
 
 **Note:** If you give a destination parameter name in the download command, rclone creates a directory where the download goes:
 
 ```bash
-$ rclone copy allas:2000620-raw-data/file.dat doh
+rclone copy allas:2000620-raw-data/file.dat doh
 ```
 
 For further guidance for using rclone with Allas from Supercomputers, see [Using Allas with rclone from Puhti and Taito](../../data/Allas/using_allas/rclone.md){target="_blank"}.
