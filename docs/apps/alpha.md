@@ -20,6 +20,7 @@
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
+* [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GDAL](gdal.md) Translator library for geospatial data formats
