@@ -4,12 +4,12 @@ There are several options on how to move your data between Puhti and Allas. This
 
 All the required packages and software needed for the clients are already installed on Puhti. To authenticate to a project you need to run command `source /appl/opt/allas_conf`.
 
-## Move data with a_commands
+## Move data with a-commands
 
 [a-commands](../../data/Allas/using_allas/a_commands.md){target="_blank"} provides easy-to-use tools for basic usage of Allas. The functions to use for data movement between Puhti and Allas are:
 
-* [a_put](../../data/Allas/using_allas/a_commands.md#a_put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
-* [a_get](../../data/Allas/using_allas/a_commands.md#a_get-retrieves-the-stored-data){target="_blank"}: Move data from Allas to Puhti 
+* [a-put](../../data/Allas/using_allas/a_commands.md#a_put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
+* [a-get](../../data/Allas/using_allas/a_commands.md#a_get-retrieves-the-stored-data){target="_blank"}: Move data from Allas to Puhti 
 
 ## Move data with Swift
 
