@@ -13,8 +13,8 @@ the dependent variables.
 [TOC]
 
 ## Available
-
--  Puhti: 5.4
+ 
+- Puhti: 5.5, 5.4
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff and students) of Finnish higher education institutions.

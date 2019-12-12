@@ -17,4 +17,8 @@ The selected default billing project is migrated to several services:
   for each project).
 * In Rahti, the usage is by default charged to the billing project.
 
-See service-specific instructions under _Computing, Cloud and Data_ for more details about project selection in each service.
+See service-specific instructions under _Computing, Cloud and Data_ for more details about project selection in each service:
+
+* In Puhti, you [select the billing project in the batch script](../computing/running/creating-job-scripts.md).
+* In Allas, you [use the allas-conf command to determine which project is used](../data/Allas/accessing_allas.md).
+* In Pouta: TBA
