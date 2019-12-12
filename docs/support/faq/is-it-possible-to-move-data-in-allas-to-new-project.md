@@ -12,4 +12,4 @@ or with Swift:
 
 Another way to move data between projects could be first downloading the data from the original project and then uploading it to the new project.
 [Instructions](how-to-move-data-between-puhti-and-allas.md){target="_blank"} for moving data between Puhti and Allas can be applied here.
-Basically, first download the data from Allas to somewhere (for example: cloud environment, local computer, supercomputer (Puhti, Taito, Mahti) or virtual machine) and then upload it back to Allas in to another project.
+Basically, first download the data from Allas to somewhere (for example: cloud environment, local computer, supercomputer (Puhti, Mahti) or virtual machine) and then upload it back to Allas into another project.
