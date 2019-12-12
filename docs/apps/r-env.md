@@ -130,4 +130,6 @@ This section contains links to other R-related documentation hosted by CSC, as w
 
 - [Related Projects](https://www.r-project.org/other-projects.html) (list of R-related projects on R Project website)
 
+- [R package cheatsheets](https://rstudio.com/resources/cheatsheets/) (hosted on RStudio website)
+
 - [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env` module)
