@@ -150,7 +150,7 @@ Handling personal information in the Rahti service: https://research.csc.fi/raht
 
 Additional responsibilities of the Service Provider:
 
-* Adhere to all applicable operational and security policies and procedures defined in CSC’s Security Policy ([Information security & data protection](#information-security-data-protection)) and to other policy documents referenced therein.
+* Adhere to all applicable operational and security policies and procedures defined in CSC’s Security Policy ([Information security & data protection](sla.md#information-security-data-protection)) and to other policy documents referenced therein.
 * Use communication channels defined in the agreement.
 * Provide monitoring data to measure fulfillment of agreed service level targets.
 
