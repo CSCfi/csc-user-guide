@@ -21,7 +21,7 @@ project you want to use.
 ```text
 export PROJAPPL=/projappl/project_your_proj_num
 ```
-After that, a virtual Python environmnet using Python 3.7.3 and biopython can be set up with commands:
+After that, a virtual Python environment using Python 3.7.3 and biopython can be set up with commands:
 ```text
 module load bioconda
 biopython-env
