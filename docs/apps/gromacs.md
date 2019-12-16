@@ -118,14 +118,6 @@ visualized with the following programs:
 -   [PyMOL] molecular modeling system.
 -   [VMD] visualizing program for large biomolecular systems.
 
-**Visualising XY-plots**
-
-!!! note
-    Remote graphics are not yet available in Puhti. Copy the files
-    to Taito or to a local machine for visual analysis.
-
-Gromacs tools produce output files made for the Grace program.
-
 ## References
 
 Cite your work with the following references:
