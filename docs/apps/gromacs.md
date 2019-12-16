@@ -26,7 +26,8 @@ Gromacs is free software available under LGPL, version 2.1.
 Initialise recommended version of Gromacs on Puhti like this:
 
 ```bash
-$ module load gromacs
+module purge
+module load gromacs
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
@@ -66,6 +67,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
 
+module purge
 module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
@@ -89,6 +91,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 
 # this script runs a 1 core gromacs job, requesting 30 minutes time
 
+module purge
 module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
