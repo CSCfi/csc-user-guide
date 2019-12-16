@@ -61,5 +61,5 @@ pip install OBITools3
 
 More information about biopython can be found form the homepage of biopython.
 
-    [www.biopython.org](http://www.biopython.org)
+*  [www.biopython.org](http://www.biopython.org)
 
