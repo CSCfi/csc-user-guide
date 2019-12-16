@@ -16,7 +16,7 @@ in the Pyhtion installations that are used by the [bioconda](./bioconda.md) envi
 python virtual environments that allow users to create theiy own project specific Python environment with `pip` installation tool.
 
 These virtual environments use the PROJAPPL directory for installing the user specific libraties.
-Because of that, you must first set PROJAPPL environment variable to point to the PROJAPPL drectory of the
+Because of that, you must first set PROJAPPL environment variable to point to the PROJAPPL directory of the
 project you want to use.
 ```text
 export PROJAPPL=/projappl/project_your_proj_num
