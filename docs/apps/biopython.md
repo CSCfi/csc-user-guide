@@ -11,12 +11,12 @@ large quantities of sequence data in ways that are typically difficult or imposs
 
 ## Available
 
-In Puhti, Biopythoin libraries, as well as many outher bioinformatics related Python libraries, have been installed 
-to the Pyhtion installations that are used by the bioconda enviroments. These environment also include python virtual 
-environments that allow users to create thery own project spcific python environment with `pip` installation tool.
+In Puhti, Biopythoin libraries, as well as many outher bioinformatics related Python libraries are available
+in the Pyhtion installations that are used by the [bioconda](./bioconda.md) enviroments. These environment also include 
+python virtual environments that allow users to create theiy own project specific Python environment with `pip` installation tool.
 
-These virtual environment use the PROJAPPL directory for installing the environment specific libraties.
-Because of thet, you must first set PROJAPPL environment variable to point to the PROJAPPL drectory of the
+These virtual environments use the PROJAPPL directory for installing the user specific libraties.
+Because of that, you must first set PROJAPPL environment variable to point to the PROJAPPL drectory of the
 project you want to use.
 ```text
 export PROJAPPL=/projappl/project_your_proj_num
@@ -26,7 +26,7 @@ After that, a virtual Python environmnet using Python 3.7.3 and biopython can be
 module load bioconda
 biopython-env
 ```
-If you want to use old Python 2.7.5 with biopython, use setup commands:
+If you want to use old Python 2.7.5 with biopython in stead, use setup commands:
 
 ```text
 module load bioconda/2
@@ -35,7 +35,6 @@ biopython-env
 However, we strongly recommend using Python 3 versions in stead of Python 2.
 
 When the virtual enviroinment is activated, you can launch a biopython program with command:
-
 ```text
 python my_biopython_code.py
 ```
