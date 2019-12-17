@@ -51,7 +51,7 @@ We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
 results are comparable.
 
-Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, IF you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
+Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, **IF** you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
 
 **Example parallel batch script for Puhti**
 ```bash
