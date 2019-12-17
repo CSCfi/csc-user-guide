@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.3
+-   Puhti: 2018.6-plumed, 2018.7, 2019.4
 -   Check recommended version(s) with `module avail gromacs`
 -   Some versions include also Plumed
 
