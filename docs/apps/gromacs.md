@@ -102,7 +102,6 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
     used for billing the cpu usage.
     
 **Example GPU script for Puhti**
-
 ```
 #!/bin/bash -l                                                                                                                                                                                             
 #SBATCH --ntasks=1                                                                                                                                                                                         
