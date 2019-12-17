@@ -12,7 +12,7 @@ large quantities of sequence data in ways that are typically difficult or imposs
 ## Available
 
 In Puhti, Biopythoin libraries, as well as many outher bioinformatics related Python libraries are available
-in the Pyhtion installations that are used by the [bioconda](./bioconda.md) enviroments. These environment also include 
+in the Pyhtion installations that are used by the [bioconda](./bioconda.md) environments. These environment also include 
 python virtual environments that allow users to create theiy own project specific Python environment with `pip` installation tool.
 
 These virtual environments use the PROJAPPL directory for installing the user specific libraties.
