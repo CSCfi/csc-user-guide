@@ -34,15 +34,15 @@ The table below lists the most commonly used  options:
 |`--progress`	|	   |	Show progress during transfer. 	 |
 |`-P`		|	   |	same as --partial --progress 	 |
 
-So the command for transferring a local folder to Taito,while showing the progress and keeping partially transfered files, would be:
+So the command for transferring a local folder to Taito,while showing the progress and keeping partially transferred files, would be:
 
 ```bash
 rsync -rP /path/to/local/folder  username@taito.csc.fi:/path/to/target
 ```
 This would either:
 
-- create a folder on Taito at _path/to/target/folder_, if the folder was not present before. In this case, everything in the folder will be transfered
-- synchronize the source and target folders, if the folder already exists on Taito. In this case, only changes we have made will be transfered
+- create a folder on Taito at _path/to/target/folder_, if the folder was not present before. In this case, everything in the folder will be transferred
+- synchronize the source and target folders, if the folder already exists on Taito. In this case, only changes we have made will be transferred
 
 And the same thing in reverse:
 
