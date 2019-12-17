@@ -54,7 +54,6 @@ results are comparable.
 Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, IF you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
 
 **Example parallel batch script for Puhti**
-
 ```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
@@ -80,7 +79,6 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
     overhead and fragmentation of node reservations.
 
 **Example serial batch script for Puhti**
-
 ```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
@@ -111,6 +109,8 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 #SBATCH --time=00:10:00
 #SBATCH --partition=gpu
 #SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
 module load gcc/8.3.0  hpcx-mpi/2.4.0 gromacs/2019.4-cuda cuda
 
