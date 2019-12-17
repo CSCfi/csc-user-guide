@@ -96,11 +96,36 @@ module load gromacs
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
-
 !!! note
     You *must* fill in the computing project name in your script (replace
     <project> with it). Otherwise, your job will not run. This project will be
     used for billing the cpu usage.
+    
+**Example GPU script for Puhti**
+
+```
+#!/bin/bash -l                                                                                                                                                                                             
+#SBATCH --ntasks=1                                                                                                                                                                                         
+#SBATCH --cpus-per-task=10                                                                                                                                                                                 
+#SBATCH --gres=gpu:v100:1                                                                                                                                                                                  
+#SBATCH --time=00:10:00                                                                                                                                                                                    
+#SBATCH --partition=gputest                                                                                                                                                                                
+#SBATCH --account=project_2001659                                                                                                                                                                          
+
+module load gcc/8.3.0  hpcx-mpi/2.4.0 gromacs/2019.4-cuda cuda
+
+ncores=$SLURM_NTASKS
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export SLURM_CPU_BIND=none
+
+srun gmx_mpi mdrun -s verlet -pin on -dlb yes
+```
+!!! note
+    Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
+    as using one full node of CPU cores. Otherwise, don't use GPUs.
+    You can compare the "cost" of using
+    CPU vs. GPU in the [billing calculator](https://research.csc.fi/billing-and-monitoring)
+
 
 Submit the script with `sbatch script_name.sh`
 
