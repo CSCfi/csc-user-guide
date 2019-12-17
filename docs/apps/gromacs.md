@@ -55,7 +55,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 
 **Example parallel batch script for Puhti**
 
-```
+```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
 #SBATCH --partition=large
@@ -80,7 +80,8 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
     overhead and fragmentation of node reservations.
 
 **Example serial batch script for Puhti**
-```
+
+```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
 #SBATCH --partition=small
@@ -102,7 +103,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
     used for billing the cpu usage.
     
 **Example GPU script for Puhti**
-```
+```bash
 #!/bin/bash -l                                                                                                                                                                                             
 #SBATCH --ntasks=1                                                                                                                                                                                         
 #SBATCH --cpus-per-task=10                                                                                                                                                                                 
