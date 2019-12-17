@@ -102,7 +102,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
     
 **Example GPU script for Puhti**
 ```bash
-#!/bin/bash -l                                                                                                                                                                                             
+#!/bin/bash -l
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --gres=gpu:v100:1
