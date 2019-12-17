@@ -27,7 +27,7 @@ Initialise recommended version of Gromacs on Puhti like this:
 
 ```bash
 module purge
-module load gromacs
+module load gromacs-env
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
@@ -67,7 +67,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
 
 module purge
-module load gromacs
+module load gromacs-env
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
@@ -91,7 +91,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 # this script runs a 1 core gromacs job, requesting 30 minutes time
 
 module purge
-module load gromacs
+module load gromacs-env
 
 srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 ```
@@ -112,7 +112,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
-module load gcc/8.3.0  hpcx-mpi/2.4.0 gromacs/2019.4-cuda cuda
+module load gromacs-env/2019-gpu
 
 ncores=$SLURM_NTASKS
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
