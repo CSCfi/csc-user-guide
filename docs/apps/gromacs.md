@@ -69,7 +69,7 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 module purge
 module load gromacs-env
 
-srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 ```
 
 !!! note
@@ -93,7 +93,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 module purge
 module load gromacs-env
 
-srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 ```
 !!! note
     You *must* fill in the computing project name in your script (replace
