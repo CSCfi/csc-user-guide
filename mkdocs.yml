@@ -89,6 +89,13 @@ nav:
              - Known problems and limitations: cloud/pouta/known-problems.md
              - Pouta FAQ: /support/faq#pouta
   - Data:
+     - Moving data:
+        - Copying files using scp: data/moving/scp.md
+        - Graphical file transfer tools: data/moving/graphical_transfer.md
+        - Using rsync for data transfer and synchronization: data/moving/rsync.md
+        - Using wget to download data from web sites to CSC: data/moving/wget.md
+        - Sharing and transporting files using Funet FileSender: data/moving/funet.md
+        - Remote disk mounts: data/moving/disk_mount.md
      - Allas object storage:
         - Allas object storage: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
