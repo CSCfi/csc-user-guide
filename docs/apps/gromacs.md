@@ -109,8 +109,8 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 #SBATCH --cpus-per-task=10                                                                                                                                                                                 
 #SBATCH --gres=gpu:v100:1                                                                                                                                                                                  
 #SBATCH --time=00:10:00                                                                                                                                                                                    
-#SBATCH --partition=gputest                                                                                                                                                                                
-#SBATCH --account=project_2001659                                                                                                                                                                          
+#SBATCH --partition=gpu                                                                                                                                                                                
+#SBATCH --account=<project>                                                                                                                                                                          
 
 module load gcc/8.3.0  hpcx-mpi/2.4.0 gromacs/2019.4-cuda cuda
 
