@@ -2,8 +2,6 @@
 
 This Allas object storage service user guide consists of three parts:
 
-## Chapters:
-
 ### 1. [Introduction](./introduction.md)
 
 A technical overview of the service. Recommended reading before starting to use Allas.
