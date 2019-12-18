@@ -1,4 +1,4 @@
-# Allas object storage
+# The Allas object storage
 
 This Allas object storage service user guide consists of three parts:
 
