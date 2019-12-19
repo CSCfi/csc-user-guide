@@ -55,7 +55,7 @@ There is a also a custom made __gpt_array__ command that allows the usage of gpt
 
 ### Using SNAP with the Python library snappy
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a conda environment is also loaded that has __python 2.7__ and __snappy__ installed so you can just start python and import snappy. This conda environment also includes pandas, numpy, geopandas, rasterio, rasterstats and spyder. If you need additional libraries, contact __servicedesk@csc.fi__.
+It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a conda environment is also loaded that has __python 2.7__ and __snappy__ installed so you can just start python and import snappy. This conda environment also includes pandas, numpy, geopandas, rasterio, rasterstats and spyder. And many more, for retrieving the full list in Puhti use: `list-packages` If you need additional libraries, contact __servicedesk@csc.fi__.
 
 ## License and citing
 
