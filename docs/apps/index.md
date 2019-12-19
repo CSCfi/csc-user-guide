@@ -82,6 +82,7 @@
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 
 ## Mathematics and Statistics
