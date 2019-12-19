@@ -57,7 +57,7 @@ With this option on, the password is stored into environment variable OS_PASSWOR
 
 `a-put` is used to upload data from the disk environment of Taito and Puhti to 
 the Allas storage environment. The basic syntax of the command:
-```
+```text
 a-put directory_or_file
 ```
 
@@ -185,12 +185,20 @@ Typing a part of an object's name lists a subset of objects:
 ```text
 a-list bucket_name/beginning_of_the_object
 ```
+A more detailed listing, containing object size and date can be obtaioned with option `-l`
+```text
+a-list -l 
+```
+Option `-d` make a-list to interpret /-characters in object names as pseudofoleder separators.
+```text
+a-list -d 
+```
 
 ## a-publish 
 
 `a-publish` copies a file to Allas in a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
-uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. 
-a-publish works similarly to a-put with some differences: 
+uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. _a-publish_ works 
+similarly to a-put with some differences: 
 1) a-publish can upload only files, not directories. 
 2) The files are not compressed but uploaded as they are. 
 3) The access control of the target bucket is set so that it is available in read-only mode.
@@ -247,9 +255,9 @@ The basic syntax:
 a-flip file_name
 ```
 The file is uploaded to the bucket _username-projectNumber_-flip. The URL of the uploaded object:
-
+```text
 https://a3s.fi/username-projectNumber-flip/file_name
-
+```
 
 ## a-find
 
@@ -307,3 +315,17 @@ Options:
 - **-p**, **--project _project_ID_** Retrieve data from the buckets of the defined project instead of the currently configured project. 
 - **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
 - **-t**, **-target _dir_name_** Create a new target directory and deposit the data there.
+
+## a-delete
+a-delete is used to remove data that has been uploaded to Allas service using the a-put command.
+The basic syntax of the comand is:
+<pre>a-delete object_name</pre>
+
+By default _a-delete_ asks user to confirm the removal of an object. This checking can be skipped with option `-f`.
+
+If you want to remove a bucket, you can use option `--rmb`. _a-delte_ can remove only empty buckets.
+
+
+
+
+
