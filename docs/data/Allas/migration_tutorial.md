@@ -425,14 +425,14 @@ Then,  I reattach the screen session with command:
 screen -r
 ``` 
 
-Once the _a-put_ command is finished, you can run `a-check` command to chech if all the data objects have been created. 
+Once the _a-put_ command is finished, you can run `a-check` command to checkh if all the data objects have been created. 
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command would be:
 
 ```text
 a-check -b 2000136-uniref --nc  */*.gz
 ```
 
-The _a-check_ command compaters item names to be uploaded to the matching objects in Allas. The files or directories that don't have a target object Allas, are reported and stored to a file. In this case, if some of the objects in the _a-put_ command above would be missing, then a-check would list the missing files and directories in file missing_2000136-uniref_63449 (the number in the end is just a random nuber).
+The _a-check_ command compares the item names to be uploaded to the matching objects in Allas. The files or directories that don't have a target object Allas, are reported and stored to a file. In this case, if some of the objects in the _a-put_ command above would be missing, then a-check would list the missing files and directories in file missing_2000136-uniref_63449 (the number in the end is just a random number).
 
 This file of missing items can be used with a-put option `--input-list`, to continue the failed upload process:
 ```text
@@ -501,17 +501,17 @@ This last option would store the data into 50 objects. Day-based objects for eac
 
 Copying millions of files to Allas will take a long time regardless of the way you are using. If you have started the `a-put` command inside a `screen` session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
 
-Once the _a-put_ command is finished, you can run `a-check` command to chech if all the data objects have been created. 
+Once the _a-put_ command is finished, you can run `a-check` command to checkh if all the data objects have been created. 
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command could be:
 
 ```text
 a-check --skip-filelist road_cameras/site_*/20*
 ```
 
-The _a-check_ command compaters item names to be uploaded to the matching objects in Allas. The files or directories that don't have a target object Allas, are reported and stored to a file. In this case, if some of the objects in the a-put command above would be missing, then a-check would list the missing files and directories in file missing_bucket_name_number (the number in the end is just a random nuber).
+The _a-check_ command compares the item names to be uploaded to the matching objects in Allas. The files or directories that don't have a target object Allas, are reported and stored to a file. In this case, if some of the objects in the a-put command above would be missing, then a-check would list the missing files and directories in file missing_bucket_name_number (the number in the end is just a random nuber).
 
 This file of missing items can be used with a-put option `--input-list`, to continue the failed upload process:
 ```text
 a-put -b 2000136-uniref --nc --input-list missing_bucket_name_number
 ```
-You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources.
+You should note, that _a-check_ does does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
