@@ -22,7 +22,7 @@ The application can be run with:
 
 ## Example batch job
 
-SOFI3D creates many auxiliary files, so in this exmaple subdirectories are used to reduce clutter.
+SOFI3D creates many auxiliary files, so in this example subdirectories are used to reduce clutter.
 
 ```
  #!/bin/bash
