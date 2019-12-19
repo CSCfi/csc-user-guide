@@ -323,7 +323,7 @@ At the moment, _a-get_ can download only one object at a time. If you need to do
 a-list bucket_123 > object_list_bucket123
 
 #use the list in for loop
-for ob in $(cat object_list_buckert123)
+for ob in $(cat object_list_bucket123)
 do
   a-get $ob
 done  
@@ -350,7 +350,7 @@ For example to remove all the objects in bucket _bucket_123_ , you could use com
 a-list bucket_123 > object_list_bucket123
 
 #use the list in for loop
-for ob in $(cat object_list_buckert123)
+for ob in $(cat object_list_bucket123)
 do
   a-delete -f $ob
 done  
