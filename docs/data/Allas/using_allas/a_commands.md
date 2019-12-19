@@ -166,7 +166,7 @@ This file of missing items can be used with a-put option --input-list, to contin
 a-put --input-list missing_job123_67889
 ```
 
-You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources.
+You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources. 
 
 In addition to checking, if upload was successful, _a-check_ can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or replaced before running the actual _a-put_ command. 
 
