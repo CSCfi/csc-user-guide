@@ -49,8 +49,7 @@ If you are running big, multistep processes (e.g. batch jobs), it may be that yo
 ```text
 allas-conf -k
 ```
-With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the curret Allas connection.
-
+With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 
 
 
@@ -128,7 +127,7 @@ a-put project2/sample3/test_1.txt -b newbucket1 - o case1.txt -n
 The command above would upload the file _test_1.txt_ to Allas in the bucket _newbucket1_ as the object _case1.txt_.
 As the option _-n_ is used, the data is stored in an uncompressed format. 
 
-You can give several file or directory names for _a-put_ and use * as a wildcard charcter when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
+You can give several file or directory names for _a-put_ and use * as a wildcard character when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
 
 Command:
 ```text
@@ -156,20 +155,20 @@ The upload can be checked with command:
 ```text
 a-check job123/*
 ```
-The a-check command lists the items to be uploaded and the matching objects in Allas.
+The _a-check_ command compaters item names to be uploaded to the matching objects in Allas.
 The files or directories that don't have a target object Allas, are reported and stored to a file:
-missing_bucket-name_pocess. If some of the objects in the sample commands above would be missing, then
+missing_bucket-name_number. If some of the objects in the sample commands above would be missing, then
 a-check would list the missing files and directories in file `missing_job123_67889` (the number in the end is
 just a random nuber).
 
-This file of missing items can be used with a-put option --input-lits, to continue the failed upload process:
+This file of missing items can be used with a-put option --input-list, to continue the failed upload process:
 ```text
 a-put --input-list missing_job123_67889
 ```
 
-You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may orignate from some other source.
+You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources.
 
-In addiotion to cheking, if upload was successfull, a-check can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or repalaced before running the actual _a-put_ command. 
+In addition to checking, if upload was successful, _a-check_ can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or replaced before running the actual _a-put_ command. 
 
 
 ## a-list
