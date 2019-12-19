@@ -316,6 +316,23 @@ Options:
 - **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
 - **-t**, **-target _dir_name_** Create a new target directory and deposit the data there.
 
+At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
+
+```text
+#make a list of objects
+a-list bucket_123 > object_list_bucket123
+
+#use the list in for loop
+for ob in $(cat object_list_buckert123)
+do
+  a-get $ob
+done  
+
+#remove the object list
+rm object_list_bucket123
+```
+
+
 ## a-delete
 a-delete is used to remove data that has been uploaded to Allas service using the a-put command.
 The basic syntax of the comand is:
@@ -323,9 +340,22 @@ The basic syntax of the comand is:
 
 By default _a-delete_ asks user to confirm the removal of an object. This checking can be skipped with option `-f`.
 
-If you want to remove a bucket, you can use option `--rmb`. _a-delte_ can remove only empty buckets.
+If you want to remove a bucket, you can use option `--rmb`. _a-delete_ can remove only empty buckets.
 
+At the moment, _a-delete_ can remove only one object at a time. If you need to remove large number of objects you need use loops.
+For example to remove all the objects in bucket _bucket_123_ , you could use commands:
 
+```text
+#make a list of objects
+a-list bucket_123 > object_list_bucket123
 
+#use the list in for loop
+for ob in $(cat object_list_buckert123)
+do
+  a-delete -f $ob
+done  
 
-
+#remove the empty bucket and the list
+a-delete --rmb bucket_123
+rm object_list_bucket123
+```
