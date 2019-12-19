@@ -7,7 +7,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | a-command | Function |
 | :--- | :--- |
 | a-put | Upload a file or directory to Allas as one object |
-| a-check | Check if all the objects, that a-put should have createn, are found in Allas |
+| a-check | Check if all the objects, that a-put should have created, are found in Allas |
 | a-list | List buckets and objects in Allas |
 | a-publish | Upload a file to Allas into a bucket that allows public access over the internet |
 | a-flip | Upload a file temporarily to Allas into a bucket that allows public access over the internet |
@@ -145,7 +145,7 @@ uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and co
 
 ## a-check
 
-This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was succesfully executed. `a-check` accepts the same command line options as `a-put`.
+This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was successfully executed. `a-check` accepts the same command line options as `a-put`.
 
 For example, if a dataset is uploaded with command:
 ```text
