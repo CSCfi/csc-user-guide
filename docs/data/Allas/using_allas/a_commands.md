@@ -7,6 +7,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | a-command | Function |
 | :--- | :--- |
 | a-put | Upload a file or directory to Allas as one object |
+| a-check | Check if all the objects, that a-put should have createn, are found in Allas |
 | a-list | List buckets and objects in Allas |
 | a-publish | Upload a file to Allas into a bucket that allows public access over the internet |
 | a-flip | Upload a file temporarily to Allas into a bucket that allows public access over the internet |
@@ -43,6 +44,15 @@ can give it as an argument:
 allas-conf project_123456
 ```
 Note that the Allas project does not need to be the same as the project you are using in Puhti or Taito.
+
+If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipelie takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
+```text
+allas-conf -k
+```
+With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the curret Allas connection.
+
+
+
 
 ## a-put uploads data to Allas
 
@@ -115,8 +125,52 @@ _--object_:
 cd $WRKDIR
 a-put project2/sample3/test_1.txt -b newbucket1 - o case1.txt -n
 ```
-The command above would upload the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt_.
+The command above would upload the file _test_1.txt_ to Allas in the bucket _newbucket1_ as the object _case1.txt_.
 As the option _-n_ is used, the data is stored in an uncompressed format. 
+
+You can give several file or directory names for _a-put_ and use * as a wildcard charcter when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
+
+Command:
+```text
+a-put job123/output_dir_1 jobs123/input1.txt
+```
+uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and _input1.txt_ to _job123/input1.txt_.
+
+Similarly command
+```text
+a-put job123/output_dir*
+```
+uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and content of _output_dir_2_ to object _job123/output_dir_2.tar.zst_. 
+
+
+
+## a-check
+
+This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was succesfully executed. `a-check` accepts the same command line options as `a-put`.
+
+For example, if a dataset is uploaded with command:
+```text
+a-put job123/*
+```
+The upload can be checked with command: 
+```text
+a-check job123/*
+```
+The a-check command lists the items to be uploaded and the matching objects in Allas.
+The files or directories that don't have a target object Allas, are reported and stored to a file:
+missing_bucket-name_pocess. If some of the objects in the sample commands above would be missing, then
+a-check would list the missing files and directories in file `missing_job123_67889` (the number in the end is
+just a random nuber).
+
+This file of missing items can be used with a-put option --input-lits, to continue the failed upload process:
+```text
+a-put --input-list missing_job123_67889
+```
+
+You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may orignate from some other source.
+
+In addiotion to cheking, if upload was successfull, a-check can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or repalaced before running the actual _a-put_ command. 
+
 
 ## a-list
 
