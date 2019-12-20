@@ -4,6 +4,7 @@
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
+* [ArcGIS](arcgis.md) ArcGIS software suite for working with spatial data 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
@@ -19,6 +20,7 @@
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
+* [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GDAL](gdal.md) Translator library for geospatial data formats
@@ -34,21 +36,23 @@
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [MXNet](mxnet.md) Deep learning library for Python
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
-* [Octave](octave.md) High-level interpreted language for numerical computations
+* [Octave](octave.md) High-level interpreted language for numerical computations.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
-* [PDAL](pdal.md) Open source command line application for point cloud translations and processing
+* [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
@@ -57,6 +61,7 @@
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 * [SPAdes](spades.md) Genome assembly
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
@@ -66,4 +71,5 @@
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [Velvet](velvet.md) Genome assembler
+* [VMD](vmd.md) Molecular visualization program 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data

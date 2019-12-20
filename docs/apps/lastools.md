@@ -6,7 +6,7 @@
 
 ### Using LAStools
 
-LAStools is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+LAStools is included in the [geoconda](geoconda.md) module and can be loaded with
 
 `module load geoconda` 
 
@@ -16,7 +16,7 @@ You can test LAStools loaded successfully with
 
 ### LAStools commands
 
-Puhti installation includes only the open source tools of LAStools
+Puhti installation includes only the open source tools of LAStools.
 
 * laszip - compresses the LAS files in a completely lossless manner
 * lasinfo - prints out a quick overview of the contents of a LAS file
@@ -27,9 +27,73 @@ Puhti installation includes only the open source tools of LAStools
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII
 * lasprecision - analyses the actual precision of the LIDAR points
 
-!!! note
-    For now, Puhti does not support running __.exe__ files so if you need to install/run the closed source tools, use the Taito cluster. [Taito & LAStools documentation](https://research.csc.fi/-/lastools)
+### Using a licensed version
 
+Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl](../computing/disk.md) disk area.
+
+```
+cd /projappl/<your_project>
+wget https://lastools.github.io/download/LAStools.zip
+unzip LAStools.zip
+```
+
+Then just add your license file to the /bin folder and you can start running the __.exe__ files with __wine64__
+
+Notice you can only use the 64-bit versions of the tools with wine64
+
+Here is an example of running __lasinfo64.exe__ with __wine64__
+
+```
+module load wine
+wine64 lasinfo64.exe -i <LAS file>
+```
+
+### Finnish National Land Survey's lidar data in Puhti
+
+The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_taito).
+
+### LAStools and array jobs
+
+If you are processing large number of lidar files with LAStools, the best practice would be to use an [batch array job](../computing/running/array-jobs.md)
+
+First create a text file with filepaths to the lidar files. This is one way of doing it
+
+```
+cd folder_with_laz_files
+ls -d -1 "$PWD/"*.laz > lazfilepaths.txt
+```
+
+Create an batch array job script that takes this list as an argument. This example had 12 files
+
+```
+#!/bin/bash -l
+#SBATCH --account=<YOUR_PROJECT>
+#SBATCH --job-name las2las_test
+#SBATCH --output array_job_out_%A_%a.txt
+#SBATCH --error array_job_err_%A_%a.txt
+#SBATCH --time 00:10:00
+#SBATCH --ntasks 1
+#SBATCH --mem-per-cpu=1000
+#SBATCH --array=1-12
+#SBATCH --partition small
+
+### load geoconda that has the open source lastools commands
+module load geoconda
+
+### read a filepath to the .laz file given in the list of files
+inputfilepath=$(sed -n "$SLURM_ARRAY_TASK_ID"p $1)
+
+### retrieve just the filename from the filepath and remove extension
+outputfilename="${filepath##*/}"
+outputfilename="${filename%.*}"
+
+### extract the first returns only and save to a .las file in directory out/ (needs to exist)
+las2las -i $inputfilepath -o out/$outputfilename.las -first_only
+```
+
+Now you can submit the job with 
+
+`sbatch las2las_test.sh lazfilepaths.txt`
 
 ## License and citing
 

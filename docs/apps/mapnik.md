@@ -6,7 +6,7 @@
 
 __Mapnik__ is available in Puhti with following versions:
 
-* 3.0.20 (with Python 2.7)
+* 3.0.21 (with Python 2.7)
 
 ## Usage
 
@@ -14,7 +14,15 @@ Mapnik library is included in the __mapnik__ module and can be loaded with
 
 `module load mapnik`
 
-For now, the environment does not include other geospatial libraries. You can request additional libraries from __servicedesk@csc.fi__
+## Additional libraries
+
+* gdal 2.4.2
+* Allas libraries (boto3, python-swiftclient)
+* spyder
+* And many more, for retrieving the full list in Puhti use:
+    `list-packages`
+
+You can request additional libraries from __servicedesk@csc.fi__
 
 ## License and citing
 
