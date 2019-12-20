@@ -26,6 +26,7 @@ includes following python packages:
     vector geometries. It includes functions for zonal statistics and
     interpolated point queries.
 -   [rtree] - spatial indexing and search.
+-   [sentinelsat] - downloading Sentinel images
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scikit-learn] - machine learning for Python.
 -   [skimage] -  algorithms for image processing.
@@ -152,3 +153,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [Automating GIS processes course materials]: https://automating-gis-processes.github.io
   [Geohack Week materials]: https://geohackweek.github.io/schedule.html
   [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
+  [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
