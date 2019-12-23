@@ -6,6 +6,8 @@ Machine learning framework for Python.
 
 The `pytorch` module is available on Puhti only.  Currently supported PyTorch versions:
 
+- 1.3.1
+- 1.3.1-hvd (with [Horovod](https://github.com/horovod/horovod) support)
 - 1.3.0
 - 1.2.0
 - 1.1.0
@@ -71,6 +73,38 @@ The GPU nodes in Puhti have fast local storage which is useful for IO-intensive 
 #SBATCH --gres=gpu:v100:1,nvme:100
 ```
 
+### Horovod
+
+[Horovod](https://github.com/horovod/horovod) is a supported method for running multi-GPU and multi-node jobs with PyTorch. Horovod uses MPI and NCCL for interprocess communication. See also [MPI based batch jobs](../computing/running/creating-job-scripts.md#mpi-based-batch-jobs).
+
+Modules that support Horovod have the `-hvd` postfix in their name.  Note that Horovod is supported only for some specific PyTorch versions. (To see all modules try `module avail pytorch`).  To take PyTorch with Horovod support into use, you can run for example:
+
+```text
+module load pytorch/1.3.1-hvd
+```
+
+Below is an example slurm batch script that uses 8 tasks across two nodes.  Each task has one GPU and 10 CPUs.
+
+```bash
+#!/bin/bash
+#SBATCH --nodes=2
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=10
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:v100:4
+#SBATCH --time=1:00:00
+#SBATCH --mem=32G
+#SBATCH --account=<project>
+
+module load pytorch/1.3.1-hvd
+
+# enable this if you want to see some useful debug info from NCCL
+# export NCCL_DEBUG=INFO
+
+srun python3 myprog.py <options>
+```
+
 ## More information
 
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
+- [Horovod with PyTorch example](https://github.com/horovod/horovod/blob/master/docs/pytorch.rst)

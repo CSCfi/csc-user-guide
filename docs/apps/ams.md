@@ -71,6 +71,7 @@ seff $SLURM_JOBID
 ### The AMS-GUIs
 
 The Graphical User Interfaces (GUIs) that are installed on Puhti can be used via [NoMachine](nomachine.md). For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti, for details see ["Managing remote jobs"](https://www.scm.com/doc/Installation/Installation.html#managing-remote-jobs ).
+For Windows users there is a [helpful video on how to do the setup](https://www.scm.com/wp-content/uploads/Videos/RemoteQueuesWithADFJobs.mp4).
 In both cases the actual calculations should be done as batch jobs. Example queuing settings that can be used in the GUI:
 ![Slurm settings](/img/amsgui_puhti_queue_settings.png)
 
