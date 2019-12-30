@@ -45,6 +45,7 @@
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning

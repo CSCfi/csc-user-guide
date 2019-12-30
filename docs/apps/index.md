@@ -77,6 +77,7 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
+* [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
