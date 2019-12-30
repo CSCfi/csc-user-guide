@@ -50,7 +50,7 @@ If you prefer to use RStudio for interactive work, `r-env` can also be used toge
 
 You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](../computing/running/creating-job-scripts.md) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](../computing/running/array-jobs.md).
 
-Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only).
+Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only). Also notice that it's possible to list a project-specific temporary directory in `/scratch/<project>`, which may be useful when running memory-intensive jobs.
 
 ```
 #!/bin/bash -l
@@ -65,6 +65,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myrscript.R
 ```
 
@@ -112,6 +113,8 @@ libpath <- .libPaths()[1]
 # folder by default. You can also specify the path, e.g.:
 install.packages("package", lib = libpath)
 ```
+
+Note that, to use packages installed in the `/projappl` folder, you will need to run `.libPaths(c("/projappl//project_rpackages", .libPaths()))` each time R is launched.
 
 ## Citation
 
