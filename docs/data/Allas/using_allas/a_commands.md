@@ -7,6 +7,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | a-command | Function |
 | :--- | :--- |
 | a-put | Upload a file or directory to Allas as one object |
+| a-check | Check if all the objects, that a-put should have created, are found in Allas |
 | a-list | List buckets and objects in Allas |
 | a-publish | Upload a file to Allas into a bucket that allows public access over the internet |
 | a-flip | Upload a file temporarily to Allas into a bucket that allows public access over the internet |
@@ -44,11 +45,19 @@ allas-conf project_123456
 ```
 Note that the Allas project does not need to be the same as the project you are using in Puhti or Taito.
 
+If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipelie takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
+```text
+allas-conf -k
+```
+With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
+
+
+
 ## a-put uploads data to Allas
 
 `a-put` is used to upload data from the disk environment of Taito and Puhti to 
 the Allas storage environment. The basic syntax of the command:
-```
+```text
 a-put directory_or_file
 ```
 
@@ -115,8 +124,52 @@ _--object_:
 cd $WRKDIR
 a-put project2/sample3/test_1.txt -b newbucket1 - o case1.txt -n
 ```
-The command above would upload the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt_.
+The command above would upload the file _test_1.txt_ to Allas in the bucket _newbucket1_ as the object _case1.txt_.
 As the option _-n_ is used, the data is stored in an uncompressed format. 
+
+You can give several file or directory names for _a-put_ and use * as a wildcard character when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
+
+Command:
+```text
+a-put job123/output_dir_1 jobs123/input1.txt
+```
+uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and _input1.txt_ to _job123/input1.txt_.
+
+Similarly command
+```text
+a-put job123/output_dir*
+```
+uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and content of _output_dir_2_ to object _job123/output_dir_2.tar.zst_. 
+
+
+
+## a-check
+
+This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was successfully executed. `a-check` accepts the same command line options as `a-put`.
+
+For example, if a dataset is uploaded with command:
+```text
+a-put job123/*
+```
+The upload can be checked with command: 
+```text
+a-check job123/*
+```
+The _a-check_ command compaters item names to be uploaded to the matching objects in Allas.
+The files or directories that don't have a target object Allas, are reported and stored to a file:
+missing_bucket-name_number. If some of the objects in the sample commands above would be missing, then
+a-check would list the missing files and directories in file `missing_job123_67889` (the number in the end is
+just a random nuber).
+
+This file of missing items can be used with a-put option --input-list, to continue the failed upload process:
+```text
+a-put --input-list missing_job123_67889
+```
+
+You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources. 
+
+In addition to checking, if upload was successful, _a-check_ can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or replaced before running the actual _a-put_ command. 
+
 
 ## a-list
 
@@ -132,12 +185,20 @@ Typing a part of an object's name lists a subset of objects:
 ```text
 a-list bucket_name/beginning_of_the_object
 ```
+A more detailed listing, containing object size and date can be obtaioned with option `-l`
+```text
+a-list -l 
+```
+Option `-d` make a-list to interpret /-characters in object names as pseudofoleder separators.
+```text
+a-list -d 
+```
 
 ## a-publish 
 
 `a-publish` copies a file to Allas in a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
-uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. 
-a-publish works similarly to a-put with some differences: 
+uploaded data object can read and download the data with a web browser or tools like *wget* and *curl*. _a-publish_ works 
+similarly to a-put with some differences: 
 1) a-publish can upload only files, not directories. 
 2) The files are not compressed but uploaded as they are. 
 3) The access control of the target bucket is set so that it is available in read-only mode.
@@ -194,9 +255,9 @@ The basic syntax:
 a-flip file_name
 ```
 The file is uploaded to the bucket _username-projectNumber_-flip. The URL of the uploaded object:
-
+```text
 https://a3s.fi/username-projectNumber-flip/file_name
-
+```
 
 ## a-find
 
@@ -254,3 +315,47 @@ Options:
 - **-p**, **--project _project_ID_** Retrieve data from the buckets of the defined project instead of the currently configured project. 
 - **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
 - **-t**, **-target _dir_name_** Create a new target directory and deposit the data there.
+
+At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
+
+```text
+#make a list of objects
+a-list bucket_123 > object_list_bucket123
+
+#use the list in for loop
+for ob in $(cat object_list_bucket123)
+do
+  a-get $ob
+done  
+
+#remove the object list
+rm object_list_bucket123
+```
+
+
+## a-delete
+a-delete is used to remove data that has been uploaded to Allas service using the a-put command.
+The basic syntax of the comand is:
+<pre>a-delete object_name</pre>
+
+By default _a-delete_ asks user to confirm the removal of an object. This checking can be skipped with option `-f`.
+
+If you want to remove a bucket, you can use option `--rmb`. _a-delete_ can remove only empty buckets.
+
+At the moment, _a-delete_ can remove only one object at a time. If you need to remove large number of objects you need use loops.
+For example to remove all the objects in bucket _bucket_123_ , you could use commands:
+
+```text
+#make a list of objects
+a-list bucket_123 > object_list_bucket123
+
+#use the list in for loop
+for ob in $(cat object_list_bucket123)
+do
+  a-delete -f $ob
+done  
+
+#remove the empty bucket and the list
+a-delete --rmb bucket_123
+rm object_list_bucket123
+```

@@ -29,6 +29,8 @@ Solaris module includes a conda environment that has the Solaris library and man
 * networkx (2.3)
 * tensorflow (1.13.1)
 * pytorch (1.1.0)
+* And many more, for retrieving the full list in Puhti use:
+    `list-packages`
 
 ## License and citing
 

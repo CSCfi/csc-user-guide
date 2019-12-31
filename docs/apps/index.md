@@ -64,9 +64,10 @@
 ## Data Analytics and Machine Learning
 
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
-* [PyTorch](pytorch.md) Machine learning framework for Python
-* [TensorFlow](tensorflow.md) Deep learning library for Python
 * [MXNet](mxnet.md) Deep learning library for Python
+* [PyTorch](pytorch.md) Machine learning framework for Python
+* [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
+* [TensorFlow](tensorflow.md) Deep learning library for Python
 
 ## Geosciences
 
@@ -82,19 +83,17 @@
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 
 ## Mathematics and Statistics
 
-* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
-
-* [RStudio](rstudio.md) Integrated development environment for R
-
-* [SageMath](sagemath.md) Free open-source mathematics software system
-
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
-
+* [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
+* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [RStudio](rstudio.md) Integrated development environment for R
+* [SageMath](sagemath.md) Free open-source mathematics software system
 
 ## Physics
 
@@ -103,3 +102,4 @@
 ## Miscellaneous
 
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
+* [MySQL ](../data/kaivos/kaivos.md) MySQL database client. 
