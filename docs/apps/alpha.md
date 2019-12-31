@@ -34,6 +34,7 @@
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
+* [MATLAB](matlab.md) High-level technical computing language
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
