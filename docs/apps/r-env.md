@@ -39,7 +39,7 @@ Note that Puhti login nodes are [not intended for heavy computing](../computing/
 To interactively use R on Puhti's compute nodes, run the following command after initializing the `r-env` module. 
 
 ```bash
-sh r_interactive.sh
+r_interactive
 ```
 
 This will launch a bash script that will ask for a number of details needed to initialize the session:
