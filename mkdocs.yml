@@ -108,17 +108,22 @@ nav:
      - Contact: support/contact.md
 
 theme:
-  name: windmill
-  custom_dir: mkdocs_csc
+  name: material
+  custom_dir: mkdocs_csc/
+    
+  font:
+    text: 'Raleway'
+    code: 'Roboto Mono'
+
+extra_css:
+  - 'assets/stylesheets/extra.css'
+
 extra:
   logo: img/CSC_LOGO_nega_pad.png
   article_nav: false
   footer: false
 
-extra_css:
-  - css/extra.css
-extra_javascript:
-  - https://use.fontawesome.com/e51b07f7f1.js
+
 markdown_extensions:
   - toc:
       toc_depth: 2-6
