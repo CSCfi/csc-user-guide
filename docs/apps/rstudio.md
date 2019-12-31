@@ -30,7 +30,7 @@ For information on `r-env`, see the user documentation [here](./r-env.md). Note 
 To interactively use RStudio on Puhti's compute nodes, run the following command.
 
 ```bash
-sh rstudio_interactive.sh
+rstudio_interactive
 ```
 
 This will launch a bash script that will ask for a number of details needed to initialize the session:
