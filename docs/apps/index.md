@@ -5,6 +5,7 @@
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
+* [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
 * [BLAST](blast.md) Sequence similarity search tool for nucleotides and proteins
 * [Bowtie2](bowtie2.md) Short read aligner 
 * [BWA](bwa.md) Short read aligner
