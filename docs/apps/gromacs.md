@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.3
+-   Puhti: 2018.6-plumed, 2018.7, 2019.4
 -   Check recommended version(s) with `module avail gromacs`
 -   Some versions include also Plumed
 
@@ -27,7 +27,7 @@ Initialise recommended version of Gromacs on Puhti like this:
 
 ```bash
 module purge
-module load gromacs
+module load gromacs-env
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
@@ -51,11 +51,10 @@ We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
 results are comparable.
 
-Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, IF you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
+Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, **IF** you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
 
 **Example parallel batch script for Puhti**
-
-```
+```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
 #SBATCH --partition=large
@@ -68,9 +67,9 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
 
 module purge
-module load gromacs
+module load gromacs-env
 
-srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 ```
 
 !!! note
@@ -80,7 +79,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
     overhead and fragmentation of node reservations.
 
 **Example serial batch script for Puhti**
-```
+```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
 #SBATCH --partition=small
@@ -92,15 +91,41 @@ srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
 # this script runs a 1 core gromacs job, requesting 30 minutes time
 
 module purge
-module load gromacs
+module load gromacs-env
 
-srun gmx_mpi mdrun -s topol -maxh 0.5 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 ```
-
 !!! note
     You *must* fill in the computing project name in your script (replace
     <project> with it). Otherwise, your job will not run. This project will be
     used for billing the cpu usage.
+    
+**Example GPU script for Puhti**
+```bash
+#!/bin/bash -l
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --gres=gpu:v100:1
+#SBATCH --time=00:10:00
+#SBATCH --partition=gpu
+#SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+module load gromacs-env/2019-gpu
+
+ncores=$SLURM_NTASKS
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export SLURM_CPU_BIND=none
+
+srun gmx_mpi mdrun -s verlet -pin on -dlb yes
+```
+!!! note
+    Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
+    as using one full node of CPU cores. Otherwise, don't use GPUs.
+    You can compare the "cost" of using
+    CPU vs. GPU in the [billing calculator](https://research.csc.fi/billing-and-monitoring)
+
 
 Submit the script with `sbatch script_name.sh`
 
