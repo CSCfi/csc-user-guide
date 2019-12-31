@@ -10,7 +10,7 @@ You can use Funet FileSender to share your files with anybody. The receiver does
 
 First login to the service with your web browser in URL: <https://filesender.funet.fi>. You should login to the system with your Haka credentials: first select your home organization and use your local user name and password to long in (not CSC user name and password).
 
-After this you can specify the email address of the recipient or get a sharable link instead of sending to recipients. Use the _Select files_ button to choose the files you want to send. After the temporary storage time is defined (_Expiry date_:) and the usage terms are accepted press the **Send** button to upload the files. Once the files are uploaded the recipient will get an e-mail notification.
+After this you can specify the email address of the recipient or alternatively get a sharable link. Use the _Select files_ button to choose the files you want to send. After the temporary storage time is defined (_Expiry date_:) and the usage terms are accepted press the **Send** button to upload the files. Once the files are uploaded the recipient will get an e-mail notification.
 
 It is possible to administer your files while they are waiting for the pick-up. Click the _My Transfers_ button to do this.
 
