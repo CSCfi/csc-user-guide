@@ -88,15 +88,12 @@
 
 ## Mathematics and Statistics
 
-* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
-
-* [RStudio](rstudio.md) Integrated development environment for R
-
-* [SageMath](sagemath.md) Free open-source mathematics software system
-
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
-
+* [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
+* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [RStudio](rstudio.md) Integrated development environment for R
+* [SageMath](sagemath.md) Free open-source mathematics software system
 
 ## Physics
 
