@@ -114,6 +114,8 @@ theme:
   font:
     text: 'Raleway'
     code: 'Roboto Mono'
+  palette:
+    accent: 'black'
 
 extra_css:
   - 'assets/stylesheets/extra.css'
