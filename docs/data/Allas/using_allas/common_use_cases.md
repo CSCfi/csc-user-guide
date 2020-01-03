@@ -1,4 +1,3 @@
-
 # Common use cases
 
 ## Processing data in HPC systems
