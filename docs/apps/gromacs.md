@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.4
+-   Puhti: 2018.6-plumed, 2018.7, 2019.5
 -   Check recommended version(s) with `module avail gromacs`
 -   Some versions include also Plumed
 
@@ -75,7 +75,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 !!! note
     To avoid multi node parallel jobs to spread over more nodes
     than necessary, don't use the --ntasks flag, but specify --nodes and
-    --ntasks-per-node=40 to get full nodes. This minimizes connection
+    --ntasks-per-node=40 to get full nodes. This minimizes communication
     overhead and fragmentation of node reservations.
 
 **Example serial batch script for Puhti**
