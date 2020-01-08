@@ -34,6 +34,7 @@
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
+* [MATLAB](matlab.md) High-level technical computing language
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
@@ -45,6 +46,7 @@
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
@@ -61,6 +63,7 @@
 * [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
 * [SNAP](snap.md) Remote sensing toolbox for satellites
+* [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 * [SPAdes](spades.md) Genome assembly
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
