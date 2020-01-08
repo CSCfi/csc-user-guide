@@ -129,12 +129,6 @@ srun gmx_mpi mdrun -s verlet -pin on -dlb yes
 
 Submit the script with `sbatch script_name.sh`
 
-**Example input files**
-
-To run a Gromacs job, you will need a few inputfiles, which
-can be processed into a tpr-file required by the molecular
-dynamics engine `mdrun`.
-
 **Visualizing trajectories**
 
 In addition to ngmx program in Gromacs, trajectory files can be
@@ -180,7 +174,6 @@ for methods applied in your setup.
 -   [The PRODRG Server] for online creation of small molecule topology
 
   [documentation]: http://manual.gromacs.org/documentation
-  [Finnish Grid Infrastructure]: https://confluence.csc.fi/display/fgi/FGI+User+Pages
   [PyMOL]: http://www.pymol.org/
   [VMD]: http://www.ks.uiuc.edu/Research/vmd/
   [Gromacs performance checklist]: http://www.gromacs.org/Documentation/Performance_checklist
