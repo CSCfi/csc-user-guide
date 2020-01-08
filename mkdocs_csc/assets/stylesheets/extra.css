@@ -17,8 +17,6 @@ body {
     border: none;
     border-radius: 0px;
     margin-bottom: 0px;
-    height: 50px;
-    z-index: 2;
 }
 
 .md-sidebar__scrollwrap {
@@ -37,13 +35,14 @@ body {
 }
 
 .md-content {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .md-typeset {
-    font-size: .7rem;
+    font-size: .8rem;
 }
 
 .md-typeset h1 {
@@ -59,6 +58,10 @@ body {
 .md-typeset h3 {
     font-weight: bold;
     color: #4f4f4f;
+}
+
+.md-typeset code {
+    color: #000000;
 }
 
 .md-main__inner {
@@ -163,6 +166,7 @@ body {
     background-color: #f8f8f8 !important;
     opacity: 50;
     border-radius: 10px 10px 0px 0px !important;
+    font-size: .7rem !important;
 }
 
 .admonition-title {
@@ -176,8 +180,30 @@ body {
     display: none;
 }
 
-@media only screen and (max-width:76.1875em) {
-    .md-sidebar--secondary {
-        display: none;
-    }
+.md-footer-meta__inner {
+    font-size: 0.7rem;
+    padding: 1rem 2rem;
+    background-color: #0082BB;
+    overflow: auto;
+}
+
+.footer_title {
+    color: #ffffff;
+}
+
+.footer_text {
+    color: #ffffff;
+}
+
+.footer_column {
+    float: left;
+    width: 28%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.footer_wrapper {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
 }

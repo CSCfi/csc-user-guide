@@ -1,0 +1,26 @@
+    @media only screen and (max-width:76.1875em) {
+        .md-nav__title {
+            display: block;
+        }
+        .md-sidebar--secondary {
+            display: none;
+        }
+        .md-nav--primary .md-nav__list {
+            background-color: #4f4f4f !important;
+        }
+        .md-nav__source {
+            display: none;
+        }
+        .md-nav__item--nested>.md-nav {
+            color: #ffffff !important;
+        }
+        .md-nav--primary .md-nav__title--site {
+            background-color: #2980b9 !important;
+        }
+        .md-nav__title {
+            font-weight: bold !important;
+        }
+        .md-footer {
+            display: none;
+        }
+    }

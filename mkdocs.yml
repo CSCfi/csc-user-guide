@@ -113,15 +113,14 @@ theme:
     
   font:
     text: 'Raleway'
-    code: 'Roboto Mono'
-  palette:
-    accent: 'black'
+    code: 'Source Code Pro'
 
 extra_css:
   - 'assets/stylesheets/extra.css'
+  - 'assets/stylesheets/extra_mobile.css'
 
 extra:
-  logo: img/CSC_LOGO_nega_pad.png
+  
   article_nav: false
   footer: false
 
@@ -133,3 +132,7 @@ markdown_extensions:
   - attr_list
   - pymdownx.details
   - pymdownx.snippets
+
+google_analytics:
+  - 'UA-XXXXXXXX-X'
+  - 'auto'
