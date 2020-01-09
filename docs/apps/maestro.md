@@ -2,8 +2,7 @@
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
 for drug design and Materials Science. It can be used to build, edit, run and analyse 
-chemical model systems. Maestro is available for consortium members during 
-2019, but will be open to all academic users in 2020.
+chemical model systems. Maestro is available for all academic users in 2020.
 
 [TOC]
 
@@ -18,7 +17,7 @@ The Maestro license consists of floating licenses and tokens.
 It is possible for one user to take up all licenses for a 
 certain module. If licenses run out, contact Atte via Service Desk.
 Using Maestro means that you accept the
-[EULA](http://www.schrodinger.com/salesagreements/20/7/).
+[EULA](https://www.schrodinger.com/maestro-academic-eula).
 
 ## Usage
 
