@@ -50,7 +50,7 @@ Memory per core (e.g. "1G")? # Memory required for each processor
 Hours (e.g. "01")? # Session duration (hours)
 Minutes (e.g. "05")? # Session duration (minutes)
 Partition? # Which partition to use
-Project? # Project ID
+Project? # Project ID (i.e. the Unix group)
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
