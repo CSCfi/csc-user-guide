@@ -28,7 +28,8 @@ own computer, see below.
 
 Maestro can be installed on a Linux, Mac or Windows computer.
 Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
-You don't need a license to _download_ the software, but you'll need
+You don't need a license to _download_ the software, although you need to register
+to the Schrödinger website, but you'll need
 to configure licensing before you can _run_ it.
 [These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
 require Haka authentication.
