@@ -1,8 +1,7 @@
 # Virtual machine flavors and billing unit rates
 
 This article lists the types (flavors) of virtual machines and their
-cost in billing units. Normally billing units are not invoiced for
-academic use, learn more in here LINKTOBEADDED.
+cost in billing units.
 
 [TOC]
 
@@ -443,8 +442,7 @@ but they will be removed at some point in the near future.
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) | 3330 | 15.2 | 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) | 6580 | 15.2 | 400 |
 
-
-  [CSC Computing environment articles]: ../computing
+  [CSC Computing environment articles]: https://research.csc.fi/computing
   [command line instructions.]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
   [Optimization Service]: https://research.csc.fi/optimization-service

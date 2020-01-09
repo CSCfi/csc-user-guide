@@ -36,13 +36,30 @@ Note that Puhti login nodes are [not intended for heavy computing](../computing/
 
 #### Interactive use
 
-To interactively use R on Puhti's compute nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+To interactively use R on Puhti's compute nodes, run the following command after initializing the `r-env` module. 
 
+```bash
+r_interactive
 ```
-srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id --partition=partition R --no-save
+
+This will launch a bash script that will ask for a number of details needed to initialize the session:
+
+```bash
+How many cores? # No. of processors required
+Memory per core (e.g. "1G")? # Memory required for each processor
+Hours (e.g. "01")? # Session duration (hours)
+Minutes (e.g. "05")? # Session duration (minutes)
+Partition? # Which partition to use
+Project? # Project ID (i.e. the Unix group)
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
+
+If you would rather launch an interactive session manually, you can do this using `srun`. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+
+```bash
+srun --ntasks=1 --cpus-per-task=1 --time=hh:mm:ss --x11=first --mem-per-cpu=1G --pty --account=project_id --partition=partition R --no-save
+```
 
 If you prefer to use RStudio for interactive work, `r-env` can also be used together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
@@ -50,7 +67,7 @@ If you prefer to use RStudio for interactive work, `r-env` can also be used toge
 
 You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](../computing/running/creating-job-scripts.md) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](../computing/running/array-jobs.md).
 
-Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only).
+Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only). Also notice that it's possible to list a project-specific temporary directory in `/scratch/<project>`, which may be useful when running memory-intensive jobs.
 
 ```
 #!/bin/bash -l
@@ -65,6 +82,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myrscript.R
 ```
 
@@ -113,6 +131,8 @@ libpath <- .libPaths()[1]
 install.packages("package", lib = libpath)
 ```
 
+Note that, to use packages installed in the `/projappl` folder, you will need to run `.libPaths(c("/projappl//project_rpackages", .libPaths()))` each time R is launched.
+
 ## Citation
 
 For finding out the correct citations for R and different R packages, you can type:
@@ -129,5 +149,7 @@ This section contains links to other R-related documentation hosted by CSC, as w
 - [R FAQs](https://cran.r-project.org/faqs.html) (hosted by CRAN)
 
 - [Related Projects](https://www.r-project.org/other-projects.html) (list of R-related projects on R Project website)
+
+- [R package cheatsheets](https://rstudio.com/resources/cheatsheets/) (hosted on RStudio website)
 
 - [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env` module)
