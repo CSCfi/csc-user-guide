@@ -17,32 +17,22 @@ Puhti: 2019.3, 2019.4
 The Maestro license consists of floating licenses and tokens.
 It is possible for one user to take up all licenses for a 
 certain module. If licenses run out, contact Atte via Service Desk.
-
-**Consortium**
-
-Until end of 2019 Maestro usage is limited to the Consortium members. 
-The current members 
-are the groups of Ari Koskinen (Aalto Univ.), Antti Poso (UEF), 
-Mark Johnson (ÅA), Petri Pihko (JYU),  Olli Pentikäinen (JYU), 
-Henri Xhaard (UH), Tero Aittokallio (UH/FIMM) and Jari Valkonen (UH). 
-The licensing is IP-address or local username based. To install 
-Maestro locally, the researchers within the consortium should 
-contact servicedesk and send new user information. The usage 
-is restricted by the 
+Using Maestro means that you accept the
 [EULA](http://www.schrodinger.com/salesagreements/20/7/).
 
-##Usage
+## Usage
 
 It is recommended to download and install Maestro on your 
 own computer, see below.
 
 **Local Installation**
 
-Maestro can be installed on a Linux, Mac or Windows computer. 
+Maestro can be installed on a Linux, Mac or Windows computer.
 Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
 You don't need a license to _download_ the software, but you'll need
 to configure licensing before you can _run_ it.
-Contact Atte via servicedesk@csc.fi for license configuration details.
+[These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+require Haka authentication.
 
 **Standalone usage on Puhti**
 
