@@ -50,6 +50,11 @@ body {
     color: #4f4f4f;
 }
 
+#welcometext {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
 .md-typeset h2 {
     font-weight: bold;
     color: #4f4f4f;
@@ -62,6 +67,20 @@ body {
 
 .md-typeset code {
     color: #000000;
+}
+
+.md-typeset code,
+.md-typeset pre {
+    background-color: hsla(0, 0%, 90%, .5);
+}
+
+.md-typeset .md-typeset__table {
+    padding: 0;
+}
+
+.md-typeset table th {
+    min-width: 3rem;
+    font-weight: bold;
 }
 
 .md-main__inner {
@@ -152,6 +171,7 @@ body {
 .md-search__inner {
     margin-right: 0;
     padding-right: 0;
+    border-radius: 5%;
 }
 
 #toc-title {
@@ -185,6 +205,7 @@ body {
     padding: 1rem 2rem;
     background-color: #0082BB;
     overflow: auto;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, .24), 0 3px 8px rgba(0, 0, 0, .05);
 }
 
 .footer_title {
@@ -206,4 +227,11 @@ body {
     height: 100%;
     width: 90%;
     margin: 0 auto;
+}
+
+img[src*="#frontpagelogo"] {
+    margin-top: 0;
+    width: 48px;
+    transform: translate(0, 35%);
+    padding-bottom: 1rem;
 }
