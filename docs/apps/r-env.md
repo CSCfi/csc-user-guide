@@ -36,13 +36,30 @@ Note that Puhti login nodes are [not intended for heavy computing](../computing/
 
 #### Interactive use
 
-To interactively use R on Puhti's compute nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+To interactively use R on Puhti's compute nodes, run the following command after initializing the `r-env` module. 
 
+```bash
+r_interactive
 ```
-srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id --partition=partition R --no-save
+
+This will launch a bash script that will ask for a number of details needed to initialize the session:
+
+```bash
+How many cores? # No. of processors required
+Memory per core (e.g. "1G")? # Memory required for each processor
+Hours (e.g. "01")? # Session duration (hours)
+Minutes (e.g. "05")? # Session duration (minutes)
+Partition? # Which partition to use
+Project? # Project ID (i.e. the Unix group)
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
+
+If you would rather launch an interactive session manually, you can do this using `srun`. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+
+```bash
+srun --ntasks=1 --cpus-per-task=1 --time=hh:mm:ss --x11=first --mem-per-cpu=1G --pty --account=project_id --partition=partition R --no-save
+```
 
 If you prefer to use RStudio for interactive work, `r-env` can also be used together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
