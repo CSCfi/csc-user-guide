@@ -26,9 +26,9 @@ To set up MACS2 commands in puhti, give command:
 module load bioconda
 ```
 
-After that you can start MACS2with command:
+After that you can start MACS2 with command:
 ```text
-macs2
+macs2 -h
 ```
 
 Larger MACS jobs should be executed as a batch job in Puhti. Puhti User Guide for more information on running batch jobs.
