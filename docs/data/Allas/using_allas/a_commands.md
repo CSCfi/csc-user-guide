@@ -298,7 +298,7 @@ Options:
 - **-s**, **-silent** Print only the object names and the number of hits. If the _-f_ option is used, print the object name and the matching file names on one row.
 
 
-## a-info shows information about an uploaded dataset
+## a-info shows information about an uploaded dataset<a name="a-info"></a>
                              
 The command `a-info` allows you to get information about a dataset that has been uploaded to Allas using `a-put`.   
 
