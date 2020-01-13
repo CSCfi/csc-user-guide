@@ -1,4 +1,4 @@
-# MACS
+# MACS2
 
 
 ## Description
@@ -32,3 +32,7 @@ macs2
 ```
 
 Larger MACS jobs should be executed as a batch job in Puhti. Puhti User Guide for more information on running batch jobs.
+
+## More information
+
+   *   [MACS2 in GitHub](https://github.com/taoliu/MACS/)
