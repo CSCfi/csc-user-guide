@@ -19,6 +19,8 @@ If you find that some package is missing, you can often install it yourself with
 
 If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
+Alternatively you can also run PyTorch via [Singularity images](/computing/containers/run-existing/), [see below for a usage example](#singularity).
+
 ## License
 
 PyTorch is BSD-style licensed, as found in the [LICENSE file](https://github.com/pytorch/pytorch/blob/master/LICENSE).
@@ -102,6 +104,34 @@ module load pytorch/1.3.1-hvd
 # export NCCL_DEBUG=INFO
 
 srun python3 myprog.py <options>
+```
+
+### Singularity
+
+PyTorch also be run via Singularity, either using pre-installed images on Puhti, or by converting a Docker image yourself.  See our [general instructions for using Singularity on Puhti](/computing/containers/run-existing/).
+
+A specific image can be activated via the module system:
+
+
+```bash
+module use /appl/soft/ai/singularity/modulefiles/
+module avail nvidia-pytorch  # to see existing images
+module load nvidia-pytorch/19.11-py3  # to activate a specific image
+```
+
+Here is an example submission script.  Note that the `singularity_wrapper` command is essential, otherwise the program will not run inside the image.
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=gpu
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=64G
+#SBATCH --time=1:00:00
+#SBATCH --gres=gpu:v100:1
+
+srun singularity_wrapper exec python3 myprog <options>
 ```
 
 ## More information
