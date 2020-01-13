@@ -24,7 +24,7 @@ To set up MACS2 commands in puhti, give command:
 
 ```text
 module load bioconda
-```text
+```
 
 After that you can start MACS2with command:
 ```text
