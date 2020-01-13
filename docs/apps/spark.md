@@ -1,0 +1,89 @@
+# Spark
+
+[Apache Spark](https://spark.apache.org/) is a popular, high-performance distributed computing framework. Spark is excelent tool for data analysis and machine learning tasks when dataset grows too big for single machine to handle. 
+
+## Deploying Spark into Rahti
+
+Spark template can be found from Rahti template catalog. Consult [Rahti user guide](https://docs.csc.fi/#cloud/rahti/) about how to get access and start new project. 
+Choose **Apache Spark** -template and read notes carefully from *Information* view. Follow links if you need more information about components. 
+
+Click **Next** to fill cluster variables. 
+### Variables:
+
+Listed below are some of the variables that can be changed.
+
+!!! note 
+
+    The values for the CPU and Memory should only be changed (to avoid errors) after checking the project quota allocated to your Rahti project (from *Resources* - *Quota* view of project page left panel). Project quota can also be increased by admins, if needed. [Rahti projects and quota](https://docs.csc.fi/#cloud/rahti/usage/projects_and_quota/) The template assumes that the request and the limits are same for all the containers. If you wish to have different limits, it's recommended to edit the template (advanced users).
+
+#### Mandatory Required Values:
+- **Cluster Name**: Unique identifier for your cluster
+- **Username**: Username for authenticating and logging into your Spark cluster and Jupyter (Recommended: create a new username, don't use any existing one)
+- **Password**: Password for authenticating and logging into your Spark cluster and Jupyter (Recommended: create a new password, don't use any existing one)
+- **Worker Replicas**: Number of workers to have (Default: 4)
+
+- **Storage Size**: Persistent storage volume size (Default: 10Gi)
+
+#### Optional Required Values:
+- **Enable Jupyter Lab**: Specify whether if you want to use Jupyter Lab instead of the default Jupyter Notebook (Default: false) 
+- **Master CPU**: Number of cores for the master node of the cluster
+- **Master Memory**: Memory for the master node of the cluster
+- **Worker CPU**: Number of cores for each worker of the cluster (Default: 2)
+- **Worker Memory**: Memory of each worker of the cluster (Default: 4G)
+
+- **Executor Default Cores**: Default value for Spark Executor Cores (See official Spark documention for more) (Default: 2)
+- **Executor Default Memory**: Default value for Spark Executor Memory (**Should always be less than the Worker memory!**) (Default: 3G)
+
+- **Driver CPU**: Number of cores for the driver (Jupyter Notebook)
+- **Driver Memory**: Memory of the driver (Jupyter Notebook)
+
+#### Do not change the following variables, unless you know what you're doing
+- **Master Image**: Docker Image for the Master
+- **Worker Image**: Docker Image for the Worker 
+- **Driver Image**: Docker Image for the Driver 
+- **Application Hostname Suffix**: The exposed hostname suffix that will be used to create routes for Spark UI and Jupyter Notebook
+
+
+!!! note 
+
+    It's essential that you choose your storage size big enough because it isn't possible to increase it after deployment. Additional storage volumes can be added though.
+
+Click **Create** and **Close**.
+You can see your new cluster getting provisioned in *Overview*-page. When provisioning is ready, you can find Jupyter UI from address https://< cluster-name >-jupyter.rahtiapp.fi and Spark UI from address https://< cluster-name >-spark.rahtiapp.fi
+
+Scaling the cluster can be done from *Overview* by increasing spark-worker pod amount with up and down arrows on right side of pod count icon. Decrease all pods to zero to shut down your cluster to save billing units. 
+
+!!! note 
+
+    Remember always save your data to the Jupyter notebooks default path `/mnt/<project-name>-pvc/*` . That PVC storage is distributed and replicated persistent storage and available to all of your Spark pods. If you save data to anywhere else, it will be deleted as soon as ephemeral pod is deleted. It is also recommended to save your valuable data occasionally to other location. **Allas** object storage is suitable for storing large datasets and analysis results. Allas can also be used to store raw data and set Spark to read from there.
+ 
+
+## Using Allas object storage
+
+S3CMD tool is installed to Spark image and it can be used to transform valuable files to Allas object storage.
+
+Open new terminal from Jupyter Notebook UI
+
+```bash
+cd to your pvc-directory:
+cd /mnt/<project-name>-pvc
+```
+
+download Allas conf from github and use it to configure s3cmd:
+
+```bash
+wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
+source allas_conf --mode s3cmd --user your-csc-username
+```
+
+Some useful commands:
+```bash
+s3cmd ls
+
+s3cmd put -r data/examplefile.parquet s3://<your-bucket-name>/
+
+s3cmd get -r s3://<your-bucket-name>/examplefile.parquet ./
+```
+
+
+More info about configuring s3cmd for Allas and guide how to use it can be found from [CSC Allas documentation](https://docs.csc.fi/#data/Allas/using_allas/s3_client/)
