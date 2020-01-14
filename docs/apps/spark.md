@@ -1,10 +1,10 @@
 # Spark
 
-[Apache Spark](https://spark.apache.org/) is a popular, high-performance distributed computing framework. Spark is excelent tool for data analysis and machine learning tasks when dataset grows too big for single machine to handle. 
+[Apache Spark](https://spark.apache.org/) is a popular, high-performance distributed computing framework. Spark is excellent tool for data analysis and machine learning tasks when dataset grows too big for single machine to handle. 
 
 ## Deploying Spark into Rahti
 
-Spark template can be found from Rahti template catalog. Consult [Rahti user guide](https://docs.csc.fi/#cloud/rahti/) about how to get access and start new project. 
+Spark template can be found from Rahti template catalog. Consult [Rahti user guide](../cloud/rahti/index.md) about how to get access and start new project. 
 Choose **Apache Spark** -template and read notes carefully from *Information* view. Follow links if you need more information about components. 
 
 Click **Next** to fill cluster variables. 
@@ -14,7 +14,7 @@ Listed below are some of the variables that can be changed.
 
 !!! note 
 
-    The values for the CPU and Memory should only be changed (to avoid errors) after checking the project quota allocated to your Rahti project (from *Resources* - *Quota* view of project page left panel). Project quota can also be increased by admins, if needed. [Rahti projects and quota](https://docs.csc.fi/#cloud/rahti/usage/projects_and_quota/) The template assumes that the request and the limits are same for all the containers. If you wish to have different limits, it's recommended to edit the template (advanced users).
+    The values for the CPU and Memory should only be changed (to avoid errors) after checking the project quota allocated to your Rahti project (from *Resources* - *Quota* view of project page left panel). Project quota can also be increased by admins, if needed. [Rahti projects and quota](../cloud/rahti/usage/projects_and_quota.md) The template assumes that the request and the limits are same for all the containers. If you wish to have different limits, it's recommended to edit the template (advanced users).
 
 #### Mandatory Required Values:
 - **Cluster Name**: Unique identifier for your cluster
@@ -51,7 +51,15 @@ Listed below are some of the variables that can be changed.
 Click **Create** and **Close**.
 You can see your new cluster getting provisioned in *Overview*-page. When provisioning is ready, you can find Jupyter UI from address https://< cluster-name >-jupyter.rahtiapp.fi and Spark UI from address https://< cluster-name >-spark.rahtiapp.fi
 
+Deploying Spark template creates you Jupyter notebook UI, Spark master and Spark workers according to worker replica variable described above.
+
 Scaling the cluster can be done from *Overview* by increasing spark-worker pod amount with up and down arrows on right side of pod count icon. Decrease all pods to zero to shut down your cluster to save billing units. 
+
+### Short descriptions about the deployed components
+**Jupyter notebook** : lets you type the spark code in Python or R format and also provides you an option of running a terminal which can for example, used for uploading data to allas for long term storage. The URL for accessing the notebook can be found by clicking on the dropdown and then look for Routes which has the URL. 
+By default, any notebook you launch in Jupyter, is connected to your cluster
+**Spark master**: which connects your jupyter notebook to read the spark code and coordinates your workers, it has web ui whose URL can be seen by clicking on the dropdown, and finding the Routes.
+**Spark Workers**: The workers are responsible for doing the actual computation. By default there are 4 workers created for you, you can create more by clicking on the up and down buttons. 
 
 !!! note 
 
@@ -86,4 +94,4 @@ s3cmd get -r s3://<your-bucket-name>/examplefile.parquet ./
 ```
 
 
-More info about configuring s3cmd for Allas and guide how to use it can be found from [CSC Allas documentation](https://docs.csc.fi/#data/Allas/using_allas/s3_client/)
+More info about configuring s3cmd for Allas and guide how to use it can be found from [CSC Allas documentation](../data/Allas/using_allas/s3_client.md)
