@@ -68,6 +68,7 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
+* [Spark](spark.md) High-performance distributed computing framework 
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 
 ## Geosciences
