@@ -11,6 +11,10 @@ body {
     color: #0082BB;
 }
 
+.md-typeset table a {
+    color: #0082BB !important;
+}
+
 .md-sidebar {
     background-color: #4f4f4f;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, .24), 0 3px 8px rgba(0, 0, 0, .05);
@@ -78,9 +82,31 @@ body {
     padding: 0;
 }
 
+.md-typeset table {
+    box-shadow: none !important;
+    border: .1rem solid rgba(0, 0, 0, .07);
+}
+
 .md-typeset table th {
-    min-width: 3rem;
+    min-width: 3rem !important;
+    padding: .2rem 0 !important;
     font-weight: bold;
+    vertical-align: middle !important;
+    text-align: center !important;
+    background-color: rgba(0, 0, 0, .35) !important;
+}
+
+.md-typeset table td {
+    font-weight: bold;
+    color: #505050;
+    padding: .2rem .0;
+    border-right: .05rem solid rgba(0, 0, 0, .07);
+    vertical-align: middle !important;
+}
+
+.md-typeset__scrollwrap {
+    text-align: center;
+    margin: 2em -.8rem;
 }
 
 .md-main__inner {
@@ -152,7 +178,7 @@ body {
 .md-nav__link {
     font-weight: bold;
     margin: 0;
-    padding: 0.2rem;
+    padding: 0.1rem;
 }
 
 .md-nav__link--active {
@@ -208,6 +234,10 @@ body {
     color: #ffffff;
 }
 
+.md-footer-meta.md-typeset a {
+    color: #ffffff !important;
+}
+
 .footer_text {
     color: #ffffff;
 }
@@ -230,4 +260,12 @@ img[src*="#frontpagelogo"] {
     width: 48px;
     transform: translate(0, 35%);
     padding-bottom: 1rem;
+}
+
+.md-nav__link[data-md-state=blur] {
+    color: #BEBEBE;
+}
+
+.md-typeset .md-content__icon {
+    opacity: 60%;
 }
