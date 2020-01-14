@@ -56,10 +56,9 @@ Deploying Spark template creates you Jupyter notebook UI, Spark master and Spark
 Scaling the cluster can be done from *Overview* by increasing spark-worker pod amount with up and down arrows on right side of pod count icon. Decrease all pods to zero to shut down your cluster to save billing units. 
 
 ### Short descriptions about the deployed components
-**Jupyter notebook** : lets you type the spark code in Python or R format and also provides you an option of running a terminal which can for example, used for uploading data to allas for long term storage. The URL for accessing the notebook can be found by clicking on the dropdown and then look for Routes which has the URL. 
-By default, any notebook you launch in Jupyter, is connected to your cluster
-**Spark master**: which connects your jupyter notebook to read the spark code and coordinates your workers, it has web ui whose URL can be seen by clicking on the dropdown, and finding the Routes.
-**Spark Workers**: The workers are responsible for doing the actual computation. By default there are 4 workers created for you, you can create more by clicking on the up and down buttons. 
+- **Jupyter notebook** : lets you type the spark code in Python or R format and also provides you an option of running a terminal which can for example, used for uploading data to allas for long term storage. The URL for accessing the notebook can be found by clicking on the dropdown and then look for Routes which has the URL. By default, any notebook you launch in Jupyter, is connected to your cluster.
+- **Spark master**: which connects your jupyter notebook to read the spark code and coordinates your workers, it has web ui whose URL can be seen by clicking on the dropdown, and finding the Routes.
+- **Spark workers**: The workers are responsible for doing the actual computation. By default there are 4 workers created for you, you can create more by clicking on the up and down buttons. 
 
 !!! note 
 
