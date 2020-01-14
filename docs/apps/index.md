@@ -89,6 +89,16 @@
 * [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 
+## Language Research and Other Digital Humanities and Social Sciences
+
+* [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
+* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools 1.4
+* [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
+* [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
+* [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
+* [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
+* [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
+
 ## Mathematics and Statistics
 
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing

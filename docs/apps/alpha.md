@@ -1,4 +1,4 @@
-<h1> Applications in alphabetic order</h1>
+<h1> Applications in alphabetical order</h1>
 <!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
 * [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
 * [Amber](amber.md) Molecular dynamics suite
@@ -20,6 +20,8 @@
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
+* [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
+* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools 1.4
 * [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gaussian](gaussian.md) Versatile computational chemistry package
@@ -27,9 +29,13 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
+* [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
+* [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
+* [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
@@ -73,6 +79,7 @@
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
+* [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 
