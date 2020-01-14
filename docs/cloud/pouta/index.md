@@ -2,24 +2,24 @@
 
 * [What is Pouta?](pouta-what-is.md)
 
-<h2>Getting access to Pouta service</h2>
+<h2>Getting access to the Pouta service</h2>
 * [Applying for Pouta access](../../accounts/how-to-add-service-access-for-project.md)
-* [Security Guidelines for Pouta](security.md)
-* [Pouta Accounting Principles and Quotas](accounting.md)
+* [Security guidelines for Pouta](security.md)
+* [Pouta accounting principles and quotas](accounting.md)
 
 <h2>Using Pouta</h2>
-* [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md)
+* [Virtual machine flavors and billing unit rates](vm-flavors-and-billing.md)
 * [Launching a virtual machine with the cPouta web interface](launch-vm-from-web-gui.md)
-* [DNS names for a virtual machines](additional-services.md#dns-services-in-cpouta)
+* [DNS names for virtual machines](additional-services.md#dns-services-in-cpouta)
 * [Connecting to your virtual machine](connecting-to-vm.md)
 * [Command line client tools](command-line-tools.md)
-    * [Install command line tools](install-client.md)
-* [Virtual machine lifecycle & saving billing units](vm-lifecycle.md)
+    * [Installing command line tools](install-client.md)
+* [Virtual machine lifecycle and saving billing units](vm-lifecycle.md)
 * [Orchestration with Heat](heat-orchestration.md)
-* [Container Orchestration in cPouta](pouta-container-orchestration.md)
-* [Application Development Practises in Pouta](application-dev.md)
+* [Container orchestration in cPouta](pouta-container-orchestration.md)
+* [Application development practises in Pouta](application-dev.md)
 * [Creating and uploading virtual machine images](adding-images.md)
-* [Additional services in Pouta (email, dns)](additional-services.md)
+* [Additional services in Pouta (email, DNS)](additional-services.md)
 
 <h2>Storage in Pouta</h2>
 * [Available storage options](storage.md)
