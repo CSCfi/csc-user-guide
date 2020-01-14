@@ -89,7 +89,7 @@ body {
 
 .md-typeset table th {
     min-width: 3rem !important;
-    padding: .2rem 0 !important;
+    padding: .2rem .2rem !important;
     font-weight: bold;
     vertical-align: middle !important;
     text-align: center !important;
