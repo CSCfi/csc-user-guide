@@ -46,7 +46,7 @@ Listed below are some of the variables that can be changed.
 
 !!! note 
 
-    It's essential that you choose your storage size big enough because it isn't possible to increase it after deployment. Additional storage volumes can be added though.
+    The data is stored on a single shared volume so it's essential that you choose your storage size big enough because it isn't possible to increase it after deployment. Additional storage volumes can be added though.
 
 Click **Create** and **Close**.
 You can see your new cluster getting provisioned in *Overview*-page. When provisioning is ready, you can find Jupyter UI from address https://< cluster-name >-jupyter.rahtiapp.fi and Spark UI from address https://< cluster-name >-spark.rahtiapp.fi
