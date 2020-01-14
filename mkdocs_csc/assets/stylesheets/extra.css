@@ -205,16 +205,15 @@ body {
 
 .admonition {
     border-left: none !important;
-    background-color: #f8f8f8 !important;
-    opacity: 50;
-    border-radius: 10px 10px 0px 0px !important;
+    background-color: rgba(226, 239, 212, 0.6) !important;
+    border-radius: 5px 5px 5px 5px !important;
     font-size: .7rem !important;
 }
 
 .admonition-title {
-    border-bottom: none !important;
+    border-bottom: .05rem solid rgba(0, 0, 0, .24) !important;
     background-color: #c9e2ae !important;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
     padding-left: 1rem !important;
 }
 
