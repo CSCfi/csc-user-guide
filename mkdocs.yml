@@ -134,5 +134,5 @@ markdown_extensions:
   - pymdownx.snippets
 
 google_analytics:
-  - 'UA-XXXXXXXX-X'
+  - 'UA-5406715-9'
   - 'auto'

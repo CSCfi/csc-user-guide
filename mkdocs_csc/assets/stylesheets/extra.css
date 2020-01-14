@@ -42,7 +42,7 @@ body {
 }
 
 .md-typeset {
-    font-size: .8rem;
+    font-size: .7rem;
 }
 
 .md-typeset h1 {
@@ -152,7 +152,7 @@ body {
 .md-nav__link {
     font-weight: bold;
     margin: 0;
-    padding: 0.3rem;
+    padding: 0.2rem;
 }
 
 .md-nav__link--active {
@@ -161,10 +161,6 @@ body {
 }
 
 .md-nav__title {
-    display: none;
-}
-
-.md-content__icon {
     display: none;
 }
 
