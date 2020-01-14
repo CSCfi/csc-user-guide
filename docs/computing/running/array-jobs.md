@@ -42,14 +42,14 @@ Each of the subtasks requires less than two hours of computing time and less tha
 #SBATCH --account=<project>
 #SBATCH --partition small
 #SBATCH --time 02:00:00
-#SBATCH --ntask 1
+#SBATCH --ntasks 1
 #SBATCH --mem-per-cpu=4000
 #SBATCH --array=1-50
 
 # run the analysis command
 my_prog data_${SLURM_ARRAY_TASK_ID}.inp data_${SLURM_ARRAY_TASK_ID}.out
 ```
-In the batch job script, the line `#SBATCH --array=1-50` defines that 50 subjobs will be submitted. The other #SBATCH lines refer to individual subjobs. In this case, one subjob uses at most one processor (`--ntask 1`), 4 GB of memory (`--mem-per-cpu=4000`), and can last up to two hours (`--time 02:00:00`). However, the total wall clock time needed to process all 50 tasks is not limited.
+In the batch job script, the line `#SBATCH --array=1-50` defines that 50 subjobs will be submitted. The other #SBATCH lines refer to individual subjobs. In this case, one subjob uses at most one processor (`--ntasks 1`), 4 GB of memory (`--mem-per-cpu=4000`), and can last up to two hours (`--time 02:00:00`). However, the total wall clock time needed to process all 50 tasks is not limited.
 
 In the job execution commands, the script utilizes the __$SLURM_ARRAY_TASK_ID__ variable in the definition of the input and output files so that the first subjob will run the command
 ```
@@ -96,7 +96,7 @@ reads a certain line from the name list file. In this case, the actual command s
 #SBATCH --account=<project>
 #SBATCH --partition small
 #SBATCH --time 02:00:00
-#SBATCH --ntask 1
+#SBATCH --ntasks 1
 #SBATCH --mem-per-cpu=4000
 #SBATCH --array=1-50
 
@@ -131,7 +131,7 @@ As an example, lets assume we have a gzip compressed tar-archive file my_data.tg
 #SBATCH --account=<project>
 #SBATCH --time 12:00:00
 #SBATCH --mem=4000
-#SBATCH --ntask 1
+#SBATCH --ntasks 1
 #SBATCH --partition small
 
 #open the tgz file
