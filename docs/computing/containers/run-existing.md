@@ -1,6 +1,6 @@
 # Running existing containers
 
-Puhti supports running [Singularity](https://sylabs.io/singularity/) containers.  For some popular use cases, CSC's staff has prepared Singularity images that are ready to run.  Otherwise you can also build them yourself by converting existing Docker container images.
+Puhti supports running [Singularity](https://sylabs.io/singularity/) containers.  CSC's staff has prepared some Singularity images that are ready to run.  If you find some image missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](https://www.csc.fi/en/contact-info).  Otherwise you can also build them yourself by converting existing Docker container images (see instructions below).
 
 ## Using Singularity images pre-installed on Puhti
 
@@ -31,7 +31,7 @@ srun singularity_wrapper exec python3 myprog <options>
 ```
 
 
-## Using existing Docker images
+## Converting Docker images for use with Puhti
 
 If you cannot find a suitable Singularity image among those provided by CSC's staff, you can convert it yourself from an existing Docker image.  For example Nvidia has a library of container images for different GPU-enabled applications in their [Nvidia GPU cloud (NGC)](https://ngc.nvidia.com/).
 
