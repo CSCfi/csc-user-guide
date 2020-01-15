@@ -48,9 +48,9 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 ### References
 
-* [SAGA GIS homepage](http://saga-gis.sourceforge.net/en/)
-* [SAGA GIS page on Sourceforge](https://sourceforge.net/projects/saga-gis/)
-* [SAGA GIS tutorials](https://sagatutorials.wordpress.com/)
-* [SAGA GIS tutorials on Sourceforge](https://sourceforge.net/p/saga-gis/wiki/Tutorials/)
+* [Zonation homepage](https://www.syke.fi/zonation)
+* [Zonation Github](https://github.com/cbig/zonation-core)
+* [Zonation tutorials](https://github.com/cbig/zonation-tutorial)
+
 
 
