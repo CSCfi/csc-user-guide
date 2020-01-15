@@ -158,11 +158,11 @@ The `--slave` argument is optional and will prevent different processes from pri
 Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved cores that all begin to execute the given R script. It is important to include the `startMPIcluster()` call near the beginning of the R script as anything before it will be executed by all available processes (while only the master process continues after it). Upon completion, the cluster is closed using `closeCluster()`. The `mpi.quit()` function can then be used to terminate the MPI execution environment and to quit R:
 
 ```r
-library(doMPI,quietly = TRUE)
-cl<-startMPIcluster()
+library(doMPI, quietly = TRUE)
+cl <- startMPIcluster()
 registerDoMPI(cl)
 
-system.time(a<-foreach(i=1:7) %dopar% system.time(sort(runif(1e7))))
+system.time(a <- foreach(i = 1:7) %dopar% system.time(sort(runif(1e7))))
 a
 
 closeCluster(cl)
