@@ -116,6 +116,8 @@ theme:
     text: 'Raleway'
     code: 'Source Code Pro'
 
+  logo: 'img/Docs_CSC_logo.svg#headerlogo"'
+
 extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'

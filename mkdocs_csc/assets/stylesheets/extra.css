@@ -268,3 +268,11 @@ img[src*="#frontpagelogo"] {
 .md-typeset .md-content__icon {
     opacity: 60%;
 }
+
+img[src*="#headerlogo"] {
+    width: 160px;
+}
+
+.md-header-nav__button {
+    padding-top: 0.3rem;
+}
