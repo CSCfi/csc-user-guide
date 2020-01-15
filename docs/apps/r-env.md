@@ -78,9 +78,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=r_single_proc
-#SBATCH --mail-type=END
-#SBATCH --mail-user=
-#SBATCH --account=
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
@@ -113,9 +111,7 @@ To submit a job employing multiple cores on a single node, one could use the fol
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=r_multi_proc
-#SBATCH --mail-type=END
-#SBATCH --mail-user=
-#SBATCH --account=
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
@@ -134,9 +130,7 @@ Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=r_array
-#SBATCH --mail-type=END
-#SBATCH --mail-user=
-#SBATCH --account=
+#SBATCH --account=<project>
 #SBATCH --output=output_%j_%a.txt
 #SBATCH --error=errors_%j_%a.txt
 #SBATCH --partition=large
@@ -182,9 +176,7 @@ Whereas most parallel R jobs can be submitted using `srun Rscript`, those involv
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=r_snow
-#SBATCH --mail-type=END
-#SBATCH --mail-user=
-#SBATCH --account=
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
@@ -219,10 +211,8 @@ In analyses using the `pbdMPI` package , each process runs the same copy of the 
 
 ```bash
 #!/bin/bash -l
-#SBATCH -J r_pbdmpi
-#SBATCH --mail-type=END
-#SBATCH --mail-user=
-#SBATCH --account=
+#SBATCH --job-name=r_pbdmpi
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
