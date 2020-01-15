@@ -40,6 +40,11 @@ srun singularity exec --bind /projappl/<your_project>:/projappl/<your_project> /
 srun singularity exec --bind /projappl/<YOUR-PROJECT>:/projappl/<YOUR-PROJECT> /appl/soft/geo/zonation/zonation.sif zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
 ```
 
+
+!!! note
+    Please note that Zonation can use only one core so reserving more won't speed up the processing
+
+
 ## License and citing
 
 Zonation computational core (zig4) is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/cbig/zonation-core/blob/master/LICENSE)
