@@ -71,7 +71,7 @@ Further to interactive jobs, you can run R scripts non-interactively using batch
 sbatch batch_job_file.sh
 ```
 
-##### Serial batch jobs
+#### Serial batch jobs
 
 Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used (which has a time limit of 15 minutes and is used for testing purposes only). It's also possible to list a project-specific temporary directory in `/scratch/<project>`, which may be useful when running memory-intensive jobs.
 
@@ -94,7 +94,7 @@ srun Rscript --no-save myscript.R
 
 In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=10000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
 
-##### Parallel batch jobs
+#### Parallel batch jobs
 
 The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
 
@@ -104,7 +104,7 @@ Further to the following examples, please see our separate [documentation](../co
 Notice for users: for jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone, e.g. via the srun Rmpi command, are currently unavailable due to compatibility issues.  
 ```
 
-***Multi-core and array jobs***
+*Multi-core and array jobs*
 
 To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves eight cores (`--ntasks=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
 
@@ -145,7 +145,7 @@ echo "TMPDIR=/scratch/" > .Renviron
 srun Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
-***Jobs using doMPI (with foreach)***
+*Jobs using `doMPI` (with `foreach`)*
 
 The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
 
@@ -169,7 +169,7 @@ closeCluster(cl)
 mpi.quit()
 ```
 
-***Jobs using snow***
+*Jobs using `snow`*
 
 Whereas most parallel R jobs can be submitted using `srun Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). For example:
 
@@ -205,7 +205,7 @@ a
 stopCluster(cl)
 ```
 
-***Jobs using pbdMPI***
+*Jobs using `pbdMPI`*
 
 In analyses using the `pbdMPI` package , each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` on Puhti can be done using the `srun Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
 
