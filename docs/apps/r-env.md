@@ -88,7 +88,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/" > .Renviron
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R
 ```
 
@@ -121,7 +121,7 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/" > .Renviron
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R
 ```
 
@@ -141,7 +141,7 @@ Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/" > .Renviron
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
@@ -186,7 +186,7 @@ Whereas most parallel R jobs can be submitted using `srun Rscript`, those involv
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/" > .Renviron
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun RMPISNOW --no-save --slave -f myscript.R
 ```
 
@@ -223,7 +223,7 @@ In analyses using the `pbdMPI` package , each process runs the same copy of the 
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/" > .Renviron
+echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save --slave myscript.R
 ```
 
