@@ -1,4 +1,4 @@
-# 1.1 Grid certificates
+## Grid certificates
 
 FGCI, like most of the middleware based grid environments, uses personal
 X.509 certificates for user authentication. In this approach the users
@@ -23,9 +23,7 @@ institute is not compatible with the eduGAIN service. In this case you
 can still request a personal certificate from Nordugrid: [Personal
 Nordugrid certificate].
 
- 
-
-# 1.1.1 Obtaining a grid certificate from GEANT
+## Obtaining a grid certificate from GEANT
 
 **Please ONLY use your personal computer for obtaining your grid
 certificate**<span style="font-weight: normal"> as your grid certificate
@@ -35,8 +33,8 @@ service** so you should use Firefox or Explorer to get a
 certificate.Here are the step-by-step instructions for obtaining your
 own certificate:
 
-1.  <span lang="en-IE">Go to </span><https://www.digicert.com/sso><span
-    lang="en-IE">  </span>
+1.  Go to [https://www.digicert.com/sso](https://www.digicert.com/sso)
+
 
 2.  Enter the name of your home institute (Finnish, Swedish and English
     institute names are recognized) and press "Start single sign-on"
@@ -45,15 +43,13 @@ own certificate:
     created by your home organization, not by CSC. Typically this is the
     user account you use to log in to local university network)
 
-4.  In the "Request  Product" page, choose product: **Grid Premium**,
+4.  In the "Request Product" page, choose product: **Grid Premium**,
     check your information and press "**Request Certificate"**
 
 Now you have your certificate in the keystore of your browser, signed by
 DigiCert and ready for use.
 
- 
-
-# 1.1.2 Exporting the certificate from the browser
+## Exporting the certificate from the browser
 
 After obtaining the certificate from TERENA, the certificate is
 initially stored only in the certificate repository of the web browser
@@ -101,7 +97,7 @@ used browsers.
 
  
 
-# 1.1.3 Installing certificate
+## Installing certificate
 
 Browsers normally store the certificates using the PKCS12 format.
 However, for the ARC middleware uses PEM as the default certificate
@@ -144,7 +140,7 @@ are set up correctly. The command to ensure this is:
 
     chmod 400 ~/.globus/userkey.pem
 
-# 1.1.4 Managing certificates in the Scientist's User Interface
+## Managing certificates in the Scientist's User Interface
 
 CSC's *Scientist's User Interface* (SUI) service contains a *My
 Certificates* tool that can be used to manage X.509 certificates. The
@@ -153,6 +149,11 @@ repository that can be used for backing up and copying certificates from
 one machine to another. *My Certificates* can also do conversions
 between different certificate formats. The *My Certificates* tool can be
 found at
+
+# NOTE. THIS IS OUT OF DATE
+!!! warning
+    SUI is no longer available. arcrunner etc. are not installed on puhti
+    UPDATE NEEDED
 
    <span
 lang="en-IE"><https://sui.csc.fi/group/sui/my-certificates></span>

@@ -1,4 +1,4 @@
-## 2.5 Using arcrunner to run large job sets in FGCI
+# Using arcrunner to run large job sets in FGCI
 
 Grid computing can be very effective in cases where the analysis task
 can be split into numerous independent sub-tasks. This kind of tasks are
@@ -21,7 +21,7 @@ easily and effectively in the FGI environment. You can use *arcrunner*
 at CSC on [Taito] or you can download it to your local Linux or MacOSX
 computer.
 
-# 2.5.1 Installing arcrunner
+## Installing arcrunner
 
 Arcrunner is installed on Taito where it can be launched with the
 command:
@@ -30,18 +30,16 @@ command:
 
 To use *arcrunner* in your local computer, you need to have the ARC
 middleware client and python installed on your computer. You can
-download the *arcrunner* tool from the Web site of FGI:
-
-<https://confluence.csc.fi/download/attachments/10782989/arcrunner_29.11.13.tgz>
+download the *arcrunner* tool from the [Web site of FGI](https://confluence.csc.fi/download/attachments/10782989/arcrunner_29.11.13.tgz)
 
 Once you have downloaded the installation file, unpack it with the
 command:
 
-    tar zxf arcrunner.tgz
+`tar zxf arcrunner.tgz`
 
 Next go to the *arcrunner/bin* directory:
 
-    cd arcrunner/bin
+`cd arcrunner/bin`
 
 The next step is to modify the fifth row of the *arcrunner* file so that
 the *jobmanagerpath* variable corresponds to the location of your
@@ -49,16 +47,16 @@ the *jobmanagerpath* variable corresponds to the location of your
 unpacked *arcrunner* installation package to directory */opt/grid* the
 jobmanagerpath defining line should be:
 
-    set jobmanagerpath=("/opt/grid/arcrunner")
+`set jobmanagerpath=("/opt/grid/arcrunner")`
 
 After this the only thing left to do is to add the *arcrunner/bin*
 directory to your command path.
 
-# 2.5.2 Using arcrunner
+## Using arcrunner
 
 The minimum input for the *arcrunner* command is:
 
-    arcrunner -xrsl job_descriptionfile.xrsl
+`arcrunner -xrsl job_descriptionfile.xrsl`
 
 When *arcrunner* is launched, it first checks all the sub-directories of
 the current directory. If a job description file, defined with the
@@ -104,9 +102,8 @@ resultant files from the grid to the grid job directory.
 | -S *integer*       | The maximum time a jobs stays in a submitted state before being resubmitted. (Default 3600s). |
 | -J *integer*       | Maximum number of simultaneous jobs running in the grid. (Default 1000 jobs).                 |
 
-* *
 
-### *<a href="https://research.csc.fi/" id="2.5.3"></a>2.5.3 Arcrunner example*
+## An arcrunner example
 
 The following simple example demonstrates the usage of the arcrunner
 command. First we assume that we have a set of files which we wish to
@@ -120,11 +117,13 @@ sub-folder for each of the input files and copy the input files there.
 This could be done, for example, with a shell script like the following
 bash script:
 
-    for number in `seq 1 100`
-    do
-      mkdir subjob_$number
-      mv file_$number subjob_$number/inputfile.txt
-    done
+```bash
+for number in `seq 1 100`
+do
+  mkdir subjob_$number
+  mv file_$number subjob_$number/inputfile.txt
+done
+```
 
 Now your directory should contain 100 subfolders, each containing one of
 the files to be analysed. Note that the name of the input file is now
@@ -133,41 +132,48 @@ of the numbers in a file called *inputfile.txt* can be calculated with
 the following script. The script is created with a text editor and saved
 as file *calc\_average.csh*
 
-    #!/bin/bash
-    awk '{ a = (a + $1)} END{ print a/NR }' inputfile.txt > output.txt 
+```bash
+#!/bin/bash
+awk '{ a = (a + $1)} END{ print a/NR }' inputfile.txt > output.txt 
+```
 
 To run this script in FGI we need to create a job description file. In
 this case we will name the file *average.xrsl*. The content of the job
 description file would then be:
 
-    &(executable=calc_average.csh)
-    (jobname=arc_example)
-    (stdout=std.out)
-    (stderr=std.err)
-    (cpuTime="2 minutes")
-    (memory="1000")
-    (inputfiles=
-    ("inputfile.txt" "inputfile.txt" )
-    )
-    (outputfiles=
-    ("output.txt" "" )
-    ) 
+```
+&(executable=calc_average.csh)
+(jobname=arc_example)
+(stdout=std.out)
+(stderr=std.err)
+(cpuTime="2 minutes")
+(memory="1000")
+(inputfiles=
+("inputfile.txt" "inputfile.txt" )
+)
+(outputfiles=
+("output.txt" "" )
+) 
+```
+
 
 Next we need to copy the command script and the job description files to
 all the sub-job folders. This is done with another small shell script
 containing the following loop:
 
-    for number in `seq 1 100`
-    do
-    cp calc_average.csh subjob_$number/
-    cp average.xrsl subjob_$number/
-    done
+```bash
+for number in `seq 1 100`
+do
+  cp calc_average.csh subjob_$number/
+  cp average.xrsl subjob_$number/
+done
+```
 
 Now we have 100 sub-directories each containing a grid job description
 file and the corresponding job script and input files. We can now launch
 the analysis task with *arcrunner*
 
-    arcrunner -xrsl average.xrsl
+`arcrunner -xrsl average.xrsl`
 
 When the command is executed, *arcrunner* starts sending the 100 jobs,
 one by one, to FGI. Sending the jobs will take some time. If some of the
@@ -178,15 +184,17 @@ The job submission log that *<span
 style="text-decoration: none">arcrunner </span>* prints to standard
 output (i.e your screen) looks like the following:
 
-    /home/csc/kkmattil/.arc/clusters_for_arcrunner
-    2012-08-08 15:50:26 INFO Job subjob_1 submitted with gid gsiftp://electra-grid.chem.jyu.fi:2811/jobs/vH2LDmdtKJgna2baVq8oAPWnABFKDmABFKDmcHNKDmABFKDmd56JWm
-    2012-08-08 15:50:26 INFO Job subjob_1 changing state from new to submitted
-    2012-08-08 15:50:48 INFO Job subjob_10 submitted with gid gsiftp://taygeta-grid.oulu.fi:2811/jobs/MbFLDmztKJgnhWNBSqWNI3hmABFKDmABFKDmv7KKDmABFKDmGprtIn
-    2012-08-08 15:50:48 INFO Job subjob_10 changing state from new to submitted
-    2012-08-08 15:50:50 INFO Job subjob_100 submitted with gid gsiftp://maia-grid.uef.fi:2811/jobs/hG5KDm1tKJgn9NOVEmGrhjGmABFKDmABFKDmeBMKDmABFKDmT8QnTo
-    2012-08-08 15:50:50 INFO Job subjob_100 changing state from new to submitted
-    2012-08-08 15:50:52 INFO Job subjob_11 submitted with gid gsiftp://aesyle-grid.fgi.csc.fi:2811/jobs/c9sLDm3tKJgnKazeGptluZemABFKDmABFKDmydNKDmABFKDmrS5hJn
-    2012-08-08 15:50:52 INFO Job subjob_11 changing state from new to submitted 
+```
+/home/csc/kkmattil/.arc/clusters_for_arcrunner
+2012-08-08 15:50:26 INFO Job subjob_1 submitted with gid gsiftp://electra-grid.chem.jyu.fi:2811/jobs/vH2LDmdtKJgna2baVq8oAPWnABFKDmABFKDmcHNKDmABFKDmd56JWm
+2012-08-08 15:50:26 INFO Job subjob_1 changing state from new to submitted
+2012-08-08 15:50:48 INFO Job subjob_10 submitted with gid gsiftp://taygeta-grid.oulu.fi:2811/jobs/MbFLDmztKJgnhWNBSqWNI3hmABFKDmABFKDmv7KKDmABFKDmGprtIn
+2012-08-08 15:50:48 INFO Job subjob_10 changing state from new to submitted
+2012-08-08 15:50:50 INFO Job subjob_100 submitted with gid gsiftp://maia-grid.uef.fi:2811/jobs/hG5KDm1tKJgn9NOVEmGrhjGmABFKDmABFKDmeBMKDmABFKDmT8QnTo
+2012-08-08 15:50:50 INFO Job subjob_100 changing state from new to submitted
+2012-08-08 15:50:52 INFO Job subjob_11 submitted with gid gsiftp://aesyle-grid.fgi.csc.fi:2811/jobs/c9sLDm3tKJgnKazeGptluZemABFKDmABFKDmydNKDmABFKDmrS5hJn
+2012-08-08 15:50:52 INFO Job subjob_11 changing state from new to submitted 
+```
 
 When all the jobs are submitted or the number of the submitted job
 reaches the limit of simultaneously submitted jobs ( default 200 ),
@@ -195,19 +203,21 @@ executing. For example, the following summary tells that of the 100
 sub-jobs, 71 jobs have already finished, two are running, 25 are queuing
 and 2 are being submitted to the clusters.
 
-    2012-08-08 16:08:21 INFO host                        new submitted queuing running finished failed success failure
-    2012-08-08 16:08:21 INFO merope-grid.cc.tut.fi         0         0       9       0        0      0       0       0
-    2012-08-08 16:08:21 INFO asterope-grid.abo.fi          0         0       0       0        9      0       0       0
-    2012-08-08 16:08:21 INFO electra-grid.chem.jyu.fi      0         0       1       0        9      0       0       0
-    2012-08-08 16:08:21 INFO taygeta-grid.oulu.fi          0         0       0       1        8      0       0       0
-    2012-08-08 16:08:21 INFO maia-grid.uef.fi              0         0       0       1        8      0       0       0
-    2012-08-08 16:08:21 INFO grid.triton.aalto.fi          0         0       5       0        4      0       0       0
-    2012-08-08 16:08:21 INFO aesyle-grid.fgi.csc.fi        0         0       0       0        9      0       0       0
-    2012-08-08 16:08:21 INFalcyone-grid.grid.helsinki.fi   0         0       1       0        8      0       0       0
-    2012-08-08 16:08:21 INFO celaeno-grid.lut.fi           0         0       9       0        0      0       0       0
-    2012-08-08 16:08:21 INFO usva.fgi.csc.fi               0         1       0       0        8      0       0       0
-    2012-08-08 16:08:21 INFO pleione-grid.utu.fi           0         1       0       0        8      0       0       0
-    2012-08-08 16:08:21 INFO TOTAL                         0         2      25       2       71      0       0       0 
+```
+2012-08-08 16:08:21 INFO host                        new submitted queuing running finished failed success failure
+2012-08-08 16:08:21 INFO merope-grid.cc.tut.fi         0         0       9       0        0      0       0       0
+2012-08-08 16:08:21 INFO asterope-grid.abo.fi          0         0       0       0        9      0       0       0
+2012-08-08 16:08:21 INFO electra-grid.chem.jyu.fi      0         0       1       0        9      0       0       0
+2012-08-08 16:08:21 INFO taygeta-grid.oulu.fi          0         0       0       1        8      0       0       0
+2012-08-08 16:08:21 INFO maia-grid.uef.fi              0         0       0       1        8      0       0       0
+2012-08-08 16:08:21 INFO grid.triton.aalto.fi          0         0       5       0        4      0       0       0
+2012-08-08 16:08:21 INFO aesyle-grid.fgi.csc.fi        0         0       0       0        9      0       0       0
+2012-08-08 16:08:21 INFalcyone-grid.grid.helsinki.fi   0         0       1       0        8      0       0       0
+2012-08-08 16:08:21 INFO celaeno-grid.lut.fi           0         0       9       0        0      0       0       0
+2012-08-08 16:08:21 INFO usva.fgi.csc.fi               0         1       0       0        8      0       0       0
+2012-08-08 16:08:21 INFO pleione-grid.utu.fi           0         1       0       0        8      0       0       0
+2012-08-08 16:08:21 INFO TOTAL                         0         2      25       2       71      0       0       0 
+```
 
 The *arcrunner* command should be kept running until all the jobs have
 reached the state of *success* or failure and the command stops. For the
@@ -225,10 +235,6 @@ input files. In this case the results directory contains files
 *output.txt*, *std.err* and *std.out*. All the results can now be
 collected into one file, for example, with the command:
 
-    cat subjob_*/results/output.txt > results.txt
-
-* *
-
-* *
-
-  [Taito]: https://research.csc.fi/taito-user-guide
+```bash
+cat subjob_*/results/output.txt > results.txt
+```

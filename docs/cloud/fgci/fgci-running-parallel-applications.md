@@ -1,11 +1,11 @@
-## 2.4 Running parallel applications in FGCI
+# Running parallel applications in FGCI
 
-<span lang="en-IE">In FGCI you can utilize POSIX threads (OpenMP) and
+In FGCI you can utilize POSIX threads (OpenMP) and
 MPI based parallel computing. In the case of threads based parallel
 computing the number of parallel processes (threads) is limited by the
 structure of the hardware: all the processes must be running in the same
 node. Thus in the case of older FGI machines, threads based programs
-can't use more than 12 computing cores.</span> In the new FGCI hardware
+can't use more than 12 computing cores. In the new FGCI hardware
 the one node contain 24 cores and as hyperthreading is used, one node
 can run 48 simultaneous threads.
 
@@ -18,9 +18,7 @@ cores will not be feasible. Because of that, scaling tests, where the
 application is tested with different core amounts, a should be run
 before the actual production runs.
 
- 
-
-# 2.4.1 Executing threads based parallel software in FGI
+## Executing threads based parallel software in FGI
 
 In the case of many pre-installed threads utilizing programs, the
 Runtime Environment of the program automatically sets up the parameters
@@ -93,7 +91,7 @@ the grid environment.
 The sample job above could be executed using the normal *arcsub*,
 *arcstat* and *arcget* commands.
 
-# 2.4.2. Executing MPI based parallel program in FGI environment
+## Executing MPI based parallel program in FGI environment
 
 The way, how an MPI based applications are launched in FGI environment
 may differ between different applications. For application specific
@@ -140,11 +138,3 @@ are packed to a single *gzip* compressed *tar* file.
 
 The sample job above could be executed using the normal *arcsub*,
 *arcstat* and *arcget* commands.
-
- 
-
- 
-
- 
-
- 
