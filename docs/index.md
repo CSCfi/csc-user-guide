@@ -2,11 +2,11 @@
 template: main-index.html
 ---
 
-<h1 id="welcometext"><img src="img/logo-64.svg#frontpagelogo"> Welcome to CSC Docs! </h1>
+<h1 id="welcometext"> Welcome to Docs CSC! </h1>
 
 !!! Overview
     
-    CSC Docs contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials.md) related to CSC services.
+    Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials.md) related to CSC services.
 
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar
