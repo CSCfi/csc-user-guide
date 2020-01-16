@@ -4,6 +4,7 @@
 * [Puhti quick start guide](puhti_quick.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
+* [CSC Quick reference (pdf)](../../img/csc-quick-reference-2019-11-21.pdf)
 
 ## Allas
 * [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
