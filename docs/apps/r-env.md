@@ -100,9 +100,8 @@ The `r-env` module can be used for parallel computing in several ways. These inc
 
 Further to the following examples, please see our separate [documentation](../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) on MPI-based jobs. You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/contours) for examples of parallel computing using the `RSAGA` package.
 
-```
-Notice for users: for jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone, e.g. via the srun Rmpi command, are currently unavailable due to compatibility issues.  
-```
+!!! note
+    For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone, e.g. via the srun Rmpi command, are currently unavailable due to compatibility issues.
 
 *Multi-core and array jobs*
 
@@ -195,7 +194,7 @@ Unlike when using `foreach` and `doMPI`, here only the master process runs the R
 ```r
 cl <- getMPIcluster()
 
-funtorun<-function(k) {
+funtorun <- function(k) {
   system.time(sort(runif(1e7)))
 }
 
@@ -207,7 +206,7 @@ stopCluster(cl)
 
 *Jobs using `pbdMPI`*
 
-In analyses using the `pbdMPI` package , each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` on Puhti can be done using the `srun Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
+In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` on Puhti can be done using the `srun Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
 
 ```bash
 #!/bin/bash -l
