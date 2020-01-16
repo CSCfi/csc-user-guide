@@ -46,6 +46,7 @@
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
