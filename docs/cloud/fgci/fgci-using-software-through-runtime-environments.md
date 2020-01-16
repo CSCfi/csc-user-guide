@@ -1,4 +1,4 @@
-# 2.3 Using software through runtime environments
+# Using software through runtime environments
 
 The FGCI environment contains a set of pre-installed software tools
 because installing complex software tools within the grid job can be
@@ -11,9 +11,7 @@ used to tell the ARC middleware what software are available on the
 different clusters. The FGI clusters don't all contain the same RTE:s.
 
 List and usage examples about RTEs that are available in FGCI can be
-found from the FGI Runtime Environments pages:
-
-<https://confluence.csc.fi/display/fgi/Runtime+Environments>
+found from the [FGI Runtime Environments pages](https://confluence.csc.fi/display/fgi/Runtime+Environments)
 
 An RTE is taken into use by adding the *runtimeenvironment* parameter to
 the job description file. For example, the RTE that is used for Bowtie2
@@ -21,7 +19,7 @@ software is referred to as APPS/BIO/BOWTIE-2.0.0. To use Bowtie2
 commands in a grid job you should add following line to the job
 description file:
 
-    (runtimeenvironment="APPS/BIO/BOWTIE-2.0.0")
+`(runtimeenvironment="APPS/BIO/BOWTIE-2.0.0")`
 
 Bowtie2 can utilize OpenMP based parallelisation. For the case of
 programs which are capable of parallel computing, that is, running on
@@ -64,12 +62,4 @@ $BOWTIE\_NUM\_CPUS, defined by the RTE with the bowtie2 command:
 
 Details about what parameters a certain RTE defines can be checked from
 the home page of the RTE. In the case of Bowtie2 the address of the page
-is:
-
-<https://confluence.csc.fi/display/fgi/Bowtie2+runtime+environment>
-
- 
-
-[]
-
-  []: https://confluence.csc.fi/display/fgi/Bowtie2+runtime+environment
+is: [https://confluence.csc.fi/display/fgi/Bowtie2+runtime+environment](https://confluence.csc.fi/display/fgi/Bowtie2+runtime+environment)

@@ -1,4 +1,4 @@
-## 2.2 Executing grid jobs with ARC commands
+# Executing grid jobs with ARC commands
 
 In this chapter we assume that the user has installed the personal grid
 certificate and ARC middleware as described in chapter 1.3. Further we
@@ -7,9 +7,8 @@ assume that the user has set up the ARC environment with the commands:
     cd nordugrid-arc-standalone-11.05-2
     source setup.sh
 
- 
 
-# 2.2.1 Creating a proxy-certificate
+## Creating a proxy-certificate
 
 Before you can submit grid jobs, you must create a temporary
 proxy-certificate. ARC uses this proxy-certificate for authenticating
@@ -41,7 +40,7 @@ As jobs can be checked and retrieved easily by generating a new
 grid-proxy-certificate, it is not recommended to make long validity
 periods for the grid-proxy-certificate.
 
-# 2.2.2 Job submission commands
+## Job submission commands
 
 If your grid-proxy-certificate is valid, you can submit a job, defined
 with an xRSL file, with the command:
@@ -141,7 +140,7 @@ using the option *-a* with the commands above:
 
  
 
-# 2.2.3 Running the sample job in FGCI environment
+## Running the sample job in FGCI environment
 
 Below we go through a session where the simple a job, *hello.xrsl*,
 described in chapter 2.1, is executed in FGCI. Both the commands and
@@ -163,7 +162,7 @@ are present in the current working directory.
 
 After this the job defined in the file *hello.xrsl* is submitted with
 the command *arcsub*:
- 
+
 
 `> arcsub hello.xrsl  ERROR: Conversion failed: @ 3055 ERROR: Conversion failed: : SEVQLVNQRUMwNiBAIEDCoDEyLjIy Job submitted with jobid: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523`
 
@@ -172,11 +171,9 @@ can be ignored. For the future it is good to copy the jobid from the end
 of the *arcsub* output to a file for reference. Next, we follow the
 progress of the job with the commands *arcstat* and *arccat*:
 
-`> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Name: hello_FGI State: Queuing (INLRMS:E)  > arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Name: hello_FGI State: Finished (FINISHED) Exit Code: 0  > arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  Hello FGI  > arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  > ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh  > cd 3008913401883521090110523/  > ls output.txt std.err std.out `
+`> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Name: hello_FGI State: Queuing (INLRMS:E)  > arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Name: hello_FGI State: Finished (FINISHED) Exit Code: 0  > arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  Hello FGI  > arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  > ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh  > cd 3008913401883521090110523/  > ls output.txt std.err std.out`
 
- 
-
-# 2.2.4 Keeping the grid job status up to date
+## Keeping the grid job status up to date
 
 When you submit a job with the *arcsub* command, information about the
 submitted job is written to file *.arc/jobs.dat* that locates in the
@@ -185,7 +182,7 @@ this local list to resolve the job names, when checking the grid jobs.
 Thus *arcstat* does not by default see jobs that you have been
 submitting from other machines.
 
-To add the jobs submitted from other machines to your local  *jobs.dat,*
+To add the jobs submitted from other machines to your local *jobs.dat,*
 run command:
 
 `arcsync`
@@ -203,11 +200,3 @@ To get rid of these messages, run command:
 
 This command removes the old *jobs.xml* file and creates a new one,
 based on the data it collects from the grid environment.
-
- 
-
- 
-
- 
-
- 

@@ -1,4 +1,4 @@
-# 1.2 Joining the fgi.csc.fi Virtual Organization
+# Joining the fgi.csc.fi Virtual Organization
 
 Use of the FGCI computing environment is controlled through **Virtual
 Organizations** (VO). A VO refers to group of users that utilize some
@@ -18,14 +18,17 @@ is open for all academic university researchers working in Finland. To
 join the *fgi.csc.fi* VO first download and install following
 certificate to your browser:
 
+# FIXME
+
+!!! warning
+    how should this be formatted?
+
 <span id="OBJ_PREFIX_DWT4379_com_zimbra_url" class="Object"
 role="link"><span id="OBJ_PREFIX_DWT4398_com_zimbra_url"
 class="Object-hover"
 role="link"><http://ca.nordugrid.org/NorduGrid-2015.crt></span></span>
 
-Then go to FGI Virtual Organization web page:
-
-<span lang="en-IE"><https://voms.fgi.csc.fi:8443/voms/fgi.csc.fi></span>
+Then go to [FGI Virtual Organization web page](https://voms.fgi.csc.fi:8443/voms/fgi.csc.fi)
 
 This web page authenticates you using the personal X509 grid certificate
 installed in your browser. Therefore it is preferred that you use the
@@ -40,8 +43,3 @@ application process it will take some time before the VO membership is
 activated. Normally the membership will be activated within one working
 day after the application process is finished.
 
- 
-
- 
-
- 

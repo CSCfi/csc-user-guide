@@ -1,4 +1,4 @@
-## 2.6 Using storage elements for data transport in FGCI
+# Using storage elements for data transport in FGCI
 
 Moving large datasets between the local computer and grid clusters is
 often one of the major bottlenecks in grid computing. The FGCI
@@ -50,8 +50,7 @@ computer, modify the local copy, remove the original file from the
 storage element and then copy the modified file back to the storage
 element.
 
-###   
-<a href="https://research.csc.fi/" id="2.6.1"></a>2.6.1 Using storage elements with ARC commands
+##  Using storage elements with ARC commands
 
 The storage element can be used through a set of ARC commands *arcls*,
 *arccp* and *arcrm*. The command *arccp* can be used to copy data
@@ -92,25 +91,22 @@ you should use the command:
 
     arcrm srm://bombay.csc.fi/fgi/userdirs/my_username/bigdb.txt
 
- 
+## Using storage elements in grid jobs
 
-### 2.6.2 Using storage elements in grid jobs
-
-<span style="font-style: normal">For the actual grid jobs, the storage
+For the actual grid jobs, the storage
 element files are used via the job description files. There you can
-</span><span style="font-style: normal">set that a specified input file
+set that a specified input file
 is read from the storage element (instead of the local computer) or that
 a certain output file is transported to the storage element. For
-example, in the Bowtie2 runtime environment example in chapter 2.3 a
-chromosome sequence file, </span>*chr\_18.fa,*<span
-style="font-style: normal"> is used as one of the input files. If we
-copy the file to the storage element with the command:</span>
+example, in the [Bowtie2 runtime environment example](fgci-using-software-through-runtime-environments.md) a
+chromosome sequence file, *chr_18.fa*, is used as one of the input files. If we
+copy the file to the storage element with the command:
 
     arccp chr_18.fa srm://bombay.csc.fi/fgi/userdirs/my_username/chr_18.fa
 
-and then modify the input line defining the *chr\_18.fa* file to:
+and then modify the input line defining the *chr_18.fa* file to:
 
- 
+
 
     ("chr_18.fa" "srm://bombay.csc.fi/fgi/userdirs/my_username/chr_18.fa")
 

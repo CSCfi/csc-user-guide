@@ -1,4 +1,4 @@
-## 2.1 Job description files
+# Job description files
 
 Submitting computing tasks to FGCI resembles submitting batch jobs to
 normal computing clusters. However, in the case of batch jobs the user
@@ -19,11 +19,7 @@ In the case of ARC-middleware the grid jobs are defined using two files:
 
 The command files are in most cases normal Linux command scripts. Linux
 scripting is not discussed in this guide. You can find more information
-about Linux scripting from the *CSC computing environment users guide*,
-chapter 2.7
-
-([http://research.csc.fi/csc-guide-linux-bash-scripts]<span
-lang="en-IE">).</span>
+about Linux scripting from the CSC workshop materials or via google.
 
 The xRSL formatted job description files are text files that define the
 resources and files that the grid job needs. The file starts with an
@@ -32,90 +28,23 @@ resources and files that the grid job needs. The file starts with an
 (attribute="*value*")
 
 Table 1. lists the most frequently used job description attributes. You
-can create xRSL formatted job description files with normal text editors
-or you can use the <span lang="en-IE">*Batch Job Wizard Tool*, in the
-*Scientist's User Interface* (
-<https://sui.csc.fi/group/sui/batch-job-script-wizard> ). (See Figure
-2.)</span>
-
+can create xRSL formatted job description files with normal text editors.
   
 **Table 1.** Most commonly used xRSL attributes
 
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Attribute</strong></td>
-<td><strong>Description</strong></td>
-<td><p><strong>Example</strong></p></td>
-</tr>
-<tr class="even">
-<td>count</td>
-<td>Number of computing cores to be reserved.</td>
-<td>(count=8)</td>
-</tr>
-<tr class="odd">
-<td>cpuTime</td>
-<td>Computing time requested. For a multi-processor job, this is a sum over all requested processors.</td>
-<td>(cpuTime=&quot;6 hours, 20 minutes&quot;)</td>
-</tr>
-<tr class="even">
-<td>executable</td>
-<td>Name of the command script file</td>
-<td>(executable=runhello.sh)</td>
-</tr>
-<tr class="odd">
-<td>inputfiles</td>
-<td>Files that will be copied from the local computer to the remote cluster. The left column refers to the file name at the remote cluster and the right column refers to the file name in the local computer.</td>
-<td>(inputfiles=(&quot;file1.txt&quot; &quot;file1.txt&quot; ))</td>
-</tr>
-<tr class="even">
-<td>jobname</td>
-<td>Name of the grid job</td>
-<td>(jobname=&quot;hello_FGI&quot;)</td>
-</tr>
-<tr class="odd">
-<td>memory</td>
-<td>Memory requirement in megabytes</td>
-<td>(memory=&quot;4000&quot;)</td>
-</tr>
-<tr class="even">
-<td>notify</td>
-<td>Email will be sent to the given address at certain states of the job. E.g. When the job begins (b) or ends (e). Here the <strong>be</strong> signifies sending an email for both states.</td>
-<td>(notify=&quot;be kkayttajl@csc.fi&quot;)</td>
-</tr>
-<tr class="odd">
-<td>outputfiles</td>
-<td>Files that will be copied from the remote cluster when the results are retrieved. The left column refers to the file name at the remote cluster and the right column refers to the file name in the local computer.</td>
-<td>(outputfiles=(&quot;out.txt&quot; &quot;out.txt&quot; ))</td>
-</tr>
-<tr class="even">
-<td>runtimeenvironment</td>
-<td>Required run time environment.</td>
-<td>(runtimeenvironment=&quot;APPS/BIO/BOWTIE-2.0.0&quot;</td>
-</tr>
-<tr class="odd">
-<td>stderr</td>
-<td>File for standard error</td>
-<td>(stderr=std.err)</td>
-</tr>
-<tr class="even">
-<td>stdout</td>
-<td>File for standard output</td>
-<td>(stdout=std.out)</td>
-</tr>
-</tbody>
-</table>
-
- 
-
-![]
-
-**Figure 2.** Batch job wizard in the Scientists User Interface.
+| Attribute          | Description                                                                                                                                                                                                           | Example                                         |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| count              | Number of computing cores to be reserved\.                                                                                                                                                                            | \(count=8\)                                     |
+| cpuTime            | Computing time requested\. For a multi\-processor job, this is a sum over all requested processors\.                                                                                                                  | \(cpuTime="6 hours, 20 minutes"\)               |
+| executable         | Name of the command script file                                                                                                                                                                                       | \(executable=runhello\.sh\)                     |
+| inputfiles         | Files that will be copied from the local computer to the remote cluster\. The left column refers to the file name at the remote cluster and the right column refers to the file name in the local computer\.          | \(inputfiles=\("file1\.txt" "file1\.txt" \)\)   |
+| jobname            | Name of the grid job                                                                                                                                                                                                  | \(jobname="hello\_FGI"\)                        |
+| memory             | Memory requirement in megabytes                                                                                                                                                                                       | \(memory="4000"\)                               |
+| notify             | Email will be sent to the given address at certain states of the job\. E\.g\. When the job begins \(b\) or ends \(e\)\. Here the be signifies sending an email for both states\.                                      | \(notify="be kkayttajl@csc\.fi"\)               |
+| outputfiles        | Files that will be copied from the remote cluster when the results are retrieved\. The left column refers to the file name at the remote cluster and the right column refers to the file name in the local computer\. | \(outputfiles=\("out\.txt" "out\.txt" \)\)      |
+| runtimeenvironment | Required run time environment\.                                                                                                                                                                                       | \(runtimeenvironment="APPS/BIO/BOWTIE\-2\.0\.0" |
+| stderr             | File for standard error                                                                                                                                                                                               | \(stderr=std\.err\)                             |
+| stdout             | File for standard output                                                                                                                                                                                              | \(stdout=std\.out\)                             |
 
 Below is a short command script that is used as a simplified example of
 a grid command file. The job prints words "*Hello FGI*" to the standard
@@ -198,11 +127,3 @@ moving large files between the remote cluster and the local computer can
 take a long time. Thus, you should try to avoid unnecessary copying of
 large data-sets.
 
- 
-
- 
-
- 
-
-  [http://research.csc.fi/csc-guide-linux-bash-scripts]: https://research.csc.fi/csc-guide-linux-bash-scripts
-  []: https://research.csc.fi/documents/48467/84606/FGI-guide_image2.jpg/6b9da668-0224-40a9-82de-9a79d127f200?t=1383828999000
