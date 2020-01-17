@@ -6,7 +6,7 @@ template: main-index.html
 
 !!! Overview
     
-    Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials.md) related to CSC services.
+    Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
 
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar
