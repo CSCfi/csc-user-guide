@@ -22,9 +22,9 @@ Here is an example with the [zonation-tutorial data](https://github.com/cbig/zon
 
 ```
 srun singularity exec \
---bind /projappl/<your_project>:/projappl/<your_project> /appl/soft/geo/zonation/zonation.sif \
-zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
-basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
+    --bind /projappl/<your_project>:/projappl/<your_project> /appl/soft/geo/zonation/zonation.sif \
+    zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
+    basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
 ```
 
 !!! note
@@ -41,9 +41,9 @@ basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
 #SBATCH --mem=2G
 
 srun singularity exec \
---bind /projappl/<YOUR-PROJECT>:/projappl/<YOUR-PROJECT> /appl/soft/geo/zonation/zonation.sif \
-zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
-basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
+    --bind /projappl/<YOUR-PROJECT>:/projappl/<YOUR-PROJECT> /appl/soft/geo/zonation/zonation.sif \
+    zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
+    basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
 ```
 
 
