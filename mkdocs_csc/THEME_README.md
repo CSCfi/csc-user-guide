@@ -15,7 +15,7 @@ This file dictates the general settings of the site.
 * __nav__ for the navigation panel structure
 * __theme__ for the theme settings
 * __extra_css__ for the css stylesheet we have implemented to the site
-* __markdown_extentions__ for the installed extensions. These have to be also in the __requirements.txt__
+* __markdown_extensions__ for the installed extensions. These have to be also in the __requirements.txt__
 * __google_analytics__ for the Google Analytics id which links the site to Google Analytics
 
 ## mkdocs_csc/assets/stylesheets directory
