@@ -59,7 +59,7 @@ You can submit the batch job file to the batch job system with command:
 sbatch batch_job_file.bash
 ```
 
-Manual
+## Manual
 
 *   [Exonerate home page](https://github.com/nathanweeks/exonerate)
 *   [Exonerate guides](https://www.animalgenome.org/bioinfo/resources/manuals/exonerate/)
