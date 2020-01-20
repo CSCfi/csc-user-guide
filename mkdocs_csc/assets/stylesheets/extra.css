@@ -276,3 +276,7 @@ img[src*="#headerlogo"] {
 .md-header-nav__button {
     padding-top: 0.3rem;
 }
+
+[title~="Home"] {
+    padding-left: 1.1rem;
+}
