@@ -62,5 +62,5 @@ sbatch batch_job_file.bash
 Manual
 
 *   [Exonerate home page](https://github.com/nathanweeks/exonerate)
-*   Exonerate guides(https://www.animalgenome.org/bioinfo/resources/manuals/exonerate/)
+*   [Exonerate guides](https://www.animalgenome.org/bioinfo/resources/manuals/exonerate/)
 
