@@ -1,41 +1,35 @@
-
 # Common use cases
-
 
 ## Processing data in HPC systems
 
-To use the computing environment in Taito or Puhti, use the open source parallel file system [Lustre](http://lustre.org/). In these file systems, files are automatically removed after 90 days. One of the main use cases of Allas is to store data that is not in active in the HPC systems. Before beginning, stage the data in. When the data is no longer actively used, it can be staged out. 
+To use the computing environment in Taito or Puhti, use the open source parallel file system [Lustre](http://lustre.org/). In these file systems, files are automatically removed after 90 days. One of the main use cases of Allas is to store data that is not active in the HPC systems. Before beginning, stage the data in. When the data is no longer actively used, it can be staged out. 
 
-* **Copying data from the object storage to Lustre (stage-in):** Copy the data to the parallel file system Lustre before computing. We recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) or [swift download](./swift_client.md#download-objects-and-buckets) for downloading objects from Allas.
+* **Copying data from the object storage to Lustre (stage in):** Copy the data to the parallel file system Lustre before computing. We recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) or [Swift download](./swift_client.md#download-objects-and-buckets) for downloading objects from Allas.
 
-* **Copying data from Lustre to the object storage (stage-out):** After computing, copy the files to Allas. We recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects) for uploading the data to Allas.
-
+* **Copying data from Lustre to the object storage (stage out):** After computing, copy the files to Allas. We recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects) for uploading the data to Allas.
 
 !!! note
     We recommend using the Swift protocol on Allas. It is important not to mix Swift and S3, as these protocols are not fully mutually compatible.
 
-
 ## Sharing data
 
 Sharing data, e.g. datasets or research results, is easy in the object storage. You can share these either with a limited audience, e.g. other projects, or allow access for everybody by making the data public.
- 
-The data can be accessed and shared in a variety of ways:
- 
 
-* **Private - default:** By default, if you do not specify anything else, contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
+The data can be accessed and shared in a variety of ways:
+
+* **Private – default:** By default, if you do not specify anything else, the contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
 	* [Web client](./web_client.md#view-objects-via-the-internet)
 	* [S3 client](./s3_client.md#s3cmd-and-public-objects)
- 
-* **Access Control Lists:** Access control lists (ACLs) work on buckets, not objects. With ACLs, you can share your data in a limited way to other projects. You can e.g. grant a collaboration project authenticated read access to your datasets.
 
- * **Public:** You can also have ACLs granting public read access to the data, which is useful for e.g. sharing public scientific results or public datasets.
- 
+* **Access control lists:** Access control lists (ACLs) work on buckets, not objects. With ACLs, you can share your data in a limited manner to other projects. You can e.g. grant a collaboration project authenticated read access to your datasets.
+
+ * **Public:** You can also have ACLs granting public read access to data, which is useful e.g. for sharing public scientific results or public datasets.
 
 ## Static web content
 
 A common way to use the object storage is storing static web content, such as images, videos, audio, pdfs or other downloadable content, and adding links to it on a web page, which can run either inside Allas or somewhere else. [An example](https://a3s.fi/my_fishbucket/my_fish)
 
-Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a_commands](./a_commands.md#a-put-uploads-data-to-allas), [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
+Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas), [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
 
 ## Storing data for distributed use
 
@@ -55,15 +49,15 @@ For example, several data collectors may push data to be processed, e.g. scienti
 
 The object storage is also often used as a location for storing backups. It is a convenient place to push copies of database dumps.
 
-[allas-backup](./a_backup.md) is a part of *a_commands*. It works as a tool for creating backup copies of files to Allas. **Please note:** allas-backup is not a real backup service. It only copies the data to another bucket in Allas which can be easily removed or overwrited by any authenticated user.
+[allas-backup](./a_backup.md) is a part of *a-commands*. It works as a tool for creating backup copies of files in Allas. **Please note:** allas-backup is not a real backup service. It only copies the data to another bucket in Allas which can be easily removed or overwrited by any authenticated user.
 
 ## Files larger than 5 GB
 
 Files larger than 5 GB must be divided into smaller segments before uploading. 
 
-* *a_command a-put* splits large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
+* The *a-command a-put* splits large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
 
-* Using _Swift_, you can use _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
+* Using _Swift_, you can use the _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
 
 * _s3cmd_ splits large files automatically: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects)
 
