@@ -14,7 +14,7 @@ using either exhaustive dynamic programming, or a variety of heuristics. You can
 ## Available
 Version on CSC's Servers
 
-Puhti: 2.2.0
+Puhti: 2.4.0
 
 ## Usage
 
@@ -61,6 +61,6 @@ sbatch batch_job_file.bash
 
 Manual
 
-*   [Exonerate home page]
-*   Exonerate beginners guide
+*   [Exonerate home page](https://github.com/nathanweeks/exonerate)
+*   Exonerate guides(https://www.animalgenome.org/bioinfo/resources/manuals/exonerate/)
 
