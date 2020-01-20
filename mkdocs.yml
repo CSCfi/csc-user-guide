@@ -110,7 +110,7 @@ nav:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
   - Support:
-     - Tutorials: support/tutorials.md
+     - Tutorials: support/tutorials/index.md
      - FAQ: support/faq/index.md
      - Contact: support/contact.md
 
