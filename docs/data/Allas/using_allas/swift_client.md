@@ -1,4 +1,3 @@
-
 # The Swift client
 
 The Python Swift client is a command line tool for using object storage systems such as Allas. If you use Allas on Puhti or Taito, all required packages and software are already installed:
@@ -11,7 +10,7 @@ Open a connection to Allas:
 allas-conf
 ```
 
-The *allas-conf* command above asks for your CSC password (the same that you use to login to CSC servers). It lists your projects in Allas and asks you to define the project that will be used. _allas-conf_ generates and autheticates the connection to the selected project in Allas. The authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session. If you login to Puhti in another session, you need to authenticate again to access Allas.
+The _allas-conf_ command above asks for your CSC password (the same that you use to login to CSC servers). It lists your projects in Allas and asks you to define the project that will be used. _allas-conf_ generates and autheticates the connection to the selected project in Allas. The authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session. If you login to Puhti in another session, you need to authenticate again to access Allas.
 
 This chapter includes instructions for the following operations:
 
@@ -32,7 +31,7 @@ This chapter includes instructions for the following operations:
 | post -r, -w, --read-acl | Manage access rights |
 | upload --use-slo | Upload files larger than 5 GB |
 
-You can install and use Swift also outside the CSC computing environment. Make sure that your Swift version is not outdated, since the older Swift versions might not work with Allas.
+You can also install and use Swift outside the CSC computing environment. Make sure that your Swift version is not outdated, since the older Swift versions might not work with Allas.
 
 ## Create buckets and upload objects
 
@@ -41,7 +40,7 @@ Create a new empty bucket:
 swift post <new_bucket_name>
 ```
 
-Create a new bucket and add a file in it:
+Create a new bucket and add a file to it:
 ```text
 swift upload <new_bucket_name> <file_name>
 ```
@@ -50,7 +49,7 @@ Add a file to an existing bucket:
 ```text
 swift upload <old_bucket_name> <file_name>
 ```
-**Note:** This might cause the warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload failed. 
+**Note:** This might trigger the warning  "_409 Conflict: BucketAlreadyExists_", but that does not necessarily mean that the upload has failed. 
 If the next line displays the file name, the file was successfully uploaded to the existing bucket.
 
 ```text
@@ -81,7 +80,7 @@ Download an object:
 ```text
 swift download <bucket_name> <file_name>
 ```
-If you want to rename the object as you download it, you can include <i>-o new_name</i> at the end of the command:
+If you want to rename the object as you download it, you can include *-o new_name* in the end of the command:
 ```text
 swift download <bucket_name> <file_name> -o <new_name>
 ```
@@ -92,11 +91,11 @@ swift download <bucket_name>
 
 ## Move objects
 
-You can copy data from one bucket to another using the command ```swift copy```. The command below copies <i>file.txt</i> from _bucket1_ to _bucket2_.
+You can copy data from one bucket to another using the command `swift copy`. The command below copies _file.txt_ from _bucket1_ to _bucket2_.
 ```text
 swift copy --destination /bucket2 bucket1 file.txt
 ```
-**Note:** If there is no bucket called _bucket2_, Swift will create a new bucket with that name. However, even if there is a bucket called _bucket2_, Swift will claim that it created a new one, even though it simply copied the file to the existing bucket:
+**Note:** If there is no bucket called _bucket2_, Swift creates a new bucket with that name. However, even if there is a bucket called _bucket2_, Swift claims that it created a new one, even though it simply copied the file to the existing bucket:
 ```text
 $ swift copy --destination /other_bucket my_bigfishes bigfish.jpg
 created container other_bucket
@@ -113,11 +112,11 @@ created container new_bucket
 my_fishbucket/my_fish.jpg copied to /new_bucket/newname.jpg
 ```
 
-For further information about the command <i>swift copy</i>, see the [OpenStack docs](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy).
+For further information about the command _swift copy_, see the [OpenStack documentation](https://docs.openstack.org/python-swiftclient/latest/cli/index.html#swift-copy).
 
 ## Remove objects and buckets
 
-Remove objects and buckets using the command ```swift delete```:
+Remove objects and buckets using the command `swift delete`:
 ```text 
 swift delete <bucket_name> <object_name>
 ```
@@ -127,7 +126,7 @@ $ swift delete my_fishbucket useless_fish.jpg
 useless_fish.jpg
 ```
 
-Unlike with the web client and s3cmd, with Swift you can **delete an entire bucket at once**:
+Unlike with the web client and s3cmd, with Swift, you can **delete an entire bucket at once**:
 ```text
 swift delete <my_old_bucket>
 ```
@@ -142,7 +141,7 @@ Container u'old_fishbucket' not found
 ```
 **Please note:** This deletes the bucket permanently, and the data is lost. Before using this command, make sure you do not need the data anymore or that you have a copy of the data.
 
-## Download or delete whole projects
+## Download or delete projects
 
 Download the entire project:
 ```text
@@ -155,19 +154,19 @@ swift delete --all
 ```
 **Please note:** Be careful with this command since it deletes the entire content of the project. Before using this command, make sure you do not need the data anymore or that you have a copy of the data.
 
-## Pseudo folders and checksum
+## Pseudo folders and checksums
 
 In case you want to observe whether an object has changed, use [checksum](../terms_and_concepts.md#checksum) with the command ```md5sum```.
 
 Pseudo folders can be handled by adding the name of the pseudo folder in front of the file name: <i>my_pseudo_folder_name/my_file</i>
 
-Create a pseudo folder named _pictures_ in the bucket <i>my_bigfishes</i> and add the object _bass.png_ in it:
+Create a pseudo folder named _pictures_ in the bucket <i>my_bigfishes</i> and add the object _bass.png_ to it:
 ```text
 $ swift upload my_bigfishes/pictures bass.png
 pictures/bass.png
 ```
 
-The example below uploads a file called _salmon.jpg_ to the pseudo folder called _fishes_ inside a bucket called _my_fishbucket_. The file is then downloaded.
+The example below uploads a file called _salmon.jpg_ to the pseudo folder called _fishes_ inside the bucket _my_fishbucket_. The file is then downloaded.
 ```text
 $ md5sum salmon.jpg
 22e44aa2b856e4df892b43c63d15138a  salmon.jpg
@@ -213,7 +212,7 @@ Set a bucket as read-only to the world (make the content visible at the URL: <i>
 swift post my_fishbucket --read-acl ".r:*"
 ```
 
-Find more information about the access management in the section [Giving another project read and write access to a bucket](#giving-another-project-read-and-write-access-to-a-bucket).
+Find more information about access management in the section [Giving another project read and write access to a bucket](#giving-another-project-read-and-write-access-to-a-bucket).
 
 More details about a file:
 ```text
@@ -231,9 +230,7 @@ Meta S3Cmd-Attrs: atime:1516788402/ctime:1513681753/gid:$LOCALGID/gname:$LOCALGR
       X-Trans-Id: tx0000000000000000001d6-q-q-cpouta-production-kaj
 ```
 
-Note that the above file was uploaded with the _s3cmd client_, and therefore there is additional metadata _S3Cmd-Attrs_ compared to a file uploaded with Swift or S3. _ETag_ is the _hash_ when viewing the file details in the Pouta dashboard.
-
-
+Note that the above file was uploaded with the _s3cmd client_, and therefore there is the additional metadata _S3Cmd-Attrs_ compared to a file uploaded with Swift or S3. _ETag_ is the _hash_ when viewing the file details in the Pouta dashboard.
 
 ## Giving another project read and write access to a bucket
 
@@ -242,7 +239,7 @@ Give the project _project1_ read rights to the bucket <i>my_fishbucket</i>:
 swift post my_fishbucket -r "project1:*"
 ```
 
-Write access can be given similarly by replacing the _-r_ (_read_) with _-w_ (_write_):
+Write access can be given similarly by replacing _-r_ (_read_) with _-w_ (_write_):
 ```text
 swift post my_fishbucket -w "project1:*"
 ```
@@ -258,7 +255,7 @@ swift post my_fishbucket -w \
 
 **Please note:** If you have granted access for specific projects, making the shared project public and private again will remove any previous access permissions.
 
-In case you allow _-w_ access for another project, members of the other project can upload files to your bucket and remove your files. However, you do not have access to the uploaded files until either you or the sender shares the bucket with your project:
+In case you allow _-w_ access for another project, the members of the other project can upload files to your bucket and remove your files. However, you do not have access to the uploaded files until either you or the sender shares the bucket with your project:
 ```text
 swift post <your_bucket_name> -r "your_project:*"
 ```

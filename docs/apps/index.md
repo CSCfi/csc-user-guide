@@ -13,6 +13,7 @@
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
+* [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
@@ -49,6 +50,7 @@
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [VMD](vmd.md) Molecular visualization program 
