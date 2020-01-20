@@ -40,7 +40,7 @@ ssh puhti.csc.fi
 and opens a connection to the data management project in Allas:
 ```text
 module load allas
-allas-conf 2000444
+allas-conf project_2000444
 ```
 Then he creates a new bucket in Allas. There are many ways to do this but this time, Pekka does this by importing a new file to Allas with _a-put_:
 ```text
@@ -90,7 +90,7 @@ Once the data is available, the actual analysis work begins. There will be sever
 Pekka gives read access to the _hiano-project-sample001_ bucket for the project _project_2000333_ but no write access.
 ```text
 module load allas
-allas-conf 2000444
+allas-conf project_2000444
 swift post hiano-project-sample001 -r "project_2000333:*,project_2000444:*"
 swift post hiano-project-sample001_segments -r "project_2000333:*,project_2000444:*"
 ```
