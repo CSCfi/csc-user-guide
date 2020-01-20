@@ -114,7 +114,7 @@ for running a minimap2 paired end alignment in Puhti.
 
 ```text
 #!/bin/bash -l
-#SBATCH --job-name=bowtie2
+#SBATCH --job-name=minimap2
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --time=04:00:00

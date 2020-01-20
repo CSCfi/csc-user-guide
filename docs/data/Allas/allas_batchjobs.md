@@ -102,6 +102,6 @@ my_analysis_command -in dataset34/data2.txt   -outdir results34
 #make sure connection to Allas is open
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 
-#ulpload results to allas
+#upload results to allas
 rclone copyto results34 allas:178-data-bucket/
 ```
