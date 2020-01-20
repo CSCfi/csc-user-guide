@@ -47,7 +47,6 @@ Exonerate batch job in Puhti:
 #SBATCH --mem=8G
 #SBATCH --partition=small
 
-
 module load biokit
 exonerate --model est2genome query.fasta target.fasta
 ```
