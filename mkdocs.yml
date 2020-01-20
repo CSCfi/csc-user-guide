@@ -1,6 +1,7 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
 site_url: "https://docs.csc.fi"
+site_description: Instructions to use the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
 nav:
   - Home: index.md
   - Accounts:
@@ -108,17 +109,19 @@ nav:
      - Contact: support/contact.md
 
 theme:
-  name: windmill
-  custom_dir: mkdocs_csc
-extra:
-  logo: img/CSC_LOGO_nega_pad.png
-  article_nav: false
-  footer: false
+  name: material
+  custom_dir: mkdocs_csc/
+    
+  font:
+    text: 'Raleway'
+    code: 'Source Code Pro'
+
+  logo: 'img/Docs_CSC_logo.svg#headerlogo"'
 
 extra_css:
-  - css/extra.css
-extra_javascript:
-  - https://use.fontawesome.com/e51b07f7f1.js
+  - 'assets/stylesheets/extra.css'
+  - 'assets/stylesheets/extra_mobile.css'
+
 markdown_extensions:
   - toc:
       toc_depth: 2-6
@@ -126,3 +129,7 @@ markdown_extensions:
   - attr_list
   - pymdownx.details
   - pymdownx.snippets
+
+google_analytics:
+  - 'UA-5406715-9'
+  - 'auto'
