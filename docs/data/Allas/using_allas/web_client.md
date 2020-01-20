@@ -1,11 +1,10 @@
-
 # The web client – OpenStack Horizon Dashboard
 
 This chapter provides instructions for using Allas with the user-friendly _OpenStack Horizon Dashboard_. 
 
 OpenStack documentation for managing buckets over the web interface: [https://docs.openstack.org/horizon/latest/user/manage-containers.html](https://docs.openstack.org/horizon/latest/user/manage-containers.html)
 
-The OpenStack dashboard has a small subset of object storage functionalities. The available operations are:
+The OpenStack dashboard has a small subset of object storage functionalities. The available operations:
 
 | Function |
 | :--- |
@@ -26,7 +25,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 !["Creating a container"](img/allas_screenshot_create_container.png)  
 **Figure** Creating a container
 
-3\. Press the **+Container** button and name the bucket (see the [checklist for naming a bucket](../introduction.md#naming-buckets)). If you choose to make the bucket *Public*, the content of the bucket can be [viewed via the internet](#view-objects-via-the-internet).
+3\. Press the **+Container** button and name the bucket (see the [checklist for naming a bucket](../introduction.md#naming-buckets)). If you choose to make the bucket _Public_, the contents of the bucket can be [viewed via the internet](#view-objects-via-the-internet).
 
 ## Upload an object
 
@@ -46,15 +45,15 @@ If the bucket containing the objects is set to _public_, the objects can be view
 !["Making object public or private"](img/Allas_screenshot_public.png)
 **Figure** Making an object public or private
 
-For example, the public object called _my_fish_ in the container _my_fishbucket_ can be viewed with the URL _a3s.fi/my_fishbucket/my_fish_
+For example, the public object called _my_fish_ in the container _my_fishbucket_ can be viewed with the URL _a3s.fi/my_fishbucket/my_fish_.
 
 ## Download an object
 
-Downloading an object by clicking the **Download** button on the right side of the object's name.
+Download an object by clicking the **Download** button on the right side of the object's name.
 
 ## Remove objects and buckets
 
-Objects can be removed by expanding the dropdown menu on the right next to the _Download_ button and choosing the **Delete** option.
+Objects can be removed by expanding the dropdown menu on the right next to the _Download_ button and choosing **Delete**.
 
 Buckets can be removed only when they are empty. Hence, all objects in a bucket must be removed or moved elsewhere before the bucket can be deleted. Remove a bucket by clicking the **trashcan symbol** next to the bucket's name. 
 
@@ -62,4 +61,3 @@ Buckets can be removed only when they are empty. Hence, all objects in a bucket 
 **Figure** Removing an object or a bucket
 
 Alternatively, and especially if you want to remove several objects at once, you can choose the objects by selecting the small boxes on the left side of the object names and choosing the **trashcan symbol** on the red background in the upper right corner.
-  

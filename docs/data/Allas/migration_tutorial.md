@@ -1,74 +1,69 @@
 # Using Allas to migrate your data from Taito to Puhti 
 
-Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want 
-to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories) 
-you have to copy the data elsewhere before 1.1. 2020. 
+The Taito.csc.fi cluster will be closed at the end of 2019. If you have data that you want 
+to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories), 
+you have to copy the data elsewhere before 1.1.2020. 
 
-The new Allas object storage service provides a platform that you can use to store your data that is currently in the disks of Taito. 
+The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito. 
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
+The new Puhti server that is replacing Taito does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
 This tutorial provides four examples of moving data first from Taito to Allas and then from Allas to Puhti.
 
-1.   [The first example](#e1) uses a-commands (a-put, a-get) for moving data from Taito to Puhti
-2.   [The second example](#e2) the same data is transported using rclone.
-3.   [The third example](#e3) focuses on uploading large files from Taito to Allas 
-4.   [The fourth example](#e4) handles the case where the dataset to be copied includes a *large* amount of files
+1.   [The first example](#e1) uses the *a-commands* (a-put, a-get) for moving data from Taito to Puhti.
+2.   [The second example](#e2) transports the same data using _rclone_.
+3.   [The third example](#e3) focuses on uploading large files from Taito to Allas.
+4.   [The fourth example](#e4) handles the case in which the dataset to be copied includes a *large* amount of files.
 
-The first approach is useful in cases where the data is mainly used within the CSC computing environment (Taito, Puhti, Mahti). While
-the second option (rclone) is good for cases where the data will be used outside CSC too.
+The first approach is useful in cases when the data is mainly used within the CSC computing environment (Taito, Puhti, Mahti). The second option (rclone) is good for cases when the data will be used outside CSC too.
 
-The tutorials are based on interactively executed commands and thus they apply only for relatively small datasets (max some hundreds of GBs).
+The tutorials are based on interactively executed commands and thus apply only for relatively small datasets (max some hundreds of GBs).
 
-## NEW! Datamangler
+## Datamangler
 
-A new temporary service, Datamangler, was taken in use on Novmber 12th 2019 to support data migration from Taito to Allas.
-Datamangler includes a set of nodes that have access to the Taito disk area and fast connection to Allas service. Datamangler should be used for data transport only. 
+A new temporary service, Datamangler, was launched on November 12, 2019 to support data migration from Taito to Allas.
+Datamangler includes a set of nodes that have access to the Taito disk area and a fast connection to the Allas service. Datamangler should only be used for data transport. 
 
-To access Datamangler, use address: datamangler.csc.fi. For example
-
+To access Datamangler, use the address datamangler.csc.fi:
 ```text
 ssh csc-user-account@datamangler.csc.fi
 ```
 
-We recommend you to use Datamangler to transfer your files to Allas, as their transfer capacity is significantly greater
-than from Taito login node or Taito-shell. All of them have the same data transport commands and procedures.
-
-
+We recommend using Datamangler to transfer files to Allas, as the transfer capacity is significantly greater
+than from a Taito login node or Taito-shell. All of them have the same data transport commands and procedures.
 
 ## 1. Get access to Allas
-By default the CSC computing projects do not have access to Allas. Thus, the first thing is to add 
-Allas service for your project.  This is done with the [MyCSC](https://my.csc.fi) interface. 
-Note that only the project manager can apply for the access. Once access is granted, all project 
-members must visit MyCSC web service and accept the term of use for Allas, before they can use the Allas 
+
+By default, CSC computing projects do not have access to Allas. Thus, the first thing is to add 
+the Allas service to your project. This is done in the [MyCSC](https://my.csc.fi) interface. 
+Note that only the project manager can apply for access. Once access is granted, all project 
+members must visit the MyCSC web service and accept the term of use for Allas before they can use the Allas 
 storage area.
 
-
-The default storage quota in Allas is 10 TB.  As this space is shared with all project members it is quite 
-possible that this is not enough. In that case you should estimate how much space is needed and then send 
-a request for more space. Note, that files stored in Allas consume billing units.
+The default storage quota in Allas is 10 TB.  As this space is shared with all project members, it is  
+possible that the space is not sufficient. In that case, you should estimate how much space is needed and request more space. Note that the files stored in Allas consume billing units.
 The request should be sent to **servicedesk@csc.fi**.
-Please include to your quota request:
+Please include in your quota request:
 
-   *    ID/name of your project
-   *    amount Allas space needed
-   *    a shot description of the data to be stored 
+   *    The ID/name of your project
+   *    The amount Allas space needed
+   *    A short description of the data to be stored 
 
-# Migration example 1: A-commands <a name="e1"></a>
+# Migration example 1: a-commands <a name="e1"></a>
 
 ## A. Uploading data from Taito to Allas
 
-A-commands are Allas specific help tools that allow you to have an easy start with Allas.  
-A-commands pack, compress and move data automatically. This reduces the storage space needed, but on
-the other hand, makes the storage process slower. A-commands are a good option for miscellaneous data 
-that compresses well and is mostly used in CSC environment. 
+The a-commands are Allas-specific tools that allow an easy start with Allas.  
+The a-commands pack, compress and move data automatically. This reduces the storage space needed but on
+the other hand makes the storage process slower. The a-commands are a good option for miscellaneous data 
+that compresses well and is mostly used in the CSC environment.
 
+In this example, I have the sub directory _genomes/zebrafish_ in my Taito $WRKDIR that contains the eight files listed below:
 
-In this example in my Taito $WRKDIR I have a sub directory: _genomes/zebrafish_ that contains eight files listed below:
 <pre><b>ls $WRKDIR/genomes/zebrafish</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.4.bt2  
@@ -76,12 +71,13 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first log in to _datamangler.csc.fi_ and set up the Allas environment:
 ```text
 module load allas
 ```
-Then, I open a connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
-then lists those Allas projects that are accessible for me. In this case I select _project_2001659_.
+Then I open a connection to Allas using the command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx) and 
+then lists the Allas projects that are accessible for me. In this case, I select _project_2001659_.
+
 <pre>[kkayttaj@datamangler03:~> <b>allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 <b>xxxxxxxxxx</b>
@@ -94,19 +90,18 @@ allas connection configured successfully.
 Connection stays active for eight hours.
 </pre>
 
-`allas-conf` opens a connection to the specified Allas project for eight hours. If you want to start using some
-other project, you need to run `allas-conf` again. However, in one shell session, you can have only one Allas project active at a time.
-    
+`allas-conf` opens a connection to the specified Allas project for eight hours. If you want to start using 
+another project, you need to run `allas-conf` again. However, in one shell session, you can have only one Allas project active at a time.
 
-Next I go to the _zebrafish_ directory.
+Next I enter the _zebrafish_ directory:
 ```text
 cd $WRKDIR/genomes/zebrafish
 ```
-I can now upload files one-by-one to Allas with `a-put` command. For example:
+I can now upload files one by one to Allas with the `a-put` command:
 ```text
 a-put Danio_rerio.GRCz10.fa
 ```
-In the end of the upload process the command reports:
+At the end of the upload process, the command reports:
 ```text
 -------------------------------------------------------------------------------
 1 files from Danio_rerio.GRCz10.fa uploaded to bucket kkayttaj-2001659-taito-WRKDIR in Allas as one compressed file: 
@@ -119,22 +114,23 @@ Upload summary:
 -----------------------------------------------------------------
 OK
 ```
-So in this case the file was uploaded to Allas into bucket:
+So in this case, the file was uploaded to Allas in the bucket
    _kkayttaj-2001659-taito-WRKDIR_
-as object:
+as the object
   _genomes/zebrafish/Danio_rerio.GRCz10.fa.zst_ .
-In this case I used the default bucket and object names assigned by `a-put`, but other bucket and object 
-names coulud be defined with command line options `-b`  and `-o`.
-Now command _a-list_ shows that I have one bucket in Allas and that the bucket contains one object.
+In this case, I used the default bucket and object names assigned by `a-put`. Other bucket and object 
+names can be defined with the command line options `-b`  and `-o`.
+Now the command _a-list_ shows that I have one bucket in Allas and that the bucket contains one object.
+
 <pre>[kkayttaj@datamangler03:zebrafish> <b>a-list</b>
 kkayttaj-2001659-taito-WRKDIR
 [kkayttaj@datamangler03:zebrafish> <b>a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
 </pre>
 
-Moving data to Allas file-by-file is slow and produces large amounts of objects. It is often more efficient to 
+Moving data to Allas file by file is slow and produces large amounts of objects. It is often more efficient to 
 upload data to Allas one directory at a time and store the data in bigger chunks. For example, to upload the 
-zebrafish directory I first go to the _genomes_ directory:
+zebrafish directory, I first enter the _genomes_ directory
 ```text
 cd $WRKDIR/genomes
 ```
@@ -142,7 +138,7 @@ and then use `a-put` to upload the whole zebrafish directory to Allas as one obj
 ```text
 a-put zebrafish/
 ```
-In the end of the upload process the command reports:
+At the end of the upload process, the command reports:
 ```text
 -------------------------------------------------------------------------------
 8 files from zebrafish uploaded to bucket kkayttaj-2001659-taito-WRKDIR in Allas as one compressed file: 
@@ -155,35 +151,37 @@ Upload summary:
 -----------------------------------------------------------------
 OK
 ```
-After this I have another object in kkayttaj-2001659-taito-WRKDIR bucket:
+After this, I have another object in yjr _kkayttaj-2001659-taito-WRKDIR_ bucket:
+
 <pre>[kkayttaj@datamangler03:genomes> <b>a-list kkayttaj-2001659-taito-WRKDIR</b>
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
 </pre>
 
-Note, that in fact the file _Danio_rerio.GRCz10.fa_ is now stored to Allas two times: 
+Note that, in fact, the file _Danio_rerio.GRCz10.fa_ is now stored in Allas twice: 
 As an individual compressed object (genomes/zebrafish/Danio_rerio.GRCz10.fa.zst)
 and as part of the _genomes/zebrafish.tar.zst_ object.
 
-## B. Download in Puhti
-Next I download the same data to Puhti. After connecting to puhti.csc.fi I go to the scratch directory of 
-project  2001659 and load allas module:
+## B. Downloading to Puhti
+Next I download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
+the project 2001659 and load the _allas_ module:
 ```text
 cd /scratch/project_2001659
 module load allas
 ```
-In this case I know that I want to use Allas with project project_2001659 so I can give the project name as an 
-argument for `allas-conf` command: 
+In this case, I know that I want to use Allas with the project *project_2001659*, so I give the project name as an 
+argument for the `allas-conf` command: 
 ```text
 allas-conf project_2001659
 ```
-Now the configuration process asks just for the CSC password and then sets up the connection to Allas project project_2001659.
-As the Puhti scratch directory is shared by all project members, I make a my own subdirectory (kkayttaj) and go there:
+Now the configuration process asks only for the CSC password and then sets up the connection to the Allas project project_2001659.
+As the Puhti scratch directory is shared by all project members, I create a my own subdirectory (kkayttaj):
 ```text
 mkdir kkayttaj
 cd kkayttaj/
 ```
-With command `a-list` I can now see the objects I just uploaded from Taito to Allas
+With the command `a-list`, I can now see the objects I just uploaded from Taito to Allas:
+
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list</b> 
 kkayttaj-2001659-taito-WRKDIR
 [kkayttaj@puhti-login2 kkayttaj]$ <b>a-list kkayttaj-2001659-taito-WRKDIR</b>
@@ -191,10 +189,10 @@ kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst
 kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
 </pre>
 
-Locating my data is easy as there are just two objects in the bucket, but as more data is added to Allas, 
-locating a specific file from dozens of buckets containing hundreds of objects, may be difficult. 
-In that case, you can search for a specific file with command: `a-find`. In this case I could check if 
-some object contains file Danio_rerio.GRCz10.fa with command:
+Locating my data is easy as there are only two objects in the bucket, but as more data is added to Allas, 
+locating a specific file among dozens of buckets containing hundreds of objects may be difficult. 
+In that case, you can search for a specific file with the command `a-find`. In this example, I can check if 
+an object contains the file Danio_rerio.GRCz10.fa:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-find -a Danio_rerio.GRCz10.fa</b> 
 ----------------------------------------------
@@ -209,11 +207,12 @@ Total of 3 hits were found in 2 objects
 -------------------------------------------------
 </pre>
 
-The `a-find` report above tells that for example object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
-two files whose names match Danio_rerio.GRCz10.fa ( the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
-matches only from objects that were uploaded with `a-put`.
+The `a-find` report above tells that, for example, the object _kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst_ contains 
+two files whose names match Danio_rerio.GRCz10.fa (the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
+matches only among objects that were uploaded with `a-put`.
 
-Now let's download the data to Puhti. This is done with `a-get` command:
+Now let uss download the data to Puhti using the `a-get` command:
+
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get kkayttaj-2001659-taito-WRKDIR/genomes/zebrafish.tar.zst</b>
 Starting to copy data from allas...
 Object:
@@ -233,17 +232,20 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 
 # Migration example 2: rclone <a name="e2"></a>
 
-## A. Uploading data in Taito
-Rclone is the power user tool for Allas. It is good in cases where the data does not compress much and in cases where 
+## A. Uploading data to Taito
+
+Rclone is the power user tool for Allas. It is good in cases where the data does not compress much or 
 the data must be stored so that each file is stored as a separate object.
+
 !!! warning
     Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can _overwrite_ 
     and _remove_ data both in Allas and in the local disk environment without notifying or asking for confirmation.
 
 *    [Using Allas with rclone from Puhti and Taito](./using_allas/rclone.md)
 
-This example uses the same data as the previous case:  in my Taito $WRKDIR I have a sub directory:
-_genomes/zebrafish_  that contains eight files listed below:
+This example uses the same data as the previous case: in my Taito $WRKDIR, I have the sub directory
+_genomes/zebrafish_  that contains the eight files listed below:
+
 <pre><b>ls $WRKDIR/genomes/zebrafish</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.2.bt2  
 Danio_rerio.GRCz10.91.3.bt2  Danio_rerio.GRCz10.91.4.bt2  
@@ -251,12 +253,13 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to datamangler.csc.fi and set up the Allas environment in with command:
+To copy the content of this directory to Allas, I first login to *datamangler.csc.fi* and set up the Allas environment:
 ```text
 module load allas
 ```
-Then I open connection to Allas with command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx)  and 
-then lists those Allas projects that are accessible for me. In this case I select project_2001659.
+Then I open a connection to Allas with the command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx) and 
+then lists the Allas projects that are accessible for me. In this case, I select *project_2001659*.
+
 <pre>[kkayttaj@datamangler03:~> <b>allas-conf</b> 
 Please enter CSC password for account kkayttaj: 
 <b>xxxxxxxxxx</b>
@@ -269,22 +272,22 @@ allas connection configured successfully.
 Connection stays active for eight hours.
 </pre>
 
-The `allas-conf` procedure above defines an Allas-connection that is valid for next eight hours. 
+The `allas-conf` procedure above defines an Allas connection that is valid for eight hours. 
 Next, I go to the _zebrafish_ directory.
 ```text
 cd $WRKDIR/genomes/zebrafish
 ```
 
-Instead of `a-put`, that was used in the previous example, I now use command `rclone copyto` to copy all the 
-files from the given directory to Allas. In the case of `rclone` there is no default bucket. Instead, I have 
-to define a bucket to be used. In this example I use a bucket name _2001659-genomes_ and
+Instead of `a-put` that was used in the previous example, I use command `rclone copyto` to copy all  
+files from the given directory to Allas. In the case of `rclone`, there is no default bucket. Instead, I have 
+to define a bucket. In this example, I use the bucket name _2001659-genomes_ and
 define each object name to have the prefix _zebrafish_.
 
 ```text
 rclone copyto zebrafish/ allas:2001659-genomes/zebrafish
 ```
 
-After copying the files I use `rclone ls` to see what has been uploaded to Allas. 
+After copying the files, I use `rclone ls` to see what has been uploaded to Allas. 
 
 <pre>[kkayttaj@c311:genomes> <b>rclone ls allas:2001659-genomes/zebrafish</b>
 450646234 Danio_rerio.GRCz10.91.1.bt2
@@ -299,32 +302,32 @@ After copying the files I use `rclone ls` to see what has been uploaded to Allas
 
 ## B. Downloading the data to Puhti
 
-Next I download the same data to Puhti.  After connecting to _puhti.csc.fi_ I go to the scratch directory of 
-project_2001659 and load allas module:
+Next, I download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
+project_2001659 and load the allas module:
 ```text
 cd /scratch/project_2001659
 module load allas
 ```
-In this case I know that I want to use Allas with project project_2001659 so I can give the project name as an argument for `allas-conf` command: 
+In this case, I know that I want to use Allas with the project project_2001659, so I give the project name as an argument for the `allas-conf` command: 
 ```text
 allas-conf project_2001659
 ```
-Now the configuration process asks just for the CSC password and then sets up the connection to Allas project project_2001659.
-As the Puhti scratch directory is shared by all project members, I make a my own subdirectory (kkayttaj), if it is not yet created, and go there:
+Now the configuration process asks only for the CSC password and then sets up the connection to the Allas project *project_2001659*.
+As the Puhti scratch directory is shared by all project members, I create a my own subdirectory (kkayttaj), if it is not yet created, and go there:
 ```text
 mkdir kkayttaj
 cd kkayttaj/
 ```
-I can now use command `rclone lsd` to check the available buckets in Allas:
+I can now use the command `rclone lsd` to check the available buckets in Allas:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone lsd allas:</b>
   3268222761 2019-10-03 10:01:42         8 2001659-genomes
   2576778428 2019-10-03 10:01:42         4 kkayttaj-2001659-taito-WRKDIR
 </pre>
 
-Now I can see two buckets: _2001659-genomes_ is the one that was just created in this 
-example while _kkayttaj-2001659-taito-WRKDIR_ originates form the previous a-command example.  
-Next we list objects in the 2001659-genomes bucket:
+Now I see two buckets. _2001659-genomes_ is the one that was just created in this 
+example, while _kkayttaj-2001659-taito-WRKDIR_ originates from the previous a-command example.  
+Next, we list the objects in the _2001659-genomes_ bucket:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone ls allas:2001659-genomes</b>
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
@@ -337,7 +340,7 @@ Next we list objects in the 2001659-genomes bucket:
       715 zebrafish/Danio_rerio.GRCz10.fa.fa
 </pre>
 
-Finally I use `rclone copyto` command to copy the data from Allas to Puhti into new directory _zebrafish2_. 
+Finally ,I use the `rclone copyto` command to copy the data from Allas to Puhti in a new directory _zebrafish2_. 
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
@@ -354,35 +357,32 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 
 # Migration example 3: Uploading large files from Taito to Allas <a name="e3"></a>
 
-In the previous two examples the actual amount of data was rather moderate. Only some gigabytes. If the size of an individual data file is in the level on hundreds of gigabytes or more, the transport of just few files may take longer that is the life time 
-of the token based Allas authentication.
+In the previous two examples, the actual amount of data was rather moderate, only some gigabytes. If the size of an individual data file is hundreds of gigabytes or more, the transport of only a few files may take longer than the duration 
+of the token-based Allas authentication.
 
-In this example we use `a-put` to upload a set of large files from Taito to Allas. We use _datamangler.csc.fi_ as a platform for running the process as it provides faster connection to Allas, than Taito or Taito-shell.
+In this example, we use `a-put` to upload a set of large files from Taito to Allas. We use _datamangler.csc.fi_ as a platform for running the process as it provides a faster connection to Allas than Taito or Taito-shell.
 
-First thing to do is to open a Datamagler connection that we can keep running for a long time. For that 
-we have two options:
+The first thing to do is to open a Datamangler connection that can remain running for a long time. There are two options:
 
-1.    Using [NoMachine virtual desktop](../../apps/nomachine.md) to connect Taito shell
-2.    Using the `screen` command as way that resembles the Taito-shell case described [here](https://research.csc.fi/-/6-how-do-i-start-long-running-jobs-in-taito-shell-)
+1.    Using the [NoMachine virtual desktop](../../apps/nomachine.md) to connect the Taito-shell.
+2.    Using the `screen` command in a way that resembles the [Taito-shell case](https://research.csc.fi/-/6-how-do-i-start-long-running-jobs-in-taito-shell-)
 
-In this example I have used the second alternative and opened the connection to Datamangler with commands:
-
+In this example, I have used the second alternative and opened a connection to Datamangler
 ```text
 ssh csc-username@datamangler.csc.fi
 screen
 ```
-The `screen` command starts a virtual session in the Datamangler. You can leave this virtual screen session running in the backgound and log out from Datamangler but you should check which datamangler node (datamangler01, datamangler02, datamangler03, ...) your session is running on, because you most log on to the very same node to re-connect to your `screen` session
-later on.
+The `screen` command starts a virtual session in Datamangler. You can leave this virtual screen session running in the background and log out of Datamangler but you should check which Datamangler node (datamangler01, datamangler02, datamangler03,...) your session is running on because you need to log in to the same node to reconnect to your `screen` session later on.
 
-In the screen session I first load the _allas module_ and use `allas-conf` to establish the connection to Allas.
+In the screen session, I first load the _allas module_ and use `allas-conf` to establish a connection to Allas.
 ```text
 module load allas
 allas-conf -k
 ```
-Here `allas-conf` is used with option `-k`. This option saves the allas password to a environment variable ($OS_PASSWORD) so that
-the connection to Allas can be later on automatically re-configured without need to define the password again.
+Here, `allas-conf` is used with the option `-k` that saves the allas password in an environment variable ($OS_PASSWORD), so that
+the connection to Allas can later be automatically reconfigured without the need to define the password again.
 
-After opening the Allas connection I move to directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
+After opening the Allas connection, I move to the directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
 <pre>[kkayttaj@datamangler03:~> <b>cd $WRKDIR/my_data</b>
 [kkayttaj@datamangler03:my_data> <b>ls -lh */*.gz</b>
@@ -394,17 +394,15 @@ After opening the Allas connection I move to directory _my_data_ where I have a 
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
-Most of the modern non-ascii file formats, (i.e. binary data) that are used for large datasets, store the data in very dense format. Thus, these files do not benefit from compressing the data. The same applies of course to files that have already been compressed. For thiese kind of data it is reasonable to use `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, `a-put` does not accept directories, only individual files. Because of that it is good to run a check, like the `ls -lh` command above, to ensure that input will contain only files.
+Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets store the data in a very dense format. Thus, these files do not benefit from compressing the data. The same applies to files that have already been compressed. For this kind of data, it is reasonable to use the `a-put` command with the `--nc` option that skips the compression and uploads the file to Allas as it is. However, when compression is not used, `a-put` does not accept directories, only individual files. Because of that, it is good to run a check, such as the `ls -lh` command above, to ensure that the input contains only files.
 
-Next I launch the upload process. In this case I don't use the default bucket name but I assign the name to be _2000136-uniref_
-
+Next, I launch the upload process. In this case, I do not use the default bucket name but assign the name to be _2000136-uniref_
 ```text
 a-put -b  2000136-uniref --nc  */*.gz
 ```
-This command starts loading the files, listed above, to Allas.
+This command uploads the files listed above to Allas.
 
 I could launch the same upload alternative with `rclone copy`:
-
 ```text
 for f in */*.gz
 do
@@ -412,15 +410,15 @@ rclone copy $f allas:2000136-uniref
 done
 ```
  
-I can now leave the session running in the background by pressing: `Ctrl-a d`.
+I can now leave the session running in the background by pressing `Ctrl-a d`.
 
-Now, I can logout from Datamagler, but the screen session remains active in the Datamangler node I use (in this case _datamangler03_ ).
+Now, I can log out of Datamagler, but the screen session remains active in the Datamangler node I use (in this case, _datamangler03_).
 
-To connect to this session, I first connect to the Datamangler node where the screen session is running. For example:
+To connect to this session, I first connect to the Datamangler node where the screen session is running:
 ```text
 ssh csc-username@datamangler03.csc.fi
 ```
-Then,  I reattach the screen session with command:
+Then, I reattach the screen session:
 ```
 screen -r
 ``` 
@@ -443,14 +441,12 @@ You should note, that _a-check_ does does not check if the actual contect of the
 
 
 
-
 # Migration example 4: Uploading complex directory structures from Taito to Allas <a name="e4"></a>
 
-Some workflows and software create complex directory structures to store and manage data. You might have directories that have thousands or even millions of individual files. Copying these kinds of datasets from Taito to Allas will take time and won't
-always be straight forward. The most reasonable way to upload these kind of data depends on the case. This example shows some alternatives on how to upload them.
+Some workflows and software create complex directory structures to store and manage data. You might have directories that have thousands or even millions of individual files. Copying these kinds of datasets from Taito to Allas takes time and is not
+always straightforward. The most reasonable way to upload this kind of data depends on the case. This example introduces a few alternatives.
 
 First, we open a `screen` session on Datamangler and set up an Allas connection just like in the previous example:
-
 ```text
 ssh csc-username@datamangler.csc.fi
 screen
@@ -458,48 +454,47 @@ module load allas
 allas-conf -k
 ```
 
-Suppose we have a directory structure that contains images of road condition cameras from ten locations with the interval of 10 minutes from years 2014-2018. The data locates in a directory "road_cameras" so that each location has its own sub-directory (10 directories). Inside each subdirectory we have another layer for each year (5 subdirectories) each containing subdirectories for every day of the year (further 365 subdirectories), each containing 144 small image files. 
+Suppose we have a directory structure that contains images of road condition cameras from ten locations with an interval of ten minutes from the years 2014–2018. The data is located in the directory *road_cameras* where each location has its own subdirectory (ten directories). Inside each subdirectory, there is another layer for each year (five subdirectories), each containing subdirectories for every day of the year (further 365 subdirectories), each containing 144 small image files. 
 
-For example
+For example:
 ```text
 road_cameras/site_7/2017/day211/image_654887.jpg
 ```
-Thus, the total number of files in the _road_cameras_ directory is: 10 * 5 * 365 * 144 = 2 628 000.
+Thus, the total number of files in the _road_cameras_ directory is 10 * 5 * 365 * 144 = 2 628 000.
 
-In principle, you _could_ copy all the 2,6 million files as separate objects to Allas, but in that case you should split the data into multiple buckets as one bucket can have in maximum 0,5 million objects.  You could, for example, run a separate `rclone` command for each _site_ directory and put data from each site to a site specific bucket. For example:
+In principle, you could copy all 2,6 million files as separate objects to Allas, but in that case, you should split the data into multiple buckets as one bucket can have at most 0,5 million objects. You could, for example, run a separate `rclone` command for each _site_ directory and put the data from each site to a site-specific bucket:
 
 ```text
 rclone copyto road_cameras/site_1 allas:20000136_road_cameras_site_1/
 ```
-This way you would end up creating ten buckets each containing 262 800 objects. 
+This way, you would end up creating ten buckets each containing 262 800 objects. 
 
-However, this approach _could_ be the most effective way for storing and re-using the data if you know that you will need to
+However, this approach could be the most effective way for storing and reusing the data, if you know that you will need to
 access individual images randomly.
 
-As another extreme, your could use `a-put` and collect all the data into one compressed object. If you do that you
-must add the option _--skip-filelist_ to the `a-put` command. By default `a-put` collects detailed metadata of **each** file to the _ameta_ file. However, if you have thousands of files, collecting this information will take a long time. If you need to know the file names, you can use _--simple-fileslist_ option to just collect the names - but **no** other information - of the files to the metadatafile. This already speeds up the pre-processing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored altogether (--skip-filelist), which is the fastest option.
+As another extreme option, your could use `a-put` and collect all data into one compressed object. In order to do that, you
+must add the option _--skip-filelist_ to the `a-put` command. By default, `a-put` collects detailed metadata of **each** file in the _ameta_ file. However, if you have thousands of files, collecting this information takes a long time. If you need to know the file names, you can use the _--simple-fileslist_ option to collect the names – but **no** other information – of the files in the metadata file. This already speeds up the preprocessing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored altogether (--skip-filelist), which is the fastest option.
 
 ```text
 a-put --skip-filelist road_cameras/
 ```
-This approach would store all the 2,6 million files into one object.
+This approach would store all 2,6 million files as one object.
 
-In practice, the optimal way of storing the data is often between these two extremes. As a compromise, you could apply packing in some higher level in the hierarchy.
+In practice, the optimal way of storing the data is often between these two extremes. As a compromise, you could apply compression at a higher level in the hierarchy.
 
 For example:
-
 ```text
 a-put --skip-filelist road_cameras/site_*
 ```
-This would produce 10 objects, each containing all the information from one camera site.
-Alternatively, you could do the compression so, that data from each year in each camera is collected to one object:
- 
+This would produce ten objects, each containing all information from one camera site.
+Alternatively, you could do the compression so that data from each year from each camera is collected as one object:
 ```text
 a-put --skip-filelist road_cameras/site_*/20*
 ```
-This last option would store the data into 50 objects. Day-based objects for each camera might be most handy for using the data later on, but as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects will probably take quite a long time.
+This last option would store the data as 50 objects. Day-based objects for each camera might be the most practical option for using the data later on but, as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects probably takes quite a long time.
 
-Copying millions of files to Allas will take a long time regardless of the way you are using. If you have started the `a-put` command inside a `screen` session, you can detach from the virtual session by pressing `Ctrl-a-d` log out from the Datamagler and leave the upload process running for days. 
+
+Copying millions of files to Allas takes a long time regardless of the method. If you have started the `a-put` command inside a `screen` session, you can detach from the virtual session by pressing `Ctrl-a-d` to log out from Datamangler and leave the upload process running for days. 
 
 Once the _a-put_ command is finished, you can run `a-check` command to checkh if all the data objects have been created. 
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command could be:
@@ -515,3 +510,4 @@ This file of missing items can be used with a-put option `--input-list`, to cont
 a-put -b 2000136-uniref --nc --input-list missing_bucket_name_number
 ```
 You should note, that _a-check_ does does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
+
