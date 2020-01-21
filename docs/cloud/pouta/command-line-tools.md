@@ -43,12 +43,12 @@ subcommand, add the command name after "help". For example:
 
     openstack help server create
 
-##### Adding a key pair
+##### Adding a keypair
 
     openstack keypair create --public-key <file> <name>
 
 **The first thing you should do** is to
-generate a key pair. It will be used to access virtual machines. You
+generate a keypair. It will be used to access virtual machines. You
 can also optionally specify a public key you have previously generated,
 in which case the private key is the one you generated when the
 public key was generated. 
