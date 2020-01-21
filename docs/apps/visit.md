@@ -1,6 +1,6 @@
 # VisIt
 
-VisIt is an open source, versatile software for scientific visualization. [NoMachine](https://docs.csc.fi/apps/nomachine/) is recommended for smooth interaction. VisIt is available on Puhti.
+VisIt is an open source, versatile software for scientific visualization. [NoMachine](nomachine.md) is recommended for smooth interaction. VisIt is available on Puhti.
 
 
 ## Parallel use
