@@ -1,6 +1,6 @@
 # ParaView
 
-ParaView is an open source, versatile software for scientific visualization. [NoMachine](https://docs.csc.fi/apps/nomachine/) is recommended for smooth interaction. ParaView is available on Puhti.
+ParaView is an open source, versatile software for scientific visualization. [NoMachine](nomachine.md) is recommended for smooth interaction. ParaView is available on Puhti.
 
 
 ## Serial use
