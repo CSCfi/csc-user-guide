@@ -1,4 +1,3 @@
-## Remote disk mounts
 
 With remote disk mounts you can use your CSC directories in a way that resembles the usage of an external disk or USB memory stick. Using this approach normally requires installing some extra software to your local computer, but it also makes the usage very fluent as no `scp` or other data transfer programs are needed to move files between local computer and CSC.
 
@@ -11,10 +10,10 @@ Once sshfs is installed in your Linux machine you can create remote disk mount w
 sshfs username@hostname:/path/to/dir /path/to/mountpoint
 ```
 
-For example, to make the home directory on Taito of user _kayttaja_ visible to a local Linux computer, execute command:
+For example, to make the home directory on Puhti of user _kayttaja_ visible to a local Linux computer, execute command:
 ```bash
 mkdir csc_home
-sshfs kayttaja@taito.csc.fi:/homeappl/home/kayttaja ./csc_home
+sshfs kayttaja@puhti.csc.fi:/users/ csc_home
 ```
 
  

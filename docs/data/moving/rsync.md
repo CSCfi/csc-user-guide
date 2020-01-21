@@ -1,4 +1,3 @@
-## Using rsync for data transfer and synchronization 
 
 **Rsync** is a data transport tool that can be used much like the scp command.
 When transferring data, `rsync` checks the difference between the source and target files and only transfers the parts that have changed. This makes `rsync` suitable for:
@@ -34,20 +33,20 @@ The table below lists the most commonly used  options:
 |`--progress`	|	   |	Show progress during transfer. 	 |
 |`-P`		|	   |	same as --partial --progress 	 |
 
-So the command for transferring a local folder to Taito,while showing the progress and keeping partially transferred files, would be:
+So the command for transferring a local folder to Puhti,while showing the progress and keeping partially transferred files, would be:
 
 ```bash
-rsync -rP /path/to/local/folder  username@taito.csc.fi:/path/to/target
+rsync -rP /path/to/local/folder  username@puhti.csc.fi:/path/to/target
 ```
 This would either:
 
-- create a folder on Taito at _path/to/target/folder_, if the folder was not present before. In this case, everything in the folder will be transferred
-- synchronize the source and target folders, if the folder already exists on Taito. In this case, only changes we have made will be transferred
+- create a folder on Puhti at _/path/to/target/folder_, if the folder was not present before. In this case, everything in the folder will be transferred
+- synchronize the source and target folders, if the folder already exists on Puhti. In this case, only changes we have made will be transferred
 
 And the same thing in reverse:
 
 ```bash
-rsync -rP username@taito.csc.fi:/path/to/target/folder /path/to/local
+rsync -rP username@puhti.csc.fi:/path/to/target/folder /path/to/local
 ```
 
 !!! note

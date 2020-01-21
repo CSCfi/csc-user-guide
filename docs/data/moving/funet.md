@@ -1,4 +1,3 @@
-## Using Funet FileSender to share and transport files 
 
 Funet FileSender is a browser based service for sending large files to colleagues. It is provided as an alternative to e-mail attachments but it can also be used for moving files to CSC environment. The service allows you to upload and send files up to 300 GB size and is not intended for long-term storage, as the files are deleted automatically after the preservation time is exceeded. The maximum preservation time is 21 days.
 

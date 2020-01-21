@@ -1,4 +1,3 @@
-## Graphical file transfer tools 
 There are plenty of graphical file transport tools, that you can install to your local computer to transfer data between your local computer and CSC. Here we shortly introduce two of them: **FileZilla** that is available for Windows, Mac OSX and Linux machines and **WinSCP** that is available for windows.
 
 ####  FileZilla - general file transfer tool
@@ -11,14 +10,14 @@ When you start FileZilla, a graphical file transfer interface opens to your scre
 
 You can use following settings for connecting CSC:
 
-  -  Host (sisu.csc.fi, taito.csc.fi or taito-shell.csc.fi)
+  -  Host (puhti.csc.fi)
   -  User / Username ( your CSC username)
   -  Password (your CSC password)
   -  Port (use value: 22)
   -  Protocol: SFTP - SSH File Transfer Protocol
   -  Logon type: Ask for password
 
-Once the connection is opened, FileZilla shows two interactive file listings side by side. On the left side you have your local file system and in right site the remote file system (e.g. files in Sisu or Taito). You can change your location by interactive browsing or by typing a directory path to the _local_ site or _remote_ site field.
+Once the connection is opened, FileZilla shows two interactive file listings side by side. On the left side you have your local file system and in right site the remote file system (e.g. files in Puhti). You can change your location by interactive browsing or by typing a directory path to the _local_ site or _remote_ site field.
 
 Once you have the right directories open in both local and the remote site, you can copy files or directories between the sites simply by selecting a file or folder with mouse and dragging it to the other site. For other operations, try right-clicking a file or a folder.
 

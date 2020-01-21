@@ -1,4 +1,3 @@
-## Using wget to download data from web sites to CSC 
 **Wget** is a command for downloading files from  WWW-sites and FTP servers. Once you have resolved the URL of the file, just give it as an argument to the `wget` command to download the file to your current directory.
 
 ```bash
