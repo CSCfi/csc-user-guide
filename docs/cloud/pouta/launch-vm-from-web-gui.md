@@ -9,6 +9,7 @@
 This document explains a simple way to launch a virtual machine in the
 Pouta service. Any CSC user with a computing project can request
 access to the service as described in [Applying for Pouta access].
+To use Pouta, you need to have applied Pouta access for your project first.
 Please make sure you are familiar with the [concepts](../concepts.md) and
 [security issues](security.md) first.  You might also want to take a
 look at the webinar recording [in
