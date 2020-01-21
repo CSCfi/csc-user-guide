@@ -59,6 +59,7 @@
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [ParaView](paraview.md) Free open-source visualization application
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
@@ -88,6 +89,7 @@
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [Velvet](velvet.md) Genome assembler
+* [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
