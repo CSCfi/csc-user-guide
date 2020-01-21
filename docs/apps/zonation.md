@@ -10,19 +10,22 @@ __Zonation__ is available in Puhti with following versions:
 
 ## Usage
 
-Zonation usage in Puhti happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. 
+Zonation is available in the __zonation__ module and can be loaded with
 
-You can run normal zonation commands in the following way:
+`module load zonation`
 
-```
-srun singularity exec --bind <your-project-folder>:<your-project-folder> /appl/soft/geo/zonation/zonation.sif <zonation command>
-```
+Zonation usage in Puhti happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. CSC provides a [__singularity_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
 
-Here is an example with the [zonation-tutorial data](https://github.com/cbig/zonation-tutorial)
+After loading the Zonation module you can run normal zonation commands in the following way:
 
 ```
-srun singularity exec \
-    --bind /projappl/<your_project>:/projappl/<your_project> /appl/soft/geo/zonation/zonation.sif \
+srun singularity_wrapper exec <zonation command>
+```
+
+Here is an example with the [zonation-tutorial data](https://github.com/cbig/zonation-tutorial). With the Singularity wrapper, you need to have the data in your project's __projappl__ of __scratch__ folder.
+
+```
+srun singularity_wrapper exec \
     zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
     basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
 ```
@@ -30,7 +33,7 @@ srun singularity exec \
 !!! note
     The installation of Zonation in Puhti does not include the graphical user interface
 
-## Example batch job
+## Example batch job script
 
 ```
 #!/bin/bash
@@ -40,15 +43,15 @@ srun singularity exec \
 #SBATCH --time=00:10:00
 #SBATCH --mem=2G
 
-srun singularity exec \
-    --bind /projappl/<YOUR-PROJECT>:/projappl/<YOUR-PROJECT> /appl/soft/geo/zonation/zonation.sif \
+module load zonation
+srun singularity_wrapper exec \
     zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
     basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
 ```
 
 
 !!! note
-    Please note that Zonation can use only one core so reserving more won't speed up the processing
+    Please note that Zonation can use only one CPU core so reserving more won't speed up the processing
 
 
 ## License and citing
@@ -62,6 +65,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 * [Zonation homepage](https://www.syke.fi/zonation)
 * [Zonation Github](https://github.com/cbig/zonation-core)
 * [Zonation tutorials](https://github.com/cbig/zonation-tutorial)
+* [Singularity containers in CSC](../computing/containers/run-existing.md)
 
 
 
