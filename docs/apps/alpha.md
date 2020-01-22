@@ -55,6 +55,7 @@
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
+* [OpenDroneMap](opendronemap.md) open source command line toolkit for processing aerial drone imagery
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images

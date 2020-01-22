@@ -1,0 +1,67 @@
+# OpenDroneMap (ODM)
+
+[OpenDroneMap](https://www.opendronemap.org/) (ODM) is an open source command line toolkit for processing aerial images. It is used for instance in making DEMs, DSMs, point clouds and orthophotos photogrammetrically.
+
+## Available
+
+__OpenDroneMap__ is available in Puhti with following versions:
+
+* 0.9.1
+
+## Usage
+
+OpenDroneMap is available in Puhti as a [Singularity](../computing/containers/run-existing.md) container
+
+You can run OpenDroneMap in the following way. 
+
+```
+singularity run --bind <your-ODM-project-folder>:/datasets/code /appl/soft/geo/opendronemap/opendronemap.sif --project-path /datasets
+```
+
+It is possible to add [additional arguments](https://docs.opendronemap.org/arguments.html) to the end of the command. 
+
+The ODM project folder is the directory that includes the input images (in a folder /images) and where the output products will be written. It is recommended to have this directory in your project's __scratch-folder__. The __.sif__ file in the command is the actual container.
+
+Here is an example. For this to work, the __odm_project__ folder needs to exist and inside it needs to be a folder called images that has all the input images.
+
+```
+singularity run \
+--bind /scratch/<YOUR-CSC-PROJECT/odm_project:/datasets/code \
+/appl/soft/geo/opendronemap/opendronemap.sif --project-path /datasets
+```
+
+## Example batch job script
+
+```
+#!/bin/bash
+#SBATCH --account=<YOUR-CSC-PROJECT>
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem-per-cpu=2G
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+
+srun singularity run \
+--bind /scratch/<YOUR-CSC-PROJECT>/odm_project:/datasets/code \
+/appl/soft/geo/opendronemap/opendronemap.sif --project-path /datasets
+```
+
+!!! note
+    Please note that OpenDroneMap can use only one computing node in processing which means maximum of 40 CPU cores and 192GB memory.
+
+
+## License and citing
+
+OpenDroneMap is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/OpenDroneMap/ODM/blob/master/LICENSE)
+
+In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+
+### References
+
+* [OpenDroneMap homepage](https://opendronemap.org)
+* [OpenDroneMap Docs](https://docs.opendronemap.org/)
+* [OpenDroneMap Github](https://github.com/OpenDroneMap/ODM)
+* [Singularity containers in CSC](../computing/containers/run-existing.md)
+
+
+
