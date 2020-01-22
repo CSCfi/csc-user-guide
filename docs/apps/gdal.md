@@ -9,7 +9,7 @@ GDAL is available in Puhti with following versions:
 * 3.0.2 via conda: [geoconda](geoconda.md), 
 * 2.4.3 via conda: [snap](snap.md)
 * 2.4.2 via conda: [mapnik](mapnik.md)
-* 2.4.1 via conda: [solaris](solaris.md)
+* 2.4.1 via conda: [solaris](solaris.md) and [Orfeo ToolBox)(otb.md)
 * 3.0.1 stand-alone: gdal module,
 * 2.4.2 stand-alone: gdal module, [r-env](r-env.md), additionally FORCE and Saga-GIS use this GDAL, but the GDAL commandline tools are not included in these modules.
 
@@ -17,7 +17,7 @@ GDAL is available in Puhti with following versions:
 
 ### Using gdal
 
-GDAL is included in the modules listed above, so and can be loaded with for example:
+GDAL is included in the modules listed above, so it can be used when any of these modules is loaded, or it can be loaded separately with:
 
 `module load geoconda`
 
@@ -42,6 +42,7 @@ You can test if gdal loaded successfully with following
 
 It is possible to __read__ files from Allas directly with GDAL, but not to write.
 The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
+
  * [Python](geoconda.md): gdal, geopandas, fiona and rasterio. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
  * [R](r-env-for-gis.md): sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
  * [QGIS](qgis.md)
