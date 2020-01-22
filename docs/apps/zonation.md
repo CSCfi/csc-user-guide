@@ -22,7 +22,7 @@ After loading the Zonation module you can run normal zonation commands in the fo
 srun singularity_wrapper exec <zonation command>
 ```
 
-Here is an example with the [zonation-tutorial data](https://github.com/cbig/zonation-tutorial). With the Singularity wrapper, you need to have the data in your project's __projappl__ of __scratch__ folder.
+Here is an example with the [zonation-tutorial data](https://github.com/cbig/zonation-tutorial). With the Singularity wrapper, you need to have the data in your project's __projappl__ or __scratch__ folder.
 
 ```
 srun singularity_wrapper exec \
@@ -44,6 +44,7 @@ srun singularity_wrapper exec \
 #SBATCH --mem=2G
 
 module load zonation
+cd /scratch/<your_project>
 srun singularity_wrapper exec \
     zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
     basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
