@@ -1,4 +1,4 @@
-### Connecting to your virtual machine
+# Connecting to your virtual machine
 
 This article describes several ways to connect to a running virtual machine.
 The prerequisites include proper [firewall settings](../launch-vm-from-web-gui/#firewalls-and-security-groups)
