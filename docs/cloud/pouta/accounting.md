@@ -20,7 +20,7 @@ storage and floating IPs.
 
 | Resource | Cost |
 |------------------|--------------------|
-| Virtual machines | See [Flavors](vm-flavors-and-billing.md) |
+| Virtual machines | See [Flavors] |
 | Storage volumes | 3,5 BU / TiB hour |
 | Floating IPs | 0,2 BU / hour |
 
@@ -28,7 +28,7 @@ Please note that virtual machines consume BUs regardless whether you are using
 them or not. This means that a shut down or suspended virtual machine
 still consumes BUs. You can find more information about the different
 states of virtual machines and their BU consumption in [Virtual machine
-lifecycle](vm-lifecycle.md). The minimum accounting time for a virtual machine is
+lifecycle]. The minimum accounting time for a virtual machine is
 one hour. Another source for estimating usage is the [Resource calculator]
 
 Storage volumes consume billing units based on their size. The unit of
@@ -94,7 +94,7 @@ visibility of which flavors are available in the future.
 We try to always have free storage and floating IP resources, if quota
 for them has been allocated.
 
-* [Flavors](vm-flavors-and-billing.md)
-* [Virtual machine lifecycle](vm-lifecycle.md)
-* [TebiByte](https://en.wikipedia.org/wiki/Tebibyte)
-* [Resource calculator](https://research.csc.fi/pricing-of-computing-services)
+[Flavors]:vm-flavors-and-billing.md
+[Virtual machine lifecycle]:vm-lifecycle.md
+[TebiByte]:https://en.wikipedia.org/wiki/Tebibyte
+[Resource calculator]:https://research.csc.fi/pricing-of-computing-services
