@@ -20,14 +20,14 @@ fragments the system increasing queuing times for large jobs.
 
 Instead, it is recommended to request full nodes by:
 ```
-#SBATCH --nnodes=5
+#SBATCH --nodes=5
 #SBATCH --ntasks-per-node=40
 ```
 If your core requirement is not a multiple of 40, you can limit the maximum spread
 by combining:
 ```
 #SBATCH --ntasks=128
-#SBATCH --nnodes=4
+#SBATCH --nodes=4
 ```
 
 ## Perform a scaling test
