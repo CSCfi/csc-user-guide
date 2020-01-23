@@ -19,35 +19,28 @@ interface.
 
 Launching an instance on the command line:
 
-```openstack server create --flavor <flavor> \
- --image <image uuid> \
- --key-name <key name> \
- --nic net-id=<name of network> \
- --security-group default \
- --security-group <additional security group> <name of server>
-```
+    openstack server create --flavor <flavor> \
+    --image <image uuid> \
+    --key-name <key name> \
+    --nic net-id=<name of network> \
+    --security-group default \
+    --security-group <additional security group> <name of server>
 
 Login and make any necessary changes. To ensure consistent snapshots,
 snapshots should only be created from instances which are powered off.
 First power off your instance:
 
-```
-openstack server stop <name of vm>
-```
+    openstack server stop <name of vm>
 
 Then create a snapshot of the machine's current state:
 
-```
-openstack server image create --name <name of snapshot to create> <name of vm>
-```
+    openstack server image create --name <name of snapshot to create> <name of vm>
 
 It takes some time to create the snapshot. Once it is finished,
 it appears as a new image. If you need the original instance, you
 can power it on after the snapshot has been created.
 
-```
-openstack server start <name of vm>
-```
+    openstack server start <name of vm>
 
 In the web UI under **Compute \| Instances**, the instance-specific
 Create Snapshot menu items work for the same effect as the CLI
@@ -204,9 +197,7 @@ images/Ubuntu-14.04-old.raw: x86 boot sector; partition 1: ID=0x83, active, star
 
 Upload using the command line:
 
-```
-openstack image create --disk-format <disk format> --private --file <image file to upload> <name of image to create>
-```
+    openstack image create --disk-format <disk format> --private --file <image file to upload> <name of image to create>
 
 This should upload the image. It takes a while before the image is usable.
 
@@ -254,9 +245,7 @@ To begin with, you need to add the acceptor project as a member of the image
 to be shared by executing the following _glance_ command in the donor
 project: 
 
-```
-glance member-create <your-image-UUID> <acceptor-project-ID> 
-```
+    glance member-create <your-image-UUID> <acceptor-project-ID> 
 
 Then the acceptor project needs to accept this membership. To do so,
 you or your colleague needs to execute the following glance command in the
@@ -266,11 +255,11 @@ acceptor project:
 glance member-update <your-image-UUID> <acceptor-project-ID> accepted
 ```
 
-* [GitHub page](https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation)
-* [Kickstart](https://github.com/rhinstaller/pykickstart/blob/master/docs/kickstart-docs.rst)
-* [OpenStack virtual machine image guide](http://docs.openstack.org/image-guide/index.html)
-* [creating images manually](http://docs.openstack.org/image-guide/create-images-manually.html)
-* [tool support for creating images](http://docs.openstack.org/image-guide/create-images-automatically.html)
-* [virt-sysprep](http://libguestfs.org/virt-sysprep.1.html)
-* [cloud-init](https://cloudinit.readthedocs.org/en/latest/)
-* [glance](https://research.csc.fi/pouta-install-client)
+  [GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
+  [Kickstart]: https://github.com/rhinstaller/pykickstart/blob/master/docs/kickstart-docs.rst
+  [OpenStack virtual machine image guide]: http://docs.openstack.org/image-guide/index.html
+  [creating images manually]: http://docs.openstack.org/image-guide/create-images-manually.html
+  [tool support for creating images]: http://docs.openstack.org/image-guide/create-images-automatically.html
+  [virt-sysprep]: http://libguestfs.org/virt-sysprep.1.html
+  [cloud-init]: https://cloudinit.readthedocs.org/en/latest/
+  [glance]: https://research.csc.fi/pouta-install-client
