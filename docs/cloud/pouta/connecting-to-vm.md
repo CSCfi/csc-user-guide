@@ -7,7 +7,7 @@ and a [floating IP](../launch-vm-from-web-gui/#adding-a-public-ip-for-the-machin
 ### Keypair-based SSH connection
 
 When your virtual machine has a public floating IP assigned in the cPouta
-cloud (or VM local IP in the case of ePouta) and a [security group] that
+cloud (or VM local IP in the case of ePouta) and a [security group](../launch-vm-from-web-gui/#firewalls-and-security-groups) that
 allows SSH, you can open a remote SSH connection to your
 instance. Any standard SSH client should work.
 
