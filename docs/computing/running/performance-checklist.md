@@ -18,13 +18,15 @@ If resources are requested simply by:
 ```
 the queuing system may spread them on tens of nodes (just a few cores each).
 This will be very bad for the performance of the job, and will cause a lot of
-communication in the system interconnect. This should be avoided. Instead,
-it is recommended to request full nodes by:
+(unnecessary) communication in the system interconnect. This should be avoided. This also
+fragments the system increasing queuing times for large jobs.
+
+Instead, it is recommended to request full nodes by:
 ```
 #SBATCH --nnodes=5
 #SBATCH --ntasks-per-node=40
 ```
-If your core needs are not multiples of 40, you can limit the maximum spread
+If your core requirement is not a multiple of 40, you can limit the maximum spread
 by combining:
 ```
 #SBATCH --ntasks=128
