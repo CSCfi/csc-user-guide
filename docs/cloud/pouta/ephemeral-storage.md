@@ -1,6 +1,6 @@
 # Ephemeral storage
 
-Some  Pouta virtual machine [flavors] have an *ephemeral storage* in
+Some  Pouta virtual machine [flavors](vm-flavors-and-billing.md) have an *ephemeral storage* in
 addition to the root disk. This works as additional storage for the
 duration of the instance. This storage is not saved with the instance.
 This storage **does not** get saved when you create a snapshot of an
@@ -10,7 +10,7 @@ storage is based on RAID0 arrays optimized for performance, providing
 no redundancy whatsoever.
 
 For a detailed explanation of the ephemeral storage (and other storage
-options), you can see the [storage concepts] section in the OpenStack
+options), you can see the [storage concepts](storage.md) section in the OpenStack
 user guide.
 
 The ephemeral storage is visible as an additional disk to the virtual
