@@ -15,7 +15,7 @@ At the moment only Qiime2 is available in Puhti.
 
 ## Available
 
--   Puhti: qiime2-2019.7  
+-   Puhti: qiime2-2019.10  
 
 
 ## Usage
@@ -25,7 +25,7 @@ In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
 ```text
 module load bioconda
 conda env list
-source activate qiime2-2019.7
+source activate qiime2-2019.10
 source tab-qiime 
 ```
 
@@ -37,8 +37,18 @@ qiime
 Please check Qiime2 home page for more instructions.
 
 Note that many Qiime tasks involve heavy computing. Thus these tasks should be executed as
-batch jobs.
+batch jobs. Qiime needs to have access to a local node spcific file system for hadling temporary data.
+This kind of directory is available in the NVME nodes of Puhti. Bcause of that you must include request for NVME space
+to your batch job file.
 
+For example to reserve 100 GB of local disk space:
+```
+#SBATCH --gres=nvme:100
+```
+In additon you must define that the NVME space (LOCAL_SCRATCH) is used as temporary storage area (TMPDIR).
+```text
+export TMPDIR="$LOCAL_SCRATCH"
+```
 For example the batch job script below runs the denoising step of the
 [QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
 as a batch job using eight cores.
@@ -55,10 +65,12 @@ as a batch job using eight cores.
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --partition=small
+#SBATCH --gres=nvme:100
 
 #set up qiime
 module load bioconda
-source activate qiime2-2019.7
+source activate qiime2-2019.10
+export TMPDIR="$LOCAL_SCRATCH"
 
 # run task
 srun qiime dada2 denoise-single \
