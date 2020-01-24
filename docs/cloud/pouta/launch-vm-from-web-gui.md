@@ -139,7 +139,7 @@ After selecting the instance boot source, you can select an _image_ or a virtua
 
 ## Adding a public IP for the machine in cPouta
 
-When a virtual machine is launched, it only gets a _NATed internal network_. This means that the machine can access the Internet and other virtual machines in cPouta, but you can not access it from the Internet. To be able to access your virtual machine, you need to add a public IP address for it.
+When a virtual machine is launched, it only gets a _NATed internal network_. This means that the machine can access the internet and other virtual machines in cPouta, but you can not access it on the internet. To be able to access your virtual machine, you need to add a public IP address for it.
 
 When the _Instances_ view shows that your machine is _Active_ and in the _Running_ state, select **Associate Floating IP** from the drop down menu that shows up when you click the arrow symbol next to the "Create Snapshot" button.
 
@@ -147,14 +147,13 @@ When the _Instances_ view shows that your machine is _Active_ and in the _Runnin
 
 **Figure** Floating IP association options
 
-Click the plus to create a new IP, select the IP, select your machine under **Instance** and click **Associate**. It will take some minutes before you are able to see the second, public IP address, in the _Instances view_. Once also the second IP is shown, your machine has a public IP and is accessible from the Internet.
+Click the plus to create a new IP, select the IP, select your machine under **Instance**, and click **Associate**. It takes some minutes before you are able to see the second, public IP address in the _Instances view_. Once the second IP is shown as well, your machine has a public IP and is accessible on the internet.
 
 ![Assign IP](/img/pouta-assign-ip.jpg)
 
 **Figure** Floating IP association dialog
 
 !!! Tip
-    Please Note: Allocated or assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally follow our [blog-post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
-
+    Please note: Allocated and assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
 
   [Applying for Pouta access]: ../../accounts/how-to-add-service-access-for-project.md
