@@ -22,6 +22,9 @@ After loading the WhiteboxTools module you can run normal WhiteboxTools commands
 srun singularity_wrapper exec <whiteboxtools command>
 ```
 
+!!! note
+    For now, the Graphical user interface (Whitebox GAT) and the Python interface are not available on Puhti
+
 Here is an example of calculating Hillshade for a 2m DEM. 
 
 ```
