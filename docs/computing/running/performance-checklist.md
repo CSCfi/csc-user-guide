@@ -15,20 +15,29 @@ If resources are requested simply by:
 ```
 the queuing system may spread them on tens of nodes (just a few cores each).
 This will be very bad for the performance of the job, and will cause a lot of
-(unnecessary) communication in the system interconnect. This should be avoided. This also
+(unnecessary) communication in the system interconnect. If the performance of
+your parallel jobs has decreased, this could be the reason. 
+Overall, this should be avoided. This also
 fragments the system increasing queuing times for large jobs.
 
-Instead, it is recommended to request full nodes by:
+The best performance (fastest communication) can be achieved by requesting
+full nodes:
 ```
 #SBATCH --nodes=5
 #SBATCH --ntasks-per-node=40
 ```
-If your core requirement is not a multiple of 40, you can limit the maximum spread
-by combining:
+Since, Puhti is currently fragmented, requesting full nodes may mean longer queuing
+time, but it may be regained by faster execution. If queuing times this way seem
+unaccecptable, you can still limit the maximum number of nodes the job can spread on.
+For example, limiting the 200 task job (which optimally fits on 4 nodes) to a maximum
+of 10 nodes, you could use:
+
 ```
-#SBATCH --ntasks=128
-#SBATCH --nodes=4
+#SBATCH --ntasks=200
+#SBATCH --nodes=4-10
 ```
+Slurm will then allocate 200 cores from 4 to 10 nodes for your job.
+
 
 ## Perform a scaling test
 It is important to make sure that your job can efficiently use
