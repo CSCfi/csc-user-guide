@@ -38,11 +38,24 @@ of 10 nodes, you could use:
 ```
 Slurm will then allocate 200 cores from 4 to 10 nodes for your job.
 
+### How many nodes to allow?
+If full nodes or the minimum is not suitable, it is probably best to try
+and monitor job performance. Choosing too many nodes will deteriorate
+performance more than is gained by less queuing. Note that overall this is lost
+computer capacity.
+
+Perhaps, a rule of thumb could be
+to set the upper limit to 2 or 3 times the number which would accommodate
+all tasks. With very large parallel jobs, even smaller is recommended as
+communication and the likelihood of one slow node in the allocation gets
+higher and poor load balancing gets more likely.
 
 ## Perform a scaling test
 It is important to make sure that your job can efficiently use
 all the allocated resources (cores). This needs to be verified for
 each new code and job type (different input) by a scaling test.
+Scaling tests using full nodes apply only for jobs requesting
+full nodes.
 
 Run a _short_ simulation with an increasing number of resources (cores)
 and evaluate how much faster your job gets. It should get at least
