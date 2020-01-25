@@ -26,3 +26,4 @@
 -   EC2 is not supported at  this time. EC2 credentials can however be
     used with the Object Storage.
 
+## [Pouta FAQ entries](/support/faq#pouta)
