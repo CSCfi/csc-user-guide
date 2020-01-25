@@ -30,7 +30,7 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 There are four interactive MATLAB licenses with two Parallel Computing Toolbox and one Compiler license available for temporary interactive academic use. We recommend to use [NoMachine](nomachine.md) client for the sessions. After logging in to Puhti, MATLAB can be launched as follows:
 
 ```bash
-$ module load matlab/R2018b
+$ module load matlab/r2018b
 $ matlab
 ```
 
