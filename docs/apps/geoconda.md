@@ -89,10 +89,13 @@ To check the exact packages and versions included in the loaded module:
 
 You can add more Python packages to Geoconda for your own use with `pip`, for example:
 
-`pip install [newPythonPackageName] --user --target=/projappl/[yourProject]/python3.7/site-packages/`.
+`pip install [newPythonPackageName] --user`
 
-If you do not give the installation folder as target, the packages are by default installed to your home directory under
-`.local/lib/python3.7/site-packages`
+The packages are by default installed to your home directory under `.local/lib/python3.7/site-packages`. If you would like to change the installation folder define `PYTHONUSERBASE` environmentvariable with new installation location first:
+
+`export PYTHONUSERBASE=/projappl/<your_project>/python3.7_pip`
+
+You should use the same export command then always also before using, inc in the batch job files.
 
 If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda].
 

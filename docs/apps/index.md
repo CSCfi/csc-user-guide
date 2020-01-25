@@ -94,6 +94,7 @@
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
+* [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
 
 ## Language Research and Other Digital Humanities and Social Sciences

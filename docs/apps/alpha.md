@@ -93,5 +93,6 @@
 * [Velvet](velvet.md) Genome assembler
 * [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
+* [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
