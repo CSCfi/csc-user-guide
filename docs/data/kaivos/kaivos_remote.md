@@ -23,3 +23,5 @@ And the syntax for mysqlimport:
 In the same way, you can make your databases visible in your local computer using locally installed graphical MySQL interfaces, like [MySQL Workbench](https://www.mysql.com/products/workbench/). The only major limitation with the port forwarding is that normally ssh tunnels are not very stable. You may need to reopen the ssh connection every now and then and you should not trust that the tunnel remains usable for several hours.
 
 For the security reasons we recommend that you always close the ssh connection when you stop using the database.
+
+| [prevous_page](./kaivos_batch_job.md) | [front page](./kaivos.md) | [next page](kaivos_perl.md) |
