@@ -36,7 +36,7 @@ singularity run \
 #!/bin/bash
 #SBATCH --account=<YOUR-CSC-PROJECT>
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=12
 #SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
 #SBATCH --time=02:00:00
@@ -45,6 +45,8 @@ srun singularity run \
 --bind /scratch/<YOUR-CSC-PROJECT>/odm_project:/datasets/code \
 /appl/soft/geo/opendronemap/opendronemap.sif --project-path /datasets
 ```
+
+According to our test a project with ~300 images is optimal to run with 10-12 CPU cores.
 
 !!! note
     Please note that OpenDroneMap can use only one computing node in processing which means maximum of 40 CPU cores and 192GB memory.
