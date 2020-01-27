@@ -41,6 +41,7 @@ When velvet was compiled in puhti, the maximum allowed kmer length was defined. 
 
 
 **Velvet programs available in Puhti**
+
 | Program 	   | max. k-mer length | type |
 |------------------|-------------------|------|
 | velveth 	   | 100 	       |normal|
