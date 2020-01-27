@@ -125,3 +125,4 @@ The MySQL client session is closed with the command EXIT:
 mysql>EXIT
 ```
 
+| [previous page](./kaivos-account.md) | [front page](./kaivos.md) | [next page](./kaivos_import.md) | 
