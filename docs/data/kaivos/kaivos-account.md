@@ -16,3 +16,5 @@ When the application is accepted, a new empty database is created to the databas
 *   **databasename_read** user account is intended for users who are allowed to do only queries to the database. This user account can't change the database in any level. This user account has only the SELECT right to database tables.
 
 The project manager should distribute the database user accounts with passwords to the users of the database service. The databasename_read user account can be given to users who are not members of the computing project. One research group can have several databases. Each database has proprietary database user accounts and passwords.
+
+|[front page](./kaivos.md)|[next page](kaivos_client_in_puhti)|
