@@ -87,7 +87,7 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-             - Pouta FAQ: /support/faq#pouta
+             # - Pouta FAQ: support/faq/index.md
   - Data:
      - Allas object storage:
         - Allas object storage: data/Allas/index.md
