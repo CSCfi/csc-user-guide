@@ -86,4 +86,4 @@ The _kaivos.bash_ script, described above, can be submitted to the batch job sys
 sbatch kaivos.bash
 ```
 
-| [Previous page](kaivos_import.md) | [front page](kaivos.md) | [kaivos_remote.md](kaivos_remote.md) |
+| [previous page](kaivos_import.md) | [front page](kaivos.md) | [next page](kaivos_remote.md) |
