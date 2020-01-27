@@ -13,7 +13,7 @@ sshfs username@hostname:/path/to/dir /path/to/mountpoint
 For example, to make the home directory on Puhti of user _kayttaja_ visible to a local Linux computer, execute command:
 ```bash
 mkdir csc_home
-sshfs kayttaja@puhti.csc.fi:/users/ csc_home
+sshfs kayttaja@puhti.csc.fi:/users/kayttaja csc_home
 ```
 
  

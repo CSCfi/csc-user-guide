@@ -16,6 +16,9 @@ It is possible to administer your files while they are waiting for the pick-up. 
  **Funet FileSender upload page**
  ![Funet FileSender upload page](/img/funet_upload.png){.center width=100%}
 
+!!! Note
+    As data is uploaded to Funet FileSender through a web browser, it may be difficult to use it for data locating in CSC computing servers. 
+    There you can use [Allas commands](../Allas/using_allas/a_commands.md) `a-flip` or `a-publish` for this kind of data sharing.
 
 #### Download data from FileSender
 
