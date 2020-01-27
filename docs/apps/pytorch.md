@@ -4,10 +4,12 @@ Machine learning framework for Python.
 
 ## Available
 
-The `pytorch` module is available on Puhti only.  Currently supported PyTorch versions:
+The `pytorch` module is available on Puhti only.  Current versions:
 
+- 1.4 (currently corresponds to 1.4.0, may be upgraded to newer point release later if needed)
 - 1.3.1
-- 1.3.1-hvd (with [Horovod](https://github.com/horovod/horovod) support)
+- 1.3.1-hvd (with [Horovod](https://github.com/horovod/horovod) support using hpcx-mpi)
+- 1.3.1-hvd-mpich (with [Horovod](https://github.com/horovod/horovod) support using mpich MPI)
 - 1.3.0
 - 1.2.0
 - 1.1.0

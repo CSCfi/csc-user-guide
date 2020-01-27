@@ -1,6 +1,6 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
-site_url: "https://docs.csc.fi"
+site_url: "https://docs.csc.fi/"
 site_description: Instructions to use the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
 nav:
   - Home: index.md
@@ -63,7 +63,6 @@ nav:
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
-        - Applying for Pouta Access: accounts/how-to-add-service-access-for-project.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
@@ -88,7 +87,7 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-             - Pouta FAQ: /support/faq#pouta
+             # - Pouta FAQ: support/faq/index.md
   - Data:
      - Moving data:
         - Copying files using scp: data/moving/scp.md

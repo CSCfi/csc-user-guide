@@ -46,19 +46,22 @@
 * [MATLAB](matlab.md) High-level technical computing language
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [MXNet](mxnet.md) Deep learning library for Python
-* [MySQL ](../data/kaivos/kaivos.md) MySQL database client. 
+* [MySQL ](../data/kaivos/kaivos.md) MySQL database client 
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
+* [OpenDroneMap](opendronemap.md) open source command line toolkit for processing aerial drone imagery
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [ParaView](paraview.md) Free open-source visualization application
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
@@ -88,6 +91,8 @@
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [Velvet](velvet.md) Genome assembler
+* [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
+* [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
