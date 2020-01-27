@@ -65,3 +65,4 @@ $rows_affected = $dbh->do("UPDATE your_table SET foo = foo + 1");
 
 By default AutoCommit mode is on. You do not need to use commit() method while making transactions. Only InnoDB storage engine is transactional. The default MyISAM is a non-transactional storage engine.
   	   	 
+| [previous page](./kaivos_remote.md) | [front page](./kaivos.md) | 
