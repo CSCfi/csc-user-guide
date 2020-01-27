@@ -1,6 +1,6 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
-site_url: "https://docs.csc.fi"
+site_url: "https://docs.csc.fi/"
 site_description: Instructions to use the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
 nav:
   - Home: index.md
