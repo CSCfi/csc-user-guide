@@ -52,3 +52,4 @@ Then use _mysqlimport_ to import the data
 mysqlimport -h kaivos.csc.fi --local --compress -p -u DB_A_admin DB_A results.table
 ```
  
+| [previous page](/kaivos_client_in_puhti.md) | [front page](./kaivos.md) | [next page](./kaivos_batch_job) |
