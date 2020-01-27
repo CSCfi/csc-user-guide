@@ -17,4 +17,4 @@ When the application is accepted, a new empty database is created to the databas
 
 The project manager should distribute the database user accounts with passwords to the users of the database service. The databasename_read user account can be given to users who are not members of the computing project. One research group can have several databases. Each database has proprietary database user accounts and passwords.
 
-|[front page](./kaivos.md)|[next page](kaivos_client_in_puhti)|
+| [front page](./kaivos.md) | [next page](kaivos_client_in_puhti.md) |
