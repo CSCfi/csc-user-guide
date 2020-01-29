@@ -6,7 +6,7 @@
 
 __Solaris__ is available in Puhti with following versions:
 
-* 0.1.3 (with tensorflow 1.13.1 and pytorch 1.1.0)
+* 0.2.1 (with tensorflow 1.13.1 and pytorch 1.3.1)
 
 ## Usage
 
@@ -16,19 +16,16 @@ Solaris is included in the __solaris__ module and can be loaded with
 
 Solaris module includes a conda environment that has the Solaris library and many additional geospatial and machine learning libraries
 
-!!! note
-    For this version of Solaris, you should choose to use pytorch on your scripts as the included tensorflow can't use Puhti GPU at the moment due to incompatibility issues
-
 ## Additional Python libraries in the solaris module
 
-* pandas (0.24.2)
-* geopandas (0.5.0)
-* rasterio (1.0.24)
-* scikit-image (0.15.0)
-* gdal (2.4.1)
-* networkx (2.3)
+* pandas (0.25.3)
+* geopandas (0.6.2)
+* rasterio (1.1.0)
+* scikit-image (0.16.2)
+* gdal (3.0.2)
+* networkx (2.4)
 * tensorflow (1.13.1)
-* pytorch (1.1.0)
+* pytorch (1.3.1)
 * And many more, for retrieving the full list in Puhti use:
     `list-packages`
 
