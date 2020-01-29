@@ -97,6 +97,9 @@ WHO: Jesse
 
 ### Course environments (for teachers)
 
+You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors. Consider using Notebooks- easy-to-use environments for working with data and programming. [Notebooks link](https://notebooks.csc.fi/)
+
+Remember to notify about the course before using notebooks! (Course Request Form)
 <!-- WHO: Minna, Jesse  -->
 
 Problem: complex setup for course exercises -> notebooks.csc.fi
