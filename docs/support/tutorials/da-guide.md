@@ -1,6 +1,6 @@
 # Data analysis guide
 
-Data analytics and data driven research have grown rapidly, creating a need for a wide spectrum of services. CSC offers expert support, tools and computing resources for processing and analysing collections of data. Our service offering has been developed to match the varying needs of our users, ranging from researchers taking their first steps towards quantitative analysis, to experienced users looking for scale up their computing resources.
+<!-- Data analytics and data driven research have grown rapidly, creating a need for a wide spectrum of services. CSC offers expert support, tools and computing resources for processing and analysing collections of data. Our service offering has been developed to match the varying needs of our users, ranging from researchers taking their first steps towards quantitative analysis, to experienced users looking for scale up their computing resources. -->
 
 The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC also organises a [wide variety of training courses](https://www.csc.fi/web/training), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
 
@@ -32,6 +32,8 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 ### Getting into data-driven research
 
+You are just getting into data-driven research, and need some pointer how to get started.
+
 <!-- [minimum] Courses -->
 <!-- [minimum] Contact details (analytics@csc.fi, service desk?) -->
 <!-- [longer article] Basics -->
@@ -39,6 +41,8 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 <!-- link to “Pälli-R” guide (needs creating) -->
 
 ### Scaling up from laptop (for beginners)
+
+You have been running analyses for some time already, but you have reached the limits of your own laptop or desktop computer.  Perhaps you need more memory or faster processing.
 
 <!-- [minimum] Background info (why would one want to scale up) -->
 <!-- [minimum] Cluster vs VM (assuming zero background) -->
@@ -48,8 +52,13 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 ### Heavy computing needs (more advanced)
 
+You are already an expert, but you have outgrown the resources of your local institution.  You need access to high-performance computing environment, perhaps even GPU-accelerated processing.
+
 <!-- [minimum] GPU work, e.g. deep learning (link) -->
 <!-- [minimum] Parallel jobs in cluster environment (link) -->
+
+### Big data processing (more advanced)
+
 <!-- [minimum] Working with large data sets, e.g.  -->
 <!-- Spark / Hadoop, Kafka (incl. ML perspective) -->
 <!-- 	use case: I’ve got a lot of data, options:  -->
