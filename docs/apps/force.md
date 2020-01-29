@@ -10,7 +10,7 @@ __FORCE__ is available in Puhti with the following versions:
 
 ## Usage
 
-FORCE is included in the __force__ module. The __parallel__ (gnu-parallel) library needs to be loaded also. You can load these with
+FORCE is included in the __force__ module. The __parallel__ (gnu-parallel) module needs to be loaded also. You can load these with
 
 `module load parallel force`
 
