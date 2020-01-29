@@ -100,6 +100,10 @@ You should use the same export command then always also before using, inc in the
 If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda].
 
 
+## Using Allas from Python
+
+There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
+
 ## License and citing
 
 All packages are licensed under various free and open source licenses (FOSS), see the linked pages above for exact details.
