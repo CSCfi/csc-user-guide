@@ -28,10 +28,6 @@ Overview:
 
 Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people.
 
-## Making changes directly to 'master'
-
-This is not recommended, and master branch is protected.
-
 ## Making changes using pull requests in the web GUI
 
 In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file. If you found an error in the pull request of your own branch, you can commit to it directly instead of creating another pull request (the two choices at the bottom).
