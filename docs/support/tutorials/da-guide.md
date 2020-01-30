@@ -22,7 +22,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 [**Pouta**](/cloud/pouta/) is CSC's cloud service where you can create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Pouta is also more suitable for processing sensitive data, especially the ePouta variant.
 
-[**Rahti**](/cloud/rahti/) is CSC's container cloud.  Here you can easily create virtual machines based on container images.
+[**Rahti**](/cloud/rahti/) is CSC's container cloud.  Here you can easily create virtual applications based on container images.
 
 [**Notebooks**](https://notebooks.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser.  Notebooks supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
 
@@ -77,7 +77,9 @@ WHO: Jesse
 <!-- [minimum] GPU work, e.g. deep learning (link) -->
 <!-- [minimum] Parallel jobs in cluster environment (link) -->
 
-<!-- ### Big data processing (more advanced) -->
+### Big data processing (advanced)
+
+You can use Rahti for example running [big data analytics and machine learning jobs on scalable Apache Spark cluster](/apps/spark/).
 
 <!-- [minimum] Working with large data sets, e.g.  -->
 <!-- Spark / Hadoop, Kafka (incl. ML perspective) -->
