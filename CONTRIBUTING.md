@@ -32,11 +32,16 @@ must use pull requests.
 
 Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people.
 
-### In the web GUI
+## Previewing active branches
+
+Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
+
+### Making pull requests in the web GUI
 
 In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file. If you found an error in the pull request of your own branch, you can commit to it directly instead of creating another pull request (the two choices at the bottom).
 
-### On the command line
+### Making pull requests on the command line
 
 Overview:
 
@@ -100,7 +105,7 @@ Tip 3. If pushing fails, the most probable reason is that somebody
 else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
 
-### In the desktop application
+### Making pull requests in the desktop application
 
 [GitHub Desktop](https://desktop.github.com/) offers the third way to work
 with the repository.
@@ -128,11 +133,6 @@ Pull requests can be done as follows:
 If you don't want any syntax highlighting, just use \`\`\`text
 For a list of all supported languages see: http://pygments.org/docs/lexers/
 - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
-
-## Previewing
-
-Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
-Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
 
 ## Previewing the website using MkDocs
 
