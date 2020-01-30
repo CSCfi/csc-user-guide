@@ -11,7 +11,7 @@ gives you permissions to edit source files that build the user guide.
 ## Making changes using pull requests
 
 The csc-user-guide repository uses the 'master' as the default
-branch. You can make changes in web gui or on command line.
+branch. You can make changes in web gui, command line or desktop application.
 
 Master branch is protected. You cannot make changes to it directly, but you
 must use pull requests.
@@ -99,6 +99,22 @@ message](https://chris.beams.io/posts/git-commit/).
 Tip 3. If pushing fails, the most probable reason is that somebody
 else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
+
+### In the desktop application
+
+[GitHub Desktop](https://desktop.github.com/) offers the third way to work
+with the repository.
+
+To clone the repository, do the following:
+1. Click _Current repository_
+1. Click _Add_ and select _Clone repository..._
+1. Find `CSCfi/csc-user-guide` and click _Clone_
+
+Pull requests can be done as follows:
+1. Click _Pull origin_
+1. Click _Current branch_ then _New branch_
+1. Type the name of the new branch and click _Create branch_
+1. Edit the files locally and finally click _Publish branch_
 
 ## Content and formatting instructions
 
