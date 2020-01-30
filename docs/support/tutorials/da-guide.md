@@ -20,9 +20,9 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 [**Allas**](/data/Allas) is CSC's data storage service.  If you have big datasets or need to share data with people outside of your project, you should consider using Allas.
 
-[**Pouta**](/cloud/pouta/) is CSC's cloud service where you can create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Pouta is also suitable for processing sensitive data, especially the ePouta variant.
+[**Pouta**](/cloud/pouta/) is CSC's cloud service where you can create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Pouta is also more suitable for processing sensitive data, especially the ePouta variant.
 
-[**Rahti**](/cloud/rahti/) is CSC's container cloud.  Here you can easily create virtual machines based on container images.  See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
+[**Rahti**](/cloud/rahti/) is CSC's container cloud.  Here you can easily create virtual machines based on container images.
 
 [**Notebooks**](https://notebooks.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser.  Notebooks supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
 
@@ -30,7 +30,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 ### Getting into data-driven research
 
-You have been dabbling in Excel or SPSS but now you are looking for more powerful ways to handle your data.
+*You have been dabbling in Excel or SPSS but now you are looking for more powerful ways to handle your data.*
 
 <!-- WHO: Anni
 
@@ -43,42 +43,34 @@ use case: user just has some data in Excel -> use R !
 link to “Easy-R” guide (needs creating) 
 -->
 
-### Scaling up from laptop (for beginners)
+### Scaling up from your laptop (beginner)
 
-You have been running analyses in R or Python for some time already, but you have reached the limits of your own laptop or desktop computer.  Perhaps you need more memory or faster processing.
+*You have been running analyses in R or Python for some time already, but you have reached the limits of your own laptop or desktop computer.  Perhaps you need more memory or faster processing?*
 
-The first think you need to consider is whether you want to use an HPC cluster (Puhti) or a virtual machine (Pouta) ...
+In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster.  That means it's not one computer, but a collection of many computers.  Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](/computing/overview/), and [how to submit computing jobs to Puhti's queuing system](/computing/running/getting-started/).
 
-Puhti is CSC's supercomputer where most computing should be done.  [Puhti has a large set of pre-installed applications](/apps/), and scales up to very computing heavy tasks, including GPU-based processing.  Pouta, Rahti etc etc...
+Puhti has a [large selection of scientific computing applications pre-installed](https://docs.csc.fi/apps/),  in particular [R](https://docs.csc.fi/apps/r-env/) and [Python libraries for data analysis](https://docs.csc.fi/apps/python-data/).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
 
-[Accessing Puhti](https://docs.csc.fi/computing/overview/)
-
-links to python-data, R apps
+As Puhti is a shared computing environment, users are restricted in what they can do, for example when it comes to installing customized software or processing sensitive data.  In some cases, it might make sense to instead use [**Pouta**](/cloud/pouta/) to create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Another option is [**Rahti**](/cloud/rahti/), where you can create virtual machines based on container images.  See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
 <!-- WHO: Mats, Jesse -->
 
-<!-- [**Pouta**](/cloud/pouta/) is CSC's cloud service where you can create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Pouta is also suitable for processing sensitive data, especially the ePouta variant. -->
+### Heavy computing needs (advanced)
 
-<!-- [**Rahti**](/cloud/rahti/) is CSC's container cloud.  Here you can easily create virtual machines based on container images.  See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples). -->
+*You are already an expert, but you have outgrown the resources of your local institution.*
 
+If you need to heavily parallelise your computing, or for example use GPU-accelerated processing, Puhti is the right answer (see instructions in the above section).
 
+For GPU-accelerated machine learning, we support [TensorFlow](/apps/tensorflow/), [PyTorch](/apps/pytorch/), [MXNET](/apps/mxnet), and [RAPIDS](/apps/rapids).  All GPU nodes have [fast local NVME storage](/computing/running/creating-job-scripts/#local-storage) which is particularly useful when you need to read a lot of files for training your machine learning model.
 
-<!-- 
-[minimum] Cluster vs VM (assuming zero background)
+Multi-GPU jobs are also supported, and for large jobs requiring more than 4 GPUs we recommend Horovod which is supported for TensorFlow and PyTorch (see application pages for instructions).
 
-[longer article] Cluster
-[longer article] VM
-[longer article] Setting up VM (with RStudio, for beginners) // Anni -->
-
-### Heavy computing needs (more advanced)
-
-You are already an expert, but you have outgrown the resources of your local institution.  You need access to high-performance computing environment, perhaps even GPU-accelerated processing.
+If you are using R for data analysis, we also support [Parallell batch jobs in R](https://docs.csc.fi/apps/r-env/#parallel-batch-jobs).
 
 <!-- WHO: Mats 
 Python: GPU, local scratch, Horovod etc
 
 WHO: Jesse
-[Parallell batch jobs in R](https://docs.csc.fi/apps/r-env/#parallel-batch-jobs
 
 -->
 
@@ -97,7 +89,9 @@ WHO: Jesse
 
 ### Course environments (for teachers)
 
-You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors. Consider using Notebooks- easy-to-use environments for working with data and programming. [Notebooks link](https://notebooks.csc.fi/)
+*You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors.* 
+
+Consider using Notebooks- easy-to-use environments for working with data and programming. [Notebooks link](https://notebooks.csc.fi/)
 
 Remember to notify about the course before using notebooks! (Course Request Form)
 <!-- WHO: Minna, Jesse  -->
