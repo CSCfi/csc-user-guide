@@ -8,30 +8,17 @@ vcs-support@csc.fi. After this you can [join the CSC employees
 team](https://github.com/orgs/CSCfi/teams/employees/members), which
 gives you permissions to edit source files that build the user guide.
 
-To get a copy of the repository, you need a clone it.
-
-```bash
-git clone https://github.com/CSCfi/csc-user-guide.git
-```
-
-All other Git commands are given inside the directory that you have
-cloned.
-
-```bash
-cd csc-user-guide
-```
-
 ## Making changes
 
 The csc-user-guide repository uses the 'master' as the default
 branch. You can make changes in web gui or on command line.
 
-Overview: 
+Overview:
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
  - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (=apps) for example)
- - Make a pull request for your work to be added to Master 
+ - Make a pull request for your work to be added to Master
     - You can also aim it at someone specifically (recommended)
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
@@ -39,7 +26,7 @@ Overview:
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
  - Once PR has been accepted, remove the temporary branch
 
-Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people. 
+Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people.
 
 ## Making changes directly to 'master'
 
@@ -60,6 +47,19 @@ Overview:
  - Make a pull request to merge changes from your new branch into the develop branch
  - Ask a person to review and merge the changes
 
+ To get a copy of the repository, you need a clone it.
+
+ ```bash
+ git clone https://github.com/CSCfi/csc-user-guide.git
+ ```
+
+ All other Git commands are given inside the directory that you have
+ cloned.
+
+ ```bash
+ cd csc-user-guide
+ ```
+
 When you have cloned the repository, master branch is what you
 see. If you are unsure which branch you are in, you can run `git
 branch`. The active branch can be changed with the `git checkout`
@@ -69,9 +69,9 @@ Method:
 
 ```bash
 git pull
-git checkout master # switch to master branch 
+git checkout master # switch to master branch
 git checkout -b your_branch_name # create a new (temporary) branch and switch to it
-# create some nice content, add files 
+# create some nice content, add files
 git add example-file.md
 git status # check the status
 git commit -v
@@ -113,7 +113,7 @@ If you don't want any syntax highlighting, just use \`\`\`text
 For a list of all supported languages see: http://pygments.org/docs/lexers/
 - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
 
-## Previewing 
+## Previewing
 
 Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
 Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
