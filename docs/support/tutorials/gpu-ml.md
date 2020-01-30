@@ -66,6 +66,14 @@ srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
 
 Note that you need to communicate somehow to your own program where to find the dataset, for example with a command line argument.  Also see our [general instructions on how to take the fast local storage into use](../../computing/running/creating-job-scripts.md#local-storage).
 
+If you are running a multi-node job (see next section), you need to modify the `tar` line so that it is performed on each node separately:
+
+```bash
+srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
+    tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
+```
+
+
 ### Multi-GPU and multi-node jobs
 
 Multi-GPU jobs are also supported by specifying the number of GPUs required in the `--gres` flag, for example to have 4 GPUs (which is the maximum for a single node in Puhti): `--gres=gpu:v100:4`.  Please also make sure that your code can take advantage of multiple GPUs, this typically requires some changes to the program.
