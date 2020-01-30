@@ -8,12 +8,13 @@ vcs-support@csc.fi. After this you can [join the CSC employees
 team](https://github.com/orgs/CSCfi/teams/employees/members), which
 gives you permissions to edit source files that build the user guide.
 
-## Making changes
+## Making changes using pull requests
 
 The csc-user-guide repository uses the 'master' as the default
 branch. You can make changes in web gui or on command line.
 
-Overview:
+### Overview
+
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
@@ -28,11 +29,11 @@ Overview:
 
 Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people.
 
-## Making changes using pull requests in the web GUI
+### In the web GUI
 
 In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file. If you found an error in the pull request of your own branch, you can commit to it directly instead of creating another pull request (the two choices at the bottom).
 
-## Making changes using pull requests on the command line
+### On the command line
 
 Overview:
 
