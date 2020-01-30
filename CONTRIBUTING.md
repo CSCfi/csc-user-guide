@@ -32,7 +32,7 @@ must use pull requests.
 
 Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people.
 
-## Previewing active branches
+### Previewing active branches
 
 Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
 Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
