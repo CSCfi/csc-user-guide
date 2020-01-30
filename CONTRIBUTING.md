@@ -13,6 +13,9 @@ gives you permissions to edit source files that build the user guide.
 The csc-user-guide repository uses the 'master' as the default
 branch. You can make changes in web gui or on command line.
 
+Master branch is protected. You cannot make changes to it directly, but you
+must use pull requests.
+
 ### Overview
 
  - Create your own branch from master (or work in an already existing branch, if agreed)
