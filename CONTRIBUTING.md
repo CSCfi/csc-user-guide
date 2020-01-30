@@ -115,12 +115,13 @@ To clone the repository, do the following:
 1. Click _Add_ and select _Clone repository..._
 1. Find `CSCfi/csc-user-guide` and click _Clone_
 
-Pull requests can be done as follows:
+Pull requests can be created as follows:
 1. Click _Pull origin_
 1. Click _Current branch_ then _New branch_
 1. Type the name of the new branch and click _Create branch_
 1. Edit the files locally and commit the changes
 1. Finally click _Publish branch_ and _Create Pull Request_
+1. You are directed to web gui, where you click _Create pull request_
 
 ## Content and formatting instructions
 
