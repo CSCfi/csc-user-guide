@@ -119,7 +119,8 @@ Pull requests can be done as follows:
 1. Click _Pull origin_
 1. Click _Current branch_ then _New branch_
 1. Type the name of the new branch and click _Create branch_
-1. Edit the files locally and finally click _Publish branch_
+1. Edit the files locally and commit the changes
+1. Finally click _Publish branch_ and _Create Pull Request_
 
 ## Content and formatting instructions
 
