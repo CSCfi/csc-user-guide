@@ -1,4 +1,4 @@
-# 4. Using MySQL client through batch job system
+# Using MySQL client through batch job system
 
 The MySQL client program can be used in the batch job systems in the same way as in interactive client usage. The only difference is that in the batch jobs, the database password can't be given interactively. Instead it should be given by using MySQL configuration file (_.my.cnf_) in the home directory.
 
