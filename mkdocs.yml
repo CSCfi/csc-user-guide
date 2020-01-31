@@ -1,7 +1,7 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
-site_url: "https://docs.csc.fi"
-site_description: Instructions to use the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
+site_url: "https://docs.csc.fi/"
+site_description: Instructions and user guides for the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
 nav:
   - Home: index.md
   - Accounts:
@@ -88,8 +88,15 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-             - Pouta FAQ: /support/faq#pouta
+             # - Pouta FAQ: support/faq/index.md
   - Data:
+     - Moving data:
+        - Copying files using scp: data/moving/scp.md
+        - Graphical file transfer tools: data/moving/graphical_transfer.md
+        - Using rsync for data transfer and synchronization: data/moving/rsync.md
+        - Using wget to download data from web sites to CSC: data/moving/wget.md
+        - Sharing and transporting files using Funet FileSender: data/moving/funet.md
+        - Remote disk mounts: data/moving/disk_mount.md
      - Allas object storage:
         - Allas object storage: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md

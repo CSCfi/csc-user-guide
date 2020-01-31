@@ -111,6 +111,7 @@ conflict. (To be written: How to resolve conflicts?)
  - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
 If you don't want any syntax highlighting, just use \`\`\`text
 For a list of all supported languages see: http://pygments.org/docs/lexers/
+- Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
 
 ## Previewing 
 

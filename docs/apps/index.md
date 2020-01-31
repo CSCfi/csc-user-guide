@@ -19,6 +19,7 @@
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
@@ -93,6 +94,7 @@
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
+* [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
 
 ## Language Research and Other Digital Humanities and Social Sciences
