@@ -26,7 +26,7 @@ full nodes:
 #SBATCH --nodes=5
 #SBATCH --ntasks-per-node=40
 ```
-Since, Puhti is currently fragmented, requesting full nodes may mean longer queuing
+Since Puhti is currently fragmented, requesting full nodes may mean longer queuing
 time, but it may be regained by faster execution. If queuing times this way seem
 unaccecptable, you can still limit the maximum number of nodes the job can spread on.
 For example, limiting the 200 task job (which optimally fits on 4 nodes) to a maximum
@@ -57,10 +57,13 @@ each new code and job type (different input) by a scaling test.
 Scaling tests using full nodes apply only for jobs requesting
 full nodes.
 
-Run a _short_ simulation with an increasing number of resources (cores)
+If possible, run a _short_ simulation with an increasing number of resources (cores)
 and evaluate how much faster your job gets. It should get at least
 1.5 times faster when you double the resources (cores). Don't allocate
-more resources to your job that it can use efficiently.
+more resources to your job that it can use efficiently. If scaling tests are not
+practical, first run your job with less resources, and note the performance.
+Try increasing the resources and confirm that the job (or a similar job)
+completes faster.
 
 Note, that not all codes or job types can be run in parallel. Confirm this first
 for your code.
