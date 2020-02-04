@@ -56,4 +56,4 @@ More instructions for running batch jobs can be found form [CSC batch job instru
 ## More information
 
 *   [BayeScan home page](http://cmpg.unibe.ch/software/BayeScan/index.html)
-*   [BayScan manual](http://cmpg.unibe.ch/software/BayeScan/files/BayeScan2.1_manual.pdf)
+*   [BayeScan manual](http://cmpg.unibe.ch/software/BayeScan/files/BayeScan2.1_manual.pdf)
