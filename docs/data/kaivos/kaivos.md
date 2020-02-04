@@ -13,10 +13,10 @@ In this guide you can find information about getting started with the database s
 
  
 ## [MySQL client programs at CSC](kaivos_client_in_puhti.md)
-### [Connecting to your database](kaivos_client_in_puhti.md#21-connecting-your-database)
-### [Setting default values for MySQL connection](kaivos_client_in_puhti.md#22-setting-default-values-for-mysql-connection)
-### [Graphical Interfaces](kaivos_client_in_puhti.md#23-graphical-interfaces)
-### [Following the disk usage in kaivos.csc.fi](kaivos_client_in_puhti.md#24-following-the-disk-usage-in-kaivoscscfi)
+### [Connecting to your database](kaivos_client_in_puhti.md#connecting-your-database)
+### [Setting default values for MySQL connection](kaivos_client_in_puhti.md#setting-default-values-for-mysql-connection)
+### [Graphical Interfaces](kaivos_client_in_puhti.md#graphical-interfaces)
+### [Following the disk usage in kaivos.csc.fi](kaivos_client_in_puhti.md#following-the-disk-usage-in-kaivoscscfi)
  
 ## [Data import and export](kaivos_import.md)
  
