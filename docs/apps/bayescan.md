@@ -21,17 +21,18 @@ bayescan_2.1 -threads 1 test_binary_AFLP.txt
 ```
 
 With bayescan_2.1 it is important to define the number of threads
-always explisitely. This is because by default bayescan tries
-to use all available cores. Further, these tasks should be executed as batch jobs
-.
-Below is a sample batch job file for bayescan:
+always explisitely. This is because by default BayeScan tries
+to use all available cores.
+
+In Puhti, BayeScan tasks should be executed as batch jobs.
+Below is a sample batch job file for BayeScan:
 
 ```text
 #!/bin/bash
 #SBATCH --job-name=bayescan
-#SBATCH --account=project_2001896
+#SBATCH --account=project_XXXXXX
 #SBATCH --time=08:00:00
-#SBATCH --mem=8G
+#SBATCH --mem=6G
 #SBATCH --partition=small
 #SBATCH --cpus-per-task=4
 #SBATCH --nodes=1
@@ -43,12 +44,12 @@ bayescan_2.1 -threads ${SLURM_CPUS_PER_TASK} test_binary_AFLP.txt > bayescan_omp
 ```
 
 
-The above script can be submitted to the batch job system with command:
+The above script reserves 8 hours of comuting time, 6GB of memory and 4 compyting cores. The XXXXXX in the --account definition
+should be replaced with the ID number of your comuting project. The job can be submitted to the batch job system with command:
 ```text
 sbatch script
 ```
-Don't use Bayescan with more than 8 cpores (execpt if you have verifies that your task really 
-benefits from larger core numbers).
+Don't use Bayescan with more than 8 cores (execpt if you have verified that your task really benefits from larger core numbers).
 
 More instructions for running batch jobs can be found form [CSC batch job instructions](https://docs.csc.fi/computing/running/getting-started/)
 
