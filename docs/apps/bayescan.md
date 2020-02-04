@@ -44,7 +44,7 @@ bayescan_2.1 -threads ${SLURM_CPUS_PER_TASK} test_binary_AFLP.txt > bayescan_omp
 ```
 
 
-The script above reserves 8 hours of comuting time, 6GB of memory and 4 computing cores. The XXXXXX in the --account definition
+The script above reserves 8 hours of computing time, 6GB of memory and 4 computing cores. The XXXXXX in the --account definition
 should be replaced with the ID number of your computing project. The job can be submitted to the batch job system with command:
 ```text
 sbatch script
