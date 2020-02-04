@@ -3,7 +3,7 @@
 ## Description
 
 BayeScan aims at identifying candidate loci under natural selection from genetic data, using differences in allele frequencies 
-between populations. The anaöysysi is based on the multinomial-Dirichlet model. 
+between populations. The analysis is based on the multinomial-Dirichlet model. 
 
 ## Version
 
