@@ -44,12 +44,12 @@ bayescan_2.1 -threads ${SLURM_CPUS_PER_TASK} test_binary_AFLP.txt > bayescan_omp
 ```
 
 
-The above script reserves 8 hours of comuting time, 6GB of memory and 4 compyting cores. The XXXXXX in the --account definition
-should be replaced with the ID number of your comuting project. The job can be submitted to the batch job system with command:
+The script above reserves 8 hours of comuting time, 6GB of memory and 4 computing cores. The XXXXXX in the --account definition
+should be replaced with the ID number of your computing project. The job can be submitted to the batch job system with command:
 ```text
 sbatch script
 ```
-Don't use Bayescan with more than 8 cores (execpt if you have verified that your task really benefits from larger core numbers).
+Don't use BayeScan with more than 8 cores (execpt if you have verified that your task really benefits from larger core numbers).
 
 More instructions for running batch jobs can be found form [CSC batch job instructions](https://docs.csc.fi/computing/running/getting-started/)
 
