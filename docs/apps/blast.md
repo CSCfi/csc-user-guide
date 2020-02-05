@@ -27,7 +27,7 @@ Other blast commands
 
 ## Available
 
--   Puhti: 2.9.0
+-   Puhti: 2.10.0
 -   FGCI: 2.6.0
 -   Chipster graphical user interface
 
@@ -57,6 +57,29 @@ For example, command:
 blastp -query proteinseq.fasta -evalue 0.001 -db uniprot -outfmt 7 -out result.table
 ```
 Would run the same search as described above, except that the  e-value threshold would be set to 0.001(-evalue 0.001) and the out put is printed out a a table (-outfmt 7).
+
+## Using taxonmy liste to focus the search
+
+Snice BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a singnel taxonomu ID number or list of taxonomies, to focus the search only to organism based subset from the search database.
+
+The BLAST tools include command `get_species_taxids.sh` that can be used to generate taxidlists.
+First you have to find the the higher lever TaxID number your wish to use. For example the TaxID of Betacoronavirus genius can be  found with command:
+
+```text
+get_species_taxids.sh -n Betacoronavirus 
+```
+Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be retrieved with command:
+```text
+get_species_taxids.sh -t 694002 > b-coronaviruses.txt
+```
+The command above produces a file conataining TaxID numbers of Betacoronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originationg form the defined species. For example:
+
+```text
+pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
+``` 
+
+Note that `-taxidlist` can be used only with databases that include species information.
+
 
 ## Usage of pb (Parallel BLAST)  at CSC
 
