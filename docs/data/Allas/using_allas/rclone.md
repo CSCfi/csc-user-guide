@@ -137,4 +137,9 @@ rclone sync mydata allas:2000620-raw-data/mydata mydata
 
 This command returns the uploaded data from Allas to the _mydata_ directory. Note however that if you have added new data to _mydata_ after synchronizing the directory with Allas, this data will be erased.
 
-**Note: Rclone should not be be used to copy or rename objectd in Allas. Rclone provides commands for these operations but they don't work correctly for over 5 GB files. **
+!!! Note
+
+    Rclone should not be be used to copy or rename objectd in Allas. 
+    Rclone provides commands for these operations but they don't work correctly for over 5 GB files.
+ 
+
