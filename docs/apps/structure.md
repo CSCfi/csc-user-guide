@@ -23,7 +23,7 @@ module load strcture
 ```
 In Puhti, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
 This tool is a modified version of [strauto](http://dx.doi.org/10.1186/s12859-017-1593-0) structure
-job sumbission tool. 
+job sumbission tool. Note that many details in the strauto manual do not apply to atrauto-puhti.   
 
 Next move to the scratch directory of your project. Any subdirectory inside your scratch area will do.
 For example:
