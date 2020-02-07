@@ -31,6 +31,7 @@
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
+* [Structure](structure.nd) Inference of population structure in genetics
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 
