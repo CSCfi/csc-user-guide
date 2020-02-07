@@ -31,8 +31,6 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 *You have been dabbling in Excel or SPSS but now you are looking for more powerful ways to handle your data.*
 
-<!-- WHO: Anni
-
 A great way to start with data analytics is to attend a course.
 You can check out upcoming courses from [CSC training website](https://www.csc.fi/web/training) .
 Also, CSC has some training materials that are suitable for self-learning, such as [the introductory R course](https://github.com/csc-training/R-for-beginners).
@@ -41,6 +39,7 @@ If you are in the field of bioinformatics, you might also want to check out the 
 There are also plenty of data science available online, some popular resources include [udemy](https://www.udemy.com/courses/development/data-science/), and
 [coursera](https://www.coursera.org/browse/data-science).
 
+<!--
 [minimum] Courses: R, Python, ...
 links to Notebooks course?
 Chipster
