@@ -122,6 +122,7 @@
 
 ## Miscellaneous
 
+* [DDT](ddt.md) Parallel debugger 
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [MySQL ](../data/kaivos/kaivos.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
