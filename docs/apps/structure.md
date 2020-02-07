@@ -57,7 +57,7 @@ Plese read and follow the instructions of job submission command above.
 ## More information
 
 *    [Structure home page](https://web.stanford.edu/group/pritchardlab/structure.html)
-*    [Strauto home page ](http://strauto.popge,org)
+*    [Strauto home page ](http://strauto.popgen.org)
 *    [StructureHARESTER home page](http://taylor0.biology.ucla.edu/structureHarvester/)
 
 
