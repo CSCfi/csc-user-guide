@@ -58,9 +58,7 @@ As Puhti is a shared computing environment, users are restricted in what they ca
 
 If you need to heavily parallelize your computing, or for example use GPU-accelerated processing, Puhti is the right answer (see instructions in the above section).
 
-For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [MXNET](../../apps/mxnet.md) and [RAPIDS](../../apps/rapids.md).  All GPU nodes have [fast local NVME storage](../../computing/running/creating-job-scripts.md#local-storage) which is particularly useful when you need to read a lot of files for training your machine learning model.
-
-Multi-GPU jobs are also supported, and for large jobs requiring more than 4 GPUs we recommend Horovod which is supported for TensorFlow and PyTorch (see application pages for instructions).
+For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [MXNET](../../apps/mxnet.md) and [RAPIDS](../../apps/rapids.md). Please read our [guide on GPU-accelerated machine learning](gpu-ml.md) for more details.
 
 If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores), it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
 
