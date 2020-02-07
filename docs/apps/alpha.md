@@ -35,6 +35,7 @@
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
+* [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
