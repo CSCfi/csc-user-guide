@@ -107,7 +107,7 @@ You can use Rahti for example running [big data analytics and machine learning j
 
 *You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors.* 
 
-Consider using CSC's [Notebooks]([https://notebooks.csc.fi/](https://notebooks.csc.fi/) service that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
+Consider using CSC's [Notebooks](https://notebooks.csc.fi/) service that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
 
 If you are planning to use Notebooks, please remember to submit a notification about your course requirements using [this online form](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
 
