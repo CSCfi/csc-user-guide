@@ -14,8 +14,8 @@ For a quick introduction and tutorial, see https://github.com/csc-training/julia
 ## Available
 
 ### Puhti
--   1.1.1 compiled with Intel Math Kernel Library (MKL)
--   1.1.1 from pre-compiled binaries
+-   1.3.1, 1.1.1 compiled with Intel Math Kernel Library (MKL)
+-   1.3.1, 1.1.1 from pre-compiled binaries
 
 ## License
 Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).

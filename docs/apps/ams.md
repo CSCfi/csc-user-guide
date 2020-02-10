@@ -4,7 +4,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2019, ADF2019, BAND2019, DFTB2019, MOPAC2019, ReaxFF2019 
+-   Puhti: AMS2019, ADF2019, BAND2019, DFTB2019, MOPAC2019, ReaxFF2019 , Version 2019.301
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -17,7 +17,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 Initialise AMS on Puhti like this:
 
 ```bash
-module load adf/2019.104
+module load adf/2019.301
 ```
 
 
@@ -37,7 +37,7 @@ mkdir -p $SCM_TMPDIR
 export SCM_USE_LOCAL_IMPI=yes
 module purge
 module load intel/19.0.4 intel-mpi/18.0.5 
-module load adf/2019.104
+module load adf/2019.301
 
 $ADFBIN/adf < methane_dimer_dispersion.inp > methane_dimer_dispersion.log
 seff $SLURM_JOBID
@@ -63,14 +63,15 @@ mkdir -p $SCM_TMPDIR
 export SCM_USE_LOCAL_IMPI=yes
 module purge
 module load intel/19.0.4 intel-mpi/18.0.5
-module load adf/2019.104
+module load adf/2019.301
 
 $ADFBIN/adf < methane_dimer_dispersion.inp > methane_dimer_dispersion.log
 seff $SLURM_JOBID
 ```
 ### The AMS-GUIs
 
-The Graphical User Interfaces (GUIs) that are installed on Puhti can be used via [NoMachine](nomachine.md). For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) .
+The Graphical User Interfaces (GUIs) that are installed on Puhti can be used via [NoMachine](nomachine.md). For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti, for details see ["Managing remote jobs"](https://www.scm.com/doc/Installation/Installation.html#managing-remote-jobs ).
+For Windows users there is a [helpful video on how to do the setup](https://www.scm.com/wp-content/uploads/Videos/RemoteQueuesWithADFJobs.mp4).
 In both cases the actual calculations should be done as batch jobs. Example queuing settings that can be used in the GUI:
 ![Slurm settings](/img/amsgui_puhti_queue_settings.png)
 
