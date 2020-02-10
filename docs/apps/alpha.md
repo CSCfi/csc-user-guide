@@ -6,6 +6,7 @@
 * [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
 * [ArcGIS](arcgis.md) ArcGIS software suite for working with spatial data 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
+* [BayeScan](bayescan.md) Tool for identifying candidate loci under natural selection based on allele frequencies in populations
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
 * [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
@@ -16,6 +17,7 @@
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
+* [DDT](ddt.md) Parallel debugger
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [Elmer](elmer.md) Open source multi-physics FEM package
@@ -34,6 +36,7 @@
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
+* [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing

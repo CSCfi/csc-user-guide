@@ -3,6 +3,7 @@
 ## Biosciences
 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
+* [BayeScan](bayescan.md) Tool for identifying candidate loci under natural selection based on allele frequencies in populations.
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
 * [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
@@ -110,6 +111,7 @@
 
 ## Mathematics and Statistics
 
+* [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
@@ -123,6 +125,7 @@
 
 ## Miscellaneous
 
+* [DDT](ddt.md) Parallel debugger 
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [MySQL ](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
