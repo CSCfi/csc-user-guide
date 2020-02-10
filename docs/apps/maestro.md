@@ -2,8 +2,7 @@
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
 for drug design and Materials Science. It can be used to build, edit, run and analyse 
-chemical model systems. Maestro is available for consortium members during 
-2019, but will be open to all academic users in 2020.
+chemical model systems. Maestro is available for all academic users in 2020.
 
 [TOC]
 
@@ -17,32 +16,23 @@ Puhti: 2019.3, 2019.4
 The Maestro license consists of floating licenses and tokens.
 It is possible for one user to take up all licenses for a 
 certain module. If licenses run out, contact Atte via Service Desk.
+Using Maestro means that you accept the
+[EULA](https://www.schrodinger.com/maestro-academic-eula).
 
-**Consortium**
-
-Until end of 2019 Maestro usage is limited to the Consortium members. 
-The current members 
-are the groups of Ari Koskinen (Aalto Univ.), Antti Poso (UEF), 
-Mark Johnson (ÅA), Petri Pihko (JYU),  Olli Pentikäinen (JYU), 
-Henri Xhaard (UH), Tero Aittokallio (UH/FIMM) and Jari Valkonen (UH). 
-The licensing is IP-address or local username based. To install 
-Maestro locally, the researchers within the consortium should 
-contact servicedesk and send new user information. The usage 
-is restricted by the 
-[EULA](http://www.schrodinger.com/salesagreements/20/7/).
-
-##Usage
+## Usage
 
 It is recommended to download and install Maestro on your 
 own computer, see below.
 
 **Local Installation**
 
-Maestro can be installed on a Linux, Mac or Windows computer. 
+Maestro can be installed on a Linux, Mac or Windows computer.
 Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
-You don't need a license to _download_ the software, but you'll need
+You don't need a license to _download_ the software, although you need to register
+to the Schrödinger website, but you'll need
 to configure licensing before you can _run_ it.
-Contact Atte via servicedesk@csc.fi for license configuration details.
+[These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+require Haka authentication.
 
 **Standalone usage on Puhti**
 
@@ -97,7 +87,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
    * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)
    * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp) Requires registration, which may take a while to complete.
    * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
-   * [Downloadble tutorials section](https://www.schrodinger.com/training/tutorials)
+   * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions 
 * Issues on how to run Maestro on CSC environment: [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)

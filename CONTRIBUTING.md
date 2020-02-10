@@ -8,31 +8,23 @@ vcs-support@csc.fi. After this you can [join the CSC employees
 team](https://github.com/orgs/CSCfi/teams/employees/members), which
 gives you permissions to edit source files that build the user guide.
 
-To get a copy of the repository, you need a clone it.
-
-```bash
-git clone https://github.com/CSCfi/csc-user-guide.git
-```
-
-All other Git commands are given inside the directory that you have
-cloned.
-
-```bash
-cd csc-user-guide
-```
-
-## Making changes
+## Making changes using pull requests
 
 The csc-user-guide repository uses the 'master' as the default
-branch. You can make changes in web gui or on command line.
+branch. You can make changes in web gui, command line or desktop application.
 
-Overview: 
+Master branch is protected. You cannot make changes to it directly, but you
+must use pull requests.
+
+### Overview
+
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
  - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (=apps) for example)
- - Make a pull request for your work to be added to Master 
+ - Make a pull request for your work to be added to Master
     - You can also aim it at someone specifically (recommended)
+    - Assign one or more reviewers
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (=Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
@@ -43,16 +35,16 @@ Overview:
 
 **Note:** If you make bigger changes to the (main) categories / menu on the left, it might effect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
 
+### Previewing active branches
 
-## Making changes directly to 'master'
+Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
 
-This is not recommended, and master branch is protected.
+### Making pull requests in the web GUI
 
-## Making changes using pull requests in the web GUI
+In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". Note, that you can give the branch a descriptive name at this point. If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file. If you found an error in the pull request of your own branch, you can commit to it directly instead of creating another pull request (the two choices at the bottom).
 
-In the master branch, navigate to the page you want to edit, click the pen-logo at the top right and once ready, at the bottom choose "Create new branch from this commit and start a pull request". If you wish to edit already existing branch, first change to the correct branch in the "branch" button on upper left, next to the path to the file. If you found an error in the pull request of your own branch, you can commit to it directly instead of creating another pull request (the two choices at the bottom).
-
-## Making changes using pull requests on the command line
+### Making pull requests on the command line
 
 Overview:
 
@@ -63,6 +55,19 @@ Overview:
  - Make a pull request to merge changes from your new branch into the develop branch
  - Ask a person to review and merge the changes
 
+ To get a copy of the repository, you need a clone it.
+
+ ```bash
+ git clone https://github.com/CSCfi/csc-user-guide.git
+ ```
+
+ All other Git commands are given inside the directory that you have
+ cloned.
+
+ ```bash
+ cd csc-user-guide
+ ```
+
 When you have cloned the repository, master branch is what you
 see. If you are unsure which branch you are in, you can run `git
 branch`. The active branch can be changed with the `git checkout`
@@ -72,9 +77,9 @@ Method:
 
 ```bash
 git pull
-git checkout master # switch to master branch 
+git checkout master # switch to master branch
 git checkout -b your_branch_name # create a new (temporary) branch and switch to it
-# create some nice content, add files 
+# create some nice content, add files
 git add example-file.md
 git status # check the status
 git commit -v
@@ -103,6 +108,24 @@ Tip 3. If pushing fails, the most probable reason is that somebody
 else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
 
+### Making pull requests in the desktop application
+
+[GitHub Desktop](https://desktop.github.com/) offers the third way to work
+with the repository.
+
+To clone the repository, do the following:
+1. Click _Current repository_
+1. Click _Add_ and select _Clone repository..._
+1. Find `CSCfi/csc-user-guide` and click _Clone_
+
+Pull requests can be created as follows:
+1. Click _Pull origin_
+1. Click _Current branch_ then _New branch_
+1. Type the name of the new branch and click _Create branch_
+1. Edit the files locally and commit the changes
+1. Finally click _Publish branch_ and _Create Pull Request_
+1. You are directed to web gui, where you click _Create pull request_
+
 ## Content and formatting instructions
 
  - Put all images in root images folder
@@ -114,11 +137,7 @@ conflict. (To be written: How to resolve conflicts?)
  - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
 If you don't want any syntax highlighting, just use \`\`\`text
 For a list of all supported languages see: http://pygments.org/docs/lexers/
-
-## Previewing 
-
-Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
-Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
+- Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
 
 ## Previewing the website using MkDocs
 

@@ -20,9 +20,14 @@
 -   Network:  It's possible to  add the  same floating IP  to multiple
     instances using  the API. There is  no warning or error.  The last
     API call is the one which takes effect.
+-   Volumes: There is no guarantee that device names will get the same
+    name after a rebuild or reboot. If you want to be sure that the
+    correct device gets mounted to the same path every time it is a good
+    idea to use UUIDs instead of paths.
 
 ## EC2 tools (euca2ools)
 
 -   EC2 is not supported at  this time. EC2 credentials can however be
     used with the Object Storage.
 
+## [Pouta FAQ entries](../../../support/faq/#pouta)

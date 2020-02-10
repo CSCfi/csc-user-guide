@@ -1,11 +1,39 @@
 # Running existing containers
 
-Puhti supports running [Singularity](https://sylabs.io/singularity/) containers.  The easiest option is to build containers from existing Docker images.
+Puhti supports running [Singularity](https://sylabs.io/singularity/) containers.  CSC's staff has prepared some Singularity images that are ready to run.  If you find some image missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](https://www.csc.fi/en/contact-info).  Otherwise you can also build them yourself by converting existing Docker container images (see instructions below).
+
+## Using Singularity images pre-installed on Puhti
+
+For some use cases, CSC's staff has provided ready-made singularity containers.
+
+For AI and machine learning applications images can be found in `/appl/soft/ai/singularity/images/`.  These can easily be taken into use via the module system, for example:
+
+```bash
+module use /appl/soft/ai/singularity/modulefiles/
+module avail  # to see existing images
+module load nvidia-pytorch/19.11-py3  # to activate a specific image
+```
+
+The module also provides a `singularity_wrapper` script that makes usage very easy, just change `srun python3` in your existing Slurm run script to `srun singularity_wrapper exec python3`.
+
+For example, to a run a GPU-based program inside the Singularity image, you could use the following script (assuming the appropriate module has been loaded):
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --cpus-per-task=10
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:v100:1
+#SBATCH --time=10
+#SBATCH --mem=16G  # Total amount of memory reserved for job
+
+srun singularity_wrapper exec python3 myprog <options>
+```
 
 
-## Building containers from existing Docker images
+## Converting Docker images for use with Puhti
 
-Singularity containers are typically built from Docker images, and the easiest way to get started is to use a pre-built Docker image.  For example Nvidia has a library of container images for different GPU-enabled applications in their [Nvidia GPU cloud (NGC)](https://ngc.nvidia.com/).
+If you cannot find a suitable Singularity image among those provided by CSC's staff, you can convert it yourself from an existing Docker image.  For example Nvidia has a library of container images for different GPU-enabled applications in their [Nvidia GPU cloud (NGC)](https://ngc.nvidia.com/).
 
 Here is an example how to build a Singularity image from Nvidia's PyTorch Docker image on a Puhti compute node:
 
@@ -26,8 +54,6 @@ singularity build pytorch_19.10-py3.sif docker://nvcr.io/nvidia/pytorch:19.10-py
 ```
 
 Note that the Singularity image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project appliction directory [projappl](/computing/disk). 
-
-## Run batch job using a container
 
 To run a slurm batch job using a container you just need to add `singularity exec` to the place in your slurm script where you are executing the command.
 
