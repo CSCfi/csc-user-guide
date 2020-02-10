@@ -127,7 +127,7 @@
 
 * [DDT](ddt.md) Parallel debugger 
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
-* [MySQL ](../data/kaivos/overview.md) MySQL database client. 
+* [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
 
