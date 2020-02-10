@@ -3,6 +3,7 @@
 ## Biosciences
 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
+* [BayeScan](bayescan.md) Tool for identifying candidate loci under natural selection based on allele frequencies in populations.
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
 * [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
