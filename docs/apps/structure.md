@@ -1,6 +1,6 @@
 # Structure
 
-## Descrioption
+## Description
 
 The program _structure_ is a software package for using multi-locus genotype data to investigate population structure. 
 Its uses include inferring the presence of distinct populations, assigning individuals to populations, studying hybrid zones, 
@@ -51,7 +51,7 @@ When the input file have been prepared, the strcture job can be launched with co
 ```text
 strauto-puhti
 ```
-Plese read and follow the instructions of job submission command above.
+Please read and follow the instructions of job submission command above.
 
 
 ## More information
