@@ -40,6 +40,8 @@ export SLURM_MPI_TYPE=pmi2
 export SLURM_CPU_BIND=none
 export I_MPI_PIN_DOMAIN=auto,compact
 module load turbomole/7.4.1
+export TURBOTMPDIR=$PWD/TURBOTMPDIR.$SLURM_JOB_ID
+mkdir -p $TURBOTMPDIR
 export PARNODES=$SLURM_NTASKS # for MPI
 export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
 jobex -ri -c 300 > jobex.out
@@ -63,6 +65,8 @@ export SLURM_MPI_TYPE=pmi2
 export SLURM_CPU_BIND=none
 export I_MPI_PIN_DOMAIN=auto,compact
 module load turbomole/7.4.1
+export TURBOTMPDIR=$PWD/TURBOTMPDIR.$SLURM_JOB_ID
+mkdir -p $TURBOTMPDIR
 export PARNODES=$SLURM_CPUS_PER_TASK  # for SMP
 export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
 jobex -ri -c 300 > jobex.out
