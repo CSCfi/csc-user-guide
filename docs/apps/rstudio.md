@@ -41,16 +41,10 @@ Memory per core (e.g. "1G")? # Memory required for each processor
 Hours (e.g. "01")? # Session duration (hours)
 Minutes (e.g. "05")? # Session duration (minutes)
 Partition? # Which partition to use
-Project? # Project ID (i.e. the Unix group)
+Project (use lower-case letters)? # Project ID (i.e. the Unix group)
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
-
-If you would rather launch an interactive session manually, you can do this using `srun`. Note that you will need to modify the requested duration, memory, project ID and partition as required:
-
-```
-srun --ntasks=1 --cpus-per-task=1 --time=hh:mm:ss --x11=first --mem-per-cpu=1G --pty --account=project_id --partition=partition rstudio --no-save
-```
 
 ## Citation
 
