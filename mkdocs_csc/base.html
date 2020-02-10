@@ -1,183 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
+{#- This file was automatically generated - do not edit -#} {% import "partials/language.html" as lang with context %} {% set feature = config.theme.feature %} {% set palette = config.theme.palette %} {% set font = config.theme.font %}
+<!doctype html>
+<html lang="{{ lang.t('language') }}" class="no-js">
+
 <head>
-  <meta name="google-site-verification" content="FnQNXRX9NM6VXnzqO78xnWcafWAdM0nYifvf2NVynW0" />
-  {% set is_top = (page and page.is_homepage) and not force_plain_page %}
-  {% set base_url = base_url or "." %}
-
-  {%- block site_meta %}
+    {% block site_meta %}
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
-    {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
-    {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
-    {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
-    {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <meta name="google-site-verification" content="_TgICiaZKbcTRTHr5VBG3-hP4QwqGQHccB9SbHSpduY" />
-  {%- endblock %}
-
-  {%- block htmltitle %}
-    <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
-  {%- endblock %}
-
-  {%- block styles %}
-    <link href="{{ base_url }}/css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="{{ base_url }}/css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="{{ base_url }}/css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
-    {%- for path in extra_css %}
-    <link href="{{ path }}" rel="stylesheet">
-    {%- endfor %}
-  {%- endblock %}
-
-  {%- block libs %}
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="{{ base_url }}/js/jquery-3.2.1.min.js"></script>
-    <script src="{{ base_url }}/js/bootstrap-3.3.7.min.js"></script>
-    <script src="{{ base_url }}/js/highlight.pack.js"></script>
-    {% if is_top %}
-      <script src="{{ base_url }}/js/elasticlunr.min.js"></script>
-    {% endif %}
-    <base target="_top">
-  {%- endblock %}
-
-  {%- block scripts %}
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> {% if page and page.meta and page.meta.description %}
+    <meta name="description" content="{{ page.meta.description }}"> {% elif config.site_description %}
+    <meta name="description" content="{{ config.site_description }}"> {% endif %} {% if page and page.meta and page.meta.redirect %}
     <script>
-      var base_url = '{{ base_url }}';
-      var is_top_frame = {% if is_top %}(window === window.parent){% else %}false{% endif %};
-      {%- if page %}
-        {# Include the first two levels of TOC data as a JS object, to be rendered in top frame #}
-        var pageToc = [
-        {%- for item in page.toc %}
-          {title: {{ item.title|tojson }}, url: {{ ('#_top' if loop.first else item.url)|tojson }}, children: [
-            {%- for item in item.children %}
-              {title: {{ item.title|tojson }}, url: {{ item.url|tojson }} },
-            {%- endfor %}
-          ]},
-        {%- endfor %}
-        ];
-      {%- else %}
-        var page_toc = null;
-      {%- endif %}
-
+        var anchor = window.location.hash.substr(1);
+        location.href = "{{ page.meta.redirect }}" + (anchor ? "#" + anchor : "")
     </script>
-    <script src="{{ base_url }}/js/base.js"></script>
-    {%- for path in extra_javascript %}
-      <script src="{{ path }}"></script>
-    {%- endfor %}
-  {%- endblock %}
-
-  {%- block analytics %}
-    {%- if config.google_analytics %}
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
-        ga('send', 'pageview');
-    </script>
-    {%- endif %}
-  {%- endblock %}
-
-  {%- block extrahead %} {% endblock %}
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-{#
- # Code for the top frame. It should ideally be separate from the index page (which is likely
- # possible once theme_config is released with mkdocs 1.0).
- #}
-{%- if is_top -%}
-  {%- if config.extra.include_topbar -%}
+    <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="{{ page.meta.redirect }}"> {% elif page.canonical_url %}
+    <link rel="canonical" href="{{ page.canonical_url }}"> {% endif %} {% if page and page.meta and page.meta.author %}
+    <meta name="author" content="{{ page.meta.author | first }}"> {% elif config.site_author %}
+    <meta name="author" content="{{ config.site_author }}"> {% endif %} {% for key in [ "clipboard.copy", "clipboard.copied", "search.language", "search.pipeline.stopwords", "search.pipeline.trimmer", "search.result.none", "search.result.one", "search.result.other", "search.tokenizer" ] %}
+    <meta name="lang:{{ key }}" content="{{ lang.t(key) }}"> {% endfor %}
+    <link rel="shortcut icon" href="{{ config.theme.favicon | url }}">
+    <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-4.4.3"> {% endblock %} {% block htmltitle %} {% if page and page.meta and page.meta.title %}
+    <title>{{ page.meta.title }}</title>
+    {% elif page and page.title and not page.is_homepage %}
+    <title>{{ page.title | striptags }} - {{ config.site_name }}</title>
+    {% else %}
+    <title>{{ config.site_name }}</title>
+    {% endif %} {% endblock %} {% block styles %}
+    <link rel="stylesheet" href="{{ 'assets/stylesheets/application.3c839680.css' | url }}"> {% if palette.primary or palette.accent %}
+    <link rel="stylesheet" href="{{ 'assets/stylesheets/application-palette.dca7238a.css' | url }}"> {% endif %} {% if palette.primary %} {% import "partials/palette.html" as map %} {% set primary = map.primary( palette.primary | replace(" ", "-") | lower ) %}
+    <meta name="theme-color" content="{{ primary }}"> {% endif %} {% endblock %} {% block libs %}
+    <script src="{{ 'assets/javascripts/modernizr.268332fc.js' | url }}"></script>
+    {% endblock %} {% block fonts %} {% if font != false %}
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{
+              font.text | replace(' ', '+') + ':300,400,400i,700|' +
+              font.code | replace(' ', '+')
+            }}&display=fallback">
     <style>
-    .wm-content-pane {
-      padding-top: 50px;
-    }
+        body,
+        input {
+            font-family:"{{ font.text }}",
+            "Helvetica Neue",
+            Helvetica,
+            Arial,
+            sans-serif
+        }
+        
+        code,
+        kbd,
+        pre {
+            font-family:"{{ font.code }}",
+            "Courier New",
+            Courier,
+            monospace
+        }
     </style>
-    {% include 'topbar.html' %}
-  {%- endif -%}
+    {% endif %} {% endblock %}
+    <link rel="stylesheet" href="{{ 'assets/fonts/material-icons.css' | url }}"> {% if config.extra.manifest %}
+    <link rel="manifest" href="{{ config.extra.manifest | url }}"> {% endif %} {% for path in config["extra_css"] %}
+    <link rel="stylesheet" href="{{ path | url }}"> {% endfor %} {% block analytics %} {% if config.google_analytics %} {% include "partials/integrations/analytics.html" %} {% endif %} {% endblock %} {% block extrahead %}{% endblock %}
+</head>
+{% if palette.primary or palette.accent %} {% set primary = palette.primary | replace(" ", "-") | lower %} {% set accent = palette.accent | replace(" ", "-") | lower %}
 
-  <div id="main-content" class="wm-page-top-frame">
-    {% include 'nav-pane.html' %}
-    <div class="wm-content-pane">
-      <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
-        <div class="site-title"> <a href="/"> {{ config.site_name }} </a> </div>
-        <button id="wm-toc-button" type="button" class="wm-vcentered navbar-toggler">
-        <span class="black">  <i class="fa fa-bars fa-1x" aria-hidden="true"></i> </span>
-        </button>
-      </div>
-      <iframe class="wm-article" name="article"></iframe>
-    </div>
-  </div>
+<body dir="{{ lang.t('direction') }}" data-md-color-primary="{{ primary }}" data-md-color-accent="{{ accent }}">
+    {% else %}
 
-{%- endif -%}
+    <body dir="{{ lang.t('direction') }}">
+        {% endif %}
+        <svg class="md-svg">
+      <defs>
+        {% set platform = config.extra.repo_icon or config.repo_url %}
+        {% if "github" in platform %}
+          {% include "assets/images/icons/github.f0b8504a.svg" %}
+        {% elif "gitlab" in platform %}
+          {% include "assets/images/icons/gitlab.6dd19c00.svg" %}
+        {% elif "bitbucket" in platform %}
+          {% include "assets/images/icons/bitbucket.1b09e088.svg" %}
+        {% endif %}
+      </defs>
+    </svg>
+        <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+        <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+        <label class="md-overlay" data-md-component="overlay" for="__drawer"></label> {% if page.toc | first is defined %}
+        <a href="{{ (page.toc | first).url }}" tabindex="1" class="md-skip">
+        {{ lang.t('skip.link.title') }}
+      </a> {% endif %} {% block header %} {% include "partials/header.html" %} {% endblock %}
+        <div class="md-container">
+            {% block hero %} {% if page and page.meta and page.meta.hero %} {% include "partials/hero.html" with context %} {% endif %} {% endblock %} {% if feature.tabs %} {% include "partials/tabs.html" %} {% endif %}
+            <main class="md-main" role="main">
+                <div class="md-main__inner md-grid" data-md-component="container">
+                    {% block site_nav %} {% if nav %}
+                    <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                {% include "partials/nav.html" %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
 
-{# Code for the main template for all content pages. #}
+                    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                <h1 id='toc-title'>Table of Contents</h1>
+                                {% include "partials/toc.html" %}
+                            </div>
+                        </div>
+                    </div>
 
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
+                    {% endblock %}
+                    <div class="md-content">
+                        <article class="md-content__inner md-typeset">
+                            {% block content %} {% if page.edit_url %}
+                            <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a> {% endif %} {% if not "\x3ch1" in page.content %}
+                            <h1>{{ page.title | default(config.site_name, true)}}</h1>
+                            {% endif %} {{ page.content }} {% block source %} {% if page and page.meta and page.meta.source %}
+                            <h2 id="__source">{{ lang.t("meta.source") }}</h2>
+                            {% set repo = config.repo_url %} {% if repo | last == "/" %} {% set repo = repo[:-1] %} {% endif %} {% set path = page.meta.path | default([""]) %} {% set file = page.meta.source %}
+                            <a href="{{ [repo, path, file] | join('/') }}" title="{{ file }}" class="md-source-file">
+                      {{ file }}
+                    </a> {% endif %} {% endblock %} {% endblock %} {% block disqus %} {% include "partials/integrations/disqus.html" %} {% endblock %}
+                        </article>
+                    </div>
+                </div>
+            </main>
 
-  {%- if config.extra.article_nav_top != False %}
-    {% include "article-nav.html" %}
-  {%- endif %}
+        </div>
+        {% block footer %} {% include "partials/footer.html" %} {% endblock %} {% block scripts %}
+        <script src="{{ 'assets/javascripts/application.2d55df74.js' | url }}"></script>
+        {% if lang.t("search.language") != "en" %} {% set languages = lang.t("search.language").split(",") %} {% if languages | length and languages[0] != "" %} {% set path = "assets/javascripts/lunr/" %}
+        <script src="{{ (path ~ 'lunr.stemmer.support.js') | url }}"></script>
+        {% for language in languages | map("trim") %} {% if language != "en" %} {% if language == "ja" %}
+        <script src="{{ (path ~ 'tinyseg.js') | url }}"></script>
+        {% endif %} {% if language in ("ar", "da", "de", "es", "fi", "fr", "hu", "it", "ja", "nl", "no", "pt", "ro", "ru", "sv", "th", "tr", "vi") %}
+        <script src="{{ (path ~ 'lunr.' ~ language ~ '.js') | url }}"></script>
+        {% endif %} {% endif %} {% endfor %} {% if languages | length > 1 %}
+        <script src="{{ (path ~ 'lunr.multi.js') | url }}"></script>
+        {% endif %} {% endif %} {% endif %}
+        <script>
+            app.initialize({
+                version: "{{ mkdocs_version }}",
+                url: {
+                    base: "{{ base_url }}"
+                }
+            })
+        </script>
+        {% for path in config["extra_javascript"] %}
+        <script src="{{ path | url }}"></script>
+        {% endfor %} {% endblock %}
+    </body>
 
-  {%- block content %}
-    {% if page and page.meta.source %}
-      <div class="source-links">
-      {% for filename in page.meta.source %}
-          <span class="label label-primary">{{ filename }}</span>
-      {% endfor %}
-      </div>
-    {% endif %}
-
-    {{ page.content }}
-  {%- endblock %}
-
-  <br>
-  {%- if config.extra.article_nav_bottom != False %}
-    {% include "article-nav.html" %}
-    <br>
-  {%- endif %}
-</div>
-
-<footer class="col-md-12 wm-page-content">
-{%- block footer %}
-  {%- block repo %}
-    {%- if page and page.edit_url %}
-      <p>
-        <a href="{{ page.edit_url }}">{% include 'repo-icon.html' %}Edit on {{ config.repo_name }}</a>
-      </p>
-    {%- elif config.repo_url %}
-      <p>
-        <a href="{{ config.repo_url }}">{% include 'repo-icon.html' %}{{ config.repo_name }}</a>
-      </p>
-    {%- endif %}
-  {%- endblock %}
-
-  {%- if config.copyright %}<p>{{ config.copyright }}</p>{%- endif %}
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-{%- endblock %}
-</footer>
-
-</body>
 </html>
-{%- if is_top %}
-<!--
-MkDocs version : {{ mkdocs_version }}
-Build Date UTC : {{ build_date_utc }}
--->
-{%- endif %}

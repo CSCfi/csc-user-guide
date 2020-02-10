@@ -2,19 +2,17 @@
 # The S3 client
 
 This chapter describes how to use the Allas object storage service with the **s3cmd** command line client. This client uses
-the _S3_ protocol that differs from the _Swift_ protocol used in the [rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. 
+the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples.
 Thus, data that has been uploaded to Allas using these tools should not be downloaded with s3cmd and vice versa.
 
-From the user perspective, one of the main differences between s3cmd and Swift based tools is that rclone, swift and a-tools connections remain valid for eight hours 
-at a time but with s3cmd, the connection remains open permanently. The permanent connection is practical in many ways but it has a security aspect: 
-if your CSC account is compromised, so is the object storage space.
+From the user perspective, one of the main differences between s3cmd and Swift-based tools is that Rclone, Swift and a-tools connections remain valid for eight hours at a time, but with s3cmd, the connection remains permanently open. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
 
 The syntax of the `s3cmd` command:
 ```text
 s3cmd -options command parameters
 ```
 
-The most commonly used _s3cmd_ commands are:
+The most commonly used _s3cmd_ commands:
 
 | s3cmd command | Function |
 | :---- | :---- |
@@ -23,7 +21,7 @@ The most commonly used _s3cmd_ commands are:
 | ls | List objects and buckets |
 | get | Download objects and buckets |
 | cp | Move object |
-| del | Remove objects or bucket |
+| del | Remove objects or buckets |
 | md5sum | Get the checksum |
 | info | View metadata |
 | signurl | Create a temporary URL |
@@ -35,11 +33,11 @@ The table above lists only the most essential s3cmd commands. For more complete 
 ```text
 s3cmd -h
 ```
-If you use Allas on Puhti or Taito, all required packages and software are already installed, and you can jump to the section [s3cmd with supercomputers](#s3cmd-with-supercomputers). You can skip the installation chapter *Getting started with s3cmd* below.
+If you use Allas on Puhti or Taito, all required packages and software are already installed, and you can proceed to the section [s3cmd with supercomputers](#s3cmd-with-supercomputers). You can skip the installation chapter _Getting started with s3cmd_ below.
 
 ## Getting started with s3cmd
 
-To configure s3cmd connection, you need have OpenStack and s3cmd installewd in your machine. 
+To configure a s3cmd connection, you need OpenStack and s3cmd installed in your environment. 
 
 **OpenStack s3cmd installation:**
 
@@ -67,31 +65,27 @@ s3cmd
 Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
 Once you have OpenStack and s3cmd instralled in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
-script to set up S3 connect to your allas project. 
+script to set up the S3 connection to your Allas project. 
 ```text
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --mode s3cmd --user your-csc-username
 ```
-Note that you shoud use the `--user` to  define your CSC-username for the command. The configuration command first asks your 
-CSC password and then asks you to define the Allas project. After that the tool creates a key file for S3 connection to and stores it to the default location.
-
+Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your 
+CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location.
 
 ## s3cmd with supercomputers
 
-To use s3cmd in Taito or Puhti you must first confugure the connection with commands:
+To use s3cmd in Taito or Puhti, you must first confugure the connection:
 ```text
 module load allas
 allas-conf --mode s3cmd
 ```
 
-The configuration process asks first your CSC password. Then it lists your Allas projects and asks you to define the name of the project to be used. The configuration 
-information is stored in the file _$HOME/.s3cfg_. This configuration needs to be defined only once. In the future, s3cmd will use the object storage connection 
-described in the _.s3cfg_ file automatically. However, if you wish to change the Allas project that s3cmd uses, you only need to run the configuration command again.
+The configuration process first asks for your CSC password. Then it lists your Allas projects and asks for the name of the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, s3cmd will automatically use the object storage connection described in the _.s3cfg_ file. However, if you wish to change the Allas project that s3cmd uses, you only need to run the configuration command again.
 
 ## Create buckets and upload objects
 
-You can create a new bucket with command:
-
+Create a new bucket:
 ```text
 s3cmd mb s3://my_bucket
 ```
@@ -137,7 +131,7 @@ $ <b>md5sum my_file new_file_name</b>
    39bcb6992e461b269b95b3bda303addf  my_file
    39bcb6992e461b269b95b3bda303addf  new_file_name
 </pre>
-In the above example, the checksums match between the original and the downloaded file.
+In the above example, the checksums match between the original and downloaded file.
 
 Download an entire bucket:
 ```text
@@ -188,9 +182,9 @@ Public URL of the object is: http://a3s.fi/my_fishbucket/fishes/salmon.jpg
 
 ## Giving another project read access to a bucket
 
-You can control the access rights using the command ```s3cmd setacl ```. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. The ID can be found in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show $project_name ```. You need access (membership) to the project to find out the UUID.
+You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. The ID can be found in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show $project_name ```. You need access (membership) to the project to find out the UUID.
  
-In the Pouta web UI, you can see only buckets that the members of your project have created. If your project has been granted project read access to a bucket with the s3cmd client: 
+In the Pouta web UI, you can see only the buckets that the members of your project have created. If your project has been granted read access to a bucket with the s3cmd client:
  
  * The members of your project can list and fetch files with _python-swiftclient_.
  * _swift list_ does <u>not</u> display the bucket.
@@ -233,7 +227,7 @@ ls
 </pre>
 It is recommended to collect the data to be stored as larger units and compress it before uploading it to the system.
 
-In this example, we store the Bowtie2 indices and the genome of the Zebrafish (Danio rerio) in the fish bucket. Running `ls -lh` shows that the index files are available in the current directory:
+In this example, we store the Bowtie2 indices and the genome of the zebrafish (danio rerio) in the fish bucket. Running `ls -lh` shows that the index files are available in the current directory:
 
 <pre>$ <b>ls -lh</b>
 total 3.2G
@@ -267,12 +261,12 @@ ls s3://fish-bucket
 2019-10-01 12:11 9982519261   s3://fish-bucket/zebrafish.tgz
 </pre>
 
-Uploading 2 GB of data takes some time. The uploaded file can be retrieved using the command
+Uploading 2 GB of data takes time. Retrieve the uploaded file:
 ```text
 s3cmd get s3://fish-bucket/zebrafish.tgz
 ```
 
-By default, this bucket can be accessed only by project members. However, with command `s3cmd setacl`, you can make the file publicly available.
+By default, this bucket can only be accessed by the project members. However, using the command `s3cmd setacl`, you can make the file publicly available.
 
 First make the fish bucket public:
 ```text

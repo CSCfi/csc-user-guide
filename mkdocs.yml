@@ -1,6 +1,7 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
-site_url: "https://docs.csc.fi"
+site_url: "https://docs.csc.fi/"
+site_description: Instructions and user guides for the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
 nav:
   - Home: index.md
   - Accounts:
@@ -29,6 +30,7 @@ nav:
         - Array jobs: computing/running/array-jobs.md
         - Example job scripts: computing/running/example-job-scripts.md
         - Interactive usage: computing/running/interactive-usage.md
+        - Performance checklist: computing/running/performance-checklist.md
      - Compiling: computing/compiling.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
@@ -62,7 +64,6 @@ nav:
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
-        - Applying for Pouta Access: accounts/how-to-add-service-access-for-project.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
@@ -87,8 +88,15 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-             - Pouta FAQ: /support/faq#pouta
+             # - Pouta FAQ: support/faq/index.md
   - Data:
+     - Moving data:
+        - Copying files using scp: data/moving/scp.md
+        - Graphical file transfer tools: data/moving/graphical_transfer.md
+        - Using rsync for data transfer and synchronization: data/moving/rsync.md
+        - Using wget to download data from web sites to CSC: data/moving/wget.md
+        - Sharing and transporting files using Funet FileSender: data/moving/funet.md
+        - Remote disk mounts: data/moving/disk_mount.md
      - Allas object storage:
         - Allas object storage: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
@@ -112,22 +120,24 @@ nav:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
   - Support:
-     - Tutorials: support/tutorials.md
+     - Tutorials: support/tutorials/index.md
      - FAQ: support/faq/index.md
      - Contact: support/contact.md
 
 theme:
-  name: windmill
-  custom_dir: mkdocs_csc
-extra:
-  logo: img/CSC_LOGO_nega_pad.png
-  article_nav: false
-  footer: false
+  name: material
+  custom_dir: mkdocs_csc/
+    
+  font:
+    text: 'Raleway'
+    code: 'Source Code Pro'
+
+  logo: 'img/Docs_CSC_logo.svg#headerlogo"'
 
 extra_css:
-  - css/extra.css
-extra_javascript:
-  - https://use.fontawesome.com/e51b07f7f1.js
+  - 'assets/stylesheets/extra.css'
+  - 'assets/stylesheets/extra_mobile.css'
+
 markdown_extensions:
   - toc:
       toc_depth: 2-6
@@ -135,3 +145,7 @@ markdown_extensions:
   - attr_list
   - pymdownx.details
   - pymdownx.snippets
+
+google_analytics:
+  - 'UA-5406715-9'
+  - 'auto'
