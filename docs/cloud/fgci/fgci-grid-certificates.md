@@ -211,19 +211,10 @@ lang="en-IE">*.globus*</span><span lang="en-IE"> directory of your CSC
 home directory. This is the default location for the certificates that
 grid tools at CSC will use.</span>
 
-  
-![]
 
-#### Figure 1. The My Certificates tool in the Scientists User Interface.
-
- 
-
- 
 
   [GÉANT Trusted Certificate Service (TCS)]: http://www.geant.org/TCS/Pages/default.aspx
   [DigiCert SSO portal]: https://www.digicert.com/sso%E2%80%8B
   [eduGAIN]: http://services.geant.net/edugain/Pages/Home.aspx
   [Personal Nordugrid certificate]: https://research.csc.fi/nordugrid-certificate
-  [*scp*]: https://research.csc.fi/csc-guide-copying-files-from-linux-and-mac-osx-machines-with-scp
-  [chapter 1.1.2]: https://research.csc.fi/fgi-grid-certificates#1.1.2
-  []: https://research.csc.fi/documents/48467/84606/FGI-guide_image1.jpg/8346b997-2596-43fc-acc7-0d1730bfc67e?t=1383829146000
+  [*scp*]: /data/moving/scp.md

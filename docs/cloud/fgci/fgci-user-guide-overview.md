@@ -16,7 +16,7 @@ collaboration.
 computing platform.** The IaaS cloud usage of FGCI is done through the
 cPouta service of CSC. See [Pouta user guide] for more information. 
 
-See [FGCI DMP] for the data management plan.
+See [FGCI DMP](https://research.csc.fi/documents/48467/0/FGCI+Data+Management+Plan/77ceadaa-0866-4530-b2c9-f76a98e891de) for the data management plan.
 
 As a grid computing platform can be seen as an upgrade to its' 
 predecessor, FGI. The usage is based on the same components
@@ -39,9 +39,8 @@ FGCI.
 
 This guide provides a general introduction to the FGCI grid environment.
 More detailed information as well as tutorials and software specific
-instructions can be found from the **FGI web site**:
-  [https://confluence.csc.fi/display/fgi/FGI+User+Pages](https://confluence.csc.fi/display/fgi/FGI+User+Pages)
-and 
-  [FGCI user pages:https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home](https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home)
+instructions can be found from the **FG(C)I web sites**:
 
-  [FGCI DMP]: https://research.csc.fi/documents/48467/0/FGCI+Data+Management+Plan/77ceadaa-0866-4530-b2c9-f76a98e891de
+- [FGI User Pages](https://confluence.csc.fi/display/fgi/FGI+User+Pages)
+- [FGCI user pages](https://confluence.csc.fi/display/FGCIOD/Finnish+Grid+and+Cloud+Infrastructure+Open+Documents+Home)
+
