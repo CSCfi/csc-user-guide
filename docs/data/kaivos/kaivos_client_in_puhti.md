@@ -113,8 +113,6 @@ mysql> INSERT INTO results (id, value, comment) VALUES (2, 12.33, "Another");
 mysql> INSERT INTO results (id, value, comment) VALUES (3, 25.33, "Value2");
 ```
 When the table contains data, we can now do SQL queries with the **SELECT** command:
-
-When the table contains data, we can now do SQL queries with the SELECT command:
 <pre>mysql> <b>SELECT value FROM results WHERE id=2;</b>
 +-------+
 | value |
