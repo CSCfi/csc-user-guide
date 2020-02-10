@@ -110,6 +110,7 @@
 
 ## Mathematics and Statistics
 
+* [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
@@ -123,6 +124,7 @@
 
 ## Miscellaneous
 
+* [DDT](ddt.md) Parallel debugger 
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [MySQL ](../data/kaivos/kaivos.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
