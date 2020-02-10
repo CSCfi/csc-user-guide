@@ -30,6 +30,7 @@ nav:
         - Array jobs: computing/running/array-jobs.md
         - Example job scripts: computing/running/example-job-scripts.md
         - Interactive usage: computing/running/interactive-usage.md
+        - Performance checklist: computing/running/performance-checklist.md
      - Compiling: computing/compiling.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
