@@ -81,9 +81,10 @@
 * [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 * [SPAdes](spades.md) Genome assembly
-* [Spark](spark.md) High-performance distributed computing framework 
+* [Spark](spark.md) High-performance distributed computing framework
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [STAR](star.md) Short read aligner
+* [Structure](structure.md) Inference of population structure in genetics
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [Trinity](trinity.md) Traskriptome assembly tool
