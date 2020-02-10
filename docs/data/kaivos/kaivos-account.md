@@ -1,4 +1,4 @@
-# 1. Getting a database account
+# Getting a database account
 
 The kaivos.csc.fi database service can be accessed only from the computing servers of CSC. Thus, in order to use the database service, the project manager as well as all the users should have a CSC user account at Puhti. To open a database to kaivos database service, the project manager needs to print out the application form for database service at:
 

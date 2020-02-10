@@ -1,8 +1,8 @@
-# 2. MySQL client programs at CSC
+# MySQL client programs at CSC
 
 Below you can find instructions on how to use the MySQL client programs in CSC's computing environment. The SQL language is not covered, but you can find a lot of documentation and guidance elsewhere (e.g., MySQL user manual).
 
-## 2.1 Connecting your database
+## Connecting your database
 
 Once the database user accounts have been received from CSC the user can start to create tables and store data into the empty database. The database service can be used through MySQL client program available in Puhti.
 
@@ -30,11 +30,12 @@ or
 
 In the latter command, the `--skip-column-names` option is used to print out only the data produced by the SQL commands. Otherwise names of the selected columns would be printed too. The `--quick` option makes the client to print each row as it is received instead of storing it to the cache first.
 
-## 2.2 Setting default values for MySQL connection
+## Setting default values for MySQL connection
 
 In the mysql commands above, the client program would ask for the user name and password every time when a mysql command is executed. It is however possible to define default values for the database name, user name and password, that will be used for the connection if no password or user name is given. Setting the default values is useful especially in cases where the user uses mostly just one database.
 
 The default values for the MySQL connections is defined in a file called _.my.cnf_ (note the dot in the beginning of the file name) that locates in the user's home directory. This definition file can be constructed in two alternative ways: in Puhti with a normal text editor or with the command:
+
 ```text
 kaivos_mysql_cnf
 ```
@@ -54,12 +55,12 @@ mysql --defaults-extra-file=db_conn2.def --local db_name < commands.sql > output
 ```
 
  
-## 2.3 Graphical Interfaces
+## Graphical Interfaces
 
 Graphical MySQL interfaces have not been installed to Puhti. However graphical database interfaces are very efficient when you need to get familiar and administrate a complex database that contains a large number of tables. If you wish to use your database through a graphical user interface, we recommend that you install the interface program to your local computer and create a remote connection to Kaivos as described in chapter 5.
 
  
-## 2.4 Following the disk usage in kaivos.csc.fi
+## Following the disk usage in kaivos.csc.fi
 
 Each user has only limited disk space available in the kaivos.csc.fi server. If the database reaches the disk quota, the database users can no longer write to the database. In these cases the users should clean up the database to reduce the size or apply more disk space from CSC. You can check the database quota and usage with the Kaivos Status tool or with command:
 ```text
@@ -111,6 +112,8 @@ mysql> INSERT INTO results (id, value, comment) VALUES (1, 27.45, "Test case");
 mysql> INSERT INTO results (id, value, comment) VALUES (2, 12.33, "Another");
 mysql> INSERT INTO results (id, value, comment) VALUES (3, 25.33, "Value2");
 ```
+When the table contains data, we can now do SQL queries with the **SELECT** command:
+
 When the table contains data, we can now do SQL queries with the SELECT command:
 <pre>mysql> <b>SELECT value FROM results WHERE id=2;</b>
 +-------+
