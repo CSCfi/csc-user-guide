@@ -151,27 +151,46 @@ First we create a grid proxy certificate and check that all the files
 that the job uses (job description file, command script and input files)
 are present in the current working directory.
 
-    > arcproxy -S fgi.csc.fi
-    Enter pass phrase for private key:
-    Your identity: /DC=org/DC=terena/DC=tcs/C=FI/O=CSC/CN=Kalle Käyttäjä kkayttajl@csc.fi
-    Contacting VOMS server (named fgi.csc.fi): voms.fgi.csc.fi on port: 15003
-    Proxy generation succeeded
-    Your proxy is valid until: 2015-08-20 03:39:34
-    > ls
-    file1.txt file2.txt hello.xrsl runhello.sh
+```
+> arcproxy -S fgi.csc.fi
+Enter pass phrase for private key:
+Your identity: /DC=org/DC=terena/DC=tcs/C=FI/O=CSC/CN=Kalle Käyttäjä kkayttajl@csc.fi
+Contacting VOMS server (named fgi.csc.fi): voms.fgi.csc.fi on port: 15003
+Proxy generation succeeded
+Your proxy is valid until: 2015-08-20 03:39:34
+> ls
+file1.txt file2.txt hello.xrsl runhello.sh
+```
 
 After this the job defined in the file *hello.xrsl* is submitted with
 the command *arcsub*:
 
 
-`> arcsub hello.xrsl  ERROR: Conversion failed: @ 3055 ERROR: Conversion failed: : SEVQLVNQRUMwNiBAIEDCoDEyLjIy Job submitted with jobid: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523`
+```
+> arcsub hello.xrsl  
+ERROR: Conversion failed: @ 3055 ERROR: Conversion failed: : SEVQLVNQRUMwNiBAIEDCoDEyLjIy 
+Job submitted with jobid: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523
+```
 
 The output of the *arcsub* command includes two error messages but they
 can be ignored. For the future it is good to copy the jobid from the end
 of the *arcsub* output to a file for reference. Next, we follow the
 progress of the job with the commands *arcstat* and *arccat*:
 
-`> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Name: hello_FGI State: Queuing (INLRMS:E)  > arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 Name: hello_FGI State: Finished (FINISHED) Exit Code: 0  > arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  Hello FGI  > arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  > ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh  > cd 3008913401883521090110523/  > ls output.txt std.err std.out`
+```
+> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 
+Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 
+Name: hello_FGI State: Queuing (INLRMS:E)  
+> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  
+Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 
+Name: hello_FGI State: Finished (FINISHED) Exit Code: 0  
+> arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523
+Hello FGI  
+> arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  
+> ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh  
+> cd 3008913401883521090110523/  
+> ls output.txt std.err std.out
+```
 
 ## Keeping the grid job status up to date
 
@@ -192,7 +211,10 @@ retrieved using some other machine or that have been inactive for
 several weeks and thus automatically cleaned away. In these cases
 *arcstat -a* gives error messages like:
 
-`WARNING: Job information not found in the information system: gsiftp://usva.fgi.csc.fi:2811/jobs/rTVKDmGyCUhnDJ9eGpfsTMKpABFKDmABFKDmjqKKDmABFKDm8VTkNn`
+```
+WARNING: Job information not found in the information system: 
+gsiftp://usva.fgi.csc.fi:2811/jobs/rTVKDmGyCUhnDJ9eGpfsTMKpABFKDmABFKDmjqKKDmABFKDm8VTkNn
+```
 
 To get rid of these messages, run command:
 
