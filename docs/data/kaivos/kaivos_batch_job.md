@@ -81,7 +81,7 @@ The sample script above first analyzes a file called _inputfile30.data_ with pro
 
 After importing the data to the database the script launches another MySQL command. The second command modifies an existing table called _dataset_table_. The mysql command changes the status value in this table so that in the row where the _name_ column contains the value _inputfile30.data_, the _status_ column gets the value:  _done_ .
 
-The _kaivos.bash_ script, described above, can be submitted to the batch job system of Taito with command
+The _kaivos.bash_ script, described above, can be submitted to the batch job system of Puhti with command
 ```text
 sbatch kaivos.bash
 ```
