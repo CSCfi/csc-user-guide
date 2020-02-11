@@ -95,7 +95,6 @@ EOF
 
 #remove the original results file
 rm -f results.30
-
 ```
 
 The sample script above first analyzes a file called _inputfile30.data_ 
