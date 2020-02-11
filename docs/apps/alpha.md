@@ -53,7 +53,7 @@
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [MXNet](mxnet.md) Deep learning library for Python
-* [MySQL ](../data/kaivos/kaivos.md) MySQL database client 
+* [MySQL](../data/kaivos/overview.md) MySQL database client 
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
