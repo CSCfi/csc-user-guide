@@ -34,9 +34,27 @@ keep additional packages at a minimum.
 
 ## Images
 
+|Image|Username|Modified <br/>|
+|--- |:---:|:---:|
+|CentOS-8   |**centos** | no |
+|CentOS-7   |cloud-user | yes|
+|CentOS-7-cuda   |cloud-user |yes|
+|Ubuntu-18.04   |**ubuntu** | no |
+|Ubuntu-16.04   |cloud-user | yes|
+|Ubuntu-16.04-Cuda   |cloud-user | yes|
+
+### CentOS-8
+CentOS is the community version of Red Hat Enterprise Linux (RHEL).
+This image is exactly as provided by CentOS and we have not modified it
+in any way.
+
+Note that CentOS-8 has `centos` as default username instance of `cloud-user`,
+If you attempt to login as the root user there will be a helpful message telling
+you which user has your key installed.
+Another difference is that this image does not have automatic updates enabled.
+
 ### CentOS-7
-CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
-is the distribution that the Pouta admins are most accustomed to, at least
+This is the distribution that the Pouta admins are most accustomed to, at least
 when it comes to work. This is the second newest major release of CentOS.
 At the time of writing we are still waiting for CentOS-8 cloud images to be
 released before we start providing CentOS-8 as well.
