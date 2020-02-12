@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:8
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
