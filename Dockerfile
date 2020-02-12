@@ -16,7 +16,7 @@ COPY . /tmp
 
 WORKDIR /tmp
 
-RUN pip install --no-cache-dir -r requirements.txt && \
+RUN pip3 install --no-cache-dir -r requirements.txt && \
     mkdocs build -d /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx
