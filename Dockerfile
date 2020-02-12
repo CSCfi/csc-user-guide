@@ -7,8 +7,8 @@ ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
 RUN yum -y install epel-release &&\
     yum -y install nginx &&\
-    dnf install python3 &&\
-    dnf install python3-pip &&\
+    yum -y install python3 &&\
+    yum -y install python3-pip &&\
     yum clean all
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
