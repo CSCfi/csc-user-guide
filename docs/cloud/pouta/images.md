@@ -44,6 +44,9 @@ keep additional packages at a minimum.
 |Ubuntu-16.04-Cuda   |cloud-user | yes|
 
 ### CentOS-8
+Currently in a *tech preview* because we have found some
+[minor issues](https://bugs.centos.org/view.php?id=16948) with it.
+
 CentOS is the community version of Red Hat Enterprise Linux (RHEL).
 This image is exactly as provided by CentOS and we have not modified it
 in any way.
