@@ -122,6 +122,10 @@ body {
     font-size: .7rem;
 }
 
+.md-nav--primary {
+    padding-left: 0rem;
+}
+
 .md-nav__item {
     padding: 0.2rem 0 0.2rem;
 }
@@ -161,6 +165,7 @@ body {
     transition: transform .4s, -webkit-transform .4s;
     vertical-align: -.125em;
     display: inline-block;
+    margin-left: -0.25rem;
 }
 
 .md-nav__item--nested .md-nav__toggle~.md-nav__link::before {
@@ -178,7 +183,7 @@ body {
 .md-nav__link {
     font-weight: bold;
     margin: 0;
-    padding: 0.1rem;
+    padding: 4px 18px;
 }
 
 .md-nav__link--active {
@@ -277,6 +282,6 @@ img[src*="#headerlogo"] {
     padding-top: 0.3rem;
 }
 
-[title~="Home"] {
-    padding-left: 1.1rem;
+body>div>main>div>div.md-sidebar.md-sidebar--primary>div>div>nav>ul>li.md-nav__item.md-nav__item--active>a {
+    padding-left: 1.5rem;
 }
