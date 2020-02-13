@@ -51,7 +51,7 @@ CentOS is the community version of Red Hat Enterprise Linux (RHEL).
 This image is exactly as provided by CentOS and we have not modified it
 in any way.
 
-Note that CentOS-8 has `centos` as default username instance of `cloud-user`,
+Note that CentOS-8 has `centos` as default username.
 If you attempt to login as the root user there will be a helpful message telling
 you which user has your key installed.
 Another difference is that this image does not have automatic updates enabled.
