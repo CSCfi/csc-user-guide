@@ -59,5 +59,5 @@ cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
 
 ## More information
 
-*   [InterProScan5 home page](code.google.com/p/interproscan/)
+*   [InterPro home page](https://www.ebi.ac.uk/interpro/)
 
