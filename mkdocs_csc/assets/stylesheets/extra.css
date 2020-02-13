@@ -285,3 +285,17 @@ img[src*="#headerlogo"] {
 a[title="Home"] {
     padding-left: 1.15rem;
 }
+
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+    background: none;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+    width: 0.15rem;
+    background: #E0E0E0;
+    border-radius: 2px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+    background: #888888;
+}
