@@ -45,7 +45,7 @@ If you have connected with a ssh connection that has __X11 forwarding__ enabled,
 For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../computing/connecting.md)
 
 !!! note
-    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive Puhti-shells are made available later in 2019. You need to use the batch job system on Puhti.
+    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive queue is available in Puhti. You need to use the batch job system on Puhti.
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
