@@ -36,7 +36,7 @@ keep additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-8   |cloud-user | no |
+|CentOS-8   |cloud-user | yes|
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
 |Ubuntu-18.04   |**ubuntu** | no |
