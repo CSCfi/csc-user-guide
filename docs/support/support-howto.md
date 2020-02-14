@@ -62,7 +62,7 @@ You run a calculation which crashes after running for one week. You are tempted 
 
 ##If you can't create an example, explain what you've done
 
-Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) or [a-flip](../data/Allas/using_allas/a_commands.md] to delivere files. Be specific, see above.
+Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) or [a-flip](../data/Allas/using_allas/a_commands.md) to delivere files. Be specific, see above.
 
 ##Specify your environment
 
