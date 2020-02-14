@@ -38,7 +38,7 @@ mkdir structure_job1
 ```
 Next you need to copy or create to this directory the two input files used by _strauto-puhti_ program.
 The parameter file must always be named as `input.py`. The name of the actual datafile is defined in
-`input.py`. The data file name should end with `.str`. 
+`input.py`. The data file name should end with `.str` or `.ustr`. 
 
 A sample file, provided by strauto can be copied to your current directory with commands:
 
