@@ -35,7 +35,7 @@ There are two mandatory preparatory steps that you need to do, to be able to use
 2.  [Joining to the fgi.csc.fi virtual organisation](./fgci-joining-the-fgi.csc.fi-virtual-organization.md)
 
 In addidtion you must have ARC middleware client installed in the computer, that you will use for submitting and managing grid jobs. (Not that ARC server is not needed)Installataion instructions for ARC middleware can be foud form:
-*    [ARC client instructions of Nordugrid] (http://www.nordugrid.org/arc/arc6/users/client_install.html)
+*    [ARC client instructions of Nordugrid](http://www.nordugrid.org/arc/arc6/users/client_install.html)
 
 These preparatory steps are done just once, when the user starts using FGCI.
 
