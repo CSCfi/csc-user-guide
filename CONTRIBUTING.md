@@ -31,7 +31,9 @@ must use pull requests.
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
  - Once PR has been accepted, remove the temporary branch
 
-Reviewer: If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people.
+**Reviewer:** If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people. 
+
+**Note:** If you make bigger changes to the (main) categories / menu on the left, it might effect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
 
 ### Previewing active branches
 

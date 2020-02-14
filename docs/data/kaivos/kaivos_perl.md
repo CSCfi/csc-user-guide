@@ -1,4 +1,4 @@
-# 6. Using Perl MySQL API at CSC
+# Using Perl MySQL API at CSC
 
 The Perl MySQL API is available in Puhti at CSC, as a part of the bioperl environment. 
 The following tasks are usually performed, when a MySQL database is used by a Perl script:

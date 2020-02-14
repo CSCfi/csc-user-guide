@@ -40,7 +40,8 @@ velvetg assebly_dir -cov_cutoff 5 -read_trkg yes -amos_file yes
 When velvet was compiled in puhti, the maximum allowed kmer length was defined. The longer the maximum kmer is the more memory velvet will need (regardless of the kmer length that is actually used). Because of that we provide several versions of velvet, listed in the table below. In Puhti the default the maximum k-mer length, that can be used in the hash table, is 100 bases. However, it is recommended to use the version that has the shortest possible max kmer length. For example for kmer length 40 you should use velveth_maxk50 and velvetg_maxk50.
 
 
-**Velvet programs available in Taito**
+**Velvet programs available in Puhti**
+
 | Program 	   | max. k-mer length | type |
 |------------------|-------------------|------|
 | velveth 	   | 100 	       |normal|
