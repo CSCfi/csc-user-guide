@@ -59,6 +59,9 @@ FIXME: double-check queues, add missing links
 
 !!! note "Notes on partitions"
 
+    - ** Only full nodes are allocated on Mahti **
+        - Jobs will be allocated full nodes (all cores and memory in a node)
+          on Mahti
     - ** Only request the memory you need **
         - The jobs will run sooner, since in each partition, most of the
           nodes have less memory than the maximum amount
