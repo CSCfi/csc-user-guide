@@ -29,20 +29,15 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-To start using COMSOL interactively with X11 graphics, login to Puhti
+The preferred method to use COMSOL interactively is via NoMachine client [NoMachine](nomachine.md). With the client, log in to Puhti and allocate computing resources.
 
-```bash
-$ ssh <cscusername>@puhti.csc.fi
-```
-
-Allocate resources
 ```bash
 $ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
   --mail-user=<your email address> bash
 ```
 
-You will get an email notification, when requested computing resources are available. After that you can start COMSOL.
+You have to specify the execution time and memory requirement corresponding your needs. Remember to add your billing project, too. You will get an email notification, when requested computing resources are available. After that you can start COMSOL.
 
 ```bash
 $ module load comsol 
