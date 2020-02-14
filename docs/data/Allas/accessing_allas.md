@@ -15,7 +15,7 @@ The OpenStack Horizon web interface provides easy-to-use basic functions for dat
 
 ## Accessing Allas in the CSC computing environment and other Linux platforms
 
-In order to use Allas in Puhti or Taito, first load the module _allas_:
+In order to use Allas in Puhti or Mahti, first load the module _allas_:
 ```text
 module load allas
 ```
