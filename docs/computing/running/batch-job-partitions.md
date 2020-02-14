@@ -2,24 +2,26 @@
 
 ## Puhti partitions
 
-The following partitions (aka queues) are currently available in **Puhti** for normal (CPU) nodes:
+The following partitions (aka queues) are currently available in **Puhti** for
+normal (CPU) nodes:
 
-| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../system.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
-|-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
-| test            | 15 minutes       | 80          |   2                      |  M                           | 382 GiB  |          |
-| small           | 3 days        | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB |
-| large           | 3 days        | 4000         |   100                    |  M, L, IO                    | 382 Gib  | 3600 GiB | 
-| longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
-| hugemem         | 3 days        | 160          |   4                      |  XL, BM                      | 1534 GiB |         |
-| hugemem_longrun | 7 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
+| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes | [Node types](../system.md) | Max<br>memory | Max<br>local storage (nvme) |
+|-----------------|---------------|--------------|--------------|----------------------------|---------------|-----------------------------|
+| test            | 15 minutes    | 80           | 2            | M                          | 382 GiB       |                             |
+| small           | 3 days        | 40           | 1            | M, L, IO                   | 382 GiB       | 3600 GiB                    |
+| large           | 3 days        | 4000         | 100          | M, L, IO                   | 382 Gib       | 3600 GiB                    |
+| longrun         | 14 days       | 40           | 1            | M, L, IO                   | 382 GiB       | 3600 GiB                    |
+| hugemem         | 3 days        | 160          | 4            | XL, BM                     | 1534 GiB      |                             |
+| hugemem_longrun | 7 days        | 40           | 1            | XL, BM                     | 1534 GiB      |                             |
 
 
-The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 10 cores/task.
+The following partitions are available on GPU nodes. Note that for each GPU,
+you should reserve at most 10 cores/task.
 
-| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes             | [Node types](../system.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
-|-----------------|---------------|-------------|--------------|------------------------------|----------|-------------|
-| gputest         | 15 minutes     | 8           |   2          |   GPU                        | 382 GiB  | 3600 GiB    |
-| gpu             | 3 days        | 80          |   20         |   GPU                        | 382 GiB  | 3600 GiB    |
+| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../system.md) | Max<br>memory | Max<br>local storage (nvme) |
+|-----------------|---------------|-------------|--------------|----------------------------|---------------|-----------------------------|
+| gputest         | 15 minutes    | 8           | 2            | GPU                        | 382 GiB       | 3600 GiB                    |
+| gpu             | 3 days        | 80          | 20           | GPU                        | 382 GiB       | 3600 GiB                    |
 
 
 Information about the partition:
@@ -34,6 +36,25 @@ or
 scontrol show partition <partition_name>
 
 ```
+
+
+## Mahti partitions
+
+The following partitions (aka queues) are currently available in **Mahti**:
+
+| Partition | Nodes       | Time<br>limit | Access           |
+|-----------|-------------|---------------|------------------|
+| test      | 8 dedicated | 15 minutes    | all              |
+| medium    | 1-20        | 24 hours      | all              |
+| large     | 20-200      | 24 hours      | scalability test |
+| gc        | 1-700       | 24 hours      | Grand Challenge  |
+
+Large queue on Mahti is only accessible to projects that have done a
+[scalability test](FIXME) to show good utilisation of the resources. The queue
+`qc` is only accessible to [Grand Challenge](FIXME) projects and has a higher
+priority.
+
+FIXME: double-check queues, add missing links
 
 
 !!! note "Notes on partitions"
