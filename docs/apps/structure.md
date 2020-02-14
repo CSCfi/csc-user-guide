@@ -21,6 +21,9 @@ To use Structure in Puhti, run first following setup commands:
 module load biokit
 module load strcture
 ```
+
+In addition to `structure` command the structure module makes available commands [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for postprocessing  structure results.
+
 In Puhti, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
 This tool is a modified version of [strauto](http://dx.doi.org/10.1186/s12859-017-1593-0) structure
 job sumbission tool. Note that many details in the strauto manual do not apply to atrauto-puhti.   
@@ -47,11 +50,25 @@ cp /appl/soft/bio/structure/strauto/input.py ./
 cp /appl/soft/bio/structure/strauto/sim.str ./ 
 ```
 
-When the input file have been prepared, the strcture job can be launched with command:
+When the input file has been prepared, the strcture job can be launched with command:
 ```text
 strauto-puhti
 ```
-Please read and follow the instructions of job submission command above.
+Strauto, first asks you to check and accept Structure parameters and after that
+submits the structure job to to the batch job system of Puhti. After that
+it starts monitoring the progress of your job.
+
+You can leave the monitor process running, but if you want to stop it, press:
+`Ctrl-c`
+
+The structure jobs will still continue their execution in the batch job system
+of  Puhti. If you run the command:
+
+```text
+strauto-puhti
+```
+in the same directory again it will check the status of structure jobs and do the
+postporcessing of the results if all the structure tasks have finished.
 
 
 ## More information
