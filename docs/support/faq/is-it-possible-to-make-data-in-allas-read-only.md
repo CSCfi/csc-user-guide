@@ -10,7 +10,7 @@ You can give another project read-only access to your bucket with [Swift](../../
 
 
 ## Sharing URL
-In addition, it is possible to make a bucket public, which makes the content available for viewing ('_read-only_') via URLs. The URL to an object in a public bucket is in form of <i>https://bucket_name.a3s.fi/object_name</i> or <i>https://a3s.fi/swift/v1/AUTH_PROJECT_ID/bucket_name/object_name</i> where <i>PROJECT_ID</i> is your computing project's identifier in UUID format.
+In addition, it is possible to make a bucket public, which makes the content available for viewing ('_read-only_') via URLs. The URL to an object in a public bucket is in form of <i>https://bucket_name.a3s.fi/object_name</i> or <i>https://a3s.fi/swift/v1/AUTH_PROJECT_ID/bucket_name/object_name</i> where <i>PROJECT_ID</i> is your computing project's identifier in [UUID](../../data/Allas/using_allas/s3_client.md#giving-another-project-read-access-to-a-bucket){target="_blank"} format.
 
 ## Additional guidance for setting the bucket public
 
