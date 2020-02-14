@@ -27,15 +27,17 @@ and commands.
 This guide provides the basic information about taking the FGCI service
 into use and running simple grid jobs in the FGCI grid.
 
-**Getting Started** describes the three mandatory
-preparatory steps for FGCI usage:
+**Getting Started** 
 
-1.  Obtaining a grid certificate
-2.  Joining to the fgi.csc.fi virtual organisation
-3.  Installing the ARC middleware client
+There are two mandatory preparatory steps that you need to do, to be able to use FGCI.
 
-These preparatory steps are done just once, when the user starts using
-FGCI.
+1.  [Obtain a grid certificate](./fgci-grid-certificates.md)
+2.  [Joining to the fgi.csc.fi virtual organisation](./fgci-joining-the-fgi.csc.fi-virtual-organization.md)
+
+In addidtion you must have ARC middleware client installed in the computer, that you will use for submitting and managing grid jobs. (Not that ARC server is not needed)Installataion instructions for ARC middleware can be foud form:
+*    [ARC client instructions of Nordugrid] (http://www.nordugrid.org/arc/arc6/users/client_install.html)
+
+These preparatory steps are done just once, when the user starts using FGCI.
 
 This guide provides a general introduction to the FGCI grid environment.
 More detailed information as well as tutorials and software specific
