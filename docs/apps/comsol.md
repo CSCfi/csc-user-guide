@@ -29,7 +29,7 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-The preferred method to use COMSOL interactively is via NoMachine](nomachine.md) client. With the client, log in to Puhti and allocate computing resources.
+The preferred method to use COMSOL interactively is via [NoMachine](nomachine.md) client. With the client, log in to Puhti and allocate computing resources.
 
 ```bash
 $ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
