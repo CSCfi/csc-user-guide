@@ -1,7 +1,9 @@
 # Disk areas
 
-Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes before using Puhti.
-
+CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes.
+The disk areas for different supercomputers are separate, *i.e.*
+**home**, **projappl** and **scratch** in Puhti cannot be directly
+accessed from Mahti.
 
 |              |  Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
@@ -10,47 +12,55 @@ Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please 
 | **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
 
 
-There are the default quotas:
+The default quotas for the capacity and for the number of files are:
+FIXME: can the table be made in better format?
 
-|              | Capacity   | Number of files   |
-| -------------| --------   | -------------     |
-| **home**     | 10 GiB     | 100 000 files     |
-| **projappl** | 50 GiB     | 100 000 files     |
-| **scratch**  | 1 TiB      | 1 000 000 files   |
+|   Puhti      | Capacity | Number of files      |
+| -------------| ---------|----------------      |
+| **home**     | 10 GiB   |  100 000 files       |
+| **projappl** | 50 GiB   |  100 000 files       |
+| **scratch**  | 1 TiB    |  1 000 000 files     |
+
+|   Mahti      | Capacity | Number of files      |
+| -------------| ---------|----------------      |
+| **home**     | 10 GiB   |  100 000 files       |
+| **projappl** | 50 GiB   |  100 000 files       |
+| **scratch**  | 5 TiB    |  2 000 000 files     |
+
 
 See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
 
 
 ## Home directory
 
-Each Puhti user has a home directory (`$HOME`) that can contain up to 10 GB of
+Each user has a home directory (`$HOME`) that can contain up to 10 GB of
 data.
 
 The home directory is the default directory where you begin after
-logging in to Puhti. However, typically you should change to your
-project's _scratch_ directory when working with Puhti because the
+logging in to supercomputer. However, typically you should change to your
+project's _scratch_ directory when working because the
 **home directory is not intended for data analysis or computing**. Its
 purpose is to store configuration files and other minor personal
 data. A home directory exceeding its capacity causes various account
 problems.
 
-The home directory is the only user-specific directory in Puhti. All other directories
+The home directory is the only user-specific directory in supercomputers. All other directories
 are project-specific. If you are a member of several projects, you also have access
 to several _scratch_ or _projappl_ directories, but still have only one home directory.
 
 !!! note
     The home directory is not automatically backed up by CSC (the same applies to
-    all directories in Puhti), which means that data accidentally deleted by the
+    all directories), which means that data accidentally deleted by the
     user cannot be recovered.
 
 
 ## Scratch directory
 
-Each project has 1 TB of scratch disk space in the directory
+Each project has scratch disk space in the directory
 `/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage
-space for the data that is used in Puhti. The scratch directory is not intended for
+space for the data that is used in supercomputers. The scratch directory is not intended for
 long-term data storage and **any files that have not been used for 90 days will
 be automatically removed**.
 
@@ -67,13 +77,13 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 ## Using Scratch and ProjAppl directories
 
-An overview of your directories in Puhti:
+An overview of your directories:
 ```text
 csc-workspaces 
 ```
 
 The above command displays all _scratch_ and _projappl_ directories you have access to within
-active projects with Puhti access. You can find the projects' names and
+active projects in the particular supercomputer. You can find the projects' names and
 other project information at the [MyCSC portal](https://my.csc.fi). In MyCSC it is the "unix group" that
 defines the name of the disk folders in _scratch_ and _projappl_ directories. 
 
@@ -87,10 +97,10 @@ Moving to the scratch directory of project_2002291:
 ```text
 cd /scratch/project_2002291
 ```
-Please note that not all CSC projects have Puhti access, so you may not
+Please note that not all CSC projects have Puhti/Mahti access, so you may not
 necessarily find a _scratch_ or _projappl_ directory for all your CSC projects.
 
-If you are mostly involved in only one Puhti project, you can set the
+If you are mostly involved in only one project, you can set the
 environment variables $SCRATCH and $PROJAPPL to point at the _scratch_ and
 _projappl_ directories of a CSC project:
 <pre>
@@ -111,21 +121,25 @@ chmod -R g-w my_directory
 
 As mentioned earlier, the _scratch_ directory is only intended for processing data.
 Any data that should be preserved for a longer time should be copied to the
-_Allas_ storage server. Instructions for backing up files from Puhti to Allas
-will be included in this guide as soon as the Allas storage service is available.
+_Allas_ storage server. Instructions for backing up files from Puhti
+and Mahti to Allas can be found in the [Allas guide](../../data/Allas/).
+
+## Moving data between supercomputers
+
+FIXME: What is our recommendation? rsync, Allas, ... ?
 
 
 ## Increasing Quotas
 
-
 The quota of the _scratch_ and _projappl_ directories can be increased, but only if the
 analysis or computing task requires more data to be simultaneously available
-on the disk environment of Puhti than what is allowed by the quota. In these cases,
+on the disk environment than what is allowed by the quota. In these cases,
 please send a request to
-_servicedesk@csc.fi_.  In the request, please indicate the project,
-storage size needed, purpose and duration of the quota
-extension. In the future, the process for increasing quotas will be
-improved. Please allow for some delay in serving this kind of requests.
+_servicedesk@csc.fi_.  In the request, please indicate supercomputer
+(Puhti or Mahti), the project, storage size needed, purpose and
+duration of the quota extension. In the future, the process for
+increasing quotas will be improved. Please allow for some delay in
+serving this kind of requests. 
 
 Data that is not under active computing should be stored in the Allas
 storage service.
@@ -154,6 +168,6 @@ archive files.
 
 ### Compute nodes 
 
-The IO- and gpu-nodes have local fast storage available upon request for jobs.
+The IO- and gpu-nodes in Puhti have local fast storage available upon request for jobs.
 For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage). 
 **Do not use `$TMPDIR` for storage on compute nodes.**
