@@ -26,7 +26,11 @@ If you are asking for advice on e.g. how to use a particular software package, t
 
 ##Send your requests to ServiceDesk
 
-Always send requests to [servicedesk@csc.fi](mailto:servicedesk@csc.fi) instead of staff members directly. On servicedesk@csc.fi they get tracked, have higher visibility and will get picked up by the correct specialist. Some staff members work for the support requests only part time or be on holiday.
+Always send requests to [servicedesk@csc.fi](mailto:servicedesk@csc.fi) instead of staff members directly. On servicedesk@csc.fi they get tracked, have higher visibility and will get picked up by the correct specialist. Some staff members work for the support requests only part time and also we are on holiday sometimes.
+
+##Tell us also what worked
+
+Rather often we get requests of the type "I cannot get X to run on two nodes". The request then does not mention whether it worked on one node or on one core or whether it never worked and that this was the first attempt. Perhaps the problem has even nothing to do with one or two nodes. In order to better isolate the problem and avoid losing time with many back and forth emails, please tell us what actually worked so far. Tell us how you have tried to isolate the problem. This requires some effort from you but this is what we expect from you.
 
 ##Identify yourself
 
@@ -51,10 +55,6 @@ In short (quoting from [http://xyproblem.info](http://xyproblem.info)):
 
 To avoid the XY problem, if you struggle with Y but really what you are after is X, please also tell us about X. Tell us what you really want to achieve. Solving Y can take a long time.
 
-##Tell us also what worked
-
-Rather often we get requests of the type "I cannot get X to run on two nodes". The request then does not mention whether it worked on one node or on one core or whether it never worked and that this was the first attempt. Perhaps the problem has even nothing to do with one or two nodes. In order to better isolate the problem and avoid losing time with many back and forth emails, please tell us what actually worked so far. Tell us how you have tried to isolate the problem. This requires some effort from you but this is what we expect from you.
-
 ##Create an example which reproduces the problem
 
 Create an example that we can ideally just copy/paste and run and which demonstrates the problem. It is otherwise very time consuming if the support team needs to write input files and run scripts based on your possibly incomplete description. See also next point. Make this example available to us. We do not search and read read-protected files without your permission (and only very few even can).
@@ -65,6 +65,6 @@ You run a calculation which crashes after running for one week. You are tempted 
 
 ##If you can't create an example, explain what you've done
 
-Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) to attach files, or [Allas](). Be specific, see above.
+Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) to attach files, or [Allas](/data/Allas/allas_project_example.md). Be specific, see above.
 
 [_"How to" reused by permission from HPC group - UiT The Arctic University of Norway._](http://hpc.uit.no/en/latest/help/writing-support-requests.html)
