@@ -1,14 +1,14 @@
 #How to write good support requests
 
-Writing good support requests is not only good for the support team, it is also better for you because we will understand your request sooner and will be able to resolve it faster. Below is a list of good practices.
+Writing a good support request will enable us to resolve your issue faster. Below is a list of good practices.
 
-##Never send support requests to staff members directly
+##Don't send support requests to staff members directly
 
-Always send them to [servicedesk@csc.fi](mailto:servicedesk@csc.fi) and staff members will pick them up there. On servicedesk@csc.fi they get tracked and have higher visibility. Some staff members work for the support requests only part time. Sending the request to servicedesk@csc.fi makes sure that somebody will pick it up.
+Always send them to [servicedesk@csc.fi](mailto:servicedesk@csc.fi) and staff members will pick them up there. On servicedesk@csc.fi they get tracked and have higher visibility. Some staff members work for the support requests only part time.
 
-##Give descriptive subject
+##Give a descriptive subject
 
-Your subject line should be descriptive. "Problem on Taito" is not a good subject line since it could be valid for many of the support emails we get. The support staff is a team. The subjects are the first thing that we see. A good subject will speed up the issue going to the right specialist.
+Your subject line should be descriptive. "Problem on Puhti" is not a good subject line since it could be valid for many of the support emails we get. A good subject will speed up the issue going to the right specialist.
 
 ##Identify yourself
 
@@ -16,12 +16,11 @@ Give your CSC username and professional affiliation (if using non-professional e
 
 ##New problem, new email
 
-Do not send support requests by replying to unrelated issues. Every issue gets a number and this is the number that you see in the subject line. Replying to unrelated issues means that your email gets filed under the wrong thread and risks being overlooked.
-
+Please do not send support requests by replying to old tickets, which are likely of unrelated issues. Every issue gets a number and this is the number that you see in the subject line.
 
 ##Include actual commands and error messages
 
-We cover this below, but it’s so important it needs to be mentioned at the top, too: include the actual commands you run and actual error messages (also Slurm error and output). Copy and paste. If you don’t include this, you will lose time as we will first ask for the commands and errors.
+We cover this below, but it’s so important it needs to be mentioned at the top, too: include the actual commands you run and the actual error messages (also Slurm error and output). Copy and paste.
 
 ##The XY problem
 
@@ -34,13 +33,11 @@ In short (quoting from [http://xyproblem.info](http://xyproblem.info)):
 *   User doesn't know how to do Y either.
 *   User asks for help with Y.
 *   Others try to help user with Y, but are confused because Y seems like a strange problem to want to solve.
-*   After much interaction and wasted time, it finally becomes clear that the user really wants help with X, and that Y wasn't even a suitable solution for X.
-
-To avoid the XY problem, if you struggle with Y but really what you are after is X, please also tell us about X. Tell us what you really want to achieve. Solving Y can take a long time. We have had cases where after enormous effort on Y we realized that the user wanted X and that Y was not the best way to achieve X.
+*   After a lot of emails and time, it finally becomes clear that the user really wants help with X, and that Y wasn't even a suitable solution for X.
 
 ##Tell us also what worked
 
-Rather often we get requests of the type "I cannot get X to run on two nodes". The request then does not mention whether it worked on one node or on one core or whether it never worked and that this was the first attempt. Perhaps the problem has even nothing to do with one or two nodes. In order to better isolate the problem and avoid wasting time with many back and forth emails, please tell us what actually worked so far. Tell us how you have tried to isolate the problem. This requires some effort from you but this is what we expect from you.
+Rather often we get requests of the type "I cannot get X to run on two nodes". The request then does not mention whether it worked on one node or on one core or whether it never worked and that this was the first attempt. Perhaps the problem has even nothing to do with one or two nodes. In order to better isolate the problem and avoid losing time with many back and forth emails, please tell us what actually worked so far. Tell us how you have tried to isolate the problem. This requires some effort from you but this is what we expect from you.
 
 ##Tell us which documentation you have already read
 
@@ -54,7 +51,7 @@ The better you describe the problem the less we have to guess and ask. Make the 
 
 ##Create an example which reproduces the problem
 
-Create an example that we can ideally just copy paste and run and which demonstrates the problem. It is otherwise very time consuming if the support team needs to write input files and run scripts based on your possibly incomplete description. See also next point. Make this example available to us. We do not search and read read-protected files without your permission.
+Create an example that we can ideally just copy/paste and run and which demonstrates the problem. It is otherwise very time consuming if the support team needs to write input files and run scripts based on your possibly incomplete description. See also next point. Make this example available to us. We do not search and read read-protected files without your permission (and only very few even can).
 
 ##Make the example as small and fast as possible
 
