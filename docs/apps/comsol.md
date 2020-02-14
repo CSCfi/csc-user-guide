@@ -10,8 +10,6 @@ structural mechanics and electromagnetic analyses. Material properties,
 source terms and boundary conditions can all be arbitrary functions of
 the dependent variables.
 
-[TOC]
-
 ## Available
  
 - Puhti: 5.5, 5.4
@@ -31,13 +29,21 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-To start using COMSOL, login to Puhti
+To start using COMSOL interactively with X11 graphics, login to Puhti
 
 ```bash
-$ ssh -Y <cscusername>@puhti.csc.fi
+$ ssh <cscusername>@puhti.csc.fi
 ```
 
-Then
+Allocate resources
+```bash
+$ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
+  --account=<project> --partition=small --mail-type=BEGIN \
+  --mail-user=<your email address> bash
+```
+
+You will get an email notification, when requested computing resources are available. After that you can start COMSOL.
+
 ```bash
 $ module load comsol 
 ```
