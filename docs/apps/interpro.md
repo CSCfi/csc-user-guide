@@ -2,7 +2,7 @@
 
 ## Description
 
-InterProScan is a tool that compairs protein or nucleotide sequence against a set of protein signature databases. 
+InterProScan is a tool that compares protein or nucleotide sequence against a set of protein signature databases. 
 The results obtained from different databases are given in uniform format. The InterProScan5 installation at CSC can 
 be used to search protein signatures from following databases:
 
@@ -60,4 +60,3 @@ cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
 ## More information
 
 *   [InterPro home page](https://www.ebi.ac.uk/interpro/)
-
