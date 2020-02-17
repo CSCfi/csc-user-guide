@@ -40,7 +40,7 @@ cd /scratch/<your-project>
 swift download <bucket-name> your-dataset.tar
 ```
 
-Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticable slowdowns for all users of Puhti.  Instead, consider taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts.md#local-storage) on the GPU nodes.
+Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of Puhti.  Instead, consider taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts.md#local-storage) on the GPU nodes.
 
 !!! note
 
