@@ -118,7 +118,7 @@ echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R
 ```
 
-Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `large` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
 
 ```bash
 #!/bin/bash -l
@@ -126,7 +126,7 @@ Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../
 #SBATCH --account=<project>
 #SBATCH --output=output_%j_%a.txt
 #SBATCH --error=errors_%j_%a.txt
-#SBATCH --partition=large
+#SBATCH --partition=small
 #SBATCH --time=00:05:00
 #SBATCH --array=1-10
 #SBATCH --ntasks=1
