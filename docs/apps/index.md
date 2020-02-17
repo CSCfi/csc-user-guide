@@ -11,6 +11,7 @@
 * [Bowtie2](bowtie2.md) Short read aligner 
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
+* [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
