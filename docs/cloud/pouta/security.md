@@ -1,4 +1,4 @@
-## Security Guidelines for Pouta
+## Pouta security guidelines
 
 !!! warning
     The users are responsible for managing
