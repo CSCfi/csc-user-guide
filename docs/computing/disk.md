@@ -122,7 +122,7 @@ chmod -R g-w my_directory
 As mentioned earlier, the _scratch_ directory is only intended for processing data.
 Any data that should be preserved for a longer time should be copied to the
 _Allas_ storage server. Instructions for backing up files from Puhti
-and Mahti to Allas can be found in the [Allas guide](../../data/Allas/index.md).
+and Mahti to Allas can be found in the [Allas guide](../data/Allas/index.md).
 
 ## Moving data between supercomputers
 

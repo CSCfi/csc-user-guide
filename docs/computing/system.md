@@ -34,7 +34,7 @@ uniquely suitable for either Puhti or Mahti.
 ### Compute 
 
 **Mahti** has a total of **1404 CPU nodes**, with a theoretical peak
-perfomance of 7.5 Petaflops. Each node is equipped with two AMD EPYC
+performance of 7.5 Petaflops. Each node is equipped with two AMD EPYC
 7H12 processors, code name _Rome_, with 64 cores each running at 2,6
 GHz. This means that there are in total 128 physical cores per node
 each of which can run two threads using symmetric

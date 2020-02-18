@@ -50,8 +50,8 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | gc        | 1-700       | 24 hours      | Grand Challenge  |
 
 Large queue on Mahti is only accessible to projects that have done a
-[scalability test](FIXME) to show good utilisation of the resources. The queue
-`qc` is only accessible to [Grand Challenge](FIXME) projects and has a higher
+link-to-scalability test-FIXME to show good utilisation of the resources. The queue
+`qc` is only accessible to link-to-Grand Challenge-FIXME projects and has a higher
 priority.
 
 FIXME: double-check queues, add missing links
