@@ -7,37 +7,33 @@
     supported platform. _Docker Swarm_ may also work.
 
 This article explains how to use the OpenStack tool 
-*Magnum* for  creating container  orchestration
-engine (COE) deployments.  It can deploy Kubernetes,  Docker Swarm and
-Mesos (currently only Kubernetes in  cPouta). All resources created by
-Magnum are normal  OpenStack resources. Magnum simply  makes it easier
-to create a  complete COE deployment compared to doing  it manually by
+*Magnum* for creating container orchestration
+engine (COE) deployments. It can deploy Kubernetes, Docker Swarm and
+Mesos (currently only Kubernetes in cPouta). All resources created by
+Magnum are normal OpenStack resources. Magnum simply makes it easier
+to create a complete COE deployment compared to doing it manually by
 creating the necessary instances, networks, storage and so on. Billing
-is also  exactly the same as  if the resources created  by Magnum were
+is also exactly the same as if the resources created by Magnum were
 created manually.
 
 [TOC]
 
-
 ## Container orchestration basics
-
 
 | Term                             | Meaning                                                                                                                                   |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| container orchestration engine (COE) | a platform that provides management of containers with features like health checks, replication and routing of traffic to container instances |
-| cluster                              | an instance of a container orchestration engine like Kubernetes                                                                               |
+| container orchestration engine (COE) | a platform that provides container management with features such as health checks, replication and traffic routing to container instances |
+| cluster                              | an instance of a container orchestration engine such as Kubernetes                                                                               |
 | cluster template                     | a template with configuration options for a cluster                                                                                           |
 | K8s                                  | another term for Kubernetes - the container orchestration engine originally developed at Google                                               |
 | master node                          | the node in a cluster that provides an API through which the cluster can be controlled and other controller services                          |
-| slave or worker node                 | a node that is used to run containers - managed by the master node                                                                            |
+| slave or worker node                 | a node that is used to run containers – managed by the master node                                                                            |
 | minion node                          | (Kubernetes term) same as a slave/worker node                                                                                                 |
 
-
-
 While Docker containers can be useful on their own, if all you have is
-a bunch of Linux machines with Docker installed you still have to do a
+a bunch of Linux machines with Docker installed, you still have to do a
 lot of work yourself to make an application fault tolerant, to make it
-discoverable from the outside world,  to make sure the containers stay
+discoverable from the outside world, to make sure the containers stay
 healthy and to  enable containers to communicate with  each other. You
 also have  to manage the  Linux machines themselves by  installing and
 configuring  packages and  doing  other  normal administrative  tasks.
@@ -45,53 +41,53 @@ Container  orchestration engines  do a  lot of  this work  for you  by
 providing common abstractions around replication, routing, storage and
 other aspects of running a containerized application.
 
-A  container  orchestration  engine  typically  runs  as  a  clustered
-application on  multiple servers. The  servers are separated  into two
-categories:  master  nodes  and  slave nodes.  The  master  nodes  are
-responsible  for receiving  commands via  an API  and acting  on these
-commands to  start and manage  containerized applications that  run on
-the slave nodes.  Fault tolerance can be achieved  by running multiple
-copies of an application on multiple  slave nodes and the COE provides
+A container orchestration engine typically runs as a clustered
+application on multiple servers. The servers are divided into two
+categories: master nodes and slave nodes. The master nodes are
+responsible for receiving commands via an API and acting on these
+commands to start and manage containerized applications that run on
+the slave nodes. Fault tolerance can be achieved by running multiple
+copies of an application on multiple slave nodes. The COE provides
 abstractions that make this easy.
 
 ![Container orchestration](/img/container-orchestration.png)
 
 ## Installing the Magnum command line tool
 
-Magnum can currently  only be used via the command  line.  To do this,
-you will  need to install  **python-magnumclient** in addition  to the
+Magnum can currently only be used via the command line. To do this,
+you need to install **python-magnumclient** in addition to the
 other command line clients. See [instructions for installing OpenStack
-command line tools].  With cPouta  you should use version **2.3.1** of
-the tool.   Newer versions are  not compatible.  You will  most likely
-need to  use pip for installation  to get the right  version.  You can
-find  more detailed  instructions  on  pip in  the  command line  tool
-chapter linked  above.  This  is how you  install the  correct version
+command line tools]. With cPouta, you should use the version **2.3.1** of
+the tool. Newer versions are not compatible. You will most likely
+need to use _pip_ for installation to get the right version. You can
+find more detailed pip instructions in the command line tool
+chapter linked above. This is how you install the correct version
 using pip:
 
     pip install python-magnumclient==2.3.1
 
-As with the  other command line tools,  you can output a  help text by
+As with the other command line tools, you can display instructions by
 typing **magnum -h** and get instructions for an individual command by
 typing **magnum help &lt;command name&gt;**, for example **magnum help
 cluster-create**.
 
 ## Installing kubectl
 
-Kubernetes can be controlled using  the kubectl command line tool that
+Kubernetes can be controlled using the _kubectl_ command line tool that
 connects to the API of a Kubernetes server. You can find [installation
 instructions] in the Kubernetes documentation.
 
 ## Basic Magnum commands
 
-Listing existing clusters:
+List existing clusters:
 
     magnum cluster-list
 
-Creating a cluster template:
+Create a cluster template:
 
     magnum cluster-template-create
 
-Creating a cluster:
+Create a cluster:
 
     magnum cluster-create
 
@@ -99,26 +95,25 @@ Show information about a cluster:
 
     magnum cluster-show
 
-Deleting a cluster:
+Delete a cluster:
 
     magnum cluster-delete
 
 ## Creating a Kubernetes cluster
 
 !!! note
-    The version  of Kubernetes that is used by  the cluster is
-    1.5.3. If you look for  Kubernetes documentation, you should look at
+    The version of Kubernetes used by the cluster is
+    1.5.3. If you look for Kubernetes documentation, you should look at
     documentation specific to this version.
 
-It  is  assumed  that  you  already  have  your  terminal  environment
+It is assumed that you already have your terminal environment
 configured for OpenStack and a key pair associated with your OpenStack
-account. If not,  see the instructions for  [configuring your terminal
-environment  for  OpenStack](../command-line-tools) and instructions for 
+account. If not, see the instructions for [configuring your terminal
+environment for OpenStack](../command-line-tools) and instructions for 
 [creating a key pair](../connecting-to-vm).
 
 You will first need to create a cluster template that contains various
-configuration  options for  the  cluster  to be  created.  Here is  an
-example command for creating one:
+configuration options for the cluster to be created:
 
     magnum cluster-template-create \
     --name k8s \
@@ -133,16 +128,16 @@ example command for creating one:
     --keypair-id <your keypair's name>
 
 This creates a cluster template called "k8s" (--name) that uses Fedora
-Atomic 25  as the operating system  (--image) for both the  master and
-the minion  nodes. Clusters will be  connected to the Internet  via an
-external network called public  (--external-network) and name services
-will    be    provided     by    Funet's    193.166.4.25    nameserver
-(--dns-nameserver).  Container  networking is  provided by  an overlay
-network driver called flannel  (--network-driver). The flavor used for
-slave nodes is io.70GB (--flavor) while the flavor used for the master
-node is  also io.70GB  (--master-flavor). The  container orchestration
-engine to be deployed is Kubernetes  (--coe). An OpenStack key pair is
-associated with  the template  (--keypair-id) and  Cinder is  used for
+Atomic 25 as the operating system (--image) for both the master and
+the minion nodes. The clusters will be connected to the Internet via an
+external network called public (--external-network). Name services
+are provided by Funet's 193.166.4.25 nameserver
+(--dns-nameserver). Container networking is provided by an overlay
+network driver called _flannel_ (--network-driver). The flavor used for
+slave nodes is _io.70GB_ (--flavor), while the flavor used for the master
+node is also io.70GB (--master-flavor). The container orchestration
+engine deployed is Kubernetes (--coe). An OpenStack key pair is
+associated with the template (--keypair-id). Cinder is used for
 creating volumes for container persistent storage (--volume-driver).
 
 With the template ready, you can create a cluster:
@@ -153,50 +148,49 @@ With the template ready, you can create a cluster:
     --master-count 1 \
     --node-count 1
 
-This will  create a Kubernetes  cluster based on the  template defined
-above.  It  will  have  one  master  (--master-count)  and  one  slave
-(--node-count) node. It will take a few minutes to create the cluster.
-You  can see  if  the  deployment is  finished  with the  cluster-show
-command:
+This creates a Kubernetes cluster based on the template defined
+above. It will have one master (--master-count) and one slave
+(--node-count) node. It takes a few minutes to create the cluster.
+Check if the deployment is finished:
 
     magnum cluster-show k8s-cluster
 
-Once the  cluster is  up and  running, you  will need  to set  up your
+Once the cluster is up and running, you need to set up your
 environment to use it:
 
     mkdir myclusterconfig
     $(magnum cluster-config k8s-cluster --dir myclusterconfig)
 
-After this is done you can start using Kubernetes with kubectl. To see
-if  everything is  working correctly,  you  can run  a simple  example
-application.  You  can   find  instruction  for  doing   that  in  the
+After this is done, you can start using Kubernetes with kubectl. To see
+if everything is working correctly, you can run a simple example
+application. You can find instructions for doing that in the
 [Kubernetes documentation].
 
 !!! note
-    When running  kubectl  commands,  your working  directory
-    should   be    the   one    that   contains    the   myclusterconfig
+    When running kubectl commands, your working directory
+    should be the one that contains the _myclusterconfig_
     directory. Otherwise kubectl is unable to find the configuration for
     connecting to the Kubernetes cluster.
 
-By default, only ports 22, 6443  and 30000-32767 are opened on a newly
-created Kubernetes  cluster. Port  22 is  for accessing  the cluster's
-servers via SSH, 6443 is the  Kubernetes API that listens for commands
-on  the master  node  and the  port range  is used  by Kubernetes  for
-NodePort resources that  expose services. If you wish  to expose other
-ports, you will need to edit the security groups for the cluster after
+By default, only ports 22, 6443 and 30000–32767 are opened on a newly
+created Kubernetes cluster. Port 22 is used to access the cluster's
+servers via SSH, 6443 is the Kubernetes API that listens for commands
+on the master node, and the port range is used by Kubernetes for
+NodePort resources that expose services. If you wish to expose other
+ports, you need to edit the security groups for the cluster after
 it has been created.
 
 ## Persistent storage for Kubernetes containers
 
-Persistent  storage is  used  for storing  data  for containers.   For
-example, a  database application could create  a PersistentVolumeClaim
+Persistent storage is used for storing data for containers. For
+example, a database application could create a PersistentVolumeClaim
 in Kubernetes to  get a persistent volume on which  to store its data.
 It is  provided using  OpenStack Cinder  volumes that  are dynamically
 created as requested  by the Kubernetes cluster. In order  to use this
 feature you  will first need to  create a storage class  in Kubernetes
 that corresponds to Cinder storage.
 
-First create a file called  cinder-storageclass.yaml. You can copy the
+First create a file called `cinder-storageclass.yaml`. You can copy the
 following command and paste it into a terminal to create this file:
 
     cat > cinder-storageclass.yaml << EOF
@@ -213,17 +207,16 @@ following command and paste it into a terminal to create this file:
       availability: "nova"
     EOF
 
-Once you have  this file, you can  use it to create  the storage class
-using kubectl create:
+Once you have the file, you can use it to create the storage class
+using _kubectl create_:
 
     kubectl create -f cinder-storageclass.yaml
 
-Once  the  storage  class is  in  place,  you  can  use it  to  create
-PersistentVolumeClaims.   Kubernetes  will   automatically  create   a
-corresponding  Cinder volume  to be  used as  backing storage  for the
-PersistentVolumeClaim.
+Once the storage class is in place, you can use it to create
+PersistentVolumeClaims. Kubernetes will automatically create a
+corresponding Cinder volume as backing storage for the _PersistentVolumeClaim_.
 
-Here is an example YAML file for creating a PersistentVolumeClaim (you
+An example YAML file for creating a PersistentVolumeClaim (you
 can copy and paste the command again):
 
     cat > cinder-persistentvolumeclaim.yaml << EOF
@@ -244,43 +237,42 @@ Now you can create a PersistentVolumeClaim:
 
     kubectl create -f cinder-persistentvolumeclaim.yaml
 
-You  should be  able to  see that  the PersistentVolumeClaim  has been
-created and bound to a Cinder volume by running "kubectl get pvc":
+You should be able to see that the PersistentVolumeClaim has been
+created and bound to a Cinder volume by running `kubectl get pvc`:
 
     kubectl get pvc
     NAME       STATUS    VOLUME                                     CAPACITY   ACCESSMODES   STORAGECLASS   AGE
     myvolume   Bound     pvc-0091714a-80e4-11e7-8cd2-fa163ee59413   1Gi        RWO           standard       3s
 
-When the PersistentVolumeClaim  is deleted, the Cinder  volume is also
+When the PersistentVolumeClaim is deleted, the Cinder volume is also
 deleted. You will also be able to see the Cinder volume via OpenStack.
-See [the  documentation for  persistent volumes] for  more information
-about that. Note that you should only manage the volume via Kubernetes
+See the [documentation for persistent volumes] for more information. 
+Note that you should only manage the volume via Kubernetes
 if it is created via Kubernetes. Managing the volume via OpenStack may
-cause unexpected behavior of the PersistentVolumeClaim in Kubernetes.
+cause unexpected PersistentVolumeClaim behavior in Kubernetes.
 
 ## Limitations
 
-The clusters  deployed by Magnum  in Pouta come with  some limitations
+Clusters deployed by Magnum in Pouta come with some limitations
 that mean that you probably should not use them for running production
 services.
 
--    You can  only launch  Kubernetes clusters  for now.  Docker Swarm
-    clusters are  also seemingly  created correctly (the  cluster goes
-    into  CREATE\_COMPLETE  state),  but  they do  not  seem  to  work
-    properly  after that.  Creation  of Mesos  clusters would  require
-    support  for the  AWS CloudFormation  API  in Heat,  which is  not
-    enabled in the cloud platform at this time.
--   Uses self-signed certificates: the  certificates used for APIs and
-    services running the cluster are self-signed
+-   You can only launch Kubernetes clusters for now. Docker Swarm
+    clusters are also seemingly created correctly (the cluster 
+    enters the CREATE\_COMPLETE state), but they do not seem to work
+    properly after that. Creation of Mesos clusters would require
+    support for the AWS CloudFormation API in Heat, which is presently not
+    enabled in the cloud platform.
+-   Use self-signed certificates: the certificates used for APIs and
+    services running the cluster are self-signed.
 -   Only single master deployments are supported: the master node is a
-    single point of failure
--   Slave nodes  are not scheduled using an  anti-affinity host group:
-    it is  possible for  multiple slave  nodes to end  up on  the same
-    physical server, which  means failure of that  physical server can
-    take down multiple slave nodes at once
--    LoadBalancer resources  cannot be  created in  Kubernetes as  the
-    underlying cloud  platform does not  have this feature  enabled at
-    this time.
+    single point of failure.
+-   Slave nodes are not scheduled using an anti-affinity host group:
+    it is possible for multiple slave nodes to end up on the same
+    physical server, which means failure of that physical server can
+    take down multiple slave nodes at once.
+-   LoadBalancer resources cannot be created in Kubernetes as the
+    underlying cloud platform does not presently have this feature enabled.
 
 ## Further reading
 
