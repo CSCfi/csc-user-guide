@@ -28,41 +28,6 @@ uniquely suitable for either Puhti or Mahti.
 	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
 
 
-## Mahti
-
-
-### Compute 
-
-**Mahti** has a total of **1404 CPU nodes**, with a theoretical peak
-performance of 7.5 Petaflops. Each node is equipped with two AMD EPYC
-7H12 processors, code name _Rome_, with 64 cores each running at 2,6
-GHz. This means that there are in total 128 physical cores per node
-each of which can run two threads using symmetric
-multithreading. There is 256 GiB of memory per node, and no local
-disks.
-
-The interconnect is based on Mellanox HDR InfiniBand. The nodes are
-connected with a 200 Gbps HDR link, and the topology is dragonfly+. A
-dragonfly+ topology consists of multiple groups of node, each of which
-is internally connected with a fat tree topology. Between the groups
-there is all-to-all connectivity connecting the different groups
-together. In Mahti there are 3 cabinets with 234 nodes in each group
-(also called cell). These are connected with a 1.7:1 blocking fat
-tree. There are in total 6 groups, and between the groups there is
-fully non-blocking all-to-all connectivity. The total bisection
-bandwidth is 87 Tbps (CHECKME). 
-
-
-
-
-
-### Storage
-
-Mahti has a 8.7 PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
-[project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
-
-
-
 ## Puhti  
 
 
@@ -110,5 +75,40 @@ Puhti has a 4.8 PB Lustre parallel storage system providing space for [home](dis
 [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
 
 
+
+
+
+## Mahti
+
+
+### Compute 
+
+**Mahti** has a total of **1404 CPU nodes**, with a theoretical peak
+performance of 7.5 Petaflops. Each node is equipped with two AMD EPYC
+7H12 processors, code name _Rome_, with 64 cores each running at 2,6
+GHz. This means that there are in total 128 physical cores per node
+each of which can run two threads using symmetric
+multithreading. There is 256 GiB of memory per node, and no local
+disks.
+
+The interconnect is based on Mellanox HDR InfiniBand. The nodes are
+connected with a 200 Gbps HDR link, and the topology is dragonfly+. A
+dragonfly+ topology consists of multiple groups of node, each of which
+is internally connected with a fat tree topology. Between the groups
+there is all-to-all connectivity connecting the different groups
+together. In Mahti there are 3 cabinets with 234 nodes in each group
+(also called cell). These are connected with a 1.7:1 blocking fat
+tree. There are in total 6 groups, and between the groups there is
+fully non-blocking all-to-all connectivity. The total bisection
+bandwidth is 87 Tbps (CHECKME). 
+
+
+
+
+
+### Storage
+
+Mahti has a 8.7 PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
+[project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
 
 
