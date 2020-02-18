@@ -72,8 +72,8 @@ module load bioconda
 source activate qiime2-2019.10
 export TMPDIR="$LOCAL_SCRATCH"
 
-# run task
-srun qiime dada2 denoise-single \
+# run task. Don't use srun in submission as it resets TMPDIR
+qiime dada2 denoise-single \
   --i-demultiplexed-seqs demux.qza \
   --p-trim-left 0 \
   --p-trunc-len 120 \

@@ -3,13 +3,15 @@
 ## Biosciences
 
 * [BAMtools](bamtools.md) Tools for working with BAM formatted files
+* [BayeScan](bayescan.md) Tool for identifying candidate loci under natural selection based on allele frequencies in populations.
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
-* [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
+* [BioPython](biopython.md) Python environment with biopython and other bioinformatics related Python libraries
 * [BLAST](blast.md) Sequence similarity search tool for nucleotides and proteins
 * [Bowtie2](bowtie2.md) Short read aligner 
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
+* [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
@@ -18,6 +20,7 @@
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
+* [InterProScan](interpro.md) Protein signature/motif search tool.
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
 * [MACS2](macs2.md) ChIP-Seq analysis tool
@@ -31,6 +34,7 @@
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
+* [Structure](structure.md) Inference of population structure in genetics
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 
@@ -109,6 +113,7 @@
 
 ## Mathematics and Statistics
 
+* [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
@@ -122,7 +127,9 @@
 
 ## Miscellaneous
 
+* [DDT](ddt.md) Parallel debugger 
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
-* [MySQL ](../data/kaivos/kaivos.md) MySQL database client. 
+* [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
+
