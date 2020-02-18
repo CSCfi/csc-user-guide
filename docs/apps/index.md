@@ -6,11 +6,12 @@
 * [BayeScan](bayescan.md) Tool for identifying candidate loci under natural selection based on allele frequencies in populations.
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
-* [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
+* [BioPython](biopython.md) Python environment with biopython and other bioinformatics related Python libraries
 * [BLAST](blast.md) Sequence similarity search tool for nucleotides and proteins
 * [Bowtie2](bowtie2.md) Short read aligner 
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
+* [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
@@ -19,6 +20,7 @@
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
+* [InterProScan](interpro.md) Protein signature/motif search tool.
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
 * [MACS2](macs2.md) ChIP-Seq analysis tool
