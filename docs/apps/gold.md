@@ -29,14 +29,19 @@ the GOLD interactive environment:
 `module load ccdc`
 
 This will load the latest version of CSD and GOLD. The easiest way to run
-interactive jobs is to log Puhti via [NoMachine](nomachine.md), start an
+[interactive jobs](../computing/running/interactive-usage.md) is to log
+Puhti via [NoMachine](nomachine.md), start an
 interactive session, finally GOLD.
 
 ```bash
 module load ccdc
-sinteractive
+srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
+  --account=<project> --partition=small --mail-type=BEGIN \
+  --mail-user=<your email address> bash  # and wait for resources to be granted
 gold
 ```
+
+We are currently developing a command and partition to provide interative resources more easily.
 
 Longer (non-interactive) jobs are best run as batch jobs:
 
