@@ -36,6 +36,7 @@ Software to access and analyse CSD entries:
 
 -   [ConQuest] search and retrieval software
 -   [Mercury] graphical display, analysis and visualisation of data
+-   [Hermes] Main graphical interface to analysis tools
 -   [PreQuest] In-house database creation tools
 -   [IsoStar] A Knowledge Base of Intermolecular Interactions (not
     available on Puhti, please install locally, or use from CCDC)
@@ -114,7 +115,8 @@ and e.g. in the [FAQ](https://www.ccdc.cam.ac.uk/support-and-resources/Support/s
   [CSD]: http://www.ccdc.cam.ac.uk/products/csd_system
   [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
   [ConQuest]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/ConQuest.aspx
-  [Mercury]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/Mercury.aspx
+  [Mercury]: https://www.ccdc.cam.ac.uk/solutions/csd-system/components/mercury/
+  [Hermes]: https://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/Hermes_User_Guide.pdf
   [PreQuest]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/PreQuest.aspx
   [IsoStar]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/IsoStar.aspx
   [Mogul]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/Mogul.aspx
