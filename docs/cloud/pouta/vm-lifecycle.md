@@ -1,39 +1,39 @@
-# Virtual Machine Lifecycle & Saving Billing Units
+# Virtual machine lifecycle and saving billing units
 
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
 
 [TOC]
 
-Similar to other  cloud providers, Pouta also has a  lifecycle for its
-Virtual Machines. Different states  of virtual machines have different
-resource requirements  for the  underlying hardware and  therefore are
-billed differently. Knowing about these different states in Pouta will
-help you make better decisions on how to maintain your infrastructure.
-This could help you in saving  some billing units.  The main states of
+Similar to other cloud providers, Pouta virtual machines also have a lifecycle. 
+Different states of virtual machines have different
+resource requirements for the underlying hardware and are therefore
+billed differently. Knowing about these different states in Pouta 
+helps you make better decisions on how to maintain your infrastructure.
+This could help you in saving billing units. The main states of the
 virtual machines in Pouta are:
 
 ### Active
-A virtual machine is said to be in an active state when it
-is  in the *power  on*  state.  It will  remain  in  the active  state
-irrespective of the fact you are  using it or not. Virtual machines in
-the active  state consume  computing resources on  one of  our compute
-nodes and are thus billed normally as mentioned in [Pouta flavors and billing].
+A virtual machine is said to be active when it
+is in the *power on* state. It remains in the active state
+irrespective of whether you are using it or not. Virtual machines in
+the active state consume computing resources on one of our compute
+nodes and are thus billed normally as explained in [Pouta flavors and billing].
 
-### Shut Off
-The virtual machine is not  running and is in a *powered
-off* state. However a shut  off virtual machine still consumes billing
-units  in the  same  way as  an **Active**  virtual  machine. This  is
-because  active/powered  off virtual  machine consume  same  computing
-resources on one of our compute nodes as mentioned in [Pouta flavors and billing].
+### Shut off
+The virtual machine is not running and is *powered
+off*. However, a shut off virtual machine still consumes billing
+units in the same way as an **active** one. This is
+because active/powered off virtual machines consume the same computing
+resources on one of our compute nodes as explained in [Pouta flavors and billing].
 
 !!! warning
     A *shut off* virtual machine still consumes billing units. To stop
-    consuming, select *shelved* state.
+    consuming, select the *shelved* state.
 
 ### Pause
-Pausing a virtual machine pauses  all the processes running
-in  the virtual  machine and  saves the  entire state  of the  machine
+Pausing a virtual machine pauses all processes running
+in the virtual  machine and  saves the  entire state  of the  machine
 (memory, application  state, etc.) on  the host compute node.  You are
 not able  to access your  virtual machine or hosted  applications when
 the  virtual machine  is in  a *paused* state.  Some applications  may
