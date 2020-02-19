@@ -29,7 +29,7 @@ The **Cambridge Structural Database System** has two major components:
 
 -   The Cambridge Structural *Database* ([CSD])
 -   *Software* for search, retrieval, display and analysis of CSD
-    contents: ConQuest, VISTA, PreQuest, Superstar, Mercury GOLD, and
+    contents: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD, and
     CSD-CrossMiner.
 
 Software to access and analyse CSD entries:
@@ -81,8 +81,7 @@ or to start Mercury, type
 
 `mercury`
 
-!!! Note 
-    If you want to run GOLD in parallel, contact us!
+[GOLD](gold.md) has it's own entry.
 
 ### Using WebCSD directly with a browser
 
