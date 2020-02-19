@@ -81,8 +81,7 @@ or to start Mercury, type
 `mercury`
 
 !!! Note 
-    GOLD still requires some configuration to be able to
-    efficiently run in parallel in Puhti. Instructions will be updated soon.
+    If you want to run GOLD in parallel, contact us!
 
 ### Using WebCSD directly with a browser
 
