@@ -43,24 +43,13 @@ sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
 
 Note that each user can have only one active session open in the _interactive_ partition. Furher
 in interactive partition you can reserve in maximum 1 core, 16 GB of 
-memory, 7 days of computing, and 16O GB of local scratch space.
+memory, 7 days of computing, 160 GB of local scratch space and 0 gpus.
 
 If your requests exceed these limits or you already have a session in
-intercative partition, then the job can be submitted to small or gpu
-patritions in stead. However, in these cases your sesson will start queueing like a normal batch jobs.
+intercative partition, then the job can be submitted to _small_ or _gpu_
+patritions in stead. However, in these cases your sesson will start queueing just like a normal batch jobs.
 Thus you may need wait some time before the requested resources become available and the interactive session 
 starts.
-
-
-The default resources cover typical use cases, but you can also request more
-from the command line.
-
-_Default and maximum resources for `interactive` partition_
-|Resource |Flag to request |Default  |Maximum |
-|Time     |--time HH:MM:SS |24:00:00 |168:00:00|
-|Memory   |--mem <X>       |18G      |50G    |
-|Local Disk|--tmp <X>|100G     |500G    |
-|Cores    |-               |1        |1       |
 
 
 In an `sinterative` job the environment variable $TMDPIR (FIXME?) points to the
