@@ -1,6 +1,6 @@
 # Interactive usage
 
-When you login to CSC supercomputers, you end up to one of the Login nodes of the computer. These login nodes are shared by all users, and they should be used only for compiling, manging batch jobs and moving data. Login nodes can be used for **light** pre- and postprocessing, but they are not intended for heavy computing.  **Light** means that these
+When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users, and they should be used only for compiling, manging batch jobs and moving data. Login nodes can be used for **light** pre- and postprocessing, but they are not intended for heavy computing.  **Light** means that these
 **one-core-jobs** should finish in **minutes** and require **a few GiB** of memory at maximum.
 All the other tasks are to be done in compute nodes either as normal batch jobs or as _interactive batch_ jobs.
 
