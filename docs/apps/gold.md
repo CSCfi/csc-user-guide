@@ -49,6 +49,7 @@ Longer (non-interactive) jobs are best run as batch jobs:
 #!/bin/bash -l
 #SBATCH --partition=small
 #SBATCH --ntasks=1
+#SBATCH --account=<project>
 #SBATCH --time=0:30:00    # time as hh:mm:ss
 
 module load ccdc
