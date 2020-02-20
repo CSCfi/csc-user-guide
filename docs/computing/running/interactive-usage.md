@@ -43,7 +43,7 @@ sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
 
 Note that each user can have only one active session open in the _interactive_ partition. Furher
 in interactive partition you can reserve in maximum 1 core, 16 GB of 
-memory, 7 days of computing, 160 GB of local scratch space and 0 gpus.
+memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
 
 If your requests exceed these limits or you already have a session in
 intercative partition, then the job can be submitted to _small_ or _gpu_
