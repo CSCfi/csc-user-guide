@@ -21,6 +21,7 @@ sinteractive -p <project_name>
 This command will open a shell on a compute node and you can use it as normal bash shell without additional Slurm commands for starting jobs and applications.
 
 _sinteractive options_
+
 |Oprion| Function | Default |
 |-t, --time | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00 |
 |-m, --mem | Memory reservation in MB. | 1000 |
