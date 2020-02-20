@@ -1,33 +1,65 @@
 # Interactive usage
 
-Login nodes should be used only for compiling and moving data.
-They can also be used for **light** pre- and postprocessing. **Light** means that these
+When you login to CSC supercomputers, you end up to one of the Login nodes of the computer. These login nodes are shared by all users, and they should be used only for compiling, manging batch jobs and moving data. Login nodes can be used for **light** pre- and postprocessing, but they are not intended for heavy computing.  **Light** means that these
 **one-core-jobs** should finish in **minutes** and require **a few GiB** of memory at maximum.
+All the other tasks are to be done in compute nodes either as normal batch jobs or as _interactive batch_ jobs.
 
-All the other interactive tasks are to be done in compute nodes either via the `sinteractive`
-command or explicitly via the batch job system. Puhti has an interactive partition, where each
-user can run one job using one core at maximum, but this resource should always be immediately
-available without queuing.
+In intercative bactch job, user submits a batch job, that provides interactive shell session running in the
+requested computing resources in the computing nodes. Heavy interactive tasks can now be run in the limits of requested resources (time, memory, cores, disk). You can also use tools with craphical user interfaces in interactive batch jobs, but in that case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
-`sinteractive` allows running graphical applications, but note that for graphically intensive
-applications it is recommended to connect to Puhti with 
-[NoMachine](../../support/tutorials/nomachine-usage.md).
+You should notice in interactive bach jobs you are operating in the computing nodes, where the environment differs 
+slightly from the login nodes. For example, not all the text editors are available. Futher, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node spcific local scratch area, will be terminated. 
+
 
 ## Easy interactive work: sinteractive command
 
-You can request a single core from a compute node simply with `sinteractive`.
-This command will open a shell on a compute node and you can use it as your own
-laptop without additional Slurm commands for starting jobs or applications.
+Puhti has an _interactive_ partition to enable immediate access to an interactive batch job session. The easest way to use this reasoure is to execute commmand:
+
+```text
+sinteractive -p <project_name> 
+```
+This command will open a shell on a compute node and you can use it as normal bash shell without additional Slurm commands for starting jobs or applications.
+
+_sinteractive options_
+|Oprion| Function | Default |
+|-t, --time | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00 |
+|-m, --mem | Memory reservation in MB. | 1000 |
+|-j, --jobname | Job name. | interactive |
+|-c, --threads | Number of cores. |  1 |
+|-p, --project | Accounting project.|  $CSC_PRIMARY_PROJECT |
+|-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
+|-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
+
+The default resources cover typical use cases, but you can also request more
+from the command line. For example to have an interactive session with 8 GiB 
+of memory, 48 h runnig time and 100 GiB local scratch using project _project_2011234_
+could be lauched with command:
+
+```text
+sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
+```
+
+Note that each user can have only one active session open in the _interactive_ partition. Furher
+in interactive partition you can reserve in maximum 1 core, 16 GB of 
+memory, 7 days of computing, and 16O GB of local scratch space.
+
+If your requests exceed these limits or you already have a session in
+intercative partition, then the job can be submitted to small or gpu
+patritions in stead. However, in these cases your sesson will start queueing like a normal batch jobs.
+Thus you may need wait some time before the requested resources become available and the interactive session 
+starts.
+
+
 The default resources cover typical use cases, but you can also request more
 from the command line.
 
-_Default and maximum resources for `sinteractive`_
+_Default and maximum resources for `interactive` partition_
 |Resource |Flag to request |Default  |Maximum |
-|Time     |--time=HH:MM:SS |24:00:00 |168:00:00|
-|Memory   |--mem=<X>       |18G      |50G    |
-|Local Disk|--gres:nvme=<X>|100G     |500G    |
+|Time     |--time HH:MM:SS |24:00:00 |168:00:00|
+|Memory   |--mem <X>       |18G      |50G    |
+|Local Disk|--tmp <X>|100G     |500G    |
 |Cores    |-               |1        |1       |
-|Partition|--partition=<X> |interative| any   |
+
 
 In an `sinterative` job the environment variable $TMDPIR (FIXME?) points to the
 [NVMe fast local disk](/computing/running/creating-job-scripts/#local-storage).
