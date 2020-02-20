@@ -7,7 +7,7 @@ All the other tasks are to be done in compute nodes either as normal batch jobs 
 In intercative batch job, user submits a batch job, that provides interactive shell session running in the
 requested computing resources in the computing nodes. Heavy interactive tasks can now be run in the limits of requested resources (time, memory, cores, disk). You can also use tools with craphical user interfaces in interactive batch jobs, but in that case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
-You should notice in interactive bach jobs you are operating in the computing nodes, where the environment differs 
+You should notice that interactive bach jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the text editors are available. Futher, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node spcific local scratch area, will be terminated. 
 
 
