@@ -22,7 +22,7 @@ This command will open a shell on a compute node and you can use it as normal ba
 
 _sinteractive options_
 
-|Oprion| Function | Default |
+|Option| Function | Default |
 | --- | --- | --- |
 |-t, --time | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00 |
 |-m, --mem | Memory reservation in MB. | 1000 |
@@ -32,7 +32,7 @@ _sinteractive options_
 |-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
 |-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
 
-The default resources cover typical use cases, but you can also request more
+The default sinteractive resources cover typical use cases, but you can also request more
 from the command line. For example to have an interactive session with 8 GiB 
 of memory, 48 h runnig time and 100 GiB local scratch using project _project_2011234_
 could be lauched with command:
