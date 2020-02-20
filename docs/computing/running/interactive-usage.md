@@ -59,7 +59,7 @@ In an `sinterative` job the environment variable $TMDPIR (FIXME?) points to the
 FIXME
 ### Example: RStudio in sinteractive session
 
-Open connection top Puhti with NoMachine.
+Open connection to Puhti with NoMachine.
 In the Puhti terminal session, run commands:
 
 ```text
