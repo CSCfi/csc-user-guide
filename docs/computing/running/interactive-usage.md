@@ -23,6 +23,7 @@ This command will open a shell on a compute node and you can use it as normal ba
 _sinteractive options_
 
 |Oprion| Function | Default |
+| --- | --- | --- |
 |-t, --time | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00 |
 |-m, --mem | Memory reservation in MB. | 1000 |
 |-j, --jobname | Job name. | interactive |
