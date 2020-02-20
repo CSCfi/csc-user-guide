@@ -13,12 +13,12 @@ slightly from the login nodes. For example, not all the text editors are availab
 
 ## Easy interactive work: sinteractive command
 
-Puhti has an _interactive_ partition to enable immediate access to an interactive batch job session. The easest way to use this reasoure is to execute commmand:
+Puhti has an _interactive_ partition to enable immediate access to an interactive batch job session. The easiest way to use this resource is to execute commmand:
 
 ```text
 sinteractive -p <project_name> 
 ```
-This command will open a shell on a compute node and you can use it as normal bash shell without additional Slurm commands for starting jobs or applications.
+This command will open a shell on a compute node and you can use it as normal bash shell without additional Slurm commands for starting jobs and applications.
 
 _sinteractive options_
 |Oprion| Function | Default |
