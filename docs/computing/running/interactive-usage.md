@@ -46,11 +46,10 @@ in interactive partition you can reserve in maximum 1 core, 16 GB of
 memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
 
 If your requests exceed these limits or you already have a session in
-intercative partition, then the job can be submitted to _small_ or _gpu_
+intercative partition, then _sintewractive_ can submit the session request to _small_ or _gpu_
 patritions in stead. However, in these cases your sesson will start queueing just like a normal batch jobs.
 Thus you may need wait some time before the requested resources become available and the interactive session 
 starts.
-
 
 In an `sinterative` job the environment variable $TMDPIR (FIXME?) points to the
 [NVMe fast local disk](/computing/running/creating-job-scripts/#local-storage).
