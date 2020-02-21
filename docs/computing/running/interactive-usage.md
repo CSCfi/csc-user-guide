@@ -62,12 +62,14 @@ Open connection to Puhti with NoMachine.
 In the Puhti terminal session, run commands:
 
 ```text
-sinteractive -p project_2011234 --mem 8000 --tmp 100
+sinteractive -p <project> --mem 8000 --tmp 100
 module load r-env 
 module load rstudio
 export XDG_RUNTIME_DIR=$LOCAL_SCRATCH
 rstudio
 ```
+
+
 ## Explicit interactive shell without X11 graphics
 
 If you don't want to use the `sinteractive`wrapper, it's possible
