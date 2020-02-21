@@ -48,5 +48,5 @@ picard16 SamToFASTQ I=input.bam FASTQ=output.fastq
 
 ### Manual
 
--   [Picard home page]: http://broadinstitute.github.io/picard/
--   [Detailed tool documentation]: http://broadinstitute.github.io/picard/command-line-overview.html
+-   [Picard home page](http://broadinstitute.github.io/picard/)
+-   [Detailed tool documentation](http://broadinstitute.github.io/picard/command-line-overview.html)
