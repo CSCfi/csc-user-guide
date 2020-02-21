@@ -23,7 +23,21 @@ The total BU consumption per hour is the sum of the above terms:
 
 The default 1 TiB scratch disk quota is free. Increased quota charges:
 
-   * 1 TiB consumes **50 000** BUs per year.
+* 1 TiB consumes **50 000** BUs per year.
+
+## Mahti
+
+### Compute billing
+
+In contrast to Puhti, on Mahti resources are used and billed in full nodes only.
+
+ * Each reserved noe consumes **100** BUs per hour. FIXME
+
+### Lustre scratch disk billing
+
+The storage pricing is similar to Puhti with the exception that free default scratch disk quota is 5 TiB FIXME. After that
+
+ * 1 TiB consumes **50 000** BUs per year.
 
 ## Allas 
 
