@@ -91,6 +91,22 @@ pb blastn -db nt -query 100_ests.fasta -out results.out
 
 pb psiblast -db swiss -query protseqs.fasta -num_iterations 3 -out results.out
 ```
+_pb blast_ commands start a process that monitor the progress of the blast job. As running a large BLAST jobs may take
+a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
+
+To reconnect to your pb blast job, go to your scratch directory and run command:
+
+```text
+blast_clusterrun
+```
+This lists the temporary directrotes of your unfinished pb blast jobs. You can check the jobnuber of your blast job
+from the directoryname. Use this number with _-jobid_ option to define the pb blast job you wish to reconnect to.
+
+```text
+blast_clusterrun -jobid some-number
+```
+
+
 ##Using own BLAST databases with pb
 
 The pb program also allows users to do BLAST searches against their own fasta formatted sequence sets. This is done by replacing the `-db` option with option `-dbnuc` (for nucleotides) or `-dbprot` (for proteins). Example:
