@@ -20,6 +20,7 @@ nav:
   - Computing:
      - Overview: computing/overview.md
      - Systems: computing/system.md
+     - Connecting: computing/connecting.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
      - Running jobs:
