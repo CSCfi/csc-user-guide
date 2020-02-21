@@ -27,7 +27,7 @@ _sinteractive options_
 |-t, --time | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00 |
 |-m, --mem | Memory reservation in MB. | 1000 |
 |-j, --jobname | Job name. | interactive |
-|-c, --threads | Number of cores. |  1 |
+|-c, --cores | Number of cores. |  1 |
 |-p, --project | Accounting project.|  $CSC_PRIMARY_PROJECT |
 |-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
 |-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
