@@ -1,5 +1,51 @@
 # Additional ways to connect to Puhti.
 
+## Setting up ssh keys
+
+By default, SSH access to Puhti is authenticated with the password of
+your CSC user account. SSH key based authentication can be enabled
+with a two-step process:
+
+1. **Generate SSH Keys**: The SSH Keys are always generated in pair,
+   one *public key* and one *private key*. These keys should be generated
+   on the computer you are using to connect to Puhti. 
+2. **Copy public key to Puhti**: Only the *public key* should be
+   copied to Puhti, don't copy the private key. 
+
+!!! warning "Note"
+    The private key should never be shared with anyone, not even with
+    CSC staff.
+
+Please find below instructions for different the operating systems.
+
+### Linux and Mac OS
+
+SSH key pair can be generated as:
+
+```bash
+ssh-keygen -t rsa -b 4096
+```
+
+You will be prompted for a file name and location where to save the
+key. Accept the defaults by pressing ENTER.
+
+Next, you will be asked for a passphrase. Please, choose a secure
+passphrase. It should be at least 8 characters long and should contain
+numbers, letters and special characters. **Important:** Do not leave
+the passphrase empty.
+
+The public key can now be copied to Puhti as:
+
+```bash
+ssh-copy-id <csc_username>@puhti.csc.fi
+```
+
+You will be prompted for your CSC password (not the passphrase in the
+previous phase). In subsequent logins to Puhti you should then provide
+the passphrase (typically, Linux systems have SSH agent which require
+user to provide passphrase only once per session).
+
+
 
 ## Using Putty to connect to Puhti
 

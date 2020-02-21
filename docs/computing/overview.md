@@ -22,8 +22,9 @@ to a specific login node, use the command:
 ```
 ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 ```
-For instructions on how to connect using Putty or establishing
-a graphical connection, see the [connecting](connecting.md) page.
+For instructions on how to connect using Putty, establishing
+a graphical connection, or setting up ssh keys, see the
+[connecting](connecting.md) page. 
 
 
 !!! warning "Important"
