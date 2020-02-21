@@ -58,28 +58,6 @@ blastp -query proteinseq.fasta -evalue 0.001 -db uniprot -outfmt 7 -out result.t
 ```
 Would run the same search as described above, except that the  e-value threshold would be set to 0.001(-evalue 0.001) and the out put is printed out a a table (-outfmt 7).
 
-## Using taxonomy lists to focus the search
-
-Since BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a single taxonomy ID number or list of taxonomies, to focus the search only to an organism based subset from the search database.
-
-The BLAST tools include a command `get_species_taxids.sh` that can be used to generate taxidlists.
-First you have to find the the higher lever TaxID number your wish to use. For example, the TaxID of Betacoronavirus genius can be found with command:
-
-```text
-get_species_taxids.sh -n Betacoronavirus 
-```
-Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be retrieved with command:
-```text
-get_species_taxids.sh -t 694002 > b-coronaviruses.txt
-```
-The command above produces a file conataining TaxID numbers of Betacoronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originationg form the defined species. For example:
-
-```text
-pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
-``` 
-
-Note that `-taxidlist` can be used only with databases that include species information.
-
 
 ## Usage of pb (Parallel BLAST)  at CSC
 
@@ -106,13 +84,37 @@ from the directoryname. Use this number with _-jobid_ option to define the pb bl
 blast_clusterrun -jobid some-number
 ```
 
-
-##Using own BLAST databases with pb
+## Using own BLAST databases with pb
 
 The pb program also allows users to do BLAST searches against their own fasta formatted sequence sets. This is done by replacing the `-db` option with option `-dbnuc` (for nucleotides) or `-dbprot` (for proteins). Example:
 ```text
 pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 ```
+## Using taxonomy lists to focus the search
+
+Since BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a single taxonomy ID number or list of taxonomies, to focus the search only to an organism based subset from the search database.
+
+The BLAST tools include a command `get_species_taxids.sh` that can be used to generate taxidlists.
+First you have to find the the higher lever TaxID number your wish to use. For example, the TaxID of Betacoronavirus genius can be found with command:
+
+```text
+get_species_taxids.sh -n Betacoronavirus 
+```
+Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be retrieved with command:
+```text
+get_species_taxids.sh -t 694002 > b-coronaviruses.txt
+```
+The command above produces a file conataining TaxID numbers of Betacoronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originationg form the defined species. For example:
+
+```text
+pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
+``` 
+
+Note that `-taxidlist` can be used only with databases that include species information.
+
+
+
+
 ## Using genome data from ensembl with pb
 
 _pb_ command can also automatically retrieve a species specific dataset from the Ensembl or Ensembl genomes servers and use the dataset as the search database. This is done by replacing the `-db` option with option `-ensembl_dna` (retrieves the genomic DNA),  `-ensenmbl_cdna` (retrieves the cDNA sequences)  or `-ensembl_prot` (retrieves the protein sequences). The latin name of a species or taxonomy index number is given as an argument for the ensembl options. You should use underscore (_) in stead of space in the species name.
