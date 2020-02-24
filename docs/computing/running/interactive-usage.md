@@ -25,7 +25,16 @@ Puhti has an _interactive_ partition to enable immediate access to an interactiv
 ```text
 sinteractive -p <project_name> 
 ```
-This command will open a shell on a compute node and you can use it as normal bash shell without additional Slurm commands for starting jobs and applications.
+This command opens a shell session that runs on a compute. You can use this session as normal bash shell without additional Slurm commands for starting jobs and applications.
+
+The default sinteractive resources cover typical use cases, but you can also request more
+from the command line. For example to have an interactive session with 8 GiB 
+of memory, 48 h runnig time and 100 GiB local scratch using project _project_2011234_
+could be lauched with command:
+
+```text
+sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
+```
 
 _sinteractive options_
 
@@ -39,14 +48,6 @@ _sinteractive options_
 |-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
 |-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
 
-The default sinteractive resources cover typical use cases, but you can also request more
-from the command line. For example to have an interactive session with 8 GiB 
-of memory, 48 h runnig time and 100 GiB local scratch using project _project_2011234_
-could be lauched with command:
-
-```text
-sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
-```
 
 Note that each user can have only one active session open in the _interactive_ partition. Furher
 in interactive partition you can reserve in maximum 1 core, 16 GB of 
