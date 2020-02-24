@@ -1,6 +1,8 @@
 # Interactive usage
 
-When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. The login they should be used only for:
+When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. 
+
+The login nodes should be used only for:
   * compiling
   * manging batch jobs
   * moving data 
