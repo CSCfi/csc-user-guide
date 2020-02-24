@@ -36,6 +36,7 @@ could be lauched with command:
 sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
 ```
 
+
 _sinteractive options_
 
 |Option| Function | Default |
@@ -47,7 +48,6 @@ _sinteractive options_
 |-p, --project | Accounting project.|  $CSC_PRIMARY_PROJECT |
 |-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
 |-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
-
 
 Note that each user can have only one active session open in the _interactive_ partition. Furher
 in interactive partition you can reserve in maximum 1 core, 16 GB of 
