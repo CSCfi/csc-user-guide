@@ -8,7 +8,7 @@ The login nodes should be used only for:
   * moving data 
   * **light** pre- and postprocessing
   
-Here **Light** means **one-core-jobs** that should finish in **minutes** and require **a few GiB** of memory at maximum.
+Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
 All the other tasks are to be done in compute nodes either as normal batch jobs or as _interactive batch_ jobs.
 
 In intercative batch job, user submits a batch job, that provides interactive shell session running in the
