@@ -59,11 +59,13 @@ partitions in stead. However, in these cases your session will start queueing ju
 Thus you may need wait some time before the requested resources become available and the interactive session 
 starts.
 
-In an `sinterative` job the environment variable $TMDPIR (FIXME?) points to the
-[NVMe fast local disk](/computing/running/creating-job-scripts/#local-storage).
+All the`sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) Available. The environment variable $LOCAL_SCRATCH points to the local disk area of the job. In jobs running in the ieteractive paratiotion, also variable $TMPDIR pontis to this local disk area. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disc area is removed when the interactive batch job session ends.
+
 
 ### Example: Running a notebooks server via sinteractive
-FIXME
+
+
+
 ### Example: RStudio in sinteractive session
 
 Open connection to Puhti with NoMachine.
