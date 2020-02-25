@@ -1,6 +1,5 @@
-# FGCI User Guide Overview
+# FGCI User Guide
 
-(Version: 6.4. 2014)
 
 Finnish Grid and Cloud Infrastructure (FGCI) is  a distributed Grid and
 Cloud computing infrastructure, co-funded by the Academy of Finland and
@@ -38,6 +37,17 @@ In addidtion you must have ARC middleware client installed in the computer, that
 *    [ARC client instructions of Nordugrid](http://www.nordugrid.org/arc/arc6/users/client_install.html)
 
 These preparatory steps are done just once, when the user starts using FGCI.
+
+**Using FGCI**
+
+The grid computing environment of FGCI is used via the Advanced Resource Connector (ARC) middleware which is produced by the Nordugrid community. All tasks and commands are submitted via the middleware and the user never needs to directly log into the actual computing clusters. For this reason FGCI can't be used to run programs interactively. Instead the commands to be executed are collected into command files that are submitted to the FGCI using ARC commands and job description files.
+
+* [Structure of job description files](./arc-job-description-files.md)
+
+When the job descrioption file and other job files have been created, the actual job will be execiuted using the
+**arc middleware**
+
+* [Using arc to run grid jobs](./arc-running-jobs.md)
 
 This guide provides a general introduction to the FGCI grid environment.
 More detailed information as well as tutorials and software specific
