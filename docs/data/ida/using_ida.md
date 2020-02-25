@@ -6,7 +6,7 @@ IDA is a general storage service for research data. It is part of the [Fairdata.
 
 IDA can be used with a web browser user interface interface as well as with a command line client tool `ida` that is available on the computing servers hosted by CSC and also available for download from [GitHub](https://github.com/CSCfi/ida2-command-line-tools).
 
-The storage of files in IDA can be managed using the web and command line client interfaces; however, the contents of the stored files can't be modified directly. Instead, a stored file must be first retrieved from IDA to either another CSC hosted server or some other computer in order to analyse or modify the data. In that sense IDA resembles very much the [Allas storage environment](../Allas/introduction.md). However, IDA and Allas are designed to serve different use cases:
+The storage of files in IDA can be managed using the web and command line client interfaces; however, the contents of the stored files can't be modified directly. Instead, a stored file must be first retrieved from IDA to either servers of CSC  or some other computer in order to analyse or modify the data. In that sense IDA resembles very much the [Allas storage environment](../Allas/introduction.md). However, IDA and Allas are designed to serve different use cases:
 
  * Allas is low-level and high-capacity storage service for utilising research data at CSC and other computing environments.          
  * IDA is designed for storing and sharing well defined and stable datasets, that are not used and modified on a daily basis. 
