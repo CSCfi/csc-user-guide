@@ -3,16 +3,17 @@
 When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. 
 
 The login nodes should be used only for:
-  * compiling
-  * manging batch jobs
-  * moving data 
-  * **light** pre- and postprocessing
+
+ * compiling
+ * manging batch jobs
+ * moving data 
+ * **light** pre- and postprocessing
   
 Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
 All the other tasks are to be done in compute nodes either as normal batch jobs or as _interactive batch_ jobs.
 
 In intercative batch job, user submits a batch job, that provides interactive shell session running in the
-requested computing resources in the computing nodes. Heavy interactive tasks can now be run in the limits of requested resources (time, memory, cores, disk). You can also use tools with craphical user interfaces in interactive batch jobs, but in that case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
+requested computing resources in the computing nodes. Heavy interactive tasks can now be run in the limits of requested resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in interactive batch jobs, but in that case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
 You should notice that interactive bach jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the text editors are available. Further, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node spcific local scratch area, will be terminated. 
@@ -59,11 +60,25 @@ partitions in stead. However, in these cases your session will start queueing ju
 Thus you may need wait some time before the requested resources become available and the interactive session 
 starts.
 
-All the`sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) Available. The environment variable $LOCAL_SCRATCH points to the local disk area of the job. In jobs running in the ieteractive paratiotion, also variable $TMPDIR pontis to this local disk area. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disc area is removed when the interactive batch job session ends.
+All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable $LOCAL_SCRATCH points to the local disk area of the job. In jobs running in the interactive partition, the $TMPDIR variable points to this local disk area. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is removed when the interactive batch job session ends.
 
 
 ### Example: Running a notebooks server via sinteractive
 
+You can start a notebooks server that runs on a puhti compute nodes,
+and access it with your local web browser. In this case there is no
+need to start NoMachine. In the Puhti terminal session, run the command:
+
+```text
+sinteractive -p <project> start-jupyter-server
+```
+
+This will start the server, and it will also print out a web address
+and a ssh command forming a tunnel between your machine and the
+compute node. Execute this ssh command (copy pase) in another linux
+terminal on your local machine. Note that you need to set up
+passwordless access using ssh keys to do so. After this you can access
+the jupyter session at the provided web address.
 
 
 ### Example: RStudio in sinteractive session
