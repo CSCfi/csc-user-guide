@@ -13,20 +13,12 @@ accessed from Mahti.
 
 
 The default quotas for the capacity and for the number of files are:
-FIXME: can the table be made in better format?
 
-|   Puhti      | Capacity | Number of files      |
+|              | Capacity | Number of files      |
 | -------------| ---------|----------------      |
 | **home**     | 10 GiB   |  100 000 files       |
 | **projappl** | 50 GiB   |  100 000 files       |
 | **scratch**  | 1 TiB    |  1 000 000 files     |
-
-|   Mahti      | Capacity | Number of files      |
-| -------------| ---------|----------------      |
-| **home**     | 10 GiB   |  100 000 files       |
-| **projappl** | 50 GiB   |  100 000 files       |
-| **scratch**  | 5 TiB    |  2 000 000 files     |
-
 
 See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
 
@@ -121,13 +113,26 @@ chmod -R g-w my_directory
 
 As mentioned earlier, the _scratch_ directory is only intended for processing data.
 Any data that should be preserved for a longer time should be copied to the
-_Allas_ storage server. Instructions for backing up files from Puhti
-and Mahti to Allas can be found in the [Allas guide](../data/Allas/index.md).
+_Allas_ storage server. Instructions for backing up files from CSC
+supercomputers to Allas can be found in the [Allas guide](../data/Allas/index.md).
 
 ## Moving data between supercomputers
 
-FIXME: What is our recommendation? rsync, Allas, ... ?
+Data can be moved between supercomputers via Allas by first uploading
+the data in one supercomputer and then downloading in another
+supercomputer. This is the recommended approach if the data should also
+be preserved for a longer time.
 
+Data can also be moved directly between the supercomputers with the
+_rsync_ command. For example, in order to copy *my_results* (which can be
+either file or directory) from
+Puhti to the directory */scratch/project_2002291* in Mahti, one can
+issue in Puhti the command: 
+```bash
+rsync -azP my_results <username>@mahti.csc.fi:/scratch/project_2002291
+```
+See [Using rsync](../data/moving/rsync.md) for more detailed instructions
+for *rsync*.
 
 ## Increasing Quotas
 
