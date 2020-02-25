@@ -1,25 +1,12 @@
 # Interactive usage
 
-When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. 
+When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [usage policy](overview/#usage-policy) for details.
 
-FIXME move this into a separate page / section on usage policy and add a link here
+In an interactive batch job, a user submits a batch job, that provides interactive shell session running on the
+requested computing resources in the computing nodes. Heavy interactive tasks can this way be run on requested dedicated resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in interactive batch jobs, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
-The login nodes should be used only for:
-
- * compiling
- * manging batch jobs
- * moving data 
- * **light** pre- and postprocessing
-  
-Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
-All the other tasks are to be done in compute nodes either as normal batch jobs or as _interactive batch_ jobs.
-
-In an intercative batch job, a user submits a batch job, that provides interactive shell session running on the
-requested computing resources in the computing nodes. Heavy interactive tasks can now be run in the limits of requested resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in interactive batch jobs, but in that case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
-
-You should notice that interactive batch jobs run in the computing nodes, where the environment differs 
-slightly from the login nodes. For example, not all the text editors are available. Further, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node spcific local scratch area, will be terminated. 
-
+Please notice that interactive batch jobs run in the computing nodes, where the environment differs 
+slightly from the login nodes. For example, not all the text editors are available. Further, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node specific local scratch area, will be terminated. 
 
 ## Easy interactive work: sinteractive command
 
@@ -28,7 +15,8 @@ Puhti has an _interactive_ partition to enable immediate access to an interactiv
 ```text
 sinteractive -p <project_name> 
 ```
-This command opens a shell session that runs on a compute node. You can use this session as normal bash shell without additional Slurm commands for starting jobs and applications.
+This command opens a shell session that runs on a compute node. You can use this
+session as a normal bash shell without additional Slurm commands for starting jobs and applications.
 
 The default sinteractive resources cover typical use cases, but you can also request more
 from the command line. For example to have an interactive session with 8 GiB 
@@ -52,14 +40,16 @@ _sinteractive options_
 |-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
 |-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
 
-Note that each user can have only one active session open in the _interactive_ partition. Furher
-in interactive partition you can reserve in maximum 1 core, 16 GB of 
+FIXME: mitä (max 2) tässä tarkoittaa, jos alla maksimi on 0??
+
+Note, that each user can have only one active session open in the _interactive_ partition. 
+In an interactive partition you can reserve in maximum 1 core, 16 GB of 
 memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
 
-If your requests exceed these limits or you already have a session in
-intercative partition, then sinteractive can submit the session request to _small_ or _gpu_
-partitions in stead. However, in these cases your session will start queueing just like a normal batch jobs.
-Thus you may need wait some time before the requested resources become available and the interactive session 
+If your requests exceed these limits or you already have a session in the
+interactive partition, then sinteractive can submit the session request to _small_ or _gpu_
+partitions in stead. However, in these cases your session will start queueing just like normal batch jobs.
+Thus, you may need wait some time before the requested resources become available and the interactive session 
 starts.
 
 All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable $TMPDIR points to the local disk area of the job. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
