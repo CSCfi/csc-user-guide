@@ -2,6 +2,8 @@
 
 When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. 
 
+FIXME move this into a separate page / section on usage policy and add a link here
+
 The login nodes should be used only for:
 
  * compiling
@@ -12,10 +14,10 @@ The login nodes should be used only for:
 Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
 All the other tasks are to be done in compute nodes either as normal batch jobs or as _interactive batch_ jobs.
 
-In intercative batch job, user submits a batch job, that provides interactive shell session running in the
+In an intercative batch job, a user submits a batch job, that provides interactive shell session running on the
 requested computing resources in the computing nodes. Heavy interactive tasks can now be run in the limits of requested resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in interactive batch jobs, but in that case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
-You should notice that interactive bach jobs run in the computing nodes, where the environment differs 
+You should notice that interactive batch jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the text editors are available. Further, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node spcific local scratch area, will be terminated. 
 
 
