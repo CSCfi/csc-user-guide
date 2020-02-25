@@ -60,7 +60,7 @@ partitions in stead. However, in these cases your session will start queueing ju
 Thus you may need wait some time before the requested resources become available and the interactive session 
 starts.
 
-All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable $LOCAL_SCRATCH points to the local disk area of the job. In jobs running in the interactive partition, the $TMPDIR variable points to this local disk area. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is removed when the interactive batch job session ends.
+All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable $TMPDIR points to the local disk area of the job. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
 
 ### Example: Running a notebooks server via sinteractive
@@ -90,7 +90,7 @@ In the Puhti terminal session, run commands:
 sinteractive -p <project> --mem 8000 --tmp 100
 module load r-env 
 module load rstudio
-export XDG_RUNTIME_DIR=$LOCAL_SCRATCH
+export XDG_RUNTIME_DIR=$TMPDIR
 rstudio
 ```
 
