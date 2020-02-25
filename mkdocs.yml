@@ -120,6 +120,15 @@ nav:
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
+     - Kaivos database service:
+        - Kaivos overview: data/kaivos/overview.md
+        - Getting a database account: data/kaivos/kaivos-account.md
+        - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
+        - Data import and export: data/kaivos/kaivos_import.md
+        - Using MySQL client through batch job system: data/kaivos/kaivos_batch_job.md
+        - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
+        - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
+        # Python MySQL API at CSC:
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md

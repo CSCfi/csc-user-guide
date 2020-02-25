@@ -10,7 +10,7 @@ You can use SAMtools for example for indexing, variant calling and viewing align
 Version on CSC's Servers
 
 Puhti: 1.9
-Taito: 0.1.19, 1.4, 1.8, 1.9
+
 
 Usage
 
@@ -26,8 +26,8 @@ After this you can launch samtools
 ```
 samtools
 ```
-SAMtool jobs should either be run in Taito-shell or be executed as batch jobs. Below is a sample batch job file, 
-for running a SAMtools job in Taito:
+Heavier SAMtool jobs should be executed as batch jobs. Below is a sample batch job file, 
+for running a SAMtools job in Puhti:
 
 ```text
 #!/bin/bash -l
@@ -56,7 +56,7 @@ You can submit the batch job file to the batch job system with command:
 ```text
 sbatch batch_job_file.bash
 ```
-Check the chapter 3 of the Taito user guide for more information about running batch jobs.
+Check the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## Manual

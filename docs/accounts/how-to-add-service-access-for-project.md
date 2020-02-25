@@ -40,13 +40,12 @@ approval.
 1. Under _Services_, choose the service. It has a bell symbol next to
 it.
 1. Read and accept the terms of service.
-Click _Apply for Access_.
+Click _Accept_.
 1. A message will be sent to the e-mail address associated with your CSC
 user account when the service access has been granted.
 
 !!! Note
 
-    Project manager is the only person who can add or remove services
-    of a project. Service access is usually valid for one year,
-    after which it must be renewed to retain the access. If you want to
-    stop using the service earlier, contact us at servicedesk@csc.fi.
+    Project manager is the only person who can add or remove services of
+    a project. If you want to stop using the service, contact us at
+    servicedesk@csc.fi.
