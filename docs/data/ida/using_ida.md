@@ -13,24 +13,24 @@ The storage of files in IDA can be managed using the web and command line client
 
 In a typical research project the raw data is first stored in Allas. When the research work has produced a more refined dataset form the original data, it can be stored to IDA so that metadata and persistent identifiers can be associated with the data via additional services. 
 
-
-## Configuring and using IDA in Puhti ##
-
 Each IDA project has two storage areas: _staging area_ and _frozen area_. The staging area is intended for collecting and organizing data in preparation for longer term storage and publication.  Data files that will not change anymore can be moved to frozen area to be stored in an immutable state. 
 
 Files in the frozen area are visible to other Fairdata services and can be included in datasets using the [Qvain metadata tool](https://www.fairdata.fi/en/qvain/). Files in the staging area are not visible to other services and cannot be included in datasets.
 
-The command line client of IDA, `ida`, enables data transport between Puhti and IDA. Data can uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data to the frozen area is possible only through the [IDA WWW interface](https://ida.csc.fi).
+
+
+## Configuring and using IDA in Puhti ##
 
 Before you can start using IDA client in Puhti you must set up your IDA connection by running the following command:
 ```text
 ida_configure
 ```
-
 The configuration process asks for your CSC project number and [application password](https://www.fairdata.fi/en/ida/user-guide/#app-passwords). 
-This information can be obtained from the [security settings page of the IDA WWW-interface](https://ida.fairdata.fi/settings/user/security). The configuration is stored to your home directory so you need to do it only once.
+This information can be obtained from the [security settings page of the IDA WWW-interface](https://ida.fairdata.fi/settings/user/security). The configuration is stored to your home directory in Puhti so you need to do it only once.
 
-Once you have configured the connection, you can start interacting with IDA. The basic syntax of the _ida_ commands is:
+Once you have configured the connection, you can start using the `ida` command line client that enables data transport between Puhti and IDA. Data can be uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data to the frozen area is possible only through the [IDA WWW interface](https://ida.csc.fi).
+
+The basic syntax of the _ida_ commands is:
 <pre>
 ida <em>task</em> -<em>options target_in_ida target_in_puhti</em>
 </pre>
@@ -39,8 +39,7 @@ To check the content of you staging area in IDA, use the command:
 ```text
 ida info /
 ```
-Adding option `-f` to the _ida_ command makes the command reference the frozen area instead of the staging area. For example the following command
-would give you information about the file test2, locating in the root of the frozen area:
+Adding option `-f` to the _ida_ command makes the command reference the frozen area instead of the staging area. For example the following command would give you information about the file _test2_, locating in the root of the frozen area:
 
 <pre>
 [kkayttaj@puhti-login2 ~] <b>ida info -f /test2</b>
