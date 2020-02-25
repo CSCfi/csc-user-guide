@@ -14,7 +14,7 @@ collaboration.
 
 **This guide focuses to the usage of FGCI environment as a grid
 computing platform.** The IaaS cloud usage of FGCI is done through the
-cPouta service of CSC. See [Pouta user guide](../pouts/pouta-what-is.md) for more information. 
+cPouta service of CSC. See [Pouta user guide](../pouta/pouta-what-is.md) for more information. 
 
 See [FGCI DMP](https://research.csc.fi/documents/48467/0/FGCI+Data+Management+Plan/77ceadaa-0866-4530-b2c9-f76a98e891de) for the data management plan.
 
