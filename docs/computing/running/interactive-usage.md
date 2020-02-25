@@ -26,7 +26,7 @@ Puhti has an _interactive_ partition to enable immediate access to an interactiv
 ```text
 sinteractive -p <project_name> 
 ```
-This command opens a shell session that runs on a compute. You can use this session as normal bash shell without additional Slurm commands for starting jobs and applications.
+This command opens a shell session that runs on a compute node. You can use this session as normal bash shell without additional Slurm commands for starting jobs and applications.
 
 The default sinteractive resources cover typical use cases, but you can also request more
 from the command line. For example to have an interactive session with 8 GiB 
@@ -65,7 +65,7 @@ All the `sinterative` sessions are executed in nodes that have [NVMe fast local 
 
 ### Example: Running a notebooks server via sinteractive
 
-You can start a notebooks server that runs on a puhti compute nodes,
+You can start a notebooks server that runs on a puhti compute node,
 and access it with your local web browser. In this case there is no
 need to start NoMachine. In the Puhti terminal session, run the command:
 
@@ -73,10 +73,10 @@ need to start NoMachine. In the Puhti terminal session, run the command:
 sinteractive -p <project> start-jupyter-server
 ```
 
-This will start the server, and it will also print out a web address
-and a ssh command forming a tunnel between your machine and the
-compute node. Execute this ssh command (copy pase) in another linux
-terminal on your local machine. Note that you need to set up
+This command will start the server, and it will then print out a web
+address and a ssh command. Execute the ssh command (copy pase) in
+another linux terminal on your local machine to form a tunnel between
+your machine and the compute node. Note that you need to set up
 passwordless access using ssh keys to do so. After this you can access
 the jupyter session at the provided web address.
 
