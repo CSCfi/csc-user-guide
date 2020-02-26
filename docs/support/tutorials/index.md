@@ -8,7 +8,7 @@
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
-* [Linux basics for CSC](env-guide/index.md)
+* [Linux basics for CSC](env-guide/overview.md)
 
 ## Allas
 * [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)

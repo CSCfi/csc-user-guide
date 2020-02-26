@@ -1,6 +1,6 @@
-# 2.1 Using Linux in command line {#using-linux-in-command-line .western}
+# Using Linux in command line
 
-## [][1]2.1.1 Files and directories in Linux {#files-and-directories-in-linux .western}
+## Files and directories in Linux
 
 The file systems in Linux machines are based on hierarchical directory
 tree. There is one *root directory* in to which you can refer with
@@ -8,7 +8,7 @@ tree. There is one *root directory* in to which you can refer with
 subdirectories of this directory so that each file has a unique
 combination of name and directory path. Also the commands that user
 gives are executed in a directory in which user currently is
-called *current working directory*.
+called *current working directory*.
 
 Normally you do not need to know the explicit directory paths when you
 work in the CSC environment. It is enough to know the locations of the
@@ -17,15 +17,15 @@ are presented in chapter 3. However, you should remember that many disk
 areas in CSC environment can be accessed from several different servers
 (e.g. the users home directory) while some areas are server specific. In
 the case of shared disk areas the path to a certain file may be
-different in different servers.  
+different in different servers.
 
-## [][2]2.1.2 Structure of linux commands {#structure-of-linux-commands .western}
+## Structure of linux commands
 
 Once the terminal connection to CSC, e.g. to [Taito-shell], has been
 opened, the remote server is used with Linux commands. The standard
 structure of a command is:
 
-    command -options argument1 argument2 ...
+`command -options argument1 argument2 ...`
 
 The command is executed by pressing the *return key (Enter)*. The names
 and functions of options and arguments depend on the linux command. In
@@ -34,18 +34,18 @@ Options are used to modify the actions that the command performs.
 Arguments are used to define the files, directories and values that are
 used as input parameters and to define where the output is written.
 
-For example command **ls** can be used as such or with several options
+For example command `ls` can be used as such or with several options
 and arguments. Running plane command *ls* lists the content of a
 directory in alphabetical order. You can modify the output of the
-command for example by using option **-t**. With this option the
+command for example by using option `-t`. With this option the
 directory content list is ordered by the age of the file (time stamp).
 If no argument is given, *ls* prints out the content of the current
 working directory. By giving an argument to the *ls* command, user can
 define a directory which content should be listed. For example command:
 
-    ls -t /wrk/kkayttaj
+`ls -t /scratch/project_2979797`
 
-will list the content of directory */wrk/kkayttaj*. In case the command,
+will list the content of directory */scratch/project_2979797*. In case the command,
 argument or options contain errors, the command will not be executed
 when the return key is pressed. Instead an error message is printed to
 the screen. Thus having errors in the command normally does not cause
@@ -53,7 +53,7 @@ any major problems. The output of commands depends on the command but in
 many cases, no output means that command was successfully executed.
 
 Most of the Linux commands have their own manual page that can be
-studied with [][3]**man** command. For example the manual page of *ls*
+studied with `man` command. For example the manual page of *ls*
 command could be studied with command:
 
     man ls
@@ -66,7 +66,7 @@ testing/using them in practice.
 
 Often the most difficult thing in using Linux is knowing the name of
 suitable command. Below we introduce to the most frequently used linux
-commands. You can also use command [][4]**apropos** to find suitable
+commands. You can also use command `apropos` to find suitable
 command. Apropos lists those Linux commands whose short description
 lines match the text that is given as a command argument. For example to
 look for commands that are processing *pdf* files you could give
@@ -79,29 +79,29 @@ commands but not application program names. Thus, the sample command
 above would produce a list that contain many pdf conversion commands but
 not the pdf viewing programs like *acroread* or *evince*.
 
-## [][5]2.1.3 Basic commands for using directories {#basic-commands-for-using-directories .western}
+## Basic commands for using directories
 
-Table 2.1 lists the commands that are most frequently used for moving in
+Table below lists the commands that are most frequently used for moving in
 the directory hierarchy and managing it. Below are some examples of
 directory related commands.
 
-**Table 2.1:** Basic directory commands
+Basic directory commands
 
 | Name      | Argument    | Description                                           |
 |-----------|-------------|-------------------------------------------------------|
 | **cd**    | *directory* | Change current working directory                      |
 | **ls**    | *directory* | Lists the content of a directory                      |
-| **pwd**   |             | Print the directory path of current working directory |
+| **pwd**   |             | Print the directory path of current working directory |
 | **mkdir** | *directory* | Create a new directory                                |
 | **rmdir** | *directory* | Remove a directory                                    |
 
 When you log in to a server at CSC, you will first locate in your home
 directory. You can check your location i.e. the path of the current
-working directory with command [][6]**pwd** (abbreviation from Print
+working directory with command `pwd` (abbreviation from Print
 current Working Directory). However, you do not have to remember the
-location of your home directory (see *cd* command).
+location of your home directory (see `cd` command).
 
-The content of the directory can be listed with a command [][7]**ls**.
+The content of the directory can be listed with a command `ls`.
 Plain *ls* command just lists the names of the files and directories in
 your current directory. You can get more information about the files and
 directories with command **ls -la**. The **-l** option produces long
@@ -142,34 +142,34 @@ frequently used options are **-h** (Human readable) which prints out the
 sizes of larger files in megabytes or gigabytes and **-r** which means
 reverse sorting order. For example command:
 
-~~~~
+```bash
 ls -ltrh
-~~~~
+```
 
 is very handy when you want to check what files have recently been
 modified or created. *ls* and *pwd* commands do not modify your files in
 any way so you can use them always when you want to know where you are
 and what files your current directory includes.
 
-Command [][8]**cd** ***directory\_name*** moves you from the current
+Command `cd` ***directory\_name*** moves you from the current
 directory to a directory you specified. For example the user *kkayttaj*
-could go to his wrk directory with command:
+could go to his local temporary directory with command:
 
-~~~~
-cd /wrk/kkayttaj
-~~~~
+```bash
+cd /local_scratch/kkayttaj
+```
 
 or
 
-~~~~
-cd $WRKDIR
-~~~~
+```bash
+cd $TMPDIR
+```
 
 In the latter command automatically defined *environment variable*
-$WRKDIR, that contains the explicit directory path, is used to define
+$TMPDIR, that contains the explicit directory path, is used to define
 the target directory.
 
-New directories can be created with a command [][9]**mkdir**
+New directories can be created with a command `mkdir`
 ***directory\_name***. For example command:
 
     mkdir project1 
@@ -191,13 +191,13 @@ is one step lower in the directory tree i.e. the directory where current
 directory locates. Executing the *cd* command without any arguments will
 always move you back to your home directory, regardless where you are in
 the directory tree. An empty directory can be removed with command
-[][10]**rmdir** *directory\_name*. For example:
+`rmdir` *directory\_name*. For example:
 
     rmdir project1 
 
  
 
-## [][11]2.1.4 Basic commands for files {#basic-commands-for-files .western}
+## Basic commands for files
 
 In a very basic level a file in a Linux system is just a string of
 bytes, were a byte consists of eight bits. So called text files the
@@ -452,34 +452,3 @@ August 14th :
 
     ls -l | grep "Aug 14"
 
- 
-
- 
-
- 
-
-  [1]: https://research.csc.fi/ {#2.1.1}
-  [2]: https://research.csc.fi/ {#2.1.2}
-  [Taito-shell]: https://research.csc.fi/taito-shell-user-guide
-  [3]: https://research.csc.fi/ {#man}
-  [4]: https://research.csc.fi/ {#apropos}
-  [5]: https://research.csc.fi/ {#2.1.3}
-  [6]: https://research.csc.fi/ {#pwd}
-  [7]: https://research.csc.fi/ {#ls}
-  [8]: https://research.csc.fi/ {#cd}
-  [9]: https://research.csc.fi/ {#mkdir}
-  [10]: https://research.csc.fi/ {#rmdir}
-  [11]: https://research.csc.fi/ {#2.1.4}
-  [2.1.5]: https://research.csc.fi/csc-guide-using-linux-in-command-line#2.1.5
-  [12]: https://research.csc.fi/ {#cat}
-  [13]: https://research.csc.fi/ {#more}
-  [14]: https://research.csc.fi/ {#less}
-  [15]: https://research.csc.fi/ {#head}
-  [16]: https://research.csc.fi/ {#tail}
-  [**cp**]: https://research.csc.fi/ {#cp}
-  [17]: https://research.csc.fi/ {#mv}
-  [18]: https://research.csc.fi/ {#rm}
-  [19]: https://research.csc.fi/ {#2.1.5}
-  [linux scripting chapter]: https://research.csc.fi/csc-guide-linux-bash-scripts
-  [20]: https://research.csc.fi/ {#2.1.5.1}
-  [21]: https://research.csc.fi/ {#2.1.5.2}
