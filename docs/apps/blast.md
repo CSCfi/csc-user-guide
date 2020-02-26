@@ -27,7 +27,7 @@ Other blast commands
 
 ## Available
 
--   Puhti: 2.9.0
+-   Puhti: 2.10.0
 -   FGCI: 2.6.0
 -   Chipster graphical user interface
 
@@ -58,6 +58,7 @@ blastp -query proteinseq.fasta -evalue 0.001 -db uniprot -outfmt 7 -out result.t
 ```
 Would run the same search as described above, except that the  e-value threshold would be set to 0.001(-evalue 0.001) and the out put is printed out a a table (-outfmt 7).
 
+
 ## Usage of pb (Parallel BLAST)  at CSC
 
 If your query sequence set contains less than 20 sequences then Taito-shell is probable the most effective platforms for the search. However, if your query set contains hundreds or thousands of sequences then utilizing the taito.csc.fi cluster is more  effective. For this kind of massive blast searches you can utilize the `pb` command in Puhti. _pb_ (Parallel BLAST) is designed for situations, where the query file includes large amount of sequences. It splits the query task into several subjobs, that can be run simultaneously using the resources of the server very effectively. For large sets of query sequences, _pb: can speed up the search up to 50 fold. Two sample _pb_ commands for puhti.csc.fi:
@@ -68,12 +69,52 @@ pb blastn -db nt -query 100_ests.fasta -out results.out
 
 pb psiblast -db swiss -query protseqs.fasta -num_iterations 3 -out results.out
 ```
-##Using own BLAST databases with pb
+_pb blast_ commands start a process that monitor the progress of the blast job. As running a large BLAST jobs may take
+a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
+
+To reconnect to your pb blast job, go to your scratch directory and run command:
+
+```text
+blast_clusterrun
+```
+This lists the temporary directories of your unfinished pb blast jobs. You can check the job number of your blast job
+from the directory name. Use this number with _-jobid_ option to define the pb blast job you wish to reconnect to.
+
+```text
+blast_clusterrun -jobid some-number
+```
+
+## Using own BLAST databases with pb
 
 The pb program also allows users to do BLAST searches against their own fasta formatted sequence sets. This is done by replacing the `-db` option with option `-dbnuc` (for nucleotides) or `-dbprot` (for proteins). Example:
 ```text
 pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 ```
+## Using taxonomy lists to focus the search
+
+Since BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a single taxonomy ID number or list of taxonomies, to focus the search only to an organism based subset from the search database.
+
+The BLAST tools include a command `get_species_taxids.sh` that can be used to generate taxidlists.
+First you have to find the the higher lever TaxID number your wish to use. For example, the TaxID of Betacoronavirus genius can be found with command:
+
+```text
+get_species_taxids.sh -n Betacoronavirus 
+```
+Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be retrieved with command:
+```text
+get_species_taxids.sh -t 694002 > b-coronaviruses.txt
+```
+The command above produces a file containing TaxID numbers of Beta-coronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originating form the defined species. For example:
+
+```text
+pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
+``` 
+
+Note that `-taxidlist` can be used only with databases that include species information.
+
+
+
+
 ## Using genome data from ensembl with pb
 
 _pb_ command can also automatically retrieve a species specific dataset from the Ensembl or Ensembl genomes servers and use the dataset as the search database. This is done by replacing the `-db` option with option `-ensembl_dna` (retrieves the genomic DNA),  `-ensenmbl_cdna` (retrieves the cDNA sequences)  or `-ensembl_prot` (retrieves the protein sequences). The latin name of a species or taxonomy index number is given as an argument for the ensembl options. You should use underscore (_) in stead of space in the species name.
@@ -92,92 +133,29 @@ You can see the list of species, available at Ensembl and Ensembl genomes databa
 ```text
 ensemblfetch -names
 ```
-## Running BLAST in FGCI gird with gb
+## Running BLAST in FGCI grid with gb
 
 **gb** (grib blast) is currently available in Taito, but not in Puhti.
 *  [gb instructions](./grid_blast.md)
 
+Below is a list of BLAST databases maintained at the servers of CSC.
 
-<p>Below is a list of BLAST databases maintained at the servers of CSC.</p>
-
-<table>
-	<tbody>
-		<tr>
-			<td style="background-color: rgb(204, 204, 255);"><strong>Name</strong></td>
-			<td style="background-color: rgb(204, 204, 255);"><strong>Database</strong></td>
-			<td style="background-color: rgb(204, 204, 255);"><strong>Source file</strong></td>
-		</tr>
-		<tr>
-			<td><strong>Nucleotides</strong></td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>nt</td>
-			<td>NCBI non-redundant nucleotide database</td>
-			<td>ftp://ftp.ncbi.nih.gov/blast/db/FASTA/</td>
-		</tr>
-		<tr>
-			<td>refseq</td>
-			<td>NCBI RefSeq RNA database</td>
-			<td>ftp://ftp.ncbi.nih.gov/refseq/release/complete/</td>
-		</tr>
-		<tr>
-			<td>refseq_con</td>
-			<td>NCBI RefSeq human contigs</td>
-			<td>ftp://ftp.ncbi.nih.gov/refseq/H_sapiens/H_sapiens/</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td><strong>Proteins</strong></td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>nr</td>
-			<td>NCBI non-redundant protein database</td>
-			<td>ftp://ftp.ncbi.nih.gov/blast/db/FASTA/</td>
-		</tr>
-		<tr>
-			<td>pdb</td>
-			<td>PDB protein structure database</td>
-			<td>ftp://ftp.rcsb.org/pub/pdb/derived_data/</td>
-		</tr>
-		<tr>
-			<td>swiss</td>
-			<td>Uniprot/Swiss database</td>
-			<td>ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/</td>
-		</tr>
-		<tr>
-			<td>trembl</td>
-			<td>Uniprot/TrEMBL database</td>
-			<td>ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/</td>
-		</tr>
-		<tr>
-			<td>uniref100</td>
-			<td>Uniref100 database</td>
-			<td>ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref100/</td>
-		</tr>
-		<tr>
-			<td>uniref90</td>
-			<td>UniRef90 database</td>
-			<td>ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref90/</td>
-		</tr>
-		<tr>
-			<td>uniref50</td>
-			<td>UniRef50 database</td>
-			<td>ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref50/</td>
-		</tr>
-		<tr>
-			<td><strong>Ensembl genomes</strong></td>
-			<td>Select one of the species&nbsp; with pb options: -ensembl_dna, -ensembl_cdna or -ensembl_pep</td>
-			<td>ftp://ftp.ensembl.org/</td>
-		</tr>
-	</tbody>
-</table>
+| **Name          | Database                                             | Source file**                                               |
+|-----------------|------------------------------------------------------|-------------------------------------------------------------|
+| **Nucleotides** |                                                                                               |
+| nt              | NCBI non-redundant nucleotide database               | ftp://ftp.ncbi.nih.gov/blast/db/FASTA/                      |
+| refseq          | NCBI RefSeq RNA database                             | ftp://ftp.ncbi.nih.gov/refseq/release/complete/             |
+| refseq_con      | NCBI RefSeq human contigs                            | ftp://ftp.ncbi.nih.gov/refseq/H_sapiens/H_sapiens/          |
+|                 |                                                      |                                                             |
+| **Proteins**    |                                                      |                                                             |
+| nr              | NCBI non-redundant protein database                  | ftp://ftp.ncbi.nih.gov/blast/db/FASTA/                      |
+| pdb             | PDB protein structure database                       | ftp://ftp.rcsb.org/pub/pdb/derived_data/                    |
+| swiss           | Uniprot/Swiss database                               | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/    |
+| trembl          | Uniprot/TrEMBL database                              | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/    |
+| uniref100       | Uniref100 database                                   | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref100/ |
+| uniref90        | UniRef90 database                                    | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref90/  |
+| uniref50        | UniRef50 database                                    | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref50/  |
+| **Ensembl genomes** | Select one of the species  with pb options: -ensembl_dna, -ensembl_cdna or -ensembl_pep | ftp://ftp.ensembl.org/   |
 
 ## Support
 
@@ -185,5 +163,5 @@ servicedesk@csc.fi
 
 ## Manual
 
-More information about Blast can be found from the [BLAST page of NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+More information on Blast can be found from the [BLAST page of NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
