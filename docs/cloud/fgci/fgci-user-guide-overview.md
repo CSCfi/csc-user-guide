@@ -31,7 +31,7 @@ into use and running simple grid jobs in the FGCI grid.
 There are two mandatory preparatory steps that you need to do, to get acces to FGCI.
 
 1.  [Obtain a grid certificate](./fgci-grid-certificates.md)
-2.  [Joining to the fgi.csc.fi virtual organisation]() 
+2.  [Joining to the fgi.csc.fi virtual organisation](https://voms.fgi.csc.fi:8443/voms/fgi.csc.fi) 
 
 In addition you must have **ARC middleware client** installed in the computer, that you will use for submitting and managing grid jobs. Note that ARC server is not needed. Installataion instructions for ARC middleware can be found form:
 *    [ARC client instructions of Nordugrid](http://www.nordugrid.org/arc/arc6/users/client_install.html)
@@ -45,7 +45,7 @@ The grid computing environment of FGCI is used via the Advanced Resource Connect
 
 * [Basic structure of job description files](./arc-job-description-files.md)
 * [Job structure files for parallel computing](./fgci-running-parallel-applications.md)
-* [Using pre-installed sofware with Runtime Environments](./fgci-using-software-through-runtime-environments.md)
+* [Using pre-installed software with Runtime Environments](./fgci-using-software-through-runtime-environments.md)
 
 When the job descrioption file and other job files have been created, the actual job will be execiuted using the
 **arc middleware**
