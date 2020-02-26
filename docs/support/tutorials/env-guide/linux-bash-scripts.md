@@ -1,4 +1,4 @@
-# 2.7 Linux bash scripts   {#linux-bash-scripts align="JUSTIFY"}
+# Linux bash scripts  
 
   
 One way of utilizing the flexibility of linux is using command scripts.
@@ -10,7 +10,7 @@ ineffective. However, often handy linux scripts can be constructed in
 few minutes. You do not have to know too much about command scripting to
 be able to write simple programs that save a lot of work.
 
-## [][1]2.7.1 Constructing a script file
+## Constructing a script file
 
 A script file is a simple text file that can be constructed with normal
 text editors like *nano*, *emacs* or *vi*. To create a new script file,
@@ -62,7 +62,7 @@ And then execute the script with command:
 
  
 
-## [][2]2.7.2 Variables and arrays {#variables-and-arrays align="JUSTIFY"}
+## Variables and arrays
 
 You can use variables, loops and conditional statements in the scripts.
 Variables can be set with syntax:
@@ -103,9 +103,9 @@ Example of using string variables
 
 For integer variables, you can do simple arithmetics with syntax:
 ((*expression*)). Commonly used arithmetic operations  are listed in
-table 2.10
+table below:
 
-**Table 2.10** Basic arithmetic operations in bash
+**Table** Basic arithmetic operations in bash
 
 |              |                   |
 |--------------|-------------------|
@@ -130,8 +130,7 @@ Simple integer arithmetics examples:
     [kkayttaj@taito ~]$ echo "$a divided by $b results $d and reminder $e"
     5 divided by 3 results 1 and reminder 2
 
-Bash can also use one dimensional array variables, <span
-lang="en-US">i.e.</span> variables that contain list of items. A
+Bash can also use one dimensional array variables, i.e. variables that contain list of items. A
 specified array item can be recalled by using an index number in
 brackets with the array variable name *(${variable\[index\]}*). For
 example we can define a simple three element array with command:
@@ -192,7 +191,7 @@ Would copy all the file with extension .map from a directory named as
 
  
 
-## [][3]2.7.3 Quotation marks {#quotation-marks .western align="JUSTIFY"}
+## Quotation marks
 
 Three different quotation marks are used in bash. Quotation marks are
 frequently needed to define variables and commands to be executed.
@@ -232,7 +231,7 @@ you will get output:
 
 In linux commands and scripts quotation marks are typically used to
 define arguments that contain space or other special characters. Say we
-would like to use **[grep]** to pick all rows that contain a string
+would like to use **[grep](..support/tutorials/env-guide/commands-for-data-processing#Grep-selects-rows-that-match-a-given-string)** to pick all rows that contain a string
 *file size* from a file called *files.txt*. Following command **would
 not work**:
 
@@ -260,7 +259,7 @@ $(*command*)
 
  
 
-## [][4]2.7.4 Loops and conditional statements {#loops-and-conditional-statements .western}
+## Loops and conditional statements
 
 Loops and condition statements are rarely used in interactive command
 line usage. However they are frequently used in scripts to perform
@@ -373,7 +372,7 @@ Conditional statements ([**if**]) can be made as follows.
        commands
     fi
 
-You can use operands, listed in table 2.11, in the condition statements
+You can use operands, listed in table below, in the condition statements
 of *if* and *while* commands. Note, that *bash* uses different
 conditional statements for *strings* and *integers*. For example the
 equality of *<span style="font-weight: normal">strings</span>* is tested
@@ -384,7 +383,7 @@ condition statement: definition \[\[a == b\]\] will not work and should
 be fixed to \[\[ a == b \]\].
 
   
-**Table 2.11:**<span style="font-weight: normal"> Commonly used string,
+**Table:**<span style="font-weight: normal"> Commonly used string,
 integer and file o</span>perands of if and while statements
 
 | Statement                  | Operation                                                      |
@@ -442,7 +441,7 @@ condition:
 
     [[ 123 > 3 ]]
 
-is **FALCE** because string 123 is alphabetically before string 3. The
+is **FALSE** because string 123 is alphabetically before string 3. The
 numerical comparison:
 
     [[ 123 -gt 3 ]]
@@ -469,7 +468,7 @@ test the file exists.
 
  
 
-## [][5]2.7.5 Printing the output {#printing-the-output .western}
+## Printing the output
 
 In the previous examples we have already used [**echo**] command to
 write text and variables to the standard output (i.e. to the screen or
