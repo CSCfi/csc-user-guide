@@ -12,4 +12,4 @@ For a list of all supported languages see: http://pygments.org/docs/lexers/
  - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
  - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only
    when needed.
- - Give commands, environment variables, and command options between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`
+ - Give commands, environment variables, command options, as well as partition names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
