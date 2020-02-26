@@ -1,4 +1,4 @@
-# 2.5 Commands for data processing {#commands-for-data-processing .western style="page-break-before: always;"}
+# Commands for data processing
 
 Linux provides plenty of tools to study, filter and modify data files.
 These tools are often useful when data files need to be modified from
@@ -6,13 +6,13 @@ one format to another or when specific data needs to be extracted from
 large data sets. However, plain linux tools have their limitations. If
 you are going to do more complex data management, scripting languages
 like Python and Perl may be more efficient tools to use. In the case of
-numerical data many application programs, for example [MatLab] and [R],
-provide tools for both complex analysis tasks and automating the
+numerical data many application programs, for example [R],
+provides tools for both complex analysis tasks and automating the
 analysis.
 
-## [][1]2.5.1 Grep selects rows that match a given string
+## Grep selects rows that match a given string
 
-The [][2]***grep*** command is used to select rows from a file. This
+The ***grep*** command is used to select rows from a file. This
 command is very useful for picking data from large files, however using
 *grep* requires that you are well aware of the contents of the file you
 are working with. The basic syntax of *grep* is:
@@ -119,15 +119,12 @@ use quotation marks to include the space before and after the year
 number to the search string. `ls -l | grep " 2010 "`. In addition to the
 normal *grep* command, there exist several other grep-like tools. For
 example *[zgrep]* or [*bzgrep*] can be used to search rows from files
-compressed with *gzip* or *bzip2*. On Taito, there is also a tool called
-[***agrep***] that can be used to select rows that can have certain
-amount of mismatches to the search string.  
+compressed with *gzip* or *bzip2*.
 
- 
 
-## [][3]2.5.2 Using sed to select rows by row number {#using-sed-to-select-rows-by-row-number style="text-align: justify;"}
+## Using sed to select rows by row number
 
-The stream editor [][4]***sed*** can be used to select and modify rows
+The stream editor ***sed*** can be used to select and modify rows
 from a text file. Many of the *grep* operations, described above can be
 done with *sed* too. The *sed* command is discussed a bit more in detail
 in the chapter *2.5.8 Replacing characters and strings*. Here we only
@@ -138,17 +135,18 @@ command `sed -n "3"p authors.txt` In this case the result is:
 example the following loop would print out three rows from the example
 file:
 
-    for i in 4 3 2
-    do
-    set row=(`sed -n "$i"p authors.txt `)
-    echo "Row $i looks like: $row"
-    done
+```bash
+for i in 4 3 2
+do
+set row=(`sed -n "$i"p authors.txt `)
+echo "Row $i looks like: $row"
+done
+```
 
- 
 
-## [][5]2.5.3 Simple column selection with cut {#simple-column-selection-with-cut style="text-align: justify;"}
+## Simple column selection with cut
 
-The ***[][6]****cut*** command provides a simple tool to select
+The ***cut*** command provides a simple tool to select
 character *regions* (**-c** ) or *columns* (**-f**) from a linux text
 file. When selecting by character numbers the syntax of the command is:
 
@@ -179,11 +177,10 @@ delimiter (**-d " "**):
     Pekka Tampere
     Leena Kuopio
 
- 
 
-## [][7]2.5.4 Using awk to work with columns {#using-awk-to-work-with-columns style="text-align: justify;"}
+## Using awk to work with columns
 
-[][8]***Awk*** is a scripting language that can be used to process text
+***Awk*** is a scripting language that can be used to process text
 files in linux environments. *Awk* is a rather old programming language,
 and nowadays more modern scripting tools are normally used for creating
 data management scripts. However, due to very simple syntax *awk* is
@@ -277,9 +274,9 @@ of the age. This command prints out:
 
  
 
-## [][9]2.5.5 Using sort to order rows {#using-sort-to-order-rows style="text-align: justify;"}
+## Using sort to order rows
 
-The ***[][10]sort*** command can be used to order rows of a text file or
+The ***sort*** command can be used to order rows of a text file or
 other input data into alphabetical or numerical order. The syntax of the
 *sort* command is simple: `sort -options files_to_sort` By default the
 *sort* command orders the rows of the file alphabetically using case
@@ -339,11 +336,9 @@ of the file *authors.txt*.
     sort -k4n -k2 -o authors_sorted.txt authors.txt
     sort -k4n -k2 authors.txt > authors_sorted.txt
 
- 
+## Removing duplicate rows with uniq
 
-## [][11]2.5.6 Removing duplicate rows with uniq {#removing-duplicate-rows-with-uniq style="text-align: justify;"}
-
-The command [][12]***uniq*** is often used in combination with the
+The command ***uniq*** is often used in combination with the
 *sort* command to remove redundancy from a data set. The *uniq* command
 checks if two successive rows in the input file or standard input are
 identical. By default, *uniq* removes the successive duplicate rows.
@@ -405,9 +400,9 @@ option **-i** makes *uniq* to ignore the cases and consider "leena" and
 *uniq*, you may need to do also the sorting in case insensitive mode
 using command *sort -f*.
 
-## [][13]2.5.7 Replacing characters with tr {#replacing-characters-with-tr style="text-align: justify;"}
+## Replacing characters with tr
 
-The [][14]***tr*** command ("translate") is used to replace individual
+The ***tr*** command ("translate") is used to replace individual
 characters. *Tr* reads the standard input and writes the translated data
 to the standard output. The syntax of *tr* command is
 
@@ -416,7 +411,7 @@ to the standard output. The syntax of *tr* command is
 For example, dots (.) in the file *authors.txt* could be replaced with
 commas (,) with command:
 
-     tr "." "," < authors.txt
+    tr "." "," < authors.txt
 
 this prints out:
 
@@ -476,7 +471,7 @@ characters and character sets that *tr* can use.
 
  
 
-## [][15]2.5.8 Replacing words and strings with sed {#replacing-words-and-strings-with-sed style="text-align: justify;"}
+## Replacing words and strings with sed
 
 Replacing text strings can be done with ***sed***. *Sed* is a stream
 editor that can be used for many different text processing operations.
@@ -522,7 +517,9 @@ the other hand using the regular expressions can make *sed* very
 effective. Below are some regular expression examples applied to the
 *authors.txt* file with *sed*.
 
-**Example 1**. Using the $ character to define the end of a line (note
+### Sed Example 1
+
+Using the $ character to define the end of a line (note
 the single quotation marks (' ) that prevent the $ character to be
 interpreted as bash variable indicator) :
 
@@ -537,7 +534,9 @@ Prints out:
 
  
 
-**Example 2.** Using dot (.) to define any single character:
+### Sed Example 2
+
+Using dot (.) to define any single character:
 
     sed -e s/"e.a"/"EXA"/g authors.txt
 
@@ -548,9 +547,9 @@ Prints out:
     Pekka Niemi. Tampere 26
     LeEXA Virtanen. Kuopio 32
 
- 
+### Sed Example 3
 
-**Example 3.** Using "^" to define beginning of a line.
+Using "^" to define beginning of a line.
 
     sed -e s/"^P"/"START:P"/g authors.txt
 
@@ -561,27 +560,3 @@ Prints out:
     START:Pekka Niemi. Tampere 26
     Leena Virtanen. Kuopio 32
 
- 
-
- 
-
-  [MatLab]: https://research.csc.fi/-/matlab
-  [R]: https://research.csc.fi/-/r
-  [1]: https://research.csc.fi/ {#2.5.1}
-  [2]: https://research.csc.fi/ {#grep}
-  [zgrep]: https://research.csc.fi/ {#zgrep}
-  [*bzgrep*]: https://research.csc.fi/ {#bzgrep}
-  [***agrep***]: https://research.csc.fi/ {#agrep}
-  [3]: https://research.csc.fi/ {#2.5.2}
-  [4]: https://research.csc.fi/ {#sed}
-  [5]: https://research.csc.fi/ {#2.5.3}
-  [6]: https://research.csc.fi/ {#cut}
-  [7]: https://research.csc.fi/ {#2.5.4}
-  [8]: https://research.csc.fi/ {#awk}
-  [9]: https://research.csc.fi/ {#2.5.5}
-  [10]: https://research.csc.fi/ {#sort}
-  [11]: https://research.csc.fi/ {#2.5.6}
-  [12]: https://research.csc.fi/ {#uniq}
-  [13]: https://research.csc.fi/ {#2.5.7}
-  [14]: https://research.csc.fi/ {#tr}
-  [15]: https://research.csc.fi/ {#2.5.8}
