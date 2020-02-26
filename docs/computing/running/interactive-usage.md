@@ -1,6 +1,6 @@
 # Interactive usage
 
-When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [usage policy](../overview#usage-policy) for details.
+When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [usage policy](../overview.md#usage-policy) for details.
 If you need to do heavy computing interactvely, you should use interactive batch jobs.
 
 In an interactive batch job, a user submits a batch job, that provides interactive shell session running on the
