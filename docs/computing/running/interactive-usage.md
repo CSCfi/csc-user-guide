@@ -1,12 +1,13 @@
 # Interactive usage
 
 When you login to CSC supercomputers, you end up to one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [usage policy](overview/#usage-policy) for details.
+If you need to do heavy computing interactvely, you should use interactive batch jobs.
 
 In an interactive batch job, a user submits a batch job, that provides interactive shell session running on the
 requested computing resources in the computing nodes. Heavy interactive tasks can this way be run on requested dedicated resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in interactive batch jobs, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
 Please notice that interactive batch jobs run in the computing nodes, where the environment differs 
-slightly from the login nodes. For example, not all the text editors are available. Further, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the node specific local scratch area, will be terminated. 
+slightly from the login nodes. For example, not all the same text editors are available. Further, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the job specific $TMPDIR area, will be terminated. 
 
 ## Easy interactive work: sinteractive command
 
@@ -37,10 +38,9 @@ _sinteractive options_
 |-j, --jobname | Job name. | interactive |
 |-c, --cores | Number of cores. |  1 |
 |-p, --project | Accounting project.|  $CSC_PRIMARY_PROJECT |
-|-d, --tmp  | Size of job specifinc /tmp or $LOCAL_SCRATCH disk (in GiB). | 32 |
-|-g, --gpu  | Number of GPU:s to reserve (max 2) | 0 |
+|-d, --tmp  | Size of job specifinc $TMPDIR disk (in GiB). | 32 |
+|-g, --gpu  | Number of GPU:s to reserve (max 4) | 0 |
 
-FIXME: mitä (max 2) tässä tarkoittaa, jos alla maksimi on 0??
 
 Note, that each user can have only one active session open in the _interactive_ partition. 
 In an interactive partition you can reserve in maximum 1 core, 16 GB of 
