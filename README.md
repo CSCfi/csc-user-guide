@@ -18,6 +18,8 @@ Creating an Issue requires a GitHub account.
 
 [Contributing](CONTRIBUTING.md)
 
+[Style guide](STYLEGUIDE.md)
+
 [Changelog](CHANGELOG.md)
 
 [Todo](TODO.md)
