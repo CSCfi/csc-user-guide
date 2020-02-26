@@ -1,4 +1,4 @@
-# 2.3 Working with bash shell {#working-with-bash-shell .western style="page-break-before: always;"}
+# Working with bash shell
 
 **bash** has several features that make the command line usage easier
 and more effective. You do not have to always type the whole command
@@ -9,23 +9,20 @@ key. Pressing *Ctrl-d* or the *Delete* key deletes the character under
 the cursor. In addition to these basic command line editing functions
 you can use the keyboard commands listed in the table below.
 
-**Table 2.4:** Short-cuts for editing command line
+Short-cuts for editing command line
 
 | Command    | Function                                                    |
 |------------|-------------------------------------------------------------|
-| **Ctrl-f** | Move one the cursor character forward in the command line   |
-| **Ctrl-b** | Move one the cursor character backwards in the command line |
 | **Ctrl-a** | Move the cursor to the beginning of the command line        |
 | **Ctrl-e** | Move the cursor to the end of the command line              |
 | **Ctrl-k** | Cuts all the characters rightwards from the cursor          |
 | **Ctrl-y** | Paste the characters, cut with Ctrl-k, to the command line  |
-| **Ctrl-p** | Show the previous command                                   |
 
 In bash the executed commands are stored to users home directory into a
 file called *.bash\_history*. To see the full list of recently executed
-commands give command [][1]*history*. In command line, you can browse
+commands give command *history*. In command line, you can browse
 the list of previous commands with the *upwards arrow key* and the
-*downwards arrow key*. Alternatively you can use *Ctrl-p* and *Ctrl-n*.
+*downwards arrow key*. 
 In cases, where you need to give similar commands several times, it is
 often handy to get one of the previous commands to the command line with
 the arrow key. Then you can edit just the modifications needed to the
@@ -39,7 +36,7 @@ To move between the search results use the *upwards arrow key* and the
 wish to edit the search result before running the command use the
 *leftwards arrow key*, then edit the command.
 
-## [][2]2.3.2 Automatic Tab completion {#automatic-tab-completion .western}
+## Automatic Tab completion
 
 If you press *Tab* key the bash shell tries to complete the command or
 argument you are writing. The completion is done as far as possible
@@ -49,6 +46,9 @@ argument characters and also takes care that command don't get mistyped.
 For example, let's say we are in a directory where we have two files:
 *final\_research\_report\_old.pdf* and
 *final\_research\_report\_new.pdf*.
+
+!!! Tip
+    This will save you a lot of typing and typos!
 
 To open the latter of the files with *evince* program we would need to
 type command:
@@ -92,7 +92,7 @@ command is completed and ready to be executed:
 
  
 
-## [][3]2.3.3 Stopping programs and running programs in background {#stopping-programs-and-running-programs-in-background .western}
+## Stopping programs and running programs in background
 
 In linux, graphical interfaces and commands that are not interactive
 once they have started, can be executed as *background processes*. When
@@ -113,21 +113,21 @@ example command:
 would open the *Eye of GNOME* image viewing program (requires X-term or
 FreeNX connection) to the background so that the command shell could
 still be used even though the eog program is still running. A background
-process can be changed to normal, foreground process with command [][4]
+process can be changed to normal, foreground process with command 
 **fg**. When a command and program is running interactively, i.e. the
 command shell is waiting that the execution finishes, you can terminate
 the execution by pressing ***Ctrl-c*****.** Another possibility is to
 halt the program by pressing ***Ctrl-z***. When command (or process) is
 halted, it can be continued with *fg* command or changed to be executed
-as a background process with command[** **] **bg**.  
+as a background process with command **bg**.  
   
-A command that is still running can be terminated with [][5]**kill**
+A command that is still running can be terminated with **kill**
 command. To be able to use *kill*, you need to know the *process
 identification number* (PID) of the command you want to terminate. You
 can check your active processes, meaning the commands that you are
-currently executing, with command [][6]**ps**. For example:
+currently executing, with command **ps**. For example:
 
-    kkayttaj@hippu1:~>ps
+    kkayttaj@puhti-login1:~>ps
     PID TTY          TIME CMD
     385 pts/12   00:00:00 tcsh
     2001 pts/12   00:00:00 eog
@@ -158,15 +158,3 @@ the kill command:
 
     kill -9 process_ID
 
- 
-
-  
- 
-
-  [1]: https://research.csc.fi/ {#history}
-  [2]: https://research.csc.fi/ {#2.3.2}
-  [3]: https://research.csc.fi/ {#2.3.3}
-  [4]: https://research.csc.fi/ {#fg}
-  [** **]: https://research.csc.fi/ {#bg}
-  [5]: https://research.csc.fi/ {#kill}
-  [6]: https://research.csc.fi/ {#ps}

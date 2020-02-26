@@ -1,12 +1,11 @@
-# 2.4. More commands for managing files {#more-commands-for-managing-files .western}
+# More commands for managing files
 
-## [][1]2.4.1 Using find to locate files {#using-find-to-locate-files .western}
+## Using find to locate files
 
-[][2]**Find** command is used to locate a files in the linux file
+**Find** command is used to locate a files in the linux file
 system. The command requires two arguments:
 
 1.  the name of the directory where the file is looked for
-
 2.  the search condition.
 
 The basic syntax of the command is:
@@ -23,15 +22,15 @@ Following sample command would look for file called *dataset27.dat* from
 the current directory. In this case, the file is found from a sub
 directory *dataset3*.
 
-    kkayttaj@taito-login3:~> find ./ -name dastaset27.txt
-    ./dataset3/dastaset27.txt
+    kkayttaj@puhti-login1:~> find ./ -name dataset27.txt
+    ./dataset3/dataset27.txt
 
-You can also use *wild cards* in the name search conditions. Note
+You can also use *wildcards* in the name search conditions. Note
 however that in such case you must quote the search condition. Following
-command locates from your work directory ($WRKDIR) all files that have
+command locates from your home directory ($HOME) all files that have
 extension *.tmp*.
 
-    find $WRKDIR/ -name "*.tmp"
+    find $HOME/ -name "*.tmp"
 
 In the last find command examples we use **-mtime** search condition,
 that picks files based on their modification date.  With a following
@@ -47,9 +46,9 @@ command:
 
     find ./ -mtime -1
 
-## [][3]2.4.2 File command tells the file type {#file-command-tells-the-file-type .western}
+## File command tells the file type
 
-[][4]**File** command evaluates the type of the given file. The syntax
+*File** command evaluates the type of the given file. The syntax
 of the command is:
 
     file file_name
@@ -66,7 +65,7 @@ recognized by the *file* command, it is reported to be a *data* file.
 In the example below, file types of all the files in the current working
 directory are listed.
 
-    kkayttaj@taito-login3:~> file ./*
+    kkayttaj@puhti-login1:~> file ./*
     ./a.out:                   ELF 64-bit MSB MIPS-IV executable, MIPS, version 1
     ./common.py:               a python script text executable .
     /data_old.gz:              gzip compressed data, from Unix
@@ -79,9 +78,9 @@ directory are listed.
     ./poster1.pdf:             PDF document, version 1.4
     ./report.doc:              Microsoft Office Document
 
-## [][5]2.4.3 Count rows and characters with wc {#count-rows-and-characters-with-wc .western}
+## Count rows and characters with wc
 
-Command [][6]**wc** (Word Count) is a tool that can be used to count
+Command **wc** (Word Count) is a tool that can be used to count
 characters (**-m**), words (**-w**) or rows (**-l**) that **a linux text
 file** contains. The most common use of *wc* command is to quickly check
 the row count of your file:
@@ -94,9 +93,9 @@ with extension *.dat* in the current directory.
 
     ls *.dat | wc -l
 
-## [][7]2.4.4 Comparing two files with diff
+## Comparing two files with diff
 
-[][8]**Diff** command can be used to compare two files. *Diff* goes
+**Diff** command can be used to compare two files. *Diff* goes
 through the files row by row and prints out lines that are not
 identical. *Diff* is most useful, when you need to compare two nearly
 identical files like two versions of the same program file. The basic
@@ -104,9 +103,7 @@ syntax of the command is:
 
     diff  file1 file2
 
- 
-
-## 2.4.5 Using checksums to verify successful data storage or transfer {#using-checksums-to-verify-successful-data-storage-or-transfer .western}
+## Using checksums to verify successful data storage or transfer
 
 Checksums provide a tool to make sure that a data file is fully
 conserved during storage or copying. The idea behind checksums is an
@@ -129,9 +126,8 @@ checksum. Other frequently used checksum algorithms include **SHA**
 (*Secure Hash Algorithm*) that is often used in cryptography and **CRC**
 (*Cyclic redundancy check*) that is common in data transport.
 
-The example below shows, how to use [][9]**md5sum** in the CSC
-environment. Using SHA cheksums is shown in the IDA example in [chapter
-3.2.2.]
+The example below shows, how to use **md5sum** in the CSC
+environment.
 
 An md5 checksum for a file is calculated with command:
 
@@ -157,14 +153,10 @@ Checking a set of files against an md5 sum list is done by using option
 For example to check validity of file *poster1.pdf* with the previously
 created checksum file *poster1.pdf.md5* could be done with command:
 
-    kkayttaj@taito-login3:~> md5sum -c poster1.pdf.md5
+    kkayttaj@puhti-login1:~> md5sum -c poster1.pdf.md5
     poster1.pdf: OK
 
- 
-
- 
-
-## 2.4.6 Encrypting files with gpg {#encrypting-files-with-gpg .western align="JUSTIFY"}
+## Encrypting files with gpg
 
 If you need to work with confidential data at CSC, you can use file
 encryption to increase the security of your data. In normal conditions
@@ -177,7 +169,7 @@ accessing the contents of customers data files. However, encryption may
 be reasonable if you for example need to copy the data outside CSC or if
 encryption is required by the owner of the data.
 
-At CSC, you can use program [][10]**gpg** to encrypt your files. *Gpg*
+At CSC, you can use program **gpg** to encrypt your files. *Gpg*
 is frequently used for creating e*ncryption key pairs* to protect emails
 and other data transport. However, in this chapter we demonstrate only
 how *pgp* can use used to encrypt individual files.
@@ -196,9 +188,7 @@ To open a *gpg* encrypted file, give command.
 
     gpg gpg_cypterd_file 
 
- 
-
-**Gpg example**
+### Gpg example
 
 Say we have file a *patients.txt* that we want to encrypt. This can be
 done with command:
@@ -218,7 +208,7 @@ asks you to confirm the password:
 When the encryption is finished, the we now have two files: the original
 file and and its' encrypted version that has an extension *.gpg*.
 
-    kkayttaj@taito-login3:~> ls  -l
+    kkayttaj@puhti-login1:~> ls  -l
     -rw-------+ 1 kkayttaj csc 1291176 Feb 11 15:57 patients.txt
     -rw-------+ 1 kkayttaj csc  313848 Feb 11 16:05 patients.txt.gpg
 
@@ -238,7 +228,7 @@ case: y8kIeg%a). After this you again have two files the encrypted file
 that if you forget the password of your encrypted file, there is no one
 who can open the file!
 
-## [][11]2.4.7 Managing access permissions of files and directories {#managing-access-permissions-of-files-and-directories .western}
+## Managing access permissions of files and directories
 
 Hundreds of users use the computing and storage environments of CSC. To
 keep the files private and in order, each file and folder in the linux
@@ -247,8 +237,8 @@ each file has three user categories: *owner*, *group* and *others*. For
 each or these user categories there is three accession settings:
 *reading*, *writing* and *execution* permissions.
 
-By default only the owner of the file can read and modify (i.e. <span
-lang="en-US">write</span>) the files and directories he/she has created.
+By default only the owner of the file can read and modify (i.e. write)
+the files and directories he/she has created.
 Other users do not have any access permissions to the files. Normally
 this setting is good as it keeps your data private. However, if you wish
 to share some data or execute self written programs the access
@@ -286,35 +276,16 @@ this file. In the case of file *.cshrc* the definition is: *rwxr-x---*.
 In this case the owner has also execution permissions(*x*) to the file
 and also the other users that belong to group *csc* have permission to
 read (*r*) and execute (***x***) the file.  
- 
 
-## [][12]2.4.8 Managing access permissions with Scientist's User Interface {#managing-access-permissions-with-scientists-user-interface .western}
-
-In Scientist's User Interface, you can check and modify the access
-permissions of your files with the file manager tool ( [My Files]).
-First select a file or directory from a file list. Then click the right
-mouse button, and select **Properties** from the pop up command menu.
-This opens a new Window that has two tabs: *General* and *Permissions*.
-Selecting the Permissions tab, shows you a list of tick boxes that you
-can use switch on or off access permissions. You can apply the
-modification to a whole directory by selecting also the *Apply changes
-recursively* tick box. Once you have selected right settings, press the
-*Save* button, and close the Properties window. To check the new
-permissions of the file or folder you should refresh the file listing.
-To do this right click the file list, while no files are selected, and
-select **Refresh** from the pop up command menu.
-
-![][13]  
-**Figure 2.1**: Access permission tool in Scientist's User Interface.  
-  
- 
-
-## [][14]2.4.9 Managing access permissions in command line usage {#managing-access-permissions-in-command-line-usage .western}
+## Managing access permissions in command line
 
 In command line usage, access permissions can be modified with command
-[][15]**chmod**. This command needs two arguments: 1. a string that
-defines what changes are to be done and 2. an argument that defines the
-target file or directory. In the first argument, you first define the
+**chmod**. This command needs two arguments: 
+
+1. a string that defines what changes are to be done and 
+2. an argument that defines the target file or directory. 
+
+In the first argument, you first define the
 user category: ***u*** (user i.e. owner), ***g*** (group) or, ***o***
 (others). Then you define with plus or minus character if you are going
 to add (**+**) or remove (**-**) permissions. Finally you define, what
@@ -325,7 +296,7 @@ members to read file *Test.txt* you should give command:
 
 You can check the effect with **ls -l** command:
 
-    kkayttaj@taito-login3:~>ls -l Test.txt
+    kkayttaj@puhti-login1:~>ls -l Test.txt
     -rw-r-----+  1 kkayttaj csc       48 Dec 22 09:05 Test.txt 
 
 You can define several user categories and permissions in the same time.
@@ -356,28 +327,3 @@ see the members of a specific group, give command:
 
     grep group_name /etc/group
 
-You can find more information about using unix user groups from [chapter
-1.4.2]
-
- 
-
-  [1]: https://research.csc.fi/ {#2.4.1}
-  [2]: https://research.csc.fi/ {#find}
-  [3]: https://research.csc.fi/ {#2.4.2}
-  [4]: https://research.csc.fi/ {#file}
-  [5]: https://research.csc.fi/ {#2.4.3}
-  [6]: https://research.csc.fi/ {#wc}
-  [7]: https://research.csc.fi/ {#2.4.4}
-  [8]: https://research.csc.fi/ {#diff}
-  [9]: https://research.csc.fi/ {#md5sum}
-  [chapter 3.2.2.]: https://research.csc.fi/csc-guide-archiving-data-to-the-archive-servers#3.2.2
-  [10]: https://research.csc.fi/ {#pgp}
-  [11]: https://research.csc.fi/ {#2.4.7}
-  [ls -la example]: https://research.csc.fi/csc-guide-using-linux-in-command-line#2.1.3
-  [12]: https://research.csc.fi/ {#2.4.8}
-  [My Files]: https://sui.csc.fi/group/sui/my-files
-  [13]: https://research.csc.fi/documents/48467/84606/SUI_file_permissions.jpg/eb785f7c-4e1b-42f1-b58e-04d1c1915edf?t=1383829015000
-  [14]: https://research.csc.fi/ {#2.4.9}
-  [15]: https://research.csc.fi/ {#chmod}
-  [**groups**]: https://research.csc.fi/ {#groups}
-  [chapter 1.4.2]: https://research.csc.fi/csc-guide-managing-your-csc-user-account#1.4.2
