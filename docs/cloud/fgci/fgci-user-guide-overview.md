@@ -31,11 +31,11 @@ into use and running simple grid jobs in the FGCI grid.
 There are two mandatory preparatory steps that you need to do, to get acces to FGCI.
 
 1.  [Obtain a grid certificate](./fgci-grid-certificates.md)
-2.  [Joining to the fgi.csc.fi virtual organisation](./fgci-joining-the-fgi.csc.fi-virtual-organization.md) 
+2.  [Joining to the fgi.csc.fi virtual organisation]() 
 
 In addition you must have **ARC middleware client** installed in the computer, that you will use for submitting and managing grid jobs. Note that ARC server is not needed. Installataion instructions for ARC middleware can be foud form:
 *    [ARC client instructions of Nordugrid](http://www.nordugrid.org/arc/arc6/users/client_install.html)
-*    [Example: installing Arc client to a Centos7 VM running in cPouta](./arc-in-centos7.md)
+*    [Example: installing Arc client to a Centos7 VM running in cPouta](../../support/faq/how-to-use-fgci-from-pouta.md)
 
 These preparatory steps are done just once, when the user starts using FGCI.
 
