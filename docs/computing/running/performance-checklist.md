@@ -77,6 +77,6 @@ even if the total volume is not that big. Please consider the following items to
  [fast local disk](../creating-job-scripts/#local-storage), but we've seen
   10 fold performance improvement by switching to use it. Check your performance: don't
   use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
-* Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used on CSC).
-* One way to avoid a small number of (small) files is to set up your complex python or R
- based software in a container. Detailed examples on how to do this are being written.
+* Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
+* One way to avoid a large number of (small) files is to set up your complex python or R
+ based software in a container. This also helps with the [file number quotas](../../disk) on projappl. Detailed examples on how to do this are being written.
