@@ -79,4 +79,4 @@ even if the total volume is not that big. Please consider the following items to
   use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
 * Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
 * One way to avoid a large number of (small) files is to set up your complex python or R
- based software in a container. This also helps with the [file number quotas](../../disk/) on projappl. Detailed examples on how to do this are being written.
+ based software in a singularity container. This also helps with the [file number quotas](../../disk/) on projappl. Detailed examples on how to do this are being written.
