@@ -3,7 +3,7 @@
 
 Finnish Grid and Cloud Infrastructure (FGCI) is  a distributed Grid and
 Cloud computing infrastructure, co-funded by the Academy of Finland and
-13 Finnish research institutions  in Finland.
+13 Finnish research institutions in Finland.
 
 The FGCI will serve as a platform for development of grid and cloud
 computing technologies within current computer science research, and at
@@ -19,7 +19,7 @@ See [FGCI DMP](https://research.csc.fi/documents/48467/0/FGCI+Data+Management+Pl
 
 As a grid computing platform can be seen as an upgrade to its' 
 predecessor, FGI. The usage is based on the same components
-(ARC middleware and X509 cetificates, and fgi.csc.fi VO) that were in
+(ARC middleware, X509 cetificates, and fgi.csc.fi VO) that were in
 use in FGI and the two grid generations can be used with same accounts
 and commands.
 
@@ -28,13 +28,14 @@ into use and running simple grid jobs in the FGCI grid.
 
 **Getting Started** 
 
-There are two mandatory preparatory steps that you need to do, to be able to use FGCI.
+There are two mandatory preparatory steps that you need to do, to get acces to FGCI.
 
 1.  [Obtain a grid certificate](./fgci-grid-certificates.md)
-2.  [Joining to the fgi.csc.fi virtual organisation](./fgci-joining-the-fgi.csc.fi-virtual-organization.md)
+2.  [Joining to the fgi.csc.fi virtual organisation](./fgci-joining-the-fgi.csc.fi-virtual-organization.md) 
 
-In addidtion you must have ARC middleware client installed in the computer, that you will use for submitting and managing grid jobs. (Not that ARC server is not needed)Installataion instructions for ARC middleware can be foud form:
+In addition you must have **ARC middleware client** installed in the computer, that you will use for submitting and managing grid jobs. Note that ARC server is not needed. Installataion instructions for ARC middleware can be foud form:
 *    [ARC client instructions of Nordugrid](http://www.nordugrid.org/arc/arc6/users/client_install.html)
+*    [Example: installing Arc client to a Centos7 VM running in cPouta](./arc-in-centos7.md)
 
 These preparatory steps are done just once, when the user starts using FGCI.
 
