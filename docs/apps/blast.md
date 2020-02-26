@@ -77,8 +77,8 @@ To reconnect to your pb blast job, go to your scratch directory and run command:
 ```text
 blast_clusterrun
 ```
-This lists the temporary directrotes of your unfinished pb blast jobs. You can check the jobnuber of your blast job
-from the directoryname. Use this number with _-jobid_ option to define the pb blast job you wish to reconnect to.
+This lists the temporary directories of your unfinished pb blast jobs. You can check the job number of your blast job
+from the directory name. Use this number with _-jobid_ option to define the pb blast job you wish to reconnect to.
 
 ```text
 blast_clusterrun -jobid some-number
