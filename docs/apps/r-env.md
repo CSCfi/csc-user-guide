@@ -32,28 +32,24 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. 
+Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm.
+
+!!! note To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
 
 #### Interactive use
 
-To interactively use R on Puhti's compute nodes, run the following command after initializing the `r-env` module. 
+To interactively use R on Puhti's compute nodes, first open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the following command would launch a session with 8 GiB of memory and 100 GiB of local scratch space. It is also possible to specify the number of cores and the running time among other options ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
 ```bash
-r_interactive
+sinteractive -p <project> --mem 8000 --tmp 100
 ```
 
-This will launch a bash script that will ask for a number of details needed to start the session:
+Once you have opened an interactive shell session, you can launch the `r-env` module and a command line version of R as follows:
 
 ```bash
-How many cores? # No. of processors required
-Memory per core (e.g. "1G")? # Memory required for each processor
-Hours (e.g. "01")? # Session duration (hours)
-Minutes (e.g. "05")? # Session duration (minutes)
-Partition? # Which partition to use
-Project (use lower-case letters)? # Project ID (i.e. the Unix group)
+module load r-env
+R
 ```
-
-For information on available partitions, see [here](../computing/running/batch-job-partitions.md). For sessions requiring more than four cores and/or over 120 GB of memory, please submit a non-interactive batch job instead.
 
 If you prefer to use RStudio for interactive work, `r-env` can be launched together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
