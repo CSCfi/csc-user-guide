@@ -50,16 +50,10 @@ Memory per core (e.g. "1G")? # Memory required for each processor
 Hours (e.g. "01")? # Session duration (hours)
 Minutes (e.g. "05")? # Session duration (minutes)
 Partition? # Which partition to use
-Project? # Project ID (i.e. the Unix group)
+Project (use lower-case letters)? # Project ID (i.e. the Unix group)
 ```
 
 For information on available partitions, see [here](../computing/running/batch-job-partitions.md). For sessions requiring more than four cores and/or over 120 GB of memory, please submit a non-interactive batch job instead.
-
-If you would rather launch an interactive session manually, you can do this using `srun`. Note that you will need to modify the requested number of cores, duration, memory, project ID and partition as required:
-
-```bash
-srun --ntasks=1 --cpus-per-task=1 --time=hh:mm:ss --x11=first --mem-per-cpu=1G --pty --account=project_id --partition=partition R --no-save
-```
 
 If you prefer to use RStudio for interactive work, `r-env` can be launched together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
@@ -73,7 +67,7 @@ sbatch batch_job_file.sh
 
 #### Serial batch jobs
 
-Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used (which has a time limit of 15 minutes and is used for testing purposes only). It's also possible to list a project-specific temporary directory in `/scratch/<project>`, which may be useful when running memory-intensive jobs.
+Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. For memory-intensive jobs, we can also list a project-specific temporary directory in `/scratch/<project>`.
 
 ```bash
 #!/bin/bash -l
@@ -124,7 +118,7 @@ echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R
 ```
 
-Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `large` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
 
 ```bash
 #!/bin/bash -l
@@ -132,7 +126,7 @@ Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../
 #SBATCH --account=<project>
 #SBATCH --output=output_%j_%a.txt
 #SBATCH --error=errors_%j_%a.txt
-#SBATCH --partition=large
+#SBATCH --partition=small
 #SBATCH --time=00:05:00
 #SBATCH --array=1-10
 #SBATCH --ntasks=1
@@ -289,6 +283,10 @@ To use R packages installed in the `/projappl` folder, you have two options.
 - Option 1: Add `.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))` to the beginning of your R script. This modifies your library trees within a given R session only. In other words, you will need to run this each time when launching R.
 
 - Option 2: Before launching R, run `export R_LIBS_USER=$R_LIBS_USER:/projappl/<project>/project_rpackages`. This modifies your library settings outside R, which can be useful if you are planning to use R in combination with other software.
+
+## Working with Allas
+
+The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data.
 
 ## Citation
 
