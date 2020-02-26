@@ -1,4 +1,4 @@
-# 2.2 Editing text and viewing images {#editing-text-and-viewing-images .western style="page-break-before: always;"}
+# Editing text and viewing images
 
 Editing text files by typing in Linux systems can be done with so called
 *text editor* programs. Editors are normally used to modify or create
@@ -12,16 +12,15 @@ Here we briefly introduce just three of them: **nano**, **emacs** and
 **gedit*****.*** In addition to these general purpose text editors, many
 application programs include their own special editing tools.
 
-## [][1]2.2.1 Nano {#nano .western}
+## Nano
 
-[][2]**Nano** is a simple and handy tool for editing small files. It is
+**Nano** is a simple and handy tool for editing small files. It is
 easy to use and it suits well as the first text editor of a novice Linux
 user. Nano is a text based editor: it does not include any mouse based
 functions or command menus. Nano starts with command:
 
     nano text_file_name
 
- 
 
 This command opens the given file to the editor or creates a new empty
 file if the file does not already exist.
@@ -43,13 +42,12 @@ and press ***Ctrl-k***. To paste the text that was cut, press
 ***Ctrl-u***. More commands can be found from the nano help text, that
 is opened by pressing ***Ctrl-g***.
 
-![][3]
+[The Nano Editor]: /img/nano.jpg
+Nano editor.
 
-**Figure 2.1** Nano editor.
+## Emacs
 
-## [][4]2.2.2 Emacs {#emacs .western}
-
-[][5]**Emacs** is a versatile editor that contains large amount of
+**Emacs** is a versatile editor that contains large amount of
 commands, functions and extensions. *Emacs* can be used in two ways: as
 character based editor like *nano* or through a graphical interface.
 Using the graphical interface requires that you have FreeNX or X-term
@@ -74,16 +72,14 @@ emacs session. The ***Buffers*** menu allows you to choose the buffer to
 be edited. The ***Tools*** menu contains miscellaneous commands and
 tools.
 
-![][6]  
-**Figure 2.2:** Graphical interface of emacs editor.
+[Graphical interface of emacs editor]: /img/emacs.jpg 
+Graphical interface of emacs editor.
 
- 
+## vim
 
-## [][7]2.2.3 vim {#vim .western}
-
-[][8]**Vim** is a highly configurable text editor built to enable
+**Vim** is a highly configurable text editor built to enable
 efficient text editing. It is an improved version of the ***vi*** editor
-distributed with most UNIX systems.*[][9] vi* is the de facto standard
+distributed with most UNIX systems. *vi* is the de facto standard
 Linux editor. Essentially all Linux systems come with *vi* (or a
 variant, like *vim*) built in.
 
@@ -99,8 +95,6 @@ To start *vim* in CSC environment type:
 *or*
 
     vim file_name
-
- 
 
 Vim differs from many editors in that it has two main modes of
 operation: *command mode*, and *insert mode*. This is the cause of much
@@ -124,16 +118,11 @@ keys.
 
 For more options, please refer to vim manual.
 
- 
+[Graphical interface of vim editor with welcome screen]: /img/vim.jpg
+Graphical interface of vim editor with welcome screen.
 
-![][10]
 
-  
-**Figure 2.3:** Graphical interface of vim editor with welcome screen.
-
- 
-
-## [][7]2.2.4 Image and PostScript viewers {#image-and-postscript-viewers .western}
+## Image and PostScript viewers
 
 In some cases application programs, executed at CSC, produce image files
 instead of text files. If you have a working FreeNX or X-term connection
@@ -147,13 +136,9 @@ To view a jpg file, type:
 
     eog image_name.jpg
 
- 
-
 and to view a PostScript file, type:
 
     evince file_name.ps
-
- 
 
 *Post script* files can be converted to *pdf* documents with command
 **ps2pdf**. This command reads a *PostScript* file and prints out
@@ -161,28 +146,7 @@ corresponding *pdf* file. For example command:
 
     ps2pdf file1.ps
 
- 
-
 Produces a pdf-formatted file *file1.pdf*
 
-![][11]  
-**Figure 2.4**: Eog image viewing program
-
- 
-
- 
-
-  [1]: https://research.csc.fi/ {#2.2.1}
-  [2]: https://research.csc.fi/ {#nano}
-  [3]: https://research.csc.fi/documents/48467/84606/nano.jpg/283cd66e-4edb-44bf-a9b1-27c78dd185c0?t=1383892703910
-  [4]: https://research.csc.fi/ {#2.2.2}
-  [5]: https://research.csc.fi/ {#emacs}
-  [6]: https://research.csc.fi/documents/48467/84606/emacs.jpg/d1cc2ab9-66fc-4a2b-b1c1-aa078b2435ee?t=1383892792023
-  [7]: https://research.csc.fi/ {#2.2.3}
-  [8]: https://research.csc.fi/ {#vim}
-  [9]: https://research.csc.fi/ {#vi}
-  [10]: https://research.csc.fi/documents/48467/84606/vim_welcome_screen.jpg/68968b3a-36a2-4105-9502-7dbd979a74c0?t=1465579596279
-  {width="685" height="365"}
-  [**eog**]: https://research.csc.fi/ {#eog}
-  [**evince**]: https://research.csc.fi/ {#evince}
-  [11]: https://research.csc.fi/documents/48467/84606/eog.jpg/16f91075-1bed-4898-9e2a-5d2cee8175cf?t=1383892872990
+[Eog image viewing program]: /img/eog.jpg  
+Eog image viewing program.

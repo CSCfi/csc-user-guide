@@ -109,7 +109,7 @@ directory listing that in addition to the name contains also information
 of accession settings, size and the modification dates of the files and
 directories. The option **-a** defines that all files, including also
 the settings files that start with dot (.) character, are listed. Below
-is a sample output for *ls -la* command:
+is a sample output for `ls -la` command:
 
 ~~~~
 kkayttaj@c305:~>ls -la
@@ -195,8 +195,6 @@ the directory tree. An empty directory can be removed with command
 
     rmdir project1 
 
- 
-
 ## Basic commands for files
 
 In a very basic level a file in a Linux system is just a string of
@@ -211,8 +209,8 @@ this guide we normally assume that the files contain some kind of text
 data: letters or numbers.
 
 Each file has a name. Name can in principle be any combination of
-characters. However, several characters have special meaning (<span
-lang="en-US">e.g.</span> ?, \* and \#, see paragraph [2.1.5] below) and
+characters. However, several characters have special meaning e.g.
+`?, * and #`, see [below](#special-characters) and
 thus using these characters in file names may cause problems. We
 recommend that you use only normal letters (lower or upper case),
 numbers, dot (**.**), dash (**-**) or under score (\_) characters in
@@ -228,7 +226,7 @@ Most of the linux tools do not require specific extensions to be used.
 However, on the long run, using systematic naming conventions, including
 illustrative name extensions, makes the file management easier.
 
-**Table 2.2:** Commands for using files
+File related commands:
 
 <table>
 <colgroup>
@@ -302,8 +300,8 @@ illustrative name extensions, makes the file management easier.
 </tbody>
 </table>
 
-You can study the content of text files with commands [][12]**cat**,
-[][13]**more** and [][14]**less**. These commands are safe to use as
+You can study the content of text files with commands `cat`,
+`more` and `less`. These commands are safe to use as
 they don't modify the files in any way. For example you could study the
 *.bashrc* file in your home directory with commands:
 
@@ -311,7 +309,7 @@ they don't modify the files in any way. For example you could study the
     more .bashrc
     less .bashrc 
 
-**cat** command (abbreviation from concatenate) prints the content of
+`cat` command (abbreviation from concatenate) prints the content of
 the specified file or files to the *standard output* that by default
 means your screen. Pager programs **less** and **more** are often more
 useful tools for studying text files as they allow user to study the
@@ -327,7 +325,7 @@ string from the document by using slash (**/**) character. For example,
 to locate a string *ABC* from the file in *less* program type **/ABC**
 and the press *Return*. *man* command uses *less* program as its pager.
 
-Commands [][15]**head** and [][16]**tail** can be used to see just the
+Commands `head` and `tail` can be used to see just the
 first or last rows of a file, respectively. By default these commands
 print out 10 lines, but you can change this by giving the number of rows
 to be printed as an option to a *head* or *tail* command. For example,
@@ -336,7 +334,7 @@ to check the 30 last rows of a file called *run1.log* give command:
     tail -30 run1.log 
 
 Copying files to a new file or to another directory is done with command
-[**cp**] (copy). Below is two examples of copy commands:
+`cp` (copy). Find below two examples of copy commands:
 
 `cp output.dat output_copy.dat`  
 `cp output1.dat output2.dat results/ `
@@ -344,7 +342,7 @@ Copying files to a new file or to another directory is done with command
 The first command makes a copy of file *output.dat* to a new file called
 *output\_copy.dat*. In the second example the two files: *output1.dat*
 and *output2.dat* are copied to an existing directory called *results*.
-Command [][17]**mv** (move) is used to rename or move the files to
+Command `mv` (move) is used to rename or move the files to
 another location. For example:
 
     mv output.dat output_copy.dat
@@ -362,26 +360,23 @@ file:
     kkayttaj@c305:~>rm output_copy.dat
     rm: remove output_copy.dat (yes/no)? 
 
- 
-
 You can answer *y* (yes) or *n* (no). Note that this confirmation step
 is not necessary in use in your local Linux environment. You can skip
 the confirmation query with option **-f**. However you should use this
 option with caution as the *rm* command will remove the file immediately
-and  permanently.  
- 
+and permanently.  
 
-## [][19]2.1.5 Special characters {#special-characters .western}
+## Special characters
 
 Some characters have special functions in Linux. In the following
 paragraphs we present characters that are used for redirecting standard
-input and output or used as so called *wild card characters*.
+input and output or used as so called *wildcard characters*.
 
-The **$** sign, that is used as an indicator of a variable name, **\#**
+The `$` sign, that is used as an indicator of a variable name, `\#`
 mark that is used to place comments and different kind of quotation
 marks are discussed later on in the [linux scripting chapter].
 
-**Table 2.3**: Commonly used special characters
+Commonly used special characters
 
 | Character    | Function                                                        |
 |--------------|-----------------------------------------------------------------|
@@ -396,12 +391,11 @@ marks are discussed later on in the [linux scripting chapter].
 | **&gt;&gt;** | Output redirection operator (to append to a file)               |
 | **\\**       | ignore the possible special function of the following character |
 
- 
 
-### [][20]2.1.5.1 Wild card characters {#wild-card-characters .western align="JUSTIFY"}
+### Wildcard characters
 
 In Linux, question mark (**?**) and asterisk (**\***) are used as so
-called wild card characters. They can be used to define arguments that
+called wildcard characters. They can be used to define arguments that
 match many files or directories. When used in the command arguments, the
 *?* sign is interpreted as *any single character* and *\** sign as *any
 string of characters*. For example command:
@@ -419,7 +413,7 @@ would list all of the files mentioned above as \* matches any string.
 Now the only limitations would be that the command must start with
 string *test* and end with string *.input*.
 
-### [][21]2.1.5.2 Redirecting standard input and output {#redirecting-standard-input-and-output .western align="JUSTIFY"}
+### Redirecting standard input and output
 
 Characters less than (**&lt;**), greater than (**&gt;**), **&gt;&gt;**
 and pipe (**\|**) are used to control the standard input and output. The
