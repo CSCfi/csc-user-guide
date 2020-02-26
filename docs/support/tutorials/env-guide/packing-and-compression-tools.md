@@ -1,4 +1,4 @@
-## 2.6 Packing and compression tools {#packing-and-compression-tools style="color: rgb(0, 0, 0);"}
+## Packing and compression tools
 
 When large data sets are stored at CSC or transported over the net it is
 usually reasonable to *archive* (i.e., pack multiple files into a single
@@ -9,6 +9,8 @@ to another. In this chapter we will provide introduction
 to [tar], [gzip], [bzip2], [zip], [7zip] and [Zstandard] tools that are
 frequently used for archiving and compression.
 
+FIXME mikäs se uusin ja kaunein olikaan? ja se oli myös parallel enabled?
+      kesken jäi...
 | Type                           | Extension                         |
 |--------------------------------|-----------------------------------|
 | A zip archive                  | .zip, .ZIP, or .Z                 |
@@ -22,7 +24,7 @@ frequently used for archiving and compression.
 
  
 
-## 2.6.1 [tar][1]: packing several files into one file {#tar-packing-several-files-into-one-file style="color: rgb(0, 0, 0);"}
+## Tar: packing several files into one file
 
 **tar** is a computer software utility for collecting many files into
 one archive file, often referred to as a *tarball*, for distribution or
@@ -48,9 +50,9 @@ manage tar archive files.
 
 The syntax of a tar command is:
 
-~~~~
+```bash
 tar options tar_archive file …
-~~~~
+```
 
 For example, we may have a directory called *project\_3*, which contains
 nine files called *sample1.txt*, *sample2.txt*, …, *sample9.txt*. To
