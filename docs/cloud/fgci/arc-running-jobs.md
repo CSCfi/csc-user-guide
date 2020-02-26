@@ -1,11 +1,7 @@
 # Executing grid jobs with ARC commands
 
 In this chapter we assume that the user has installed the personal grid
-certificate and ARC middleware as described in chapter 1.3. Further we
-assume that the user has set up the ARC environment with the commands:
-
-    cd nordugrid-arc-standalone-11.05-2
-    source setup.sh
+certificate and ARC middleware.
 
 
 ## Creating a proxy-certificate
