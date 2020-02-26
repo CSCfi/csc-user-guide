@@ -104,7 +104,7 @@ Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be 
 ```text
 get_species_taxids.sh -t 694002 > b-coronaviruses.txt
 ```
-The command above produces a file conataining TaxID numbers of Betacoronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originationg form the defined species. For example:
+The command above produces a file containing TaxID numbers of Beta-coronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originating form the defined species. For example:
 
 ```text
 pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
