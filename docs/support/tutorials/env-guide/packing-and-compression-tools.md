@@ -398,7 +398,7 @@ of processors used does not affect to the actual result file. Thus, a
 file that has been compressed with parallel pbzip2 can be uncompressed
 with normal bunzip2 command and vice versa.
 
-### [zip][8][][9] and [unzip: the combined compression and file archiving tool] 
+### [zip] and [unzip: the combined compression and file archiving tool] 
 
 [][unzip: the combined compression and file archiving tool]
 
@@ -469,7 +469,7 @@ $ unzip archive_file_name file_name
 
 
 
-## zip example
+### zip example
 
 To archive and compress the sample directory *project\_3*, which
 contains the files *sample1.txt*, *sample2.txt*, …, *sample9.txt* (the
@@ -570,7 +570,7 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
 ## 7zip packing and compression tool 
 
-7zip[][10][][11] is a packing and compression tools that is frequently
+7zip is a packing and compression tools that is frequently
 used especially in Windows platforms. It can be however used in Max OSA
 and Linux systems too. By default the command uses its own *7z*
 compression file format but it can utilize other compression file
@@ -673,7 +673,7 @@ The output directory for the extracted files can be defined with option
 
  
 
-## [12] Zstandard compression tool
+## Zstandard compression tool
 
 *Zstandard* is a fairly new and very fast compression tool. In Taito,
 Zstandard compression can be done with command **zstdmt**[][13]. For
