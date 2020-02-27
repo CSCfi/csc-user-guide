@@ -18,14 +18,17 @@
 * [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Freebayes](freebayes.md) Genetic variant detector
+* [GOLD](gold.md) Protein Ligand Docking Software
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
+* [InterProScan](interpro.md) Protein signature/motif search tool.
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
@@ -44,7 +47,9 @@
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
+* [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [Gaussian](gaussian.md) Versatile computational chemistry package
+* [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
