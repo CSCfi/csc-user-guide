@@ -28,7 +28,7 @@ FIXME mikäs se uusin ja kaunein olikaan? ja se oli myös parallel enabled?
 
 **tar** is a computer software utility for collecting many files into
 one archive file, often referred to as a *tarball*, for distribution or
-backup purposes. The name is derived from ***t**ape **ar**chive*, as it
+backup purposes. The name is derived from **t**ape **ar**chive, as it
 was originally developed to write data to sequential I/O devices with no
 file system of their own. However, nowadays tar – and its GNU
 version, **gtar** – are mostly used for data archiving within a normal
@@ -178,7 +178,7 @@ could use command:
 $ tar xvzf project_3.tar.gz project_3/sample2.txt
 ~~~~
 
-## 2.6.2 Compressing files {#compressing-files style="color: rgb(0, 0, 0);"}
+## Compressing files 
 
 Compressing files saves storage space and makes data trasport faster,
 but it may take a lot of time. Data compression is CPU intensive and
@@ -198,14 +198,14 @@ the file.
 The compression time depends on the algorithm used and the type of data
 to be compressed. In most cases the newer Zstandard method is
 significantly faster than the older, but very widely used methods like
-gzip or zip.  The table 2.8 below shows results for one sample case,
+gzip or zip.  The table below shows results for one sample case,
 were 10GB text file (fastq formatted sequence data) was compressed with
 these five methods in the Taito supercluster.
 
  
 
 <table>
-<caption>Table 2.8: Compression tool comparison for a 10 GB text file. Compressions were made using default command settings in Taito supercluster.</caption>
+<caption>Table: Compression tool comparison for a 10 GB text file. Compressions were made using default command settings in Taito supercluster.</caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -265,7 +265,7 @@ these five methods in the Taito supercluster.
 
  
 
-### 2.6.2.1 [][2][][3]gzip and gunzip {#gzip-and-gunzip style="color: rgb(0, 0, 0);"}
+### gzip and gunzip 
 
 **gzip** is probably the most commonly used packing tool in Unix and
 Linux systems. It uses the *Lempel-Ziv coding* (LZ77) for compressing
@@ -310,7 +310,7 @@ note that gunzip command is actually just a wrapper for the *gzip
 -d* command (option *-d* instructs gzip to decompress, rather than
 compress) so you will not find a separate manual page for that.
 
-### 2.6.2.2 gzip example {#gzip-example style="color: rgb(0, 0, 0);"}
+### gzip example 
 
 Lets assume we are in the $WRKDIR directory of Taito-shell and there we
 have just one file called *my\_data.dat*. Lets first check the size of
@@ -347,7 +347,7 @@ total 1.5G
 The file listing now shows that the compressed file has disappeared and
 the original file is available again.
 
-### 2.6.2.2 [][4][][5]bzip2 and bunzip2 {#bzip2-and-bunzip2 style="color: rgb(0, 0, 0);"}
+### bzip2 and bunzip2 
 
 **bzip2** is a compression program that is used very similarly compared
 to [gzip][bzip2]. The main difference between the two programs is that
@@ -398,7 +398,7 @@ of processors used does not affect to the actual result file. Thus, a
 file that has been compressed with parallel pbzip2 can be uncompressed
 with normal bunzip2 command and vice versa.
 
-### 2.6.2.3 [zip][8][][9] and [unzip: the combined compression and file archiving tool] {#zip-and-unzip-the-combined-compression-and-file-archiving-tool style="color: rgb(0, 0, 0);"}
+### [zip][8][][9] and [unzip: the combined compression and file archiving tool] 
 
 [][unzip: the combined compression and file archiving tool]
 
@@ -467,9 +467,9 @@ $ unzip archive_file_name file_name
 | -o            | Overwrite existing files without prompting                                                                                 |
 | -p *password* | Use *password* to decrypt an encrypted zip file                                                                            |
 
-##   {#section style="color: rgb(0, 0, 0);"}
 
-## <span style="font-size: 16px;">zip example</span> {#zip-example style="color: rgb(0, 0, 0);"}
+
+## zip example
 
 To archive and compress the sample directory *project\_3*, which
 contains the files *sample1.txt*, *sample2.txt*, …, *sample9.txt* (the
@@ -568,7 +568,7 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
  
 
-## 2.6.2.4 7zip packing and compression tool {#zip-packing-and-compression-tool style="color: rgb(0, 0, 0);"}
+## 7zip packing and compression tool 
 
 7zip[][10][][11] is a packing and compression tools that is frequently
 used especially in Windows platforms. It can be however used in Max OSA
@@ -673,7 +673,7 @@ The output directory for the extracted files can be defined with option
 
  
 
-## 2.6.2.5[][12] Zstandard compression tool {#zstandard-compression-tool style="color: rgb(0, 0, 0);"}
+## [12] Zstandard compression tool
 
 *Zstandard* is a fairly new and very fast compression tool. In Taito,
 Zstandard compression can be done with command **zstdmt**[][13]. For
