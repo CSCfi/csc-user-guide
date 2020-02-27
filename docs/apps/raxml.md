@@ -53,7 +53,7 @@ For details, please refer to chapter "When to use which Version?" in the RAxML m
 ```text
 #!/bin/bash
 #SBATCH --account=project_1234567
-#SBATCH --job-name=raxml_mpi
+#SBATCH --job-name=raxml_threads
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8G
@@ -68,7 +68,7 @@ raxmlHPC-PTHREADS -T $SLURM_CPUS_PER_TASK ­-s alg -­m GTRGAMMA ­-p 12345 ­-n
 ```text
 #!/bin/bash
 #SBATCH --account=project_1234567
-#SBATCH --job-name=raxml_threads
+#SBATCH --job-name=raxml_mpi
 #SBATCH --ntasks=100
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=8G
