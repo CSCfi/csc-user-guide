@@ -82,7 +82,7 @@ echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R
 ```
 
-In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=10000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
+In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=1000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
 
 #### Parallel batch jobs
 
