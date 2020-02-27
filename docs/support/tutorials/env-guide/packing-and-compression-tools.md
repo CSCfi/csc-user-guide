@@ -676,7 +676,7 @@ The output directory for the extracted files can be defined with option
 ### Zstandard compression tool
 
 *Zstandard* is a fairly new and very fast compression tool. In Taito,
-Zstandard compression can be done with command **zstdmt**[][13]. For
+Zstandard compression can be done with command **zstdmt**. For
 example, to compress file *data.txt* give command:
 
     zstdmt data.txt
@@ -694,26 +694,4 @@ Decompression is defined by adding  option  *-d * to the command:
 
     zstdmt  -d data.txt.zst
 
- 
 
-  [tar]: https://research.csc.fi/about:blank#tar
-  [gzip]: https://research.csc.fi/about:blank#gzip
-  [bzip2]: https://research.csc.fi/about:blank#bzip2
-  [zip]: https://research.csc.fi/about:blank#zip
-  [7zip]: https://research.csc.fi/about:blank#7zip
-  [Zstandard]: https://research.csc.fi/about:blank#zstdmt
-  [1]: https://research.csc.fi/ {#tar}
-  [2]: https://research.csc.fi/ {#gzip}
-  [3]: https://research.csc.fi/ {#gunzip}
-  [4]: https://research.csc.fi/ {#bzip2}
-  [5]: https://research.csc.fi/ {#bunzip2}
-  [6]: https://research.csc.fi/ {#pbzip2}
-  [7]: https://research.csc.fi/ {#pbunzip2}
-  [8]: https://research.csc.fi/ {#zip}
-  [9]: https://research.csc.fi/ {#2.6.2.3}
-  [unzip: the combined compression and file archiving tool]: https://research.csc.fi/
-  {#unzip}
-  [10]: https://research.csc.fi/ {#7zip}
-  [11]: https://research.csc.fi/ {#2.6.2.4}
-  [12]: https://research.csc.fi/ {#2.6.2.5}
-  [13]: https://research.csc.fi/ {#zstdmt}
