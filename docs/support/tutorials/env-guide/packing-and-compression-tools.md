@@ -568,7 +568,7 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
  
 
-## 7zip packing and compression tool 
+### 7zip packing and compression tool 
 
 7zip is a packing and compression tools that is frequently
 used especially in Windows platforms. It can be however used in Max OSA
@@ -673,7 +673,7 @@ The output directory for the extracted files can be defined with option
 
  
 
-## Zstandard compression tool
+### Zstandard compression tool
 
 *Zstandard* is a fairly new and very fast compression tool. In Taito,
 Zstandard compression can be done with command **zstdmt**[][13]. For
