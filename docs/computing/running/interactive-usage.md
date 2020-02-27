@@ -6,11 +6,11 @@ If you need to do heavy computing interactvely, you should use interactive batch
 In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request spesific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
-slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the job specific $TMPDIR area, will be terminated. 
+slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the job specific `$TMPDIR` area, will be terminated. 
 
 ## Easy interactive work: sinteractive command
 
-Puhti has an _interactive_ partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to execute command:
+Puhti has an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to execute the `sinteractive` command:
 
 ```text
 sinteractive -p <project_name> 
@@ -27,7 +27,7 @@ can be lauched with command:
 sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
 ```
 
-Available options for _sinteractive_ are:
+Available options for `sinteractive` are:
 
 |Option| Function | Default |
 | --- | --- | --- |
@@ -40,17 +40,17 @@ Available options for _sinteractive_ are:
 |-g, --gpu  | Number of GPU:s to reserve (max 4) | 0 |
 
 
-Note, that each user can have only one active session open in the _interactive_ partition. 
+Note, that each user can have only one active session open in the `interactive` partition. 
 In the interactive partition you can reserve in maximum 1 core, 16 GB of 
 memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
 
 If your requests exceed these limits or you already have a session in the
-interactive partition, _sinteractive_ can submit the session request to _small_ or _gpu_
+interactive partition, `sinteractive` can submit the session request to `small` or `gpu`
 partitions instead. However, in these cases your session starts queueing just like normal batch job and
 you may need to wait some time before the requested resources become available and the interactive session 
 starts.
 
-All the _sinterative_ sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable $TMPDIR points to the local disk area of the job. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
+All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
 
 ### Example: Running a Jupyter notebook server via sinteractive
