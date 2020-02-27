@@ -32,28 +32,24 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. 
+Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm.
+
+!!! note To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
 
 #### Interactive use
 
-To interactively use R on Puhti's compute nodes, run the following command after initializing the `r-env` module. 
+To interactively use R on Puhti's compute nodes, first open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the following command would launch a session with 8 GB of memory and 100 GB of local scratch space. It is also possible to specify the number of cores and the running time among other options ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space.
 
 ```bash
-r_interactive
+sinteractive --account <project> --mem 8000 --tmp 100
 ```
 
-This will launch a bash script that will ask for a number of details needed to start the session:
+Once you have opened an interactive shell session, you can launch the `r-env` module and a command line version of R as follows:
 
 ```bash
-How many cores? # No. of processors required
-Memory per core (e.g. "1G")? # Memory required for each processor
-Hours (e.g. "01")? # Session duration (hours)
-Minutes (e.g. "05")? # Session duration (minutes)
-Partition? # Which partition to use
-Project (use lower-case letters)? # Project ID (i.e. the Unix group)
+module load r-env
+R
 ```
-
-For information on available partitions, see [here](../computing/running/batch-job-partitions.md). For sessions requiring more than four cores and/or over 120 GB of memory, please submit a non-interactive batch job instead.
 
 If you prefer to use RStudio for interactive work, `r-env` can be launched together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
@@ -86,7 +82,7 @@ echo "TMPDIR=/scratch/<project>" > .Renviron
 srun Rscript --no-save myscript.R
 ```
 
-In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=10000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
+In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=1000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
 
 #### Parallel batch jobs
 
@@ -286,7 +282,21 @@ To use R packages installed in the `/projappl` folder, you have two options.
 
 ## Working with Allas
 
-The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data.
+The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
+
+Accessing Allas via the `r-env` module can be done as follows:
+
+```bash
+# First configure Allas
+module load allas
+allas-conf --mode s3cmd
+
+# Then load aws.s3 in R
+module load r-env
+R
+library(aws.s3) 
+bucketlist()
+```
 
 ## Citation
 
