@@ -41,7 +41,7 @@ Puhti login nodes are [not intended for heavy computing](../computing/overview.m
 To interactively use R on Puhti's compute nodes, first open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the following command would launch a session with 8 GB of memory and 100 GB of local scratch space. It is also possible to specify the number of cores and the running time among other options ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space.
 
 ```bash
-sinteractive -p <project> --mem 8000 --tmp 100
+sinteractive --account <project> --mem 8000 --tmp 100
 ```
 
 Once you have opened an interactive shell session, you can launch the `r-env` module and a command line version of R as follows:
