@@ -1,0 +1,15 @@
+# Content and formatting instructions
+
+ - Put all images in root images folder
+ - Try to make standalone articles with a good name (user knows to select it from the left menu)
+ - Write SLURM flags in long format (--nodes instead of -N, etc.)
+ - All examples should use minimum viable reserved resources. I.e don't write examples with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. Users tend to use these as default values.
+ - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
+ - When in doubt, check how other pages are formatted
+ - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
+If you don't want any syntax highlighting, just use \`\`\`text
+For a list of all supported languages see: http://pygments.org/docs/lexers/
+ - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
+ - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only
+   when needed.
+ - Give commands, environment variables, command options, as well as partition names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
