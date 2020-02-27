@@ -282,7 +282,21 @@ To use R packages installed in the `/projappl` folder, you have two options.
 
 ## Working with Allas
 
-The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data.
+The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
+
+Accessing Allas via the `r-env` module can be done as follows:
+
+```bash
+# First configure Allas
+module load allas
+allas-conf --mode s3cmd
+
+# Then load aws.s3 in R
+module load r-env
+R
+library(aws.s3) 
+bucketlist()
+```
 
 ## Citation
 
