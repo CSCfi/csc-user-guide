@@ -64,15 +64,14 @@ ida download <em>target_in_ida local_file</em>
 
 For example in Puhti, the command:
 ```text
-ida upload test123/data1 test_data
+ida upload /test123/data1 test_data
 ```
 will upload file: _test_data_ from Puhti to the IDA staging area and store the data in the directory _test123_ with the name _data1_. The
 directory test123 will be automatically created to the staging area, if it does not already exist.
 
-If you download a directory, the downloaded files are stored to Puhti as a zip archive. Thus you should define the local target file to
-have name extension .zip. For example:
+If you download a directory, the downloaded files are stored to Puhti as a zip archive. Thus you should define the local target file to have name extension .zip. For example:
 ```text
-ida download project1 project1_data.zip
+ida download /project1 project1_data.zip
 ```
 The command above would download all the data from the IDA staging area directory _project1_ and store it to a zip archive file
 _project1_data.zip_ in your current directory in Puhti.
