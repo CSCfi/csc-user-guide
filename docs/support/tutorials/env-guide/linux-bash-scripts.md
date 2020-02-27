@@ -107,9 +107,8 @@ table below:
 
 **Table** Basic arithmetic operations in bash
 
-|              |                   |
-|--------------|-------------------|
 | **Operator** | **Function**      |
+|--------------|-------------------|
 | \+           | addition          |
 | \-           | subtraction       |
 | \*           | multiplication    |
@@ -542,16 +541,4 @@ Prints out:
 
     The resulting value from: 3g is: 5.30
 
- 
 
-  [1]: https://research.csc.fi/ {#2.7.1}
-  [2]: https://research.csc.fi/ {#2.7.2}
-  [3]: https://research.csc.fi/ {#2.7.3}
-  [grep]: http://www.csc.fi/english/pages/data-services/linux_data/row_selection/index_html
-  [4]: https://research.csc.fi/ {#2.7.4}
-  [***for***]: https://research.csc.fi/ {#for}
-  [***while***]: https://research.csc.fi/ {#while}
-  [**if**]: https://research.csc.fi/ {#if}
-  [5]: https://research.csc.fi/ {#2.7.5}
-  [**echo**]: https://research.csc.fi/ {#echo}
-  [**printf**]: https://research.csc.fi/ {#printf}
