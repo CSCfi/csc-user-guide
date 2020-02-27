@@ -1,4 +1,4 @@
-## ABAQUS
+# ABAQUS
 
 Dassault Systemes' SIMULIA academic software portfolio offers software tools for for realistic simulation, optimization, durability studies, multibody simulation, computational fluid dynamics and electromagnetic simulation. [SIMULIA Academic Research Suite](https://www.3ds.com/products-services/simulia/academia/) licenses are available on CSC's server computers. 
 
