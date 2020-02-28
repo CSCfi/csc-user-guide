@@ -93,7 +93,7 @@ Further to the following examples, please see our separate [documentation](../co
 
 *Multi-core and array jobs*
 
-To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves eight cores (`--ntasks=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
+To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
 
 ```bash
 #!/bin/bash -l
@@ -103,7 +103,8 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
 #SBATCH --time=00:05:00
-#SBATCH --ntasks=8
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
