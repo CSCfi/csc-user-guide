@@ -8,6 +8,9 @@ vcs-support@csc.fi. After this you can [join the CSC employees
 team](https://github.com/orgs/CSCfi/teams/employees/members), which
 gives you permissions to edit source files that build the user guide.
 
+The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](../STYLEGUIDE.md) for content and 
+formatting instructions.
+
 ## Making changes using pull requests
 
 The csc-user-guide repository uses the 'master' as the default
@@ -125,19 +128,6 @@ Pull requests can be created as follows:
 1. Edit the files locally and commit the changes
 1. Finally click _Publish branch_ and _Create Pull Request_
 1. You are directed to web gui, where you click _Create pull request_
-
-## Content and formatting instructions
-
- - Put all images in root images folder
- - Try to make standalone articles with a good name (user knows to select it from the left menu)
- - Write SLURM flags in long format (--nodes instead of -N, etc.)
- - All examples should use minimum viable reserved resources. I.e don't write examples with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. Users tend to use these as default values.
- - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
- - When in doubt, check how other pages are formatted
- - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
-If you don't want any syntax highlighting, just use \`\`\`text
-For a list of all supported languages see: http://pygments.org/docs/lexers/
-- Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
 
 ## Previewing the website using MkDocs
 

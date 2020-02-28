@@ -1,4 +1,4 @@
-# Using IDA storage service in the CSC computing environment #
+# Moving data between IDA and CSC computing environment
 
 IDA is a general storage service for research data. It is part of the [Fairdata.fi]( https://www.fairdata.fi/) research data management environment and not directly linked to the CSC computing environment. Even though CSC produces and hosts the IDA service and the IDA storage space is applied to a CSC project, the storage space is granted by the home organization of the user (Finnish higher education institute or state research institute) or based on an Academy of Finland funding decision. IDA users can use the storage space from both their own computers and from the servers hosted by CSC. More information about applying for IDA storage space can be found from through IDA's website:
 
@@ -14,7 +14,7 @@ The storage of files in IDA can be managed using the web and command line client
 In a typical research project the raw data is first stored in Allas. When the research work has produced a more refined dataset form the original data, it can be stored to IDA so that metadata and persistent identifiers can be associated with the data via additional services. 
 
 
-## Configuring and using IDA in Puhti ##
+## Configuring and using IDA in Puhti
 
 Each IDA project has two storage areas: _staging area_ and _frozen area_. The staging area is intended for collecting and organizing data in preparation for longer term storage and publication.  Data files that will not change anymore can be moved to frozen area to be stored in an immutable state. 
 
