@@ -13,7 +13,7 @@ slightly from the login nodes. For example, not all the same text editors are av
 Puhti has an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to execute the `sinteractive` command:
 
 ```text
-sinteractive -p <project_name> 
+sinteractive -A <project_name> 
 ```
 
 This command opens a shell session that runs on a compute node. You can use this
@@ -25,7 +25,7 @@ of memory, 48 h runnig time and 100 GiB local scratch using project _project_201
 can be lauched with command:
 
 ```text
-sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
+sinteractive -A project_2011234 --time 48:00:00 --mem 8000 --tmp 100
 ```
 
 Available options for `sinteractive` are:
@@ -36,7 +36,7 @@ Available options for `sinteractive` are:
 | -m, --mem     | Memory reservation in MB.                                | 1000                 |
 | -j, --jobname | Job name.                                                | interactive          |
 | -c, --cores   | Number of cores.                                         | 1                    |
-| -p, --project | Accounting project.                                      | $CSC_PRIMARY_PROJECT |
+| -A, --account | Accounting project.                                      | $CSC_PRIMARY_PROJECT |
 | -d, --tmp     | Size of job specifinc $TMPDIR disk (in GiB).             | 32                   |
 | -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    |
 
@@ -59,7 +59,7 @@ and access it with your local web browser. In this case there is no
 need to start NoMachine. In the Puhti terminal session, run the command:
 
 ```text
-sinteractive -p <project> start-jupyter-server
+sinteractive -A <project> start-jupyter-server
 ```
 
 This command will start the server, and it will then print out a web
@@ -75,7 +75,7 @@ Open connection to Puhti with NoMachine.
 In the Puhti terminal session, run commands:
 
 ```text
-sinteractive -p <project> --mem 8000 --tmp 100
+sinteractive -A <project> --mem 8000 --tmp 100
 module load r-env 
 module load rstudio
 rstudio
