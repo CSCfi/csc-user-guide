@@ -78,7 +78,7 @@ srun python3 myprog.py <options>
 
 ### Big datasets, multi-GPU and multi-node jobs
 
-Please see our tutorial for [GPU-accelerated machine learning](../support/tutorials/gpu-ml.md), which covers how to work with big data sets, multi-GPU and multi-node jobs among other things.
+Please see our tutorial for [GPU-accelerated machine learning](../support/tutorials/gpu-ml.md), which covers more advanced topics, including how to work with big data sets, multi-GPU and multi-node jobs.
 
 
 ## More information
