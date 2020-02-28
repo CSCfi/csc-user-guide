@@ -52,7 +52,7 @@ Many machine learning tasks, such as training a model, require reading a huge nu
 
 #### More efficient data format
 
-Many machine learning frameworks support formats for packaging your data more efficiently.  For example [TensorFlow's TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) format.  Other examples include using [HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5), or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/) formats, or even humble ZIP-files, e.g., via Python's [zipfile](https://docs.python.org/3/library/zipfile.html) library.  The main point with all of these is that instead of many thousands of small files you have one, or a few bigger files, which are much more efficient to access and read linearly.
+Many machine learning frameworks support formats for packaging your data more efficiently.  For example [TensorFlow's TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) format.  Other examples include using [HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5), or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/) formats, or even humble ZIP-files, e.g., via Python's [zipfile](https://docs.python.org/3/library/zipfile.html) library.  The main point with all of these is that instead of many thousands of small files you have one, or a few bigger files, which are much more efficient to access and read linearly.  Don't hesitate to [contact our service desk](https://www.csc.fi/contact-info) if you need advice about how to access your data more efficiently.
 
 
 #### Fast local drive
