@@ -13,8 +13,9 @@ slightly from the login nodes. For example, not all the same text editors are av
 Puhti has an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to execute the `sinteractive` command:
 
 ```text
-sinteractive -p <project_name> 
+sinteractive --account <project_name> 
 ```
+
 This command opens a shell session that runs on a compute node. You can use this
 session as a normal bash shell without additional Slurm commands for starting jobs and applications.
 
@@ -24,21 +25,20 @@ of memory, 48 h runnig time and 100 GiB local scratch using project _project_201
 can be lauched with command:
 
 ```text
-sinteractive -p project_2011234 --time 48:00:00 --mem 8000 --tmp 100
+sinteractive --account project_2011234 --time 48:00:00 --mem 8000 --tmp 100
 ```
 
 Available options for `sinteractive` are:
 
-|Option| Function | Default |
-| --- | --- | --- |
-|-t, --time | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00 |
-|-m, --mem | Memory reservation in MB. | 1000 |
-|-j, --jobname | Job name. | interactive |
-|-c, --cores | Number of cores. |  1 |
-|-p, --project | Accounting project.|  $CSC_PRIMARY_PROJECT |
-|-d, --tmp  | Size of job specifinc $TMPDIR disk (in GiB). | 32 |
-|-g, --gpu  | Number of GPU:s to reserve (max 4) | 0 |
-
+| Option        | Function                                                 | Default              |
+| ------------- | -------------------------------------------------------- | -------------------- |
+| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
+| -m, --mem     | Memory reservation in MB.                                | 1000                 |
+| -j, --jobname | Job name.                                                | interactive          |
+| -c, --cores   | Number of cores.                                         | 1                    |
+| -A, --account | Accounting project.                                      | $CSC_PRIMARY_PROJECT |
+| -d, --tmp     | Size of job specifinc $TMPDIR disk (in GiB).             | 32                   |
+| -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    |
 
 Note, that each user can have only one active session open in the `interactive` partition. 
 In the interactive partition you can reserve in maximum 1 core, 16 GB of 
@@ -52,7 +52,6 @@ starts.
 
 All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
-
 ### Example: Running a Jupyter notebook server via sinteractive
 
 You can start a Jupyter notebook server on a Puhti compute node,
@@ -60,7 +59,7 @@ and access it with your local web browser. In this case there is no
 need to start NoMachine. In the Puhti terminal session, run the command:
 
 ```text
-sinteractive -p <project> start-jupyter-server
+sinteractive --account <project> start-jupyter-server
 ```
 
 This command will start the server, and it will then print out a web
@@ -70,20 +69,17 @@ your machine and the compute node. Note that you need to set up
 passwordless access using ssh keys to do so. After this you can access
 the Jupyter server by copy-pasting the web address into your local web browser.
 
-
 ### Example: RStudio in sinteractive session
 
 Open connection to Puhti with NoMachine.
 In the Puhti terminal session, run commands:
 
 ```text
-sinteractive -p <project> --mem 8000 --tmp 100
+sinteractive --account <project> --mem 8000 --tmp 100
 module load r-env 
 module load rstudio
-export XDG_RUNTIME_DIR=$TMPDIR
 rstudio
 ```
-
 
 ## Explicit interactive shell without X11 graphics
 

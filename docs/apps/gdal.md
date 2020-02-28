@@ -56,7 +56,7 @@ gdalinfo /vsicurl/https://a3s.fi/<name_of_your_bucket>/<name_of_your_file>
 
 __Private files__ can be read by SWIFT or S3 API. SWIFT is more secure, but the credetials need to be updated after 8 hours. S3 has permanent keys, is therefore little bit easier to use, but less secure. Both of these have a random reading and streaming API.
 
-__SWIFT.__ Set up the connection in Puhti or Taito and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
+__SWIFT.__ Set up the connection in Puhti and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
 
 ```
 module load allas
@@ -69,24 +69,16 @@ gdalinfo /vsiswift/<name_of_your_bucket>/<name_of_your_file>
 The export commands are needed because GDAL is looking for different environment variables than what allas-conf is writing. These commands need to be given each time you start working with Puhti, because the token is valid for 8 hours. Inside batchjobs use [allas-conf -k](../data/Allas/allas_batchjobs.md).
 
 __S3.__ 
-Create your S3 credentials with allas-conf in Puhti or Taito.
+Set up the connection in Puhti and then read the files with [vsis3-driver](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files-random-reading):
 ```
 module load allas
 allas-conf --mode s3cmd
-```
-Save your credentials in your home directory to .aws/credentials file like this:
-```
-[default]
-AWS_ACCESS_KEY_ID=<access_key>
-AWS_SECRET_ACCESS_KEY=<secret_key>
-```
-These steps you have to do only once.
-
-Set the service endpoint for Allas and read the file using [vsis3-driver](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files-random-reading):
-```
-export AWS_S3_ENDPOINT=a3s.fi
 gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 ```
+
+* `module load allas` sets AWS_S3_ENDPOINT environment variable, which needs to be run each time S3 is used.
+* `allas-conf` command saves your credentials in your home directory to .aws/credentials file. This needs to be run only once before first use.
+
 
 ## License and citing
 

@@ -109,6 +109,7 @@ nav:
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
         - Sharing and transporting files using Funet FileSender: data/moving/funet.md
+        - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
         - Remote disk mounts: data/moving/disk_mount.md
      - Allas object storage:
         - Allas object storage: data/Allas/index.md
