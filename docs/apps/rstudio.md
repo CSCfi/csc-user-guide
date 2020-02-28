@@ -30,7 +30,8 @@ module load rstudio
 rstudio
 ```
 
-!!! note Note that it may take some time to initialize RStudio after running the `rstudio` command.  
+!!! note
+ It may take some time to initialize RStudio after running the `rstudio` command.
 
 For information on `r-env`, see the user documentation [here](./r-env.md).
 
