@@ -196,12 +196,12 @@ to be compressed. In most cases the newer Zstandard method is
 significantly faster than the older, but very widely used methods like
 gzip or zip.  The table below shows results for one sample case,
 were 10GB text file (fastq formatted sequence data) was compressed with
-these five methods in the Taito supercluster.
+these five methods in the Puhti supercluster.
 
  
 
 <table>
-<caption>Table: Compression tool comparison for a 10 GB text file. Compressions were made using default command settings in Taito supercluster.</caption>
+<caption>Table: Compression tool comparison for a 10 GB text file. Compressions were made using default command settings in Puhti supercluster.</caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -308,7 +308,7 @@ compress) so you will not find a separate manual page for that.
 
 ### gzip example 
 
-Lets assume we are in the $WRKDIR directory of Taito-shell and there we
+Lets assume we are in the $WRKDIR directory of Puhti-shell and there we
 have just one file called *my\_data.dat*. Lets first check the size of
 that file with command **ls -lh**:
 
@@ -572,7 +572,7 @@ and Linux systems too. By default the command uses its own *7z*
 compression file format but it can utilize other compression file
 formats too.
 
-In Taito *7zip* is launced with command **7z**. The syntax of the
+In Puhti *7zip* is launced with command **7z**. The syntax of the
 command is
 
     7z command -options archive_file file_names
@@ -671,7 +671,7 @@ The output directory for the extracted files can be defined with option
 
 ### Zstandard compression tool
 
-*Zstandard* is a fairly new and very fast compression tool. In Taito,
+*Zstandard* is a fairly new and very fast compression tool. In Puhti,
 Zstandard compression can be done with command **zstdmt**. For
 example, to compress file *data.txt* give command:
 
@@ -680,8 +680,8 @@ example, to compress file *data.txt* give command:
 The above command produces a compressed file named as *data.txt.zst.*
 For larger datafiles you can speed up the compression by using multiple
 computing cores (threads). The number of threads is defined with option
-*-T.* In the login nodes of Taito it is recommended that you use just
-one thread that is the defult setting, but for example in taito-shell
+*-T.* In the login nodes of Puhti it is recommended that you use just
+one thread that is the defult setting, but for example in puhti-shell
 you can use four threads:
 
     zstdmt -T 4 data.txt

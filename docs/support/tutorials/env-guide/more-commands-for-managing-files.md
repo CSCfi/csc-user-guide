@@ -134,7 +134,7 @@ An md5 checksum for a file is calculated with command:
     md5sum file_name
 
     For example:
-    kkayttaj@taito-login3:~> md5sum poster1.pdf
+    kkayttaj@puhti-login1:~> md5sum poster1.pdf
     cc494699398122a6b6d93a5a69bd2667 poster1.pdf
 
 You can easily store the checksum to a file by redirecting the output of

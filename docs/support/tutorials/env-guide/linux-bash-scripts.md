@@ -92,10 +92,10 @@ scripts** for mathematical operations.
 
 Example of using string variables
 
-    [kkayttaj@taito ~]$ name=Veikko
-    [kkayttaj@taito ~]$ familyname=Salo
-    [kkayttaj@taito ~]$ address="CSC Espoo"
-    [kkayttaj@taito ~]$ echo "Person: ${name} ${familyname} works at ${address}."
+    [kkayttaj@puhti ~]$ name=Veikko
+    [kkayttaj@puhti ~]$ familyname=Salo
+    [kkayttaj@puhti ~]$ address="CSC Espoo"
+    [kkayttaj@puhti ~]$ echo "Person: ${name} ${familyname} works at ${address}."
 
     Person: Veikko Salo works at CSC Espoo.
 
@@ -119,14 +119,14 @@ table below:
   
 Simple integer arithmetics examples:
 
-    [kkayttaj@taito ~]$ a=5
-    [kkayttaj@taito ~]$ c=3
-    [kkayttaj@taito ~]$ ((c = a + b))
-    [kkayttaj@taito ~]$ echo  $a plus $b is equal to $c
+    [kkayttaj@puhti ~]$ a=5
+    [kkayttaj@puhti ~]$ c=3
+    [kkayttaj@puhti ~]$ ((c = a + b))
+    [kkayttaj@puhti ~]$ echo  $a plus $b is equal to $c
     5 plus 3 is equal to 8
-    [kkayttaj@taito ~]$ ((d = a / b))
-    [kkayttaj@taito ~]$ ((e = a % b))
-    [kkayttaj@taito ~]$ echo "$a divided by $b results $d and reminder $e"
+    [kkayttaj@puhti ~]$ ((d = a / b))
+    [kkayttaj@puhti ~]$ ((e = a % b))
+    [kkayttaj@puhti ~]$ echo "$a divided by $b results $d and reminder $e"
     5 divided by 3 results 1 and reminder 2
 
 Bash can also use one dimensional array variables, i.e. variables that contain list of items. A

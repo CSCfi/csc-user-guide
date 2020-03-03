@@ -21,7 +21,7 @@ different in different servers.
 
 ## Structure of linux commands
 
-Once the terminal connection to CSC, e.g. to [Taito-shell], has been
+Once the terminal connection to CSC, e.g. to [Puhti-shell], has been
 opened, the remote server is used with Linux commands. The standard
 structure of a command is:
 

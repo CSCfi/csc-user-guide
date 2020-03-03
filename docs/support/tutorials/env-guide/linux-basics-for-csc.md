@@ -10,7 +10,7 @@ using the basic linux commands is in many cases still the most efficient
 way.
 
 This chapter provides introduction to the usage of the Linux environment
-of CSC. The application server, *taito-shell.csc.fi*, is used in the
+of CSC. The application server, *puhti-shell.csc.fi*, is used in the
 examples but the same commands can be used in the other servers of CSC,
 too. If you are using Linux or Mac OSX machine, you can also use most of
 the commands in a terminal on your local machine. Once you are familiar
