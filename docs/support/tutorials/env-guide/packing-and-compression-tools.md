@@ -174,7 +174,7 @@ could use command:
 $ tar xvzf project_3.tar.gz project_3/sample2.txt
 ~~~~
 
-## Compressing files 
+# Compressing files 
 
 Compressing files saves storage space and makes data trasport faster,
 but it may take a lot of time. Data compression is CPU intensive and
@@ -261,7 +261,7 @@ these five methods in the Puhti supercluster.
 
  
 
-### gzip and gunzip 
+## gzip and gunzip 
 
 **gzip** is probably the most commonly used packing tool in Unix and
 Linux systems. It uses the *Lempel-Ziv coding* (LZ77) for compressing
@@ -343,7 +343,7 @@ total 1.5G
 The file listing now shows that the compressed file has disappeared and
 the original file is available again.
 
-### bzip2 and bunzip2 
+## bzip2 and bunzip2 
 
 **bzip2** is a compression program that is used very similarly compared
 to [gzip][bzip2]. The main difference between the two programs is that
@@ -394,12 +394,9 @@ of processors used does not affect to the actual result file. Thus, a
 file that has been compressed with parallel pbzip2 can be uncompressed
 with normal bunzip2 command and vice versa.
 
-### [zip] and [unzip: the combined compression and file archiving tool] 
+## zip and  unzip: the combined compression and file archiving tool
 
-[][unzip: the combined compression and file archiving tool]
-
-[][unzip: the combined compression and file archiving
-tool]The **zip** program can be used for both archiving and compressing
+The **zip** program can be used for both archiving and compressing
 files. Given a list of files or a directories the zip command archives
 and compresses all the files in to a single zip archive file. So, in
 principle zip is analogous to the combination of [tar] and [gzip]
@@ -564,7 +561,7 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
  
 
-### 7zip packing and compression tool 
+## 7zip packing and compression tool 
 
 7zip is a packing and compression tools that is frequently
 used especially in Windows platforms. It can be however used in Max OSA
@@ -669,7 +666,7 @@ The output directory for the extracted files can be defined with option
 
  
 
-### Zstandard compression tool
+## Zstandard compression tool
 
 *Zstandard* is a fairly new and very fast compression tool. In Puhti,
 Zstandard compression can be done with command **zstdmt**. For
