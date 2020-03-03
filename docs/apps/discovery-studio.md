@@ -45,6 +45,8 @@ You can download the Windows and Linux clients using the links below:
 *   [Discovery Studio 2019 client](http://dstudio19.csc.fi:9944/DS/)
 *   [Discovery Studio 2018 client](http://dstudio18.csc.fi:9944/DS/)
 
+Discvery Studio clinet provides extensive manual and large set of tutorials that
+help you to get started with software.
 
 ### Installing the Discovery Studio client in Windows
 
