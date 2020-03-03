@@ -41,7 +41,7 @@ and press ***Ctrl-k***. To paste the text that was cut, press
 ***Ctrl-u***. More commands can be found from the nano help text, that
 is opened by pressing ***Ctrl-g***.
 
-![The Nano Editor](/img/nano.jpg "Nano editor.")
+![The Nano Editor](../../../img/nano.jpg "Nano editor.")
 
 Nano editor.
 
@@ -75,7 +75,7 @@ tools.
 If you don't have remote graphics enabled, you can start Emacs in ascii
 mode with `emcas -nw`, but then you need you to know the [command short cuts](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). 
 
-![Graphical interface of emacs editor](/img/emacs.jpg "Graphical interface of emacs editor.")
+![Graphical interface of emacs editor](../../../img/emacs.jpg "Graphical interface of emacs editor.")
 
 Graphical interface of emacs editor.
 
@@ -122,7 +122,7 @@ keys.
 
 For more options, please refer to vim manual.
 
-![Graphical interface of vim editor with welcome screen](/img/vim.jpg "Graphical interface of vim editor with welcome screen.")
+![Graphical interface of vim editor with welcome screen](../../../img/vim.jpg "Graphical interface of vim editor with welcome screen.")
 
 Graphical interface of vim editor with welcome screen.
 
@@ -153,6 +153,6 @@ corresponding *pdf* file. For example command:
 
 Produces a pdf-formatted file *file1.pdf*
 
-![Eog image viewing program](/img/eog.jpg  "Eog image viewing program.")
+![Eog image viewing program](../../../img/eog.jpg  "Eog image viewing program.")
 
 Eog image viewing program.
