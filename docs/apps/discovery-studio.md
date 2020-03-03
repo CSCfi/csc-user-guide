@@ -52,11 +52,11 @@ DS2019Client.exe starts a graphical installation tool, that will guide you throu
 In most cases you can just accept the default installation settings that the installation tool suggest.
 
 At the end of the installation you may be asked to configure licensing. The licensing should be set up using method:
-      **Connect to a remote license server**
+*   **Connect to a remote license server**
       
 The license server is then defined to be:
-      Host name: **license1.csc.fi**
-      Port: **1752**
+*   Host name: **license1.csc.fi**
+*   Port: **1752**
 
 If licensing information is not asked during the installation, start the Discovery Studio client, you just installed, 
 and press button _Enable additional features_ in the lower right corner of the interface.
