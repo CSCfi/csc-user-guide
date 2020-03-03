@@ -51,7 +51,7 @@ Nano editor.
 commands, functions and extensions. *Emacs* can be used in two ways: as
 character based editor like *nano* or through a graphical interface.
 Using the graphical interface requires that you have 
-[NoMachine](/apps/nomachine.md) or X-term
+[NoMachine](../../../apps/nomachine.md) or X-term
 connection to CSC. In the character based mode emacs commands are given
 using *Ctrl* and *Esc* keys much like in the case of nano commands. In
 the graphical interface you can use also mouse based command menus which

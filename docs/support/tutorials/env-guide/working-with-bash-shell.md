@@ -111,7 +111,7 @@ example command:
     eog image1.jpg &
 
 would open the *Eye of GNOME* image viewing program (requires X-term or
-[NoMachine](/apps/nomachine.md) connection) to the background so that the command shell could
+[NoMachine](../../../apps/nomachine.md) connection) to the background so that the command shell could
 still be used even though the eog program is still running. A background
 process can be changed to normal, foreground process with command 
 **fg**. When a command and program is running interactively, i.e. the
