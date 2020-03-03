@@ -76,20 +76,19 @@ And set server name to be:
 
 Once you have download the client installation file, start the installation procedure with command:
 ```text
-chmod u+x  
+chmod u+x DS2019Client.bin
 ./DS2019Client.bin -V PORTATHOST=1752@license.csc.fi
 ```
-
 The installation wizard guides you through the installation. In most cases you can use the default values.
 
 After everything is installed the program asks for licensing information.
 
 In "Accelrys Licensing:"
-      Choose: **Connect to a remote licenseserver**
+*   Choose: **Connect to a remote licenseserver**
 
 and give:
-      Host name: **license1.csc.fi**
-      Port: **1752**
+*   Host name: **license1.csc.fi**
+*   Port: **1752**
 
 You should now be ready to run (as long as the IP address of your machine is in the license register of CSC).
 
