@@ -131,8 +131,8 @@ Graphical interface of vim editor with welcome screen.
 
 In some cases application programs, executed at CSC, produce image files
 instead of text files. If you have a working FreeNX or X-term connection
-between your local computer and CSC you can use [**eog**] (Eye of GNOME)
-and [**evince**] programs to view image files. *Eog* is a simple image
+between your local computer and CSC you can use **eog** (Eye of GNOME)
+and **evince** programs to view image files. *Eog* is a simple image
 viewing program that can display common image formats like *png*, *bmp*,
 *jpg* and *tiff*. However *eog* is not able to show *PostScript* (ps) or
 *pdf* files. For these file types you can use program *evince*.
