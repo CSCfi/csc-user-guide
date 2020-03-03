@@ -38,6 +38,7 @@
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
+* [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 
