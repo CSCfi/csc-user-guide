@@ -1,4 +1,4 @@
-## Packing and compression tools
+# Packing and compression tools
 
 When large data sets are stored at CSC or transported over the net it is
 usually reasonable to *archive* (i.e., pack multiple files into a single
@@ -9,8 +9,6 @@ to another. In this chapter we will provide introduction
 to [tar], [gzip], [bzip2], [zip], [7zip] and [Zstandard] tools that are
 frequently used for archiving and compression.
 
-FIXME mikäs se uusin ja kaunein olikaan? ja se oli myös parallel enabled?
-      kesken jäi...
 | Type                           | Extension                         |
 |--------------------------------|-----------------------------------|
 | A zip archive                  | .zip, .ZIP, or .Z                 |
@@ -20,9 +18,7 @@ FIXME mikäs se uusin ja kaunein olikaan? ja se oli myös parallel enabled?
 | A gzip compressed tar archive  | .tar.gz, or .tgz                  |
 | A bzip2 compressed tar archive | .tar.bz2, .tar.bz, .tbz, or .tbz2 |
 | A 7zip compressed file         | .7z                               |
-| A Zstabdard compressed file    | .zst                              |
-
- 
+| A Zstandard compressed file    | .zst                              |
 
 ## Tar: packing several files into one file
 
