@@ -50,7 +50,8 @@ Nano editor.
 **Emacs** is a versatile editor that contains large amount of
 commands, functions and extensions. *Emacs* can be used in two ways: as
 character based editor like *nano* or through a graphical interface.
-Using the graphical interface requires that you have FreeNX or X-term
+Using the graphical interface requires that you have 
+[NoMachine](/apps/nomachine.md) or X-term
 connection to CSC. In the character based mode emacs commands are given
 using *Ctrl* and *Esc* keys much like in the case of nano commands. In
 the graphical interface you can use also mouse based command menus which
@@ -134,7 +135,7 @@ Graphical interface of vim editor with welcome screen.
 ## Image and PostScript viewers
 
 In some cases application programs, executed at CSC, produce image files
-instead of text files. If you have a working FreeNX or X-term connection
+instead of text files. If you have a working NoMachine or X-term connection
 between your local computer and CSC you can use **eog** (Eye of GNOME)
 and **evince** programs to view image files. *Eog* is a simple image
 viewing program that can display common image formats like *png*, *bmp*,
