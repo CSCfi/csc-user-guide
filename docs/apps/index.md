@@ -13,6 +13,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
+* [Discovery Studio](discovery-studio.md) Protein modeling environment.
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
