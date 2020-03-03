@@ -41,7 +41,7 @@ for university researchers working in Finland. Due to that, your computer must b
 within the university network (FUNET) be able to use the 
 license.
 
-You can download the Windowd and Linux clients using the links below:
+You can download the Windows and Linux clients using the links below:
 *   [Discovery Studio 2019 client](http://dstudio19.csc.fi:9944/DS/)
 *   [Discovery Studio 2018 client](http://dstudio18.csc.fi:9944/DS/)
 
