@@ -33,9 +33,8 @@ modules for 5 simultaneous users.
 
 ### Usage
 
-
-**To use Discovery Studio you need to install Discovery
-Studio on your own computer. Discovery Studio client is available for Windows (Windows 7, 8 and 10) and Linux
+To use Discovery Studio you need to install a Discovery
+Studio client on your own computer. Discovery Studio client is available for Windows (Windows 7, 8 and 10) and Linux
 operating systems (Red hat Enterprise linux 6 and 7, Centos7, or SuSE 11 SP4
 recommended). The license provided by CSC is available only 
 for university researchers working in Finland. Due to that, your computer must be
