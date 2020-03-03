@@ -74,7 +74,7 @@ And set server name to be:
 *   https://dstudio18.csc.fi:9943  ( For Discovery Studio 2018)
 
  
-### Installatiing the Discovery Studio client in Linux
+### Installing the Discovery Studio client in Linux
 
 Once you have download the client installation file, start the installation procedure with command:
 ```text
