@@ -133,7 +133,7 @@ Start installation with bash shell and _--keep_ option:
 ```text
 bash DS2019Client.bin --keep
 ```
-The installation process fails, but provides a temporay installation directory. Go to this direcory and modify the 
+The installation process fails, but provides a temporary installation directory. Go to this direcory and modify the 
 actual installation script a bit and execute the modified version:
 
 ```text
