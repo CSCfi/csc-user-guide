@@ -230,7 +230,7 @@ you will get output:
 
 In linux commands and scripts quotation marks are typically used to
 define arguments that contain space or other special characters. Say we
-would like to use **[grep](..support/tutorials/env-guide/commands-for-data-processing#grep-selects-rows-that-match-a-given-string)** to pick all rows that contain a string
+would like to use grep to pick all rows that contain a string
 *file size* from a file called *files.txt*. Following command **would
 not work**:
 

@@ -6,7 +6,7 @@ one format to another or when specific data needs to be extracted from
 large data sets. However, plain linux tools have their limitations. If
 you are going to do more complex data management, scripting languages
 like Python and Perl may be more efficient tools to use. In the case of
-numerical data many application programs, for example [R],
+numerical data many application programs, for example R,
 provides tools for both complex analysis tasks and automating the
 analysis.
 
@@ -118,7 +118,7 @@ are not dating from 2010. To make the filtering more effective, we can
 use quotation marks to include the space before and after the year
 number to the search string. `ls -l | grep " 2010 "`. In addition to the
 normal *grep* command, there exist several other grep-like tools. For
-example *[zgrep]* or [*bzgrep*] can be used to search rows from files
+example *zgrep* or *bzgrep* can be used to search rows from files
 compressed with *gzip* or *bzip2*.
 
 
