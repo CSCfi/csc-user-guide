@@ -118,7 +118,7 @@ And set server name to be:
 #### Tricks for installing Discovery Studio client to Ubuntu
 
 Below are some tricks you can try to use to install Discovery Studio Client to an Ubuntu Linux machine.  
-By default, the _sh_ that Ubuntu is suing is actually a command shell called _dash_ that diffters from 
+By default, the _sh_ that Ubuntu is using is actually a command shell called _dash_ that diffters from 
 the sh shell that is in use in e.g. Redhat and Centos linuxes. 
 
 In Discovery studio installation this causes problems as the installation process is based on sh scripts.
