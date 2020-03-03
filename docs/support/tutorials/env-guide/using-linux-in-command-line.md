@@ -35,12 +35,12 @@ Arguments are used to define the files, directories and values that are
 used as input parameters and to define where the output is written.
 
 For example command `ls` can be used as such or with several options
-and arguments. Running plane command *ls* lists the content of a
+and arguments. Running plane command `ls` lists the content of a
 directory in alphabetical order. You can modify the output of the
 command for example by using option `-t`. With this option the
 directory content list is ordered by the age of the file (time stamp).
-If no argument is given, *ls* prints out the content of the current
-working directory. By giving an argument to the *ls* command, user can
+If no argument is given, `ls` prints out the content of the current
+working directory. By giving an argument to the `ls` command, user can
 define a directory which content should be listed. For example command:
 
 `ls -t /scratch/project_2979797`
@@ -53,7 +53,7 @@ any major problems. The output of commands depends on the command but in
 many cases, no output means that command was successfully executed.
 
 Most of the Linux commands have their own manual page that can be
-studied with `man` command. For example the manual page of *ls*
+studied with `man` command. For example the manual page of `ls`
 command could be studied with command:
 
     man ls
@@ -77,7 +77,7 @@ command:
 Note that the listing that apropos prints out includes only linux
 commands but not application program names. Thus, the sample command
 above would produce a list that contain many pdf conversion commands but
-not the pdf viewing programs like *acroread* or *evince*.
+not the pdf viewing programs like `acroread` or `evince`.
 
 ## Basic commands for using directories
 
@@ -102,12 +102,12 @@ current Working Directory). However, you do not have to remember the
 location of your home directory (see `cd` command).
 
 The content of the directory can be listed with a command `ls`.
-Plain *ls* command just lists the names of the files and directories in
+Plain `ls` command just lists the names of the files and directories in
 your current directory. You can get more information about the files and
-directories with command **ls -la**. The **-l** option produces long
+directories with command `ls -la`. The `-l` option produces long
 directory listing that in addition to the name contains also information
 of accession settings, size and the modification dates of the files and
-directories. The option **-a** defines that all files, including also
+directories. The option `-a` defines that all files, including also
 the settings files that start with dot (.) character, are listed. Below
 is a sample output for `ls -la` command:
 
@@ -131,15 +131,15 @@ The first output *row: total 26914* tells that the total size of the
 files in the directory is 26914 KB. In the list, the first character
 tells if the item is a file (*-)* or directory(*d*). The next nine
 characters display the *access permissions* of the files (see the
-*chmod* command for more details). The next columns show the number of
+`chmod` command for more details). The next columns show the number of
 links pointing to the item, owner, user group, size in bytes,
 modification time and finally the name of the file or directory.
 
 By default the files are presented in alphabetical order. You can order
-the results by the modification time with option **-t** or by size with
-option **-S** (note: upper case S, not lower case s). Two other
-frequently used options are **-h** (Human readable) which prints out the
-sizes of larger files in megabytes or gigabytes and **-r** which means
+the results by the modification time with option `-t` or by size with
+option `-S` (note: upper case S, not lower case s). Two other
+frequently used options are `-h` (Human readable) which prints out the
+sizes of larger files in megabytes or gigabytes and `-r` which means
 reverse sorting order. For example command:
 
 ```bash
@@ -147,7 +147,7 @@ ls -ltrh
 ```
 
 is very handy when you want to check what files have recently been
-modified or created. *ls* and *pwd* commands do not modify your files in
+modified or created. `ls` and `pwd` commands do not modify your files in
 any way so you can use them always when you want to know where you are
 and what files your current directory includes.
 
@@ -174,7 +174,7 @@ New directories can be created with a command `mkdir`
 
     mkdir project1 
 
-Creates a new directory called *project1*. You can use *ls* command to
+Creates a new directory called *project1*. You can use `ls` command to
 check that the directory was created. Now you can go to this directory
 with command:
 
@@ -184,11 +184,11 @@ You can come back from the project1 directory with command:
 
     cd .. 
 
-Note the space between *cd* and the dots in the command. One dot (.) and
-two dots (..) have special meaning in the Linux commands. One dot (.)
-means the *current directory* and two dots (..) mean the directory that
+Note the space between `cd` and the dots in the command. One dot (`.`) and
+two dots (`..`) have special meaning in the Linux commands. One dot (`.`)
+means the *current directory* and two dots (`..`) mean the directory that
 is one step lower in the directory tree i.e. the directory where current
-directory locates. Executing the *cd* command without any arguments will
+directory locates. Executing the `cd` command without any arguments will
 always move you back to your home directory, regardless where you are in
 the directory tree. An empty directory can be removed with command
 `rmdir` *directory\_name*. For example:
@@ -213,7 +213,7 @@ characters. However, several characters have special meaning e.g.
 `?, * and #`, see [below](#special-characters) and
 thus using these characters in file names may cause problems. We
 recommend that you use only normal letters (lower or upper case),
-numbers, dot (**.**), dash (**-**) or under score (\_) characters in
+numbers, dot (`.`), dash (`-`) or under score (`_`) characters in
 file and directory names at CSC. Also the space characters in file names
 cause often problems. We recommend that the space characters are
 replaced with underscores, for example: *new\_file.txt*. Note that Linux
@@ -311,24 +311,24 @@ they don't modify the files in any way. For example you could study the
 
 `cat` command (abbreviation from concatenate) prints the content of
 the specified file or files to the *standard output* that by default
-means your screen. Pager programs **less** and **more** are often more
+means your screen. Pager programs `less` and `more` are often more
 useful tools for studying text files as they allow user to study the
-file one screenfull at a time. In both *more* and *less* programs you
+file one screenfull at a time. In both `more` and `less` programs you
 can move forward one line at a time by pressing *Return key* or one
 screenfull at a time by pressing *Space*. You can stop viewing the file
-by pressing **q**.
+by pressing `q`.
 
-The *less* pager program is more advanced than *more*. *Less* can browse
-the text also backwards either one row at a time by pressing **k** or
-one screenfull at a time by pressing **b**. You can also search a text
-string from the document by using slash (**/**) character. For example,
-to locate a string *ABC* from the file in *less* program type **/ABC**
-and the press *Return*. *man* command uses *less* program as its pager.
+The `less` pager program is more advanced than `more`. `Less` can browse
+the text also backwards either one row at a time by pressing `k` or
+one screenfull at a time by pressing `b`. You can also search a text
+string from the document by using slash (`/`) character. For example,
+to locate a string *ABC* from the file in *less* program type `/ABC`
+and the press *Return*. `man` command uses `less` program as its pager.
 
 Commands `head` and `tail` can be used to see just the
 first or last rows of a file, respectively. By default these commands
 print out 10 lines, but you can change this by giving the number of rows
-to be printed as an option to a *head* or *tail* command. For example,
+to be printed as an option to a `head` or `tail` command. For example,
 to check the 30 last rows of a file called *run1.log* give command:
 
     tail -30 run1.log 
@@ -348,22 +348,22 @@ another location. For example:
     mv output.dat output_copy.dat
     mv output1.dat output2.dat results/ 
 
-would create the same new files as *cp* sample commands. However in the
-case of *mv* the original files *output.dat*, *output1.dat* and
+would create the same new files as `cp` sample commands. However in the
+case of `mv` the original files *output.dat*, *output1.dat* and
 *output2.dat*, would be removed from the current working directory.
 
-Files are removed with command [][18]**rm** <span
-lang="en-US">*file-name***.**</span> In the CSC environment, the *rm*
-command asks the user to confirm that he/she really wants to remove the
+Files are removed with command `rm file-name`. In the CSC environment, 
+the `rm` command used to ask the user to confirm that he/she really wants to remove the
 file:
 
     kkayttaj@c305:~>rm output_copy.dat
     rm: remove output_copy.dat (yes/no)? 
 
 You can answer *y* (yes) or *n* (no). Note that this confirmation step
-is not necessary in use in your local Linux environment. You can skip
-the confirmation query with option **-f**. However you should use this
-option with caution as the *rm* command will remove the file immediately
+is not necessary in use in your local Linux environment or currently in Puhti.
+You can skip
+the confirmation query with option `-f`. However you should use this
+option with caution as the `rm` command will remove the file immediately
 and permanently.  
 
 ## Special characters
@@ -394,10 +394,10 @@ Commonly used special characters
 
 ### Wildcard characters
 
-In Linux, question mark (**?**) and asterisk (**\***) are used as so
+In Linux, question mark (`?`) and asterisk (`*`) are used as so
 called wildcard characters. They can be used to define arguments that
 match many files or directories. When used in the command arguments, the
-*?* sign is interpreted as *any single character* and *\** sign as *any
+`?` sign is interpreted as *any single character* and `*` sign as *any
 string of characters*. For example command:
 
     ls test?.input 
@@ -409,39 +409,39 @@ would be ignored. Instead, command:
 
     ls test*.input 
 
-would list all of the files mentioned above as \* matches any string.
+would list all of the files mentioned above as `*` matches any string.
 Now the only limitations would be that the command must start with
 string *test* and end with string *.input*.
 
 ### Redirecting standard input and output
 
-Characters less than (**&lt;**), greater than (**&gt;**), **&gt;&gt;**
-and pipe (**\|**) are used to control the standard input and output. The
-less than (&lt;) instructs the command to read data for standard input
+Characters less than (`<`), greater than (`>`), `>>`
+and pipe (`|`) are used to control the standard input and output. The
+less than (`<`) instructs the command to read data for standard input
 from a file defined after that &lt; character instead of the keyboard.
 
-The greater than character (&gt;) would direct the standard output of to
+The greater than character ('>') would direct the standard output of to
 a new file instead of the display. For example command:
 
 `ls test*.input > input_files `
 
 would produce a new file called *input\_files* that would contain the
 names of files that start with string *test* and end with *.input*.
-Using two greater than signs with no space between them ( **&gt;&gt;** )
+Using two greater than signs with no space between them (`>>`)
 would append the results of a command to the end of an existing file or,
 if the file does not yet exist, direct the output to a new file.
 
-The pipe character (**\|**) directs the standard output of the command
+The pipe character (`|`) directs the standard output of the command
 to the standard input of the next command. With this function you can
 combine several linux commands into a command chain. For example if your
-file listing does not fit to one screen, you could redirect it to *less*
+file listing does not fit to one screen, you could redirect it to `less`
 command so that you can study and browse it one screenfull at a time.
 This kind of redirecting could be done with command:
 
     ls -l | less 
 
-As another example, we could use *grep* command as a post processor for
-*ls* command and pick for example those files that have been created on
+As another example, we could use `grep` command as a post processor for
+`ls` command and pick for example those files that have been created on
 August 14th :
 
     ls -l | grep "Aug 14"
