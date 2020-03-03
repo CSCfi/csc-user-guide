@@ -79,7 +79,7 @@ And set server name to be:
 Once you have download the client installation file, start the installation procedure with command:
 ```text
 chmod u+x DS2019Client.bin
-./DS2019Client.bin -V PORTATHOST=1752@license.csc.fi
+./DS2019Client.bin -V PORTATHOST=1752@license1.csc.fi
 ```
 The installation wizard guides you through the installation. In most cases you can use the default values.
 
