@@ -73,7 +73,7 @@ be edited. The ***Tools*** menu contains miscellaneous commands and
 tools.
 
 If you don't have remote graphics enabled, you can start Emacs in ascii
-mode with `emcas -nw`, but then you need you to know the [command short cuts](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). 
+mode with `emacs -nw`, but then you need you to know the [command short cuts](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf), like to exit is **ctrl-x ctrl-c**
 
 ![Graphical interface of emacs editor](../../../img/emacs.jpg "Graphical interface of emacs editor.")
 
@@ -107,8 +107,12 @@ of the confusion when a new user is learning it.
 To switch to the insert mode one needs to press the **i** key. When you
 have finished entering a text, press **Esc** to return to the command
 mode.  
-To save the file enter command **:w *file\_name***. The command to quit
-*vim* is **:q**, which needs to be issued in command mode.  
+To save the file enter command **:w *file\_name***.
+
+!!! Tip
+    The command to quit
+    *vim* is **:q**, which needs to be issued in command mode.  
+
 To exit vim without saving, and ignoring any warnings about unsaved
 data, use a variation of the :q command, i.e., **:q!**  
 This will return you to the prompt, without saving any changes to the
