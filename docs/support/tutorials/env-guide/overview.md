@@ -1,6 +1,5 @@
 # Linux basics Tutorial for CSC
 
-* [linux-basics-for-csc.md](linux-basics-for-csc.md)
 * [Using Linux in command line](using-linux-in-command-line.md)
 * [Editing text and viewing images](text-and-image-processing.md)
 * [Working with bash shell](working-with-bash-shell.md)
