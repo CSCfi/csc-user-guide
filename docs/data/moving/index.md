@@ -8,4 +8,5 @@ below the one that suits your needs best.
 * [Using rsync for data transfer and synchronization](rsync.md)
 * [Using wget to download data from web sites to CSC](wget.md)
 * [Sharing and transporting files using Funet FileSender](funet.md)
+* [Moving data between IDA and CSC computing environment](../ida/using_ida.md)
 * [Remote disk mounts](disk_mount.md)
