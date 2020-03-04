@@ -196,17 +196,17 @@ for it from CSC.
 |-------------------------|--------------------------------------|
 | Aalto university        | Pekka Karppinen                      |
 | University of Helsinki  | helpdesk at helsinki.fi              |
-| HAMK                    | Jari Marsela                         |
+| HAMK                    | Kirsi Laaksonen                         |
 | UEF                     | Eliisa Lotsari                       |
 | University of Jyväskylä | Juha Alioravainen, Anssi Lensu       |
 | Karelia AMK             | Antti Lajunen                        |
 | Lapin AMK               | lisenssit at lapinamk.fi             |
 | Laurea AMK              | servicedesk at laurea.fi             |
 | Kaakkois-Suomen AMK     | Esa Hannus                           |
-| Novia AMK               | Johan Nordström, Leif Östman         |
+| Novia AMK               | Stefan Heinänen         |
 | University of Oulu      | Lauri Aho                            |
-| TUT, Tampere AMK        | it-lisenssit at tut.fi               |
-| University of Turku      | sovellukset at utu.fi, Leena Laurila |
+| TUT, Tampere AMK        | it-helpdesk at tuni.fi               |
+| University of Turku      | Leena Laurila |
 | Åbo Akademi             | Mats Lipkin                          |
 
 ------------------------------------------------------------------------
