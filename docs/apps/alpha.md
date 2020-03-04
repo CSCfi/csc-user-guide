@@ -70,6 +70,7 @@
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [ParaView](paraview.md) Free open-source visualization application
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
