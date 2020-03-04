@@ -25,7 +25,7 @@ Tophat jobs should be run as batch jobs. Below is a sample batch job file, for r
 
 ```text
 !/bin/bash
-#SBATCH --jobname tophat
+#SBATCH --job-name=tophat
 #SBATCH --output=out_%j.txt
 #SBATCH --error=err_%j.txt
 #SBATCH --ntasks=1
