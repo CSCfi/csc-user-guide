@@ -42,7 +42,7 @@ Sample Megahit batch job:
 
 
 module load biokit
-srun megahit -1 reads_1.fastq -2 reads_2.fastq  -t -t $SLURM_CPUS_PER_TASK --mem=32G -o result_directory
+srun megahit -1 reads_1.fastq -2 reads_2.fastq -t $SLURM_CPUS_PER_TASK --m 32000000000 -o result_directory
 ```
 In the example above _<project>_ could be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects. Maximum running time is 
 set to 12 hours (`--time=12:00:00`). As Megahit uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (` --mem=32G`). Note that the number of cores to be used needs to be defined in actual Megahit command
