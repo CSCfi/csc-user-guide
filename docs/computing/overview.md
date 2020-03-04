@@ -22,9 +22,7 @@ to a specific login node, use the command:
 ```
 ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 ```
-For instructions on how to connect using Putty, establishing
-a graphical connection, or setting up ssh keys, see the
-[connecting](connecting.md) page. 
+For more details, see the [connecting](connecting.md) page. 
 
 
 !!! warning "Important"
@@ -38,6 +36,7 @@ a graphical connection, or setting up ssh keys, see the
 ## Using Puhti
 
 * [System](system.md): What computational resources does Puhti have
+* [Connecting](connecting.md): How to connect to Puhti 
 * [Disk areas](disk.md): What places are there for storing data on Puhti 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
