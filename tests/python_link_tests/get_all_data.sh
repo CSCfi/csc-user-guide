@@ -1,7 +1,6 @@
 
 get_all_internal_links(){
-    grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" $1 | grep -v "http" | grep -v "mailto:"  | sed 's/\[.*\](//g' | sed 's/)$//g' | sed 's/\(.*\)#/\1:/' 
-
+    grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" $1 | grep -v "http" | grep -v "mailto:"  | sed 's/\[.*\](//g' | sed 's/)$//g' | sed 's/\(.*\)#/\1:/' | sed 's/".*"//g' 
 }
 
 get_all_files(){
