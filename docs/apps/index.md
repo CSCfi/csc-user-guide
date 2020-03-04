@@ -6,26 +6,32 @@
 * [BayeScan](bayescan.md) Tool for identifying candidate loci under natural selection based on allele frequencies in populations.
 * [Bioconda](bioconda.md) Package manger for installing bioinformatics software
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
-* [BioPython](biopython.md) Pyhton environment with biopython and other bioinformatics related Python libraries
+* [BioPython](biopython.md) Python environment with biopython and other bioinformatics related Python libraries
 * [BLAST](blast.md) Sequence similarity search tool for nucleotides and proteins
 * [Bowtie2](bowtie2.md) Short read aligner 
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
+* [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Freebayes](freebayes.md) Genetic variant detector
+* [GOLD](gold.md) Protein Ligand Docking Software
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
+* [InterProScan](interpro.md) Protein signature/motif search tool.
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
+* [RAxML](raxml.md) Program for inferring phylogenies with likelihood
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
@@ -43,7 +49,9 @@
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
+* [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [Gaussian](gaussian.md) Versatile computational chemistry package
+* [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite

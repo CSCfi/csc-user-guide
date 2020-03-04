@@ -2,6 +2,7 @@
 
 This repository contains master data for
 (https://docs.csc.fi) which is in sync with 'master' branch.
+If you're looking for CSC user guides, click [here](https://docs.csc.fi).
 
 ## Creating issues
 
@@ -16,6 +17,8 @@ Creating an Issue requires a GitHub account.
 
 
 [Contributing](CONTRIBUTING.md)
+
+[Style guide](STYLEGUIDE.md)
 
 [Changelog](CHANGELOG.md)
 

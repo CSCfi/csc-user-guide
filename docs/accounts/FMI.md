@@ -23,7 +23,7 @@ A project for Puhti FMI partition is created similarly by choosing _FMI_ as the 
 
 ### Puhti FMI partition
 
-The Puhti FMI partition comprises an additional 240 nodes with 192 GB of memory. These are on top of those listed in the [system description](../computing/system.md). The nodes have specifications identical to the regular nodes in Puhti. There are two queues in the FMI partition: `fmi` and `fmi_test`. The maximum job size for `fmi` is 100 nodes with a maximum runtime of six days. The maximum job size for `fmi_test` is two nodes with a maximum runtime of 30 minutes.
+The Puhti FMI partition comprises an additional 240 nodes with 192 GB of memory. These are on top of those listed in the [system description](../computing/system.md). The nodes have specifications identical to the regular nodes in Puhti. There are two queues in the FMI partition: `fmi` and `fmitest`. The maximum job size for `fmi` is 100 nodes with a maximum runtime of six days. The maximum job size for `fmitest` is two nodes with a maximum runtime of 30 minutes.
 
 ### Storage areas
 
@@ -44,6 +44,6 @@ between __projappl__ and __scratch__:
 
 The FMI customers can use both the regular Puhti login nodes `puhti.csc.fi`, and FMI specific login nodes `puhti-login1.fmi.fi` and `puhti-login2.fmi.fi`.
 
-Puhti FMI works similarly to the regular Puhti system, the main difference being that FMI projects use the `fmi` and `fmi_test` partitions instead of the regular partitions (small, large, etc.). Also, the FMI login nodes are networked through FMI's internal network, making network access somewhat different.
+Puhti FMI works similarly to the regular Puhti system, the main difference being that FMI projects use the `fmi` and `fmitest` partitions instead of the regular partitions (small, large, etc.). Also, the FMI login nodes are networked through FMI's internal network, making network access somewhat different.
 
 In addition to the regular CSC's user support, [servicedesk@csc.fi](mailto:servicedesk@csc.fi), FMI specific support is available in the internal wiki pages [FMI Puhti Guide](https://wiki.fmi.fi/display/VTUKI/FMI+Puhti+guide), and in the very active FMI's Slack channel 'fmi-computing'.

@@ -45,3 +45,5 @@ script:
   - bash tests/check_mail_commented.sh
   # Use long slurm flags
   - bash tests/check_long_slurm_flags.sh
+  # There should be no FIXME entires present
+  - bash tests/check_fixme.sh

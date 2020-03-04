@@ -36,7 +36,7 @@ keep additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-8   |**centos** | no |
+|CentOS-8   |cloud-user | yes|
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
 |Ubuntu-18.04   |**ubuntu** | no |
@@ -47,13 +47,12 @@ keep additional packages at a minimum.
 Currently in a *tech preview* because we have found some
 [minor issues](https://bugs.centos.org/view.php?id=16948) with it.
 
-CentOS is the community version of Red Hat Enterprise Linux (RHEL).
-This image is exactly as provided by CentOS and we have not modified it
-in any way.
+At the moment we are making these changes to it:
+ - we change the username to "cloud-user" instead of centos
+ - we have removed the 192.168.122.1 resolver in /etc/resolv.conf
 
-Note that CentOS-8 has `centos` as default username.
-If you attempt to login as the root user there will be a helpful message telling
-you which user has your key installed.
+CentOS is the community version of Red Hat Enterprise Linux (RHEL).
+
 Another difference is that this image does not have automatic updates enabled.
 
 ### CentOS-7
