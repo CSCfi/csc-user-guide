@@ -23,15 +23,15 @@ A project for Puhti FMI partition is created similarly by choosing _FMI_ as the 
 
 ### Puhti FMI partition
 
-The Puhti FMI partition comprises an additional 240 nodes with 192 GB of memory. These are on top of those listed in the [system description](../computing/system.md). The nodes have specifications identical to the regular nodes in Puhti. There are two queues in the FMI partition: `fmi` and `fmi_test`. The maximum job size for `fmi` is 100 nodes with a maximum runtime of six days. The maximum job size for `fmi_test` is two nodes with a maximum runtime of 30 minutes.
+The Puhti FMI partition comprises an additional 240 nodes with 192 GB of memory. These are on top of those listed in the [system description](../computing/system.md). The nodes have specifications identical to the regular nodes in Puhti. There are two queues in the FMI partition: `fmi` and `fmitest`. The maximum job size for `fmi` is 100 nodes with a maximum runtime of six days. The maximum job size for `fmitest` is two nodes with a maximum runtime of 30 minutes.
 
 ### Storage areas
 
 The FMI partition projects can access the `/fmi/` folder in Puhti. This folder has a global quota of 750 TiB. The project folders of the FMI projects are located in `/fmi/projappl/<projectname>` and `/fmi/scratch/<projectname>` respectively. The command `csc-workspaces` lists the project folders. The global quota is divided 
 between __projappl__ and __scratch__: 
 ```text
-/fmi/projappl    50 TiB
-/fmi/scratch    700 TiB
+/fmi/projappl   150 TiB
+/fmi/scratch    600 TiB
 ```
 
 !!! Note
@@ -42,6 +42,8 @@ between __projappl__ and __scratch__:
 
 ### Usage
 
-The FMI partition is accessed using regular Puhti login nodes. This is a temporary solution before the Puhti FMI login node is installed.
+The FMI customers can use both the regular Puhti login nodes `puhti.csc.fi`, and FMI specific login nodes `puhti-login1.fmi.fi` and `puhti-login2.fmi.fi`.
 
-Puhti FMI works similarly to the regular Puhti system, the main difference being that FMI projects use the `fmi` and `fmi_test` partitions instead of the regular partitions (small, large, etc.).
+Puhti FMI works similarly to the regular Puhti system, the main difference being that FMI projects use the `fmi` and `fmitest` partitions instead of the regular partitions (small, large, etc.). Also, the FMI login nodes are networked through FMI's internal network, making network access somewhat different.
+
+In addition to the regular CSC's user support, [servicedesk@csc.fi](mailto:servicedesk@csc.fi), FMI specific support is available in the internal wiki pages [FMI Puhti Guide](https://wiki.fmi.fi/display/VTUKI/FMI+Puhti+guide), and in the very active FMI's Slack channel 'fmi-computing'.

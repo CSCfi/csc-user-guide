@@ -9,7 +9,7 @@ GDAL is available in Puhti with following versions:
 * 3.0.2 via conda: [geoconda](geoconda.md), 
 * 2.4.3 via conda: [snap](snap.md)
 * 2.4.2 via conda: [mapnik](mapnik.md)
-* 2.4.1 via conda: [solaris](solaris.md)
+* 2.4.1 via conda: [solaris](solaris.md) and [Orfeo ToolBox](otb.md)
 * 3.0.1 stand-alone: gdal module,
 * 2.4.2 stand-alone: gdal module, [r-env](r-env.md), additionally FORCE and Saga-GIS use this GDAL, but the GDAL commandline tools are not included in these modules.
 
@@ -17,7 +17,7 @@ GDAL is available in Puhti with following versions:
 
 ### Using gdal
 
-GDAL is included in the modules listed above, so and can be loaded with for example:
+GDAL is included in the modules listed above, so it can be used when any of these modules is loaded, or it can be loaded separately with:
 
 `module load geoconda`
 
@@ -42,6 +42,7 @@ You can test if gdal loaded successfully with following
 
 It is possible to __read__ files from Allas directly with GDAL, but not to write.
 The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
+
  * [Python](geoconda.md): gdal, geopandas, fiona and rasterio. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
  * [R](r-env-for-gis.md): sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
  * [QGIS](qgis.md)
@@ -55,7 +56,7 @@ gdalinfo /vsicurl/https://a3s.fi/<name_of_your_bucket>/<name_of_your_file>
 
 __Private files__ can be read by SWIFT or S3 API. SWIFT is more secure, but the credetials need to be updated after 8 hours. S3 has permanent keys, is therefore little bit easier to use, but less secure. Both of these have a random reading and streaming API.
 
-__SWIFT.__ Set up the connection in Puhti or Taito and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
+__SWIFT.__ Set up the connection in Puhti and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
 
 ```
 module load allas
@@ -68,24 +69,16 @@ gdalinfo /vsiswift/<name_of_your_bucket>/<name_of_your_file>
 The export commands are needed because GDAL is looking for different environment variables than what allas-conf is writing. These commands need to be given each time you start working with Puhti, because the token is valid for 8 hours. Inside batchjobs use [allas-conf -k](../data/Allas/allas_batchjobs.md).
 
 __S3.__ 
-Create your S3 credentials with allas-conf in Puhti or Taito.
+Set up the connection in Puhti and then read the files with [vsis3-driver](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files-random-reading):
 ```
 module load allas
 allas-conf --mode s3cmd
-```
-Save your credentials in your home directory to .aws/credentials file like this:
-```
-[default]
-AWS_ACCESS_KEY_ID=<access_key>
-AWS_SECRET_ACCESS_KEY=<secret_key>
-```
-These steps you have to do only once.
-
-Set the service endpoint for Allas and read the file using [vsis3-driver](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files-random-reading):
-```
-export AWS_S3_ENDPOINT=a3s.fi
 gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 ```
+
+* `module load allas` sets AWS_S3_ENDPOINT environment variable, which needs to be run each time S3 is used.
+* `allas-conf` command saves your credentials in your home directory to .aws/credentials file. This needs to be run only once before first use.
+
 
 ## License and citing
 

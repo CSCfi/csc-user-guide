@@ -2,7 +2,7 @@
 
 ## Description
 
-SPAdes if a short read assebler for small genomes. SPAdes works with Illumina or IonTorrent reads and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads.
+SPAdes is a short read assebler for small genomes. SPAdes works with Illumina or IonTorrent reads and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads.
 
 SPAdes (`spares.py`) includes several separate modules:
 
@@ -66,7 +66,7 @@ srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPU
 ```
 In the example above _<project>_ could be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
 Maximum running time is 
-set to 12 hours (`--time=12:00:00`). As SPAdes uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--ntasks=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (`--mem=32G`). Note that the number of cores to be used needs to be defined in actual _spades.py_ command
+set to 12 hours (`--time=12:00:00`). As SPAdes uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (`--mem=32G`). Note that the number of cores to be used needs to be defined in actual _spades.py_ command
 too. That is done with _spades.py_ option `-t`. In this case we use $SLURM_CPUS_PER_TASK variable that contains the _cpus-pre-task_ 
 value. We could as well use `-t 8` but then we have to remember to change the value if number of the reserved CPU:s is changed.
 
@@ -76,7 +76,7 @@ file is named as _spades_job.sh_ then the submission command is:
 ```text
 sbatch spades_job.sh 
 ```
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 

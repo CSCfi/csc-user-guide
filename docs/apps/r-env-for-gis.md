@@ -51,18 +51,15 @@ module load r-env
 You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md)
 
 `r-env` loads also:
- * [GDAL](gdal.md) 2.4.2 and its commandline tools.
- * [Saga-GIS](saga-gis.md) 7.2.0.
 
+* [GDAL](gdal.md) 2.4.2 and its commandline tools.
+* [Saga-GIS](saga-gis.md) 7.2.0.
 
-### Parallel computing 
+### Parallel computing
 
 Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
 
-Other than those, you have to parallelize your own R code which can be done with libraries like __Rmpi__ and __snow__.
-
-!!! note
-    Parallel computing with `Rmpi` (like on Taito) does not work at the moment in Puhti. `snow` seems to work.
+Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env module](r-env.md)).
 
 ## Citation
 

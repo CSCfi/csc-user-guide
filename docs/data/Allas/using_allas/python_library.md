@@ -1,4 +1,3 @@
-
 # Using Allas with Python
 
 CSC's instructions for installing Python and which libraries are required:  
@@ -6,7 +5,7 @@ CSC's instructions for installing Python and which libraries are required:
 
 Download the **OpenStack RC File v3** as instructed in the last chapter *3.4.1.3 Configure your terminal environment for OpenStack*.
 
-The **Python pip libraries** required for the examples:  
+The **Python pip libraries** required in the examples:  
  *python-keystoneclient* and *python-swiftclient*.
 
 This page includes Python scripts for the following operations:
@@ -71,7 +70,6 @@ conn = swiftclient.Connection(
     auth_version=_auth_version
 )
 ```
-
   
 In the above example:
 
@@ -83,9 +81,8 @@ In the above example:
 | OS_PASSWORD | = _key | = *John1234* |  
 | OS_PROJECT_NAME | = project_name | = *project_123456* |
 
-For further information of *Keystone authentication*, see:  
+Further information of the _Keystone authentication_:  
 [https://docs.openstack.org/python-swiftclient/newton/client-api.html](https://docs.openstack.org/python-swiftclient/newton/client-api.html) 
-
 
 ## Create a bucket
 
@@ -95,7 +92,6 @@ Create a new bucket using the following script:
 bucket_name='snakebucket'
 conn.put_container(bucket_name)
 ```
-
 
 ## Upload an object
 
@@ -108,7 +104,6 @@ with open(object_name, 'r') as f:
                     contents=f.read(),
                     content_type='text/plain')
 ```
-
 
 ## List buckets and objects
 
@@ -126,11 +121,9 @@ for info in conn.get_container('snakebucket')[1]:
     print('{0}\t{1}\t{2}'.format(info['name'], info['bytes'], info['last_modified']))
 ```
 
-
 ## Download an object
 
-Download an object using the following script:
-
+Download an object:
 ```python
 my_obj = conn.get_object(bucket_name, object_name)[1]
 with open('new_name_for_file.txt', 'w') as f:
@@ -141,17 +134,17 @@ with open('new_name_for_file.txt', 'w') as f:
 ```python
 TypeError: write() argument must be str, not bytes
 ```
-open the file in binary mode
+open the file in the binary mode
 ```python
 with open('new_name_for_file.txt', 'bw') as f:
     f.write(my_obj)
 ```
-instead of text mode.
+instead of the text mode.
 
 
 ## Remove buckets and objects
 
-Delete a bucket using the following script:
+Delete a bucket:
 ```python
 conn.delete_container(bucket_name)
 ```
