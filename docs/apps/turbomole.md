@@ -74,6 +74,13 @@ seff $SLURM_JOBID
 ```
 
 !!! note
+    Occationally `mpshift` calculations are terminated due to the local `/tmp` becoming full. The problem can be circumvented by redefining `$TMPDIR`.
+``` 
+    export TURBOTMPDIR=$PWD/TURBOTMPDIR.$SLURM_JOB_ID
+    export TMPDIR=$TURBOTMPDIR
+```
+
+!!! note
     Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
