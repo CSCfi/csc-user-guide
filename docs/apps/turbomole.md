@@ -74,7 +74,7 @@ seff $SLURM_JOBID
 ```
 
 !!! note
-    Occationally `mpshift` calculations are terminated due to the local `/tmp` becoming full. The problem can be circumvented by redefining `$TMPDIR`.
+    Occasionally `mpshift` calculations are terminated due to the local `/tmp` becoming full. The problem can be circumvented by redefining `$TMPDIR`.
 ``` 
     export TURBOTMPDIR=$PWD/TURBOTMPDIR.$SLURM_JOB_ID
     export TMPDIR=$TURBOTMPDIR
