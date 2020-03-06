@@ -88,6 +88,11 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
+!!! Note
+    By default, running a single task per node with multiple threads using **hpcx-mpi** will bind all threads to a single
+    core and no speedup will be gained. This can be fixed by setting `export OMP_PROC_BIND=true` in your job script. This
+    will bind the threads to different cores. Another possibility is to turn off slurms core binding with the `srun` flag `--cpu-bind=none`. 
+
 
 ## Single GPU
 

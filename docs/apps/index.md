@@ -28,6 +28,7 @@
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
@@ -38,6 +39,7 @@
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
+* [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 
