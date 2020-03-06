@@ -19,8 +19,4 @@ In MyCSC you can:
 
 For more information, see the following sections.
 
-## SUI
 
-Not all features of SUI are yet available in MyCSC. For example, the [IDA research data
-storage](https://www.fairdata.fi/en/ida/becoming-an-ida-user/) is
-still accessed via SUI until this feature is implemented in MyCSC.
