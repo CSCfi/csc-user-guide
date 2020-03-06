@@ -17,6 +17,3 @@ In MyCSC you can:
 * Apply for billing units (BU) for your projects
 * Monitor the BU consumption of you projects
 
-For more information, see the following sections.
-
-
