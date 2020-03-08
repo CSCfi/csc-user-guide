@@ -26,7 +26,7 @@ In addition to fast remote graphics, NoMachine enables you to keep your Puhti re
 closed your local computer. Therefore, NoMachine is a good option for long interactive processes also without graphics. 
 More details can be found in [NoMachine tutorial](../support/tutorials/nomachine-usage.md).
 
-If you for some reason want to use a slower, X11 based graphical connection, your local computer must have an X server program) 
+If you for some reason want to use a slower, X11 based graphical connection, your local computer must have an X server program 
 installed and running. In Linux and macOS an X server is normally installed automatically, while for Windows, it needs to be 
 installed separately. Free X server for Windows is provided, for example, by
 [MobaXterm](https://mobaxterm.mobatek.net/) or [Xming](http://www.straightrunning.com/XmingNotes/).
@@ -42,7 +42,7 @@ In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> 
 
 SSH keys provide more secure authentication, which can be enabled with a two-step process:
 
-1. **Generate SSH Keys**: The SSH Keys are always generated in pair,
+1. **Generate SSH Keys**: The SSH Keys are always generated in pairs,
    one *public key* and one *private key*. These keys should be generated
    on the computer you are using to connect to Puhti. 
 2. **Copy public key to Puhti**: Only the *public key* should be
@@ -75,16 +75,20 @@ ssh-copy-id <csc_username>@puhti.csc.fi
 
 You will be prompted for your CSC password (not the passphrase in the
 previous phase). In subsequent logins to Puhti you should then provide
-the passphrase (typically, Linux systems have SSH agent which require
-user to provide passphrase only once per session).
+the passphrase. It is possible to use an SSH agent (`ssh-agent` in Linux,
+`pageant` application in PuTTY for Windows) which requires
+user to provide the passphrase only once per session. 
 
-In Windows, you need to manually copy-paste the public key to Puhti. Open the public key file 
-(by default in _.ssh\id_rsa.pub_ under HOME folder) and copy the content to the clipboard. Next, connect to
+In Windows, you need to manually copy-paste the public key to Puhti. Look for the public key file.
+It may be either in the folder where you created it, or in _.ssh\id_rsa.pub_ under HOME folder,
+or in _C:\Users\<Username>\.ssh_. Note, you may
+need to edit your Windows settings to see hidden folders i.e. those which start with ".".
+Once located, open it with an editor and copy the content to the clipboard. Next, connect to
 Puhti and open the file _.ssh/authorized_keys_ with your favourite editor (e.g. `nano`). Paste the public key
 from the clipboard to the end of the file and save the file.
 
-If using `PuTTY`, the private key needs first to be converted to PuTTY's format using `PuTTYgen` program 
+If you are using `PuTTY`, the private key needs first to be converted to PuTTY's format using `PuTTYgen` program 
 (_Load an existing private key file_, _Save private key_). Note that PuTTYgen can be used also for generating 
 the key pair in first place instead of PowerShell and `ssh-keygen`. Now, when starting the connection with `PuTTY`, 
-select private key file in **Connection > SSH > Auth**. By saving the session, the settings can be utilized automatically 
+select the private key file in **Connection > SSH > Auth**. By saving the session, the settings can be utilized automatically 
 everytime you connect.
