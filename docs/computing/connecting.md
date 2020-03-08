@@ -89,7 +89,7 @@ from the clipboard to the end of the file and save the file.
 
 If you are using `PuTTY`, the private key needs first to be converted to PuTTY's format using `PuTTYgen` program 
 (_Load an existing private key file_, _Save private key_, see also our 
-[Pouta guide](../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys)). 
+[Pouta guide](../../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys)). 
 Note, that PuTTYgen can be used also for generating 
 the key pair in first place instead of PowerShell and `ssh-keygen`. Now, when starting the connection with `PuTTY`, 
 select the private key file in **Connection > SSH > Auth**. By saving the session, the settings can be utilized automatically 
