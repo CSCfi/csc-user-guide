@@ -8,12 +8,12 @@ ssh <csc_username>@puhti.csc.fi
 
 In Linux and macOS the `ssh` command can be given in the terminal, in Windows `ssh` is available within PowerShell. 
 In Windows, you can use also use [PuTTY](https://putty.org/). Once Putty is started, specify **puhti.csc.fi** 
-as _Host Name_ (using the default port 22 and SSH connection type). Once you click the _Open_ button, a new terminal 
-session will ask for your CSC-username and password.
+as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal 
+session and asks for your CSC-username and password.
 
 Once the terminal connection to Puhti is open you can start using it with the Linux command line tools (bash shell). 
-Introductions for operating on Linux command line can be found for example from our
-[Linux Basics tutorial for CSC](..support/tutorials/env-guide/overview.md). 
+Introduction for operating on Linux command line can be found for example from our
+[Linux Basics tutorial for CSC](../support/tutorials/env-guide/overview.md). 
 You can have several Puhti connections open at the same time.
 
 By default, SSH access to Puhti is authenticated with the password of your CSC user account. 
@@ -88,7 +88,9 @@ Puhti and open the file _.ssh/authorized_keys_ with your favourite editor (e.g. 
 from the clipboard to the end of the file and save the file.
 
 If you are using `PuTTY`, the private key needs first to be converted to PuTTY's format using `PuTTYgen` program 
-(_Load an existing private key file_, _Save private key_). Note that PuTTYgen can be used also for generating 
+(_Load an existing private key file_, _Save private key_, see also our 
+[Pouta guide](../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys)). 
+Note, that PuTTYgen can be used also for generating 
 the key pair in first place instead of PowerShell and `ssh-keygen`. Now, when starting the connection with `PuTTY`, 
 select the private key file in **Connection > SSH > Auth**. By saving the session, the settings can be utilized automatically 
 everytime you connect.
