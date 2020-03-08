@@ -12,8 +12,8 @@ as _Host Name_ (using the default port 22 and SSH connection type). Once you cli
 session will ask for your CSC-username and password.
 
 Once the terminal connection to Puhti is open you can start using it with the Linux command line tools (bash shell). 
-Introductions for operating on Linux command line can be found for example from 
-[here](https://research.csc.fi/csc-guide-linux-basics-for-csc). 
+Introductions for operating on Linux command line can be found for example from our
+[Linux Basics tutorial for CSC](..support/tutorials/env-guide/overview.md). 
 You can have several Puhti connections open at the same time.
 
 By default, SSH access to Puhti is authenticated with the password of your CSC user account. 
