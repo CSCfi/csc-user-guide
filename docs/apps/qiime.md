@@ -15,7 +15,7 @@ At the moment only Qiime2 is available in Puhti.
 
 ## Available
 
--   Puhti: qiime2-2019.10  
+-   Puhti: qiime2-2020.2, qiime2-2019.10  
 
 
 ## Usage
@@ -25,7 +25,7 @@ In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
 ```text
 module load bioconda
 conda env list
-source activate qiime2-2019.10
+source activate qiime2-2020.2
 source tab-qiime 
 ```
 
@@ -40,6 +40,25 @@ Note that many Qiime tasks involve heavy computing. Thus, these tasks should be 
 batch jobs. Qiime needs to have access to a local node specific file system for handling temporary data.
 This kind of directory is available on the NVME nodes of Puhti. Therefore, you must include a request for NVME space
 in your batch job file.
+
+The easiest way to start using Qiime is to use command `sinteractive` to launch an interactive batch job:
+```text
+sinteractive -i
+```
+In the interactive session, you can set up Qiime with commands:
+
+```text
+csc-workspaces
+cd /scratch/<project>
+export PROJAPPL=/projappl/<project>
+module load bioconda
+conda env list
+source activate qiime2-2020.2
+```
+
+Interactive batch jobs include local temporary disk that is mandatory for running Qiime. 
+
+In case of normal batch jobs, you must reserve NVME disk area that will be used as $TMPDIR area.
 
 For example, to reserve 100 GB of local disk space:
 ```
@@ -68,6 +87,7 @@ as a batch job using eight cores.
 #SBATCH --gres=nvme:100
 
 #set up qiime
+export PROJAPPL=/projappl/<project>
 module load bioconda
 source activate qiime2-2019.10
 export TMPDIR="$LOCAL_SCRATCH"
