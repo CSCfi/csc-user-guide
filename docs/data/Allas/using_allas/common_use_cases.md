@@ -1,15 +1,39 @@
 # Common use cases
 
-## Processing data in HPC systems
+## Processing data in CSC supercomputers
 
-To use the computing environment in Taito or Puhti, use the open source parallel file system [Lustre](http://lustre.org/). In these file systems, files are automatically removed after 90 days. One of the main use cases of Allas is to store data that is not active in the HPC systems. Before beginning, stage the data in. When the data is no longer actively used, it can be staged out. 
+The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. For example in the _scratch_ area of Puhti the un-used files are automatically removed after 90 days. 
 
-* **Copying data from the object storage to Lustre (stage in):** Copy the data to the parallel file system Lustre before computing. We recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) or [Swift download](./swift_client.md#download-objects-and-buckets) for downloading objects from Allas.
+One of the main use cases of Allas is to store data that is not in actively used in the CSC supercomputers. When you start
+working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
 
-* **Copying data from Lustre to the object storage (stage out):** After computing, copy the files to Allas. We recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) or [swift upload](./swift_client.md#create-buckets-and-upload-objects) for uploading the data to Allas.
+The Allas connection needs to be establsihed in each session with commands:
+```text
+module load allas
+allas-conf
+```
+After that  you can:
+
+**Copy data from Allas to a supercomputer (Puhti or Mafti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
+```text
+a-get bucket/object_name
+```
+or [rclone copyto](./rclone.md):
+```text
+rclone copy allas:bucket/object_name
+```
+
+* **Copy data from a Supercomputer to Allas (stage out):** For uploading we recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) 
+```text
+a-put filename
+```
+or [rclone copyto](./rclone.md#create-buckets-and-upload-objects) for uploading the data to Allas.
+```test
+rclone copy file.dat allas:/bucket_name
+```
 
 !!! note
-    We recommend using the Swift protocol on Allas. It is important not to mix Swift and S3, as these protocols are not fully mutually compatible.
+    Both a-put/a-get and rclone use Swift protocol on Allas. It is important not to mix Swift and S3, as these protocols are not fully mutually compatible.
 
 ## Sharing data
 
