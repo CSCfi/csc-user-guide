@@ -18,7 +18,7 @@ After that  you can:
 ```text
 a-get bucket/object_name
 ```
-or [rclone copyto](./rclone.md):
+or [rclone copy](./rclone.md):
 ```text
 rclone copy allas:bucket/object_name
 ```
@@ -27,7 +27,7 @@ rclone copy allas:bucket/object_name
 ```text
 a-put filename
 ```
-or [rclone copyto](./rclone.md#create-buckets-and-upload-objects) for uploading the data to Allas.
+or [rclone copy](./rclone.md#create-buckets-and-upload-objects) for uploading the data to Allas.
 ```test
 rclone copy file.dat allas:/bucket_name
 ```
