@@ -14,7 +14,7 @@ allas-conf
 ```
 After that  you can:
 
-**Copy data from Allas to a supercomputer (Puhti or Mafti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
+**Copy data from Allas to a supercomputer (Puhti or Mahti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
 ```text
 a-get bucket/object_name
 ```
@@ -23,7 +23,7 @@ or [rclone copyto](./rclone.md):
 rclone copy allas:bucket/object_name
 ```
 
-* **Copy data from a Supercomputer to Allas (stage out):** For uploading we recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) 
+**Copy data from a Supercomputer to Allas (stage out):** For uploading we recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) 
 ```text
 a-put filename
 ```
