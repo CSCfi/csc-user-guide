@@ -27,7 +27,7 @@ rclone copy allas:bucket/object_name
 ```text
 a-put filename
 ```
-or [rclone copy](./rclone.md#create-buckets-and-upload-objects) for uploading the data to Allas.
+or [rclone copy](./rclone.md):
 ```test
 rclone copy file.dat allas:/bucket_name
 ```
