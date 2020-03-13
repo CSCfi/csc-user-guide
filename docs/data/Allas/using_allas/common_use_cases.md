@@ -4,15 +4,15 @@
 
 The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. For example in the _scratch_ area of Puhti the un-used files are automatically removed after 90 days. 
 
-One of the main use cases of Allas is to store data that is not in actively used in the CSC supercomputers. When you start
+One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
 working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
 
-The Allas connection needs to be establsihed in each session with commands:
+In CSC supercomputers, connection to Allas can be established with commands:
 ```text
 module load allas
 allas-conf
 ```
-After that  you can:
+After that you can:
 
 **Copy data from Allas to a supercomputer (Puhti or Mahti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
 ```text
