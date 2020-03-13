@@ -15,6 +15,3 @@ In MyCSC you can:
 * Add services of your choice to your projects
 * Apply for billing units (BU) for your projects
 * Monitor the BU consumption of you projects
-
-For more information, see the following sections.
-

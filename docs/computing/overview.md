@@ -37,9 +37,7 @@ or
 ssh <csc_username>@mahti-login<number 1-2>.csc.fi
 ```
 
-
-For instructions on how to connect using Putty or establishing
-a graphical connection, see the [connecting](connecting.md) page.
+For more details, see the [connecting](connecting.md) page. 
 
 ## Usage policy
 
@@ -64,8 +62,10 @@ Programs not adhering to these rules will be terminated without warning.
 
 ## Using Puhti and Mahti
 
+
 * [System](system.md): What computational resources are available 
-* [Disk areas](disk.md): What places are there for storing data on Puhti and Mahti 
+* [Disk areas](disk.md): What places are there for storing data on CSC supercomputers 
+* [Connecting](connecting.md): How to connect to  CSC supercomputers 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on the supercomputers 
