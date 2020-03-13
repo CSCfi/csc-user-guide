@@ -1,6 +1,6 @@
 # Running existing containers
 
-Puhti supports running [Singularity](https://sylabs.io/singularity/) containers. For some use cases, CSC's staff has provided ready-made Singularity containers that can be used simply by loading the right module. Please check the [application pages](../apps/index.md) if a pre-installed container is already available, and see the specific application's page for instructions on how to use it.
+Puhti supports running [Singularity](https://sylabs.io/singularity/) containers. For some use cases, CSC's staff has provided ready-made Singularity containers that can be used simply by loading the right module. Please check the [application pages](../../apps/index.md) if a pre-installed container is already available, and see the specific application's page for instructions on how to use it.
 
 If you find some image missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](https://www.csc.fi/en/contact-info).  Otherwise you can also build them yourself by converting existing Docker container images (see instructions below).
 
