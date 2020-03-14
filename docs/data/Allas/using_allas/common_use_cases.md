@@ -18,7 +18,7 @@ After that you can:
 ```text
 a-list
 ```
-The command above list available data buckets in Allas. To list data objects in a bucket give command:
+The command above lists available data buckets in Allas. To list data objects in a bucket give command:
 ```text
 a-list bucket_name
 ```
