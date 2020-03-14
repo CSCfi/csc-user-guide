@@ -13,7 +13,20 @@ module load allas
 allas-conf
 ```
 After that you can:
-
+**List the data buckets and objects in Allas:** For listing we recommed [a-list](./a_commands.md#a-list)
+List bucket names:
+```text
+a-list
+```
+List data objects in a bucket
+```text
+a-list bucket_name
+```
+alternatively you can use rclone:
+```text
+clone lsd allas:
+rclone ls allas:bucket_name
+```
 **Copy data from Allas to a supercomputer (Puhti or Mahti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
 ```text
 a-get bucket/object_name
