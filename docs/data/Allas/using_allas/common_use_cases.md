@@ -22,7 +22,7 @@ The command above lists available data buckets in Allas. To list data objects in
 ```text
 a-list bucket_name
 ```
-alternatively you can use rclone commands:
+alternatively you can use [rclone](./rclone) commands:
 ```text
 rclone lsd allas:
 rclone ls allas:bucket_name
