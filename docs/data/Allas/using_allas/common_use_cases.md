@@ -56,7 +56,7 @@ The data can be accessed and shared in a variety of ways:
 
 * **Private – default:** By default, if you do not specify anything else, the contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
 
-    * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket)(use this for buckets used by a-put/a-get or rclone )
+    * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) Uuse this for buckets used by a-put/a-get or rclone.
     * [Web client](./web_client.md#view-objects-via-the-internet)
     * [S3 client](./s3_client.md#s3cmd-and-public-objects)
 
