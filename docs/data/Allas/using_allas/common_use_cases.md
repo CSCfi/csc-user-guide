@@ -13,6 +13,7 @@ module load allas
 allas-conf
 ```
 After that you can:
+
 **List the data buckets and objects in Allas:** For listing we recommed [a-list](./a_commands.md#a-list)
 List bucket names:
 ```text
