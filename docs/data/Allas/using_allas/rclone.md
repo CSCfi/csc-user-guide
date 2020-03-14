@@ -59,7 +59,7 @@ The _copy_ and _move_ subcommands only work with files. If you would like to cop
 ## List buckets and objects
 
 List all the buckets belonging to a project:
-<pre>$ <b>rclone ls allas:</b>
+<pre>$ <b>rclone lsd allas:</b>
 0 2019-06-06 14:43:40         0 2000620-raw-data
 </pre>
 
