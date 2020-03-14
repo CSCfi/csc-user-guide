@@ -42,6 +42,7 @@ Sharing data, e.g. datasets or research results, is easy in the object storage. 
 The data can be accessed and shared in a variety of ways:
 
 * **Private – default:** By default, if you do not specify anything else, the contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
+        * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket)(use this for buckets used by a-put/a-get or rclone )
 	* [Web client](./web_client.md#view-objects-via-the-internet)
 	* [S3 client](./s3_client.md#s3cmd-and-public-objects)
 
@@ -53,7 +54,7 @@ The data can be accessed and shared in a variety of ways:
 
 A common way to use the object storage is storing static web content, such as images, videos, audio, pdfs or other downloadable content, and adding links to it on a web page, which can run either inside Allas or somewhere else. [An example](https://a3s.fi/my_fishbucket/my_fish)
 
-Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas), [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
+Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas),[rclone](./rclone.md#create-buckets-and-upload-objects) [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
 
 ## Storing data for distributed use
 
@@ -79,13 +80,18 @@ The object storage is also often used as a location for storing backups. It is a
 
 Files larger than 5 GB must be divided into smaller segments before uploading. 
 
-* The *a-command a-put* splits large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
+* *a-put* and *rclobe*  split large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
 
 * Using _Swift_, you can use the _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
 
 * _s3cmd_ splits large files automatically: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects)
 
 ## Viewing
+
+In CSC supercomputers you can check the number of objects and the amount of stored data in your current Allas project with command:
+```text
+a-info
+```
 
 If you are using the _s3cmd client_, check your project's object storage usage:
 ```bash
