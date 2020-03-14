@@ -14,7 +14,7 @@ allas-conf
 ```
 After that you can:
 
-**List the data buckets and objects in Allas:** For listing we recommed [a-list](./a_commands.md#a-list).
+**List the data buckets and objects in Allas:** For listing we recommend [a-list](./a_commands.md#a-list).
 ```text
 a-list
 ```
