@@ -20,7 +20,7 @@ a-get bucket/object_name
 ```
 or [rclone copy](./rclone.md):
 ```text
-rclone copy allas:bucket/object_name
+rclone copy allas:bucket/object_name ./
 ```
 
 **Copy data from a Supercomputer to Allas (stage out):** For uploading we recommend [a-put](./a_commands.md#a-put-uploads-data-to-allas) 
@@ -29,7 +29,7 @@ a-put filename
 ```
 or [rclone copy](./rclone.md):
 ```test
-rclone copy file.dat allas:/bucket_name
+rclone copy file.dat allas:/bucket_name 
 ```
 
 !!! note
