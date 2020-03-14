@@ -14,18 +14,17 @@ allas-conf
 ```
 After that you can:
 
-**List the data buckets and objects in Allas:** For listing we recommed [a-list](./a_commands.md#a-list)
-List bucket names:
+**List the data buckets and objects in Allas:** For listing we recommed [a-list](./a_commands.md#a-list).
 ```text
 a-list
 ```
-List data objects in a bucket
+The command above list available data buckets in Allas. To list data objects in a bucket give command:
 ```text
 a-list bucket_name
 ```
-alternatively you can use rclone:
+alternatively you can use rclone commands:
 ```text
-clone lsd allas:
+rclone lsd allas:
 rclone ls allas:bucket_name
 ```
 **Copy data from Allas to a supercomputer (Puhti or Mahti) (stage in):** For downloading we recommend [a-get](./a_commands.md#a-get-retrieves-stored-data) 
