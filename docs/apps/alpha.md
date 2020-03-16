@@ -21,6 +21,7 @@
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [DDT](ddt.md) Parallel debugger 
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
+* [Discovery Studio](discovery-studio.md) Protein modeling environment
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis

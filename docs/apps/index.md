@@ -13,6 +13,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
+* [Discovery Studio](discovery-studio.md) Protein modeling environment.
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
@@ -21,13 +22,14 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
-* [InterProScan](interpro.md) Protein signature/motif search tool.
+* [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
-* [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
+* [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
+* [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
@@ -38,6 +40,7 @@
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
+* [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 

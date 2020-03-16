@@ -117,7 +117,6 @@ Billing Unit coefficients.
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | tb.3.480RAM  | 56 | 480  | 80 (SSD/RAID0) | 1650 (NVMe/RAID0) | 1730 | 8.5  | 110 (240) |
 | tb.3.1470RAM | 80 | 1470 | 80 (SSD/RAID0) | 2500 (NVMe/RAID0) | 2580 | 18.3 | 320 (600) |
-| tb.4.735RAM  | 80 | 735  | 80 (SSD/RAID0) | 3300 (SSD/RAID0)  | 3380 | 9.2  | 220 (350) |
 
 ### GPU flavors (only available via request to servicedesk)
 
@@ -398,22 +397,13 @@ in the snapshot, only the TB VM root disk.
 -   Flavor disk: Local SSD disks, RAID-0
 -   Your instance can be lost due to a single node or disk failure.
 
-**tb.4.\*:**
-
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU Gold 6148, with hyper-threading
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Your instance can be lost due to a single node or disk failure.
-
 ## Deprecated flavors
 
 This  is  the  set  of   original  flavors  that  has  been  available
 since launch. **You should  not launch any new  virtual machines using
 any  of these  flavors.  <span  style="color: rgb(0, 0, 0);">Existing
 virtual   machines   that  use   these   flavors   will  continue   to
-work. </span>**We will  maintain these flavors  for a period  of time,
-but they will be removed at some point in the near future.
+work.</span>**
 
 |Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -439,6 +429,7 @@ but they will be removed at some point in the near future.
 | hpc.large.westmere    | 16 | 28  | 80         | 0            | 80   | 1.8  | 16  |
 | hpc.xlarge.westmere   | 23 | 41  | 80         | 0            | 80   | 1.8  | 24  |
 | hpc.largemem.westmere | 23 | 90  | 80         | 0            | 80   | 4    | 36  |
+| tb.4.735RAM  | 80 | 735  | 80 (SSD/RAID0) | 3300 (SSD/RAID0)  | 3380 | 9.2  | 220 (350) |
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) | 3330 | 15.2 | 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) | 6580 | 15.2 | 400 |
 

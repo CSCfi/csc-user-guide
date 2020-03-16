@@ -40,14 +40,24 @@ cd /scratch/<your-project>
 swift download <bucket-name> your-dataset.tar
 ```
 
-Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of Puhti.  Instead, consider taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts.md#local-storage) on the GPU nodes.
-
 !!! note
 
-    Please **do not read a huge number of small from the shared file system**, use the fast local NVME drive instead!
+    Please **do not read a huge number of files from the shared file system**, use fast local disk or package your data into larger files instead!
 
 
-In brief, you just need to add `nvme:<number-of-GB>` to the `--gres` flag in your submission script, and then the fast local storage will be available in the location specified by the environment variable `$LOCAL_SCRATCH`.  Here is an example run that reserves 100 GB of the fast local drive and extracts the dataset tar-package on that drive before launching the computation:
+Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of Puhti.  Instead, consider more efficient approaches, including:
+
+- packaging your dataset into larger files 
+- taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts.md#local-storage) on the GPU nodes.
+
+#### More efficient data format
+
+Many machine learning frameworks support formats for packaging your data more efficiently.  For example [TensorFlow's TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) format.  Other examples include using [HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5), or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/) formats, or even humble ZIP-files, e.g., via Python's [zipfile](https://docs.python.org/3/library/zipfile.html) library.  The main point with all of these is that instead of many thousands of small files you have one, or a few bigger files, which are much more efficient to access and read linearly.  Don't hesitate to [contact our service desk](https://www.csc.fi/contact-info) if you need advice about how to access your data more efficiently.
+
+
+#### Fast local drive
+
+If you really need to access the individual small files, you can use the fast local drive that is present in every GPU node.  In brief, you just need to add `nvme:<number-of-GB>` to the `--gres` flag in your submission script, and then the fast local storage will be available in the location specified by the environment variable `$LOCAL_SCRATCH`.  Here is an example run that reserves 100 GB of the fast local drive and extracts the dataset tar-package on that drive before launching the computation:
 
 ```bash
 #!/bin/bash
@@ -105,16 +115,7 @@ srun python3 myprog.py <options>
 
 ### Singularity
 
-We also provide GPU-enabled applications via Singularity containers.  For example very recent NVIDIA-optimized version of TensorFlow and PyTorch are available.  See our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
-
-A specific image can be activated via the module system:
-
-
-```bash
-module use /appl/soft/ai/singularity/modulefiles/
-module avail nvidia  # to see existing images
-module load nvidia-pytorch/19.11-py3  # to activate a specific image
-```
+We also provide GPU-enabled applications via Singularity containers.  For example recent NVIDIA-optimized versions of TensorFlow and PyTorch are available via `nvidia-` prefixed modules, e.g. `pytorch/nvidia-20.02-py3`.  See each application for details on available modules.
 
 Here is an example submission script.  Note that the `singularity_wrapper` command is essential, otherwise the program will not run inside the image.
 
@@ -128,5 +129,8 @@ Here is an example submission script.  Note that the `singularity_wrapper` comma
 #SBATCH --time=1:00:00
 #SBATCH --gres=gpu:v100:1
 
-srun singularity_wrapper exec python3 myprog <options>
+module load pytorch/nvidia-20.02-py3
+srun singularity_wrapper exec python3 myprog.py <options>
 ```
+
+Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
