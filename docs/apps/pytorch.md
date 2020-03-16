@@ -4,24 +4,25 @@ Machine learning framework for Python.
 
 ## Available
 
-The `pytorch` module is available on Puhti only.  Current versions:
+Available on Puhti only.  Currently supported PyTorch versions and corresponding modules to load:
 
-- 1.4 (currently corresponds to 1.4.0, may be upgraded to newer point release later if needed)
-- 1.3.1
-- 1.3.1-hvd (with [Horovod](https://github.com/horovod/horovod) support using hpcx-mpi)
-- 1.3.1-hvd-mpich (with [Horovod](https://github.com/horovod/horovod) support using mpich MPI)
-- 1.3.0
-- 1.2.0
-- 1.1.0
-- 1.0.1
+- 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.02-py3`
+- 1.4.0: `pytorch/1.4`
+- 1.4.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-19.11-py3`
+- 1.3.1: `pytorch/1.3.1`
+- 1.3.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using hpcx MPI: `pytorch/1.3.1-hvd`
+- 1.3.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using mpich MPI: `pytorch/1.3.1-hvd-mpich`
+- 1.3.0: `pytorch/1.3.0`
+- 1.2.0: `pytorch/1.2.0`
+- 1.1.0: `pytorch/1.1.0`
+- 1.0.1: `pytorch/1.0.1`
 
-Includes [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.  Also includes all the packages from [Python Data](python-data.md).
+Modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.  Except for Singularity-based modules, also include all the packages from [Python Data](python-data.md).  If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`.
+!!! note 
 
-If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+    In Singularity-based modules you need to launch Python with `singularity_wrapper`, see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
 
-Alternatively you can also run PyTorch via [Singularity images](../computing/containers/run-existing.md), see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
 
 ## License
 
@@ -70,6 +71,13 @@ Example batch script for reserving one GPU and 10 CPUs in a single node:
 
 module load pytorch/1.4
 srun python3 myprog.py <options>
+```
+
+For Singularity-based modules the last two lines would instead look like:
+
+```
+module load pytorch/nvidia-20.02-py3
+srun singularity_wrapper exec python3 myprog.py <options>
 ```
 
 !!! note
