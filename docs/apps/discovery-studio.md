@@ -1,12 +1,12 @@
-## DiscoveryStudio
-
-### Description
+# Discovery Studio
 
 Discovery Studio is a protein modeling program that contains tools to
 visualize, analyse, modify and simulate protein structures. University
 and polytechnic researchers working in Finland can install Discovery
 Studio into their local Windows or Linux computers for academic
 research.
+
+## License
 
 Discover Studio is a commercial program by Biovia Inc. CSC has purchased
 a national academic license for Discovery Studio that allows non-profit
@@ -16,22 +16,16 @@ universities).
 In year 2020 CSC has a natonal Discovery Studio license which allows unlimited access to all Discovery Studio
 modules for 5 simultaneous users.
 
-------------------------------------------------------------------------
+## Available
 
-### Available
-
-##### Version on CSC's Servers
+The following server versions are available on CSC (in Pouta):
 
 -   Discovery studio DS2019 is available in
     [http://dstudio19.csc.fi:9944](http://dstudio19.csc.fi:9944)
 -   Discovery studio DS2018 is available in
     [http://dstudio18.csc.fi:9944](http://dstudio19.csc.fi:9944)
 
- 
-
-------------------------------------------------------------------------
-
-### Usage
+## Usage
 
 To use Discovery Studio you need to install a Discovery
 Studio client on your own computer. Discovery Studio client is available for Windows (Windows 7, 8 and 10) and Linux
@@ -45,20 +39,15 @@ You can download the Windows and Linux clients using the links below:
 *   [Discovery Studio 2019 client](http://dstudio19.csc.fi:9944/DS/)
 *   [Discovery Studio 2018 client](http://dstudio18.csc.fi:9944/DS/)
 
-Discvery Studio clinet provides extensive manual and large set of tutorials that
-help you to get started with software.
+Discovery Studio client provides an extensive manual and large set of tutorials that
+help you to get started with the software.
 
 ### Installing the Discovery Studio client in Windows
 
 DS2019Client.exe starts a graphical installation tool, that will guide you through the Discovery Studio client installation.
 In most cases you can just accept the default installation settings that the installation tool suggest.
 
-At the end of the installation you may be asked to configure licensing. The licensing should be set up using method:
-*   **Connect to a remote license server**
-      
-The license server is then defined to be:
-*   Host name: **license1.csc.fi**
-*   Port: **1752**
+[Sign in eDuuni to learn the information needed to set up a connection to the License server(https://wiki.eduuni.fi/display/cscjemma/Discovery+Studio)
 
 If licensing information is not asked during the installation, start the Discovery Studio client, you just installed, 
 and press button _Enable additional features_ in the lower right corner of the interface.
@@ -70,8 +59,8 @@ To use Discovery Studio servers of CSC, start the Discovery Studio client normal
 
 And set server name to be:
 
-*   https://dstudio19.csc.fi:9943  ( For Discovery Studio 2019)
-*   https://dstudio18.csc.fi:9943  ( For Discovery Studio 2018)
+*   https://dstudio19.csc.fi:9943  (For Discovery Studio 2019)
+*   https://dstudio18.csc.fi:9943  (For Discovery Studio 2018)
 
  
 ### Installing the Discovery Studio client in Linux
@@ -85,26 +74,10 @@ The installation wizard guides you through the installation. In most cases you c
 
 After everything is installed the program asks for licensing information.
 
-In "Accelrys Licensing:"
-*   Choose: **Connect to a remote licenseserver**
+[Sign in eDuuni to learn the information needed to set up a connection to the License server(https://wiki.eduuni.fi/display/cscjemma/Discovery+Studio).
 
-and give:
-*   Host name: **license1.csc.fi**
-*   Port: **1752**
+You should now be ready to run (as long as the IP address of your machine is within the FUNET network, i.e. in your university network or in a VPN to it).
 
-You should now be ready to run (as long as the IP address of your machine is in the license register of CSC).
-
-In many linux environments, the license configuration tool is not working properly. 
-In these cases you can define the location of the license server in a following way.
-
-1. Go to your LicensePack directory and further to Licenses subdirectory.
-```text
-cd some_path/LicensePack/Licenses
-```
-2. Create a file msi_server.fil that contains just one line: _1752@license1.csc.fi_
-```text
-echo "1752@license1.csc.fi" > msi_server.fil
-```
 To use Discovery Studio servers of CSC, start the Discovery Studio client normally and select command:
 
 **File | Change server...**
@@ -115,7 +88,7 @@ And set server name to be:
 *   https://dstudio18.csc.fi:9943  ( For Discovery Studio 2018)
 
 
-#### Tricks for installing Discovery Studio client to Ubuntu
+### Tricks for installing Discovery Studio client to Ubuntu
 
 Below are some tricks you can try to use to install Discovery Studio Client to an Ubuntu Linux machine.  
 By default, the _sh_ that Ubuntu is using is actually a command shell called _dash_ that diffters from 
@@ -152,6 +125,15 @@ sed s/"echoe"/"echo -e"/g install_lp.sh > install_lp_e.sh
 ```
 Now the installation is done and you just need to add the license data as described in the previous example.
 
- 
+## References
 
+Please see method descriptions and log files in Discovery Studio for details.
+
+## More information
+
+Discovery Studio client provides an extensive manual and large set of tutorials that
+help you to get started with the software.
+
+* [Discovery Studio home page](https://www.3dsbiovia.com/products/collaborative-science/biovia-discovery-studio/)
+* [Discovery Studio training resources](https://www.3ds.com/products-services/biovia/resource-center/?woc=%7B%22brand%22%3A%5B%22brand%2Fbiovia%22%5D%2C%22biovia%20products%22%3A%5B%22biovia%20products%2Fdiscovery%20studio%22%5D%7D)
  
