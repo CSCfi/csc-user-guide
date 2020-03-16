@@ -85,7 +85,7 @@ ls data_*.inp > namelist
 ```
 The command
 ```
-sed –n <row_number> inputfile
+sed –n <row_number>p inputfile
 ```
 reads a certain line from the name list file. In this case, the actual command script could be
 ```
