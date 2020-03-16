@@ -25,15 +25,15 @@ FORCE is used with command line commands. All available commands can be viewed b
 
 `force`
 
-Here is an example that finds suitable satellite images from an area and time with cloud coverage of 10%. More information on Sentinel imagery download can be found from the [FORCE documentation](https://force-eo.readthedocs.io/en/latest/components/lower-level/level1/level1-sentinel2.html#level1-sentinel2).
-
-`force-level1-sentinel2 /scratch/<PROJECT>/data/sentinel_images/ /scratch/<PROJECT>/data/sentinel_images/files.txt "60.15/24.77,60.25/24.77,60.25/25.04,60.15/25.04,60.15/24.77" 2020-03-01 2020-03-08 0 10 dry`
-
 ## Using FORCE to download sentinel images
 
 For downloading files with FORCE you need __ESA Scihub__ or __FMI Finhub__ credentials. FMI Finhub includes only 1C level data for Baltic sea drainage area, but should be faster than ESA Scihub. The credentials should be saved in your __home directory__, the ESA Scihub credentials to __.scihub__ file and FMI Finhub credential to __.finhub__ file. Username in the first row, password second.
 
-The download scripts have been slightly modified for the CSC environment. For ESA Scihub use __force-level1-sentinel2__ command and for FMI Finhub __force-level1-sentinel2-fh__. Both scripts follow the syntax in the user guide, see Pekka Hurskainen's presentation for examples.
+The download scripts have been slightly modified for the CSC environment. For ESA Scihub use __force-level1-sentinel2__ command and for FMI Finhub __force-level1-sentinel2-fh__
+
+Here is an example that finds suitable satellite images from an area and time with cloud coverage of 10% and downloads them. More information on Sentinel imagery download can be found from the [FORCE documentation](https://force-eo.readthedocs.io/en/latest/components/lower-level/level1/level1-sentinel2.html#level1-sentinel2).
+
+`force-level1-sentinel2 /scratch/<PROJECT>/sentinel_images/ /scratch/<PROJECT>/sentinel_images/files.txt "60.15/24.77,60.25/24.77,60.25/25.04,60.15/25.04,60.15/24.77" 2020-03-01 2020-03-08 0 10`
 
 ## License and citing
 
