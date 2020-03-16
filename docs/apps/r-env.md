@@ -32,7 +32,7 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
+Puhti login nodes are [not intended for heavy computing](../computing/overview/#usage-policy). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
 
 #### Interactive use
 
