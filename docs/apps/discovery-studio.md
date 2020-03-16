@@ -13,7 +13,7 @@ a national academic license for Discovery Studio that allows non-profit
 usage in Finnish institutes proviging higher education (for example
 universities).
 
-In year 2020 CSC has a natonal Discovery Studio license which allows unlimited access to all Discovery Studio
+In year 2020 CSC has a national Discovery Studio license which allows unlimited access to all Discovery Studio
 modules for 5 simultaneous users.
 
 ## Available
@@ -36,8 +36,8 @@ within the university network (FUNET) be able to use the
 license.
 
 You can download the Windows and Linux clients using the links below:
-*   [Discovery Studio 2019 client](http://dstudio19.csc.fi:9944/DS/)
-*   [Discovery Studio 2018 client](http://dstudio18.csc.fi:9944/DS/)
+* [Discovery Studio 2019 client](http://dstudio19.csc.fi:9944/DS/)
+* [Discovery Studio 2018 client](http://dstudio18.csc.fi:9944/DS/)
 
 Discovery Studio client provides an extensive manual and large set of tutorials that
 help you to get started with the software.
@@ -47,7 +47,7 @@ help you to get started with the software.
 DS2019Client.exe starts a graphical installation tool, that will guide you through the Discovery Studio client installation.
 In most cases you can just accept the default installation settings that the installation tool suggest.
 
-[Sign in eDuuni to learn the information needed to set up a connection to the License server(https://wiki.eduuni.fi/display/cscjemma/Discovery+Studio)
+[Sign in eDuuni to learn the information needed to set up a connection to the License server](https://wiki.eduuni.fi/display/cscjemma/Discovery+Studio)
 
 If licensing information is not asked during the installation, start the Discovery Studio client, you just installed, 
 and press button _Enable additional features_ in the lower right corner of the interface.
@@ -65,18 +65,9 @@ And set server name to be:
  
 ### Installing the Discovery Studio client in Linux
 
-Once you have download the client installation file, start the installation procedure with command:
-```text
-chmod u+x DS2019Client.bin
-./DS2019Client.bin -V PORTATHOST=1752@license1.csc.fi
-```
-The installation wizard guides you through the installation. In most cases you can use the default values.
+[Sign in eDuuni for installation and licensing instructions](https://wiki.eduuni.fi/display/cscjemma/Discovery+Studio).
 
-After everything is installed the program asks for licensing information.
-
-[Sign in eDuuni to learn the information needed to set up a connection to the License server(https://wiki.eduuni.fi/display/cscjemma/Discovery+Studio).
-
-You should now be ready to run (as long as the IP address of your machine is within the FUNET network, i.e. in your university network or in a VPN to it).
+After the steps detailed in the link above, you should be ready to run (as long as the IP address of your machine is within the FUNET network, i.e. in your university network or in a VPN to it).
 
 To use Discovery Studio servers of CSC, start the Discovery Studio client normally and select command:
 
