@@ -20,6 +20,7 @@ nav:
   - Computing:
      - Overview: computing/overview.md
      - Systems: computing/system.md
+     - Connecting: computing/connecting.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
      - Running jobs:
@@ -44,7 +45,7 @@ nav:
          - Background: cloud/rahti/introduction/background.md
          # - Technical maturity: cloud/rahti/introduction/technical_maturity.md
          - Getting access: cloud/rahti/introduction/access.md
-         # - Billing: cloud/rahti/introduction/billing.md # Uncomment when billing is enabled
+         - Billing: cloud/rahti/introduction/billing.md
        - Usage:
          - Getting started: cloud/rahti/usage/getting_started.md
          - Projects and quota: cloud/rahti/usage/projects_and_quota.md
