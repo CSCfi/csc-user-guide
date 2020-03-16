@@ -21,9 +21,12 @@ To use Structure in Puhti, run first following setup commands:
 module load biokit
 module load strcture
 ```
+
+In addition to `structure` command the structure module makes available commands [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for postprocessing structure results.
+
 In Puhti, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
 This tool is a modified version of [strauto](http://dx.doi.org/10.1186/s12859-017-1593-0) structure
-job sumbission tool. Note that many details in the strauto manual do not apply to atrauto-puhti.   
+job sumbission tool. Note that many details in the strauto manual do not apply to `strauto-puhti`.   
 
 Next move to the scratch directory of your project. Any subdirectory inside your scratch area will do.
 For example:
@@ -36,9 +39,9 @@ Create a new empty directory.
 ```text
 mkdir structure_job1
 ```
-Next you need to copy or create to this directory the two input files used by _strauto-puhti_ program.
+Next you need to copy or create to this directory the two input files used by `strauto-puhti` program.
 The parameter file must always be named as `input.py`. The name of the actual datafile is defined in
-`input.py`. The data file name should end with `.str`. 
+`input.py`. The data file name should end with `.str` or `.ustr`. 
 
 A sample file, provided by strauto can be copied to your current directory with commands:
 
@@ -47,11 +50,25 @@ cp /appl/soft/bio/structure/strauto/input.py ./
 cp /appl/soft/bio/structure/strauto/sim.str ./ 
 ```
 
-When the input file have been prepared, the strcture job can be launched with command:
+When the input file has been prepared, the strcture job can be launched with command:
 ```text
 strauto-puhti
 ```
-Please read and follow the instructions of job submission command above.
+Strauto, first asks you to check and accept Structure parameters and after that
+submits the structure job to to the batch job system of Puhti. After that
+it starts monitoring the progress of your job.
+
+You can leave the monitor process running, but if you want to stop it, press:
+`Ctrl-c`
+
+The structure jobs will still continue their execution in the batch job system
+of  Puhti. If you run the command:
+
+```text
+strauto-puhti
+```
+in the same directory again it will check the status of structure jobs and do the
+postporcessing of the results if all the structure tasks have finished.
 
 
 ## More information

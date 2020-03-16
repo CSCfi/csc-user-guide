@@ -4,22 +4,24 @@ Deep learning framework for Python.
 
 ## Available
 
-The `tensorflow` module is available on Puhti only.  Currently supported TensorFlow versions:
+Available on Puhti only.  Currently supported TensorFlow versions and corresponding modules to load:
 
-- 2.0.0
-- 2.0.0-hvd (with [Horovod](https://github.com/horovod/horovod) support)
-- 1.14.0
-- 1.14.0-cpu (optimized for CPU usage, no GPU support)
-- 1.13.1
-- 1.13.1-hvd (with [Horovod](https://github.com/horovod/horovod) support)
+- 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.02-tf2-py3`
+- 2.0.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-19.11-tf2-py3`
+- 2.0.0: `tensorflow/2.0.0`
+- 2.0.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/2.0.0-hvd`
+- 1.15.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/1.15-hvd`
+- 1.14.0: `tensorflow/1.14.0`
+- 1.14.0 optimized for CPU usage, no GPU support: `tensorflow/1.14.0-cpu`
+- 1.13.1: `tensorflow/1.13.1`
+- 1.13.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/1.13.1-hvd`
 
-Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.  Also includes all the packages from [Python Data](python-data.md).
+Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.  Except for Singularity-based modules, also include all the packages from [Python Data](python-data.md). If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`.
+!!! note 
 
-If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+    In Singularity-based modules you need to launch Python with `singularity_wrapper`, see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
 
-Alternatively you can also run TensorFlow via [Singularity images](/computing/containers/run-existing/), see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
 
 ## License
 
@@ -67,6 +69,13 @@ Example batch script for reserving one GPU and 10 CPUs in a single node:
 
 module load tensorflow/1.14.0
 srun python3 myprog.py <options>
+```
+
+For Singularity-based modules the last two lines would instead look like:
+
+```
+module load tensorflow/nvidia-20.02-tf2-py3
+srun singularity_wrapper exec python3 myprog.py <options>
 ```
 
 !!! note

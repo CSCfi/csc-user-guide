@@ -85,7 +85,7 @@ ls data_*.inp > namelist
 ```
 The command
 ```
-sed –n <row_number> inputfile
+sed –n <row_number>p inputfile
 ```
 reads a certain line from the name list file. In this case, the actual command script could be
 ```
@@ -120,9 +120,9 @@ sbatch_commandlist -commands commandlist
 Options `-t` and `-mem` can be used to modify the time and memory reservation of the subjobs (default 12 h, 8GB).
 By default the billing project is set based on the name of the scratch directory where this command is executed, but if needed, it can be assigned using option `-project`
 
-After submitting an array job, `sbatch_commandlist` monitors the progress of the job and finishes only when the array job has finished. Thus this command can be used in workflows (including batch job scripts), where only certain steps of the workflow can utilize array jobs based parallel computing.
+After submitting an array job, `sbatch_commandlist` starts monitoring the progress of the job. If you use `sbatch_commandlist` interactively in login nodes, you normally don't want to keep the monitor running for hours. In these cases, you can just close the monitoring process by pressing `Ctrl-c`. The actual array job is not deleted, but it stays active in the batch job system and you can manage it with normal Slurm commands.
 
-As an example, lets assume we have a gzip compressed tar-archive file my_data.tgz containing a directory with a large number of files. To create a new compressed archive, that includes also a md5 checksum file for each file we would need to: (1) un-compress and un-pack my_data.tgz,  (2) execute _md5sum_ for each file and finally (3) pack and compress the my_data directory again. The second step of the workflow could be executed using a for-loop, but we could also use the loop just to generate a list of _md5sum_ commands, that can be processed with _sbatch_commandist_ .
+In addition to interactive usage, `sbatch_commandlist` can be utilized in batch jonbs and automatic workfows, where only certain steps of the workflow can utilize array jobs based parallel computing. As an example, lets assume we have a gzip compressed tar-archive file my_data.tgz containing a directory with a large number of files. To create a new compressed archive, that includes also a md5 checksum file for each file we would need to: (1) un-compress and un-pack my_data.tgz,  (2) execute _md5sum_ for each file and finally (3) pack and compress the my_data directory again. The second step of the workflow could be executed using a for-loop, but we could also use the loop just to generate a list of _md5sum_ commands, that can be processed with _sbatch_commandist_ .
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=workfow

@@ -115,16 +115,7 @@ srun python3 myprog.py <options>
 
 ### Singularity
 
-We also provide GPU-enabled applications via Singularity containers.  For example very recent NVIDIA-optimized version of TensorFlow and PyTorch are available.  See our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
-
-A specific image can be activated via the module system:
-
-
-```bash
-module use /appl/soft/ai/singularity/modulefiles/
-module avail nvidia  # to see existing images
-module load nvidia-pytorch/19.11-py3  # to activate a specific image
-```
+We also provide GPU-enabled applications via Singularity containers.  For example recent NVIDIA-optimized versions of TensorFlow and PyTorch are available via `nvidia-` prefixed modules, e.g. `pytorch/nvidia-20.02-py3`.  See each application for details on available modules.
 
 Here is an example submission script.  Note that the `singularity_wrapper` command is essential, otherwise the program will not run inside the image.
 
@@ -138,5 +129,8 @@ Here is an example submission script.  Note that the `singularity_wrapper` comma
 #SBATCH --time=1:00:00
 #SBATCH --gres=gpu:v100:1
 
-srun singularity_wrapper exec python3 myprog <options>
+module load pytorch/nvidia-20.02-py3
+srun singularity_wrapper exec python3 myprog.py <options>
 ```
+
+Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
