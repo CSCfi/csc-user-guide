@@ -32,7 +32,7 @@ These login nodes are shared by all users and they are **not** intended for heav
 The login nodes should be used only for:
 
  * compiling
- * manging batch jobs
+ * managing batch jobs
  * moving data 
  * **light** pre- and postprocessing
   
