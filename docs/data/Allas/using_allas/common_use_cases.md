@@ -90,7 +90,7 @@ The object storage is also often used as a location for storing backups. It is a
 
 [allas-backup](./a_backup.md) is a part of *a-commands*. It works as a tool for creating backup copies of files in Allas.
 !!! note 
-    **Please note:** allas-backup is not a real backup service.
+    Allas-backup is not a real backup service.
     It only copies the data to another bucket in Allas which can 
     be easily removed or overwrited by any authenticated user.
 
