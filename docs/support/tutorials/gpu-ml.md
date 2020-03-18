@@ -83,6 +83,66 @@ srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
     tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 ```
 
+### GPU utilization
+
+GPUs are an expensive resource compared to CPUs ([60 times more BUs!](../../accounts/billing.md)).  Hence, ideally, a GPU should be maximally utilized when it has been reserved.
+
+You can check the GPU utilization of a running job by `ssh`ing to the node where it is running and running `nvidia-smi`.  You should be able to identify your run from the process name or the process id, and check the corresponding "GPU-Util" column.  Ideally it should be above 90%.
+
+For example, from the following excerpts we can see that on GPU 0 a `python3` job is running which uses roughly 17 GB of GPU memory and the current GPU utilization is 99% (i.e., very good).
+
+```
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:61:00.0 Off |                    0 |
+| N/A   51C    P0   247W / 300W |  17314MiB / 32510MiB |     99%      Default |
+```
+
+```
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0    122956      C   python3                                    17301MiB |
+```
+
+
+Alternatively, you can use `gpuseff` which shows GPU utilisation statistics for the whole running time.  **NOTE:** `gpuseff` is currently in testing usage, and still under development.
+
+```bash
+gpuseff <job_id>
+```
+
+In this example we can see that maximum utilization is 100%, but average is 92%.  If the average improves over time it is probably due to slow startup time, e.g., initial startup processing where the GPU is not used at all.
+
+```
+GPU load 
+     Hostname        GPU Id      Mean (%)    stdDev (%)       Max (%) 
+       r01g07             0         92.18         19.48           100 
+------------------------------------------------------------------------
+GPU memory 
+     Hostname        GPU Id    Mean (GiB)  stdDev (GiB)     Max (GiB) 
+       r01g07             0         16.72          1.74         16.91 
+```
+
+    
+#### Using multiple CPUs for data pre-processing
+
+One common reason for the GPU utilization being low is when the CPU cannot load and pre-process the training data fast enough, and the GPU has to wait for the next batch to process.  It is then a common practice to reserve more CPUs to perform data loading and pre-processing in several parallel threads or processes.  A good rule of thumb in Puhti is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs per node).  Remember that CPUs are a much cheaper resource than the GPU!
+
+Remember that your code also has to support parallel pre-processing.  However, most high-level machine learning frameworks support this out of the box.  For example in TensorFlow use `tf.data` and set `num_parallel_calls` to the number of CPUs reserved and utilize `prefetch`:
+
+```python
+dataset = dataset.map(..., num_parallel_calls=10)
+dataset = dataset.prefetch(buffer_size)
+```
+
+In PyTorch:
+
+```python
+train_loader = torch.utils.data.DataLoader(..., num_workers=10)
+```
+
 
 ### Multi-GPU and multi-node jobs
 
