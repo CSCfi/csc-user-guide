@@ -46,8 +46,8 @@ To configure MPS, follow the instructions on below.
 
 1. Make sure, you have a home directory on Puhti by logging in to the cluster with your CSC username and password by using some ssh client.
 2. Download MPS tool scripts on below corresponding to the operating system on your computer.
-   - <a href="https://wiki.eduuni.fi/download/attachments/130530442/csc.nonshared.R2019b.tar.gz?api=v2" download="csc.r2019b.tar.gz">Linux and Mac</a>
-   - <a href="https://wiki.eduuni.fi/download/attachments/130530442/csc.nonshared.R2019b.zip?api=v2" download="csc.r2019b.zip">Windows</a>
+   - <a href="https://wiki.eduuni.fi/download/attachments/141999985/csc.nonshared.R2019b.tar.gz?api=v2" download="csc.r2019b.tar.gz">Linux and Mac</a>
+   - <a href="https://wiki.eduuni.fi/download/attachments/141999985/csc.nonshared.R2019b.zip?api=v2" download="csc.r2019b.zip">Windows</a>
 3. Unzip or untar the downloaded file and place the contents into some directory on your computer, where you have read and write permissions. Make sure, this directory is set to the MATLAB's path. This can be done, for example, with a `pathtool` command.
 4. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` and giving your CSC username.
 
