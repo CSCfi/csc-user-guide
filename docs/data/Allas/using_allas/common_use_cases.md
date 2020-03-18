@@ -56,7 +56,7 @@ The data can be accessed and shared in a variety of ways:
 
 * **Private – default:** By default, if you do not specify anything else, the contents of buckets can only be accessed by authenticated members of your project. **Private**/**Public** settings can be managed with:
 
-    * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) Uuse this for buckets used by a-put/a-get or rclone.
+    * [swift client](./swift_client.md#giving-another-project-read-and-write-access-to-a-bucket) Use this for buckets created/used by `a-put/a-get` or `rclone`.
     * [Web client](./web_client.md#view-objects-via-the-internet)
     * [S3 client](./s3_client.md#s3cmd-and-public-objects)
 
@@ -66,9 +66,9 @@ The data can be accessed and shared in a variety of ways:
 
 ## Static web content
 
-A common way to use the object storage is storing static web content, such as images, videos, audio, pdfs or other downloadable content, and adding links to it on a web page, which can run either inside Allas or somewhere else. [An example](https://a3s.fi/my_fishbucket/my_fish)
+A common way to use the object storage is storing static web content, such as images, videos, audio, pdfs or other downloadable content, and adding links to it on a web page, which can run either inside Allas or somewhere else, [like this example](https://a3s.fi/my_fishbucket/my_fish).
 
-Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas),[rclone](./rclone.md#create-buckets-and-upload-objects) [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
+Uploading data to Allas can be done with any of the following clients: [web client](./web_client.md#upload-an-object), [a-commands](./a_commands.md#a-put-uploads-data-to-allas),[rclone](./rclone.md#create-buckets-and-upload-objects), [Swift](./swift_client.md#create-buckets-and-upload-objects) or [S3](./s3_client.md#create-buckets-and-upload-objects).
 
 ## Storing data for distributed use
 
@@ -88,7 +88,11 @@ For example, several data collectors may push data to be processed, e.g. scienti
 
 The object storage is also often used as a location for storing backups. It is a convenient place to push copies of database dumps.
 
-[allas-backup](./a_backup.md) is a part of *a-commands*. It works as a tool for creating backup copies of files in Allas. **Please note:** allas-backup is not a real backup service. It only copies the data to another bucket in Allas which can be easily removed or overwrited by any authenticated user.
+[allas-backup](./a_backup.md) is a part of *a-commands*. It works as a tool for creating backup copies of files in Allas.
+!!! note 
+    **Please note:** allas-backup is not a real backup service.
+    It only copies the data to another bucket in Allas which can 
+    be easily removed or overwrited by any authenticated user.
 
 ## Files larger than 5 GB
 
@@ -122,4 +126,4 @@ Display how much space a bucket has used:
 swift stat $bucketname
 ```
 
-Please contact servicedesk@csc.fi if you have questions.
+Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) if you have questions.
