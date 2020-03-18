@@ -132,14 +132,14 @@ As always, don't hesitate to [contact our service desk](https://www.csc.fi/conta
 
 One common reason for the GPU utilization being low is when the CPU cannot load and pre-process the training data fast enough, and the GPU has to wait for the next batch to process.  It is then a common practice to reserve more CPUs to perform data loading and pre-processing in several parallel threads or processes.  A good rule of thumb in Puhti is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs per node).  Remember that CPUs are a much cheaper resource than the GPU!
 
-Remember that your code also has to support parallel pre-processing.  However, most high-level machine learning frameworks support this out of the box.  For example in [TensorFlow use `tf.data`](https://www.tensorflow.org/guide/data) and set `num_parallel_calls` to the number of CPUs reserved and utilize `prefetch`:
+Remember that your code also has to support parallel pre-processing.  However, most high-level machine learning frameworks support this out of the box.  For example in [TensorFlow you can use `tf.data`](https://www.tensorflow.org/guide/data) and set `num_parallel_calls` to the number of CPUs reserved and utilize `prefetch`:
 
 ```python
 dataset = dataset.map(..., num_parallel_calls=10)
 dataset = dataset.prefetch(buffer_size)
 ```
 
-In [PyTorch, use `torch.utils.DataLoader`](https://pytorch.org/docs/stable/data.html), which supports loading with multiple processes:
+In [PyTorch, you can use `torch.utils.DataLoader`](https://pytorch.org/docs/stable/data.html), which supports loading with multiple processes:
 
 ```python
 train_loader = torch.utils.data.DataLoader(..., num_workers=10)
