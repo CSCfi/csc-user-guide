@@ -1,6 +1,6 @@
-# Using Allas with Rclone on Puhti and Taito 
+# Using Allas with Rclone on CSC supercomputers 
 
-This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Taito computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others), but in the case of Allas, the Swift protocol is preferred. It is also the default option on the CSC servers.
+This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others), but in the case of Allas, the Swift protocol is preferred. It is also the default option on the CSC servers.
 
 The basic syntax of Rclone:
 <pre>
@@ -59,12 +59,12 @@ The _copy_ and _move_ subcommands only work with files. If you would like to cop
 ## List buckets and objects
 
 List all the buckets belonging to a project:
-<pre>$ <b>rclone ls allas:</b>
+<pre><b>rclone lsd allas:</b>
 0 2019-06-06 14:43:40         0 2000620-raw-data
 </pre>
 
 List the content of a bucket: 
-<pre>$ <b>rclone ls allas:2000620-raw-data</b>
+<pre><b>rclone ls allas:2000620-raw-data</b>
 677972 file.dat
 </pre>
 
@@ -80,10 +80,10 @@ If you include a destination parameter in the download command, Rclone creates a
 rclone copy allas:2000620-raw-data/file.dat doh
 ```
 
-<pre>$ <b>ls doh</b>
+<pre><b>ls doh</b>
 file.dat</pre>
 
-<pre>$ <b>ls -ld doh</b>
+<pre><b>ls -ld doh</b>
 drwxr-xr-x  3 user  staff  96 Jun  6 14:58 doh
 </pre>
 
@@ -93,7 +93,7 @@ One way of moving data between Allas and the computing environment is synchroniz
 
 For example, a folder named _mydata_ has the following structure:
 <pre>
-$ <b>ls -R mydata</b>
+<b>ls -R mydata</b>
 
 mydata/:
 file1.txt  setA  setB
@@ -111,7 +111,7 @@ An example of using _sync_ (note that the destination parameter requires the fol
 rclone sync mydata allas:2000620-raw-data/mydata
 ```
 
-<pre>$ <b>rclone ls allas:2000620-raw-data</b>
+<pre><b>rclone ls allas:2000620-raw-data</b>
    677972 mydata/file1.txt
     10927 mydata/setA/file2.txt
      1116 mydata/setB/file3.txt
@@ -139,7 +139,6 @@ This command returns the uploaded data from Allas to the _mydata_ directory. Not
 
 !!! Note
 
-    Rclone should not be be used to copy or rename objectd in Allas. 
+    Rclone should not be be used to copy or rename objects in Allas. 
     Rclone provides commands for these operations but they don't work correctly for over 5 GB files.
  
-
