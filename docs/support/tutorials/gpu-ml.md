@@ -130,7 +130,13 @@ As always, don't hesitate to [contact our service desk](https://www.csc.fi/conta
    
 #### Using multiple CPUs for data pre-processing
 
-One common reason for the GPU utilization being low is when the CPU cannot load and pre-process the training data fast enough, and the GPU has to wait for the next batch to process.  It is then a common practice to reserve more CPUs to perform data loading and pre-processing in several parallel threads or processes.  A good rule of thumb in Puhti is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs per node).  Remember that CPUs are a much cheaper resource than the GPU!
+One common reason for the GPU utilization being low is when the CPU cannot load and pre-process the training data fast enough, and the GPU has to wait for the next batch to process.  It is then a common practice to reserve more CPUs to perform data loading and pre-processing in several parallel threads or processes.  A good rule of thumb in Puhti is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs per node).  *Remember that CPUs are a much cheaper resource than the GPU!*
+
+You might have noticed that we have already followed this advice in our example job scripts:
+
+```bash
+#SBATCH --cpus-per-task=10
+```
 
 Remember that your code also has to support parallel pre-processing.  However, most high-level machine learning frameworks support this out of the box.  For example in [TensorFlow you can use `tf.data`](https://www.tensorflow.org/guide/data) and set `num_parallel_calls` to the number of CPUs reserved and utilize `prefetch`:
 
