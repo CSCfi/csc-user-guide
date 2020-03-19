@@ -13,7 +13,7 @@ A graphical web interface to ChEMBL is available at the [ChEMBL home page](https
 CSC mirrors the ChEMBL SQL database in a locally installed MySQL server. The usage of this
 database is done with MySQL client programs only. No graphical interface is provided.
 
-[Sign in to eDuuni for ChEMBL server connaection details](https://wiki.eduuni.fi/display/cscjemma/Using+ChEMBL+Databases+at+CSC)
+[Sign in to eDuuni for ChEMBL server connection details](https://wiki.eduuni.fi/display/cscjemma/Using+ChEMBL+Databases+at+CSC)
 
 
 ## More information
