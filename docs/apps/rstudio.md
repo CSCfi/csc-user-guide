@@ -19,7 +19,7 @@ The RStudio Desktop installation on Puhti is based on the [Open Source Edition](
 To use this module on Puhti, first start a shell session on the `interactive` partition using the `sinteractive` command. As an example, the following command would launch a session with 8 GiB of memory and 100 GiB of local scratch space. It is also possible to specify several other options, including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space. If these limits are too restrictive, `sinteractive` can also be used to launch interactive jobs in the `small` partition ([see here for information on Puhti partitions](../computing/running/batch-job-partitions.md)).
 
 ```bash
-sinteractive -p <project> --mem 8000 --tmp 100
+sinteractive --account <project> --mem 8000 --tmp 100
 ```
 
 Once you have opened an interactive shell session, the `rstudio` module can be launched after loading the `r-env` module. RStudio can then be started using the command `rstudio`. Note that after running the `rstudio` command, it may take a while for RStudio to initialize.
