@@ -1,11 +1,10 @@
 # ChEMBL
 
-## Descrioption
+## Description
 ChEMBL is a manually curated database of bioactive molecules with drug like properties.
 A graphical web interface to ChEMBL is available at the [ChEMBL home page](https://www.ebi.ac.uk/chembl/).
 
-
-## Vesion
+## Version
 
 *   ChEMBL 26
 
