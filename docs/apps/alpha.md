@@ -16,6 +16,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
+* [ChEMBL](chembl.md) Database of bioactive molecules
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
