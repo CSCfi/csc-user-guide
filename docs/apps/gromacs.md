@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.5
+-   Puhti: 2018.6-plumed, 2018.7, 2019.5, 2019.6, 2020.1
 -   Check recommended version(s) with `module avail gromacs`
 -   Some versions include also Plumed
 
@@ -136,6 +136,7 @@ visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
 -   [VMD] visualizing program for large biomolecular systems.
+-   [Grace](http://plasma-gate.weizmann.ac.il/Grace/) plotting graphs produced with Gromacs tools
 
 ## References
 
