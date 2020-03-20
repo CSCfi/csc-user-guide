@@ -31,9 +31,12 @@ module load gromacs-env
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
-`module spider gromacs/version`.
+`module spider gromacs/version`. The module will set `$OMP_NUM_THREADS=1`
+as otherwise mdrun will spawn threads for cores it _thinks_ are free.
+See [GPU-example below](#example-gpu-script-for-puhti) for required additional flags
+if you need to use threads instead/in addition to mpi tasks.
 
-**Notes about performance**
+### Notes about performance
 
 It is important to set up the simulations properly to use resources efficiently.
 The most important are:
@@ -53,7 +56,7 @@ results are comparable.
 
 Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, **IF** you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
 
-**Example parallel batch script for Puhti**
+### Example parallel batch script for Puhti
 ```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
@@ -78,7 +81,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
     --ntasks-per-node=40 to get full nodes. This minimizes communication
     overhead and fragmentation of node reservations.
 
-**Example serial batch script for Puhti**
+### Example serial batch script for Puhti
 ```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
@@ -100,7 +103,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
     <project> with it). Otherwise, your job will not run. This project will be
     used for billing the cpu usage.
     
-**Example GPU script for Puhti**
+### Example GPU script for Puhti
 ```bash
 #!/bin/bash -l
 #SBATCH --ntasks=1
@@ -129,7 +132,7 @@ srun gmx_mpi mdrun -s verlet -pin on -dlb yes
 
 Submit the script with `sbatch script_name.sh`
 
-**Visualizing trajectories**
+### Visualizing trajectories and graphs
 
 In addition to ngmx program in Gromacs, trajectory files can be
 visualized with the following programs:
