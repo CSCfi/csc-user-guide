@@ -32,13 +32,11 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm.
-
-!!! note To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
+Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
 
 #### Interactive use
 
-To interactively use R on Puhti's compute nodes, first open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the following command would launch a session with 8 GB of memory and 100 GB of local scratch space. It is also possible to specify the number of cores and the running time among other options ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space.
+To interactively use R on Puhti's compute nodes, first open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 8 GB of memory and 100 GB of local scratch space. It is also possible to specify several other options, including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space. If these limits are too restrictive, `sinteractive` can also be used to launch interactive jobs in the `small` partition ([see here for information on Puhti partitions](../computing/running/batch-job-partitions.md)). This is handled automatically by `sinteractive` if the reservations exceed the upper limits defined for the `interactive` partition. 
 
 ```bash
 sinteractive --account <project> --mem 8000 --tmp 100
@@ -95,7 +93,7 @@ Further to the following examples, please see our separate [documentation](../co
 
 *Multi-core and array jobs*
 
-To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves eight cores (`--ntasks=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
+To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
 
 ```bash
 #!/bin/bash -l
@@ -105,7 +103,8 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
 #SBATCH --time=00:05:00
-#SBATCH --ntasks=8
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
