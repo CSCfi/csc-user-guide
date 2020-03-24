@@ -1,4 +1,4 @@
-#XHMM (eXome-Hidden Markov Model)
+# XHMM (eXome-Hidden Markov Model)
 
 ## Description
 
@@ -15,3 +15,24 @@ high coverage (at least 60x - 100x) using Illumina HiSeq (or similar) sequencing
 of at least ~50 samples. However, no part of XHMM explicitly requires these 
 particular experimental conditions, just high coverage of genomic regions
 for many samples. 
+
+## Version
+
+*   xhmm 1.0 is available in Puhti
+
+## Usage
+
+To use XHMM, load the biokit module:
+
+```text
+module load biokit
+```
+
+After that XHMM starts with command:
+```text
+xhmm
+```
+
+## More information
+
+*   [XHMM home page](https://atgu.mgh.harvard.edu/xhmm/index.shtml)
