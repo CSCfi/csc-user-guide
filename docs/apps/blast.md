@@ -68,7 +68,7 @@ Would run the same search as described above, except that the  e-value threshold
 
 ## Usage of pb (Parallel BLAST) at CSC
 
-If your query sequence set contains less than 20 sequences then interactive baych job is probably the most effective way top do the search. However, if your query set contains hundreds or thousands of sequences then utilizing the parallel computing capacity of Puhti is more effective. For this kind of massive blast searches you can utilize the `pb` command.
+If your query sequence set contains less than 20 sequences then interactive batch job is probably the most effective way top do the search. However, if your query set contains hundreds or thousands of sequences then utilizing the parallel computing capacity of Puhti is more effective. For this kind of massive blast searches you can utilize the `pb` command.
 
 _pb_ (Parallel BLAST) is designed for situations, where the query file includes large amount of sequences. It splits the query task into several subjobs, that can be run simultaneously using the resources of the server very effectively. For large sets of query sequences, _pb_ can speed up the search up to 50 fold. Two sample _pb_ commands for puhti.csc.fi:
 ```text
@@ -172,4 +172,3 @@ servicedesk@csc.fi
 ## Manual
 
 More information on Blast can be found from the [BLAST page of NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
-
