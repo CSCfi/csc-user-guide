@@ -56,9 +56,7 @@ project.
 Each cPouta and ePouta project has a cloud computing quota that
 limits the use of simultaneous cloud resources. There is a default
 cPouta project quota which is quite small, but users can apply for
-extensions via CSC's FIXME <a
-href="https://sui.csc.fi/group/sui/my-projects"
-class="external-link">resource allocation process</a>.
+extensions by sending email to [ServiceDesk](mailto:servicedesk@csc.fi).
 
 **Default size of the cPouta project quota.**
 
@@ -77,9 +75,8 @@ individual users from reserving the entire cluster and thus preventing
 other users from accessing it.
 
 Storage is also limited by a quota. The default quota for new projects
-is 1 TB. Additional allocations can be requested via our FIXME <a
-href="https://sui.csc.fi/group/sui/my-projects"
-class="external-link">resource allocation process</a>.
+is 1 TB. Additional allocations can be requested by sending email
+to [ServiceDesk](mailto:servicedesk@csc.fi).
 
 The initial quotas for ePouta projects are agreed upon when starting a new project.
 
