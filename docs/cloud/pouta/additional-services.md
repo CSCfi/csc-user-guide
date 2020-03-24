@@ -62,7 +62,7 @@ You can request reverse DNS mappings.
  floating IP is moved to another machine, as long as the domain
  info for the floating IP still is correct.
 - When you no longer need the mapping, please contact
- cloud-support@csc.fi so we can remove the reverse DNS entry.
+ servicedesk@csc.fi so we can remove the reverse DNS entry.
 
 We reserve the right to clean up old reverse DNS records where the
 forward DNS records do not match anymore. We will also remove the
