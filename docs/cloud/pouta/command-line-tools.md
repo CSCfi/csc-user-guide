@@ -16,7 +16,7 @@ The command line tools are used to control your use of the service, so
 they should be installed either on your local laptop/desktop or
 another server which you will use to manage the service.
 
-# Using Pouta on the command line
+# Using Pouta from the command line
 
 This article lists some basic commands for some of the most common
 operations in OpenStack. For each of the operations, we show a command
@@ -38,7 +38,7 @@ that uses the common OpenStack command line tool.
     openstack -h
 
 You can get a list of the available OpenStack subcommands by appending -h
-after the OpenStack command. If you wish to see the options for a specific
+after the `openstack` command. If you wish to see the options for a specific
 subcommand, add the command name after "help". For example:
 
     openstack help server create
