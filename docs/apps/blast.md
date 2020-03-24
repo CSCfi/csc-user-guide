@@ -35,20 +35,27 @@ Other blast commands
 ## Usage
 At CSC, BLAST searches can be executed in several ways:
 
--    using  the Chipster platform
--    interavtively with normal BLAST commands in Taito-shell
--    as batch jobs with pb command in Puhti
--    in FGCI grid with gb command in Taito
+-    using the Chipster platform
+-    with normal BLAST commands in interctive batch jobs (`sinteractive -i`)
+-    as batch jobs with `pb` command in Puhti
 
-To use the latest BLAST in Taito first give set up command :
+## Interactive usage in Puhti
+
+To use the latest BLAST version in Puhti first give set up command :
 ```text
 module load biokit
 ```
+Then launch an interactive bactch job session with command:
+```text
+sinteractuive -i
+```
+Reserve 8 GiB of memory, for your interactive session.
+
 After that you can start using the BLAST commands listed above. For example following command would search for sequence homologs form UniProt database for a protein sequence.
 ```text
 blastp -query proteinseq.fasta -db uniprot -out result.txt
 ```
-You can use -help option to see, what command line options are available for a certain BLAST command. For example 
+You can use `-help` option to see, what command line options are available for a certain BLAST command. For example 
 ```text
 blastp -help
 ```
@@ -56,12 +63,14 @@ For example, command:
 ```text
 blastp -query proteinseq.fasta -evalue 0.001 -db uniprot -outfmt 7 -out result.table
 ```
-Would run the same search as described above, except that the  e-value threshold would be set to 0.001(-evalue 0.001) and the out put is printed out a a table (-outfmt 7).
+Would run the same search as described above, except that the  e-value threshold would be set to 0.001(-evalue 0.001) and the out put is printed out to a table (-outfmt 7).
 
 
-## Usage of pb (Parallel BLAST)  at CSC
+## Usage of pb (Parallel BLAST) at CSC
 
-If your query sequence set contains less than 20 sequences then Taito-shell is probable the most effective platforms for the search. However, if your query set contains hundreds or thousands of sequences then utilizing the taito.csc.fi cluster is more  effective. For this kind of massive blast searches you can utilize the `pb` command in Puhti. _pb_ (Parallel BLAST) is designed for situations, where the query file includes large amount of sequences. It splits the query task into several subjobs, that can be run simultaneously using the resources of the server very effectively. For large sets of query sequences, _pb: can speed up the search up to 50 fold. Two sample _pb_ commands for puhti.csc.fi:
+If your query sequence set contains less than 20 sequences then interactive baych job is probably the most effective way top do the search. However, if your query set contains hundreds or thousands of sequences then utilizing the parallel computing capacity of Puhti is more effective. For this kind of massive blast searches you can utilize the `pb` command.
+
+_pb_ (Parallel BLAST) is designed for situations, where the query file includes large amount of sequences. It splits the query task into several subjobs, that can be run simultaneously using the resources of the server very effectively. For large sets of query sequences, _pb_ can speed up the search up to 50 fold. Two sample _pb_ commands for puhti.csc.fi:
 ```text
 module load biokit
 
@@ -69,16 +78,16 @@ pb blastn -db nt -query 100_ests.fasta -out results.out
 
 pb psiblast -db swiss -query protseqs.fasta -num_iterations 3 -out results.out
 ```
-_pb blast_ commands start a process that monitor the progress of the blast job. As running a large BLAST jobs may take
-a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
+
+
+_pb blast_ commands can be executed interactively in the login nodes of Puhti. You don't need to create  any batch job file yourself. In stead _pb_ command creates and submits a batch job automatically. Once BLAST job is started _pb_ starts a process that monitor the progress of the blast job. As running a large BLAST jobs may take a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
 
 To reconnect to your pb blast job, go to your scratch directory and run command:
 
 ```text
 blast_clusterrun
 ```
-This lists the temporary directories of your unfinished pb blast jobs. You can check the job number of your blast job
-from the directory name. Use this number with _-jobid_ option to define the pb blast job you wish to reconnect to.
+This lists the temporary directories of your unfinished pb blast jobs. You can check the job number of your blast job from the directory name. Use this number with _-jobid_ option to define the pb blast job you wish to reconnect to.
 
 ```text
 blast_clusterrun -jobid some-number
@@ -95,7 +104,7 @@ pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 Since BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a single taxonomy ID number or list of taxonomies, to focus the search only to an organism based subset from the search database.
 
 The BLAST tools include a command `get_species_taxids.sh` that can be used to generate taxidlists.
-First you have to find the the higher lever TaxID number your wish to use. For example, the TaxID of Betacoronavirus genius can be found with command:
+First you have to find the the higher lever TaxID number your wish to use. For example, the TaxID of _Betacoronavirus_ genius can be found with command:
 
 ```text
 get_species_taxids.sh -n Betacoronavirus 
@@ -104,15 +113,13 @@ Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be 
 ```text
 get_species_taxids.sh -t 694002 > b-coronaviruses.txt
 ```
-The command above produces a file containing TaxID numbers of Beta-coronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originating form the defined species. For example:
+The command above produces a file containing TaxID numbers of Betacoronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originating form the defined species. For example:
 
 ```text
 pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
 ``` 
 
 Note that `-taxidlist` can be used only with databases that include species information.
-
-
 
 
 ## Using genome data from ensembl with pb
@@ -131,7 +138,7 @@ pb tblastn -query dna_fargments.fasta -ensembl_prot gallus_gallus -out  chicken_
 
 You can see the list of species, available at Ensembl and Ensembl genomes databases with command:
 ```text
-ensemblfetch -names
+ensemblfetch.sh -names
 ```
 ## Running BLAST in FGCI grid with gb
 
@@ -149,9 +156,10 @@ Below is a list of BLAST databases maintained at the servers of CSC.
 |                 |                                                      |                                                             |
 | **Proteins**    |                                                      |                                                             |
 | nr              | NCBI non-redundant protein database                  | ftp://ftp.ncbi.nih.gov/blast/db/FASTA/                      |
-| pdb             | PDB protein structure database                       | ftp://ftp.rcsb.org/pub/pdb/derived_data/                    |
+| pdb_v5          | PDB protein structure database                       | ftp://ftp.rcsb.org/pub/pdb/derived_data/                    |
 | swiss           | Uniprot/Swiss database                               | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/    |
 | trembl          | Uniprot/TrEMBL database                              | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/    |
+| uniprot         | Uniprot Swiss and TrEMBL                             |   |
 | uniref100       | Uniref100 database                                   | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref100/ |
 | uniref90        | UniRef90 database                                    | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref90/  |
 | uniref50        | UniRef50 database                                    | ftp://ftp.ebi.ac.uk/pub/databases/uniprot/uniref/uniref50/  |
