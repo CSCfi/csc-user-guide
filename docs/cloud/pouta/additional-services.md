@@ -56,7 +56,7 @@ resolves to the domain name you are using.
 You can request reverse DNS mappings.
 
 - Point the DNS name to the server you want.
-- Send a mail to cloud-support@csc.fi with the IP/hostname pair
+- Send a mail to servicedesk@csc.fi with the IP/hostname pair
  you want to be mapped. Also send the UUID on the virtual machine
  it should be mapped to. You do not need to send a mail if the
  floating IP is moved to another machine, as long as the domain
