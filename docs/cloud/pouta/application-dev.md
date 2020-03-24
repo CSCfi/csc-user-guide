@@ -42,7 +42,7 @@ minimize the impact in case your VMs are accidentally terminated or enter
 an inaccessible state. This also gives you the flexibility for
 scaling up and down your services at any time as processes do not have
 a state to convey before scaling, which maximizes the robustness of
-your applicationand provides an option for graceful disposability of
+your application and provides an option for graceful disposability of
 your application. The disposability of your application should be
 complemented by a fast bootstrap, which brings added agility to your
 application development and small startup cycles in case of application
