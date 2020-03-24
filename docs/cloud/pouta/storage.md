@@ -4,7 +4,7 @@ This article introduces the storage options available in CSC's
 cloud environment. Using the storage requires
 an account, a project, and a virtual machine.
 
-There is at least one type of storage available on every  irtual
+There is at least one type of storage available on every  virtual
 machine: the file system defined by the virtual machine image. This is
 the primary disk of the virtual machine. In addition, it may have a
 certain amount of additional local disk space called **ephemeral
