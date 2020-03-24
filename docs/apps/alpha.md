@@ -106,5 +106,5 @@
 * [VMD](vmd.md) Molecular visualization program 
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
-* [XHMM](xhmm.nd) Copy number variation calling from targeted sequencing data
+* [XHMM](xhmm.md) Copy number variation calling from targeted sequencing data
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
