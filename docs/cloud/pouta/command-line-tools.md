@@ -37,7 +37,7 @@ that uses the common OpenStack command line tool.
 
     openstack -h
 
-You can get a list of the available OpenStack subcommands by appending -h
+You can get a list of the available OpenStack subcommands by appending "-h"
 after the `openstack` command. If you wish to see the options for a specific
 subcommand, add the command name after "help". For example:
 
@@ -78,9 +78,10 @@ cores, how much memory, and so on.
 This command has the minimum amount of information for launching a
 functioning virtual machine.
 
-**Note: Do not be alarmed by adminPass in the output from "openstack
-server create". This is not used when connecting only with SSH keys
-(the default on Pouta clouds).**
+!!! Note
+    Do not be alarmed by adminPass in the output from "openstack
+    server create". This is not used when connecting only with SSH keys
+    (the default on Pouta clouds).
 
 ##### List instances
 
