@@ -45,6 +45,7 @@
 * [Velvet](velvet.md) Genome assembler
 * [VMD](vmd.md) Molecular visualization program 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
+* [XHMM](xhmm.nd) Copy number variation calling from targeted sequencing data
 
 ## Chemistry
 
