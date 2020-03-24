@@ -4,7 +4,7 @@ This article describes using Pouta on the command line. If not done
 already, start by [installing the OpenStack tools](install-client.md).
 
 You can do most of the things you need in the OpenStack (Horizon)
-web interface of cPouta and ePouta. However, sometimes it is more practical,
+web interface of cPouta and ePouta. However, sometimes it is handier,
 or even necessary, to use command line tools. OpenStack is divided into
 subcomponents that each take care of specific tasks such as managing
 virtual machines, volumes or images. Each of these subcomponents has
