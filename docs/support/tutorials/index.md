@@ -27,4 +27,4 @@
 * [GPU-accelerated machine learning](gpu-ml.md)
 
 ## Bioinformatics
-* [Singularity usage on Puhti](Bioapplications.md)
+* [Singularity applications on Puhti](Bioapplications.md)
