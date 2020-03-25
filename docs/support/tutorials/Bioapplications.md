@@ -42,7 +42,7 @@ wget https://a3s.csc.fi/pilot_projects/Deepvariant_singulairty.zip
 ```
 
 
-### Prepare slurm batch scripts to run it on Puhti (file: deepvariant_puhti.sh)
+### Prepare batch script to run deepvariant pipeline on Puhti (file: deepvariant_puhti.sh)
 
 ```
 #!/bin/bash
