@@ -96,13 +96,16 @@ The object storage is also often used as a location for storing backups. It is a
 
 ## Files larger than 5 GB
 
-Files larger than 5 GB must be divided into smaller segments before uploading. 
+Files larger than 5 GB are divided into smaller segments during upload. 
 
-* *a-put* and *rclobe*  split large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
+* *a-put* and *rclone*  split large files automatically: [a-put](./a_commands.md#a-put-uploads-data-to-allas)
 
 * Using _Swift_, you can use the _Static Large Object_: [swift with large files](./swift_client.md#files-larger-than-5-gb)
 
 * _s3cmd_ splits large files automatically: [s3cmd put](./s3_client.md#create-buckets-and-upload-objects)
+
+
+After upload, s3cmd connects therese segments into one large object, but in case of swift based uploads (a-put, rclone , swift) the large files are also stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would use _a-put_ to upload a large file to bucket _123-dataset_ the actual data would be stored as several pieces into bucket _123-dataset_segments_. The target bucket _123_dataset_ would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the _segments_ buckets at all and objects inside these buckets should not be deleted or modified. 
 
 ## Viewing
 
