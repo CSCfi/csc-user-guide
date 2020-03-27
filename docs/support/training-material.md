@@ -14,7 +14,7 @@ for self study.
 
 ## CSC cloud resources, cPouta and ePouta:
 
-*   [cPouta and ePouta related videos](..//cloud/pouta/pouta-videos/)
+*   [cPouta and ePouta related videos](../cloud/pouta/pouta-videos/)
 *   [Pouta cloud course materials](https://www.csc.fi/documents/200270/357683/Pouta-Lecture-2019.pdf/3b597d7d-422e-4357-952e-e59842e14b80)
 
 ## Learn R and Python:
