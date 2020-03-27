@@ -305,6 +305,8 @@ my_bigfishes
 my_bigfishes_segments
 ```
 
+In this case the target bucket (my_bigfishes) contains just a front object that contains information what segments, stored in the segments bucket (my_bigfishes_segments) make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
+
 Download the entire 6GB.zero:
 
 ```text
