@@ -1,0 +1,53 @@
+# Training material
+
+Get the basics right! In addition the the [Tutorials](tutorials.md) 
+and [FAQ](faq.md) collections, 
+this page links to a selection of additional training material useful 
+for self study.
+
+
+## Linux basícs
+*   [Linux 101 tutorial](https://docs.csc.fi/support/tutorials/env-guide/overview/)
+*   [Linux 1: Introduction to Linux course material](https://www.csc.fi/en/web/training/-/linux1_autumn2018)
+*   [Linux 2: Intermediate Linux course materials](https://www.csc.fi/web/training/-/linux-2-november-2018)
+*   [Linux 3: Scripting course material](https://www.csc.fi/web/training/-/linux3_spring_2019)
+
+## CSC cloud resources, cPouta and ePouta:
+
+*   [cPouta and ePouta related videos](https://docs.csc.fi/cloud/pouta/pouta-videos/)
+*   [Pouta cloud course materials](https://www.csc.fi/documents/200270/357683/Pouta-Lecture-2019.pdf/3b597d7d-422e-4357-952e-e59842e14b80)
+
+## Learn R and Python:
+
+*   [R for Beginners](https://github.com/csc-training/R-for-beginners)
+*   [Data Analysis with R](https://github.com/csc-training/da-with-r)
+*   [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
+*   [Python basic course for geoscientists](https://geo-python.github.io/site/)
+
+## Language bank
+
+*   [Kielipankki - The Language Bank of Finland](https://www.kielipankki.fi/language-bank/) offers a wide range of [language resources](https://www.kielipankki.fi/corpora/) and [tools](https://www.kielipankki.fi/tools/)
+
+## Bioscience
+
+*   [Bioscience learning material](https://research.csc.fi/bioscience-learning-materials)
+*   [Chipster YouTube channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ/playlists) and [Chipster course material](https://chipster.csc.fi/manual/courses.html)
+*   [hands-on tutorial for analysing RNA-seq data using command line tools and R](https://research.csc.fi/rnaseq-tutorial)
+*   [Training material](https://github.com/NBISweden/excelerate-scRNAseq) and [video lectures](https://www.youtube.com/playlist?list=PLjiXAZO27elC_xnk7gVNM85I2IQl5BEJN) for single-cell RNA-seq data analysis
+*   We have collected learning material directed especially to our bioscientist here: [https://research.csc.fi/bioscience-learning-materials](https://research.csc.fi/bioscience-learning-materials)
+
+## Geoscience
+
+*   G[eoscience training material](https://research.csc.fi/gis-learning-materials)
+*   [GeoPortti](http://www.geoportti.fi/skills-development/) learning material
+
+### Chemistry
+
+*   [Spring School in Computational Chemistry course materials](https://events.prace-ri.eu/e/CSC_Spring_School_2020)
+
+## Fairdata
+
+*   [Fairdata training material](https://www.fairdata.fi/en/training/materials/)
+*   [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) you can find tips on how to take care of your research data.
+*   [Webinar for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/webinaari-datapalvelut-ammattikorkeakoulut) 7th April (in Finnish)
+*   [Remote training day for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/csc-tki-toiminnan-tukena) 18th May (in Finnish)
