@@ -36,20 +36,20 @@ my_prog inputfile outputfile
 Each of the subtasks requires less than two hours of computing time and less than 4 GB of memory. We can perform all 50 analysis tasks with the following batch job script:
 ```
 #!/bin/bash -l
-#SBATCH --job-name array_job
-#SBATCH --output array_job_out_%A_%a.txt
-#SBATCH --error array_job_err_%A_%a.txt
+#SBATCH --job-name=array_job
+#SBATCH --output=array_job_out_%A_%a.txt
+#SBATCH --error=array_job_err_%A_%a.txt
 #SBATCH --account=<project>
-#SBATCH --partition small
-#SBATCH --time 02:00:00
-#SBATCH --ntask 1
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=4000
 #SBATCH --array=1-50
 
 # run the analysis command
 my_prog data_${SLURM_ARRAY_TASK_ID}.inp data_${SLURM_ARRAY_TASK_ID}.out
 ```
-In the batch job script, the line `#SBATCH --array=1-50` defines that 50 subjobs will be submitted. The other #SBATCH lines refer to individual subjobs. In this case, one subjob uses at most one processor (`--ntask 1`), 4 GB of memory (`--mem-per-cpu=4000`), and can last up to two hours (`--time 02:00:00`). However, the total wall clock time needed to process all 50 tasks is not limited.
+In the batch job script, the line `#SBATCH --array=1-50` defines that 50 subjobs will be submitted. The other #SBATCH lines refer to individual subjobs. In this case, one subjob uses at most one processor (`--ntasks=1`), 4 GB of memory (`--mem-per-cpu=4000`), and can last up to two hours (`--time=02:00:00`). However, the total wall clock time needed to process all 50 tasks is not limited.
 
 In the job execution commands, the script utilizes the __$SLURM_ARRAY_TASK_ID__ variable in the definition of the input and output files so that the first subjob will run the command
 ```
@@ -85,18 +85,18 @@ ls data_*.inp > namelist
 ```
 The command
 ```
-sed –n <row_number> inputfile
+sed –n <row_number>p inputfile
 ```
 reads a certain line from the name list file. In this case, the actual command script could be
 ```
 #!/bin/bash -l
-#SBATCH --job-name array_job
-#SBATCH --output array_job_out_%A_%a.txt
-#SBATCH --error array_job_err_%A_%a.txt
+#SBATCH --job-name=array_job
+#SBATCH --output=array_job_out_%A_%a.txt
+#SBATCH --error=array_job_err_%A_%a.txt
 #SBATCH --account=<project>
-#SBATCH --partition small
-#SBATCH --time 02:00:00
-#SBATCH --ntask 1
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=4000
 #SBATCH --array=1-50
 
@@ -120,19 +120,19 @@ sbatch_commandlist -commands commandlist
 Options `-t` and `-mem` can be used to modify the time and memory reservation of the subjobs (default 12 h, 8GB).
 By default the billing project is set based on the name of the scratch directory where this command is executed, but if needed, it can be assigned using option `-project`
 
-After submitting an array job, `sbatch_commandlist` monitors the progress of the job and finishes only when the array job has finished. Thus this command can be used in workflows (including batch job scripts), where only certain steps of the workflow can utilize array jobs based parallel computing.
+After submitting an array job, `sbatch_commandlist` starts monitoring the progress of the job. If you use `sbatch_commandlist` interactively in login nodes, you normally don't want to keep the monitor running for hours. In these cases, you can just close the monitoring process by pressing `Ctrl-c`. The actual array job is not deleted, but it stays active in the batch job system and you can manage it with normal Slurm commands.
 
-As an example, lets assume we have a gzip compressed tar-archive file my_data.tgz containing a directory with a large number of files. To create a new compressed archive, that includes also a md5 checksum file for each file we would need to: (1) un-compress and un-pack my_data.tgz,  (2) execute _md5sum_ for each file and finally (3) pack and compress the my_data directory again. The second step of the workflow could be executed using a for-loop, but we could also use the loop just to generate a list of _md5sum_ commands, that can be processed with _sbatch_commandist_ .
+In addition to interactive usage, `sbatch_commandlist` can be utilized in batch jonbs and automatic workfows, where only certain steps of the workflow can utilize array jobs based parallel computing. As an example, lets assume we have a gzip compressed tar-archive file my_data.tgz containing a directory with a large number of files. To create a new compressed archive, that includes also a md5 checksum file for each file we would need to: (1) un-compress and un-pack my_data.tgz,  (2) execute _md5sum_ for each file and finally (3) pack and compress the my_data directory again. The second step of the workflow could be executed using a for-loop, but we could also use the loop just to generate a list of _md5sum_ commands, that can be processed with _sbatch_commandist_ .
 ```text
 #!/bin/bash -l
-#SBATCH --job-name workfow
-#SBATCH --output workflow_out_%j.txt
-#SBATCH --error workflow_err_%j.txt
+#SBATCH --job-name=workfow
+#SBATCH --output=workflow_out_%j.txt
+#SBATCH --error=workflow_err_%j.txt
 #SBATCH --account=<project>
-#SBATCH --time 12:00:00
+#SBATCH --time=12:00:00
 #SBATCH --mem=4000
-#SBATCH --ntask 1
-#SBATCH --partition small
+#SBATCH --ntasks=1
+#SBATCH --partition=small
 
 #open the tgz file
 tar zxf my_data.tgz

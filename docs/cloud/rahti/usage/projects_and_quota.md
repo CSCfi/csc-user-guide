@@ -46,11 +46,11 @@ or the OpenShift project creation will fail.
 
 If you would like to know which CSC computing projects you are a member of, you
 can view a list in the [My Projects
-tool](https://sui.csc.fi/group/sui/my-projects) of the Scientist's User
-Interface. You can also set a default billing project with the same tool. Select
-the project you would like to have as your default billing project and
-click "Set As Billing Project". After doing this, the default billing project
-will be selected as the billing project for OpenShift projects that don not
+tool](https://my.csc.fi/myProjects) of MyCSC. You can also set a default 
+billing project by going to [Your Profile page](https://my.csc.fi/myProfile). 
+Select the project you would like to have as your default billing project and
+click on "Save". After doing this, the default billing project
+will be selected as the billing project for OpenShift projects if you do not
 explicitly specify one.
 
 If you would like to know which CSC computing project an OpenShift project is

@@ -1,7 +1,5 @@
 # Conda best practices
 
-*Juha Lento, 2019-05-21, CSC*
-
 ## What is conda
 
 [Conda] is
@@ -56,6 +54,36 @@ There are package and management tools for building and installing HPC software
 from sources, such as [Spack]. Those are not as widely used as Conda, and often
 require some knowledge of the software build process, but they do compile and
 optimize the software for the particular architecture.
+
+### Conda on parallel file system, such as Lustre in Puhti
+
+Conda environments contain a lot of files, and starting a conda application
+requires reading a number of them. Unfortunately all parallel file systems,
+which are optimized for large number of clients, have a poor single client
+performance. You notice this as a longer initial start up time for conda
+applications, and extra stress on the Lustre metadata server. Therefore, we
+recommend two other methods to try before installing conda on parallel file
+system:
+
+1. Use the existing environments available through the module environment
+    
+    Check if any of the already installed environments for Python or R would
+    be suiteble for your project. Regular users cannot install new packages
+    to the system directories, but they can install additional packages to
+    their own directories, for example with
+    
+    ```
+    pip install --user ...
+    ```
+    
+    for python.
+
+2. Use containers
+    
+    This is a great alternative for developing software locally on a workstation,
+    and then deploying it on other workstation, cluster, or on cloud platforms.
+    Puhti supports singularity containers, which are are just single big
+    files for Lustre, thus avoiding much of the problems.
 
 ## Conda channels (package repositories)
 
@@ -404,7 +432,7 @@ Some ideas for the shell environment setup can be found in file
 [Spack]: https://spack.io
 [Miniconda]: https://docs.conda.io/en/latest/miniconda.html
 [Anaconda]: https://www.anaconda.com/distribution
-[conda-docs-env.yaml]: conda/conda-docs-env-0.1.yaml
+[conda-docs-env.yaml]: conda/conda-docs-env-1.0.yaml
 [mkdocs]: https://www.mkdocs.org
 [c-ide.yaml]: conda/c-ide.yaml
 [GNU Global]: https://www.gnu.org/software/global

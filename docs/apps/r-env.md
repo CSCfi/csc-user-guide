@@ -32,27 +32,38 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env
 ```
 
-Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. 
+Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). To use R in Puhti, please either request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, you will need to open a session on the `interactive` partition before loading the module (see below).
 
 #### Interactive use
 
-To interactively use R on Puhti's compute nodes, run this command after initializing the `r-env` module. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
+To interactively use R on Puhti's compute nodes, first open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 8 GB of memory and 100 GB of local scratch space. It is also possible to specify several other options, including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space. If these limits are too restrictive, `sinteractive` can also be used to launch interactive jobs in the `small` partition ([see here for information on Puhti partitions](../computing/running/batch-job-partitions.md)). This is handled automatically by `sinteractive` if the reservations exceed the upper limits defined for the `interactive` partition. 
 
+```bash
+sinteractive --account <project> --mem 8000 --tmp 100
 ```
-srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id --partition=partition R --no-save
+
+Once you have opened an interactive shell session, you can launch the `r-env` module and a command line version of R as follows:
+
+```bash
+module load r-env
+R
 ```
 
-For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
-
-If you prefer to use RStudio for interactive work, `r-env` can also be used together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
+If you prefer to use RStudio for interactive work, `r-env` can be launched together with the `rstudio` module. See the [RStudio documentation](./rstudio.md) for information. 
 
 #### Non-interactive use
 
-You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](../computing/running/creating-job-scripts.md) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](../computing/running/array-jobs.md).
+Further to interactive jobs, you can run R scripts non-interactively using batch job files. Some examples are included in the following, but also see this [link](../computing/running/creating-job-scripts.md) for general information on batch jobs. All batch job files can be submitted to the batch job system as follows:
 
-Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only). Also notice that it's possible to list a project-specific temporary directory in `/scratch/<project>`, which may be useful when running memory-intensive jobs.
-
+```bash
+sbatch batch_job_file.sh
 ```
+
+#### Serial batch jobs
+
+Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. For memory-intensive jobs, we can also list a project-specific temporary directory in `/scratch/<project>`.
+
+```bash
 #!/bin/bash -l
 #SBATCH --job-name=r_single_proc
 #SBATCH --account=<project>
@@ -66,7 +77,155 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 
 module load r-env/3.6.1
 echo "TMPDIR=/scratch/<project>" > .Renviron
-srun Rscript --no-save myrscript.R
+srun Rscript --no-save myscript.R
+```
+
+In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`--mem-per-cpu=1000`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
+
+#### Parallel batch jobs
+
+The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
+
+Further to the following examples, please see our separate [documentation](../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) on MPI-based jobs. You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/contours) for examples of parallel computing using the `RSAGA` package.
+
+!!! note
+    For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone, e.g. via the srun Rmpi command, are currently unavailable due to compatibility issues.
+
+*Multi-core and array jobs*
+
+To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_multi_proc
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=1000
+
+module load r-env/3.6.1
+echo "TMPDIR=/scratch/<project>" > .Renviron
+srun Rscript --no-save myscript.R
+```
+
+Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_array
+#SBATCH --account=<project>
+#SBATCH --output=output_%j_%a.txt
+#SBATCH --error=errors_%j_%a.txt
+#SBATCH --partition=small
+#SBATCH --time=00:05:00
+#SBATCH --array=1-10
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=1000
+
+module load r-env/3.6.1
+echo "TMPDIR=/scratch/<project>" > .Renviron
+srun Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
+```
+
+*Jobs using `doMPI` (with `foreach`)*
+
+The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
+
+```bash
+srun Rscript --no-save --slave myscript.R
+```
+
+The `--slave` argument is optional and will prevent different processes from printing out a welcome message etc.
+
+Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved cores that all begin to execute the given R script. It is important to include the `startMPIcluster()` call near the beginning of the R script as anything before it will be executed by all available processes (while only the master process continues after it). Upon completion, the cluster is closed using `closeCluster()`. The `mpi.quit()` function can then be used to terminate the MPI execution environment and to quit R:
+
+```r
+library(doMPI, quietly = TRUE)
+cl <- startMPIcluster()
+registerDoMPI(cl)
+
+system.time(a <- foreach(i = 1:7) %dopar% system.time(sort(runif(1e7))))
+a
+
+closeCluster(cl)
+mpi.quit()
+```
+
+*Jobs using `snow`*
+
+Whereas most parallel R jobs can be submitted using `srun Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). For example:
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_snow
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=8
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=1000
+
+module load r-env/3.6.1
+echo "TMPDIR=/scratch/<project>" > .Renviron
+srun RMPISNOW --no-save --slave -f myscript.R
+```
+
+Unlike when using `foreach` and `doMPI`, here only the master process runs the R script. The R script must contain the call `getMPIcluster()` that is used to produce a reference to the cluster which can then be passed onto other functions. Upon completion of the analysis, the cluster is stopped using `stopCluster()`. For example:
+
+```r
+cl <- getMPIcluster()
+
+funtorun <- function(k) {
+  system.time(sort(runif(1e7)))
+}
+
+system.time(a <- clusterApply(cl, 1:7, funtorun))
+a
+
+stopCluster(cl)
+```
+
+*Jobs using `pbdMPI`*
+
+In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` on Puhti can be done using the `srun Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_pbdmpi
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=4
+#SBATCH --ntasks-per-node=2
+#SBATCH --nodes=2
+#SBATCH --mem-per-cpu=1000
+
+module load r-env/3.6.1
+echo "TMPDIR=/scratch/<project>" > .Renviron
+srun Rscript --no-save --slave myscript.R
+```
+
+As an example, this batch job file could be used to execute the following "hello world" script (original version available via the `pbdMPI` [GitHub repository](https://github.com/snoweye/pbdMPI)). The `init()` function initializes the MPI communicators while `finalize()` is used to shut them down and to exit R.
+
+```r
+library(pbdMPI, quietly = TRUE)
+
+init()
+
+message <- paste("Hello from rank", comm.rank(), "of", comm.size())
+comm.print(message, all.rank = TRUE, quiet = TRUE)
+
+finalize()
 ```
 
 #### R package installations
@@ -114,7 +273,29 @@ libpath <- .libPaths()[1]
 install.packages("package", lib = libpath)
 ```
 
-Note that, to use packages installed in the `/projappl` folder, you will need to run `.libPaths(c("/projappl//project_rpackages", .libPaths()))` each time R is launched.
+To use R packages installed in the `/projappl` folder, you have two options.
+
+- Option 1: Add `.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))` to the beginning of your R script. This modifies your library trees within a given R session only. In other words, you will need to run this each time when launching R.
+
+- Option 2: Before launching R, run `export R_LIBS_USER=$R_LIBS_USER:/projappl/<project>/project_rpackages`. This modifies your library settings outside R, which can be useful if you are planning to use R in combination with other software.
+
+## Working with Allas
+
+The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) for a practical example involving raster data. 
+
+Accessing Allas via the `r-env` module can be done as follows:
+
+```bash
+# First configure Allas
+module load allas
+allas-conf --mode s3cmd
+
+# Then load aws.s3 in R
+module load r-env
+R
+library(aws.s3) 
+bucketlist()
+```
 
 ## Citation
 
@@ -136,3 +317,5 @@ This section contains links to other R-related documentation hosted by CSC, as w
 - [R package cheatsheets](https://rstudio.com/resources/cheatsheets/) (hosted on RStudio website)
 
 - [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env` module)
+
+- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)

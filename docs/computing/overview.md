@@ -22,21 +22,33 @@ to a specific login node, use the command:
 ```
 ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 ```
-For instructions on how to connect using Putty or establishing
-a graphical connection, see the [connecting](connecting.md) page.
+For more details, see the [connecting](connecting.md) page. 
 
+## Usage policy
+
+When you login to CSC supercomputers, you end up to one of the login nodes of the cluster.
+These login nodes are shared by all users and they are **not** intended for heavy computing. 
+
+The login nodes should be used only for:
+
+ * compiling
+ * managing batch jobs
+ * moving data 
+ * **light** pre- and postprocessing
+  
+Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
+All the other tasks are to be done in compute nodes either as normal [batch jobs](running/getting-started.md)
+or as [interactive batch jobs](running/interactive-usage.md).
+Programs not adhering to these rules will be terminated without warning.
 
 !!! warning "Important"
-    The login nodes can be used for compiling, moving data and **light** pre- and postprocessing. 
-    **Light** means that these **one-core-jobs**
-    should finish in **minutes** and require **a few GiB** of memory at maximum. 
-    All other tasks are to be done in the compute nodes using the [batch job system](running/getting-started.md). Programs not adhering to these rules will be terminated without warning. Note that compute nodes can be used also [interactively](running/interactive-usage.md)
-
+    The login nodes are not meant for long or heavy processes.
 
 
 ## Using Puhti
 
 * [System](system.md): What computational resources does Puhti have
+* [Connecting](connecting.md): How to connect to Puhti 
 * [Disk areas](disk.md): What places are there for storing data on Puhti 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.

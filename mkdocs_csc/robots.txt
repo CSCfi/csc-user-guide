@@ -1,0 +1,5 @@
+# exclude rahti-preview
+User-agent: *
+Disallow: /origin/
+
+Sitemap: http://docs.csc.fi/sitemap.xml

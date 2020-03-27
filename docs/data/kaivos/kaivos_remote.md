@@ -1,4 +1,4 @@
-# 5. Using kaivos.csc.fi directly from your local computer
+# Using kaivos.csc.fi directly from your local computer
 
 The MySQL databases in kaivos.csc.fi can be directly accessed only from the computing servers of CSC. However, you can make the database visible to your own computer using your CSC user account and port forwarding through an _ssh tunnel_.
 
@@ -9,7 +9,7 @@ The `-N` option in the end of the connection command blocks the command shell af
 
 In Windows machines you can use e.g. plink program to open the tunnel. [Plink](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) can only be used through the command prompt. Below is a sample command for using plink:
 
-<pre>plink -L 3306:kaivos.csc.fi:3306 <i>taito_username</i>@puhti.csc.fi</pre>
+<pre>plink -L 3306:kaivos.csc.fi:3306 <i>csc_username</i>@puhti.csc.fi</pre>
 
 The tunneling commands above define that the communication to port 3306 (the default port of MySQL) in you local computer is transported to the MySQL port of _kaivos.csc.fi_ through _puhti.csc.fi_ server. As long as the connection to puhti.csc.fi is active the database in kaivos.csc.fi can be accessed from your local computer using the same MySQL commands as described above for Puhti (assuming that you have the MySQL client program installed in your local computer). The only difference compared to previous command examples is that the host section (-h) should now point to host `127.0.0.1` that refers to your local host, instead of kaivos.csc.fi.
 

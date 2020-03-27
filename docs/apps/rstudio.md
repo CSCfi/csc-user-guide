@@ -16,24 +16,21 @@ The RStudio Desktop installation on Puhti is based on the [Open Source Edition](
 
 #### Loading the module
 
-To use this module on Puhti, initialize it after loading the `r-env` module (note that `r-env` needs to be loaded in order to use `rstudio`):
+To use this module on Puhti, first start a shell session on the `interactive` partition using the `sinteractive` command. As an example, the following command would launch a session with 8 GiB of memory and 100 GiB of local scratch space. It is also possible to specify several other options, including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 1 core, 16 GB of memory, 7 days of time and 160 GB of local scratch space. If these limits are too restrictive, `sinteractive` can also be used to launch interactive jobs in the `small` partition ([see here for information on Puhti partitions](../computing/running/batch-job-partitions.md)).
+
+```bash
+sinteractive --account <project> --mem 8000 --tmp 100
+```
+
+Once you have opened an interactive shell session, the `rstudio` module can be launched after loading the `r-env` module. RStudio can then be started using the command `rstudio`. Note that after running the `rstudio` command, it may take a while for RStudio to initialize.
 
 ```
 module load r-env
 module load rstudio
+rstudio
 ```
 
-For information on `r-env`, see the user documentation [here](./r-env.md). Note that Puhti login nodes are [not intended for heavy computing](../computing/overview.md). To use RStudio in Puhti, please request an interactive job on a compute node.
-
-#### Interactive use
-
-To interactively use RStudio on Puhti's compute nodes, run the following command. This will request a single-processor R session. Note that you will need to modify the requested duration, memory, project ID and partition as required:
-
-```
-srun --ntasks=1 --time=hh:mm:ss --x11=first --mem=4G --pty --account=project_id --partition=partition rstudio --no-save
-```
-
-For information on available partitions, see [here](../computing/running/batch-job-partitions.md).
+For information on `r-env`, see the user documentation [here](./r-env.md).
 
 ## Citation
 

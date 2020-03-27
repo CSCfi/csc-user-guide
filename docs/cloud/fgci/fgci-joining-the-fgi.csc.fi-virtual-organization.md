@@ -18,7 +18,6 @@ is open for all academic university researchers working in Finland. To
 join the *fgi.csc.fi* VO first download and install following
 certificate to your browser:
 
-
 <span id="OBJ_PREFIX_DWT4379_com_zimbra_url" class="Object"
 role="link"><span id="OBJ_PREFIX_DWT4398_com_zimbra_url"
 class="Object-hover"

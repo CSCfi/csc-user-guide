@@ -15,7 +15,7 @@ At the moment only Qiime2 is available in Puhti.
 
 ## Available
 
--   Puhti: qiime2-2019.7  
+-   Puhti: qiime2-2020.2, qiime2-2019.10  
 
 
 ## Usage
@@ -25,7 +25,7 @@ In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
 ```text
 module load bioconda
 conda env list
-source activate qiime2-2019.7
+source activate qiime2-2020.2
 source tab-qiime 
 ```
 
@@ -36,10 +36,39 @@ qiime
 
 Please check Qiime2 home page for more instructions.
 
-Note that many Qiime tasks involve heavy computing. Thus these tasks should be executed as
-batch jobs.
+Note that many Qiime tasks involve heavy computing. Thus, these tasks should be executed as
+batch jobs. Qiime needs to have access to a local node specific file system for handling temporary data.
+This kind of directory is available on the NVME nodes of Puhti. Therefore, you must include a request for NVME space
+in your batch job file.
 
-For example the batch job script below runs the denoising step of the
+The easiest way to start using Qiime is to use command `sinteractive` to launch an interactive batch job:
+```text
+sinteractive -i
+```
+In the interactive session, you can set up Qiime with commands:
+
+```text
+csc-workspaces
+cd /scratch/<project>
+export PROJAPPL=/projappl/<project>
+module load bioconda
+conda env list
+source activate qiime2-2020.2
+```
+
+Interactive batch jobs include local temporary disk that is mandatory for running Qiime. 
+
+In case of normal batch jobs, you must reserve NVME disk area that will be used as $TMPDIR area.
+
+For example, to reserve 100 GB of local disk space:
+```
+#SBATCH --gres=nvme:100
+```
+In addition you must define that the NVME space (LOCAL_SCRATCH) is used as temporary storage area (TMPDIR).
+```text
+export TMPDIR="$LOCAL_SCRATCH"
+```
+For example, the batch job script below runs the denoising step of the
 [QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
 as a batch job using eight cores.
 
@@ -55,13 +84,16 @@ as a batch job using eight cores.
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --partition=small
+#SBATCH --gres=nvme:100
 
 #set up qiime
+export PROJAPPL=/projappl/<project>
 module load bioconda
-source activate qiime2-2019.7
+source activate qiime2-2019.10
+export TMPDIR="$LOCAL_SCRATCH"
 
-# run task
-srun qiime dada2 denoise-single \
+# run task. Don't use srun in submission as it resets TMPDIR
+qiime dada2 denoise-single \
   --i-demultiplexed-seqs demux.qza \
   --p-trim-left 0 \
   --p-trunc-len 120 \
@@ -71,11 +103,12 @@ srun qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
 
-In the example above _<project>_ could be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
-Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization, the process is considered as one job that
- should be executed within one node (`--ntasks=1`, `--ntasks=1`). The job reserves eight cores `--cpus-per-task=8` that 
-can use in total up to 16 GB of memory  (` --mem=16G`). Note that the nubmer of cores to be used needs to be defined in 
-actual qiime command too. That is done with Megahit option `--p-n-threads`. In this case we use $SLURM_CPUS_PER_TASK 
+In the example above _<project>_ must be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
+Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization,
+the job is requested to use one task (`--ntasks=1`)  where all cores need to be in the same node (`--nodes=1`).
+This one task will use eight cores as parallel threads `--cpus-per-task=8` that 
+can use in total up to 16 GB of memory (` --mem=16G`). Note that the number of cores to be used needs to be defined in 
+actual qiime command, too. That is done with Megahit option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` 
 variable that contains the _cpus-pre-task_ value ( we could as well use `--p-n-threads 8` but then we have to remember 
 to change the value if the number of reserved CPUs is changed).
 
@@ -84,14 +117,9 @@ file is named as _qiime_job.sh_ then the submission command is:
 ```text
 sbatch qiime_job.sh 
 ```
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
-
+More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 ## Manual
 
 *   [QIIME2 home page](https://qiime2.org/)
-
-
-
-

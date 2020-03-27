@@ -5,6 +5,8 @@
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference-2019-11-21.pdf)
+* [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
+* [Linux basics for CSC](env-guide/overview.md)
 
 ## Allas
 * [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
@@ -19,3 +21,7 @@
 * [Utility objects](../../cloud/rahti/tutorials/advanced_tutorial.md)
 * [Design patterns](../../cloud/rahti/tutorials/patterns.md)
 
+## Data analysis and machine learning
+
+* [Data analysis guide](da-guide.md)
+* [GPU-accelerated machine learning](gpu-ml.md)
