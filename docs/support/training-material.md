@@ -1,20 +1,20 @@
 # Training material
 
 Get the basics right! In addition the the [Tutorials](tutorials.md) 
-and [FAQ](faq.md) collections, 
+and [FAQ](faq/index.md) collections, 
 this page links to a selection of additional training material useful 
 for self study.
 
 
 ## Linux basícs
-*   [Linux 101 tutorial](https://docs.csc.fi/support/tutorials/env-guide/overview/)
+*   [Linux 101 tutorial](tutorials/env-guide/overview/)
 *   [Linux 1: Introduction to Linux course material](https://www.csc.fi/en/web/training/-/linux1_autumn2018)
 *   [Linux 2: Intermediate Linux course materials](https://www.csc.fi/web/training/-/linux-2-november-2018)
 *   [Linux 3: Scripting course material](https://www.csc.fi/web/training/-/linux3_spring_2019)
 
 ## CSC cloud resources, cPouta and ePouta:
 
-*   [cPouta and ePouta related videos](https://docs.csc.fi/cloud/pouta/pouta-videos/)
+*   [cPouta and ePouta related videos](..//cloud/pouta/pouta-videos/)
 *   [Pouta cloud course materials](https://www.csc.fi/documents/200270/357683/Pouta-Lecture-2019.pdf/3b597d7d-422e-4357-952e-e59842e14b80)
 
 ## Learn R and Python:
@@ -48,6 +48,6 @@ for self study.
 ## Fairdata
 
 *   [Fairdata training material](https://www.fairdata.fi/en/training/materials/)
-*   [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) you can find tips on how to take care of your research data.
+*   [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) find tips on how to take care of your research data.
 *   [Webinar for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/webinaari-datapalvelut-ammattikorkeakoulut) 7th April (in Finnish)
 *   [Remote training day for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/csc-tki-toiminnan-tukena) 18th May (in Finnish)
