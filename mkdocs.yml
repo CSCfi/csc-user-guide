@@ -137,6 +137,7 @@ nav:
   - Support:
      - Tutorials: support/tutorials/index.md
      - FAQ: support/faq/index.md
+     - Training material: support/training-material.md
      - Contact: support/contact.md
 
 theme:
