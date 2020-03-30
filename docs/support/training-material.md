@@ -5,7 +5,7 @@ and [FAQ](faq/index.md) collections,
 this page links to a selection of additional training material useful 
 for self study.
  
-## Linux & HPC basícs
+## Linux & HPC basics
 *   [Linux 101 tutorial](tutorials/env-guide/overview/)
 *   [Linux 1: Introduction to Linux course material](https://www.csc.fi/en/web/training/-/linux1_autumn2018)
 *   [Linux 2: Intermediate Linux course materials](https://www.csc.fi/web/training/-/linux-2-november-2018)
