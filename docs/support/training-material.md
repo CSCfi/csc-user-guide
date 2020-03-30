@@ -24,7 +24,7 @@ for self study.
 *   [Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc) PRACE MOOC
  
 ## Data analytics
-*   [Data analysis guide](https://docs.csc.fi/support/tutorials/da-guide/)
+*   [Data analysis guide](tutorials/da-guide.md)
 *   [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
  
 ## Language bank
