@@ -70,6 +70,7 @@ There is a also a custom made __gpt_array__ command that allows the usage of gpt
 It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a conda environment is also loaded that has __python 2.7__ and __snappy__ installed so you can just start python and import snappy. 
 
 This conda environment also includes:
+
 * pandas
 * numpy 
 * geopandas 
