@@ -6,11 +6,12 @@ this page links to a selection of additional training material useful
 for self study.
 
 
-## Linux basícs
+## Linux & HPC basícs
 *   [Linux 101 tutorial](tutorials/env-guide/overview/)
 *   [Linux 1: Introduction to Linux course material](https://www.csc.fi/en/web/training/-/linux1_autumn2018)
 *   [Linux 2: Intermediate Linux course materials](https://www.csc.fi/web/training/-/linux-2-november-2018)
 *   [Linux 3: Scripting course material](https://www.csc.fi/web/training/-/linux3_spring_2019)
+*   [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 
 ## CSC cloud resources, cPouta and ePouta:
 
@@ -23,6 +24,11 @@ for self study.
 *   [Data Analysis with R](https://github.com/csc-training/da-with-r)
 *   [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
 *   [Python basic course for geoscientists](https://geo-python.github.io/site/)
+*   [Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc) PRACE MOOC
+
+## Data analytics
+*   [Data analysis guide](https://docs.csc.fi/support/tutorials/da-guide/)
+*   [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
 
 ## Language bank
 
@@ -32,7 +38,7 @@ for self study.
 
 *   [Bioscience learning material](https://research.csc.fi/bioscience-learning-materials)
 *   [Chipster YouTube channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ/playlists) and [Chipster course material](https://chipster.csc.fi/manual/courses.html)
-*   [hands-on tutorial for analysing RNA-seq data using command line tools and R](https://research.csc.fi/rnaseq-tutorial)
+*   [Hands-on tutorial for analysing RNA-seq data using command line tools and R](https://research.csc.fi/rnaseq-tutorial)
 *   [Training material](https://github.com/NBISweden/excelerate-scRNAseq) and [video lectures](https://www.youtube.com/playlist?list=PLjiXAZO27elC_xnk7gVNM85I2IQl5BEJN) for single-cell RNA-seq data analysis
 
 
