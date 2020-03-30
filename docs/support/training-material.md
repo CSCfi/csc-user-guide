@@ -34,11 +34,11 @@ for self study.
 *   [Chipster YouTube channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ/playlists) and [Chipster course material](https://chipster.csc.fi/manual/courses.html)
 *   [hands-on tutorial for analysing RNA-seq data using command line tools and R](https://research.csc.fi/rnaseq-tutorial)
 *   [Training material](https://github.com/NBISweden/excelerate-scRNAseq) and [video lectures](https://www.youtube.com/playlist?list=PLjiXAZO27elC_xnk7gVNM85I2IQl5BEJN) for single-cell RNA-seq data analysis
-*   We have collected learning material directed especially to our bioscientist here: [https://research.csc.fi/bioscience-learning-materials](https://research.csc.fi/bioscience-learning-materials)
+
 
 ## Geoscience
 
-*   G[eoscience training material](https://research.csc.fi/gis-learning-materials)
+*   [Geoscience training material](https://research.csc.fi/gis-learning-materials)
 *   [GeoPortti](http://www.geoportti.fi/skills-development/) learning material
 
 ### Chemistry
