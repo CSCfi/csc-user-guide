@@ -41,6 +41,7 @@
 
 ## Pouta
 
+* [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
 * [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
 * [How to use FGCI grid form Pouta](how-to-use-fgci-from-pouta.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
