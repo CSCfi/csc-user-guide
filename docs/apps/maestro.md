@@ -2,7 +2,7 @@
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
 for drug design and Materials Science. It can be used to build, edit, run and analyse 
-chemical model systems. Maestro is available for all academic users in 2020.
+chemical model systems.
 
 [TOC]
 
@@ -13,9 +13,10 @@ Puhti: 2019.3, 2019.4
 
 ## License
 
+Maestro is available for all academic users: staff and students.
 The Maestro license consists of floating licenses and tokens.
 It is possible for one user to take up all licenses for a 
-certain module. If licenses run out, contact Atte via Service Desk.
+certain module. If licenses run out, contact Atte via [ServiceDesk](mailto:servicedesk@csc.fi).
 Using Maestro means that you accept the
 [EULA](https://www.schrodinger.com/maestro-academic-eula).
 
@@ -32,7 +33,9 @@ You don't need a license to _download_ the software, although you need to regist
 to the Schrödinger website, but you'll need
 to configure licensing before you can _run_ it.
 [These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
-require Haka authentication.
+require Haka authentication. Access to the license requires that
+your computer is in FUNET network, e.g. you're on the university
+or connected to it via VPN from home.
 
 **Standalone usage on Puhti**
 
