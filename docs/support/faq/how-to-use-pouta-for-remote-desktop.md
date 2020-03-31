@@ -1,4 +1,4 @@
-# How to use cPouta for Remote Desktop
+# How to use Pouta for Remote Desktop
 
 This chapter will go through how to set up a remote desktop with noVNC and
 ssh-tunnel on a non-GPU flavor in c- and ePouta. We are using noVNC because
@@ -32,7 +32,7 @@ tunnel. Note that the port 2001 is the one that you will use with the browser la
 ssh -L2001:localhost:6081 cloud-user@YOUR-FLOATING-IP
 ```
 
-`-L2001:localhist:6081` meant that will be able access port 6081 on the server
+`-L2001:localhost:6081` meant that will be able access port 6081 on the server
 from our computers local port 2001.
 
 ## Install the required software
