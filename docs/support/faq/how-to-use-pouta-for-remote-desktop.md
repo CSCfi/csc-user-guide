@@ -137,7 +137,7 @@ To kill a VNC session you can run the command (change ':1' to the session number
 vncserver -kill :1
 ```
 
-## Importing information if you don't want to use the ssh-tunnel
+## Important information if you don't want to use the ssh-tunnel
 
 It is of course also possible to use noVNC or VNC directly over the internet
 but we strongly recommend against this. VNC is one of the easiest services to
