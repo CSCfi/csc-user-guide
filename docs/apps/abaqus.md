@@ -11,7 +11,7 @@ SIMULIA Academic Research Suite products are proprietary software. The licenses 
 
 Licenses are available on CSC's computing platforms [Taito and Puhti](https://research.csc.fi/csc-s-servers).  Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
-Notice that Taito server will be decommisioned in the end of December 2019.
+Notice that Taito server will be decommisioned in the first half of 2020.
 
 ## Usage
 
