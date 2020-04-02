@@ -1,7 +1,7 @@
 # How to access old HPC-archive data
 
 
-## HPC archive will be closed
+## HPC is closed
 
 HPC-archive service was used in Sisu and Taito supercomputes to provide storage space for back-ups and long term data storage.  In these servers HPC-archive was used with iRODS commands like `iput` and `iget`.
 
