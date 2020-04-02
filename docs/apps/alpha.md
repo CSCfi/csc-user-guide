@@ -61,6 +61,7 @@
 * [MXNet](mxnet.md) Deep learning library for Python
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
+* [Nektar++](nektar++.md) Spectral/hp element framework
 * [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Octave](octave.md) High-level interpreted language for numerical computations.
