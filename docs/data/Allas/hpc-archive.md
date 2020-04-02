@@ -13,7 +13,7 @@ data will not be available after year 2020.
 ## Allas access is needed
 
 To get access to your HPC-archive data, you need a CSC computing project 
-that has access to [Allas storage service](https://docs.csc.fi/data/Allas/).
+that has access to [Allas storage service](./index.md).
 
 You can use an existing CSC project or establish a new one. You 
 don’t need to be the manager of the project that you will use for 
@@ -24,8 +24,8 @@ You can check your current projects and services in the CSC customer portal:
 *    [my.csc.fi](https://my.csc.fi)
 
 Instructions for creating a project can be found here:
-*    [Opening a new project](https://docs.csc.fi/accounts/how-to-create-new-project/)
-*    [Adding services to a project](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
+*    [Opening a new project](../accounts/how-to-create-new-project.md)
+*    [Adding services to a project](.../accounts/how-to-add-service-access-for-project.md)
 
 ## What to do
 
