@@ -30,7 +30,7 @@ Instructions for creating a project can be found here:
 ## What to do
 
 To start the migration process send a request to **servicedesk@csc.fi**.  
-'The request should contain information about:
+The request should contain information about:
 
 1. your CSC user account
 2. name of the project that you will use to host your HPC archive
