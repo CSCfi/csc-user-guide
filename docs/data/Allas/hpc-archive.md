@@ -37,7 +37,9 @@ The request should contain information about:
 
 **Please use your organization e-mail address when you sent the request**. 
 Once the request is processed, you will get information about the Allas bucket 
-that contains your HPC-archive data. 
+that contains your HPC-archive data. This bucket is added of your Allas project. 
+It will use the storage quota and billing units of your project just like any 
+other data stored in Allas.
 
 
 ## Using HPC-archive data in Allas
@@ -69,7 +71,7 @@ normal a-put or rclone commands to Allas
 
 ```text
 a-get --s3cmd hpca-some_rand_string/file_name
-a-put file_name -b buket-to-upload
+a-put file_name -b bucket-to-upload
 ```
 This way data is converted form S3 protocol to Swift protocol and it can be used with the normal Allas-commands in Puhti.
 
