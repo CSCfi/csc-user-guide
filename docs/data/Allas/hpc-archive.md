@@ -7,7 +7,7 @@ HPC-archive service was used in Sisu and Taito supercomputes to provide storage 
 
 As these supercomputers are now phased out, also HPC-archive is closed. 
 If HPC-archive contained some data that you want to preserve, the data can 
-be moved to the Allas storage system. However you should act now as the HPC-archive 
+be moved to the Allas object storage environment. However you should act now as the HPC-archive 
 data will not be available after year 2020.
 
 ## Allas access is needed
