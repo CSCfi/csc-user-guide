@@ -51,11 +51,11 @@ different protocol (Swift) and because of that using the `hpca-`bucket requires 
 First, when you connect the Allas area of your project, you should open the connection with both _Swift_ and _S3_ protocols.
 This is done with command:
 ```text
-allas-conf  --mode both
+allas-conf --mode both
 ```
-After that you can Access your Allas data with both protocols. 
+After that you can access your Allas data with both protocols. 
 
-In case of `hpca-` buckets the data should be downloaded either with `s3cmd` command:
+In case of `hpca-` buckets the data can be downloaded with `s3cmd` command:
 ```text
 s3cmd get s3://hpca-some_rand_string/file_name local_file_name
 ```
@@ -63,7 +63,7 @@ You can use `a-get` too, but in that case you need to add option `--s3cmd`  to t
 ```text
 a-get --s3cmd hpca-some_rand_string/file_name
 ```
-If you want to move some file from `hpca-` bucket to some other bucket, it is recommended, 
+If you want to move some file from `hpca-` bucket to some another bucket, it is recommended, 
 that you first dowload the object to the scratch area of Puhti and then upload the data with
 normal a-put or rclone commands to Allas
 
@@ -71,5 +71,5 @@ normal a-put or rclone commands to Allas
 a-get --s3cmd hpca-some_rand_string/file_name
 a-put file_name -b buket-to-upload
 ```
-This way data is converted form S3 protocol to Swift protocol.
+This way data is converted form S3 protocol to Swift protocol and it can be used with the normal Allas-commands in Puhti.
 
