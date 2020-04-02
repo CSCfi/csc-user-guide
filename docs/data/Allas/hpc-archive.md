@@ -32,8 +32,8 @@ Instructions for creating a project can be found here:
 To start the migration process send a request to **servicedesk@csc.fi**.  
 The request should contain information about:
 
-1. your CSC user account
-2. name of the project that you will use to host your HPC archive
+1. Your CSC user account.
+2. Name of the project that you will use to host your HPC-archive data
 
 **Please use your organization e-mail address when you sent the request**. 
 Once the request is processed, you will get information about the Allas bucket 
