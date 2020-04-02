@@ -46,7 +46,7 @@ The name of the bucket where your HPC-archive data is re-located  starts with st
 by a random string. For example: `hpca-3ac9tfacfe8656ajad47b74495f42c54`.
 
 The data has been transferred into this bucket using S3 protocol. In Puhti, Allas is used by default 
-different protocol (Swift) and because of that using the `hpca-`bucket requires some extra steps and settings.
+with different protocol (Swift) and because of that using the `hpca-`bucket requires some extra steps and settings.
 
 First, when you connect the Allas area of your project, you should open the connection with both _Swift_ and _S3_ protocols.
 This is done with command:
