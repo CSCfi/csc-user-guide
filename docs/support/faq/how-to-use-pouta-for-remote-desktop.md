@@ -15,7 +15,7 @@ We will utilize the following technologies to install the remote desktop:
   - A standard-flavor, for example, _standard.medium_ 
   - CentOS-7 image (In Pouta they have already the epel-repository installed)
   - snapd to install the noVNC
-  - noVNC, since it allows to use our browser instead of a traditional VNC-client to view the desktop
+  - noVNC, since it allows us to use our browser instead of a traditional VNC-client to view the desktop
   - tigervnc-server as our VNC server
   - Xfce as our Desktop environment
   - ssh-tunnel so that the VNC server is not open to the internet. This is very
@@ -37,8 +37,8 @@ ssh -i C:\users\localusername\.ssh\yourkey.pem -L2001:localhost:6081 cloud-user@
 ```
 Note, that the port 2001 is the one that you will use with the browser later.
     
-`-L2001:localhost:6081` meant that will be able access port 6081 on the server
-from our computers local port 2001. Keep the terminal alive. The ssh-command was the only step
+`-L2001:localhost:6081` means that we will be able to access port 6081 on the server
+from our computer's local port 2001. Keep the terminal alive. The ssh-command is the only step
 needed on the local computer.
 
 ## Install the required software on the VM
@@ -103,6 +103,7 @@ chmod +x /home/cloud-user/.vnc/xstartup
 
 ## Starting your remote desktop
 
+Note, that with this documentation the NoVNC session will only work with ':1'.
 Start vncserver
 
 ```
@@ -121,8 +122,7 @@ You can start the noVNC client by running
 /var/lib/snapd/snap/bin/novnc --listen 6081 --vnc localhost:5901
 ```
 
-The location of the application might be in a different based on what
-Linux distribution you are using.
+The application location might differ based on the Linux distribution you are using.
 The `--listen 6081` means on which port the service will be accessed from. The
 `--vnc localhost:5901` means on what port it is expecting the vncserver to be 
 accessed from. You can exit out of the noVNC session by `ctrl+c`.
@@ -136,7 +136,6 @@ You can see your vncserver sessions by running the following command.
 ```
 vncserver -list
 ```
-Note that with this documentation the NoVNC session will only work ':1'
 
 To kill a VNC session you can run the command (change ':1' to the session number)
 
