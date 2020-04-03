@@ -13,7 +13,7 @@ In puhti SANSPANZ annotation tool is taken in use with command:
 
     module load biokit
 
-After loading the module you can launch sanspanz analysis using command
+After loading the module you can launch sanspanz analysis using command `runsanspanz.py`. For example:
 ```text
 runsanspanz.py -R -m Pannzer -s "species name" -i  input_seqs.fasta -o results.csv
 ```
@@ -33,6 +33,10 @@ If you upload this file to allas with command:
 a-flip annotations.html
 ```
 You can use the link provided by _a-filp_ to study the resoults with your browser.
+
+Note that in Puhti you shouls always use runsanspanz.py with option `-R` that send the
+analysis job to the annotation sever maintained by Holm group. Thus the job does not use 
+the resopuces of Puhti and it can be run as an intercative job in a login node.
 
 For more information run command:
 ```text
