@@ -29,7 +29,7 @@ Instructions for creating a project can be found here:
 
 ## What to do
 
-To start the migration process send a request to [ServiceDesk](maitlo:servicedesk@csc.fi)  
+To start the migration process send a request to [ServiceDesk](mailto:servicedesk@csc.fi)  
 The request should contain information about:
 
 1. Your CSC user account.
