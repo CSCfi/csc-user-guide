@@ -7,7 +7,7 @@ HPC-archive service was used in Sisu and Taito supercomputes to provide storage 
 
 As these supercomputers are now phased out, also HPC-archive is closed. 
 If HPC-archive contained some data that you want to preserve, the data can 
-be moved to the Allas object storage environment. However you should act now as the HPC-archive 
+be moved to the Allas object storage environment. However, you should act now as if the HPC-archive 
 data will not be available after year 2020.
 
 ## Allas access is needed
@@ -29,13 +29,13 @@ Instructions for creating a project can be found here:
 
 ## What to do
 
-To start the migration process send a request to **servicedesk@csc.fi**.  
+To start the migration process send a request to [ServiceDesk](maitlo:servicedesk@csc.fi)  
 The request should contain information about:
 
 1. Your CSC user account.
 2. Name of the project that you will use to host your HPC-archive data
 
-**Please use your organization e-mail address when you sent the request**. 
+**Please use your organizational e-mail address when you sent the request**. 
 Once the request is processed, you will get information about the Allas bucket 
 that contains your HPC-archive data. This bucket is added of your Allas project. 
 It will use the storage quota and billing units of your project just like any 
@@ -48,7 +48,7 @@ The name of the bucket where your HPC-archive data is re-located  starts with st
 by a random string. For example: `hpca-3ac9tfacfe8656ajad47b74495f42c54`.
 
 The data has been transferred into this bucket using S3 protocol. In Puhti, Allas is used by default 
-with different protocol (Swift) and because of that using the `hpca-`bucket requires some extra steps and settings.
+with a different protocol (Swift) and therefore the `hpca-`bucket requires some extra steps and settings.
 
 First, when you connect the Allas area of your project, you should open the connection with both _Swift_ and _S3_ protocols.
 This is done with command:
