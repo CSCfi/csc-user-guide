@@ -1,10 +1,11 @@
 # How to use Pouta for Remote Desktop
 
-This chapter will go through how to set up a remote desktop with noVNC and
-ssh-tunnel on a non-GPU flavor in c- and ePouta. We are using noVNC because
-it allows us to use our browser to access the desktop. If you would like to have
-instruction how to use a GPU instance for rendering you can find instructions
-here [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+This article will go through how to set up a remote desktop with noVNC and
+ssh-tunnel into a non-GPU flavor in c- and ePouta. We are using noVNC because
+it allows us to use our browser to access the desktop, i.e. no 
+local installations needed. If you would like to have
+instructions on how to use a GPU instance for rendering look
+here: [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
 
 [TOC]
 
@@ -14,31 +15,35 @@ We will utilize the following technologies to install the remote desktop:
   - A standard-flavor for example standard.medium 
   - CentOS-7 images (In Pouta it has already the epel-repository installed)
   - snapd to install the noVNC
-  - noVNC this allows to use our browser instead of a traditional VNC-client to view the desktop
-  - tigervnc-server as our VNC server.
-  -  Xfce as our Desktop environment.
-  -  ssh-tunnel so that the VNC server is not open to the internet. This is very
+  - noVNC allows to use our browser instead of a traditional VNC-client to view the desktop
+  - tigervnc-server as our VNC server
+  - Xfce as our Desktop environment
+  - ssh-tunnel so that the VNC server is not open to the internet. This is very
 important.
 
 ## Create and access your instance for remote desktop
 
-1. Launch an standard-flavor instances with the CentOS-7 image.
+1. Launch a standard-flavor instance with the CentOS-7 image.
 2. Attach a floating IP to the instance.
 3. In the security rules allow ingress ssh (port 22).
-4. We will ssh into the instance with this command to create a ssh-tunnel 
-tunnel. Note that the port 2001 is the one that you will use with the browser later.
+4. We will ssh into the instance with this command and create a ssh-tunnel. 
+Note, that the port 2001 is the one that you will use with the browser later.
 
 ```
 ssh -L2001:localhost:6081 cloud-user@YOUR-FLOATING-IP
 ```
-
+!!! Note
+    This also works at least in the Windows Powershell. If you don't have
+    an ssh-agent running, you will need to specify also your ssh-key:
+    `ssh -i C:\users\localusername\.ssh\yourkey.pem -L2001:localhost:6081 cloud-user@YOUR-FLOATING-IP`
+    
 `-L2001:localhost:6081` meant that will be able access port 6081 on the server
 from our computers local port 2001.
 
 ## Install the required software
 
-In this example we are using Xfce for our Desktop Environment you want to use
-another Desktop environment you will probably  need to modify the
+In this example we are using Xfce for our Desktop Environment. If you want to use
+some other Desktop environment you will probably need to modify the
 xstartup script.
 
 ```
@@ -86,13 +91,13 @@ echo '#!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
 xrdb $HOME/.Xresources
-startxfce4 --display=:1 &' > /home/cloud-user/xstartup
+startxfce4 --display=:1 &' > ~/.vnc/xstartup
 ```
 
 Add execution permission if you do not do this you will get a blank screen.
 
 ```
-chmod +x /home/cloud-user/xstartup
+chmod +x /home/cloud-user/.vnc/xstartup
 ```
 
 ## Starting your remote desktop
@@ -115,21 +120,22 @@ You can start the noVNC client by running
 /var/lib/snapd/snap/bin/novnc --listen 6081 --vnc localhost:5901
 ```
 
-The location of the application might be in a different location based on what
+The location of the application might be in a different based on what
 Linux distribution you are using.
 The `--listen 6081` means on which port the service will be accessed from. The
 `--vnc localhost:5901` means on what port it is expecting the vncserver to be 
 accessed from. You can exit out of the noVNC session by `ctrl+c`.
 
 You should now be able to access the noVNC session by going to this link in
-your browser `http://127.0.0.1:2001/vnc.html` . Note that the port number is the
+your browser `http://127.0.0.1:2001/vnc.html` . Note, that the port number is the
 same as the one you used with the ssh-command.
 
-You can see your vncserver sessions by running. Note that with this documentation the NoVNC session will only work ':1'
+You can see your vncserver sessions by running the following command.
 
 ```
 vncserver -list
 ```
+Note that with this documentation the NoVNC session will only work ':1'
 
 To kill a VNC session you can run the command (change ':1' to the session number)
 
