@@ -12,10 +12,10 @@ here: [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.
 ## Preparations
 We will utilize the following technologies to install the remote desktop:
 
-  - A standard-flavor for example standard.medium 
-  - CentOS-7 images (In Pouta it has already the epel-repository installed)
+  - A standard-flavor, for example, _standard.medium_ 
+  - CentOS-7 image (In Pouta they have already the epel-repository installed)
   - snapd to install the noVNC
-  - noVNC allows to use our browser instead of a traditional VNC-client to view the desktop
+  - noVNC, since it allows to use our browser instead of a traditional VNC-client to view the desktop
   - tigervnc-server as our VNC server
   - Xfce as our Desktop environment
   - ssh-tunnel so that the VNC server is not open to the internet. This is very
@@ -27,20 +27,21 @@ important.
 2. Attach a floating IP to the instance.
 3. In the security rules allow ingress ssh (port 22).
 4. We will ssh into the instance with this command and create a ssh-tunnel. 
-Note, that the port 2001 is the one that you will use with the browser later.
-
 ```
 ssh -L2001:localhost:6081 cloud-user@YOUR-FLOATING-IP
 ```
-!!! Note
-    This also works at least in the Windows Powershell. If you don't have
-    an ssh-agent running, you will need to specify also your ssh-key:
-    `ssh -i C:\users\localusername\.ssh\yourkey.pem -L2001:localhost:6081 cloud-user@YOUR-FLOATING-IP`
+This also works at least in the Windows Powershell. If you don't have
+an ssh-agent running, you will need to specify also your ssh-key:
+```
+ssh -i C:\users\localusername\.ssh\yourkey.pem -L2001:localhost:6081 cloud-user@YOUR-FLOATING-IP
+```
+Note, that the port 2001 is the one that you will use with the browser later.
     
 `-L2001:localhost:6081` meant that will be able access port 6081 on the server
-from our computers local port 2001.
+from our computers local port 2001. Keep the terminal alive. The ssh-command was the only step
+needed on the local computer.
 
-## Install the required software
+## Install the required software on the VM
 
 In this example we are using Xfce for our Desktop Environment. If you want to use
 some other Desktop environment you will probably need to modify the
