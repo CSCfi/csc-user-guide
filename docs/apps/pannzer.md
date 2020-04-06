@@ -44,6 +44,6 @@ For more information, execute command:
 ```text
 runsanspanz.py -h
 ```
-Or study Pannnzer home page:
+Or study Pannzer home page:
 
 *   [Pannzer home page](http://ekhidna2.biocenter.helsinki.fi/sanspanz/)
