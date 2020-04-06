@@ -15,14 +15,14 @@
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
+* [ChEMBL](chembl.md) Database of bioactive molecules.
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
-* [ChEMBL](chembl.md) Database of bioactive molecules
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [DDT](ddt.md) Parallel debugger 
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
-* [Discovery Studio](discovery-studio.md) Protein modeling environment
+* [Discovery Studio](discovery-studio.md) Protein modeling environment.
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
@@ -43,7 +43,7 @@
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
 * [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
-* [InterProScan](interpro.md) Protein signature/motif search tool.
+* [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
@@ -52,12 +52,14 @@
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
+* [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MATLAB](matlab.md) High-level technical computing language
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
-* [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler.
+* [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
+* [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [MXNet](mxnet.md) Deep learning library for Python
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
@@ -73,12 +75,13 @@
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [ParaView](paraview.md) Free open-source visualization application
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
-* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
+* [RAxML](raxml.md) Program for inferring phylogenies with likelihood
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [RStudio](rstudio.md) Integrated development environment for R
@@ -98,6 +101,7 @@
 * [Structure](structure.md) Inference of population structure in genetics
 * [TensorFlow](tensorflow.md) Deep learning library for Python
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
+* [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
