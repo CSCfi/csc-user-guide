@@ -1,13 +1,13 @@
 # PANNZER2/SANSPANZ
 
-### Description
+## Description
 
 PANNZER2/SANSPANZ is a fully automated service for functional annotation 
 of prokaryotic and eukaryotic proteins of unknown function. The tool is 
 designed to predict the functional description (DE) and gene ontology (GO) classes. 
 
 
-### Usage
+## Usage
 
 In puhti SANSPANZ annotation tool is taken in use with command:
 
