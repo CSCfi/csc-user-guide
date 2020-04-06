@@ -30,6 +30,7 @@
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
+* [Pannzer](pannzer.md) Automatic protein annotation tool
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
@@ -59,6 +60,7 @@
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
+* [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
@@ -78,6 +80,7 @@
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
+* [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 
