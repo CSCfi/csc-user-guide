@@ -6,6 +6,9 @@ PANNZER2/SANSPANZ is a fully automated service for functional annotation
 of prokaryotic and eukaryotic proteins of unknown function. The tool is 
 designed to predict the functional description (DE) and gene ontology (GO) classes. 
 
+## License
+
+Pannzer has been published with the GNU Public Licence v3.
 
 ## Usage
 
@@ -32,10 +35,10 @@ If you upload this file to Allas with command:
 ```text
 a-flip annotations.html
 ```
-You can use the link provided by _a-filp_ to study the results with your browser.
+You can use the link provided by _a-flip_ to study the results with your browser.
 
-Note that in Puhti you should always use runsanspanz.py with option `-R` that sends the
-analysis jobs to the annotation sever maintained by Holm group. Thus the job does not use 
+Note, that in Puhti you should always use `runsanspanz.py` with option `-R` that sends the
+analysis jobs to the annotation sever maintained by the Holm group. Thus, the job does not use 
 the resources of Puhti and it can be run as an intercative job in a login node.
 
 ## More information
