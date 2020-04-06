@@ -79,6 +79,7 @@
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
+* [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 
