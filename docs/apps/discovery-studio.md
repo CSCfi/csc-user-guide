@@ -10,8 +10,7 @@ research.
 
 Discover Studio is a commercial program by Biovia Inc. CSC has purchased
 a national academic license for Discovery Studio that allows non-profit
-usage in Finnish institutes proviging higher education (for example
-universities).
+usage in Finnish universities.
 
 In year 2020 CSC has a national Discovery Studio license which allows unlimited access to all Discovery Studio
 modules for 5 simultaneous users.
