@@ -8,7 +8,7 @@ chemical model systems.
 
 ## Available
 
-Puhti: 2019.3, 2019.4
+Puhti: 2019.3, 2019.4, 2020.1
 
 
 ## License
@@ -65,9 +65,10 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
 !!! note
     We do not recommend running the Maestro GUI remotely on Puhti.
     It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
-    and the performance is not very good. Also, no heavy tasks should be
+    and the performance is not very good. Also, **no long/heavy tasks** should be
     done on the login nodes. Please consult the
-    [policy on the computing overview.](../computing/overview.md)
+    [policy](../../computing/overview/#usage-policy) on the computing overview.
+    If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
 
 !!! note
     **Windows** users, you'll need to edit the script created by GUI a little.
