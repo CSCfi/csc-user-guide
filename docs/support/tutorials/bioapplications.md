@@ -38,7 +38,7 @@ sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
 Alternatively, one can download already converted images and test data from **allas** object storage as below:
 
 ```
-wget https://a3s.csc.fi/pilot_projects/Deepvariant_singulairty.zip
+wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip
 ```
 
 
