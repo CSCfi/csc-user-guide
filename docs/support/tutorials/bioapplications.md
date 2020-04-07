@@ -1,4 +1,4 @@
-This tutorial page  explains how bioapplications can be run as singularity containers in Puhti using selected applications  as explained below:
+This tutorial page  provides a step-by-step process on running Singularity containers in Puhti supercomputer using selected bio-applications as explained below:
 
    - [DeepVariant pipeline](#deepvariant-pipeline)
    - ...
