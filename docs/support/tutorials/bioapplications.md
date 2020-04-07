@@ -7,13 +7,13 @@ This tutorial page  explains how bioapplications can be run as singularity conta
 
 DeepVariant pipeline (Poplin et al., Nature biotechnology, 2018) is used  to perform variant calling on WGS and WES data sets. More information about the deepvariant programmes can be found [here](https://github.com/google/deepvariant) 
 
-One needs to get DeepVariant docker image, models and test data in order to run the pipeline. Additionally, other prerequisites for running deepvariant method includes 1) obtaining A reference genome in [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format and its corresponding index file (.fai). 2) An aligned reads file in [BAM](http://genome.sph.umich.edu/wiki/BAM) format and its corresponding index file (.bai).
+One needs to get DeepVariant docker image, models and test data in order to run the pipeline. Additionally, other prerequisites for running deepvariant method includes 1) obtaining a reference genome in [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format and its corresponding index file (.fai). 2) An aligned reads file in [BAM](http://genome.sph.umich.edu/wiki/BAM) format and its corresponding index file (.bai).
 
-#### Convert docker image to singularity image on your local machine ####
+#### Convert docker image into Singularity image on your local machine ####
 
-One way to build a singularity image is to download the deepvariant docker image to local registry and convert it to singularity image to avoid any possible erros with docker images pulled directly with singularity from google registry. Please note that one has to do these image conversions in local machines as Puhti does not grant root access to users.
+One way to build a Singularity image is to download the deepvariant docker image to local registry and then convert it to singularity one to avoid any possible erros with docker images pulled directly with singularity build command from google registry. Please note that one has to do these image conversions in your local machine as Puhti does not grant root access to users.
 
-Pull the DeepVariant image and push it to local registry as below:
+Pull DeepVariant image and push it into local registry as below:
 
 ```
 sudo docker pull gcr.io/deepvariant-docker/deepvariant:0.8.0
@@ -30,12 +30,12 @@ Registry: http://localhost:5000
 Namespace:
 From:deepvariant:latest
 ```
-and finally create a singularity image as below:
+and finally create a Singularity image as below:
 
 ```
 sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
 ```
-Alternatively, one can download already converted images and test data from **allas** object storage as below:
+Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's **allas** object storage as below:
 
 ```
 wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip
