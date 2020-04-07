@@ -27,7 +27,7 @@ The recipient will get an email that contains an URL to the download page of the
  **Funet FileSender download page**
  ![Funet FileSender download page](/img/funet_download.png){.center width=100%}
 
-You can also right click on the download buttons and "Copy Link Location" to get the download URL to the file. The URL can then be used to download the file using another tool, for example [wget](wget.md). Note that in the case of Funet FileSender you should enclose the dowload link with quotation marks and use option -O to define a file name that will be  used for the downloaded data. 
+You can also right click on the download buttons and "Copy Link Location" to get the download URL to the file. The URL can then be used to download the file using another tool, for example [wget](wget.md). Note that in the case of Funet FileSender you should enclose the download link with quotation marks and use option -O to define a file name that will be used for the downloaded data. 
 
 
 ```bash
