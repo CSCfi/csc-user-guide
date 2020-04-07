@@ -69,11 +69,16 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
     done on the login nodes. Please consult the
     [policy on the computing overview.](../computing/overview.md)
 
+!!! note
+    **Windows** users, you'll need to edit the script created by GUI a little.
+    Replace the backslashes "\" with "/" in the path to the Maestro binary
+    (right after `$SCHRODINGER` in the script). 
+
 Desmond molecular dynamics runs **very well** on GPUs. We recommend watching 
 the video above on how to accomplish this easily.
 
 Maestro gives a warning for using a `schrodinger.hosts` file from your home directory. This is
-not an issue: that file cannot be made available in the installation directory, so please
+**not an issue**: that file cannot be made available in the installation directory, so please
 ignore that warning, but consider any others you may see.
 
 ## References
