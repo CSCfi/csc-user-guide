@@ -25,3 +25,6 @@
 
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
+
+## Bioinformatics
+* [Singularity applications on Puhti](bioapplications-puhti.md)
