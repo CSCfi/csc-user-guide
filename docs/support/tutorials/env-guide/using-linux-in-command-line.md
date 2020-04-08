@@ -278,7 +278,7 @@ File related commands:
 <td><p>Show the content of a file one screenfull at a time</p></td>
 </tr>
 <tr class="even">
-<td><a href="https://research.csc.fi/" id="ln"></a><strong>ln</strong></td>
+<td><strong>ln</strong></td>
 <td><p><em>file_name1 link_name</em></p></td>
 <td><p>Create a link to a file</p></td>
 </tr>
