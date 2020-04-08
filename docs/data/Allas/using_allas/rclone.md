@@ -56,6 +56,8 @@ is deleted after copying.
 
 The _copy_ and _move_ subcommands only work with files. If you would like to copy all files in a directory, use the _copyto_ or _moveto_ subcommands.
 
+During upload files that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  _2000620-raw-data_ the actual data would be stored as several pieces into bucket _2000620-raw-data_segments_. The target bucket (_2000620-raw-data_) would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
+
 ## List buckets and objects
 
 List all the buckets belonging to a project:
