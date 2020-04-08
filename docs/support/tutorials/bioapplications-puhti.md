@@ -38,7 +38,7 @@ sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
 Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's **allas** object storage as below:
 
 ```
-wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip
+wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
 ```
 
 
@@ -95,8 +95,8 @@ Singularity is installed in login nodes in Puhti. So one can run singularity con
 
 Download and unzip the deepvariant folder with data and singularity images in the login node
 ```
- wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip   
- unzip Deepvariant_singulairty.zip
+ wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip   
+ unzip Deepvariant_singularity.zip
 ```
 Then start interactive shell and provide requested parameters as prompted in terminal
 ```
@@ -104,7 +104,7 @@ sinteractive -i
 ```
 Start interactive singularity session
 ```
-cd Deepvariant_singulairty
+cd Deepvariant_singularity
 export TMPDIR=$PWD
 singularity shell -B $PWD:/data deepvariant.simg
 ```
