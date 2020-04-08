@@ -97,21 +97,19 @@ Download and unzip the deepvariant folder with data and singularity images
 ```
  wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip   
  unzip Deepvariant_singulairty.zip
- 
 ```
 Start interactive shell and provide requested parameters as prompted in terminal
 ```
 sinteractive -i
-
 ```
 Start interactive singularity session:
 ```
 cd Deepvariant_singulairty
 export TMPDIR=$PWD
 singularity shell -B $PWD:/data deepvariant.simg
-
 ```
 Execute the actual workflow commands in the singularity session
+
 ```
 export PATH=/opt/deepvariant/bin:$PATH
 cd /data/testdata/
