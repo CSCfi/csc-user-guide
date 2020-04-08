@@ -93,12 +93,12 @@ deepvariant_gpu.simg \
 ### Deepvariant as an interactive job in Puhti
 Singularity is installed in login nodes in Puhti. So one can run singularity containers in the interactive mode. For example deepvariant can be run as follows: 
 
-Download and unzip the deepvariant folder with data and singularity images
+Download and unzip the deepvariant folder with data and singularity images in the login node
 ```
  wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip   
  unzip Deepvariant_singulairty.zip
 ```
-Start interactive shell and provide requested parameters as prompted in terminal
+Then start interactive shell and provide requested parameters as prompted in terminal
 ```
 sinteractive -i
 ```
