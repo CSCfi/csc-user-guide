@@ -102,7 +102,7 @@ Start interactive shell and provide requested parameters as prompted in terminal
 ```
 sinteractive -i
 ```
-Start interactive singularity session:
+Start interactive singularity session
 ```
 cd Deepvariant_singulairty
 export TMPDIR=$PWD
