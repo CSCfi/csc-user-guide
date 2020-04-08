@@ -11,7 +11,7 @@ One needs to get DeepVariant docker image, models and test data in order to run 
 
 #### Convert docker image into Singularity image on your local machine ####
 
-One way to build a Singularity image is to download the deepvariant docker image to local registry and then convert it to singularity one to avoid any possible erros with docker images pulled directly with singularity build command from google registry. Please note that one has to do these image conversions in your local machine as Puhti does not grant root access to users.
+One way to build a Singularity image is to download the deepvariant docker image to local registry and then convert it to singularity one to avoid any possible erros with docker images pulled directly with singularity build command from google registry. Please note that one has to do these image conversions in your local machine or virtual machine in cPouta as Puhti does not grant root access to users.
 
 Pull DeepVariant image and push it into local registry as below:
 
@@ -89,4 +89,37 @@ deepvariant_gpu.simg \
 --regions "chr20:10,000,000-10,010,000" \
 --output_vcf=output.vcf.gz  \
 --output_gvcf=output.g.vcf.gz
+```
+### Deepvariant as an interactive job in Puhti
+Singularity is installed in login nodes in Puhti. So one can run singularity containers in the interactive mode. For example deepvariant can be run as follows: 
+
+Download and unzip the folder with data and singularity images
+```
+ wget https://a3s.fi/pilot_projects/Deepvariant_singulairty.zip   
+ unzip Deepvariant_singulairty.zip
+ 
+```
+Start interactive shell and provide resource parameters
+```
+sinteractive -i
+
+```
+Start interactive singularity session:
+```
+cd Deepvariant_singulairty
+export TMPDIR=$PWD
+singularity shell --nv -B $PWD:/data deepvariant_8_0_cpu.simg
+
+```
+Execute the actual workflow commands in the singularity session
+```
+export PATH=/opt/deepvariant/bin:$PATH
+cd /data/testdata/
+run_deepvariant --model_type=WGS --ref=ucsc.hg19.chr20.unittest.fasta --reads=NA12878_S1.chr20.10_10p1mb.bam --regions "chr20:10,000,000-10,010,000" --output_vcf=output.vcf.gz --output_gvcf=output.g.vcf.gz
+```
+Exit from the singularity session and interactuive batch job
+
+```
+exit
+exit
 ```
