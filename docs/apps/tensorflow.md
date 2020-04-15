@@ -6,6 +6,7 @@ Deep learning framework for Python.
 
 Available on Puhti only.  Currently supported TensorFlow versions and corresponding modules to load:
 
+- 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.03-tf2-py3`
 - 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.02-tf2-py3`
 - 2.0.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-19.11-tf2-py3`
 - 2.0.0: `tensorflow/2.0.0`
