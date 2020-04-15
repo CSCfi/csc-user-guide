@@ -16,7 +16,6 @@
     * [Installing command line tools](install-client.md)
 * [Virtual machine lifecycle and saving billing units](vm-lifecycle.md)
 * [Orchestration with Heat](heat-orchestration.md)
-* [Container orchestration in cPouta](pouta-container-orchestration.md)
 * [Application development practises in Pouta](application-dev.md)
 * [Creating and uploading virtual machine images](adding-images.md)
 * [Additional services in Pouta (email, DNS)](additional-services.md)
