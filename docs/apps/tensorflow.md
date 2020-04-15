@@ -17,12 +17,13 @@ Available on Puhti only.  Currently supported TensorFlow versions and correspond
 - 1.13.1: `tensorflow/1.13.1`
 - 1.13.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/1.13.1-hvd`
 
-Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.  Except for Singularity-based modules, also include all the packages from [Python Data](python-data.md). If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.
 
 !!! note 
 
     In Singularity-based modules you need to launch Python with `singularity_wrapper`, see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
 
+If you find that some package is missing, you can often install it yourself with `pip install --user`, or `singularity_wrapper exec pip install --user` in Singularity-based modules. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
 ## License
 
