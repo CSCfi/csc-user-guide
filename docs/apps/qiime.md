@@ -103,7 +103,7 @@ qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
 
-In the example above _<project>_ must be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
+In the example above `<project>` must be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
 Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization,
 the job is requested to use one task (`--ntasks=1`)  where all cores need to be in the same node (`--nodes=1`).
 This one task will use eight cores as parallel threads `--cpus-per-task=8` that 
