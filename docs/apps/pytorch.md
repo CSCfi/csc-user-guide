@@ -6,6 +6,7 @@ Machine learning framework for Python.
 
 Available on Puhti only.  Currently supported PyTorch versions and corresponding modules to load:
 
+- 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.03-py3`
 - 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.02-py3`
 - 1.4.0: `pytorch/1.4`
 - 1.4.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-19.11-py3`
@@ -17,12 +18,13 @@ Available on Puhti only.  Currently supported PyTorch versions and corresponding
 - 1.1.0: `pytorch/1.1.0`
 - 1.0.1: `pytorch/1.0.1`
 
-Modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.  Except for Singularity-based modules, also include all the packages from [Python Data](python-data.md).  If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+Modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.
 
 !!! note 
 
     In Singularity-based modules you need to launch Python with `singularity_wrapper`, see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
 
+If you find that some package is missing, you can often install it yourself with `pip install --user`, or `singularity_wrapper exec pip install --user` in Singularity-based modules. If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
 ## License
 
