@@ -21,9 +21,11 @@ preserving your HPC-archive data. Note however, that all members of the Allas
 project will have access to your data.
 
 You can check your current projects and services in the CSC customer portal:
+
 * [my.csc.fi](https://my.csc.fi)
 
 Instructions for creating a project can be found here:
+
 * [Opening a new project](./../../accounts/how-to-create-new-project.md)
 * [Adding services to a project](./../../accounts/how-to-add-service-access-for-project.md)
 
