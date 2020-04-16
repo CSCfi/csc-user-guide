@@ -83,7 +83,6 @@ nav:
             - Basic information about images: cloud/pouta/images.md
             - Creating, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
-        - Container Orchestration in cPouta: cloud/pouta/pouta-container-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
         - Self study and troubleshooting:
