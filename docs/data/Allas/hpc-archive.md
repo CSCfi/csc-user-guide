@@ -1,7 +1,7 @@
 # How to access old HPC-archive data
 
 
-## HPC Archive is closed
+## HPC is closed
 
 HPC-archive service was used in Sisu and Taito supercomputes to provide storage space for back-ups and long term data storage.  In these servers HPC-archive was used with iRODS commands like `iput` and `iget`.
 
@@ -21,11 +21,11 @@ preserving your HPC-archive data. Note however, that all members of the Allas
 project will have access to your data.
 
 You can check your current projects and services in the CSC customer portal:
-* [my.csc.fi](https://my.csc.fi)
+*    [my.csc.fi](https://my.csc.fi)
 
 Instructions for creating a project can be found here:
-* [Opening a new project](./../../accounts/how-to-create-new-project.md)
-* [Adding services to a project](./../../accounts/how-to-add-service-access-for-project.md)
+*    [Opening a new project](./../../accounts/how-to-create-new-project.md)
+*    [Adding services to a project](./../../accounts/how-to-add-service-access-for-project.md)
 
 ## What to do
 
