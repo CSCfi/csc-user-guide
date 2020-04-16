@@ -5,8 +5,6 @@ Browse by discipline below.
 
 ## Biosciences
 * [ChEMBL](../apps/chembl.md) Database of bioactive molecules.
-* [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
-* [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
  
 ## Chemistry
 * [CSD](../apps/csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
