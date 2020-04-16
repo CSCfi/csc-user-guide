@@ -60,7 +60,7 @@ Example batch job script for Puhti using 8 cores. (We are using 8 cores since ou
 ```text
 #!/bin/bash
 #SBATCH --account=<project>
-#SBATCH --jobname=my_mrbjob
+#SBATCH --job-name=my_mrbjob
 #SBATCH --error=my_mrbjob_err%j
 #SBATCH --output=my_mrbjob_out%j
 #SBATCH --ntasks=8
