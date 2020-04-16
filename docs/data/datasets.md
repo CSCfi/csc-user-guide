@@ -12,7 +12,7 @@ Browse by discipline below.
 * [CSD](../apps/csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 
 ## Geosciences
-* The open GIS data in puhti is located in `/appl/data/geo/` 
+* Main open Finnish spatial datasets are available in Puhti, located in `/appl/data/geo/` 
 * [Detailed description](https://research.csc.fi/gis_data_in_csc_computing_env) of available datasets
 
 ## Language Research and Other Digital Humanities and Social Sciences
