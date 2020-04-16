@@ -30,6 +30,7 @@
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
+* [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [Pannzer](pannzer.md) Automatic protein annotation tool
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
