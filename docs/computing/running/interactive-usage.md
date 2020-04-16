@@ -10,18 +10,13 @@ slightly from the login nodes. For example, not all the same text editors are av
 
 ## Easy interactive work: sinteractive command
 
-Puhti has an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to execute the `sinteractive` command:
-
+Puhti has an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to use the `sinteractive` command:
 ```text
-sinteractive --account <project_name> 
+sinteractive -i
 ```
+The command above asks what computing project will be used and how much resouces the job will need. After that it opens a shell session that runs on a compute node. You can use this session as a normal bash shell without additional Slurm commands for starting jobs and applications.
 
-This command opens a shell session that runs on a compute node. You can use this
-session as a normal bash shell without additional Slurm commands for starting jobs and applications.
-
-The default sinteractive resources cover typical use cases, but you can also request more
-from the command line. For example, an interactive session with 8 GiB 
-of memory, 48 h runnig time and 100 GiB local scratch using project _project_2011234_
+You can define the resource requests in command line too if you don't want to specify them interactively. For example, an interactive session with 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2011234_
 can be lauched with command:
 
 ```text
@@ -32,6 +27,7 @@ Available options for `sinteractive` are:
 
 | Option        | Function                                                 | Default              |
 | ------------- | -------------------------------------------------------- | -------------------- |
+| -i, --interactive | Set resource requests for the job interactively       |                      |
 | -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
 | -m, --mem     | Memory reservation in MB.                                | 1000                 |
 | -j, --jobname | Job name.                                                | interactive          |
@@ -50,7 +46,7 @@ partitions instead. However, in these cases your session starts queueing just li
 you may need to wait some time before the requested resources become available and the interactive session 
 starts.
 
-All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
+All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
 ### Example: Running a Jupyter notebook server via sinteractive
 
