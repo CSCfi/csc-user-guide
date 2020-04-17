@@ -11,6 +11,14 @@ gives you permissions to edit source files that build the user guide.
 The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](../STYLEGUIDE.md) for content and 
 formatting instructions.
 
+## For the impatient
+
+Once you've completed the steps above:
+* In [docs.csc.fi](https://docs.csc.fi) go the the page you want to edit and click the pen icon at top right
+* (sign in GitHub) and edit then content
+* Scroll down to commit changes (create a new branch) -> make a pull request
+* Assign a reviewer
+
 ## Making changes using pull requests
 
 The csc-user-guide repository uses the 'master' as the default
