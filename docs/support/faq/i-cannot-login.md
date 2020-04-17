@@ -11,12 +11,12 @@ login problems affecting other services, like Puhti:
 in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until the
 maintenance is completed or the issue is resolved.
 1. Your project does not have access to the service that you are trying to
-login into, or the access has expired. Check the services linked to your projects at
+login into. Check the services linked to your projects at
 MyCSC. You may want to [add service access for your
 project](../../accounts/how-to-add-service-access-for-project.md) or [create a new
 project](../../accounts/how-to-create-new-project.md).
 1. You just changed your password and it has not yet been updated on the system
-you try to access. Please allow for upto one hour and retry. Too many repeated
+you try to access. Please allow for up to one hour and retry. Too many repeated
 failed attempts will (temporarily) block your IP or account.
 
 ## I cannot login to MyCSC
