@@ -28,15 +28,15 @@ collection of known vectors (UniVec_Core).
 
 Other available databases are:
 
-|name   |description    | 
-|------|-----------------|
-|standard|  NCBI taxonomic information, as well as the complete genomes in RefSeq for the bacterial, archaeal, and viral domains, along with the human genome and a collection of known vectors (UniVec_Core).|
-|krak_microb| RefSeq backterial, archea, viral, fungi and protozoa |
-|16S_Greengenes_k2db| Greengenes 16S data |
-|16S_RDP_k2db | RDP 16S data |
-|16S_SILVA132_k2db| Silva 132 16S data |
-|16S_SILVA138_k2db| Silva 138 16S data |
-| minikraken_8GB_20200312|            |
+|name  | Mem. request | description    | 
+|------|--------------|-----------------|
+|standard| 40 GB | NCBI taxonomic information, as well as the complete genomes in RefSeq for the bacterial, archaeal, and viral domains, along with the human genome and a collection of known vectors (UniVec_Core).|
+|krak_microb| 64 GB | RefSeq backterial, archea, viral, fungi and protozoa |
+|16S_Greengenes_k2db|  1 GB | Greengenes 16S data |
+|16S_RDP_k2db | 1 GB | RDP 16S data |
+|16S_SILVA132_k2db| 1 GB |Silva 132 16S data |
+|16S_SILVA138_k2db| 1 GB |Silva 138 16S data |
+| minikraken_8GB_20200312| 1 GB  |            |
 
 Kraken is very memory intensive program. For example jobs with the standard Karken database require 40 GB of memory 
 and thus kraken should in practice always be executed as a a batch job. Below is a sample Karaken job using 4 croes
@@ -65,6 +65,7 @@ You can submit the batch job file to the batch job system with command:
 sbatch batch_job_file.bash
 ```
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
 
 ## More information
 
