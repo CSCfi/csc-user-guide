@@ -221,7 +221,8 @@ The public URL of a data object will be:
 An object uploaded with _a-publish_ can be removed from Allas using the command _a-delete_.
 
 A sample session with _a-publish_, uploading the document _presentation.pdf_ to the default public bucket in Allas:
-<pre><b>a-publish presentation.pdf</b><pre> 
+
+<pre><b>a-publish presentation.pdf</b> 
 Files to be uploaded:  presentation.pdf
 Bucket: kkayttaj-1234567-pub
 Processing: presentation.pdf
