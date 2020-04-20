@@ -13,7 +13,7 @@ Kraken 2.0.8 is available in Puhti
 
 ## Usage
 
-Kraken in included in _biokit_ module. To set it up, run command:
+Kraken in included in the _biokit_ module. To set it up, run command:
 ```text
 module load biokit
 ```
