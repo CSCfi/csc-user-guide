@@ -46,7 +46,7 @@ ktImportTaxonomy -q 2 -t 3 KrakenOutput -o KronaReport.html
 ```
 The Krona visualizations are based on HTML5 and thus it is not straight forward to study them in Puhti.
 However if you copy these files to a publicly accessible data bucket in Allas, you can study the results with
-your local web browser. You can use commands [a-flip](../../docs/data/Allas/using_allas/a_commands.md#a-find) or `a-publish` to do the copying:
+your local web browser. You can use commands [a-flip](../../docs/data/Allas/using_allas/a_commands.md#a-flip) or [a-publish](../../docs/data/Allas/using_allas/a_commands.md#a-publish) to do the copying:
 
 For example command:
 ```text
