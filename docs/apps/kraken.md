@@ -17,28 +17,28 @@ Kraken in included in the _biokit_ module. To set it up, run command:
 ```text
 module load biokit
 ```
-Now you kraken starts woth commmad `kraken2`. For example:
+Now you Kraken2 starts with commad `kraken2`. For example:
 ```text
-kraken --help
+kraken2 --help
 ```
-There are serveral Kraken reference databases available in Puhti. By default Kraken uses the
+There are several Kraken2 reference databases available in Puhti. By default Kraken2 uses the
 _standard_ database  that is based on taxonomic information and complete genomes in RefSeq 
 for the bacterial, archaeal, and viral domains, along with the human genome and a 
 collection of known vectors (UniVec_Core).
 
-Other available databases are:
+Available databases in Puhti are:
 
 |name  | Mem. request | description    | 
 |------|--------------|-----------------|
 |standard| 40 GB | NCBI taxonomic information, as well as the complete genomes in RefSeq for the bacterial, archaeal, and viral domains, along with the human genome and a collection of known vectors (UniVec_Core).|
-|krak_microb| 44 GB | RefSeq backterial, archea, viral, fungi and protozoa |
+|krak_microb| 44 GB | RefSeq bacterial, archea, viral, fungi and protozoa |
 |16S_Greengenes_k2db|  1 GB | Greengenes 16S data |
 |16S_RDP_k2db | 1 GB | RDP 16S data |
 |16S_SILVA132_k2db| 1 GB |Silva 132 16S data |
 |16S_SILVA138_k2db| 1 GB |Silva 138 16S data |
 | minikraken_8GB_20200312| 1 GB  |            |
 
-Using Kraken2 with a large reference database will require plenty on memory. For example jobs with the standard Karken database require 40 GB of memory. Thus kraken should in practice always be executed as a batch job. Below is a sample Karaken job using 4 croes 40 GB of memory and 6 hours or runtime:
+Using Kraken2 with a large reference database will require plenty on memory. For example jobs with the standard Karken2 database require 40 GB of memory. Thus Kraken should in practice always be executed as a batch job. Below is a sample Karaken job using 4 cores 40 GB of memory and 6 hours or runtime:
 
 ```test
 #!/bin/bash -l
@@ -49,7 +49,7 @@ Using Kraken2 with a large reference database will require plenty on memory. For
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --nodes=1  
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --account=project_123456
 #SBATCH --mem=40000
 #
