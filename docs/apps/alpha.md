@@ -47,6 +47,8 @@
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
+* [Kraken2](kraken.md) Taxonomic sequence classification system
+* [Krona](krona.md) Visualization tool for taxonomic classification and other hierarcical data
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [MACS2](macs2.md) ChIP-Seq analysis tool
