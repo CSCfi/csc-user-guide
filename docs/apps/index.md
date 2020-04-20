@@ -25,7 +25,7 @@
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Kraken2](kraken.md) Taxonomic sequence classification system
-* [Krona](krona.md) Visualization tool for taxonomic classification and other hierarcical data
+* [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
