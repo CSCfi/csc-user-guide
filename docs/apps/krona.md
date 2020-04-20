@@ -39,7 +39,7 @@ ktImportTaxonomy sample1.sv
 ```
 The three columns, by default, are _query-ID_, _taxonomy-ID_, and _score_ (optional), 
 but these can be changed using options `-q`,`-t`, and `-s`. Commented lines (#) are ignored. 
-For example an output file from Kraken2 can be visualized with command:
+For example an output file from [Kraken2](./kraken.md) can be visualized with command:
 
 ```text
 ktImportTaxonomy -q 2 -t 3 KrakenOutput -o KronaReport.html
