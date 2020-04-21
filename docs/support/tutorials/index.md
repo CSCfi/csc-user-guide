@@ -28,3 +28,4 @@
 
 ## Bioinformatics
 * [Singularity applications on Puhti](bioapplications-puhti.md)
+* [Schrödinger Maestro Puhti tutorial](power-maestro.md)
