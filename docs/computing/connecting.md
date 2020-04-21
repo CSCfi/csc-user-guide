@@ -103,22 +103,38 @@ The following instructions are for the portable version of [MobaXterm Home Editi
 
 If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SSH tunneling. For more detailed instructions on SSH keys, see our [Pouta user guide](../../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys). 
 
-*Step 1.* Generate SSH keys and passhphrase using `PuTTygen`. If you created the keys using Powershell or `ssh-keygen`, you can also convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
+*Step 1.* Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, you can also convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
 
-*Step 2.* Copy the public key to Puhti by following the instructions for Windows Powershell (see above). If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to `ssh-agent` in Linux.
+*Step 2.* Copy the public key to Puhti. Select and copy the public key from first textbox as extra line to Puhti `.ssh\id_rsa.pub`. Follow the instructions for Windows Powershell (see above). 
+
+If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to `ssh-agent` in Linux.
 
 *Step 3.* When starting the connection with `PuTTY`, select the private key file in **Connection > SSH > Auth**. By saving the session, the settings can be utilized automatically everytime you connect.
 
-*Step 4*. PuTTy requires an extra step to enable SSH tunneling, which is required by certain applications on Puhti. This can be done as follows:
+**Putty and SSH tunneling**
+
+*Step 4*. To set up SSH tunneling with PuTTy:
 
 - Go to **Putty -> Connection -> SSH -> Tunnels** and add the following settings: 
   
-  - Source port: 8787
+  - Source port: `<local_port_number>` For exmple 8787 or some other number, this is the port number for your local machine.
+  - Destination: `localhost:<port_number_of_puhti_login_node>` For example 9999 or some other number depending on the application.
+  - Keep the type as 'Local'.
+  - Click 'Add'
+- If you are forwarding a web page, open web browser in your local machine: `localhost:<local_port_number>`  
   
-  - Destination: localhost:9999 (Note: you may need to change this number depending on the application)
+**Putty, SSH tunneling and connecting to a compute-node** 
 
-- (More info to be added)
+*Step 5*. To set up SSH tunneling to a compute node with Putty:
 
+- Before connecting to a compute-node, you must have:
+   - a running batch job in Puhti compute node, for example sinteractive job and you must know the name of the node, for example `r07c49.bullx`.
+   - keys set up with Puhti, see steps 1-3.
+   - set up SSH tunnel to Puhti login-node, see step 4.
 
+- Go to **Putty -> Connection -> SSH** and add: 
 
-
+   - Remote command: `ssh -L <port_number_of_puhti_login_node>:localhost:<port_number_of_puhti_compute_node> <puhti_user_name>@<compute_node_name>`
+   - For example: `ssh -L 9999:localhost:49636 john@r07c49.bullx`
+   - Make sure the `<port_number_of_puhti_compute_node>` is the same here and for SSH tunnelling
+   
