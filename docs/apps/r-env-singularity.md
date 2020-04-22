@@ -18,7 +18,8 @@ Currently supported versions:
 - Latest CRAN packages available on March 17 2020
 - Bioconductor 3.10
 - RStudio Server 1.2.5033
-- SAGA 7.7.0
+- GDAL 2.4.2
+- SAGA 7.3.0
 
 Other software and libraries included in the module:
 
