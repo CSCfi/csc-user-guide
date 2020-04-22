@@ -44,6 +44,50 @@ Programs not adhering to these rules will be terminated without warning.
 !!! warning "Important"
     The login nodes are not meant for long or heavy processes.
 
+## Projects and quotas
+
+Workig in Puhti is based on projects. In order you use Puhti you must belong to a CSC project that has access to Puhti.
+The computing and storage resources are allocated to projects and when you start a batch job, you must always define
+the project that the job belongs to.
+
+Projects are managed with [MyCSC portal](https://my.csc.fi), were you can add services, resources and users to your CSC projects.
+
+In Puhti you can check your currently active CSC projects with command:
+
+```text
+csc-projects
+```
+By default this command shows information for all your CSC projects that have access to Puhti, but you can select just one project with option `-p` . For example:
+<pre><b>csc-projects -p project_2012345</b>
+-----------------------------------------------------------------
+Project: project_2012345	Owner: Kalle Käyttäjä
+Title: "Ortotopology modeling"
+Start: 2015-12-17 End: 2022-03-16 Status: open
+Budget:   1174188  Used   1115284 Remain:      58904
+Latest resource grant: 2019-03-04
+-----------------------------------------------------------------
+</pre>
+
+The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much is used and how much still remain. 
+
+The disk areas of your Puhti projects can be checked with command `csc-worksapces`. 
+<pre><b>csc-workspaces</b> 
+Disc area               Capacity(used/max)  Files(used/max)  Project description  
+----------------------------------------------------------------------------------
+Personal home folder
+----------------------------------------------------------------------------------
+/users/kkayttaj                2.05G/10G       23.24k/100k
+
+Project applications 
+----------------------------------------------------------------------------------
+/projappl/project_2012345     3.056G/50G       23.99k/100k   Ortotopology modeling
+
+Project scratch 
+----------------------------------------------------------------------------------
+/scratch/project_2012345     1.098T*/1T         5.53k/1000k  Ortotopology modeling
+</pre>
+
+
 
 ## Using Puhti
 
