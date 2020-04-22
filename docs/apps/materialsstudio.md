@@ -33,7 +33,7 @@ The way to use Materials Studio is to install it locally and:
 See above for instructions for download, local installation and license configuration.
 Usage on Puhti does not require any installation steps.
 
-### Workflow and tips for running standalone jobs on Puhti
+### Detailed workflow and tips for running standalone jobs on Puhti
 
 * Once you've set up your simulation, instead of running it, click the "Files" button
 next to the "Run" button, and save the files on your local disk. You can find the
