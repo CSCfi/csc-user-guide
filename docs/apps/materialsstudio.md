@@ -23,7 +23,92 @@ An installation on Puhti will be set up later.
 
 ## Usage
 
+The way to use Materials Studio is to install it locally and:
+1) prepare jobs (build systems, set simulation parameters) locally
+1) either run them locally or write the input files on disk
+1) copy them to Puhti, prepare a batch script to run the files
+1) copy the reusults back for analysis
+
 See above for instructions for download, local installation and license configuration.
+
+### Tips for running standalone jobs on Puhti
+
+* Once you've set up your simulation, instead of running it, click the "Files" button
+next to the "Run" button, and save the files on your local disk. You can find the
+location of the files, by right clicking one of them in the "project" view.
+
+Note, that by default Windows file manager does not show all files, so you may need
+to edit the preferences.
+
+* Use some graphical file transfer tool to copy all files in the subdirectory created
+by the Materials Studio GUI to a subdirectory in Puhti in your /scratch area.
+
+* Open an ssh-connection to Puhti, and copy/paste the template batch script from
+below to that directory.
+
+* Change the "seedname" to match yours (name of the local folder and preceded by `.param`
+file names), make sure you have the right binary set (RunCASTEP.sh, RunDMol3.sh, ...),
+the right `--account=<your computing project name>`, number of cores, etc.
+
+* Submit the batch job with `sbatch your-script-name`
+
+* Once it has completed, copy back all the files to the same folder in your local
+computer (you can overwrite all existing files).
+
+* Refresh the "project" view in the Materials Studio GUI.
+
+Different Materials Studio "modules" require a little bit different batch scripts to run
+as standalone jobs on Puhti. A simple example for DMol3:
+
+```bash
+#!/bin/bash
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=2
+#SBATCH --mem-per-cpu=1G
+#SBATCH --account=<project>
+#SBATCH --partition=test
+
+# select which Materials Studio server you want to run
+#RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/CASTERPbin/RunCASTEP.sh"
+RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/DMol3/bin/RunDMol3.sh"
+
+# set the seedname for the input files
+seedname=TiO2
+
+# no need to edit below here
+$RunMS -np $SLURM_NTASKS $seedname
+```
+
+And a multistep example for CASTER, which first runs an energy calculation and then two
+property calculations using the optimized wavefunction (you need to have input files for all of them).
+
+```bash
+#!/bin/bash
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=8
+#SBATCH --mem-per-cpu=1G
+#SBATCH --account=<project>
+#SBATCH --partition=test
+
+# select which Materials Studio server you want to run
+RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/CASTEP/bin/RunCASTEP.sh"
+#RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/DMol3/bin/RunDMol3.sh"
+
+# set the seedname for the input files
+seedname=TiO2
+
+$RunMS -np $SLURM_NTASKS $seedname
+
+# if you have specified property calculations
+# run them after the energy or geometry optimization job
+# you should have a $seedname.param file for each of these
+seedname=TiO2_BandStr
+$RunMS -np $SLURM_NTASKS $seedname
+
+seedname=TiO2_DOS
+$RunMS -np $SLURM_NTASKS $seedname
+
+```
 
 ## References
 
