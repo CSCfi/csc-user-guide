@@ -143,13 +143,18 @@ completed work or used resources.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use
-the NMVE local disk, which is available only on some of the
-compute nodes. Thus, the only disk available for the jobs is the
-same where your input files are. Hence, it does not make sense
+the [NMVE local disk](../../computing/running/creating-job-scripts/#local-storage),
+which is available only on some of the
+compute nodes. Since most jobs don't gain speed advantage of NVME disk, you'll
+likely queue less, when not asking for it. If your job will require a lot or random I/O,
+please contact us at [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
+Thus, the only disk available for the jobs is the
+same where your input files already are. Hence, it does not make sense
 to copy the files to a "temporary" location at the start of the
 job.
 
-For a desmond `multisim` workflow you would need to add this set of flags:
+For a desmond `multisim` workflow you would need to add this set of flags
+to the submit script (all in one line):
 
 ```bash
 -LOCAL -set "stage[1].set_family.md.jlaunch_opt=["\-LOCAL\"]"
