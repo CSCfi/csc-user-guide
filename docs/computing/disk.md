@@ -76,7 +76,7 @@ active projects with Puhti access.
 For example, if you are member in two projects, with unix groups _project_2012345_
 and _project_3587167_, then you have access to two scratch and projappl directories:
 
-<pre>[kkayttaj@puhti ~]$<b>csc-workspaces</b> 
+<pre>[kkayttaj@puhti ~]$ <b>csc-workspaces</b> 
 Disk area               Capacity(used/max)  Files(used/max)  Project description  
 ----------------------------------------------------------------------------------
 Personal home folder
