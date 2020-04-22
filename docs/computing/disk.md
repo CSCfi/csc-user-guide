@@ -66,7 +66,7 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 ## Using Scratch and ProjAppl directories
 
-An overview of your directories in Puhti can be displated with:
+An overview of your directories in Puhti can be displayed with:
 ```text
 csc-workspaces 
 ```
