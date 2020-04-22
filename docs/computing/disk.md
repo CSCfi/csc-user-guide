@@ -10,7 +10,7 @@ Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please 
 | **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
 
 
-These disk area have quotas for both the amount of data and total number of files:
+These disk areas have quotas for both the amount of data and total number of files:
 
 |              | Capacity   | Number of files   |
 | -------------| --------   | -------------     |
