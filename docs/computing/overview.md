@@ -8,7 +8,7 @@ Puhti is CSC's supercomputer. It has been available for CSC users since
 
 To be able to use Puhti, you need to have a CSC user account that belongs to
 a computing project that has access to Puhti. CSC user accounts and projects are managed 
-with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/overview.md) of this user guide.
+with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
 ## Connecting to Puhti
 
