@@ -50,7 +50,7 @@ To use the default version of this module on Puhti, initialize it with:
 module load r-env-singularity
 ```
 
-Puhti login nodes are [not intended for heavy computing](../computing/overview/#usage-policy). To use R in Puhti, please request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, open a session on the `interactive` partition before loading the module (see below).
+Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). To use R in Puhti, please request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, open a session on the `interactive` partition before loading the module (see below).
 
 #### Interactive use
 
@@ -81,7 +81,7 @@ start-r
 
 ***Using RStudio Server***
 
-The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Instructions for this are provided in our [documentation on setting up SSH keys on Windows, MacOS and Linux](../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
+The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Instructions for this are provided in our [documentation on setting up SSH keys on Windows, MacOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
 
 !!! note
     If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
