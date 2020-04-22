@@ -50,7 +50,7 @@ Working in Puhti is based on projects. The computing and storage resources are a
 
 Projects are managed with [MyCSC portal](https://my.csc.fi), were you can add services, resources and users to your CSC projects.
 
-In Puhti check your currently active Puhti projects with command:
+In Puhti, you can check your currently active Puhti-projects with command:
 
 ```text
 csc-projects
