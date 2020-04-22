@@ -1,4 +1,4 @@
-# `r-env-singularity`
+# r-env-singularity
 
 The `r-env-singularity` module is a Singularity container including R, RStudio Server and SAGA, and several other features to facilitate their use. 
 
