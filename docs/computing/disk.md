@@ -101,7 +101,7 @@ cd /scratch/project_2012345
 Please note that not all CSC projects have Puhti access, so you may not
 necessarily find a _scratch_ or _projappl_ directory for all your CSC projects.
 
-The _scratch_ and _projappl_ directories are shared by **all the members of the
+**The _scratch_ and _projappl_ directories are shared by all the members of the
 project**. All new files and directories are also fully accessible for other
 group members (including read, write and execution permissions). If you want
 to restrict access from your group members, you can reset the permissions with
