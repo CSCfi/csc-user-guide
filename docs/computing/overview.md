@@ -56,7 +56,8 @@ In Puhti, you can check your currently active Puhti-projects with command:
 csc-projects
 ```
 This command shows information for all your CSC projects that have access to Puhti. You can select just one project to be reported with option `-p` . For example:
-<pre><b>[kkayttaj@puhti ~]$ csc-projects -p project_2012345</b>
+```bash
+[kkayttaj@puhti ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
 Project: project_2012345	Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
@@ -64,8 +65,7 @@ Start: 2015-12-17 End: 2022-03-16 Status: open
 Budget:   1174188  Used   1115284 Remain:      58904
 Latest resource grant: 2019-03-04
 -----------------------------------------------------------------
-</pre>
-
+```
 The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much has been used and how much still remain. 
 
 The disk areas of your Puhti projects can be checked with command: 
