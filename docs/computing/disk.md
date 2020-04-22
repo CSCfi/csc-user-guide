@@ -148,7 +148,7 @@ All of the login nodes have 2900 GiB of fast local storage. The storage
 is located under `$TMPDIR` and is separate for each login node.  
 
 The local storage is good for compiling applications and performing 
-pre- and postprocessing that require heavy IO operations, for example packing and unpacking 
+pre- and post-processing that require heavy IO operations, for example packing and unpacking 
 archive files. 
 
 !!! Note
@@ -157,7 +157,7 @@ archive files.
 
 ### Compute nodes 
 
-Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable $TMPDIR and in normal batch jobs with $LOCAL_SCRATCH. The size of this storge space is defined in the batch job resource request (max. 3600 GB).
+Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable $TMPDIR and in normal batch jobs with $LOCAL_SCRATCH. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory ro to Allas. 
 
