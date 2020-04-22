@@ -1,6 +1,6 @@
 # Extended instructions for using Maestro at CSC
 
-Please first read the actual [CSC Maestro page](/apps/maestro.md)
+Please first read the actual [CSC Maestro page](../../apps/maestro.md)
 and then consult the power user and special case instructions below.
 Further down there are steps to help solving or diagnosing issues
 and to prepare data for support requests.
@@ -15,7 +15,7 @@ and to prepare data for support requests.
 The recommended way to run Maestro jobs on Puhti is to create
 the input files on your local computer
 and instead of running them, write them to disk. The procedure is
-shown in [this video](/apps/maestro.md) on our main Maestro page.
+shown in [this video](/apps/maestro/) on our main Maestro page.
 
 Once the files have been copied to Puhti, the job is submitted to
 a compute node (or several) by running the `job_name.sh` script
@@ -59,6 +59,10 @@ host:        puhti-login1.csc.fi
 processors:  40
 ```
 
+If your `schrodinger.hosts` file does not have the --account=**something** defined
+delete the file and rerun the script to create it (`module load maestro` will
+print out which one).
+
 ## How to speed up simulations?
 
 All other Maestro modules run serial jobs, except Jaguar, which can run
@@ -87,7 +91,7 @@ If you're using the GUI to set up the job script, don't select the "*"
 but specify a number. Bu default, you'll have this many simultaneous
 jobs running (or queuing).
 
-### Set number of subjobs
+### Additional flags for Maestro modules
 
 Different modules have different options. You can set some of them in
 the GUI, but you may find more options with the `-h` flag:
@@ -115,7 +119,7 @@ jobs with the "processor count" (so that you and others won't run
 out of licenses) but keep a single subjob at a suitable size.
 Please, have a look at the help text of your driver.
 
-### Set number of molecules per subjob
+### Set number of subjobs or molecules per subjob
 
 As an example, the "run settings dialog" of `Glide` offers three options:
 * Recommended number of subjobs
@@ -126,9 +130,15 @@ Aim for such numbers that an average subjob takes 1-24 hours to run, so
 that the overhead per subjob remains small, but not too long so that the
 job parallelizes efficiently and the time is sufficient for each subjob.
 At least avoid subjobs that complete
-faster than 10 minutes. You can check it afterwards with [seff](/support/faq/how-much-memory-my-job-needs.md)
+faster than 10 minutes. You can check it afterwards with [seff](../faq/how-much-memory-my-job-needs.md)
 
 `seff JOBID` 
+
+If time runs out for a subjob, search for "restart" in the 
+[Schrödinger Knowledge Base](https://www.schrodinger.com/support)
+for yor module, and/or look again for the options of your driver with
+the `-h` flag. Most jobs are restartable, so you don't lose
+completed work or used resources.
 
 ## Optimal disk usage
 
@@ -150,8 +160,8 @@ For a desmond `multisim` workflow you would need to add this set of flags:
 This is *not recommended*. Running the GUI remotely is slow and prone
 to glitches. Please run the GUI locally, and only submit the jobs
 on Puhti. If this is not possible, and you have to run the GUI on
-Puhti, use the [interactive partition](/computing/running/interactive-usage.md)
-and [NoMachine](/apps/nomachine.md).
+Puhti, use the [interactive partition](../../computing/running/interactive-usage.md)
+and [NoMachine](../../apps/nomachine.md).
 
 ```bash
 module load maestro
@@ -212,7 +222,7 @@ The file may be large, so instead of sending it as an email attachment, consider
 using [a-flip](/data/Allas/using_allas/a_commands/#a-list) and just sending the a link instead.
 
 Also, please have a look at these [instructions to make
-support requests](/support/support-howto.md) that minimise us asking 
+support requests](../support-howto.md) that minimise us asking 
 for more details in separate emails and thus taking it lonfer for you 
 to get the issue solved.
 
