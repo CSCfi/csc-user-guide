@@ -13,25 +13,27 @@ where licensing continues beyond 2020.
 
 ## Available
 
+Puhti: Version 2020
+
 Materials Studio version 2020 can be downloaded and installed on your local 
 computer. The graphical user interface runs only on Windows, but the
 back end server components can also be run on Linux.
 
 Look here for [installation files and instructions to configure licensing](https://wiki.eduuni.fi/display/cscjemma/Materials+Studio) (requires Haka authentication)
 
-An installation on Puhti will be set up later.
-
 ## Usage
 
 The way to use Materials Studio is to install it locally and:
-1) prepare jobs (build systems, set simulation parameters) locally
-1) either run them locally or write the input files on disk
-1) copy them to Puhti, prepare a batch script to run the files
-1) copy the reusults back for analysis
+
+1. prepare jobs (build systems, set simulation parameters) locally
+1. either run them locally or write the input files on disk
+1. copy them to Puhti, prepare a batch script to run the files
+1. copy the results back for analysis
 
 See above for instructions for download, local installation and license configuration.
+Usage on Puhti does not require any installation steps.
 
-### Tips for running standalone jobs on Puhti
+### Workflow and tips for running standalone jobs on Puhti
 
 * Once you've set up your simulation, instead of running it, click the "Files" button
 next to the "Run" button, and save the files on your local disk. You can find the
@@ -47,8 +49,8 @@ by the Materials Studio GUI to a subdirectory in Puhti in your /scratch area.
 below to that directory.
 
 * Change the "seedname" to match yours (name of the local folder and preceded by `.param`
-file names), make sure you have the right binary set (RunCASTEP.sh, RunDMol3.sh, ...),
-the right `--account=<your computing project name>`, number of cores, etc.
+file names), make sure you have the right binary set (`RunCASTEP.sh, RunDMol3.sh, ...`),
+the right `--account=<project>`, number of tasks, etc.
 
 * Submit the batch job with `sbatch your-script-name`
 
@@ -69,7 +71,8 @@ as standalone jobs on Puhti. A simple example for DMol3:
 #SBATCH --partition=test
 
 # select which Materials Studio server you want to run
-#RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/CASTERPbin/RunCASTEP.sh"
+#RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/CASTEP/bin/RunCASTEP.sh"
+#RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/MesoDyn/bin/RunMesoDyn.sh"
 RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/DMol3/bin/RunDMol3.sh"
 
 # set the seedname for the input files
@@ -79,7 +82,7 @@ seedname=TiO2
 $RunMS -np $SLURM_NTASKS $seedname
 ```
 
-And a multistep example for CASTER, which first runs an energy calculation and then two
+And a multistep example for CASTEP, which first runs an energy calculation and then two
 property calculations using the optimized wavefunction (you need to have input files for all of them).
 
 ```bash
@@ -93,6 +96,7 @@ property calculations using the optimized wavefunction (you need to have input f
 # select which Materials Studio server you want to run
 RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/CASTEP/bin/RunCASTEP.sh"
 #RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/DMol3/bin/RunDMol3.sh"
+#RunMS="/appl/soft/chem/MS/MaterialsStudio20.1/etc/MesoDyn/bin/RunMesoDyn.sh"
 
 # set the seedname for the input files
 seedname=TiO2
@@ -109,6 +113,10 @@ seedname=TiO2_DOS
 $RunMS -np $SLURM_NTASKS $seedname
 
 ```
+
+Some modules, like Forcite, require a different way (MaterialsScript) to run them on Puhti.
+Instructions on using this will provided later. You can find the details
+from the Materials Studio help under "Running MaterialsScript in standalone mode".
 
 ## References
 
