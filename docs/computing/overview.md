@@ -66,7 +66,7 @@ Latest resource grant: 2019-03-04
 -----------------------------------------------------------------
 </pre>
 
-The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much is used and how much still remain. 
+The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much has been used and how much still remain. 
 
 The disk areas of your Puhti projects can be checked with command: 
 ```text
