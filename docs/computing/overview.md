@@ -7,9 +7,8 @@ Puhti is CSC's supercomputer. It has been available for CSC users since
 ## Accessing Puhti
 
 To be able to use Puhti, you need to have a CSC user account that belongs to
-a computing projec that has access to Puhti. CSC user accounts and projects are mangged 
-with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the Accounts section
-of this user guide.
+a computing project that has access to Puhti. CSC user accounts and projects are managed 
+with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../../accounts/overview.md) of this user guide.
 
 ## Connecting to Puhti
 
@@ -47,7 +46,7 @@ Programs not adhering to these rules will be terminated without warning.
 
 ## Projects and quotas
 
-Workig in Puhti is based on projects. The computing and storage resources are allocated to projects and when you start a batch job, you must always define the project that the job belongs to.
+Working in Puhti is based on projects. The computing and storage resources are allocated to projects and when you start a batch job, you must always define the project that the job belongs to.
 
 Projects are managed with [MyCSC portal](https://my.csc.fi), were you can add services, resources and users to your CSC projects.
 
@@ -69,7 +68,7 @@ Latest resource grant: 2019-03-04
 
 The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much is used and how much still remain. 
 
-The disk areas of your Puhti projects can be checked with command `csc-worksapces`. 
+The disk areas of your Puhti projects can be checked with command: 
 ```text
 csc-workspaces
 ```
