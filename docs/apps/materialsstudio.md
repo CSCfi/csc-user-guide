@@ -3,6 +3,10 @@
 Materials Studio is a versatile modelling suite for building and 
 quantum and classical simulation of molecules, materials and nanostructures.
 
+!!! Note
+    CSC has obtained a reduced Materials Studio license only for 2020
+    and we plan to discontinue licensing for 2021.
+
 ## License
 
 Materials Studio is a commercial program by [Biovia Inc.](https://3dsbiovia.com/)
@@ -25,10 +29,10 @@ Look here for [installation files and instructions to configure licensing](https
 
 The way to use Materials Studio is to install it locally and:
 
-1. prepare jobs (build systems, set simulation parameters) locally
-1. either run them locally or write the input files on disk
-1. copy them to Puhti, prepare a batch script to run the files
-1. copy the results back for analysis
+1. Prepare jobs (build systems, set simulation parameters) locally
+1. Either run them locally or write the input files on disk
+1. Copy them to Puhti, prepare a batch script to run the files
+1. Copy the results back for analysis
 
 See above for instructions for download, local installation and license configuration.
 Usage on Puhti does not require any installation steps.
