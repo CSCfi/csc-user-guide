@@ -12,7 +12,8 @@ accessed from Mahti.
 | **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
 
 
-The default quotas for the capacity and for the number of files are:
+
+These disk areas have quotas for both the amount of data and total number of files:
 
 |              | Capacity | Number of files      |
 | -------------| ---------|----------------      |
@@ -21,7 +22,6 @@ The default quotas for the capacity and for the number of files are:
 | **scratch**  | 1 TiB    |  1 000 000 files     |
 
 See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
-
 
 ## Home directory
 
@@ -48,8 +48,8 @@ to several _scratch_ or _projappl_ directories, but still have only one home dir
 
 ## Scratch directory
 
-Each project has scratch disk space in the directory
-`/scratch/<project>`.
+
+Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage
 space for the data that is used in supercomputers. The scratch directory is not intended for
@@ -69,37 +69,45 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 ## Using Scratch and ProjAppl directories
 
-An overview of your directories:
+
+An overview of your directories in Puhti can be displayed with:
+
 ```text
 csc-workspaces 
 ```
-
 The above command displays all _scratch_ and _projappl_ directories you have access to within
-active projects in the particular supercomputer. You can find the projects' names and
-other project information at the [MyCSC portal](https://my.csc.fi). In MyCSC it is the "unix group" that
-defines the name of the disk folders in _scratch_ and _projappl_ directories. 
+active projects with Puhti access. 
 
-For example, if you are member in two projects, with unix groups _project_2002291_
-and _project_3587167_, then you have access to their scratch directories:
+For example, if you are member in two projects, with unix groups _project_2012345_
+and _project_3587167_, then you have access to two scratch and projappl directories:
+
+<pre>[kkayttaj@puhti ~]$ <b>csc-workspaces</b> 
+Disk area               Capacity(used/max)  Files(used/max)  Project description  
+----------------------------------------------------------------------------------
+Personal home folder
+----------------------------------------------------------------------------------
+/users/kkayttaj                2.05G/10G       23.24k/100k
+
+Project applications 
+----------------------------------------------------------------------------------
+/projappl/project_2012345     3.056G/50G       23.99k/100k   Ortotopology modeling
+/projappl/project_3587167     10.34G/50G       2.45/100k     Metaphysics methods
+
+Project scratch 
+----------------------------------------------------------------------------------
+/scratch/project_2012345        56G/1T         150.53k/1000k Ortotopology modeling
+/scratch/project_3587167       324G/1T         5.53k/1000k   Metaphysics methods
+</pre>
+
+Moving to the scratch directory of project_2012345:
 ```text
-/scratch/project_2002291
-/scratch/project_3587167
-```
-Moving to the scratch directory of project_2002291:
-```text
-cd /scratch/project_2002291
+cd /scratch/project_2012345
 ```
 Please note that not all CSC projects have Puhti/Mahti access, so you may not
 necessarily find a _scratch_ or _projappl_ directory for all your CSC projects.
 
-If you are mostly involved in only one project, you can set the
-environment variables $SCRATCH and $PROJAPPL to point at the _scratch_ and
-_projappl_ directories of a CSC project:
-<pre>
-csc-workspaces set <i>project</i>
-</pre>
 
-The _scratch_ and _projappl_ directories are shared by **all the members of the
+**The _scratch_ and _projappl_ directories are shared by all the members of the
 project**. All new files and directories are also fully accessible for other
 group members (including read, write and execution permissions). If you want
 to restrict access from your group members, you can reset the permissions with
@@ -138,13 +146,11 @@ for *rsync*.
 
 The quota of the _scratch_ and _projappl_ directories can be increased, but only if the
 analysis or computing task requires more data to be simultaneously available
-on the disk environment than what is allowed by the quota. In these cases,
-please send a request to
-_servicedesk@csc.fi_.  In the request, please indicate supercomputer
-(Puhti or Mahti), the project, storage size needed, purpose and
-duration of the quota extension. In the future, the process for
-increasing quotas will be improved. Please allow for some delay in
-serving this kind of requests. 
+on the disk environment of Puhti than what is allowed by the quota. In these cases,
+please send a request to _servicedesk@csc.fi_.  In the request, please indicate the project,
+storage size needed, purpose and duration of the quota
+extension. In the future, the process for increasing quotas will be
+improved. Please allow for some delay in serving this kind of requests.
 
 Data that is not under active computing should be stored in the Allas
 storage service.
@@ -164,7 +170,7 @@ All of the login nodes have 2900 GiB of fast local storage. The storage
 is located under `$TMPDIR` and is separate for each login node.  
 
 The local storage is good for compiling applications and performing 
-pre- and postprocessing that require heavy IO operations, for example packing and unpacking 
+pre- and post-processing that require heavy IO operations, for example packing and unpacking 
 archive files. 
 
 !!! Note
@@ -173,6 +179,9 @@ archive files.
 
 ### Compute nodes 
 
-The IO- and gpu-nodes in Puhti have local fast storage available upon request for jobs.
+Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable $TMPDIR and in normal batch jobs with $LOCAL_SCRATCH. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
+
+These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas. 
+
 For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage). 
-**Do not use `$TMPDIR` for storage on compute nodes.**
+

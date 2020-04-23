@@ -2,20 +2,21 @@
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
 for drug design and Materials Science. It can be used to build, edit, run and analyse 
-chemical model systems. Maestro is available for all academic users in 2020.
+chemical model systems.
 
 [TOC]
 
 ## Available
 
-Puhti: 2019.3, 2019.4
+Puhti: 2019.3, 2019.4, 2020.1
 
 
 ## License
 
+Maestro is available for all academic users: staff and students.
 The Maestro license consists of floating licenses and tokens.
 It is possible for one user to take up all licenses for a 
-certain module. If licenses run out, contact Atte via Service Desk.
+certain module. If licenses run out, contact Atte via [ServiceDesk](mailto:servicedesk@csc.fi).
 Using Maestro means that you accept the
 [EULA](https://www.schrodinger.com/maestro-academic-eula).
 
@@ -32,7 +33,9 @@ You don't need a license to _download_ the software, although you need to regist
 to the Schrödinger website, but you'll need
 to configure licensing before you can _run_ it.
 [These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
-require Haka authentication.
+require Haka authentication. Access to the license requires that
+your computer is in FUNET network, e.g. you're on the university
+or connected to it via VPN from home.
 
 **Standalone usage on Puhti**
 
@@ -62,15 +65,21 @@ The following video tutorial walks you through it (Taito and Puhti work similarl
 !!! note
     We do not recommend running the Maestro GUI remotely on Puhti.
     It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
-    and the performance is not very good. Also, no heavy tasks should be
+    and the performance is not very good. Also, **no long/heavy tasks** should be
     done on the login nodes. Please consult the
-    [policy on the computing overview.](../computing/overview.md)
+    [policy](../../computing/overview/#usage-policy) on the computing overview.
+    If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
+
+!!! note
+    **Windows** users, you'll need to edit the script created by GUI a little.
+    Replace the backslashes "\" with "/" in the path to the Maestro binary
+    (right after `$SCHRODINGER` in the script). 
 
 Desmond molecular dynamics runs **very well** on GPUs. We recommend watching 
 the video above on how to accomplish this easily.
 
 Maestro gives a warning for using a `schrodinger.hosts` file from your home directory. This is
-not an issue: that file cannot be made available in the installation directory, so please
+**not an issue**: that file cannot be made available in the installation directory, so please
 ignore that warning, but consider any others you may see.
 
 ## References

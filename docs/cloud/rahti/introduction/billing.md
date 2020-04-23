@@ -3,7 +3,7 @@
 ## Terminology
 
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
-* CSC computing project: A placeholder for the user's resources information - including: the number of BUs and the CSC 
+* CSC computing project: A placeholder for the user's resources information - including: the number of BUs and the CSC
 services which are available for use.
 * OpenShift project: A Kubernetes namespace with additional annotations.
 
@@ -16,7 +16,7 @@ services which are available for use.
 ------------------------------------------------------------------------------------------------------------------------
 
 
-Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user. 
+Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user.
 These calculations are based on:
 
 * Pod core usage (per core hour)
@@ -31,6 +31,11 @@ resources. Billing units are consumed as follows:
 | Pod core hour    | 0,5           |
 | Pod RAM GB hour  | 1             |
 | Storage TiB hour | 3             |
+
+------------------------------------------------------------------------------------------------------------------------
+Cost will be calculated based on actual resources request with cpu, ram and storage rather than actual usage.
+Currently, Rahti does not bill for the stored images.
+------------------------------------------------------------------------------------------------------------------------
 
 For example, let's say you create a pod with the following specs:
 

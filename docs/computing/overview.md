@@ -9,9 +9,9 @@ See [specifications](system.md) for details on the systems.
 
 ## Accessing Puhti and Mahti
 
-To gain access, please go to [my.csc.fi](https://my.csc.fi) to apply for
-access to the supercomputers. Further instructions are provided in the Accounts section
-of this user guide.
+To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to
+a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed 
+with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
 ## Connecting to the supercomputers
 
@@ -59,6 +59,35 @@ Programs not adhering to these rules will be terminated without warning.
 !!! warning "Important"
     The login nodes are not meant for long or heavy processes.
 
+## Projects and quotas
+
+Working in Puhti is based on projects. The computing and storage resources are allocated to projects and when you start a batch job, you must always define the project that the job belongs to.
+
+Projects are managed with [MyCSC portal](https://my.csc.fi), were you can add services, resources and users to your CSC projects.
+
+In Puhti, you can check your currently active Puhti-projects with command:
+
+```text
+csc-projects
+```
+This command shows information for all your CSC projects that have access to Puhti. You can select just one project to be reported with option `-p` . For example:
+```bash
+[kkayttaj@puhti ~]$ csc-projects -p project_2012345
+-----------------------------------------------------------------
+Project: project_2012345	Owner: Kalle Käyttäjä
+Title: "Ortotopology modeling"
+Start: 2015-12-17 End: 2022-03-16 Status: open
+Budget:   1174188  Used   1115284 Remain:      58904
+Latest resource grant: 2019-03-04
+-----------------------------------------------------------------
+```
+The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much has been used and how much still remain. 
+
+The disk areas of your Puhti projects can be checked with command: 
+```text
+csc-workspaces
+```
+Check [Disk areas](disk.md) chapter for details.
 
 ## Using Puhti and Mahti
 
