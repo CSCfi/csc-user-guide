@@ -117,12 +117,22 @@ glide -h
 , where `glide` would be the Maestro module you want to run, like
 `qsite`, `pipeline`, `bmin`, `ligprep`, etc.    
 
-Your job might have a "driver" or "master" process. It needs to run
-for whole duration of your work, i.e. as long as any subjobs are still
-running. It might make sense to run that on a longrun HOST while the other
-jobs might work on a "normal" HOST (and Slurm partition). Suitable
-splitting would reduce queuing time. Asking for the longrun HOST "just
+The Maestro help has a nice summary of the different options for
+different modules: in Maestro help select: "Job Control Guide"
+-> "Running jobs" -> "Running Jobs from the Command Line" -> 
+"The HOST, DRIVERHOST, and SUBHOST Options"
+
+Set the "driver" or "master" to run on "localhost:1" as it needs to run
+for whole duration of your workflow, i.e. as long as any subjobs are still
+running. Alternatively, if it needs a lot of resources,
+run that on a "longrun" HOST and the others on a "normal" HOST 
+(i.e. "small" Slurm partition). Suitable
+splitting would reduce your queuing time. Asking for the longrun HOST "just
 in case" is not dangerous, but may lead to unnecessary queuing.
+
+!!! Note
+    For any jobs in Puhti, never allocate more than one
+    core from `localhost` and even that, only for a driver process.
 
 You may be able to set the number of subjobs already in the GUI.
 Typically, it would set the
@@ -131,7 +141,14 @@ number of subjobs. Alternatively, you may be able to set also the
 number of subjobs. This enables you to limit the number of simultaneous
 jobs with the "processor count" (so that you and others won't run
 out of licenses) but keep a single subjob at a suitable size.
-Please, have a look at the help text of your driver.
+Please, have a look at the help text of your driver, via the Help
+path described above.
+
+In summary, for a large workflow edit the GUI generated script along
+the lines:
+`-HOST "serial"` to `-DRIVERHOST longrun -SUBHOST serial` 
+or
+`-HOST "serial"` to `-DRIVERHOST localhost -SUBHOST serial` 
 
 ### Set number of subjobs or molecules per subjob
 
