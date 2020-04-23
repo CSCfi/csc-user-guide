@@ -266,7 +266,7 @@ support requests](../support-howto.md) that minimise us asking
 for more details in separate emails and thus taking it lonfer for you 
 to get the issue solved.
 
-## Recap
+## Recap for Maestro usage on Puhti
 
 * Test your workflow with a small sample first
 * Don't run the Maestro GUI on the login node (use `sinteractive -i`)
@@ -277,4 +277,4 @@ to get the issue solved.
 * Submit all jobs from your /scratch area
 * If your local computer is Windows, edit \ to / in your script
 * Use the same version of Maestro locally and on Puhti
-
+* Use the `-LOCAL` option to minimize unnecessary copying of files
