@@ -155,7 +155,7 @@ completed work or used resources.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use
-the [NMVE local disk](../../computing/running/creating-job-scripts/#local-storage),
+the [NMVE local disk](../../../computing/running/creating-job-scripts/#local-storage),
 which is available only on some of the
 compute nodes. Since most jobs don't gain speed advantage of NVME disk, you'll
 likely queue less, when not asking for it. If your job will require a lot or random I/O,
