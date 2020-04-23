@@ -50,12 +50,16 @@ for CPU usage and scratch storage. You can find the actual Slurm options
 on the HOST descriptions in schrodinger.hosts file. If your jobs require
 something, that's not present in the file, you can edit it.
 
-You can take a look at the `schrodinger.hosts` file with:
+On Puhti, Linux and Mac, you can take a look at the `schrodinger.hosts` file with:
 
 ```bash
 more $HOME/schrodinger.hosts
 ```
-and you should see the HOST entries as something like:
+
+and on Windows you should find it in `C:\Program Files\Schrodinger-version\schrodinger.hosts`
+
+After the longish header and the `localhost` entry , you should see the 
+Puhti  HOST entries as something like:
 ```bash
 name:        test
 queue:       SLURM2.1
