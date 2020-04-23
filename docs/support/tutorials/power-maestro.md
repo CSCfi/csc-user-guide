@@ -32,8 +32,13 @@ and contact us at servicedesk@csc.fi
 
 ## Maestro `schrodinger.hosts` file
 
-This file specifies the resources your jobs can get from the queuing system.
-Maestro complains of the location on this file, but ignore it, it's ok.
+This file specifies the resources your jobs can get either locally 
+or from the queuing system. To use the recommended procedure 
+you need to edit the local (on your computer) `schrodinger.hosts` file to
+include the same HOSTs that you want to use on Puhti. On Windows, this will
+require admin privileges.
+
+On Puhti, Maestro complains about the location on this file, but ignore it, it's ok.
 This file must match the version of Maestro you are using (locally and in
 your module command). Version match is checked at each `module load` event.
 The file is created by a script (echoed on your screen when
@@ -60,8 +65,10 @@ processors:  40
 ```
 
 If your `schrodinger.hosts` file does not have the --account=**something** defined
-delete the file and rerun the script to create it (`module load maestro` will
-print out which one).
+on Puhti delete the file and rerun the script to create it (`module load maestro` will
+print out which one). You don't need to have the `--account=` option set in your **local**
+`schrodinger.hosts` file. In your local file, it's enough that the different HOST
+entries exist (and the gpu-ones have GPU's specified). 
 
 ## How to speed up simulations?
 
@@ -128,9 +135,10 @@ As an example, the "run settings dialog" of `Glide` offers three options:
 
 Aim for such numbers that an average subjob takes 1-24 hours to run, so
 that the overhead per subjob remains small, but not too long so that the
-job parallelizes efficiently and the time is sufficient for each subjob.
+job parallelizes efficiently and each subjob has time to finish.
 At least avoid subjobs that complete
-faster than 10 minutes. You can check it afterwards with [seff](../faq/how-much-memory-my-job-needs.md)
+faster than 10 minutes. You can check it afterwards with 
+[seff](../faq/how-much-memory-my-job-needs.md)
 
 `seff JOBID` 
 
@@ -200,7 +208,8 @@ _postmortem_ step below.
 
 ## Asking for support
 
-Maestro has a tool called [postmortem](https://www.schrodinger.com/kb/1692) that can be used to create a
+Maestro has a tool called [postmortem](https://www.schrodinger.com/kb/1692) 
+that can be used to create a
 zip file containing the details of a failed job and the Maestro
 environment. Please add that to your support request to help us analyse
 your issue. On Puhti, first use 
@@ -225,9 +234,10 @@ $SCHRODINGER/utilities/postmortem your-puhti-schrodinger-jobid
 
 The file may be large, so instead of sending it as an email attachment, consider
 using [a-flip](/data/Allas/using_allas/a_commands/#a-list) and just sending the a link instead.
+Also, see above the recommendation to [try with small systems](#how-to-speed-up-simulations) - 
+it will also enable you to use the test HOST and avoid queueing.
 
 Also, please have a look at these [instructions to make
 support requests](../support-howto.md) that minimise us asking 
 for more details in separate emails and thus taking it lonfer for you 
 to get the issue solved.
-
