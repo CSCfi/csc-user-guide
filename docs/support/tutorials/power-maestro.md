@@ -98,9 +98,12 @@ for each different use case.
     molecules and 2 subjobs. Learn how long it takes per molecule, adjust
     your parameters and scale up.
 
-If you're using the GUI to set up the job script, don't select the "*"
-but specify a number. Bu default, you'll have this many simultaneous
+If you're using the GUI to set up the job script, don't select * (ampersand)
+but specify a number. By default, you'll have this many simultaneous
 jobs running (or queuing).
+
+The 'default' submit script will work "as is" for small jobs, but for
+large workflows, you'll need to edit it, see below.
 
 ### Additional flags for Maestro modules
 
@@ -108,11 +111,11 @@ Different modules have different options. You can set some of them in
 the GUI, but you may find more options with the `-h` flag:
 
 ```bash
-pipeline -h
+glide -h
 ```
 
-, where `pipeline` would be the Maestro module you want to run, like
-`qsite`, `glide`, `bmin`, `ligprep`, etc.    
+, where `glide` would be the Maestro module you want to run, like
+`qsite`, `pipeline`, `bmin`, `ligprep`, etc.    
 
 Your job might have a "driver" or "master" process. It needs to run
 for whole duration of your work, i.e. as long as any subjobs are still
@@ -121,8 +124,8 @@ jobs might work on a "normal" HOST (and Slurm partition). Suitable
 splitting would reduce queuing time. Asking for the longrun HOST "just
 in case" is not dangerous, but may lead to unnecessary queuing.
 
-You may be able to set the number of subjobs already in the GUI while
-you set the job submission parameters. Typically, it would set the
+You may be able to set the number of subjobs already in the GUI.
+Typically, it would set the
 "number of processors", which in many drivers will be equal to the
 number of subjobs. Alternatively, you may be able to set also the
 number of subjobs. This enables you to limit the number of simultaneous
