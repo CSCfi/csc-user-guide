@@ -265,3 +265,16 @@ Also, please have a look at these [instructions to make
 support requests](../support-howto.md) that minimise us asking 
 for more details in separate emails and thus taking it lonfer for you 
 to get the issue solved.
+
+## Recap
+
+* Test your workflow with a small sample first
+* Don't run the Maestro GUI on the login node (use `sinteractive -i`)
+* Don't specify too many subjobs - an optimal subjob takes 1-24 hours
+* Don't specify too many subjobs - there are many researchers using the same license
+* Don't run a heavy "driver process" on the login node (if it's heavy use `-DRIVERHOST longrun -SUBHOST serial`)
+* Never run anything in parallel on the login node (localhost should not be your only HOST in the script, and it should not have a number bigger than 1
+* Submit all jobs from your /scratch area
+* If your local computer is Windows, edit \ to / in your script
+* Use the same version of Maestro locally and on Puhti
+
