@@ -65,17 +65,17 @@ your machine and the compute node. Note that you need to set up
 passwordless access using ssh keys to do so. After this you can access
 the Jupyter server by copy-pasting the web address into your local web browser.
 
-### Example: RStudio in sinteractive session
+### Example: RStudio Server in sinteractive session
 
-Open connection to Puhti with NoMachine.
-In the Puhti terminal session, run commands:
+RStudio Server can also be launched on a Puhti compute node and accessed through a local web browser.
+The process is similar to starting a Jupyter notebook server:
 
 ```text
 sinteractive --account <project> --mem 8000 --tmp 100
-module load r-env 
-module load rstudio
-rstudio
+module load r-env-singularity 
+start-rstudio-server
 ```
+For a detailed guide to launching RStudio Server, see our documentation on the [`r-env-singularity module`](../../apps/r-env-singularity.md).
 
 ## Explicit interactive shell without X11 graphics
 
