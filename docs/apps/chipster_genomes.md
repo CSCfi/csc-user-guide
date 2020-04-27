@@ -8,12 +8,12 @@ indexes for reference genomes. By default, users need to import and index themse
 
 The Chipster server however contains indexes for a set of commonly used reference organisms for several aligners.
 
-The chipster_genomes tool allows Puhti users to download the refrence genome index files from the Chipster server to 
+The chipster_genomes tool allows Puhti users to download the reference genome index files from the Chipster server to 
 Puhti so that they can be used in Puhti too.
 
 The genome data and indexes used in Chipster are based on the data available in Ensembl and Ensembl genomes databases. 
 However, in Chipster only those sequences ( chromosomes) that have been assigned to a karyotype, are included. 
-Futher, in GTF files negative location values are removed.
+Further, in GTF files negative location values are removed.
 
 Thus the data downloaded from Chipster server may in some cases differ from the data obtained directly from Ensembl.
 
