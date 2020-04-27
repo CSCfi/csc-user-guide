@@ -24,12 +24,22 @@ Available in Puhti
 
 ## Usage
 
-chipster_genomes tool requires two parameters:
+chipster_genomes tool in included in _biokit module_. So to make it available, you must forst run set-up command:
+```text
+module load biokit
+```
+
+After that you can use `chipster_genomes` command. This command needs two parameters:
 
 *    File or index type (bed, gtf, fasta, bowtie, bowtie, bowtie2, BWA, Hisat2, TopHat2)
-*    Species name.
+*    Species name
 
-If the command is launhced without any arguments, it first asks for the datatype and then for the species name.
+If the command is launhced without any arguments, it first lists the available data types and asks to select one of them.
+Then the species available for the given datatype are listed and the tool asks user to seletc one of them.
+```text
+chipster_genomes
+```
+
 The data type can alternatively be given as the first argument and the species name as the second argument.
 For example the BWA indexes of Danio_rerio.GRCz11 can be retrieced with command:
 ```text
@@ -41,3 +51,4 @@ Or interactively by launchning the command without any arguments.
 ```text
 chipster_genomes
 ```
+Note that as the index files may be rather large, you should normally download the data to your _scratch_ disk area.
