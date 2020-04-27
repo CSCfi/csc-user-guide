@@ -45,10 +45,4 @@ For example the BWA indexes of Danio_rerio.GRCz11 can be retrieced with command:
 ```text
 chipster_genomes bwa Danio_rerio.GRCz11
 ```
-
-Or interactively by launchning the command without any arguments.
-
-```text
-chipster_genomes
-```
 Note that as the index files may be rather large, you should normally download the data to your _scratch_ disk area.
