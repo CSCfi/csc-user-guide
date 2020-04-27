@@ -39,24 +39,38 @@ or connected to it via VPN from home.
 
 **Standalone usage on Puhti**
 
-We recommend you to set up your simulations on your local
-computer, generate and save the input files, copy them to Puhti and then 
-run them from the command line on Puhti. Note, that Maestro jobs
+We recommend using Puhti as follows:
+
+1. Set up your simulations on your local computer
+1. write the GUI generated input files on disk
+1. copy them to Puhti 
+1. edit the submit script if needed
+1. submit the job on the Puhti command line
+1. copy the results back for analysis
+
+The overall process is shown in the video below, and the additional detail and some diagnostics tips
+are explained in our [Maestro power usage tutorial](/support/tutorials/power-maestro.md)
+
+Note, that Maestro jobs
 are not run via batch scripts like most other applications at CSC, but
-via Schrödinger binaries and a set of flags and options for them.
+via Schrödinger binaries using options.
 For example, a Desmond workflow could be run with:
 
 ```
-"${SCHRODINGER}/utilities/multisim" -JOBNAME 2hhb_test -HOST gputest \
+"${SCHRODINGER}/utilities/multisim" -JOBNAME 2hhb_test -HOST gputest  \
 -maxjob 1 -cpu 1 -m 2hhb_test.msj -c 2hhb_test.cfg -description "Molecular Dynamics" \
 2hhb_test.cms -mode umbrella -set stage[1].set_family.md.jlaunch_opt=["-gpu"] \
--o 2hhb_test-out.cms -lic "DESMOND_GPGPU:16"
-
+-o 2hhb_test-out.cms -lic "DESMOND_GPGPU:16 -set "stage[1].set_family.md.jlaunch_opt=["\-LOCAL\"]" \
+-LOCAL"
 ```
 This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
+Please also have a look at the [additional flags we recommend to use](/support/tutorial/power-maestro.md).
 
-To run such a script in Puhti you first need to initialize Maestro with
- `module load maestro` and then run the script.
+To run such a script in Puhti you first need to initialize Maestro and run the script:
+```bash
+module load maestro
+bash your_script_name.sh
+```
 
 The following video tutorial walks you through it (Taito and Puhti work similarly):  
 
@@ -91,6 +105,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 ## More information
 
+* [Tutorial and tips for power usage on Puhti](/support/tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI.
 * The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
    * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)

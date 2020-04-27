@@ -18,7 +18,7 @@ and instead of running them, write them to disk. The procedure is
 shown in [this video](/apps/maestro/) on our main Maestro page.
 
 Once the files have been copied to Puhti, the job is submitted to
-a compute node (or several) by running the `job_name.sh` script
+a compute node(s) by running the `job_name.sh` script
 written out by Maestro. It will formulate the task(s) as Slurm
 batch jobs and ask resources according to the selected HOST in
 your `schrodinger.hosts` file on your Puhti home directory.
@@ -50,16 +50,17 @@ for CPU usage and scratch storage. You can find the actual Slurm options
 on the HOST descriptions in schrodinger.hosts file. If your jobs require
 something, that's not present in the file, you can edit it.
 
-On Puhti, Linux and Mac, you can take a look at the `schrodinger.hosts` file with:
+On Puhti you can take a look at the `schrodinger.hosts` file with:
 
 ```bash
 more $HOME/schrodinger.hosts
 ```
 
-and on Windows you should find it in `C:\Program Files\Schrodinger-version\schrodinger.hosts`
+On your local computer this file will be in the Maestro installation direcctory,
+e.g. on Windows in `C:\Program Files\Schrodinger-version\schrodinger.hosts`
 
 After the longish header and the `localhost` entry , you should see the 
-Puhti  HOST entries as something like:
+Puhti HOST entries as something like:
 ```bash
 name:        test
 queue:       SLURM2.1
@@ -68,16 +69,20 @@ host:        puhti-login1.csc.fi
 processors:  40
 ```
 
-If your `schrodinger.hosts` file does not have the --account=**something** defined
-on Puhti delete the file and rerun the script to create it (`module load maestro` will
-print out which one). You don't need to have the `--account=` option set in your **local**
+If your `schrodinger.hosts` file **on Puhti** does not have the --account=**something** defined
+delete the file and rerun the script to create it (`module load maestro` will
+print out the path to the script, copy/paste it on the command line).
+You don't need to have the `--account=` option set in your **local**
 `schrodinger.hosts` file. In your local file, it's enough that the different HOST
 entries exist (and the gpu-ones have GPU's specified). 
+
+You can also edit the file, e.g. if you want more memory, or a different maximum
+time for a HOST. The requests must be within the [partition limits](/computing/running/batch-job-partitions.md).
 
 ## How to speed up simulations?
 
 All other Maestro modules run serial jobs, except Jaguar, which can run
-real parallel jobs. Don't choose the "parallel" HOST for any other job type
+real parallel jobs. Don't choose the "parallel" HOST for any other job type.
 Instead of MPI-parallel jobs, Maestro modules typically
 split the workload into multiple parts, each of which can be run independent
 of the others. This is sometimes called farming. The Maestro help pages have an
@@ -89,18 +94,18 @@ Typically, the workload processes a lot of molecules. If you have enough
 molecules, you can split the full set into smaller sets, and process each
 of them as a separate job. Since this is typical, the Maestro modules have
 easy-to-use options to define the number of (sub)jobs. However, you must know
-in advance how many (sub)jobs to launch. In principle, this requires testing
-for each different use case.
+in advance how many (sub)jobs to launch. In principle, this requires 
+knowing how long one molecule takes, or testing for each different use case.
 
 !!! Note
     When you start with a new kind of work. Don't **try** if you got the
-    syntax right with 1000000 molecules and 1000 subjobs. Try with 100
-    molecules and 2 subjobs. Learn how long it takes per molecule, adjust
-    your parameters and scale up.
+    syntax right with 1000000 molecules and 1000 subjobs. Try with 50
+    molecules and 2 subjobs. Learn how long it takes per molecule,
+    confirm your submit syntax is correct, adjust
+    your parameters if needed and scale up.
 
-If you're using the GUI to set up the job script, don't select * (ampersand)
-but specify a number. By default, you'll have this many simultaneous
-jobs running (or queuing).
+If you're using the GUI to set up the job script, specify how many (sub)jobs
+(processors) you want to use.
 
 The 'default' submit script will work "as is" for small jobs, but for
 large workflows, you'll need to edit it, see below.
@@ -122,17 +127,15 @@ different modules: in Maestro help select: "Job Control Guide"
 -> "Running jobs" -> "Running Jobs from the Command Line" -> 
 "The HOST, DRIVERHOST, and SUBHOST Options"
 
-Set the "driver" or "master" to run on "localhost:1" as it needs to run
-for whole duration of your workflow, i.e. as long as any subjobs are still
-running. Alternatively, if it needs a lot of resources,
-run that on a "longrun" HOST and the others on a "normal" HOST 
-(i.e. "small" Slurm partition). Suitable
-splitting would reduce your queuing time. Asking for the longrun HOST "just
+Set the "driver" or "master" to run on a HOST that allows for long
+run times (if it's a big calculation). The driver needs to be alive
+for the whole duration of the workflow. You can use "interactive"
+which allows for 7 days for one core. If you need to run multiple
+workflows at the same time, choose "longrun" for the next drivers.
+In both cases select a "normal" HOST 
+(i.e. "small" Slurm partition) for the (sub)jobs. Suitable
+splitting will reduce your queuing time. Asking for the longrun HOST "just
 in case" is not dangerous, but may lead to unnecessary queuing.
-
-!!! Note
-    For any jobs in Puhti, never allocate more than one
-    core from `localhost` and even that, only for a driver process.
 
 You may be able to set the number of subjobs already in the GUI.
 Typically, it would set the
@@ -146,9 +149,15 @@ path described above.
 
 In summary, for a large workflow edit the GUI generated script along
 the lines:
-`-HOST "serial"` to `-DRIVERHOST longrun -SUBHOST serial` 
+`-HOST "serial"` to `-DRIVERHOST longrun -SUBHOST serial -LOCAL -SUBLOCAL` 
 or
-`-HOST "serial"` to `-DRIVERHOST localhost -SUBHOST serial` 
+`-HOST "serial"` to `-DRIVERHOST interactive -SUBHOST serial -LOCAL -SUBLOCAL` 
+
+Note, that you can have only one single core job running in the
+interactive HOST. 
+
+Desmond jobs can have the `-HOST gpu` flag as set by the GUI. However, please
+add LOCAL directives [mentioned below](#optimal-disk-usage) to the job script.
 
 ### Set number of subjobs or molecules per subjob
 
@@ -159,10 +168,10 @@ As an example, the "run settings dialog" of `Glide` offers three options:
 
 Aim for such numbers that an average subjob takes 1-24 hours to run, so
 that the overhead per subjob remains small, but not too long so that the
-job parallelizes efficiently and each subjob has time to finish.
-At least avoid subjobs that complete
-faster than 10 minutes. You can check it afterwards with 
-[seff](../faq/how-much-memory-my-job-needs.md)
+job parallelizes efficiently i.e. you get your results quikcly and each 
+subjob has time to finish (and that the master job has time to finish).
+At least avoid subjobs that complete faster than 10 minutes. You can check 
+subjob duration afterwards with [seff](../faq/how-much-memory-my-job-needs.md)
 
 `seff JOBID` 
 
@@ -179,18 +188,37 @@ the [NMVE local disk](../../../computing/running/creating-job-scripts/#local-sto
 which is available only on some of the
 compute nodes. Since most jobs don't gain speed advantage of NVME disk, you'll
 likely queue less, when not asking for it. If your job will require a lot or random I/O,
-please contact us at [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
-Thus, the only disk available for the jobs is the
+please contact us at [servicedesk@csc.fi](mailto:servicedesk@csc.fi) on how to request it.
+The only disk available for the jobs is the
 same where your input files already are. Hence, it does not make sense
 to copy the files to a "temporary" location at the start of the
-job.
-
-For a desmond `multisim` workflow you would need to add this set of flags
-to the submit script (all in one line):
+job. For most job types this is prevented by adding `-LOCAL -SUBLOCA` to the
+run script (examples above), but for a desmond `multisim` workflow you would need to 
+add this set of flags to the submit script (all in one line):
 
 ```bash
 -LOCAL -set "stage[1].set_family.md.jlaunch_opt=["\-LOCAL\"]"
 ```
+
+## Copying files to and from local computer
+
+There is a [detailed tutorial](/data/moving/) on how to accomplish
+this. Below, is an efficient alternative in the command line, which
+works even in Windows power shell:
+
+In Windows, start the Power Shell by searching for it in the bottom left menu.
+In Linux or Mac, open a terminal.  Cd to the
+directory that has the direcory of input files recently written out by the GUI
+(here named `glide-dock_1`)
+
+`scp -r glide-dock_1 your-username@puhti.csc.fi:/scratch/project_123456/`
+
+will copy the whole directory in your Puhti scratch folder. [Run the job]().
+Once the job has been completed, you can copy it back:
+
+`scp -r your-username@puhti.csc.fi:/scratch/project_123456/glide-dock_1 .`
+
+You might be interested in some [additional ssh tips](/computing/connecting/#setting-up-ssh-keys).
 
 ## Running the Maestro GUI on Puhti
 
@@ -218,7 +246,10 @@ $SCHRODINGER/utilities/jserver -cleanall
 $SCHRODINGER/utilities/jserver -shutdown
 ```
 
-## Run a test job
+Another reason is too many jobs in a partition. Please have a look at the
+error files for suggestions, and if this is the case, ask for less subjobs.
+
+## Run a test job to help problem diagnostics
 
 Run one of the test jobs that come with Maestro to narrow down
 potential issues. On Puhti, in your scratch directory, give:
