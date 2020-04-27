@@ -17,6 +17,7 @@
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [ChEMBL](chembl.md) Database of bioactive molecules.
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
+* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
