@@ -15,7 +15,7 @@ and to prepare data for support requests.
 The recommended way to run Maestro jobs on Puhti is to create
 the input files on your local computer
 and instead of running them, write them to disk. The procedure is
-shown in [this video](/apps/maestro/) on our main Maestro page.
+shown in [this video](../../apps/maestro.md) on our main Maestro page.
 
 Once the files have been copied to Puhti, the job is submitted to
 a compute node(s) by running the `job_name.sh` script
@@ -77,7 +77,7 @@ You don't need to have the `--account=` option set in your **local**
 entries exist (and the gpu-ones have GPU's specified). 
 
 You can also edit the file, e.g. if you want more memory, or a different maximum
-time for a HOST. The requests must be within the [partition limits](/computing/running/batch-job-partitions.md).
+time for a HOST. The requests must be within the [partition limits](../../computing/running/batch-job-partitions.md).
 
 ## How to speed up simulations?
 
@@ -213,12 +213,12 @@ directory that has the direcory of input files recently written out by the GUI
 
 `scp -r glide-dock_1 your-username@puhti.csc.fi:/scratch/project_123456/`
 
-will copy the whole directory in your Puhti scratch folder. [Run the job]().
-Once the job has been completed, you can copy it back:
+will copy the whole directory in your Puhti scratch folder.
+Run the job, and once it has completed, you can copy it back:
 
 `scp -r your-username@puhti.csc.fi:/scratch/project_123456/glide-dock_1 .`
 
-You might be interested in some [additional ssh tips](/computing/connecting/#setting-up-ssh-keys).
+You might be interested in some [additional ssh tips](../../../computing/connecting/#setting-up-ssh-keys).
 
 ## Running the Maestro GUI on Puhti
 

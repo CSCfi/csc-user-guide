@@ -64,7 +64,7 @@ For example, a Desmond workflow could be run with:
 -LOCAL"
 ```
 This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
-Please also have a look at the [additional flags we recommend to use](../support/tutorial/power-maestro.md).
+Please also have a look at the [additional flags we recommend to use](../support/tutorials/power-maestro.md).
 
 To run such a script in Puhti you first need to initialize Maestro and run the script:
 ```bash
