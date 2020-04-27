@@ -49,7 +49,7 @@ We recommend using Puhti as follows:
 1. copy the results back for analysis
 
 The overall process is shown in the video below, and the additional detail and some diagnostics tips
-are explained in our [Maestro power usage tutorial](/support/tutorials/power-maestro.md)
+are explained in our [Maestro power usage tutorial](../support/tutorials/power-maestro.md)
 
 Note, that Maestro jobs
 are not run via batch scripts like most other applications at CSC, but
@@ -64,7 +64,7 @@ For example, a Desmond workflow could be run with:
 -LOCAL"
 ```
 This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
-Please also have a look at the [additional flags we recommend to use](/support/tutorial/power-maestro.md).
+Please also have a look at the [additional flags we recommend to use](../support/tutorial/power-maestro.md).
 
 To run such a script in Puhti you first need to initialize Maestro and run the script:
 ```bash
@@ -105,7 +105,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 ## More information
 
-* [Tutorial and tips for power usage on Puhti](/support/tutorials/power-maestro.md)
+* [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI.
 * The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
    * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)
