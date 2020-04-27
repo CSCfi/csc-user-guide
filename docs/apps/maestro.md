@@ -1,7 +1,7 @@
 # Maestro
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
-for drug design and Materials Science. It can be used to build, edit, run and analyse 
+for *drug design* and *Materials Science*. It can be used to build, edit, run and analyse 
 chemical model systems.
 
 [TOC]
