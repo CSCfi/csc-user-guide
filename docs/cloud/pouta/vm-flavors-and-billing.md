@@ -35,6 +35,7 @@ flavors.
 |standard.large  |4|8 |80 |0 |80 |2  |2 (4)|
 |standard.xlarge |6|16|80 |0 |80 |2.6|4 (8)|
 |standard.xxlarge|8|32|80 |0 |80 |4  |8 (16)|
+|standard.3xlarge|8|64|80 |0 |80 |8  |16|
 
 **\*** Because not all memory amounts round exactly to GiB, the closest value
 has been used. This applies to all tables.

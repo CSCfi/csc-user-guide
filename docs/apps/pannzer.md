@@ -29,7 +29,7 @@ The output is written to the file defined with option `-o`.  Also three other ou
 Pannzer.out_3 can be converted to HTML-format with command `anno2html.pl`:
 
 ```text
-perl anno2html.pl < Pannzer.out_3 > annotations.html
+anno2html.pl < Pannzer.out_3 > annotations.html
 ```
 If you upload this file to Allas with command:
 ```text

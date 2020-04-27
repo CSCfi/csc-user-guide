@@ -201,3 +201,22 @@ srun singularity_wrapper exec python3 myprog.py <options>
 ```
 
 Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
+
+
+#### Special Singularity-based applications
+
+Finally, we provide some special Singularity-based applications which are not shown by default in the module system.  You can enable them by running:
+
+```bash
+module use /appl/soft/ai/singularity/modulefiles/
+```
+
+##### Turku neural parser
+
+[Turku neural parser](http://turkunlp.org/Turku-neural-parser-pipeline/) is a pipeline for segmentation, morphological tagging, dependency parsing and lemmatization created by the [Turku NLP group](http://turkunlp.org/).
+
+    module use /appl/soft/ai/singularity/modulefiles/
+    module load turku-neural-parser/fi-en-sv-cpu
+    echo "Minulla on koira." | singularity_wrapper run stream fi_tdt parse_plaintext
+
+There is also a GPU-version `turku-neural-parser/fi-en-sv-gpu`.

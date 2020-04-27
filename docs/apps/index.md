@@ -24,12 +24,15 @@
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Kraken2](kraken.md) Taxonomic sequence classification system
+* [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
+* [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [Pannzer](pannzer.md) Automatic protein annotation tool
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
