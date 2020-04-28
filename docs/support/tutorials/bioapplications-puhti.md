@@ -35,7 +35,7 @@ and finally create a Singularity image as below:
 ```
 sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
 ```
-Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's [Allas](../../data/Allas.md) object storage as below:
+Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's [Allas](../../data/Allas/index.md) object storage as below:
 
 ```
 wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
