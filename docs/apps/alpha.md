@@ -86,9 +86,10 @@
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
-* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [r-env-singularity](r-env-singularity.md) Singularity container including R, RStudio Server and SAGA
 * [RStudio](rstudio.md) Integrated development environment for R
+* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
@@ -116,4 +117,4 @@
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 * [XHMM](xhmm.md) Copy number variation calling from targeted sequencing data
-* [Zonation](zonation.md) Spatial conservation prioritization framework 
+* [Zonation](zonation.md) Spatial conservation prioritization framework
