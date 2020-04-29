@@ -12,6 +12,7 @@
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
+* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Discovery Studio](discovery-studio.md) Protein modeling environment.
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
@@ -134,6 +135,7 @@
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
@@ -148,4 +150,3 @@
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
-
