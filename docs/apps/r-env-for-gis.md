@@ -1,12 +1,13 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. The documentation for R in general is located in the [r-environment](r-env.md) page. 
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located in the [`r-env-singularity` page](r-env-singularity.md) (or the [`r-env` page](r-env.md) for R 3.6.1).
 
 ## Available
 
 Currently supported R versions for spatial libraries:
 
-- 3.6.1
+- 3.6.3 (`r-env-singularity` module)
+- 3.6.1 (`r-env` module)
 
 ## Usage
 
@@ -15,7 +16,8 @@ Currently supported R versions for spatial libraries:
 You can load the general R module with
 
 ```
-module load r-env
+module load r-env-singularity
+# (or module load r-env)
 ```
 
 ### Installed spatial R libraries
@@ -48,12 +50,14 @@ module load r-env
 * [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html) - for analysing point patterns
 * [viridis](https://cran.r-project.org/web/packages/viridis/index.html) - color maps for map plotting
 
-You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md)
+You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env-singularity.md).
 
-`r-env` loads also:
+`r-env-singularity` also loads:
 
 * [GDAL](gdal.md) 2.4.2 and its commandline tools.
-* [Saga-GIS](saga-gis.md) 7.2.0.
+* [Saga-GIS](saga-gis.md) 7.3.0.
+
+`r-env` loads GDAL 2.4.2 and its commandline tools, and Saga-GIS 7.2.0.
 
 ### Parallel computing
 
