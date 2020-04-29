@@ -35,14 +35,14 @@ and finally create a Singularity image as below:
 ```
 sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
 ```
-Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's **allas** object storage as below:
+Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's [Allas](../../data/Allas/index.md) object storage as below:
 
 ```
 wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
 ```
 
 
-### Prepare batch script to run deepvariant pipeline on Puhti (file: deepvariant_puhti.sh)
+### Prepare a batch script to run deepvariant pipeline on Puhti (file: deepvariant_puhti.sh)
 
 ```
 #!/bin/bash
@@ -91,7 +91,8 @@ deepvariant_gpu.simg \
 --output_gvcf=output.g.vcf.gz
 ```
 ### Deepvariant as an interactive job in Puhti
-Singularity is installed in login nodes in Puhti. So one can run singularity containers in the interactive mode. For example deepvariant can be run as follows: 
+One can run singularity containers also in the [interactive](../../computing/running/interactive-usage.md) mode.
+For example, deepvariant can be run as follows: 
 
 Download and unzip the deepvariant folder with data and singularity images in the login node
 ```
@@ -115,7 +116,7 @@ export PATH=/opt/deepvariant/bin:$PATH
 cd /data/testdata/
 run_deepvariant --model_type=WGS --ref=ucsc.hg19.chr20.unittest.fasta --reads=NA12878_S1.chr20.10_10p1mb.bam --regions "chr20:10,000,000-10,010,000" --output_vcf=output.vcf.gz --output_gvcf=output.g.vcf.gz
 ```
-Exit from the singularity session and interactuive batch job
+Exit from the singularity session _and_ interactive batch job
 
 ```
 exit
