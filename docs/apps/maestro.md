@@ -40,7 +40,8 @@ or connected to it via VPN from home.
 ### Standalone usage on Puhti
 
 It is possible to run the heavy computations on Puhti. To do that you need to
-[get an account at CSC]() and apply for [access to Puhti](). Before you start
+[get a CSC accountCSC](../../accounts/how-to-create-new-user-account.md) and 
+apply for [access to Puhti](../../accounts/how-to-add-service-access-for-project.md). Before you start
 the actual workflow below, you need to set up your Maestro environment on Puhti.
 
 These first four steps you only need to do once
