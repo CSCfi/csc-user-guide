@@ -50,6 +50,9 @@ We recommend using Puhti as follows:
 
 The overall process is shown in the video below, and the additional detail and some diagnostics tips
 are explained in our [Maestro power usage tutorial](../support/tutorials/power-maestro.md)
+As the video shows, you'll first need to edit your local `schrodinger.hosts` file to include
+the same entries as in Puhti (the file is in your `$HOME`, which in turn is created with a script
+on your first usage of Maestro on Puhti).
 
 Note, that Maestro jobs
 are not run via batch scripts like most other applications at CSC, but
@@ -66,7 +69,7 @@ For example, a Desmond workflow could be run with:
 This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
 Please also have a look at the [additional flags we recommend to use](../support/tutorials/power-maestro.md).
 
-To run such a script in Puhti you first need to initialize Maestro and run the script:
+To run such a script in Puhti you first need to initialize Maestro (possibly edit it a bit) and run the script:
 ```bash
 module load maestro
 bash your_script_name.sh
