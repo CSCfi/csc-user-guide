@@ -25,7 +25,7 @@ Using Maestro means that you accept the
 It is recommended to download and install Maestro on your 
 own computer, see below.
 
-**Local Installation**
+### Local Installation
 
 Maestro can be installed on a Linux, Mac or Windows computer.
 Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
@@ -37,22 +37,35 @@ require Haka authentication. Access to the license requires that
 your computer is in FUNET network, e.g. you're on the university
 or connected to it via VPN from home.
 
-**Standalone usage on Puhti**
+### Standalone usage on Puhti
 
-We recommend using Puhti as follows:
+It is possible to run the heavy computations on Puhti. To do that you need to
+[get an account at CSC]() and apply for [access to Puhti](). Before you start
+the actual workflow below, you need to set up your Maestro environment on Puhti.
+
+These first four steps you only need to do once
+1. ssh to Puhti
+     * `ssh your-username@puhti.csc.fi`
+1. `module load maestro`
+     * Make sure you use the same version as on your local computer
+1. An error may appear on your screen. If it asks you to run a script to generate the hosts file. Run it (copy paste it to the command line)
+     * If you change Maestro version, you should do the same.
+     * Now you have your own `schrodinger.hosts` file in your `$HOME` directory
+1. Copy the HOST descriptions from the `schrodinger.hosts` file on Puhti to your local hosts file on your computer
+     * Copy everything starting with `name:    test` and paste it at the end of your local `schrodinger.hosts` file
+     * This step may need administrator privileges
+
+For actual simulations we recommend using Puhti as follows:
 
 1. Set up your simulations on your local computer
 1. write the GUI generated input files on disk
 1. copy them to Puhti 
-1. edit the submit script if needed
+1. edit the script (`your-jobname.sh`) if needed
 1. submit the job on the Puhti command line
 1. copy the results back for analysis
 
-The overall process is shown in the video below, and the additional detail and some diagnostics tips
+The overall process is shown in the video below, and additional details and some diagnostics tips
 are explained in our [Maestro power usage tutorial](../support/tutorials/power-maestro.md)
-As the video shows, you'll first need to edit your local `schrodinger.hosts` file to include
-the same entries as in Puhti (the file is in your `$HOME`, which in turn is created with a script
-on your first usage of Maestro on Puhti).
 
 Note, that Maestro jobs
 are not run via batch scripts like most other applications at CSC, but
