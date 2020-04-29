@@ -121,24 +121,27 @@ will be included in this guide as soon as the Allas storage service is available
 
 ## Increasing Quotas
 
+The quotas of the _scratch_ and _projappl_ directories can be increased if needed. 
 
-The quota of the _scratch_ and _projappl_ directories can be increased, but only if the
-analysis or computing task requires more data to be simultaneously available
-on the disk environment of Puhti than what is allowed by the quota. In these cases,
-please send a request to _servicedesk@csc.fi_.  In the request, please indicate the project,
-storage size needed, purpose and duration of the quota
-extension. In the future, the process for increasing quotas will be
-improved. Please allow for some delay in serving this kind of requests.
+You can use [MyCSC](https://my.csc.fi) to manage these quotas.
+1.   Login to MyCSC and select the project you want to modify. 
+2.   In the _Services_ list, click open the settings
+for _Puhti_ service. This opens a page where the project manages can modify the quotas.
 
-Data that is not under active computing should be stored in the Allas
-storage service.
 
-Note that the extended scratch quota consumes your CSC billing unit
-quota regardless of how much data you actually have in the scratch
+Note that the extended scratch quota consumes your CSC billing units
+regardless of how much data you actually have in the scratch
 directory. See [billing](../accounts/billing.md) for details.
 Furthermore, even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the _scratch_ directory.
 
+Remember also, that you can increase these values only to some extent. 
+Especially in the case of number of files, you should reconsider your 
+data workflow, if it requires that tens of millions
+of files are stored to the _scartch_ area.
+
+Data that is not under active computing should be stored in the Allas
+storage service.
 
 ## Additional disk areas
 
