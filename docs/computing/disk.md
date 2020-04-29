@@ -126,7 +126,7 @@ The quotas of the _scratch_ and _projappl_ directories can be increased if neede
 You can use [MyCSC](https://my.csc.fi) to manage these quotas.
 1.   Login to MyCSC and select the project you want to modify. 
 2.   In the _Services_ list, click open the settings
-for _Puhti_ service. This opens a page where the project manages can modify the quotas.
+for _Puhti_ service. This opens a page where the project manager can modify the quotas.
 
 
 Note that the extended scratch quota consumes your CSC billing units
