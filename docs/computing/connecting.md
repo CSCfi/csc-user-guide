@@ -14,7 +14,7 @@ By default, SSH access to Puhti is authenticated with the password of your CSC u
 
 ## Using graphical applications
 
-[NoMachine](../apps/nomachine.md) virtual desktop is a good way to use most graphical applications in Puhti. Note that in certain applications (e.g. RStudio Server provided as part of the [`r-env-singularity`](../apps/r-env-singularity.md#interactive-use) module), graphical applications are instead accessed through a local web browser via SSH tunneling.
+[NoMachine](../apps/nomachine.md) virtual desktop is a good way to use most graphical applications in Puhti. Note that in certain applications (e.g. RStudio Server provided as part of the [`r-env-singularity`](../apps/r-env-singularity.md) module), graphical applications are instead accessed through a local web browser via SSH tunneling.
 
 In addition to fast remote graphics, NoMachine enables you to keep your Puhti remote terminals active, even if you closed your local computer. Therefore, NoMachine is also well-suited for long interactive processes also without graphics. More details can be found in the [NoMachine tutorial](../support/tutorials/nomachine-usage.md).
 
