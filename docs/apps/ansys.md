@@ -39,6 +39,6 @@ In problem situation, send an email to servicedesk@csc.fi.
 
 * [Ansys Inc.](https://www.ansys.com/)
 * [Ansys Academic - Terms and Conditions](https://www.ansys.com/academic/terms-and-conditions)
-* [Ansys Academic products feature table (2019)](https://www.ansys.com/-/media/ansys/corporate/files/pdf/product/academic/academic-products-features-table-2019.pdf)
+* [Ansys Academic products feature table (2019)](https://www.ansys.com/-/media/ansys/corporate/files/pdf/product/academic/academic-products-features-table-2019-v2.pdf)
 
 
