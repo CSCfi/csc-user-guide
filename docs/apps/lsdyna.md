@@ -34,5 +34,5 @@ In problem situation, send an email to servicedesk@csc.fi.
 
 ## More information
 
-* [LS_DYNA](https://www.lstc.com/products/ls-dyna)
+* [LS_DYNA](http://www.lstc.com/products/ls-dyna)
 
