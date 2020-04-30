@@ -40,7 +40,7 @@ Other software and libraries included in the module:
 There are several ways to use the `r-env-singularity` module on Puhti:
 
 * Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
-* [Interactive jobs on a compute node](../../computing/running/interactive-usage/, using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+* [Interactive jobs on a compute node](../../computing/running/interactive-usage/), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
 * Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
 
 #### Interactive use on a compute node
