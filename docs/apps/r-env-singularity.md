@@ -96,7 +96,11 @@ To launch the R console on a login node, run the following commands:
 
 ```bash
 module load r-env-singularity
-srun singularity_wrapper exec R --no-save
+singularity_wrapper exec R --no-save
+
+# Note: this issues a warning mentioning that singularity_wrapper
+# is meant for use on a compute node. However, R will still launch
+# as intended. 
 ```
 
 #### Non-interactive use
