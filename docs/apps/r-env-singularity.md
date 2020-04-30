@@ -36,14 +36,14 @@ Other software and libraries included in the module:
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 
 ## Usage
-In Puhti R can be used in several ways:
 
-* Non-interactive with batch jobs without any limits on reserved computing resources other than Puhti general. Use this option for analysis, that takes longer or requires a lot of memory.
-* Interactively, either with R console or with RStudio Server, on a compute node as [interactive job](../../computing/running/interactive-usage/). Use this option for preparing your code and for smaller analysis. Interactive jobs may use limited resources.
-* Interactively, with R console on login-node. Use this option only for moving data and checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
+There are several ways to use the `r-env-singularity` module on Puhti:
 
+* Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
+* [Interactive jobs on a compute node](../../computing/running/interactive-usage/, using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
 
-#### Interactive use in compute node
+#### Interactive use on a compute node
 
 ***Starting a shell session on the interactive partition***
 
@@ -55,7 +55,7 @@ sinteractive --account <project> --mem 4000 --tmp 10
 
 It is also possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). 
 
-***Launching R console***
+***Launching the R console***
 
 Once you have opened an interactive shell session, you can start a command line version of R as follows (note that the command needs to be run on a compute node):
 
@@ -71,7 +71,7 @@ The`r-env-singularity` module can be used to remotely launch RStudio Server on y
 !!! note
     If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
 
-Once you have started an interactive shell session using SSH authentication, load the `r-env-singularity` module and run the following command. As with `start-r`, the command needs to be run on a compute node:
+Once you have started an interactive shell session using SSH authentication, run the following commands. As with `start-r`, the `start-rstudio-server` command needs to be run on a compute node:
 
 ```bash
 module load r-env-singularity
@@ -82,7 +82,7 @@ While this will not yet open up RStudio on your screen, running `start-rstudio-s
 
 To open RStudio on your browser:
 
-- copy the SSH login command given by `start-rstudio-server`. Note that there are separate SSH login instructions for PuTTY. Leave this window open and running until your session finishes.
+- Copy the SSH login command given by `start-rstudio-server`. Note that there are separate SSH login instructions for PuTTY. Leave this window open and running until your session finishes.
 
 - Launch a local terminal window and enter the SSH login command there. Leave this window open as well for the duration of your session. As long as the command is running, you have remote access to RStudio.
 
@@ -90,8 +90,9 @@ To open RStudio on your browser:
 
 Once you have finished, you can exit RStudio Server by entering `Ctrl + C` in the interactive terminal session on Puhti.
 
-#### Interactive use in login node
-***Launching R console***
+#### Interactive use on a login node
+
+To launch the R console on a login node, run the following commands:
 
 ```bash
 module load r-env-singularity
@@ -100,7 +101,7 @@ srun singularity_wrapper exec R --no-save
 
 #### Non-interactive use
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. Further to the following examples, [see this link](../computing/running/creating-job-scripts.md) for additional information. Batch job files can be submitted to the batch job system as follows:
+Further to interactive jobs, R scripts can be run non-interactively using batch job files. In addition to the following examples, [see this link](../computing/running/creating-job-scripts.md) for more information. Batch job files can be submitted to the batch job system as follows:
 
 ```bash
 sbatch batch_job_file.sh
@@ -350,7 +351,7 @@ module load allas
 allas-conf --mode s3cmd
 ```
 
-After [starting an interactive session and launching R / RStudio Server](#interactive-use), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
+After [starting an interactive session and launching R / RStudio Server](#interactive-use-on-a-compute-node), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
 
 ```r
 library(aws.s3)
