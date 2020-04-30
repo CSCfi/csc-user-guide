@@ -74,7 +74,7 @@ If these limits are too restrictive, `sinteractive` can be used to launch intera
 
 ***Launching R on the command prompt***
 
-Once you have opened an interactive shell session and loaded the `r-env-singularity` module, you can start a command line version of R as follows:
+Once you have opened an interactive shell session and loaded the `r-env-singularity` module, you can start a command line version of R as follows (note that the command needs to be run on a compute node):
 
 ```bash
 start-r
@@ -87,7 +87,7 @@ The`r-env-singularity` module can be used to remotely launch RStudio Server on y
 !!! note
     If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
 
-Once you have started an interactive shell session using SSH authentication, load the `r-env-singularity` module and run the following command:
+Once you have started an interactive shell session using SSH authentication, load the `r-env-singularity` module and run the following command. As with `start-r`, the command needs to be run on a compute node:
 
 ```bash
 start-rstudio-server
@@ -352,11 +352,11 @@ module load allas
 allas-conf --mode s3cmd
 ```
 
-After [starting an interactive session and launching R / RStudio Server](#interactive-use), you can now access your bucket list as follows. Note that, for this to work, you will also need to have the `allas` module loaded.
+After [starting an interactive session and launching R / RStudio Server](#interactive-use), you can now access your bucket list as follows. Note that, for this to work, you will need to have the `allas` module loaded and the argument `region=''` added to the `bucketlist()` function:
 
 ```r
 library(aws.s3)
-bucketlist()
+bucketlist(region='')
 ```
 
 ## Citation
