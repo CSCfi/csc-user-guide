@@ -1,12 +1,10 @@
 # r-env-singularity
 
-The `r-env-singularity` module is a Singularity container including R, RStudio Server and SAGA, and several other features to facilitate their use. 
+The `r-env-singularity` module is a [Singularity container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
-
-- SAGA (System for Automated Geoscientific Analyses) is an open-source software for geographic information system (GIS) analysis. For information on SAGA, see [the SAGA website](http://www.saga-gis.org/en/index.html). 
 
 ## Available
 
@@ -18,8 +16,6 @@ Currently supported versions:
 - Latest CRAN packages available on March 17 2020
 - Bioconductor 3.10
 - RStudio Server 1.2.5033
-- GDAL 2.4.2
-- SAGA 7.3.0
 
 Other software and libraries included in the module:
 
@@ -33,8 +29,6 @@ Other software and libraries included in the module:
 
 - The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). The RStudio End User License Agreement can be found [here](https://rstudio.com/about/eula/).
 
-- SAGA and SAGA API are available under the [GNU General Public License](http://www.gnu.org/licenses/gpl.html) and the [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl.html), respectively.
-
 - Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
 
 - Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
@@ -42,41 +36,31 @@ Other software and libraries included in the module:
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 
 ## Usage
+In Puhti R can be used in several ways:
 
-#### Loading the module
+* Non-interactive with batch jobs without any limits on reserved computing resources other than Puhti general. Use this option for analysis, that takes longer or requires a lot of memory.
+* Interactively, either with R console or with RStudio Server, on a compute node as [interactive job](../../computing/running/interactive-usage/). Use this option for preparing your code and for smaller analysis. Interactive jobs may use limited resources.
+* Interactively, with R console on login-node. Use this option only for moving data and checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
 
-To use the default version of this module on Puhti, initialize it with:
 
-```
-module load r-env-singularity
-```
-
-Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). To use R in Puhti, please request an interactive job on a compute node or submit a non-interactive batch job in Slurm. To use R interactively, open a session on the `interactive` partition before loading the module (see below).
-
-#### Interactive use
+#### Interactive use in compute node
 
 ***Starting a shell session on the interactive partition***
 
-To use R interactively on Puhti compute nodes, open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 8 GB of memory and 100 GB of local scratch space. 
+To use R interactively on Puhti compute nodes, open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local scratch space. 
 
 ```bash
-sinteractive --account <project> --mem 8000 --tmp 100
+sinteractive --account <project> --mem 4000 --tmp 10
 ```
 
-It is also possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). Maximal reservations in the `interactive` partition include: 
+It is also possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)). 
 
-- One core
-- 16 GB of memory
-- 7 days of time
-- 160 GB of local scratch space 
+***Launching R console***
 
-If these limits are too restrictive, `sinteractive` can be used to launch interactive jobs in the `small` partition ([see here for information on Puhti partitions](../computing/running/batch-job-partitions.md)). This is handled automatically by the `sinteractive` command if the reservations exceed upper limits defined for the `interactive` partition. 
-
-***Launching R on the command prompt***
-
-Once you have opened an interactive shell session and loaded the `r-env-singularity` module, you can start a command line version of R as follows (note that the command needs to be run on a compute node):
+Once you have opened an interactive shell session, you can start a command line version of R as follows (note that the command needs to be run on a compute node):
 
 ```bash
+module load r-env-singularity
 start-r
 ```
 
@@ -90,6 +74,7 @@ The`r-env-singularity` module can be used to remotely launch RStudio Server on y
 Once you have started an interactive shell session using SSH authentication, load the `r-env-singularity` module and run the following command. As with `start-r`, the command needs to be run on a compute node:
 
 ```bash
+module load r-env-singularity
 start-rstudio-server
 ```
 
@@ -104,6 +89,14 @@ To open RStudio on your browser:
 - Open RStudio Server by entering the following address in your browser: localhost:8787. The RStudio login screen will ask for your username and the random password generated earlier (these can be copy-pasted from the `start-rstudio-server` output). 
 
 Once you have finished, you can exit RStudio Server by entering `Ctrl + C` in the interactive terminal session on Puhti.
+
+#### Interactive use in login node
+***Launching R console***
+
+```bash
+module load r-env-singularity
+srun singularity_wrapper exec R --no-save
+```
 
 #### Non-interactive use
 
@@ -130,7 +123,8 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-echo "TMPDIR=/scratch/<project>" > .Renviron
+sed -i '/TMPDIR/d' .Renviron
+echo "TMPDIR=/scratch/<project>" >> .Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -163,7 +157,8 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-echo "TMPDIR=/scratch/<project>" > .Renviron
+sed -i '/TMPDIR/d' .Renviron
+echo "TMPDIR=/scratch/<project>" >> .Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -183,7 +178,8 @@ Array jobs can be used to handle *embarrassingly parallel* tasks ([see here](../
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-echo "TMPDIR=/scratch/<project>" > .Renviron
+sed -i '/TMPDIR/d' .Renviron
+echo "TMPDIR=/scratch/<project>" >> .Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
@@ -228,7 +224,8 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-echo "TMPDIR=/scratch/<project>" > .Renviron
+sed -i '/TMPDIR/d' .Renviron
+echo "TMPDIR=/scratch/<project>" >> .Renviron
 srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
 
@@ -265,7 +262,8 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-echo "TMPDIR=/scratch/<project>" > .Renviron
+sed -i '/TMPDIR/d' .Renviron
+echo "TMPDIR=/scratch/<project>" >> .Renviron
 srun singularity_wrapper exec Rscript --no-save --slave myscript.R
 ```
 
@@ -369,8 +367,6 @@ citation("package") # for citing R packages
 ```
 
 ## Further information
-
-This section contains links to other R-related documentation hosted by CSC, as well as external information sources.
 
 - [R FAQs](https://cran.r-project.org/faqs.html) (hosted by CRAN)
 
