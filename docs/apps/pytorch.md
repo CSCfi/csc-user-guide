@@ -38,9 +38,15 @@ To use this software on Puhti, initialize it with:
 module load pytorch
 ```
 
-to access the default version.
+to access the default version, or if you wish to have a specific version (see [above for available versions](#available)):
 
-This will show all available versions:
+```text
+module load pytorch/1.4
+```
+
+Please note that the module already includes CUDA and cuDNN libraries, so **there is no need to load cuda and cudnn modules separately!**
+
+This command will also show all available versions:
 
 ```text
 module avail pytorch
