@@ -14,6 +14,8 @@ For GPU-accelerated machine learning on Puhti, we support [TensorFlow](../../app
 module load tensorflow/2.0.0
 ```
 
+Please note that our modules already include CUDA and cuDNN libraries, so **there is no need to load cuda and cudnn modules separately!**
+
 To submit a job to the slurm queue using GPUs, you need to use the `gpu` partition and also specify the type and number of GPUs using the `--gres` flag. An example batch script for reserving one GPU and 10 CPUs in a single node:
 
 ```bash
