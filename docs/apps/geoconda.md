@@ -102,7 +102,7 @@ If you would like to make a own conda environment, it is recommended to make als
 
 ## Using Allas from Python
 
-There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
+There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). With large quantaties of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here](https://research.csc.fi/virtual_rasters).
 
 ## License and citing
 
@@ -149,8 +149,6 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
   [zonal statistics]: https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats
   [focal mean]: https://github.com/csc-training/geocomputing/tree/master/python/focal_mean
-  [geo-env]: https://research.csc.fi/-/geo-env
-  [Python]: https://research.csc.fi/-/python
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
   [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md

@@ -80,6 +80,10 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 * `allas-conf` command saves your credentials in your home directory to .aws/credentials file. This needs to be run only once before first use.
 
 
+## Virtual rasters and Allas
+
+With large quantities of data in Allas, the most convenient method of accessing them might be GDAl virtual rasters. More information [here](https://research.csc.fi/virtual_rasters). 
+
 ## License and citing
 
 GDAL/OGR is licensed under an [MIT/X style license](https://gdal.org/license.html)
@@ -91,3 +95,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 * [GDAL tutorials](https://gdal.org/tutorials/index.html)
 * [GDAL Github](https://github.com/OSGeo/GDAL)
 * [GDAL commands](https://gdal.org/programs/index.html)
+* [GDAL Virtual Rasters in Puhti](https://research.csc.fi/virtual_rasters)
