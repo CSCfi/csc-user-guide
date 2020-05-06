@@ -10,8 +10,8 @@ You can use MyCSC to manage these quotas.
 
 
 You can check the default limit of scratch and projappl areas from the table below. 
-If your request exeeds the maximujm values listed below, then you need so submit 
-a resource request to servicedesk@csc.fi and describe why eceptionally large data reasources 
+If your request exceeds the maximum values listed below, then you need so submit 
+a resource request to servicedesk@csc.fi and describe why exceptionally large data resources 
 are needed.
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
