@@ -138,7 +138,7 @@ process will continue removing idle files from the _scratch_ directory.
 Remember also, that you can increase these values only to some extent. 
 Especially in the case of number of files, you should reconsider your 
 data workflow, if it requires that tens of millions
-of files are stored to the _scartch_ area.
+of files are stored to the _scratch_ area.
 
 Data that is not under active computing should be stored in the Allas
 storage service.
