@@ -8,6 +8,18 @@ You can use MyCSC to manage these quotas.
 2.    In the Services list, click open the settings for **Puhti** service. This opens a page 
       where the project manager can modify the quotas.
 
+
+You can check the default limit of scratch and projappl areas from the table below. 
+If your request exeeds the maximujm values listed below, then you need so submit 
+a resource request to servicedesk@csc.fi and describe why eceptionally large data reasources 
+are needed.
+  
+| Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
+|-----------|--------------|--------------|---------------------------|---------------------------|
+| projappl  |   50 GiB     |  100 GiB     | 100 000                   | 500 000                   |
+| scratch   |   1TiB       |  20 TiB      | 1 000 000                 | 5 000 000                 |
+
+
 Note that the extended scratch quota consumes your CSC billing units regardless of how much 
 data you actually have in the scratch directory. See billing for details. Furthermore, 
 even after the quota is increased, the automatic cleaning process will continue removing idle 
