@@ -21,6 +21,6 @@ are needed.
 
 
 Note that the extended scratch quota consumes your CSC billing units regardless of how much 
-data you actually have in the scratch directory. See billing for details. Furthermore, 
+data you actually have in the scratch directory. See [billing](./billing.md) for details. Furthermore, 
 even after the quota is increased, the automatic cleaning process will continue removing idle 
 files from the scratch directory.
