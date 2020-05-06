@@ -130,7 +130,7 @@ storage service.
 
 Remember also, that you can increase these values only to some extent. 
 Especially in the case of number of files, you should reconsider your 
-data workflow, if it requires that tens of millions
+data work flow, if it requires that tens of millions
 of files are stored to the _scratch_ area.
 
 ## Additional disk areas
