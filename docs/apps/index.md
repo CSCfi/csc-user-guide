@@ -21,6 +21,7 @@
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Freebayes](freebayes.md) Genetic variant detector
 * [GOLD](gold.md) Protein Ligand Docking Software
+* [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
