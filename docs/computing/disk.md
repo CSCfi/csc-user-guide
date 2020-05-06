@@ -121,7 +121,7 @@ will be included in this guide as soon as the Allas storage service is available
 
 ## Increasing Quotas
 
-You can use **MyCSC portal** to [manage quotas of the _scratch_ and _projappl_ directories]../accounts/how-to-increase-disk-quotas.md).
+You can use **MyCSC portal** to [manage quotas of the _scratch_ and _projappl_ directories](../accounts/how-to-increase-disk-quotas.md).
 
 Remember that even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the _scratch_ directory.
