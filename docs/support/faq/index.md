@@ -8,11 +8,12 @@
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving)
+* [Disk quota exceeded](disk-quota-exceeded.md)
 
 ## Batch jobs
 * [Why is my job queuing so long?](why-is-my-job-queueing-so-long.md)
 * [How to estimate how much memory my job needs?](how-much-memory-my-job-needs.md)
-* [Disk quota exceeded](disk-quota-exceeded.md)
+* [When will my batch job run?](when-will-my-job-run.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 
 
