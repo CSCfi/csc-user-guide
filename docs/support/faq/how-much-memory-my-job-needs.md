@@ -16,7 +16,10 @@ You can also add the `seff` command to the end of you batch script, which will p
 seff $SLURM_JOBID
 ```
 
-There's another command for GPU jobs: `gpuseff $SLURM_JOBD`.
+There's another command for GPU jobs: 
+```bash
+gpuseff JOBID
+```
 
 ## Custom queries to Slurm accounting
 
