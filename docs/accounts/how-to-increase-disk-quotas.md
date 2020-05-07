@@ -10,7 +10,7 @@ You can use MyCSC to manage these quotas.
 
 
 You can check the default limit of scratch and projappl areas from the table below. 
-If your request exceeds the maximum values listed below, then you need so submit 
+If your request exceeds the maximum values listed below, then you need to submit 
 a resource request to servicedesk@csc.fi and describe why exceptionally large data resources 
 are needed.
   
