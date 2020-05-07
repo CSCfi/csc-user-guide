@@ -19,8 +19,8 @@ for JOBID 20424242 with:
   20424242   small cool_stuff  username PD 2020-05-09T03:55:15      1 r06c64       (Priority)
 ```
 
-`Priority` as the reason for why the job is pending means there are other jobs
-in the queue with a higher priority. `Resources` on the other hand, mean that
+*Priority* as the reason for why the job is pending means there are other jobs
+in the queue with a higher priority. *Resources* on the other hand, mean that
 your job would run, if the requested resources were available, and will,
 once they do.
 
