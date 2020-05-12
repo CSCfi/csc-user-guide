@@ -17,6 +17,7 @@ Available on Puhti only.  Currently supported PyTorch versions and corresponding
 - 1.2.0: `pytorch/1.2.0`
 - 1.1.0: `pytorch/1.1.0`
 - 1.0.1: `pytorch/1.0.1`
+- 0.4.1: `pytorch/0.4.1`
 
 Modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.
 
