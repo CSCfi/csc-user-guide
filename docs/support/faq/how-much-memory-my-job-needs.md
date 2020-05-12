@@ -16,6 +16,11 @@ You can also add the `seff` command to the end of you batch script, which will p
 seff $SLURM_JOBID
 ```
 
+There's another command for GPU jobs: 
+```bash
+gpuseff JOBID
+```
+
 ## Custom queries to Slurm accounting
 
 You can check the time and memory usage of a completed job with this command:
