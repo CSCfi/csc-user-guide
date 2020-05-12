@@ -1,7 +1,7 @@
 # When will my batch job run?
 
 The exact time is impossible to predict. The fair share mode allocates resources
-based on your job's priority, but the the start of the job is also subject availability 
+based on your job's priority, but the the start of the job is also subject to availability 
 of the resources you requested. A prediction based on the current jobs and the resources
 they have requested can be made. To see all your jobs and their JOBIDs give:
 
@@ -34,5 +34,4 @@ To minimize queueing, please also see:
 
 * [How to estimate how much memory my batch job needs](how-much-memory-my-job-needs.md)
 * [Why is my batch job queueing so long?](why-is-my-job-queueing-so-long.md)
-
 
