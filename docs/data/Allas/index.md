@@ -22,9 +22,9 @@ A summary of the most commonly used Allas tools.
 Available in Puhti. These can be installed to local Linux and Mac OSX
 
    * [a-commands](using_allas/a_commands.md) Easy-to-use command line tools developed for using Allas in the CSC computing environments.
-   * [rclone](using_allas/rclone.md) A versatile command line client for Allas and other object storage systems. Installed on the CSC servers and available for Linux and MacOS machines.
-   * [Swift](using_allas/swift_client.md) A native Swift command line client. Installed on the CSC servers and available for Linux and MacOS machines.
-   * [s3cmd](using_allas/s3_client.md) A command line client for the S3 protocol. Installed on the CSC servers and available for Linux and MacOS machines. 
+   * [rclone](using_allas/rclone.md) A versatile command line client for Allas and other object storage systems. 
+   * [Swift](using_allas/swift_client.md) A native Swift command line client. 
+   * [s3cmd](using_allas/s3_client.md) A command line client for the S3 protocol. 
    * [Python](using_allas/python_library.md) Programmatic access to Allas.
 
 ### Sample commands for Puhti 
