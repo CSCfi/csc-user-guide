@@ -27,14 +27,14 @@ Available in Puhti. These can be installed to local Linux and Mac OSX
    * [s3cmd](using_allas/s3_client.md) A command line client for the S3 protocol. Installed on the CSC servers and available for Linux and MacOS machines. 
    * [Python](using_allas/python_library.md) Programmatic access to Allas.
 
-Sample commands in Puhti 
+### Sample commands for Puhti 
 Open connection:
 
 ```text
 module load allas
 allas-conf
 ```
-Basic Allas oprations with different tools.
+Basic Allas operations with different tools.
 | Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	upload file _data1.txt_ from bucket _buck_123_ |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
 | a-commands | `a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
