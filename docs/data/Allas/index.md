@@ -19,7 +19,7 @@ A summary of the most commonly used Allas tools.
 
 
 ### Command line tools 
-Available in Puhti. These can be installed to local Linux and Mac OSX
+Available in Puhti. These can be installed to local Linux and Mac OSX too.
 
    * [a-commands](using_allas/a_commands.md) Easy-to-use command line tools developed for using Allas in the CSC computing environments.
    * [rclone](using_allas/rclone.md) A versatile command line client for Allas and other object storage systems. 
