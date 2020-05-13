@@ -52,8 +52,7 @@ Other information
 CSC has previously provided the Pouta object storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to existing Pouta object storage users.
 
 ## Tutorials: 
-
+* [Using Allas to host a data set for a research group](./allas_project_example.md)
+* [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)
 * [Using Allas to migrate your data from Taito to Puhti](./migration_tutorial.md)
-* [Using Allas in batch jobs](./allas_batchjobs.md)
-* [Using Allas to host a data set for a research group](./allas_project_example.md)
