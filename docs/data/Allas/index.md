@@ -12,13 +12,36 @@ A technical overview of the service. Recommended reading before starting to use 
 
 A summary of the most commonly used Allas tools.
 
+### Graphical user interfaces
+
    * [web client](using_allas/web_client.md) A part of the Pouta www interface. Limited performance. No configuration steps needed.
    * [CyberDuck](accessing_allas.md#cyberduck-functions) An easy-to-use graphical object storage client for Windows and MacOS.
+
+
+### Command line tools 
+Available in Puhti. These can be installed to local Linux and Mac OSX
+
    * [a-commands](using_allas/a_commands.md) Easy-to-use command line tools developed for using Allas in the CSC computing environments.
    * [rclone](using_allas/rclone.md) A versatile command line client for Allas and other object storage systems. Installed on the CSC servers and available for Linux and MacOS machines.
    * [Swift](using_allas/swift_client.md) A native Swift command line client. Installed on the CSC servers and available for Linux and MacOS machines.
    * [s3cmd](using_allas/s3_client.md) A command line client for the S3 protocol. Installed on the CSC servers and available for Linux and MacOS machines. 
    * [Python](using_allas/python_library.md) Programmatic access to Allas.
+
+Sample commands in Puhti 
+Open connection:
+
+```text
+module load allas
+allas-conf
+```
+Basic Allas oprations with different tools.
+| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	upload file _data1.txt_ from bucket _buck_123_ |
+|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
+| a-commands | `a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
+| rclone | `rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`| 
+| swift	| `swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
+| s3cmd	| `s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
+
 
 Other information
    * [Error messages](./using_allas/error_messages.md)
