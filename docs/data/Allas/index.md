@@ -40,8 +40,9 @@ Basic Allas operations with different tools.
 | [a-commands](using_allas/a_commands.md) | `a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
 | [rclone](using_allas/rclone.md) | `rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`| 
 | [Swift](using_allas/swift_client.md) | `swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
-| [s3cmd](using_allas/s3_client.md)	(Note: open connection with command`allas-conf -m s3cmd` | `s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
+| [s3cmd](using_allas/s3_client.md)\*	 | `s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
 
+\*For s3cmd, open Allas connection with command`allas-conf -m s3cmd`
 
 Other information
    * [Error messages](./using_allas/error_messages.md)
