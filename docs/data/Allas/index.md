@@ -35,7 +35,7 @@ module load allas
 allas-conf
 ```
 Basic Allas operations with different tools.
-| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	upload file _data1.txt_ from bucket _buck_123_ |
+| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
 | a-commands | `a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
 | rclone | `rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`| 
