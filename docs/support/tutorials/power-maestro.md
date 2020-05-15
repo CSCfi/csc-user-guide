@@ -192,13 +192,19 @@ please contact us at [servicedesk@csc.fi](mailto:servicedesk@csc.fi) on how to r
 The only disk available for the jobs is the
 same where your input files already are. Hence, it does not make sense
 to copy the files to a "temporary" location at the start of the
-job. For most job types this is prevented by adding `-LOCAL -SUBLOCAL` to the
+job. For some job types this is prevented by adding `-LOCAL -SUBLOCAL` to the
 run script (examples above), but for a desmond `multisim` workflow you would need to 
-add this set of flags to the submit script (all in one line):
+edit this part of flags in the submit script (all in one line):
 
 ```bash
--LOCAL -set stage[1].set_family.md.jlaunch_opt=["-LOCAL"]
+#edit this
+-set "stage[1].set_family.md.jlaunch_opt=[\"-gpu\"]"
+
+#into this
+-LOCAL -set "stage[1].set_family.md.jlaunch_opt=[\"-gpu\" \"-LOCAL\"]"
 ```
+
+However, this feature has been deprecated on from version 2020.1 onwards.
 
 ## Copying files to and from local computer
 
