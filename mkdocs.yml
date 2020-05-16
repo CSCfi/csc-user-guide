@@ -13,6 +13,7 @@ nav:
      - How to add member to project: accounts/how-to-add-member-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
      - How to apply for resources: accounts/how-to-apply-for-resources.md
+     - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
      - How to switch between projects: accounts/how-to-switch-between-projects.md
      - How to monitor resource usage: accounts/how-to-monitor-resource-usage.md
      - Billing: accounts/billing.md
@@ -130,6 +131,7 @@ nav:
         - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
+     - Datasets: data/datasets.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md

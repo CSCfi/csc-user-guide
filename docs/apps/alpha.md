@@ -16,6 +16,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [ChEMBL](chembl.md) Database of bioactive molecules.
+* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
@@ -37,6 +38,7 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
+* [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
@@ -62,6 +64,7 @@
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
+* [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [MXNet](mxnet.md) Deep learning library for Python
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
@@ -85,6 +88,7 @@
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [RStudio](rstudio.md) Integrated development environment for R

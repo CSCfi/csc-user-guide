@@ -144,23 +144,18 @@ for *rsync*.
 
 ## Increasing Quotas
 
-The quota of the _scratch_ and _projappl_ directories can be increased, but only if the
-analysis or computing task requires more data to be simultaneously available
-on the disk environment of Puhti than what is allowed by the quota. In these cases,
-please send a request to _servicedesk@csc.fi_.  In the request, please indicate the project,
-storage size needed, purpose and duration of the quota
-extension. In the future, the process for increasing quotas will be
-improved. Please allow for some delay in serving this kind of requests.
 
+You can use **MyCSC portal** to [manage quotas of the _scratch_ and _projappl_ directories](../accounts/how-to-increase-disk-quotas.md).
+
+Remember that even after the quota is increased, the automatic cleaning
+process will continue removing idle files from the _scratch_ directory.
 Data that is not under active computing should be stored in the Allas
 storage service.
 
-Note that the extended scratch quota consumes your CSC billing unit
-quota regardless of how much data you actually have in the scratch
-directory. See [billing](../accounts/billing.md) for details.
-Furthermore, even after the quota is increased, the automatic cleaning
-process will continue removing idle files from the _scratch_ directory.
-
+Remember also, that you can increase these values only to some extent. 
+Especially in the case of number of files, you should reconsider your 
+data work flow, if it requires that tens of millions
+of files are stored to the _scratch_ area.
 
 ## Additional disk areas
 
