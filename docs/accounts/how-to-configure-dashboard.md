@@ -1,4 +1,4 @@
-# How to switch between projects
+# How to configure Dashboard
 
 On the Dashboard of MyCSC, there is a chart showing how many billing units
 you have left in one of your projects. You can change that project as
