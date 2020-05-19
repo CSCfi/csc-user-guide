@@ -17,7 +17,7 @@ nav:
      - How to switch between projects: accounts/how-to-switch-between-projects.md
      - How to monitor resource usage: accounts/how-to-monitor-resource-usage.md
      - Billing: accounts/billing.md
-     - FMI: accounts/FMI.md
+     - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
      - Systems: computing/system.md
