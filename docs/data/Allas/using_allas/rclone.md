@@ -39,8 +39,10 @@ your projects in Allas and asks you to define the project that will be used. The
 
 If you are using rclone in a local Linux or Mac machine, you can download the `allas_conf` script to set up the rconnection connection to your Allas project.
 
+```text
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --user your-csc-username
+```
 
 Note that you should use the --user option to define your CSC username. 
 
