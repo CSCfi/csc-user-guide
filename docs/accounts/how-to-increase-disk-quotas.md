@@ -22,7 +22,7 @@ exceptionally large data resources are needed.
 | projappl  |   50 GiB     |  100 GiB     | 100 000                   | 500 000                   |
 | scratch   |   1TiB       |  20 TiB      | 1 000 000                 | 5 000 000                 |
 
-Note that the extended scratch quota consumes your CSC billing units regardless of how
-much data you actually have in the scratch directory. [See billing](billing.md) for
+Note that the extended quota consumes your CSC billing units regardless of how
+much data you actually have in the directory. [See billing](billing.md) for
 details. Furthermore, even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the scratch directory.
