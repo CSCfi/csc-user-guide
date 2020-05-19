@@ -1,4 +1,4 @@
-# Changing a password
+# How to change password
 
 There are two ways to change the password of your CSC user account,
 depending on whether you are logged in to MyCSC or not.
@@ -18,13 +18,14 @@ If you are not logged in:
 1. Click _Forgot your password?_
 1. Enter your CSC username and click _Next_.
 1. Instructions are sent to the email address associated with your CSC
-user account.
+   user account.
 
-!!! Note
+!!! Password requirements
 
-     The password must contain at least 12 characters, both upper
-     and lowercase letters and at least one number. The allowed characters
-     are !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~.
-
-    If you do not know your CSC username, contact us at
-    servicedesk@csc.fi.
+    * Must contain at least 12 characters
+    * Must contain at least one lowercase letter (a–z)
+    * Must contain at least one uppercase letter (A–Z)
+    * Must contain at least one number (0–9)
+    * May contain special characters ( !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)
+    * Learn what makes a strong password and don't use weak passwords
+    * Never use the same password on multiple sites
