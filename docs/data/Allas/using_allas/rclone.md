@@ -37,14 +37,14 @@ allas-conf
 The `allas-conf` command asks for your CSC password (the same you use to login to CSC servers). It lists
 your projects in Allas and asks you to define the project that will be used. Then _allas-conf_ generates a Rclone configuration file for the Allas service and autheticates the connection to the selected project. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
 
-If you are using rclone in a local Linux or Mac machine, you can download the `allas_conf` script to set up the  connectionto your Allas project.
+If you are using rclone in a local Linux or Mac machine, you can download the `allas_conf` script to set up the connection to your Allas project.
 
 ```text
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --user your-csc-username
 ```
 
-Note that you should use the --user option to define your CSC username. Futher, to run`source allas_conf`you must
+Note that you should use the `--user` option to define your CSC username. Futher, to run`source allas_conf`you must
 have Rclone and OpenStack installed in your environment.
 
 
