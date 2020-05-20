@@ -35,4 +35,5 @@ Consult ["How to cite VMD"](https://www.ks.uiuc.edu/Research/vmd/allversions/cit
 -   [VMD home page](http://www.ks.uiuc.edu/Research/vmd/)
 -   [VMD Tutorials](http://www.ks.uiuc.edu/Research/vmd/current/docs.html#tutorials)
 -   [VMD Manuals](http://www.ks.uiuc.edu/Research/vmd/current/docs.html)  
+-   Google for more
 
