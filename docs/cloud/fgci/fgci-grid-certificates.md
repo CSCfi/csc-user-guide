@@ -7,19 +7,17 @@ This means also that CSC user account is not necessary for FGCI usage.
 
 Certificate requests need to be signed by a Certification Authority (CA)
 which acts as a trusted third party. CSC is using [GÉANT Trusted
-Certificate Service (TCS)] as the authority to provide Finnish academic
-grid users with personal e-science grid user certificates. The
-certificates will be requested through the [Sertigo portal](https://cert-manager.com/customer/funet/idp/clientgeant
-), which
-automatically installs in the certificate to users web browser. The
+Certificate Service (TCS)] as the authority to provide X.509 certificates for Finnish academic
+grid users. The certificates are requested through the [Sertigo portal](https://cert-manager.com/customer/funet/idp/clientgeant
+), generates and downloads the certificate to your local computer. The
 certificates are valid for one year at a time.
 
-The user logs on to the Sertigo portal using their HAKA credentials
+Users log in to the Sertigo portal using their HAKA credentials
 (username and password in most cases). To be able to log in, your
 Identity Provider ( i.e. home university or institute) most must be
 compatible with [eduGAIN] service. If the name of your home institute is
-not recognized by the Sertoigo portal (Finnish, Swedish and English
-institute names should be recognized) that means that your home
+not recognized by the Sertoigo portal (English
+institute names are recognized) that means that your home
 institute is not compatible with the eduGAIN service. In this case you
 can still request a personal certificate from Nordugrid: [Personal
 Nordugrid certificate].
@@ -28,9 +26,10 @@ Nordugrid certificate].
 
 **Please ONLY use your personal computer for obtaining your grid
 certificate**<span style="font-weight: normal"> as your grid certificate
-will be stored into the browser you are using for obtaining the
-certificate. Here are the step-by-step instructions for obtaining your
-own certificate:
+will be stored the default download folder of the computer you are using for obtaining the
+certificate. 
+    
+Here are step-by-step instructions for obtaining your own certificate:
 
 1.  Go to [https://cert-manager.com/customer/funet/idp/clientgeant](https://cert-manager.com/customer/funet/idp/clientgeant)
 
