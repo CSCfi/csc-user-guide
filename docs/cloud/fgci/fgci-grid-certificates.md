@@ -8,15 +8,15 @@ This means also that CSC user account is not necessary for FGCI usage.
 Certificate requests need to be signed by a Certification Authority (CA)
 which acts as a trusted third party. CSC is using [GÉANT Trusted
 Certificate Service (TCS)] as the authority to provide X.509 certificates for Finnish academic
-grid users. The certificates are requested through the [Sertigo portal](https://cert-manager.com/customer/funet/idp/clientgeant
-), generates and downloads the certificate to your local computer. The
+grid users. The certificates are requested through the [Sectigo Certificate Manager](https://cert-manager.com/customer/funet/idp/clientgeant
+) that generates and downloads the certificate to your local computer. The
 certificates are valid for one year at a time.
 
 Users log in to the Sertigo portal using their HAKA credentials
 (username and password in most cases). To be able to log in, your
 Identity Provider ( i.e. home university or institute) most must be
 compatible with [eduGAIN] service. If the name of your home institute is
-not recognized by the Sertigo portal (English
+not recognized by the Sertigo Certificate Manager (English
 institute names are recognized) that means that your home
 institute is not compatible with the eduGAIN service. In this case you
 can still request a personal certificate from Nordugrid: [Personal
@@ -40,7 +40,7 @@ Here are step-by-step instructions for obtaining your own certificate:
     created by your home organization, not by CSC. Typically this is the
     user account you use to log in to local university network. 
     
-    If you get error message saying  _You are not allowed to self enroll_, then your home organization is not yet compatible with the Sertigo portal and you should contact local network management to fix this issue.
+    If you get error message saying  _You are not allowed to self enroll_, then your home organization is not yet compatible with the Sertigo Certificate Manager and you should contact local network administrators to fix this issue.
     
 
 4.  In the Digital certificate enrollment page, check that your personal information is correct.
