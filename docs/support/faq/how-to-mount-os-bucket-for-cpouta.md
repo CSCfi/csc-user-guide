@@ -1,6 +1,6 @@
 #How can I mount my Pouta Object Storage bucket to a VM running in cPouta
 
-Combing cPouta cloud environment and Allas storage environment allows you to build saclable data management environmets. This document shows one example how you can combine these two services by mounting a bucket form Allas to an Ubuntu 16.04 or Centos7 VM running in cPouta.
+Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu 16.04 or Centos7 based virtual machine running in cPouta.
 
 [TOC]
 
@@ -87,7 +87,7 @@ s3cmd get s3://case_1/file1.txt
 s3cmd put file2.txt s3://case_1/
 ```
 
-This is normally the recommended way if you wish to use Allas with S3 protoco. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk".
+This is normally the recommended way if you wish to use Allas with S3 protocol. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk".
 
 To do this, create first an empty directory to be used as a mount point. E.g.
 
