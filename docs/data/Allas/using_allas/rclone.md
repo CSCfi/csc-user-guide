@@ -44,7 +44,7 @@ wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --user your-csc-username
 ```
 
-Note that you should use the `--user` option to define your CSC username. Futher, to run`source allas_conf`you must
+Note that you should use the `--user` option to define your CSC username. Further, to run`source allas_conf`you must
 have Rclone and OpenStack installed in your environment.
 
 
