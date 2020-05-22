@@ -20,7 +20,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * Specific tools are required to use the object storage. The object storage cannot be properly mounted for local disk-like usage. There are some tools that can do this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as a file system, but it uses _FUSE_ which is slow.
  * It is unsuitable for files that change constantly during their lifetime (e.g. most SQL databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing, and the previous version replaced with a new one.
- * In case of swift protocol, files larger than 5 GB are devided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
+ * In case of swift protocol, files larger than 5 GB are divided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
  
  ## Billing and quotas
 
