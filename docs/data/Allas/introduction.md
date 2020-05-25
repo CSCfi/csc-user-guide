@@ -22,7 +22,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing, and the previous version replaced with a new one.
  * In case of swift protocol, files larger than 5 GB are divided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
  
- ## Billing and quotas
+## Billing and quotas
 
 Allas usage is based on CSC projects. All project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all other project members can also read, edit and delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
 
