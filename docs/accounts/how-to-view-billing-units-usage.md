@@ -1,4 +1,4 @@
-# How to view resource usage
+# How to view billing units usage
 
 CSC resources are measured in billing units (BU).
 
@@ -23,7 +23,7 @@ in FAQ:
 
 !!! Note
 
-    Do not confuse quotas with resources. Quotas are service-specific
+    Do not confuse quotas with billing units. Quotas are service-specific
     limits to keep the usage within limits. See the instructions under
     Computing, Cloud and Data for instructions how the remaining quotas
     can be followed up in each service.

@@ -1,7 +1,7 @@
 # Who 'unknown' is using our resources
 
 In the
-[resource usage statistics displayed at MyCSC](how-to-view-resource-usage.md)
+[billing units usage statistics displayed at MyCSC](how-to-view-billing-units-usage.md)
 you can often see resources used by an 'unknown' user. You and other project
 members have also used these billing units.
 
@@ -12,4 +12,4 @@ There are two reasons why the usage is not associated with any particular user.
 1. The reporting database used by MyCSC loses information about who the real
    user is. In any case, the user belongs to your project. Jobs, virtual
    machines and data left by former members of the project can also continue to
-   use resources.
+   use billing units.
