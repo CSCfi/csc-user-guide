@@ -1,6 +1,6 @@
 # How to monitor resource usage
 
-CSC resources are measured in billing units (BU). 
+CSC resources are measured in billing units (BU).
 
 Check your BU consumption:
 
@@ -14,6 +14,12 @@ In the usage plot, you can:
 * View the monthly usage by user by hovering the mouse over the bars
 * Select or unselect certain users by clicking their username
 * Switch between cumulative and regular view
+
+You can often see usage information of an 'unknown' user. You and the other
+members of the project are responsible also for this use. See the explanation
+in FAQ:
+
+* [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
 
 !!! Note
 
