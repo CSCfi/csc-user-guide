@@ -98,7 +98,7 @@ Xi and Laura can now start working with the data. They register using the MyCSC 
 
 Xi and Laura need to revisit MyCSC and accept the services of the research project. After that, they can download the research data they need to any environment that is able to connect to Allas: Puhti, a virtual machine in cPouta, or their own laptop. As new researchers join the project, Saara adds them in project_2000333, so that they can access the data.
 
-Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more billing units](../../accounts/how-to-apply-for-resources.md) (80 TB consumes 700 800 Bu in year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the billing units.
+Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more billing units](../../accounts/how-to-apply-for-billing-units.md) (80 TB consumes 700 800 Bu in year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the billing units.
 
 
 ## Act 5. The end ##
