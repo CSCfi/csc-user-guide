@@ -1,4 +1,4 @@
-# Why does my batch job fail
+# Why does my batch job fail?
 
 Below are common error messages you may get when the job fails, and advice how
 to fix them.
@@ -19,7 +19,7 @@ This error message refers to Slurm options `--account=<project>` and
   [add a member to project](../../accounts/how-to-add-member-to-project.md)
 * You are a project member, but the project has not been enabled on Puhti. See
   how to
-  [add service access for project/](../../accounts/how-to-add-service-access-for-project.md).
+  [add service access for project](../../accounts/how-to-add-service-access-for-project.md).
 * Partition does not exist.
 * Partition exists, but your project is not enabled in it.
 
