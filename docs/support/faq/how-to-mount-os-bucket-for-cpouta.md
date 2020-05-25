@@ -46,7 +46,7 @@ In the case of Centos7, s3fs needs to be compiled locally. To do this we need to
 
     sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
 
-The download the s3fs-fuse from the git repository and install it:
+Then download the s3fs-fuse from the git repository and install it:
 
 ```
 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
@@ -60,7 +60,7 @@ sudo make install
 
 ##Configuring and using Allas (Ubuntu and Centos)
 
-Once you have, openstack, s3cmd and s3fs installed, download and execute the **poutaos_configure** tool to configure _s3cmd_ so that it uses your cPouta project. You can also use this tool also to switch between different Allas projects 
+Once you have openstack, s3cmd and s3fs installed, download and execute the **poutaos_configure** tool to configure _s3cmd_ so that it uses your cPouta project. You can also use this tool to switch between different Allas projects 
 if you have several of them.
 
 ```
@@ -69,7 +69,7 @@ chmod u+x poutaos_configure
 ./poutaos_configure
 ```
 
-The _poutaos_configure_ command asks first your CSC password. Then it lists your Allas projects and asks you to define the name of the project to be used. During the proceeding configuration steps, the system asks you about the values that will be used for the Allas connection. In most cases you can just accept the proposed default values, but there is two exceptions:  
+The _poutaos_configure_ command asks first your CSC password. Then it lists your Allas projects and asks you to for the project to be used. During the following configuration steps, the system asks you about the values that will be used for the Allas connection. In most cases you can just accept the proposed default values, but there are two exceptions:  
 
    1. It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server.
    2. As the last question the configuration process asks if the configuration is saved. The default is "no" but you should 
@@ -79,7 +79,7 @@ The _poutaos_configure_ command asks first your CSC password. Then it lists your
 
 After this you can use the storage area of your Allas project with _s3cmd_ commands.
 
-Lets, assume you already have a bucket called _case_1_ in your object storage and that you have some data objects (I.e files) in this bucket. Now you can see, download and upload files in this bucket with _s3cmd_
+Lets, assume you already have a bucket called _case_1_ in your object storage and that you have some data objects (i.e. files) in this bucket. Now you can see, download and upload files in this bucket with _s3cmd_.
 
 ```
 s3cmd ls s3://case_1
@@ -87,7 +87,7 @@ s3cmd get s3://case_1/file1.txt
 s3cmd put file2.txt s3://case_1/
 ```
 
-This is normally the recommended way if you wish to use Allas with S3 protocol. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk".
+This is normally the recommended way if you wish to use Allas with the S3 protocol. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk".
 
 To do this, create first an empty directory to be used as a mount point. E.g.
 
