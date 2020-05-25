@@ -25,8 +25,8 @@ Nordugrid certificate].
 ## Obtaining a grid certificate from GEANT
 
 **Please ONLY use your personal computer for obtaining your grid
-certificate**<span style="font-weight: normal"> as your grid certificate
-will be stored the default download folder of the computer you are using for obtaining the
+certificate** as your grid certificate
+will be stored in the default download folder of the computer you are using for obtaining the
 certificate. 
     
 Here are step-by-step instructions for obtaining your own certificate:
