@@ -38,3 +38,17 @@ The most common causes are:
 * Your project has too many jobs in the system, either running or queuing.
   Note that internally, Slurm counts each job within an array job as a separate
   job.
+
+## Requested node configuration is not available
+
+The complete error message is as shown below:
+
+```
+sbatch: error: Batch job submission failed: Requested node configuration is not available
+```
+
+The most common causes are:
+
+
+* Requesting e.g. a GPU or NVME in a partition that does not have them. See [Puhti partitions](../../computing/running/batch-job-partitions.md) for available resources.
+
