@@ -77,7 +77,7 @@ The _poutaos_configure_ command asks first your CSC password. Then it lists your
       This configuration needs to be defined only once. In the future _s3cmd_ will use this 
       Object Storage connection described in the _.s3cfg_ file automatically.
 
-After this you can use the storage area of your Allas project with _s3cmd_ command.
+After this you can use the storage area of your Allas project with _s3cmd_ commands.
 
 Lets, assume you already have a bucket called _case_1_ in your object storage and that you have some data objects (I.e files) in this bucket. Now you can see, download and upload files in this bucket with _s3cmd_
 
