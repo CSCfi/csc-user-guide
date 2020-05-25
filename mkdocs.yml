@@ -15,7 +15,7 @@ nav:
      - How to apply for resources: accounts/how-to-apply-for-resources.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
      - How to switch between projects: accounts/how-to-switch-between-projects.md
-     - How to monitor resource usage: accounts/how-to-monitor-resource-usage.md
+     - How to view resource usage: accounts/how-to-view-resource-usage.md
      - Billing: accounts/billing.md
      - FMI: accounts/FMI.md
   - Computing:
@@ -40,7 +40,7 @@ nav:
 #     - Performance analysis: computing/performance.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
-     - Rahti: 
+     - Rahti:
        - Home: cloud/rahti/index.md
        - Introduction:
          - Background: cloud/rahti/introduction/background.md
@@ -144,7 +144,7 @@ nav:
 theme:
   name: material
   custom_dir: mkdocs_csc/
-    
+
   font:
     text: 'Raleway'
     code: 'Source Code Pro'

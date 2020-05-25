@@ -1,4 +1,4 @@
-# How to monitor resource usage
+# How to view resource usage
 
 CSC resources are measured in billing units (BU).
 
