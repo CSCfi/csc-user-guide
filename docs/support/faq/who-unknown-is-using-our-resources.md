@@ -1,7 +1,7 @@
 # Who 'unknown' is using our resources
 
 In the
-[billing units usage statistics displayed at MyCSC](how-to-view-billing-units-usage.md)
+[billing units usage statistics displayed at MyCSC](../../accounts/how-to-view-billing-units-usage.md)
 you can often see resources used by an 'unknown' user. You and other project
 members have also used these billing units.
 

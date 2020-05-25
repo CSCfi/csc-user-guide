@@ -15,15 +15,15 @@ In the usage plot, you can:
 * Select or unselect certain users by clicking their username
 * Switch between cumulative and regular view
 
-You can often see usage information of an 'unknown' user. You and the other
-members of the project are responsible also for this use. See the explanation
-in FAQ:
-
-* [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
-
 !!! Note
 
     Do not confuse quotas with billing units. Quotas are service-specific
     limits to keep the usage within limits. See the instructions under
     Computing, Cloud and Data for instructions how the remaining quotas
     can be followed up in each service.
+
+You can often see usage information of an 'unknown' user. You and the other
+members of the project are responsible also for this use. See the explanation
+in FAQ:
+
+* [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
