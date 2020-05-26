@@ -26,16 +26,17 @@ export PROJAPPL=/projappl/your_project_name
 module load bioconda
 source activate prokka
 ```
-After that you can launch Prokka with command `prokka`. By default Prokka tries to use 8 coputimng cores, by in 
-this interactive batch job case, you have just one core available. Because of that you should allways define the number
-of cores that Prokka will use woth option `-cpus`.
+After that you can launch Prokka with command `prokka`. By default Prokka tries to use 8 coputing cores, but in 
+this interactive batch job case, you have just one core available. Because of that you should always define the number
+of cores that Prokka will use with option `-cpus`.
 
 For example:
 ```
 prokka  --cpus 1 contigs.fasta
 ```
 
-Larger analysis should be executed as a batch job utilizimg several cores.
+Larger analysis should be executed as a batch job utilizing several cores.
+Sample batch job script (batch_job_file.bash) below.
 
 ```text
 #!/bin/bash -l
@@ -74,7 +75,9 @@ sbatch batch_job_file.bash
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
+## More information
 
+*   [Prokka home page](https://github.com/tseemann/prokka)
 
 
 
