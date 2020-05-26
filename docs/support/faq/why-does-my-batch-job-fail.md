@@ -38,6 +38,9 @@ The most common causes are:
 * Your project has too many jobs in the system, either running or queuing.
   Note that internally, Slurm counts each job within an array job as a separate
   job.
+* The job was executed directly `./script_name.sh` or `bash script_name.sh`,
+  while it should be submitted with `sbatch script_name.sh`.
+
 
 ## Requested node configuration is not available
 
