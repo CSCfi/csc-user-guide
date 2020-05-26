@@ -72,7 +72,7 @@ You can submit the batch job file to the batch job system with command:
 sbatch batch_job_file.bash
 ```
 
-See the Puhti user guide for more information about running batch jobs.
+See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 
