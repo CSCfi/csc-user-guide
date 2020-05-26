@@ -1,6 +1,8 @@
 # How to view billing unit usage
 
-CSC resources are measured in billing units (BU).
+Consumption of CSC's resources is mainly measured in billing units. IDA and
+Kaivos do not consume billing units; they only have quota limits for each
+project.
 
 Check your BU consumption:
 
