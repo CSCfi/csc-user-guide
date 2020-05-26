@@ -153,7 +153,7 @@ You can study and test a small version of the example case with
 
 ```
 export SBATCH_ACCOUNT=<your project>
-wget -c https://a3s.fi/docs-files/support/tutorials/many.tar.gz -O - | tar -gz
+wget -c https://a3s.fi/docs-files/support/tutorials/many.tar.gz -O - | tar xz
 cd many
 bash create_inputs.sh
 tree /scratch/${SBATCH_ACCOUNT}/many
