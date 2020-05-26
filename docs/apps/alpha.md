@@ -81,7 +81,8 @@
 * [Pannzer](pannzer.md) Automatic protein annotation tool
 * [ParaView](paraview.md) Free open-source visualization application
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
-* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
+* [Prokka](prokka.md) Rapid prokaryotic genome annotation
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
@@ -92,6 +93,7 @@
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [RStudio](rstudio.md) Integrated development environment for R
+* [Roary](roary.md) Pan genome pipeline
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data

@@ -34,7 +34,9 @@ Open connection:
 module load allas
 allas-conf
 ```
+
 Basic Allas operations with different tools.
+
 | Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
 | [a-commands](using_allas/a_commands.md) |`a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
@@ -45,6 +47,7 @@ Basic Allas operations with different tools.
 \*For s3cmd, open Allas connection with command`allas-conf -m s3cmd`
 
 Other information
+
    * [Error messages](./using_allas/error_messages.md)
    * [Directory errors](./using_allas/directory_object_error.md )
    
@@ -52,6 +55,7 @@ Other information
 CSC has previously provided the Pouta object storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to existing Pouta object storage users.
 
 ## Tutorials: 
+
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)
