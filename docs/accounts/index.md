@@ -2,7 +2,7 @@
 
 ## Overview
 
-Each user usually needs a project and a user account to access CSC's services:
+Each user usually needs a user account and a project to access CSC's services:
 
 1. [Create a user account](how-to-create-new-user-account.md)
 1. [Create](how-to-create-new-project.md) or
