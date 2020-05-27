@@ -22,7 +22,7 @@ template: main-index.html
 [Allas User Guide](data/Allas/index.md)
 </span><br>
 <span id="index-quicklinks">
-[Kvasi QLM Guide](computing/kvasi.md)
+[Kvasi QLM Guide](computing/systems.md#kvasi)
 </span><br>
 <span id="index-quicklinks">
 [Moving to Puhti from Taito and Sisu](support/tutorials/puhti_quick.md)
