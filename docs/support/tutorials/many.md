@@ -70,11 +70,11 @@ single-core runs, each taking from 0 to 30 minutes, with a 15-minute average. In
 the worst case, all the runs in a batch job take the maximum amount of time, 30
 minutes. We can see that a single 40-hour batch job should be enough for at
 least 80 runs with a single core, and 3200 runs with all 40 cores in a full
-compute node. Thus, all 80000 jobs should fit in 25 40-hour batch jobs, each
+compute node. Thus, all 80000 runs should fit in 25 40-hour batch jobs, each
 reserving one full compute node.
 
 Let's say our application is a real disk-hog, and in addition to one input file
-and one output file that we wish to keep, also creates 100 temporary files in
+and one output file that we wish to keep, it also creates 100 temporary files in
 the current directory. We can have at maximum about 400 input and output files
 in a single directory, and use the fast local disk in the I/O nodes for the
 temporary files. For 80000 runs we thus get 200 directories, each with 400 runs.
@@ -139,7 +139,7 @@ the `SLURM_ARRAY_TASK_ID` environment varible.
 
 The main "loop" of the script is implemented with GNU parallel, command
 `parallel`. With the option `-j $SLURM_CPUS_PER_TASK` we tell GNU parallel to
-keep running 40 commands (applications) in parallel. Since we need to do copying
+keep running 40 commands (applications) in parallel. Since we need to copy
 files into and out from the local SSD for each run, we wrap our application in a
 small shell script, `wrapper.sh`, which takes the input file name as an
 argument. The names of the input files are fed to GNU parallel through a pipe,
