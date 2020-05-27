@@ -20,8 +20,8 @@ email to inform how many billing units have been granted.
     publications, etc. If those are irrelevant for your work, your
     project type should probably be Commercial.
 
-    All members of a project can submit billing units applications.
+    All members of a project can submit billing unit applications.
 
-Billing units applications cannot be edited after submission, but you
+Billing unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. Our email address is servicedesk@csc.fi.
