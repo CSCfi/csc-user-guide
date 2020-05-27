@@ -58,8 +58,7 @@ QLM. With myQLM, you can design and simulate quantum algorithms locally, on your
 computer. MyQLM is well suited for getting started with quantum algorithm exploration. 
 Advanced features of the QLM are missing, but the basic features are the same.
 
-To get access to myQLM, contact the CSC service desk, servicedesk@csc.fi. Use the hashtag 
-#kvasi to facilitate sorting.
+To get access to myQLM, contact the CSC service desk, servicedesk@csc.fi. Use the hashtag \#kvasi to facilitate sorting.
 
 ## Links
 
