@@ -20,7 +20,31 @@ The stored objects can be of any data type, such as images or compressed data fi
  * Specific tools are required to use the object storage. The object storage cannot be properly mounted for local disk-like usage. There are some tools that can do this, but they have their limitations. For example, _svfs_ can be used to mount _Swift_ as a file system, but it uses _FUSE_ which is slow.
  * It is unsuitable for files that change constantly during their lifetime (e.g. most SQL databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing, and the previous version replaced with a new one.
- * Files larger than 5 GB must be divided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
+ * In case of swift protocol, files larger than 5 GB are divided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
+ 
+## Billing and quotas
+
+Allas usage is based on CSC projects. All project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all other project members can also read, edit and delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
+
+The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets. 
+
+To increase your Allas quota, please send a request to: `servicedesk@csc.fi`
+In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
+
+
+The default quotas for projects:
+
+| Resource | Limit |
+| :-------- |:------- |
+| Storage amount | 10 TiB |
+| Buckets per project | 1 000 |
+| Objects per bucket | 500 000 |
+
+Storing data in Allas consumes _billing units_. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
+
+Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
+
+ 
 
 ## Different ways to use Allas
 
@@ -39,23 +63,6 @@ In the CSC computing environment, Allas should be used to store any data that ne
 
 See also the [common use cases](./using_allas/common_use_cases.md).
 
-## Billing and quotas
-
-Allas is used with project-based storage quotas. The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets. 
-
-All project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all other project members can also read, edit and delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
-
-The default quotas for projects:
-
-| Resource | Limit |
-| :-------- |:------- |
-| Storage amount | 10 TiB |
-| Buckets per project | 1 000 |
-| Objects per bucket | 500 000 |
-
-Storing data in Allas consumes _billing units_. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
-
-Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
 ## Protocols
 

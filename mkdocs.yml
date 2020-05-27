@@ -12,10 +12,10 @@ nav:
      - How to create new project: accounts/how-to-create-new-project.md
      - How to add member to project: accounts/how-to-add-member-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
-     - How to apply for resources: accounts/how-to-apply-for-resources.md
+     - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
      - How to switch between projects: accounts/how-to-switch-between-projects.md
-     - How to monitor resource usage: accounts/how-to-monitor-resource-usage.md
+     - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - FMI: accounts/fmi.md
   - Computing:
