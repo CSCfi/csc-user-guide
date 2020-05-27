@@ -9,7 +9,7 @@ The goal is to have a workflow that is
 There is a plethora of workflow tools. Whatever tool one chooses, it will
 unlikely match the particular workflow and underlying computing platform out of
 the box. Some amount of programming is needed in most cases. A very much related
-discussion is in [Array jobs](https://docs.csc.fi/computing/running/array-jobs/)
+discussion is in [Array jobs](../../computing/running/array-jobs.md)
 chapter of <https://docs.csc.fi>.
 
 
@@ -18,7 +18,7 @@ chapter of <https://docs.csc.fi>.
 The maximum number of jobs that each user can submit per month should be kept
 below one thousand. Too many batch jobs will generate excess log data and slows
 down the job scheduler.
-[Array jobs](https://docs.csc.fi/computing/running/array-jobs/) are basically
+[Array jobs](../../computing/running/array-jobs.md) are basically
 just a shorthand, so a single array job of 100 members counts the same as 100
 individual jobs from the batch queue system's perspective.
 
