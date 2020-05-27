@@ -13,21 +13,22 @@ use the Lazypipe module that is loaded with commands:
 module load biokit
 module load lazypipe
 ```
-Now lazypipe startts wito command:
+Now lazypipe starts with command:
 
 ```text
 pipeline.pl
 ```
 
-Normally you don't need to use the _pipeline.pl_ command as Lazypipe module includes `sbatch-lazypipe` command that you
-can use instead. _sbatch-lazypipe_ is a help tool to submit lazypipe jobs in Puhti.
+Normally you need to use the _pipeline.pl_ command only for testing. For real analysys tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
+
+_sbatch-lazypipe_ is a help tool to submit Lazypipe jobs in Puhti.
 It automatically generates a batch job file and submits it to batch 
 job system of Puhti. The command uses the same command line options 
 as the _pipeline.pl_ command. In addition sbatch-lazypipe asks user to define batch job resources
 (account, runtime, memory, number of cores).
 
 For example to execute the [Example 1]( https://www.helsinki.fi/en/projects/lazypipe/examples) from the
-Lazypipe home page, you would first need to download the reads and refrence genome to your scratch directory
+Lazypipe home page, you would first need to download the reads and refrence genome to your scratch directory in Puhti
 (in real cases you will get these input files from your own sources):
 
 ```text
@@ -58,7 +59,7 @@ use if no new value is defined):
    *   number of computing cores to use ( default 8 )
    *   email notifications
    
-After that your lazypipe task is submitted to the batch job system for excution.
+After that your Lazypipe task is submitted to the batch job system for execution.
 
 
 ## More information
