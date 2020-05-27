@@ -40,7 +40,7 @@ nav:
 #     - Performance analysis: computing/performance.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
-     - Rahti: 
+     - Rahti:
        - Home: cloud/rahti/index.md
        - Introduction:
          - Background: cloud/rahti/introduction/background.md
@@ -144,7 +144,7 @@ nav:
 theme:
   name: material
   custom_dir: mkdocs_csc/
-    
+
   font:
     text: 'Raleway'
     code: 'Source Code Pro'
