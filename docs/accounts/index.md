@@ -8,7 +8,7 @@ Each user usually needs a user account and a project to access CSC's services:
 1. [Create](how-to-create-new-project.md) or
    [join a project](how-to-add-member-to-project.md)
 1. [Add service access for your project](how-to-add-service-access-for-project.md)
-1. [Apply for billing units](how-to-apply-for-resources.md) or
+1. [Apply for billing units](how-to-apply-for-billing-units.md) or
    [disk quota](how-to-increase-disk-quotas.md), if needed
 1. [Renew your password](how-to-change-password.md) annually
 
