@@ -11,6 +11,7 @@ See [specifications](system.md) for details on the systems.
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to
 a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed 
+
 with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
 ## Connecting to the supercomputers
@@ -39,18 +40,19 @@ ssh <csc_username>@mahti-login<number 1-2>.csc.fi
 
 For more details, see the [connecting](connecting.md) page. 
 
+
 ## Usage policy
 
 When you login to CSC supercomputers, you end up to one of the login nodes of the cluster.
-These login nodes are shared by all users and they are **not** intended for heavy computing. 
+These login nodes are shared by all users and they are **not** intended for heavy computing.
 
 The login nodes should be used only for:
 
  * compiling
  * managing batch jobs
- * moving data 
+ * moving data
  * **light** pre- and postprocessing
-  
+
 Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
 All the other tasks are to be done in compute nodes either as normal [batch jobs](running/getting-started.md)
 or as [interactive batch jobs](running/interactive-usage.md).
@@ -81,9 +83,9 @@ Budget:   1174188  Used   1115284 Remain:      58904
 Latest resource grant: 2019-03-04
 -----------------------------------------------------------------
 ```
-The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how much billing units have been granted to your project, how much has been used and how much still remain. 
+The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how many billing units have been granted to your project, how much has been used and how much still remain. 
 
-The disk areas of your Puhti projects can be checked with command: 
+The disk areas of your Puhti projects can be checked with command:
 ```text
 csc-workspaces
 ```
@@ -92,11 +94,10 @@ Check [Disk areas](disk.md) chapter for details.
 ## Using Puhti and Mahti
 
 
-* [System](system.md): What computational resources are available 
-* [Disk areas](disk.md): What places are there for storing data on CSC supercomputers 
+* [System](system.md): What computational resources are available
 * [Connecting](connecting.md): How to connect to  CSC supercomputers 
+* [Disk areas](disk.md): What places are there for storing data on CSC supercomputers 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on the supercomputers 
 * [Compiling applications](compiling.md): Using compilers and building your applications   
-
