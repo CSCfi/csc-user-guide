@@ -38,6 +38,7 @@ nav:
         - Running existing containers: computing/containers/run-existing.md
 #     - Debugging: computing/debugging.md
 #     - Performance analysis: computing/performance.md
+     - Kvasi QLM: computing/kvasi.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
