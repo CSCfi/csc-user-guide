@@ -142,7 +142,7 @@ visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
 -   [VMD] visualizing program for large biomolecular systems.
--   [Grace](http://plasma-gate.weizmann.ac.il/Grace/) plotting graphs produced with Gromacs tools
+-   [Grace](grace.md) plotting graphs produced with Gromacs tools
 
 ## References
 
