@@ -42,6 +42,7 @@ for self study.
  
 ## Chemistry
 *   [Spring School in Computational Chemistry course materials](https://events.prace-ri.eu/e/CSC_Spring_School_2020)
+*   [Jupyter Machine Learning in Chemistry](https://notebooks.csc.fi) (Notebook requires Haka, Virtu or CSC account)
  
 ## Data management
 *   [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)
