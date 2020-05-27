@@ -24,12 +24,15 @@ individual jobs from the batch queue system's perspective.
 
 The job maximum runtime is limited by the queue parameters. The minimum time is
 not limited, but if the job is too short, it is just generating proportionally
-large scheduling overhead in the batch system. A good target is to write batch
-jobs that finish somewhere between two hours and two days.
+large scheduling overhead in the batch system.
+
+!!! Tip
+      A good target is to write batch
+      jobs that finish somewhere between two hours and two days.
 
 Parallel file systems work poorly when a single client (application program)
-tries to perform too many file operations. One such case is applications
-installed with Conda package manager. One miniconda environment is easily over
+tries to perform too many file operations. Such cases can be e.g. applications
+installed with the Conda package manager. One miniconda environment is easily over
 20000 files and Anaconda distribution is much worse. Many of these files need to
 be opened everytime a Conda application is launched. When running many,
 relatively short jobs, avoid running applications installed with Conda. Instead,
@@ -46,16 +49,16 @@ temporary, or there simply is too many of them, using the fast local SSD disks
 in the [I/O
 nodes](https://docs.csc.fi/computing/running/creating-job-scripts/#local-storage)
 can solve the problem. You can pack small files into a bigger archive file with
-`tar` command. Most importantly, if there are output files that you do not need,
+the `tar` command. Most importantly, if there are output files that you do not need,
 find out how to turn off writing those in the first place.
 
 Please contact <servicedesk@csc.fi> if your workflow needs help to fit into the
 limits given above.
 
 
-## Example case, 80000 independent runs
+## An example case, 80000 independent runs
 
-In general there are three pieces of input that is needed for designing the
+In general, there are three pieces of input that are needed for designing the
 workflow:
 
 1. How many runs there will be in total?
@@ -99,7 +102,7 @@ Let's look at the job script for our example case:
 ```bash
 #!/bin/bash
 #SBATCH --partition=small
-#SBATCH --account=project_NNNNNNN
+#SBATCH --account=<project>
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=40
@@ -121,11 +124,11 @@ find $job_dirs -name 'input-*' | \
     parallel -j $SLURM_CPUS_PER_TASK bash wrapper.sh {}
 ```
 
-The batch job reserves whole node for 40 hours. Node starts one task,
+The batch job reserves a whole node for 40 hours. One task starts in the node,
 which has access to all 40 CPU cores in the node. Since we reserve all the
 cores, we can reserve all the memory and all the local disk all the same, no
 need to be stringy here. The last line, `#SBATCH --array=0,24`, tells the batch
-system to execute 25 copies of this job, each job identified by unique number,
+system to execute 25 copies of this job, each job identified by a unique number
 in environment variable `SLURM_ARRAY_TASK_ID`. Depending on the queue situation,
 many of these jobs can run in parallel.
 
@@ -137,7 +140,7 @@ in time all 40 cores are busy, but not overloaded.
 Next lines calculate which directories belong to the current array job, using
 the `SLURM_ARRAY_TASK_ID` environment varible.
 
-The main "loop" of the script is implemented with GNU parallel, command
+The main "loop" of the script is implemented with GNU parallel command
 `parallel`. With the option `-j $SLURM_CPUS_PER_TASK` we tell GNU parallel to
 keep running 40 commands (applications) in parallel. Since we need to copy
 files into and out from the local SSD for each run, we wrap our application in a
@@ -159,3 +162,14 @@ bash create_inputs.sh
 tree /scratch/${SBATCH_ACCOUNT}/many
 sbatch job.sh
 ```
+
+!!! Note
+    Running multiple separate jobs inside a larger allocation may result in
+    idle resources. Please make sure that such a job has a lot of quick jobs
+    to run, so that the last running job is not keeping the complete allocation
+    alive for long. Thus, the length of a subjob should be much less than
+    the duration of the allocation, and the number of subjobs much larger
+    than the cores requested in one task.
+
+You can use [seff](../faq/how-much-memory-my-job-needs.md) to learn how long 
+past jobs have been.
