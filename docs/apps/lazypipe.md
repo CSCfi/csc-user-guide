@@ -50,7 +50,7 @@ sbatch-lazypipe -1 data/M15/M15_R1.fastq \
 --res results --label M15  --inlen 300 --pipe 1:7,9:11
 ```
 When the _sbatch-lazypipe_ is executed, it interactively asks information that is
-needed to construct a batch job. This includes (default values in brackets will be
+needed to construct a batch job. This includes following items (default values in brackets will be
 use if no new value is defined):
    *   accounting project
    *   maximum duration of the job (default 24 hours )
