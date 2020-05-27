@@ -6,8 +6,7 @@ Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or
 
 ## Usage
 
-All componnets of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed insruction how ro set up your own Lazypipe environment to Puhti, but this is not needed is you
-use the Lazypipe module that is loaded with commands:
+All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is loaded with commands:
 
 ```text
 module load biokit
@@ -19,16 +18,15 @@ Now lazypipe starts with command:
 pipeline.pl
 ```
 
-Normally you need to use the _pipeline.pl_ command only for testing. For real analysys tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
+Normally you need to use the _pipeline.pl_ command only for testing. For real analysis tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
 
-_sbatch-lazypipe_ is a help tool to submit Lazypipe jobs in Puhti.
-It automatically generates a batch job file and submits it to batch 
-job system of Puhti. The command uses the same command line options 
-as the _pipeline.pl_ command. In addition sbatch-lazypipe asks user to define batch job resources
-(account, runtime, memory, number of cores).
+_sbatch-lazypipe_ is a help tool that automatically generates a batch job file for a Lazypipe run 
+and submits it to batch job system of Puhti. The command uses the same command line options 
+as the _pipeline.pl_ command. In addition _sbatch-lazypipe_ asks user to define batch job resources
+(account, run time, memory, number of cores).
 
 For example to execute the [Example 1]( https://www.helsinki.fi/en/projects/lazypipe/examples) from the
-Lazypipe home page, you would first need to download the reads and refrence genome to your scratch directory in Puhti
+Lazypipe home page, you would first need to download the reads and reference genome to your scratch directory in Puhti
 (in real cases you will get these input files from your own sources):
 
 ```text
