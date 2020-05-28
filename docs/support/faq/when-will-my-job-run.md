@@ -19,10 +19,17 @@ for JOBID 20424242 with:
   20424242   small cool_stuff  username PD 2020-05-09T03:55:15      1 r06c64       (Priority)
 ```
 
-*Priority* as the reason for why the job is pending means there are other jobs
-in the queue with a higher priority. *Resources* on the other hand, mean that
+`Priority` as the reason for why the job is pending means there are other jobs
+in the queue with a higher priority. `Resources` on the other hand, mean that
 your job would run, if the requested resources were available, and will,
-once they do.
+once they do. If you see 
+
+```
+(Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
+```
+
+as the reason, don't worry. This "reason" may look alarming, but typically the nodes your jobs needs
+are just in use in by other jobs, like it says, and your job is queuing as it should.
 
 You can also show the current priorities:
 
@@ -34,4 +41,3 @@ To minimize queueing, please also see:
 
 * [How to estimate how much memory my batch job needs](how-much-memory-my-job-needs.md)
 * [Why is my batch job queueing so long?](why-is-my-job-queueing-so-long.md)
-
