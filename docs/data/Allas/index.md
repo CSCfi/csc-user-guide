@@ -2,13 +2,13 @@
 
 This Allas object storage service user guide consists of three parts:
 
-### 1. [Introduction](./introduction.md)
+## [Introduction](./introduction.md)
 
 A technical overview of the service. Recommended reading before starting to use Allas.
 
    * [Common use cases](./using_allas/common_use_cases.md)
 
-### 2. [Accessing Allas](./accessing_allas.md)
+## [Accessing Allas](./accessing_allas.md)
 
 A summary of the most commonly used Allas tools.
 
@@ -51,10 +51,10 @@ Other information
    * [Error messages](./using_allas/error_messages.md)
    * [Directory errors](./using_allas/directory_object_error.md )
    
-### 3. [Allas and cPouta object storage, what has changed?](./allas_cpouta_change.md) 
+## [Allas and cPouta object storage, what has changed?](./allas_cpouta_change.md) 
 CSC has previously provided the Pouta object storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to existing Pouta object storage users.
 
-## Tutorials: 
+### Tutorials: 
 
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
 * [Using Allas in batch jobs](./allas_batchjobs.md)
