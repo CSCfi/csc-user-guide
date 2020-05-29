@@ -109,7 +109,7 @@ Let's look at the job script for our example case:
 #SBATCH --time=40:00:00
 #SBATCH --mem=160G
 #SBATCH --gres=nvme:3600
-#SBATCH --array=0,24
+#SBATCH --array=0-24
 
 module load parallel
 
