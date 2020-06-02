@@ -67,7 +67,7 @@ Other than those, you have to parallelize your own R code which can be done with
 
 ## Interactive usage
 
-It is possible to run RStudio interactively on Puhti either by using [NoMachine](nomachine.md) and [an interactive batch job](rstudio.md) or by [setting up an RStudio Server](../computing/running/interactive-usage.md#Example: RStudio Server in sinteractive session) and connecting to it from your browser.
+It is possible to run RStudio interactively on Puhti either by using [NoMachine](nomachine.md) and [an interactive batch job](rstudio.md) or by [setting up an RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session) and connecting to it from your browser.
 
 ## Using Allas from R
 
