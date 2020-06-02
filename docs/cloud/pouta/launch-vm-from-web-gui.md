@@ -34,6 +34,8 @@ For ePouta dashboard, you can only login using the CSC username and password.
 
 ### Preparatory steps
 
+In case you have multiple projects with Pouta access, first select the one you want to use at the menu bar on top left.
+
 Before starting your first virtual machine in cPouta/ePouta, you must first set up a SSH key pair and modify the security settings so that you will be able to connect to your virtual machine.
 
 ### Setting up SSH keys
