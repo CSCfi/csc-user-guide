@@ -116,20 +116,19 @@ the port numbers to be opened.
 
 ArcGIS Educational site license includes also possibility to borrow
 licenses for 100 days. With a borrowed license it is possible to work
-without Internet connection or outside FUNET network.
+without Internet connection or outside of FUNET network.
 
-License is borrowed with ArcGIS Administrator, see ESRI's [guideline][]:
+License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arcmap/latest/get-started/administer/borrowing-and-returning-licenses.htm) or [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm#ESRI_SECTION1_9E03C2B7A83C4FE4A41408EE7E0498CB):
 
--   Always borrow the base product ArcGIS Desktop (Advanced, Standard or Basic) or ArcGIS Pro.
+-   Always borrow the base product ArcGIS Desktop or ArcGIS Pro, only Advanced level is available.
 -   All extensions need to be borrowed separately, you are free to
-    choose which ones you need.
+    choose which ones you need. Especially with ArcGIS Pro make sure you borrow all the extensions you need. It is not possible to add extensions to already borrowed base product.
+-   Returning of licenses does not work. If returning of licenses does not work, the
+    license is returned automatically after 100 days.    
 -   In 2018 it has been noticed in some cases that starting ArcMap with
     a borrowed license is slow (2-4 min), but eventually it will start.
     Start up is faster, if the computer does not have any Internet
     connection.
--   Earlier there has been problems with returning of licenses, but from
-    2018 it could work. If returning of licenses does not work, the
-    license is returned automatically after 100 days.
 -   Licenses borrowed at the end of year and during first weeks of
     January are also always returned on 30th of January, because annual
     license renewal.
@@ -232,7 +231,6 @@ servicedesk@csc.fi
   [Guidelines for granting ArcGIS licenses in ArcGIS Online]: http://pro.arcgis.com/en/pro-app/get-started/manage-licenses.htm
   [log in with your personal ArcGIS Online account]: http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-named-user-license.htm
   [using concurrent licenses from ArcGIS Pro]: http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm
-  [guideline]: http://desktop.arcgis.com/en/arcmap/latest/get-started/administer/borrowing-and-returning-licenses.htm
   [ArcGIS Online]: http://www.arcgis.com/features/
   [ESRI guideline]: http://resources.arcgis.com/en/help/arcgisonline/index.html#//010q0000000n000000
   [videos about using ArcGIS Online]: http://doc.arcgis.com/en/arcgis-online/reference/videos.htm
