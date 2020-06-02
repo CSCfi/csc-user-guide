@@ -51,6 +51,7 @@
 * [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
 * [Kraken2](kraken.md) Taxonomic sequence classification system
 * [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
+* [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [MACS2](macs2.md) ChIP-Seq analysis tool
