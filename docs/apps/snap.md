@@ -38,14 +38,12 @@ You could also request a fast [nvme](../computing/running/creating-job-scripts.m
 
 ### Using SNAP with graphical user interface
 
-If you have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface of SNAP with
+If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface of SNAP with
 
 `snap`
 
-For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../computing/connecting.md)
-
 !!! note
-    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive queue is available in Puhti. You need to use the batch job system on Puhti.
+   We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
