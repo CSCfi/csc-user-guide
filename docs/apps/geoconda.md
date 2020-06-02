@@ -47,11 +47,10 @@ Additionally geoconda includes:
     list.
     
 !!! note
-    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using -X connection.
+    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance
 
-Python has also packages for parallel computing, for example
-**multiprocessing**. In our examples there is two cases using Python
-multiprocessing: [zonal statistics] and [focal mean].
+Python has multiple packages for parallel computing, for example
+**multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
 (If you think that some important GIS package for Python is missing from
 here, you can ask for installation from servicedesk@csc.fi.)
@@ -111,7 +110,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 ### References
 
-
+-   [CSC Python parallelisation examples]
 -   [Python spatial] libraries
 -   [Essential Python Geospatial Libraries]
 -   [Geoprocessing with Python using Open Source GIS]
@@ -147,8 +146,6 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [SNAP]: snap.md
   [spyder]: https://pythonhosted.org/spyder/
   [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
-  [zonal statistics]: https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats
-  [focal mean]: https://github.com/csc-training/geocomputing/tree/master/python/focal_mean
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
   [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
@@ -159,3 +156,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [Geohack Week materials]: https://geohackweek.github.io/schedule.html
   [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
   [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
+  [CSC Python parallelisation examples]: https://github.com/csc-training/geocomputing/tree/master/python/puhti

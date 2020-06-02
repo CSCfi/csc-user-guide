@@ -18,21 +18,15 @@ QGIS is included in the [geoconda](../apps/geoconda.md) module and can be loaded
 
 `module load geoconda`
 
-If you have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface with
+If you are using [NoMachine](nomachine.md) or have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface with
 
 `qgis`
 
-
-For __X11 forwarding__ to be enabled you need to install a suitable program
-for your own computer first (unless you are using Linux or Mac). You can read
-instructions how to do that
-[here](../computing/connecting.md#using-graphical-applications)
-
+!!! note
+    The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
 
 It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/) library
 
-!!! note
-    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive Puhti-shells are made available later in 2019. Use the batch job system on Puhti or run analysis on taito-shell.
 
 ### QGIS and Allas
 QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in on [GDAL](gdal.md) page.
