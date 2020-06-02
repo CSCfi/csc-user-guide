@@ -17,7 +17,6 @@
 * [When will my batch job run?](when-will-my-job-run.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 
-
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
 * [I forgot my CSC password. How do I get a new one?](new-password.md)
@@ -25,6 +24,7 @@
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
 * [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
+* [How to configure Dashboard](How to configure Dashboard)
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
 
