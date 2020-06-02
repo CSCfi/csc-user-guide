@@ -65,6 +65,13 @@ Some R packages like __raster__ and __spatial.tools__ include functions that sup
 
 Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env module](r-env.md)).
 
+## Interactive usage
+
+It is possible to use RStudio with [an interactive batch job](rstudio.md) on Puhti:
+
+* `r-env` with RStudio desktop using [NoMachine](nomachine.md)
+* `r-env-singularity` with [RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session),  connecting to it from your local browser with SSH tunnel.
+
 ## Using Allas from R
 
 You can use Allas from R with the package __aws.s3__. You can find CSC examples how to use it [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). It is possible to [use files directly](gdal.md#using-files-directly-from-allas) from Allas with libraries like __sf__ and __raster__. With large quantities of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here](https://research.csc.fi/virtual_rasters)
