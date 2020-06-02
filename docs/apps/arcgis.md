@@ -122,7 +122,7 @@ License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arc
 
 -   Always borrow the base product ArcGIS Desktop or ArcGIS Pro, only Advanced level is available.
 -   All extensions need to be borrowed separately, you are free to
-    choose which ones you need. Especially with ArcGIS Pro make sure you borrow all the extensions you need. It is not possible to add extentions to already borrowed base product.
+    choose which ones you need. Especially with ArcGIS Pro make sure you borrow all the extensions you need. It is not possible to add extensions to already borrowed base product.
 -   Returning of licenses does not work. If returning of licenses does not work, the
     license is returned automatically after 100 days.    
 -   In 2018 it has been noticed in some cases that starting ArcMap with
