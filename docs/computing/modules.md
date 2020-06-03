@@ -67,6 +67,7 @@ The most commonly used module commands:
 | module avail                  | List all available modules.      |
 | module spider *name*          | Searches the entire module list. |
 | module swap *module1 module2* | Replace a module with another.   |
+| module show *name*            | Show commands in the module file.|
 
 ### Finding modules
 
@@ -201,5 +202,7 @@ module search path using the command:
 ```text
 module use $HOME/modulefiles
 ```
+
+If you want to study existing module files, `module show module-name` shows also the filename of the module file.
 
   [Lmod homepage]: https://lmod.readthedocs.io/en/latest/
