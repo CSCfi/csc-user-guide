@@ -47,7 +47,7 @@ Here are step-by-step instructions for obtaining your own certificate:
 In the **Certificate Profile** selection, choose: **GÉANT IGTF-MICS Personal** and Use **Generate RSA** option for the Private Key selection.   
 Finally define and verify a **password** for your certificate and press **submit** button.
 
-The PKCS12 formatted certificate id now exported to the download folder of your browser. Default name for the certificate is **certs.p12**
+The PKCS12 formatted certificate is now exported to the download folder of your browser. Default name for the certificate is **certs.p12**
 
 ## Installing certificate for FGCI use
 
