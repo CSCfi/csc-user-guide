@@ -2,6 +2,7 @@
 
 ## General
 * [Puhti quick start guide](puhti_quick.md)
+* [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference-2019-11-21.pdf)
