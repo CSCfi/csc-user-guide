@@ -1,5 +1,7 @@
 # Compiling applications
 
+FIXME: compilers in Mahti
+
 ## General instructions
 
 - Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.

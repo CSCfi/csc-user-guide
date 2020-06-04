@@ -131,6 +131,8 @@ the data in one supercomputer and then downloading in another
 supercomputer. This is the recommended approach if the data should also
 be preserved for a longer time.
 
+CHECKME: is rsync the recommended way?
+
 Data can also be moved directly between the supercomputers with the
 _rsync_ command. For example, in order to copy *my_results* (which can be
 either file or directory) from
@@ -158,6 +160,8 @@ data work flow, if it requires that tens of millions
 of files are stored to the _scratch_ area.
 
 ## Additional disk areas
+
+FIXME: Puhti specific
 
 ### Login nodes
 

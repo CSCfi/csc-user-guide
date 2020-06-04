@@ -1,5 +1,7 @@
 # Connecting to Puhti
 
+FIXME: also Mahti
+
 Connecting to Puhti is done with `ssh`:
 
 ```

@@ -1,5 +1,7 @@
 # Performance Checklist
 
+FIXME: Instructions for process / thread binding in Mahti?
+
 This page collects important information to enable maximum performance
 for your jobs and the system. If you know how to improve job performance,
 please contribute to the list!
