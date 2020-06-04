@@ -12,11 +12,11 @@ grid users. The certificates are requested through the [Sectigo Certificate Mana
 ) that generates and downloads the certificate to your local computer. The
 certificates are valid for one year at a time.
 
-Users log in to the Sertigo portal using their HAKA credentials
+Users log in to the Sectigo portal using their HAKA credentials
 (username and password in most cases). To be able to log in, your
 Identity Provider ( i.e. home university or institute) most must be
 compatible with [eduGAIN] service. If the name of your home institute is
-not recognized by the Sertigo Certificate Manager (English
+not recognized by the Sectigo Certificate Manager (English
 institute names are recognized) that means that your home
 institute is not compatible with the eduGAIN service. In this case you
 can still request a personal certificate from Nordugrid: [Personal
@@ -40,7 +40,7 @@ Here are step-by-step instructions for obtaining your own certificate:
     created by your home organization, not by CSC. Typically this is the
     user account you use to log in to local university network. 
     
-    If you get error message saying  _You are not allowed to self enroll_, then your home organization is not yet compatible with the Sertigo Certificate Manager and you should contact local network administrators to fix this issue.
+    If you get error message saying  _You are not allowed to self enroll_, then your home organization is not yet compatible with the Sectigo Certificate Manager and you should contact local network administrators to fix this issue.
     
 
 4.  In the Digital certificate enrollment page, check that your personal information is correct.
