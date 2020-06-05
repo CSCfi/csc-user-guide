@@ -25,7 +25,7 @@ template: main-index.html
 [Kvasi QLM Guide](computing/system.md#kvasi)
 </span><br>
 <span id="index-quicklinks">
-[Moving to Puhti from Taito and Sisu](support/tutorials/puhti_quick.md)
+[Getting started with Puhti](support/tutorials/puhti_quick.md)
 </span>
 
 
