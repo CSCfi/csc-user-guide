@@ -1,18 +1,18 @@
 # Moving to Puhti from Taito and Sisu
 
-A quick start guide for Puhti users. It is assumed
+This is a quick start guide for Puhti users. It is assumed
 that you have previously used CSC cluster resources like Taito/Sisu. If not,
 you can start by looking [here](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Puhti or view your projects and their project numbers
-if you already have access.**
+if you already have access.** On Puhti, you can also use command `csc-projects`.
 
 [TOC]
 
 
 ## Connecting to Puhti
 
-Connect using a normal ssh-client:
+Connect via [NoMachine](../../apps/nomachine.md) or using a normal ssh-client:
 ```
 $ ssh <csc_username>@puhti.csc.fi
 ```
@@ -90,7 +90,7 @@ Note that this folder is shared by **all users** in a project. This folder is no
 and files that have not been used for 90 days will be automatically removed. The default quota for this folder is 1 TB. There is also a persistent **project based**
 storage with a default quota of 50 GB. It is located under `/projappl/<project>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
 
-More detailed information about storage can be found [here](../../computing/disk.md).
+You can [check your current disk usage](../faq/disk-quota-exceeded.md) with `csc-workspaces`, more detailed information about storage can be found [here](../../computing/disk.md).
 
 
 ## Moving data from Taito to Puhti
