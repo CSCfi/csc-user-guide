@@ -313,7 +313,7 @@ finalize()
 
 #### Using fast local storage
 
-For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts/#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
 An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
 
