@@ -1,4 +1,4 @@
-# Moving to Puhti from Taito and Sisu
+# Getting started with Puhti
 
 This is a quick start guide for Puhti users. It is assumed
 that you have previously used CSC cluster resources like Taito/Sisu. If not,
