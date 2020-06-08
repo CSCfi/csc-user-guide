@@ -400,7 +400,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
-echo "R_LIBS=/projappl/<project>/project_rpackages" > .Renviron
+echo "R_LIBS=/projappl/<project>/project_rpackages" > ~/.Renviron
 ```
 
 !!! note
