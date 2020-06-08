@@ -128,8 +128,12 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-sed -i '/TMPDIR/d' .Renviron
-echo "TMPDIR=/scratch/<project>" >> .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -162,12 +166,22 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-sed -i '/TMPDIR/d' .Renviron
-echo "TMPDIR=/scratch/<project>" >> .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
-Array jobs can be used to handle *embarrassingly parallel* tasks ([see here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+Array jobs can be used to handle [*embarrassingly parallel*](../computing/running/array-jobs.md) tasks, including analyses involving [many small, independent runs](../support/tutorials/many.md). The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+
+../computing/running/array-jobs.md
+
+https://docs.csc.fi/support/tutorials/many/
+
+https://docs.csc.fi/computing/running/array-jobs/
 
 ```bash
 #!/bin/bash -l
@@ -183,8 +197,12 @@ Array jobs can be used to handle *embarrassingly parallel* tasks ([see here](../
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-sed -i '/TMPDIR/d' .Renviron
-echo "TMPDIR=/scratch/<project>" >> .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
@@ -229,8 +247,12 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-sed -i '/TMPDIR/d' .Renviron
-echo "TMPDIR=/scratch/<project>" >> .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
 
@@ -251,7 +273,7 @@ stopCluster(cl)
 
 *Jobs using `pbdMPI`*
 
-In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun singularity_wrapper exec_Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
+In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun singularity_wrapper exec Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
 
 ```bash
 #!/bin/bash -l
@@ -267,8 +289,12 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --mem-per-cpu=1000
 
 module load r-env-singularity/3.6.3
-sed -i '/TMPDIR/d' .Renviron
-echo "TMPDIR=/scratch/<project>" >> .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun singularity_wrapper exec Rscript --no-save --slave myscript.R
 ```
 
@@ -283,6 +309,42 @@ message <- paste("Hello from rank", comm.rank(), "of", comm.size())
 comm.print(message, all.rank = TRUE, quiet = TRUE)
 
 finalize()
+```
+
+#### Using fast local storage
+
+For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+
+An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_serial_fastlocal
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=1000
+#SBATCH --gres=nvme:10
+
+module load r-env-singularity/3.6.3
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=$TMPDIR" >> ~/.Renviron
+
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+Further to temporary file storage, data sets for analysis can be stored on a fast local drive in the location specified by the variable `LOCAL_SCRATCH`. To enable R to find your data, you will need to indicate this location in your R script. After launching R, you can print out the location using the following command:
+
+```
+Sys.getenv("LOCAL_SCRATCH")
 ```
 
 #### R package installations
@@ -338,7 +400,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
-echo "R_LIBS=/projappl/<project>/project_rpackages" > .Renviron
+echo "R_LIBS=/projappl/<project>/project_rpackages" >> ~/.Renviron
 ```
 
 !!! note
