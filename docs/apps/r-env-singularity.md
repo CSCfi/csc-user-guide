@@ -130,7 +130,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 module load r-env-singularity/3.6.3
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -168,7 +168,7 @@ To submit a job employing multiple cores on a single node, one could use the fol
 module load r-env-singularity/3.6.3
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -199,7 +199,7 @@ https://docs.csc.fi/computing/running/array-jobs/
 module load r-env-singularity/3.6.3
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -249,7 +249,7 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 module load r-env-singularity/3.6.3
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -291,7 +291,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 module load r-env-singularity/3.6.3
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -333,7 +333,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 module load r-env-singularity/3.6.3
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=$TMPDIR" >> ~/.Renviron
