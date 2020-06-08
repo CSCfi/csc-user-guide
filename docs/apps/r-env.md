@@ -78,7 +78,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 module load r-env/3.6.1
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -116,7 +116,7 @@ To submit a job employing multiple cores on a single node, one could use the fol
 module load r-env/3.6.1
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -141,7 +141,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../computing/runnin
 module load r-env/3.6.1
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -191,7 +191,7 @@ Whereas most parallel R jobs can be submitted using `srun Rscript`, those involv
 module load r-env/3.6.1
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -233,7 +233,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 module load r-env/3.6.1
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
@@ -275,7 +275,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 module load r-env/3.6.1
 
 if test -f ~/.Renviron; then
-sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
 echo "TMPDIR=$TMPDIR" >> ~/.Renviron
