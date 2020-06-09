@@ -29,5 +29,5 @@ Results can be viewed using the amplxe-gui application. Unfortunately it does no
 and X11 forwarding, so we recommend using the analysis tool in NoMachine environment (see NoMachine
 user’s guide). The GUI is available in Puhti and Mahti when the module intel-vtune is loaded. You can inspect
 the results of a profile run by giving the name of the results directory as an argument to the amplxe-gui,
-for example, the results of previous example can be viewed with command amplxe-gui results_dir_name.
+for example, the results of previous example can be viewed with command ```amplxe-gui results_dir_name```.
 Please see Intel’s documentation for more information on using the GUI: [https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html](https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html)
