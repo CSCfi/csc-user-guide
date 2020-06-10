@@ -12,7 +12,7 @@ The Bioconda environment is used for two purposes in Puhti:
 
 ## Available
 
--   Puhti: miniconda3 
+-   Puhti: miniconda3 and miniconda2
 
 
 
@@ -25,7 +25,7 @@ define environment variable PROJAPPL to point to a directry of the project that 
 conda environments. 
 
 Typically this is your _/projappl/project_name_ directory, but you can use scratch too.
-This defintion is made with command _export_ . For example for _project_012345_ the command wouls be:
+This definition is made with command _export_ . For example for _project_012345_ the command would be:
 
 ```text
 export PROJAPPL=/projappl/project_12345
