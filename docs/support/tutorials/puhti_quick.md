@@ -1,18 +1,18 @@
-# Moving to Puhti from Taito and Sisu
+# Getting started with Puhti
 
-A quick start guide for Puhti users. It is assumed
+This is a quick start guide for Puhti users. It is assumed
 that you have previously used CSC cluster resources like Taito/Sisu. If not,
 you can start by looking [here](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Puhti or view your projects and their project numbers
-if you already have access.**
+if you already have access.** On Puhti, you can also use command `csc-projects`.
 
 [TOC]
 
 
 ## Connecting to Puhti
 
-Connect using a normal ssh-client:
+Connect via [NoMachine](../../apps/nomachine.md) or using a normal ssh-client:
 ```
 $ ssh <csc_username>@puhti.csc.fi
 ```
@@ -75,14 +75,13 @@ and example batch job scripts are found [here](../../computing/running/example-j
     flag. Failing to do so will cause your job to be held with the reason “_AssocMaxJobsLimit_”.
     Running `srun` directly also requires the flag.
 
-More information about billing [here](../../accounts/billing.md)
+More information about billing [here](../../accounts/billing.md) and common queuing 
+system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).
 
 ## Network
 
 - Login nodes can access the Internet 
 - Compute nodes can access the Internet 
-- It is currently not possible to ssh to the compute nodes
-
 
 ## Storage
 
@@ -91,12 +90,12 @@ Note that this folder is shared by **all users** in a project. This folder is no
 and files that have not been used for 90 days will be automatically removed. The default quota for this folder is 1 TB. There is also a persistent **project based**
 storage with a default quota of 50 GB. It is located under `/projappl/<project>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
 
-More detailed information about storage can be found [here](../../computing/disk.md).
+You can [check your current disk usage](../faq/disk-quota-exceeded.md) with `csc-workspaces`, more detailed information about storage can be found [here](../../computing/disk.md).
 
 
 ## Moving data from Taito to Puhti
 
-Taito.csc.fi cluster will be closed at the end of 2019. If you have some data that you want to preserve in the directories of Taito ( including $HOME, $WRKDIR and project directories) you have to copy the data elsewhere before 1.1. 2020.
+Taito.csc.fi cluster will be finally closed in June 2020. Salvage your important data.
 
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito.
 The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
@@ -104,6 +103,8 @@ The new Puhti server, that is replacing Taito, does not provide permanent storag
 *    [Data migration tutorials](../../data/Allas/migration_tutorial.md)
 *    [Allas user guide](../../data/Allas/index.md)
 
+## Linux basics Tutorial for CSC
 
+If you are new to Linux command line or using supercomputers, please consult [this tutorial section](env-guide/overview.md)!
 
 
