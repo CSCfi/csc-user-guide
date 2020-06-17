@@ -13,6 +13,13 @@ and its members.
 
 ## Usage
 
+In Puhti, HUMAnN2 is installed as part of gcc 9.1.0 compatible biopythontools module. To activate it, run commands:
+```text
+module load biokit
+module load biopythontools
+humann2
+```
+
 ## More information
 
 *   [HUMAnN2 home page](https://huttenhower.sph.harvard.edu/humann)
