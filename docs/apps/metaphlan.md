@@ -3,7 +3,7 @@
 ## Description
 
 MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic sequencing data. 
-MetaPhlAn relies on unique clade-specific marker genes identified from ~17,000 reference genomes
+MetaPhlAn relies on unique clade-specific marker genes identified from ~17,000 reference genomes.
 
 ## Availability
 
