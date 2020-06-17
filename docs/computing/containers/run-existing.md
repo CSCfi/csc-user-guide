@@ -29,7 +29,7 @@ singularity build pytorch_20.03-py3.sif docker://nvcr.io/nvidia/pytorch:20.03-py
 
 Note that the Singularity image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project application directory [projappl](/computing/disk). 
 
-To run a slurm batch job using a container you need to use the `singularity exec` command, and remember to bind all the neccessary paths with the `--bind` option.  As an alternative you can also use our `singularity_wrapper` command which automatically includes all the neccessary binds for CSC's environment.
+To run a slurm batch job using a container you need to use the `singularity exec` command, and remember to bind all the necessary paths with the `--bind` option.  As an alternative you can also use our `singularity_wrapper` command which automatically includes all the necessary binds for CSC's environment.
 
 For example, to a run a GPU job with the PyTorch image created above you could use the following script:
 
