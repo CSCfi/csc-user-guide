@@ -1,4 +1,4 @@
-# Humann2
+# HUMAnN2
 
 ## Description
 
