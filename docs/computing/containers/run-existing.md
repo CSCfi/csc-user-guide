@@ -7,7 +7,7 @@ If you find some image missing that you think could be generally useful, you can
 
 ## Converting Docker images for use with Puhti
 
-If you cannot find a suitable Singularity image among those provided by CSC's staff, you can convert it yourself from an existing Docker image.  For example NVIDIA has a library of container images for different GPU-enabled applications in their [NVIDIA GPU cloud (NGC)](https://ngc.nvidia.com/).
+If you cannot find a suitable Singularity image among those provided by CSC's staff, you can convert it yourself from an existing Docker image.  For example, NVIDIA has a library of container images for different GPU-enabled applications in their [NVIDIA GPU cloud (NGC)](https://ngc.nvidia.com/).
 
 Here is an example how to build a Singularity image from NVIDIA's PyTorch Docker image. We'll use `sinteractive` as heavy processing should not be done in the login nodes.
 
