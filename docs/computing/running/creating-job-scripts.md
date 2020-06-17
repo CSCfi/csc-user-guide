@@ -154,7 +154,7 @@ Request local storage using the `--gres` flag in the job submission:
 ```
 --gres=nvme:<local_storage_space_per_node>
 ```
-The amount of space is given in GB (with a maximum of 3600 GB per node). The local storage reservation is on a per node basis.
+The amount of space is given in GB (with a maximum of 3600 GB per node).  For example to request 100GB of storage, the full option would be `--gres=nvme:100`. The local storage reservation is on a per node basis.
 
 Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
@@ -177,3 +177,5 @@ Request both GPU and local storage:
 ```
 --gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
+
+For example, to request 1 GPU and 10GB of NVME storage the option would be `--gres=gpu:v100:1,nvme:10`.
