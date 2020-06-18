@@ -42,9 +42,9 @@ for self study.
  
 ## Chemistry
 *   [Spring School in Computational Chemistry course materials](https://events.prace-ri.eu/e/CSC_Spring_School_2020)
+*   [Jupyter Machine Learning in Chemistry](https://notebooks.csc.fi) (Notebook requires Haka, Virtu or CSC account)
  
-## Fairdata
-*   [Fairdata training material](https://www.fairdata.fi/en/training/materials/)
+## Data management
+*   [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)
 *   [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) find tips on how to take care of your research data.
-*   [Webinar for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/webinaari-datapalvelut-ammattikorkeakoulut) 7th April (in Finnish)
 *   [Remote training day for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/csc-tki-toiminnan-tukena) 18th May (in Finnish)

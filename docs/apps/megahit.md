@@ -34,8 +34,8 @@ Sample Megahit batch job:
 #SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --output==megahit_out_8
-#SBATCH --error=megahit_eff_8
+#SBATCH --output=megahit_out_8
+#SBATCH --error=megahit_err_8
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --partition=small

@@ -7,18 +7,17 @@ This means also that CSC user account is not necessary for FGCI usage.
 
 Certificate requests need to be signed by a Certification Authority (CA)
 which acts as a trusted third party. CSC is using [GÉANT Trusted
-Certificate Service (TCS)] as the authority to provide Finnish academic
-grid users with personal e-science grid user certificates. The
-certificates will be requested through the [DigiCert SSO portal], which
-automatically installs in the certificate to users web browser. The
+Certificate Service (TCS)] as the authority to provide X.509 certificates for Finnish academic
+grid users. The certificates are requested through the [Sectigo Certificate Manager](https://cert-manager.com/customer/funet/idp/clientgeant
+) that generates and downloads the certificate to your local computer. The
 certificates are valid for one year at a time.
 
-The user logs on to the DigiCert SSO portal using their HAKA credentials
+Users log in to the Sectigo portal using their HAKA credentials
 (username and password in most cases). To be able to log in, your
 Identity Provider ( i.e. home university or institute) most must be
 compatible with [eduGAIN] service. If the name of your home institute is
-not recognized by the DigiCert SSO portal (Finnish, Swedish and English
-institute names should be recognized) that means that your home
+not recognized by the Sectigo Certificate Manager (English
+institute names are recognized) that means that your home
 institute is not compatible with the eduGAIN service. In this case you
 can still request a personal certificate from Nordugrid: [Personal
 Nordugrid certificate].
@@ -26,98 +25,48 @@ Nordugrid certificate].
 ## Obtaining a grid certificate from GEANT
 
 **Please ONLY use your personal computer for obtaining your grid
-certificate**<span style="font-weight: normal"> as your grid certificate
-will be stored into the browser you are using for obtaining the
-certificate. </span> **Chrome is not compatible with the Digicert
-service** so you should use Firefox or Explorer to get a
-certificate.Here are the step-by-step instructions for obtaining your
-own certificate:
+certificate** as your grid certificate
+will be stored in the default download folder of the computer you are using for obtaining the
+certificate. 
+    
+Here are step-by-step instructions for obtaining your own certificate:
 
-1.  Go to [https://www.digicert.com/sso](https://www.digicert.com/sso)
+1.  Go to [https://cert-manager.com/customer/funet/idp/clientgeant](https://cert-manager.com/customer/funet/idp/clientgeant)
 
-
-2.  Enter the name of your home institute (Finnish, Swedish and English
-    institute names are recognized) and press "Start single sign-on"
-
-3.  Login using your **HAKA username and password** (a HAKA account is
+2.  Enter the name of your home institute (English
+    institute names are recognized) and select it from the list below the text field.
+    
+3.  Login using your **HAKA username and password**. HAKA account is
     created by your home organization, not by CSC. Typically this is the
-    user account you use to log in to local university network)
+    user account you use to log in to local university network. 
+    
+    If you get error message saying  _You are not allowed to self enroll_, then your home organization is not yet compatible with the Sectigo Certificate Manager and you should contact local network administrators to fix this issue.
+    
 
-4.  In the "Request Product" page, choose product: **Grid Premium**,
-    check your information and press "**Request Certificate"**
+4.  In the Digital certificate enrollment page, check that your personal information is correct.
+In the **Certificate Profile** selection, choose: **GÉANT IGTF-MICS Personal** and Use **Generate RSA** option for the Private Key selection.   
+Finally define and verify a **password** for your certificate and press **submit** button.
 
-Now you have your certificate in the keystore of your browser, signed by
-DigiCert and ready for use.
+The PKCS12 formatted certificate is now exported to the download folder of your browser. Default name for the certificate is **certs.p12**
 
-## Exporting the certificate from the browser
+## Installing certificate for FGCI use
 
-After obtaining the certificate from TERENA, the certificate is
-initially stored only in the certificate repository of the web browser
-that was used for the certificate generation process. To use your
-certificate for grid jobs you need to export your certificate to a
-certificate file. The location of the certificate repository and
-commands that export the certificate to a file vary between browsers
-(even between different versions of the same browser). Your browser may
-contain several certificates, many of which are used to verify other web
-service providers. Normally you can recognize your personal TERENA
-certificate based on the certificate name that should contain your name
-or e-mail address.
-
-Below are instructions for exporting the certificate from a few commonly
-used browsers.
-
-**Firefox:**
-
-1.  Select: *Edit -&gt; Preferences* (in Linux) or *Tools -&gt; Options*
-    (in Windows) or *Firefox -&gt; Preferences* ( In Mac)
-
-2.  Go to *Advanced -&gt; Encryption -&gt; View Certificates*
-
-3.  Select your certificate and click *Backup*
-
-4.  Save the certificate as "**usercert.p12**". The browser will ask you
-    for your password, along with an export password. <span
-    style="font-weight: normal">You MUST have a password here, you may
-    not backup the certificate without a password!</span>
-
-**Opera:**
-
-1.  Select *Menu -&gt; Settings -&gt; Preferences*
-
-2.  Go to *Advanced -&gt; Security -&gt; Manage Certificates*
-
-3.  Select your certificate and click *Export*
-
-4.  Choose the "**PKCS \#12 (with private key)**" file type, and save
-    the certificate as "**usercert.p12**". The browser will ask you for
-    your password, along with an export password. You MUST have a
-    password here, you may not export the certificate without a
-    password!  
-     
-
- 
-
-## Installing certificate
-
-Browsers normally store the certificates using the PKCS12 format.
-However, for the ARC middleware uses PEM as the default certificate
-format. The following commands do PKCS12-PEM  conversion on Linux
-machines. If you will use the grid tools on a different machine than
-that which your browser is on, you can transfer the *usercert.p12* file
+Browsers are normally able to use PKCS12 certificates, but the ARC middleware 
+uses PEM as the default certificate format. The following commands do PKCS12 to PEM  
+conversion on Linux machines. If you will use the grid tools on a different machine than
+that which your browser is on, you can transfer the *certs.p12* file
 to that machine, and run the following commands there. It's suggested
 that you use a secure tool like [*scp*] to do this. 
 
 The PEM formatted certificate consists of two files: private key file
 (*userkey.pem*) and certificate file (*usercert.pem*). The certificate
-private key is created with the command:
+_private key_ is created with the command:
 
-    openssl pkcs12 -nocerts -in usercert.p12 -out userkey.pem
+    openssl pkcs12 -nocerts -in certs.p12 -out userkey.pem
 
-When executed, this command will ask for the old and the new key
-passwords (they can be the same). The user certificate file is created
-with the command :
+When executed, this command will first asks password for the _cetrs.p12_ file (the one you defined in the Sertigo portal) and then a password that will be assigned for the PEM formatted certificate (they can be the same). The user certificate file is created with the command :
 
-    openssl pkcs12 -clcerts -nokeys -in usercert.p12 -out usercert.pem
+    openssl pkcs12 -clcerts -nokeys -in certs.p12 -out usercert.pem
 
 The commands above should have created two files, *usercert.pem* and
 *userkey.pem*. To use the ARC middleware these two files should be moved

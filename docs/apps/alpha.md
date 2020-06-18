@@ -16,6 +16,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [ChEMBL](chembl.md) Database of bioactive molecules.
+* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
@@ -37,16 +38,21 @@
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
+* [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
+* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
+* [Kraken2](kraken.md) Taxonomic sequence classification system
+* [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
+* [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [MACS2](macs2.md) ChIP-Seq analysis tool
@@ -55,11 +61,13 @@
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MATLAB](matlab.md) High-level technical computing language
 * [Megahit](megahit.md) Metagenomics assebly
+* [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
 * [MOLPRO](molpro.md) Package for accurate ab initio quantum chemistry calculations
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
+* [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [MXNet](mxnet.md) Deep learning library for Python
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [NAMD](namd.md) Highly scalable classical molecular dynamics
@@ -76,16 +84,19 @@
 * [Pannzer](pannzer.md) Automatic protein annotation tool
 * [ParaView](paraview.md) Free open-source visualization application
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
-* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
+* [Prokka](prokka.md) Rapid prokaryotic genome annotation
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [RStudio](rstudio.md) Integrated development environment for R
+* [Roary](roary.md) Pan genome pipeline
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data

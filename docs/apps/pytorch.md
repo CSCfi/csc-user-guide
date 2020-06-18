@@ -17,6 +17,7 @@ Available on Puhti only.  Currently supported PyTorch versions and corresponding
 - 1.2.0: `pytorch/1.2.0`
 - 1.1.0: `pytorch/1.1.0`
 - 1.0.1: `pytorch/1.0.1`
+- 0.4.1: `pytorch/0.4.1`
 
 Modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.
 
@@ -38,9 +39,15 @@ To use this software on Puhti, initialize it with:
 module load pytorch
 ```
 
-to access the default version.
+to access the default version, or if you wish to have a specific version (see [above for available versions](#available)):
 
-This will show all available versions:
+```text
+module load pytorch/1.4
+```
+
+Please note that the module already includes CUDA and cuDNN libraries, so **there is no need to load cuda and cudnn modules separately!**
+
+This command will also show all available versions:
 
 ```text
 module avail pytorch

@@ -13,3 +13,7 @@ For a list of all supported languages see: http://pygments.org/docs/lexers/
  - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only
    when needed.
  - Give commands, environment variables, command options, as well as partition names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
+ - Put large files in Allas (write access with project 2001659) bucket docs-files,
+ e.g.  [https://a3s.fi/docs-files/README.md]( https://a3s.fi/docs-files/README.md)
+      - new files easy to share with `a-publish your-file.tgz -b docs-files` 
+

@@ -1,12 +1,13 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. The documentation for R in general is located in the [r-environment](r-env.md) page. 
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located in the [`r-env-singularity` page](r-env-singularity.md) (or the [`r-env` page](r-env.md) for R 3.6.1).
 
 ## Available
 
 Currently supported R versions for spatial libraries:
 
-- 3.6.1
+- 3.6.3 (`r-env-singularity` module)
+- 3.6.1 (`r-env` module)
 
 ## Usage
 
@@ -15,7 +16,8 @@ Currently supported R versions for spatial libraries:
 You can load the general R module with
 
 ```
-module load r-env
+module load r-env-singularity
+# (or module load r-env)
 ```
 
 ### Installed spatial R libraries
@@ -48,18 +50,31 @@ module load r-env
 * [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html) - for analysing point patterns
 * [viridis](https://cran.r-project.org/web/packages/viridis/index.html) - color maps for map plotting
 
-You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md)
+You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env-singularity.md).
 
-`r-env` loads also:
+`r-env-singularity` also loads:
 
 * [GDAL](gdal.md) 2.4.2 and its commandline tools.
-* [Saga-GIS](saga-gis.md) 7.2.0.
+* [Saga-GIS](saga-gis.md) 7.3.0.
+
+`r-env` loads GDAL 2.4.2 and its commandline tools, and Saga-GIS 7.2.0.
 
 ### Parallel computing
 
 Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
 
 Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env module](r-env.md)).
+
+## Interactive usage
+
+It is possible to use RStudio with [an interactive batch job](rstudio.md) on Puhti:
+
+* `r-env` with RStudio desktop using [NoMachine](nomachine.md)
+* `r-env-singularity` with [RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session),  connecting to it from your local browser with SSH tunnel.
+
+## Using Allas from R
+
+You can use Allas from R with the package __aws.s3__. You can find CSC examples how to use it [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). It is possible to [use files directly](gdal.md#using-files-directly-from-allas) from Allas with libraries like __sf__ and __raster__. With large quantities of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here](https://research.csc.fi/virtual_rasters)
 
 ## Citation
 
