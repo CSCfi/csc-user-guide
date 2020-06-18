@@ -20,7 +20,7 @@ shown in [this video](../../apps/maestro.md) on our main Maestro page.
 Once the files have been copied to Puhti, the job is submitted to
 a compute node(s) by running the `job_name.sh` script
 written out by Maestro. It will formulate the task(s) as Slurm
-batch jobs and ask resources according to the selected HOST in
+batch job(s) and ask resources according to the selected HOST in
 your `schrodinger.hosts` file on your Puhti home directory.
 
 Another, more advanced version is to use e.g. the `pipeline` tool
@@ -29,6 +29,9 @@ machinery, but requires you to write the job script yourself.
 This may be useful, in case some of your subjobs terminate
 unexpectedly. In this case, please make note of those JobIds
 and contact us at servicedesk@csc.fi
+
+This article explains some implementation details on Puhti
+and helps setting up efficient simulation workflows.
 
 ## Maestro `schrodinger.hosts` file
 
@@ -40,7 +43,7 @@ require admin privileges.
 
 On Puhti, Maestro complains about the location on this file, but ignore it, it's ok.
 This file must match the version of Maestro you are using (locally and in
-your module command). Version match is checked at each `module load` event.
+Puhti). Version match is checked at each `module load` event.
 The file is created by a script (echoed on your screen when
 you give `module load maestro`) that you need to run if the file does not
 exist, or if the versions don't match.
@@ -66,8 +69,14 @@ name:        test
 queue:       SLURM2.1
 qargs:       -p test -t 00:10:00 --mem-per-cpu=2000 --account=project_2042424
 host:        puhti-login1.csc.fi
-processors:  40
+processors:  4
 ```
+
+For example, this HOST entry, available for Schrödinger jobs as  _test_ (from `name: test`),
+ will use the Slurm partition _test_ (from `-p test`), allocate a maximum of 10 minutes of time, 2 GB
+of memory and consume resources from Project_2042424. If you need different
+resources you can edit this file, e.g. by adding a new entry. 
+The requests must be within the [partition limits](../../computing/running/batch-job-partitions.md).
 
 If your `schrodinger.hosts` file **on Puhti** does not have the --account=**something** defined
 delete the file and rerun the script to create it (`module load maestro` will
@@ -76,23 +85,23 @@ You don't need to have the `--account=` option set in your **local**
 `schrodinger.hosts` file. In your local file, it's enough that the different HOST
 entries exist (and the gpu-ones have GPU's specified). 
 
-You can also edit the file, e.g. if you want more memory, or a different maximum
-time for a HOST. The requests must be within the [partition limits](../../computing/running/batch-job-partitions.md).
+Note that the HOST entries and Slurm partitions (or queues) are two
+different things. The HOST entries define resources using Slurm partitions.
 
 ## How to speed up simulations?
 
 All other Maestro modules run serial jobs, except Jaguar, which can run
-real parallel jobs. Don't choose the "parallel" HOST for any other job type.
+"real" parallel jobs. Don't choose the "parallel" HOST for any other job type.
 Instead of MPI-parallel jobs, Maestro modules typically
 split the workload into multiple parts, each of which can be run independent
-of the others. This is sometimes called farming. The Maestro help pages have an
+of the others. The Maestro help pages have an
 excellent section on this topic. Please have a look (you'll find it like this:
 Click the "help" button in the "run settings dialog", then in the first chapter
 click the link named "Running Distributed Schrödinger Jobs".
 
 Typically, the workload processes a lot of molecules. If you have enough
 molecules, you can split the full set into smaller sets, and process each
-of them as a separate job. Since this is typical, the Maestro modules have
+of the sets as a separate job. Since this is typical, the Maestro modules have
 easy-to-use options to define the number of (sub)jobs. However, you must know
 in advance how many (sub)jobs to launch. In principle, this requires 
 knowing how long one molecule takes, or testing for each different use case.
@@ -102,15 +111,19 @@ knowing how long one molecule takes, or testing for each different use case.
     syntax right with 1000000 molecules and 1000 subjobs. Try with 50
     molecules and 2 subjobs. Learn how long it takes per molecule,
     confirm your submit syntax is correct, adjust
-    your parameters if needed and scale up.
+    your parameters if needed and then scale up.
 
 If you're using the GUI to set up the job script, specify how many (sub)jobs
-(processors) you want to use.
+(processors) you want to use. (You can easily edit this later in the submit
+script if you change your mind)
 
-The 'default' submit script will work "as is" for small jobs, but for
-large workflows, you'll need to edit it, see below.
+The 'default' submit script will work "as is" for small jobs. Just make
+sure you don't ask for too many (sub)jobs. Each subjob should take longer
+than, say one hour to complete, for very large jobs rather 24 hours.
+Running a lot of very short jobs is inefficient in many ways.
+For large workflows, you'll need to edit it, see below.
 
-### Additional flags for Maestro modules
+## Additional flags for Maestro modules
 
 Different modules have different options. You can set some of them in
 the GUI, but you may find more options with the `-h` flag:
@@ -123,9 +136,33 @@ glide -h
 `qsite`, `pipeline`, `bmin`, `ligprep`, etc.    
 
 The Maestro help has a nice summary of the different options for
-different modules: in Maestro help select: "Job Control Guide"
--> "Running jobs" -> "Running Jobs from the Command Line" -> 
-"The HOST, DRIVERHOST, and SUBHOST Options"
+different modules: in Maestro help select: "Installation and jobs"
+-> "Running Distributed Schrödinger Jobs".
+
+### Simple HOST selection
+
+For jobs that finish within about two days, and 10 subjobs just use:
+
+```
+-HOST serial:10
+```
+
+or if they all finish within 7 days, use:
+```
+-HOST longrun:10
+```
+
+If you have a workflow that will last longer, read on.
+
+### Advanced HOST selection
+
+The general aim is to have the "driver process" running on a "HOST"
+that will be alive for the whole duration of the workflow. Good
+options are _interactive_ and _longrun_, if you estimate the complete
+workflow to take more than 3 days (queuing included). A "driver process"
+that is not using a lot of CPU is also allowed on a login node, but
+a subjob is not. Never submit jobs on Puhti login nodes with
+`-HOST localhost`.
 
 Set the "driver" or "master" to run on a HOST that allows for long
 run times (if it's a big calculation). The driver needs to be alive
@@ -149,29 +186,50 @@ path described above.
 
 In summary, for a large workflow edit the GUI generated script along
 the lines:
-`-HOST "serial"` to `-DRIVERHOST longrun -SUBHOST serial -LOCAL -SUBLOCAL` 
-or
-`-HOST "serial"` to `-DRIVERHOST interactive -SUBHOST serial -LOCAL -SUBLOCAL` 
+`-HOST "serial:10"` to `-HOST "longrun:1 serial:9"`
+or e.g.
+`-HOST "serial"` to `-HOST "interactive:1 serial:9"`
 
 Note, that you can have only one single core job running in the
 interactive HOST. 
 
-Desmond jobs can have the `-HOST gpu` flag as set by the GUI. However, please
-add LOCAL directives [mentioned below](#optimal-disk-usage) to the job script.
+Desmond jobs can have the `-HOST gpu` flag as set by the GUI, but
+Windows users need to change the forward slash "/" to backward slash
+"\" in the binary name.
 
-### Set number of subjobs or molecules per subjob
+### Authoritative job control instructions from the manual
+
+A more detailed discussion for advanced jobs can be found in Maestro help via
+(from the GUI or via login in [Schrödinger website](https://www.schrodinger.com/documentation)): 
+
+*  "Job Control Guide" -> "Running jobs" -> "Running Jobs from the Command Line" -> 
+"The HOST, DRIVERHOST, and SUBHOST Options" 
+
+and a table for driver process conventions from 
+
+* "Installation and Jobs" -> "Running Distributed Schrödinger Jobs"
+
+
+## Set number of subjobs or molecules per subjob
+
+!!! Tip
+    If you don't know how long your full workflow will take, don't ask
+    for more than 10 subjobs and/or `NJOBS`. More is not always better.
+    If you have very large cases, don't exceed 50 simultanous (sub)jobs.
 
 As an example, the "run settings dialog" of `Glide` offers three options:
+
 * Recommended number of subjobs
 * Exactly (fill in here) subjobs
 * Subjobs with no more than (fill in here) ligands each
 
-Aim for such numbers that an average subjob takes 1-24 hours to run, so
+Aim for such numbers that an average subjob takes 2-24 hours to run, so
 that the overhead per subjob remains small, but not too long so that the
 job parallelizes efficiently i.e. you get your results quikcly and each 
 subjob has time to finish (and that the master job has time to finish).
-At least avoid subjobs that complete faster than 10 minutes. You can check 
+At least avoid subjobs that complete faster than 15 minutes. You can check 
 subjob duration afterwards with [seff](../faq/how-much-memory-my-job-needs.md)
+and use this info in your new jobs:
 
 `seff JOBID` 
 
@@ -180,6 +238,11 @@ If time runs out for a subjob, search for "restart" in the
 for yor module, and/or look again for the options of your driver with
 the `-h` flag. Most jobs are restartable, so you don't lose
 completed work or used resources.
+
+If you choose too many subjobs, Maestro will get confused on the Slurm
+messages and sorting out the issue can be difficult. Also, running too
+many subjobs at a time can lead to the [license running out](#availability-of-licenses),
+and waiting in the queue have been in for nothing.
 
 ## Optimal disk usage
 
@@ -192,19 +255,8 @@ please contact us at [servicedesk@csc.fi](mailto:servicedesk@csc.fi) on how to r
 The only disk available for the jobs is the
 same where your input files already are. Hence, it does not make sense
 to copy the files to a "temporary" location at the start of the
-job. For some job types this is prevented by adding `-LOCAL -SUBLOCAL` to the
-run script (examples above), but for a desmond `multisim` workflow you would need to 
-edit this part of flags in the submit script (all in one line):
-
-```bash
-#edit this
--set "stage[1].set_family.md.jlaunch_opt=[\"-gpu\"]"
-
-#into this
--LOCAL -set "stage[1].set_family.md.jlaunch_opt=[\"-gpu\" \"-LOCAL\"]"
-```
-
-However, this feature has been deprecated on from version 2020.1 onwards.
+job. However, at the moment there doesn't seem to be a way to prevent that
+in latest versions (2020.1 onwards).
 
 ## Copying files to and from local computer
 
@@ -213,24 +265,26 @@ this. Below, is an efficient alternative in the command line, which
 works even in Windows power shell:
 
 In Windows, start the Power Shell by searching for it in the bottom left menu.
-In Linux or Mac, open a terminal.  Cd to the
-directory that has the direcory of input files recently written out by the GUI
+In Linux or Mac, open a terminal.  `cd` to the
+directory that has the _directory_ of input files recently written out by the GUI
 (here named `glide-dock_1`)
 
 `scp -r glide-dock_1 your-username@puhti.csc.fi:/scratch/project_123456/`
 
-will copy the whole directory in your Puhti scratch folder.
-Run the job, and once it has completed, you can copy it back:
+will copy the whole directory (note `-r`) into your Puhti scratch folder.
+In a terminal in Puhti, run the job, and once it has completed, you can copy it back
+(give the command on your local computer):
 
 `scp -r your-username@puhti.csc.fi:/scratch/project_123456/glide-dock_1 .`
 
-You might be interested in some [additional ssh tips](../../../computing/connecting/#setting-up-ssh-keys).
+You might be interested in some [additional ssh tips](../../../computing/connecting/#setting-up-ssh-keys),
+which will release you from typing your password every time.
 
 ## Running the Maestro GUI on Puhti
 
-This is *not recommended*. Running the GUI remotely is slow and prone
+This is **not recommended**. Running the GUI remotely is slow and prone
 to glitches. Please run the GUI locally, and only submit the jobs
-on Puhti. If this is not possible, and you have to run the GUI on
+(run the script) on Puhti. If this is not possible, and you _have_ _to_ run the GUI on
 Puhti, use the [interactive partition](../../computing/running/interactive-usage.md)
 and [NoMachine](../../apps/nomachine.md).
 
@@ -239,6 +293,31 @@ module load maestro
 sinteractive -i
 maestro
 ```
+
+## Availability of licenses
+
+The CSC Maestro license has a fixed amount of tokens that are available for everyone. 
+First, Maestro uses _module specific_ tokens, of which there are many for each module. 
+If they run out, then more jobs (of that same type) can be run with "general tokens", 
+but when they run out, no more jobs of that type (or any new jobs which need a 
+general token) can't be run by anyone. Therefore, this should be avoided. 
+Once a job ends, the tokens are released, and are available for everyone.
+
+You can check the currently available licenses with:
+```
+$SCHRODINGER/utilities/licutil -avail
+```
+and currently used licenses with:
+```
+$SCHRODINGER/utilities/licutil -used
+```
+
+Note, that some Maestro tools or workflows use multiple modules and hence licenses
+or tokens from multiple modules. Typically, one running instance of a module (a job or
+a subjob) requires several tokens. For example, Desmond and Glide jobs take 8 tokes each.
+
+CPU time is a different resource and has nothing to do with license tokens.
+When CPU-time runs out, you or your project manager can apply for more via [my.csc.fi](https://my.csc.fi).
 
 ## Fizzled jobs
 
@@ -252,7 +331,7 @@ $SCHRODINGER/utilities/jserver -cleanall
 $SCHRODINGER/utilities/jserver -shutdown
 ```
 
-Another reason is too many jobs in a partition. Please have a look at the
+Another reason is too many simultaeous jobs. Please have a look at the
 error files for suggestions, and if this is the case, ask for less subjobs.
 
 ## Run a test job to help problem diagnostics
@@ -306,12 +385,16 @@ to get the issue solved.
 ## Recap for Maestro usage on Puhti
 
 * Test your workflow with a small sample first
-* Don't run the Maestro GUI on the login node (use `sinteractive -i`)
-* Don't specify too many subjobs - an optimal subjob takes 1-24 hours
+     * Note, that you can have only one job running at a time in the `test` and `interactive` partitions.
+* Don't run the Maestro GUI on the login node (use `sinteractive -i` if you _must_ run the GUI on Puhti)
+* Don't specify too many subjobs - an optimal subjob takes 2-24 hours
 * Don't specify too many subjobs - there are many researchers using the same license
-* Don't run a heavy "driver process" on the login node (if it's heavy use `-DRIVERHOST longrun -SUBHOST serial`)
-* Never run anything in parallel on the login node (localhost should not be your only HOST in the script, and it should not have a number bigger than 1
+* Don't run a heavy "driver process" on the login node (if it's heavy, for 10 simultaneus jobs use `-HOST "longrun:1 serial:9"`)
+* Never run anything in parallel on the login node (localhost should not be in your script)
 * Submit all jobs from your /scratch area
-* If your local computer is Windows, edit \ to / in your script
+* If your local computer is Windows, edit `\` to `/` in your script
 * Use the same version of Maestro locally and on Puhti
-* Use the `-LOCAL` option to minimize unnecessary copying of files
+
+If you have suggestions on how to improve this text, e.g. to give examples of efficient workflows,
+fork a copy (top right pen icon), edit and propose merge, or send your suggestion to servicedesk@csc.fi.
+
