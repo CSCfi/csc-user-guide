@@ -12,6 +12,7 @@
 * [BWA](bwa.md) Short read aligner
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
+* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Discovery Studio](discovery-studio.md) Protein modeling environment.
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
@@ -20,21 +21,29 @@
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [Freebayes](freebayes.md) Genetic variant detector
 * [GOLD](gold.md) Protein Ligand Docking Software
+* [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
+* [Kraken2](kraken.md) Taxonomic sequence classification system
+* [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
+* [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
+* [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [Pannzer](pannzer.md) Automatic protein annotation tool
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
+* [Prokka](prokka.md) Rapid prokaryotic genome annotation
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
+* [Roary](roary.md) Pan genome pipeline.
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
@@ -117,8 +126,9 @@
 
 ## Language Research and Other Digital Humanities and Social Sciences
 
+* [eBay's tsv-tools](http://urn.fi/urn:nbn:fi:lb-202006081) Utilities for manipulating large tabular data files
 * [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
-* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools 1.4
+* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
@@ -132,6 +142,7 @@
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
@@ -146,4 +157,3 @@
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
-

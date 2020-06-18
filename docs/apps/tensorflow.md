@@ -6,6 +6,7 @@ Deep learning framework for Python.
 
 Available on Puhti only.  Currently supported TensorFlow versions and corresponding modules to load:
 
+- 2.2.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.2-sng`
 - 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.03-tf2-py3`
 - 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.02-tf2-py3`
 - 2.0.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-19.11-tf2-py3`
@@ -37,9 +38,15 @@ To use this software on Puhti, initialize it with:
 module load tensorflow
 ```
 
-to access the default version.
+to access the default version, or if you wish to have a specific version (see [above for available versions](#available)):
 
-This will show all available versions:
+```text
+module load tensorflow/2.0.0
+```
+
+Please note that the module already includes CUDA and cuDNN libraries, so **there is no need to load cuda and cudnn modules separately!**
+
+This command will also show all available versions:
 
 ```text
 module avail tensorflow

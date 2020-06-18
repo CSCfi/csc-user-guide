@@ -31,6 +31,11 @@ There are examples of **batch job files** available on Puhti server:
 
 Copy those files and modify them for your own use. Further instructions are given in the files.
 
+Ansys Fluent input files for the example batch job are in the folder:
+ 
+    /appl/soft/eng/ansys_inc/example_case_files/aircraft_wing/
+    
+
 ## Support
 
 In problem situation, send an email to servicedesk@csc.fi.
@@ -39,6 +44,6 @@ In problem situation, send an email to servicedesk@csc.fi.
 
 * [Ansys Inc.](https://www.ansys.com/)
 * [Ansys Academic - Terms and Conditions](https://www.ansys.com/academic/terms-and-conditions)
-* [Ansys Academic products feature table (2019)](https://www.ansys.com/-/media/ansys/corporate/files/pdf/product/academic/academic-products-features-table-2019.pdf)
+* [Ansys Academic products feature table (2019)](https://www.ansys.com/-/media/ansys/corporate/files/pdf/product/academic/academic-products-features-table-2019-v2.pdf)
 
 

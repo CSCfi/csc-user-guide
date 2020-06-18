@@ -35,6 +35,6 @@ In problem situation, send an email to servicedesk@csc.fi.
 ## More information
 
 * [OpenFOAM Foundation](https://openfoam.org/)
-* [OpenFOAM by OpenCFD](https://www.nomachine.com/knowledge-base)
+* [OpenFOAM by OpenCFD](https://www.openfoam.com/)
 
 

@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.5, 2019.6, 2020.1
+-   Puhti: 2018.6-plumed, 2018.7, 2019.5, 2019.6, 2020.1, 2020.2
 -   Check recommended version(s) with `module avail gromacs`
 -   Some versions include also Plumed
 
@@ -117,11 +117,14 @@ srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 
 module load gromacs-env/2019-gpu
 
-ncores=$SLURM_NTASKS
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export SLURM_CPU_BIND=none
 
 srun gmx_mpi mdrun -s verlet -pin on -dlb yes
+# additional flags, like these, may be useful - test!
+# srun gmx_mpi mdrun -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu \
+    -nstlist 200 -s verlet -pin on -dlb yes
+
 ```
 !!! note
     Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
@@ -139,7 +142,7 @@ visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
 -   [VMD] visualizing program for large biomolecular systems.
--   [Grace](http://plasma-gate.weizmann.ac.il/Grace/) plotting graphs produced with Gromacs tools
+-   [Grace](grace.md) plotting graphs produced with Gromacs tools
 
 ## References
 
