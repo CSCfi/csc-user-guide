@@ -23,6 +23,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
@@ -33,6 +34,7 @@
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
+* [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
