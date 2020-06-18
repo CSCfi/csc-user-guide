@@ -215,7 +215,7 @@ and a table for driver process conventions from
 !!! Tip
     If you don't know how long your full workflow will take, don't ask
     for more than 10 subjobs and/or `NJOBS`. More is not always better.
-    If you have very large cases, don't exceed 50 simultanous (sub)jobs.
+    If you have very large cases, don't exceed 50 simultaneous (sub)jobs.
 
 As an example, the "run settings dialog" of `Glide` offers three options:
 
@@ -389,7 +389,7 @@ to get the issue solved.
 * Don't run the Maestro GUI on the login node (use `sinteractive -i` if you _must_ run the GUI on Puhti)
 * Don't specify too many subjobs - an optimal subjob takes 2-24 hours
 * Don't specify too many subjobs - there are many researchers using the same license
-* Don't run a heavy "driver process" on the login node (if it's heavy, for 10 simultaneus jobs use `-HOST "longrun:1 serial:9"`)
+* Don't run a heavy "driver process" on the login node (if it's heavy, for 10 simultaneous jobs use `-HOST "longrun:1 serial:9"`)
 * Never run anything in parallel on the login node (localhost should not be in your script)
 * Submit all jobs from your /scratch area
 * If your local computer is Windows, edit `\` to `/` in your script
