@@ -160,13 +160,13 @@ set3
 set1500
 ```
 
-To run our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are several details we should notice about the batch job script below:
+To run our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
 
 - The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array.
 
 - We use `-j $SLURM_CPUS_PER_TASK -k` to tell GNU parallel to keep running 4 applications in parallel, while ensuring that the job output order matches the input order. The number of simultaneous parallel applications is defined using `--cpus-per-task`.
 
-- The example below only generates output lists that could be used as part of a wider data analysis workflow in R. For an actual analysis, one would likely need much more time and memory (see [this tutorial](../support/tutorials/many.md)).
+- For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
 
 ```bash
 #!/bin/bash -l
@@ -196,8 +196,8 @@ echo "TMPDIR=/scratch/" >> ~/.Renviron
 
 sed -n "${from_run},${to_run}p" mylist.txt | \
     parallel -j $SLURM_CPUS_PER_TASK -k \
-        Rscript --no-save myscript.R \
-        $SLURM_ARRAY_TASK_ID
+        Rscript --no-save myscript.R \
+        $SLURM_ARRAY_TASK_ID
 ```
 
 If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function:
