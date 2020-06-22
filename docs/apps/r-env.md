@@ -160,7 +160,7 @@ set3
 set1500
 ```
 
-To run our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+To perform our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
 
 - The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array.
 
