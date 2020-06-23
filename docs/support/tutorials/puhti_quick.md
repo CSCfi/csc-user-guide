@@ -32,7 +32,7 @@ The system comes with two compiler families installed, the Intel and GCC compile
 We have installed both the 18 and 19 versions of the Intel compiler, and for GCC 9.1, 8.3 and 7.4 are available.
 The pgi compiler 19.7 is available for building gpu applications.
 
-More information about compilers [here](../../computing/compiling.md).
+More information about compilers [here](../../computing/compiling-puhti.md).
 
 
 
@@ -48,7 +48,7 @@ _hpcx-mpi_ first, this one is from the network vendor and is based on OpenMPI.
 
  **You will need to have the MPI module loaded when submitting your jobs.**
 
-More information about [building](../../computing/compiling.md#building-mpi-applications) and
+More information about [building](../../computing/compiling-puhti.md#building-mpi-applications) and
 [running](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) MPI applications. 
 
 

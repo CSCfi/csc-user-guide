@@ -32,7 +32,9 @@ nav:
         - Example job scripts: computing/running/example-job-scripts.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Compiling: computing/compiling.md
+     - Compiling:
+        - Puhti: computing/compiling-puhti.md
+        - Mahti: computing/compiling-mahti.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
 #     - Debugging: computing/debugging.md

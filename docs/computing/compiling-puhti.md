@@ -1,6 +1,4 @@
-# Compiling applications
-
-FIXME: compilers in Mahti
+# Compiling applications in Puhti
 
 ## General instructions
 

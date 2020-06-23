@@ -1,7 +1,5 @@
 # Getting started with Mahti
 
-FIXME: the whole article should be carefully rewritten
-
 A quick start guide for Mahti users. It is assumed
 that you have previously used CSC supercomputing resources like Puhti, Sisu or Taito. If not, you can start by looking [here](../../computing/overview.md).
 
@@ -31,8 +29,7 @@ More information about modules [here](../../computing/modules.md).
 
 FIXME: add available/recommend compilers
 
-More information about compilers [here](../../computing/compiling.md).
-
+More information about compilers [here](../../computing/compiling-mahti.md).
 
 
 ## MPI
@@ -48,7 +45,7 @@ _hpcx-mpi_ first, this one is from the network vendor and is based on OpenMPI.
 
  **You will need to have the MPI module loaded when submitting your jobs.**
 
-More information about [building](../../computing/compiling.md#building-mpi-applications) and
+More information about [building](../../computing/compiling-mahti.md#building-mpi-applications) and
 [running](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) MPI applications. 
 
 

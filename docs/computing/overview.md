@@ -100,4 +100,6 @@ Check [Disk areas](disk.md) chapter for details.
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on the supercomputers 
-* [Compiling applications](compiling.md): Using compilers and building your applications   
+* Using compilers and building your applications:
+    * [Puhti](compiling-puhti.md)
+	* [Mahti](compiling-mahti.md)
