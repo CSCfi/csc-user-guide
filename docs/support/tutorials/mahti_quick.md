@@ -65,7 +65,7 @@ Mahti uses the [slurm](https://slurm.schedmd.com/documentation.html) batch job s
 A description of the different slurm partitions can be found [here](../../computing/running/batch-job-partitions.md). Note that the GPU partitions are available from the normal login nodes. 
 
 Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts.md)
-and example batch job scripts are found [here](../../computing/running/example-job-scripts.md)
+and example batch job scripts are found [here](../../computing/running/example-job-scripts-mahti.md)
 
 !!! note "Very important change!!"
     You have to specify your billing project in your batch script with the `--account=<project>`

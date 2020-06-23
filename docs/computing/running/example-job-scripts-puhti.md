@@ -1,6 +1,4 @@
-# Example batch job scripts
-
-CHECKME: Should there be some Mahti examples?
+# Example batch job scripts for Puhti
 
 Example job scripts for running different types of programs:
 

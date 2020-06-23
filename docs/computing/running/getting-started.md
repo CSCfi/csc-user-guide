@@ -34,4 +34,5 @@ To get started with running your application:
 2. [Submit a batch job](submitting-jobs.md)
 
 If you are already familiar with SLURM, check out our
-[example batch job scripts](example-job-scripts.md).
+[example batch job scripts for Puhti](example-job-scripts-puhti.md) or
+[example batch job scripts for Mahti](example-job-scripts-mahti.md).
