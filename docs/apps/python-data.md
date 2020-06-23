@@ -4,9 +4,12 @@ Collection of Python libraries for data analytics and machine learning.
 
 ## Available
 
-The `python-data` module is available on Puhti only.
+The `python-data` module is available on Puhti only. Versions are numbered as `X.Y.Z-N`, where `X.Y.Z` is the version of the Python interpreter included, and `N` is a running version number starting from 1. Current versions are:
 
-Includes a recent version of Python and several data analytics and machine learning libraries, for example:
+- `python-data/3.7.6-1` installed in June 2020, includes newer versions, for example: Scikit-learn 0.23.1, Pandas 1.0.4 and JupyterLab 2.1.4.
+- `python-data/3.7.3-1` installed in July 2019.
+
+Python-data tries to include a comprehensive selection of Python libraries for data analytics and machine learning, for example:
 
 - [Dask](https://dask.org/): Scalable analytics in Python
 - [Gensim](https://radimrehurek.com/gensim/): Topic modelling
@@ -19,7 +22,7 @@ Includes a recent version of Python and several data analytics and machine learn
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 
-If you think that some important data analytics or machine learning package for Python should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.  Note that some deep learning frameworks have their own specific modules, for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md) and [MXNet](mxnet.md).
+If you think that some important data analytics or machine learning package for Python should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.  Note that some machine learning frameworks have their own specific modules, for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [MXNet](mxnet.md) and [RAPIDS](rapids.md).
 
 ## License
 
@@ -40,8 +43,6 @@ This will show all available versions:
 ```text
 module avail python-data
 ```
-
-Versions are numbered as `X.Y.Z-N`, where `X.Y.Z` is the version of the Python interpreter included, and `N` is a running version number starting from 1.
 
 To check the exact packages and versions included in the loaded module you can run:
 

@@ -12,7 +12,7 @@ The Bioconda environment is used for two purposes in Puhti:
 
 ## Available
 
--   Puhti: miniconda3
+-   Puhti: miniconda3 and miniconda2
 
 
 
@@ -20,16 +20,31 @@ The Bioconda environment is used for two purposes in Puhti:
 
 ### 1. Using tools installed with bioconda
 
-To use software environments that are installed to Puhti using Conda (either by CSC or yourself),  first load bioconda module:
+To use software environments that are installed to Puhti using Conda (either by CSC or yourself),  first 
+define environment variable PROJAPPL to point to a directry of the project that you wish to use for your own 
+conda environments. 
+
+Typically this is your _/projappl/project_name_ directory, but you can use scratch too.
+This definition is made with command _export_ . For example for _project_012345_ the command would be:
+
+```text
+export PROJAPPL=/projappl/project_12345
+```
+Next, load bioconda module:
 ```text
 module load bioconda
 ```
+This load miniconda3 based conda environment that is compatible with Python3 and gcc 7.4.0.
+If you wish to use Python2 based miniconda2, set up the conda environment with:
+```text
+module load bioconda/2
+```
 
-Then list the available Conda environments
+Then you can list the available Conda environments
 ```text
 conda env list
 ```
-Next activate a Conda environment
+And activate a Conda environment
 
 ```text
 source activate env_name
@@ -42,9 +57,11 @@ conda deactivate
 
 ### 2. Installing software for your own use with bioconda
 
-You can use the bioconda module to install software packages available in the Bioconda repository to your personal Conda environments. 
+You can use the bioconda module to install software packages available in the Bioconda and other conda repositories to your personal Conda environments. Not that you can't install new Conda packages to the base environment of bioconda, but you must create your own conda environment for installations.
+
 In the example below a new Conda environment, containing _bedops_ package is created:
 ```text
+export PROJAPPL=/projappl/project_xxxxxx
 module load bioconda
 conda create -n my_biotools bedops
 source activate my_biotools
@@ -61,6 +78,7 @@ conda deactivate
 Next time you need to use `vcf2bed`, it is enough that you run the set-up commands:
 
 ```text
+export PROJAPPL=/projappl/project_xxxxxx
 module load bioconda
 source activate my_biotools
 vcf2bed

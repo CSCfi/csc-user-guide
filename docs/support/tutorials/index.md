@@ -1,8 +1,8 @@
 # Tutorials
 
 ## General
-* [Puhti quick start guide](puhti_quick.md)
-* [Mahti quick start guide](mahti_quick.md)
+* [Getting started with Puhti](puhti_quick.md)
+* [Getting started with Mahti](mahti_quick.md)
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)

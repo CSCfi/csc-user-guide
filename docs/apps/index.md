@@ -23,6 +23,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
@@ -33,6 +34,7 @@
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Megahit](megahit.md) Metagenomics assebly
+* [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
@@ -124,8 +126,9 @@
 
 ## Language Research and Other Digital Humanities and Social Sciences
 
+* [eBay's tsv-tools](http://urn.fi/urn:nbn:fi:lb-202006081) Utilities for manipulating large tabular data files
 * [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
-* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools 1.4
+* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
