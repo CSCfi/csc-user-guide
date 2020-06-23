@@ -51,7 +51,7 @@ srun myprog <options>
 #SBATCH --partition=large
 #SBATCH --time=02:00:00
 #SBATCH --nodes=100
-#SBATCH --tasks-per-node=16
+#SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=8
 #SBATCH --mem-per-cpu=4000
 

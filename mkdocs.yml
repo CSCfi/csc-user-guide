@@ -29,7 +29,8 @@ nav:
         - Submitting a job: computing/running/submitting-jobs.md
         - Available batch job partitions: computing/running/batch-job-partitions.md
         - Array jobs: computing/running/array-jobs.md
-        - Example job scripts: computing/running/example-job-scripts.md
+        - Example job scripts for Puhti: computing/running/example-job-scripts-puhti.md
+        - Example job scripts for Mahti: computing/running/example-job-scripts-mahti.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
      - Compiling:
