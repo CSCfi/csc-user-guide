@@ -83,4 +83,4 @@ Check [Disk areas](disk.md) chapter for details.
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on Puhti
 * [Compiling applications](compiling.md): Using compilers and building your applications   
-* [Debugging and Profiling applications](profiling.md): Profiling your applications     
+* [Debugging and Profiling applications](debugprof.md): Profiling your applications     
