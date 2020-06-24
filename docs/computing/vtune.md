@@ -5,12 +5,12 @@ module load intel-vtune
 ```
 If you want to get source code level information, compile your code with optimizations enabled and add also
 the debugging information option ```-g```. Basic hotspot analysis is the first analysis type you should try. Here is
-a sample batch job script that can be used to profile serial and parallel applications:
+a sample batch job script that can be used to profile  parallel applications (please modify the script according to your application and project!):
 ```
 #!/bin/bash
 #SBATCH --job-name=VTune_example
 #SBATCH --account=<project_name>
-#SBATCH --partition=<partition_name>
+#SBATCH --partition=small
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=20
