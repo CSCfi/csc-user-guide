@@ -27,7 +27,7 @@ For a python applications replace the last line by:
 ```
 amplxe-cl -collect hotspots -r results_dir_name /full/path/to/python3 python_script
 ```
-In the case of MPI and hybrid jobs  the profiler will generate a separate forlder for each node and inside a separate subfolder for each task. In order to reduce the amount of data collected, one can  onsider collecting data only for a subset of the tasks https://software.intel.com/content/www/us/en/develop/articles/using-intel-advisor-and-vtune-amplifier-with-mpi.html.
+In the case of MPI and hybrid jobs  the profiler will generate a separate forlder for each node and inside a separate subfolder for each task. In order to reduce the amount of data collected, one can  onsider collecting data only for a subset of the tasks [https://software.intel.com/content/www/us/en/develop/articles/using-intel-advisor-and-vtune-amplifier-with-mpi.html](https://software.intel.com/content/www/us/en/develop/articles/using-intel-advisor-and-vtune-amplifier-with-mpi.html).
 
 # Generating Reports
 
