@@ -1,5 +1,5 @@
 # Profilling in Python with cProfile
-[cProfile](https://docs.python.org/2/library/profile.html#module-cProfile) is one of the deterministic built-in deterministic profiler. There are two ways to use the profiler. Within the  code, or from the interpreter:
+[cProfile](https://docs.python.org/2/library/profile.html#module-cProfile) is one of the deterministic built-in deterministic profiler. There are two ways to use the profiler. Within the  code (or from the interpreter):
 ```
 import  cProfile
 cProfile.run('functba(list_parameters)')
