@@ -1,5 +1,5 @@
 # Using Intel VTune Amplifier
-The Intel Tools are provided via the ```intel-vtune``` module. For profiling one sets up the enviroment by loading the module as follows:
+The Intel Tools are provided via the ```intel-vtune``` module. For profiling one sets up the environment by loading the module as follows:
 ```
 module load intel-vtune
 ```
