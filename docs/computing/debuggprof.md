@@ -10,4 +10,4 @@ application. It is  suited to be used with serial and multithreaded code.
 Depending on the on type of program, several debugging tools are available on the CSC servers:
 
 
-* [Arm DDT](../apps/ddt.md) Parallel C, C++ and Fortran 90 debugger.
+* [Arm DDT](../apps/ddt.md) Parallel C, C++ and Fortran 90 debugger. It also supports NVIDIA CUDA GPUs.
