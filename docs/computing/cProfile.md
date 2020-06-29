@@ -10,8 +10,7 @@ Alternatively  cProfile can also be invoked as a script to profile another scrip
 ```
 python -m cProfile [-o output_file] [-s sort_order] myscript.py
 ```
-The results can be output to the Stdout or saved to a file. By default they are ordered by name, but other options are as well available. The report save in ```output_file``` can be visualized and interpreted by graphical tools, such as ```pyprof2calltree```.
-Here is an example of out profilling done for a function:
+The results can be output to the Stdout or saved to a file. By default they are ordered by name, but other options are as well available. The report save in ```output_file``` can be visualized and interpreted by graphical tools, such as ```pyprof2calltree```. Here is an example of a profilling done for a function:
 
 ```
 93 function calls in 0.065 seconds
