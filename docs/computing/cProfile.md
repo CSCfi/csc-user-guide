@@ -19,18 +19,12 @@ The results can be output to the Stdout or saved to a file. By default they are 
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
         1    0.000    0.000    0.065    0.065 <string>:1(<module>)
-        1    0.000    0.000    0.000    0.000 _methods.py:138(_std)
-        1    0.000    0.000    0.000    0.000 _methods.py:30(_amin)
         1    0.000    0.000    0.028    0.028 _numpy_fft.py:1086(irfftn)
         1    0.000    0.000    0.003    0.003 arraypad.py:102(_do_append)
         2    0.000    0.000    0.000    0.000 arraypad.py:107(_prepend_const)
         2    0.000    0.000    0.004    0.002 arraypad.py:136(_append_const)
-        3    0.000    0.000    0.000    0.000 arraypad.py:160(<genexpr>)
-        2    0.000    0.000    0.000    0.000 arraypad.py:889(_as_pairs)
         1    0.000    0.000    0.008    0.008 arraypad.py:964(pad)
         1    0.000    0.000    0.065    0.065 compute_correlations.py:4(compute_correlations)
-        1    0.000    0.000    0.000    0.000 function_base.py:258(iterable)
-        1    0.000    0.000    0.000    0.000 getlimits.py:365(__new__)
         1    0.032    0.032    0.065    0.065 normxcorr2.py:33(normxcorr2)
         1    0.000    0.000    0.065    0.065 {built-in method builtins.exec}
         1    0.003    0.003    0.003    0.003 {built-in method numpy.concatenate}
