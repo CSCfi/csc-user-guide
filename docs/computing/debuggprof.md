@@ -11,4 +11,4 @@ Depending on the on type of program, several debugging tools are available on th
 
 
 * [Arm DDT](../apps/ddt.md) Parallel C, C++ and Fortran 90 debugger. It also supports NVIDIA CUDA GPUs. 
-* [GDB with TMUX](gdbtmux.md) GDB is the GNU Debugger for C, C++ and Fortran 90.
+* [GDB](gdb.md) GDB is the GNU Debugger for C, C++ and Fortran 90.
