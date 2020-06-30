@@ -41,3 +41,4 @@ The results can be output to the Stdout or saved to a file. By default they are 
         2    0.003    0.002    0.003    0.002 {method 'copy' of 'numpy.ndarray' objects}
         1    0.020    0.020    0.028    0.028 {mkl_fft._pydfti.irfftn_numpy}
 ```
+Keep in mind that running the profiler has to be done in the same as running as a [batch](../running/example-job-scripts.md) or [interactive](../running/interactive-usage.md) job. 
