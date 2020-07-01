@@ -192,7 +192,7 @@ openstack project show $OS_PROJECT_NAME
 
 In caso of _s3cmd_ the read and write access can be controlled for both buckets and objects:
 
-Following command gives project with UUID _5b0ae8e724b439a4cd16d12_ read access to _my_fishbucket_ but not to the objects inside :
+Following command gives project with UUID _3d5b0ae8e724b439a4cd16d1290_ read access to _my_fishbucket_ but not to the objects inside :
 ```text
 s3cmd setacl --acl-grant=read:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket
 ```
