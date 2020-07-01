@@ -228,13 +228,13 @@ s3cmd ls
 ```
 However she can list the content of the bucket with command:
 ```text
-s3cmd ls s3://my_fishbuckjet
+s3cmd ls s3://my_fishbucket
 ```
 In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the url: move to some 
 bucket of your project and replace the bucket name in the end of the url with the name of the shared bucket:
-
-_https://pouta.csc.fi/dashboard/project/containers/container/my_fishbucket_
-
+```
+https://pouta.csc.fi/dashboard/project/containers/container/my_fishbucket
+```
 
 ## Use example
 
