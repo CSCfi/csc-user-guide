@@ -43,82 +43,87 @@ Bowtie. In Taito the Silva database is available in path:
 
 The actual clening command could look like:
 ```text
-bowtie -v 1 -k 1 --un cleaned_reads.fastq  -f -q /appl/data/bio/biodb/production/silva reads.fastq  sRNA_rRNA_match
+bowtie -v 1 -k 1 --un cleaned_reads.fastq  -f -q /appl/data/bio/biodb/production/silva/Silva_rRNA_database reads.fastq  sRNA_rRNA_match
 ```
 
 If possible, it is recommended that you use _--host_reference_ option
 to filter out the sRNA originating from the host organism. This
 filtering is done by running a BWA mapping against the genome of the
-host organism. CSC is not maintaining BWA indexes in Taito environment.
-This means that users have to do the BWA indexing for their host
+host organism. CSC is not maintaining BWA indexes in Puhti environment,
+but you can use `chipster_genomes` to retriew bwa indexes used by the Chipster service.
+
+```text
+chipster_genomes bwa
+```
+The command above lists the available indexes and asks you to pick one.
+If a suitable species is not available, then you need to do indexing for their host
 organism genome before running VirusDetect.
 
-For example for *Arabidopsis  thaliana* the required BWA indexes can be
+For example for _Triticum aestivum_ the required BWA indexes can be
 created with commands:
-
-    ensemblfetch arabidopsis_thaliana
-    mv Arabidopsis_thaliana.TAIR10.dna.toplevel.fa a_thaliana.fa
-    bwa index -p a_thaliana a_thaliana.fa
+```text
+ensemblfetch.sh triticum_aestivum
+mv Triticum_aestivum.IWGSC.dna.toplevel.fa triticum_aestivum.fa
+bwa index -p triticum_aestivum triticum_aestivum.fa
+```
+Note that generating BWA indexes for plant genomes can take several hours.
 
 After which you can launch the virus detect job with command:
 
-    virus_detect.pl --reference vrl_plant --host_reference a_thaliana.fa cleaned_reads.fastq
+```text
+virus_detect.pl --reference vrl_plant --host_reference a_thaliana.fa cleaned_reads.fastq
+```
+
+VirusDetect is mainly used for detecting plant viruses (_vrl_plant_), but you can use it for other viruses too. The `--reference` option defines the
+reference virus sequence dataset to be used. The available rederence datasets are:
+```text
+vrl_algae
+vrl_bacteria
+vrl_fungus
+vrl_invertebrate
+vrl_plant
+vrl_vertebrate
+```
 
 Both the Virus Detect and BWA indexing task require often significant
-computing capacity. Because of that, you should use either batch jobs or
-taito-shell.csc.fi environment for running Virus Detect jobs. Below is a
-sample batch job file for running Virus Detect with 4 computing cores
+computing capacity. Because of that, you should use batch jobs for 
+running Virus Detect jobs. Below is a
+sample batch job file for running Virus Detect with 8 computing cores
 and 8 GB of memory. The maximum running time in the job below is set to
 10 hours.
 
- 
+ 
+```text
+#!/bin/bash -l
+#SBATCH -J Virus_detect
+#SBATCH -o output_%j.txt
+#SBATCH -e errors_%j.txt
+#SBATCH --account=your_project_name
+#SBATCH -t 10:00:00
+#SBATCH -n 1
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=8
+#SBATCH -p serial
+#SBATCH --mem=8000
+#
 
-    #!/bin/bash -l
-    #SBATCH -J Virus_detect
-    #SBATCH -o output_%j.txt
-    #SBATCH -e errors_%j.txt
-    #SBATCH -t 10:00:00
-    #SBATCH -n 1
-    #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=4
-    #SBATCH -p serial
-    #SBATCH --mem=8000
-    #
+module load biokit
+module load virusdetect
 
-    module load biokit
-
-    virus_detect.pl --thread_num 4 --reference vrl_plant --host_reference a_thaliana.fa reads.fastq
+virus_detect.pl --thread_num 8 --reference vrl_plant --host_reference a_thaliana.fa reads.fastq
+```
 
 The batch job file above can be submitted to the batch job system with
 command:
+```text
+sbatch batch_job_file.sh
+```
+More information about running batch jobs in Puhti can be found from
+[batch job instruction pages](../computing/running/getting-started.md).
 
-    sbatch batch_job_file.sh
 
-More information about running batch jobs in Taito can be found from
-[Chapter 3 of the Taito user guide].
 
-------------------------------------------------------------------------
+### More information
 
-### Discipline
+*   [VirusDetect home page](http://bioinfo.bti.cornell.edu/cgi-bin/virusdetect)
 
-Biosciences  
-
-------------------------------------------------------------------------
-
-### References
-
-------------------------------------------------------------------------
-
-### Support
-
-------------------------------------------------------------------------
-
-### Manual
-
-<http://bioinfo.bti.cornell.edu/cgi-bin/virusdetect>
-
-------------------------------------------------------------------------
-
-  [GenBank gbvrl]: ftp://ftp.ncbi.nih.gov/genbank/
-  [Velvet]: https://www.ebi.ac.uk/%7Ezerbino/velvet/
-  [Chapter 3 of the Taito user guide]: https://research.csc.fi/taito-batch-jobs
