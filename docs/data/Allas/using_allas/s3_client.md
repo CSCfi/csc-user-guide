@@ -2,8 +2,7 @@
 # The S3 client
 
 This chapter describes how to use the Allas object storage service with the **s3cmd** command line client. This client uses
-the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples.
-Thus, data that has been uploaded to Allas using these tools should not be downloaded with s3cmd and vice versa.
+the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. Normally data uploaded with S3 can be utilized with swift protocol too. However, over 5 GB files uploaded to Allas with swift can't be downloaded with S3 protocol. 
 
 From the user perspective, one of the main differences between S3 and Swift protocols is that Swift based connections remain valid for eight hours at a time, but with S3, the connection remains permanently open. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
 
@@ -193,7 +192,7 @@ openstack project show $OS_PROJECT_NAME
 
 Read and write access can be controlled for both buckets and obkeys.
 
-Following command gives project with UUID _5b0ae8e724b439a4cd16d12_ read access to _my_fishbucket_ but not to the obejcts inside :
+Following command gives project with UUID _5b0ae8e724b439a4cd16d12_ read access to _my_fishbucket_ but not to the objects inside :
 ```text
 s3cmd setacl --acl-grant=read:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket
 ```
@@ -201,12 +200,12 @@ Similarly, following command gives write access to just single object:
 ```text
 s3cmd setacl --acl-grant=write:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket/bigfish
 ```
-If you want to modify the accesess permissions of all the objects in a bucket, you can add option `--recursive` to the command:
+If you want to modify the access permissions of all the objects in a bucket, you can add option `--recursive` to the command:
 ```text
 s3cmd setacl --recursive --acl-grant=read:3d5b0ae8e724b439a4cd16d1290 s3://my_fishbucket
 ```
 
-View permissions:
+You can check the access permissions with _s3cmd info_:
 <pre>
 $ <b>s3cmd info s3://my_fishbucket|grep -i acl</b>
    ACL:       other_project_uuid: READ
@@ -218,9 +217,9 @@ Revoke read access:
 s3cmd setacl --recursive --acl-revoke=read:$other_project_uuid s3://my_fishbucket
 ```
 
-The shared objects and buckets and be used with both S3 and Swith based tools. Note hoverver that listing
+The shared objects and buckets and be used with both S3 and Swift based tools. Note howerver, that listing
 commands only buckets of owned by your project. In the case of shared buckets and objects you must know the 
-names of the bukects in order to use them.  
+names of the buckets in order to use them.  
 
 In the case of the example above, user from project _3d5b0ae8e724b439a4cd16d1290_ will not see _my_fishbucket_ , when shared, with command:
 
