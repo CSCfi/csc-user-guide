@@ -190,7 +190,7 @@ allas-conf -k
 openstack project show $OS_PROJECT_NAME
 ```
 
-Read and write access can be controlled for both buckets and obkeys.
+In caso of _s3cmd_ the read and write access can be controlled for both buckets and objects:
 
 Following command gives project with UUID _5b0ae8e724b439a4cd16d12_ read access to _my_fishbucket_ but not to the objects inside :
 ```text
@@ -212,16 +212,16 @@ $ <b>s3cmd info s3://my_fishbucket|grep -i acl</b>
    ACL:       my_project_uuid: FULL_CONTROL
 </pre>
 
-Revoke read access:
+Option _--acl-revoke_ can be used to remove a read or write access:
 ```text
 s3cmd setacl --recursive --acl-revoke=read:$other_project_uuid s3://my_fishbucket
 ```
 
-The shared objects and buckets and be used with both S3 and Swift based tools. Note howerver, that listing
-commands only buckets of owned by your project. In the case of shared buckets and objects you must know the 
+The shared objects and buckets can be used with both S3 and Swift based tools. Note howerver, that listing
+commands show only buckets owned by your project. In the case of shared buckets and objects you must know the 
 names of the buckets in order to use them.  
 
-In the case of the example above, user from project _3d5b0ae8e724b439a4cd16d1290_ will not see _my_fishbucket_ , when shared, with command:
+In the case of the example above, user from project _3d5b0ae8e724b439a4cd16d1290_ will not see _my_fishbucket_ , when it is shared, with command:
 
 ```text
 s3cmd ls
@@ -231,8 +231,7 @@ However she can list the content of the bucket with command:
 s3cmd ls s3://my_fishbuckjet
 ```
 In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the url: move to some 
-bucket of a project and replace the bucket name in the end of the url with the name of the shared bucket:
-
+bucket of your project and replace the bucket name in the end of the url with the name of the shared bucket:
 
 _https://pouta.csc.fi/dashboard/project/containers/container/my_fishbucket_
 
