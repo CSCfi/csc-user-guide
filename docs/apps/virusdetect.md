@@ -111,7 +111,7 @@ and 8 GB of memory. The maximum running time in the job below is set to
 module load biokit
 module load virusdetect
 
-virus_detect.pl --thread_num 8 --reference vrl_plant --host_reference triticum_aestivum.fa reads.fastq
+virus_detect.pl --thread_num 8 --reference vrl_plant --host_reference triticum_aestivum.fa reads_123.fastq
 ```
 
 The batch job file above can be submitted to the batch job system with
@@ -122,8 +122,32 @@ sbatch batch_job_file.sh
 More information about running batch jobs in Puhti can be found from
 [batch job instruction pages](../computing/running/getting-started.md).
 
+VirusDetect wites the analysys results to a new directory, named after the query dataset: result_<i>queryfile</i>. VirusDetect produces a large number of result files. The most essential file names are:
 
+*   **blastn.html** Table listing reference viruses that have corresponding virus contigs identified by BLASTN.
+*   **blastx.html** Table listing reference viruses that have corresponding virus contigs identified by BLASTX. 
+*   **_query_.blastn.xls** Table of BLASTN matches to the reference virus database.
+*   **_query_.blastx.xls** Table of BLASTX matches to the reference virus database.
+*   **undetermined.html** Table listing the length, siRNA size distribution and 21-22nt percentage of undetermined contigs. Potential virus contigs (21-22 nt > 50%) are indicated in green.
+*   **undetermined_blast.html** Table listing contigs having hits in the virus reference database but not assigned to any reference viruses because they did not meet the coverage or depth criteria.
 
+As many of the ouput files are in html format, it may be difficult to study them in Puhti.
+One option to study the results is to move them to a public bucket in Allas. For example
+(replace _projnum_ with your own project number):
+```text
+cd resluts_cleaned_reads.fastq
+module load allas
+allas-conf
+rclone copy -P resluts_cleaned_reads.fastq allas:virusdetect_projnum/resluts_cleaned_reads.fastq/
+a-publish -b virusdetect_projnum -index dynamic
+```
+Now you can study the results with your local browser in URL:
+```text
+https://a3s.fi//virusdetect_projnum/index.html
+```
+
+   
+   
 ### More information
 
 *   [VirusDetect home page](http://bioinfo.bti.cornell.edu/cgi-bin/virusdetect)
