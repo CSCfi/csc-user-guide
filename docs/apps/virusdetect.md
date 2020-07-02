@@ -35,13 +35,13 @@ virus_detect.pl --reference vrl_plant reads.fastq
 The developers of VirusDetect recommend to remove ribosomal RNA (rRNA)
 sequences from the input sequences before running VirusDetect. This can
 be done by aligning the sRNA reads against Silva rRNA database using
-Bowtie. In Taito the Silva database is available in path:
+Bowtie. In Puhti the Silva database is available in path:
 
 ```text
 /appl/data/bio/biodb/production/silva/Silva_rRNA_database
 ```    
 
-The actual clening command could look like:
+The actual cleaning command could look like:
 ```text
 bowtie -v 1 -k 1 --un cleaned_reads.fastq  -f -q /appl/data/bio/biodb/production/silva/Silva_rRNA_database reads.fastq  sRNA_rRNA_match
 ```
@@ -50,7 +50,8 @@ If possible, it is recommended that you use _--host_reference_ option
 to filter out the sRNA originating from the host organism. This
 filtering is done by running a BWA mapping against the genome of the
 host organism. CSC is not maintaining BWA indexes in Puhti environment,
-but you can use `chipster_genomes` to retriew bwa indexes used by the Chipster service.
+but you can use `chipster_genomes` to retrieve bwa indexes used by the 
+Chipster service.
 
 ```text
 chipster_genomes bwa
@@ -68,14 +69,14 @@ bwa index -p triticum_aestivum triticum_aestivum.fa
 ```
 Note that generating BWA indexes for plant genomes can take several hours.
 
-After which you can launch the virus detect job with command:
+Once you have the BWA index fo the host genome available, you can launch the VirusDetect job with command:
 
 ```text
-virus_detect.pl --reference vrl_plant --host_reference a_thaliana.fa cleaned_reads.fastq
+virus_detect.pl --reference vrl_plant --host_reference  triticum_aestivum.fa cleaned_reads.fastq
 ```
 
 VirusDetect is mainly used for detecting plant viruses (_vrl_plant_), but you can use it for other viruses too. The `--reference` option defines the
-reference virus sequence dataset to be used. The available rederence datasets are:
+reference virus sequence dataset to be used. The available reference datasets are:
 ```text
 vrl_algae
 vrl_bacteria
@@ -110,7 +111,7 @@ and 8 GB of memory. The maximum running time in the job below is set to
 module load biokit
 module load virusdetect
 
-virus_detect.pl --thread_num 8 --reference vrl_plant --host_reference a_thaliana.fa reads.fastq
+virus_detect.pl --thread_num 8 --reference vrl_plant --host_reference triticum_aestivum.fa reads.fastq
 ```
 
 The batch job file above can be submitted to the batch job system with
