@@ -57,13 +57,35 @@ srun myprog <options>
 
 # set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+# Bind OpenMP threads to hardware threads
+export OMP_PLACES=threads
+export OMP_PROC_BIND=spread
 
 srun myprog <options>
 ```
-!!! Note
-    By default, running a single task per node with multiple threads using **hpcx-mpi** will bind all threads to a single
-    core and no speedup will be gained. This can be fixed by setting `export OMP_PROC_BIND=true` in your job script. This
-    will bind the threads to different cores. Another possibility is to turn off slurms core binding with the `srun` flag `--cpu-bind=none`. 
+
+## MPI + OpenMP with hyperthreading
+
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=02:00:00
+#SBATCH --nodes=100
+#SBATCH --ntasks-per-node=16
+#SBATCH --cpus-per-task=16
+#SBATCH --mem-per-cpu=4000
+
+# set the number of threads based on --cpus-per-task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+# Bind OpenMP threads to hardware threads
+export OMP_PLACES=threads
+export OMP_PROC_BIND=close
+
+srun myprog <options>
+```
+
 
 ## OpenMP
 
