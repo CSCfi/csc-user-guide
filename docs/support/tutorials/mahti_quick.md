@@ -25,60 +25,64 @@ before MPI and other libraries appear.
 
 More information about modules [here](../../computing/modules.md).
 
-## Compilers
+## Compilers and MPI
 
-FIXME: add available/recommend compilers
+Currently, Mahti has GNU compiler suite (versions 9.3.0 and 7.4.0), as
+well as AMD and Intel compiler suites. No compiler suite is selected
+by default, but it needs to be loaded via module system. The MPI
+environment in Mahti is OpenMPI, and it needs to be activated also via
+module system. For example, in order to use GNU compiler suite, one
+can issue the command
+
+```bash
+module load gcc/9.3.0 openmpi
+```
+
+All compiler suites can be used with the `mpicc` (C), `mpicxx` (C++),
+or `mpif90` wrappers. We recommend to start with GNU compiler suite,
+but for some applications the other suites may provide better performance.
+
+In Mahti, many applications benefit from hybrid MPI/OpenMP
+parallelization, so it is recommended to build a hybrid version if it
+is supported by application.
 
 More information about compilers [here](../../computing/compiling-mahti.md).
 
-
-## MPI
-
-FIXME: Currently the system has a few different MPI implementations installed:
-
-- hpcx-mpi
-- mpich
-- intel-mpi
-
-We recommend to test using 
-_hpcx-mpi_ first, this one is from the network vendor and is based on OpenMPI. 
-
- **You will need to have the MPI module loaded when submitting your jobs.**
-
-More information about [building](../../computing/compiling-mahti.md#building-mpi-applications) and
-[running](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) MPI applications. 
+!!! warning "Note" 
+    You need to have the MPI module loaded when submitting your jobs
 
 
 ## Applications
 
 More information about specific applications can be found [here](../../apps/alpha.md)
 
-!!! warning "Default python"
-    Python is available through the _python-env_ module. This will replace the system python call with python 3.7. The anaconda environment has a lot of regularly used packages installed by default.
-
-
 
 ## Running jobs
 
 Mahti uses the [slurm](https://slurm.schedmd.com/documentation.html) batch job system. 
 
-A description of the different slurm partitions can be found [here](../../computing/running/batch-job-partitions.md). Note that the GPU partitions are available from the normal login nodes. 
+A description of the different slurm partitions can be found [here](../../computing/running/batch-job-partitions.md). 
 
 Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts.md)
 and example batch job scripts are found [here](../../computing/running/example-job-scripts-mahti.md)
 
-!!! note "Very important change!!"
-    You have to specify your billing project in your batch script with the `--account=<project>`
-    flag. Failing to do so will cause your job to be held with the reason “_AssocMaxJobsLimit_”.
-    Running `srun` directly also requires the flag.
+!!! warning "Note"
+    During pilot period, scalability testing **is not** required for
+    using **large** partiotion
 
-More information about billing [here](../../accounts/billing.md)
+## Performance considerations
 
-## Network
+In Mahti, many applications benefit from hybrid MPI/OpenMP parallelization,
+however, the optimum ratio of MPI tasks and OpenMP threads depend lot
+on particular application as well as on particular input data
+set. Mahti supports also hyperthreading, *i.e.* two threads can be run
+on the same CPU core. Benefits of hyperthreading depend also on the
+application, in some cases it improves performance while in some cases
+performance becomes worse. Binding of threads to CPU cores can also have
+an impact on performance. 
 
-- Login nodes can access the Internet 
-- Compute nodes can access the Internet 
-- It is currently not possible to ssh to the compute nodes
+More information about controlling hybrid applications can be found
+[here](../../computing/running/performance-checklist.md#hybrid parallelization in Mahti). 
 
 
 ## Storage
@@ -88,15 +92,28 @@ Note that this folder is shared by **all users** in a project. This folder is no
 and files that have not been used for 90 days will be automatically removed. The default quota for this folder is 1 TB. There is also a persistent **project based**
 storage with a default quota of 50 GB. It is located under `/projappl/<project>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
 
+The disk areas for different supercomputers are separate, *i.e.*
+**home**, **projappl** and **scratch** in Puhti cannot be directly
+accessed from Mahti.
+
 More detailed information about storage can be found [here](../../computing/disk.md).
 
 
 ## Moving data between Mahti and Puhti
 
-FIXME
+Data can be moved between supercomputers via
+[Allas](../../data/Allas/index.md) by first uploading 
+the data in one supercomputer and then downloading in another
+supercomputer. This is the recommended approach if the data should also
+be preserved for a longer time.
 
-*    [Allas user guide](../../data/Allas/index.md)
-
-
-
-
+Data can also be moved directly between the supercomputers with the
+_rsync_ command. For example, in order to copy *my_results* (which can be
+either file or directory) from
+Puhti to the directory */scratch/project_2002291* in Mahti, one can
+issue in Puhti the command: 
+```bash
+rsync -azP my_results <username>@mahti.csc.fi:/scratch/project_2002291
+```
+See [Using rsync](../data/moving/rsync.md) for more detailed instructions
+for *rsync*.
