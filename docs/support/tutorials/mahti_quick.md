@@ -39,7 +39,7 @@ module load gcc/9.3.0 openmpi
 ```
 
 All compiler suites can be used with the `mpicc` (C), `mpicxx` (C++),
-or `mpif90` wrappers. We recommend to start with GNU compiler suite,
+or `mpif90` (Fortran) wrappers. We recommend to start with GNU compiler suite,
 but for some applications the other suites may provide better performance.
 
 In Mahti, many applications benefit from hybrid MPI/OpenMP
