@@ -95,15 +95,15 @@ and 8 GB of memory. The maximum running time in the job below is set to
  
 ```text
 #!/bin/bash -l
-#SBATCH -J Virus_detect
-#SBATCH -o output_%j.txt
-#SBATCH -e errors_%j.txt
+#SBATCH --job-name=VirusDetect
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --account=your_project_name
-#SBATCH -t 10:00:00
-#SBATCH -n 1
+#SBATCH --time=10:00:00
+#SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=8
-#SBATCH -p serial
+#SBATCH --partition=small
 #SBATCH --mem=8000
 #
 
