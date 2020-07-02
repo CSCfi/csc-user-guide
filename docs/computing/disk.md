@@ -70,13 +70,13 @@ It is not intended for running applications, so please run them in _scratch_ ins
 ## Using Scratch and ProjAppl directories
 
 
-An overview of your directories in Puhti can be displayed with:
+An overview of your directories in a supercomputer you are currently
+logged on can be displayed with:
 
 ```text
 csc-workspaces 
 ```
-The above command displays all _scratch_ and _projappl_ directories you have access to within
-active projects with Puhti access. 
+The above command displays all _scratch_ and _projappl_ directories you have access to.
 
 For example, if you are member in two projects, with unix groups _project_2012345_
 and _project_3587167_, then you have access to two scratch and projappl directories:
@@ -131,8 +131,6 @@ the data in one supercomputer and then downloading in another
 supercomputer. This is the recommended approach if the data should also
 be preserved for a longer time.
 
-CHECKME: is rsync the recommended way?
-
 Data can also be moved directly between the supercomputers with the
 _rsync_ command. For example, in order to copy *my_results* (which can be
 either file or directory) from
@@ -161,8 +159,6 @@ of files are stored to the _scratch_ area.
 
 ## Additional disk areas
 
-FIXME: Puhti specific
-
 ### Login nodes
 
 All of the login nodes have 2900 GiB of fast local storage. The storage
@@ -176,7 +172,7 @@ archive files.
     The local storage is meant for **temporary** storage and is cleaned frequently.
     Remember to move your data to a shared disk area after completing your task. 
 
-### Compute nodes 
+### Compute nodes in Puhti 
 
 Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable $TMPDIR and in normal batch jobs with $LOCAL_SCRATCH. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
 
