@@ -118,7 +118,8 @@
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [Velvet](velvet.md) Genome assembler
+* [Velvet](velvet.md) Genome assembler* 
+* [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
