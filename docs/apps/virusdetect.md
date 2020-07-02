@@ -131,7 +131,7 @@ VirusDetect wites the analysys results to a new directory, named after the query
 *   **undetermined.html** Table listing the length, siRNA size distribution and 21-22nt percentage of undetermined contigs. Potential virus contigs (21-22 nt > 50%) are indicated in green.
 *   **undetermined_blast.html** Table listing contigs having hits in the virus reference database but not assigned to any reference viruses because they did not meet the coverage or depth criteria.
 
-As many of the ouput files are in html format, it may be difficult to study them in Puhti.
+As many of the output files are in html format, it may be difficult to study them in Puhti.
 One option to study the results is to move them to a public bucket in Allas. For example
 (replace _projnum_ with your own project number):
 ```text
