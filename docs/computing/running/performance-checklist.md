@@ -1,12 +1,10 @@
 # Performance Checklist
 
-FIXME: Instructions for process / thread binding in Mahti?
-
 This page collects important information to enable maximum performance
 for your jobs and the system. If you know how to improve job performance,
 please contribute to the list!
 
-## Limit unnecessary spreading of parallel tasks
+## Limit unnecessary spreading of parallel tasks in Puhti
 One of the limiting factors for strong scaling is the communication
 between tasks. Communication within a node is faster than between
 nodes. It is optimal to use as few nodes as possible.
@@ -51,6 +49,10 @@ to set the upper limit to 2 or 3 times the number which would accommodate
 all tasks. With very large parallel jobs, even smaller is recommended as
 communication and the likelihood of one slow node in the allocation gets
 higher and poor load balancing gets more likely.
+
+## Hybrid parallelization in Mahti
+
+FIXME: placeholder
 
 ## Perform a scaling test
 It is important to make sure that your job can efficiently use
