@@ -122,7 +122,7 @@ sbatch batch_job_file.sh
 More information about running batch jobs in Puhti can be found from
 [batch job instruction pages](../computing/running/getting-started.md).
 
-VirusDetect wites the analysys results to a new directory, named after the query dataset: result_<i>queryfile</i>. VirusDetect produces a large number of result files. The most essential file names are:
+VirusDetect wites the analysys results to a new directory, named after the query dataset: result_<i>queryfile</i>. VirusDetect produces a large number of result files. The most essential files are:
 
 *   **blastn.html** Table listing reference viruses that have corresponding virus contigs identified by BLASTN.
 *   **blastx.html** Table listing reference viruses that have corresponding virus contigs identified by BLASTX. 
@@ -135,10 +135,9 @@ As many of the ouput files are in html format, it may be difficult to study them
 One option to study the results is to move them to a public bucket in Allas. For example
 (replace _projnum_ with your own project number):
 ```text
-cd resluts_cleaned_reads.fastq
 module load allas
 allas-conf
-rclone copy -P resluts_cleaned_reads.fastq allas:virusdetect_projnum/resluts_cleaned_reads.fastq/
+rclone copy -P results_cleaned_reads.fastq allas:virusdetect_projnum/results_cleaned_reads.fastq/
 a-publish -b virusdetect_projnum -index dynamic
 ```
 Now you can study the results with your local browser in URL:
