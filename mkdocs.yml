@@ -36,6 +36,7 @@ nav:
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
+        - High performance libraries: computing/hpc-libraries.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
 #     - Debugging: computing/debugging.md
