@@ -57,9 +57,8 @@ srun myprog <options>
 
 # set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-# Bind OpenMP threads to hardware threads
-export OMP_PLACES=threads
-export OMP_PROC_BIND=spread
+# Bind OpenMP threads to cores
+export OMP_PLACES=cores
 
 srun myprog <options>
 ```
@@ -80,8 +79,7 @@ srun myprog <options>
 # set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 # Bind OpenMP threads to hardware threads
-export OMP_PLACES=threads
-export OMP_PROC_BIND=close
+export OMP_PLACES=cores
 
 srun myprog <options>
 ```
