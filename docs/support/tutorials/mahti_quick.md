@@ -35,7 +35,7 @@ module system. For example, in order to use GNU compiler suite, one
 can issue the command
 
 ```bash
-module load gcc/9.3.0 openmpi
+module load gcc openmpi
 ```
 
 All compiler suites can be used with the `mpicc` (C), `mpicxx` (C++),
