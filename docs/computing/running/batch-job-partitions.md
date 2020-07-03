@@ -37,31 +37,8 @@ scontrol show partition <partition_name>
 
 ```
 
-
-## Mahti partitions
-
-The following partitions (aka queues) are currently available in **Mahti**:
-
-| Partition | Nodes       | Time<br>limit | Access           |
-|-----------|-------------|---------------|------------------|
-| test      | 8 dedicated | 15 minutes    | all              |
-| medium    | 1-20        | 24 hours      | all              |
-| large     | 20-200      | 24 hours      | scalability test |
-| gc        | 1-700       | 24 hours      | Grand Challenge  |
-
-Large queue on Mahti is only accessible to projects that have done a
-link-to-scalability test-FIXME to show good utilisation of the resources. The queue
-`qc` is only accessible to link-to-Grand Challenge-FIXME projects and has a higher
-priority.
-
-FIXME: double-check queues, add missing links
-
-
 !!! note "Notes on partitions"
 
-    - ** Only full nodes are allocated on Mahti **
-        - Jobs will be allocated full nodes (all cores and memory in a node)
-          on Mahti
     - ** Only request the memory you need **
         - The jobs will run sooner, since in each partition, most of the
           nodes have less memory than the maximum amount
@@ -70,3 +47,29 @@ FIXME: double-check queues, add missing links
         - These partitions have stricter limits and a lower priority
     - ** Only one job per user is allowed in _interactive_ partition **
         - Use this partition with the command [sinteractive](interactive-usage.md).
+
+
+## Mahti partitions
+
+The following partitions (aka queues) are currently available in **Mahti**:
+
+| Partition | Nodes       | Time<br>limit | Access           |
+|-----------|-------------|---------------|------------------|
+| test      | 1-2         | 1  hours      | all              |
+| medium    | 1-20        | 36 hours      | all              |
+| large     | 20-200      | 36 hours      | scalability test |
+| gc        | 1-700       | 36 hours      | Grand Challenge  |
+
+Large partition on Mahti is only accessible to projects that have done a
+[scalability test](scalability-testing.md) and shown good utilisation of the resources. The partition
+`qc` is only accessible to Grand Challenge projects and has a higher
+priority.
+
+!!! note "Notes on partitions"
+
+    - ** Only full nodes are allocated on Mahti **
+        - Jobs will have access to all cores and memory in a node, but
+		may choose to run with fewer cores if that gives better performance
+        - Billing is based on the allocated nodes.
+
+
