@@ -1,4 +1,4 @@
-# Scalabilty testing
+# Scalability testing
 
 <!-- FIXME: actual instructions -->
 
