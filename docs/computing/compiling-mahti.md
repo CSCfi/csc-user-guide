@@ -46,13 +46,13 @@ the safe level and then move up to intermediate or even aggressive,
 while making sure the results are  correct and the program's
 performance has improved. 
 
-FIXME: clang options, what are recommend Intel options?
+<!-- FIXME: clang options, what are recommend Intel options? -->
 
 | Optimisation level | GNU               | Intel                        | AMD          |
 | :----------------- | :---------------- | :--------------------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -xHost -fp-model precise | -O2          |
-| **Intermediate**   | -O3 -march=native | -O2 -xHost                   | -O3          |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 |
+| **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2          |
+| **Intermediate**   | -O3 -march=native | -O2                    | -O3          |
+| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 |
 
 
 A detailed list of options for the Intel and GNU compilers can be found on the _man_

@@ -97,7 +97,7 @@ together. In Mahti there are 3 cabinets with 234 nodes in each group
 (also called cell). These are connected with a 1.7:1 blocking fat
 tree. There are in total 6 groups, and between the groups there is
 fully non-blocking all-to-all connectivity. The total bisection
-bandwidth is 87 Tbps (CHECKME). 
+bandwidth is 87 Tbps. <!-- CHECKME -->
 
 ### Storage
 
