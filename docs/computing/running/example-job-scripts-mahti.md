@@ -22,7 +22,6 @@ Example job scripts for running different types of programs:
 #SBATCH --time=02:00:00
 #SBATCH --nodes=10
 #SBATCH --ntasks-per-node=128
-#SBATCH --mem-per-cpu=4000
 
 srun myprog <options>
 ```
@@ -37,7 +36,6 @@ srun myprog <options>
 #SBATCH --time=02:00:00
 #SBATCH --nodes=100
 #SBATCH --ntasks-per-node=128
-#SBATCH --mem-per-cpu=4000
 
 srun myprog <options>
 
@@ -53,7 +51,6 @@ srun myprog <options>
 #SBATCH --nodes=100
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=8
-#SBATCH --mem-per-cpu=4000
 
 # set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -74,7 +71,6 @@ srun myprog <options>
 #SBATCH --nodes=100
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=16
-#SBATCH --mem-per-cpu=4000
 
 # set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -95,12 +91,10 @@ srun myprog <options>
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=128
-#SBATCH --mem-per-cpu=4000
 
 # set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
-
 
