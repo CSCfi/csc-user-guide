@@ -86,7 +86,7 @@ performance becomes worse. Binding of threads to CPU cores can also have
 an impact on performance. 
 
 More information about controlling hybrid applications can be found
-[here](../../computing/running/performance-checklist.md#hybrid parallelization in Mahti). 
+[here](../../computing/running/performance-checklist.md#hybrid-parallelization-in-mahti). 
 
 
 ## Storage
@@ -119,5 +119,5 @@ issue in Puhti the command:
 ```bash
 rsync -azP my_results <username>@mahti.csc.fi:/scratch/project_2002291
 ```
-See [Using rsync](../data/moving/rsync.md) for more detailed instructions
+See [Using rsync](../../data/moving/rsync.md) for more detailed instructions
 for *rsync*.
