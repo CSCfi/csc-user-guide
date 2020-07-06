@@ -105,7 +105,11 @@ More detailed information about storage can be found [here](../../computing/disk
 
 ## Moving data between Mahti and Puhti
 
-Data can be moved between supercomputers via
+!!! Note
+    Allas has not been configured on Mahti yet, please use `scp` or `rsync`
+    during the early pilot period.
+    
+Data can soon be moved between supercomputers via
 [Allas](../../data/Allas/index.md) by first uploading 
 the data in one supercomputer and then downloading in another
 supercomputer. This is the recommended approach if the data should also
