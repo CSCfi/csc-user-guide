@@ -1,7 +1,7 @@
 # Overview
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since
-2 September 2019 and Mahti has been available since 16 april 2020.
+2 September 2019 and Mahti has been available since 6 july 2020.
 
 Puhti contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI), while
 Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). 

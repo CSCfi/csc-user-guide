@@ -26,7 +26,7 @@ template: main-index.html
 </span><br>
 <span id="index-quicklinks">
 [Getting started with Puhti](support/tutorials/puhti_quick.md)
-</span>
+</span><br>
 <span id="index-quicklinks">
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
 </span>
