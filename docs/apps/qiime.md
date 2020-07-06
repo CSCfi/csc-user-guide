@@ -15,7 +15,7 @@ At the moment only Qiime2 is available in Puhti.
 
 ## Available
 
--   Puhti: qiime2-2020.2, qiime2-2019.10  
+-   Puhti:qiime2-2020.6, qiime2-2020.2, qiime2-2019.10  
 
 
 ## Usage
@@ -25,7 +25,7 @@ In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
 ```text
 module load bioconda
 conda env list
-source activate qiime2-2020.2
+source activate qiime2-2020.6
 source tab-qiime 
 ```
 
