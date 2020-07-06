@@ -51,7 +51,7 @@ More information about compilers [here](../../computing/compiling-mahti.md).
 !!! warning "Note" 
     You need to have the MPI module loaded when submitting your jobs
 
-## High perfomance libraries
+## High performance libraries
 
 Mahti has several high performance libraries installed, more
 information [here](../../computing/hpc-libraries.md).
