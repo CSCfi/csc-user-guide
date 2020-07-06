@@ -7,7 +7,7 @@ Atos cluster system with a variety of different node types. It is
 targeted at a wide range of workloads, e.g. single core to medium sized
 jobs, AI workloads, jobs requiring large amounts of memory or local scratch space.
 
-The Mahti supercomputer will be launched in April, 2020 (FIXME). It is
+The Mahti supercomputer will be launched in August, 2020. It is
 a watercooled Atos BullSequana XH2000 system with a uniform set of
 compute nodes with a large amount of cores and a very powerful
 interconnect.  It is targeted at medium to large workloads, each
