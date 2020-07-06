@@ -34,7 +34,7 @@ The pgi compiler 19.7 is available for building gpu applications.
 
 More information about compilers [here](../../computing/compiling-puhti.md).
 
-## High perfomance libraries
+## High performance libraries
 
 Puhti has several high performance libraries installed, more
 information [here](../../computing/hpc-libraries.md).
