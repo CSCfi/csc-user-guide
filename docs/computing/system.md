@@ -103,7 +103,7 @@ The interconnect is based on Mellanox HDR InfiniBand and each node is connected 
 
 In Mahti there are 234 nodes in each dragonfly group and the internal fat tree has a blocking factor of 1.7:1, with 20 or 18 nodes connected per leaf switch and each leaf switch has 12 links going to the spine switch in the group, all links are 200 Gbps links. There are in total 6 groups, and between the groups there is fully non-blocking all-to-all connectivity, with 5 200 Gbps links going from each spine switch to one spine switch in every other group. 
 
-!["Mahti dragonfly+ toppology"](../img/mahti_df.png) { width=50% }
+!["Mahti dragonfly+ toppology"](../img/mahti_df.png){ width=50% }
 
 ### Storage
 
