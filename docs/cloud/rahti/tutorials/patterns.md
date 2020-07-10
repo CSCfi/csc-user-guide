@@ -22,7 +22,7 @@ spec:
 Persistent storage can be requested also via the web console.
 
 This will request a 1 GiB persistent storage that can be mounted in read-write
-mode by multiple nodes.
+mode by multiple nodes. Other access modes are ReadWriteOnce (Only one node can mount it read-write) and ReadOnlyMany (Multiple nodes can mount read-only).
 
 The persistent volume can be used in a pod by specifying `spec.volumes`
 (defines the volumes to attach) and `spec.containers.volumeMounts` (defines where
@@ -49,6 +49,36 @@ spec:
   - name: smalldisk-vol
     persistentVolumeClaim:
       claimName: testing-pvc
+```
+
+## EmptydDir
+
+EmptyDir provides ephemeral temporal storage locally on the node where containers are run, on Rahti this is RAID-0 SSD storage. When the Pod is killed, the information in the emptyDir will be lost. It is declared directly in the Pod definition:
+
+*`podWithEmptydDir.yamp`
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+  labels:
+    app: my-application
+  spec:
+    volumes:
+    - name: volume-a
+      emptyDir: {}
+    containers:
+    - name: container-a
+      image: centos:7
+      volumeMounts:
+      - mountPath: /outputdata
+        name: volume-a
+    - name: container-b
+      image: centos:7
+      volumeMounts:
+      - mountPath: /interm
+        name: volume-a
 ```
 
 ## InitContainer
