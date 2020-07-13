@@ -55,7 +55,7 @@ spec:
 
 EmptyDir provides ephemeral temporal storage locally on the node where containers are run, on Rahti this is RAID-0 SSD storage. When the Pod is killed, the information in the emptyDir will be lost. It is declared directly in the Pod definition:
 
-*`podWithEmptydDir.yamp`
+*`podWithEmptydDir.yaml`
 
 ```yaml
 apiVersion: v1
