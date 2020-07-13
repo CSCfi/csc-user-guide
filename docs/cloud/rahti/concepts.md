@@ -1,0 +1,227 @@
+
+
+The power of Kubernetes and OpenShift) is in the relatively simple abstractions
+that they provide for complex tasks such as load balancing, software updates for
+a distributed system, or autoscaling. Here we give a very brief overview of some
+of the most important abstractions, but we highly recommend that you read the
+concept documentation for Kubernetes and OpenShift as well:
+
+   * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
+   * [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
+
+Most of the abstractions are common to both plain Kubernetes and OpenShift, but
+OpenShift also introduces some of its own concepts.
+
+## Kubernetes concepts
+
+### Pod
+
+**Pods** contain one or more containers that run applications. It is the basic
+unit in Kubernetes: when you run a workload in Kubernetes, it always runs in a
+pod. Kubernetes handles scheduling these pods on multiple servers. Pods can
+contain volumes of different types for accessing data. Each pod has its own IP
+address shared by all containers in the pod. In the most typical
+case, a pod contains one container and perhaps one or a few different volumes.
+
+Pods are intended to be replaceable. Any data that needs to persist after a pod
+is killed should be stored on a volume attached to the pod.
+
+![Pod](img/pods.png)
+
+The abstractions in Kubernetes/OpenShift are described using YAML or JSON. YAML
+and JSON are so-called data serialization languages that provide a way to
+describe key value pairs and data structures such as lists in a way that is easy to
+read for both humans and computers. An example of what the
+representation of a pod looks like in YAML:
+
+```yaml
+---
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: webserver
+    image: registry.access.redhat.com/rhscl/nginx-112-rhel7
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    volumeMounts:
+    - name: website-content-volume
+      mountPath: /usr/share/nginx/html
+    volumes:
+    - name: website-content-volume
+      persistentVolumeClaim:
+        claimName: web-content-pvc
+```
+
+The above YAML representation describes a web server pod that has one container
+and one volume and exposes the port 8080. You could put this snippet of text
+in a file and create a pod that runs NGINX by feeding that file to the Kubernetes API.
+
+### Service
+
+Pod IP addresses are not predictable. If a pod is replaced as part of normal
+operations such as an update, the IP address of the new pod can be different. It is
+also typical to have multiple pods serving the same content, in which case there
+are several of these unpredictable IP addresses to point to. Thus, pods alone
+are not enough to provide a predictable way to access an application.
+
+A **service** provides a stable virtual IP, a port and a DNS name for one or
+more pods. They act as load balancers, directing traffic to a group of pods
+that all serve the same application.
+
+![Service](img/service.png)
+
+### ReplicaSet
+
+A **ReplicaSet** ensures that _n_ copies of a pod are running. If one of the
+pods dies, the ReplicaSet ensures that a new one is created in its place. They
+are typically not used on their own but rather as part of a **Deployment**
+(explained next).
+
+![ReplicaSet](img/replicaset.png)
+
+### Deployment
+
+**Deployments** manage rolling updates for an application. They typically
+contain a ReplicaSet and several pods. If you make a change that requires an
+update such as switching to a newer image for pod containers, the deployment
+ensures the change is made in a way that there are no service interruptions. It
+will perform a rolling update to replace all pods one by one with
+newer ones while making sure that end user traffic is directed towards working
+pods at all times.
+
+![Deployment](img/deployment.png)
+
+## OpenShift extensions
+
+OpenShift includes all Kubernetes objects, plus some extensions:
+
+* **BuildConfig** objects build container images
+  based on the source files.
+* **ImageStream** objects abstract images and
+  enrich them to streams that emit signals when they see that a new image is
+  uploaded into them by e.g. BuildConfig.
+* **DeploymentConfig** objects create new **ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
+
+### DeploymentConfig
+
+DeploymentConfigs are objects that create
+[ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) according to
+`spec.template`. They differ from ReplicationControllers in the sense that 
+DeploymentConfig objects may start new ReplicationControllers based on the state of
+`spec.triggers`. In the example below, the DeploymentConfig performs
+an automatic rolling update when it gets triggered by an ImageStream named
+`serveimagestream:latest`. For other update strategies, see "[Deployment
+Strategies](https://docs.okd.io/latest/dev_guide/deployments/deployment_strategies.html)"
+in the OpenShift documentation.
+
+DeploymentConfig objects function similarly to deployments described in the
+chapter [Background](/cloud/rahti/introduction/background) except that deployments
+trigger updates only when `spec.template` is changed. Furthermore, deployment
+is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
+
+Recall that [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller)
+are objects that make sure that a requested number of replicas of the pod defined in the
+`spec.template` is running.
+
+*`deploymentconfig.yaml`*:
+
+```yaml
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: serveapp
+  name: blogdeployment
+spec:
+  replicas: 1
+  selector:
+    app: serveapp
+    deploymentconfig: blogdeployment
+  strategy:
+    activeDeadlineSeconds: 21600
+    type: Rolling
+  template:
+    metadata:
+      labels:
+        app: serveapp
+        deploymentconfig: blogdeployment
+    spec:
+      containers:
+      - name: serve-cont
+        image: "serveimagestream:latest"
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - serve-cont
+      from:
+        name: serveimagestream:latest
+    type: ImageChange
+```
+
+In this case, the DeploymentConfig object listens to the *ImageStream* object
+`serveimagestream:latest`.
+
+### ImageStream
+
+ImageStreams simplify image names and get triggered by a BuildConfig if new
+images are uploaded to the registry. When a new image is
+uploaded, it can trigger its listeners to act. In the case of our
+DeploymentConfig, the action triggered would be to do an update for the pods
+that it is meant to deploy.
+
+A simple ImageStream object:
+
+*`imagestream.yaml`*:
+
+```yaml
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    app: serveapp
+  name: serveimagestream
+spec:
+  lookupPolicy:
+    local: false
+```
+
+### BuildConfig
+
+BuildConfig objects create container images according to specific rules. In
+the following example, the _Docker_ strategy is used to build a trivial extension
+of the `httpd` image shipped with OpenShift.
+
+*`buildconfig.yaml`*:
+
+```yaml
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "serveimg-generate"
+  labels:
+    app: "serveapp"
+spec:
+  runPolicy: "Serial"
+  output:
+    to:
+      kind: ImageStreamTag
+      name: serveimagestream:latest
+  source:
+    dockerfile: |
+      FROM docker-registry.default.svc:5000/openshift/httpd
+  strategy:
+    type: Docker
+```
+
+After creating the build object (here named `serveimg-generate`), we can
+request the OpenShift cluster to build the image:
+
+```bash
+ oc start-build serveimg-generate
+```
+
+Other source strategies include `custom`, `jenkins` and `source`.

@@ -23,41 +23,8 @@ server running:
 
 ## Preparation
 
-If you are logged in to the Rahti web console and have the OpenShift command
-line tool `oc` installed and the command line session authorized, you can skip
-this section and move on to the next one (Projects).
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](/cloud/rahti/usage/cli/) if you need help on that.
 
-Install the `oc` command line tool and authenticate a command line session after
-logging in to Rahti at [rahti.csc.fi](https://rahti.csc.fi:8443/):
-
-1.  Install the `oc` command line tools by clicking the question mark and then "Command
-    Line Tools" in the top right corner of the OpenShift web console:
-
-    ![install cli menu](img/cli-menu.png)
-
-1.  Click the "Latest release" link:
-
-    ![install cli page](img/cli-page.png)
-
-1.  Download and unpack the correct version for your platform and make sure that the
-    binaries are found in a directory that is in the PATH environment variable.
-
-1.  Copy the login command:
-
-    ![copy login](./img/copy-login.png)
-
-1.  Paste the result to the terminal. It should be similar to this:
-
-```bash
-oc login https://rahti.csc.fi:8443 --token=<secret access token>
-```
-
-!!! Note
-
-    The secret access token is only valid for a limited time. After it expires,
-    you will need to repeat the steps to login. Once logged in, the session will
-    be valid in newly created terminal sessions as well.
-    
 ## Projects
 
 The command `oc projects` shows the projects you have access to:

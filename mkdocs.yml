@@ -40,21 +40,28 @@ nav:
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
-       - Home: cloud/rahti/index.md
-       - Introduction:
-         - Background: cloud/rahti/introduction/background.md
+       - Contents: cloud/rahti/index.md
+       - What is Rahti: cloud/rahti/rahti-what-is.md
+       - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
          # - Technical maturity: cloud/rahti/introduction/technical_maturity.md
-         - Getting access: cloud/rahti/introduction/access.md
-         - Billing: cloud/rahti/introduction/billing.md
-       - Usage:
-         - Getting started: cloud/rahti/usage/getting_started.md
-         - Projects and quota: cloud/rahti/usage/projects_and_quota.md
-         - Command line tool usage: cloud/rahti/usage/cli.md
-         - Security guide: cloud/rahti/usage/security-guide.md
+       - Projects and quota: cloud/rahti/usage/projects_and_quota.md
+       - Billing: cloud/rahti/billing.md
+       - Getting started with Rahti:
+         - Getting access: cloud/rahti/access.md
+         - Using the web interface: cloud/rahti/usage/getting_started.md
+         - Command line tool installation and usage: cloud/rahti/usage/cli.md
+       - Storage in Rahti:
+         - Available storage options: cloud/rahti/storage/options.md
+         - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Persistent volumes: cloud/rahti/storage/persistent.md
+       - Images:
+         - Overview: cloud/rahti/images/overview.md
+         - Creating an image: cloud/rahti/images/creating.md
        - Tutorials:
-         - Deploying applications from web console: cloud/rahti/tutorials/basic-console.md
-         - Core objects: cloud/rahti/tutorials/elemental_tutorial.md
-         - Utility objects: cloud/rahti/tutorials/advanced_tutorial.md
+         - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
+         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
+         - OpenShift extensions: cloud/rahti/tutorials/advanced_tutorial.md
+         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
          - Design patterns: cloud/rahti/tutorials/patterns.md
        - Template documentation: cloud/rahti/template-docs.md
        # - Contact: cloud/rahti/contact.md
