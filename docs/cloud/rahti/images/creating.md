@@ -1,3 +1,32 @@
+# Creating images
+
+## Building images localy
+
+It is possible to build images localy, three steps are needed.
+
+First a `Dockerfile` must be written, for example this:
+
+```Dockerfile
+FROM centos
+
+RUN yum install -y git
+CMD ["bash"]
+```
+
+This simply install `git` over `centos` and sets the default command as `bash`. The image will then have 3 layers (FROM, RUN and CMD), each of then doing changes over the previous. See the [Dockerfile](https://docs.docker.com/engine/reference/builder/) reference docs.
+
+Then, the following command must be used to build the image:
+
+```bash
+docker build . -t docker.io/user/name:tag
+```
+
+And finally, to publish the image:
+
+```bash
+docker push docker.io/user/name:tag
+```
+
 ## Using Rahti to build container images
 
 This assumes that you have authorized a Rahti command line session and created
@@ -8,6 +37,7 @@ tool usage](../usage/cli.md#cli-cheat-sheet).
 
 Create Rahti specific definitions with `oc new-build` command. Be sure
 not to be in a directory under git version control:
+
 ```bash
 $ oc new-build --to=my-hello-image:devel --name=my-hello --binary
 ```
