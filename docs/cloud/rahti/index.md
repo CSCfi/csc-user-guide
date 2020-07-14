@@ -17,6 +17,7 @@ you could move directly to the instructions for getting started with Rahti & its
   * [Images](/cloud/rahti/images/overview/)
   * [Project and Quota](/cloud/rahti/usage/projects_and_quota/)
   * [Billing](/cloud/rahti/billing/)
+  * [Terms of Use](/cloud/rahti/agreements/terms_of_use.md) and [Service Level Agreement(SLA)](/cloud/rahti/agreements/sla.md)
 
 Still have queries? Checkout our [Rahti FAQs](/support/faq/#pouta) page or contact `servicedesk@csc.fi`for more info.  
 
