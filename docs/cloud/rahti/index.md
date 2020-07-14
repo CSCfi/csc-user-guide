@@ -5,21 +5,17 @@ the topic:
 
   * [What is Rahti?](/cloud/rahti/rahti-what-is/), introduction to containers and container orchestration.
   * [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/), container orchestration principles.
+  * [Rahti Tutorials](/cloud/rahti/tutorials/)
+  * [External documentation ](/cloud/rahti/ext_docs/)
+
 
 If you are already familiar with container technology and Kubernetes/OpenShift concepts,
-you could move directly to the Quota and Billing sections:
-
+you could move directly to the instructions for getting started with Rahti & its usage :
+  * [Getting Started](/cloud/rahti/access/)
+  * [Storage](/cloud/rahti/storage/options/)
+  * [Images](/cloud/rahti/images/overview/)
   * [Project and Quota](/cloud/rahti/usage/projects_and_quota/)
   * [Billing](/cloud/rahti/billing/)
 
-If you already know about the quotas and the billing of projects in Rahti, you could move directly to the instructions for getting access to Rahti:
+Still have queries? Checkout our [Rahti FAQs](/support/faq/#pouta) page or contact `servicedesk@csc.fi`for more info.  
 
-  * [Getting access](/cloud/rahti/access/)
-
-If you already have access to Rahti, then you can skip ahead to usage
-documentation and the links to external documentation:
-
-  * [Storage](/cloud/rahti/storage/options/)
-  * [Images](/cloud/rahti/images/overview/)
-  * [Tutorials](/cloud/rahti/tutorials/)
-  * [External documentation ](/cloud/rahti/ext_docs/)
