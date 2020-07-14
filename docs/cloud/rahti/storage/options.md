@@ -1,1 +1,2 @@
-# Rahti storage
+
+Ephemeral or Persistent

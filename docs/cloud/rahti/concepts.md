@@ -93,6 +93,120 @@ pods at all times.
 
 ![Deployment](img/deployment.png)
 
+## InitContainer
+
+_InitContainer_ is a container in a pod that is intended run to completion before
+the main containers are started. Data from the init containers can be
+transferred to the main container using e.g. empty volume mounts.
+
+*`pod-init.yaml`*:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    app: serveapp
+    pool: servepod
+spec:
+  volumes:
+  - name: sharevol
+    emptyDir: {}
+  initContainers:
+  - name: perlhelper
+    image: perl
+    command:
+    - sh
+    - -c
+    - >
+      echo Hello from perl helper > /datavol/index.html
+    volumeMounts:
+    - mountPath: /datavol
+      name: sharevol
+  containers:
+  - name: serve-cont
+    image: docker-registry.default.svc:5000/openshift/httpd
+    volumeMounts:
+    - mountPath: /var/www/html
+      name: sharevol
+```
+
+Here we run an init container that uses the `perl` image and writes text
+in the `index.html` file on the shared volume.
+
+The shared volume is defined in `spec.volumes` and "mounted" in
+`spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
+
+## Jobs
+
+_Jobs_ are run-to-completion pods, except that they operate on the same level
+as ReplicationControllers, in the sense that they too define the template for the pod
+to be launched instead of directly describing the pod. The difference is,
+however, that *jobs* are not restarted when they finish.
+
+*`job.yaml`*:
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      volumes:
+      - name: smalldisk-vol
+        emptyDir: {}
+      containers:
+      - name: pi
+        image: perl
+        command:
+        - sh
+        - -c
+        - >
+          echo helloing so much here! Lets hello from /mountdata/hello.txt too: &&
+          echo hello to share volume too >> /mountdata/hello-main.txt &&
+          cat /mountdata/hello.txt
+        volumeMounts:
+        - mountPath: /mountdata
+          name: smalldisk-vol
+      restartPolicy: Never
+      initContainers:
+      - name: init-pi
+        image: perl
+        command:
+        - sh
+        - -c
+        - >
+          echo this hello is from the initcontainer >> /mountdata/hello.txt
+        volumeMounts:
+        - mountPath: /mountdata
+          name: smalldisk-vol
+  backoffLimit: 4
+```
+
+This job names the pod automatically, and the pod can be queried with
+a job-name label:
+
+```bash
+$ oc get pods --selector job-name=pi
+NAME       READY     STATUS      RESTARTS   AGE
+pi-gj7xg   0/1       Completed   0          3m
+```
+
+The standard output of the job:
+
+```bash
+$ oc logs pi-gj7xg
+helloing so much here! Lets hello from /mountdata/hello.txt too:
+this hello is from the initcontainer
+```
+
+There may only be one object with a given name in the project namespace, thus the
+job cannot be run twice unless its first instance is removed. The pod,
+however, needs not be cleaned.
+
 ## OpenShift extensions
 
 OpenShift includes all Kubernetes objects, plus some extensions:

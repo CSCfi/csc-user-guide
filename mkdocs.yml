@@ -50,6 +50,8 @@ nav:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
+         - Security guide: cloud/rahti/usage/security-guide.md
+       - Templates: cloud/rahti/template-docs.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/options.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
@@ -60,11 +62,10 @@ nav:
        - Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
-         - OpenShift extensions: cloud/rahti/tutorials/advanced_tutorial.md
          - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
-         - Design patterns: cloud/rahti/tutorials/patterns.md
-       - Template documentation: cloud/rahti/template-docs.md
-       # - Contact: cloud/rahti/contact.md
+         - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
+         - Webhooks: cloud/rahti/tutorials/webhooks.md
+       
        - External documentation: cloud/rahti/ext_docs.md
        # - Agreements:
        #   - Terms of Use: cloud/rahti/agreements/terms_of_use.md
