@@ -29,7 +29,7 @@ A more extensive list can be found on the [Rclone manual pages](https://rclone.o
 
 ## Authentication
 
-The first step is to authenticate to a project in Allas. In Puhti this can be done woth commands:
+The first step is to authenticate to a project in Allas. In Puhti and Mahti this can be done woth commands:
 ```text
 module load allas
 allas-conf

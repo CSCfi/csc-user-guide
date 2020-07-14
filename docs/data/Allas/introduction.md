@@ -52,7 +52,7 @@ You cannot mount Allas direcly to a computer. This means that in order to use Al
 
 ![Allas access clients](img/allas-access-flavors.png)
 
-1. In the CSC computing environment (e.g. **Puhti**), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.  
+1. In the CSC computing environment (Puhti and Mahti), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.  
 In the CSC computing environment, Allas should be used to store any data that needs to be preserved for longer than a few weeks. The supercomputer's own storage has a policy to delete idle data, so the data must be moved to Allas after computing. See [Computing disk environment](../../computing/disk.md)
 
 2. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. Instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
@@ -68,7 +68,7 @@ See also the [common use cases](./using_allas/common_use_cases.md).
 
 The object storage service is provided over two different protocols, _Swift_ and _S3_. From the user perspective, one of the main differences between S3 and Swift is authentication. The token-based Swift authentication used in Allas remains valid for eight hours at a time, but in the key-based S3, the connection can stay permanently open. The permanent connection of S3 is practical in many ways, but it includes a security aspect: if the server where Allas is used is compromised, the object storage space will be compromised as well.
 
-Due to this security concern, Swift is the recommended protocol for multiple-user servers such as Mahti and Puhti. Thus, for example, the CSC-specific _a-commands_, as well as the standard _rclone_ configuration in Puhti, are based on Swift. However, in some cases, the permanent connections provided by the S3 protocol may be the most reasonable option, for example, in personal virtual machines running in cPouta.
+Due to this security concern, Swift is the recommended protocol for multiple-user servers such as Mahti and Puhti. Thus, for example, the CSC-specific _a-commands_, as well as the standard _rclone_ configuration in Puhti and Mahti, are based on Swift. However, in some cases, the permanent connections provided by the S3 protocol may be the most reasonable option, for example, in personal virtual machines running in cPouta.
 
 The Swift and S3 protocols are <u>not</u> mutually compatible when handling objects. For small objects that do not need to be split during the upload, the protocols can be used interchangeably, but split objects can be accessed only with the protocol that was used for uploading them. The size limit for splitting an object depends on the settings and protocol. The limit is typically between 500 MB and 5 GB.
 
@@ -77,6 +77,7 @@ Generic recommendations for selecting the protocol:
  * If possible, use the _Swift_ protocol. It is better supported.
  * In any case, choose only one of the protocols. Do not mix _S3_ and _Swift_.
  * It is better to store a few large objects than many small objects.
+ * Using over 100 GB objects may cause problems because of long upload/download times. 
 
 ## Clients
 
@@ -88,7 +89,7 @@ Allas is accessed via a client software that takes care of moving data to and fr
 | [a-commands](./using_allas/a_commands.md) | Provides easy-to-use tools for basic use. Requires Rclone, Swift and OpenStack. |
 | [swift python-swiftclient](./using_allas/swift_client.md)| The recommended Swift client. |
 | [s3cmd](./using_allas/s3_client.md) | The recommended S3 client (version 2.0.2 or later). |
-| [python-swift-library](./using_allas/python_library.md) |	| 
+| [python-swift-library](./using_allas/python_library.md) |	Programmatic access. | 
 | [rclone](./using_allas/rclone.md) | Useful with supercomputers. |
 | libs3	| |	 	 
 | python-openstackclient | |
