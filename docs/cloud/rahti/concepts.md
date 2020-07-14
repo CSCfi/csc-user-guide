@@ -1,16 +1,15 @@
+# Kubernetes and OpenShift concepts
 
+The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that 
+they provide for complex tasks such as load balancing, software updates for a 
+distributed system, or autoscaling. Here we give a very brief overview of some of the 
+most important abstractions, but we highly recommend that you read the concept 
+documentation for Kubernetes and OpenShift as well:
 
-The power of Kubernetes and OpenShift) is in the relatively simple abstractions
-that they provide for complex tasks such as load balancing, software updates for
-a distributed system, or autoscaling. Here we give a very brief overview of some
-of the most important abstractions, but we highly recommend that you read the
-concept documentation for Kubernetes and OpenShift as well:
+* [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
+* [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
 
-   * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-   * [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
-
-Most of the abstractions are common to both plain Kubernetes and OpenShift, but
-OpenShift also introduces some of its own concepts.
+These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project. Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
 ## Kubernetes concepts
 
@@ -93,7 +92,7 @@ pods at all times.
 
 ![Deployment](img/deployment.png)
 
-## InitContainer
+### InitContainer
 
 _InitContainer_ is a container in a pod that is intended run to completion before
 the main containers are started. Data from the init containers can be
@@ -138,7 +137,7 @@ in the `index.html` file on the shared volume.
 The shared volume is defined in `spec.volumes` and "mounted" in
 `spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
 
-## Jobs
+### Jobs
 
 _Jobs_ are run-to-completion pods, except that they operate on the same level
 as ReplicationControllers, in the sense that they too define the template for the pod
