@@ -89,3 +89,19 @@ Apache Airflow (or simply Airflow) is a platform to programmatically author, sch
 |Metadata Volume Storage Size|Size of the metadata volume storage|
 |PERSISTENT Volume Claim Name (Temp Storage for Workers)|Attached PERSISTENT volume claim name for storing temporary data across Celery workers|
 |Metadata Volume Storage Size|Size of the temporary data storage in Celery workers|
+
+## Rocket chat
+
+Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full stack framework. It is a solution for communities and companies wanting to privately host their own chat service or for developers looking forward to build and evolve their own chat platforms.
+
+|Parameter|Description|
+|---------|------------|
+|Memory Limit|Maximum amount of memory the container can use.|
+|Namespace|The OpenShift Namespace where the ImageStream resides.|
+|Rocket.Chat ImageStreamTag|The ImageStreamTag to use for Rocket.Chat|
+|Database Service Name|The name of the OpenShift Service exposed for the database.|
+|MongoDB User|Username for MongoDB user that will be used for accessing the database.|
+|MongoDB Password|Password for the MongoDB user.|
+|MongoDB Database Name|Name of the MongoDB database accessed.|
+|MongoDB Admin Password|Password for the database admin user.|
+|Volume Capacity|Volume space available for data| e.g. 512Mi| 2Gi.|
