@@ -3,14 +3,15 @@ familiar with container technology or container orchestration systems such as
 Kubernetes or OpenShift, you could start by reading a generic introduction to
 the topic:
 
-  * [What is Rahti?](/cloud/rahti/rahti-what-is/), introduction to containers and container orchestration.
-  * [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/), container orchestration principles.
+  * [What is Rahti?](/cloud/rahti/rahti-what-is/)
+  * [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/)
   * [Rahti Tutorials](/cloud/rahti/tutorials/)
   * [External documentation ](/cloud/rahti/ext_docs/)
 
 
 If you are already familiar with container technology and Kubernetes/OpenShift concepts,
 you could move directly to the instructions for getting started with Rahti & its usage :
+
   * [Getting Started](/cloud/rahti/access/)
   * [Storage](/cloud/rahti/storage/options/)
   * [Images](/cloud/rahti/images/overview/)
