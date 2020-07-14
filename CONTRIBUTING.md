@@ -8,8 +8,7 @@ vcs-support@csc.fi. After this you can [join the CSC employees
 team](https://github.com/orgs/CSCfi/teams/employees/members), which
 gives you permissions to edit source files that build the user guide.
 
-The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](../STYLEGUIDE.md) for content and 
-formatting instructions.
+The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions.
 
 ## For the impatient
 

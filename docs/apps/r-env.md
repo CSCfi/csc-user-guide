@@ -76,7 +76,12 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/<project>" > .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun Rscript --no-save myscript.R
 ```
 
@@ -91,7 +96,7 @@ Further to the following examples, please see our separate [documentation](../co
 !!! note
     For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone, e.g. via the srun Rmpi command, are currently unavailable due to compatibility issues.
 
-*Multi-core and array jobs*
+*Multi-core jobs*
 
 To submit a job employing multiple cores on a single node, one could use the following batch job file. The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
 
@@ -109,11 +114,18 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/<project>" > .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun Rscript --no-save myscript.R
 ```
 
-Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../computing/running/array-jobs.md) for information). The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
+*Array jobs*
+
+Array jobs can be used to handle [*embarrassingly parallel*](../computing/running/array-jobs.md) tasks. The following script would submit a job involving ten subtasks on the `small` partition, with each requiring less than five minutes of computing time and less than 1 GB of memory.
 
 ```bash
 #!/bin/bash -l
@@ -129,8 +141,69 @@ Array jobs can be used to handle *embarrassingly parallel* tasks (see [here](../
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/<project>" > .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
+```
+
+For larger-scale array jobs involving [many small independent runs](../support/tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+
+```bash
+set1
+set2
+set3
+(...)
+set1500
+```
+
+To perform our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+
+- The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array.
+
+- We use `-j $SLURM_CPUS_PER_TASK -k` to tell GNU parallel to keep running 4 applications in parallel, while ensuring that the job output order matches the input order. The number of simultaneous parallel applications is defined using `--cpus-per-task`.
+
+- For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_array_gnupara
+#SBATCH --account=
+#SBATCH --output=output_%j_%a.txt
+#SBATCH --error=errors_%j_%a.txt
+#SBATCH --partition=small
+#SBATCH --time=00:05:00
+#SBATCH --array=0-9
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=1000
+#SBATCH --cpus-per-task=4
+
+module load parallel/20200122
+module load r-env/3.6.1
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/" >> ~/.Renviron
+
+(( from_run = SLURM_ARRAY_TASK_ID * 150 + 1 ))
+(( to_run = SLURM_ARRAY_TASK_ID * 150 + 150 ))
+
+sed -n "${from_run},${to_run}p" mylist.txt | \
+    parallel -j $SLURM_CPUS_PER_TASK -k \
+        Rscript --no-save myscript.R \
+        $SLURM_ARRAY_TASK_ID
+```
+
+If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function:
+
+```r
+commandArgs(trailingOnly = TRUE)
 ```
 
 *Jobs using `doMPI` (with `foreach`)*
@@ -174,7 +247,12 @@ Whereas most parallel R jobs can be submitted using `srun Rscript`, those involv
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/<project>" > .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun RMPISNOW --no-save --slave -f myscript.R
 ```
 
@@ -211,7 +289,12 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --mem-per-cpu=1000
 
 module load r-env/3.6.1
-echo "TMPDIR=/scratch/<project>" > .Renviron
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun Rscript --no-save --slave myscript.R
 ```
 
@@ -226,6 +309,42 @@ message <- paste("Hello from rank", comm.rank(), "of", comm.size())
 comm.print(message, all.rank = TRUE, quiet = TRUE)
 
 finalize()
+```
+
+#### Using fast local storage
+
+For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+
+An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_serial_fastlocal
+#SBATCH --account=
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=1000
+#SBATCH --gres=nvme:10
+
+module load r-env/3.6.1
+
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+echo "TMPDIR=$TMPDIR" >> ~/.Renviron
+
+srun Rscript --no-save myscript.R
+```
+
+Further to temporary file storage, data sets for analysis can be stored on a fast local drive in the location specified by the variable `LOCAL_SCRATCH`. To enable R to find your data, you will need to indicate this location in your R script. After launching R, you can print out the location using the following command:
+
+```
+Sys.getenv("LOCAL_SCRATCH")
 ```
 
 #### R package installations

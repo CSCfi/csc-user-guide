@@ -43,6 +43,7 @@
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
+* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
@@ -60,6 +61,7 @@
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MATLAB](matlab.md) High-level technical computing language
 * [Megahit](megahit.md) Metagenomics assebly
+* [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
@@ -116,7 +118,8 @@
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [Velvet](velvet.md) Genome assembler
+* [Velvet](velvet.md) Genome assembler* 
+* [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
