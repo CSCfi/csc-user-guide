@@ -13,9 +13,9 @@ RUN yum install -y git
 CMD ["bash"]
 ```
 
-This simply install `git` over `centos` and sets the default command as `bash`. The image will then have 3 layers (FROM, RUN and CMD), each of then doing changes over the previous. See the [Dockerfile](https://docs.docker.com/engine/reference/builder/) reference docs.
+This simply installs `git` over `centos` and sets the default command as `bash`. The image will then have 3 layers (FROM, RUN and CMD), each of then doing changes over the previous. See the [Dockerfile](https://docs.docker.com/engine/reference/builder/) reference docs.
 
-Then, the following command must be used to build the image:
+Then, the following command must be used to build the image `docker.io/user/name:tag`:
 
 ```bash
 docker build . -t docker.io/user/name:tag
@@ -40,17 +40,28 @@ not to be in a directory under git version control:
 
 ```bash
 $ oc new-build --to=my-hello-image:devel --name=my-hello --binary
+    * A Docker build using binary input will be created
+      * The resulting image will be pushed to image stream tag "my-hello-image:devel"
+      * A binary build was created, use 'start-build --from-dir' to trigger a new build
+
+--> Creating resources with label build=my-hello ...
+    imagestream.image.openshift.io "my-hello-image" created
+    buildconfig.build.openshift.io "my-hello" created
+--> Success
 ```
 
-Move to the directory that has `Dockerfile` and build-files:
+Clone the official docker hello-world example, and enter in the directory with the Dockerfile witht:
+
 ```bash
-$ cd my-docker-build
+$ git clone https://github.com/docker-library/hello-world.git
+$ cd hello-world/amd64/hello-world
 $ ls
-Dockerfile  hello-world.jl
+Dockerfile  hello  nanoserver-1809
 ```
 
 Start build with `oc start-build` command from build artifacts in current
 directory and output the build process to local terminal:
+
 ```bash
 $ oc start-build my-hello --from-dir=./ -F
 ```
@@ -58,7 +69,7 @@ $ oc start-build my-hello --from-dir=./ -F
 The image will appear in the Rahti registry console
 [registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
 and it will be visible to internet at
-*docker-registry.rahti.csc.fi/build-tutorial/my-hello:devel* for docker
+`docker-registry.rahti.csc.fi/build-tutorial/my-hello:devel` for docker
 compatible clients.
 
 For command line usage with docker compatible clients, the docker repository
