@@ -22,7 +22,7 @@ spec:
 Persistent storage can be requested also via the web console.
 
 This will request a 1 GiB persistent storage that can be mounted in read-write
-mode by multiple nodes.
+mode by multiple nodes. Other access modes are ReadWriteOnce (Only one node can mount it read-write) and ReadOnlyMany (Multiple nodes can mount read-only).
 
 The persistent volume can be used in a pod by specifying `spec.volumes`
 (defines the volumes to attach) and `spec.containers.volumeMounts` (defines where
@@ -49,6 +49,36 @@ spec:
   - name: smalldisk-vol
     persistentVolumeClaim:
       claimName: testing-pvc
+```
+
+## EmptydDir
+
+EmptyDir provides ephemeral temporal storage locally on the node where containers are run, on Rahti this is RAID-0 SSD storage. When the Pod is killed, the information in the emptyDir will be lost. It is declared directly in the Pod definition:
+
+*`podWithEmptydDir.yaml`*:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+  labels:
+    app: my-application
+  spec:
+    volumes:
+    - name: volume-a
+      emptyDir: {}
+    containers:
+    - name: container-a
+      image: centos:7
+      volumeMounts:
+      - mountPath: /outputdata
+        name: volume-a
+    - name: container-b
+      image: centos:7
+      volumeMounts:
+      - mountPath: /interm
+        name: volume-a
 ```
 
 ## InitContainer
@@ -371,3 +401,43 @@ to be non-encrypted (the `spec.tls.termination: edge`). Other termination polici
     Another way of utilizing the certificates provided by Let's Encrypt is to
     use the [`certbot`](https://certbot.eff.org/) tool on the debug console and
     renewing the certificate with e.g. the CronJob controller.
+
+## Using Rahti to build container images
+
+This assumes that you have authorized a Rahti command line session and created
+a project in Rahti. Instructions for that are shown in Chapter [Command line
+tool usage](../usage/cli.md#cli-cheat-sheet).
+
+**Steps:**
+
+Create Rahti specific definitions with `oc new-build` command. Be sure
+not to be in a directory under git version control:
+```bash
+$ oc new-build --to=my-hello-image:devel --name=my-hello --binary
+```
+
+Move to the directory that has `Dockerfile` and build-files:
+```bash
+$ cd my-docker-build
+$ ls
+Dockerfile  hello-world.jl
+```
+
+Start build with `oc start-build` command from build artifacts in current
+directory and output the build process to local terminal:
+```bash
+$ oc start-build my-hello --from-dir=./ -F
+```
+
+The image will appear in the Rahti registry console
+[registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
+and it will be visible to internet at
+*docker-registry.rahti.csc.fi/build-tutorial/my-hello:devel* for docker
+compatible clients.
+
+For command line usage with docker compatible clients, the docker repository
+password will be the access token shown when authorizing Rahti command line
+session and user name can be `unused`.
+
+The Docker CLI tool login instructions are also shown in the [Rahti registry
+console](https://registry-console.rahti.csc.fi).

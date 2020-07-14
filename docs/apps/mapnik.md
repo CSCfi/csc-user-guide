@@ -19,6 +19,8 @@ Mapnik library is included in the __mapnik__ module and can be loaded with
 * gdal 2.4.2
 * Allas libraries (boto3, python-swiftclient)
 * spyder
+* And many more, for retrieving the full list in Puhti use:
+    `list-packages`
 
 You can request additional libraries from __servicedesk@csc.fi__
 

@@ -5,6 +5,7 @@ development of python scripts for geoinformatics applications. It
 includes following python packages:
 
 -   [ArcGIS Python API](https://developers.arcgis.com/python/) - provides simple and efficient tools for sophisticated vector and raster analysis, geocoding, map making, routing and directions. 
+-   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
 -   [fiona] - reads and writes spatial data files.
@@ -25,9 +26,11 @@ includes following python packages:
     vector geometries. It includes functions for zonal statistics and
     interpolated point queries.
 -   [rtree] - spatial indexing and search.
+-   [sentinelsat] - downloading Sentinel images
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scikit-learn] - machine learning for Python.
 -   [skimage] -  algorithms for image processing.
+-   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
 -   [xarray](http://xarray.pydata.org) - for multidimensional raster data. 
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
@@ -44,11 +47,10 @@ Additionally geoconda includes:
     list.
     
 !!! note
-    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using -X connection.
+    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance
 
-Python has also packages for parallel computing, for example
-**multiprocessing**. In our examples there is two cases using Python
-multiprocessing: [zonal statistics] and [focal mean].
+Python has multiple packages for parallel computing, for example
+**multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
 (If you think that some important GIS package for Python is missing from
 here, you can ask for installation from servicedesk@csc.fi.)
@@ -86,13 +88,20 @@ To check the exact packages and versions included in the loaded module:
 
 You can add more Python packages to Geoconda for your own use with `pip`, for example:
 
-`pip install [newPythonPackageName] --user --target=/projappl/[yourProject]/python3.7/site-packages/`.
+`pip install [newPythonPackageName] --user`
 
-If you do not give the installation folder as target, the packages are by default installed to your home directory under
-`.local/lib/python3.7/site-packages`
+The packages are by default installed to your home directory under `.local/lib/python3.7/site-packages`. If you would like to change the installation folder define `PYTHONUSERBASE` environmentvariable with new installation location first:
+
+`export PYTHONUSERBASE=/projappl/<your_project>/python3.7_pip`
+
+You should use the same export command then always also before using, inc in the batch job files.
 
 If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda].
 
+
+## Using Allas from Python
+
+There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). With large quantities of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here](https://research.csc.fi/virtual_rasters).
 
 ## License and citing
 
@@ -101,7 +110,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 ### References
 
-
+-   [CSC Python parallelisation examples]
 -   [Python spatial] libraries
 -   [Essential Python Geospatial Libraries]
 -   [Geoprocessing with Python using Open Source GIS]
@@ -137,10 +146,6 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [SNAP]: snap.md
   [spyder]: https://pythonhosted.org/spyder/
   [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
-  [zonal statistics]: https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats
-  [focal mean]: https://github.com/csc-training/geocomputing/tree/master/python/focal_mean
-  [geo-env]: https://research.csc.fi/-/geo-env
-  [Python]: https://research.csc.fi/-/python
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
   [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
@@ -150,3 +155,5 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [Automating GIS processes course materials]: https://automating-gis-processes.github.io
   [Geohack Week materials]: https://geohackweek.github.io/schedule.html
   [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
+  [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
+  [CSC Python parallelisation examples]: https://github.com/csc-training/geocomputing/tree/master/python/puhti

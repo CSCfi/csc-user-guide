@@ -24,16 +24,26 @@ SNAP is included in the __snap__ module and can be loaded with
 
 `module load snap`
 
+### SNAP userdir configuration (Do this the first time!) 
+
+SNAP uses significant amount of storage space for cache and temporary files. These files easily fill your HOME directory so a script was written for configuring the snap user directories easily. You should always run this the first time you start using SNAP in Puhti or if you switch projects.
+
+After loading the module run
+
+`source snap_add_userdir <YOUR-PROJECTS-SCRATCH-FOLDER>`
+
+If you run the command with another folder again, it overwrites the previous settings. 
+
+You could also request a fast [nvme](../computing/running/creating-job-scripts.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
+
 ### Using SNAP with graphical user interface
 
-If you have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface of SNAP with
+If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface of SNAP with
 
 `snap`
 
-For __X11 forwarding__ to be enabled you need to install a suitable program for your own computer first (unless you are using Linux or Mac). You can read instructions how to do that [here](../computing/connecting.md)
-
 !!! note
-    Do not run long CPU intensive jobs on the login nodes! This means you can't run computationally intensive analysis on graphical user interfaces on Puhti until interactive Puhti-shells are made available later in 2019. Use the batch job system on Puhti or run analysis on taito-shell.
+   We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
@@ -51,11 +61,23 @@ More information on the [SNAP command line tutorial](http://step.esa.int/docs/tu
 
 There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable __$SLURM_ARRAY_TASK_ID__ and make sure each job has an individual cache folder.
 
-`gpt_array /scratch/<project>/snap_cache/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
+`gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
 
 ### Using SNAP with the Python library snappy
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a conda environment is also loaded that has __python 2.7__ and __snappy__ installed so you can just start python and import snappy. This conda environment also includes pandas, numpy, geopandas, rasterio, rasterstats and spyder. If you need additional libraries, contact __servicedesk@csc.fi__.
+It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a conda environment is also loaded that has __python 2.7__ and __snappy__ installed so you can just start python and import snappy. 
+
+This conda environment also includes:
+
+* pandas
+* numpy 
+* geopandas 
+* rasterio
+* rasterstats
+* sentinelsat
+* spyder
+
+And many more, for retrieving the full list in Puhti use: `list-packages` If you need additional libraries, contact __servicedesk@csc.fi__.
 
 ## License and citing
 
@@ -70,3 +92,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 * [SNAP wiki](https://senbox.atlassian.net/wiki/spaces/SNAP/overview)
 * [SNAP tutorials](http://step.esa.int/main/doc/tutorials/)
 * [snappy Python examples](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python)
+

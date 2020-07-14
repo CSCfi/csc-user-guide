@@ -6,9 +6,9 @@ Puhti is CSC's supercomputer. It has been available for CSC users since
 
 ## Accessing Puhti
 
-To gain access, please go to [my.csc.fi](https://my.csc.fi) to apply for
-access to Puhti. Further instructions are provided in the Accounts section
-of this user guide.
+To be able to use Puhti, you need to have a CSC user account that belongs to
+a computing project that has access to Puhti. CSC user accounts and projects are managed
+with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
 ## Connecting to Puhti
 
@@ -22,24 +22,64 @@ to a specific login node, use the command:
 ```
 ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 ```
-For instructions on how to connect using Putty or establishing
-a graphical connection, see the [connecting](connecting.md) page.
+For more details, see the [connecting](connecting.md) page.
 
+## Usage policy
+
+When you login to CSC supercomputers, you end up to one of the login nodes of the cluster.
+These login nodes are shared by all users and they are **not** intended for heavy computing.
+
+The login nodes should be used only for:
+
+ * compiling
+ * managing batch jobs
+ * moving data
+ * **light** pre- and postprocessing
+
+Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
+All the other tasks are to be done in compute nodes either as normal [batch jobs](running/getting-started.md)
+or as [interactive batch jobs](running/interactive-usage.md).
+Programs not adhering to these rules will be terminated without warning.
 
 !!! warning "Important"
-    The login nodes can be used for compiling, moving data and **light** pre- and postprocessing. 
-    **Light** means that these **one-core-jobs**
-    should finish in **minutes** and require **a few GiB** of memory at maximum. 
-    All other tasks are to be done in the compute nodes using the [batch job system](running/getting-started.md). Programs not adhering to these rules will be terminated without warning. Note that compute nodes can be used also [interactively](running/interactive-usage.md)
+    The login nodes are not meant for long or heavy processes.
 
+## Projects and quotas
 
+Working in Puhti is based on projects. The computing and storage resources are allocated to projects and when you start a batch job, you must always define the project that the job belongs to.
+
+Projects are managed with [MyCSC portal](https://my.csc.fi), were you can add services, resources and users to your CSC projects.
+
+In Puhti, you can check your currently active Puhti-projects with command:
+
+```text
+csc-projects
+```
+This command shows information for all your CSC projects that have access to Puhti. You can select just one project to be reported with option `-p` . For example:
+```bash
+[kkayttaj@puhti ~]$ csc-projects -p project_2012345
+-----------------------------------------------------------------
+Project: project_2012345	Owner: Kalle Käyttäjä
+Title: "Ortotopology modeling"
+Start: 2015-12-17 End: 2022-03-16 Status: open
+Budget:   1174188  Used   1115284 Remain:      58904
+Latest resource grant: 2019-03-04
+-----------------------------------------------------------------
+```
+The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how many billing units have been granted to your project, how much has been used and how much still remain. 
+
+The disk areas of your Puhti projects can be checked with command:
+```text
+csc-workspaces
+```
+Check [Disk areas](disk.md) chapter for details.
 
 ## Using Puhti
 
 * [System](system.md): What computational resources does Puhti have
-* [Disk areas](disk.md): What places are there for storing data on Puhti 
+* [Connecting](connecting.md): How to connect to Puhti
+* [Disk areas](disk.md): What places are there for storing data on Puhti
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
-* [Running jobs](running/getting-started.md): How to run programs on Puhti 
+* [Running jobs](running/getting-started.md): How to run programs on Puhti
 * [Compiling applications](compiling.md): Using compilers and building your applications   
-

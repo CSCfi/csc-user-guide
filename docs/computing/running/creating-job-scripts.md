@@ -117,13 +117,27 @@ Set the number of MPI tasks:
 If more fine-tuned control is required, the exact number of nodes and number of tasks per node can be specified with
 `--nodes` and `--ntasks-per-node`, respectively.
 
-To request more cores per MPI task, use the argument `--cpus-per-task`. The default value is one core per task. 
 It is recommended to request memory using the `--mem-per-cpu` option.
 
 
 !!! Note
-    - MPI programs can **not** be started with _mpirun_ or _mpiexec_, `srun` has to be used.
+    - MPI should **not** be started with _mpirun_ or _mpiexec_, use `srun` instead.
     - A MPI module has to be loaded in the batch job script for the submission to work properly.
+
+## Hybrid batch jobs 
+
+In hybrid jobs, each tasks is allocated several cores. Each tasks then uses some other parallelization than MPI to do work.
+The most common strategy is for every MPI-task to launch multiple threads using OpenMP. 
+To request more cores per MPI task, use the argument `--cpus-per-task`. The default value is one core per task. 
+ 
+The optimal ratio between the number of tasks and cores per tasks varies for each program, testing is required to find
+the right combination for your application. 
+
+!!! Note
+    By default, running a single task per node with multiple threads using **hpcx-mpi** will bind all threads to a single
+    core and no speedup will be gained. This can be fixed by setting `export OMP_PROC_BIND=true` in your job script. This
+    will bind the threads to different cores. Another possibility is to turn off slurms core binding with the `srun` flag `--cpu-bind=none`. 
+
 
 ## Additional resources in batch jobs
 
@@ -140,7 +154,7 @@ Request local storage using the `--gres` flag in the job submission:
 ```
 --gres=nvme:<local_storage_space_per_node>
 ```
-The amount of space is given in GB (with a maximum of 3600 GB per node). The local storage reservation is on a per node basis.
+The amount of space is given in GB (with a maximum of 3600 GB per node).  For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis.
 
 Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
@@ -163,3 +177,5 @@ Request both GPU and local storage:
 ```
 --gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
+
+For example, to request 1 GPU and 10 GB of NVME storage the option would be `--gres=gpu:v100:1,nvme:10`.
