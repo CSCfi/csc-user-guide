@@ -7,13 +7,37 @@ It is possible to build images localy, three steps are needed.
 First a `Dockerfile` must be written, for example this:
 
 ```Dockerfile
-FROM centos
+FROM nginx:alpine
 
-RUN yum install -y git
-CMD ["bash"]
+# support running as arbitrary user which belogs to the root group
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
+    chown nginx.root /var/cache/nginx /var/run /var/log/nginx && \
+    # users are not allowed to listen on priviliged ports
+    sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf && \
+    # Make /etc/nginx/html/ available to use
+    mkdir -p /etc/nginx/html/ && chmod 777 /etc/nginx/html/ && \
+    # comment user directive as master process is run as user in OpenShift anyhow
+    sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
+
+WORKDIR /usr/share/nginx/html/
+EXPOSE 8081
+
+USER nginx:root
 ```
 
-This simply installs `git` over `centos` and sets the default command as `bash`. The image will then have 3 layers (FROM, RUN and CMD), each of then doing changes over the previous. See the [Dockerfile](https://docs.docker.com/engine/reference/builder/) reference docs.
+This simply uses the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and makes the necessary modifications to make it work as a non root user, this is necessary to make it work in OpenShift. Basicaly to give permissions to the `root` group, change the port where nginx listens to, and comment out a line of configuration. The original `nginx:alpine` image has 5 layers, and we will adding a new one (RUN).
+
+A simpler example of `Dockerfile` could be:
+
+```Dockerfile
+FROM alpine
+
+RUN apk add git
+```
+
+This is just installing git over `alpine`, and add also a new layer.
+
+See the [Dockerfile](https://docs.docker.com/engine/reference/builder/) reference docs.
 
 Then, the following command must be used to build the image `docker.io/user/name:tag`:
 
@@ -50,26 +74,16 @@ $ oc new-build --to=my-hello-image:devel --name=my-hello --binary
 --> Success
 ```
 
-Clone the official docker hello-world example, and enter in the directory with the Dockerfile witht:
+Then you need a `Dockerfile`, you can use any of the previous `Dockerfile` in the previous example, or any other one you may have around. In order to tell OpenShift to build the image, just `cd` to the folder where the `Dockerfile` is, and start build with the `oc start-build` command, it will take any file in the current directory and output the build process to local terminal:
 
 ```bash
-$ git clone https://github.com/docker-library/hello-world.git
-$ cd hello-world/amd64/hello-world
-$ ls
-Dockerfile  hello  nanoserver-1809
-```
-
-Start build with `oc start-build` command from build artifacts in current
-directory and output the build process to local terminal:
-
-```bash
-$ oc start-build my-hello --from-dir=./ -F
+oc start-build my-hello --from-dir=./ -F
 ```
 
 The image will appear in the Rahti registry console
 [registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
 and it will be visible to internet at
-`docker-registry.rahti.csc.fi/build-tutorial/my-hello:devel` for docker
+`docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
 compatible clients.
 
 For command line usage with docker compatible clients, the docker repository
@@ -78,3 +92,60 @@ session and user name can be `unused`.
 
 The Docker CLI tool login instructions are also shown in the [Rahti registry
 console](https://registry-console.rahti.csc.fi).
+
+## Using the Source to Image mechanism
+
+OpenShift allows to build and deploy code without writting a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
+
+```bash
+$ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
+--> Found image 4e4d991 (2 weeks old) in image stream "openshift/python" under tag "3.8" for "python"
+
+    Python 3.8 
+    ---------- 
+    Python 3.8 available as container is a base platform for building and running various Python 3.8 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
+
+    Tags: builder, python, python38, python-38, rh-python38
+
+    * The source repository appears to match: python
+    * A source build using source code from https://github.com/OpenShiftDemos/os-sample-python.git will be created
+      * The resulting image will be pushed to image stream tag "os-sample-python:latest"
+      * Use 'start-build' to trigger a new build
+    * This image will be deployed in deployment config "os-sample-python"
+    * Port 8080/tcp will be load balanced by service "os-sample-python"
+      * Other containers can access this service through the hostname "os-sample-python"
+
+--> Creating resources ...
+    imagestream.image.openshift.io "os-sample-python" created
+    buildconfig.build.openshift.io "os-sample-python" created
+    deploymentconfig.apps.openshift.io "os-sample-python" created
+    service "os-sample-python" created
+--> Success
+    Build scheduled, use 'oc logs -f bc/os-sample-python' to track its progress.
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose svc/os-sample-python' 
+    Run 'oc status' to view your app.
+```
+
+The image will be found in Rahti's registry. Then do as suggested and expose the new application to the outside world:
+
+```bash
+$ oc expose svc/os-sample-python
+route.route.openshift.io/os-sample-python exposed
+```
+
+In order to get the new route hostname do:
+
+```bash
+oc get route os-sample-python
+```
+
+If you enter the hostname in a browser, you will see the "Hello World!" message.
+
+A new build can be triggered in the command line:
+
+```bash
+oc start-build os-sample-python
+```
+
+Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
