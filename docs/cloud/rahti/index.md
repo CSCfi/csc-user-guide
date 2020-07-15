@@ -5,7 +5,7 @@ the topic:
 
   * [What is Rahti?](/cloud/rahti/rahti-what-is/)
   * [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/)
-  * [Rahti Tutorials](/cloud/rahti/tutorials/)
+  * [Rahti Tutorials](cloud/rahti/tutorials/basic-console.md)
   * [External documentation ](/cloud/rahti/ext_docs/)
 
 
@@ -15,6 +15,7 @@ you could move directly to the instructions for getting started with Rahti & its
   * [Getting Started](/cloud/rahti/access/)
   * [Storage](/cloud/rahti/storage/options/)
   * [Images](/cloud/rahti/images/overview/)
+  * [Rahti Templates](cloud/rahti/template-docs.md)
   * [Project and Quota](/cloud/rahti/usage/projects_and_quota/)
   * [Billing](/cloud/rahti/billing/)
   * [Terms of Use](/cloud/rahti/agreements/terms_of_use.md) and [Service Level Agreement(SLA)](/cloud/rahti/agreements/sla.md)
