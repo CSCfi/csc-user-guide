@@ -9,7 +9,7 @@ Rahti's routers have been already configured to have some protection against dis
 |http-keep-alive| 10s|
 |check| 10s|
 
-For exmaple, the timeout `http-request` is set to 10 seconds. This means HAProxy gives a client 10 seconds to send its whole HTTP request. Otherwise, HAProxy shuts the connection with an error.
+For example, the timeout `http-request` is set to 10 seconds. This means HAProxy gives a client 10 seconds to send its whole HTTP request. Otherwise, HAProxy shuts the connection with an error.
 
 It is possible to enable further protections on a per route basis. These annotations muist be added accordinly to the `Route` you may want to protect:
 
