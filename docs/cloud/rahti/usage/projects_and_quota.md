@@ -133,14 +133,17 @@ own quota for the following resources:
 | Virtual cores per container      | 2       |
 | RAM per pod                      | 8 GiB   |
 | RAM per container                | 8 GiB   |
+| Storage                          | 50 GiB  |
+| Number of image streams          | 10      |
+| Size of each registry images     | 5 GiB   |
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under Resources -> Quota. Alternatively, you can use the oc
 command line tool:
 
 ```bash
-oc get quota -o yaml
-oc get limitranges -o yaml
+oc describe quota
+oc describe limitranges
 ```
 
 If you need to create more projects or you need more resources in a project for

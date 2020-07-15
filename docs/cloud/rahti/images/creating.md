@@ -12,7 +12,7 @@ FROM nginx:alpine
 # support running as arbitrary user which belogs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
     chown nginx.root /var/cache/nginx /var/run /var/log/nginx && \
-    # users are not allowed to listen on priviliged ports
+    # users are not allowed to listen on privileged ports
     sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf && \
     # Make /etc/nginx/html/ available to use
     mkdir -p /etc/nginx/html/ && chmod 777 /etc/nginx/html/ && \
@@ -25,7 +25,7 @@ EXPOSE 8081
 USER nginx:root
 ```
 
-This simply uses the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and makes the necessary modifications to make it work as a non root user, this is necessary to make it work in OpenShift. Basicaly to give permissions to the `root` group, change the port where nginx listens to, and comment out a line of configuration. The original `nginx:alpine` image has 5 layers, and we will adding a new one (RUN).
+This simply uses the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and makes the necessary modifications to make it work as a non root user, this is necessary to make it work in OpenShift. Basically to give permissions to the `root` group, change the port where nginx listens to, and comment out a line of configuration. The original `nginx:alpine` image has 5 layers, and we will adding a new one (RUN).
 
 A simpler example of `Dockerfile` could be:
 
@@ -95,7 +95,7 @@ console](https://registry-console.rahti.csc.fi).
 
 ## Using the Source to Image mechanism
 
-OpenShift allows to build and deploy code without writting a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
+OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
 
 ```bash
 $ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git

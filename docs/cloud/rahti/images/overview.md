@@ -29,4 +29,4 @@ The name in this example is `centos`, but as we can see, it is expanded first to
 
 * Next, you have the image name itself, `centos`. There are a lot of other "base images" in `docker.io/library`, like for example, `ubuntu` or `alpine`.
 
-* Finaly, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `centos` are: `8`, `7`, `8.1.1911`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
+* Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `centos` are: `8`, `7`, `8.1.1911`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.

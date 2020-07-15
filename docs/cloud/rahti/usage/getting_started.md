@@ -1,4 +1,4 @@
-# Getting started
+# Using the web interface
 
 All applications launched in OpenShift run within **projects** that can be
 created by any authenticated user. Each project has its own private virtual
