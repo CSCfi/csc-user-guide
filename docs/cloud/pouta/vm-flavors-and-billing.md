@@ -117,11 +117,14 @@ billing unit coefficients.
 | tb.3.480RAM  | 56 | 480  | 20 (SSD/RAID0) | 1650 (NVMe/RAID0) | 1730 | 8.5  | 110 (240) |
 | tb.3.1470RAM | 80 | 1470 | 80 (SSD/RAID0) | 2500 (NVMe/RAID0) | 2580 | 18.3 | 320 (600) |
 
-### GPU flavors (only available via request to servicedesk)
+### GPU flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
+|Flavor|Cores|GPUs|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.2.1gpu | 20 | 180 | 80 (SSD/RAID0) | 1000 (SSD/RAID0) | 1080 | 9 | 100 (140) |
+| gpu.2.1gpu | 20 | 1 | 180 | 80 (SSD/RAID0) | 1000 (SSD/RAID0) | 1080 | 9 | 100 (140) |
+| gpu.1.1gpu | 14 | 1 | 120 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 60  |
+| gpu.1.2gpu | 28 | 2 | 240 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 120 |
+| gpu.1.4gpu | 56 | 4 | 480 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 240 |
 
 **\*** Because not all memory amounts round exactly to GiB, the closest value
 has been used.
