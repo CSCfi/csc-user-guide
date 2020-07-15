@@ -49,6 +49,7 @@ nav:
          - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
          - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
          - Webhooks: cloud/rahti/tutorials/webhooks.md
+         - Protecting against DDoS Attacks: /cloud/rahti/tutorials/DDos/
        - External documentation: cloud/rahti/ext_docs.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
@@ -56,9 +57,9 @@ nav:
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
          - Security guide: cloud/rahti/usage/security-guide.md
        - Storage in Rahti:
-         - Available storage options: cloud/rahti/storage/options.md
-         - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
+         - Ephemeral storage: cloud/rahti/storage/ephemeral.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
@@ -68,6 +69,7 @@ nav:
        - Agreements:
          - Terms of Use: cloud/rahti/agreements/terms_of_use.md
          - Service Level Agreement: cloud/rahti/agreements/sla.md
+         - Protecting against DDoS Attacks: /cloud/rahti/tutorials/DDos/
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md

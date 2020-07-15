@@ -17,9 +17,7 @@ server running:
 
     In practice, you should not deploy applications the way described in this
     tutorial. Instead, it is meant for learning the core concepts of
-    Kubernetes. If you are already familiar with pods, services and routes,
-    you might be interested in the chapter
-    [Advanced concepts](/cloud/rahti/tutorials/advanced_tutorial).
+    Kubernetes.
 
 ## Preparation
 
@@ -304,7 +302,7 @@ concepts](/cloud/rahti/introduction/background#kubernetes-and-openshift-concepts
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](/cloud/rahti/tutorials/advanced_tutorial#deploymentconfig)
+object is that [DeploymentConfig](/cloud/rahti/concepts/#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note

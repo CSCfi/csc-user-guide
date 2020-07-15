@@ -230,7 +230,7 @@ Strategies](https://docs.okd.io/latest/dev_guide/deployments/deployment_strategi
 in the OpenShift documentation.
 
 DeploymentConfig objects function similarly to deployments described in the
-chapter [Background](/cloud/rahti/introduction/background) except that deployments
+chapter [concepts](/cloud/rahti/concepts/) except that deployments
 trigger updates only when `spec.template` is changed. Furthermore, deployment
 is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 

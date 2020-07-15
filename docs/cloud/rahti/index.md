@@ -12,13 +12,11 @@ the topic:
 If you are already familiar with container technology and Kubernetes/OpenShift concepts,
 you could move directly to the instructions for getting started with Rahti & its usage :
 
-  * [Getting Started](/cloud/rahti/access/)
-  * [Storage](/cloud/rahti/storage/options/)
+  * [Getting access](/cloud/rahti/access/)
+  * [Storage](/cloud/rahti/storage/)
   * [Images](/cloud/rahti/images/overview/)
   * [Rahti Templates](cloud/rahti/template-docs.md)
   * [Project and Quota](/cloud/rahti/usage/projects_and_quota/)
   * [Billing](/cloud/rahti/billing/)
-  * [Terms of Use](/cloud/rahti/agreements/terms_of_use.md) and [Service Level Agreement(SLA)](/cloud/rahti/agreements/sla.md)
-
-Still have queries? Checkout our [Rahti FAQs](/support/faq/#pouta) page or contact `servicedesk@csc.fi`for more info.  
-
+  * [Terms of Use](/cloud/rahti/agreements/terms_of_use/) and [Service Level Agreement(SLA)](/cloud/rahti/agreements/sla/)
+Still have queries? Checkout our [Rahti FAQs](/support/faq/#rahti) page or contact `servicedesk@csc.fi`for more info.  

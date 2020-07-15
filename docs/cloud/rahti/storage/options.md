@@ -1,2 +1,0 @@
-
-Ephemeral or Persistent

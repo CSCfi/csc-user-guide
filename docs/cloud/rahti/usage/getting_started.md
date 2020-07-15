@@ -9,11 +9,9 @@ within a project.
 
 You can either select applications to run in the application catalog that is
 visible when first logging in or launch any applications using the
-primitives described in the [background](/cloud/rahti/introduction) chapter.
+primitives described in the [background](/cloud/rahti/concepts/) chapter.
 
-## Using the web interface
-
-Log in at https://rahti.csc.fi:8443 (see [Getting access](/cloud/rahti/access)
+Log in at <https://rahti.csc.fi:8443> (see [Getting access](/cloud/rahti/access)
 for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page_3.7.png)
