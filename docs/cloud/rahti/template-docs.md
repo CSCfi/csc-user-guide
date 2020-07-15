@@ -20,7 +20,7 @@ still utilize the existing volume. Please follow
 [Minio User Guide](https://docs.min.io/docs/minio-quickstart-guide.html)
 for usage of Minio object store.
 
-**Parameters to be supplied**
+**Parameters to be supplied**:
 
 |Parameter|Description|
 |---------|------------|
@@ -35,6 +35,8 @@ for usage of Minio object store.
 ## Apache Spark
 
 Deploys Apache Spark cluster with Jupyter Notebook/Lab. For more information regarding the usage of this setup (including information of different variables), the documentation is currently available at <https://github.com/CSCfi/spark-openshift>.
+
+**Parameters to be supplied**:
 
 |Parameter|Description|
 |---------|------------|
@@ -60,6 +62,8 @@ Deploys Apache Spark cluster with Jupyter Notebook/Lab. For more information reg
 ## Apache Airflow
 
 Apache Airflow (or simply Airflow) is a platform to programmatically author, schedule, and monitor workflows. The worksflows are defined as code, so that they become more maintainable, versionable, testable, and collaborative. Airflow is used to author workflows as directed acyclic graphs (DAGs) of tasks. The Airflow scheduler executes your tasks on an array of workers while following the specified dependencies. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed. The documentation is currently available at <https://github.com/CSCfi/airflow-openshift/>
+
+**Parameters to be supplied**:
 
 |Parameter|Description|
 |---------|------------|
@@ -93,6 +97,8 @@ Apache Airflow (or simply Airflow) is a platform to programmatically author, sch
 ## Rocket chat
 
 Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full stack framework. It is a solution for communities and companies wanting to privately host their own chat service or for developers looking forward to build and evolve their own chat platforms.
+
+**Parameters to be supplied**:
 
 |Parameter|Description|
 |---------|------------|
