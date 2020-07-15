@@ -41,34 +41,34 @@ nav:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
        - Home: cloud/rahti/index.md
-        - What is Rahti: cloud/rahti/rahti-what-is.md
-        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
-        - Rahti Tutorials:
-          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
-          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
-          - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
-          - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
-          - Webhooks: cloud/rahti/tutorials/webhooks.md
-        - External documentation: cloud/rahti/ext_docs.md
-        - Getting Started:
-          - Getting access: cloud/rahti/access.md
-          - Using the web interface: cloud/rahti/usage/getting_started.md
-          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-          - Security guide: cloud/rahti/usage/security-guide.md
-        - Storage in Rahti:
-          - Available storage options: cloud/rahti/storage/options.md
-          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
-          - Persistent volumes: cloud/rahti/storage/persistent.md
-        - Images:
-          - Overview: cloud/rahti/images/overview.md
-          - Creating an image: cloud/rahti/images/creating.md
-        - Rahti Templates: cloud/rahti/template-docs.md
-        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
-        - Billing: cloud/rahti/billing.md
-        - Agreements:
-          - Terms of Use: cloud/rahti/agreements/terms_of_use.md
-          - Service Level Agreement: cloud/rahti/agreements/sla.md
-
+       - Introduction:
+         - What is Rahti: cloud/rahti/rahti-what-is.md
+         - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+         - Rahti Tutorials:
+           - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
+           - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
+           - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+           - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
+           - Webhooks: cloud/rahti/tutorials/webhooks.md
+         - External documentation: cloud/rahti/ext_docs.md
+         - Getting Started:
+           - Getting access: cloud/rahti/access.md
+           - Using the web interface: cloud/rahti/usage/getting_started.md
+           - Command line tool installation and usage: cloud/rahti/usage/cli.md
+           - Security guide: cloud/rahti/usage/security-guide.md
+         - Storage in Rahti:
+           - Available storage options: cloud/rahti/storage/options.md
+           - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+           - Persistent volumes: cloud/rahti/storage/persistent.md
+         - Images:
+           - Overview: cloud/rahti/images/overview.md
+           - Creating an image: cloud/rahti/images/creating.md
+         - Rahti Templates: cloud/rahti/template-docs.md
+         - Projects and quota: cloud/rahti/usage/projects_and_quota.md
+         - Billing: cloud/rahti/billing.md
+         - Agreements:
+           - Terms of Use: cloud/rahti/agreements/terms_of_use.md
+           - Service Level Agreement: cloud/rahti/agreements/sla.md
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
