@@ -7,7 +7,34 @@ Catalog.
 The Service Catalog also lists default templates bundled with OKD which are not
 documented here.
 
-## Minio
+## How to launch a template using the CLI
+
+First, list the templates available:
+
+```bash
+oc get -n openshift templates
+```
+
+Then, describe the template, so we know the list of parameters:
+
+```bash
+oc describe -n openshift template minio
+```
+
+Finally launch the template, for each required parameter a value must be set:
+
+```bash
+oc process openshift/minio -p ACCESSKEY=FGH \
+    -p SECRETKEY=DFGHJKLA \
+    -p CLUSTER_NAME=good-name \
+    -p DOMAINSUFFIX=rahtiapp.fi \
+    -p PVCNAME=minio-default-volume \
+    -p STORAGE_SIZE=1Gi
+```
+
+## Templates
+
+### Minio
 
 This template is for deploying a private S3 API supporting object store
 [Minio](https://min.io/). The template creates a single pod deployment for
@@ -32,7 +59,7 @@ for usage of Minio object store.
 |Storage Size|our Minio Object store's backend volume size|
 |Whitelist|IP address block (CIDR) from which traffic is allowed to your Minio Object Store. In case left blank or errors in IP address block, Rahti will allow all traffic from internet. May contain multiple CIDRs separated by whitespace.|
 
-## Apache Spark
+### Apache Spark
 
 Deploys Apache Spark cluster with Jupyter Notebook/Lab. For more information regarding the usage of this setup (including information of different variables), the documentation is currently available at <https://github.com/CSCfi/spark-openshift>.
 
@@ -59,7 +86,7 @@ Deploys Apache Spark cluster with Jupyter Notebook/Lab. For more information reg
 |Worker Image|Docker Image for the Jupyter (Driver)|
 |Application Hostname Suffix|The exposed hostname suffix that will be used to create routes for Spark UI and Jupyter Notebook|
 
-## Apache Airflow
+### Apache Airflow
 
 Apache Airflow (or simply Airflow) is a platform to programmatically author, schedule, and monitor workflows. The worksflows are defined as code, so that they become more maintainable, versionable, testable, and collaborative. Airflow is used to author workflows as directed acyclic graphs (DAGs) of tasks. The Airflow scheduler executes your tasks on an array of workers while following the specified dependencies. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed. The documentation is currently available at <https://github.com/CSCfi/airflow-openshift/>
 
@@ -94,7 +121,7 @@ Apache Airflow (or simply Airflow) is a platform to programmatically author, sch
 |PERSISTENT Volume Claim Name (Temp Storage for Workers)|Attached PERSISTENT volume claim name for storing temporary data across Celery workers|
 |Metadata Volume Storage Size|Size of the temporary data storage in Celery workers|
 
-## Rocket chat
+### Rocket chat
 
 Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full stack framework. It is a solution for communities and companies wanting to privately host their own chat service or for developers looking forward to build and evolve their own chat platforms.
 
