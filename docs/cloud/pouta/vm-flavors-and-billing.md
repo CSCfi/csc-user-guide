@@ -120,7 +120,7 @@ billing unit coefficients.
 ### GPU flavors
 
 |Flavor|Cores|GPUs|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | gpu.1.1gpu | 14 | 1 | 120 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 60  |
 | gpu.1.2gpu | 28 | 2 | 240 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 120 |
 | gpu.1.4gpu | 56 | 4 | 480 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 240 |
