@@ -301,7 +301,7 @@ The GPGPUs are suitable for deep learning, scientific computing as
 well as for remote desktops, rendering or visualization. The GPGPU
 flavors are backed by local SSD on the servers. The SSDs in gpu.1 flavors
 are configured in RAID-1. This is where the OS root disk is stored. With
-gpu.2 flavors, the SSDs are bigger and he SSDs are configured in RAID-0
+gpu.2 flavors, the SSDs are bigger and the SSDs are configured in RAID-0
 for faster staging of datasets. You can use the volumes for storing larger
 data sets and persistent data. If you need to read and write a lot of data
 between the disk and GPGPU, using volumes might affect performance when
