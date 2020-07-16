@@ -135,12 +135,12 @@ srun gmx_mpi mdrun -s verlet -pin on -dlb yes
 
 Submit the script with `sbatch script_name.sh`
 
-### Example parallel batch script for Mahti
+### Example mpi-only parallel batch script for Mahti
 
 ```bash
 #!/bin/bash -l
 #SBATCH --time=00:15:00
-#SBATCH --partition=small
+#SBATCH --partition=medium
 #SBATCH --ntasks-per-node=128
 #SBATCH --nodes=2
 #SBATCH --account=<project>
@@ -150,12 +150,35 @@ Submit the script with `sbatch script_name.sh`
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/9.3.0  openmpi/4.0.3 gromacs/2020.2
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
 
 export OMP_NUM_THREADS=1
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
+```
 
+### Example mixed parallel batch script for Mahti
+
+```bash
+#!/bin/bash -l
+#SBATCH --time=00:15:00
+#SBATCH --partition=medium
+#SBATCH --ntasks-per-node=64
+#SBATCH --cpus-per-task=2
+#SBATCH --nodes=2
+#SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
+# 64 tasks per node, each with 2 OpenMP threads
+
+module purge
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
 ### Visualizing trajectories and graphs
