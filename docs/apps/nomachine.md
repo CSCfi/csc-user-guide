@@ -30,7 +30,7 @@ is available for Win, Mac, Linux.
 
 1.  You will need a user account at CSC (on the server where you run
     applications). If you don't have one, you can get it from [here].
-2.  Download the latest NoMachine _Client_ (win, mac, linux) from the
+2.  Download the latest NoMachine [Client](https://www.nomachine.com/download-enterprise#NoMachine-Enterprise-Client) (win, mac, linux) from the
     NoMachine site. Don't download the _Desktop_.
 3.  Install and configure your NoMachine client. See [CSC NoMachine Tutorial]
 4.  Start the NoMachine client and log on to nxkajaani.csc.fi.
