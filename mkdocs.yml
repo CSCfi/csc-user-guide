@@ -69,7 +69,6 @@ nav:
        - Agreements:
          - Terms of Use: cloud/rahti/agreements/terms_of_use.md
          - Service Level Agreement: cloud/rahti/agreements/sla.md
-         - Protecting against DDoS Attacks: /cloud/rahti/tutorials/DDos/
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
