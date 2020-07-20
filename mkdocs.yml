@@ -49,7 +49,6 @@ nav:
          - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
          - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
          - Webhooks: cloud/rahti/tutorials/webhooks.md
-         - Protecting against DDoS Attacks: /cloud/rahti/tutorials/DDos/
        - External documentation: cloud/rahti/ext_docs.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
