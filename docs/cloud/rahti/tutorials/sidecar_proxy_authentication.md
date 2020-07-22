@@ -11,24 +11,25 @@ One of the uses for this design pattern is to have a reverse proxy that will han
 First create the project:
 
 ```bash
-oc new-project <OPESHIFT_PROJECT_NAME> --description="csc_project: <CSC_PTOJECT_NUMBER" --display-name="Sidecar test tutorial"
+oc new-project <OPEN_SHIFT_PROJECT_NAME> --description="csc_project: <CSC_PROJECT_NUMBER>" \
+    --display-name="Sidecar test tutorial"
 ```
 
 Then clone the repository for this tutorial:
 
 ```bash
-git clone https://github.com/lvarin/nginx-sidecar.git
+git clone https://github.com/CSCfi/nginx-sidecar.git
 ```
 
 Inside the repository, there is a folder called `templates`, we will create the objects one by one:
 
-* First the [DeploymentConfig](https://github.com/lvarin/nginx-sidecar/blob/master/templates/DeploymentConfig.yaml) that creates the `Pod`:
+* First the [DeploymentConfig](https://github.com/CSCfi/nginx-sidecar/blob/master/templates/DeploymentConfig.yaml) that creates the `Pod`:
 
 ```bash
 oc create -f templates/DeploymentConfig.yaml
 ```
 
-* Then the [Service](https://github.com/lvarin/nginx-sidecar/blob/master/templates/Service.yaml) that will connect to the port 8081 of nginx:
+* Then the [Service](https://github.com/CSCfi/nginx-sidecar/blob/master/templates/Service.yaml) that will connect to the port 8081 of nginx:
 
 ```bash
 oc create -f templates/Service.yaml
