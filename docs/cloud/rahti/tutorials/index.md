@@ -5,4 +5,3 @@
  * [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/)
  * [Configuration, ConfigMaps and Secrets](/cloud/rahti/tutorials/configuration/)
  * [Webhooks](/cloud/rahti/tutorials/webhooks/)
- * [Protecting against DDoS Attacks](/cloud/rahti/tutorials/DDos/)

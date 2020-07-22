@@ -2,7 +2,7 @@
 
 3 options:
 
-* Emtpy dir
+* Empty dir
 
 * Persistent volume claim
 
