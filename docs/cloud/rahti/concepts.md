@@ -71,6 +71,29 @@ that all serve the same application.
 
 ![Service](img/service.png)
 
+*`service.yaml`*:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: app
+  name: service-name
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: app
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+```
+
 ### ReplicaSet
 
 A **ReplicaSet** ensures that _n_ copies of a pod are running. If one of the
