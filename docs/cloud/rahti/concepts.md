@@ -160,7 +160,7 @@ in the `index.html` file on the shared volume.
 The shared volume is defined in `spec.volumes` and "mounted" in
 `spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
 
-## StatefulSet
+### StatefulSet
 
 Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be able to cope with that without any visible effect. For example, a DeploymentConfig defines a Pod with 5 replicas and a Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is not acceptable, for this use case, Stateful sets have been created.
 
