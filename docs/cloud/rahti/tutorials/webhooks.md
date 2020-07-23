@@ -39,7 +39,7 @@ metadata:
 The `WebHookSecretKey` is encoded in base64, to decode it:
 
 ```bash
-echo 'dGhpc19pc19hX2JhZF90b2tlbgo' | base64 -d
+echo 'dGhpc19pc19hX2JhZF90b2tlbgo=' | base64 -d
 ```
 
 When the BuildConfig is configured to be triggered by the webhook, and the

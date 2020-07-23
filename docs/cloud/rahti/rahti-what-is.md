@@ -2,6 +2,9 @@
 
 ## What is Rahti?
 
+![Kubernetes](img/kubernetes-logo.png)
+![OpenShidt](img/openshift-logo.png)
+
 Rahti is the container orchestation service at CSC. Rahti runs on [okd](https://www.okd.io/), the community distribution of Kubernetes that powers Red Hat OpenShift. Built around a core of [OCI](https://opencontainers.org/) container packaging and [Kubernetes](https://kubernetes.io/) container cluster management.
 
 ## Containers
