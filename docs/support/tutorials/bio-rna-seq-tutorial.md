@@ -667,7 +667,7 @@ Return to the rnaseq folder with
     cd ..
 
 
-#### 4. Perform quality control at alignment level with RseQC
+### 4. Perform quality control at alignment level with RseQC
 --------------------------------------------------------
 
 Make a directory for RseQC result files:
@@ -750,8 +750,11 @@ example to location chr19:281,093-281,252. Try zooming in and out. Which
 gene are we now looking at? Can you see any reads? What is the
 coverage? Can you spot any SNPs? 
 
-## Counting reads & differential expression analysis
 
+
+
+# Counting reads & differential expression analysis
+=========
 
 We count the number of reads for each gene using HTSeq tool. After this
 we move the data to R and perform differential expression analysis with
@@ -761,7 +764,7 @@ dataset (with more samples) in the R part -when you are performing your
 own analysis, use the whole dataset.
 
 
-### Count reads per genes using HTSeq
+## Count reads per genes using HTSeq
 ---------------------------------
 
 
@@ -1176,7 +1179,10 @@ amongst the differentially expressed genes.
     # Only data with gene names as queried from Biomart package are retained here.\
     rnaseq_data <- read.table("dataset_with_gene_names_DESeq.tsv", header=T, sep="\\t", row.names=1)
 
-**Part 1:** Over representation analysis using enrichR package, where we
+
+#### Over representation analysis using enrichR package
+
+Over representation analysis using enrichR package, where we
 keep only most significant results to perform enrichment analysis. The
 first steps are similar to the steps performed earlier to the DESeq2
 results.
@@ -1223,8 +1229,9 @@ results.
     #React_cluster2 <- React_cluster2[order(React_cluster2$Adjusted.P.value),]
 
 
-**Part 2:** Perform genome-wide enrichment analysis (GSEA) with
-unfiltered data set.\
+#### Perform genome-wide enrichment analysis (GSEA) with
+unfiltered data set.
+
 \\ Perform Gene Set Enrichment Analysis (GSEA) using gene sets from
 MSigDB as downloaded from 'https://www.gsea-msigdb.org/gsea/'\
 \\ Check meaning of gene sets here:
