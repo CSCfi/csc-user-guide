@@ -124,14 +124,12 @@ Open Terminal. Open this page in browser (Firefox). 
 Retrieve the input data for the tutorial, unpack it, and rename the
 folder as *rnaseq*. 
 
-    \
     wget https://a3s.fi/rnaseq_course_bucket/rnaseq_raw_data.tar.gz\
     tar zxvf rnaseq_raw_data.tar.gz\
     mv rnaseq_raw_data rnaseq
 
 Move to the *rnaseq* folder and check the files you have there.
 
-    \
     cd rnaseq\
     ls -lh
 
