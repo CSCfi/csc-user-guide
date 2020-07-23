@@ -13,8 +13,6 @@ There are two storage classes available:
  * *glusterfs-storage*. This kind of volume supports "Read Write Many" (RWX) storage, this means multiple nodes can mount it in read-write mode. This is the default class.
  * *standard-rwo*. This kind supports two modes: "Read Write Once" (RWO), meaning that one node can mount in read-write mode. And "Read Only Many" (ROX), multiple nodes can mount in read-only mode.
 
-Other option is to use an object storage service, like for example [Allas](../../../../data/Allas/), which is provided as a service by CSC, or to deploy a private [Minio](../../template-docs/#minio) application using a template. Both Allas and Minio, support the S3 API.
-
 ![PersistentVolumeClaim](img/persistentvolumeclaim.png)
 
 
