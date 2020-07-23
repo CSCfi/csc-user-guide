@@ -5,3 +5,4 @@
  * [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/)
  * [Configuration, ConfigMaps and Secrets](/cloud/rahti/tutorials/configuration/)
  * [Webhooks](/cloud/rahti/tutorials/webhooks/)
+ * [Reverse proxy authentication using a sidecar container](/cloud/rahti/tutorials/sidecar_proxy_authentication/)
