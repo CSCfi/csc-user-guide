@@ -37,7 +37,7 @@ Mem BU: 0.51
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).
 
-# Profiling at CSC
+# Profiling tools at CSC
 Several profiling tools are available on the CSC servers:
 
 
