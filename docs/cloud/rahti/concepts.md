@@ -11,6 +11,8 @@ documentation for Kubernetes and OpenShift as well:
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project. Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
+![Kubernetes full picture](img/Kubernetes.drawio.svg)
+
 ## Kubernetes concepts
 
 ### Pod
