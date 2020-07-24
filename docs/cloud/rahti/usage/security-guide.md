@@ -58,3 +58,7 @@ Other things to keep in mind:
   * If the application is written in an interpreted language, use language
     based images. Instead of installing Node.js on top of the Debian image, use
     e.g., `node:8-debian`.
+
+## IP addresses for firewall openings
+
+The IP for all outgoing customer traffic is `193.167.189.25`. By opening a firewall to this IP, you will let in all traffic coming from Rahti. There is no plan to change this IP, and any change will be communicated with enough anticipation.
