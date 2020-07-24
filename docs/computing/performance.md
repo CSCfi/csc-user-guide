@@ -37,18 +37,15 @@ Mem BU: 0.51
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).
 
+# Profiling at CSC
+Several profiling tools are available on the CSC servers:
 
-## Intel Trace Analyzer and Collector (ITAC)
 
-```bash
-module load intel-itac
-```
+* [Intel Trace Analyzer and Collector](../apps/itac.md): *Intel Trace Analyzer and Collector* is a powerful tool for profiling and understanding the MPI behavior of a code.
+* [Intel Tools](../apps/vtune.md): *Intel VTune Amplifier* is a powerful profiling tool that can be used to collect performance data of your
+application. It is  suited to be used with serial and multithreaded code.
+* [Python cProfile](cProfile.md): in Python are available many profiling tool. For most users the recommended tool is *cProfile*.
 
-```bash
-export LD_PRELOAD=libVT.so
-```
-
-FIXME: add explanations and links to external documentation
 
 
 ## NVIDIA profiler (nvprof)
