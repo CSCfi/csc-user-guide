@@ -27,3 +27,5 @@ metadata:
       - mountPath: /interm
         name: volume-a
 ```
+
+![emptyDir](/cloud/rahti/img/pods-and-storage-emptydir.drawio.svg)

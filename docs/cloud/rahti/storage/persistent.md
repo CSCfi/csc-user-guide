@@ -13,8 +13,7 @@ There are two storage classes available:
  * *glusterfs-storage*. This kind of volume supports "Read Write Many" (RWX) storage, this means multiple nodes can mount it in read-write mode. This is the default class.
  * *standard-rwo*. This kind supports two modes: "Read Write Once" (RWO), meaning that one node can mount in read-write mode. And "Read Only Many" (ROX), multiple nodes can mount in read-only mode.
 
-![PersistentVolumeClaim](img/persistentvolumeclaim.png)
-
+![PersistentVolumeClaim](/cloud/rahti/img/pods-and-storage-pvc.drawio.svg)
 
 Persistent storage is requested in the cluster using `PersistentVolumeClaim` objects:
 

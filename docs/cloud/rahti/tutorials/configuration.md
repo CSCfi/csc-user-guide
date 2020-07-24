@@ -69,6 +69,4 @@ DATA_PROP_A=hello
 
 ## Secret
 
-**Secret**s behave much like ConfigMaps, but once created, they are stored in
-a _base64_ encoded form, and their contents are not displayed by default with the
-command `oc describe`. There is an example of a secret in the _Webhooks_ section.
+Secrets behave much like ConfigMaps, with the differnce that once created they are stored in _base64_ encoded form, and their contents are not displayed by default in the command line or in the web interface. There is an example of a secret in the [Webhooks](/cloud/rahti/tutorials/webhooks/) section.
