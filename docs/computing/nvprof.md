@@ -22,4 +22,6 @@ nvprof supports several very useful running options:
 * --cpu-profiling on: Enable some CPU profiling
 * --csv --log-file FILE: Generate CSV output and save to FILE; handy for plots or benchmarked analysis
 * --metrics M1: Measure only metric M1 which is one of the NVIDIA-provided metrics which can be listed via --query-metrics.
+
+
 For more details please check the [nvidia documentation](https://docs.nvidia.com/cuda/profiler-users-guide/).
