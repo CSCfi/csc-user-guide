@@ -6,7 +6,8 @@
 
 GDAL is available in Puhti with following versions:
 
-* 3.0.2 via conda: [geoconda](geoconda.md), 
+* 3.0.4 via conda: [geoconda-3.8](geoconda.md), 
+* 3.0.2 via conda: [geoconda-3.7](geoconda.md), 
 * 2.4.3 via conda: [snap](snap.md)
 * 2.4.2 via conda: [mapnik](mapnik.md)
 * 2.4.1 via conda: [solaris](solaris.md) and [Orfeo ToolBox](otb.md)
