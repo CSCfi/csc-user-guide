@@ -7,6 +7,7 @@ includes following python packages:
 -   [ArcGIS Python API](https://developers.arcgis.com/python/) - provides simple and efficient tools for sophisticated vector and raster analysis, geocoding, map making, routing and directions. 
 -   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
+-   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension)
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
 -   [fiona] - reads and writes spatial data files.
 -   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
@@ -19,7 +20,7 @@ includes following python packages:
 -   [pyproj] - performs cartographic transformations and geodetic computations.
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs.
--   **[pysal]** - spatial analysis functions.    
+-   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data
 -   **[rasterio]** - access to geospatial raster data.
 -   [rasterstats] - for summarizing geospatial raster datasets based on
@@ -38,9 +39,9 @@ includes following python packages:
 Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.2
--   [PDAL] 2.0.1
--   [QGIS](../apps/qgis.md) 3.10.0
+-   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.4 in geoconda-3.8 and 3.0.2 in geoconda-3.7
+-   [PDAL] 2.1.0 in geoconda-3.8 and 2.0.1 in geoconda-3.7
+-   [QGIS](../apps/qgis.md) 3.14 in geoconda-3.8 and 3.10 in geoconda-3.7
 -   [LasTools](../apps/lastools.md) 20171231
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.7/bin`for full
@@ -55,12 +56,13 @@ Python has multiple packages for parallel computing, for example
 (If you think that some important GIS package for Python is missing from
 here, you can ask for installation from servicedesk@csc.fi.)
 
+
 ## Available
 
 The `geoconda` module is available in Puhti:
 
-* 3.7 (version number is the same as Python version)
-
+* 3.8 (version number is the same as Python version)
+* 3.7 
 
 
 ## Usage
