@@ -15,5 +15,11 @@ The compilation of the code is done as normally, but with 2 additional options, 
 ### Running the job
 Running the code is done the same as normal MPI job. The code profiling is enablef by adding the line ```export VT_PCTRACE=1```to the script. Finally the code is ran as normally ```srun ./mpi_executable arguments```. Please note that large will be generated.
 ### Analyzing the results
+All data collected by the tool are saved in a series of ```<executable>.stf``` files in the running directory. The analysi is done using the
+```
+traceanalyzer <executable>.stf
+```
+The trace analyzer tool can show the timeline of each process and map each MPI call between the tasks. For each permormance issue the folloing information is provided: description, affected processes, and source locations. 
 
-For more instructions please check the [Intel documentation](https://software.intel.com/content/www/us/en/develop/articles/intel-trace-analyzer-and-collector-documentation.html)
+
+For more details please check the [Intel documentation](https://software.intel.com/content/www/us/en/develop/articles/intel-trace-analyzer-and-collector-documentation.html)
