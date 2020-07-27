@@ -45,5 +45,5 @@ Several profiling tools are available on the CSC servers:
 * [Intel Tools](../apps/vtune.md): *Intel VTune Amplifier* is a powerful profiling tool that can be used to collect performance data of your
 application. It is  suited to be used with serial and multithreaded code.
 * [Python cProfile](cProfile.md): in Python are available many profiling tool. For most users the recommended tool is *cProfile*.
-* [Nvidia profiler (nvprof](nvprof.md): command line Nvidia profiling and tracing tool
+* [Nvidia profiler (nvprof)](nvprof.md): command line Nvidia profiling and tracing tool
 
