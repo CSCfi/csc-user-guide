@@ -6,3 +6,4 @@
  * [Configuration, ConfigMaps and Secrets](/cloud/rahti/tutorials/configuration/)
  * [Webhooks](/cloud/rahti/tutorials/webhooks/)
  * [Reverse proxy authentication using a sidecar container](/cloud/rahti/tutorials/sidecar_proxy_authentication/)
+ * [Short introduction to YAML](/cloud/rahti/tutorials/yaml_introduction/)

@@ -50,6 +50,7 @@ nav:
          - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
          - Webhooks: cloud/rahti/tutorials/webhooks.md
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
        - External documentation: cloud/rahti/ext_docs.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
