@@ -25,12 +25,19 @@ Time(%) Time Calls Avg Min Max Name
  0.12 22.59us 1 22.59us 22.59us 22.59us [CUDA memcpy DtoA]
 ```
 nvprof supports several very useful running options:
+
 * --export-profile: Export the profile to a file
+
 * --analysis-metrics: Collect profiling data that can be imported to Visual Profiler
+
 * --print-gpu-trace: Show trace of function calls
+
 * --openacc-profiling on: Profile OpenACC as well (on by default)
+
 * --cpu-profiling on: Enable some CPU profiling
+
 * --csv --log-file FILE: Generate CSV output and save to FILE; handy for plots or benchmarked analysis
+
 * --metrics M1: Measure only metric M1 which is one of the NVIDIA-provided metrics which can be listed via --query-metrics.
 
 
