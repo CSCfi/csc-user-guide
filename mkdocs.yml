@@ -40,7 +40,7 @@ nav:
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
-       - Home: cloud/rahti/index.md
+       - Contents: cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
        - Rahti Tutorials:

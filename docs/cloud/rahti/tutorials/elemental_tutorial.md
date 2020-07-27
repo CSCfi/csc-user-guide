@@ -111,7 +111,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[A brief introduction](#short-introduction-to-yaml).
+[Short introduction to YAML](/cloud/rahti/tutorials/yaml_introduction/).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:
