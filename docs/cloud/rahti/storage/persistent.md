@@ -1,14 +1,14 @@
 
 ## Persistent volumes
 
-Storage that persists over a pod's lifetime is needed. This is what **persistent volumes** are for.
+**Persistent volumes** are storage which persist during & after pod's lifetime.
 
-Persistent volumes are stored in a backing storage such as Ceph, NFS or
+Persistent volumes in Rahti are stored in a resilient storage such as CEPH, NFS or
 GlusterFS. They are claimed by a pod using a **PersistentVolumeClaim**. When a
 new claim is made, this can mean that either an existing volume is claimed or a
 new one is created dynamically and given to the pod to use.
 
-There are two storage classes available:
+There are two storage classes available in Rahti:
 
  * *glusterfs-storage*. This kind of volume supports "Read Write Many" (RWX) storage, this means multiple nodes can mount it in read-write mode. This is the default class.
  * *standard-rwo*. This kind supports two modes: "Read Write Once" (RWO), meaning that one node can mount in read-write mode. And "Read Only Many" (ROX), multiple nodes can mount in read-only mode.
@@ -32,10 +32,10 @@ spec:
       storage: 1Gi
 ```
 
-Persistent storage can be requested also via the web console.
-
-This will request a 1 GiB persistent storage that can be mounted in read-write
+Above will request a 1 GiB persistent storage that can be mounted in read-write
 mode by multiple nodes. Other access modes are ReadWriteOnce (Only one node can mount it read-write) and ReadOnlyMany (Multiple nodes can mount read-only).
+
+Persistent storage can be requested also via the web console.
 
 The persistent volume can be used in a pod by specifying `spec.volumes`
 (defines the volumes to attach) and `spec.containers.volumeMounts` (defines where
