@@ -51,7 +51,6 @@ nav:
          - Webhooks: cloud/rahti/tutorials/webhooks.md
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
          - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
-       - External documentation: cloud/rahti/ext_docs.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
@@ -70,6 +69,7 @@ nav:
        - Agreements:
          - Terms of Use: cloud/rahti/agreements/terms_of_use.md
          - Service Level Agreement: cloud/rahti/agreements/sla.md
+       - External documentation: cloud/rahti/ext_docs.md
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
