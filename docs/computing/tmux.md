@@ -1,4 +1,9 @@
 # TMUX
 [Tmux](https://github.com/tmux/tmux/wiki) is a is a terminal multiplexer. It allows to start a session and then open any number of windows (virtual terminals) inside that session. With tmux is possible to run several applications within the same terminal window, either side-by-side or in different windows (tmux screens). Processes running in tmux will continue to run when their window is not visible and even when disconnected. 
-The commands in tmux are issue by first issuing the prefix ```ctrl+b```. Then follws the command. Pressing ```c``` creates a new windows. To change between windows one uses the prefix followed by a digit or using the letters ```p```, ```n```, ```l```, or ```w```. Inside a window one can using panels. The current window can be splitted in panes using the prefix  followed by ```%``` (for horizontal split) or ```"```(for vertical split). For switching between panes use the prefix follwed by one of the arrows key. In order to detach a session use prefix follwed by ```d```. In order to return to an exsisting session, one first can use ```tmux ls``` to see the available sessions and then ```tmux attach -t mysession``` to attach to "mysession". For a comprehesive list of commands and option please check the official documentation.
+
+The commands in tmux are issue by first issuing the prefix ```ctrl+b```. Then follows the command. Pressing ```c``` creates a new windows. To change between windows one uses the prefix followed by a digit or using the letters ```p```, ```n```, ```l```, or ```w```. Inside a window one can using panels. 
+
+The current window can be splitted in panes using the prefix  followed by ```%``` (for horizontal split) or ```"```(for vertical split). For switching between panes use the prefix follwed by one of the arrows key. 
+
+In order to detach a session use prefix follwed by ```d```. In order to return to an existing session, one first can use ```tmux ls``` to see the available sessions and then ```tmux attach -t mysession``` to attach to "mysession". For a comprehesive list of commands and option please check the official documentation.
  
