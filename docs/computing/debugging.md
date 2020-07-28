@@ -8,18 +8,10 @@ module load valgrind
 Analyzing the code is simple. 
 In an interactive session  use ```valgrind ./program```, while as a submitted job run with ```srun valgrind ./myprogram```.
 
-## Arm DDT
+## 
+Depending on the on type of program, several other debugging tools are available on the CSC servers:
 
-```bash
-module load ddt
-```
-
-An example interactive debug session (for a MPI program):
-```bash
-salloc --nodes=2 --ntasks-per-node=20 --time=00:30:00 --partition=large \
-  --account=<project> ddt srun ./debug_enabled_program
-```
-
-User's Guide (puhti.csc.fi): /appl/opt/ddt/19.1.2/doc/userguide-forge.pdf
-
-FIXME: add links to external documentation
+* [Arm DDT](../apps/ddt.md) Parallel C, C++ and Fortran 90 debugger. It also supports NVIDIA CUDA GPUs. 
+* [GDB](gdb.md) GDB is the GNU Debugger for C, C++ and Fortran 90.
+* [PDB](pdb.md) PDB is an interactive source code debugger for Python programs.
+* [Cuda debugger PDB](cgdb.md) It is an interactive source code debugger for CUDA programs.
