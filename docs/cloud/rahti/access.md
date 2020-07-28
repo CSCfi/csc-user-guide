@@ -23,7 +23,7 @@ My CSC customer portal:
 4. Read and accept the *Terms of Use* and press *Apply for access*.
 5. CSC will contact you once your application has been accepted.
 
-If you don't have a suitable computing project for Rahti, 
+If you don't have a suitable computing project for Rahti,
 you can create one in the the My CSC customer portal.
 
 #### Creating a new computing project
@@ -38,5 +38,5 @@ Create a new computing project in the My CSC customer portal:
  *Create project*.
 5. CSC will contact you once your project has been successfully created.
 
-Please contact [rahti-support@csc.fi](mailto:rahti-support@csc.fi) in case you
+Please contact [servicedesk@csc.fi](mailto:rahti-support@csc.fi) in case you
 need assistance.

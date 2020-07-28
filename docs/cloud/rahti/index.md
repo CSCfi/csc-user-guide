@@ -8,7 +8,7 @@ the topic:
   * [Rahti Tutorials](/cloud/rahti/tutorials/)
   * [External documentation ](/cloud/rahti/ext_docs/)
 
-f you are already familiar with container technology and Kubernetes/OpenShift concepts,
+If you are already familiar with container technology and Kubernetes/OpenShift concepts,
 you could move directly to the instructions for getting started with Rahti & its usage :
 
   * [Getting access](/cloud/rahti/access/)
