@@ -40,7 +40,7 @@ The name in this example is `centos`, but as we can see, it is expanded first to
 * Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `centos` are: `8`, `7`, `8.1.1911`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
 
 
-Official page of CentOS on Docker hub provide us more details how different tagged versions of official CentOS image is build. So author used following **Dockerfile** created our `centos:latest` image:
+Official page of [CentOS](https://hub.docker.com/_/centos) on Docker hub provide us more details how different tagged versions of official CentOS image is build. So author used following **Dockerfile** created our `centos:latest` image:
 ```sh
 FROM scratch
 ADD centos-8-x86_64.tar.xz /
