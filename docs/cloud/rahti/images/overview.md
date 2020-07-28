@@ -1,6 +1,14 @@
 # Docker images
 
-A docker image is similar to a VM image, in the sense that they are a set of packaged files. But the way docker images are used and created, differs greatly from VM images. To better explain this, let's follow some examples.
+A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. An Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
+
+Docker containers are the running instances of Docker images. To avoid confusions, lets have a quick walkthrough over Docker image & containers using cooking example:
+
+* Dockerfile could be regarded as the ingredients list.
+* Docker Images are ingredients mixed together.
+* Docker Container is cooked delecious meal: The final end product!
+
+To better explain these analogies, let's follow some examples.
 
 First, in order to use a docker image one only must do:
 
@@ -14,7 +22,7 @@ This will, if the image is not cached localy, first pull (or download) the lates
 
 ```sh
 Unable to find image 'centos:latest' locally
-Trying to pull repository docker.io/library/centos ... 
+Trying to pull repository docker.io/library/centos ...
 latest: Pulling from docker.io/library/centos
 Digest: sha256:4062bbdd1bb0801b0aa38e0f83dece70fb7a5e9bce223423a68de2d8b784b43b
 Status: Downloaded newer image for docker.io/centos:latest
@@ -31,9 +39,24 @@ The name in this example is `centos`, but as we can see, it is expanded first to
 
 * Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `centos` are: `8`, `7`, `8.1.1911`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
 
+
+Official page of CentOS on Docker hub provide us more details how different tagged versions of official CentOS image is build. So author used following **Dockerfile** created our `centos:latest` image:
+```sh
+FROM scratch
+ADD centos-8-x86_64.tar.xz /
+
+LABEL org.label-schema.schema-version="1.0" \
+    org.label-schema.name="CentOS Base Image" \
+    org.label-schema.vendor="CentOS" \
+    org.label-schema.license="GPLv2" \
+    org.label-schema.build-date="20200611"
+
+CMD ["/bin/bash"]
+```
+
 ## Advanced image internals
 
-It is possible to see all the internals of an image using `docker inspect`. The output is a JSON object, that can be processed using standard tools like `jq`, see an example at the bottom of this page.
+Many times author of Docker images don't necessarily provide details of Dockerfile which were used to build Docker images. It is therefore good idea to inspect images from unknown sources. You can see the detailed information of image internal using `docker inspect`. The output is a JSON object, that can be processed using standard tools like `jq`, see an example at the bottom of this page.
 
 This allows to see interesting data about the image, like the environment, the entry point, initial command, the layers, and many more.
 
