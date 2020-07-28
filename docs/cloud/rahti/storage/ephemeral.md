@@ -1,4 +1,4 @@
-## Ephemeral Storage (EmptydDir)
+# Ephemeral Storage (EmptydDir)
 
 When local ephemeral (temporal) storage is needed, an `emptyDir` should be issued. It is local to the node, on Rahti this is RAID-0 SSD storage. It can be shared across several containers in the same Pod, and it the *fastest* filesystem available in Rahti, but it will be **lost when the Pod is killed or restarted**. It is declared directly in the Pod definition:
 

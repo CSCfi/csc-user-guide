@@ -1,4 +1,4 @@
-## Custom domain names and secure transport
+# Custom domain names and secure transport
 
 Custom domain names and HTTPS secure data transport are implemented in the
 route object level. They are controlled with the keywords `spec.host` and

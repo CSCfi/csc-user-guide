@@ -1,5 +1,4 @@
-
-## Persistent volumes
+# Persistent volumes
 
 **Persistent volumes** are storage which persist during & after pod's lifetime.
 
