@@ -6,17 +6,15 @@ Docker containers are the running instances of Docker images. To avoid confusion
 
 * Dockerfile could be regarded as the ingredients list.
 * Docker Images are ingredients mixed together.
-* Docker Container is cooked delecious meal: The final end product!
+* Docker Container is cooked delicious meal: The final end product!
 
 To better explain these analogies, let's follow some examples.
 
-First, in order to use a docker image one only must do:
+First, in order to run a docker image one can use the docker client on the host machine (provided that it is installed):
 
 ```sh
 docker run -it centos
 ```
-
-(provided `docker` is installed)
 
 This will, if the image is not cached localy, first pull (or download) the latest centos image, then look for the predefined entry point, and finally a container is run with an interactive session. The output will be something like:
 
@@ -33,7 +31,7 @@ The name in this example is `centos`, but as we can see, it is expanded first to
 
 * A domain name `docker.io`, this is the domain name of the docker registry where the image is located. If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `registry-console.rahti.csc.fi` is Rahti's private docker registry.
 
-* Then it is the path for the image, in this case it is `/library`. Again docker is asuming it, this path is reserved to "official base images", or in other words common Linux distributions, from where other images are based on.
+* Then it is the path for the image, in this case it is `/library`. Again docker is assuming it, this path is reserved to "official base images", or in other words common Linux distributions, from where other images are based on.
 
 * Next, you have the image name itself, `centos`. There are a lot of other "base images" in `docker.io/library`, like for example, `ubuntu` or `alpine`.
 
