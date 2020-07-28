@@ -117,11 +117,14 @@ billing unit coefficients.
 | tb.3.480RAM  | 56 | 480  | 20 (SSD/RAID0) | 1650 (NVMe/RAID0) | 1730 | 8.5  | 110 (240) |
 | tb.3.1470RAM | 80 | 1470 | 80 (SSD/RAID0) | 2500 (NVMe/RAID0) | 2580 | 18.3 | 320 (600) |
 
-### GPU flavors (only available via request to servicedesk)
+### GPU flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.2.1gpu | 20 | 180 | 80 (SSD/RAID0) | 1000 (SSD/RAID0) | 1080 | 9 | 100 (140) |
+|Flavor|Cores|GPUs|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.1.1gpu | 14 | 1 | 120 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 60  |
+| gpu.1.2gpu | 28 | 2 | 240 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 120 |
+| gpu.1.4gpu | 56 | 4 | 480 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 240 |
+| gpu.2.1gpu | 20 | 1 | 180 | 80 (SSD/RAID0) | 1000 (SSD/RAID0) | 1080 | 9 | 100 (140) |
 
 **\*** Because not all memory amounts round exactly to GiB, the closest value
 has been used.
@@ -291,17 +294,18 @@ Typical use cases:
 The GPU flavors are intended to provide high performance computing using
 GPGPU (General Purpose computing on Graphical Processing
 Units). GPGPUs can significantly speed up certain algorithms and
-applications. The gpu.1. flavors in cPouta have NVIDIA Tesla P100
-GPGPUs. The gpu.2.1gpu in ePouta also has a NVIDIA Tesla V100 GPGPU.
+applications. The gpu.1. flavors have NVIDIA Tesla P100 GPGPUs.
+The gpu.2.1gpu in ePouta have a NVIDIA Tesla V100 GPGPU.
 
 The GPGPUs are suitable for deep learning, scientific computing as
 well as for remote desktops, rendering or visualization. The GPGPU
-flavors are backed by local SSD on the servers. The SSDs in cPouta are
-configured in RAID-1. This is where the OS root disk is stored. In
-ePouta, the SSDs are bigger than in cPouta and he SSDs are configured
-in RAID-0 for faster staging of datasets. You can use the volumes for
-storing larger data sets. If you need to read and write a lot of data
-between the disk and GPGPU, this might affect the performance.
+flavors are backed by local SSD on the servers. The SSDs in gpu.1 flavors
+are configured in RAID-1. This is where the OS root disk is stored. With
+gpu.2 flavors, the SSDs are bigger and the SSDs are configured in RAID-0
+for faster staging of datasets. You can use the volumes for storing larger
+data sets and persistent data. If you need to read and write a lot of data
+between the disk and GPGPU, using volumes might affect performance when
+compared to local SSD disk.
 
 To take advantage of the acceleration which GPGPUs provide, the
 applications you run must support them. If you write
@@ -315,15 +319,16 @@ use].
 Limitations and caveats: 
 
 -   As we use PCI passthrough to get the whole GPGPU into the
-    instance, the administrators are not able to access the GPGPU and
+    instance. The administrators are not able to access the GPGPU and
     check its health. Please report any errors or problems with the GPGPUs
     to CSC (and attach the output of the command "nvidia-smi -q").
 -   The applications must be able to utilize the GPU to get a speedup.
 
 These instances are also tightly tied to the hardware. You may expect
-downtime of instances during the maintenance of the hardware. NVIDIA
-Tesla V100 GPGPUs are also available in the batch system on Taito:
-<https://research.csc.fi/taito-gpu>.
+downtime of instances during the maintenance of the hardware.
+
+Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
+batch system on Puhti-AI: <https://research.csc.fi/techspecs>.
 
 **cPouta flavor characteristics:**
 
@@ -336,6 +341,14 @@ Tesla V100 GPGPUs are also available in the batch system on Taito:
 -   Instance can be lost due to a single-node or disk failure.
 
 **ePouta flavor characteristics:**
+
+**gpu.1.\*:**
+
+-   Redundant power
+-   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
+-   Network: Redundant 10 Gb/s
+-   Flavor disk: Local SSD disks, RAID-1
+-   Instance can be lost due to a single-node or disk failure.
 
 **gpu.2.\*:**
 
@@ -353,7 +366,7 @@ We have specific CUDA images available for the GPU nodes.
 These images come pre-installed with the freshest CUDA version. Note
 that the CUDA images are not configured with auto update. You can use
 any other images with the GPU flavors, but you have
-to install the required libraries yourself. 
+to install the required libraries yourself.
 [How CSC customizes the images](adding-images.md).
 
 ### High memory flavors (only in ePouta)
