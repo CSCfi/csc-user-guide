@@ -43,6 +43,11 @@ nav:
        - Contents: cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+       - Getting Started:
+         - Getting access: cloud/rahti/access.md
+         - Using the web interface: cloud/rahti/usage/getting_started.md
+         - Command line tool installation and usage: cloud/rahti/usage/cli.md
+         - Security guide: cloud/rahti/usage/security-guide.md
        - Rahti Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
@@ -51,11 +56,6 @@ nav:
          - Webhooks: cloud/rahti/tutorials/webhooks.md
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
          - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
-       - Getting Started:
-         - Getting access: cloud/rahti/access.md
-         - Using the web interface: cloud/rahti/usage/getting_started.md
-         - Command line tool installation and usage: cloud/rahti/usage/cli.md
-         - Security guide: cloud/rahti/usage/security-guide.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
