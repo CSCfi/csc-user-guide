@@ -38,5 +38,5 @@ Create a new computing project in the My CSC customer portal:
  *Create project*.
 5. CSC will contact you once your project has been successfully created.
 
-Please contact [servicedesk@csc.fi](mailto:rahti-support@csc.fi) in case you
+Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) in case you
 need assistance.
