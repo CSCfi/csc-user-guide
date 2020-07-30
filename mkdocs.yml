@@ -66,9 +66,6 @@ nav:
        - Rahti Templates: cloud/rahti/template-docs.md
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
-       - Agreements:
-         - Terms of Use: cloud/rahti/agreements/terms_of_use.md
-         - Service Level Agreement: cloud/rahti/agreements/sla.md
        - External documentation: cloud/rahti/ext_docs.md
      - Pouta:
         - Contents: cloud/pouta/index.md
