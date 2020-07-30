@@ -4,110 +4,14 @@
 
 Rahti is the container orchestation service at CSC. Rahti runs on [okd](https://www.okd.io/), the community distribution of Kubernetes that powers Red Hat OpenShift. Built around a core of [OCI](https://opencontainers.org/) container packaging and [Kubernetes](https://kubernetes.io/) container cluster management.
 
-## Containers
+With the Rahti service you can easily deploy scalable and fault tolerant applications and make them accessible over the web. Rahti provides features like load balancing, high availability and rolling updates for your application. It also provides a set of ready-made templates that allow you to set up applications like a database or a web server with just a few clicks. Under the hood, Rahti is built on open source and based on a distribution of Kubernetes called OKD.
 
-Containers are a technology based on operating system kernel features
-that allow the creation of isolated environments sharing a kernel.
-For example, container features make it possible to have several isolated root
-filesystems, network stacks and process trees that all use the same kernel.
-These isolated environments are similar in functionality to lightweight virtual
-machines, but there are some key differences between virtual machines and
-containers. The biggest one is that virtual machines always have their own
-kernels, while containers share the host system's kernel.
+Like cPouta, Rahti is a generic platform that can run many different kinds of applications from web servers and databases to complex scientific software stacks and data analysis pipelines. However, the approach Rahti takes and the way you use it is quite different from cPouta. In contrast to cPouta where you manage infrastructure like virtual machines and networks, in Rahti you manage applications directly. You can think of it as a big computer where you launch applications whereas cPouta is like a data center where you add your own computers.
 
-![The difference between virtual machines and containers](img/vm_vs_container.png)
-*The difference between virtual machines and containers.*
+## When should I choose Rahti?
+Here are some example use cases that Rahti is good for:
 
-While many operating systems have the container functionality, what we look at more
-specifically in this documentation is containers in the Linux operating system.
-Linux is the most popular operating system for running containers, and it is
-also the operating system used in the Rahti container cloud. Currently, the most
-popular method for using the container functionality in Linux is _Docker_. It provides
-a set of tools that makes it easier to use containers compared to using the
-kernel functionality directly:
-
-  * A runtime (runC) for containers
-  * An image format for containers
-  * A command line interface for running and managing containers and images
-  * The Dockerfile format for building Docker images
-
-Docker has popularized containers by making them easier to use. Instead of
-looking at kernel documentation and figuring out how to use the different
-interfaces of the kernel's container features and then having to figure out
-which features you want to use and how, Docker provides a simpler way to start
-containers with a single command line command. The specific kernel features and
-how to use them have been defined by Docker.
-
-As an example of how Docker is used, this is how you could start a container on
-your computer after installing Docker:
-
-```bash
-docker run -it ubuntu
-```
-
-This will download the _ubuntu_ image if it is not already present on the
-computer, start a container based on that image, and give the user a command line
-interface within the container. From the user's point of view, the experience is
-similar to starting a virtual machine: regardless of the operating system
-distribution on your computer, interacting with the container seems like you
-are interacting with a Ubuntu installation.
-
-After running the command, you should be able to see the Ubuntu Docker image
-that has been downloaded by listing the images:
-
-```bash
-docker images
-```
-
-You can also do many other things, such as launch containers in the background,
-attach to a running container to interact with it, or build your own Docker
-images from a Dockerfile. The examples given here are intended to give a general
-idea of what using containers is like from the user's perspective. For more
-complete documentation about Docker, see the
-[official Docker documentation](https://docs.docker.com/).
-
-## Container orchestration
-
-To understand why container orchestration platforms are important, let us
-describe how a typical web-based application that end users access via a web
-browser is built.
-
-![Container orchestration](/cloud/rahti/img/container-orch2.drawio.svg)
-
-The application comprises a frontend that is the part of the application
-visible to users and a backend that handles various tasks in the background such as
-storing user data in a database. The application runs a server process that
-clients access to interact with the application. It also accesses a database
-such as PostgeSQL or MongoDB in the background to store user data.
-
-The architects of this application must design it to keep the application
-running reliably, quickly and safely:
-
-  * Server hardware can fail, so the application must be replicated on multiple
-    physical servers so that the failure of an individual server will not render the
-    entire application inaccessible.
-  * A large number of users causes load on the application. It must be
-    possible to scale up the application by adding more application processes to
-    prepare for increased user load.
-  * The connection to the application must be secure so that the users can safely
-    enter their data in the application without fearing eavesdroppers.
-  * User data must be stored reliably on a fault-tolerant storage system.
-
-You could create Linux virtual machines, install Docker on them, and run the
-application directly using those, but there is a lot of additional work to meet 
-all of the above requirements. You would have to figure
-out how to manage multiple instances of the application running on several
-servers, how to direct incoming traffic evenly to all the application instances,
-how to store user data, and how to quickly add more capacity when needed.
-
-Luckily, most applications have similar requirements, so the steps for creating
-good applications are often quite similar. This is where container orchestration
-systems come in. They handle many of the common tasks required for running
-robust web applications such as distributing application instances over multiple
-servers, directing traffic to the application instances, and providing persistent
-storage for databases.
-
-Currently, the most popular software for container orchestration is _Kubernetes_.
-It is based on earlier systems developed at Google over a decade. The Rahti
-system is based on a distribution of Kubernetes called _OpenShift_ made by
-Red Hat.
+* Host an interactive web application or just a regular web site.
+* Pre-package a complex application like Apache Spark and make it easy for others to run their own instance of that application.
+* Deploy a web application written in common languages like Python, Javascript or Java to the web with just one command.
+* If you want to run a web application or host a web site, Rahti will likely be the platform for you. It comes with a lot of the most common features needed for web based applications.
