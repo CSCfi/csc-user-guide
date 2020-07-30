@@ -42,6 +42,7 @@ nav:
      - Rahti:
        - Contents: cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
+       - Containers & their Orchestration: cloud/rahti/containers.md
        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
