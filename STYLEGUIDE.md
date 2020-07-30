@@ -1,7 +1,10 @@
 # Content and formatting instructions
 
- - Put all images in root images folder
  - Try to make standalone articles with a good name (user knows to select it from the left menu)
+ - The content should be as concise as possible, but as lengthy as needed.
+ - The main user guide should document only what is specific to CSC environment, for general usage instructions link to the real manuals of the tool
+   - Lengthier tutorials can be written under Support->Tutorials.
+ - Put all images in root images folder
  - Write SLURM flags in long format (--nodes instead of -N, etc.)
  - All examples should use minimum viable reserved resources. I.e don't write examples with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. Users tend to use these as default values.
  - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)

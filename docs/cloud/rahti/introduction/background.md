@@ -197,6 +197,10 @@ pods at all times.
 
 ![Deployment](img/deployment.png)
 
+### Empty dir
+
+When local ephemeral (temporal) storage is needed, an emptyDir should be issued. It is local to the node, can be shared across several containers in the same Pod, it is very fast, but it will be **lost when the Pod is killed**.
+
 ### Persistent volumes
 
 Pods are expendable. When they die, all state that was stored in the pod's
@@ -204,9 +208,17 @@ own filesystems is lost. Pods are also meant to die and be replaced as part of
 normal operations such as a rolling update triggered by a deployment. Therefore,
 storage that persists over a pod's lifetime is needed. This is what **persistent volumes** are for.
 
-Persistent volumes are stored in a backing storage such as Ceph, NFS or
+Persistent volumes are stored in a network storage such as Ceph, NFS or
 GlusterFS. They are claimed by a pod using a **PersistentVolumeClaim**. When a
 new claim is made, this can mean that either an existing volume is claimed or a
 new one is created dynamically and given to the pod to use.
 
+There are two storage classes available:
+
+ * *glusterfs-storage*. This kind of volume supports "Read Write Many" (RWX) storage, this means multiple nodes can mount it in read-write mode. This is the default class.
+ * *standard-rwo*. This kind supports two modes: "Read Write Once" (RWO), meaning that one node can mount in read-write mode. And "Read Only Many" (ROX), multiple nodes can mount in read-only mode.
+
+Other option is to use an object storage service, like for example [Allas](../../../../data/Allas/), which is provided as a service by CSC, or to deploy a private [Minio](../../template-docs/#minio) application using a template. Both Allas and Minio, support the S3 API.
+
 ![PersistentVolumeClaim](img/persistentvolumeclaim.png)
+
