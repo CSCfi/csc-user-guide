@@ -1,25 +1,60 @@
+# Intel Trace Analyzer and Collector (ITAC)
 
-## Intel Trace Analyzer and Collector (ITAC)
-This is a graphical tool for profiling and understanding the MPI behavior of the code, finding bottlenecks, improving correctness, and achieving high performance for parallel cluster applications based on Intel architecture. With ITAC it is possible to visualize the performance of MPI communication and identify hotspots and reasons for poor scaling performance.
+Intel Trace Analyzer and Collector (ITAC) is a MPI profiling and tracing tool
+that can be used to understand and visualize the MPI behavior of a code and to
+identify hotspots and reasons for poor scaling performance.
 
-### Compiling
-In order to start using ITAC,first one has to set up the correct environment with:
+## Compiling
+
+In order to start using ITAC, first one has to set up the correct environment
+with:
+
 ```bash
 module load intel-itac
-```
-
-```bash
 export LD_PRELOAD=libVT.so
 ```
-The compilation of the code is done as normally, but with 2 additional options, ```-g``` and ```-trace```. The first flag turns on the compiler debug symbols allowing source code-leve profiling, while the latter turns on the ITAC trace collectors. If the release build optimizations are used (e.g. ```-O3```, ```-xhost```), the efforts can be spent first in optimizing regions not addressed by the compiler optimizations.
-### Running the job
-Running the code is done the same as normal MPI job. The code profiling is enablef by adding the line ```export VT_PCTRACE=1```to the script. Finally the code is ran as normally ```srun ./mpi_executable arguments```. Please note that large will be generated.
-### Analyzing the results
-All data collected by the tool are saved in a series of ```<executable>.stf``` files in the running directory. The analysi is done using the
+
+The code to be analyzed is compiled normally, but with two additional options:
+`-g` and `-trace`. The first flag turns on compiler debug symbols allowing
+source code-level profiling and the second flag turns on the ITAC trace
+collectors.
+
+One should use the same optimizations settings (e.g. `-O3`, `-xhost`) as used
+for production runs, so that the results reflect a real-life production run
+and any optimization efforts can be focused on correct parts of the code.
+
+
+## Running
+
+To enable the code profiling, one needs to set the environment variable
+`VT_PCTRACE` to 1, for example by adding the following line to the job
+script:
+
+```
+export VT_PCTRACE=1
+```
+
+The code is then run as it would be normally run:
+
+```
+srun ./mpi_executable arguments
+```
+
+Please note that large files may be generated.
+
+
+## Analyzing the results
+
+All data collected by the tool are saved in a series of `<executable>.stf`
+files in the running directory. The analysis is done using the command:
+
 ```
 traceanalyzer <executable>.stf
 ```
-The trace analyzer tool can show the timeline of each process and map each MPI call between the tasks. For each permormance issue the folloing information is provided: description, affected processes, and source locations. 
 
+The trace analyzer tool can show the timeline of each process and map each MPI
+call between the tasks. For each performance issue the following information
+is provided: description, affected processes, and source locations.
 
-For more details please check the [Intel documentation](https://software.intel.com/content/www/us/en/develop/articles/intel-trace-analyzer-and-collector-documentation.html)
+For more details please check the
+[Intel documentation](https://software.intel.com/content/www/us/en/develop/articles/intel-trace-analyzer-and-collector-documentation.html)
