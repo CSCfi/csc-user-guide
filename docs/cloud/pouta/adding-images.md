@@ -278,7 +278,7 @@ image.
 As previously mentioned, the qcow2 format will store only the actual 
 customer data instead of storing a 1-to-1 copy of the root disk. If the 
 size of the customer data is considerably smaller than the total 
-capacity of the root disk, similarily the qcow2 image will be 
+capacity of the root disk, similarly the qcow2 image will be 
 considerably smaller than the raw image.
 
 7) Once the conversion is completed, the new image can be uploaded to 
