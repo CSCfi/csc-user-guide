@@ -1,5 +1,7 @@
 # Performance Analysis
 
+## Quick Start: Efficiency Report with seff
+
 Slurm job efficiency report (command: `seff`) gives a quick summary of
 requested and used resources for both running and finished batch jobs.
 
@@ -37,13 +39,19 @@ Mem BU: 0.51
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).
 
-# Profiling tools at CSC
-Several profiling tools are available on the CSC servers:
 
+## Profiling tools
 
-* [Intel Trace Analyzer and Collector](../apps/itac.md): *Intel Trace Analyzer and Collector* is a powerful tool for profiling and understanding the MPI behavior of a code.
-* [Intel Tools](../apps/vtune.md): *Intel VTune Amplifier* is a powerful profiling tool that can be used to collect performance data of your
-application. It is  suited to be used with serial and multithreaded code.
-* [Python cProfile](cProfile.md): in Python are available many profiling tool. For most users the recommended tool is *cProfile*.
-* [Nvidia profiler (nvprof)](nvprof.md): command line Nvidia profiling and tracing tool
+Good profiling tools may help one to get a full picture of the computational
+and communication patterns of a program and to identify potential performance
+bottlenecks. At CSC, several profiling tools are available:
 
+* [Intel VTune Profiler](../apps/vtune.md) is a powerful profiler that can be
+  used to collect performance data of your application and is suited for both
+  serial and multithreaded codes
+* [Intel Trace Analyzer and Collector](../apps/itac.md) is a MPI profiling and
+  tracing tool for parallel programs
+* [cProfile](cProfile.md) is the recommended, in-built profiling tool
+  for Python programs
+* [nvprof](nvprof.md) is a command-line CUDA profiler and tracing tool
+  for CUDA programs
