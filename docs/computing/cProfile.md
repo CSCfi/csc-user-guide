@@ -1,16 +1,30 @@
-# Profilling in Python with cProfile
-[cProfile](https://docs.python.org/2/library/profile.html#module-cProfile) is one of the deterministic built-in deterministic profiler. There are two ways to use the profiler. Within the  code (or from the interpreter):
+# cProfile: Python profiler
+
+[cProfile](https://docs.python.org/3.8/library/profile.html#module-cProfile)
+is a built-in profiler for Python programs. There are two ways to use the
+profiler. Within the code (or from the interpreter):
+
 ```
-import  cProfile
+import cProfile
 cProfile.run('functba(list_parameters)')
 ```
-Now the script can be ran the normal as a normal python job. This will give information about how long  and how many times the function gets called. 
 
-Alternatively  cProfile can also be invoked as a script to profile another script:
+Now the script can be ran as a normal Python job. This will give information
+about how long and how many times the function gets called.
+
+Alternatively cProfile can also be invoked as a script to profile another
+script:
+
 ```
 python -m cProfile [-o output_file] [-s sort_order] myscript.py
 ```
-The results can be output to the Stdout or saved to a file. By default they are ordered by name, but other options are as well available. The report save in ```output_file``` can be visualized and interpreted by graphical tools, such as ```pyprof2calltree```. Here is an example of a profilling done for a function:
+
+The results can be printed out or saved to a file. By default they are ordered
+by name, but other options are available, too.
+
+A report saved in a file can e.g. be visualized and interpreted by a
+graphical tool such as `pyprof2calltree`. Here is an example of a profiling
+done for a function:
 
 ```
 93 function calls in 0.065 seconds
@@ -35,4 +49,7 @@ The results can be output to the Stdout or saved to a file. By default they are 
         2    0.003    0.002    0.003    0.002 {method 'copy' of 'numpy.ndarray' objects}
         1    0.020    0.020    0.028    0.028 {mkl_fft._pydfti.irfftn_numpy}
 ```
-Keep in mind that running the profiler has to be done in the same way as running a [batch](running/example-job-scripts.md) or [interactive](running/interactive-usage.md) job. 
+
+Keep in mind that running the profiler has to be done in the same way as
+running a [batch](running/example-job-scripts.md) or
+[interactive](running/interactive-usage.md) job.
