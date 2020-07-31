@@ -49,4 +49,4 @@ and to resolve runtime errors. At CSC, several debuggers are available:
 * [GDB](gdb.md) is a command-line debugger for compiled programs (C, C++,
   Fortran, etc.)
 * [PDB](pdb.md) is an interactive debugger for Python programs
-* [CUDA GDB](cuda-gdb.md) is a command-line debugger for CUDA programs
+* [CUDA-GDB](cuda-gdb.md) is a command-line debugger for CUDA programs
