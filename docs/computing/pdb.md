@@ -1,4 +1,4 @@
-# PDB
+# pdb: Python debugger
 
 [pdb](https://docs.python.org/3/library/pdb.html) is an in-built Python
 debugger that supports breakpoints, stepping through the source line by line,
