@@ -1,10 +1,23 @@
-## NVIDIA profiler (nvprof)
-The nvprof profiling tool collects and views profiling data from the command-line. It enables the collection of a timeline of CUDA-related activities on both CPU and GPU, including kernel execution, memory transfers, memory set and CUDA API calls and events or metrics for CUDA kernels. Profiling results are displayed in the console after the profiling data is collected, and may also be saved for later viewing by either nvprof or the Visual Profiler. The nvprof is ran the same way as a usual [CUDA](running/example-job-scripts.md) program.
+# nvprof: CUDA profiler
+
+The *nvprof* profiling tool collects and views profiling data from the
+command-line. It enables the collection of a timeline of CUDA-related
+activities on both CPU and GPU, including kernel execution, memory transfers,
+memory set and CUDA API calls and events or metrics for CUDA kernels.
+Profiling results are displayed in the console after the profiling data is
+collected, and may also be saved for later viewing by either *nvprof* or the
+*Visual Profiler*.
+
+To use nvprof, one needs to first load a CUDA environment, for example:
 
 ```bash
 module load gcc/8.3.0
 module load cuda
 ```
+
+To profile a CUDA code, one then adds the command `nvprof` before the normal
+command to execute the code. Running is otherwise similar to that of any other
+[CUDA job](running/example-job-scripts.md#single-gpu).
 
 An example of usage and output of nvprof:
 ```
@@ -28,7 +41,8 @@ nvprof supports several very useful running options:
 
 * --export-profile: Export the profile to a file
 
-* --analysis-metrics: Collect profiling data that can be imported to Visual Profiler
+* --analysis-metrics: Collect profiling data that can be imported to Visual
+  Profiler
 
 * --print-gpu-trace: Show trace of function calls
 
@@ -36,9 +50,11 @@ nvprof supports several very useful running options:
 
 * --cpu-profiling on: Enable some CPU profiling
 
-* --csv --log-file FILE: Generate CSV output and save to FILE; handy for plots or benchmarked analysis
+* --csv --log-file FILE: Generate CSV output and save to FILE; handy for plots
+  or benchmarked analysis
 
-* --metrics M1: Measure only metric M1 which is one of the NVIDIA-provided metrics which can be listed via --query-metrics.
+* --metrics M1: Measure only metric M1 which is one of the NVIDIA-provided
+  metrics which can be listed via --query-metrics.
 
-
-For more details please check the [nvidia documentation](https://docs.nvidia.com/cuda/profiler-users-guide/).
+For more details please check the
+[nvidia documentation](https://docs.nvidia.com/cuda/profiler-users-guide/).
