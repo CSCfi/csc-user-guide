@@ -1,4 +1,4 @@
-# Creating, uploading and sharing virtual machine images
+# Creating, converting, uploading and sharing virtual machine images
 
 This article explains how to manage images in Pouta.
 
@@ -172,6 +172,128 @@ enabled. This is on by default in CentOS 6 and newer, but for Ubuntu,
 you need to add the line "*acpiphp*" to */etc/modules*. For other
 distros, please check how to load *acpiphp* on boot from the distro
 documentation.
+
+
+## Converting images
+
+When performing a snapshot of a virtual machine, OpenStack creates an 
+image in _raw_ format. These images typically take as many GB as the 
+capacity of the root disk of the virtual machine, regardless of the 
+amount of GB actually used by the customer. As a result, taking 
+snapshots can quickly deplete the space available for images.
+
+A solution to this problem is to convert the image obtained from the 
+snapshot to more compact formats, such as _qcow2_, which stores the 
+customer data only. To do so, we download the raw image, we convert it 
+to qcow2, and we upload the newly obtained image to OpenStack. Given 
+that raw images can take many GB, we do not recommend performing this 
+operation on a personal computer, but to use an auxiliary virtual 
+machine within Pouta instead. In the following, we illustrate the 
+procedure using a temporary virtual machine.
+
+1) We assume we have just performed a snapshot of a virtual machine, 
+and we have thus obtained an image _myVmSnapshot_. The first step is to 
+create a temporary virtual machine that we will use to convert 
+myVmSnapshot. The virtual machine should have enough space to host 
+myVmSnapshot and its compact version at the same time. Since the 
+compact version will be smaller or of equal size of myVmSnapshot, 
+a safe choice is to select a flavor that is capable of hosting two times 
+the size of myVmSnapshot. For example, if myVmSnapshot has a size of 
+80GB, a suitable flavor for the auxiliary virtual machine is io.160GB 
+because it has 160 GB of ephemeral storage. The operating system can be 
+CentOS-7, for example.
+
+    openstack server create --flavor <flavor> \
+    --image <image uuid> \
+    --key-name <key name> \
+    --nic net-id=<name of network> \
+    --security-group default \
+    --security-group <additional security group> snapshotConverter
+
+The only additional requirements for the setting up of the virtual 
+machine are i) attaching a public floating IP, and ii) enabling SSH, so that 
+we can actually log into the virtual machine.
+
+2) Once the virtual machine is up and running, we copy the OpenStack 
+RC File v3 for accessing to cPouta/ePouta in the virtual machine. If you 
+do not have such file yet, please refer to [this 
+guide](https://docs.csc.fi/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) 
+to obtain a copy.
+
+    scp <project_name_here>-openrc.sh cloud-user@<floating_ip>:/home/cloud-user/
+
+Login into the virtual machine and use the file to load your 
+credentials.
+
+    source <project_name_here>-openrc.sh
+
+3) In order to host the image obtained from the snapshot, we need to 
+initialize properly the ephemeral storage. To do so, please refer to [our 
+guide](https://docs.csc.fi/cloud/pouta/ephemeral-storage/). After this 
+step, we assume the ephemeral disk is mounted in _/mnt_.
+
+4) Next, we need to equip the virtual machine with some basic tools we 
+will need.
+
+    sudo yum install python3 python3-virtualenv screen qemu-img
+
+We create a python-3 virtual environment, which we will use to interact 
+with cPouta/ePouta, and we enter in it.
+
+    virtualenv-3 env
+    source env/bin/activate
+
+Now we install the actual tools we need to talk with cPouta/ePouta.
+
+    pip install python-openstackclient==3.11.0 openstacksdk==0.9.17 os-client-config==1.27.0 osc-lib==1.6.0
+
+5) Next, we download the image we obtained taking the snapshot. Move to 
+the ephemeral storage directory.
+
+    cd /mnt
+
+Though it is not required, at this point we recommend opening a _screen_ 
+session, which allows to keep a process running in background, i.e., 
+without the need of waiting for its completion before closing the 
+terminal.
+
+    screen -S converter
+
+We now issue the command to download the image obtained from the 
+snapshot.
+
+    openstack image save --file myVmSnapshotRaw.raw <id_of_myVmSnapshot>
+
+Given the size of the image, the process will take few minutes. We can 
+exit the screen session by pressing CTRL+A followed by CTRL+D. We can 
+re-enter the screen session any time typing:
+
+    screen -r converter
+
+6) Once the previous command has finished, it is time to convert the 
+image.
+
+    qemu-img convert -f raw -O qcow2 myVmSnapshotRaw.raw myVmSnapshotQcow2.qcow2
+
+As previously mentioned, the qcow2 format will store only the actual 
+customer data instead of storing a 1-to-1 copy of the root disk. If the 
+size of the customer data is considerably smaller than the total 
+capacity of the root disk, similarily the qcow2 image will be 
+considerably smaller than the raw image.
+
+7) Once the conversion is completed, the new image can be uploaded to 
+OpenStack.
+
+    openstack image create --disk-format qcow2 --file myVmSnapshotQcow2.qcow2 myVmSnapshotCompact 
+
+If the operation is successful, we can remove the image in raw format from OpenStack.
+
+    openstack image delete <id_of_myVmSnapshot>
+
+We may keep the auxiliary virtual machine for future image conversions, 
+or delete it right after its usage.
+
+    openstack server delete <id_of_snapshotConverter>
 
 ## Uploading images
 
