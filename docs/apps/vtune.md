@@ -45,7 +45,7 @@ only for a subset of the tasks
 [https://software.intel.com/content/www/us/en/develop/articles/using-intel-advisor-and-vtune-amplifier-with-mpi.html](https://software.intel.com/content/www/us/en/develop/articles/using-intel-advisor-and-vtune-amplifier-with-mpi.html).
 
 
-# Generating Reports
+## Generating Reports
 
 The command line tool can be used to create reports from collected results
 using the `-report` option:
@@ -72,7 +72,7 @@ Finally, it is possible to display the CPU time for call stacks
 each function (`-report top-down`).
 
 
-# Analysing the Results Using GUI
+## Analysing the Results Using GUI
 
 Results can be viewed using the `amplxe-gui` application. Unfortunately it
 does not work well with SSH and X11 forwarding, so we recommend using the
