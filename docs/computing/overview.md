@@ -82,5 +82,6 @@ Check [Disk areas](disk.md) chapter for details.
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on Puhti
-* [Compiling applications](compiling.md): Using compilers and building your applications   
-* [Debugging and Profiling applications](debuggprof.md): Profiling your applications     
+* [Compiling applications](compiling.md): Using compilers and building your applications
+* [Debugging applications](debugging.md): How to debug your applications
+* [Performance analysis](performance.md): How to understand the performance of your applications
