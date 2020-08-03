@@ -81,7 +81,7 @@ nav:
             - Snapshots: cloud/pouta/snapshots.md
         - Images:
             - Basic information about images: cloud/pouta/images.md
-            - Creating, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
+            - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
