@@ -33,10 +33,10 @@ nav:
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
      - Compiling: computing/compiling.md
+     - Debugging: computing/debugging.md
+     - Performance analysis: computing/performance.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
-#     - Debugging: computing/debugging.md
-#     - Performance analysis: computing/performance.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
@@ -81,7 +81,7 @@ nav:
             - Snapshots: cloud/pouta/snapshots.md
         - Images:
             - Basic information about images: cloud/pouta/images.md
-            - Creating, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
+            - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
