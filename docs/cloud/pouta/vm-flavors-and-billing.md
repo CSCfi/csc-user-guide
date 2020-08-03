@@ -13,9 +13,36 @@ Users can create virtual machines with larger or
 smaller compute resources based on their needs. The virtual
 machine *flavors* available in cPouta and ePouta are listed below in
 separate tables.
+Please note that the values for the memory of each flavor (in GiB) are approximated.
 
-**New prices from 18.3.2019 onwards. The prices before 18.3.2019
-are shown in parentheses.**
+
+## About redundancy
+
+In addition to the amount of cores, memory, and disk, the flavors we offer vary also on the level of redundancy of the nodes hosting the virtual machines.
+The details on the levels of redundancy follow.
+
+### Power redundancy
+
+For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
+
+* ![](/img/circle_icons/p0.svg) **NONE** - The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.
+* ![](/img/circle_icons/p100.svg) **FULL** - The node is protected from sudden power losses (UPS).
+
+### Data redundancy
+
+Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an ephemeral disk (E).
+For customer data, there are three possible values of redundancy.
+
+* ![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
+* ![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
+* ![](/img/circle_icons/r100.svg)![](/img/circle_icons/e100.svg) **FULL** - The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.
+
+### Network redundancy
+
+For the network reachability of the virtual machine, there are two possible values of redundancy.
+
+* ![](/img/circle_icons/n0.svg) **NONE** - The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.
+* ![](/img/circle_icons/n100.svg) **FULL** - The node hosting the virtual machine is connected to the cloud platform with an additional failover link.
 
 ## cPouta flavors
 
@@ -27,47 +54,50 @@ flavors.
 
 ### Standard flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|standard.tiny   |1|1 |80 |0 |80 |1  |0.25 (0.5)|
-|standard.small  |2|2 |80 |0 |80 |1  |0.5 (1)|
-|standard.medium |3|4 |80 |0 |80 |1.3|1 (2)|
-|standard.large  |4|8 |80 |0 |80 |2  |2 (4)|
-|standard.xlarge |6|16|80 |0 |80 |2.6|4 (8)|
-|standard.xxlarge|8|32|80 |0 |80 |4  |8 (16)|
-|standard.3xlarge|8|64|80 |0 |80 |8  |16|
-
-**\*** Because not all memory amounts round exactly to GiB, the closest value
-has been used. This applies to all tables.
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|standard.tiny   |1|1 |80 |0 |80 |1  |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|0.25 |
+|standard.small  |2|2 |80 |0 |80 |1  |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|0.5  |
+|standard.medium |3|4 |80 |0 |80 |1.3|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|1    |
+|standard.large  |4|7 |80 |0 |80 |1.8|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|2    |
+|standard.xlarge |6|15|80 |0 |80 |2.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|4    |
+|standard.xxlarge|8|30|80 |0 |80 |3.8|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|8    |
+|standard.3xlarge|8|60|80 |0 |80 |7.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|16   |
 
 ### HPC flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc.4.5core     | 5  | 22  | 80          | 0 | 80 | 4.3 | 6 (10)    |
-| hpc.4.10core    | 10 | 43  | 80          | 0 | 80 | 4.3 | 12 (20)   |
-| hpc.4.20core    | 20 | 86  | 80          | 0 | 80 | 4.3 | 25 (40)   |
-| hpc.4.40core    | 40 | 172 | 80          | 0 | 80 | 4.3 | 50 (80)   |
-| hpc.4.80core    | 80 | 344 | 80          | 0 | 80 | 4.3 | 100 (160) |
-| hpc-gen2.24core | 24 | 120 | 80  (RAID0) | 0 | 80 | 5   | 30 (45)   |
-| hpc-gen2.48core | 48 | 240 | 80  (RAID0) | 0 | 80 | 5   | 60 (90)   |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| hpc.4.5core     | 5  | 20  | 80 | 0 | 80 | 4   |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 6   |
+| hpc.4.10core    | 10 | 40  | 80 | 0 | 80 | 4   |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 12  |
+| hpc.4.20core    | 20 | 82  | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 25  |
+| hpc.4.40core    | 40 | 165 | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 50  |
+| hpc.4.80core    | 80 | 328 | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 100 |
+| hpc-gen2.24core | 24 | 112 | 80 | 0 | 80 | 4.7 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/n0.svg)    | 30  |
+| hpc-gen2.48core | 48 | 225 | 80 | 0 | 80 | 4.7 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/n0.svg)    | 60  |
+
+Note that the root disks of the hpc-gen2.24core and the hpc-gen2.48core flavors are hosted on hard disk drives (HDDs).
 
 ### I/O flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| io.70GB  | 2  | 10 | 20 (SSD/RAID0) | 70 (SSD/RAID0)  | 90  | 5 | 3 (5)   |
-| io.160GB | 4  | 20 | 20 (SSD/RAID0) | 160 (SSD/RAID0) | 180 | 5 | 6 (19)  |
-| io.340GB | 8  | 40 | 20 (SSD/RAID0) | 340 (SSD/RAID0) | 360 | 5 | 12 (20) |
-| io.700GB | 16 | 80 | 20 (SSD/RAID0) | 700 (SSD/RAID0) | 720 | 5 | 24 (40) |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| io.70GB  | 2  | 10 | 20 | 70  | 90  | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 3  |
+| io.160GB | 4  | 20 | 20 | 160 | 180 | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 6  |
+| io.340GB | 8  | 37 | 20 | 340 | 360 | 4.6 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 12 |
+| io.700GB | 16 | 75 | 20 | 700 | 720 | 4.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 24 |
+
+Note that both the root and the ephemeral disks of all I/O flavors are hosted on solid-state drives (SSDs).
 
 ### GPU flavors
 
-|Flavor|Cores|GPUs |Memory <br/>(* GiB)|Disk (root) GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.1.1gpu | 14 | 1 | 120 | 80 (SSD/RAID1) | 80 | 8.5 | 60  |
-| gpu.1.2gpu | 28 | 2 | 240 | 80 (SSD/RAID1) | 80 | 8.5 | 120 |
-| gpu.1.4gpu | 56 | 4 | 480 | 80 (SSD/RAID1) | 80 | 8.5 | 240 |
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.1.1gpu | 14 | 1 | 112 | 80 |0 | 80 | 8 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 60  |
+| gpu.1.2gpu | 28 | 2 | 224 | 80 |0 | 80 | 8 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 120 |
+| gpu.1.4gpu | 56 | 4 | 447 | 80 |0 | 80 | 8 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 240 |
+
+Note that the root disks of all GPU flavors are hosted on solid-state drives (SSDs).
 
 ## ePouta flavors
 
@@ -76,66 +106,59 @@ billing unit coefficients.
 
 ### Standard flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| standard.tiny    | 1 | 1  | 80 | 0 | 80 | 1   | 0.25 (0.5) |
-| standard.small   | 2 | 2  | 80 | 0 | 80 | 1   | 0.5 (1)    |
-| standard.medium  | 3 | 4  | 80 | 0 | 80 | 1.3 | 1 (2)      |
-| standard.large   | 4 | 8  | 80 | 0 | 80 | 2   | 2 (4)      |
-| standard.xlarge  | 6 | 16 | 80 | 0 | 80 | 2.6 | 4 (8)      |
-| standard.xxlarge | 8 | 32 | 80 | 0 | 80 | 4   | 8 (16)     |
-| standard.3xlarge | 8 | 64 | 80 | 0 | 80 | 8   | 16         |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| standard.tiny    | 1 | 1  | 80 | 0 | 80 | 1   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 0.25 |
+| standard.small   | 2 | 2  | 80 | 0 | 80 | 1   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 0.5  |
+| standard.medium  | 3 | 4  | 80 | 0 | 80 | 1.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1    |
+| standard.large   | 4 | 7  | 80 | 0 | 80 | 1.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 2    |
+| standard.xlarge  | 6 | 15 | 80 | 0 | 80 | 2.5 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 4    |
+| standard.xxlarge | 8 | 30 | 80 | 0 | 80 | 3.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 8    |
+| standard.3xlarge | 8 | 60 | 80 | 0 | 80 | 7.5 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 16   |
 
 ### HPC flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc.fullnode.haswell | 46 | 242 | 80 | 0 | 80 | 5.4 | 72 (120)  |
-| hpc.3.28core         | 28 | 120 | 80 | 0 | 80 | 4.4 | 48 (70)   |
-| hpc.3.56core         | 56 | 240 | 80 | 0 | 80 | 4.4 | 96 (140)  |
-| hpc.4.5core          | 5  | 22  | 80 | 0 | 80 | 4.4 | 8 (12)    |
-| hpc.4.10core         | 10 | 45  | 80 | 0 | 80 | 4.5 | 15 (23)   |
-| hpc.4.20core         | 20 | 90  | 80 | 0 | 80 | 4.4 | 30 (45)   |
-| hpc.4.40core         | 40 | 180 | 80 | 0 | 80 | 4.4 | 60 (90)   |
-| hpc.4.80core         | 80 | 360 | 80 | 0 | 80 | 4.4 | 120 (180) |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| hpc.fullnode.haswell | 46 | 230 | 80 | 0 | 80 | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 72  |
+| hpc.3.28core         | 28 | 115 | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 48  |
+| hpc.3.56core         | 56 | 240 | 80 | 0 | 80 | 4.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 96  |
+| hpc.4.5core          | 5  | 20  | 80 | 0 | 80 | 4   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 8   |
+| hpc.4.10core         | 10 | 42  | 80 | 0 | 80 | 4.2 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 15  |
+| hpc.4.20core         | 20 | 85  | 80 | 0 | 80 | 4.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 30  |
+| hpc.4.40core         | 40 | 168 | 80 | 0 | 80 | 4.2 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 60  |
+| hpc.4.80core         | 80 | 335 | 80 | 0 | 80 | 4.2 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 120 |
 
 ### I/O flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| io.haswell.2core  | 2  | 10  | 20 | 70   | 90   | 5   | 4.5 (7)   |
-| io.haswell.4core  | 4  | 20  | 20 | 160  | 180  | 5   | 9 (13)    |
-| io.haswell.8core  | 8  | 40  | 20 | 350  | 370  | 5   | 18 (25)   |
-| io.haswell.16core | 16 | 80  | 20 | 700  | 720  | 5   | 36 (50)   |
-| io.haswell.32core | 32 | 160 | 20 | 1400 | 1420 | 5   | 72 (100)  |
-| io.haswell.46core | 46 | 242 | 20 | 2100 | 2120 | 5.4 | 108 (150) |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| io.haswell.2core  | 2  | 10  | 20 | 70   | 90   | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 4.5 |
+| io.haswell.4core  | 4  | 20  | 20 | 160  | 180  | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 9   |
+| io.haswell.8core  | 8  | 37  | 20 | 350  | 370  | 4.6 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 18  |
+| io.haswell.16core | 16 | 75  | 20 | 700  | 720  | 4.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 36  |
+| io.haswell.32core | 32 | 150 | 20 | 1400 | 1420 | 4.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 72  |
+| io.haswell.46core | 46 | 230 | 20 | 2100 | 2120 | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 108 |
 
 ### High memory flavors
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| tb.3.480RAM  | 56 | 480  | 20 (SSD/RAID0) | 1650 (NVMe/RAID0) | 1730 | 8.5  | 110 (240) |
-| tb.3.1470RAM | 80 | 1470 | 80 (SSD/RAID0) | 2500 (NVMe/RAID0) | 2580 | 18.3 | 320 (600) |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| tb.3.480RAM  | 56 | 458  | 20 | 1650 | 1730 | 8.2  |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 110 |
+| tb.3.1470RAM | 80 | 1402 | 80 | 2500 | 2580 | 17.5 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 320 |
+
+Note that the root disks of all high memory flavors are hosted on solid-state drives (SSDs), while the ephemeral disks are hosted using NVM Express (NVMe).
 
 ### GPU flavors
 
-|Flavor|Cores|GPUs|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.1.1gpu | 14 | 1 | 120 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 60  |
-| gpu.1.2gpu | 28 | 2 | 240 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 120 |
-| gpu.1.4gpu | 56 | 4 | 480 | 80 (SSD/RAID1) | 0 | 80 | 8.5 | 240 |
-| gpu.2.1gpu | 20 | 1 | 180 | 80 (SSD/RAID0) | 1000 (SSD/RAID0) | 1080 | 9 | 100 (140) |
+|Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.1.1gpu | 14 | 1 | 112 | 80 |    0 |   80 |   8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 60  |
+| gpu.1.2gpu | 28 | 2 | 225 | 80 |    0 |   80 |   8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 120 |
+| gpu.1.4gpu | 56 | 4 | 447 | 80 |    0 |   80 |   8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 240 |
+| gpu.2.1gpu | 20 | 1 | 172 | 80 | 1000 | 1080 | 8.6 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 100 |
 
-**\*** Because not all memory amounts round exactly to GiB, the closest value
-has been used.
-
-Please note: The flavors in the two tables are slightly different.
-This is because
-different hardware is used in the two clouds. Any storage with a
-comment in parentheses such as (SSD/RAID0) 
-is local to the compute node. In ePouta, the HPC root disks
-and standalone volumes are hosted in the centralized Ceph block
-storage system.
+Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
 
 ## Which type of flavor should I use?
 
@@ -184,7 +207,7 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 
 **hpc.4.\*:**
 
--   Not redundant power
+-   No redundant power
 -      CPU:   Intel(R)    Xeon(R)   Gold    6148   CPU    @   2.40GHz,
     ***hyper-threading***
 -   Network: Redundant 25 Gb/s
@@ -197,7 +220,7 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 -   No redundant power
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
 -   Network: Single 40 Gb/s
--   Flavor disk: Local SATA disk, no RAID
+-   Flavor disk: Local SATA disk, RAID-0
 -   Instances can be lost due to a single-node or disk failure.
 
 **ePouta HPC flavor characteristics:**
@@ -248,7 +271,7 @@ data loss with these flavors.
 
 As these instances are also tightly tied to the hardware, you may
 expect downtime of instances during the maintenance of the hardware.
-Resize/migration functionality neither works for these instances.
+The resize/migration functionalities do not work for these instances.
 The bulk of the storage is available as an ephemeral disk, typically
 in /dev/vdb.
 
@@ -260,8 +283,7 @@ anti-affinity group commands in our [command line instructions].
 
 The availability of these instances is not as high as the
 standard flavors, but the I/O
-performance is significantly better. Maintenance work can cause a larger disruption, and the
-resize functionality does not work.
+performance is significantly better.
 
 **cPouta IO flavor characteristics:**
 
@@ -334,11 +356,11 @@ batch system on Puhti-AI: <https://research.csc.fi/techspecs>.
 
 **gpu.1.\*:**
 
--   Redundant power
+-   No redundant power
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
 -   Network: Redundant 10 Gb/s
 -   Flavor disk: Local SSD disks, RAID-1
--   Instance can be lost due to a single-node or disk failure.
+-   Instance can be lost due to a single-node or multiple simultaneous disk failures.
 
 **ePouta flavor characteristics:**
 
@@ -377,14 +399,12 @@ Typical use cases:
 
 These flavors have large amounts of memory and are meant for use cases
 which require and can utilize such amounts of memory. Typical use cases
-of these flavors include scientific applications with huge memory
-requirements, for example Gnome sequencing and analysis applications.
+of these flavors include genome sequencing and analysis applications.
 
-The resize/migration functionality does not work for these instances.
+The resize/migration functionalities do not work for these instances.
 
-If you need to move a workload from another type of VM to a TB
-instance, either move all data and install all applications manually
-on the new TB VM or create a snapshot of the source VM. Then
+If you need to move a workload from another type of VM to an instance with a high memory flavor, i.e., a TB instance, either move all data and install all applications manually
+on the new TB instance or create a snapshot of the source VM. Then
 convert that snapshot to a volume and use the volume to create the
 new TB-flavor VM.
 
@@ -392,7 +412,7 @@ If you need to move a workload from a TB instance to another instance,
 either move all data and install all applications manually on a new
 VM or create a snapshot of the source VM. **Please note** that all
 ephemeral disk data will be lost in the process and will not be stored
-in the snapshot, only the TB VM root disk.
+in the snapshot because only the TB VM root disk is stored in the snapshot.
 
 **Flavor characteristics:**
 
@@ -414,7 +434,7 @@ virtual machines that use these flavors will continue to
 work.** We will maintain these flavors for a period of time,
 but they will be removed at some point in the near future.
 
-|Flavor|Cores|Memory <br/>(* GiB)|Disk <br/>(root)<br/>GB|Disk <br/>(ephemeral)<br/>GB|Disk <br/>(total)<br/>GB|Memory/<br/> core <br/>(* GiB)|Billing<br/> Units<br/>/h|
+|Flavor|Cores|Memory <br/>(GiB)|Root<br/> disk <br/>(GB)|Ephemeral<br/> disk <br/>(GB)|Total<br/> disk <br/>(GB)|Memory/<br/> core <br/>(GiB)|Billing<br/> Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | hpc-gen1.1core  | 1  | 3.7 | 80 (RAID0)  | 0            | 80  | 3.7 | 2  |
 | hpc-gen1.4core  | 4  | 15  | 80 (RAID0)  | 0            | 80  | 3.7 | 8  |
