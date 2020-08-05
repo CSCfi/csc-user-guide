@@ -93,7 +93,7 @@ Unfortunately, this information is not available via a web interface yet.
 !!! note
     It is not possible for normal users to change the *csc_project* label
     after a project has been created. If you would like to change the label for
-    an existing project, please [contact the support](/cloud/rahti/contact). You can also create
+    an existing project, please [contact the support](/support/contact/). You can also create
     a completely new project if you want to use a different label.
 
 ## Creating a project
@@ -133,19 +133,22 @@ own quota for the following resources:
 | Virtual cores per container      | 2       |
 | RAM per pod                      | 8 GiB   |
 | RAM per container                | 8 GiB   |
+| Storage                          | 50 GiB  |
+| Number of image streams          | 10      |
+| Size of each registry images     | 5 GiB   |
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under Resources -> Quota. Alternatively, you can use the oc
 command line tool:
 
 ```bash
-oc get quota -o yaml
-oc get limitranges -o yaml
+oc describe quota
+oc describe limitranges
 ```
 
 If you need to create more projects or you need more resources in a project for
 your application, you can apply for more quota by contacting the Rahti
-support. See the [Contact page ](/cloud/rahti/contact) for instructions. Quota requests are
+support. See the [Contact page](/support/contact/) for instructions. Quota requests are
 handled on a case-by-case basis depending on the currently available resources
 in Rahti and the use case.
 

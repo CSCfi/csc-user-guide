@@ -17,10 +17,12 @@
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
 
 ## Rahti - container cloud
-* [Deploying applications from web console](../../cloud/rahti/tutorials/basic-console.md)
-* [Core objects](../../cloud/rahti/tutorials/elemental_tutorial.md)
-* [Utility objects](../../cloud/rahti/tutorials/advanced_tutorial.md)
-* [Design patterns](../../cloud/rahti/tutorials/patterns.md)
+* [Core objects](../../cloud/rahti/concepts.md)
+* [Deploying a static web server using the web interface](../../cloud/rahti/tutorials/basic-console.md)
+* [Deploying a static web server using the command line](../../cloud/rahti/tutorials/elemental_tutorial.md)
+* [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md)
+* [Configuration, ConfigMaps and Secrets](../../cloud/rahti/tutorials/configuration.md)
+* [Webhooks](../../cloud/rahti/tutorials/webhooks.md)
 
 ## Data analysis and machine learning
 
