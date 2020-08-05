@@ -1,6 +1,6 @@
 # The Swift client
 
-The Python Swift client is a command line tool for using object storage systems such as Allas. If you use Allas on Puhti or Taito, all required packages and software are already installed:
+The Python Swift client is a command line tool for using object storage systems such as Allas. If you use Allas on Puhti or Mahti, all required packages and software are already installed.
 ```text
 module load allas
 
@@ -10,7 +10,7 @@ Open a connection to Allas:
 allas-conf
 ```
 
-The _allas-conf_ command above asks for your CSC password (the same that you use to login to CSC servers). It lists your projects in Allas and asks you to define the project that will be used. _allas-conf_ generates and autheticates the connection to the selected project in Allas. The authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session. If you login to Puhti in another session, you need to authenticate again to access Allas.
+The _allas-conf_ command above asks for your CSC password (the same that you use to login to CSC servers). It lists your projects in Allas and asks you to define the project that will be used. _allas-conf_ generates and autheticates the connection to the selected project in Allas. The authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session. If you open another session, you need to authenticate again to access Allas.
 
 This chapter includes instructions for the following operations:
 

@@ -8,7 +8,8 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.8.1 Zanzibar via conda
+* 3.14 via conda in geoconda-3.8
+* 3.10 via conda in geoconda-3.7
 
 ## Usage
 
