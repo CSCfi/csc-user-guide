@@ -20,7 +20,9 @@ the [academic license text here].
 
 Start using the AmberTools with:
   
-`module load amber`
+```
+module load amber
+```
 
 This will set `$AMBERHOME` and put the AmberTools binaries in the path. Run Amber
 production jobs in the batch queues, see below. Lightweight system preparation
@@ -28,7 +30,7 @@ can be done on the login node as well (short serial AmberTools jobs).
 
 Molecular dynamics jobs are best run with `pmemd.CUDA`. They are much faster
 on GPGPUs than on CPUs. Please note, that using `pmemd.CUDA` requires
-a different module `amber/18-cuda`, but it does not have all the AmberTools available.
+a different module `amber/20-cuda`, but it does not have all the AmberTools available.
 Our tests show that for moderate sized systems the most efficient setup
 is one V100 GPGPU card and one CPU core. An example batch script would be:
 
@@ -56,7 +58,9 @@ srun --gres=gpu:v100:1 pmemd.cuda.MPI -O -i mdin -r restrt -x mdcrd -o mdout
 
 You can find example inputs from the amber tests directory:
 
-`ls $AMBERHOME/test`
+```
+ls $AMBERHOME/test
+```
 
 The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. with the following way:
 
@@ -81,19 +85,24 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
     an order of magnitude faster. In particular, for large scale or very long MD
     simulations consider using a better scaling MD engine.
 
-**Interactive jobs**
+### Interactive jobs
 
-Sometimes it is more convenient to run a small jobs, like system
+Sometimes it is more convenient to run small jobs, like system
 preparations, interactively. To prevent excessive load on the login node, these
 kinds of jobs should be run as interactive batch jobs. You can request
-a shell on a compute node with access to a single core with:
+a shell on a compute node with 
+[sinteractive](../computing/running/interactive-usage.md) or manually access to a single core with:
 
-`srun -n 1 -p test -t 00:05:00 --account=<project> --pty /bin/bash`
+```
+srun -n 1 -p test -t 00:05:00 --account=<project> --pty /bin/bash
+```
 
 Then, once you have the resources (you might need to wait), 
 you can run the `paramfit` task directly with:
 
-`paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat`
+```
+paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
+```
 
 ## References
 
