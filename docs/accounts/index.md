@@ -4,9 +4,9 @@
 
 The usage of the computing and storage services of CSC is based on user _accounts_ and _projects_:
 
-*   *User accounts* are used to authenticate and manage users. Each user should have just one user account at CSC.  User accounts are always personal. It is forbidden to share the credentials of an account with other persons or allow other persons to use the account.
+*   **User accounts** are used to authenticate and manage users. Each user should have just one user account at CSC.  User accounts are always personal. It is forbidden to share the credentials of an account with other persons or allow other persons to use the account.
 
-*   *CSC projects* are used to manage access to CSC services and the resources provided by CSC. Access to CSC services like, Puhti, Allas or cPouta 
+*   **CSC projects** are used to manage access to CSC services and the resources provided by CSC. Access to CSC services like, Puhti, Allas or cPouta 
 is granted to a CSC project, not to individual users. The same applies to the billing units that are consumed when these services are used.
 A CSC project can include one or several CSC user accounts and one user account can be a member in several projects. Each CSC project must have a Project Manager, who creates the project, manages that user accounts and services that belong to the project and is responsible of the resource usage 
 of the project. The Project Manager is typically a leader of a reserach team. See more detailed project manager Prerequisities [here](https://www.csc.fi/en/prerequisites-for-a-project-manager).
