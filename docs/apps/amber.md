@@ -8,7 +8,7 @@ structure refinement.
 
 ## Available
 
-* Puhti: 18, 18-cuda
+* Puhti: 18, 18-cuda, 20, 20-cuda
 
 ## License
 
@@ -43,7 +43,7 @@ is one V100 GPGPU card and one CPU core. An example batch script would be:
 
 # 1 task, 1 thread, 1 GPGPU
 
-module load amber/18-cuda
+module load amber/20-cuda
 
 srun --gres=gpu:v100:1 pmemd.cuda.MPI -O -i mdin -r restrt -x mdcrd -o mdout
 ```
@@ -69,7 +69,7 @@ The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. with 
 
 # 1 task
 
-module load amber/18
+module load amber/20
 
 srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
@@ -97,8 +97,21 @@ you can run the `paramfit` task directly with:
 
 ## References
 
-When citing Amber 2018 in the
-literature, the following citation should be used:
+When citing Amber20 or AmberTools20 please use the following:
+
+D.A. Case, K. Belfon, I.Y. Ben-Shalom, S.R. Brozell, D.S. Cerutti, 
+T.E. Cheatham, III, V.W.D. Cruzeiro, T.A. Darden, R.E. Duke, 
+G. Giambasu, M.K. Gilson, H. Gohlke, A.W. Goetz, R. Harris, 
+S. Izadi, S.A. Izmailov, K. Kasavajhala, A. Kovalenko, R. Krasny, 
+T. Kurtzman, T.S. Lee, S. LeGrand, P. Li, C. Lin, J. Liu, T. Luchko, 
+R. Luo, V. Man, K.M. Merz, Y. Miao, O. Mikhailovskii, 
+G. Monard, H. Nguyen, A. Onufriev, F.Pan, S. Pantano, R. Qi, 
+D.R. Roe, A. Roitberg, C. Sagui, S. Schott-Verdugo, J. Shen, 
+C.L. Simmerling, N.R.Skrynnikov, J. Smith, J. Swails, R.C. Walker, 
+J. Wang, L. Wilson, R.M. Wolf, X. Wu, Y. Xiong, Y. Xue, D.M. York 
+and P.A. Kollman (2020), AMBER 2020, University of California, San Francisco.
+
+For Amber 2018:
   
 D.A. Case, I.Y. Ben-Shalom, S.R. Brozell, D.S. Cerutti, T.E. Cheatham,
 III, V.W.D. Cruzeiro, T.A. Darden, R.E. Duke, D. Ghoreishi, M.K. Gilson,
@@ -118,6 +131,6 @@ University of California, San Francisco.
 The Amber home page: [http://ambermd.org/](http://ambermd.org/) has an extensive manual
 and useful tutorials.
 
-  [academic license text here]: http://ambermd.org/LicenseAmber18.pdf
+  [academic license text here]: http://ambermd.org/LicenseAmber20.pdf
   [Amber benchmark scaling info]: http://ambermd.org/GPUPerformance.php
   [NoMachine remote desktop]: nomachine.md
