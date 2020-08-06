@@ -18,13 +18,14 @@ the [academic license text here].
 
 ## Usage
 
-Start using the AmberTools with:
+Start using the AmberTools with the default version:
   
 ```
 module load amber
 ```
 
-This will set `$AMBERHOME` and put the AmberTools binaries in the path. Run Amber
+Use `module spider amber` to see all available versions.
+The `module load` command will set `$AMBERHOME` and put the AmberTools binaries in the path. Run Amber
 production jobs in the batch queues, see below. Lightweight system preparation
 can be done on the login node as well (short serial AmberTools jobs).
 
