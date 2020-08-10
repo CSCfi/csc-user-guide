@@ -151,6 +151,6 @@ This command returns the uploaded data from Allas to the _mydata_ directory. Not
 
 !!! Note
 
-    Rclone should not be be used to copy or rename objects in Allas. 
+    Rclone should not be used to copy or rename objects in Allas. 
     Rclone provides commands for these operations but they don't work correctly for over 5 GB files.
  
