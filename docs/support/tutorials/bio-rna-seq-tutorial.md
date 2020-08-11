@@ -221,63 +221,48 @@ are there? What do you think has happened? 
 Get a similar quality report using PRINSEQ. Compare the reports. Again,
 we start by creating a directory for the output files:
 
-
-    \
     mkdir results-prinseq
 
 
 Unzip the fastq file, because PRINSEQ is not able to handle compressed
 files.
 
-
-    \
     gunzip < hesc.fastq.gz > hesc.fastq
 
 Now, since the file is unzipped, you can take a look at what the FASTQ
 file looks like. How many lines are there for each read? Can you spot
 the sequence and the quality codings for the reads?
 
-
-``` {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
-\
-head hesc.fastq
-```
+    head hesc.fastq
 
 
 Make first the graph file:
-    \
+
     prinseq-lite.pl -fastq hesc.fastq -out_good null -out_bad null -graph_data results-prinseq/hescgraph -verbose
 
 
 Check in the PRINSEQ manual what the different parameters mean using:
 
-    \
     prinseq-lite.pl -help
 
 Which statistics were chosen to be calculated for the graphs?
 
 Check what files were created with:
 
-    \
     ls -lh results-prinseq
 
 Convert the graph file to an html report:
 
-    \
     prinseq-graphs.pl -i results-prinseq/hescgraph -html_all -o results-prinseq/hesc_prinseq
 
 Check what files were created with:
 
-    \
     ls -lh results-prinseq
 
 
 Open the hesc\_fastqc.html file in browser:
 
-``` {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
-\
-firefox results-prinseq/hesc_prinseq.html
-```
+    firefox results-prinseq/hesc_prinseq.html
 
 Is there some new information compared to FastQ report? 
 
@@ -285,18 +270,13 @@ Is there some new information compared to FastQ report? 
 
 
 ### 3. Trim reads based on base quality with Trimmomatic
-----------------------------------------------------
 
-
-    \
     mkdir results-trimmomatic
 
 
 Trim bases from the 3' end if the base quality is less than 5, and keep
 only those reads which are longer than 50 bases after trimming.
 
-
-    \
     trimmomatic SE -threads 1 -phred33 hesc.fastq.gz results-trimmomatic/hesc-trimmed.fq.gz TRAILING:5 MINLEN:50
 
 
@@ -306,7 +286,7 @@ Check the Trimmomatic manual (linked below) to understand the syntax of
 the command. What is the TRAILING parameter for? 
 
 
-**Bonus:**Check the ILLUMINACLIP parameter from the manual. What is the
+**Bonus:** Check the ILLUMINACLIP parameter from the manual. What is the
 most likely cause for finding adapter sequences in the data? Do you need
 some extra files to remove the adapters?
 
@@ -314,16 +294,9 @@ some extra files to remove the adapters?
 After trimming, see if the quality of the data was improved: run FastQC
 again and compare the report to the original report.
 
-
-    \
     mkdir results-fastqc-after-trimming\
     fastqc -o results-fastqc-after-trimming results-trimmomatic/hesc-trimmed.fq.gz 
-
-
-``` {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
-\
-firefox results-fastqc-after-trimming/hesc-trimmed_fastqc.html
-```
+    firefox results-fastqc-after-trimming/hesc-trimmed_fastqc.html
 
 
 What changes you can spot in the report? 
@@ -333,28 +306,23 @@ What changes you can spot in the report? 
 
 
 ### 4. BONUS exercise: Trim reads based on base quality with PRINSEQ
-----------------------------------------------------------------
 
 Try the trimming step also with PRINSEQ with identical parameters: trim
 bases from the 3' end if the base quality is less than 5, and keep only
 those reads which are longer than 50 bases after trimming.
 
-
-    \
     prinseq-lite.pl -trim_qual_right 5 -trim_qual_rule lt -min_len 50 -no_qual_header -fastq hesc.fastq -out_good results-prinseq/hesc_trimmed -out_bad null -verbose
 
 
 Check in the screen output: how many reads were dropped because of their
 quality, and how many because they became too short?
 
-    \
     prinseq-lite.pl -help
 
 to understand what the different parameters mean.
 
 
 ## Alignment
-=========
 
 We retrieve a reference sequence, modify it a bit for testing purposes,
 create the indexes and finally align our reads to this reference using
@@ -363,7 +331,6 @@ also learn how to check the strandedness of the data.
 
 
 ### 1. Retrieve reference genome sequence, a GTF and a BED file
------------------------------------------------------------
 
 In this exercise we retrieve reference genome (fasta) in order to build
 index files for HISAT2. For the interest of time, we'll use reference
