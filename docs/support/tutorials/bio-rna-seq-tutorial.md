@@ -936,11 +936,7 @@ In R:
 As a result, you should get the following plot and the results.tsv
 table:
 
-PLOT and RESULTS.TSV !!!!
-![Variation plot](../../../Rplot-plotBCV.jpg "Variation plot")
-
-
-![](/documents/48467/73370/Rplot-plotBCV.jpg/30fc4031-9253-49b3-85ec-32dfe5423388?t=1554191323831)
+![Variation plot](../../../img/Rplot-plotBCV.jpg "Variation plot")
 
 
 Compare the dispersion plots from DESeq2 and edgeR, do they look
