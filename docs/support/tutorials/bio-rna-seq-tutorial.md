@@ -70,9 +70,7 @@ The input data:
 [https://a3s.fi/rnaseq\_course\_bucket/rnaseq\_raw\_data.tar.gz](https://a3s.fi/rnaseq_course_bucket/rnaseq_raw_data.tar.gz)
 
 
-The analysis pipeline is illustrated in Figure 1 below.
-
-ADD FIGURE HERE!
+The analysis pipeline is illustrated in figure below.
 
 ![RNA-Seq analysis pipeline](../../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
@@ -412,7 +410,7 @@ Have a look at the BED file to see if the chr is gone with:
 ### 2. Make an index file for HISAT2
 
 !!! note
-   For the course, indexes are already prepared for you: you don't need to run the commands with \# in beginning! 
+    For the course, indexes are already prepared for you: you don't need to run the commands with \# in beginning! 
 
     # mkdir hisat-indexes\
     # hisat2-build Homo_sapiens.GRCh38.dna.chromosome.19.fa hisat-indexes/hs_19\
@@ -464,7 +462,7 @@ to understand the syntax. 
 -   [HISAT2 manual](http://ccb.jhu.edu/software/hisat2/manual.shtml)
 
 
-### 3A Bonus: Check the strandedness of your data
+### Bonus: Check the strandedness of your data
 
 For alignment (HISAT2) and read counting (HTSeq), it is useful to know
 if our data was created with a **directional protocol**. This means that
@@ -518,7 +516,7 @@ manual to see what are the default parameters for the minimum
 (-I/--minins ) and maximum (-X/--maxins) inner distances.
 
 
-### 3B Alignment and BAM file
+### 4 Alignment and BAM file
 
 
 Finally, let's run HISAT2 to align our data:
@@ -559,7 +557,7 @@ Return to the rnaseq folder with
     cd ..
 
 
-### 4. Perform quality control at alignment level with RseQC
+### 5. Perform quality control at alignment level with RseQC
 
 Make a directory for RseQC result files:
 
@@ -622,6 +620,8 @@ files). Check that you have the correct reference (hg19). Navigate for
 example to location chr19:281,093-281,252. Try zooming in and out. Which
 gene are we now looking at? Can you see any reads? What is the
 coverage? Can you spot any SNPs? 
+
+
 
 
 
@@ -697,8 +697,7 @@ environment and type rstudio. 
     rstudio
 
 !!! note
-You can also use R and RStudio on CSC's Puhti supercomputer. The
-Bioconductor packages needed here are already installed there.
+    You can also use R and RStudio on CSC's Puhti supercomputer. The Bioconductor packages needed here are already installed there.
 
 
 -   [R on CSC's Puhti supercomputer](https://docs.csc.fi/#apps/r-env/)
@@ -771,7 +770,7 @@ outliers in the data.
 -   [DESeq2 manual](https://bioconductor.org/packages/devel/bioc/manuals/DESeq2/man/DESeq2.pdf)
 -   [DESeq2 beginners guide](http://bioc.ism.ac.jp/packages/2.14/bioc/vignettes/DESeq2/inst/doc/beginner.pdf)
 
-    
+'''    
     # Create a DESeqDataSet object
     dds <- DESeqDataSetFromMatrix(countData=counts_data, colData=data.frame(groups=groups), design = ~ groups)
     # Calculate statistic for differential expression, merge with original data table, keep significant DEGs, remove NAs and sort by FDR.
@@ -788,6 +787,7 @@ outliers in the data.
     # Get summary and write a .tsv-table. Open the table in Excel.
     summary(res, alpha=p.value.cutoff)
     write.table(sig, file="significant_DEGs_pval005_with_DESeq.tsv", sep="\\t", row.names=T, quote=F)
+'''
 
 How many differentially expressed genes were there between the samples?
 How many were up and how many were downregulated?
@@ -829,13 +829,7 @@ shows us how the read counts are modified within DESeq2.
 
 You should get the following plots as outputs:
 
-ADD PLOTS!!!
-
 ![PCA and dispersion plots](../../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
-
-![](/documents/48467/73370/PCA+plot.jpg/59c7939a-68d8-4a47-b340-9982583905d6?t=1554191299032)
-
-![](/documents/48467/73370/Rplot+with+legend.jpg/a6cd5eec-0da9-4ba1-9c5f-ec555cd227b6?t=1554191312540)
 
 
 Do the experimental groups separate from each other? Are there any
@@ -1053,8 +1047,9 @@ results.
     barplot( -log10(go_cluster1$Adjusted.P.value[10:1]), xlab="Adjusted P value", horiz = T, names.arg = go_cluster1$Term[10:1],las=1)
     
     #dev.off()
-    # Exercise:
-    # Repeat similar analysis with other clusters and pathways databases like Reactome and KEGG
+
+
+Exercise: Repeat similar analysis with other clusters and pathways databases like Reactome and KEGG
     #React_cluster2 <- enrichr(genes = cluster2,databases = "Reactome_2016")
     #React_cluster2 <- React_cluster2$Reactome_2016
     #React_cluster2 <- React_cluster2[order(React_cluster2$Adjusted.P.value),]
@@ -1124,8 +1119,8 @@ More information about running jobs in Puhti:
 Next, we move to our projects SCRATCH directory. You can't run analyses
 on your HOME directory.  
 
-Note: SCRATCH directory is joined for all the members in the project! Be
-a good researcher and don't mess with other people's data.
+!!! note
+    SCRATCH directory is joined for all the members in the project! Be a good researcher and don't mess with other people's data.
 
     cd /scratch/project_xxxxxxx
 
@@ -1262,7 +1257,7 @@ they are in the same project, they can of course access the data in
 Allas and in Puhti. However, if this is not the case, you can use
 a-publish command, and share the data via an URL.
 
-! note
+!!! note
     **Do remember, that data shared this way is easily accessible to
     third parties as well!** Thus, before loading the data with a-publish,
     consider encrypting it first with command **gpg**.
@@ -1273,7 +1268,7 @@ a-publish command, and share the data via an URL.
     cd rnaseq_batch_job
     tar czf yourname_rnaseq_counts.tar.gz results-htseq
     gpg --symmetric --cipher-algo AES256 yourname_rnaseq_counts.tar.gz
-    # Give a password!
+    #Give a password!
     a-publish yourname_rnaseq_counts.tar.gz.gpg
 
 Copy the public link, and send that to your colleague. Text the password to colleague.
@@ -1287,7 +1282,3 @@ for the password. You can try this:
 
 
 
-
-
-
-\\ }
