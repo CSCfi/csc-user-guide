@@ -770,10 +770,10 @@ outliers in the data.
 -   [DESeq2 manual](https://bioconductor.org/packages/devel/bioc/manuals/DESeq2/man/DESeq2.pdf)
 -   [DESeq2 beginners guide](http://bioc.ism.ac.jp/packages/2.14/bioc/vignettes/DESeq2/inst/doc/beginner.pdf)
 
-'''    
-    # Create a DESeqDataSet object
+ 
+    /# Create a DESeqDataSet object
     dds <- DESeqDataSetFromMatrix(countData=counts_data, colData=data.frame(groups=groups), design = ~ groups)
-    # Calculate statistic for differential expression, merge with original data table, keep significant DEGs, remove NAs and sort by FDR.
+    /# Calculate statistic for differential expression, merge with original data table, keep significant DEGs, remove NAs and sort by FDR.
     dds <- DESeq(dds) # The standard differential expression analysis steps are wrapped into a single function, DESeq
     res <- results(dds) # Results tables are generated using the function "results"
     sig <- cbind(counts_data, res) # combine original table and results table
@@ -784,6 +784,8 @@ outliers in the data.
     sig <- sig[ order(sig$padj), ] # order accroding to the adj. p-values
     DESEq2_DEGs <- sig
 
+
+'''
     # Get summary and write a .tsv-table. Open the table in Excel.
     summary(res, alpha=p.value.cutoff)
     write.table(sig, file="significant_DEGs_pval005_with_DESeq.tsv", sep="\\t", row.names=T, quote=F)
