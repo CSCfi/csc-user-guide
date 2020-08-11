@@ -16,7 +16,7 @@ Puhti](https://docs.csc.fi/#computing/running/interactive-usage/).
 
 
 !!! note
-    **Note: we are currently updating this material!** If you have
+    **We are currently updating this material!** If you have
     questions, don't be shy to ask (see the [biospecialists contact
     info](https://research.csc.fi/biosciences))!
 
@@ -70,16 +70,12 @@ The input data:
 [https://a3s.fi/rnaseq\_course\_bucket/rnaseq\_raw\_data.tar.gz](https://a3s.fi/rnaseq_course_bucket/rnaseq_raw_data.tar.gz)
 
 
-The analysis pipeline is illustrated in figure 1.
+The analysis pipeline is illustrated in Figure 1 below.
 
 ADD FIGURE HERE!
 
+![RNA-Seq analysis pipeline](../../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
-[RNAseq pipeline workflow: steps, tools and file
-formats](/documents/48467/73374/RNAseq_pipeline_workflow.png/e9b06793-0b7c-40d9-9f18-57229d96ead6?t=1579850751005)
-
-
-Figure 1. RNA-Seq analysis pipeline.
 
 
 
@@ -87,7 +83,7 @@ Figure 1. RNA-Seq analysis pipeline.
 -----------------
 
 
-Before starting the tutorial,  you need to perform following preparatory
+Before starting the tutorial, you need to perform the following preparatory
 steps:
 
 
@@ -145,20 +141,18 @@ New to command line? Don't worry, check the:
 
 
 
-### 3. Load the conda modules that contain the analysis tools that you need in the tutorial
+### 3. Load the conda modules that contain the analysis tools
 
 Next, we use the [Conda package management
 system](https://conda.io/en/latest/) and load a module called *rnaseq*.
-This loads all the pre-installed softwares and tools we need to our use.
+This loads all the pre-installed softwares and tools we need for our analysis tutorial.
 When using Puhti, we do something similar with the *module load*
 commands.
 
-    \
     conda activate rnaseq
 
 You can check the existing conda environments with command:
 
-    \
     conda env list
 
 
@@ -167,14 +161,13 @@ You can check the existing conda environments with command:
 -   [CSC's Conda
     documentation](https://docs.csc.fi/support/tutorials/conda/)
 
-
+Now we can get started with the actual analysis steps. 
 
 
 ## Quality control & trimming/filtering
-====================================
 
 
-Here we check the quality of the raw reads in the FASTQ files with
+First, we check the quality of the raw reads in the FASTQ files with
 [FastQC](https://docs.csc.fi/#apps/fastqc/) and
 [PRINSEQ](http://prinseq.sourceforge.net/manual.html) tools. After this,
 we trim the reads with
@@ -184,40 +177,29 @@ try the trimming step also with PRINSEQ.
 
 
 ### 1. Check the quality of the reads with FastQC
----------------------------------------------
 
 
 Make a directory for the FastQC result files
 
-
-    \
     mkdir results-fastqc
 
 Run FastQC:
 
-    \
     fastqc -o results-fastqc hesc.fastq.gz
 
 Check what files were created with:
 
-    \
     ls -lh results-fastqc
 
 Use:
 
-    \
     fastqc --help
 
 to see what the parameter -o means.
 
-
 Open the hesc\_fastqc.html file in browser:
 
-
-``` {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);"}
-\
-firefox results-fastqc/hesc_fastqc.html
-```
+    firefox results-fastqc/hesc_fastqc.html
 
 
 You can compare your FastQC report to [an example of a good Illumina
@@ -234,7 +216,6 @@ are there? What do you think has happened? 
 
 
 ### 2. Check the quality of the reads with PRINSEQ
-----------------------------------------------
 
 
 Get a similar quality report using PRINSEQ. Compare the reports. Again,
