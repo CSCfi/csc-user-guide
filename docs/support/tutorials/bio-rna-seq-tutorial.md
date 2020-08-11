@@ -771,9 +771,9 @@ outliers in the data.
 -   [DESeq2 beginners guide](http://bioc.ism.ac.jp/packages/2.14/bioc/vignettes/DESeq2/inst/doc/beginner.pdf)
 
  
-    /# Create a DESeqDataSet object
+    #Create a DESeqDataSet object
     dds <- DESeqDataSetFromMatrix(countData=counts_data, colData=data.frame(groups=groups), design = ~ groups)
-    /# Calculate statistic for differential expression, merge with original data table, keep significant DEGs, remove NAs and sort by FDR.
+    #Calculate statistic for differential expression, merge with original data table, keep significant DEGs, remove NAs and sort by FDR.
     dds <- DESeq(dds) # The standard differential expression analysis steps are wrapped into a single function, DESeq
     res <- results(dds) # Results tables are generated using the function "results"
     sig <- cbind(counts_data, res) # combine original table and results table
@@ -784,12 +784,9 @@ outliers in the data.
     sig <- sig[ order(sig$padj), ] # order accroding to the adj. p-values
     DESEq2_DEGs <- sig
 
-
-'''
-    # Get summary and write a .tsv-table. Open the table in Excel.
+    #Get summary and write a .tsv-table. Open the table in Excel.
     summary(res, alpha=p.value.cutoff)
     write.table(sig, file="significant_DEGs_pval005_with_DESeq.tsv", sep="\\t", row.names=T, quote=F)
-'''
 
 How many differentially expressed genes were there between the samples?
 How many were up and how many were downregulated?
@@ -833,6 +830,8 @@ You should get the following plots as outputs:
 
 ![PCA and dispersion plots](../../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
 
+PCA and dispersion plots.
+
 
 Do the experimental groups separate from each other? Are there any
 outliers? How much (%) variation is explained by the first principal
@@ -868,12 +867,9 @@ Let's draw a heatmap of the most highly variable genes: 
     pheatmap(highly_variable_genes)
 
 
-HEATMAP!!
-
 ![Heatmap of most variable genes](../../../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
 
-![Heatmap of most variable
-genes](/documents/48467/73374/heatmap_rna_seq.pdf/f7289166-d498-4026-bb68-1adfb2f3dac3)
+Heatmap of most variable genes.
 
 ### 2B. Diffrential expression analysis with edgeR
 
@@ -882,11 +878,12 @@ tool, edgeR.
 
 -   [EdgeR user guide](https://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf)
 
+In R: 
+
     # Form the DGElist object:
     dge<-DGEList(counts=counts_data)
     
     # Filter out genes which have less than 5 counts in user-defined number of samples
-    
     filter <- 5 # "Analyze only genes which have counts in at least this many sample
     keep <- rowSums(dge$counts>5) >= filter
     dge <- dge[keep,]
@@ -960,6 +957,7 @@ are using biomaRt package.
 
 -   [biomaRt users guide](https://bioconductor.org/packages/release/bioc/vignettes/biomaRt/inst/doc/biomaRt.html#introduction)
 
+In R: 
 
     # Load the biomaRt package:
     # source("https://bioconductor.org/biocLite.R")
@@ -1057,7 +1055,7 @@ Exercise: Repeat similar analysis with other clusters and pathways databases lik
     #React_cluster2 <- React_cluster2[order(React_cluster2$Adjusted.P.value),]
 
 
-#### Perform genome-wide enrichment analysis (GSEA) with unfiltered data set.
+#### Perform genome-wide enrichment analysis (GSEA) with unfiltered data set
 
 Perform Gene Set Enrichment Analysis (GSEA) using gene sets from
 MSigDB as downloaded from [(https://www.gsea-msigdb.org/gsea/](https://www.gsea-msigdb.org/gsea/)
@@ -1123,6 +1121,8 @@ on your HOME directory.  
 
 !!! note
     SCRATCH directory is joined for all the members in the project! Be a good researcher and don't mess with other people's data.
+
+Go to your projects SCRATCH directory (use your project ID instead of the X's:)
 
     cd /scratch/project_xxxxxxx
 
@@ -1267,10 +1267,12 @@ a-publish command, and share the data via an URL.
 
 -   [Best practises for encryption](https://research.csc.fi/best-practices-for-client-side-encryption)
 
+Let's practise some basic encryption:
+
     cd rnaseq_batch_job
     tar czf yourname_rnaseq_counts.tar.gz results-htseq
     gpg --symmetric --cipher-algo AES256 yourname_rnaseq_counts.tar.gz
-    #Give a password!
+    # Give a password!
     a-publish yourname_rnaseq_counts.tar.gz.gpg
 
 Copy the public link, and send that to your colleague. Text the password to colleague.
