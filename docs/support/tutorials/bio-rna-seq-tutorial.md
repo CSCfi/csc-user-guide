@@ -693,7 +693,7 @@ file: https://biotraining.object.pouta.csc.fi/rnaseq\_tutorial/RNA-Seq-Rscript.
 Open RStudio (or R) in the virtual machine: activate the Conda base
 environment and type rstudio. 
 
-    conda activate base\
+    conda activate base
     rstudio
 
 !!! note
