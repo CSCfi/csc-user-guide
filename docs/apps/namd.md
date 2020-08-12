@@ -34,9 +34,11 @@ as set in the Mahti script below). Apoa1 system has 92k atoms.
 
 The data also shows the following things:
 
-* with fewer nodes, it's better to use 17 threads per task, but 3 threads scales further
+* optimal settings depend on the amount of resources
+* upto 6 nodes, it's best to use 17 threads per task, but beyond 3 threads scales better
 * 1GPU+10 CPUs (on Puhti) gives 25.6 ns/day vs. 27.4 ns/day for 2 full nodes on Mahti,
-  or 92.2 ns/day with 10 nodes. The corresponding costs in EUR are 1.4, 4.2, and 6.2 EUR, respectively.
+  or 92.2 ns/day with 10 nodes. The corresponding costs (via BUs) are 1.4, 4.2, and 
+  6.2 EUR, respectively, i.e. getting the results more quickly is also more expensive.
 
 ### Batch script example for Puhti
 
@@ -91,8 +93,8 @@ namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} ap
 ```
 #!/bin/bash -l
 #SBATCH --partition=test
-#SBATCH --ntasks-per-node=32  # test to find the optimum number, 2-64
-#SBATCH --cpus-per-task=4   # 128/(ntasks-per-node)
+#SBATCH --ntasks-per-node=8  # test to find the optimum number, 2-64
+#SBATCH --cpus-per-task=16   # 128/(ntasks-per-node)
 #SBATCH --nodes=2
 #SBATCH --time=0:10:00        # time as hh:mm:ss
 #SBATCH --account=<project>
@@ -103,9 +105,6 @@ module load gcc/9.3.0 openmpi/4.0.3 namd/2.14
 
 # one core per task for communication
 srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > apo1.out
-
-# all cores for computing
-#srun -n ${SLURM_NTASKS} namd2 +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd  > apo1_m_2.14_n${SLURM_NTASKS}d${SLURM_CPUS_PER_TASK}.out
 ```
 
 Submit the batch job with:
