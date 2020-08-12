@@ -36,8 +36,8 @@ as set in the Mahti script below). Apoa1 system has 92k atoms.
 
 The data also shows the following things:
 
-* optimal settings depend on the amount of resources
-* upto 6 nodes, it's best to use 17 threads per task, but beyond 3 threads scales better
+* optimal settings depend on the amount of resources in addition to system and run parameters
+* for this system, upto 6 nodes, it's best to use 17 threads per task, but beyond 3 threads scales better
 * 1GPU+10 CPUs (on Puhti) gives 25.6 ns/day vs. 27.4 ns/day for 2 full nodes on Mahti,
   or 92.2 ns/day with 10 nodes. The corresponding costs (via BUs) are 1.4, 4.2, and 
   6.2 EUR, respectively, i.e. getting the results more quickly is also more expensive.
