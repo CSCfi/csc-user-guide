@@ -25,22 +25,24 @@ NAMD can be run either with CPUs or with a GPU + CPUs.
 NAMD developers recommend to use one core per task for communication for CPU.
 Please test with your input. Make sure the "number tasks per node" times 
 "cpus per task" equals 40 (Puhti) or 128 (Mahti), i.e. all cores in a node.
-Try different ratios and select the optimal one. Tests (below) show that leaving
-one core for communication is beneficial.
+Try different ratios and select the optimal one. Tests show that leaving
+one core for communication for each task is beneficial i.e. `namd_threads=$SLURM_CPUS_PER_TASK-1`
 
 The data below shows the apoa1 benchmark on Mahti (ns/day as a function
 of allocated nodes, each line with a certain number of `namd_threads`
-as set in the Mahti script below). Apoa1 system has 92k atoms.
+as set in the [Mahti script below](#match-script-example-for-mahti)).
+Apoa1 system has 92k atoms.
 
-![NAMD Scaling on Mahti](../img/namd_on_mahti.svg)
+![NAMD Scaling on Mahti](../img/namd_on_mahti_d.svg)
 
 The data also shows the following things:
 
 * optimal settings depend on the amount of resources in addition to system and run parameters
-* for this system, upto 6 nodes, it's best to use 17 threads per task, but beyond 3 threads scales better
+* for this system, upto 6 nodes, it's best to use 15 threads per task, but beyond that 3 threads scales better
 * 1GPU+10 CPUs (on Puhti) gives 25.6 ns/day vs. 27.4 ns/day for 2 full nodes on Mahti,
   or 92.2 ns/day with 10 nodes. The corresponding costs (via BUs) are 1.4, 4.2, and 
   6.2 EUR, respectively, i.e. getting the results more quickly is also more expensive.
+* to test your own system, run e.g. 500 steps of dynamics and look at the Benchmark line on the output
 
 ### Batch script example for Puhti
 
