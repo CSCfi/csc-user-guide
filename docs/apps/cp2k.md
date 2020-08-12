@@ -48,7 +48,7 @@ srun cp2k.popt H2O-32.inp > H2O-32.out
 
 ```
 #!/bin/bash
-#SBATCH -t 00:05:00
+#SBATCH --time=00:05:00
 #SBATCH --ntasks-per-node=32
 #SBATCH --cpus-per-task=4
 #SBATCH --nodes=2
