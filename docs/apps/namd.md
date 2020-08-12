@@ -20,6 +20,8 @@ which allows usage for non-commercial research. For commercial use, contact
 
 NAMD can be run either with CPUs or with a GPU + CPUs.
 
+### Performance considerations
+
 NAMD developers recommend to use one core per task for communication for CPU.
 Please test with your input. Make sure the "number tasks per node" times 
 "cpus per task" equals 40 (Puhti) or 128 (Mahti), i.e. all cores in a node.
