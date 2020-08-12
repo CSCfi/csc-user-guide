@@ -69,15 +69,11 @@ of  Puhti. If you run the command:
 strauto-puhti
 ```
 in the same directory again it will check the status of structure jobs and do the
-postporcessing of the results if all the structure tasks have finished.
+postporcessing of the results if all the structure-related tasks have finished.
 
 Note, that _strauto-puhti_ does not use the internal, gnu-parallel based, parallelization.
-In stead, parallelization is based on array jobs. Because of this, you should not change 
+Instead, parallelization is based on array jobs. Because of this, you should not change 
 the _parallel_ parameter value to _True_ in the structure input file. 
-
-
-
-
 
 ## More information
 
