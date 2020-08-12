@@ -58,15 +58,13 @@ and one of them for communication, using two full nodes, i.e. 80 cores.
 
 module load namd
 
-# NAMD suggests using 1 thread per task for communication
-# using all cores for computing may still be faster
-
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
 # one core per task for communication
 srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > apo1.out
 
-# all cores for computing
+# While NAMD suggests using 1 thread per task for communication (as above)
+# all cores for computing can be tested by
 #srun -n ${SLURM_NTASKS} namd2 +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd  > apo1.out
 ```
 ### Batch script example for Puhti using GPU
@@ -111,7 +109,9 @@ srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > a
 
 Submit the batch job with:
 
-`sbatch namd_job.bash`
+```
+sbatch namd_job.bash
+```
 
 ## References
 
