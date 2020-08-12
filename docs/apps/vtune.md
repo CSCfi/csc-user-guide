@@ -71,6 +71,14 @@ Finally, it is possible to display the CPU time for call stacks
 (`-report callstacks`) or display a call tree and provide the CPU time for
 each function (`-report top-down`).
 
+For some configurations the data collection fails with the error:
+```Stack size provided to sigaltstack is too small. Please increase the stack size to 64K minimum. ```
+In this case please run the profiling job again, but with the environment variable ```AMPLXE_RUNTOOL_OPTIONS``` set to ```--no-altstack```, by adding to the submission script the following line:
+```
+export AMPLXE_RUNTOOL_OPTIONS=--no-altstack
+``` 
+
+For more details into the issue please check the official [intel page](https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top/troubleshooting/error-message-stack-size-is-too-small.html).
 
 ## Analysing the Results Using GUI
 
@@ -89,3 +97,4 @@ amplxe-gui results_dir_name
 
 Please see Intel’s documentation for more information on using the GUI:
 [https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html](https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html)
+
