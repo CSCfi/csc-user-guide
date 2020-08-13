@@ -35,7 +35,7 @@ Note that if most of the work is done by only one pvserver, using parallel setup
 
 The example script *para580-multi.sh*, below, starts several pvservers and one client (front-end), and connects them. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. *Ntasks* is the number of pvservers plus one client, and *cpus-per-task* is the number of threads for each of these tasks, so the number of CPUs reserved is *ntasks x cpus-per-task*. *Mem* is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.  
 
-The `salloc` example below allocates resources for one client and three pvservers, each with five threads, so 20 CPUs are reserved. Nine GB memory in total is allocated for the pvservers, and one GB for the client. (ParaView's OSPRay renderer uses threads, while most of the other ParaView's functions benefit more of pvservers.) **Note that all these `salloc` parameters need to be explicitely given,** otherwise the script *para580-multi.sh* will not work  
+The `salloc` example below allocates resources for one client and three pvservers, each with five threads, so 20 CPUs are reserved. Nine GB memory in total is allocated for the pvservers, and one GB for the client. (ParaView's OSPRay renderer uses threads, while most of the other ParaView's functions benefit more of pvservers.) **Note that all these `salloc` parameters need to be explicitly given,** otherwise the script *para580-multi.sh* will not work  
 ```
 salloc --nodes=1 --ntasks=4 --cpus-per-task=5 --mem=10G --time=01:00:00 --partition=small --account=<project> para580-multi.sh
 ```
@@ -72,7 +72,7 @@ In cases where OSPRay does not work well enough, run ParaView on a GPU node, and
 
 The script *para580-1GPU.sh* below starts and connects one client and one pvserver, and uses one GPU. Resources reserved via `salloc` are for the client and the pvserver combined. *Cpus-per-task* is the number of threads. Ten or more threads is recommended. One GB of memory is allocated to the client, the rest goes to the pvserver.  
 
-The following `salloc` command allocates ten threads to the client and ten to the pvserver, so 20 CPUs are reserved. 24 GB memory is allocated for the pvserver, and one GB for the client. **Note that all the parameters below need to be explicitely given,** otherwise the script *para580-1GPU.sh* will not work  
+The following `salloc` command allocates ten threads to the client and ten to the pvserver, so 20 CPUs are reserved. 24 GB memory is allocated for the pvserver, and one GB for the client. **Note that all the parameters below need to be explicitly given,** otherwise the script *para580-1GPU.sh* will not work  
 ```
 salloc --nodes=1 --ntasks=2 --cpus-per-task=10 --mem=25G --time=01:00:00 --partition=gpu --gres=gpu:v100:1 --account=<project> para580-1GPU.sh
 ```
@@ -138,8 +138,8 @@ sbatch pvserver580-4GPU-node.sh
 #SBATCH --partition=gpu
 # fill in your project number (mandatory)
 #SBATCH --account=<project>
-# fill in your email address, to receive email when job starts
-#SBATCH --mail-user=user@provider.fi
+# remove the extra # and fill in your email address, to receive email when job starts
+##SBATCH --mail-user=user@provider.fi
 #SBATCH --mail-type=BEGIN
 ### Optionally, if queues are long, you may want to control when your job starts.
 ### To activate the SBATCH commands, remove the extra # so that only one remains.
@@ -150,9 +150,9 @@ sbatch pvserver580-4GPU-node.sh
 ###########################################
 ### Do not edit the rest of the script. ###
 ###########################################
-#SBATCH -J job4GPU
-#SBATCH -o job4GPU_out  #do not change this file name
-#SBATCH -e job4GPU_err_%j
+#SBATCH --job-name job4GPU
+#SBATCH --output job4GPU_out  #do not change this file name
+#SBATCH --error job4GPU_err_%j
 ### Job creates its own environment
 #SBATCH --export=NONE
 ### reserve one full node (four GPUs)
