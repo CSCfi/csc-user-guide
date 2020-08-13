@@ -30,7 +30,7 @@ one core for communication for each task is beneficial i.e. `namd_threads=$SLURM
 
 The data below shows the apoa1 benchmark on Mahti (ns/day as a function
 of allocated nodes, each line with a certain number of `namd_threads`
-as set in the [Mahti script below](#match-script-example-for-mahti)).
+as set in the [Mahti script below](#batch-script-example-for-mahti)).
 Apoa1 system has 92k atoms.
 
 ![NAMD Scaling on Mahti](../img/namd_on_mahti_d.svg)
