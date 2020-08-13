@@ -24,9 +24,11 @@ In addition to the above commands, there are separate tools for other purposes:
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 
+# Example: Saving data from scratch direcory to Allas
+
 ## Opening a connection
 
-In order to use these tools in Puhti and Taito, first load a-commands:
+In order to use these tools in Puhti and Mahti, first load a-commands:
 ```text
 module load allas
 ```
@@ -41,7 +43,7 @@ project.
 By default, _allas-conf_ lists your projects that have access to Allas, but if you know the name of the project, you
 can also give it as an argument:
 ```text
-allas-conf project_123456
+allas-conf project_201234
 ```
 Note that the Allas project does not need to be the same as the project you are using in Puhti or Mahti.
 
@@ -51,7 +53,33 @@ allas-conf -k
 ```
 With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 
+## Copying data between Puhti scratch directory and Allas
 
+Copying data from directory _/scratch/project_201234/dataset_3_ to Allas:
+
+```text
+cd /scratch/project_201234
+a-put dataset_3
+```
+The data in directory _dataset_3_ is stored to the default bucket _201234-puhti-SCRATCH_ as object: _dataset_3.tar.zst_.
+Available data buckets in Allas can be listed with command:
+
+```text
+a-list
+```
+And the content of 201234-puhti-SCRATCH can be listed with command:
+
+```
+a-list 201234-puhti-SCRATCH
+```
+The directory that was stored to Allas can be retrieved back to Puhti with command:
+
+```text
+a-get 201234-puhti-SCRATCH/dataset_3.tar.zst
+```
+
+
+# A commands in more detail
 
 ## a-put uploads data to Allas<a name="a-put"></a>
 
@@ -329,7 +357,11 @@ Options:
 
 - **-p**, **--project _project_ID_** Retrieve data from the buckets of the defined project instead of the currently configured project. 
 - **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
-- **-t**, **-target _dir_name_** Create a new target directory and deposit the data there.
+- **-d** **--target_dir** <dir_name> If this option is defined, a new target directory is created and the data is retrieved there.
+- **-t** **--target_file** <file_name> Define a file name for the object for the object to be downloaded.
+- **-l** **--original_location**       Retrieve the data to the original location in the directory structure.
+- **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
+- **--s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
 
 At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
 
