@@ -8,7 +8,7 @@ The `r-env-singularity` module is a [Singularity container](../../computing/cont
 
 ## Available
 
-The `r-env-singularity` module includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data. For improved performance, the `r-env-singularity` module uses BLAS and LAPACK libraries within the [Intel® Math Kernel Library (MKL)](https://software.intel.com/en-us/mkl).
+The `r-env-singularity` module includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
 
 Currently supported versions:
 
@@ -19,7 +19,6 @@ Currently supported versions:
 
 Other software and libraries included in the module:
 
-- Intel® MKL 2019.0.4
 - Open MPI 4.0.2 (with Mellanox OFED™ software)
 - cget 0.1.9
 
