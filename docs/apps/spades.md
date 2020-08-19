@@ -28,7 +28,7 @@ In addition to the general purpose spades there spcific Spadesw parameter sets f
 
 Version on CSC's Servers
 
--   Puhti: 3.13.0
+-   Puhti: 3.14.1
 
 ## Usage
 

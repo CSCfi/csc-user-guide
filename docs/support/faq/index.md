@@ -66,3 +66,8 @@
 * [How to access FGI?](how-to-access-FGI.md)
 * [How long a grid certificate is valid?](how-long-a-grid-certificate-is-valid.md)
 * [How to use FGCI grid form Pouta](how-to-use-fgci-from-pouta.md)
+
+## Rahti
+
+* [Protecting against DDoS Attacks](DDos.md)
+* [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
