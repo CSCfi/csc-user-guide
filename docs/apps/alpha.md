@@ -108,6 +108,7 @@
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 * [SPAdes](spades.md) Genome assembly
 * [Spark](spark.md) High-performance distributed computing framework 
+* [SPLITS](splits.md) Software package to analyze time series of remotely sensed parameters
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
