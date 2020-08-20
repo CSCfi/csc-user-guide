@@ -46,7 +46,7 @@ partitions instead. However, in these cases your session starts queueing just li
 you may need to wait some time before the requested resources become available and the interactive session 
 starts.
 
-All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
+All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts-puhti/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
 ### Example: Running a Jupyter notebook server via sinteractive
 

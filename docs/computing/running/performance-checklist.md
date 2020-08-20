@@ -78,7 +78,7 @@ If your workload writes or reads a large number of small files then you may see 
 even if the total volume is not that big. Please consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some nodes have
- [fast local disk](../creating-job-scripts/#local-storage), but we've seen
+ [fast local disk](../creating-job-scripts-puhti/#local-storage), but we've seen
   10 fold performance improvement by switching to use it. Check your performance: don't
   use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
 * Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
