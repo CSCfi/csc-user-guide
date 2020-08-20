@@ -40,15 +40,15 @@ will need  to have  SSH keys. This  is the default  way to  access new
 virtual machines. You only need to set up your SSH keys once.
 
 If you are  already familiar with SSH keys, you  can use your existing
-SSH keys  to access the virtual  machines. In the web  interface go to
-**Access  & Security**  and  from **Key  Pairs**  select **Import  Key
-Pair**.  Name  your  key,  and  paste your  public  key  (starts  with
+SSH keys to access the virtual  machines. In the web  interface under
+**Compute> Key Pairs** section, select **Import Public Key**.
+Name  your  key,  and  paste your  public  key  (starts  with
 something  like "ssh-rsa  AAFAA...." or  "ssh-dss AFAFA...")  into the
 other box.
 
-If you have not used SSH keypairs  before, you need to create one. The
-web  interface  can take  care  of  this for  you.  Go  to **Access  &
-Security** and  from **Key  Pairs** select  **Create Key  Pair**. Give
+If you have not used SSH keypairs before, you need to create one. The
+web interface can take care of this for you.
+Go to **Compute> Key Pairs** section and select  **Create Key  Pair**. Give
 your  key   a  name  and  click   **Create**.  Now  you  will   get  a
 "*keyname.pem*" to save. Save it under your home directory.
 
