@@ -25,7 +25,8 @@ nav:
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
-        - Creating a batch job script: computing/running/creating-job-scripts.md
+        - Creating a batch job script for Puhti: computing/running/creating-job-scripts-puhti.md
+        - Creating a batch job script for Mahti: computing/running/creating-job-scripts-mahti.md
         - Submitting a job: computing/running/submitting-jobs.md
         - Available batch job partitions: computing/running/batch-job-partitions.md
         - Array jobs: computing/running/array-jobs.md
