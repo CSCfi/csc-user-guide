@@ -3,18 +3,25 @@
 A batch job script contains the definitions for the resources to be reserved for
 the job and the commands the user wants to run.
 
+!!! Note
+    This page is under construction
+
 [TOC]
 
 
-## A basic batch job script
+## Basic MPI batch jobs
 
-An example of a simple batch job script:
+<-- FIXME add hyperthreading, maybe as a subheader level topic? -->
+
+An example of a simple MPI-batch job script:
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
 #SBATCH --account=<project>
 #SBATCH --time=02:00:00
 #SBATCH --partition=medium
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
 
 module load myprog/1.2.3
 
@@ -62,12 +69,19 @@ its actual runtime.
 
 The partition needs to be set according to the job requirements.
 ```
-#SBATCH --partition=small
+#SBATCH --partition=medium
 ```
 
 !!! Note "Available partitions"
     [The available batch job partitions](batch-job-partitions.md).
 
+The recommended way to is to specify the exact number of nodes and number of tasks per node  with
+`--nodes` and `--ntasks-per-node`, respectively. For MPI-only job, use all cores in the node, either
+128 for all physical nodes, or 256 including also the virtual cores (or hyperthreading or SMT).
+
+!!! Note
+    - MPI should **not** be started with _mpirun_ or _mpiexec_, use `srun` instead.
+    - A MPI module has to be loaded in the batch job script for the submission to work properly.
 
 After defining all required resources in the batch job script, set up the 
 environment. Note that for modules to be available for batch jobs, they need to be loaded in
@@ -82,18 +96,6 @@ Finally, we launch our program using the `srun` command:
 srun myprog -i input -o output
 ```
 
-## MPI-based batch jobs
-
-<-- FIXME add hyperthreading, maybe as a subheader level topic? -->
-
-The recommended way to is to specify the exact number of nodes and number of tasks per node  with
-`--nodes` and `--ntasks-per-node`, respectively. For MPI-only job, use all cores in the node, either
-128 for all physical nodes, or 256 including also the virtual cores (or hyperthreading or SMT).
-
-!!! Note
-    - MPI should **not** be started with _mpirun_ or _mpiexec_, use `srun` instead.
-    - A MPI module has to be loaded in the batch job script for the submission to work properly.
-
 ## Hybrid batch jobs 
 
 In hybrid jobs, each tasks is allocated several cores. Each tasks then uses some other parallelization than MPI to do work.
@@ -102,6 +104,8 @@ To request more cores per MPI task, use the argument `--cpus-per-task`. The defa
  
 The optimal ratio between the number of tasks and cores per tasks varies for each program, testing is required to find
 the right combination for your application. 
+
+<-- FIXME this is copied from Puhti, is this correct? -->
 
 !!! Note
     By default, running a single task per node with multiple threads using **hpcx-mpi** will bind all threads to a single
