@@ -25,13 +25,13 @@ nav:
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
-        - Creating a batch job script for Puhti: computing/running/creating-job-scripts-puhti.md
-        - Creating a batch job script for Mahti: computing/running/creating-job-scripts-mahti.md
+        - Puhti create batch jobs: computing/running/creating-job-scripts-puhti.md
+        - Puhti example scripts: computing/running/example-job-scripts-puhti.md
+        - Mahti create batch jobs: computing/running/creating-job-scripts-mahti.md
+        - Mahti example scripts: computing/running/example-job-scripts-mahti.md
         - Submitting a job: computing/running/submitting-jobs.md
         - Available batch job partitions: computing/running/batch-job-partitions.md
         - Array jobs: computing/running/array-jobs.md
-        - Example job scripts for Puhti: computing/running/example-job-scripts-puhti.md
-        - Example job scripts for Mahti: computing/running/example-job-scripts-mahti.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
      - Compiling:
