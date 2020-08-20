@@ -31,8 +31,8 @@ as:
     #for ePouta Ubuntu 18.04 VMs
     ssh ubuntu@vm-ip -i keyfile.pem
 
-With the default CSC images, when you try logging in as root, you 
-get a message that tells you which username to use instead. Some third-party 
+With the default CSC images, when you try logging in as root, you
+get a message that tells you which username to use instead. Some third-party
 images may use the root account directly or a completely
 different username.
 
@@ -46,7 +46,7 @@ local Linux or Mac OS X machine, start a shell and run the following commands:
     ssh-add ~/.ssh/keyname.pem
 
 Now you should be able to connect to the public Floating IP
-of your VM in cPouta (or VM local IP in case of ePouta) using SSH. The public 
+of your VM in cPouta (or VM local IP in case of ePouta) using SSH. The public
 and private IPs of your VMs are visible in the web UI if you are unsure
 what they are. Once the key has been loaded, you can use the SSH agent: 
 
@@ -74,9 +74,9 @@ in the *Instances* view of the cPouta/ePouta web interface.
 
 The figure above shows a sample of the Instances view in cPouta web
 interface. In this case, we can see that a virtual machine called
-*a-dummy-instance* is active and running. The machine has two IP
-addresses, of which the address 86.50.169.111 is the public one. The
-machine uses a keypair called *risto*.
+*test-instance-1* is active and running. The machine has two IP
+addresses, of which the address 86.50.169.245 is the public one. The
+machine uses a keypair called *skapoor*.
 
 The ePouta web interface looks similar but the instances in ePouta have only
 one IP address field specified which is the virtual machine's local IP.
