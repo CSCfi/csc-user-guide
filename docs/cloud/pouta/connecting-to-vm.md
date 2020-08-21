@@ -111,7 +111,7 @@ instance dropdown menu:
 
 To input text in the console, click the grey bar:
 
-![Input text to web console](/img/Screenshot-Instance+Details+-+OpenStack+Dashboard+-+Chromium-1.png)
+![Input text to web console](/img/pouta-instances-terminal.png)
 
 After this, you can log in with the user account and password you have
 created.
