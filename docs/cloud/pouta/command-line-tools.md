@@ -24,14 +24,14 @@ that uses the common OpenStack command line tool.
 
 ##### These versions of the OpenStack commands should work with ePouta and cPouta.
 
-    python-openstackclient==3.11.0
-    python-cinderclient==2.2.0
-    python-glanceclient==2.7.0
-    python-heatclient==1.5.1
-    python-keystoneclient==3.11.0
-    python-neutronclient==6.0.0
-    python-novaclient==9.0.1
-    python-swiftclient==3.3.0
+    python-openstackclient==5.2.1
+    python-cinderclient==6.0.0
+    python-glanceclient==3.0.0
+    python-heatclient==1.18.0
+    python-keystoneclient==3.22.0
+    python-neutronclient==7.1.0
+    python-novaclient==16.0.0
+    python-swiftclient==3.10.0
 
 ##### Openstack commands and help
 
@@ -51,7 +51,7 @@ subcommand, add the command name after "help". For example:
 generate a keypair. It will be used to access virtual machines. You
 can also optionally specify a public key you have previously generated,
 in which case the private key is the one you generated when the
-public key was generated. 
+public key was generated.
 
 Generate a key named "test" with a private key stored in "test.pem":
 
