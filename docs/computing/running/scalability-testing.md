@@ -13,7 +13,7 @@ partition for carrying out the testing.
 Here are some general guidelines for scalability testing.
 
 * Testing should be done at minimum three different node counts up to
-200 (for example with 50, 100, and 200) nodes.
+target in production (for example with 25, 50, and 100 nodes).
 * Tests are run through the batch job system.
 * The test runs should reflect real production runs, i.e. the number of
 atoms, number of grid points, disk IO load etc. should be similar. 
