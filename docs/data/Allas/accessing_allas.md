@@ -29,9 +29,9 @@ allas-conf project_name
 ```
 The _allas-conf_ command prompts for your CSC password (the same that you use to login to CSC servers). It lists your Allas projects and asks you to define a project (if not already defined as an argument). _allas-conf_ generates a _rclone_ configuration file for the Allas service and authenticates the connection to the selected project. You can only be connected to one Allas project at a time in one session. The project you are using in Allas does not need to match the project you are using in Puhti or Mahti, and you can switch to another project by running _allas-conf_ again.
 
-Authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* and is valid for up to three hours. However, you can refresh the authentication at any time my running _allas-conf_ again. The environment variables are available only for that login session, so if you log into Puhti in another session, you need to authenticate again in there to access Allas.
+Authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* and is valid for up to three hours. However, you can refresh the authentication at any time my running _allas-conf_ again. The environment variables are available only for that login session, so if you start another shell  session, you need to authenticate again in there to access Allas.
 
-Start using Allas with one of the following options. Note that the tools utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary readable with another protocol. 
+You can start using Allas with one of the following options. Note that the tools utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary readable with another protocol. 
 
 **Allas client software options for Puhti and Mahti and other linux servers**
 
@@ -44,9 +44,9 @@ The client software listed above can be used in other Linux servers as well, e.g
 
 ## Accessing Allas with Windows or Mac
 
-For Windows and Mac, we recommend [Cyberduck](https://cyberduck.io/). See the [list of functions](#cyberduck-functions) Cyberduck offers for data management.
+For Windows and Mac, [Cyberduck](https://cyberduck.io/) provides a graphical user interface to Allas (note however that the above mentioned linux command line tools are available for Macs too). See the [list of functions](#cyberduck-functions) Cyberduck offers for data management.
 
-The instructions below describe how to open a _Swift_-protocol-based Cyberduck connection to Allas. With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a_tools_ but not with _s3cmd_ based on the _S3_ protocol. More information: [Directory object error](using_allas/directory_object_error.md).
+The instructions below describe how to open a _Swift_-protocol-based Cyberduck connection to Allas. With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a-tools_ but not with _s3cmd_ based on the _S3_ protocol. More information: [Directory object error](using_allas/directory_object_error.md).
 
 1\. Install **Cyberduck**.
 

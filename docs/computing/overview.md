@@ -103,3 +103,5 @@ Check [Disk areas](disk.md) chapter for details.
 * Using compilers and building your applications:
     * [Puhti](compiling-puhti.md)
 	* [Mahti](compiling-mahti.md)
+* [Debugging applications](debugging.md): How to debug your applications
+* [Performance analysis](performance.md): How to understand the performance of your applications

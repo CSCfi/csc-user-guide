@@ -1,3 +1,5 @@
+# Containers & Container Orchestration
+
 ## Containers
 
 Containers are a technology based on operating system kernel features
@@ -66,6 +68,8 @@ To understand why container orchestration platforms are important, let us
 describe how a typical web-based application that end users access via a web
 browser is built.
 
+![Container orchestration](/cloud/rahti/img/container-orch2.drawio.svg)
+
 The application comprises a frontend that is the part of the application
 visible to users and a backend that handles various tasks in the background such as
 storing user data in a database. The application runs a server process that
@@ -86,7 +90,7 @@ running reliably, quickly and safely:
   * User data must be stored reliably on a fault-tolerant storage system.
 
 You could create Linux virtual machines, install Docker on them, and run the
-application directly using those, but there is a lot of additional work to meet 
+application directly using those, but there is a lot of additional work to meet
 all of the above requirements. You would have to figure
 out how to manage multiple instances of the application running on several
 servers, how to direct incoming traffic evenly to all the application instances,
@@ -103,110 +107,3 @@ Currently, the most popular software for container orchestration is _Kubernetes_
 It is based on earlier systems developed at Google over a decade. The Rahti
 system is based on a distribution of Kubernetes called _OpenShift_ made by
 Red Hat.
-
-## The Kubernetes and OpenShift concepts
-
-The power of Kubernetes and OpenShift is in the relatively simple abstractions
-that they provide for complex tasks such as load balancing, software updates for
-a distributed system, or autoscaling. Here we give a very brief overview of some
-of the most important abstractions, but we highly recommend that you read the
-concept documentation for Kubernetes and OpenShift as well:
-
-   * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-   * [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
-
-Most of the abstractions are common to both plain Kubernetes and OpenShift, but
-OpenShift also introduces some of its own concepts.
-
-### Pod
-
-**Pods** contain one or more containers that run applications. It is the basic
-unit in Kubernetes: when you run a workload in Kubernetes, it always runs in a
-pod. Kubernetes handles scheduling these pods on multiple servers. Pods can
-contain volumes of different types for accessing data. Each pod has its own IP
-address shared by all containers in the pod. In the most typical
-case, a pod contains one container and perhaps one or a few different volumes.
-
-Pods are intended to be replaceable. Any data that needs to persist after a pod
-is killed should be stored on a volume attached to the pod.
-
-![Pod](img/pods.png)
-
-The abstractions in Kubernetes/OpenShift are described using YAML or JSON. YAML
-and JSON are so-called data serialization languages that provide a way to
-describe key value pairs and data structures such as lists in a way that is easy to
-read for both humans and computers. An example of what the
-representation of a pod looks like in YAML:
-
-```yaml
----
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: webserver
-    image: registry.access.redhat.com/rhscl/nginx-112-rhel7
-    ports:
-    - containerPort: 8080
-      protocol: TCP
-    volumeMounts:
-    - name: website-content-volume
-      mountPath: /usr/share/nginx/html
-    volumes:
-    - name: website-content-volume
-      persistentVolumeClaim:
-        claimName: web-content-pvc
-```
-
-The above YAML representation describes a web server pod that has one container
-and one volume and exposes the port 8080. You could put this snippet of text
-in a file and create a pod that runs NGINX by feeding that file to the Kubernetes API.
-
-### Service
-
-Pod IP addresses are not predictable. If a pod is replaced as part of normal
-operations such as an update, the IP address of the new pod can be different. It is
-also typical to have multiple pods serving the same content, in which case there
-are several of these unpredictable IP addresses to point to. Thus, pods alone
-are not enough to provide a predictable way to access an application.
-
-A **service** provides a stable virtual IP, a port and a DNS name for one or
-more pods. They act as load balancers, directing traffic to a group of pods
-that all serve the same application.
-
-![Service](img/service.png)
-
-### ReplicaSet
-
-A **ReplicaSet** ensures that _n_ copies of a pod are running. If one of the
-pods dies, the ReplicaSet ensures that a new one is created in its place. They
-are typically not used on their own but rather as part of a **Deployment**
-(explained next).
-
-![ReplicaSet](img/replicaset.png)
-
-### Deployment
-
-**Deployments** manage rolling updates for an application. They typically
-contain a ReplicaSet and several pods. If you make a change that requires an
-update such as switching to a newer image for pod containers, the deployment
-ensures the change is made in a way that there are no service interruptions. It
-will perform a rolling update to replace all pods one by one with
-newer ones while making sure that end user traffic is directed towards working
-pods at all times.
-
-![Deployment](img/deployment.png)
-
-### Persistent volumes
-
-Pods are expendable. When they die, all state that was stored in the pod's
-own filesystems is lost. Pods are also meant to die and be replaced as part of
-normal operations such as a rolling update triggered by a deployment. Therefore,
-storage that persists over a pod's lifetime is needed. This is what **persistent volumes** are for.
-
-Persistent volumes are stored in a backing storage such as Ceph, NFS or
-GlusterFS. They are claimed by a pod using a **PersistentVolumeClaim**. When a
-new claim is made, this can mean that either an existing volume is claimed or a
-new one is created dynamically and given to the pod to use.
-
-![PersistentVolumeClaim](img/persistentvolumeclaim.png)

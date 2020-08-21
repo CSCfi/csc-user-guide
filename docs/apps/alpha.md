@@ -108,6 +108,7 @@
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
 * [SPAdes](spades.md) Genome assembly
 * [Spark](spark.md) High-performance distributed computing framework 
+* [SPLITS](splits.md) Software package to analyze time series of remotely sensed parameters
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
@@ -118,7 +119,8 @@
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [Velvet](velvet.md) Genome assembler
+* [Velvet](velvet.md) Genome assembler* 
+* [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 

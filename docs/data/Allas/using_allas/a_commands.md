@@ -24,9 +24,11 @@ In addition to the above commands, there are separate tools for other purposes:
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 
+# Example: Saving data from scratch direcory to Allas
+
 ## Opening a connection
 
-In order to use these tools in Puhti and Taito, first load a-commands:
+In order to use these tools in Puhti and Mahti, first load a-commands:
 ```text
 module load allas
 ```
@@ -41,9 +43,9 @@ project.
 By default, _allas-conf_ lists your projects that have access to Allas, but if you know the name of the project, you
 can also give it as an argument:
 ```text
-allas-conf project_123456
+allas-conf project_201234
 ```
-Note that the Allas project does not need to be the same as the project you are using in Puhti or Taito.
+Note that the Allas project does not need to be the same as the project you are using in Puhti or Mahti.
 
 If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipelie takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
 ```text
@@ -51,11 +53,37 @@ allas-conf -k
 ```
 With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 
+## Copying data between Puhti scratch directory and Allas
 
+Copying data from directory _/scratch/project_201234/dataset_3_ to Allas:
+
+```text
+cd /scratch/project_201234
+a-put dataset_3
+```
+The data in directory _dataset_3_ is stored to the default bucket _201234-puhti-SCRATCH_ as object: _dataset_3.tar.zst_.
+Available data buckets in Allas can be listed with command:
+
+```text
+a-list
+```
+And the content of 201234-puhti-SCRATCH can be listed with command:
+
+```
+a-list 201234-puhti-SCRATCH
+```
+The directory that was stored to Allas can be retrieved back to Puhti with command:
+
+```text
+a-get 201234-puhti-SCRATCH/dataset_3.tar.zst
+```
+
+
+# A commands in more detail
 
 ## a-put uploads data to Allas<a name="a-put"></a>
 
-`a-put` is used to upload data from the disk environment of Taito and Puhti to 
+`a-put` is used to upload data from the disk environment of Mahti and Puhti to 
 the Allas storage environment. The basic syntax of the command:
 ```text
 a-put directory_or_file
@@ -78,10 +106,12 @@ uploaded data on other servers where the _zstdmt_ compression may not be availab
 By default, a-put uses the standard bucket and object names that depend on the username, project and location
 of the data uploaded:
 
-*    a) $WRKDIR (Taito) is uploaded to the bucket _username_projectNumber-taito-WRKDIR_
-*    b) $SCRATCH (Puhti) is uploaded to the bucket _projectNumber-puhti-SCRATCH_
-*    c) $PROJAPPL (Puhti) is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
-*    d) In other cases, the data is uploaded to _username-projectNumber-MISC_
+*    a) Data from $WRKDIR in Taito is uploaded to the bucket _username_projectNumber-taito-WRKDIR_
+*    b) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
+*    c) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
+*    d) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
+*    e) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
+*    f) In other cases, the data is uploaded to _username-projectNumber-MISC_
 
 For example, for the user _kkayttaj_, a member of the project _12345_, data located in the HOME directory
 is uploaded to the bucket _kkayttaj-12345-MISC_.
@@ -89,28 +119,28 @@ is uploaded to the bucket _kkayttaj-12345-MISC_.
 If you wish to use other than the standard bucket, you can define a bucket name with the option _-b_ or  
 _--bucket_.
 
-The compressed dataset is stored as one object. By default, the object name depends on the file name and location. The possible subdirectory path in Puhti or Taito is included in the object name, e.g. a file called _test_1.txt_ in $WRKDIR in Taito can be stored using the commands
+The compressed dataset is stored as one object. By default, the object name depends on the file name and location. The possible subdirectory path in Puhti or Mahti is included in the object name, e.g. a file called _test_1.txt_ in /scratch/project_2012345 in Puhti can be stored using the commands
 ```text
-cd $WRKDIR
+cd /scratch/project_2012345
 a-put test_1.txt
 ```
 
-In this case, the file is stored in the bucket _kkayttaj-12345-taito-WRKDIR_.
+In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_.
 as the object _test_1.txt.zst_
 
-If you have another file called _test_1.txt_ located in _$WRKDIR/project2/sample3_,
+If you have another file called _test_1.txt_ located in _/scratch/project_2012345/kkayttaj/project2/_,
 you can store it using the commands
 ```text
-cd $WRKDIR/project2/sample3
+cd /scratch/project_2012345/kkayttaj/project2/
 a-put test_1.txt
 ```
 or
 ```text
-cd $WRKDIR
-a-put project2/sample3/test_1.txt
+cd /scratch/project_2012345/kkayttaj
+a-put project2/test_1.txt
 ```
-In this case, the file is stored in the bucket _kkayttaj-12345-taito-WRKDIR_ 
-as the object _project2/sample3/test_1.txt.zst_.
+In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_ 
+as the object _kkayttaj/project2/test_1.txt.zst_.
 
 In addition to the actual data object, another object containing metadata is created. This metadata object has the 
 same name as the main object with the extension *_ameta*. This metadata file is used by the 
@@ -120,8 +150,8 @@ using tools like _swift_ or _rclone_, you will see these metadata objects as wel
 If you wish to use a name differing from the default object name, you can define it with the option _-o_ or  
 _--object_:
 ```text
-cd $WRKDIR
-a-put project2/sample3/test_1.txt -b newbucket1 - o case1.txt -n
+cd /scratch/project_2012345
+a-put project2/test_1.txt -b newbucket1 - o case1.txt -n
 ```
 
 The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt_.
@@ -174,7 +204,7 @@ In addition to checking, if upload was successful, _a-check_ can be used to do a
 
 ## a-list<a name="a-list"></a>
 
-a-list is used to show the names of buckets and objects stored to Allas. a-list is designed to be used for objects uploaded with a-put but it shows objects that have been uploaded with other tools too. However, it doesn't show the _ameta_ metadata file files craeated by a-put, to keep the object listings shorter.
+a-list is used to show the names of buckets and objects stored to Allas. a-list is designed to be used for objects uploaded with _a-put_ but it shows objects that have been uploaded with other tools too. However, it doesn't show the _ameta_ metadata file files craeated by a-put, to keep the object listings shorter.
 
 ### a-list examples
 
@@ -327,7 +357,11 @@ Options:
 
 - **-p**, **--project _project_ID_** Retrieve data from the buckets of the defined project instead of the currently configured project. 
 - **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
-- **-t**, **-target _dir_name_** Create a new target directory and deposit the data there.
+- **-d** **--target_dir** <dir_name> If this option is defined, a new target directory is created and the data is retrieved there.
+- **-t** **--target_file** <file_name> Define a file name for the object for the object to be downloaded.
+- **-l** **--original_location**       Retrieve the data to the original location in the directory structure.
+- **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
+- **--s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
 
 At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
 

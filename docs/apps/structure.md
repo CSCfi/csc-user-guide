@@ -46,6 +46,7 @@ The parameter file must always be named as `input.py`. The name of the actual da
 A sample file, provided by strauto can be copied to your current directory with commands:
 
 ```text
+cd structure_job1
 cp /appl/soft/bio/structure/strauto/input.py ./  
 cp /appl/soft/bio/structure/strauto/sim.str ./ 
 ```
@@ -68,8 +69,11 @@ of  Puhti. If you run the command:
 strauto-puhti
 ```
 in the same directory again it will check the status of structure jobs and do the
-postporcessing of the results if all the structure tasks have finished.
+postporcessing of the results if all the structure-related tasks have finished.
 
+Note, that _strauto-puhti_ does not use the internal, gnu-parallel based, parallelization.
+Instead, parallelization is based on array jobs. Because of this, you should not change 
+the _parallel_ parameter value to _True_ in the structure input file. 
 
 ## More information
 

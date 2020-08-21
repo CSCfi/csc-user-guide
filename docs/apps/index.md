@@ -54,6 +54,7 @@
 * [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
+* [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VMD](vmd.md) Molecular visualization program 
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 * [XHMM](xhmm.md) Copy number variation calling from targeted sequencing data
@@ -121,6 +122,7 @@
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
+* [SPLITS](splits.md) Software package to analyze time series of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
 
