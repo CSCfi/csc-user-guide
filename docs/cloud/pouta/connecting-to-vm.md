@@ -68,7 +68,7 @@ environments or security policies.</span>
 Before connecting to your virtual  machine, you can check its status
 in the *Instances* view of the cPouta/ePouta web interface.
 
-![VM Status check](/img/Screenshot-Instances+view+-+OpenStack+Dashboard+-+Chromium.png)
+![VM Status check](/img/pouta-instance-details.png)
 
 **Figure** The Instances view of the cPouta web interface.
 
