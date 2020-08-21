@@ -84,13 +84,13 @@ should prefer CentOS-7.
 
 ### Ubuntu-18.04 LTS
 Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that Ubuntu-18.04 is that one image that
-has `ubuntu` as the default username instead of `cloud-user`, since it was the
-first image type we started to provide directly from the upstream.
+do not want to use CentOS. Note that Ubuntu-18.04 has `ubuntu` as the default 
+username instead of `cloud-user`, since it was the first image type we started 
+to provide directly from the upstream.
 
 ### Ubuntu-20.04 LTS
-We will provide Ubuntu-20.04 LTS images which is the latest in Ubuntu image family for who
-do not want to use CentOS. Note that like Ubuntu-18.04, Ubuntu 20.04 also 
+Ubuntu-20.04 LTS image, included in Pouta, another one from Ubuntu image family for
+those who do not want to use CentOS. Note that like Ubuntu-18.04, Ubuntu 20.04 also 
 has `ubuntu` as the default username instead of `cloud-user`.
 This is the another image type we started to provide directly from the upstream after Ubuntu-18.04.
 
