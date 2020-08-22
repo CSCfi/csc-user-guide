@@ -50,7 +50,7 @@ parallelization can run multiple OpenMP threads per MPI task. In addition to the
 `--ntasks-per-node=X` on needs to set `--cpus-per-task=Y`. The default is one cpu
 (thread) per task. To use all physical cores
 in a Mahti node, choose `X * Y = 128`, or including virtual cores `X * Y = 256`, like
-in [this example](../example-job-scripts-mahti#mpi+openmp).
+in [this example](../example-job-scripts-mahti#mpi-openmp).
 
 
 <!-- FIXME how to enable hyperthreading? -->
