@@ -51,8 +51,6 @@ performance has improved.
 | **Safe**           | -O2<br>-march=znver2<br>-mtune=znver2                                  | -O2<br>-fp-model precise<br>-march=core-avx2<br>-mtune=core-avx2                                       | -O2<br>-march=znver2<br>-mtune=znver2 |
 | **Intermediate**   | -O3<br>-march=znver2<br>-mtune=znver2                                  | -O2<br>-march=core-avx2<br>-mtune=core-avx2                                                            | -O3<br>-march=znver2<br>-mtune=znver2 |
 | **Aggressive**     | -O3<br>-march=znver2<br>-mtune=znver2<br>-ffast-math<br>-funroll-loops | -O3<br>-fp-model fast=2<br>-march=core-avx2<br>-mtune=core-avx2<br>-no-prec-div<br>-fimf-use-svml=true | -O3<br>-march=znver2<br>-mtune=znver2 |
-|                    |                                                                        |                                                                                                        |                                       |
-
 
 A detailed list of options for the Intel and GNU compilers can be found on the _man_
 pages (`man gcc/gfortran`, `man icc/ifort`)  when the corresponding programming
