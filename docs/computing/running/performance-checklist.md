@@ -61,14 +61,14 @@ script
 export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.3n affinity %A"
 export OMP_DISPLAY_AFFINITY=true
 ```
-The runtime affinity will be printed standard error of the batch
-job. If the output shows that several processes/threads are bind to
+The runtime affinity will be printed to the standard error of the batch
+job. If the output shows that several processes/threads are bound to
 the same core, *i.e.*
 ```
 Process 164433 level 1 thread 000 affinity 0
 Process 164433 level 1 thread 001 affinity 0
 ```
-the performance might be detoriated and one should check the setting
+the performance might be detoriated and one should check the settings
 in the batch script.
 
 
