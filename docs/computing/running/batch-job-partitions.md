@@ -6,7 +6,7 @@ The following partitions (aka queues) are currently available in **Puhti** for
 normal (CPU) nodes:
 
 
-| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../system.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
+| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
 | test            | 15 minutes    | 80           |   2                      |  M                           | 382 GiB  |          |
 | interactive     | 7 days        | 1            |   1                      |  IO                          | 16 GiB   | 160 GiB  |
@@ -18,7 +18,7 @@ normal (CPU) nodes:
 
 The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 10 cores/task.
 
-| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../system.md) | Max<br>memory | Max<br>local storage (nvme) |
+| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage (nvme) |
 |-----------------|---------------|-------------|--------------|----------------------------|---------------|-----------------------------|
 | gputest         | 15 minutes    | 8           | 2            | GPU                        | 382 GiB       | 3600 GiB                    |
 | gpu             | 3 days        | 80          | 20           | GPU                        | 382 GiB       | 3600 GiB                    |
