@@ -18,6 +18,14 @@ Once the terminal connection to Puhti is open you can start using it with the Li
 
 By default, SSH access to Puhti is authenticated with the password of your CSC user account.
 
+!!! warning "Login nodes: important note for Puhti and Mahti"
+    The login nodes can be used for **light** pre- and postprocessing, compiling
+    applications and moving data. All other tasks are to be done in the 
+	compute nodes using the [batch job system](running/getting-started.md). 
+	Programs not adhering to these rules will be terminated without warning. 
+	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
+
+
 ## Using graphical applications
 
 [NoMachine](../apps/nomachine.md) virtual desktop is a good way to use most graphical applications in Puhti. Note that in certain applications (e.g. RStudio Server provided as part of the [`r-env-singularity`](../apps/r-env-singularity.md) module), graphical applications are instead accessed through a local web browser via SSH tunneling.

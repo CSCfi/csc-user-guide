@@ -1,11 +1,11 @@
 # Overview
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since
-2 September 2019 and Mahti has been available since 6 july 2020.
+2 September 2019 and Mahti has been available since 26 August 2020.
 
 Puhti contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI), while
 Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). 
-See [specifications](system.md) for details on the systems.
+See [specifications](available-systems.md) for details on the systems.
 
 ## Accessing Puhti and Mahti
 
@@ -94,7 +94,7 @@ Check [Disk areas](disk.md) chapter for details.
 ## Using Puhti and Mahti
 
 
-* [System](system.md): What computational resources are available
+* [Systems](available-systems.md): What computational resources are available
 * [Connecting](connecting.md): How to connect to  CSC supercomputers 
 * [Disk areas](disk.md): What places are there for storing data on CSC supercomputers 
 * [Modules](modules.md): How to find the programs you need
