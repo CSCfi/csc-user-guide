@@ -83,6 +83,8 @@ srun myprog <options>
 
 ## OpenMP
 
+FIXME: check if thread binding goes correctly without additional settings
+
 ```
 #!/bin/bash
 #SBATCH --job-name=example
