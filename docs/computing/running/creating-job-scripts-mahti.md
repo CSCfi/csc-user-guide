@@ -59,15 +59,6 @@ application. You can find some examples for
 [cp2k](../../../apps/cp2k#performance-notes) and
 [NAMD](../../../apps/namd#performance-considerations).
 
-!!! Note
-    By default, running a single task per node with multiple threads using **openmpi**
-    will bind all threads to a single core and no speedup will be gained. This can be
-    fixed by setting `export OMP_PROC_BIND=true` in your job script. This
-    will bind the threads to different cores. Another possibility is to turn off
-    slurms core binding with the `srun` flag `--cpu-bind=none`.
-
-<!-- FIXME this is copied from Puhti, is this correct? Should be checked -->
-
 ## Hybrid batch jobs with hyperthreading
 
 Mahti is configured so that it doesn't place any theads to the logical cores
