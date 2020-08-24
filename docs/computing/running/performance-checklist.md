@@ -52,7 +52,25 @@ higher and poor load balancing gets more likely.
 
 ## Hybrid parallelization in Mahti
 
-FIXME: placeholder
+Many HPC applications benefit from binding OpenMP threads to CPU cores
+which can be achieved by setting `export OMP_PLACES=cores` in the
+batch job script. When starting new production runs it is also good
+practice to ensure correct thread affinity by adding to batch job
+script
+```
+export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.3n affinity %A"
+export OMP_DISPLAY_AFFINITY=true
+```
+The runtime affinity will be printed standard error of the batch
+job. If the output shows that several processes/threads are bind to
+the same core, *i.e.*
+```
+Process 164433 level 1 thread 000 affinity 0
+Process 164433 level 1 thread 001 affinity 0
+```
+the performance might be detoriated and one should check the setting
+in the batch script.
+
 
 ## Perform a scaling test
 It is important to make sure that your job can efficiently use
