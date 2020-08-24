@@ -51,7 +51,7 @@ parallelization can run multiple OpenMP threads per MPI task. In addition to the
 `--ntasks-per-node=X` on needs to set `--cpus-per-task=Y`. The default is one cpu
 (thread) per task. To use all physical cores in a Mahti node choose `X * Y = 128`,
 like in [this example](../example-job-scripts-mahti#mpi-openmp).
-If you are using hyperthreading (see section below) your should use `X * Y = 256`
+If you are using simultaneous multithreading (see section below) your should use `X * Y = 256`
 
 The optimal ratio between the number of tasks and cores per tasks varies for each
 program and job input. Testing is required to find the right combination for your
@@ -68,14 +68,14 @@ application. You can find some examples for
 
 <!-- FIXME this is copied from Puhti, is this correct? Should be checked -->
 
-## Hybrid batch jobs with hyperthreading
+## Hybrid batch jobs with simultaneous multithreading (SMT)
 
 Mahti is configured so that it doesn't place any theads to the logical cores
-by default. Hyperthreading support can be enabled with `--hint=multithread` option.
+by default. SMT support can be enabled with `--hint=multithread` option.
 When this option is used, it is important to use the `--ntasks-per-node=X` and
 `--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the
 actual physical cores unallocated and performance will be suboptimal.
  Example batch job script can be found
-[here](../example-job-scripts-mahti#mpi-openmp-with-hyperthreading).
+[here](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
 
 Please check also our [Mahti batch script examples](example-job-scripts-mahti.md) page.
