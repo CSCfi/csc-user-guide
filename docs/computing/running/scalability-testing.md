@@ -1,7 +1,5 @@
 # Scalability testing
 
-**Scalability testing is not required during Pilot period**
-
 In order to use the `large` partition in Mahti (more than 20 nodes), the
 project needs to perform a scalability test and report the
 results. Project manager can apply at [MyCSC
@@ -28,7 +26,8 @@ changed.
 
 If the parallel performance of a software is self-evident, based on
 earlier tests carried out on Mahti or other supercomputer, no further
-tests are required. Sending an announcement to servicedesk@csc.fi is
+tests are required. Reporting the earlier results through [MyCSC
+portal](https://my.csc.fi) is
 sufficient in such a case. Note however, that even if a software is
 shown to scale well with a certain data set, not all jobs (e.g. smaller
 data sets) scale as well. In order to use the resources efficiently it
