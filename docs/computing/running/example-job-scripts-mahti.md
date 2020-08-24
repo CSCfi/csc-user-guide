@@ -10,8 +10,6 @@ Example job scripts for running different types of programs:
     with the executable (and options) of the program you wish to run as well
     as `<project>` with the name of your project.
 
-
-
 ## MPI
 
 ```
@@ -52,7 +50,7 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=8
 
-# set the number of threads based on --cpus-per-task
+# Set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 # Bind OpenMP threads to cores
 export OMP_PLACES=cores
@@ -73,14 +71,15 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=16
 
-# set the number of threads based on --cpus-per-task
+# Note that the ntasks-per-core * cpus-per-task = 256
+
+# Set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 # Bind OpenMP threads to hardware threads
 export OMP_PLACES=cores
 
 srun myprog <options>
 ```
-
 
 ## OpenMP
 
@@ -98,4 +97,3 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
-
