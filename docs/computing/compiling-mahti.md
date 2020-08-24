@@ -46,13 +46,12 @@ the safe level and then move up to intermediate or even aggressive,
 while making sure the results are  correct and the program's
 performance has improved. 
 
-<!-- FIXME: clang options, what are recommend Intel options? -->
-
-| Optimisation level | GNU               | Intel                        | AMD          |
-| :----------------- | :---------------- | :--------------------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2          |
-| **Intermediate**   | -O3 -march=native | -O2                    | -O3          |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 |
+| Optimisation level | GNU                                                                    | Intel                                                                                                  | AMD                                   |
+| :-                 | :-                                                                     | :-                                                                                                     | :-                                    |
+| **Safe**           | -O2<br>-march=znver2<br>-mtune=znver2                                  | -O2<br>-fp-model precise<br>-march=core-avx2<br>-mtune=core-avx2                                       | -O2<br>-march=znver2<br>-mtune=znver2 |
+| **Intermediate**   | -O3<br>-march=znver2<br>-mtune=znver2                                  | -O2<br>-march=core-avx2<br>-mtune=core-avx2                                                            | -O3<br>-march=znver2<br>-mtune=znver2 |
+| **Aggressive**     | -O3<br>-march=znver2<br>-mtune=znver2<br>-ffast-math<br>-funroll-loops | -O3<br>-fp-model fast=2<br>-march=core-avx2<br>-mtune=core-avx2<br>-no-prec-div<br>-fimf-use-svml=true | -O3<br>-march=znver2<br>-mtune=znver2 |
+|                    |                                                                        |                                                                                                        |                                       |
 
 
 A detailed list of options for the Intel and GNU compilers can be found on the _man_
@@ -72,7 +71,7 @@ Additional compiler and linker flags are needed when building OpenMP or
 MPI/OpenMP hybrid applications:
 
 | Compiler suite | OpenMP flag |
-| :------------- | :---------- |
+| :-             | :-          |
 | GNU and AMD    | -fopenmp    |
 | Intel          | -qopenmp    |
 
@@ -81,8 +80,8 @@ MPI/OpenMP hybrid applications:
 For building serial applications, one needs to use compiler suite
 specific compiler command:
 
-| Compiler suite | C  | C++ | Fortran |
-| :------------- | :- | :-- | :------ |
-| GNU            | gcc | g++ | gfortran |
-| AMD            | clang | clang++ | flang |
-| Intel          | icc | icpc | ifort |
+| Compiler suite | C     | C++     | Fortran  |
+| :-             | :-    | :-      | :-       |
+| GNU            | gcc   | g++     | gfortran |
+| AMD            | clang | clang++ | flang    |
+| Intel          | icc   | icpc    | ifort    |
