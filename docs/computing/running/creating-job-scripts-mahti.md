@@ -12,9 +12,6 @@ environment. The rest of this page focuses on Mahti specific topics.
     to Mahti.
 <!-- FIXME interactive jobs -->
 
-!!! Note
-    This page is under construction
-
 [TOC]
 
 
@@ -71,12 +68,12 @@ actual physical cores unallocated and performance will be suboptimal.
 
 ## Undersubscribing nodes
 
-<!-- FIXME: to be checked with new Slurm config -->
 If application requires more memory per core than there is available
 with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if application is memory bound, memory
 bandwidth and the application performance can be improved by using
-only a single core per NUMA domain or L3 cache (see FIXME for details
+only a single core per NUMA domain or L3 cache (look
+[here](/computing/systems-mahti) for details
 about Mahti architecture). Note that billing is, however, always based
 on full nodes.
 
