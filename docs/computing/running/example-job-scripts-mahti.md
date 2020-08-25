@@ -76,14 +76,31 @@ srun myprog <options>
 # Set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 # Bind OpenMP threads to hardware threads
-export OMP_PLACES=cores
+export OMP_PLACES=threads
 
 srun myprog <options>
 ```
 
-## OpenMP
+## MPI with one task per NUMA domain
 
-FIXME: check if thread binding goes correctly without additional settings
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=02:00:00
+#SBATCH --nodes=10
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=16
+
+# A compute node has 8 NUMA domains, each containing 16 cores
+# Slurm places the MPI tasks --cpus-per-task apart
+
+srun myprog <options>
+```
+
+
+## OpenMP
 
 ```
 #!/bin/bash

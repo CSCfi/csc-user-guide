@@ -12,9 +12,6 @@ environment. The rest of this page focuses on Mahti specific topics.
     to Mahti.
 <!-- FIXME interactive jobs -->
 
-!!! Note
-    This page is under construction
-
 [TOC]
 
 
@@ -46,9 +43,9 @@ the node.
 
 ## Hybrid batch jobs
 
-As explained for [Puhti](../creating-job-scripts-puhti#hybrid-batch-jobs), hybrid
+As explained for [Puhti](../creating-job-scripts-puhti/#hybrid-batch-jobs), hybrid
 parallelization can run multiple OpenMP threads per MPI task. In addition to the
-`--ntasks-per-node=X` on needs to set `--cpus-per-task=Y`. The default is one cpu
+`--ntasks-per-node=X` one needs to set `--cpus-per-task=Y`. The default is one cpu
 (thread) per task. To use all physical cores in a Mahti node choose `X * Y = 128`,
 like in [this example](../example-job-scripts-mahti#mpi-openmp).
 If you are using simultaneous multithreading (see section below) your should use `X * Y = 256`
@@ -56,17 +53,8 @@ If you are using simultaneous multithreading (see section below) your should use
 The optimal ratio between the number of tasks and cores per tasks varies for each
 program and job input. Testing is required to find the right combination for your
 application. You can find some examples for
-[cp2k](../../../apps/cp2k#performance-notes) and
-[NAMD](../../../apps/namd#performance-considerations).
-
-!!! Note
-    By default, running a single task per node with multiple threads using **openmpi**
-    will bind all threads to a single core and no speedup will be gained. This can be
-    fixed by setting `export OMP_PROC_BIND=true` in your job script. This
-    will bind the threads to different cores. Another possibility is to turn off
-    slurms core binding with the `srun` flag `--cpu-bind=none`.
-
-<!-- FIXME this is copied from Puhti, is this correct? Should be checked -->
+[cp2k](../../../apps/cp2k/#performance-notes) and
+[NAMD](../../../apps/namd/#performance-considerations).
 
 ## Hybrid batch jobs with simultaneous multithreading (SMT)
 
@@ -77,5 +65,54 @@ When this option is used, it is important to use the `--ntasks-per-node=X` and
 actual physical cores unallocated and performance will be suboptimal.
  Example batch job script can be found
 [here](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
+
+## Undersubscribing nodes
+
+If application requires more memory per core than there is available
+with full node (2 GB / core) it is possible to use also a subset of
+cores within a node. Also, if application is memory bound, memory
+bandwidth and the application performance can be improved by using
+only a single core per NUMA domain or L3 cache (look
+[here](../systems-mahti.md) for details
+about Mahti architecture). Note that billing is, however, always based
+on full nodes.
+
+When undersubscribing nodes, one should always set
+`--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,
+even with pure MPI jobs. By default, Slurm scatters MPI tasks
+`--cpus-per-task` apart, i.e. with `--cpus-per-task=8` the MPI task
+**0** is bind to CPU core **0**, the MPI task **1** is bind to CPU
+core **7** *etc.*. Memory bandwidth (and application performance) is
+the best when the tasks are executing on maximally scattered cores. As
+an example, in order to use 32 GB / core, one can run only with 8
+tasks per node as
+```
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=16
+
+module load myprog/1.2.3
+export OMP_NUM_THREADS=1
+
+srun myprog -i input -o output
+```
+
+For hybrid applications, one should use `OMP_PLACES` and
+`OMP_PROC_BIND` OpenMP runtime environment variables for obtaining
+optimum placement of OpenMP threads. As an example, in order to run
+one MPI tasks per NUMA domain and one OpenMP thread per L3cache one
+can set
+
+```bash
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=16
+
+export OMP_NUM_THREADS=4
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load myprog/1.2.3
+
+srun myprog -i input -o output
+```
 
 Please check also our [Mahti batch script examples](example-job-scripts-mahti.md) page.

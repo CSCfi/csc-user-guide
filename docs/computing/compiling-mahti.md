@@ -13,12 +13,8 @@
 C/C++ and Fortran applications can be built with
 [GNU](https://gcc.gnu.org), [AMD](https://developer.amd.com/amd-aocc/), 
 or [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started)
-compiler suites. The compiler suite is selected via the [Modules](modules.md)
-system, i.e.
-```
-module load gcc
-```
-,
+compiler suites. The GNU suite is loaded by default, AMD or Intel can
+be selected via the [Modules](modules.md) system, i.e.
 ```
 module load clang
 ```
@@ -30,13 +26,8 @@ module load intel
 Different applications function better with different suites, so the selection
 needs to be done on a case-by-case basis.
 
-The MPI environment in Mahti is OpenMPI, and it needs to be loaded
-after the compiler suite has been selected:
-```
-module load openmpi
-```
-
-When building MPI applications, all compiler suites can be used with
+The MPI environment in Mahti is OpenMPI, and when building MPI
+applications all compiler suites can be used with
 the `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran) wrappers.
 
 The compiler options for different suites are different. The
