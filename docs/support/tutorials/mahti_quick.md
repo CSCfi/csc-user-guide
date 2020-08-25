@@ -1,6 +1,6 @@
 # Getting started with Mahti
 
-A quick start guide for Mahti users. It is assumed that you have
+This is a quick start guide for Mahti users. It is assumed that you have
 previously used CSC supercomputing resources like Puhti, Sisu or
 Taito. If not, you can start by looking
 [here](../../computing/overview.md).
@@ -30,15 +30,15 @@ Default modules, which are loaded automatically, are `gcc/9.3.0`,
 
 ## Compilers and MPI
 
-Currently, Mahti has GNU compiler suite (versions 9.3.0 and 7.4.0), as
+Currently, Mahti has GNU compiler suites (versions 9.3.0 and 7.4.0), as
 well as AMD and Intel compiler suites. All compiler suites can be used
 with the `mpicc` (C), `mpicxx` (C++), or `mpif90` (Fortran)
-wrappers. We recommend to start with GNU compiler suite, but for some
+wrappers. We recommend to start with the GNU compiler suite, but for some
 applications the other suites may provide better performance.
 
 In Mahti, many applications benefit from hybrid MPI/OpenMP
 parallelization, so it is recommended to build a hybrid version if it
-is supported by application.
+is supported by your application.
 
 More information about compilers [here](../../computing/compiling-mahti.md).
 
@@ -52,11 +52,12 @@ information [here](../../computing/hpc-libraries.md).
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md)
+More information about specific applications can be found [here](../../apps/alpha.md).
+Note, the preinstalled selection is not as large as on Puhti.
 
 ## Running jobs
 
-Mahti uses the [slurm](https://slurm.schedmd.com/documentation.html)
+Like Puhti, Mahti uses the [slurm](https://slurm.schedmd.com/documentation.html)
 batch job system. A description of the different slurm partitions can
 be found [here](../../computing/running/batch-job-partitions.md).
 
@@ -66,10 +67,10 @@ and example batch job scripts are found [here](../../computing/running/example-j
 ## Performance considerations
 
 In Mahti, many applications benefit from hybrid MPI/OpenMP parallelization,
-however, the optimum ratio of MPI tasks and OpenMP threads depend lot
-on particular application as well as on particular input data
-set. Mahti supports also hyperthreading, *i.e.* two threads can be run
-on the same CPU core. Benefits of hyperthreading depend also on the
+however, the optimum ratio of MPI tasks and OpenMP threads depends a lot
+on the particular application as well as on particular input data
+set. Mahti supports also simultaneous multithreading (SMT), *i.e.* two threads can be run
+on the same physical CPU core. Benefits of multithreading depend also on the
 application, in some cases it improves performance while in some cases
 performance becomes worse. Binding of threads to CPU cores can also have
 an impact on performance. 
@@ -99,13 +100,13 @@ More detailed information about storage can be found [here](../../computing/disk
 
 Data can be moved between supercomputers via
 [Allas](../../data/Allas/index.md) by first uploading 
-the data from one supercomputer and then downloading it to another
-supercomputer. This is the recommended approach if the data should also
+the data from one supercomputer and then downloading it to the other.
+This is the recommended approach if the data should also
 be preserved for a longer time.
 
 Data can also be moved directly between the supercomputers with the
 _rsync_ command. For example, in order to copy *my_results* (which can be
-either file or directory) from
+either a file or a directory) from
 Puhti to the directory */scratch/project_2002291* in Mahti, one can
 issue in Puhti the command: 
 ```bash
@@ -113,3 +114,25 @@ rsync -azP my_results <username>@mahti.csc.fi:/scratch/project_2002291
 ```
 See [Using rsync](../../data/moving/rsync.md) for more detailed instructions
 for *rsync*.
+
+## How Mahti and Puhti differ?
+
+If you are new to supercomputes, or the details below is unfamiliar, you
+likely should start with [Puhti](puhti_quick.md) and some [introductory tutorials](env-guide/overview.md) first.
+In a nutshell, Mahti is meant for large parallel jobs, and Puhti for a wide
+variety of small to medium sized jobs including special resources.
+
+|Resource                | Mahti           | Puhti                             |
+|------------------------|-----------------|-----------------------------------|
+|Resources are granted   | By full nodes   | By finer detail (cores/memory/...)|
+|Minimum job size        | 128 cores (1 node)| 1 core (1/40 node)              |
+|Maxmimum job size (cores) | 200 nodes (*) (25600)| 100 (**) nodes (40000)           |
+|Memory per node (average per core) | 245 GB (2 GB)   |  192 - 1500 GB (4 - 37 GB) |
+|GPUs                    | no              | yes                               |
+|Fast local disk         | no              | yes (NMVe)                        |
+|Preinstalled applications |  ~15          | ~120                              |
+
+<pre>
+(*) And even more via Grand Challenge calls.
+(**) To be scaled down to 25 nodes in autumn 2020.
+</pre>
