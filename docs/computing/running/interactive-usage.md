@@ -62,7 +62,7 @@ This command will start the server, and it will then print out a web
 address and a ssh command. Execute the ssh command (copy-paste) in
 another linux terminal on your local machine to form a tunnel between
 your machine and the compute node. Note that you need to set up
-passwordless access using ssh keys to do so. After this you can access
+[passwordless access using ssh keys](/computing/connecting/#setting-up-ssh-keys) to do so. After this you can access
 the Jupyter server by copy-pasting the web address into your local web browser.
 
 ### Example: RStudio Server in sinteractive session
