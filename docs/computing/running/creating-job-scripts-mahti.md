@@ -12,9 +12,6 @@ environment. The rest of this page focuses on Mahti specific topics.
     to Mahti.
 <!-- FIXME interactive jobs -->
 
-!!! Note
-    This page is under construction
-
 [TOC]
 
 
@@ -46,18 +43,18 @@ the node.
 
 ## Hybrid batch jobs
 
-As explained for [Puhti](../creating-job-scripts-puhti#hybrid-batch-jobs), hybrid
+As explained for [Puhti](../creating-job-scripts-puhti/#hybrid-batch-jobs), hybrid
 parallelization can run multiple OpenMP threads per MPI task. In addition to the
 `--ntasks-per-node=X` one needs to set `--cpus-per-task=Y`. The default is one cpu
 (thread) per task. To use all physical cores in a Mahti node choose `X * Y = 128`,
-like in [this example](../example-job-scripts-mahti#mpi-openmp).
+like in [this example](../example-job-scripts-mahti/#mpi-openmp).
 If you are using hyperthreading (see section below) your should use `X * Y = 256`
 
 The optimal ratio between the number of tasks and cores per tasks varies for each
 program and job input. Testing is required to find the right combination for your
 application. You can find some examples for
-[cp2k](../../../apps/cp2k#performance-notes) and
-[NAMD](../../../apps/namd#performance-considerations).
+[cp2k](../../../apps/cp2k/#performance-notes) and
+[NAMD](../../../apps/namd/#performance-considerations).
 
 ## Hybrid batch jobs with hyperthreading
 
@@ -67,16 +64,16 @@ When this option is used, it is important to use the `--ntasks-per-node=X` and
 `--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the
 actual physical cores unallocated and performance will be suboptimal.
  Example batch job script can be found
-[here](../example-job-scripts-mahti#mpi-openmp-with-hyperthreading).
+[here](../example-job-scripts-mahti/#mpi-openmp-with-hyperthreading).
 
 ## Undersubscribing nodes
 
-<!-- FIXME: to be checked with new Slurm config -->
 If application requires more memory per core than there is available
 with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if application is memory bound, memory
 bandwidth and the application performance can be improved by using
-only a single core per NUMA domain or L3 cache (see FIXME for details
+only a single core per NUMA domain or L3 cache (look
+[here](../systems-mahti.md) for details
 about Mahti architecture). Note that billing is, however, always based
 on full nodes.
 
