@@ -16,7 +16,7 @@ To request the 30 day test period, proceed as follows:
 
 ## Scalability testing
 
-In the second phase, test runs demonstrating the scalability are to be peformed. Here are some general guidelines for scalability testing.
+In the second phase, test runs demonstrating the scalability are to be performed. Here are some general guidelines for scalability testing.
 
 * Testing should be done at minimum three different node counts up to
 target in production (for example with 25, 50, and 100 nodes).
