@@ -61,7 +61,7 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | gc        | 1-700       | 36 hours      | Grand Challenge  |
 
 Large partition on Mahti is only accessible to projects that have done a
-[scalability test](scalability-testing.md) and shown good utilisation of the resources. The partition
+[scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
 `qc` is only accessible to Grand Challenge projects and has a higher
 priority.
 
