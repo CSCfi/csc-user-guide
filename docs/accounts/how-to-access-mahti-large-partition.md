@@ -16,7 +16,7 @@ To request the 30 day test period, proceed as follows:
 
 ## Scalability testing
 
-In the second phase test runs demonstrating the scalability are to be peformed. Here are some general guidelines for scalability testing.
+In the second phase, test runs demonstrating the scalability are to be peformed. Here are some general guidelines for scalability testing.
 
 * Testing should be done at minimum three different node counts up to
 target in production (for example with 25, 50, and 100 nodes).
@@ -30,7 +30,7 @@ example by running only few times steps, iterations etc.
 not affect results, typically few minutes for the shortest run time
 (largest node count) is fine.
 * Parameters affecting the scalability can, and are encouraged to be,
-changed.
+changed. Note, also the [performance checklist](../computing/running/performance-checklist.md)
 
 If the parallel performance of a software is self-evident, e.g. based on
 earlier tests carried out on Mahti or other supercomputer, no further
@@ -50,8 +50,8 @@ parallelization strategy used in the software including details about
 the IO implementation and load.
 
 Attach to the report a representative batch job script, and if the
-application is run with hybrid MPI/OpenMP parallelization, attach also
-`stderr` of single run where the following settings are applied:
+application was run with hybrid MPI/OpenMP parallelization, attach also the
+`stderr` of a single run where the following settings are applied:
 
 ```
 export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.3n affinity %A"
