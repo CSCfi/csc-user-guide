@@ -58,7 +58,7 @@ export OMP_PLACES=cores
 srun myprog <options>
 ```
 
-## MPI + OpenMP with hyperthreading
+## MPI + OpenMP with simultaneous multithreading
 
 ```
 #!/bin/bash
