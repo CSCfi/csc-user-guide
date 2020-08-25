@@ -101,7 +101,7 @@ srun myprog -i input -o output
 
 For hybrid applications, one should use `OMP_PLACES` and
 `OMP_PROC_BIND` OpenMP runtime environment variables for obtaining
-optimum placemenet of OpenMP threads. As an example, in order to run
+optimum placement of OpenMP threads. As an example, in order to run
 one MPI tasks per NUMA domain and one OpenMP thread per L3cache one
 can set
 
