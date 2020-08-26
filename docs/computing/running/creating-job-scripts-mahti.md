@@ -10,7 +10,6 @@ environment. The rest of this page focuses on Mahti specific topics.
     with the exception of interactive jobs (to be added). Many options also work
     differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti
     to Mahti.
-<!-- FIXME interactive jobs -->
 
 [TOC]
 
