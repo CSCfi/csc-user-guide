@@ -12,11 +12,11 @@ When you have been added, you can use SSH to login to kvasi.csc.fi directly. (Be
 In order to use the Jupyter notebook environment, you need to set up an SSH tunnel, forwarding the output port of your notebook environment to your local computer. Follow these steps:
 
 1. Login to Kvasi with SSH:
-  - `ssh <userid>@kvasi.csc.fi`
+    * `ssh <userid>@kvasi.csc.fi`
 2. Start the Jupyter server: `./qlm_notebook/launch_qlm_notebook`. This will give you two values:
-  - The Jupyter port number. It will be `8888`, or higher
-  - The token for accessing the web interface (a string of letters and numbers)
-  - Example output:
+    * The Jupyter port number. It will be `8888`, or higher
+    * The token for accessing the web interface (a string of letters and numbers)
+    * Example output:
 
 ```
 Jupyter port : 8890
@@ -32,15 +32,15 @@ To access your Jupyter notebook from your local computer:
 
 3. Start an SSH tunnel, forwarding the Jupyter port to a local port number.
 You can choose, _e.g_, `8890` for the local port
-  - The details of how to open up the SSH tunnel depend on your SSH client.
-  - Using the command line, you can login once more from a second terminal,
+    * The details of how to open up the SSH tunnel depend on your SSH client.
+    * Using the command line, you can login once more from a second terminal,
     now specifying port forwarding, using the ssh command of the output above.
 
-5. Open up your browser, and go to the address given by the output, for example
+4. Open up your browser, and go to the address given by the output, for example
 `http://127.0.0.1:8890/?token=123456abcdef` This should open up the web interface
 to Kvasi, with two main options to explore:
-  - **The manual** (to the left)
-  - **The Jupyter notebook environment** with examples (to the right)
+    * **The manual** (to the left)
+    * **The Jupyter notebook environment** with examples (to the right)
 
 
 ## myQLM
@@ -48,7 +48,7 @@ to Kvasi, with two main options to explore:
 myQLM is a light-weight version of the QLM ecosystem that can be run outside the Kvasi QLM. With myQLM, you can design and simulate quantum algorithms locally, on your own computer. MyQLM is well suited for getting started with quantum algorithm exploration. Advanced features of the QLM are missing, but the basic features are the same.
 
 myQLM is now open access, and can be downloaded for Linux and Windows here:
-https://myqlm.github.io/index.html
+[myQLM docs and installation instructions](https://myqlm.github.io/index.html)
 
 
 ## Links
@@ -57,4 +57,4 @@ https://myqlm.github.io/index.html
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)
 
 ---
-Latest update: 25 Aug 2020
+Latest update: 26 Aug 2020
