@@ -1,9 +1,9 @@
 # Interactive usage
 
 When you login to CSC supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [Usage policy](../overview.md#usage-policy) for details.
-If you need to do heavy computing interactvely, you should use interactive batch jobs.
+If you need to do heavy computing interactively, you should use interactive batch jobs.
 
-In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request spesific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
+In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the job specific `$TMPDIR` area, will be terminated. 
@@ -14,7 +14,7 @@ Puhti and Mahti have an `interactive` partition which enables immediate access t
 ```text
 sinteractive -i
 ```
-The command above asks what computing project will be used and how much resouces the job will need. After that it opens a shell session that runs on a compute node. You can use this session as a normal bash shell without additional Slurm commands for starting jobs and applications.
+The command above asks what computing project will be used and how much resources the job will need. After that it opens a shell session that runs on a compute node. You can use this session as a normal bash shell without additional Slurm commands for starting jobs and applications.
 
 You can define the resource requests in command line too if you don't want to specify them interactively. Note that the _sinteractive_ commands
 in Puhti and Mahti are not identical. There is some differences in both command line options and in the way how the command works.
@@ -28,14 +28,14 @@ memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
 
 If your requests exceed these limits or you already have a session in the
 interactive partition, `sinteractive` can submit the session request to `small` or `gpu`
-partitions instead. However, in these cases your session starts queueing just like normal batch job and
+partitions instead. However, in these cases your session starts queuing just like normal batch job and
 you may need to wait some time before the requested resources become available and the interactive session 
 starts.
 
 All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts-puhti/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
-For example, an interactive session with 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2011234_
-can be lauched with command:
+For example, an interactive session with 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2001234_
+can be launched with command:
 
 ```text
 sinteractive --account project_2001234 --time 48:00:00 --mem 8000 --tmp 100
@@ -51,15 +51,15 @@ Available options for `sinteractive` in Puhti are:
 | -j, --jobname | Job name.                                                | interactive          |
 | -c, --cores   | Number of cores.                                         | 1                    |
 | -A, --account | Accounting project.                                      |                      |
-| -d, --tmp     | Size of job specifinc $TMPDIR disk (in GiB).             | 32                   |
+| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).             | 32                   |
 | -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    |
 
 ### sinteractive in Mahti
 
 In Mahti, users can have several interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores can't exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
 
-For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project _project_2011234_
-can be lauched with command:
+For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project _project_2001234_
+can be launched with command:
 
 ```text
 sinteractive --account project_2001234 --time 48:00:00 --cores 6
