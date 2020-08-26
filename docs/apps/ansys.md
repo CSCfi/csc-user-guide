@@ -7,7 +7,7 @@ AAESS products are proprietary software. CSC - IT Center for Science Ltd. has th
 
 ## Available
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Taito and Puhti](https://research.csc.fi/csc-s-servers).  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](https://research.csc.fi/csc-s-servers).  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 Notice that Taito server will be decommisioned in the end of December 2019.
 
@@ -23,11 +23,11 @@ and check lines *ansys/(version number)*. For example to load Ansys version 19.2
 
 There are examples of **batch job files** available on Puhti server:
 
-    Ansys CFX:        /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_puhti_cfx
+    Ansys CFX:        /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_cfx
 
-    Ansys Fluent:     /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_puhti_fluent
+    Ansys Fluent:     /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_fluent
 
-    Ansys Structural: /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_puhti_struct
+    Ansys Structural: /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_struct
 
 Copy those files and modify them for your own use. Further instructions are given in the files.
 
