@@ -97,7 +97,7 @@ srun myprog -i input -o output
 
 For hybrid applications, one should use 
 `OMP_PROC_BIND` OpenMP runtime environment variable for 
-laceming the OpenMP threads. As an example, in order to run
+placeming the OpenMP threads. As an example, in order to run
 one MPI tasks per NUMA domain and one OpenMP thread per L3cache one
 can set
 
