@@ -96,9 +96,9 @@ export OMP_NUM_THREADS=1
 srun myprog -i input -o output
 ```
 
-For hybrid applications, one should use `OMP_PLACES` and
-`OMP_PROC_BIND` OpenMP runtime environment variables for obtaining
-optimum placement of OpenMP threads. As an example, in order to run
+For hybrid applications, one should use 
+`OMP_PROC_BIND` OpenMP runtime environment variable for 
+laceming the OpenMP threads. As an example, in order to run
 one MPI tasks per NUMA domain and one OpenMP thread per L3cache one
 can set
 
@@ -107,7 +107,6 @@ can set
 #SBATCH --cpus-per-task=16
 
 export OMP_NUM_THREADS=4
-export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
 
 module load myprog/1.2.3
