@@ -13,7 +13,7 @@
 C/C++ and Fortran applications can be built with
 [GNU](https://gcc.gnu.org), [AMD](https://developer.amd.com/amd-aocc/), 
 or [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started)
-compiler suites. The GNU suite is loaded by default, AMD or Intel can
+compiler suites. The GNU suite is loaded by default, AMD (clang) or Intel can
 be selected via the [Modules](modules.md) system, i.e.
 ```
 module load clang
@@ -37,13 +37,13 @@ the safe level and then move up to intermediate or even aggressive,
 while making sure the results are  correct and the program's
 performance has improved. 
 
-<!-- FIXME: clang options, what are recommend Intel options? -->
 
-| Optimisation level | GNU               | Intel                        | AMD          |
+| Optimisation level | GNU               | Intel                        | AMD
+(clang) |
 | :----------------- | :---------------- | :--------------------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2          |
-| **Intermediate**   | -O3 -march=native | -O2                    | -O3          |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 |
+| **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2 -march=native  |
+| **Intermediate**   | -O3 -march=native | -O2                    | -O3 -march=native |
+| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
 
 
 A detailed list of options for the Intel and GNU compilers can be found on the _man_
