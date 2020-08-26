@@ -10,34 +10,20 @@ slightly from the login nodes. For example, not all the same text editors are av
 
 ## Easy interactive work: sinteractive command
 
-Puhti has an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to use the `sinteractive` command:
+Puhti and Mahti have an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to use the `sinteractive` command:
 ```text
 sinteractive -i
 ```
 The command above asks what computing project will be used and how much resouces the job will need. After that it opens a shell session that runs on a compute node. You can use this session as a normal bash shell without additional Slurm commands for starting jobs and applications.
 
-You can define the resource requests in command line too if you don't want to specify them interactively. For example, an interactive session with 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2011234_
-can be lauched with command:
+You can define the resource requests in command line too if you don't want to specify them interactively. Note that the _sinteractive_ commands
+in Puhti and Mahti are not identical. There is some differences in both command line options and in the way how the command works.
 
-```text
-sinteractive --account project_2011234 --time 48:00:00 --mem 8000 --tmp 100
-```
 
-Available options for `sinteractive` are:
+### sinteractive in Puhti
 
-| Option        | Function                                                 | Default              |
-| ------------- | -------------------------------------------------------- | -------------------- |
-| -i, --interactive | Set resource requests for the job interactively       |                      |
-| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
-| -m, --mem     | Memory reservation in MB.                                | 1000                 |
-| -j, --jobname | Job name.                                                | interactive          |
-| -c, --cores   | Number of cores.                                         | 1                    |
-| -A, --account | Accounting project.                                      | $CSC_PRIMARY_PROJECT |
-| -d, --tmp     | Size of job specifinc $TMPDIR disk (in GiB).             | 32                   |
-| -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    |
-
-Note, that each user can have only one active session open in the `interactive` partition. 
-In the interactive partition you can reserve in maximum 1 core, 16 GB of 
+In Puhti, each user can have only one active session open in the `interactive` partition, that provides immediate access too 
+the computing resources. In the interactive partition you can reserve in maximum 1 core, 16 GB of 
 memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
 
 If your requests exceed these limits or you already have a session in the
@@ -47,6 +33,51 @@ you may need to wait some time before the requested resources become available a
 starts.
 
 All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts-puhti/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
+
+For example, an interactive session with 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2011234_
+can be lauched with command:
+
+```text
+sinteractive --account project_2001234 --time 48:00:00 --mem 8000 --tmp 100
+```
+
+Available options for `sinteractive` in Puhti are:
+
+| Option        | Function                                                 | Default              |
+| ------------- | -------------------------------------------------------- | -------------------- |
+| -i, --interactive | Set resource requests for the job interactively       |                      |
+| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
+| -m, --mem     | Memory reservation in MB.                                | 1000                 |
+| -j, --jobname | Job name.                                                | interactive          |
+| -c, --cores   | Number of cores.                                         | 1                    |
+| -A, --account | Accounting project.                                      |                      |
+| -d, --tmp     | Size of job specifinc $TMPDIR disk (in GiB).             | 32                   |
+| -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    |
+
+### sinteractive in Mahti
+
+In Mahti, users can have several interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores can't exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
+
+For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project _project_2011234_
+can be lauched with command:
+
+```text
+sinteractive --account project_2001234 --time 48:00:00 --cores 6
+```
+
+Available options for `sinteractive` in Mahti are:
+
+| Option        | Function                                                 | Default              |
+| ------------- | -------------------------------------------------------- | -------------------- |
+| -i, --interactive | Set resource requests for the job interactively       |                      |
+| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
+| -j, --jobname | Job name.                                                | interactive          |
+| -c, --cores   | Number of cores ( + 1.875 GB of memory/core)             | 2                    |
+| -A, --account | Accounting project.                                      |                      |
+
+
+
+
 
 ### Example: Running a Jupyter notebook server via sinteractive
 
