@@ -54,7 +54,10 @@ higher and poor load balancing gets more likely.
 
 Many HPC applications benefit from binding OpenMP threads to CPU cores
 which can be achieved by setting `export OMP_PLACES=cores` in the
-batch job script. When starting new production runs it is also good
+batch job script. Note! Due to bug in OpenBLAS thread binding should not be
+specified when using threaded OpenBLAS (openblas/0.3.10-omp module). 
+
+When starting new production runs it is also good
 practice to ensure correct thread affinity by adding to batch job
 script
 ```

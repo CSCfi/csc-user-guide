@@ -52,11 +52,31 @@ srun myprog <options>
 
 # Set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-# Bind OpenMP threads to cores
+
+srun myprog <options>
+```
+
+## MPI + OpenMP with thread binding
+
+Note! Due to bug in OpenBLAS, thread binding should not be used in applications
+utilizing threaded OpenBLAS (openblas/0.3.10-omp module)
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=02:00:00
+#SBATCH --nodes=100
+#SBATCH --ntasks-per-node=16
+#SBATCH --cpus-per-task=8
+
+# Set the number of threads based on --cpus-per-task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export OMP_PLACES=cores
 
 srun myprog <options>
 ```
+
 
 ## MPI + OpenMP with simultaneous multithreading
 
@@ -75,8 +95,6 @@ srun myprog <options>
 
 # Set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-# Bind OpenMP threads to hardware threads
-export OMP_PLACES=threads
 
 srun myprog <options>
 ```
