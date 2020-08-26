@@ -59,7 +59,6 @@ module purge
 module load cp2k/7.1-elpa
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-export OMP_PLACES=cores
 
 srun cp2k.psmp H2O-32.inp > H2O-32.out
 ```
