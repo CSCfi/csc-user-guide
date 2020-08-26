@@ -38,8 +38,7 @@ while making sure the results are  correct and the program's
 performance has improved. 
 
 
-| Optimisation level | GNU               | Intel                        | AMD
-(clang) |
+| Optimisation level | GNU               | Intel                        | AMD (clang) |
 | :----------------- | :---------------- | :--------------------------- | :----------- |
 | **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2 -march=native  |
 | **Intermediate**   | -O3 -march=native | -O2                    | -O3 -march=native |
