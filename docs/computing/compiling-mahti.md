@@ -13,12 +13,12 @@
 C/C++ and Fortran applications can be built with
 [GNU](https://gcc.gnu.org), [AMD](https://developer.amd.com/amd-aocc/), 
 or [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started)
-compiler suites. The GNU suite is loaded by default, AMD (clang) or Intel can
-be selected via the [Modules](modules.md) system, i.e.
+compiler suites. The GNU compilers are loaded by default. AMD compilers can be
+loaded using the [Modules](modules.md) system with the command:
 ```
 module load clang
 ```
-or
+and Intel compilers with the command:
 ```
 module load intel
 ```
