@@ -39,8 +39,9 @@ This is a basic script for a 30 minute single full node job using all 40 cores a
 ```
 #!/bin/bash 
 #SBATCH --time=00:30:00
-#SBATCH -o joboutputfile.out.%j
-#SBATCH -e joberrorfile.err.%j
+#SBATCH --job-name=jobname
+#SBATCH --output=%x.%j.out
+#SBATCH --error=%x.%j.err
 #SBATCH --partition=small
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=1
@@ -65,8 +66,9 @@ The main difference on mahti is, that only complete nodes can be allocated. A si
 ```
 #!/bin/bash 
 #SBATCH --time=06:00:00
-#SBATCH -o joboutputfile.out.%j
-#SBATCH -e joberrorfile.err.%j
+#SBATCH --job-name=jobname
+#SBATCH --output=%x.%j.out
+#SBATCH --error=%x.%j.err
 #SBATCH --partition=medium
 #SBATCH --account=<project>
 #SBATCH --nodes=4
