@@ -32,21 +32,23 @@ unset OS_PASSWORD
 To be able to use the automatized connection creation in batch jobs, you need to add the option `-f` to the 
 command, to skip certain internal checks that are not compatible with batch jobs. 
 Further, _allas-conf_ is just an alias of a _source_ command that reads the Allas configuration script that in 
-Puhti is located at `/appl/opt/allas-cli-utils/allas_conf`. This aliased command is not available in batch jobs, 
+Puhti and Mahti is located at `/appl/opt/allas-cli-utils/allas_conf`. This aliased command is not available in batch jobs, 
 so instead of _allas-conf_, you must use the command:
+
 ```text
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 ```
+Mahti:
+```text
+source /appl/opt/allas/env/allas_conf -f -k $OS_PROJECT_NAME
+```
+
 Thus after opening an Allas connection with the commands
 ```text
 module load allas
 allas-conf -k
 ```
-You can add the command
-```text
- source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-```
-to your batch job script to make sure that the Allas connection is valid when needed. 
+You can add the above mentioned source commands to your batch job script to make sure that the Allas connection is valid when needed. 
 
 In *a-commands* (_a-put_, _a-get_, _a-list_, _a-delete_), this feature is included, so you do not need to add the 
 configuration commands to the batch job script, but you must still remember to run `allas-conf -k` before 
@@ -79,7 +81,7 @@ a-put -b 178-data-bucket results34
 ```
 
 If you use _rclone_ or _swift_ instead of the a-commands, you need to add the _source_ commands to your script. In this case, 
-the batch job script could look like:
+the batch job script for Puhti could look like:
 ```text
 #!/bin/bash
 #SBATCH --job-name=my_allas_job

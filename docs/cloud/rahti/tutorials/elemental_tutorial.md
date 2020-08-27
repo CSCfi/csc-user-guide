@@ -17,47 +17,12 @@ server running:
 
     In practice, you should not deploy applications the way described in this
     tutorial. Instead, it is meant for learning the core concepts of
-    Kubernetes. If you are already familiar with pods, services and routes,
-    you might be interested in the chapter
-    [Advanced concepts](/cloud/rahti/tutorials/advanced_tutorial).
+    Kubernetes.
 
 ## Preparation
 
-If you are logged in to the Rahti web console and have the OpenShift command
-line tool `oc` installed and the command line session authorized, you can skip
-this section and move on to the next one (Projects).
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](/cloud/rahti/usage/cli/) if you need help on that.
 
-Install the `oc` command line tool and authenticate a command line session after
-logging in to Rahti at [rahti.csc.fi](https://rahti.csc.fi:8443/):
-
-1.  Install the `oc` command line tools by clicking the question mark and then "Command
-    Line Tools" in the top right corner of the OpenShift web console:
-
-    ![install cli menu](img/cli-menu.png)
-
-1.  Click the "Latest release" link:
-
-    ![install cli page](img/cli-page.png)
-
-1.  Download and unpack the correct version for your platform and make sure that the
-    binaries are found in a directory that is in the PATH environment variable.
-
-1.  Copy the login command:
-
-    ![copy login](./img/copy-login.png)
-
-1.  Paste the result to the terminal. It should be similar to this:
-
-```bash
-oc login https://rahti.csc.fi:8443 --token=<secret access token>
-```
-
-!!! Note
-
-    The secret access token is only valid for a limited time. After it expires,
-    you will need to repeat the steps to login. Once logged in, the session will
-    be valid in newly created terminal sessions as well.
-    
 ## Projects
 
 The command `oc projects` shows the projects you have access to:
@@ -146,7 +111,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[A brief introduction](#short-introduction-to-yaml).
+[Short introduction to YAML](/cloud/rahti/tutorials/yaml_introduction/).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:
@@ -337,7 +302,7 @@ concepts](/cloud/rahti/introduction/background#kubernetes-and-openshift-concepts
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](/cloud/rahti/tutorials/advanced_tutorial#deploymentconfig)
+object is that [DeploymentConfig](/cloud/rahti/concepts/#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note
@@ -378,101 +343,5 @@ representing the Kubernetes objects. The created objects can be further
 modified in the OpenShift web console where:
 
 * Routes can be modified to be secure ones encrypted by TLS.
-* Autoscalers, persistent storage, resource limits and health checks can be
-  added to ReplicationControllers.
+* Autoscalers, persistent storage, resource limits and health checks can be added to ReplicationControllers.
 * New routes can be added to services.
-
-## Short introduction to YAML
-
-YAML is used to describe key-value maps and arrays. YAML files are recognized
-by the `.yml` or `.yaml` file suffix.
-
-A YAML dataset can be
-
-*   a value
-
-```yaml
-value
-```
-
-*  an array
-
-```yaml
-- value 1
-- value 2
-- value 3
-```
-
-or
-
-```yaml
-[value 1, value 2, value 3]
-```
-
-*   a dictionary
-
-```yaml
-key: value
-another_key: another value
-```
-
-  or
-
-```yaml
-key:
-  value
-another_key:
-  another value
-```
-
-*   YAML dataset
-
-```yaml
-key:
-  - value 1
-  - another key:
-      yet another key: value 2
-    another key 2:
-      - more values
-    this keys value is also an array:
-    - but indentation is not necessary here
-```
-
-Values can be input across multiple lines using `>`:
-
-```yaml
-key: >
-  Here's a value that is written over multiple lines
-  but is actually still considered a single line until now.
-
-  Placing double newline here will result in newline in the actual data.
-```
-
-Verbatim style is supported with the `|` character:
-
-```yaml
-key: |
-  Now each
-  newline is
-  treated as such
-```
-
-YAML is also a superset of JSON (JavaScript Object Notation). Thus,
-
-```json
-{
-  "key":
-  [
-    "value 1",
-    {
-      "another key": {"yet another key": "value 2"},
-      "another key 2": ["more values"],
-      "this keys value is also an array": ["but indentation is not necessary here"]
-    }
-  ]
-}
-```
-
-is also valid YAML.
-
-For more information, see [yaml.org](https://yaml.org/) or [json.org](https://json.org).

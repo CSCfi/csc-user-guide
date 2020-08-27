@@ -28,16 +28,16 @@ The most commonly used _s3cmd_ commands:
 | setacl --acl-grant | Manage access rights |
 
 
-The table above lists only the most essential s3cmd commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage) or type:
+The table above lists only the most essential _s3cmd_ commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage) or type:
 ```text
 s3cmd -h
 ```
 
-If you use Allas on Puhti, all required packages and software are already installed. In this case you can skip the installation chapter _Getting started with s3cmd_ below and proceed to the section [s3cmd with supercomputers](#s3cmd-with-supercomputers). 
+If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip the installation chapter _Getting started with s3cmd_ below and proceed to the section [s3cmd with supercomputers](#s3cmd-with-supercomputers). 
 
 ## Getting started with s3cmd
 
-To configure a s3cmd connection, you need OpenStack and s3cmd installed in your environment. 
+To configure a s3cmd connection, you need _OpenStack_ and _s3cmd_ installed in your environment. 
 
 **OpenStack s3cmd installation:**
 
@@ -75,13 +75,13 @@ CSC password and then for you to choose an Allas project. After that, the tool c
 
 ## s3cmd with supercomputers
 
-To use s3cmd in Puhti, you must first confugure the connection:
+To use s3cmd in Puhti and Mahti, you must first confugure the connection:
 ```text
 module load allas
 allas-conf --mode s3cmd
 ```
 
-The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, s3cmd will automatically use the object storage connection described in the _.s3cfg_ file. However, if you wish to change the Allas project that _s3cmd_ uses, you only need to run the configuration command again.
+The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
 
 ## Create buckets and upload objects
 
@@ -182,15 +182,15 @@ Public URL of the object is: http://a3s.fi/my_fishbucket/fishes/salmon.jpg
 
 ## Giving another project read access to a bucket
 
-You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Puhti:
+You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Puhti and Mahti:
 
 ```text
 module load allas
-allas-conf -k
+allas-conf -k --mode s3cmd
 openstack project show $OS_PROJECT_NAME
 ```
 
-In caso of _s3cmd_ the read and write access can be controlled for both buckets and objects:
+In case of _s3cmd_ the read and write access can be controlled for both buckets and objects:
 
 Following command gives project with UUID _3d5b0ae8e724b439a4cd16d1290_ read access to _my_fishbucket_ but not to the objects inside :
 ```text
@@ -230,8 +230,8 @@ However she can list the content of the bucket with command:
 ```text
 s3cmd ls s3://my_fishbucket
 ```
-In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the url: move to some 
-bucket of your project and replace the bucket name in the end of the url with the name of the shared bucket:
+In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the URL. Move to some 
+bucket of your project and replace the bucket name in the end of the URL with the name of the shared bucket:
 ```
 https://pouta.csc.fi/dashboard/project/containers/container/my_fishbucket
 ```

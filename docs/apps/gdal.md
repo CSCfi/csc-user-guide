@@ -6,12 +6,14 @@
 
 GDAL is available in Puhti with following versions:
 
-* 3.0.2 via conda: [geoconda](geoconda.md), 
+* 3.0.4 via conda: [geoconda-3.8](geoconda.md), 
+* 3.0.2 via conda: [geoconda-3.7](geoconda.md), 
 * 2.4.3 via conda: [snap](snap.md)
 * 2.4.2 via conda: [mapnik](mapnik.md)
 * 2.4.1 via conda: [solaris](solaris.md) and [Orfeo ToolBox](otb.md)
 * 3.0.1 stand-alone: gdal module,
 * 2.4.2 stand-alone: gdal module, [r-env](r-env.md), additionally FORCE and Saga-GIS use this GDAL, but the GDAL commandline tools are not included in these modules.
+* 2.4.2 in [r-env-singularity](r-env-singularity.md) Singularity container
 
 !!! note
     The stand-alone versions don't have python bindings installed so e.g __gdal_calc__ works only in the conda installations. Also, the supported file formats vary slightly between the gdal installations. For instance, the PostGIS driver is not available in gdal/3.0.1 but is included in the conda versions.

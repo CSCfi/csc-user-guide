@@ -7,7 +7,36 @@ Catalog.
 The Service Catalog also lists default templates bundled with OKD which are not
 documented here.
 
-## Minio
+## How to launch a template using the CLI
+
+First, list the templates available:
+
+```bash
+oc get -n openshift templates
+```
+
+Then, describe the template, so we know the list of parameters:
+
+```bash
+oc describe -n openshift template minio
+```
+
+Finally launch the template, for each required parameter a value must be set:
+
+```bash
+oc process openshift/minio -p ACCESSKEY=FGH \
+    -p SECRETKEY=DFGHJKLA \
+    -p CLUSTER_NAME=good-name \
+    -p DOMAINSUFFIX=rahtiapp.fi \
+    -p PVCNAME=minio-default-volume \
+    -p STORAGE_SIZE=1Gi
+```
+
+## Templates
+
+### Minio
+
+![MINio](img/minio.svg)
 
 This template is for deploying a private S3 API supporting object store
 [Minio](https://min.io/). The template creates a single pod deployment for
@@ -18,21 +47,22 @@ volume. If an existing volume of the given name exists then a new one will not
 be created and Rahti will issue an error message but the Minio instance will
 still utilize the existing volume. Please follow 
 [Minio User Guide](https://docs.min.io/docs/minio-quickstart-guide.html)
-for usage of Minio object store.
+for usage of Minio object store. And for documentation about the template itself, please go to <https://github.com/CSCfi/Minio-OpenShift/>.
 
-**Parameters to be supplied**
+### Apache Spark
 
-|Parameter|	Description|
-|---------|------------|
-|Access Key	| Access key for your Minio object store, its length should be between minimum 3 characters.|
-|Secret Key	|Secret key for your Minio Object store , its length should be between 8 & 40 characters.|
-|Cluster Name	|Name of the Minio cluster instance, this name must be DNS compatible name|
-|Domain Suffix	| Hostname suffix of the application.|
-|PVC Name |	PVC name to mount for your Minio buckets. In case you want to use existing volume in your project, please provide its name|
-|Storage Size|	Your Minio Object store's backend volume size|
-|Whitelist|	IP address block (CIDR) from which traffic is allowed to your Minio Object Store. In case left blank or errors in IP address block, Rahti will allow all traffic from internet. May contain multiple CIDRs separated by whitespace.|
+![Apache Spark](img/spark-logo-trademark.png)
 
-## Apache Spark
+Deploys Apache Spark cluster with Jupyter Notebook/Lab. For more information regarding the usage of this setup (including information of different variables), the documentation is currently available at <https://github.com/CSCfi/spark-openshift>.
 
-The documentation is currently available at
-[github.com/CSCfi/spark-openshift](https://github.com/CSCfi/spark-openshift).
+### Apache Airflow
+
+![Apache Airflow](img/airflow.png)
+
+Apache Airflow (or simply Airflow) is a platform to programmatically author, schedule, and monitor workflows. The worksflows are defined as code, so that they become more maintainable, versionable, testable, and collaborative. Airflow is used to author workflows as directed acyclic graphs (DAGs) of tasks. The Airflow scheduler executes your tasks on an array of workers while following the specified dependencies. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed. The documentation is currently available at <https://github.com/CSCfi/airflow-openshift/>
+
+### Rocket chat
+
+![Rocker Chat](img/rocketchat.svg)
+
+Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full stack framework. It is a solution for communities and companies wanting to privately host their own chat service or for developers looking forward to build and evolve their own chat platforms.

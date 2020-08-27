@@ -1,9 +1,15 @@
-# Connecting to Puhti
+# Connecting to CSC supercomputers
 
-Connecting to Puhti is done with `ssh`:
+Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
 ```
 ssh <csc_username>@puhti.csc.fi
+```
+
+and for Mahti with
+
+```
+ssh <csc_username>@mahti.csc.fi
 ```
 
 In Linux and macOS the `ssh` command can be given in the terminal. In Windows, `ssh` is available within PowerShell, [MobaXterm](https://mobaxterm.mobatek.net/) and [PuTTY](https://putty.org/). If you prefer to use PuTTy, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal session and asks for your CSC-username and password. Guidelines for MobaXterm are provided below (see [Setting up SSH keys](#setting-up-ssh-keys)).
@@ -11,6 +17,14 @@ In Linux and macOS the `ssh` command can be given in the terminal. In Windows, `
 Once the terminal connection to Puhti is open you can start using it with the Linux command line tools (bash shell). An introduction to operating on the Linux command line can be found, for example, in our [Linux Basics tutorial for CSC](../support/tutorials/env-guide/overview.md). You can have several Puhti connections open at the same time.
 
 By default, SSH access to Puhti is authenticated with the password of your CSC user account.
+
+!!! warning "Login nodes: important note for Puhti and Mahti"
+    The login nodes can be used for **light** pre- and postprocessing, compiling
+    applications and moving data. All other tasks are to be done in the 
+	compute nodes using the [batch job system](running/getting-started.md). 
+	Programs not adhering to these rules will be terminated without warning. 
+	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
+
 
 ## Using graphical applications
 
@@ -32,14 +46,12 @@ In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> 
 
 SSH keys provide more secure authentication, which can be enabled with a two-step process:
 
-1. **Generate SSH Keys**: The SSH Keys are always generated in pairs,
-   
-   one *public key* and one *private key*. These keys should be generated
-   
-   on the computer you are using to connect to Puhti. 
-2. **Copy public key to Puhti**: Only the *public key* should be
-   
-   copied to Puhti, don't copy the private key. 
+1. **Generate SSH Keys**<br> 
+   The SSH Keys are always generated in pairs, one *public key* and
+   one *private key*. These keys should be generated on the computer
+   you are using to connect to CSC supercomputers.    
+2. **Copy public key to supercomputer**<br>
+	Only the *public key* should be copied, don't copy the private key. 
 
 !!! warning "Note"
     The private key should never be shared with anyone, not even with
@@ -60,18 +72,19 @@ passphrase. It should be at least 8 characters long and should contain
 numbers, letters and special characters. **Important:** Do not leave
 the passphrase empty.
 
-In Linux and macOS the public key can be copied to Puhti as follows. This command also works in MobaXterm.
+In Linux, macOS and MobaXterm the public key can be copied with
+`ssh-copy-id`, for example in order to copy the key to Puhti use:
 
 ```bash
 ssh-copy-id <csc_username>@puhti.csc.fi
 ```
 
 You will be prompted for your CSC password (not the passphrase in the
-previous phase). In subsequent logins to Puhti you should then provide
+previous phase). In subsequent logins you should then provide
 the passphrase. It is possible to use an SSH agent (`ssh-agent` in Linux)
 which requires the user to provide the passphrase only once per session. 
 
-If you created the SSH key using Windows Powershell, you need to manually copy-paste the public key to Puhti. Look for the public key file. It may be in the folder where you created it, in `.ssh\id_rsa.pub` under the HOME folder, or in `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content to the clipboard. Next, connect to Puhti and open the file `.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
+If you created the SSH key using Windows Powershell, you need to manually copy-paste the public key to supercomputer. Look for the public key file. It may be in the folder where you created it, in `.ssh\id_rsa.pub` under the HOME folder, or in `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content to the clipboard. Next, connect to Puhti and open the file `.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
 
 ### **Using SSH keys with PuTTy**
 

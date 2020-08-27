@@ -14,54 +14,69 @@ nav:
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
      - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
+     - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
      - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
-     - Systems: computing/system.md
+     - Systems: 
+        - Available systems: computing/available-systems.md
+        - Puhti: computing/systems-puhti.md
+        - Mahti: computing/systems-mahti.md
      - Connecting: computing/connecting.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
-        - Creating a batch job script: computing/running/creating-job-scripts.md
+        - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
+        - Puhti example scripts: computing/running/example-job-scripts-puhti.md
+        - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
+        - Mahti example scripts: computing/running/example-job-scripts-mahti.md
         - Submitting a job: computing/running/submitting-jobs.md
         - Available batch job partitions: computing/running/batch-job-partitions.md
         - Array jobs: computing/running/array-jobs.md
-        - Example job scripts: computing/running/example-job-scripts.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Compiling: computing/compiling.md
+     - Compiling:
+        - Puhti: computing/compiling-puhti.md
+        - Mahti: computing/compiling-mahti.md
+        - High performance libraries: computing/hpc-libraries.md
+     - Debugging: computing/debugging.md
+     - Performance analysis: computing/performance.md
      - Containers:
         - Running existing containers: computing/containers/run-existing.md
-#     - Debugging: computing/debugging.md
-#     - Performance analysis: computing/performance.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
-       - Home: cloud/rahti/index.md
-       - Introduction:
-         - Background: cloud/rahti/introduction/background.md
-         # - Technical maturity: cloud/rahti/introduction/technical_maturity.md
-         - Getting access: cloud/rahti/introduction/access.md
-         - Billing: cloud/rahti/introduction/billing.md
-       - Usage:
-         - Getting started: cloud/rahti/usage/getting_started.md
-         - Projects and quota: cloud/rahti/usage/projects_and_quota.md
-         - Command line tool usage: cloud/rahti/usage/cli.md
+       - Contents: cloud/rahti/index.md
+       - What is Rahti: cloud/rahti/rahti-what-is.md
+       - Containers & their Orchestration: cloud/rahti/containers.md
+       - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+       - Getting Started:
+         - Getting access: cloud/rahti/access.md
+         - Using the web interface: cloud/rahti/usage/getting_started.md
+         - Command line tool installation and usage: cloud/rahti/usage/cli.md
          - Security guide: cloud/rahti/usage/security-guide.md
-       - Tutorials:
-         - Deploying applications from web console: cloud/rahti/tutorials/basic-console.md
-         - Core objects: cloud/rahti/tutorials/elemental_tutorial.md
-         - Utility objects: cloud/rahti/tutorials/advanced_tutorial.md
-         - Design patterns: cloud/rahti/tutorials/patterns.md
-       - Template documentation: cloud/rahti/template-docs.md
-       # - Contact: cloud/rahti/contact.md
+       - Rahti Tutorials:
+         - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
+         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
+         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+         - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
+         - Webhooks: cloud/rahti/tutorials/webhooks.md
+         - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+       - Storage in Rahti:
+         - Available storage options: cloud/rahti/storage/index.md
+         - Persistent volumes: cloud/rahti/storage/persistent.md
+         - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+       - Images:
+         - Overview: cloud/rahti/images/overview.md
+         - Creating an image: cloud/rahti/images/creating.md
+       - Rahti Templates: cloud/rahti/template-docs.md
+       - Projects and quota: cloud/rahti/usage/projects_and_quota.md
+       - Billing: cloud/rahti/billing.md
        - External documentation: cloud/rahti/ext_docs.md
-       # - Agreements:
-       #   - Terms of Use: cloud/rahti/agreements/terms_of_use.md
-       #   - Service Level Agreement: cloud/rahti/agreements/sla.md
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
@@ -81,7 +96,7 @@ nav:
             - Snapshots: cloud/pouta/snapshots.md
         - Images:
             - Basic information about images: cloud/pouta/images.md
-            - Creating, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
+            - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
