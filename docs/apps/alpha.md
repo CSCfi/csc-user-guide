@@ -24,13 +24,14 @@
 * [DDT](ddt.md) Parallel debugger 
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Discovery Studio](discovery-studio.md) Protein modeling environment.
+* [eBay's tsv-tools](http://urn.fi/urn:nbn:fi:lb-202006081) Utilities for manipulating large tabular data files
 * [Edirect](edirect.md) Entrez direct - command line tool to search and retrieve data from NCBI
 * [Elmer](elmer.md) Open source multi-physics FEM package
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
 * [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
-* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools 1.4
+* [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools
 * [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gaussian](gaussian.md) Versatile computational chemistry package
@@ -52,8 +53,9 @@
 * [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
 * [Kraken2](kraken.md) Taxonomic sequence classification system
 * [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
-* [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
+* [LAMMPS](lammps.md) Fast molecular dynamics engine with large force field selection
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
+* [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
 * [LS-DYNA](lsdyna.md) General-purpose finite element program
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
@@ -94,9 +96,9 @@
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
 * [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
+* [Roary](roary.md) Pan genome pipeline
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [RStudio](rstudio.md) Integrated development environment for R
-* [Roary](roary.md) Pan genome pipeline
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
@@ -119,7 +121,7 @@
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [Velvet](velvet.md) Genome assembler* 
+* [Velvet](velvet.md) Genome assembler
 * [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VisIt](visit.md) Free open-source visualization application
 * [VMD](vmd.md) Molecular visualization program 
