@@ -37,7 +37,7 @@ If you have problems in compiling LAMMPS, please contact servicedesk@csc.fi.
 
 ## References
 
-The following JCP paper is the canoncial reference to use for citing LAMMPS.
+The following JCP paper is the canonical reference to use for citing LAMMPS.
 It describes the parallel spatial-decomposition, neighbor-finding, and communcation 
 algorithms used in the code. Please also give the URL of the LAMMPS website in your paper, namely http://lammps.sandia.gov.
 
