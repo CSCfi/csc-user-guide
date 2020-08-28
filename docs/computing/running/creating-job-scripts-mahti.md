@@ -114,3 +114,33 @@ srun myprog -i input -o output
 ```
 
 Please check also our [Mahti batch script examples](example-job-scripts-mahti.md) page.
+
+## Using interactive partition for non-parallel pre- or post-processing
+
+In many cases the coputing tasks include per- or post-processing steps that are not able to utilize parallel computing.
+In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel 
+prcessing is executed in the `interactive` partiition of Mahti. 
+
+In the interactive patrtion the jobs can reserve just few cores so that the non-parallel tasks can be executed without waisting resources.  
+Note that you can use interactive partition also for non-interactive jobs and that you can link two batch jobs so that the second job starts 
+only when the first one has finished. 
+
+For example, say that we would like to post-process the _output_ file, produced with the very first MPI example job in this page. The post processing command:
+`python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. In stead of including the post-processing 
+to the main job it is reasonable to execute it as separate job in the interactive partition.
+
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<mpi-jobid>_  defines that the job can start only when the previously sent job has succesfully finished.
+
+```text
+#!/bin/bash
+#SBATCH --job-name=post-process-myTest
+#SBATCH --account=<project>
+#SBATCH --time=00:50:00
+#SBATCH --partition=interactive
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=2
+#SBATCH --dependency=afterok:<mpi-jobid>
+
+python post-proc.py output
+```
