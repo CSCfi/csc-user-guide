@@ -57,13 +57,13 @@ In this example, the results of pressure of domains 0 to 127 written per time st
 
 IO operation in collated method is based on threaded sub-processes, and therefore method does not cause any time overhead for the simulation compared to non-collated method.
 
-##### Example batch job scipts for collated method usage on Mahti
+#### Example batch job scipts for collated method usage on Mahti
 
 The example scripts for decomposition, solver and reconstruction separate batch runs are in folder
 
     /appl/soft/eng/OpenFOAM/batch_script_examples
 
-Notice that on Mahti decomposition and reconstruction must be done in interactive queue.  
+Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue.  
 
 ## Support
 
