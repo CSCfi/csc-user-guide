@@ -6,7 +6,7 @@ If you need to do heavy computing interactively, you should use interactive batc
 In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
-slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session, including all the processes running in the session and data in the job specific `$TMPDIR` area, will be terminated. 
+slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` area will be removed. 
 
 ## Easy interactive work: sinteractive command
 
@@ -22,9 +22,7 @@ in Puhti and Mahti are not identical. There is some differences in both command 
 
 ### sinteractive in Puhti
 
-In Puhti, each user can have only one active session open in the `interactive` partition, that provides immediate access too 
-the computing resources. In the interactive partition you can reserve in maximum 1 core, 16 GB of 
-memory, 7 days of time, 160 GB of local scratch space and 0 gpus.
+In Puhti, each user can have only one active session open in the `interactive` partition. In the interactive partition you can reserve in maximum 1 core, with max 16 GB of memory, up to 7 days of time, and 160 GB of local scratch space.  GPUs cannot be reserved.
 
 If your requests exceed these limits or you already have a session in the
 interactive partition, `sinteractive` can submit the session request to `small` or `gpu`
@@ -56,7 +54,7 @@ Available options for `sinteractive` in Puhti are:
 
 ### sinteractive in Mahti
 
-In Mahti, users can have several interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores can't exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
+In Mahti, users can have several interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores shared with all user sessions cannot exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
 
 For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project _project_2001234_
 can be launched with command:
