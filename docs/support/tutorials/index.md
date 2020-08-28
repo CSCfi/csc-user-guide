@@ -32,4 +32,5 @@
 
 ## Bioinformatics
 * [Singularity applications on Puhti](bioapplications-puhti.md)
+* [Running MaxQuant on Puhti](MaxQuant_tutorial.md)
 * [Schrödinger Maestro Puhti tutorial](power-maestro.md)
