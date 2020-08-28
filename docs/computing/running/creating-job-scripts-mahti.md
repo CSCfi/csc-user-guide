@@ -117,11 +117,11 @@ Please check also our [Mahti batch script examples](example-job-scripts-mahti.md
 
 ## Using interactive partition for non-parallel pre- or post-processing
 
-In many cases the coputing tasks include per- or post-processing steps that are not able to utilize parallel computing.
+In many cases the computing tasks include per- or post-processing steps that are not able to utilize parallel computing.
 In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel 
-prcessing is executed in the `interactive` partiition of Mahti. 
+processing is executed in the `interactive` partition of Mahti. 
 
-In the interactive patrtion the jobs can reserve just few cores so that the non-parallel tasks can be executed without waisting resources.  
+In the interactive partition the jobs can reserve just few cores so that the non-parallel tasks can be executed without wasting resources.  
 Note that you can use interactive partition also for non-interactive jobs and that you can link two batch jobs so that the second job starts 
 only when the first one has finished. 
 
@@ -129,7 +129,7 @@ For example, say that we would like to post-process the _output_ file, produced 
 `python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. In stead of including the post-processing 
 to the main job it is reasonable to execute it as separate job in the interactive partition.
 
-Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<mpi-jobid>_  defines that the job can start only when the previously sent job has succesfully finished.
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<slurm-jobid>_  defines that the job can start only when the previously sent job has succesfully finished. Here the _<slurm-jobid>_ is replaced with ID number of the batch job that produces the _output_ file .
 
 ```text
 #!/bin/bash
