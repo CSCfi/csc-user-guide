@@ -21,7 +21,7 @@ LAMMPS is an open-source code, distributed freely under the terms of the GNU Pub
 ## Usage
 
 First [download](https://lammps.sandia.gov/download.html) the software. Please don't use the
-prebuilt binaries, but ´take a look at the instructions for configuring and compiling LAMMPS 
+prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS 
 on Puhti or Mahti for optimal performance (and to include the packages you need) in here:
 
 ```
