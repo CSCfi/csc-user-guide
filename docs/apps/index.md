@@ -30,7 +30,7 @@
 * [Kraken2](kraken.md) Taxonomic sequence classification system
 * [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
 * [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
-* [MaxQuant](../support/tutorials/MaxQuant-tutorial.md) a proteomics software for processing of Mass-spectromtery data
+* [MaxQuant](../support/tutorials/MaxQuant-tutorial.md) A proteomics software for processing of Mass-spectromtery data
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
