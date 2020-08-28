@@ -24,14 +24,14 @@ that uses the common OpenStack command line tool.
 
 ##### These versions of the OpenStack commands should work with ePouta and cPouta.
 
-    python-openstackclient==5.2.1
-    python-cinderclient==6.0.0
-    python-glanceclient==3.0.0
-    python-heatclient==1.18.0
-    python-keystoneclient==3.22.0
-    python-neutronclient==7.1.0
-    python-novaclient==16.0.0
-    python-swiftclient==3.10.0
+    python-openstackclient==3.14.3
+    python-cinderclient==3.5.0
+    python-glanceclient==2.10.1
+    python-heatclient==1.14.1
+    python-keystoneclient==3.15.1
+    python-neutronclient==6.7.0
+    python-novaclient==10.1.1
+    python-swiftclient==3.5.1
 
 ##### Openstack commands and help
 
