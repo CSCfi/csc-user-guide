@@ -1,6 +1,7 @@
-[MaxQuant](https://maxquant.org/) is a quantitative proteomics software package designed for analyzing large mass-spectrometric data sets. More information about the software can be found [here](http://coxdocs.org/doku.php?id=maxquant:start)
 
 # Running MaxQuant software on Puhti Supercomputer
+
+[MaxQuant](https://maxquant.org/) is a quantitative proteomics software package designed for analyzing large mass-spectrometric data sets. More information about the software can be found [here](http://coxdocs.org/doku.php?id=maxquant:start).
 
 High-performance computing environment like Puhti is a suitable place for running compute-intensive jobs using MaxQuant software in proteomics research. 
 
