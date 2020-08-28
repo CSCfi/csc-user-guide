@@ -1,5 +1,5 @@
 <h1> Applications in alphabetical order</h1>
-<!-- head -2 alpha.md > tmp; grep \* index.md | sort | uniq >> tmp;mv tmp alpha.md -->
+<!-- head -2 alpha.md > tmp; grep \* index.md | sort -f | uniq >> tmp;mv tmp alpha.md -->
 * [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
@@ -16,8 +16,8 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [ChEMBL](chembl.md) Database of bioactive molecules.
-* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
+* [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
@@ -30,8 +30,8 @@
 * [EMBOSS](emboss.md) Toolkit for classical sequence analysis
 * [Exonerate](exonerate.md) A generic tool for pairwise sequence comparison.
 * [FastQC](fastqc.md) Quality control tool for high throughput sequence data
-* [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
 * [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools
+* [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
 * [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [Freebayes](freebayes.md) Genetic variant detector
 * [Gaussian](gaussian.md) Versatile computational chemistry package
@@ -42,8 +42,8 @@
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
-* [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
+* [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [IDL](idl.md) Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
@@ -62,6 +62,7 @@
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MATLAB](matlab.md) High-level technical computing language
+* [MaxQuant](../support/tutorials/MaxQuant-tutorial.md) A proteomics software for processing of Mass-spectromtery data
 * [Megahit](megahit.md) Metagenomics assebly
 * [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
@@ -92,13 +93,13 @@
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
+* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
-* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
-* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
 * [Roary](roary.md) Pan genome pipeline
-* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [RStudio](rstudio.md) Integrated development environment for R
+* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
 * [SageMath](sagemath.md) Free open-source mathematics software system
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
