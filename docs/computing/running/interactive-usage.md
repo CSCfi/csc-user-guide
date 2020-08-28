@@ -8,6 +8,7 @@ In an interactive batch job, a user submits a batch job that starts an interacti
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` area will be removed. 
 
+
 ## Easy interactive work: sinteractive command
 
 Puhti and Mahti have an `interactive` partition which enables immediate access to an interactive batch job session. The easiest way to use this resource is to use the `sinteractive` command:
