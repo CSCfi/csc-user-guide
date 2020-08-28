@@ -98,7 +98,7 @@ The tutorial has example raw files and other necessary files to run MaxQuant for
 
 ## Look at the used resources once your job is finished
 
-Once `maxquant` job is finished, you can check the utilization of computing resources. This will help you tune with better parameter for efficiently using computing resources.
+Once `maxquant` job is finished, you can check the utilization of computing resources. This will help you tune with better parameters for efficient usage of computing resources.
 
 You can use the following commands using job id:
 ```
