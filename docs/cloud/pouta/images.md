@@ -37,12 +37,13 @@ keep the additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-8   |cloud-user | yes|
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
-|Ubuntu-18.04   |**ubuntu** | no |
+|CentOS-8   |cloud-user | yes|
 |Ubuntu-16.04   |cloud-user | yes|
 |Ubuntu-16.04-Cuda   |cloud-user | yes|
+|Ubuntu-18.04   |**ubuntu** | no |
+|Ubuntu-20.04   |**ubuntu** | no |
 
 ### CentOS-8
 Currently in a *tech preview* because we have found some
