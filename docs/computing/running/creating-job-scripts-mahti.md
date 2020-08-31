@@ -81,7 +81,7 @@ When undersubscribing nodes, one should always set
 `--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,
 even with pure MPI jobs. By default, Slurm scatters MPI tasks
 `--cpus-per-task` apart, i.e. with `--cpus-per-task=8` the MPI task
-**0** is bind to CPU core **0**, the MPI task **1** is bind to CPU
+**0** is bound to CPU core **0**, the MPI task **1** is bound to CPU
 core **7** *etc.*. Memory bandwidth (and application performance) is
 the best when the tasks are executing on maximally scattered cores. As
 an example, in order to use 32 GB / core, one can run only with 8
