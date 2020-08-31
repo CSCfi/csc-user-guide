@@ -7,3 +7,4 @@
  * [Webhooks](/cloud/rahti/tutorials/webhooks/)
  * [Reverse proxy authentication using a sidecar container](/cloud/rahti/tutorials/sidecar_proxy_authentication/)
  * [Short introduction to YAML](/cloud/rahti/tutorials/yaml_introduction/)
+ * [Sending e-mail from Rahti](/cloud/rahti/tutorials/email/)
