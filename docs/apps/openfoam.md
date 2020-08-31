@@ -37,7 +37,7 @@ The file system used in CSC's computing platforms Puhti and Mahti is [Lustre](ht
 
 Above described, OpenFOAM's traditional parallel IO method can in the latest versions of OpenFOAM be replaced with collated parallel IO method, where the output data is written only in few files.  Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
 
-In test runs on CSC's servers with collated IO methods, significant difference in throughput time has not been recognized compared to non-collated method.  In some tests, collated method has shown to be even slightly faster. Our recommendation is to use collated method whenever it is practicable.
+In test runs on CSC's servers with the collated IO method, significant difference in throughput time has not been recognized compared to non-collated method.  In some tests, collated method has shown to be even slightly faster. Our recommendation is to use collated method whenever it is practicable.
 
 #### An example 
 
@@ -53,21 +53,22 @@ In that way,  128 processes are running on both nodes, and on each node one proc
 
     reconstructPar
 
-In this example, the results of pressure of domains 0 to 127 written per time step in a single file.  In non-collated method, the same results would have been written in 128 separate files. This tremendous decrease of number of output files happens naturally with all the rest of field variables.  
+In this example, the pressure results of domains 0 to 127 per time step are written into a single file.  In a non-collated method, the same results would have been written into 128 separate files. This tremendous decrease of number of output files happens naturally with all the rest of the field variables also.  
 
-IO operation in collated method is based on threaded sub-processes, and therefore method does not cause any time overhead for the simulation compared to non-collated method.
+IO operations in the collated method are based on threaded sub-processes, and therefore do not cause any time overhead for the simulation compared to non-collated method.
 
 #### Example batch job scipts for collated method usage on Mahti
 
-The example scripts for decomposition, solver and reconstruction separate batch runs are in folder
+The example scripts for separate batch runs for decomposition, solver and reconstruction are in folder
 
     /appl/soft/eng/OpenFOAM/batch_script_examples
 
-Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue.  
+Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue,
+[more info on using the interactive queue](../../../computing/running/creating-job-scripts-mahti/#using-interactive-partition-for-non-parallel-pre-or-post-processing).
 
 ## Support
 
-In problem situation, send an email to servicedesk@csc.fi.
+In a problem situation, send an email to servicedesk@csc.fi.
 
 ## More information
 
