@@ -4,7 +4,7 @@ This page collects important information to enable maximum performance
 for your jobs and the system. If you know how to improve job performance,
 please contribute to the list!
 
-## Limit unnecessary spreading of parallel tasks
+## Limit unnecessary spreading of parallel tasks in Puhti
 One of the limiting factors for strong scaling is the communication
 between tasks. Communication within a node is faster than between
 nodes. It is optimal to use as few nodes as possible.
@@ -50,6 +50,31 @@ all tasks. With very large parallel jobs, even smaller is recommended as
 communication and the likelihood of one slow node in the allocation gets
 higher and poor load balancing gets more likely.
 
+## Hybrid parallelization in Mahti
+
+Many HPC applications benefit from binding OpenMP threads to CPU cores
+which can be achieved by setting `export OMP_PLACES=cores` in the
+batch job script. Note! Due to bug in OpenBLAS thread binding should not be
+specified when using threaded OpenBLAS (openblas/0.3.10-omp module). 
+
+When starting new production runs it is also good
+practice to ensure correct thread affinity by adding to batch job
+script
+```
+export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.3n affinity %A"
+export OMP_DISPLAY_AFFINITY=true
+```
+The runtime affinity will be printed to the standard error of the batch
+job. If the output shows that several processes/threads are bound to
+the same core, *i.e.*
+```
+Process 164433 level 1 thread 000 affinity 0
+Process 164433 level 1 thread 001 affinity 0
+```
+the performance might be detoriated and one should check the settings
+in the batch script.
+
+
 ## Perform a scaling test
 It is important to make sure that your job can efficiently use
 all the allocated resources (cores). This needs to be verified for
@@ -74,7 +99,7 @@ If your workload writes or reads a large number of small files then you may see 
 even if the total volume is not that big. Please consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some nodes have
- [fast local disk](../creating-job-scripts/#local-storage), but we've seen
+ [fast local disk](../creating-job-scripts-puhti/#local-storage), but we've seen
   10 fold performance improvement by switching to use it. Check your performance: don't
   use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
 * Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).

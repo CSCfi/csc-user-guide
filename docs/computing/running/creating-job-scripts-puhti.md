@@ -1,4 +1,4 @@
-# Creating a batch job script
+# Creating a batch job script for Puhti
 
 A batch job script contains the definitions for the resources to be reserved for
 the job and the commands the user wants to run.
