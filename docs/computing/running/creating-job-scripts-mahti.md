@@ -130,7 +130,7 @@ For example, say that we would like to post-process the _output_ file, produced 
 `python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing 
 to the main job it is reasonable to execute it as separate job in the interactive partition.
 
-Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<slurm-jobid>_  defines that the job can start only when the previously sent job has successfully finished. Here the _<slurm-jobid>_ is replaced with ID number of the batch job that produces the _output_ file .
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<slurm-jobid>_  defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>`is replaced with ID number of the batch job that produces the _output_ file .
 
 ```text
 #!/bin/bash
@@ -141,7 +141,7 @@ Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=2
-#SBATCH --dependency=afterok:<mpi-jobid>
+#SBATCH --dependency=afterok:<slurm-jobid>
 
 python post-proc.py output
 ```
