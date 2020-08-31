@@ -2,12 +2,12 @@
 
 Please have a look at the [Puhti documentation](creating-job-scripts-puhti.md)
 for the general introduction to batch scripts in the CSC supercomputing
-environment. On this page we focuse on Mahti specific topics.
+environment. On this page we focus on Mahti specific topics.
 
 !!! Note
     Mahti does not have GPUs, NVMe disk on compute nodes, or the need
     to reserve memory. Instead, full nodes are allocated for jobs,
-    with the exception of interactive jobs (link to be added). Many options also work
+    with the exception of [interactive jobs](../interactive-usage/#sinteractive-in-mahti). Many options also work
     differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti
     to Mahti.
 
@@ -36,8 +36,8 @@ Specify the exact number of nodes and number of tasks per node  with
 the node.
 
 !!! Note
-    - MPI process should **not** be started with _mpirun_ or _mpiexec_. Use `srun` instead.
-    - software module has to be loaded in the batch job script for the submission to
+    - MPI processes should **not** be started with _mpirun_ or _mpiexec_. Use `srun` instead.
+    - appropriate software module has to be loaded in the batch job script for the submission to
       work properly.
 
 ## Hybrid batch jobs
@@ -67,9 +67,9 @@ actual physical cores unallocated and performance will be suboptimal.
 
 ## Undersubscribing nodes
 
-If application requires more memory per core than there is available
+If an application requires more memory per core than there is available
 with full node (2 GB / core) it is possible to use also a subset of
-cores within a node. Also, if application is memory bound, memory
+cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
 only a single core per NUMA domain or L3 cache (look
 [here](../systems-mahti.md) for details
@@ -98,7 +98,7 @@ srun myprog -i input -o output
 For hybrid applications, one should use 
 `OMP_PROC_BIND` OpenMP runtime environment variable for 
 placing the OpenMP threads. As an example, in order to run
-one MPI tasks per NUMA domain and one OpenMP thread per L3cache one
+one MPI task per NUMA domain and one OpenMP thread per L3cache one
 can set
 
 ```bash
