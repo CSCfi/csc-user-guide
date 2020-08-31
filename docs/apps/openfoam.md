@@ -64,7 +64,7 @@ The example scripts for separate batch runs for decomposition, solver and recons
     /appl/soft/eng/OpenFOAM/batch_script_examples
 
 Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue,
-[more info on using the interactive queue](../../../computing/running/creating-job-scripts-mahti/#using-interactive-partition-for-non-parallel-pre-or-post-processing).
+[more info on using the interactive queue](../../computing/running/creating-job-scripts-mahti/#using-interactive-partition-for-non-parallel-pre-or-post-processing).
 
 ## Support
 
