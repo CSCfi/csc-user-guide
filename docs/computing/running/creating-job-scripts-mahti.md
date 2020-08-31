@@ -2,12 +2,12 @@
 
 Please have a look at the [Puhti documentation](creating-job-scripts-puhti.md)
 for the general introduction to batch scripts in the CSC supercomputing
-environment. The rest of this page focuses on Mahti specific topics.
+environment. On this page we focuse on Mahti specific topics.
 
 !!! Note
-    Mahti does not have GPUs, NVMe disk on compute nodes or the need
+    Mahti does not have GPUs, NVMe disk on compute nodes, or the need
     to reserve memory. Instead, full nodes are allocated for jobs,
-    with the exception of interactive jobs (to be added). Many options also work
+    with the exception of interactive jobs (link to be added). Many options also work
     differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti
     to Mahti.
 
@@ -16,7 +16,7 @@ environment. The rest of this page focuses on Mahti specific topics.
 
 ## Basic MPI batch jobs
 
-An example of a simple MPI-batch job script:
+An example of a simple MPI batch job script:
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
@@ -36,8 +36,8 @@ Specify the exact number of nodes and number of tasks per node  with
 the node.
 
 !!! Note
-    - MPI should **not** be started with _mpirun_ or _mpiexec_, use `srun` instead.
-    - An MPI module has to be loaded in the batch job script for the submission to
+    - MPI process should **not** be started with _mpirun_ or _mpiexec_. Use `srun` instead.
+    - software module has to be loaded in the batch job script for the submission to
       work properly.
 
 ## Hybrid batch jobs
@@ -117,7 +117,7 @@ Please check also our [Mahti batch script examples](example-job-scripts-mahti.md
 
 ## Using interactive partition for non-parallel pre- or post-processing
 
-In many cases the computing tasks include per- or post-processing steps that are not able to utilize parallel computing.
+In many cases the computing tasks include pre- or post-processing steps that are not able to utilize parallel computing.
 In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel 
 processing is executed in the `interactive` partition of Mahti. 
 
@@ -126,7 +126,7 @@ Note that you can use interactive partition also for non-interactive jobs and th
 only when the first one has finished. 
 
 For example, say that we would like to post-process the _output_ file, produced with the very first MPI example job in this page. The post processing command:
-`python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. In stead of including the post-processing 
+`python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing 
 to the main job it is reasonable to execute it as separate job in the interactive partition.
 
 Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<slurm-jobid>_  defines that the job can start only when the previously sent job has successfully finished. Here the _<slurm-jobid>_ is replaced with ID number of the batch job that produces the _output_ file .
