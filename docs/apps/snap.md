@@ -34,7 +34,7 @@ After loading the module run
 
 If you run the command with another folder again, it overwrites the previous settings. 
 
-You could also request a fast [nvme](../computing/running/creating-job-scripts.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
+You could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
 
 ### Using SNAP with graphical user interface
 
