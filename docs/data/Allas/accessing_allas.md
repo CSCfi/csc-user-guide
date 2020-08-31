@@ -59,7 +59,7 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 
 4\. As the **Server**, type _pouta.csc.fi_ and choose the **Port** _5001_. 
 
-5\. In the section **Tenant ID:Access Key**, type (without spaces) the desired _project's name_, add "**:**" and your _Pouta username_ (this is the CSC user accout you use in Puhti, Taito and cPouta). Thus, it should be in the format _projectname:username_, e.g. *project_123456:john*.
+5\. In the section **Tenant ID:Access Key**, type (without spaces) the desired _project's name_, add "**:**" and your _Pouta username_ (this is the CSC user accout you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:username_, e.g. *project_123456:john*.
 
 6\. Type your CSC password in the **Secret Key** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
 
