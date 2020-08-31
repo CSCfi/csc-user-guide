@@ -81,7 +81,7 @@ When undersubscribing nodes, one should always set
 `--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,
 even with pure MPI jobs. By default, Slurm scatters MPI tasks
 `--cpus-per-task` apart, i.e. with `--cpus-per-task=8` the MPI task
-**0** is bind to CPU core **0**, the MPI task **1** is bind to CPU
+**0** is bound to CPU core **0**, the MPI task **1** is bound to CPU
 core **7** *etc.*. Memory bandwidth (and application performance) is
 the best when the tasks are executing on maximally scattered cores. As
 an example, in order to use 32 GB / core, one can run only with 8
@@ -130,9 +130,9 @@ For example, say that we would like to post-process the _output_ file, produced 
 `python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing 
 to the main job it is reasonable to execute it as separate job in the interactive partition.
 
-Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores (_--cpus-per-task=2_) to have enough memory (3,75 GB) available.  Further, _--dependency=afterok:<slurm-jobid>_  defines that the job can start only when the previously sent job has successfully finished. Here the _<slurm-jobid>_ is replaced with ID number of the batch job that produces the _output_ file .
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3,75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>`  defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
 
-```text
+```bash
 #!/bin/bash
 #SBATCH --job-name=post-process-myTest
 #SBATCH --account=<project>
@@ -141,7 +141,7 @@ Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=2
-#SBATCH --dependency=afterok:<mpi-jobid>
+#SBATCH --dependency=afterok:<slurm-jobid>
 
 python post-proc.py output
 ```
