@@ -1,6 +1,6 @@
 # mpiP: Lightweight MPI Profiler
 
-[mpiP](http://mpip.sourceforge.net/) is a lightweight MPI profiler which uses statistical sampling to record profiling data.  It generates less overhead and much less data than tracing tools. In order to use no code changes are require, only a re-link is needed. In addition to the required modules, one has the load the mpiP module: 
+[mpiP](http://mpip.sourceforge.net/) is a lightweight MPI profiler which uses statistical sampling to record profiling data. At the momenmt is only available on Mahti. It generates less overhead and much less data than tracing tools. In order to use no code changes are require, only a re-link is needed. In addition to the required modules, one has the load the mpiP module: 
 ```
 module load mpip
 ```
