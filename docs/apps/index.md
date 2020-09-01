@@ -30,6 +30,7 @@
 * [Kraken2](kraken.md) Taxonomic sequence classification system
 * [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
 * [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
+* [MaxQuant](../support/tutorials/MaxQuant-tutorial.md) A proteomics software for processing of Mass-spectromtery data
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
@@ -39,11 +40,11 @@
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [Pannzer](pannzer.md) Automatic protein annotation tool
-* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
 * [Prokka](prokka.md) Rapid prokaryotic genome annotation
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
-* [Roary](roary.md) Pan genome pipeline.
+* [Roary](roary.md) Pan genome pipeline
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
@@ -70,6 +71,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [LAMMPS](lammps.md) Fast molecular dynamics engine with large force field selection
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
@@ -122,6 +124,7 @@
 * [SNAP](snap.md) Remote sensing toolbox for satellites
 * [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
+* [SPLITS](splits.md) Software package to analyze time series of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
 

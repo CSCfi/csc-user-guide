@@ -1,7 +1,6 @@
 # Intel VTune Profiler
 
-Intel VTune Profiler is provided via the `intel-vtune` module. One sets up the
-environment by loading the module:
+Intel VTune Profiler is available only on Puhti and it is provided via the `intel-vtune` module. One sets up the environment by loading the module:
 
 ```
 module load intel-vtune
@@ -71,6 +70,12 @@ Finally, it is possible to display the CPU time for call stacks
 (`-report callstacks`) or display a call tree and provide the CPU time for
 each function (`-report top-down`).
 
+For some configurations the data collection may fail with the error:
+`Stack size provided to sigaltstack is too small. Please increase the stack size to 64K minimum. `
+In this case please run the profiling job again, but with the environment variable
+`AMPLXE_RUNTOOL_OPTIONS` set to `--no-altstack`.
+For more details about the issue, please see the official
+[Intel documentation](https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top/troubleshooting/error-message-stack-size-is-too-small.html).
 
 ## Analysing the Results Using GUI
 

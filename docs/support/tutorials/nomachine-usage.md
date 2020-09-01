@@ -46,8 +46,8 @@ Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https:/
 3.   After a while, you'll be shown a few pages presenting the different functionality of NoMachine.
     In the first screen, untick the box from "Change server resolution to match the client when I reconnect".
 4.   Take a while to read through, and if you don't want to see them again, click the box at lower right corner, proceed with "ok".
-5.   Once you see a black screen, you're there. Now right click at the black background and select "CSC local servers" then "Taito/Puhti".
-6.   You'll be prompted for your CSC password. Give it, and you'll have a terminal open on Taito. The terminal can display remote graphics.
+5.   Once you see a black screen, you're there. Now right click at the black background and select "CSC local servers" then "puhti" / "mahti.
+6.   You'll be prompted for your CSC password. Give it, and you'll have a terminal open on Puhti / Mahti. The terminal can display remote graphics.
 
 ## Recommended tips
 
