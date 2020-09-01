@@ -27,7 +27,7 @@ mpiP:
 mpiP: Storing mpiP output in [./TwoDMPIPFC.256.181196.1.mpiP].
 mpiP:
 ``` 
-The profiliing data is stored in the `.mpiP`file indicated above. Below is an example: 
+The profiling data is stored in the `.mpiP`file indicated above. Below is an example: 
 
 ```
 @ mpiP
@@ -44,7 +44,6 @@ The profiliing data is stored in the `.mpiP`file indicated above. Below is an ex
 @ Report generation        : Single collector task
 @ MPI Task Assignment      : 0 c1101.mahti.csc.fi
 @ MPI Task Assignment      : 1 c1101.mahti.csc.fi
-@ MPI Task Assignment      : 2 c1101.mahti.csc.fi
 ...
 ---------------------------------------------------------------------------
 @--- MPI Time (seconds) ---------------------------------------------------
@@ -174,7 +173,7 @@ Reduce               7    *     256         8         8         8      2048
 @--- End of Report --------------------------------------------------------
 ---------------------------------------------------------------------------
 ```
-
+In the first part of the file are shown basic information about the performance experiment, followed by various statistics per invidual task and as aggregated. 
 If one wants to focus only on specific regions the profilling can be switched on/off. For example in a Fortran code one could do:
 
 ```
