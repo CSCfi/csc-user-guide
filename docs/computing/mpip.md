@@ -27,7 +27,7 @@ mpiP:
 mpiP: Storing mpiP output in [./TwoDMPIPFC.256.181196.1.mpiP].
 mpiP:
 ``` 
-The profilining data is stored in the `.mpiP`file indicated above. Below is an example: 
+The profiliing data is stored in the `.mpiP`file indicated above. Below is an example: 
 
 ```
 @ mpiP
