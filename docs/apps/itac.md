@@ -2,7 +2,7 @@
 
 Intel Trace Analyzer and Collector (ITAC) is a MPI profiling and tracing tool
 that can be used to understand and visualize the MPI behavior of a code and to
-identify hotspots and reasons for poor scaling performance.
+identify hotspots and reasons for poor scaling performance. The tool is available only on Puhti and at the moment it supports only the applications compiled with the Intel MPI library.
 
 ## Compiling
 
