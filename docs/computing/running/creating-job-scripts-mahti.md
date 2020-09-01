@@ -2,12 +2,13 @@
 
 Please have a look at the [Puhti documentation](creating-job-scripts-puhti.md)
 for the general introduction to batch scripts in the CSC supercomputing
-environment. The rest of this page focuses on Mahti specific topics.
+environment. On this page we focus on Mahti specific topics.
 
 !!! Note
-    Mahti does not have GPUs, NVMe disk on compute nodes or the need
+    Mahti does not have GPUs, NVMe disk on compute nodes, or the need
     to reserve memory. Instead, full nodes are allocated for jobs,
-    with the exception of interactive jobs (to be added). Many options also work
+    with the exception of [interactive jobs](../interactive-usage/#sinteractive-in-mahti), also
+    [see below](#using-interactive-partition-for-non-parallel-pre-or-post-processing). Many options also work
     differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti
     to Mahti.
 
@@ -16,7 +17,7 @@ environment. The rest of this page focuses on Mahti specific topics.
 
 ## Basic MPI batch jobs
 
-An example of a simple MPI-batch job script:
+An example of a simple MPI batch job script:
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
@@ -36,8 +37,8 @@ Specify the exact number of nodes and number of tasks per node  with
 the node.
 
 !!! Note
-    - MPI should **not** be started with _mpirun_ or _mpiexec_, use `srun` instead.
-    - An MPI module has to be loaded in the batch job script for the submission to
+    - MPI processes should **not** be started with _mpirun_ or _mpiexec_. Use `srun` instead.
+    - appropriate software module has to be loaded in the batch job script for the submission to
       work properly.
 
 ## Hybrid batch jobs
@@ -67,9 +68,9 @@ actual physical cores unallocated and performance will be suboptimal.
 
 ## Undersubscribing nodes
 
-If application requires more memory per core than there is available
+If an application requires more memory per core than there is available
 with full node (2 GB / core) it is possible to use also a subset of
-cores within a node. Also, if application is memory bound, memory
+cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
 only a single core per NUMA domain or L3 cache (look
 [here](../systems-mahti.md) for details
@@ -80,7 +81,7 @@ When undersubscribing nodes, one should always set
 `--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,
 even with pure MPI jobs. By default, Slurm scatters MPI tasks
 `--cpus-per-task` apart, i.e. with `--cpus-per-task=8` the MPI task
-**0** is bind to CPU core **0**, the MPI task **1** is bind to CPU
+**0** is bound to CPU core **0**, the MPI task **1** is bound to CPU
 core **7** *etc.*. Memory bandwidth (and application performance) is
 the best when the tasks are executing on maximally scattered cores. As
 an example, in order to use 32 GB / core, one can run only with 8
@@ -98,7 +99,7 @@ srun myprog -i input -o output
 For hybrid applications, one should use 
 `OMP_PROC_BIND` OpenMP runtime environment variable for 
 placing the OpenMP threads. As an example, in order to run
-one MPI tasks per NUMA domain and one OpenMP thread per L3cache one
+one MPI task per NUMA domain and one OpenMP thread per L3cache one
 can set
 
 ```bash
@@ -114,3 +115,33 @@ srun myprog -i input -o output
 ```
 
 Please check also our [Mahti batch script examples](example-job-scripts-mahti.md) page.
+
+## Using interactive partition for non-parallel pre- or post-processing
+
+In many cases the computing tasks include pre- or post-processing steps that are not able to utilize parallel computing.
+In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel 
+processing is executed in the `interactive` partition of Mahti. 
+
+In the interactive partition the jobs can reserve just few cores so that the non-parallel tasks can be executed without wasting resources.  
+Note that you can use interactive partition also for non-interactive jobs and that you can link two batch jobs so that the second job starts 
+only when the first one has finished. 
+
+For example, say that we would like to post-process the _output_ file, produced with the very first MPI example job in this page. The post processing command:
+`python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing 
+to the main job it is reasonable to execute it as separate job in the interactive partition.
+
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3,75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>`  defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=post-process-myTest
+#SBATCH --account=<project>
+#SBATCH --time=00:50:00
+#SBATCH --partition=interactive
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=2
+#SBATCH --dependency=afterok:<slurm-jobid>
+
+python post-proc.py output
+```

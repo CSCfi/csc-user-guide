@@ -14,7 +14,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2019b, R2019a, R2018b, R2018a, R2017b
+- Puhti: R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
 
 ## License
 
@@ -27,10 +27,11 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with two Parallel Computing Toolbox and one Compiler license available for temporary interactive academic use. We recommend to use [NoMachine](nomachine.md) client for the sessions. After logging in to Puhti, MATLAB can be launched as follows:
+There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [NoMachine](nomachine.md) client for the sessions. After logging in to Puhti, MATLAB can be launched as follows:
 
 ```bash
-$ module load matlab/r2018b
+$ sinteractive -i
+$ module load matlab/r2020a
 $ matlab
 ```
 
