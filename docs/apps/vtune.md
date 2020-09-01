@@ -1,7 +1,6 @@
 # Intel VTune Profiler
 
-Intel VTune Profiler is provided via the `intel-vtune` module. One sets up the
-environment by loading the module:
+Intel VTune Profiler is available only on Puhti and it is provided via the `intel-vtune` module. One sets up the environment by loading the module:
 
 ```
 module load intel-vtune
