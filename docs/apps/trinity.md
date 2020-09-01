@@ -14,7 +14,6 @@ The Trinity module at CSC also includes TransDecoder and Trinonate tools (in Tai
 Version on CSC's Servers
 
 Puhti: 2.8.5
-Taito: 2.3.2 , 2.4.0, 2.5.1, 2.6.5, 2.6.6
 
 
 ## Using Trinity 

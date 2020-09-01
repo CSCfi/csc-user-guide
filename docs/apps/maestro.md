@@ -89,7 +89,7 @@ module load maestro
 bash your_script_name.sh
 ```
 
-The following video tutorial walks you through it (Taito and Puhti work similarly):  
+The following video tutorial walks you through it:  
 
 [![Maestro Standalone](http://img.youtube.com/vi/oQDLa6Bh-q4/0.jpg)](http://www.youtube.com/watch?v=oQDLa6Bh-q4 "Maestro Standalone")
 

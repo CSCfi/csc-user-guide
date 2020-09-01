@@ -1,6 +1,6 @@
 # Billing
 
-Puhti has a new billing scheme. Billing on Taito and in the cloud remains as before.
+Puhti has a new billing scheme. Billing in the cloud remains as before.
 
 ## Puhti 
 
