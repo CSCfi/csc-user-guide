@@ -4,5 +4,5 @@ time_stamps=$(git ls-files -z docs/ | xargs -0 -n1 -I{} -- git log -1 --format="
 while read -r line; do
     date=$(echo $line | cut -d " " -f 1-4 )
     file_name=$(echo $line | cut -d " " -f 5)
-    echo -e "\n_Last edited ${date}_" >> "$file_name"
+    echo -e "\n\n_Last edited ${date}_" >> "$file_name"
 done <<< "$time_stamps"
