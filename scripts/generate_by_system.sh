@@ -1,5 +1,6 @@
 #!/bin/bash
-source scripts/common.sh
+app_dir="docs/apps"
+ignores="--exclude-from=scripts/skip_system.txt"
 mahti_files=$(grep $ignores -i mahti $app_dir/*.md | awk -F ":" '{print $1}' | sort | uniq | sed s%docs/apps/%%)
 puhti_files=$(grep $ignores -i puhti $app_dir/*.md | awk -F ":" '{print $1}' | sort | uniq | sed s%docs/apps/%%)
 mahti_software=$(grep -f <(echo "$mahti_files") $app_dir/alpha.md)
