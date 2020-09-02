@@ -26,6 +26,8 @@ RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder &
     git reset HEAD --hard && \
 # The following lines have to be removed before merging, just here
 # To demonstrate correctness.
+    git config --global user.email "you@example.com" && \
+    git config --global user.name "Your Name" && \
     git stash --include-untracked && \
     git checkout listing_automation && \
     git checkout master && \
