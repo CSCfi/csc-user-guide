@@ -24,8 +24,10 @@ RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder &
     mv git_folder/.git . && \
     rm -r git_folder && \
     git reset HEAD --hard && \
-# The following line has to be removed before merging, just here
-# To demonstrate correctness. 
+# The following lines have to be removed before merging, just here
+# To demonstrate correctness.
+    git checkout listing_automation
+    git checkout master
     git merge listing_automation 
 
 
