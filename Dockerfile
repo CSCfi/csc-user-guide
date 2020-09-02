@@ -26,7 +26,7 @@ RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder &
     mv git_folder/.git . && \
     rm -r git_folder && \
     git reset HEAD --hard && \
-    git checkout $repo_branch 
+    git checkout -f $repo_branch 
 
 RUN pip3 install --no-cache-dir -r requirements.txt && \
     bash scripts/generate_stamps.sh && \
