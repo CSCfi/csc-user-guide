@@ -105,27 +105,16 @@ In either case, pay attention to the versions of different singularity container
 
 ### Bring your WtP singularity images to Puhti
 
-WtP is a scalable and easy-to-use workflow for phage identification and analysis. More details about the pipeline can be found [here](https://github.com/replikation/What_the_Phage).
+WtP is a multi-container pipeline requiring as many as 21 singularity images (see [here](https://github.com/replikation/What_the_Phage/blob/master/configs/container.config) for further details) at the time of writing this tutorial. All these containers are downloaded in cPouta environment to avoid any build failures of singularity images on Puhti due to the lack of privileged root access for users. For the sake of this tutorial, the downloaded singularity images are uploaded to ``allas`` which is an object storage environment at CSC.
 
-Login to Puhti and install Nextflow using `conda` environment as instructed above.
-
-## Set-up WtP pipeline on Puhti
-
-You can either clone WtP GitHub repository to your project directory under `scratch` drive on Puhti as below:
+The images on `allas` object storage can be downloaded to your project directory on scratch as below:
 
 ```
-cd  /Path_on_scratch/
-git clone  https://github.com/replikation/What_the_Phage.git
-nextflow run /Path_on_scratch/What_the_Phage/phage.nf --help
+mkdir /Path_on_scratch/What_the_Phage/singularity
+cd /Path_on_scratch/What_the_Phage/singularity
+wget [https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz](https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz)
+tar -xavf [WtP_singularity.tar.gz](https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz)
 ```
-
-or pull your Nextflow pipeline from DockerHub:
-
-```
-nextflow run replikation/What_the_Phage --help
-```
-
-In either case, pay attention to the versions of different singularity containers used for running Nextflow pipeline as mentioned in configs/containers.config file. 
 
 ### Run WtP pipelines as a batch job on Puhti:
 
