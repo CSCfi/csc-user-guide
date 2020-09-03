@@ -28,7 +28,7 @@ into use and running simple grid jobs in the FGCI grid.
 
 **Getting Started** 
 
-There are two mandatory preparatory steps that you need to do, to get acces to FGCI.
+There are two preparatory steps that you need to do, to get acces to FGCI.
 
 1.  [Obtain a grid certificate](./fgci-grid-certificates.md)
 2.  [Joining to the fgi.csc.fi virtual organisation](https://voms.fgi.csc.fi:8443/voms/fgi.csc.fi) 
