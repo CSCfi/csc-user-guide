@@ -184,7 +184,7 @@ Hello FGI
 > <b>arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b>  
 > <b>ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh</b>  
 > <b>cd 3008913401883521090110523/</b>  
-> <b>ls output.txt std.err std.out</b<
+> <b>ls output.txt std.err std.out</b>
 </pre>
 
 ## Keeping the grid job status up to date
