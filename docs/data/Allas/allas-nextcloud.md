@@ -58,6 +58,7 @@ The Nextcloud server is now up and running, but you are not yet able to access i
 To enable remote access you need to edit the configuration file of your Nextcloud server. 
 In this case the file is in the standard location defined by snap. You can open it 
 for editing with command:
+
 ```text
 sudo nano /var/snap/nextcloud/current/nextcloud/config/config.php
 ```
@@ -65,6 +66,7 @@ In the config file, find the trusted_domains specification and add the IP-addres
 your Nextcloud server to the list of trusted domains (this is the Floating IP address 
 that you assigned for the VM in the puhti and that you used to open the terminal connection). 
 For example the case of IP:86.50.252.77 the definition should look like
+
 ```text
   'trusted_domains' => 
    array (
@@ -100,17 +102,19 @@ You can do this things for example in puhti.csc.fi with commands:
 
 1. setting up the connection:
 
-´´´text
+```text
    module load allas
    allas-conf –mode s3cmd
 ```
 
 2. Creating a new empty bucket
+
 ```text
 s3cmd mb s3://your-proj-num-nextcloud
 ```
 In this example we are using project 2001234 so
 the bucket name could be:
+
 ```
 2001234-nextcloud
 ```
