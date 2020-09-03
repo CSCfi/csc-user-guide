@@ -38,7 +38,7 @@ ssh <csc_username>@puhti.csc.fi
 
 ## 3. Install Nextflow in your workspace
 
-Please follow the instructions [here](../../apps/bioconda#2-installing-software-for-your-own-use-with-bioconda.md) in order to make custom installations of software. In future CSC may provide nextflow as a module.
+Please follow the instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module.
 
 For the installation of nextflow, you could be doing as below: 
 
