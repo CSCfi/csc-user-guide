@@ -30,7 +30,7 @@ You can also use cPouta environment at CSC to build singularity images.
 
 ## 2. Login to Puhti supercomputer
 
-SSH into the login node of Puhti cluster (More instructions here)
+SSH into the login node of Puhti cluster (More instructions [here](../../computing/overview.md)
 
 ```
 ssh <csc_username>@puhti.csc.fi
@@ -38,7 +38,7 @@ ssh <csc_username>@puhti.csc.fi
 
 ## 3. Install Nextflow in your workspace
 
-Please follow the instructions here: (https://docs.csc.fi/apps/bioconda/#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module.
+Please follow the instructions [here](https://docs.csc.fi/apps/bioconda/#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module.
 
 For the installation of nextflow, you could be doing as below: 
 
