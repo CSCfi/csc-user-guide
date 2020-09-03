@@ -30,7 +30,7 @@ You can also use cPouta environment at CSC to build singularity images.
 
 ## 2. Login to Puhti supercomputer
 
-SSH into the login node of Puhti cluster (More instructions[here](../../computing/overview.md))
+SSH into the login node of Puhti cluster (More instructions [here](../../computing/overview.md))
 
 ```
 ssh <csc_username>@puhti.csc.fi
@@ -38,7 +38,7 @@ ssh <csc_username>@puhti.csc.fi
 
 ## 3. Install Nextflow in your workspace
 
-Please follow the instructions [here](../../apps/bioconda/#2-installing-software-for-your-own-use-with-bioconda.md) in order to make custom installations of software. In future CSC may provide nextflow as a module.
+Please follow the instructions [here](../../apps/bioconda#2-installing-software-for-your-own-use-with-bioconda.md) in order to make custom installations of software. In future CSC may provide nextflow as a module.
 
 For the installation of nextflow, you could be doing as below: 
 
@@ -82,7 +82,7 @@ nextflow run  <workflow.nf> [options]
 
 ## 6. Potional Tutorial - Demonstration of WtP Nextflow pipeline
 
-WtP is a scalable and easy-to-use workflow for phage identification and analysis. More details about the pipeline can be found [here](https://github.com/replikation/What_the_Phage)).
+WtP is a scalable and easy-to-use workflow for phage identification and analysis. More details about the pipeline can be found [here](https://github.com/replikation/What_the_Phage).
 
 Login to puhti and  install nextflow using conda environment as instructed above.
 
