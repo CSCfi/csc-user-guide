@@ -5,7 +5,7 @@
 ## How Singularity works with Nextflow
 The integration of Singularity containers with Nextflow follows the same execution model as with Docker containers. So it does not require additional modifications in Nextflow script as such to be compatible with Singularity. One has to just enable the use of Singularity engine (instead of Docker) in the Nextflow configuration file. Nextflow is able to pull remote container images stored in Singularity or Docker-Hub registry. The remote container images are usually specified in your Nextflow script or configuration file by simply prefixing the image name with the `shub://` or `docker://`. It is also possible to specify a different Singularity image for each process definition in Nextflow pipeline script. 
 
-Here is a general recipe for running your Nextflow pipeline on Puhti :
+Here is a generic recipe for running your Nextflow pipeline on Puhti :
 1. Prepare your singularity images on your local environment
 2. Login to Puhti supercomputer
 3. Install Nextflow in your workspace
@@ -37,7 +37,7 @@ ssh <csc_username>@puhti.csc.fi
 
 ## 3. Install Nextflow in your workspace
 
-Please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module on Puhti supercomputer.
+Please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide Nextflow as a module on Puhti supercomputer.
 
 For the installation of Nextflow, you can use the following conda approach: 
 
