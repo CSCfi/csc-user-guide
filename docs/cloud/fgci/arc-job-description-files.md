@@ -13,14 +13,14 @@ In the case of ARC-middleware the grid jobs are defined using two files:
 1.  A **job description file**, that defines the resources needed (for
     example the required computing time, memory and number of
     processors) and the files that will be copied to and from the remote
-    clusters. ARC can use xRSL or JSDL job description file formats.
+    cluster. ARC can use xRSL or JSDL job description file formats.
 
 2.  A **command file** containing the commands that will be executed
     when the job is run in the remote cluster.
 
 The command files are in most cases normal Linux command scripts. Linux
 scripting is not discussed in this guide. You can find more information
-about Linux scripting from the CSC workshop materials or via google.
+about Linux scripting from the [CSC tutorials](../../support/tutorials/env-guide/linux-bash-scripts.md) or via google.
 
 The xRSL formatted job description files are text files that define the
 resources and files that the grid job needs. The file starts with an
@@ -39,7 +39,7 @@ can create xRSL formatted job description files with normal text editors.
 | cpuTime            | Computing time requested\. For a multi\-processor job, this is a sum over all requested processors\.                                                                                                                  | \(cpuTime="6 hours, 20 minutes"\)               |
 | executable         | Name of the command script file                                                                                                                                                                                       | \(executable=runhello\.sh\)                     |
 | inputfiles         | Files that will be copied from the local computer to the remote cluster\. The left column refers to the file name at the remote cluster and the right column refers to the file name in the local computer\.          | \(inputfiles=\("file1\.txt" "file1\.txt" \)\)   |
-| jobname            | Name of the grid job                                                                                                                                                                                                  | \(jobname="hello\_FGI"\)                        |
+| jobname            | Name of the grid job                                                                                                                                                                                                  | \(jobname="hello\_FGCI"\)                        |
 | memory             | Memory requirement in megabytes                                                                                                                                                                                       | \(memory="4000"\)                               |
 | notify             | Email will be sent to the given address at certain states of the job\. E\.g\. When the job begins \(b\) or ends \(e\)\. Here the be signifies sending an email for both states\.                                      | \(notify="be kkayttajl@csc\.fi"\)               |
 | outputfiles        | Files that will be copied from the remote cluster when the results are retrieved\. The left column refers to the file name at the remote cluster and the right column refers to the file name in the local computer\. | \(outputfiles=\("out\.txt" "out\.txt" \)\)      |
