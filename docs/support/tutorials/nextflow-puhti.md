@@ -1,9 +1,9 @@
 
 # Running Nextflow pipelines on Puhti
-Nextflow (http://nextflow.io](http://nextflow.io/) is a scalable and reproducible scientific workflow management system that interacts with containerised applications to perform compute-intensive tasks. This workflow provides built-in support for containers like Singularity, which is a containerisation technology that is compliant with HPC environment. Although, nextflow pipelines allow us to choose Docker engine as an executor for running pipelines, please note that Puhti users can't use Docker containers due to the lack of administrative privileges to Puhti users. 
+[Nextflow](http://nextflow.io/) is a scalable and reproducible scientific workflow management system that interacts with containerised applications to perform compute-intensive tasks. This workflow provides built-in support for containers like Singularity, which is a containerisation technology that is compliant with HPC environment. Although, nextflow pipelines allow us choosing Docker engine as an executor for running pipelines, please note that Puhti users can't use Docker containers due to the lack of administrative privileges to Puhti users. 
 
 ## How Singularity works with Nextflow
-The integration of Singularity containers with Nextflow follows the same execution model as with Docker containers. So it does not require additional modifications in Nextflow script as such to be compatible with Singularity. One has to just enable the use of Singularity engine (instead of Docker) in the Nextflow configuration file. Nextflow is able to pull remote container images stored in Singularity or Docker-Hub registry. The remote container images are usually specified in your Nextflow script or configuration file by simply prefixing the image name with the `shub://` or `docker://` as required by the Singularity tool. It is also possible to specify a different Singularity image for each process definition in Nextflow pipeline script. 
+The integration of Singularity containers with Nextflow follows the same execution model as with Docker containers. So it does not require additional modifications in Nextflow script as such to be compatible with Singularity. One has to just enable the use of Singularity engine (instead of Docker) in the Nextflow configuration file. Nextflow is able to pull remote container images stored in Singularity or Docker-Hub registry. The remote container images are usually specified in your Nextflow script or configuration file by simply prefixing the image name with the `shub://` or `docker://`. It is also possible to specify a different Singularity image for each process definition in Nextflow pipeline script. 
 
 Here is a general recipe for running your Nextflow pipeline on Puhti :
 1. Prepare your singularity images on your local environment
@@ -37,9 +37,9 @@ ssh <csc_username>@puhti.csc.fi
 
 ## 3. Install Nextflow in your workspace
 
-Please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module.
+Please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module on Puhti supercomputer.
 
-For the installation of Nextflow, you can use following conda approach: 
+For the installation of Nextflow, you can use the following conda approach: 
 
 ```
 export PROJAPPL=/projappl/project_xxx
@@ -50,12 +50,12 @@ source activate next_flow
 
 ## 4. Set-up your Nextflow pipeline environment
 
-Running Nextflow pipelines can sometimes be quite compute-intensive and may require downloading large volumes of data such as databases and singularity images. This can take long time and may not even work successfully for downloading singularity images on Puhti. 
+Running Nextflow pipelines can sometimes be quite compute-intensive and may require downloading large volumes of data such as databases and singularity images. This can take a while and may not even work successfully in case of downloading singularity images on Puhti. 
 
 You can do the following basic preparation before running Nextflow pipeline:
 
 - Copy singularity images from your local workspace to your project folder on Puhti. Pay attention to the singularity cache directory (i.e., SINGULARITY_CACHEDIR or some other name given by you tool) which is usually $HOME/.singularity/cache. The disk space of your home directory is quite limited (10 GB) on Puhti.
-- Move all your raw data to your scratch directory on Puhti
+- Move all your raw data to your project directory on Puhti
 - Clone GitHub repository of your pipeline to your scratch directory and then run your pipeline from a GitHub repository. Alternatively, use Nextflow pipeline directly from DockerHub if the pipeline is available
 
 ## 5. Run your Nextflow pipeline as a batch job
