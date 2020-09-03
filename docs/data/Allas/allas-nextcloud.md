@@ -84,30 +84,30 @@ When the connection to the server is made for the first time, the WWW interface 
 first user to define admin account and password. That account will be used in the future 
 to manage the Nextcloud server. Due to this you should first use a security group that 
 allows access to the 443 port only from your own computer and define the admin account 
-immediately after starting the server. Once the admin account is defined you cam allow 
+immediately after starting the server. Once the admin account is defined you can allow 
 other sites to access the https port.
 
 
 If the connection web interface fails check that:
 *   you are using the right protocol and ip address
-*   port number 443 and your local IP address (not the server IP ) is defined in the cPouta security group and that this security group is in use.*
+*   port number 443 and your local IP address (not the server IP ) is defined in the cPouta security group and that this security group is in use.
 *   your browser accepts self-signed certificates
  
 
 ## 3. Link Nextcloud to a bucket in Allas
 
-To be able to link Allas to your Nextcloud server, you must have a valid S3 key pair and a ready made data bucket in Allas. The bucket con be empty or it can already contain some data objects.
+To be able to link Allas to your Nextcloud server, you must have a valid S3 key pair and a ready made data bucket in Allas. The bucket can be empty or it can already contain some data objects.
 
 You can do this things for example in puhti.csc.fi with commands:
 
-1. setting up the connection:
+### 1. setting up the connection:
 
 ```text
    module load allas
    allas-conf –mode s3cmd
 ```
 
-2. Creating a new empty bucket
+### 2. Creating a new empty bucket
 
 ```text
 s3cmd mb s3://your-proj-num-nextcloud
@@ -119,8 +119,7 @@ the bucket name could be:
 2001234-nextcloud
 ```
 
-
-3. Printing out the keys
+### 3. Printing out the keys
 
 ```text
 grep key $HOME/.s3cfg
@@ -162,7 +161,7 @@ from and to this Allas bucket using the Nextcloud interface.
 
 
 The Nextcloud admin account can create new users and user groups to the Nextcloud server. 
-Click the round symbol on the right end of the blue menu bar and select Users from the pop-up menu.
+Click the round symbol on the right end of the blue menu bar and select _Users_ from the pop-up menu.
 
 First we create a new user group by clicking _Add group_. Here we name the group as “users” 
 and confirm the creation request by typing the password of Nextcloud admin.
@@ -180,5 +179,5 @@ read and write permissions are granted, but you can also give just read-only acc
 These options are set with the menu that opens from the three dots next to the definition field.
 
 Now you can send the account information to the new user and he/she will be able to use Nextcloud 
-to upload and download data to the data bucket that was linked to the Nextcloud server. Not that this 
+to upload and download data to the data bucket that was linked to the Nextcloud server. Note that this 
 user doesn't need to have CSC account, Nextcloud account is enough.
