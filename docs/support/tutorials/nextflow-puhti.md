@@ -112,7 +112,7 @@ The images on `Allas` object storage can be downloaded to your project directory
 mkdir /Path_on_scratch/What_the_Phage/singularity
 cd /Path_on_scratch/What_the_Phage/singularity
 wget https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz
-tar -xavf [WtP_singularity.tar.gz](https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz)
+tar -xavf WtP_singularity.tar.gz
 ```
 
 ### Run WtP pipelines as a batch job on Puhti:
