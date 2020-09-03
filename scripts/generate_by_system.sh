@@ -3,7 +3,8 @@
 app_dir="docs/apps"
 ignore_file="scripts/skip_system.txt"
 generated_file="docs/apps/by_system.md"
-echo -e "# Applications by system\n" > $generated_file
+echo -e "# Applications by availability\n" > $generated_file
+echo -e "\n[TOC]\n" >> $generated_file
 
 # Case sensitive, the title for the system category
 system_name=("Mahti" "Puhti" "Chipster")
