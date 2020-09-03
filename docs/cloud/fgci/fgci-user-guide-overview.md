@@ -43,14 +43,14 @@ These preparatory steps are done just once, when the user starts using FGCI.
 
 The grid computing environment of FGCI is used via the Advanced Resource Connector (ARC) middleware which is produced by the Nordugrid community. All tasks and commands are submitted via the middleware and the user never needs to directly log into the actual computing clusters. For this reason FGCI can't be used to run programs interactively. Instead the commands to be executed are collected into command files that are submitted to the FGCI using ARC commands and job description files.
 
-* [Basic structure of job description files](./fgci-executing-grid-jobs-with-arc-commands.md)
+* [Basic structure of job description files](./fgci-job-description-files.md)
 * [Job structure files for parallel computing](./fgci-running-parallel-applications.md)
 * [Using pre-installed software with Runtime Environments](./fgci-using-software-through-runtime-environments.md)
 
 When the job descrioption file and other job files have been created, the actual job will be execiuted using the
 **arc middleware**
 
-* [Using arc to run grid jobs](./arc-running-jobs.md)
+* [Using arc to run grid jobs](./fgci-executing-grid-jobs-with-arc-commands.md)
 * [Using arc_runner to execute large large jobs sets](./fgci-using-arcrunner-to-run-large-job-sets.md)
 * [Using storage elements for data transport](./fgci-using-storage-elements-for-data-transport.md)
 * [Using Grid Monitor](./fgci-grid-monitor.md)
