@@ -9,21 +9,21 @@ embarrassingly parallel job type are cases where the same analysis is
 performed to a large set of input files.
 
 Running embarrassingly parallel computing tasks in the grid environment
-is in principle straight forward: the user just creates the grid job
-files, described in chapter 2.2, submits all the jobs to grid and, once
+is in principle straight forward: the user just creates the [grid job
+files](./fgci-job-description-files.md), submits all the jobs to grid and, once
 the jobs are ready, the collects the results and merges them together.
 However, this kind of straight forward seeming approach is not always
 the most efficient way.
 
 In this chapter we describe a grid job manager tool, called *arcrunner*,
 that can be used to run large embarrassingly parallel computing tasks
-easily and effectively in the FGI environment. You can use *arcrunner*
-at CSC on [Taito] or you can download it to your local Linux or MacOSX
+easily and effectively in the FGCI environment. You can use *arcrunner*
+at CSC on [Puhti](../../computing/overview.md) or you can download it to your local Linux or MacOSX
 computer.
 
 ## Installing arcrunner
 
-Arcrunner is installed on Taito where it can be launched with the
+Arcrunner is installed on Puhti where it can be launched with the
 command:
 
     arcrunner
@@ -78,7 +78,7 @@ the option *-W*. If some job stays in a queue for too long a time, it is
 withdrawn from this queue and submitted to another cluster. The maximum
 queuing time (in seconds) can be set with the option *-Q*
 
-Sometimes, some FGI cluster may not work properly and the jobs may fail
+Sometimes, some FGCI cluster may not work properly and the jobs may fail
 due to technical reasons. If this happens, the failed grid jobs are
 re-submitted to other clusters three times before they are considered as
 failed sub-jobs.
@@ -112,7 +112,7 @@ analyse. In this example we have 100 files named *file\_1*, *file\_2*,
 column. We would like to calculate the average for the values in each
 file using FGI.
 
-To run the analysis in FGI using *arcrunner* we first need to create a
+To run the analysis in FGCI using *arcrunner* we first need to create a
 sub-folder for each of the input files and copy the input files there.
 This could be done, for example, with a shell script like the following
 bash script:
@@ -130,19 +130,19 @@ the files to be analysed. Note that the name of the input file is now
 the same (*inputfile.txt*) in all the sub-job directories. The average
 of the numbers in a file called *inputfile.txt* can be calculated with
 the following script. The script is created with a text editor and saved
-as file *calc\_average.csh*
+as file *calc\_average.sh*
 
 ```bash
 #!/bin/bash
 awk '{ a = (a + $1)} END{ print a/NR }' inputfile.txt > output.txt 
 ```
 
-To run this script in FGI we need to create a job description file. In
+To run this script in FGCI we need to create a job description file. In
 this case we will name the file *average.xrsl*. The content of the job
 description file would then be:
 
 ```
-&(executable=calc_average.csh)
+&(executable=calc_average.sh)
 (jobname=arc_example)
 (stdout=std.out)
 (stderr=std.err)
@@ -164,7 +164,7 @@ containing the following loop:
 ```bash
 for number in `seq 1 100`
 do
-  cp calc_average.csh subjob_$number/
+  cp calc_average.sh subjob_$number/
   cp average.xrsl subjob_$number/
 done
 ```

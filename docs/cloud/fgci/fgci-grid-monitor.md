@@ -33,7 +33,7 @@ cluster and if you click on a number in the *Queueing*
 column you will get a similar view about the grid jobs queuing in the
 batch job system of that cluster. In the job lists you can further click
 the *Job name* to see the details of a specific job or *Owner* to see
-more information of the user and the status of all the FGI jobs of that
+more information of the user and the status of all the FGCI jobs of that
 user.
 
 A more detailed description about the Grid Monitor tool can be found
