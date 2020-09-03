@@ -9,15 +9,15 @@ embarrassingly parallel job type are cases where the same analysis is
 performed to a large set of input files.
 
 Running embarrassingly parallel computing tasks in the grid environment
-is in principle straight forward: the user just creates the grid job
-files, described in chapter 2.2, submits all the jobs to grid and, once
+is in principle straight forward: the user just creates the [grid job
+files](./fgci-job-description-files.md), submits all the jobs to grid and, once
 the jobs are ready, the collects the results and merges them together.
 However, this kind of straight forward seeming approach is not always
 the most efficient way.
 
 In this chapter we describe a grid job manager tool, called *arcrunner*,
 that can be used to run large embarrassingly parallel computing tasks
-easily and effectively in the FGI environment. You can use *arcrunner*
+easily and effectively in the FGCI environment. You can use *arcrunner*
 at CSC on [Puhti](../../computing/overview.md) or you can download it to your local Linux or MacOSX
 computer.
 
@@ -130,7 +130,7 @@ the files to be analysed. Note that the name of the input file is now
 the same (*inputfile.txt*) in all the sub-job directories. The average
 of the numbers in a file called *inputfile.txt* can be calculated with
 the following script. The script is created with a text editor and saved
-as file *calc\_average.csh*
+as file *calc\_average.sh*
 
 ```bash
 #!/bin/bash
@@ -142,7 +142,7 @@ this case we will name the file *average.xrsl*. The content of the job
 description file would then be:
 
 ```
-&(executable=calc_average.csh)
+&(executable=calc_average.sh)
 (jobname=arc_example)
 (stdout=std.out)
 (stderr=std.err)
@@ -164,7 +164,7 @@ containing the following loop:
 ```bash
 for number in `seq 1 100`
 do
-  cp calc_average.csh subjob_$number/
+  cp calc_average.sh subjob_$number/
   cp average.xrsl subjob_$number/
 done
 ```
