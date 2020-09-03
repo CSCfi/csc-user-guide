@@ -1,12 +1,16 @@
 # mpiP: Lightweight MPI Profiler
 
-[mpiP](http://mpip.sourceforge.net/) is a lightweight MPI profiler which uses statistical sampling to record profiling data. At the momenmt is only available on Mahti. It generates less overhead and much less data than tracing tools. In order to use no code changes are require, only a re-link is needed. In addition to the required modules, one has the load the mpiP module: 
+[mpiP](http://mpip.sourceforge.net/) is a lightweight MPI profiler which uses statistical sampling to record profiling data. At the momenmt is only available on Mahti. It generates less overhead and much less data than tracing tools. In order to use no code changes are require, only a re-link is needed. For both Mahti and Puhti, in addition to the required modules, one has the load the mpiP module: 
 ```
 module load mpip
 ```
-Next the code is compiled as normal, but with addition of the `-g` flag and the link to the library:
+Next the code is compiled as normal, but with addition of the `-g` flag and the link to the libraries. For Mahti one should use:
 ```
 -lmpiP -lm -lbfd -liberty -L/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib -lunwind
+```
+Similarly for Puhti the relink is done with :
+```
+-lmpiP -lm -L/appl/spack/install-tree/intel-19.0.4/libiberty-2.31.1-o4es74/lib/  -liberty -L/appl/spack/install-tree/intel-19.0.4/libunwind-1.2.1-45uplb/lib/ -lunwind
 ```
 The above re-link will only work if it appears the last in the compiling line. 
 Next the code is ran as a usual batch job. The follwing additions are needed to the job script:
