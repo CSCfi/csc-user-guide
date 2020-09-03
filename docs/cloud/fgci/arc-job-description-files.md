@@ -48,7 +48,7 @@ can create xRSL formatted job description files with normal text editors.
 | stdout             | File for standard output                                                                                                                                                                                              | \(stdout=std\.out\)                             |
 
 Below is a short command script that is used as a simplified example of
-a grid command file. The job prints words "*Hello FGI*" to the standard
+a grid command file. The job prints words "*Hello FGCI*" to the standard
 output and then writes the number of lines in files *inputfile.txt* and
 *file2.txt* to a new file called *output.txt*. The name of the command
 script in this example is *runhello.sh*.
@@ -58,7 +58,7 @@ script in this example is *runhello.sh*.
     wc -l inputfile.txt file2.txt > output.txt
     exit 
 
-The *runhello.sh* script above can be executed in the FGI environment
+The *runhello.sh* script above can be executed in the FGCI environment
 using the following job-description file (called *hello.xrsl*):
 
     &(executable=runhello.sh)
