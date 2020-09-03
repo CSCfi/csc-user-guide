@@ -1,18 +1,17 @@
 
 # Running Nextflow pipelines on Puhti
-Nextflow (http://nextflow.io](http://nextflow.io/) is a scalable and reproducible scientific workflow management system that interacts with containerised applications to perform compute-intensive tasks. This workflow provides built-in support for containers like Singularity, which is a containerisation technology that is compliant with HPC environment. Although, nextflow pipelines allow us to choose Docker engine as an executor for running pipelines, please note that Puhti users can't use Docker containers due to the lack administrative privileges for Puhti users. 
+Nextflow (http://nextflow.io](http://nextflow.io/) is a scalable and reproducible scientific workflow management system that interacts with containerised applications to perform compute-intensive tasks. This workflow provides built-in support for containers like Singularity, which is a containerisation technology that is compliant with HPC environment. Although, nextflow pipelines allow us to choose Docker engine as an executor for running pipelines, please note that Puhti users can't use Docker containers due to the lack of administrative privileges to Puhti users. 
 
 ## How Singularity works with Nextflow
 The integration of Singularity containers with Nextflow follows the same execution model as with Docker containers. So it does not require additional modifications in Nextflow script as such to be compatible with Singularity. One has to just enable the use of Singularity engine (instead of Docker) in the Nextflow configuration file. Nextflow is able to pull remote container images stored in Singularity or Docker-Hub registry. The remote container images are usually specified in your Nextflow script or configuration file by simply prefixing the image name with the `shub://` or `docker://` as required by the Singularity tool. It is also possible to specify a different Singularity image for each process definition in Nextflow pipeline script. 
 
 Here is a general recipe for running your Nextflow pipeline on Puhti :
-
 1. Prepare your singularity images on your local environment
 2. Login to Puhti supercomputer
 3. Install Nextflow in your workspace
 4. Set-up your Nextflow pipeline environment
 5. Run your Nextflow pipeline as a batch job
-6. Optional Tutorial - Demonstration of WtP Nextflow pipeline on Puhti
+6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline on Puhti
 
 ## 1. Prepare your Singularity images on your local environment
 
@@ -24,9 +23,9 @@ Here are some options for preparing your singularity image:
 - Convert a Docker image to Singularity on your local system and then copy it to Puhti.
 - Copy a Singularity image from a container registry to Puhti.
 
-You can also use cPouta environment at CSC to build singularity images.
+You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environment at CSC to build singularity images.
 
-!!!  Note: Singularity is installed only on compute nodes in Puhti and cannot be executed/tested on login nodes.
+!!!  Note: Singularity is installed only on compute nodes in Puhti and is not available for execution or testing on login nodes.
 
 ## 2. Login to Puhti supercomputer
 
@@ -38,9 +37,9 @@ ssh <csc_username>@puhti.csc.fi
 
 ## 3. Install Nextflow in your workspace
 
-Please follow the instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module.
+Please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide nextflow as a module.
 
-For the installation of Nextflow, you could be doing as below: 
+For the installation of Nextflow, you can use following conda approach: 
 
 ```
 export PROJAPPL=/projappl/project_xxx
@@ -51,7 +50,7 @@ source activate next_flow
 
 ## 4. Set-up your Nextflow pipeline environment
 
-Running Nextflow pipelines can some times be quite compute-intensive and may require downloading large volumes of data such as databases and singularity images. This can take a long time and even may not work successfully for downloading singularity images on Puhti. 
+Running Nextflow pipelines can sometimes be quite compute-intensive and may require downloading large volumes of data such as databases and singularity images. This can take long time and may not even work successfully for downloading singularity images on Puhti. 
 
 You can do the following basic preparation before running Nextflow pipeline:
 
@@ -61,9 +60,9 @@ You can do the following basic preparation before running Nextflow pipeline:
 
 ## 5. Run your Nextflow pipeline as a batch job
 
-Please follow our instructions for writing a batch job on Puhti at [CSC documentation pages](../../computing/running/example-job-scripts-puhti.md).
+Please follow our instructions for writing a batch job on Puhti as described in [CSC documentation pages](../../computing/running/example-job-scripts-puhti.md).
 
-Here is a minimal script to start with your Nextflow pipeline on Puhti:
+Here is a minimal script to get started with your Nextflow pipeline on Puhti:
 
 ```
 #!/bin/bash
@@ -80,15 +79,15 @@ source activate nextflow
 nextflow run  <workflow.nf> [options]
 ```
 
-## 6. Optional Tutorial - Demonstration of WtP Nextflow pipeline
+## 6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline
 
 WtP is a scalable and easy-to-use workflow for phage identification and analysis. More details about the pipeline can be found [here](https://github.com/replikation/What_the_Phage).
 
-Login to puhti and install nextflow using conda environment as instructed above.
+Login to Puhti and install Nextflow using conda environment as instructed above.
 
 ## Set-up WtP pipeline on Puhti
 
-You can either clone WtP GitHub repository to your project directory in scratch drive on Puhti as below:
+You can either clone WtP GitHub repository to your project directory in scratch drive  as below:
 
 ```
 cd  /Path_on_scratch
@@ -145,9 +144,9 @@ export PROJAPPL=/projappl/project_XXX
 module load bioconda
 source activate nextflow
 
-# actual Nextflow command 
+# Nextflow command here
 nextflow run /Path_on_scratch/What_the_Phage/phage.nf --fasta /Path_on_scratch/What_the_Phage/test-data/OX2_draft.fa --cores 4 --output results -profile local,singularity --cachedir /Path_on_scratch//What_the_Phage/singularity --databases /Path_on_scratch/What_the_Phage/databases/WtP_databases --workdir
 /Path_on_scratch/What_the_Phage/workflow-phages-username 
 ```
 
-Please note that your singularity images in this example should be in the folder:"/Path_on_scratch//What_the_Phage/singularity". Otherwise, Nextflow tries to download singularity images again and eventually may prone to failures.
+Please note that Singularity images in this example should be in the folder:"/Path_on_scratch//What_the_Phage/singularity". Otherwise, Nextflow tries to download Singularity images again and eventually may prone to failures.
