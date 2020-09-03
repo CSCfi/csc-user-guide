@@ -105,14 +105,13 @@ In either case, pay attention to the versions of different singularity container
 
 ### Bring your WtP singularity images to Puhti
 
-WtP is a multi-container pipeline requiring as many as 21 singularity images (see [here](https://github.com/replikation/What_the_Phage/blob/master/configs/container.config) for further details) at the time of writing this tutorial. All these containers are downloaded in cPouta environment to avoid any build failures of singularity images on Puhti due to the lack of privileged root access for users. For the sake of this tutorial, the downloaded singularity images are uploaded to ``allas`` which is an object storage environment at CSC.
+WtP is a multi-container pipeline requiring as many as 21 singularity images (see [here](https://github.com/replikation/What_the_Phage/blob/master/configs/container.config) for further details) at the time of writing this tutorial. All these containers are downloaded in cPouta environment to avoid any build failures of singularity images on Puhti due to the lack of privileged access for users. For the sake of this tutorial, the downloaded singularity images are uploaded to ``allas`` which is an object storage environment at CSC.
 
 The images on `allas` object storage can be downloaded to your project directory on scratch as below:
-
 ```
 mkdir /Path_on_scratch/What_the_Phage/singularity
 cd /Path_on_scratch/What_the_Phage/singularity
-wget [https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz](https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz)
+wget https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz
 tar -xavf [WtP_singularity.tar.gz](https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz)
 ```
 
