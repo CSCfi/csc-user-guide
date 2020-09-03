@@ -78,7 +78,7 @@ the option *-W*. If some job stays in a queue for too long a time, it is
 withdrawn from this queue and submitted to another cluster. The maximum
 queuing time (in seconds) can be set with the option *-Q*
 
-Sometimes, some FGI cluster may not work properly and the jobs may fail
+Sometimes, some FGCI cluster may not work properly and the jobs may fail
 due to technical reasons. If this happens, the failed grid jobs are
 re-submitted to other clusters three times before they are considered as
 failed sub-jobs.
@@ -112,7 +112,7 @@ analyse. In this example we have 100 files named *file\_1*, *file\_2*,
 column. We would like to calculate the average for the values in each
 file using FGI.
 
-To run the analysis in FGI using *arcrunner* we first need to create a
+To run the analysis in FGCI using *arcrunner* we first need to create a
 sub-folder for each of the input files and copy the input files there.
 This could be done, for example, with a shell script like the following
 bash script:
@@ -137,7 +137,7 @@ as file *calc\_average.sh*
 awk '{ a = (a + $1)} END{ print a/NR }' inputfile.txt > output.txt 
 ```
 
-To run this script in FGI we need to create a job description file. In
+To run this script in FGCI we need to create a job description file. In
 this case we will name the file *average.xrsl*. The content of the job
 description file would then be:
 
