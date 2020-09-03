@@ -1,4 +1,4 @@
-index.md 
-alpha.md 
-by_system.md
-arcgis.md
+SKIP_ALL index.md 
+SKIP_ALL alpha.md 
+SKIP_ALL by_system.md
+SKIP_puhti arcgis.md
