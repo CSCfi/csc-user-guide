@@ -4,7 +4,6 @@ app_dir="docs/apps"
 ignore_file="scripts/skip_system.txt"
 generated_file="docs/apps/by_system.md"
 echo -e "# Applications by availability\n" > $generated_file
-echo -e "\n[TOC]\n" >> $generated_file
 
 # Case sensitive, the title for the system category
 system_name=("Mahti" "Puhti" "Chipster")
@@ -13,6 +12,11 @@ system_name=("Mahti" "Puhti" "Chipster")
 # Format: SKIP_[system_key] [filename]
 system_key=("mahti" "puhti" "chipster")
 
+system_desc=("CSC supercomputer for massively parallel jobs"\ 
+    "CSC supercomputer for small and medium jobs"\ 
+    "Open source platform for data analysis")
+
+
 num_systems=${#system_name[@]}
 num_keys=${#system_key[@]}
 
@@ -20,6 +24,13 @@ if [[ "$num_keys" -ne "$num_systems" ]]; then
     echo "Number of search keys must match the number of systems"
     exit 1;
 fi
+
+echo -e "\n" >> $generated_file
+for i in $( seq 0 $(($num_systems-1)) )
+do
+    echo "- [${system_name[$i]}](by_system.md#${system_name[$i]}) ${system_desc[$i]}" >> $generated_file
+done
+echo -e "\n" >> $generated_file
 
 for i in $( seq 0 $(($num_systems-1)) )
 do
