@@ -6,17 +6,19 @@ module load mpip
 ```
 Next the code is compiled as normal, but with addition of the `-g` flag and the link to the libraries. For Mahti one should use:
 ```
--lmpiP -lm -lbfd -liberty -L/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib -lunwind
+-lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib>-lunwind
 ```
+The path to the unwind library on mahti is `/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib`. 
 Similarly for Puhti the relink is done with :
 ```
--lmpiP -lm -L/appl/spack/install-tree/intel-19.0.4/libiberty-2.31.1-o4es74/lib/  -liberty -L/appl/spack/install-tree/intel-19.0.4/libunwind-1.2.1-45uplb/lib/ -lunwind
+-lmpiP -lm -L<path-to-iberty-lib>  -liberty -L<path-to-unwind-lib> -lunwind
 ```
+The path to the iberty library is `/appl/spack/install-tree/intel-19.0.4/libiberty-2.31.1-o4es74/lib/`, while the path to unwind library is `/appl/spack/install-tree/intel-19.0.4/libunwind-1.2.1-45uplb/lib/`. 
 The above re-link will only work if it appears the last in the compiling line. 
 Next the code is ran as a usual batch job. The follwing additions are needed to the job script:
 ```
 module load mpip
-export LD_LIBRARY_PATH=/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=<path-to-unwind-lib>:<path-to-iberty-lib>:$LD_LIBRARY_PATH
 ```
 For running instead we replace `srun` by `srun -ppdebug`. 
 This will create profiling for all code in a file which is file which indicate in the standard output before the programs's own output. Here is an example of a output at the beginning of the execution of a code:
