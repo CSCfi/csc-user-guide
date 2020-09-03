@@ -29,6 +29,8 @@ source my-venv/bin/activate
 pip install my_package_to_install
 ```
 
+With venv, you can keep separate environments for each program. The next time you wish to activate the environment you only need to run `source my-venv/bin/activate`.
+
 If you think that some important data analytics or machine learning package for Python should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.  Note that some machine learning frameworks have their own specific modules, for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [MXNet](mxnet.md) and [RAPIDS](rapids.md).
 
 ## License
