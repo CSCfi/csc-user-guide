@@ -182,9 +182,11 @@ Name: hello_FGI State: Finished (FINISHED) Exit Code: 0
 > <b>arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b>
 Hello FGI  
 > <b>arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b>  
-> <b>ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh</b>  
+> <b>ls</b> 
+3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh  
 > <b>cd 3008913401883521090110523/</b>  
-> <b>ls output.txt std.err std.out</b>
+> <b>ls</b>
+output.txt std.err std.out
 </pre>
 
 ## Keeping the grid job status up to date
