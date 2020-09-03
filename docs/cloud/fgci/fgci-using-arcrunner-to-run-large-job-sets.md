@@ -18,12 +18,12 @@ the most efficient way.
 In this chapter we describe a grid job manager tool, called *arcrunner*,
 that can be used to run large embarrassingly parallel computing tasks
 easily and effectively in the FGI environment. You can use *arcrunner*
-at CSC on [Taito] or you can download it to your local Linux or MacOSX
+at CSC on [Puhti](../../computing/overview.md) or you can download it to your local Linux or MacOSX
 computer.
 
 ## Installing arcrunner
 
-Arcrunner is installed on Taito where it can be launched with the
+Arcrunner is installed on Puhti where it can be launched with the
 command:
 
     arcrunner
