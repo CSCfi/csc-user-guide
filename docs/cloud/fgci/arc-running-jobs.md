@@ -1,7 +1,7 @@
 # Executing grid jobs with ARC commands
 
 In this chapter we assume that the user has installed the personal grid
-certificate and ARC middleware.
+certificate and ARC middleware. At CSC ARC is available in Puhti server.
 
 
 ## Creating a proxy-certificate
