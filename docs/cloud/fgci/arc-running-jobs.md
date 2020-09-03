@@ -71,7 +71,7 @@ for example:
 The command *arcstat* is used to check the status of grid jobs. The
 status of a singe job can be checked with the command:
 
-    arcstat jobid
+    arcstat <jobid>
 
 You can see the status of all of your FGI jobs by using the option *-a*.
 
@@ -83,13 +83,13 @@ command *arccat* to follow the progress of a grid job. *Arccat* prints
 out the standard output, or if you use the option *-e*, standard error,
 that the job script has generated so far. The syntax of *arccat* is:
 
-    arccat jobid
-    arccat -e jobid 
+    arccat <jobid>
+    arccat -e <jobid> 
 
 Once the job is in state *Finished* or *Failed* you can use the command
 *arcget* to retrieve the results. The syntax of the command is:
 
-    arcget jobid
+    arcget <jobid>
 
 *Arcget* creates a new directory for your results on your local computer
 and copies the output files defined in the job description file there,
@@ -111,8 +111,8 @@ be done with the command *arckill*. The command *arcclean* removes a
 finished or failed job from the grid environment without downloading the
 results to a local computer. The syntax of these commands is:
 
-    arckill jobid
-    arcclean jobid
+    arckill <jobid>
+    arcclean <jobid>
 
 You can cancel and clean all your grid jobs from the FGCI environment by
 using the option *-a* with the commands above:
@@ -139,54 +139,53 @@ using the option *-a* with the commands above:
 ## Running the sample job in FGCI environment
 
 Below we go through a session where the simple a job, *hello.xrsl*,
-described in chapter 2.1, is executed in FGCI. Both the commands and
-their output are shown. The character "&gt;" represents the command
+described in [Job description files chapter](./arc-job-description-files.md), is executed in FGCI. 
+Both the commands and their output are shown. The character "&gt;" represents the command
 prompt. The commands given by the user are typed with bold-face letters.
 
 First we create a grid proxy certificate and check that all the files
 that the job uses (job description file, command script and input files)
 are present in the current working directory.
 
-```
-> arcproxy -S fgi.csc.fi
+<pre>
+> <b>arcproxy -S fgi.csc.fi</b>
 Enter pass phrase for private key:
 Your identity: /DC=org/DC=terena/DC=tcs/C=FI/O=CSC/CN=Kalle Käyttäjä kkayttajl@csc.fi
 Contacting VOMS server (named fgi.csc.fi): voms.fgi.csc.fi on port: 15003
 Proxy generation succeeded
 Your proxy is valid until: 2015-08-20 03:39:34
-> ls
+><b>ls</b>
 file1.txt file2.txt hello.xrsl runhello.sh
-```
+</pre>
 
 After this the job defined in the file *hello.xrsl* is submitted with
 the command *arcsub*:
 
-
-```
-> arcsub hello.xrsl  
+<pre>
+> <b>arcsub hello.xrsl</b>  
 ERROR: Conversion failed: @ 3055 ERROR: Conversion failed: : SEVQLVNQRUMwNiBAIEDCoDEyLjIy 
 Job submitted with jobid: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523
-```
+</pre>
 
 The output of the *arcsub* command includes two error messages but they
 can be ignored. For the future it is good to copy the jobid from the end
 of the *arcsub* output to a file for reference. Next, we follow the
 progress of the job with the commands *arcstat* and *arccat*:
 
-```
-> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 
+<pre>
+> <b>arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b> 
 Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 
 Name: hello_FGI State: Queuing (INLRMS:E)  
-> arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  
+> <b>arcstat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b>  
 Job: gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523 
 Name: hello_FGI State: Finished (FINISHED) Exit Code: 0  
-> arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523
+> <b>arccat gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b>
 Hello FGI  
-> arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523  
-> ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh  
-> cd 3008913401883521090110523/  
-> ls output.txt std.err std.out
-```
+> <b>arcget gsiftp://celaeno-grid.lut.fi:2811/jobs/3008913401883521090110523</b>  
+> <b>ls 3008913401883521090110523 file1.txt file2.txt hello.xrsl runhello.sh</b>  
+> <b>cd 3008913401883521090110523/</b>  
+> <b>ls output.txt std.err std.out</b<
+</pre>
 
 ## Keeping the grid job status up to date
 
