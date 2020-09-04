@@ -42,7 +42,6 @@ Nextflow on Puhti is available *via* conda environment and is activate as below:
 ```
 module load bioconda
 source activate nextflow
-
 ```
 
 In case you need any custom installations with specific version of Nextflow in your workspace, please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda). 
@@ -133,6 +132,7 @@ Submit the following batch script to run nextflow pipeline:
 #SBATCH --cpus-per-task=4
 
 export TMPDIR=$PWD
+
 # Activate  Nextflow on Puhti
 module load bioconda
 source activate nextflow
