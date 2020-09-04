@@ -1,6 +1,6 @@
 # Using Allas to migrate your data from Taito to Puhti 
 
-The Taito.csc.fi cluster was closed at the end of 2019. If you have data that you want 
+The Taito.csc.fi cluster was closed for general use at the end of 2019. If you have data that you want 
 to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories), 
 you have to copy the data elsewhere as soon as possible. 
 
