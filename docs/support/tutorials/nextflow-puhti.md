@@ -136,4 +136,4 @@ nextflow run /Path_on_scratch/What_the_Phage/phage.nf --fasta /Path_on_scratch/W
 /Path_on_scratch/What_the_Phage/workflow-phages-username 
 ```
 
-Please note that Singularity images in this example should be in the folder:"/Path_on_scratch//What_the_Phage/singularity". Otherwise, Nextflow tries to download Singularity images again and eventually may prone to failures.
+Please note that Singularity images in this example should be in the folder:"/Path_on_scratch//What_the_Phage/singularity". Otherwise, Nextflow tries to download Singularity images again and eventually may be prone to failures.
