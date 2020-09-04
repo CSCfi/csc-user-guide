@@ -8,7 +8,7 @@ The new Allas object storage service provides a platform that you can use to sto
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server that is replacing Taito does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
+Puhti does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
