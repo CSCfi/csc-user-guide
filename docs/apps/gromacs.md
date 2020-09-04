@@ -225,6 +225,7 @@ for methods applied in your setup.
 -   [HOW-TO] section on the Gromacs pages
 -   Gromacs [documentation]
 -   [The PRODRG Server] for online creation of small molecule topology
+-   [2019 Advanced Gromacs Workshop materials](https://research.csc.fi/web/training/-/advanced-gromacs-workshop)
 
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/

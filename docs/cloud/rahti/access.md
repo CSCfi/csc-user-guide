@@ -7,8 +7,8 @@ In order to use the Rahti container cloud with a CSC account, you need:
 1. A CSC user account
 2. A computing project with access to Rahti
 
-Access to another CSC computing system such as cPouta, Sisu
-or Taito counts as a valid computing project. The same project can be used in Rahti.
+Access to another CSC computing system such as cPouta, Mahti
+or Puhti counts as a valid computing project. The same project can be used in Rahti.
 
 #### Applying for access
 
