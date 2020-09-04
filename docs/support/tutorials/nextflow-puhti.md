@@ -8,7 +8,7 @@ The integration of Singularity containers with Nextflow follows the same executi
 Here is a generic recipe for running your Nextflow pipeline on Puhti :
 1. Prepare your singularity images on your local environment
 2. Login to Puhti supercomputer
-3. Install Nextflow in your workspace
+3. Activate conda environment for Nextflow on Puhti
 4. Set-up your Nextflow pipeline environment
 5. Run your Nextflow pipeline as a batch job
 6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline on Puhti
@@ -35,16 +35,24 @@ SSH into the login node of Puhti cluster (See instructions [here](../../computin
 ssh <csc_username>@puhti.csc.fi
 ```
 
-## 3. Install Nextflow in your workspace
+## 3. Activate conda environment for Nextflow on Puhti
 
-Please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda) in order to make custom installations of software. In future CSC may provide Nextflow as a module on Puhti supercomputer.
+Nextflow on Puhti is available *via* conda environment and is activate as below:
+
+```
+module load bioconda
+source activate nextflow
+
+```
+
+In case you need any custom installations with specific version of Nextflow in your workspace, please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda). 
 
 For the installation of Nextflow, you can use the following conda approach: 
 
 ```
 export PROJAPPL=/projappl/project_xxx
 module load bioconda
-conda create -n next_flow -c bioconda nextflow  # next_flow is a env name
+conda create -n next_flow -c bioconda nextflow=0.30.1  # next_flow is a env name and you can install with specific version of nextflow
 source activate next_flow  
 ```
 
@@ -71,7 +79,6 @@ Here is a minimal script to get started with your Nextflow pipeline on Puhti:
 #SBATCH --account=project_XXX # add your project number here
 #SBATCH --cpus-per-task=xx # change as you need
 
-export PROJAPPL=/projappl/project_XXX
 module load bioconda
 source activate nextflow
 
@@ -125,9 +132,8 @@ Submit the following batch script to run nextflow pipeline:
 #SBATCH --account=project_XXX
 #SBATCH --cpus-per-task=4
 
-# Set-up Nextflow on Puhti
 export TMPDIR=$PWD
-export PROJAPPL=/projappl/project_XXX
+# Activate  Nextflow on Puhti
 module load bioconda
 source activate nextflow
 
