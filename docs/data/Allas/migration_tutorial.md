@@ -25,12 +25,8 @@ The tutorials are based on interactively executed commands and thus apply only f
 
 ## Datamangler
 
-** Datamangler is no longer available **
-
-Datamangler was a temporary server that was launched to support data migration from Taito to Allas.
-It is no longer in use. Datamangler was used in several examples of this tutorial. As datamangles is no more
-available, you should replace it with *taito.csc.fi* in the examples below. 
-
+Datamangler is a temporary server that was launched to support data migration from Taito to Allas.
+It will be available for a limited time. This page has several examples on how to use it.
 
 ## 1. Get access to Allas
 
