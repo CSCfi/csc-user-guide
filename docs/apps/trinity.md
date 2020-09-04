@@ -25,7 +25,9 @@ module load biokit
 ```
 The biokit module sets up a set of commonly used bioinformatics tools.
 
-Trinity should be used using interactively in Taito-shell or preferably through the batch job system. Below is an example batch job file for Trinity.
+Trinity should be used used [interactively in a compute node](../computing/running/interactive-usage.md) 
+or preferably through the batch job system. Below is an example batch job file for Trinity.
+
 ```text
 #!/bin/bash 
 #SBATCH --job-name=trinity
