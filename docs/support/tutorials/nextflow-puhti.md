@@ -43,9 +43,9 @@ Here are some options for preparing your singularity image:
 
 You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environment at CSC to build singularity images.
 
-!!!  Note 
-     Singularity is installed only on the compute nodes in Puhti and 
-     it is not available for execution or testing on login nodes.
+!!! note 
+    Singularity is installed only on the compute nodes in Puhti and 
+    it is not available for execution or testing on login nodes.
 
 ## 2. Login to Puhti supercomputer
 
