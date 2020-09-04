@@ -62,7 +62,7 @@ Running Nextflow pipelines can sometimes be quite compute-intensive and may requ
 
 You can do the following basic preparation before running Nextflow pipeline:
 
-- Copy singularity images from your local workspace to your project folder on Puhti. Pay attention to the singularity cache directory (i.e., SINGULARITY_CACHEDIR or some other name given by you tool) which is usually $HOME/.singularity/cache. The disk space of your home directory is quite limited (10 GB) on Puhti.
+- Copy singularity images from your local workspace to your project folder on Puhti. Pay attention to the singularity cache directory (i.e., SINGULARITY_CACHEDIR or some other name given by your software tool) which is usually $HOME/.singularity/cache. The disk space of your home directory is quite limited (10 GB) on Puhti.
 - Move all your raw data to your project directory on Puhti
 - Clone GitHub repository of your pipeline to your scratch directory and then run your pipeline from a GitHub repository. Alternatively, use Nextflow pipeline directly from DockerHub if the pipeline is available
 
