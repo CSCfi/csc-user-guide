@@ -66,7 +66,7 @@ Here is a minimal script to get started with your Nextflow pipeline on Puhti:
 
 ```
 #!/bin/bash
-#BATCH --time=00:15:00 # change your time settings
+#SBATCH --time=00:15:00 # change your time settings
 #SBATCH --partition=test #  change partition as needed
 #SBATCH --account=project_XXX # add your project number here
 #SBATCH --cpus-per-task=xx # change as you need
