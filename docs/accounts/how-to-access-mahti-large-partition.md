@@ -31,7 +31,7 @@ not affect results, typically few minutes for the shortest run time
 (largest node count) is fine.
 * Parameters affecting the scalability can, and are encouraged to be,
 changed. Note, also the [performance checklist](../computing/running/performance-checklist.md)
-* Minimum requirement is 75 % parallel efficiency between successive node counts (speedup of 1.5 when doubling the number of nodes).
+* Minimum requirement is 75 % parallel efficiency (*i.e.* speedup of 1.5 when doubling the number of nodes).
 
 
 ## Reporting
