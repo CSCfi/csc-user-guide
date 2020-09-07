@@ -20,7 +20,7 @@ and check lines *lsdyna/(version number)*. For example to load LS-DYNA version 1
 
     module load lsdyna/11.1.0
 
-There is available an example of **batch job file** on Puhti server:
+There is available an example of **batch job file** on Puhti and Mahti servers:
 
     /appl/soft/eng/lsdyna/example_batch_job_files/parjob_lsdyna
 
