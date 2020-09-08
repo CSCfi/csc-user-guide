@@ -75,7 +75,7 @@ in the *Instances* view of the cPouta/ePouta web interface.
 The figure above shows a sample of the Instances view in cPouta web
 interface. In this case, we can see that a virtual machine called
 *test-instance-1* is active and running. The machine has two IP
-addresses, of which the address 86.50.169.245 is the public one. The
+addresses, of which the address 86.50.169.56 is the public one. The
 machine uses a keypair called *skapoor*.
 
 The ePouta web interface looks similar but the instances in ePouta have only
