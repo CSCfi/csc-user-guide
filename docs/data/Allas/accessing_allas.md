@@ -53,7 +53,7 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 
 2\. Navigate to the Cyberduck main menu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
 
-!["New bookmark"](img/cyberduck_create_bookmark.PNG)
+!["New bookmark"](img/cyberduck_bookmark.jpg)
 **Figure** Creating a new bookmark
 
 3\. In the first dropdown menu, choose _OpenStack Swift (Keysone 3)_.
@@ -61,18 +61,18 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 
 4\. As the **Server**, type _pouta.csc.fi_ and choose the **Port** _5001_. 
 
-5\. In the section **Project:Domain:Username**, type (without spaces) the desired _project's name_, add "**:default:**" and your _Pouta username_ (this is the CSC user accout you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:domain:username_, e.g. *project_123456:domain:john*.
+5\. In the section **Project:Domain:Username**, type (without spaces) the desired _project's name_, add "**:default:**" and your _Pouta username_ (this is the CSC user accout you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:default:username_, e.g. *project_123456:default:john*.
 
 6\. Type your CSC password in the **Password** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
 
-!["Entering information for a bookmark"](img/cyberduck_bookmark_info.PNG)
+!["Entering information for a bookmark"](img/cyberduck_bookmark_info.jog)
 **Figure** Entering information for a bookmark
 
 7\. Navigate to the top left corner to the icons under _Open Connection_ and choose the **Bookmarks icon** (second from the left).
  
 8\. Next, right-click the created bookmark and choose the option **Connect to server**.
 
-!["Connecting to the server"](img/cyberduck_connect.PNG)
+!["Connecting to the server"](img/cyberduck_connect.jpg)
 **Figure** Connecting to the server
 
 Now you should be able to see the content of your project (which might be empty).
