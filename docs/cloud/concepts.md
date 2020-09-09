@@ -121,10 +121,9 @@ Industry  standard definition IaaS and  the other cloud terms.
 #### Platform-as-a-Service (PaaS)
 
 PaaS provides  a higher level service  to users, but with  less choice
-about the  underlying platform. CSC's  regular HPC service  (i.e. Sisu
-and   Taito)  is   in  some   ways  PaaS   when  considered   with  <a
-href="https://sui.csc.fi/"    class="external-link">Scientists    User
-Interface (SUI)</a>,  although HPC  applications typically use  a very
+about the  underlying platform. CSC's  regular HPC service  (i.e. Mahti
+and Puhti)  is   in  some   ways  PaaS 
+although HPC  applications typically use  a very
 wide  mixture  of  interfaces,  non-standard API's  and  command  line
 tools. Mainstream  PaaS providers offer  a framework which  provides a
 documented common API for all aspects of the service.

@@ -111,7 +111,7 @@ table so that in the row where the _name_ column contains the value
 _inputfile30.data_, the _status_ column gets the value:  _done_ .
 
 The _kaivos.bash_ script, described above, can be submitted to the 
-batch job system of Taito with command
+batch job system of Puhti with command
 
 ```text
 sbatch kaivos.bash
