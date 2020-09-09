@@ -149,6 +149,7 @@ nav:
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
+     - By availability: apps/by_system.md
   - Support:
      - Tutorials: support/tutorials/index.md
      - FAQ: support/faq/index.md
