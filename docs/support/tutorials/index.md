@@ -2,6 +2,7 @@
 
 ## General
 * [Getting started with Puhti](puhti_quick.md)
+* [Getting started with Mahti](mahti_quick.md)
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
@@ -31,4 +32,6 @@
 
 ## Bioinformatics
 * [Singularity applications on Puhti](bioapplications-puhti.md)
+* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
+* [Running Nextflow pipelines on Puhti](nextflow-puhti.md)
 * [Schrödinger Maestro Puhti tutorial](power-maestro.md)

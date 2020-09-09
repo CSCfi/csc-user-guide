@@ -50,7 +50,7 @@ swift download <bucket-name> your-dataset.tar
 Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of Puhti.  Instead, consider more efficient approaches, including:
 
 - packaging your dataset into larger files 
-- taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts.md#local-storage) on the GPU nodes.
+- taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts-puhti.md#local-storage) on the GPU nodes.
 
 #### More efficient data format
 
@@ -76,7 +76,7 @@ tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
 ```
 
-Note that you need to communicate somehow to your own program where to find the dataset, for example with a command line argument.  Also see our [general instructions on how to take the fast local storage into use](../../computing/running/creating-job-scripts.md#local-storage).
+Note that you need to communicate somehow to your own program where to find the dataset, for example with a command line argument.  Also see our [general instructions on how to take the fast local storage into use](../../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 If you are running a multi-node job (see next section), you need to modify the `tar` line so that it is performed on each node separately:
 
@@ -157,7 +157,7 @@ train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 
 Multi-GPU jobs are also supported by specifying the number of GPUs required in the `--gres` flag, for example to have 4 GPUs (which is the maximum for a single node in Puhti): `--gres=gpu:v100:4`.  Please also make sure that your code can take advantage of multiple GPUs, this typically requires some changes to the program.
 
-For large jobs requiring more than 4 GPUs we recommend using [Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow and PyTorch on Puhti.  Horovod uses MPI and NCCL for interprocess communication. See also [MPI based batch jobs](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs).  Modules that support Horovod have the `-hvd` suffix in their name.  Note that Horovod is supported only for some specific versions of TensorFlow and PyTorch.  You can run `module avail hvd` to see all Horovod-enabled modules.  To take Horovod into use, just load the appropriate module, e.g:
+For large jobs requiring more than 4 GPUs we recommend using [Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow and PyTorch on Puhti.  Horovod uses MPI and NCCL for interprocess communication. See also [MPI based batch jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs).  Modules that support Horovod have the `-hvd` suffix in their name.  Note that Horovod is supported only for some specific versions of TensorFlow and PyTorch.  You can run `module avail hvd` to see all Horovod-enabled modules.  To take Horovod into use, just load the appropriate module, e.g:
 
 ```bash
 module load tensorflow/2.0.0-hvd

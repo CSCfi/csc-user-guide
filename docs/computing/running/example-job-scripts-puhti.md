@@ -1,4 +1,4 @@
-# Example batch job scripts
+# Example batch job scripts for Puhti
 
 Example job scripts for running different types of programs:
 

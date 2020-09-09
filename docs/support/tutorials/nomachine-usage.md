@@ -14,19 +14,20 @@ A short video will appear in here.
 - Enables remote graphics from CSC servers for Windows users
 - Improved remote graphics performance for Linux and Mac users
 - Suspendable session - continue later with all terminals etc. as they were, even from a different computer
-- Easy way to leave jobs running e.g. on Taito-shell while logging off from laptop
+- Easy way to leave jobs running e.g. on the [interative partition](../../computing/running/interactive-usage.md) while logging off from laptop
 - Gives 4 virtual screens
 - Resolution/frame rate can be tuned - enables usage with even a really slow network
 
 **Cons:**
 
-- Very heavy 3D remote graphics performance will be poor. In this case, consider GPU rendering (link)
+- Very heavy 3D remote graphics performance will be poor. In this case, consider
+  [using GPUs for rendering in cPouta](../faq/how-to-use-cpouta-gpu-for-rendering.md)
 - Requires installing the client (ssh + X11 forwarding are available on Mac & Linux anyway)
 
 ## Installation
 
 !!! note 
-    this may require admin privileges
+    this _may_ require admin privileges
 
 Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https://www.nomachine.com/download-enterprise](https://www.nomachine.com/download-enterprise)
 
@@ -46,14 +47,14 @@ Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https:/
 3.   After a while, you'll be shown a few pages presenting the different functionality of NoMachine.
     In the first screen, untick the box from "Change server resolution to match the client when I reconnect".
 4.   Take a while to read through, and if you don't want to see them again, click the box at lower right corner, proceed with "ok".
-5.   Once you see a black screen, you're there. Now right click at the black background and select "CSC local servers" then "Taito/Puhti".
-6.   You'll be prompted for your CSC password. Give it, and you'll have a terminal open on Taito. The terminal can display remote graphics.
+5.   Once you see a black screen, you're there. Now right click at the black background and select "CSC local servers" then "puhti" / "mahti.
+6.   You'll be prompted for your CSC password. Give it, and you'll have a terminal open on Puhti / Mahti. The terminal can display remote graphics.
 
 ## Recommended tips
 
 1. To get rid of the scroll bars at the edges of your screen take the mouse to the upper right corner (peel menu) and click "resize remote screen".
 
-2. The default font in the terminal is ugly and small. Use the initial terminal to launch new prettier terminals. In taito, you can launch gnome-terminal, write `gnome-terminal` on the command line, and you will get a customizable terminal with resizable fonts. In puhti you can launch regular xterm with some options, for example, write `xterm -fs 12 -fa "Bitstream"`.
+2. The default font in the terminal is ugly and small. Use the initial terminal to launch new prettier terminals. In Puhti you can launch regular xterm with some options, for example, write `xterm -fs 12 -fa "Bitstream"`.
 
 ## Known issues
 

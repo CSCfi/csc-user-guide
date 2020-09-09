@@ -8,7 +8,7 @@ The `r-env-singularity` module is a [Singularity container](../../computing/cont
 
 ## Available
 
-The `r-env-singularity` module includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data. For improved performance, the `r-env-singularity` module uses BLAS and LAPACK libraries within the [Intel® Math Kernel Library (MKL)](https://software.intel.com/en-us/mkl).
+The `r-env-singularity` module includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
 
 Currently supported versions:
 
@@ -19,7 +19,6 @@ Currently supported versions:
 
 Other software and libraries included in the module:
 
-- Intel® MKL 2019.0.4
 - Open MPI 4.0.2 (with Mellanox OFED™ software)
 - cget 0.1.9
 
@@ -105,7 +104,7 @@ singularity_wrapper exec R --no-save
 
 #### Non-interactive use
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. In addition to the following examples, [see this link](../computing/running/creating-job-scripts.md) for more information. Batch job files can be submitted to the batch job system as follows:
+Further to interactive jobs, R scripts can be run non-interactively using batch job files. In addition to the following examples, [see this link](../computing/running/creating-job-scripts-puhti.md) for more information. Batch job files can be submitted to the batch job system as follows:
 
 ```bash
 sbatch batch_job_file.sh
@@ -143,7 +142,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`
 
 The `r-env-singularity` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
 
-Further to the following examples, please see our separate [documentation](../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) on MPI-based jobs. You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/contours) for examples of parallel computing using the `RSAGA` package.
+Further to the following examples, please see our separate [documentation](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) on MPI-based jobs. You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/contours) for examples of parallel computing using the `RSAGA` package.
 
 !!! note
     For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone are unavailable due to compatibility issues.
@@ -365,7 +364,7 @@ finalize()
 
 #### Using fast local storage
 
-For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
 An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
 

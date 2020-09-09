@@ -19,7 +19,8 @@ Some features of the software:
 
 ## Available
 
--   Puhti: 1.4.0, 1.5.2
+-   Puhti: 1.4.0, 1.5.2, 20.1.0
+-   Mahti: 20.1.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
 
@@ -39,7 +40,7 @@ $ module load gpaw
 ```
 
 A specific version can be initialized with `module load gpaw/version`, e.g.
-`module load gpaw/1.4.0`
+`module load gpaw/20.1.0`
 
 **Example parallel batch script for Puhti**
 
@@ -58,6 +59,54 @@ A specific version can be initialized with `module load gpaw/version`, e.g.
 # 30 minutes time and 2 GB of memory for each core
 
 module load gpaw
+
+srun gpaw-python input.py
+```
+
+**Example batch script for Mahti with hybrid MPI/OpenMP parallelization**
+
+```
+#!/bin/bash -l
+#SBATCH --time=00:30:00
+#SBATCH --partition=medium
+#SBATCH --nodes=10
+#SBATCH --ntasks-per-node=32
+#SBATCH --cpus-per-task=4
+#SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+# this script runs a 1280 core (10 full nodes) gpaw job, using hybrid
+# MPI/OpenMP parallelization with 4 OpenMP threads per node,
+# requesting 30 minutes time.
+# Please experiment with optimum MPI task / OpenMP thread ratio with
+# your particular input
+
+module load gpaw  # Note: only the default 20.1.0-omp version supports OpenMP
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+srun gpaw-python input.py
+```
+
+**Example batch script for Mahti with pure MPI parallelization**
+
+```
+#!/bin/bash -l
+#SBATCH --time=00:30:00
+#SBATCH --partition=medium
+#SBATCH --nodes=10
+#SBATCH --ntasks-per-node=128
+#SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+# this script runs a 1280 core (10 full nodes) gpaw job, using pure
+# MPI parallelization requesting 30 minutes time.
+
+module load gpaw
+
+export OMP_NUM_THREADS=1
 
 srun gpaw-python input.py
 ```

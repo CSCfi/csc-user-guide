@@ -45,7 +45,7 @@ The most important are:
     Scaling depends on many aspects of your system and used algorithms, not just size.
 -   Use a recent version - there has been significant speedup over the years
 -   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag) for mdrun
--   For large jobs, use full nodes (multiples of 40 cores) see example below.
+-   For large jobs, use full nodes (multiples of 40 cores, on Puhti) see example below.
 
 For a more complete description, consult the 
 [Gromacs performance checklist] on the Gromacs page.
@@ -67,12 +67,12 @@ Note, a scaling test with a very large system (1M+ particles) may take a while t
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
-# this script runs a 80 core (2 full nodes) gromacs job, requesting 30 minutes time
+# this script runs a 80 core (2 full nodes) gromacs job, requesting 15 minutes time
 
 module purge
 module load gromacs-env
 
-srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
 !!! note
@@ -91,12 +91,12 @@ srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
-# this script runs a 1 core gromacs job, requesting 30 minutes time
+# this script runs a 1 core gromacs job, requesting 15 minutes time
 
 module purge
 module load gromacs-env
 
-srun gmx_mpi mdrun -s topol -maxh 0.25 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 !!! note
     You *must* fill in the computing project name in your script (replace
@@ -134,6 +134,52 @@ srun gmx_mpi mdrun -s verlet -pin on -dlb yes
 
 
 Submit the script with `sbatch script_name.sh`
+
+### Example mpi-only parallel batch script for Mahti
+
+```bash
+#!/bin/bash -l
+#SBATCH --time=00:15:00
+#SBATCH --partition=medium
+#SBATCH --ntasks-per-node=128
+#SBATCH --nodes=2
+#SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
+
+module purge
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+
+export OMP_NUM_THREADS=1
+
+srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
+```
+
+### Example mixed parallel batch script for Mahti
+
+```bash
+#!/bin/bash -l
+#SBATCH --time=00:15:00
+#SBATCH --partition=medium
+#SBATCH --ntasks-per-node=64
+#SBATCH --cpus-per-task=2
+#SBATCH --nodes=2
+#SBATCH --account=<project>
+#SBATCH --mail-type=END
+##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+
+# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
+# 64 tasks per node, each with 2 OpenMP threads
+
+module purge
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
+```
 
 ### Visualizing trajectories and graphs
 
@@ -179,6 +225,7 @@ for methods applied in your setup.
 -   [HOW-TO] section on the Gromacs pages
 -   Gromacs [documentation]
 -   [The PRODRG Server] for online creation of small molecule topology
+-   [2019 Advanced Gromacs Workshop materials](https://research.csc.fi/web/training/-/advanced-gromacs-workshop)
 
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/

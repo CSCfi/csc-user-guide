@@ -1,4 +1,4 @@
-# Compiling applications
+# Compiling applications in Puhti
 
 ## General instructions
 

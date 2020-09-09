@@ -8,18 +8,31 @@ ipyrad is an interactive toolkit for assembly and analysis of restriction-site a
 
 ## Available
 
--   Puhti:  0.9.11
-
+-   Puhti:  0.9.55
 
 
 ## Usage
 
-In Puhti, iPyrad can be taken in use as a _bioconda_ environment:
+In Puhti, iPyrad can be taken in use as a _bioconda_ environment.
+To use software environments that are installed to Puhti using Conda (either by CSC or yourself), 
+first define environment variable PROJAPPL to point to a directry of the project that 
+you wish to use for your own conda environments.
+
+Typically this is your _/projappl/project_name_ directory, but you can use scratch too. 
+This definition is made with command _export_. For example for project_012345 the command would be:
+
+```text
+export PROJAPPL=/projappl/project_12345
+```
+After that you can activate bioconda environment and check the availavle conda environments.
 
 ```text
 module load bioconda
 conda env list
-source activate ipyrad
+```
+Now you can activae iPyrad enroment:
+```text
+source activate ipyrad-0.9.55
 ```
 
 Ipyrad processing is typically started with command:
@@ -37,8 +50,9 @@ nano params-run1.txt
 ```
 
 Once the parameter file is ready, you can start the actual ipyrad analysis. In Puhti login nodes you should run just really small taskas and not use more that one computing core with ipyrad. Thus you should add definition `-c 1` to the ipyrad command:
-
+```text
 ipyrad -p params-run1.txt -s 1234567 -c 1
+```
 
 ## Running heavy ipyrad jobs in Puhti
 

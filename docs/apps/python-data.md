@@ -20,7 +20,16 @@ Python-data tries to include a comprehensive selection of Python libraries for d
 - [Scikit-learn](https://scikit-learn.org/stable/): machine learning in Python
 - [Seaborn](https://seaborn.pydata.org/): statistical data visualization
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`.
+If you find that some package is missing, you can often install it yourself with `pip install --user`, or alternatively create a separate virtual environment with [venv](https://docs.python.org/3/library/venv.html), for example:
+
+```text
+module load python-data
+python -m venv --system-site-packages my-venv
+source my-venv/bin/activate
+pip install my_package_to_install
+```
+
+With venv, you can keep separate environments for each program. The next time you wish to activate the environment you only need to run `source my-venv/bin/activate`.
 
 If you think that some important data analytics or machine learning package for Python should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.  Note that some machine learning frameworks have their own specific modules, for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [MXNet](mxnet.md) and [RAPIDS](rapids.md).
 
@@ -56,4 +65,4 @@ list-packages
 
 ### Local storage
 
-The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts.md#local-storage).
+The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts-puhti.md#local-storage).

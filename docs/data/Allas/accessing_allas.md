@@ -48,29 +48,31 @@ For Windows and Mac, [Cyberduck](https://cyberduck.io/) provides a graphical use
 
 The instructions below describe how to open a _Swift_-protocol-based Cyberduck connection to Allas. With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a-tools_ but not with _s3cmd_ based on the _S3_ protocol. More information: [Directory object error](using_allas/directory_object_error.md).
 
+
 1\. Install **Cyberduck**.
 
 2\. Navigate to the Cyberduck main menu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
 
-!["New bookmark"](img/cyberduck_create_bookmark.PNG)
+!["New bookmark"](img/cyberduck_bookmark.jpg)
 **Figure** Creating a new bookmark
 
-3\. In the first dropdown menu, choose _Swift (OpenStack Object Storage)_.
+3\. In the first dropdown menu, choose _OpenStack Swift (Keysone 3)_.
+    ( if your Cyberduc does not have this option available, you need to update it to a more recent version)
 
 4\. As the **Server**, type _pouta.csc.fi_ and choose the **Port** _5001_. 
 
-5\. In the section **Tenant ID:Access Key**, type (without spaces) the desired _project's name_, add "**:**" and your _Pouta username_ (this is the CSC user accout you use in Puhti, Taito and cPouta). Thus, it should be in the format _projectname:username_, e.g. *project_123456:john*.
+5\. In the section **Project:Domain:Username**, type (without spaces) the desired _project's name_, add "**:default:**" and your _Pouta username_ (this is the CSC user accout you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:default:username_, e.g. *project_123456:default:john*.
 
-6\. Type your CSC password in the **Secret Key** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
+6\. Type your CSC password in the **Password** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
 
-!["Entering information for a bookmark"](img/cyberduck_bookmark_info.PNG)
+!["Entering information for a bookmark"](img/cyberduck_bookmark_info.jpg)
 **Figure** Entering information for a bookmark
 
 7\. Navigate to the top left corner to the icons under _Open Connection_ and choose the **Bookmarks icon** (second from the left).
  
 8\. Next, right-click the created bookmark and choose the option **Connect to server**.
 
-!["Connecting to the server"](img/cyberduck_connect.PNG)
+!["Connecting to the server"](img/cyberduck_connect.jpg)
 **Figure** Connecting to the server
 
 Now you should be able to see the content of your project (which might be empty).

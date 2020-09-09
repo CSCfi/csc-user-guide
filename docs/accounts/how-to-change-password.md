@@ -26,7 +26,7 @@ If you are not logged in:
     * Must contain at least one lowercase letter (a–z)
     * Must contain at least one uppercase letter (A–Z)
     * Must contain at least one number (0–9)
-    * May contain special characters ( !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)
+    * May contain special characters ( !#$%&()*+,-./:;=>?@[\\]^_{|}~)
     * Learn what makes a strong password and don't use weak passwords
     * Reusing the old password will not stop your account from expiring
     * Never use the same password on multiple sites
