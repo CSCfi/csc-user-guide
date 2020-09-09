@@ -1,7 +1,7 @@
 # OpenStack command line tool installation using package manager tools
 
-This article describes how to install the OpenStack command line tools on 
-Ubuntu, Red Hat and OS X based systems 
+This article describes how to install the OpenStack command line tools on
+Ubuntu, Red Hat and OS X based systems
 to effienctly manage various features of OpenStack.
 The installation instructions are based on Python's _pip_ package. Once pip is
 in place, the steps are the same for all systems.
@@ -40,7 +40,7 @@ commands.
 ### Preparation
 
 To prepare for the installation of the actual command line tools, we will
-install the pip and Python development packages. 
+install the pip and Python development packages.
 
 !!! note
     We assume here that you already have Python installed. This is
@@ -173,7 +173,7 @@ virtual environment.
 
 OpenStack provides a set of Python tools for managing various aspects
 of its operation. Each subcomponent of OpenStack has its own tool. It
-also provides the common shared tool 
+also provides the common shared tool
 *python-openstackclient*. The easiest way to install most of the
 command line tools is to install python-openstackclient. It should
 pull several other clients as dependencies. If a tool you need is
@@ -213,13 +213,13 @@ web interface. You can download this script at the following URL
 after logging in:
 
 > <a
-> href="https://pouta.csc.fi/dashboard/project/access_and_security/api_access/openrc/"
-> class="external-link">https://pouta.csc.fi/dashboard/project/access_and_security/api_access/openrc/</a>
+> href="https://pouta.csc.fi/dashboard/project/api_access/"
+> class="external-link">https://pouta.csc.fi/dashboard/project/api_access/</a>
 
 To download this in the web interface, navigate to the
-*Access & Security* screen, and press *Download OpenStack RC File v3.*
+*API Access* section, and press *Download OpenStack RC File v3.*
 
-![RC file example](/img/rc-file-example20190121-b.png)
+![RC file example](/img/pouta-openrc.png)
 
 Once you have the openrc script from the web UI, you can add the
 environment variables:

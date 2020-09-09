@@ -42,9 +42,9 @@ Before starting your first virtual machine in cPouta/ePouta, you must first set 
 
 To open a connection to your virtual machines in cPouta/ePouta, you need SSH keys. This is the default way to access new virtual machines. You only need to set up your SSH keys once.
 
-If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to **Access & Security**, and in **Key Pairs**, select **Import Key Pair**. Name your key, and paste your public key (starts with something like "ssh-rsa AAFAA...." or "ssh-dss AFAFA...") into the other box.
+If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to **Key Pair** section, and select **Import Public Key **. Name your key, and paste your public key (starts with something like "ssh-rsa AAFAA...." or "ssh-dss AFAFA...") into the other box.
 
-If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you. Go to **Access & Security**, and in **Key Pairs**, select **Create Key Pair**. Give your key a name and click **Create**. You get a "_keyname.pem_" to save. Save it in your home directory.
+If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you. Go to **Key Pairs** section, select **Create Key Pair**. Give your key a name and click **Create**. You get a "_keyname.pem_" to save. Save it in your home directory.
 
 ![ssh key pairs](/img/pouta-user-guide-keypairs.png)
 
@@ -113,7 +113,7 @@ Opening up ports this widely is not recommended and not necessary in most cases.
 
 !!! Tip
     **Please note:**
-    
+
     *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption in the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80, for SSH key injections to work.**
     *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
     *   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
@@ -134,10 +134,10 @@ On the **Details** tab of the _launch instance_ view, first select **Instance Bo
 
 !!! Tip
 
-   **Please note:** 
-   
-   This approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page. 
-   
+   **Please note:**
+
+   This approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page.
+
 After selecting the instance boot source, you can select an _image_ or a virtual machine _snapshot_ you wish to use in the **Image Name** dropdown menu. After that, give your instance a _name_ and select the _flavor_ (i.e. size of the virtual machine, see Table 3.1). Under the **Access & Security** tab, choose the keypair you have created or added (see Chapter 3.2.1) and the security groups you wish to use (remember to select the security group for SSH access that you created previously in 3.2.1.2). Then on the **Networking** tab, select your own network (your project name). Once you have assigned these parameters for your virtual machine, you can click **Launch** to start the virtual machine.
 
 ## Adding a public IP for the machine in cPouta
