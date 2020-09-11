@@ -12,7 +12,7 @@ systems. It also comes with plenty of analysis scripts.
 -   Puhti: 2018-2020 releases with regularly updated minor versions, several with plumed or cuda
 -   Mahti: 2019-2020 releases with regularly updated minor versions, several with plumed
 -   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use commandline plumed tools, load the plumed module.
+-   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
 
 !!! note
     We only provide the parallel version `gmx_mpi`, but it can
@@ -36,9 +36,6 @@ need to first load its dependencies, which are shown with
 
 <!-- The module will set `$OMP_NUM_THREADS=1`
 as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
-
-See [GPU-example below](#example-gpu-script-for-puhti) for required additional flags
-if you need to use threads instead/in addition to MPI tasks. 
 
 ### Notes about performance
 
@@ -78,6 +75,7 @@ test at the scaling limit, rather than run very long scaling tests in advance.
 
 module purge
 module load gromacs-env
+export OMP_NUM_THREADS=1
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
@@ -102,6 +100,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 module purge
 module load gromacs-env
+export OMP_NUM_THREADS=1
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
