@@ -62,7 +62,7 @@ The data can be accessed and shared in a variety of ways:
 
 * **Access control lists:** Access control lists (ACLs) work on buckets, not objects. With ACLs, you can share your data in a limited manner to other projects. You can e.g. grant a collaboration project authenticated read access to your datasets.
 
- * **Temporary public links** can be created with [s3cmd](./s3_client.md#temporory-urls) . Thes kind of links can be used in cases where data needs to be accessed over the internet without credentials, but is not supposed to remain publicly accessible.
+ * **Temporary signed links** can be created with [s3cmd](./s3_client.md#publising objects-temporarily.with-signed-urls) . Thes kind of links can be used in cases where the data needs to be accessed over the internet without credentials, but is not supposed to remain publicly accessible.
  
  * **Public:** You can also have ACLs granting public read access to data, which is useful e.g. for permanently sharing public scientific results or public datasets.
 
