@@ -318,13 +318,13 @@ _https://a3s.fi/fish-bucket/zebrafish.tgz_
 
 With command _s3cmd signurl_ an object in Allas can be temporarily published with URL that includes security inclreasing access token.
 
-In the previous example object s3://fish-bucket/zebrafish.tgz was made permanently accessible through simple static URL. 
+In the previous example object _s3://fish-bucket/zebrafish.tgz_ was made permanently accessible through simple static URL. 
 With _signurl_ the same object could be shared more securely and only for a limited time. For example command:
 
 ```text
 s3cmd signurl s3://fish-bucket/zebrafish.tgz +3600
 ```
-would print out an URL that remains valid for 3600 s (1 h). The URL would look something like:
+would print out an URL that remains valid for 3600 s (1 h). In this case URL, produced by the command above, would look something like:
 ```text
 https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b23bfd7a67&Expires=1599835116&Signature=OLyyCY14s%2F0HxKOOd108mldINyE%3D
 ```
