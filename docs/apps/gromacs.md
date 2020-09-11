@@ -9,14 +9,15 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.5, 2019.6, 2020.1, 2020.2
--   Check recommended version(s) with `module avail gromacs`
--   Some versions include also Plumed
+-   Puhti: 2018-2020 releases with regularly updated minor versions, several with plumed or cuda
+-   Mahti: 2019-2020 releases with regularly updated minor versions, several with plumed
+-   Check recommended version(s) with `module avail gromacs-env`
+-   If you want to use commandline plumed tools, load the plumed module.
 
 !!! note
-    Puhti has only the parallel version installed (gmx_mpi), but it can
+    We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
-    Instead of gmx grompp ... give gmx_mpi grompp
+    Instead of `gmx grompp` ... give `gmx_mpi grompp`
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
@@ -31,10 +32,13 @@ module load gromacs-env
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
-`module spider gromacs/version`. The module will set `$OMP_NUM_THREADS=1`
-as otherwise mdrun will spawn threads for cores it _thinks_ are free.
+`module spider gromacs/version`.
+
+<!-- The module will set `$OMP_NUM_THREADS=1`
+as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
+
 See [GPU-example below](#example-gpu-script-for-puhti) for required additional flags
-if you need to use threads instead/in addition to mpi tasks.
+if you need to use threads instead/in addition to MPI tasks. 
 
 ### Notes about performance
 
@@ -54,7 +58,10 @@ We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
 results are comparable.
 
-Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, **IF** you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
+A scaling test with a very large system (1M+ particles) may take a while to 
+load balance optimally. It's better to increase the number of nodes in your 
+production simulation, **IF** you see better performance than in the scaling 
+test at the scaling limit, rather than run very long scaling tests in advance.
 
 ### Example parallel batch script for Puhti
 ```bash
@@ -98,10 +105,6 @@ module load gromacs-env
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
-!!! note
-    You *must* fill in the computing project name in your script (replace
-    <project> with it). Otherwise, your job will not run. This project will be
-    used for billing the cpu usage.
     
 ### Example GPU script for Puhti
 ```bash
@@ -115,7 +118,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --mail-type=END
 ##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
 
-module load gromacs-env/2019-gpu
+module load gromacs-env/2020-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export SLURM_CPU_BIND=none
