@@ -1,7 +1,7 @@
 # Gromacs
 
 Gromacs is a very efficient engine to perform molecular dynamics
-simulations and energy minimization particularly for proteins. However,
+simulations and energy minimizations particularly for proteins. However,
 it can also be used to model polymers, membranes and e.g. coarse grained
 systems. It also comes with plenty of analysis scripts.
 
