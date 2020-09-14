@@ -59,6 +59,7 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | medium    | 1-20        | 36 hours      | all              |
 | large     | 20-200      | 36 hours      | scalability test |
 | gc        | 1-700       | 36 hours      | Grand Challenge  |
+| interactive | 1         |  7 days       | all              |
 
 Large partition on Mahti is only accessible to projects that have done a
 [scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
