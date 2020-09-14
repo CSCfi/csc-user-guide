@@ -61,16 +61,19 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | gc        | 1-700       | 36 hours      | Grand Challenge  |
 | interactive | 1         |  7 days       | all              |
 
+[Interactive partition](./interactive-usage.md#sinteractive-in-mahti) can be used both 
+for interactive working and in cases where reserving a full node is not reasonable. 
+
+In other partitions of Mahti, only full nodes are allocated. In these partitions, jobs 
+will have access to all cores and memory in a node. You may choose to run with fewer cores if that 
+gives better performance.
+
+Billing is based on the allocated nodes.
+
 Large partition on Mahti is only accessible to projects that have done a
 [scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
 `qc` is only accessible to Grand Challenge projects and has a higher
 priority.
 
-!!! note "Notes on partitions"
-
-    - ** Only full nodes are allocated on Mahti **
-        - Jobs will have access to all cores and memory in a node, but
-		may choose to run with fewer cores if that gives better performance
-        - Billing is based on the allocated nodes.
 
 
