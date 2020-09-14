@@ -1,6 +1,5 @@
 # Billing
 
-Puhti has a new billing scheme. Billing in the cloud remains as before.
 
 ## Puhti 
 
@@ -19,15 +18,22 @@ The total BU consumption per hour is the sum of the above terms:
 
 ` Total BUs = ( NCores * 1 + MemGiBs * 0,1 + NVMeGiBs * 0,006 + NGPUs * 60 ) * Walltime hours `
 
+### Scratch disk billing
+
+The default 1 TiB scratch disk quota is free. Increased quota charges:
+
+* 1 TiB consumes **50 000** BUs per year.
+
 ## Mahti
 
 ### Compute billing
 
-In contrast to Puhti, on Mahti resources are used and billed in full nodes only.
+In contrast to Puhti, on Mahti resources are used and billed in full nodes on all normal partitions. In the interactive partition that can be used for interactive work, as well as for small scale pre- and postprocessing, the usage is billed per CPU core. In Mahti memory is not billed separately.
 
  * Each reserved node consumes **100** BUs per hour. 
+ * In interactive partition each core consumes **1** BU per hour.
 
-## Lustre scratch disk billing
+### Scratch disk billing
 
 The default 1 TiB scratch disk quota is free. Increased quota charges:
 
