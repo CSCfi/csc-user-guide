@@ -23,9 +23,10 @@ The total BU consumption per hour is the sum of the above terms:
 
 ### Compute billing
 
-In contrast to Puhti, on Mahti resources are used and billed in full nodes only.
+In contrast to Puhti, on Mahti resources are used and billed in full nodes on all normal partitions. In the interactive partition that can be used for interactive work, as well as small scale pre- and postprocessing the usage is billed per CPU core. In Mahti memory is not billed separately.
 
  * Each reserved node consumes **100** BUs per hour. 
+ * In interactive partition each core consumes **1** BU per hour.
 
 ## Lustre scratch disk billing
 
