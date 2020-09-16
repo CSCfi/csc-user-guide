@@ -80,6 +80,7 @@
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures

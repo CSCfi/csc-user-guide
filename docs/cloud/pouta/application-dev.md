@@ -11,7 +11,7 @@ face.
 
 Best practices to build your application on Pouta are all about
 leveraging the flexibilities of IaaS cloud computing, code management,
-automation, orchestration, wise data management and dealing with 
+automation, orchestration, wise data management and dealing with
 underlying cloud environment failures. Some of these practices which
 could be easily followed by developers considering to build and deploy
 their application in Pouta cloud environments are illustrated in
@@ -58,7 +58,7 @@ production or test environments. We at CSC use GIT for our code
 management. You can, for example, have a look at one of our public
 [code repositories] to see how we manage our code base. You should
 preferably also have automation and orchestration code for your
-application in the same code repository. For example, one of our [code repositories] 
+application in the same code repository. For example, one of our [code repositories]
 that deploys an Etherpad application on
 Pouta has all of its automation, orchestration and application code in
 the same code repository.
@@ -296,7 +296,7 @@ application development.
   [code repositories]: https://github.com/CSCfi
   [code repository]: http://https://github.com/CSCfi/etherpad-deployment-demo
   [Etherpad code example]: https://github.com/CSCfi/etherpad-deployment-demo
-  [OpenStack Heat resources]: https://docs.openstack.org/heat/newton/template_guide/openstack.html
+  [OpenStack Heat resources]: https://docs.openstack.org/heat/queens/template_guide/openstack.html
   [Ansible playbooks]: https://github.com/CSCfi/spark-openstack
   [Travis CI]: https://travis-ci.org
   [Circle CI]: https://circleci.com/

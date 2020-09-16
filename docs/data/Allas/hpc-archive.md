@@ -8,7 +8,7 @@ In these servers HPC-archive was used with iRODS commands like `iput` and `iget`
 
 As these supercomputers are now phased out, also HPC-archive has been closed. 
 If HPC-archive contained some data that you want to preserve, the data can 
-be moved to the Allas object storage environment. However, you should act now as the HPC-archive 
+be made available in the Allas object storage environment. However, you should act now as the HPC-archive 
 data will not be available after year 2020.
 
 ## Allas access is needed
