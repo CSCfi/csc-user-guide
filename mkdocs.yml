@@ -38,6 +38,7 @@ nav:
         - Array jobs: computing/running/array-jobs.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
+        - Lustre filesystem: computing/running/lustre.md
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
