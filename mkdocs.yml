@@ -147,7 +147,8 @@ nav:
         - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
-     - Datasets: data/datasets.md
+     - Datasets:
+         - Datasets: data/datasets.md
          - Phases of dataset use: data/datasets/phases-of-datasets.md
          - Gathering datasets: data/datasets/gathering-datasets.md
             - Sourcing datasets: data/datasets/sourcing-datasets.md
