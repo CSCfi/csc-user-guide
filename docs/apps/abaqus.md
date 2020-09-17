@@ -17,7 +17,7 @@ After login on the server, give command
 
     module available
 
-and check lines *abaqus/(version number)*. For example to load Ansys version 2019, give command
+and check lines *abaqus/(version number)*. For example to load Abaqus version 2019, give command
 
     module load abaqus/2019
 

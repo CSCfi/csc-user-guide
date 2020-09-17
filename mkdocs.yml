@@ -71,6 +71,7 @@ nav:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
