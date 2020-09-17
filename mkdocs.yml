@@ -148,24 +148,27 @@ nav:
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
      - Datasets:
-         - Datasets: data/datasets.md
-         - Phases of dataset use: data/datasets/phases-of-datasets.md
-         - Gathering datasets: data/datasets/gathering-datasets.md
-            - Sourcing datasets: data/datasets/sourcing-datasets.md
-            - Specific datasets hosted by CSC: data/datasets/specific-datasets-hosted-by-csc.md
-            - Persistent identifiers: data/datasets/persistent-identifiers.md
-            - Files and file formats: data/datasets/files-and-file-formats.md
-            - Licensing: data/datasets/data-licensing.md
-         - Using datasets: data/datasets/using-datasets.md
-            - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
-            - Versioning and documenting: data/datasets/versioning-and-documenting.md
-            - Processing and analysing data: data/datasets/processing-and-analysing-data.md
-            - Building data lakes: data/datasets/building-datalakes.md
-            - How to manage sensitive data: data/datasets/how-to-manage-sensitive-data.md
-         - Publishing datasets: data/datasets/publishing-datasets.md
-            - Hosting datasets at CSC: data/datasets/hosting-datasets-at-csc.md
-            - Metadata and documentation: data/datasets/metadata-and-documentation.md
-            - Licensing new datasets: data/datasets/licensing-new-datasets.md
+        - Overview: data/datasets/index.md
+        - Phases of dataset use: data/datasets/phases-of-dataset-use.md
+        - Gathering datasets: 
+           - Overview: data/datasets/gathering-datasets.md
+           - Sourcing datasets: data/datasets/sourcing-datasets.md
+           - Specific datasets hosted by CSC: data/datasets/specific-datasets-hosted-by-csc.md
+           - Persistent identifiers: data/datasets/persistent-identifiers.md
+           - Files and file formats: data/datasets/files-and-file-formats.md
+           - Licensing: data/datasets/data-licensing.md
+        - Using datasets: 
+           - Overview: data/datasets/using-datasets.md
+           - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
+           - Versioning and documenting: data/datasets/versioning-and-documenting.md
+           - Processing and analysing data: data/datasets/processing-and-analysing-data.md
+           - Building data lakes: data/datasets/building-datalakes.md
+           - How to manage sensitive data: data/datasets/how-to-manage-sensitive-data.md
+        - Publishing datasets: 
+           - Overview: data/datasets/publishing-datasets.md
+           - Hosting datasets at CSC: data/datasets/hosting-datasets-at-csc.md
+           - Metadata and documentation: data/datasets/metadata-and-documentation.md
+           - Licensing new datasets: data/datasets/licensing-new-datasets.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
