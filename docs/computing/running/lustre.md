@@ -13,14 +13,16 @@ The Lustre file system is constituted by a set of I/O servers called Object Stor
 * The Metadata Target (MDT): The storage contains information about the data, filenames, permissions, directories, etc. Each file on MDT includes a layout such as the OST number, object identifier.
 
 !["Lustre file system view"](../../img/lustre.png)
+*Lustre file system view*
 
-Hint: When a user opens/close a file many times in his application in a loop, then the workload on MDT increases. When many users do that, then the metadata could be slow and influence many more users. Be cautious when you develop your application.
+Hint: When a user opens/close a file many times in a loop during the execution of an application, then the workload on MDT increases. When many users do similar approach, then the metadata could be slow and influence many more users, even to be slow edit a file from a login node. Be cautious when you develop your application.
 
-## File striping 
+## File striping and alignment
 
-In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process access different stripe of a file during parallel I/O. Moreover, an MPI process is better to access one OST only in most of the cases to avoid network contention. When the stripes are aligned then can be uniform distributed on each OST. 
+In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process access different stripe of a file during parallel I/O, this can be achieved through stripe alignment. THis si the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as less OSTs/OSSs as possible to avoid network contention. When the stripes are aligned then can be uniform distributed on each OST. 
 
-!["Lustre file striping"](../../img/file_striping.png)
+!["Lustre file striping"](../../img/file_striping.png = 640x480)
+*Lustre file striping and alignment*
 
 If in the above example, we had a file of 5 MB, then the OST 0 would have an extra 1 MB of data. If the processes are not aligned then a process could have to access more than one OST and cause network contention issues. 
 
