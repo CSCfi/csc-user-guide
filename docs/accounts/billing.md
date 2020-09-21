@@ -50,3 +50,7 @@ The Allas object storage charges:
 To make it easier for customers to estimate how many billing units
 they need, there is a [billing unit
 calculator](https://research.csc.fi/billing-and-monitoring) available for all CSC compute and storage services.
+
+## Monitoring billing unit consumption
+
+The [MyProjects](https://my.csc.fi/myProjects) tool in MyCSC portal allows customers to study the billing unit consumption and apply for more billing units. In the portal you can easily check by who, when and where the billing units were consumed. Note that storage related billing unit consumption (scratch and Allas) is not linked to a specific user account and is reported under account name: "unknown".
