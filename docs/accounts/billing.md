@@ -53,4 +53,4 @@ calculator](https://research.csc.fi/billing-and-monitoring) available for all CS
 
 ## Monitoring billing unit consumption
 
-The [MyProjects](https://my.csc.fi/myProjects) tool in MyCSC portal allows customers to study the billing unit consumption and apply for more billing units. In the portal you can easily check by who, when and where the billing units were consumed. Note that storage related billing unit consumption (scratch and Allas) is not linked to a specific user account and is reported under account name: "unknown".
+In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the billing unit consumption and apply for more billing units. There you can easily check who consumed the billing units, when they were consumed and in which service. Note that storage-related billing unit consumption (in Scratch and Allas) is not linked to a specific user account and is reported as "unknown".
