@@ -46,7 +46,7 @@ Hint 2: If your application reads/writes only small files, do not increase the s
 
 It is known from our guide that both Puhti and Mahti have the storage areas Puhti [home](./../disk.md#home-directory), [project](./../disk.md#projappl-directory) and [scratch](./../disk.md#scratch-directory). However, the Lustre configuration, is not the same between them. 
 
-|            Puhti              |
+|             |Puhti   |        |
 |Storage area | # OSTs | # MDTs |
 |-------------|--------|--------|
 | home        |  24    |   4    |
@@ -54,7 +54,7 @@ It is known from our guide that both Puhti and Mahti have the storage areas Puht
 | scratch     |  24    |   4    |
 
 
-|            Mahti              |
+|             |Mahti  |        |
 |Storage area | # OSTs | # MDTs |
 |-------------|--------|--------|
 | home        |   8    |   1    |   
