@@ -48,8 +48,7 @@ It is known from our guide that both Puhti and Mahti have the storage areas Puht
 
 |             |Puhti   |        |
 |-------------|--------|--------|
-|Storage area | # OSTs | # MDTs |
-|-------------|--------|--------|
+|**Storage area** | **# OSTs** | **# MDTs** |
 | home        |  24    |   4    |
 | projappl    |  24    |   4    |
 | scratch     |  24    |   4    |
@@ -57,8 +56,7 @@ It is known from our guide that both Puhti and Mahti have the storage areas Puht
 
 |             |Mahti   |        |
 |-------------|--------|--------|
-|Storage area | # OSTs | # MDTs |
-|-------------|--------|--------|
+|**Storage area** | **# OSTs** | **# MDTs** |
 | home        |   8    |   1    |   
 | projappl    |   8    |   1    |
 | scratch     |  24    |   2    |
