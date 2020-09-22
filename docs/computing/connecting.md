@@ -92,7 +92,7 @@ If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SS
 
 *Step 1.* Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
 
-*Step 2.* Copy the public key to Puhti. Following the instrusctions for Windows Powershell (see above), select and copy the public key from the first text box as an extra line to Puhti (`.ssh\id_rsa.pub`).
+*Step 2.* Copy the public key to Puhti. Following the instructions for Windows Powershell ([see above](#setting-up-ssh-keys)), select and copy the public key from the first text box as an extra line to Puhti (`.ssh\authorized_keys`).
 
 If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to the `ssh-agent` in Linux.
 
