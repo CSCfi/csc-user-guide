@@ -21,7 +21,7 @@ Hint: When a user opens/close a file many times in a loop during the execution o
 
 In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process access different stripe of a file during parallel I/O, this can be achieved through stripe alignment. This is the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as less OSTs/OSSs as possible to avoid network contention. When the stripes are aligned then can be uniform distributed on each OST. 
 
-!["Lustre file striping"](../../img/file_striping.png = 640x480)
+!["Lustre file striping"](../../img/file_striping.png)
 *Lustre file striping and alignment*
 
 If in the above example, we had a file of 5 MB, then the OST 0 would have an extra 1 MB of data. If the processes are not aligned then a process could have to access more than one OST and cause network contention issues. 
@@ -121,11 +121,11 @@ In the above example, the file is using the 24 OSTs of Mahti and the stripe size
 
 * During a collective I/O operation, the buffers on the aggregated nodes are buffered through MPI, then these nodes write the data to the I/O servers.
 
-* Example 8 MPI processes, 4 MPI processes per computing node. 
+* Example 8 MPI processes, 4 MPI processes per computing node, collective I/O, all the processes write on the same file. 
 
 !["MPI I/O aggregators"](../../img/aggregators.png)
 
-By default, the OpenMPI on Mahti defines 1 MPI I/O aggregator per compute node. This means that in our example above, only 2 MPI processes do the actual I/O. They gather the data from the rest of the processes (phase 1), and in the second phase they send the data to the storage. The usage of the default MPI aggregators could be enough, but in many cases, it is not.
+By default, for collective I/O, the OpenMPI on Mahti defines 1 MPI I/O aggregator per compute node. This means that in our example above, only 2 MPI processes do the actual I/O. They gather the data from the rest of the processes (phase 1), and in the second phase they send the data to the storage. The usage of the default MPI aggregators could be enough, but in many cases, it is not.
 
 
 
