@@ -13,6 +13,7 @@ The Lustre file system is constituted by a set of I/O servers called Object Stor
 * The Metadata Target (MDT): The storage contains information about the data, filenames, permissions, directories, etc. Each file on MDT includes a layout such as the OST number, object identifier.
 
 !["Lustre file system view"](../../img/lustre.png)
+
 *Lustre file system view*
 
 Hint: When a user opens/close a file many times in a loop during the execution of an application, then the workload on MDT increases. When many users do similar approach, then the metadata could be slow and influence many more users, even to be slow edit a file from a login node. Be cautious when you develop your application.
@@ -22,6 +23,7 @@ Hint: When a user opens/close a file many times in a loop during the execution o
 In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process access different stripe of a file during parallel I/O, this can be achieved through stripe alignment. This is the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as less OSTs/OSSs as possible to avoid network contention. When the stripes are aligned then can be uniform distributed on each OST. 
 
 !["Lustre file striping"](../../img/file_striping.png)
+
 *Lustre file striping and alignment*
 
 If in the above example, we had a file of 5 MB, then the OST 0 would have an extra 1 MB of data. If the processes are not aligned then a process could have to access more than one OST and cause network contention issues. 
@@ -125,6 +127,8 @@ In the above example, the file is using the 24 OSTs of Mahti and the stripe size
 
 !["MPI I/O aggregators"](../../img/aggregators.png)
 
+* MPI I/O Aggregators example *
+
 By default, for collective I/O, the OpenMPI on Mahti defines 1 MPI I/O aggregator per compute node. This means that in our example above, only 2 MPI processes do the actual I/O. They gather the data from the rest of the processes (phase 1), and in the second phase they send the data to the storage. The usage of the default MPI aggregators could be enough, but in many cases, it is not.
 
 
@@ -172,6 +176,26 @@ call MPI_File_open(comm,filename,amode,info,fh,ierror)
 ...
 ```
 
-* Tips about hints
+* In some cases it is better to activate some hints than let the heuristics to decide with the automatic option
 
- * In some cases it is better to activate some hints than let the heuristics to decide with the automatic option
+* How to see the used hints and their values?
+
+ * Declare in yoru submission script:
+
+```
+export ROMIO_PRINT_HINTS=1
+```
+
+ * Then in your output, if and only if there is collective I/O, you will see the hints, for example:
+
+```
+key = cb_buffer_size            value = 33554432
+key = romio_cb_read             value = enable
+key = romio_cb_write            value = enable
+key = cb_nodes                  value = 64
+key = romio_no_indep_rw         value = false
+key = romio_cb_pfr              value = disable
+...
+```
+This is useful in order to be sure that your declarations were really used
+
