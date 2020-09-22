@@ -46,7 +46,7 @@ Hint 2: If your application reads/writes only small files, do not increase the s
 
 It is known from our guide that both Puhti and Mahti have the storage areas Puhti [home](./../disk.md#home-directory), [project](./../disk.md#projappl-directory) and [scratch](./../disk.md#scratch-directory). However, the Lustre configuration, is not the same between them. 
 
-|  Name     <td colspan=2>Puhti <td colspan=2>Mahti       
+|  Name       | Puhti  |        | Mahti  |        |
 |-------------|--------|--------|--------|--------|
 |**Storage area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
 | home        |  24    |   4    |    8    |   1    | 
@@ -80,10 +80,10 @@ The peak performance for Mahti when it was one signle filesystem and not as it i
 * If an application opens a file for reading, then open the file in read mode only
 
 
-Increase striping count for parallel access, especially on large files:
-* The striping factor should be a factor of a number of processes performing parallel I/O
-* A rule of thumb is to use as striping the square root of the file size in GB. If the file is 90 GB, the square root is 9.5, so use at least 9 OSTs.
-* If you use for example, 16 MPI processes for parallel I/O, the number of the used OSTs should be less or equal to 16.
+* Increase striping count for parallel access, especially on large files:
+    * The striping factor should be a factor of a number of processes performing parallel I/O
+    * A rule of thumb is to use as striping the square root of the file size in GB. If the file is 90 GB, the square root is 9.5, so use at least 9 OSTs.
+    * If you use for example, 16 MPI processes for parallel I/O, the number of the used OSTs should be less or equal to 16.
 
 * There is no need to stripe in a case of one file per MPI process 
 
