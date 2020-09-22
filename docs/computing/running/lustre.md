@@ -19,7 +19,7 @@ Hint: When a user opens/close a file many times in a loop during the execution o
 
 ## File striping and alignment
 
-In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process access different stripe of a file during parallel I/O, this can be achieved through stripe alignment. THis si the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as less OSTs/OSSs as possible to avoid network contention. When the stripes are aligned then can be uniform distributed on each OST. 
+In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process access different stripe of a file during parallel I/O, this can be achieved through stripe alignment. This is the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as less OSTs/OSSs as possible to avoid network contention. When the stripes are aligned then can be uniform distributed on each OST. 
 
 !["Lustre file striping"](../../img/file_striping.png = 640x480)
 *Lustre file striping and alignment*
@@ -119,7 +119,7 @@ In the above example, the file is using the 24 OSTs of Mahti and the stripe size
 
 ##MPI I/O Aggregators
 
-* During a collective write, the buffers on the aggregated nodes are buffered through MPI, then these nodes write the data to the I/O servers.
+* During a collective I/O operation, the buffers on the aggregated nodes are buffered through MPI, then these nodes write the data to the I/O servers.
 
 * Example 8 MPI processes, 4 MPI processes per computing node. 
 
@@ -129,8 +129,49 @@ By default, the OpenMPI on Mahti defines 1 MPI I/O aggregator per compute node. 
 
 
 
+## ROMIO Hints
 
+* Hints for Collective Buffering (Two-Phase I/O) and more focus on Lustre
 
-## Hints
+| Hint                | Description                                                                                                      |
+|---------------------|------------------------------------------------------------------------------------------------------------------|
+|cb_buffer_size       | The buffer size, in bytes, of the intermediate buffer used in two-phase collective I/O                           |
+|romio_cb_read        | Collective read operations during collective buffering, values: enable, disable, automatic                       |
+|romio_cb_write       | Collective write operations during collective buffering, values: enable, disable, automatic                      |
+|romio_no_indep_rw    | Controls if no independent read/write is enabled or not, values: enable, disable, automatic                      |
+|cb_config_list       | Defines how many MPI I/O aggregators can be user per node, values: *:X where X aggregators per each compute node |
+|cb_nodes             | The maximum number of aggregators to be used                                                                     |
 
+* How can I change the MPI I/O hints?
 
+Create a text file with the required commands and declare inside your submission script:
+
+```
+export ROMIO_HINTS=/path/file
+```
+
+Replace the `path` and `file`
+
+* How can I increase the number of the MPI I/O aggregators per node
+
+ * Create or edit a text file with the content:
+
+```
+cb_config_list *:2
+``` 
+  This will activate 2 MPI processes per each compute node of your job to operate as MPI I/O aggregator.
+
+* Change hints in the code of an application (code example):
+
+```
+...
+call MPI_Info_create(info,ierror)
+call MPI_Info_set(info,'romio_cb_write','enable',ierror)
+...
+call MPI_File_open(comm,filename,amode,info,fh,ierror)
+...
+```
+
+* Tips about hints
+
+ * In some cases it is better to activate some hints than let the heuristics to decide with the automatic option
