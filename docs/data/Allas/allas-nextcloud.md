@@ -104,7 +104,7 @@ You can do this things for example in puhti.csc.fi with commands:
 
 ```text
    module load allas
-   allas-conf –mode s3cmd
+   allas-conf -–mode s3cmd
 ```
 
 ### 2. Creating a new empty bucket
