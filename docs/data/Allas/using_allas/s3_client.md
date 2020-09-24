@@ -72,15 +72,30 @@ source allas_conf --mode s3cmd --user your-csc-username
 Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your 
 CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory).
 
-## s3cmd with supercomputers
+## Configuring S3 connection in supercomputers
 
-To use s3cmd in Puhti and Mahti, you must first confugure the connection:
+To use _s3cmd_ in Puhti and Mahti, you must first confugure the connection:
 ```text
 module load allas
 allas-conf --mode s3cmd
 ```
-
 The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
+
+You can use the S3 crdentials, stored in the _.s3cfg_ file, in other services too. You can check the currenly used _access key_ and _secret_key_ with command:
+```
+grep key $HOME/.s3cfg
+
+```
+
+If you use these keys in other services, your should make sure that the keys always remain private. Any person who has access to these two keys, can access and modify all the data that the project has in Allas.
+
+In needed, you can deactivate an S3 key pair with command:
+
+```
+allas-conf --s3remove
+```
+
+
 
 ## Create buckets and upload objects
 
