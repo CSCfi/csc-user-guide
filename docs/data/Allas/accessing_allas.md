@@ -38,7 +38,7 @@ You can start using Allas with one of the following options. Note that the tools
 * **a-tools for basic use:** (Swift, optionally S3) [Quick and safe: a-commands](./using_allas/a_commands.md)
 * **Advanced functions with rclone:** (Swift) [Advanced tool: rclone](./using_allas/rclone.md)
 * **A wide range of functionalities:** (Swift) [Swift client](./using_allas/swift_client.md)
-* **S3 client and persistent Allas connections:** (S3) [S3 client](./using_allas/s3_client.md#s3cmd-with-supercomputers)
+* **S3 client and persistent Allas connections:** (S3) [S3 client](./using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
 
 The client software listed above can be used in other Linux servers as well, e.g. a virtual machine running in cPouta or your own Linux-based laptop. In that case, you need to install the client software and configure the connection to Allas yourself. Instructions: [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils)
 
