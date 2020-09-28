@@ -142,8 +142,8 @@ ensemblfetch.sh -names
 ```
 ## Running BLAST in FGCI grid with gb
 
-**gb** (grib blast) is currently available in Taito, but not in Puhti.
-*  [gb instructions](./grid_blast.md)
+**gb** (grid blast) will soon be available in Puhti.
+<!-- *  [gb instructions](./grid_blast.md) -->
 
 Below is a list of BLAST databases maintained at the servers of CSC.
 

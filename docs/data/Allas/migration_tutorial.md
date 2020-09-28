@@ -1,6 +1,6 @@
 # Using Allas to migrate your data from Taito to Puhti 
 
-The Taito.csc.fi cluster was closed at the end of 2019. If you have data that you want 
+The Taito.csc.fi cluster was closed for general use at the end of 2019. If you have data that you want 
 to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories), 
 you have to copy the data elsewhere as soon as possible. 
 
@@ -8,7 +8,7 @@ The new Allas object storage service provides a platform that you can use to sto
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server that is replacing Taito does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
+Puhti does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
@@ -25,12 +25,8 @@ The tutorials are based on interactively executed commands and thus apply only f
 
 ## Datamangler
 
-** Datamangler is no longer available **
-
-Datamangler was a temporary server that was launched to support data migration from Taito to Allas.
-It is no longer in use. Datamangler was used in several examples of this tutorial. As datamangles is no more
-available, you should replace it with *taito.csc.fi* in the examples below. 
-
+Datamangler is a temporary server that was launched to support data migration from Taito to Allas.
+It will be available for a limited time. This page has several examples on how to use it.
 
 ## 1. Get access to Allas
 
