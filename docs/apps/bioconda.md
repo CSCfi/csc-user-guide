@@ -84,6 +84,18 @@ source activate my_biotools
 vcf2bed
 ```
 
+!!! Note
+
+    You should **not** use _conda init_ in Puhti. This applies to both
+    Bioconda and your own Conda installations.
+    
+    _conda init_ modifyes your account so that it takes the Conda environment automatically in use. 
+    This is in principle handy, but in practice it will often cause problems when you 
+    try to use software that were not installed with your default Conda environment.
+    
+
+
+
 ## Support
 
 servicedesk@csc.fi
