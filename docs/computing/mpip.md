@@ -21,7 +21,7 @@ module load mpip
 export LD_LIBRARY_PATH=<path-to-unwind-lib>:<path-to-iberty-lib>:$LD_LIBRARY_PATH
 ```
 For running instead we replace `srun` by `srun -ppdebug`. 
-This will create profiling for all code in a file which is file which indicate in the standard output before the programs's own output. Here is an example of a output at the beginning of the execution of a code:
+This will create profiling for all code in a file which is indicated in the standard output before the programs's own output. Here is an example of a output at the beginning of the execution of a code:
 
 ```
 mpiP: Set the report print threshold to [10.00%].
