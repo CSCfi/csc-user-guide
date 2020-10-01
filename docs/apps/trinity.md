@@ -13,7 +13,7 @@ The Trinity module at CSC also includes TransDecoder and Trinotate tools to anly
 ## Available
 Version on CSC's Servers
 
-Puhti: 2.8.5
+Puhti: 2.11.0, 2.8.5
 
 
 ## Using Trinity 
