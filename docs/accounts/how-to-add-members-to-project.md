@@ -2,8 +2,8 @@
 
 There are two ways to add users to a project. You can either add them directly
 or give them an invitation link. Users are added automatically to projects, but
-they need to [select services](how-to-add-service-access-for-project.md) that
-they want to use with their account.
+they need to [select services](how-to-add-service-access-for-project.md) they
+want to use with their account.
 
 ## Adding members directly
 
