@@ -70,14 +70,14 @@ wait
 ## ParaView using one graphics card, one pvserver, and many threads  
 In cases where OSPRay does not work well enough, run ParaView on a GPU node, and reserve a graphics card for it.  
 
-The script *para580-1GPU.sh* below starts and connects one client and one pvserver, and uses one GPU. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) Resources reserved via `salloc` are for the client and the pvserver combined. *Cpus-per-task* is the number of threads. Ten or more threads is recommended. One GB of memory is allocated to the client, the rest goes to the pvserver.  
+The script *para581-1GPU.sh* below starts and connects one client and one pvserver, and uses one GPU. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) Resources reserved via `salloc` are for the client and the pvserver combined. *Cpus-per-task* is the number of threads. Ten or more threads is recommended. One GB of memory is allocated to the client, the rest goes to the pvserver.  
 
-The following `salloc` command allocates ten threads to the client and ten to the pvserver, so 20 CPUs are reserved. 24 GB memory is allocated to the pvserver, and one GB to the client. **Note that all the parameters below need to be explicitly given,** otherwise the script *para580-1GPU.sh* will not work  
+The following `salloc` command allocates ten threads to the client and ten to the pvserver, so 20 CPUs are reserved. 24 GB memory is allocated to the pvserver, and one GB to the client. **Note that all the parameters below need to be explicitly given,** otherwise the script *para581-1GPU.sh* will not work  
 ```
-salloc --nodes=1 --ntasks=2 --cpus-per-task=10 --mem=25G --time=01:00:00 --partition=gpu --gres=gpu:v100:1 --account=<project> para580-1GPU.sh
+salloc --nodes=1 --ntasks=2 --cpus-per-task=10 --mem=25G --time=01:00:00 --partition=gpu --gres=gpu:v100:1 --account=<project> para581-1GPU.sh
 ```
 
-#### Script *para580-1GPU.sh*:  
+#### Script *para581-1GPU.sh*:  
 ```
 #!/bin/bash
 ######################################################
@@ -105,24 +105,24 @@ export KNOB_MAX_WORKER_THREADS=$SLURM_CPUS_PER_TASK
 export XDG_RUNTIME_DIR=$HOME
 echo "gpu_device_ordinal is ${GPU_DEVICE_ORDINAL}"
 
-srun --gres=gpu:v100:1 --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY /appl/opt/vis/paraview/pvserver-5.8.0-EGL/bin/pvserver --egl-device-index=$GPU_DEVICE_ORDINAL --server-port=$MYPORT --disable-xdisplay-test --force-offscreen-rendering &
-srun --gres=none --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraView-5.8.0-client-builddir/bin/paraview --server-url=cs://${FIRSTNODE}.bullx:$MYPORT &
+srun --gres=gpu:v100:1 --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY /appl/opt/vis/paraview/pvserver-5.8.1-EGL/bin/pvserver --egl-device-index=$GPU_DEVICE_ORDINAL --server-port=$MYPORT --disable-xdisplay-test --force-offscreen-rendering &
+srun --gres=none --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraView-5.8.1-client-builddir/bin/paraview --server-url=cs://${FIRSTNODE}.bullx:$MYPORT &
 wait
 ```
 
 ## ParaView utilizing a full GPU node. Four pvservers use one GPU and ten CPUs each, client runs on a CPU node  
-One full GPU node gets reserved for this job. Batch script *pvserver580-4GPU-node.sh* reserves all resources of a GPU node, starts four pvservers, each using one GPU and ten threads (CPUs), and sends an email message when the resources have been granted. When the pvservers are up and running, submit another script *para580-4GPU-client.sh*, below, to start ParaView client and connect it to the servers. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.)   
+One full GPU node gets reserved for this job. Batch script *pvserver581-4GPU-node.sh* reserves all resources of a GPU node, starts four pvservers, each using one GPU and ten threads (CPUs), and sends an email message when the resources have been granted. When the pvservers are up and running, submit another script *para581-4GPU-client.sh*, below, to start ParaView client and connect it to the servers. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.)   
 
-Note that the batch script *pvserver580-4GPU-node.sh* uses a separate configuration script *pvserver580-4GPU.conf*, which needs to be in the same directory.  
+Note that the batch script *pvserver581-4GPU-node.sh* uses a separate configuration script *pvserver581-4GPU.conf*, which needs to be in the same directory.  
 
-Edit the first section of the batch script *pvserver580-4GPU-node.sh* as follows. Set the time needed for the job, fill in your account project, and provide your email address to receive message when the job starts. As an option, without actually submitting the job yet, you can first run the script by using *test-only* parameter, to get an estimate of the queuing time. You can control (delay) the job start time by submitting with *begin* option. The job will not start before the given time. The rest of the script should not be edited.  
+Edit the first section of the batch script *pvserver581-4GPU-node.sh* as follows. Set the time needed for the job, fill in your account project, and provide your email address to receive message when the job starts. As an option, without actually submitting the job yet, you can first run the script by using *test-only* parameter, to get an estimate of the queuing time. You can control (delay) the job start time by submitting with *begin* option. The job will not start before the given time. The rest of the script should not be edited.  
 
 Submit the job via `sbatch` command  
 ```
-sbatch pvserver580-4GPU-node.sh
+sbatch pvserver581-4GPU-node.sh
 ```
 
-#### Script *pvserver580-4GPU-node.sh*:  
+#### Script *pvserver581-4GPU-node.sh*:  
 ```
 #!/bin/bash -l
 #####################################################
@@ -139,7 +139,7 @@ sbatch pvserver580-4GPU-node.sh
 # fill in your project number (mandatory)
 #SBATCH --account=<project>
 # remove the extra # and fill in your email address, to receive email when job starts
-##SBATCH --mail-user=user@provider.fi
+##SBATCH --mail-user=<email address>
 #SBATCH --mail-type=BEGIN
 ### Optionally, if queues are long, you may want to control when your job starts.
 ### To activate the SBATCH commands, remove the extra # so that only one remains.
@@ -174,44 +174,43 @@ export MODULEPATH_ROOT=/appl/spack/modulefiles/linux-rhel7-x86_64
 export MODULEPATH=${MODULEPATH_ROOT}/Core:/appl/modulefiles
 . /appl/spack/install-tree/gcc-4.8.5/lmod-7.8-tf4lqs/lmod/7.8/init/bash
 module purge
-module load gcc/8.3.0 intel-mkl/2019.0.4 intel-mpi/18.0.5
-export LD_LIBRARY_PATH=/appl/opt/vis/paraview/nvidia/nvidia-driver:/appl/opt/vis/ospray/embree-3.6.1.x86_64.linux/lib:/appl/opt/vis/ospray/1.8.5-gl/lib64:/appl/opt/vis/dependencies/VisRTX-0.1.6-install/lib64:/appl/opt/vis/dependencies/nvidia-index-libs-2.4.20200124-linux/lib/:/appl/opt/vis/dependencies/NVIDIA-OptiX-SDK-6.0.0/lib64:/appl/opt/vis/dependencies/mdl-sdk-314800.830/linux-x86-64/lib:/appl/opt/vis/dependencies/oidn-1.0.0-install/lib64:$LD_LIBRARY_PATH
+module load paraview/5.8.1-pvserverEGL
 export VTK_DEFAULT_EGL_DEVICE_INDEX=${GPU_DEVICE_ORDINAL}
 export MYPORT=`comm -23 <(seq 22400 22499 | sort) <(ss -Htan | awk '{print $4}' | cut -d':' -f2 | sort -u) | shuf | head -n 1`
-srun --multi-prog pvserver580-4GPU.conf
+srun --multi-prog pvserver581-4GPU.conf
 ```
 
-#### Configuration file for the above script, copy it to the same directory and name it *pvserver580-4GPU.conf*:  
+#### Configuration file for the above script, copy it to the same directory and name it *pvserver581-4GPU.conf*:  
 ```
-0 bash -c '/appl/opt/vis/paraview/pvserver-5.8.0-EGL-mpi/bin/pvserver --egl-device-index=0 --server-port=$MYPORT'
-1 bash -c '/appl/opt/vis/paraview/pvserver-5.8.0-EGL-mpi/bin/pvserver --egl-device-index=1 --server-port=$MYPORT'
-2 bash -c '/appl/opt/vis/paraview/pvserver-5.8.0-EGL-mpi/bin/pvserver --egl-device-index=2 --server-port=$MYPORT'
-3 bash -c '/appl/opt/vis/paraview/pvserver-5.8.0-EGL-mpi/bin/pvserver --egl-device-index=3 --server-port=$MYPORT'
+0 bash -c '/appl/opt/vis/paraview/pvserver-5.8.1-EGL-mpi/bin/pvserver --egl-device-index=0 --server-port=$MYPORT'
+1 bash -c '/appl/opt/vis/paraview/pvserver-5.8.1-EGL-mpi/bin/pvserver --egl-device-index=1 --server-port=$MYPORT'
+2 bash -c '/appl/opt/vis/paraview/pvserver-5.8.1-EGL-mpi/bin/pvserver --egl-device-index=2 --server-port=$MYPORT'
+3 bash -c '/appl/opt/vis/paraview/pvserver-5.8.1-EGL-mpi/bin/pvserver --egl-device-index=3 --server-port=$MYPORT'
 ```
 
-When you receive email about your GPU node job, run the script *para580-4GPU-client.sh* below via `salloc`.  
+When you receive email about your GPU node job, run the script *para581-4GPU-client.sh* below via `salloc`.  
 
-The `salloc` command example reserves resources and starts ParaView client on a computing node, and connects it to four pvservers. It is assumed that the pvservers were started by the script *pvserver580-4GPU-node.sh* and are already running on a GPU node. Because the client is just a front end to the pvservers, it does not need much resources. Default resources of the `interactive` partition are sufficient, just define the length of your interactive session  
+The `salloc` command example reserves resources and starts ParaView client on a computing node, and connects it to four pvservers. It is assumed that the pvservers were started by the script *pvserver581-4GPU-node.sh* and are already running on a GPU node. Because the client is just a front end to the pvservers, it does not need much resources. Default resources of the `interactive` partition are sufficient, just define the length of your interactive session  
 ```
-salloc --time=02:00:00 --partition=interactive --account=<project> para580-4GPU-client.sh
+salloc --time=02:00:00 --partition=interactive --account=<project> para581-4GPU-client.sh
 ```
-#### Script *para580-4GPU-client.sh*:  
+#### Script *para581-4GPU-client.sh*:  
 ```
 #!/bin/bash
 ############################################################
 ### This script starts paraview client on a CPU node     ###
 ### and connects it to pvservers running on a GPU node.  ###
-### It is assumed that script pvserver580-4GPU-node.sh   ###
+### It is assumed that script pvserver581-4GPU-node.sh   ###
 ### has been used for the GPU node reservation.          ###
 ### No editing of this script is needed.                 ###
 ############################################################
 
 NODENAME=`grep "Accepting connection" ${HOME}/job4GPU_out | awk '{ print $NF }' | cut -d: -f 1`
 PORT=`grep "Accepting connection" ${HOME}/job4GPU_out | awk '{ print $NF }' | cut -d: -f 2`
-echo "ParaView client is running at node ${NODENAME} and port ${PORT}"
+echo "ParaView server is running at node ${NODENAME} and port ${PORT}"
 module purge
-module load paraview/5.8.0-paraview
-srun --x11=first --pty /appl/opt/vis/paraview/paraView-5.8.0-client-builddir/bin/paraview --server-url=cs://${NODENAME}:${PORT}
+module load paraview/5.8.1-paraview
+srun --x11=first /appl/opt/vis/paraview/paraView-5.8.1-client-builddir/bin/paraview --server-url=cs://${NODENAME}:${PORT}
 ```
 
 ## More Information
