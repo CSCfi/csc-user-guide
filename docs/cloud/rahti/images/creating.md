@@ -1,10 +1,14 @@
 # Creating images
 
-## Building images localy
+There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
-It is possible to build images localy, three steps are needed.
+## Building images locally
 
-First a `Dockerfile` must be written, for example this:
+In this example we are going to use the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and make the necessary changes to make it work in OpenShift.
+
+Three steps are needed to run build an image locally in a computer.
+
+ * First a `Dockerfile` must be written, for example this:
 
 ```Dockerfile
 FROM nginx:alpine
@@ -25,7 +29,13 @@ EXPOSE 8081
 USER nginx:root
 ```
 
-This simply uses the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and makes the necessary modifications to make it work as a non root user, this is necessary to make it work in OpenShift. Basically to give permissions to the `root` group, change the port where nginx listens to, and comment out a line of configuration. The original `nginx:alpine` image has 5 layers, and we will adding a new one (RUN).
+The `Dockerfile` is:
+
+ 1. Giving write permissions to the `root` group (not the `root` user) to several folders that nginx needs to write to (/var/cache/nginx, /var/run, /var/log/nginx, and /etc/nginx/html/). Applications are run using a random user and the `root` group.
+ 2. Changing the port where nginx listens to, as only root is allowed to listen on privileged ports (<1024).
+ 3. And finally comment out the `user` configuration directive.
+
+ The original `nginx:alpine` image has 5 layers, and we will adding a new one (`RUN`).
 
 A simpler example of `Dockerfile` could be:
 

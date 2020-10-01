@@ -66,10 +66,12 @@ nav:
          - Webhooks: cloud/rahti/tutorials/webhooks.md
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
          - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
@@ -149,6 +151,7 @@ nav:
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
+     - By availability: apps/by_system.md
   - Support:
      - Tutorials: support/tutorials/index.md
      - FAQ: support/faq/index.md

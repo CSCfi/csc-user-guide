@@ -28,9 +28,47 @@ OpenCFD's versions are recognized of version sign starting with letter v, ie, fo
 
 Version specific example files for a batch job scripts are available on the servers.  The instructions how to copy those example files are printed on the terminal after module loading command. 
 
+### Use collated parallel IO method on CSC's servers
+
+-   on CSC's computing servers, use OpenFOAM's [collated IO method](https://openfoam.org/news/parallel-io/) when ever possible
+-   use of collated method absolutely necessary when the model size is large and lot of disk IO is necessary
+
+The file system used in CSC's computing platforms Puhti and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become hevily overloaded, and the whole computing platform can get jammed.
+
+Above described, OpenFOAM's traditional parallel IO method can in the latest versions of OpenFOAM be replaced with collated parallel IO method, where the output data is written only in few files.  Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
+
+In test runs on CSC's servers with the collated IO method, significant difference in throughput time has not been recognized compared to non-collated method.  In some tests, collated method has shown to be even slightly faster. Our recommendation is to use collated method whenever it is practicable.
+
+#### An example 
+
+Mahti server one node contains 128  cores.  If the total subdomain number in the model is 256, user may allocate two full nodes for the solver run.  Decomposition batch job will then done using command
+
+    decomposePar -fileHandler collated -ioRanks '(0 128 256)'
+
+and two directories `processors256_0-127` and `processors256_128-255` are created.  For the solver run command will then be
+
+    pimpleFoam -parallel -fileHandler collated -ioRanks '(0 128 256)'
+
+In that way,  128 processes are running on both nodes, and on each node one process is a master process.  Reconstruction of the data is done in the batch job with command
+
+    reconstructPar
+
+In this example, the pressure results of domains 0 to 127 per time step are written into a single file.  In a non-collated method, the same results would have been written into 128 separate files. This tremendous decrease of number of output files happens naturally with all the rest of the field variables also.  
+
+IO operations in the collated method are based on threaded sub-processes, and therefore do not cause any time overhead for the simulation compared to non-collated method.
+
+#### Example batch job scipts for collated method usage on Mahti
+
+The example scripts for separate batch runs for decomposition, solver and reconstruction are in folder
+
+    /appl/soft/eng/OpenFOAM/batch_script_examples
+
+Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue,
+[more info on using the interactive queue](../../computing/running/creating-job-scripts-mahti/#using-interactive-partition-for-non-parallel-pre-or-post-processing).
+
 ## Support
 
-In problem situation, send an email to servicedesk@csc.fi.
+In a problem situation, send an email to servicedesk@csc.fi.
 
 ## More information
 

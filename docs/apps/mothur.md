@@ -9,7 +9,7 @@ Mothur is a bioinformatics toolkit for the needs of the microbial ecology relate
 
 ### Version on CSC's Servers
 
--   Puhti: 1.42.3, 1.43.0
+-   Puhti: 1.39.5, 1.42.3, 1.43.0, 1.44.0, 1.44.1, 1.44.3
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
@@ -17,20 +17,20 @@ Mothur is a bioinformatics toolkit for the needs of the microbial ecology relate
 
 To initialize the default version of Mothur in Puhti use:
 ```text
-module load biokit
+module load mothur
 ```
-To load a specific version, load mothur module directly and specify a version, e.g.:
+To see all available versions:
+```text
+module spider mothur
+```
+To load a specific version:
 ```text
 module load mothur/1.42.3
-```
-You can then run Mothur:
-```text
-mothur
 ```
 To tun Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md).
 ```text
 sinteractive --account=project_1234567 -m 8000
-module load biokit
+module load mothur
 mothur
 ```
 If your analyses take a long time, or you wish to use multiple cores, you should run Mothur as a batch job. 
@@ -52,7 +52,7 @@ Below is a sample Mothur batch job file. In this example we assume that the Moth
 #SBATCH --time=48:00:00
 #SBATCH --partition=small
 
-module load biokit
+module load mothur
 mothur my_mothur_task.txt
 ```
 

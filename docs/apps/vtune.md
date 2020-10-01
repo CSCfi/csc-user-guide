@@ -1,7 +1,6 @@
 # Intel VTune Profiler
 
-Intel VTune Profiler is provided via the `intel-vtune` module. One sets up the
-environment by loading the module:
+Intel VTune Profiler is available only on Puhti and it is provided via the `intel-vtune` module. One sets up the environment by loading the module:
 
 ```
 module load intel-vtune
@@ -95,3 +94,5 @@ amplxe-gui results_dir_name
 
 Please see Intel’s documentation for more information on using the GUI:
 [https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html](https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html)
+
+Sometimes trying to start the GUI fails with the error message `Failed to launch VTune Amplifier GUI`. This is due to some leftover processes ( check with `ps ax | grep vtune_amplifier`) which have to be killed first.
