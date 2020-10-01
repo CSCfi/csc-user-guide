@@ -27,7 +27,7 @@ Then Saara [creates two research projects](../../accounts/how-to-create-new-proj
 
 Once the CSC projects are established, Saara [activates the Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 TB) will not be enough for the incoming data set, she sends a request for 90 TB of Allas quota for the project _Data management of the HiaNo project_ to servicedesk@csc.fi.
 
-Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-member-to-project.md) and asks him to take care of the details of the incoming data.  
+Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-members-to-project.md) and asks him to take care of the details of the incoming data.  
 
 ## Act 2. Creating a shared bucket ##
 
