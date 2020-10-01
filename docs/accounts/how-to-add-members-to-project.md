@@ -60,8 +60,8 @@ They do not even have to be registered yet.
    users. Approve them with the _check_ button or reject them with the _X_
    button.
 
-   !!! Note
+!!! Note
 
-       No email is sent when a user clicks _Apply project membership_, so it is
-       advisable to remind the project manager if approving the membership
-       takes long.
+    No email is sent when a user clicks _Apply project membership_, so it is
+    advisable to remind the project manager if approving the membership
+    takes long.
