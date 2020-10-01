@@ -10,6 +10,7 @@ All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home p
 
 ```text
 module load biokit
+module load biopythontools
 module load lazypipe
 ```
 Now lazypipe starts with command:
@@ -43,6 +44,7 @@ When you have the data available you can submit the task with commands:
 ```text
 cd /scratch/my_project
 module load biokit
+module load biopythontools
 module load lazypipe
 sbatch-lazypipe -1 data/M15/M15_R1.fastq \
 --hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz \

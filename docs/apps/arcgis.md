@@ -225,7 +225,7 @@ servicedesk@csc.fi
 ------------------------------------------------------------------------
 
   [ArcGIS software]: http://www.esri.com/software/arcgis
-  [Additional information and data download]: https://avaa.tdata.fi/adata/esri/esri_stk.html
+  [Additional information and data download]: https://wiki.eduuni.fi/display/cscjemma/Accessible+for+ArcGIS+consortium+members
   [Installation guidelines]: http://www.esri.fi/sitecore/content/esrifi/home/tuki/asennusohjeet
   [Patches and Service Packs for ArcGIS Desktop]: http://support.esri.com/en/downloads/patches-servicepacks/list/productid/160
   [Guidelines for granting ArcGIS licenses in ArcGIS Online]: http://pro.arcgis.com/en/pro-app/get-started/manage-licenses.htm

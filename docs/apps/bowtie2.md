@@ -10,7 +10,7 @@ significantly from its ancestor Bowtie. For example the command line options are
 
 ## Available
 
--   Puhti: 2.3.5.1
+-   Puhti: 2.4.1, 2.3.5.1
 -   Chipster graphical user interface
 
 
