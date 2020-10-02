@@ -1,6 +1,6 @@
 # r-env-singularity
 
-The `r-env-singularity` module is a [Singularity container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env-singularity` is a [Singularity container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -8,18 +8,27 @@ The `r-env-singularity` module is a [Singularity container](../../computing/cont
 
 ## Available
 
-The `r-env-singularity` module includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
+`r-env-singularity` includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
 
-Currently supported versions:
+Currently supported R versions and corresponding modules:
 
-- R 3.6.3
-- Latest CRAN packages available on March 17 2020
-- Bioconductor 3.10
-- RStudio Server 1.2.5033
+- 3.6.3: `r-env-singularity/3.6.3`
+- 4.0.2: `r-env-singularity/4.0.2`
 
-Other software and libraries included in the module:
+CRAN package and Bioconductor versions:
+
+- 3.6.3: CRAN packages available on March 17 2020, Bioconductor 3.10
+- 4.0.2: CRAN packages available on September 24 2020, Bioconductor 3.11 
+
+RStudio Server versions:
+
+- 3.6.3: 1.2.5033
+- 4.0.2: 1.3.1093
+
+Other software and libraries:
 
 - Open MPI 4.0.2 (with Mellanox OFED™ software)
+- Intel® MKL 2020.0-088
 - cget 0.1.9
 
 ## Licenses
@@ -31,6 +40,8 @@ Other software and libraries included in the module:
 - Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
 
 - Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
+
+- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf). 
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 
@@ -126,13 +137,19 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -164,13 +181,19 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -191,13 +214,19 @@ Array jobs can be used to handle [*embarrassingly parallel*](../computing/runnin
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
@@ -233,15 +262,20 @@ To perform our analysis efficiently, we could take advantage of a module includi
 #SBATCH --mem-per-cpu=1000
 #SBATCH --cpus-per-task=4
 
+# Load parallel and r-env-singularity
 module load parallel/20200122
-module load r-env-singularity/3.6.3
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
+# Split runs into arrays and run the R script
 (( from_run = SLURM_ARRAY_TASK_ID * 150 + 1 ))
 (( to_run = SLURM_ARRAY_TASK_ID * 150 + 150 ))
 
@@ -251,10 +285,11 @@ sed -n "${from_run},${to_run}p" mylist.txt | \
                 $SLURM_ARRAY_TASK_ID
 ```
 
-If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function:
+If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function.
 
 ```r
-commandArgs(trailingOnly = TRUE)
+# For example:
+arrays <- commandArgs(trailingOnly = TRUE)
 ```
 
 *Jobs using `doMPI` (with `foreach`)*
@@ -297,13 +332,19 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
 
@@ -339,13 +380,19 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save --slave myscript.R
 ```
 
@@ -360,6 +407,60 @@ message <- paste("Hello from rank", comm.rank(), "of", comm.size())
 comm.print(message, all.rank = TRUE, quiet = TRUE)
 
 finalize()
+```
+
+#### Improving performance using threading
+
+`r-env-singularity` has been compiled using the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
+
+By default, `r-env-singularity` is single-threaded. While users may set a desired number of threads for a job, the benefits of this in terms of computation times depend on the analysis. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
+
+!!! note
+    Note that simply adding more resources does not necessarily guarantee faster computation!
+
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. 
+
+To improve the performance of multi-threaded tasks, `r-env-singularity` automatically binds OpenMP threads to specific cores using `OMP_PLACES=cores`. The container has also been configured to monitor thread affinity using `OMP_AFFINITY_FORMAT` and `OMP_DISPLAY_AFFINITY` ([see this page for details](https://docs.csc.fi/computing/running/performance-checklist/#hybrid-parallelization-in-mahti)).
+
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads). Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_8threads
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=2000
+
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
+
+# Clean up prior TMPDIR and OMP_NUM_THREADS from .Renviron
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
+fi
+
+# Specify a temp directory in .Renviron
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Match thread and core numbers
+echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+In a multi-core interactive job, the number of threads can be automatically matched with the number of cores by running a multi-threaded version of the `start-r` or `start-rstudio-server` commands:
+
+```bash
+start-r-multithread # or
+start-rstudio-server-multithread
 ```
 
 #### Using fast local storage
@@ -381,14 +482,19 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 #SBATCH --mem-per-cpu=1000
 #SBATCH --gres=nvme:10
 
-module load r-env-singularity/3.6.3
+# Load the module
+module load r-env-singularity/4.0.2
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
-    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
+# Specify NVME temp folder path
 echo "TMPDIR=$TMPDIR" >> ~/.Renviron
 
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
