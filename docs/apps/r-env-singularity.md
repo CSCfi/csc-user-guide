@@ -446,7 +446,7 @@ if test -f ~/.Renviron; then
     sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
-# Specify a temp directory in .Renviron
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
 # Match thread and core numbers
