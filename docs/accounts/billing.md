@@ -1,6 +1,6 @@
 # Billing
 
-<iframe src="https://my.csc.fi/buc" width="100%" height="1020" frameborder="0" ></iframe>
+<iframe src="https://my.csc.fi/buc" width="100%" height="1100" frameborder="0" ></iframe>
 
 ## Accounting formulas
 
