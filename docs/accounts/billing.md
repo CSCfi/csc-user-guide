@@ -1,6 +1,6 @@
 # Billing
 
-<iframe src="https://my.csc.fi/buc" width="100%" height="1300" frameborder="0" ></iframe>
+See the [Billing unit and price calculator](https://research.csc.fi/billing-and-monitoring#buc).
 
 ## Accounting formulas
 
