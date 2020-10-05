@@ -1,6 +1,6 @@
 # Billing
 
-<iframe width="100%" height="1300" src="https://my.csc.fi/buc"></iframe>
+<iframe src="https://my.csc.fi/buc" width="100%" height="1300" frameborder="0" ></iframe>
 
 ## System specifics
 
