@@ -66,7 +66,7 @@ The Allas object storage charges:
 
 ### Rahti
 
-* See [Rahti billing](/cloud/rahti/billing.md)
+* See [Rahti billing](../cloud/rahti/billing.md)
 
 ### Monitoring billing unit consumption
 
