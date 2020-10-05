@@ -1,8 +1,8 @@
 # Billing
 
-<iframe src="https://my.csc.fi/buc" width="100%" height="1300" frameborder="0" ></iframe>
+<iframe src="https://my.csc.fi/buc" width="100%" height="1020" frameborder="0" ></iframe>
 
-## System specifics
+## Accounting formulas
 
 ### Puhti
 
