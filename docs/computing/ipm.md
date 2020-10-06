@@ -3,7 +3,7 @@
 ## Available
     Puhti: 2.0.6
 ## Usage  
-[IPM](http://ipm-hpc.sourceforge.net/) is a portable profiling infrastructure for parallel codes. It has extremely low overhead, is scalable and easy to use requiring no source code modification. The level of detail is selectable at runtime and presented through a variety of text and web reports.  In order to use no code changes are require, only a re-link is needed. In addition to the required modules, one has the load the IPM module:
+[IPM](http://ipm-hpc.sourceforge.net/) is a portable profiling infrastructure for parallel codes. It has extremely low overhead, is scalable and easy to use requiring no source code modification. The level of detail is selectable at runtime and presented through a variety of text and web reports.  In order to use no code changes are required, only a re-link is needed. In addition to the required modules, one has the load the IPM module:
 ```
 module load ipm
 ```
@@ -52,4 +52,4 @@ This will create profiling for all cod, displayed at the end of the  programs's 
 #
 ###################################################################
 ```
-IPM provides information about the totall wall time, and time spent in the MPI calls, for each individual call. It also generates an XML file that can be used to generate a graphical webpage.
+IPM provides information about the totall wall time, and time spent in the MPI calls, cumulative and for each individual call. It also generates an XML file that can be used to generate a graphical webpage.
