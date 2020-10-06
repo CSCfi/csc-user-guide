@@ -8,7 +8,7 @@
 ```
 module load mpip
 ```
-Next the code is compiled as normal, but with addition of the `-g` flag and the link to the libraries. For Mahti one should use:
+Next, the code is compiled as normal, but with addition of the `-g` flag and the link to the libraries. For Mahti one should use:
 ```
 -lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib>-lunwind
 ```
@@ -24,7 +24,7 @@ Next the code is ran as a usual batch job. The follwing additions are needed to 
 module load mpip
 export LD_LIBRARY_PATH=<path-to-unwind-lib>:<path-to-iberty-lib>:$LD_LIBRARY_PATH
 ```
-This will create profiling for all code in a file which is indicated in the standard output before the programs's own output. Here is an example of a output at the beginning of the execution of a code:
+This will create profiling for all code in a file which is indicated before the programs's own output in the standard output. Here is an example of a output at the beginning of the execution of a code:
 
 ```
 mpiP: Set the report print threshold to [10.00%].
@@ -182,7 +182,7 @@ Reduce               7    *     256         8         8         8      2048
 @--- End of Report --------------------------------------------------------
 ---------------------------------------------------------------------------
 ```
-In the first part of the file are shown basic information about the performance experiment, followed by various statistics per invidual task and as aggregated. 
+In the first part of the file is shown basic information about the performance experiment, followed by various statistics per invidual task and as aggregated. 
 If one wants to focus only on specific regions the profilling can be switched on/off. For example in a Fortran code one could do:
 
 ```
