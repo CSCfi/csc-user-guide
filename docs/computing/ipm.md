@@ -52,4 +52,4 @@ This will create profiling for all cod, displayed at the end of the  programs's 
 #
 ###################################################################
 ```
-
+IPM provides information about the totall wall time, and time spent in the MPI calls, for each individual call. It also generates an XML file that can be used to generate a graphical webpage.
