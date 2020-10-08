@@ -45,6 +45,7 @@ apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md
 the actual workflow below, you need to set up your Maestro environment on Puhti.
 
 These first four steps you only need to do once
+
 1. ssh to Puhti
      * `ssh your-username@puhti.csc.fi`
 1. `module load maestro`
@@ -68,9 +69,11 @@ For actual simulations we recommend using Puhti as follows:
 The overall process is shown in the video below, and additional details and some diagnostics tips
 are explained in our [Maestro power usage tutorial](../support/tutorials/power-maestro.md)
 
-Note, that Maestro jobs
-are not run via batch scripts like most other applications at CSC, but
-via Schrödinger binaries using options.
+!!! note
+    Note, that Maestro jobs
+    are not run via batch scripts like most other applications at CSC, but
+    via Schrödinger binaries using options.
+
 For example, a Desmond workflow could be run with:
 
 ```
