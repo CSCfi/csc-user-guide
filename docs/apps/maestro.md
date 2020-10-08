@@ -54,7 +54,7 @@ These first four steps you only need to do once
      * If you change Maestro version, you should do the same.
      * Now you have your own `schrodinger.hosts` file in your `$HOME` directory
 1. Copy the HOST descriptions from the `schrodinger.hosts` file on Puhti to your local hosts file on your computer
-     * Copy everything starting with `name:    test` and paste it at the end of your local `schrodinger.hosts` file
+     * Copy everything starting from `name:    test` and paste it at the end of your local `schrodinger.hosts` file
      * This step may need administrator privileges
 
 For actual simulations we recommend using Puhti as follows:
