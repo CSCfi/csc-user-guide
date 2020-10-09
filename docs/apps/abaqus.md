@@ -9,11 +9,13 @@ SIMULIA Academic Research Suite products are proprietary software. The licenses 
 
 ## Available
 
-Licenses are available on CSC's computing platform [Puhti](https://research.csc.fi/csc-s-servers).  Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+Licenses are available on CSC's computing platform [Puhti](https://research.csc.fi/csc-s-servers) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 ## Usage
 
-After login on the server, give command
+After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server.  Locate the files in your project's scratch directory.  Home directory is not intended for computing.
+
+For to find out which versions of Abaqus are installed on the server, give command
 
     module available
 
