@@ -41,7 +41,7 @@ Note that the data stored in Allas consume billing units of the project.
 
 
 
-# Example 1: a-commands <a name="e1"></a>
+# Example 1: Using Allas with a-commands <a name="e1"></a>
 
 ## A. Uploading data from Mahti to Allas
 
@@ -333,7 +333,7 @@ Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 
-# Migration example 3: Uploading large files to Allas <a name="e3"></a>
+# Example 3: Uploading large files to Allas <a name="e3"></a>
 
 In the previous two examples, the actual amount of data was rather moderate, only some gigabytes. If the size of an individual data file is 
 hundreds of gigabytes or more, the transport of only a few files may take longer than the duration 
@@ -386,7 +386,7 @@ I could launch the same upload alternative with `rclone copy`:
 ```text
 for f in */*.gz
 do
-rclone copy $f allas:2000136-uniref
+rclone copy $f allas:2001659-uniref
 done
 ```
  
@@ -425,7 +425,7 @@ It checks only the object names, which may originate from some other sources.
 
 
 
-# Migration example 4: Uploading complex directory structures to Allas <a name="e4"></a>
+#Example 4: Uploading complex directory structures to Allas <a name="e4"></a>
 
 Some workflows and software create complex directory structures to store and manage data. You might have directories that have 
 thousands or even millions of individual files. Copying these kinds of datasets to Allas takes time and is not
