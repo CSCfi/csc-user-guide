@@ -73,7 +73,7 @@ Please enter CSC password for account kkayttaj:
 Checking projects available for your account.
 Please wait.
 1) project_2000982     2) project_2001659     3) project_2000136      4) abort allas_conf
-Please choose a project by giving an item number form the list above: <b>2</b>
+Please choose a project by giving an item number from the list above: <b>2</b>
 
 allas connection configured successfully.
 Connection stays active for eight hours.
@@ -244,7 +244,7 @@ Please enter CSC password for account kkayttaj:
 Checking projects available for your account.
 Please wait.
 1) project_2000982     2) project_2001659     3) project_2000136      4) abort allas_conf
-Please choose a project by giving an item number form the list above: <b>2</b>
+Please choose a project by giving an item number from the list above: <b>2</b>
 
 allas connection configured successfully.
 Connection stays active for eight hours.
