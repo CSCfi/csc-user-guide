@@ -318,7 +318,7 @@ Next, we list the objects in the _2001659-genomes_ bucket:
       715 zebrafish/Danio_rerio.GRCz10.fa.fa
 </pre>
 
-Finally ,I use the `rclone copyto` command to copy the data from Allas to Puhti in a new directory _zebrafish2_. 
+Finally, I use the `rclone copyto` command to copy the data from Allas to Puhti in a new directory _zebrafish2_. 
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
