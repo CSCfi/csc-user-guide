@@ -50,7 +50,7 @@ The a-commands pack, compress and move data automatically. This reduces the stor
 the other hand makes the storage process bit slower. The a-commands are a good option for miscellaneous data 
 that compresses well and is mostly used in the CSC environment.
 
-In this example, I have the sub directory _genomes/zebrafish_ in the _scartch_ directory of my project in Mahti (/scratch/project_2001659). 
+In this example, I have the sub directory _genomes/zebrafish_ in the _scratch_ directory of my project in Mahti (/scratch/project_2001659). 
 The zebrafish directory  contains eight files listed below:
 
 <pre><b>ls genomes/zebrafish</b>
