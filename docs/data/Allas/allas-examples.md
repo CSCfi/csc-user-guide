@@ -1,16 +1,16 @@
 # Examples for using Allas in CSC supercomputers 
 
 CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for research data. 
-The data that needs to be for a longer time than just few weeks should be copied Allas object storage service.
+The data that needs to be for a longer time than just few weeks should be copied to Allas object storage service.
 Allas provides a platform that you can use to store your data as long as you CSC project is active. In addition 
-to storing, Allas can be used for transporting data between different servers and sharing data with outher users.
+to storing, Allas can be used for transporting data between different servers and sharing data with other users.
 
 *    [Allas user guide](./index.md)
 
-This tutorial provides four examples for using Allas in Puhti and Mahti. The eamples are based on interactively 
+This tutorial provides four examples for using Allas in Puhti and Mahti. The examples are based on interactively 
 executed commands and thus apply only for relatively small datasets (max some hundreds of GBs).
 
-1.   [The first example](#e1) uses the *a-commands* (a-put, a-get) for uploding data from Mahti to Allas and then downloading the data to Puhti.
+1.   [The first example](#e1) uses the *a-commands* (a-put, a-get) for uploading data from Mahti to Allas and then downloading the data to Puhti.
 2.   [The second example](#e2) transports the same data using _rclone_.
 3.   [The third example](#e3) focuses on uploading large files to Allas.
 4.   [The fourth example](#e4) handles the case in which the dataset to be copied includes a *large* amount of files.
@@ -34,7 +34,7 @@ and request more space. The request should be sent to **servicedesk@csc.fi**.
 Please include in your quota request:
 
    *    The ID/name of your project
-   *    The amount Allas space needed
+   *    The amount of Allas space needed
    *    A short description of the data to be stored 
 
 Note that the data stored in Allas consume billing units of the project.
@@ -51,7 +51,7 @@ the other hand makes the storage process bit slower. The a-commands are a good o
 that compresses well and is mostly used in the CSC environment.
 
 In this example, I have the sub directory _genomes/zebrafish_ in the _scratch_ directory of my project in Mahti (/scratch/project_2001659). 
-The zebrafish directory  contains eight files listed below:
+The zebrafish directory contains eight files listed below:
 
 <pre><b>ls genomes/zebrafish</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.2.bt2  
@@ -80,7 +80,7 @@ Connection stays active for eight hours.
 </pre>
 
 `allas-conf` opens a connection to the specified Allas project for eight hours. If you want to start using 
-another project, you need to run `allas-conf` again. However, in one shell session, you can have only one Allas project active at a time.
+another project, you need to run `allas-conf` again. However, in one shell session you can have only one Allas project active at a time.
 
 Next I enter the _zebrafish_ directory:
 ```text
@@ -189,7 +189,7 @@ The `a-find` report above tells that, for example, the object _2001659-mahti-SCR
 two files whose names match Danio_rerio.GRCz10.fa (the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
 matches only among objects that were uploaded with `a-put`.
 
-Next we download the data to Puhti using the `a-get` command:
+Next I download the data to Puhti using the `a-get` command:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst</b>
 Starting to copy data from allas...
@@ -213,7 +213,7 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 ## A. Uploading data with rclone
 
 Rclone is the power user tool for Allas. It is good in cases where the data does not compress much or 
-the data must be stored so that each file is stored as a separate object.
+the data must be stored as each file being a separate objectd.
 
 !!! warning
     Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can _overwrite_ 
@@ -305,7 +305,7 @@ I can now use the command `rclone lsd` to check the available buckets in Allas:
 
 Now I see two buckets. _2001659-genomes_ is the one that was just created in this 
 example, while _2001659-mahti-SCRATCH_ originates from the previous a-command example.  
-Next, we list the objects in the _2001659-genomes_ bucket:
+Next, I list the objects in the _2001659-genomes_ bucket:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone ls allas:2001659-genomes</b>
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
@@ -339,7 +339,7 @@ In the previous two examples, the actual amount of data was rather moderate, onl
 hundreds of gigabytes or more, the transport of only a few files may take longer than the duration 
 of the token-based Allas authentication.
 
-In this example, we use `a-put` to upload a set of large files from Mahti to Allas.
+In this example, I use `a-put` to upload a set of large files from Mahti to Allas.
 
 The first thing to do is to open a Mahti connection that can remain running for a long time.
 In this example, I use _screen_ command to open a session that I can leave running in the background.
@@ -394,7 +394,7 @@ I can leave the session running in the background by pressing `Ctrl-a d`.
 
 Now, I can log out from Mahti, but the screen session remains active in the Mahti login node I use (in this case, _mahti-login1_).
 
-To connect to this session, I first connect to the mahti node where the screen session is running:
+To connect to this session, I first connect to the Mahti node where the screen session is running:
 ```text
 ssh csc-username@mahti-login1.csc.fi
 ```
@@ -431,7 +431,7 @@ Some workflows and software create complex directory structures to store and man
 thousands or even millions of individual files. Copying these kinds of datasets to Allas takes time and is not
 always straightforward. The most reasonable way to upload this kind of data depends on the case. This example introduces a few alternatives.
 
-First, we open a `screen` session on Puhti and set up an Allas connection just like in the previous example:
+First, I open a `screen` session on Puhti and set up an Allas connection just like in the previous example:
 ```text
 ssh csc-username@puhti.csc.fi
 screen
