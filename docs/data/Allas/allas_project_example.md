@@ -108,8 +108,6 @@ a-publish -b hiano-project-public001 zz_364872.dat zz_242165.dat
 ```
 Next Pekka describes basic information about the data in [Fairdata Qvain Light Tool](https://www.fairdata.fi/en/qvain/) and provides the two URLs (one for each file in Allas) as a Remote Resource in Qvain. After this the data can then be published as a dataset with a landing page and a persistent identifier. This way the preliminary data can be shared among colleaques using this persistent identifier. The dataset can also be explored via [Fairdata Etsin Service](https://www.fairdata.fi/en/etsin/) with structured information and direct access to download the files in Allas.
 
-More information about Fairdata Qvain Light can be found in [Fairdata Qvain Light](https://www.fairdata.fi/en/qvain/). The URL based Allas flavor of dataset in Fairdata Qvain Light is called _Remote Resource_. Pekka adds two URLs (one for each file in Allas) in to the dataset description.
-
 
 ## Act 5. The end ##
 
