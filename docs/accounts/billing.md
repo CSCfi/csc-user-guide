@@ -41,7 +41,7 @@ The default 50 GiB projappl disk quota is free. Increased quota is charged:
 
 ### Compute billing
 
-In contrast to Puhti, on Mahti resources are used and billed per node in all
+In contrast to Puhti, in Mahti resources are used and billed per node in all
 normal partitions. In the interactive partition, which can be used for
 interactive work, as well as for small scale pre- and postprocessing, the usage
 is billed per CPU core. Memory is not billed separately.
