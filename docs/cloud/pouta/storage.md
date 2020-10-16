@@ -13,7 +13,7 @@ This storage is visible on the virtual machine as a second hard disk.
 
 The main advantage of the ephemeral storage is performance, as the data is stored in the hard disk of the server where the virtual machine is running.
 Nevertheless, the ephemeral storage is available only when the virtual machine is running.
-In addition, similarily to the data in the primary disk, the data in the ephemeral storage is lost too when you delete the virtual machine.
+In addition, similarly to the data in the primary disk, the data in the ephemeral storage is lost too when you delete the virtual machine.
 Given that the data in the ephemeral storage is not replicated, you should not store any persistent data there, and the ephemeral storage should not be considered reliable.
 
 You can find additional information on the [ephemeral storage page](ephemeral-storage.md).
