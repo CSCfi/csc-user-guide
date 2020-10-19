@@ -7,7 +7,7 @@ most important abstractions, but we highly recommend that you read the concept
 documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
+* [OpenShift concepts](https://docs.okd.io/3.11/architecture/core_concepts/index.html)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project. Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
@@ -301,7 +301,7 @@ DeploymentConfig objects may start new ReplicationControllers based on the state
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
 `serveimagestream:latest`. For other update strategies, see "[Deployment
-Strategies](https://docs.okd.io/latest/dev_guide/deployments/deployment_strategies.html)"
+Strategies](https://docs.okd.io/3.11/dev_guide/deployments/deployment_strategies.html)"
 in the OpenShift documentation.
 
 DeploymentConfig objects function similarly to deployments described in the
