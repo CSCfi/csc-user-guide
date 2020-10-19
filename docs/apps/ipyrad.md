@@ -108,7 +108,7 @@ For the setps 4-7 maximum of 8 cores is recommended. Thread assigning option sho
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=ipyrad_s4567
---error=ipyrad_err_%j
+#SBATCH --error=ipyrad_err_%j
 #SBATCH --output=put=ipyrad_output_%j
 #SBATCH --mem=128G
 #SBATCH --account=<project>
