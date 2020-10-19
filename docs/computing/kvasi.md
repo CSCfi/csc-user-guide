@@ -50,11 +50,15 @@ myQLM is a light-weight version of the QLM ecosystem that can be run outside the
 myQLM is now open access, and can be downloaded for Linux and Windows here:
 [myQLM docs and installation instructions](https://myqlm.github.io/index.html)
 
+You can also use myQLM directly from the [CSC Notebooks environment](https://notebooks.csc.fi).
+After logging in, simply launch a new "myQLM Notebooks" environment and open it in your browser.
+
 
 ## Links
 
+* [Online: Introduction to Quantum Computing and Algorithms](https://ssl.eventilla.com/event/nyGZJ)
 * [Webinar: What is Quantum Computing?](https://www.csc.fi/web/training/-/quantum-computing)
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)
 
 ---
-Latest update: 26 Aug 2020
+Latest update: 16 Oct 2020
