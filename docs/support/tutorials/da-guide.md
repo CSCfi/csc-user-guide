@@ -40,7 +40,7 @@ A great way to start with data analytics is to attend a course. You can check ou
 If you are in the field of bioinformatics, you might also want to check out the [Chipster platform](https://chipster.csc.fi/).
 
 There is also plenty of data science information available online, some popular resources include [Udemy](https://www.udemy.com/courses/development/data-science/),
-[Coursera](https://www.coursera.org/browse/data-science) and [edX](https://www.edx.org/course/subject/data-science).
+[Coursera](https://www.coursera.org/browse/data-science), [edX](https://www.edx.org/course/subject/data-science) and [Intellipaat](https://intellipaat.com/data-scientist-course-training/).
 
 ### Scaling up from your laptop (beginner)
 
