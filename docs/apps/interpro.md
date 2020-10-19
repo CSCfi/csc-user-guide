@@ -21,12 +21,13 @@ be used to search protein signatures from following databases:
     
 ## Version
 
-*   InterProScan version 5.46-81.0 is available in Puhti
+*   InterProScan version 5.47-82.0 is available in Puhti
 
 ## Usage 
 
-In Puhti, first load interproscan module with command:
+In Puhti, first load interproscan module with commands:
 ```text
+module load biokit
 module load interproscan
 ```
 
