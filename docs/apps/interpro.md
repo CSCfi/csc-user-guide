@@ -21,16 +21,14 @@ be used to search protein signatures from following databases:
     
 ## Version
 
-*   InterProScan version 5.36-75.0 is available in Puhti
+*   InterProScan version 5.46-81.0 is available in Puhti
 
 ## Usage 
 
-In Puhti, first set up the bioinformatics toolkit with command:
+In Puhti, first load interproscan module with command:
 ```text
-module load biokit
+module load interproscan
 ```
-The biokit module sets up a set of commonly used bioinformatics tools. 
-Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.
 
 After that you can submit  InterProScan jobs using command `cluster_interproscan`. Cluster_interproscan 
 is a help tool that automatically runs your InterProScan task using the batch job system of Puhti. 
