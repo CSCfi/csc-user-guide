@@ -30,26 +30,24 @@ command:
 
 To use *arcrunner* in your local computer, you need to have the ARC
 middleware client and python installed on your computer. You can
-download the *arcrunner* tool from the [Web site of FGI](https://confluence.csc.fi/download/attachments/10782989/arcrunner_29.11.13.tgz)
+download the *arcrunner* tool from the [arc-utils git repostory](https://github.com/CSCfi/arc-utils)
 
-Once you have downloaded the installation file, unpack it with the
-command:
+```
+git clone https://github.com/CSCfi/arc-utils
+```
 
-`tar zxf arcrunner.tgz`
+Next go to the _arc-utils/arcrunner/bin_ directory:
 
-Next go to the *arcrunner/bin* directory:
-
-`cd arcrunner/bin`
+`cd arc-utils/arcrunner/bin`
 
 The next step is to modify the fifth row of the *arcrunner* file so that
 the *jobmanagerpath* variable corresponds to the location of your
-*arcrunner* installation. For example if you have downloaded and
-unpacked *arcrunner* installation package to directory */opt/grid* the
+*arcrunner* installation. For example if you have downloaded  *arc-utils* repository to directory */opt/grid* the
 jobmanagerpath defining line should be:
 
-`set jobmanagerpath=("/opt/grid/arcrunner")`
+`jobmanagerpath="/opt/grid/arc-utils/arcrunner"`
 
-After this the only thing left to do is to add the *arcrunner/bin*
+After this the only thing left to do is to add the _arc-utils/arcrunner/bin_
 directory to your command path.
 
 ## Using arcrunner
