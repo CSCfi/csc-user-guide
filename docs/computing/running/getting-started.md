@@ -24,14 +24,15 @@ done via batch job system.
           computational resources between all the users of the cluster.
     - **The starting time for a job cannot be predicted**
         - It depends heavily on the actual runtimes for all user jobs and 
-          whether new jobs are submitted.
+          whether new jobs are submitted, see [FAQ](../../support/faq/when-will-my-job-run.md).
     - **Computational resources (runtime, memory, number of cores) are requested explicitly**
         - If the time or memory limits are exceeded, the job will be terminated.
 
-To get started with running your application:
+To get started with running your application on Puhti:
 
-1. [Create a batch job script](creating-job-scripts.md)
+1. [Create a batch job script for Puhti](creating-job-scripts-puhti.md)
 2. [Submit a batch job](submitting-jobs.md)
 
 If you are already familiar with SLURM, check out our
-[example batch job scripts](example-job-scripts.md).
+[example batch job scripts for Puhti](example-job-scripts-puhti.md) or
+[example batch job scripts for Mahti](example-job-scripts-mahti.md).

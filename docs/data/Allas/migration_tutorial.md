@@ -1,6 +1,6 @@
 # Using Allas to migrate your data from Taito to Puhti 
 
-The Taito.csc.fi cluster was closed at the end of 2019. If you have data that you want 
+The Taito.csc.fi cluster was closed for general use at the end of 2019. If you have data that you want 
 to preserve in the directories of Taito (including $HOME, $WRKDIR and project directories), 
 you have to copy the data elsewhere as soon as possible. 
 
@@ -8,7 +8,7 @@ The new Allas object storage service provides a platform that you can use to sto
 
 *    [Allas user guide](./index.md)
 
-The new Puhti server that is replacing Taito does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
+Puhti does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a longer-term copy of your data to Allas. This is achieved by migrating your data from Taito to Puhti through Allas.
 
 *    [Puhti quick start guide](../../support/tutorials/puhti_quick.md)
 
@@ -25,12 +25,8 @@ The tutorials are based on interactively executed commands and thus apply only f
 
 ## Datamangler
 
-** Datamangler is no longer available **
-
-Datamangler was a temporary server that was launched to support data migration from Taito to Allas.
-It is no longer in use. Datamangler was used in several examples of this tutorial. As datamangles is no more
-available, you should replace it with *taito.csc.fi* in the examples below. 
-
+Datamangler is a temporary server that was launched to support data migration from Taito to Allas.
+It will be available for a limited time. This page has several examples on how to use it.
 
 ## 1. Get access to Allas
 
@@ -375,7 +371,7 @@ In the screen session, I first load the _allas module_ and use `allas-conf` to e
 module load allas
 allas-conf -k
 ```
-Here, `allas-conf` is used with the option `-k` that saves the allas password in an environment variable ($OS_PASSWORD), so that
+Here, `allas-conf` is used with the option `-k` that saves the Allas password in an environment variable ($OS_PASSWORD), so that
 the connection to Allas can later be automatically reconfigured without the need to define the password again.
 
 After opening the Allas connection, I move to the directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
@@ -419,7 +415,7 @@ Then, I reattach the screen session:
 screen -r
 ``` 
 
-Once the _a-put_ command is finished, you can run `a-check` command to checkh if all the data objects have been created. 
+Once the _a-put_ command is finished, you can run `a-check` command to check if all the data objects have been created.
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command would be:
 
 ```text
@@ -432,7 +428,7 @@ This file of missing items can be used with a-put option `--input-list`, to cont
 ```text
 a-put -b 2000136-uniref --nc --input-list missing_000136-uniref_63449
 ```
-You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources.
+You should note, that _a-check_ does does not check if the actual context of the object is correct. It checks only the object names, which may originate from some other sources.
 
 
 

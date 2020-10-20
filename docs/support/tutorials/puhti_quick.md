@@ -32,8 +32,12 @@ The system comes with two compiler families installed, the Intel and GCC compile
 We have installed both the 18 and 19 versions of the Intel compiler, and for GCC 9.1, 8.3 and 7.4 are available.
 The pgi compiler 19.7 is available for building gpu applications.
 
-More information about compilers [here](../../computing/compiling.md).
+More information about compilers [here](../../computing/compiling-puhti.md).
 
+## High performance libraries
+
+Puhti has several high performance libraries installed, more
+information [here](../../computing/hpc-libraries.md).
 
 
 ## MPI
@@ -48,8 +52,8 @@ _hpcx-mpi_ first, this one is from the network vendor and is based on OpenMPI.
 
  **You will need to have the MPI module loaded when submitting your jobs.**
 
-More information about [building](../../computing/compiling.md#building-mpi-applications) and
-[running](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) MPI applications. 
+More information about [building](../../computing/compiling-puhti.md#building-mpi-applications) and
+[running](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) MPI applications. 
 
 
 ## Applications
@@ -67,8 +71,8 @@ Puhti uses the [slurm](https://slurm.schedmd.com/documentation.html) batch job s
 
 A description of the different slurm partitions can be found [here](../../computing/running/batch-job-partitions.md). Note that the GPU partitions are available from the normal login nodes. 
 
-Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts.md)
-and example batch job scripts are found [here](../../computing/running/example-job-scripts.md)
+Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts-puhti.md)
+and example batch job scripts are found [here](../../computing/running/example-job-scripts-puhti.md)
 
 !!! note "Very important change!!"
     You have to specify your billing project in your batch script with the `--account=<project>`
@@ -95,10 +99,12 @@ You can [check your current disk usage](../faq/disk-quota-exceeded.md) with `csc
 
 ## Moving data from Taito to Puhti
 
-Taito.csc.fi cluster will be finally closed in June 2020. Salvage your important data.
+Taito.csc.fi cluster was finally closed in June 2020. The disks are still accessible via 
+[datamangler](../../../data/Allas/migration_tutorial/#datamangler), 
+now is the last change to salvage your important data.
 
 The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito.
-The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
+Puhti does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
 
 *    [Data migration tutorials](../../data/Allas/migration_tutorial.md)
 *    [Allas user guide](../../data/Allas/index.md)

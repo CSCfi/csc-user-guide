@@ -1,6 +1,5 @@
 # Billing
 
-Puhti has a new billing scheme. Billing on Taito and in the cloud remains as before.
 
 ## Puhti 
 
@@ -19,11 +18,26 @@ The total BU consumption per hour is the sum of the above terms:
 
 ` Total BUs = ( NCores * 1 + MemGiBs * 0,1 + NVMeGiBs * 0,006 + NGPUs * 60 ) * Walltime hours `
 
-### Lustre scratch disk billing
+### Scratch disk billing
 
 The default 1 TiB scratch disk quota is free. Increased quota charges:
 
-   * 1 TiB consumes **50 000** BUs per year.
+* 1 TiB consumes **50 000** BUs per year.
+
+## Mahti
+
+### Compute billing
+
+In contrast to Puhti, on Mahti resources are used and billed in full nodes on all normal partitions. In the interactive partition that can be used for interactive work, as well as for small scale pre- and postprocessing, the usage is billed per CPU core. In Mahti memory is not billed separately.
+
+ * Each reserved node consumes **100** BUs per hour. 
+ * In interactive partition each core consumes **1** BU per hour.
+
+### Scratch disk billing
+
+The default 1 TiB scratch disk quota is free. Increased quota charges:
+
+* 1 TiB consumes **50 000** BUs per year.
 
 ## Allas 
 
@@ -36,3 +50,7 @@ The Allas object storage charges:
 To make it easier for customers to estimate how many billing units
 they need, there is a [billing unit
 calculator](https://research.csc.fi/billing-and-monitoring) available for all CSC compute and storage services.
+
+## Monitoring billing unit consumption
+
+In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the billing unit consumption and apply for more billing units. There you can easily check who consumed the billing units, when they were consumed and in which service. Note that storage-related billing unit consumption (in Scratch and Allas) is not linked to a specific user account and is reported as "unknown".

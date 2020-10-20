@@ -32,12 +32,11 @@ The table above lists only the most essential _s3cmd_ commands. For more complet
 ```text
 s3cmd -h
 ```
-
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip the installation chapter _Getting started with s3cmd_ below and proceed to the section [s3cmd with supercomputers](#s3cmd-with-supercomputers). 
-
 ## Getting started with s3cmd
 
-To configure a s3cmd connection, you need _OpenStack_ and _s3cmd_ installed in your environment. 
+If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection-in-supercomputers). 
+
+To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment. 
 
 **OpenStack s3cmd installation:**
 
@@ -64,6 +63,8 @@ s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
+** Configuring S3 connection in local computer **
+
 Once you have _OpenStack_ and _s3cmd_ installed in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
 script to set up the S3 connection to your Allas project. 
 ```text
@@ -71,17 +72,32 @@ wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --mode s3cmd --user your-csc-username
 ```
 Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your 
-CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory) .
+CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory).
 
-## s3cmd with supercomputers
+## Configuring S3 connection in supercomputers
 
-To use s3cmd in Puhti and Mahti, you must first confugure the connection:
+To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
 ```text
 module load allas
 allas-conf --mode s3cmd
 ```
-
 The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
+
+You can use the S3 credentials, stored in the _.s3cfg_ file, in other services too. You can check the currently used _access key_ and _secret_key_ with command:
+```
+grep key $HOME/.s3cfg
+
+```
+
+If you use these keys in other services, your should make sure that the keys always remain private. Any person who has access to these two keys, can access and modify all the data that the project has in Allas.
+
+In needed, you can deactivate an S3 key pair with command:
+
+```
+allas-conf --s3remove
+```
+
+
 
 ## Create buckets and upload objects
 
@@ -140,7 +156,7 @@ s3cmd get -r s3://my_bucket/
 
 ## Move objects
 
-Copy an object to another bucket:
+Copy an object to another bucket. Note that should use these commands only for objects that were uploaded to Allas with S3 protocol:
 ```text
 s3cmd cp s3://sourcebucket/objectname s3://destinationbucket
 ```
@@ -175,10 +191,9 @@ s3cmd rb s3://my_bucket
 In this example, the object _salmon.jpg_ in the pseudo folder _fishes_ is made public:
 <pre>
 $ <b>s3cmd put fishes/salmon.jpg s3://my_fishbucket/fishes/salmon.jpg -P</b>
-Public URL of the object is: http://a3s.fi/my_fishbucket/fishes/salmon.jpg
+Public URL of the object is: https://a3s.fi/my_fishbucket/fishes/salmon.jpg
 </pre>
 
-**Note:** The above client outputs a URL with `http://` (which is not open in the object storage firewall). The URL needs to be manually changed to `https` if this kind of a client is used.
 
 ## Giving another project read access to a bucket
 
@@ -314,3 +329,19 @@ https://a3s.fi/bucket_name/object_name
 
 In this case, the file would be accessible using the link
 _https://a3s.fi/fish-bucket/zebrafish.tgz_
+
+
+## Publishing objects temporarily with signed URLs
+
+With command _s3cmd signurl_ an object in Allas can be temporarily published with URL that includes security increasing access token.
+
+In the previous example object _s3://fish-bucket/zebrafish.tgz_ was made permanently accessible through simple static URL. 
+With _signurl_ the same object could be shared more securely and only for a limited time. For example command:
+
+```text
+s3cmd signurl s3://fish-bucket/zebrafish.tgz +3600
+```
+would print out an URL that remains valid for 3600 s (1 h). In this case URL, produced by the command above, would look something like:
+```text
+https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b23bfd7a67&Expires=1599835116&Signature=OLyyCY14s%2F0HxKOOd108mldINyE%3D
+```

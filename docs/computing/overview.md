@@ -1,28 +1,47 @@
 # Overview
 
-Puhti is CSC's supercomputer. It has been available for CSC users since
-2 September 2019. It contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI). Please see the
-[specifications](system.md) for details on the nodes and storage systems.
+Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since
+2 September 2019 and Mahti has been available since 26 August 2020.
 
-## Accessing Puhti
+Puhti contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI), while
+Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). 
+See [specifications](available-systems.md) for details on the systems.
 
-To be able to use Puhti, you need to have a CSC user account that belongs to
-a computing project that has access to Puhti. CSC user accounts and projects are managed
+CSC supercomputers use the Linux operating system and we recommend that you are familiar with basics of [Linux command line usage](../support/tutorials/env-guide/overview.md) before starting.
+
+## Accessing Puhti and Mahti
+
+To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to
+a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed 
+
 with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
-## Connecting to Puhti
+## Connecting to the supercomputers
 
 Connect using a ssh client:
+
 ```
 ssh <csc_username>@puhti.csc.fi
 ```
+or
+```
+ssh <csc_username>@mahti.csc.fi
+```
+
+
 This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
 ```
 ssh <csc_username>@puhti-login<number 1-2>.csc.fi
 ```
-For more details, see the [connecting](connecting.md) page.
+or
+```
+ssh <csc_username>@mahti-login<number 1-2>.csc.fi
+```
+
+For more details, see the [connecting](connecting.md) page. 
+
 
 ## Usage policy
 
@@ -74,14 +93,17 @@ csc-workspaces
 ```
 Check [Disk areas](disk.md) chapter for details.
 
-## Using Puhti
+## Using Puhti and Mahti
 
-* [System](system.md): What computational resources does Puhti have
-* [Connecting](connecting.md): How to connect to Puhti
-* [Disk areas](disk.md): What places are there for storing data on Puhti
+
+* [Systems](available-systems.md): What computational resources are available
+* [Connecting](connecting.md): How to connect to  CSC supercomputers 
+* [Disk areas](disk.md): What places are there for storing data on CSC supercomputers 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
-* [Running jobs](running/getting-started.md): How to run programs on Puhti
-* [Compiling applications](compiling.md): Using compilers and building your applications
+* [Running jobs](running/getting-started.md): How to run programs on the supercomputers 
+* Using compilers and building your applications:
+    * [Puhti](compiling-puhti.md)
+    * [Mahti](compiling-mahti.md)
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of your applications

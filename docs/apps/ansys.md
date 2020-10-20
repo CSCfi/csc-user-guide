@@ -7,13 +7,13 @@ AAESS products are proprietary software. CSC - IT Center for Science Ltd. has th
 
 ## Available
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Taito and Puhti](https://research.csc.fi/csc-s-servers).  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
-
-Notice that Taito server will be decommisioned in the end of December 2019.
+CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](https://research.csc.fi/csc-s-servers) for analysis runs only. Additionally, on Mahti only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
 
 ## Usage
 
-After login on the server, give command
+After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server.  Locate the files in your project's scratch directory.  Home directory is not intended for computing.
+
+For to find out which versions of ANSYS are installed on the server, give command
 
     module available
 
@@ -21,13 +21,13 @@ and check lines *ansys/(version number)*. For example to load Ansys version 19.2
 
     module load ansys/19.2
 
-There are examples of **batch job files** available on Puhti server:
+There are examples of **batch job files** available on Puhti and Mahti servers:
 
-    Ansys CFX:        /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_puhti_cfx
+    Ansys CFX:        /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_cfx
 
-    Ansys Fluent:     /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_puhti_fluent
+    Ansys Fluent:     /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_fluent
 
-    Ansys Structural: /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_puhti_struct
+    Ansys Structural: /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_struct  (only on Puhti)
 
 Copy those files and modify them for your own use. Further instructions are given in the files.
 
@@ -35,6 +35,7 @@ Ansys Fluent input files for the example batch job are in the folder:
  
     /appl/soft/eng/ansys_inc/example_case_files/aircraft_wing/
     
+Notice.  Ansys Structural modules are available only on Puhti server.
 
 ## Support
 

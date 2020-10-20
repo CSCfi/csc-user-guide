@@ -353,8 +353,8 @@ of your project can access it.
 
 ## Sharing images between Pouta projects
 
-You can share images between different Pouta projects using the "[glance]"
-command line tool. Image sharing between projects is currently not
+You can share images between different Pouta projects using the
+command line tools. Image sharing between projects is currently not
 supported using the Pouta web interface. Once shared, the image will be
 visible in both projects, i.e. between the donor and acceptor
 projects.
@@ -363,18 +363,22 @@ Please note that image sharing works within the same cloud environment, i.e. you
 can share images from one cPouta project to another but not between a
 cPouta project and ePouta project or vice versa. 
 
-To begin with, you need to add the acceptor project as a member of the image
-to be shared by executing the following _glance_ command in the donor
-project: 
+To begin with, you need to first make sure the image is of the shared variant
+if it isn't already:
 
-    glance member-create <your-image-UUID> <acceptor-project-ID> 
+    openstack image set --shared <your-image-UUID>
+
+Then, initiate the share by executing the following _openstack_ command in the
+donor project: 
+
+    openstack image add project <your-image-UUID> <acceptor-project-UUID>
 
 Then the acceptor project needs to accept this membership. To do so,
 you or your colleague needs to execute the following glance command in the
 acceptor project:
 
 ```
-glance member-update <your-image-UUID> <acceptor-project-ID> accepted
+openstack image set --accept <your-image-UUID>
 ```
 
   [GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation

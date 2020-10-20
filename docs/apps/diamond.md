@@ -12,7 +12,7 @@ The key features of Diamond are:
 *   Various output formats, including BLAST pairwise, tabular and XML, as well as taxonomic classification.
 
 ## Available
-*   Diamond 0.9.25 is available in Puhti
+*   Diamond 2.0.4 is available in Puhti
 
 ## Usage
 

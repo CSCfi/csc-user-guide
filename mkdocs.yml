@@ -10,29 +10,38 @@ nav:
      - How to change password: accounts/how-to-change-password.md
      - How to manage user information: accounts/how-to-manage-user-information.md
      - How to create new project: accounts/how-to-create-new-project.md
-     - How to add member to project: accounts/how-to-add-member-to-project.md
+     - How to add members to project: accounts/how-to-add-members-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
      - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
+     - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
      - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
-     - Systems: computing/system.md
+     - Systems: 
+        - Available systems: computing/available-systems.md
+        - Puhti: computing/systems-puhti.md
+        - Mahti: computing/systems-mahti.md
      - Connecting: computing/connecting.md
      - Disk areas: computing/disk.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
-        - Creating a batch job script: computing/running/creating-job-scripts.md
+        - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
+        - Puhti example scripts: computing/running/example-job-scripts-puhti.md
+        - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
+        - Mahti example scripts: computing/running/example-job-scripts-mahti.md
         - Submitting a job: computing/running/submitting-jobs.md
         - Available batch job partitions: computing/running/batch-job-partitions.md
         - Array jobs: computing/running/array-jobs.md
-        - Example job scripts: computing/running/example-job-scripts.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Compiling: computing/compiling.md
+     - Compiling:
+        - Puhti: computing/compiling-puhti.md
+        - Mahti: computing/compiling-mahti.md
+        - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
@@ -57,10 +66,12 @@ nav:
          - Webhooks: cloud/rahti/tutorials/webhooks.md
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
          - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
@@ -140,6 +151,7 @@ nav:
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
+     - By availability: apps/by_system.md
   - Support:
      - Tutorials: support/tutorials/index.md
      - FAQ: support/faq/index.md

@@ -27,6 +27,7 @@ Master branch is protected. You cannot make changes to it directly, but you
 must use pull requests.
 
 ### Overview
+**writer:**
 
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
@@ -38,10 +39,22 @@ must use pull requests.
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (=Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
-    - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
- - Once PR has been accepted, remove the temporary branch
+    - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it (**How?** Click on the "Details" link for the failing test. Then click the "The Build" Failed -link more or less at the center of the page. This will open detailed results of the tests and help you pinpoint the error.) 
+ - Once PR has been accepted, remove the temporary branch (if not deleted at merge)
 
-**Reviewer:** If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people. 
+**Reviewer:** If you get a request to review a pull request, please contribute to help publish the changes!
+
+ - Follow the link (or navigate to the pull request)
+ - Make sure the tests pass
+ - Edit the pages as needed (perhaps via the Web GUI) or propose changes ("review" -> "propose changes")
+ - Once you're happy with the content click "review" -> "ok"
+ - Anyone can be a reviewer, while pull requests can be accepted only by a smaller group of people
+
+**Admin:** If you see an approved branch:
+
+ - "Squash and merge" it
+ - Delete the (now unnecessary) branch
+ - Occasionally the number of (unnecessary) branches grows: prune.
 
 **Note:** If you make bigger changes to the (main) categories / menu on the left, it might effect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
 

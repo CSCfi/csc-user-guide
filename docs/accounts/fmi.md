@@ -23,7 +23,7 @@ A project for Puhti FMI partition is created similarly by choosing _FMI_ as the 
 
 ## Puhti FMI partition
 
-The Puhti FMI partition comprises an additional 240 nodes with 192 GB of memory. These are on top of those listed in the [system description](../computing/system.md). The nodes have specifications identical to the regular nodes in Puhti. There are two queues in the FMI partition: `fmi` and `fmitest`. The maximum job size for `fmi` is 100 nodes with a maximum runtime of six days. The maximum job size for `fmitest` is two nodes with a maximum runtime of 30 minutes.
+The Puhti FMI partition comprises an additional 240 nodes with 192 GB of memory. These are on top of those listed in the [system description](../computing/systems-puhti.md). The nodes have specifications identical to the regular nodes in Puhti. There are two queues in the FMI partition: `fmi` and `fmitest`. The maximum job size for `fmi` is 100 nodes with a maximum runtime of six days. The maximum job size for `fmitest` is two nodes with a maximum runtime of 30 minutes.
 
 ## Storage areas
 
