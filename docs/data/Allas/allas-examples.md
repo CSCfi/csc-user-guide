@@ -492,7 +492,7 @@ probably takes quite a long time.
 Copying millions of files to Allas takes a long time regardless of the method. If you have started the `a-put` command inside a `screen` session, 
 you can detach from the virtual session by pressing `Ctrl-a-d` to log out from Puhti and leave the upload process running for days. 
 
-Once the _a-put_ command is finished, you can run `a-check` command to checkh if all the data objects have been created. 
+Once the _a-put_ command is finished, you can run `a-check` command to check if all the data objects have been created. 
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command could be:
 
 ```text
