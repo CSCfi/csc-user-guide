@@ -7,11 +7,13 @@ AAESS products are proprietary software. CSC - IT Center for Science Ltd. has th
 
 ## Available
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](https://research.csc.fi/csc-s-servers) with the exception of that on Mahti only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
+CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](https://research.csc.fi/csc-s-servers) for analysis runs only. Additionally, on Mahti only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
 
 ## Usage
 
-After login on the server, give command
+After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server.  Locate the files in your project's scratch directory.  Home directory is not intended for computing.
+
+For to find out which versions of ANSYS are installed on the server, give command
 
     module available
 
