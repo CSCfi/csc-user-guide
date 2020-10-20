@@ -4,7 +4,7 @@ Dassault Systemes' SIMULIA academic software portfolio offers software tools for
 
 ## License
 
-SIMULIA Academic Research Suite products are proprietary software. The licenses are only for academic use.  See about use limitations from link given [below in section More Information](#more-information), and on the Simulatia site, page **Eligibility for Academic Licensing of SIMULIA Products**.
+SIMULIA Academic Research Suite products are proprietary software. The licenses are only for academic use.  See about use limitations from link given below in section [More Information](#more-information), and on the Simulatia site, page **Eligibility for Academic Licensing of SIMULIA Products**.
 
 
 ## Available
