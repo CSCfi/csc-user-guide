@@ -150,7 +150,7 @@ python post-proc.py output
 
 In Mahti, GREASY meta sheduler can be used to process large amounts of small non-MPI jobs.
 Please check the GREASY instructon page for more details.
-*   [GRASY in Mahti](greasy.md)
+*   [GREASY in Mahti](greasy.md)
 
 
 
