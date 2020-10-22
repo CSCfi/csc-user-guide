@@ -88,7 +88,7 @@ then GRASY would run these tasks 128 at the time in one node of Mahti. In this c
 duration of one task is estimated to be 15 min. Thus GREASY would process all these tasks in about 30 min.
 If the tasks would be executed one at a time with just one core, the processing would take 50h.
 
-With option `-f filename` you can make _sbatch-greasy_ to save the GRASY batch
+With option `-f filename` you can make _sbatch-greasy_ to save the GREASY batch
 file but not to send it to be executed. This batch job file can then be further 
 edited according to your needs.
 
