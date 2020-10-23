@@ -47,3 +47,5 @@ script:
   - bash tests/check_long_slurm_flags.sh
   # There should be no FIXME entires present
   - bash tests/check_fixme.sh
+  # Test that no files are masked by folder/index.md
+  - bash tests/check_masked.sh
