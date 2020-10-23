@@ -34,7 +34,7 @@ Now you can activae iPyrad enroment:
 source activate ipyrad-0.9.57
 ```
 The actual _ipyrad_ command should always be executed in a batch job environment. 
-For iPyrad tasks, that not computationally heavy, interactive batch jobs provide 
+For iPyrad tasks, that are not computationally heavy, interactive batch jobs provide 
 a good environment to run iPyrad.
 
 You can open an interactive batch job session with commands:
@@ -43,7 +43,7 @@ You can open an interactive batch job session with commands:
 sinteractive -m 16G
 ```
 
-Ipyrad processing can now be started with command:
+iPyrad processing can now be started with command:
 ```text
 ipyrad -n taskname
 ```
@@ -58,16 +58,16 @@ module load nano
 nano params-run1.txt
 ```
 
-Once the parameter file is ready, you can start the actual ipyrad analysis. In interactive batch jobs you can run small taskas that use just one computing core with. Thus you should add definition `-c 1` to the ipyrad command:
+Once the parameter file is ready, you can start the actual iPyrad analysis. In interactive batch jobs you can run small taskas that use just one computing core. Thus you should add definition `-c 1` to the ipyrad command:
 ```text
 ipyrad -p params-run1.txt -s 1234567 -c 1
 ```
 
 ## Running heavy ipyrad jobs in Puhti
 
-If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing you could run these analysis steps as batch jobs.
+If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing you could run these analysis steps as normal batch jobs.
 
-The first two steps are typically executed rather quickly and you can run them interactively in an interactive batch job environment. 
+The first two steps are typically executed rather quickly and you can run them in an interactive batch job environment. 
 For example in the case of job _run1_:
 ```text
 ipyrad -p params-run1.txt -s 12 -c 1
