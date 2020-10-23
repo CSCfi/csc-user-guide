@@ -7,6 +7,8 @@ Puhti contains CPU nodes with a range a memory sizes as well as a large GPU part
 Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). 
 See [specifications](available-systems.md) for details on the systems.
 
+CSC supercomputers use the Linux operating system and we recommend that you are familiar with basics of [Linux command line usage](../support/tutorials/env-guide/overview.md) before starting.
+
 ## Accessing Puhti and Mahti
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to

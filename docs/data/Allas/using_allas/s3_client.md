@@ -76,14 +76,14 @@ CSC password and then for you to choose an Allas project. After that, the tool c
 
 ## Configuring S3 connection in supercomputers
 
-To use _s3cmd_ in Puhti and Mahti, you must first confugure the connection:
+To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
 ```text
 module load allas
 allas-conf --mode s3cmd
 ```
 The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
 
-You can use the S3 crdentials, stored in the _.s3cfg_ file, in other services too. You can check the currenily used _access key_ and _secret_key_ with command:
+You can use the S3 credentials, stored in the _.s3cfg_ file, in other services too. You can check the currently used _access key_ and _secret_key_ with command:
 ```
 grep key $HOME/.s3cfg
 
@@ -331,9 +331,9 @@ In this case, the file would be accessible using the link
 _https://a3s.fi/fish-bucket/zebrafish.tgz_
 
 
-## Publising objects temporarily with signed URLs
+## Publishing objects temporarily with signed URLs
 
-With command _s3cmd signurl_ an object in Allas can be temporarily published with URL that includes security inclreasing access token.
+With command _s3cmd signurl_ an object in Allas can be temporarily published with URL that includes security increasing access token.
 
 In the previous example object _s3://fish-bucket/zebrafish.tgz_ was made permanently accessible through simple static URL. 
 With _signurl_ the same object could be shared more securely and only for a limited time. For example command:
