@@ -15,6 +15,10 @@ while read -r file; do
         RET=1
         echo "File docs/$masked_md is masked by docs/$file"
     fi
-
 done<<<"$index_files"
-exit $RET
+if [[ $RET -eq 0 ]];then
+    echo "No masked files found"
+    exit 0 
+else
+    exit 1
+fi
