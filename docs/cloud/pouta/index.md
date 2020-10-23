@@ -21,7 +21,7 @@
 * [Additional services in Pouta (email, DNS)](additional-services.md)
 
 <h2>Storage in Pouta</h2>
-* [Available storage options](storage.md)
+* [Introduction](storage.md)
 * [Ephemeral storage](ephemeral-storage.md)
 * [Persistent volumes](persistent-volumes.md)
 * [Snapshots](snapshots.md)
