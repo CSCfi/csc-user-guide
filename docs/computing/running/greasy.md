@@ -11,7 +11,7 @@ and `sbatch-greasy` automatic submission command. GREASY was originally develope
 In Mahti we use the GREASY version that includes the extensions developed at CSCS. 
 For detailed documentation please check:
 
-   * [GREASY manual ( at BSC)](https://github.com/BSC-Support-Team/GREASY/raw/master/doc/greasy_userguide.pdf)
+   * [GREASY manual (at BSC)](https://github.com/BSC-Support-Team/GREASY/raw/master/doc/greasy_userguide.pdf)
    * [GREASY instructions (at CSCS) ](https://user.cscs.ch/tools/high_throughput/)
    
 GREASY enables Mahti to be effectively used for non-MPI tasks, too. However, the task set to be executed 
@@ -58,7 +58,7 @@ is launched, but you can add task specific execution directories to the task lis
 [@ /path/to/folder_task200/ @] my_prog < input200.txt > output200.txt
 ```
 !!! Note 
-    Note, that you should not include _srun_ to your tasks as GREASY will add it when it executes the tasks. 
+    You should not include _srun_ to your tasks as GREASY will add it when it executes the tasks. 
     Please check the [GREASY user guide](https://github.com/BSC-Support-Team/GREASY/raw/master/doc/greasy_userguide.pdf) for more detailed 
     description of the task list syntax.
 
