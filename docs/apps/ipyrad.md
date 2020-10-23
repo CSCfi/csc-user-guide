@@ -2,7 +2,7 @@
 
 ## Description
 
-ipyrad is an interactive toolkit for assembly and analysis of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS) for population genetic and phylogenetic studies.
+iPyrad is an interactive toolkit for assembly and analysis of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS) for population genetic and phylogenetic studies.
 
 
 ## Available
@@ -23,7 +23,7 @@ This definition is made with command _export_. For example for project_012345 th
 ```text
 export PROJAPPL=/projappl/project_12345
 ```
-After that you can activate bioconda environment and check the availavle conda environments.
+After that you can activate bioconda environment and check the available conda environments:
 
 ```text
 module load bioconda
@@ -33,7 +33,9 @@ Now you can activate iPyrad enroment:
 ```text
 source activate ipyrad-0.9.57
 ```
-The actual _ipyrad_ command should always be executed in a batch job environment. 
+!!! Note
+    The actual _ipyrad_ command should always be executed in a batch job environment.
+
 For iPyrad tasks, that are not computationally heavy, an
 [interactive batch job](../computing/running/interactive-usage.md) provides 
 a good environment without queueing.
