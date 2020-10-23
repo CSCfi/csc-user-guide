@@ -5,10 +5,9 @@
 ipyrad is an interactive toolkit for assembly and analysis of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS) for population genetic and phylogenetic studies.
 
 
-
 ## Available
 
--   Puhti:  0.9.55
+-   Puhti:  0.9.57
 
 
 ## Usage
@@ -32,10 +31,19 @@ conda env list
 ```
 Now you can activae iPyrad enroment:
 ```text
-source activate ipyrad-0.9.55
+source activate ipyrad-0.9.57
+```
+The actual _ipyrad_ command should always be executed in a batch job environment. 
+For iPyrad tasks, that not computationally heavy, interactive batch jobs provide 
+a good environment to run iPyrad.
+
+You can open an interactive batch job session with commands:
+
+```text
+sinteractive -m 16G
 ```
 
-Ipyrad processing is typically started with command:
+Ipyrad processing can now be started with command:
 ```text
 ipyrad -n taskname
 ```
@@ -46,24 +54,26 @@ For example in the case of job called _run1_:
 
 ```text
 ipyrad -n run1
+module load nano
 nano params-run1.txt
 ```
 
-Once the parameter file is ready, you can start the actual ipyrad analysis. In Puhti login nodes you should run just really small taskas and not use more that one computing core with ipyrad. Thus you should add definition `-c 1` to the ipyrad command:
+Once the parameter file is ready, you can start the actual ipyrad analysis. In interactive batch jobs you can run small taskas that use just one computing core with. Thus you should add definition `-c 1` to the ipyrad command:
 ```text
 ipyrad -p params-run1.txt -s 1234567 -c 1
 ```
 
 ## Running heavy ipyrad jobs in Puhti
 
-If you are analyzing large datasets, it is recommended that you run the jobs is several phases. Some steps of the ipyrad analysis can utilize parallel computing. To speed up the processing you could run these analysis steps as batch jobs.
+If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing you could run these analysis steps as batch jobs.
 
-The first two steps are typically executed rather quickly and you can run them interactively in Puhti login nodes. For example in the case of job run1:
+The first two steps are typically executed rather quickly and you can run them interactively in an interactive batch job environment. 
+For example in the case of job _run1_:
 ```text
 ipyrad -p params-run1.txt -s 12 -c 1
 ```
 
-The third step of the ipryrad analysis runs a clustering for each sample set. Before starting this step, study first the content of the _jobname_edits directory created by the step 2. To check how many samples will be analyzed you can for example count the rows in the file s2_rawedit_stats.txt.
+The third step of the ipryrad analysis runs a clustering for each sample set. Before starting this step, study first the content of the _jobname_edits_ directory created by the step 2. To check, how many samples will be analyzed, you can for example count the rows in the file _s2_rawedit_stats.txt_.
 
 For example
 ```text
@@ -77,7 +87,7 @@ The parallelization implementation of ipyrad requires that you always have only 
 
 This number of cores is then given to the ipyrad command with option `-c`. Further, if you are using more than one node you should define that MPI is in use (--MPI) and that the commands of the pipeline are executed using only one computing core (`-t`).
 
-In the sample case here we will use 16 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to small partition (#SBATCH --partition=longrun). In this case we reserve 168 hours ( 7 days). Further, in step 3 the clustering commands are executed using only one thread (-t 1 ).
+In the sample case here we will use 16 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to longrun partition (#SBATCH --partition=longrun). In this case we reserve 72 hours ( 3 days). Further, in step 3 the clustering commands are executed using 20 cores (-c 20) each running one thread (-t 1 ).
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=ipyrad_s3
