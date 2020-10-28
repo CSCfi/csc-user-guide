@@ -24,7 +24,7 @@ module load turbomole/7.5
 ```
 
 
-**Batch script example for Puhti using MPI parallelization**
+### Batch script example for Puhti using MPI parallelization
 
 ```
 #!/bin/bash
@@ -45,7 +45,7 @@ export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
 jobex -ri -c 300 > jobex.out
 ```
 
-**Batch script example for Puhti using SMP parallelization**
+### Batch script example for Puhti using SMP parallelization
 
 ```
 #!/bin/bash
@@ -76,7 +76,7 @@ jobex -ri -c 300 > jobex.out
  
 
    
-**Batch script example for Puhti using MPI parallelization and local disk**
+### Batch script example for Puhti using MPI parallelization and local disk
 
 ```
 #!/bin/bash
@@ -98,7 +98,7 @@ dscf > dscf.out
 ccsdf12 > ccsdt.out
 ```
 
-**Batch script example for Mahti using MPI parallelization**
+### Batch script example for Mahti using MPI parallelization
 
 ```
 #!/bin/bash
