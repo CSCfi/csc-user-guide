@@ -1,10 +1,10 @@
 # Technical details about Mahti
 
-## Mahti compute node
+## Compute
 
-Each node has two AMD Rome 7H12 CPUs, with 64 cores each. The CPUs are based on AMDs Zen 2 architecture, supporting the AVX2 vector instruction set. 
+**Mahti** has a total of 1404 nodes, with a theoretical peak performance of 7,5 petaflops. Each node has two AMD Rome 7H12 CPUs with 64 cores each. The CPUs are based on AMD Zen 2 architecture, supporting the AVX2 vector instruction set, and run at 2.6 GHz base frequency (max boost up to 3.3 GHz). Each node has 256 GB of memory.
 
-The cores in each CPU has two hardware threads, brining the total thread count for a node to 256 threads. Each core has 32 KiB of L1 data cache and 32 KiB of L1 instruction cache, the L2 cache is also private per core and each core has 512 KiB L2 cache. Each core has two FMA (fused multiply add) units, that operate on full 256 bit vectors, meaning operations in 8 single precision floats or 4 double precision floats can be carried out by each unit each clock cycle. Moving up from the core, 4 cores are grouped together into a core complex (CCX), within the CCX the cores share the same 16 MiB of L3 cache. Two of these CCX parts are then combined to form a compute die (CCD). For an in depth description of the Zen 2 core you can read further on it at WikiChip https://en.wikichip.org/wiki/amd/microarchitectures/zen_2
+The cores in each CPU have two hardware threads, brining the total thread count for a node to 256 threads. Each core has 32 KiB of L1 data cache and 32 KiB of L1 instruction cache, the L2 cache is also private per core and each core has 512 KiB L2 cache. Each core has two FMA (fused multiply add) units, that operate on full 256 bit vectors, meaning operations in 8 single precision floats or 4 double precision floats can be carried out by each unit each clock cycle. Moving up from the core, 4 cores are grouped together into a core complex (CCX), within the CCX the cores share the same 16 MiB of L3 cache. Two of these CCX parts are then combined to form a compute die (CCD). For an in depth description of the Zen 2 core you can read further on it at WikiChip https://en.wikichip.org/wiki/amd/microarchitectures/zen_2
 
 !["CCD configuration"](../img/mahti_ccd.png)  
 
