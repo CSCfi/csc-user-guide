@@ -60,7 +60,7 @@ vda    253:0    0  10G  0 disk
 vdb    253:16   0  80G  0 disk
 └─vdb1 253:17   0  80G  0 part /
 </code></pre>
-4. Now you want to mount `vdb1` to /tmp/mnt and go to that directory. <pre><code>$ sudo mkdir -p /tmp/mnt; $sudo mount /dev/vdb1 /tmp/mnt/</code></pre>
+4. Now you want to mount `vdb1` to /tmp/mnt and go to that directory. <pre><code>$ sudo mkdir -p /tmp/mnt; sudo mount /dev/vdb1 /tmp/mnt/</code></pre>
 5. Take a backup of grub <pre><code>$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-`date +"%F"`</pre></code>
 7. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. *NOTE:* This might not be the correct solution for your specific problem
 8. Log out from the instances and `unrescue` the instance <pre><code>nova unrescue $INSTANCE_UUID</pre></code>
