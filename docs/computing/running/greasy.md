@@ -99,9 +99,7 @@ sbatch filename
 
 ## Caveats
 
-FIXME (speculation)
-
-Performance in threaded (OpenMP) jobs is sensitive to the thread binding. If your job is parallelized
+Performance in threaded (OpenMP) jobs can be sensitive to the thread binding. If your job is parallelized
 via OpenMP, make sure the performance of individual subjobs has not suffered. MPI is less sensitive
 for this.
 
