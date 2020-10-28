@@ -1,7 +1,7 @@
 # Examples for using Allas in CSC supercomputers 
 
 CSC supercomputers, Puhti and Mahti, do not provide permanent storage space for research data. 
-The data that needs to be for a longer time than just few weeks should be copied to Allas object storage service.
+The data that needs to be stored for a longer time than just few weeks, should be copied to Allas object storage service.
 Allas provides a platform that you can use to store your data as long as you CSC project is active. In addition 
 to storing, Allas can be used for transporting data between different servers and sharing data with other users.
 
@@ -213,7 +213,7 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 ## A. Uploading data with rclone
 
 Rclone is the power user tool for Allas. It is good in cases where the data does not compress much or 
-the data must be stored as each file being a separate objectd.
+the data must be stored as each file being a separate object.
 
 !!! warning
     Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can _overwrite_ 
