@@ -10,6 +10,8 @@ The CPUs support simultaenous multithreading (SMT) where each core can run two
 hardware threads. When SMT is enabled, the total thread count per node is 256
 threads. Each node has 256 GB of memory. 
 
+### NUMA configuration
+
 Mahti node has a highly hierachical structure. There are two sockets in the
 node, each containing a single CPU and memory DIMMs. All
 the memory within the node is shared, but memory performance depends on the
@@ -18,6 +20,8 @@ we run each CPU in NPS4 (NUMA per socket 4) mode that further splits each CPU
 into 4 NUMA domains. Each NUMA domain has 16 cores, and two memory controllers with 32 GiB of memory in total. Core 0 runs threads 0 and 128, core 1 threads 1 and 129 and so on. The figure below shows how the threads are distributed over each of the cores and NUMA nodes.
 
 !["NUMA configuration"](../img/mahti_numa.png)  
+
+### Cores, core complexes and compute dies
 
 The basic building block of the processor is a core, which are then grouped
 into core complexes (CCXs), and furthermore into compute dies (CCDs). 

@@ -23,7 +23,8 @@ AI models that span multiple nodes.
 
 Puhti has  wide selection of [scientific software](../apps/by_system/#puhti) installed.
 
-A more technical description  about Puhti can be found [here](systems-puhti.md)
+A more technical description  about Puhti can be found
+[here](systems-puhti.md).
 
 ## Mahti
 
@@ -42,7 +43,8 @@ utilize Mahti.
 The selection of installed [scientific software](../apps/by_system/#mahti) in
 Mahti is more limited than in Puhti.
 
-A more technical description  about Mahti can be found [here](systems-mahti.md)
+A more technical description  about Mahti can be found
+[here](systems-mahti.md).
 
 
 ## Kvasi
