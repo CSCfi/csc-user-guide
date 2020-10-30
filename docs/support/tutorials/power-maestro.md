@@ -168,7 +168,7 @@ and not discussed on this page.)
 
 Set the "driver" or "master" to run on a HOST that allows for long
 run times (if it's a big calculation). The driver needs to be alive
-for the whole duration of the workflow (otherwise, you'll subjob
+for the whole duration of the workflow (otherwise, your subjob
 likely ends up fizzled). You can use "interactive"
 which allows for 7 days for one core. If you need to run multiple
 workflows at the same time, choose "longrun" for the next drivers.
@@ -400,4 +400,3 @@ to get the issue solved.
 
 If you have suggestions on how to improve this text, e.g. to give examples of efficient workflows,
 fork a copy (top right pen icon), edit and propose merge, or send your suggestion to servicedesk@csc.fi.
-
