@@ -6,13 +6,13 @@
 of 7,5 petaflops. Each node has two AMD Rome 7H12 CPUs with 64 cores each,
 making the total core count about 180 000. The CPUs are based on AMD Zen 2 architecture, 
 supporting the AVX2 vector instruction set, and run at 2.6 GHz base frequency (max boost up to 3.3 GHz). 
-The CPUs support simultaenous multithreading (SMT) where each core can run two
+The CPUs support simultaneous multithreading (SMT) where each core can run two
 hardware threads. When SMT is enabled, the total thread count per node is 256
 threads. Each node has 256 GB of memory. 
 
 ### NUMA configuration
 
-Mahti node has a highly hierachical structure. There are two sockets in the
+Mahti node has a highly hierarchical structure. There are two sockets in the
 node, each containing a single CPU and memory DIMMs. All
 the memory within the node is shared, but memory performance depends on the
 distance of the core to the memory. In order to provide slightly increased memory performance 
