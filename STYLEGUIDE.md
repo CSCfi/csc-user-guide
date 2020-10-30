@@ -9,6 +9,8 @@
  - All examples should use minimum viable reserved resources. I.e don't write examples with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. Users tend to use these as default values.
  - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
  - When in doubt, check how other pages are formatted
+ - Internal links as `page.md`, `page.md#anchor`, `../other_section/page.md`,
+   `../other_section/page.md#anchor`
  - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
 If you don't want any syntax highlighting, just use \`\`\`text
 For a list of all supported languages see: http://pygments.org/docs/lexers/
