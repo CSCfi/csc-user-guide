@@ -203,7 +203,7 @@ Longer jobs that take more resources are best run as batch jobs.
 
 Running a batch job typically has three steps:
 1. Make sure you have all the necessary input files
-    1. For instructions on how to move data from your own computer to Puhti, see section [Data/Moving data](../../data/moving/) in the User Guide
+    1. For instructions on how to move data from your own computer to Puhti, see section [Data/Moving data](../../data/moving/index.md) in the User Guide
 2. Write a batch job script
     1. Use a text editor like nano, vim or emacs to write the script
     2. If you write the script on your own computer, and move it to 
