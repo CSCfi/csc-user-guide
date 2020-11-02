@@ -130,7 +130,7 @@ of cores they can use:
 - **Hybrid parallel applications**
    - A job where each MPI task is allocated several cores. Each tasks then 
     uses some other parallelization than MPI to do work. The most common strategy 
-    is for every MPI-task to launch multiple threads using OpenMP.
+    is for every MPI task to launch multiple threads using OpenMP.
    - Quite rare in bioscience applications
 
 To find out what category your application belongs to, read the documentation.
