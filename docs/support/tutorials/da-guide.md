@@ -7,7 +7,7 @@ The purpose of this guide is to help you in choosing the right tools and environ
 To get started, you need to:
 
 - have a [CSC account](../../accounts/how-to-create-new-user-account.md)
-- be member of a CSC project, either by [creating a new project](../../accounts/how-to-create-new-project.md) or joining an existing project, e.g. by asking the [project manager to add you](../../accounts/how-to-add-member-to-project.md)
+- be member of a CSC project, either by [creating a new project](../../accounts/how-to-create-new-project.md) or joining an existing project, e.g. by asking the [project manager to add you](../../accounts/how-to-add-members-to-project.md)
 
 Finally, the project needs to have [access to the services](../../accounts/how-to-add-service-access-for-project.md) you will use.  More on our services below, and when you might use them.
 

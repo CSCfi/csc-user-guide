@@ -8,7 +8,7 @@ chemical model systems.
 
 ## Available
 
-Puhti: 2019.3, 2019.4, 2020.1
+Puhti: 2019.4, 2020.2, 2020.3
 
 
 ## License
@@ -45,6 +45,7 @@ apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md
 the actual workflow below, you need to set up your Maestro environment on Puhti.
 
 These first four steps you only need to do once
+
 1. ssh to Puhti
      * `ssh your-username@puhti.csc.fi`
 1. `module load maestro`
@@ -53,7 +54,7 @@ These first four steps you only need to do once
      * If you change Maestro version, you should do the same.
      * Now you have your own `schrodinger.hosts` file in your `$HOME` directory
 1. Copy the HOST descriptions from the `schrodinger.hosts` file on Puhti to your local hosts file on your computer
-     * Copy everything starting with `name:    test` and paste it at the end of your local `schrodinger.hosts` file
+     * Copy everything starting from `name:    test` and paste it at the end of your local `schrodinger.hosts` file
      * This step may need administrator privileges
 
 For actual simulations we recommend using Puhti as follows:
@@ -68,9 +69,11 @@ For actual simulations we recommend using Puhti as follows:
 The overall process is shown in the video below, and additional details and some diagnostics tips
 are explained in our [Maestro power usage tutorial](../support/tutorials/power-maestro.md)
 
-Note, that Maestro jobs
-are not run via batch scripts like most other applications at CSC, but
-via Schrödinger binaries using options.
+!!! note
+    Note, that Maestro jobs
+    are not run via batch scripts like most other applications at CSC, but
+    via Schrödinger binaries using options.
+
 For example, a Desmond workflow could be run with:
 
 ```

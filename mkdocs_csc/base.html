@@ -88,7 +88,7 @@
         {{ lang.t('skip.link.title') }}
       </a> {% endif %} {% block header %} {% include "partials/header.html" %} {% endblock %}
         <div class="md-container">
-            {% block hero %} {% if page and page.meta and page.meta.hero %} {% include "partials/hero.html" with context %} {% endif %} {% endblock %} {% if feature.tabs %} {% include "partials/tabs.html" %} {% endif %}
+            {% block hero %} {% if page and page.meta and page.meta.hero %} {% include "partials/hero.html" with context %} {% endif %} {% endblock %}
             <main class="md-main" role="main">
                 <div class="md-main__inner md-grid" data-md-component="container">
                     {% block site_nav %} {% if nav %}
