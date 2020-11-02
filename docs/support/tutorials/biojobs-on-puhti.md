@@ -128,10 +128,10 @@ of cores they can use:
     - Can use more than one core, cores need not be in the same node
     - Only very few bioscience applications in this category
 - **Hybrid parallel applications**
-   - A job where each MPI task is allocated several cores. Each tasks then 
-    uses some other parallelization than MPI to do work. The most common strategy 
-    is for every MPI task to launch multiple threads using OpenMP.
-   - Quite rare in bioscience applications
+    - A job where each MPI task is allocated several cores. Each task then 
+      uses some other parallelization than MPI to do work. The most common strategy 
+      is for every MPI task to launch multiple threads using OpenMP.
+    - Quite rare in bioscience applications
 
 To find out what category your application belongs to, read the documentation.
 
