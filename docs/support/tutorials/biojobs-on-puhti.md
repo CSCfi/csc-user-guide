@@ -29,7 +29,7 @@ are meant for things like moving data and setting up and managing your
 batch jobs. You should not run actual jobs on the login nodes. There
 are only two login nodes and they are shared by everybody. Running big
 jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../computing/overview/#usage-policy)).
+(More details in our [usage policy](../../../computing/overview/#usage-policy)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The
@@ -128,7 +128,7 @@ of cores they can use:
     - Can use more than one core, cores need not be in the same node
     - Only very few bioscience applications in this category
 - **Hybrid parallel applications**
-   - A job where each MPI task runs multiple an OpenMP tasks
+   - A job where each MPI task runs multiple OpenMP tasks
    - Quite rare in bioscience applications
 
 To find out what category your application belongs to, read the documentation.
