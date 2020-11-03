@@ -38,11 +38,6 @@ First, it is good to update the Ubuntu system:
 ```text
 sudo apt-get update
 ```
-After that, install Samba client
-
-```text
-sudo apt-get install smbclient
-```   
 In this example we use _snap_ as it provides an easy way to install Nextcloud.
 You can do the installations with just few commands:
 
@@ -93,6 +88,21 @@ If the connection web interface fails check that:
 *   port number 443 and your local IP address (not the server IP ) is defined in the cPouta security group and that this security group is in use.
 *   your browser accepts self-signed certificates
  
+
+Nextcloud software is modular, it can be extended with Nextcloud Apps.  Once you have the
+Nextcloud up and running, it is a good practise to check what Apps are enabled and how
+different features are configured to work. You can do this in the Nextcloud user interface
+when you are loggind in as admin. If you wish, you can also start this by running a CSC
+provided script that disables a few and configures some Apps in order to make the Nextcloud
+less overloaded with features for this kind of Allas front end testing. The script can be
+downloaded and run (you must be root user in the virtual server) like this:
+
+```text
+curl https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/nextcloud_snap/clean_nextcloud_snap >clean_nextcloud_snap
+chmod +x clean_nextcloud_snap
+./clean_nextcloud_snap
+```
+
 
 ## 3. Link Nextcloud to a bucket in Allas
 
