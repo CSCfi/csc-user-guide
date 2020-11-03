@@ -95,7 +95,7 @@ different features are configured to work. You can do this in the Nextcloud user
 when you are loggind in as admin. If you wish, you can also start this by running a CSC
 provided script that disables a few and configures some Apps in order to make the Nextcloud
 less overloaded with features for this kind of Allas front end testing. The script can be
-downloaded and run (you must be root user in the virtual server) like this:
+downloaded and run like this:
 
 ```text
 curl https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/nextcloud_snap/clean_nextcloud_snap >clean_nextcloud_snap
