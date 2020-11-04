@@ -103,11 +103,16 @@ presented with the following view:
 
 ![OpenShift new project dialog](img/new_project_dialog_3.7.png)
 
-You need to pick a unique name that is not in use by any other project
-in the system. You can also enter a human-readable display name and a
-description for the project. You may also enter a CSC
-computing project in the _Description_ field as described above. Once
-you have filled in the fields, click "Create", and you will see the application
+1. You *need* to pick a **unique name** that is not in use by any other project
+in the system.
+1. You *can* also enter a **human-readable display name** and.
+1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
+
+> csc_project: project_XXXXXXX
+
+See the section about [accounts](/accounts/).
+
+Once you have filled in the fields, click "Create", and you will see the application
 catalog where you can pick an application template or import your
 own one.
 
