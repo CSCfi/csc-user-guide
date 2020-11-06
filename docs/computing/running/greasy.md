@@ -1,4 +1,4 @@
-# How to run run large number of small jobs in Mahti
+# How to run run large number of small jobs in Mahti and Puhti
 
 In many cases, a computational analysis job contains a number of similar independent sub-tasks. 
 A user may have several datasets that are analyzed in the same way, or the same simulation code 
@@ -6,19 +6,22 @@ is executed with a number of different parameters. These kind of tasks are often
 farming or embarrassingly parallel jobs as the work can in principle be distributed to as many processors 
 as there are subtasks to run. 
 
-In Mahti these kind of task sets can be executed with the *GREASY* metascheduler 
-and `sbatch-greasy` automatic submission command. GREASY was originally developed at BSC. 
-In Mahti we use the GREASY version that includes the extensions developed at CSCS. 
+**In Mahti** these kind of task sets can be executed with the *GREASY* metascheduler 
+and `sbatch-greasy` automatic submission command. GREASY enables Mahti to be effectively used for non-MPI tasks, too. 
+However, the task set to be executed should be large enough so that it can utilize the full capacity of at least one Mahti node (128 cores).
+
+In Puhti GREASY can be used as an alternaive ror array jobs. GREASY is the recommended option in cases where 
+individual tasks are very short. Further, GREASY allows you to define depndencies between tasks. whis is not possible in array jobs.
+
+GREASY was originally developed at BSC. At CSC we use the GREASY version that includes the extensions developed at CSCS. 
 For detailed documentation please check:
 
    * [GREASY manual (at BSC)](https://github.com/BSC-Support-Team/GREASY/raw/master/doc/greasy_userguide.pdf)
    * [GREASY instructions (at CSCS) ](https://user.cscs.ch/tools/high_throughput/)
-   
-GREASY enables Mahti to be effectively used for non-MPI tasks, too. However, the task set to be executed 
-should be large enough so that it can utilize the full capacity of at least one Mahti node (128 cores).
-
-   
-## Task lists
+ 
+!!! Note
+    You should not use GREASY to run MPI parallel tasks. GREASY is not able to manage MPI jobs effectively.
+## GREASY Task lists
 
 Job scheduling with GREASY is based on task lists that have one task (command) in one row. In the simplest approach,
 the task list is just a file containing the commands to be executed. For example, analyzing 200 input files with program _my_prog_ 
@@ -64,7 +67,7 @@ is launched, but you can add task specific execution directories to the task lis
 
 ## Executing a task list
 
-To use GREASY in Mahti, load the GREASY module:
+To use GREASY in Mahti or Puhti, load the GREASY module:
 ```text
 module load greasy
 ```
@@ -79,15 +82,17 @@ The parameters include:
    2. estimated average duration for one task (`-t`)
    3. number of nodes used to execute the tasks (`-N`)
    4. accounting project (`-A`).
+   5. estimated memory usage for one task (`-m`) (This parameter is not in use in Mahti).
 
 Alternatively you can define part or all of these parameters in command line:
 ```text
 sbatch-greasy tasklist -c 1 -t 15:00 -N 1 -A project_2012345
 ```
-If the command above would be used to launch that list of 200 tasks, discussed earlier,
+If the command above would be used in Mahti to launch that list of 200 tasks, discussed earlier,
 then GREASY would run these tasks 128 simultaneously in one node of Mahti. In this case the average
 duration of one task is estimated to be 15 min. Thus, GREASY would process all these tasks in about 30 min.
 If the tasks would be executed sequentially, i.e. one at a time with just one core, the processing would take 50h.
+
 
 With the option `-f filename` you can make _sbatch-greasy_ to save the GREASY batch
 file but not to send it to be executed. This batch job file can then be further 
@@ -100,11 +105,9 @@ sbatch filename
 ## Caveats
 
 Performance in threaded (OpenMP) jobs can be sensitive to the thread binding. If your job is parallelized
-via OpenMP, make sure the performance of individual subjobs has not suffered. MPI is less sensitive
-for this.
-
-A single subjob must fit in one node, but such a job could also be run as an array job. GREASY is thus
-better suited for jobs (much) smaller than one node.
+via OpenMP, make sure the performance of individual subjobs has not suffered. A single subjob must fit in 
+one node, but such a job could also be run as an array job. GREASY is thus better suited for jobs (much) 
+smaller than one node.
 
 
 
