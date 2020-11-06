@@ -420,11 +420,11 @@ By default, `r-env-singularity` is single-threaded. While users may set a desire
 
 The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. 
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads). Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
 
 ```bash
 #!/bin/bash -l
-#SBATCH --job-name=r_8threads
+#SBATCH --job-name=r_multithread
 #SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
@@ -438,7 +438,7 @@ An example batch job script can be found below. Here we submit a job using eight
 # Load r-env-singularity
 module load r-env-singularity/4.0.2
 
-# Clean up prior TMPDIR and OMP_NUM_THREADS from .Renviron
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
     sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
@@ -459,6 +459,53 @@ In a multi-core interactive job, the number of threads can be automatically matc
 ```bash
 start-r-multithread # or
 start-rstudio-server-multithread
+```
+
+#### OpenMP / MPI hybrid jobs
+
+Further to [executing multi-threaded R jobs on a single node](#improving-performance-using-threading), these can also be run on multiple nodes. In such cases, one must specify the number of:
+
+- Nodes (`--nodes`) 
+
+- MPI processes per node (`--ntasks-per-node`) 
+
+- OpenMP threads used for each MPI process (`--cpus-per-task`)
+
+When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specifc. 
+
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`).
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_multithread_multinode
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=4
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=2000
+
+# Load r-env-singularity
+module load r-env-singularity/4.0.2
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+ sed -i '/TMPDIR/d' ~/.Renviron
+ sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Match thread and core numbers
+echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
 #### Using fast local storage
