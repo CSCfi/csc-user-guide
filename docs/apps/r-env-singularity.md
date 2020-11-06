@@ -481,7 +481,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
 #SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
-#SBATCH --partition=small
+#SBATCH --partition=test
 #SBATCH --time=00:05:00
 #SBATCH --ntasks=4
 #SBATCH --nodes=2
