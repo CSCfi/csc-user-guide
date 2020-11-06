@@ -10,8 +10,8 @@ as there are subtasks to run.
 and `sbatch-greasy` automatic submission command. GREASY enables Mahti to be effectively used for non-MPI tasks, too. 
 However, the task set to be executed should be large enough so that it can utilize the full capacity of at least one Mahti node (128 cores).
 
-**In Puhti** GREASY can be used as an alternative for [array jobs](./array_jobs.md). GREASY is the recommended option in cases where 
-individual tasks are very short. Further, GREASY allows you to define depndencies between tasks. whis is not possible in array jobs.
+**In Puhti** GREASY can be used as an alternative for [array jobs](./array-jobs.md). GREASY is the recommended option in cases where 
+individual tasks are very short. Further, GREASY allows you to define dependencies between tasks, whics is not possible in array jobs.
 
 GREASY was originally developed at BSC. At CSC we use the GREASY version that includes the extensions developed at CSCS. 
 For detailed documentation please check:
