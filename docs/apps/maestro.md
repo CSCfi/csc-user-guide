@@ -8,7 +8,7 @@ chemical model systems.
 
 ## Available
 
-Puhti: 2019.3, 2019.4, 2020.1
+Puhti: 2019.4, 2020.2, 2020.3
 
 
 ## License

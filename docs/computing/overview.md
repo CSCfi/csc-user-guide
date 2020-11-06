@@ -12,9 +12,9 @@ CSC supercomputers use the Linux operating system and we recommend that you are 
 ## Accessing Puhti and Mahti
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to
-a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed 
-
-with [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
+a computing project that has access to the respective supercomputer. CSC user
+accounts and projects are managed in [my.csc.fi](https://my.csc.fi) portal. 
+Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
 ## Connecting to the supercomputers
 

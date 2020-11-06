@@ -1,13 +1,12 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located in the [`r-env-singularity` page](r-env-singularity.md) (or the [`r-env` page](r-env.md) for R 3.6.1).
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md).
 
 ## Available
 
 Currently supported R versions for spatial libraries:
 
-- 3.6.3 (`r-env-singularity` module)
-- 3.6.1 (`r-env` module)
+- 4.0.2 and 3.6.3 (`r-env-singularity` module)
 
 ## Usage
 
@@ -17,7 +16,6 @@ You can load the general R module with
 
 ```
 module load r-env-singularity
-# (or module load r-env)
 ```
 
 ### Installed spatial R libraries
@@ -57,8 +55,6 @@ You can also install your own additional libraries. Just follow the instructions
 * [GDAL](gdal.md) 2.4.2 and its commandline tools.
 * [Saga-GIS](saga-gis.md) 7.3.0.
 
-`r-env` loads GDAL 2.4.2 and its commandline tools, and Saga-GIS 7.2.0.
-
 ### Parallel computing
 
 Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
@@ -67,10 +63,7 @@ Other than those, you have to parallelize your own R code which can be done with
 
 ## Interactive usage
 
-It is possible to use RStudio with [an interactive batch job](rstudio.md) on Puhti:
-
-* `r-env` with RStudio desktop using [NoMachine](nomachine.md)
-* `r-env-singularity` with [RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session),  connecting to it from your local browser with SSH tunnel.
+It is possible to use RStudio with [an interactive batch job](rstudio.md) on Puhti. The `r-env-singularity` module includes an [RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session) installation, making it possible to run RStudio from your local browser with a SSH tunnel.
 
 ## Using Allas from R
 
