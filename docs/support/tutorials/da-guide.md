@@ -64,7 +64,7 @@ For more information:
 
 - [CSC's guide on GPU-accelerated machine learning](gpu-ml.md)
 
-If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores), it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
+If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env-singularity.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores), it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
 
 
 <!-- ### Big data processing (advanced)
