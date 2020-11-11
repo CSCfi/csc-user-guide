@@ -14,8 +14,7 @@ page](../../apps/alpha.md) if it exists. It may have a tailored template for you
 
 **b) Go to scratch directory and download the exercises file**
 
-`csc-workspaces` command will show you which projects you're a member of. Look for the
-
+`csc-workspaces` command will show you which projects you're a member of.
 ```
 csc-workspaces
 ...
@@ -25,7 +24,7 @@ Project: project_20001234 "Great science with HPC tools"
 /scratch/project_20001234         56G/1.1T       107K/1.0M
 ------------------------------------------------------------
 ```
-Make note of the project name (here: _project_20001234_) Select the one you want 
+Make note of the project name (here: _project_20001234_). Select the one you want 
 to work with and change to the scratch directory (don't work in the `$HOME` folder!):
 
 ```
@@ -102,6 +101,9 @@ squeue -u your_username
 ```
 less slurm-JOBID.out (type q to quit)
 ```
+
+If the job failed, please check which project you had in the batch script `--account=???`
+[Typical reasons for a failed batch in our FAQ](../faq/why-does-my-batch-job-fail.md)
 
 ##Simple R job 
 
