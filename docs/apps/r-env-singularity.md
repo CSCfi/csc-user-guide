@@ -637,6 +637,8 @@ citation("package") # for citing R packages
 
 ## Further information
 
+- [r-env-singularity container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity) (link to public GitHub repository)
+
 - [R FAQs](https://cran.r-project.org/faqs.html) (hosted by CRAN)
 
 - [Related Projects](https://www.r-project.org/other-projects.html) (list of R-related projects on R Project website)
