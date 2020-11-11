@@ -1,6 +1,9 @@
-# Getting started with the commandline
+# Hands-on batch jobs in Puhti tutorial
 
 The next few exercises take you through sumbitting your first batch jobs on Puhti.
+We've used R and HMMER as examples, but the principles are the same for other
+applications as well. However, please always consult the [application specific
+page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
 
 [TOC]
 
@@ -104,7 +107,7 @@ less slurm-JOBID.out (type q to quit)
 
 Run a simple R job from a script. The script will fit a straight line
 through a file containing some x,y value pairs. More info on
-[running R in the CSC environment](https://docs.csc.fi/apps/r-env-singularity/)
+[running R in the CSC environment](../../apps/r-env-singularity.md)
 
 **a) Set up an interactive batch job and initialize R-environment**
 
@@ -254,7 +257,7 @@ Name it `R_array.sh`. Copy the contents from the previous example.
 Add the following line among the other lines starting #SBATCH:
 
 ```
-#SBATCH -a 1-20
+#SBATCH --array=1-20
 ```
 
 It will ask SLURM to run an array of 20 jobs. Edit the output and error
@@ -296,7 +299,7 @@ You should get the fit coefficients in separate files in the
 **f) Collect the results and plot them.**
 
 Note, plotting will work only if you have 
-[remote X11 forwarding](../../computing/connecting/using-graphical-applications) or you've
+[remote X11 forwarding](../../../computing/connecting/using-graphical-applications) or you've
 connected to Puhti via [NoMachine](../../apps/nomachine.md).
 Actually, for R, there is even a tailored remote setup using 
 [RStudio Server](../../../apps/r-env-singularity/#using-rstudio-server),
@@ -401,7 +404,7 @@ these questions:
 
 ## Batch job memory consumption
 
-Create a new _R-script_ (like in the previoous exercise) named `mem-test.R`. It
+Create a new _R-script_ (like in the previoos exercise) named `mem-test.R`. It
 should have the following contents:
 
 ```
