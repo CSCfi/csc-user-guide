@@ -28,7 +28,10 @@ to work with and change to the scratch directory (don't work in the `$HOME` fold
 ```
 cd /scratch/project_20001234
 ```
+
 and download the input files with `wget`:
+
+```
 wget https://a3s.fi/docs-files/input-data.tar
 ```
 
@@ -171,7 +174,7 @@ You should see three lines with the R commands.
 **c) Run the script interactively**
 
 ```
-R --no-save --no-restore -f fit.R
+singularity_wrapper exec Rscript --no-save --no-restore -f fit.R
 ```
 
 **d) Did the job succeed? What are the fit coefficients?**
@@ -194,9 +197,8 @@ as the base for your own script.
 Replace the _<project>_ placeholder in the `--account` and `echo "TMPDIR=/scratch/...`
 lines with your own computing project.
 
-At the end of the script, replace the r-script to be executed 
-(`myscript.R`) to `fit.R`.
-
+At the end of the script, replace (`myscript.R`) i.e. the R-script to be
+executed to `fit.R`.
 
 **b) Submit the batch script with**
 
@@ -264,7 +266,7 @@ files to go to their own *directories* and files by editing/adding
 #SBATCH --error=err/errors%a.txt
 ```
 
-After the line with module **load r-env-singularity**, add the following line
+Before the line with `srun singularity_wrapper...``, add the following line
 
 ```
 dataname=$(sed -n "$SLURM_ARRAY_TASK_ID"p datanames.txt)
@@ -293,6 +295,13 @@ You should get the fit coefficients in separate files in the
 
 **f) Collect the results and plot them.**
 
+Note, plotting will work only if you have 
+[remote X11 forwarding](../../computing/connecting/using-graphical-applications) or you've
+connected to Puhti via [NoMachine](../../apps/nomachine.md).
+Actually, for R, there is even a tailored remote setup using 
+[RStudio Server](../../../apps/r-env-singularity/#using-rstudio-server),
+but in this tutorial, the key point is to demonstrate the general approach.
+
 In the folder containing `analyse.R` start the interactive R shell with
 ```
 start-x
@@ -317,7 +326,7 @@ sequences you want to study need to be copied first to be used as input:
 ```
 cp /appl/bio/hmmer/example.fasta .
 ```
-FIXME tätä filua ei ole
+FIXME tätä filua ei ole, kimmo?
 
 
 Let's first run the job with just one core. Copy one of the old batch
@@ -514,60 +523,11 @@ You'll notice bad speedup anyway.
 **d) Are all nodes similar? Should we limit which resources SLURM may give us?**
 **e) If we want to run a different cp2k system do we need to rerun the scaling test?**
 
-## Copying files to hpc_archive (should this be removed?)
+## Archive a file 
+### (this probably should go and be replaced with some Allas stuff? Or be included in a different, Allas-specific tutorial to make the whole thing more modular) 
 
-You can access hpc_archive only from Puhti and Sisu. You can access IDA
-also from your computer after installing the required tools.
-
-Log in to Puhti. Check the contents of your hpc\_archive:
-
-`ils`
-
-Show the directory that you\'re in in hpc\_archive:
-
-`ipwd`
-
-Show the directory that you\'re in in taito:
-
-`pwd`
-
-Create a directory named *test* in hpc_archive
-
-`imkdir test`
-
-Change (the remote working directory) into the test directory in hpc_archive
-
-`icd test`
-
-Confirm where you are in (your remote current directory is) hpc_archive
-
-`ipwd`
-
-Copy (put) a file to the test directory in hpc_archive:
-
-`iput filename`
-
-Confirm that the file is in hpc_archive
-
-`ils`
-
-or
-
-`ils -L`
-
-Copy the file back from hpc_archive, but to a local folder called `localtest`
-
-``` 
-mkdir localtest
-cd localtest
-iget filename
-```
-
-## Archive a file (this probably should go and be replaced with some Allas stuff?)
-
-Make a new directory in hpc_archive home directory (not under test)
-called *mysafe*. Copy there your files, e.g.,
-*test\hostname.sh* and *R_array.sh* from previous exercises,
-but not as two separate files. Compress and archive them first to a
-single file, *e.g.*, *fit.tar.gz* using a command `tar -zcvf files
-to include` , and copy it to *mysafe*.
+* for the impatient, a-put with defaults
+    * how to get files back
+* or manually, create a bucket in Allas
+* put your files there
+* ...
