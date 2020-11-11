@@ -143,7 +143,7 @@ Type 'q()' to quit R.
 >
 ```
 Now, interactively, fit a line through data points in the file _data.csv_.
-Write the following commands in the prompt (press enter after each line,
+Write (or copy/paste) the following commands in the prompt (press enter after each line,
 watch for errors):
 ```
 mydata <- read.csv("data.csv")
@@ -199,11 +199,10 @@ be necessary, if you run some other application. Always check first
 if there's a template batch script for your application, and use that
 as the base for your own script.
 
-Replace the _<project>_ placeholder in the `--account` and `echo "TMPDIR=/scratch/...`
-lines with your own computing project.
-
-At the end of the script, replace (`myscript.R`) i.e. the R-script to be
-executed to `fit.R`.
+For this example, you'll need to make three changes. Replace the _<project>_ 
+placeholder in the `--account` and `echo "TMPDIR=/scratch/...`
+lines with your own computing project. And finally, at the end of the script, 
+replace (`myscript.R`) i.e. the R-script to be executed to `fit.R`.
 
 **b) Submit the batch script with**
 
@@ -271,16 +270,18 @@ files to go to their own *directories* and files by editing/adding
 #SBATCH --error=err/errors%a.txt
 ```
 
-Before the line with `srun singularity_wrapper...``, add the following line
+Change the SLURM partition to be used (`--partition=`) from _test_ to _small_.
+
+Before the line with `srun singularity_wrapper...`, add the following line
 
 ```
 dataname=$(sed -n "$SLURM_ARRAY_TASK_ID"p datanames.txt)
 
 ```
-and replace the line to run the R command into:
+and edit the line to run the R command into:
 
 ```
-srun singularity_wrapper exec Rscript --no-save modelscript.R --args $dataname
+srun singularity_wrapper exec Rscript --no-save modelscript.R $dataname
 ```
 
 You should now have:
@@ -294,7 +295,7 @@ You should now have:
 ```
 sbatch R_array.sh
 ```
-
+Since you're now running 20 jobs, they might take a moment in the queue.
 You should get the fit coefficients in separate files in the
 `result_dir`. Let's now use interactive R to look at the results.
 
@@ -305,7 +306,8 @@ Note, plotting will work only if you have
 connected to Puhti via [NoMachine](../../apps/nomachine.md).
 Actually, for R, there is even a tailored remote setup using 
 [RStudio Server](../../../apps/r-env-singularity/#using-rstudio-server),
-but in this tutorial, the key point is to demonstrate the general approach.
+and you're welcome to use that, but in this tutorial, the key point is to 
+demonstrate the general approach.
 
 In the folder containing `analyse.R` start the interactive R shell with
 ```
@@ -315,34 +317,34 @@ start-x
 In the R shell that opens, write `source("analyse.R")`. This will 
 run (source) the script contents. The original data was
 created by calculating the y values by y=2x + some random noise.
+The plot will appear in a separate window.
 
 **e) How do the fit coefficients match that?**
 
 ## Batch job with thread parallelization
 
 Some applications can be run in parallel to speed them up. In this
-example you run the HMMER software to describe and analyze related or
-similar protein sequence areas both in serial and parallel to see if the jobs
-speed up.
+example you run the [HMMER software](../../apps/hmmer.md) to describe 
+and analyze related or similar protein sequence areas both in serial 
+and parallel to see if the jobs speed up.
 
 HMMER uses a database that is already installed, but the protein
 sequences you want to study need to be copied first to be used as input:
 
 ```
-cp /appl/bio/hmmer/example.fasta .
+wget https://a3s.fi/docs-files/example.fasta
 ```
-FIXME tätä filua ei ole, kimmo?
-
 
 Let's first run the job with just one core. Copy one of the old batch
 scripts to current directory, and change / add the following items in
-it:
+it (or take a look at [these examples](../../computing/running//example-job-scripts-puhti.md)):
 
    1) Output to out_%j.txt
    2) error to err_%j.txt
    3) run time 10 minutes
    4) load the hmmer -module
-   5) run command:
+   5) remove the R specific environment settings
+   6) run command:
  
 ```
 hmmscan $HMMERDB/Pfam-A.hmm example.fasta > example_1.result
