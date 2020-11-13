@@ -375,7 +375,6 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
 #SBATCH --time=00:05:00
-#SBATCH --ntasks=4
 #SBATCH --ntasks-per-node=2
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=1000
