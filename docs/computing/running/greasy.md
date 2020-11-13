@@ -78,7 +78,7 @@ sbatch-greasy tasklist
 ```
 The command above will ask you to define the information needed to construct a batch job for the GREASY run. 
 The parameters include: 
-   1. number of cores each task will use (`-c`)
+   1. number of cores that **one** task will use (`-c`)
    2. estimated average duration for one task (`-t`)
    3. number of nodes used to execute the tasks (`-N`)
    4. accounting project (`-A`).
