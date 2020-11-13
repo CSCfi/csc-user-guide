@@ -46,9 +46,19 @@ must use pull requests.
 
  - Follow the link (or navigate to the pull request)
  - Make sure the tests pass
- - Edit the pages as needed (perhaps via the Web GUI) or propose changes ("review" -> "propose changes")
+ - Edit the pages as needed (perhaps via the Web GUI)
+     - It's ok to edit typos directly in the text
  - Once you're happy with the content click "review" -> "ok"
  - Anyone can be a reviewer, while pull requests can be accepted only by a smaller group of people
+ - **Pro tip** 
+      - Suggest changes so that they appear as `diff` in the conversation tab, so that the author can simply commit/reject them
+      - In the "Files" tab, scroll to the line you want to change and press the blue "+" at the start of the line
+      - In the appearing pop-up, press the sim-card-look-a-like icon with + and - on top of each other
+      - write between the tics (including the suggestion) what you want to appear in the page
+      - If you want to remove a line, delete the content (and leave the tics and the word suggestio)
+      - If you want to remove lines, write the preceding and trailing lines
+      - Write a comment outside the tics, if you want, and use Preview to see the resulting `diff`
+      - Press "Add Single Comment"
 
 **Admin:** If you see an approved branch:
 
