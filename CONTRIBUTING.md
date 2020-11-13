@@ -55,7 +55,7 @@ must use pull requests.
       - In the "Files" tab, scroll to the line you want to change and press the blue "+" at the start of the line
       - In the appearing pop-up, press the sim-card-look-a-like icon with + and - on top of each other
       - write between the tics (including the suggestion) what you want to appear in the page
-      - If you want to remove a line, delete the content (and leave the tics and the word suggestio)
+      - If you want to remove a line, delete the content (and leave the tics and the word suggestion)
       - If you want to remove lines, write the preceding and trailing lines
       - Write a comment outside the tics, if you want, and use Preview to see the resulting `diff`
       - Press "Add Single Comment"
