@@ -27,21 +27,46 @@ Master branch is protected. You cannot make changes to it directly, but you
 must use pull requests.
 
 ### Overview
+**writer:**
 
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
  - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (=apps) for example)
  - Make a pull request for your work to be added to Master
-    - You can also aim it at someone specifically (recommended)
-    - Assign one or more reviewers
+    - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
+        - **How?** Click on the "Details" link for the failing test. Then click the "The Build" Failed -link more or less at the center of the page. This will open detailed results of the tests and help you pinpoint the error.) 
+    - Assign one or more reviewers, try to choose someone who knows the _content_
+        - **Tip** Add a link to the rahtiapp-preview page (https://csc-guide-preview.rahtiapp.fi/origin/
+<your-branch-name>/rest-of-url/) in the Pull Request description to help reviewer) 
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (=Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
-    - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
- - Once PR has been accepted, remove the temporary branch
+ - Once PR has been accepted, remove the temporary branch (if not deleted at merge)
 
-**Reviewer:** If you get a request to review a pull request, follow the link, edit the pages as needed (perhaps via the Web GUI), and click "comment" not "close" if you're happy with the content. Anyone can be a reviewer. Pull requests can be accepted only by a smaller group of people. 
+**Reviewer:** If you get a request to review a pull request, please contribute to help publish the changes!
+
+ - Follow the link (or navigate to the pull request)
+ - Make sure the tests pass
+ - Edit the pages as needed (perhaps via the Web GUI)
+     - It's ok to edit typos directly in the text
+ - **Pro tip** 
+      - Suggest changes so that they appear as `diff` in the conversation tab, so that the author can simply commit/reject them
+      - In the "Files changed" tab, scroll to the line you want to change and press the blue "+" at the start of the line
+      - In the appearing pop-up, press the sim-card-look-a-like icon with + and - on top of each other
+      - write between the tics (including the suggestion) what you want to appear in the page
+      - If you want to remove a line, delete the content (and leave the tics and the word suggestion)
+      - If you want to remove lines, write the preceding and trailing lines
+      - Write a comment outside the tics, if you want, and use Preview to see the resulting `diff`
+      - Press "Add Single Comment"
+ - Once you're happy with the content, in the "Files changed" tab click "Review changes" -> "Approve"
+ - Anyone can be a reviewer, while pull requests can be accepted only by a smaller group of people
+
+**Admin:** If you see an approved branch:
+
+ - "Squash and merge" it
+ - Delete the (now unnecessary) branch
+ - Occasionally the number of (unnecessary) branches grows: prune.
 
 **Note:** If you make bigger changes to the (main) categories / menu on the left, it might effect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
 
