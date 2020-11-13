@@ -483,7 +483,6 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
 #SBATCH --time=00:05:00
-#SBATCH --ntasks=4
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=2
 #SBATCH --cpus-per-task=8
