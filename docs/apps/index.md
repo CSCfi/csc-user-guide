@@ -97,6 +97,7 @@
 * [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [Star-CCM+](starccm+.md) Computational Fluid Dynamics software by Siemens Digital Industries Software
 
 ## Data Analytics and Machine Learning
 
