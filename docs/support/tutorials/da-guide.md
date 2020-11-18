@@ -43,7 +43,7 @@ There is also plenty of data science information available online, some popular 
 [Coursera](https://www.coursera.org/browse/data-science) and [edX](https://www.edx.org/course/subject/data-science).
 
 If you don't want to setup development environment into your own laptop, you can easily use [Rahti](../../cloud/rahti/access.md) to setup RStudio environment using ready made RStudio template from template catalog.
-More info about RStudio template can be found from [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift).
+More info about RStudio template can be found from [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift).  
 We also have [instructions how to use Allas object storage from RStudio](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md).
 
 ### Scaling up from your laptop (beginner)
