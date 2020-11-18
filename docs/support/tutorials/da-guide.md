@@ -42,9 +42,9 @@ If you are in the field of bioinformatics, you might also want to check out the 
 There is also plenty of data science information available online, some popular resources include [Udemy](https://www.udemy.com/courses/development/data-science/),
 [Coursera](https://www.coursera.org/browse/data-science) and [edX](https://www.edx.org/course/subject/data-science).
 
-If you don't want to setup development environment into your own laptop, you can easily use Rahti to setup RStudio environment using ready made RStudio template from template catalog. [Rahti - Getting access](../../cloud/rahti/access.md)
-More info about RStudio template can be found from [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift)
-Instructions how to use Allas object storage from RStudio can be found from [here](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md)
+If you don't want to setup development environment into your own laptop, you can easily use [Rahti](../../cloud/rahti/access.md) to setup RStudio environment using ready made RStudio template from template catalog.
+More info about RStudio template can be found from [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift).
+We also have [instructions how to use Allas object storage from RStudio](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md).
 
 ### Scaling up from your laptop (beginner)
 
@@ -52,7 +52,7 @@ Instructions how to use Allas object storage from RStudio can be found from [her
 
 In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster. That means it's not one computer, but a collection of many computers. Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](../../computing/overview.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
 
-Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R](../../apps/r-env.md) and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
+Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R](../../apps/r-env-singularity.md) and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
 
 As Puhti is a shared computing environment, users are restricted in what they can do, for example when it comes to installing customized software or processing sensitive data.  In some cases, it might make sense to instead use [**Pouta**](../../cloud/pouta/index.md) to create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Another option is [**Rahti**](../../cloud/rahti/index.md), where you can create virtual applications based on container images. See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
