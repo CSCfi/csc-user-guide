@@ -42,6 +42,10 @@ If you are in the field of bioinformatics, you might also want to check out the 
 There is also plenty of data science information available online, some popular resources include [Udemy](https://www.udemy.com/courses/development/data-science/),
 [Coursera](https://www.coursera.org/browse/data-science) and [edX](https://www.edx.org/course/subject/data-science).
 
+If you don't want to setup development environment into your own laptop, you can easily use Rahti to setup RStudio environment using ready made RStudio template from template catalog. [Rahti - Getting access](../../cloud/rahti/access.md)
+More info about RStudio template can be found from [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift)
+Instructions how to use Allas object storage from RStudio can be found from [here](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md)
+
 ### Scaling up from your laptop (beginner)
 
 *You have been running analyses in R or Python for some time already, but you have reached the limits of your own laptop or desktop computer. Perhaps you need more memory or faster processing?*
