@@ -136,7 +136,7 @@ In the above example, the file is using the 24 OSTs of Mahti and the stripe size
 By default, for collective I/O, the OpenMPI on Mahti defines 1 MPI I/O aggregator per compute node. This means that in our example above, only 2 MPI processes do the actual I/O. They gather the data from the rest of the processes (phase 1), and in the second phase they send the data to the storage. The usage of the default MPI aggregators could be enough, but in many cases, it is not.
 
 
-##File Per Process
+## File Per Process
 
 Some applications create one file per MPI process. Although this sounds easy, it is not necessary efficient. If you use a lot of processes per compute node then you will create contention starting from the network on the compute nodes and the time to conclude the I/O operations except that can get long time, that will interfere with other network operations, maybe also they will never finish because of scheduler time out operations etc. However, there can be cases that they are efficient but always be careful and think about scalability, as this approach is not scalable.
 
@@ -274,11 +274,25 @@ cb_config_list *:2
 I/O bandwidth    :    3699.31 MiB/s 
 ```
 
-* THe performance is improved 2.86 times
+* The performance is improved 2.86 times
+
+* If we use 2 OSTs without any ROMIO Hint the performance is 3500 MiB/s which is less than the optimized 1 OST.
+
+* We use 2 OSTs with this romio file:
+
+```
+striping_unit 1048576
+romio_cb_write enable
+romio_no_indep_rw true
+romio_ds_write disable
+```
+
+* Then the performance is increased to 4667 MiB/s, an increase of 33%. In this case increasing the number of the aggregators, does not imporve the performance.
+
+* Overall, the ROMIO Hints depend on the application and the used hardware, the optimum parameters are not necessary the same across various applications.
 
 
-
-##Use I/O Libraries
+## Use I/O Libraries
 
 * Do not try to reinvent the wheel use well-know I/O libraries with your application. First verify that your I/O causes issues or it takes significant time from your total execution.
 
