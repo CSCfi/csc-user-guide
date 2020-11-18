@@ -91,9 +91,9 @@ module load maestro
 bash your_script_name.sh
 ```
 
-The following video tutorial walks you through it (although the video was created for Taito, most steps work similarly also for Puhti):  
+The following video tutorial walks you through it:  
 
-[![Maestro Standalone](http://img.youtube.com/vi/oQDLa6Bh-q4/0.jpg)](http://www.youtube.com/watch?v=oQDLa6Bh-q4 "Maestro Standalone")
+[![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
 
 !!! note
     We do _not_ recommend running the Maestro GUI remotely on Puhti.
@@ -104,7 +104,7 @@ The following video tutorial walks you through it (although the video was create
     If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
 
 !!! note
-    **Windows** users, you'll need to edit the script created by GUI a little.
+    **Windows** users, may need to edit the script created by GUI a little.
     Replace the backslashes "\" with "/" in the path to the Maestro binary
     (right after `$SCHRODINGER` in the script). 
 
