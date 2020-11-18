@@ -63,10 +63,14 @@ It is known from our guide that both Puhti and Mahti have the storage areas Puht
 
 
 
-One main difference is that for Mahti there are separate MDTs between `scratch`, `home`, and `project`, thus the performance does not interfere from the different filesystems. Moreover, the `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them.
+One main difference is that for Mahti there are separate MDTs between `scratch`, `home`, and `project`, thus the metadata performance does not interfere from the different filesystems. Moreover, the `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them.
 
 The peak performance for Mahti when it was one signle filesystem and not as it is now configured, it was around to ~100 GB/s for read or write and using 64 compute nodes. This performance is under dedicated access to the system, handling one file per process, not for single shared file. The performance for Puhti is around two times less than Mahti.
 
+
+##Performance
+
+The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/sec for read. However, this performance was achieved on dedicated system with 64 compute nodes, which means around to 1.5 GB/sec per compute node. If more nodes are used or many jobs do significant I/O, then you will not achieve 1.5 GB/sec, including also that maybe the I/O pattern of an application is not efficient. The corresponding performance for Puhti is half of Mahti. 
 
 
 ## Best practices 
@@ -132,6 +136,13 @@ In the above example, the file is using the 24 OSTs of Mahti and the stripe size
 By default, for collective I/O, the OpenMPI on Mahti defines 1 MPI I/O aggregator per compute node. This means that in our example above, only 2 MPI processes do the actual I/O. They gather the data from the rest of the processes (phase 1), and in the second phase they send the data to the storage. The usage of the default MPI aggregators could be enough, but in many cases, it is not.
 
 
+##File Per Process
+
+Some applications create one file per MPI process. Although this sounds easy, it is not necessary efficient. If you use a lot of processes per compute node then you will create contention starting from the network on the compute nodes and the time to conclude the I/O operations except that can get long time, that will interfere with other network operations, maybe also they will never finish because of scheduler time out operations etc. However, there can be cases that they are efficient but always be careful and think about scalability, as this approach is not scalable.
+
+!["File Per Process"](../../img/file_per_process.png)
+
+*File Per Process*
 
 ## ROMIO Hints
 
@@ -165,7 +176,8 @@ cb_config_list *:2
 ``` 
   This will activate 2 MPI processes per each compute node of your job to operate as MPI I/O aggregator.
 
-    * Change hints in the code of an application (code example):
+* Change hints in the code of an application (code example):
+
 
 ```
 ...
@@ -176,7 +188,7 @@ call MPI_File_open(comm,filename,amode,info,fh,ierror)
 ...
 ```
 
-    * In some cases it is better to activate some hints than let the heuristics to decide with the automatic option
+* In some cases it is better to activate some hints than let the heuristics to decide with the automatic option
 
 * How to see the used hints and their values?
 
@@ -186,7 +198,7 @@ call MPI_File_open(comm,filename,amode,info,fh,ierror)
 export ROMIO_PRINT_HINTS=1
 ```
 
-    * Then in your output, if and only if there is collective I/O, you will see the hints, for example:
+* Then in your output, if and only if there is collective I/O, you will see the hints, for example:
 
 ```
 key = cb_buffer_size            value = 33554432
@@ -199,3 +211,75 @@ key = romio_cb_pfr              value = disable
 ```
 This is useful in order to be sure that your declarations were really used.
 
+## Benchmark
+
+For testing purposes we use the [NAS BTIO](https://github.com/wkliao/BTIO) benchmark with support to PnetCDF to test the I/O performance on one compute nodes of Mahti.
+
+* We create an input file with:
+
+```
+w                  # IO mode:    w for write, r for read
+2                  # IO method:  0 for MPI collective I/O, 1 for MPI_independent I/O, 2 for PnetCDF blocking I/O, 3 for PnetCDF nonblocking I/O
+5                  # number of time steps
+2048 1024 256          # grid_points(1), grid_points(2), grid_points(3)
+/scratch/project_2002078/markoman/BTIO/output
+```
+
+* This means that we do write operations with blocking PnetCDF, 5 time steps and totally almost half billion grid points and the output file is almost 105 GB.
+
+* We use 256 processes, 16 per compute node
+
+* Executing with default settings, from the output of the benchmark:
+
+```
+I/O bandwidth    :    1292.96 MiB/s
+```
+
+### Striping
+
+* We know that the Lustre striping is 1 MB, thus we declare in a file called `romio`:
+
+```
+striping_unit 1048576
+```
+
+and we declare:
+
+```
+export ROMIO_HINTS=/path/romio
+```
+
+* We execute again the benchmark and we have the following:
+
+```
+I/O bandwidth    :    2939.85 MiB/s
+```
+
+The performance is improved 2.27 times.
+
+
+### MPI I/O Aggregators
+
+* By default with the curent MPI version, uses 1 MPI I/O aggregator, so we increase to two MPI I/O aggregators per compute node 
+
+* Add to the romio file the command:
+
+```
+cb_config_list *:2 
+```
+
+* This means two MPI I/O aggregators per compute node. We execute the benchmark and we have:
+
+```
+I/O bandwidth    :    3699.31 MiB/s 
+```
+
+* THe performance is improved 2.86 times
+
+
+
+##Use I/O Libraries
+
+* Do not try to reinvent the wheel use well-know I/O libraries with your application. First verify that your I/O causes issues or it takes significant time from your total execution.
+
+* Then, try to use I/O libraries such as [PNetCDF](https://parallel-netcdf.github.io/), [HDF5](https://www.hdfgroup.org/), [ADIOS](https://csmd.ornl.gov/software/adios2).
