@@ -293,9 +293,38 @@ romio_ds_write disable
 
 * Overall, the ROMIO Hints depend on the application and the used hardware, the optimum parameters are not necessarily the same across various applications.
 
+### Non-Blocking I/O
 
-## Use I/O Libraries
+* We create an input file with:
+
+```
+w                  # IO mode:    w for write, r for read
+3                  # IO method:  0 for MPI collective I/O, 1 for MPI_independent I/O, 2 for PnetCDF blocking I/O, 3 for PnetCDF nonblocking I/O
+5                  # number of time steps
+2048 1024 256          # grid_points(1), grid_points(2), grid_points(3)
+/scratch/project_2002078/markoman/BTIO/output
+```
+
+* With default parameters the performance is 1820 MiB/s for 1 OST, which is quite low for 16 compute nodes.
+
+* Moreover, we declare the romio file:
+
+```
+striping_unit 1048576
+cb_config_list *:4
+romio_ds_write disable
+```
+
+* The achieved performance is 4565 MiB/s, this si 2.5 times improvement.
+
+* If we use 2 OSTs with the same romio file, the performance is 9520 MiB/s which is more than twice than 1 OST and more than twice than blocking I/O. With the default parameters, the achieved performance would be 7772 MiB/s, so the hints boost the performance by 22.5%.
+
+
+## Conclusion
+
+* Use non-blocking I/O for more efficient I/O
 
 * Do not try to reinvent the wheel use well-known I/O libraries with your application. First, verify that your I/O causes issues or it takes significant time from your total execution.
 
 * Then, try to use I/O libraries such as [PNetCDF](https://parallel-netcdf.github.io/), [HDF5](https://www.hdfgroup.org/), [ADIOS](https://csmd.ornl.gov/software/adios2).
+
