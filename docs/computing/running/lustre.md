@@ -225,7 +225,7 @@ w                  # IO mode:    w for write, r for read
 /scratch/project_2002078/markoman/BTIO/output
 ```
 
-* This means that we do write operations with blocking PnetCDF, 5 time steps and totally almost half billion grid points and the output file is almost 105 GB.
+* This means that we do write operations with blocking PnetCDF, 5 time steps, and totally almost half-billion grid points and the output file is almost 105 GB.
 
 * We use 256 processes, 16 per compute node
 
@@ -260,7 +260,7 @@ The performance is improved 2.27 times.
 
 ### MPI I/O Aggregators
 
-* By default with the curent MPI version, uses 1 MPI I/O aggregator, so we increase to two MPI I/O aggregators per compute node 
+* By default with the current MPI version, uses 1 MPI I/O aggregator, so we increase to two MPI I/O aggregators per compute node 
 
 * Add to the romio file the command:
 
@@ -274,7 +274,9 @@ cb_config_list *:2
 I/O bandwidth    :    3699.31 MiB/s 
 ```
 
-* The performance is improved 2.86 times
+* The performance is improved totally 2.86 times
+
+### Increasing the number of OSTs
 
 * If we use 2 OSTs without any ROMIO Hint the performance is 3500 MiB/s which is less than the optimized 1 OST.
 
@@ -287,13 +289,13 @@ romio_no_indep_rw true
 romio_ds_write disable
 ```
 
-* Then the performance is increased to 4667 MiB/s, an increase of 33%. In this case increasing the number of the aggregators, does not imporve the performance.
+* Then the performance is increased to 4667 MiB/s, an increase of 33%. In this case, increasing the number of the aggregators, does not improve the performance.
 
-* Overall, the ROMIO Hints depend on the application and the used hardware, the optimum parameters are not necessary the same across various applications.
+* Overall, the ROMIO Hints depend on the application and the used hardware, the optimum parameters are not necessarily the same across various applications.
 
 
 ## Use I/O Libraries
 
-* Do not try to reinvent the wheel use well-know I/O libraries with your application. First verify that your I/O causes issues or it takes significant time from your total execution.
+* Do not try to reinvent the wheel use well-known I/O libraries with your application. First, verify that your I/O causes issues or it takes significant time from your total execution.
 
 * Then, try to use I/O libraries such as [PNetCDF](https://parallel-netcdf.github.io/), [HDF5](https://www.hdfgroup.org/), [ADIOS](https://csmd.ornl.gov/software/adios2).
