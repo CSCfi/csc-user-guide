@@ -211,7 +211,9 @@ key = romio_cb_pfr              value = disable
 ```
 This is useful in order to be sure that your declarations were really used.
 
-## Benchmark
+## Benchmark - NAS BTIO
+
+### Non-Blocking I/O
 
 For testing purposes we use the [NAS BTIO](https://github.com/wkliao/BTIO) benchmark with support to PnetCDF to test the I/O performance on 16  compute nodes of Mahti.
 
@@ -235,7 +237,7 @@ w                  # IO mode:    w for write, r for read
 I/O bandwidth    :    1292.96 MiB/s
 ```
 
-### Striping
+#### Striping
 
 * We know that the Lustre striping is 1 MB, thus we declare in a file called `romio`:
 
@@ -258,7 +260,7 @@ I/O bandwidth    :    2939.85 MiB/s
 The performance is improved 2.27 times.
 
 
-### MPI I/O Aggregators
+#### MPI I/O Aggregators
 
 * By default with the current MPI version, uses 1 MPI I/O aggregator, so we increase to two MPI I/O aggregators per compute node 
 
@@ -276,7 +278,7 @@ I/O bandwidth    :    3699.31 MiB/s
 
 * The performance is improved totally 2.86 times
 
-### Increasing the number of OSTs
+#### Increasing the number of OSTs
 
 * If we use 2 OSTs without any ROMIO Hint the performance is 3500 MiB/s which is less than the optimized 1 OST.
 
