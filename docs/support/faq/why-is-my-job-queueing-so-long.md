@@ -9,11 +9,11 @@ the jobs really need.
 
 Computing time is not so critical here (unless it is short, like less than 30 minutes or so, in which case the backfiller might find a slot for your job before it would run due to its actual priority), but requesting too much memory will surely make the job queue longer.
 
-If you've submitted the job to the **longun** partition and the reason for your job to be in pending state is:
+If you've submitted the job to the **longrun** partition and the reason for your job to be in pending state is:
 ```
 QOSGrpCpuLimit
 ```
-That partition is currently full. You will very likely get resources faster from another (e.g. _small_) partition.
+This means that the partition is currently full. You will very likely get resources faster from another (e.g. _small_) partition.
 
 You might want to check these FAQ entries:
 
