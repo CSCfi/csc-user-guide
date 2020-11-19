@@ -5,7 +5,7 @@ Both systems Puhti and Mahti have Lustre, a parallel distributed file system, wi
 
 ## Lustre Terminology
 
-The Lustre file system is constituted by a set of I/O servers called Object Storage Servers (OSSs) and disks called Object Storage Targets (OSTs). The metadata operations of a file are controlled by Metadata Servers (MDSs) and stored on Metadata Targets (MDTs). Basically, the servers handle the RPC requests in order to access the files and metadata; the clients do not access storage directly. Each OSS/MDS export multiple OST/MDT in order to improve the I/O parallelism
+The Lustre file system is constituted by a set of I/O servers called Object Storage Servers (OSSs) and disks called Object Storage Targets (OSTs). The metadata operations of a file are controlled by Metadata Servers (MDSs) and stored on Metadata Targets (MDTs). Basically, the servers handle the RPC requests in order to access the files and metadata; the clients do not access storage directly. Each OSS/MDS exports multiple OST/MDT to improve the I/O parallelism
 
 * Object Storage Servers (OSSs): They handle RPC requests from the clients in order to access the storage. Moreover, they manage a set of OSTs; each OSS has more than one OST to improve the I/O parallelism.
 * Object Storage Targets (OSTs): Usually, an OST consists of a block of storage devices under RAID configuration. The data are stored in one or more objects, and each object is stored on a separate OST. 
@@ -85,7 +85,7 @@ The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/
 
 
 * Increase striping count for parallel access, especially on large files:
-    * The striping factor should be a factor of a number of processes performing parallel I/O
+    * The striping factor should be a factor of the number of used processes performing parallel I/O
     * A rule of thumb is to use as striping the square root of the file size in GB. If the file is 90 GB, the square root is 9.5, so use at least 9 OSTs.
     * If you use, for example, 16 MPI processes for parallel I/O, the number of the used OSTs should be less or equal to 16.
 
@@ -123,7 +123,7 @@ lmm_stripe_offset: 22
 
 In the above example, the file is using the 24 OSTs of Mahti and the stripe size is 1 MB. 
 
-##MPI I/O Aggregators
+## MPI I/O Aggregators
 
 * During a collective I/O operation, the buffers on the aggregated nodes are buffered through MPI, then these nodes write the data to the I/O servers.
 
@@ -138,7 +138,7 @@ By default, for collective I/O, the OpenMPI on Mahti defines 1 MPI I/O aggregato
 
 ## File Per Process
 
-Some applications create one file per MPI process. Although this sounds easy, it is not necessary efficient. If you use a lot of processes per compute node then you will create contention starting from the network on the compute nodes and the time to conclude the I/O operations except that can get long time, that will interfere with other network operations, maybe also they will never finish because of scheduler time out operations etc. However, there can be cases that they are efficient but always be careful and think about scalability, as this approach is not scalable.
+Some applications create one file per MPI process. Although this sounds easy, it is not necessarily efficient. If you use a lot of processes per compute node then you will create contention starting from the network on the compute nodes and the time to conclude the I/O operations except that can get a long time, that will interfere with other network operations, maybe also they will never finish because of scheduler time out operations etc. However, there can be cases that they are efficient but always be careful and think about scalability, as this approach is not scalable.
 
 !["File Per Process"](../../img/file_per_process.png)
 
@@ -188,7 +188,7 @@ call MPI_File_open(comm,filename,amode,info,fh,ierror)
 ...
 ```
 
-* In some cases it is better to activate some hints than let the heuristics to decide with the automatic option
+* In some cases, it is better to activate some hints than let the heuristics to decide with the automatic option
 
 * How to see the used hints and their values?
 
@@ -213,7 +213,7 @@ This is useful in order to be sure that your declarations were really used.
 
 ## Benchmark
 
-For testing purposes we use the [NAS BTIO](https://github.com/wkliao/BTIO) benchmark with support to PnetCDF to test the I/O performance on one compute nodes of Mahti.
+For testing purposes we use the [NAS BTIO](https://github.com/wkliao/BTIO) benchmark with support to PnetCDF to test the I/O performance on 16  compute nodes of Mahti.
 
 * We create an input file with:
 
@@ -225,7 +225,7 @@ w                  # IO mode:    w for write, r for read
 /scratch/project_2002078/markoman/BTIO/output
 ```
 
-* This means that we do write operations with blocking PnetCDF, 5 time steps, and totally almost half-billion grid points and the output file is almost 105 GB.
+* This means that we do write operations with blocking PnetCDF, 5 time steps, and totally almost half-billion grid points, and the output file is almost 105 GB.
 
 * We use 256 processes, 16 per compute node
 
@@ -295,7 +295,7 @@ romio_ds_write disable
 
 ### Non-Blocking I/O
 
-* We create an input file with:
+* We create an input file for non-blocking PnetCDF with:
 
 ```
 w                  # IO mode:    w for write, r for read
@@ -315,7 +315,7 @@ cb_config_list *:4
 romio_ds_write disable
 ```
 
-* The achieved performance is 4565 MiB/s, this si 2.5 times improvement.
+* The achieved performance is 4565 MiB/s, this is 2.5 times improvement.
 
 * If we use 2 OSTs with the same romio file, the performance is 9520 MiB/s which is more than twice than 1 OST and more than twice than blocking I/O. With the default parameters, the achieved performance would be 7772 MiB/s, so the hints boost the performance by 22.5%.
 
