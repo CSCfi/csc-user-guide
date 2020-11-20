@@ -35,13 +35,14 @@ keep the additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
+|CentOS-8   |cloud-user | yes|
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
-|CentOS-8   |cloud-user | yes|
+|ScientificLinux-7   |cloud-user | yes|
+|Ubuntu-20.04   |**ubuntu** | no |
+|Ubuntu-18.04   |**ubuntu** | no |
 |Ubuntu-16.04   |cloud-user | yes|
 |Ubuntu-16.04-Cuda   |cloud-user | yes|
-|Ubuntu-18.04   |**ubuntu** | no |
-|Ubuntu-20.04   |**ubuntu** | no |
 
 ### CentOS-8
 Currently in a *tech preview* because we have found some
@@ -75,17 +76,17 @@ Basically CentOS-7 but with a slightly different topping. Some
 research organizations use ScientificLinux. If you are unsure, you
 should prefer CentOS-7.
 
-### Ubuntu-18.04 LTS
-Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that Ubuntu-18.04 has `ubuntu` as the default 
-username instead of `cloud-user`, since it was the first image type we started 
-to provide directly from the upstream.
-
 ### Ubuntu-20.04 LTS
 Ubuntu-20.04 LTS image, included in Pouta, another one from Ubuntu image family for
 those who do not want to use CentOS. Note that like Ubuntu-18.04, Ubuntu 20.04 also 
 has `ubuntu` as the default username instead of `cloud-user`.
 This is the another image type we started to provide directly from the upstream after Ubuntu-18.04.
+
+### Ubuntu-18.04 LTS
+Some like chocolate, some like strawberry. This is the choice for those that
+do not want to use CentOS. Note that Ubuntu-18.04 has `ubuntu` as the default 
+username instead of `cloud-user`, since it was the first image type we started 
+to provide directly from the upstream.
 
 ### Ubuntu-16.04 LTS
 If you for some reason need an older version of Ubuntu.
