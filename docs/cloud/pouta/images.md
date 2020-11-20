@@ -17,8 +17,6 @@ to consider when creating your own images that you would not
 need to consider when using the default images. For more information,,
 see [Advanced images](../adding-images)
 
-/* openstack image list --public */
-
 ## The main features of the images provided by CSC
 
 The images provided by CSC are mostly the same as upstream.
