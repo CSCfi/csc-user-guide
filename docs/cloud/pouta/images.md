@@ -60,8 +60,6 @@ Another difference is that this image does not have automatic updates enabled.
 CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
 is the distribution that the Pouta admins are the most accustomed to. 
 This is the second-newest major release of CentOS.
-We are still waiting for the CentOS-8 cloud images to be
-released before we start providing CentOS-8 as well.
 
 ### CentOS-7-Cuda
 This is the same as CentOS-7 but comes with preinstalled NVIDIA drivers.
