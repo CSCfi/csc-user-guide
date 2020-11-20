@@ -117,12 +117,4 @@ VMs, and you should always delete the instance when you are done with
 testing. There is very little reason for end-users using this image, and if
 you are unsure, CentOS and Ubuntu are better choices 99% of the time.
 
-### Ubuntu-14.04
-Ubuntu-14.04 has been at the end of standard support for some time and will go
-EOL in 2022. We recommend using newer Ubuntu images.
-
-### Fedora-Atomic-25
-You probably do not want to use this if you are not sure. We will most likely
-remove this image in the near future since it is getting quite out of date.
-
 [GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
