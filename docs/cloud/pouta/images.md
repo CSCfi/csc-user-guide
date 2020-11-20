@@ -62,12 +62,6 @@ This is the second-newest major release of CentOS.
 We are still waiting for the CentOS-8 cloud images to be
 released before we start providing CentOS-8 as well.
 
-### CentOS-6
-This is the oldest version of CentOS that we provide in Pouta. You should
-probably not use this version without a really good reason.
-We will remove our premade CentOS-6 images once CentOS-6 is at the end of its life
-in November 2020.
-
 ### CentOS-7-Cuda
 This is the same as CentOS-7 but comes with preinstalled NVIDIA drivers.
 These are useful in combination with the GPU flavors since you do not need
@@ -76,8 +70,8 @@ drivers installed, but sometimes we are lagging a bit behind. These images
 are huge, so you should use the normal CentOS-7 image if you are not
 using a GPU-flavor VM.
 
-### ScientificLinux-7 and ScientificLinux-6
-These are basically CentOS-7/CentOS-6 but with a slightly different topping. Some
+### ScientificLinux-7
+Basically CentOS-7 but with a slightly different topping. Some
 research organizations use ScientificLinux. If you are unsure, you
 should prefer CentOS-7.
 
