@@ -30,3 +30,17 @@ In Mahti there are 234 nodes in each dragonfly group and the internal fat tree h
 
 Mahti has a 8.7 PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
 [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
+
+The Lustre configuration, is not the same between them. You can see the Lustre terminology [here] 
+
+|  Name       | Mahti  |        |
+|-------------|--------|--------|
+|**Storage area** | **# OSTs** | **# MDTs** | 
+| home        |    8    |   1    | 
+| projappl    |    8    |   1    |
+| scratch     |   24    |   2    |
+
+
+The `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. 
+
+The peak performance for Mahti when it was one signle filesystem and not as it is now configured, it was around to ~100 GB/s for read or write and using 64 compute nodes. This performance is under dedicated access to the system, handling one file per process, not for single shared file. 
