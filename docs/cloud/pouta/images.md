@@ -106,6 +106,6 @@ This can be useful for doing tests in Pouta, such as testing if the network work
 how fast you can launch an instance. You should not use this for persistent
 VMs, and you should always delete the instance when you are done with
 testing. There is very little reason for end-users using this image, and if
-you are unsure, CentOS and Ubuntu are better choices 99% of the time.
+you are unsure, CentOS and Ubuntu are better choices 99% of the time. 
 
 [GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
