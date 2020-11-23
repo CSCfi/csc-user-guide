@@ -98,7 +98,7 @@ These images you should probably not use without a really good
 reason. You might be better off [creating your own image](../adding-images)
 
 If there any images that you think we should add, do not hesitate to contact
-servicedesk@csc.fi.
+[Service Desk](mailto:servicedesk@csc.fi).
 
 ### cirros
 This is a really small image which can be used to boot an instance really fast.
