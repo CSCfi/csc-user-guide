@@ -8,3 +8,4 @@
 * [Reverse proxy authentication using a sidecar container](/cloud/rahti/tutorials/sidecar_proxy_authentication/)
 * [Short introduction to YAML](/cloud/rahti/tutorials/yaml_introduction/)
 * [How to transfer data to Rahti?](/cloud/rahti/tutorials/transfer_data_rahti/)
+* [How to add docker hub credentials to a project](/cloud/rahti/tutorials/docker_hub_login/)
