@@ -1,7 +1,7 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
 site_url: "https://docs.csc.fi/"
-site_description: Instructions and user guides for the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
+site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 nav:
   - Home: index.md
   - Accounts:
@@ -67,6 +67,7 @@ nav:
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
          - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
          - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
+         - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
