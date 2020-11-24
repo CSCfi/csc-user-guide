@@ -1,6 +1,6 @@
 # How to add docker hub credentials to a project
 
-Since 2nd November 2020, docker hub has imposed rate pull limits to users. For Rahti this means a limit of 200 pull every 6 hours. This limit is hit usualy and prevents new application to be deployed if the image is in docker hub.
+Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a limit of 200 pull every 6 hours. This limit is hit usualy and prevents new applications to be deployed if the image is in docker hub.
 
 The error looks like this:
 
@@ -23,7 +23,10 @@ The solution incvolves using both the Web UI and the client:
   * Username = your docker username
   * Password = your docker password
   * Email = your docker email
-Note: Leave "Link secret to a service account." empty, we'll do this on command line.
+
+**Note**: Leave "Link secret to a service account." empty, we'll do this on command line.
+
+![create secret](/cloud/rahti/img/create_docker_hub_secret.png)
 
 * Verify values are correct and select "Create".
 
@@ -35,5 +38,5 @@ $ oc -n <project-name> secrets link deployer <secret-name> --for=pull
 $ oc -n <project-name> secrets link default <secret-name> --for=pull
 ```
 
-Note: Substitute <project-name> placeholder with actual project name (without <>) and <secret-name> with actual secret-name.
+**Note**: Substitute <project-name> placeholder with actual project name (without <>) and <secret-name> with actual secret-name.
 
