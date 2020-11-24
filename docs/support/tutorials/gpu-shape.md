@@ -9,7 +9,7 @@ with 16 million structures (160 million conformations) on a GPU in Puhti.
 _Preparing_ the Molport database for GPU screening takes two weeks,
 but since the prepared _shape file_ is already available on Puhti the actual
 screening of your molecule takes only 5-20 minutes on a GPU. Read more 
-[in this blog](to appear) how the shape file was prepared and shared.
+(in a blog to appear soon) how the shape file was prepared and shared.
 
 ## HOW-TO
 
@@ -19,7 +19,8 @@ screening of your molecule takes only 5-20 minutes on a GPU. Read more
 * Run the [Maestro LigPrep](https://www.schrodinger.com/LigPrep/) tool on it
 * Export the prepared molecule in the native Maestro format (mae), e.g. as `target.mae`
 * Copy the file to Puhti in your scratch area ([Tips for copying files](../../data/moving/index.md))
-* Copy (and edit if necessary) the following script as `gpushape.bash` to the same folder
+* Copy (and edit if necessary) the following _script_ as `gpushape.bash` (don't copy the 139GB shape-file)
+  to the same folder
     * This script will request 60 minutes of time on one GPU, use the _shape file_ from
       `/appl/data/bio/molport-shape/MP_SHAPE.bin`, use `target.mae` as the search
       molecule, and put the results in `shape_test-out.maegz`

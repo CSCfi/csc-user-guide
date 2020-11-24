@@ -35,4 +35,4 @@
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Running Nextflow pipelines on Puhti](nextflow-puhti.md)
 * [Schrödinger Maestro Puhti tutorial](power-maestro.md)
-* [Quick screening the Molport database for similar molecules](gpu-phase.md)
+* [Quick GPU-powered screening of the Molport database for similar molecules](gpu-shape.md)
