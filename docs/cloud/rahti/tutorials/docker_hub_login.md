@@ -1,6 +1,7 @@
 # How to add docker hub credentials to a project
 
-Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a limit of 200 pull every 6 hours. This limit is hit usualy and prevents new applications to be deployed if the image is in docker hub.
+Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a
+limit of 200 pulls every 6 hours. This limit can be easily reached and it prevents new applications to be deployed if the image is in docker hub.
 
 The error looks like this:
 
@@ -9,9 +10,9 @@ Pulling image "docker.io/centos/python-38-centos7@sha256:da83741689a8d7fe1548fef
 pulling image error : toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit
 ```
 
-The solution incvolves using both the Web UI and the client:
+The solution involves using both the Web UI and the client:
 
-* First, you need a docker hub account. It can be a free account, in this case you will still have rate limits, but only the pulls you have done using your credential will be taken into account for the rate limit. Payed accounts have no limit.
+* First, you need a docker hub account. It can be a free account. In this case you will still have rate limits, but only the pulls you have done using your credential will be taken into account for the rate limit. Paid accounts have no limit.
 
 * Secondly, navigate to the Web UI and open your project. On the left navigation, select **Resources -> Secrets**.
 
