@@ -13,17 +13,18 @@ pulling image error : toomanyrequests: You have reached your pull rate limit. Yo
 The solution involves using both the Web UI and the client:
 
 * First, you need a docker hub account. It can be a free account. In this case you will still have rate limits, but only the pulls you have done using your credential will be taken into account for the rate limit. Paid accounts have no limit.
+    * Optionaly, you may go to <https://hub.docker.com/settings/security> and create a token. Once created, you may use the token instead of your account password. This approach has several advantages, the main one is that you do not need to provide your docker account password to Rahti, and also it allows to create several tokens and see when they were used last.
 
 * Secondly, navigate to the Web UI and open your project. On the left navigation, select **Resources -> Secrets**.
 
 * On upper right, select "Create Secret" button, and on the secret creation dialog, set:
-  * Secret Type = "Image Secret"
-  * Secret Name = give it a clear name, this will be used later
-  * Authentication Type = "Image Registry Credentials"
-  * Image Registry Server Address = "docker.io"
-  * Username = your docker username
-  * Password = your docker password
-  * Email = your docker email
+    * Secret Type = "Image Secret"
+    * Secret Name = give it a clear name, this will be used later
+    * Authentication Type = "Image Registry Credentials"
+    * Image Registry Server Address = "docker.io"
+    * Username = your docker username
+    * Password = your docker **password** or **token**
+    `* Email = your docker email
 
 **Note**: Leave "Link secret to a service account." empty, we'll do this on command line.
 
