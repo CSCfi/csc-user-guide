@@ -24,7 +24,7 @@ The solution involves using both the Web UI and the client:
     * Image Registry Server Address = "docker.io"
     * Username = your docker username
     * Password = your docker **password** or **token**
-    `* Email = your docker email
+    * Email = your docker email
 
 **Note**: Leave "Link secret to a service account." empty, we'll do this on command line.
 
