@@ -6,11 +6,11 @@ NC='\033[0m' # No Color
 
 tests=$(cat .travis.yml | grep script -A 200 | grep "^\s*-" | cut -d "-" -f2 )
 
-which misspell 2>&1 1> /dev/null
+which misspell &> /dev/null
 
 if [[ $? -eq 1 ]];then
     echo -e "\nWARN: misspell not found, skipping spelling test"
-    tests=$(echo "$test" | grep -v misspell )
+    tests=$(echo "$tests" | grep -v misspell )
 fi
 
 TEST_LOG=tests/test.log
