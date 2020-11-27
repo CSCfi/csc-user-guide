@@ -6,7 +6,8 @@ Machine learning framework for Python.
 
 Available on Puhti only.  Currently supported PyTorch versions and corresponding modules to load:
 
-- 1.7.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.08-py3`
+- 1.8.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.11-py3`
+- 1.7.0a0 with *preliminary* [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.08-py3`
 - 1.6.0: `pytorch/1.6`
 - 1.6.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.07-py3`
 - 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.03-py3`
