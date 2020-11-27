@@ -1,8 +1,21 @@
 #run from top level 
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+
+# Semi standard way of cheking
+# if the output is going to a terminal => enable colors
+
+# Or if it is being piped => no colors
+
+if [[ -t 1 ]];then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
+else
+    RED=""
+    GREEN=""
+    NC=""
+fi
+
 
 tests=$(cat .travis.yml | grep script -A 200 | grep "^\s*-" | cut -d "-" -f2 )
 
