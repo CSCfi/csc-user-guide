@@ -1,8 +1,16 @@
 #run from top level 
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+
+if [[ -z $1 ]];then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
+else
+    RED=""
+    GREEN=""
+    NC=""
+fi
+
 
 tests=$(cat .travis.yml | grep script -A 200 | grep "^\s*-" | cut -d "-" -f2 )
 
