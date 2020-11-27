@@ -9,7 +9,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 | Function |
 | :--- |
 | _Create_ a new bucket |
-| _Upload_ an object |
+| _Upload_ an object (max. 5GB) |
 | _View_ objects and buckets |
 | _Download_ an object |
 | _Remove_ objects and buckets |
@@ -29,6 +29,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 
 ## Upload an object
 
+The data upload function of this interface works only for files smaller than 5 GB.
 1\. Choose the desired bucket and press the **upload symbol** on the right.
 
 !["Upload object"](img/Allas_screenshot_upload.png)  
