@@ -30,6 +30,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 ## Upload an object
 
 The data upload function of this interface works only for files smaller than 5 GB.
+
 1\. Choose the desired bucket and press the **upload symbol** on the right.
 
 !["Upload object"](img/Allas_screenshot_upload.png)  
