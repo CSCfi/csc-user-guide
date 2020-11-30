@@ -68,8 +68,7 @@ test at the scaling limit, rather than run very long scaling tests in advance.
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 15 minutes time
 
@@ -93,8 +92,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 1 core gromacs job, requesting 15 minutes time
 
@@ -114,8 +112,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --time=00:10:00
 #SBATCH --partition=gpu
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 module load gromacs-env/2020-gpu
 
@@ -146,8 +143,7 @@ Submit the script with `sbatch script_name.sh`
 #SBATCH --ntasks-per-node=128
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
@@ -169,8 +165,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 # 64 tasks per node, each with 2 OpenMP threads

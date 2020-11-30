@@ -16,6 +16,7 @@ An example of a simple batch job script:
 #SBATCH --time=02:00:00
 #SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
+##SBATCH --mail-type=BEGIN #uncomment to enable mail
 
 module load myprog/1.2.3
 
@@ -75,6 +76,16 @@ The partition needs to be set according to the job requirements.
 !!! Note "Available partitions"
     [The available batch job partitions](batch-job-partitions.md).
 
+
+The user can be notified by email when the jobs starts by using the `--mail-type` option
+
+```
+##SBATCH --mail-type=BEGIN #uncomment to enable mail
+```
+
+Other useful arguments (multiple arguments are separated by a comma) are `END` and `FAIL`. 
+By default, the email will be sent to the email address of your csc account. 
+This can be overridden with the `--mail-user=` option. 
 
 After defining all required resources in the batch job script, set up the 
 environment. Note that for modules to be available for batch jobs, they need to be loaded in
