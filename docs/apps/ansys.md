@@ -7,7 +7,7 @@ AAESS products are proprietary software. CSC - IT Center for Science Ltd. has th
 
 ## Available
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](https://research.csc.fi/csc-s-servers) for analysis runs only. Additionally, on Mahti only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
+CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](../computing/available-systems.md) for analysis runs only. Additionally, on Mahti only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
 
 ## Usage
 
