@@ -100,7 +100,7 @@ using the `tar` command.
 3.    By default, the option `--compress` (`-c`) is used and the data is compressed using the _zstdmt_ command.
 This is the recommended way if you intend to use the data only on CSC's computing servers. If you plan to use the 
 uploaded data on other servers where the _zstdmt_ compression may not be available, you can disable the compression using the option `--nc` (`-n`).
-Also, in the case of data that does not compress well, like compressed files, images or other binary data, you sould normally skip compression.
+Also, in the case of data that does not compress well, like compressed files, images or other binary data, you should normally skip compression.
 
 4.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 
