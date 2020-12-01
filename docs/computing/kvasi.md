@@ -13,7 +13,7 @@ In order to use the Jupyter notebook environment, you need to set up an SSH tunn
 
 1. Login to Kvasi with SSH:
     * `ssh <userid>@kvasi.csc.fi`
-2. Start the Jupyter server: `./qlm_notebook/launch_qlm_notebooks`. This will give you two values:
+2. Start the Jupyter server: `./qlm_notebooks/launch_qlm_notebooks`. This will give you two values:
     * The Jupyter port number. It will be `8888`, or higher
     * The token for accessing the web interface (a string of letters and numbers)
     * Example output:
