@@ -29,26 +29,27 @@ full nodes:
 Since Puhti is currently fragmented, requesting full nodes may mean longer queuing
 time, but it may be regained by faster execution. If queuing times this way seem
 unaccecptable, you can still limit the maximum number of nodes the job can spread on.
-For example, limiting the 200 task job (which optimally fits on 4 nodes) to a maximum
+For example, limiting the 200 task job (which optimally fits on 5 nodes) to a maximum
 of 10 nodes, you could use:
 
 ```
 #SBATCH --ntasks=200
-#SBATCH --nodes=4-10
+#SBATCH --nodes=5-10
 ```
-Slurm will then allocate 200 cores from 4 to 10 nodes for your job.
+Slurm will then allocate 200 cores from 5 to 10 nodes for your job.
 
 ### How many nodes to allow?
 If full nodes or the minimum is not suitable, it is probably best to try
 and monitor job performance. Choosing too many nodes will deteriorate
-performance more than is gained by less queuing. Note that overall this is lost
+performance more than is gained by less queuing. Note also that overall this is lost
 computer capacity.
 
 Perhaps, a rule of thumb could be
 to set the upper limit to 2 or 3 times the number which would accommodate
 all tasks. With very large parallel jobs, even smaller is recommended as
 communication and the likelihood of one slow node in the allocation gets
-higher and poor load balancing gets more likely.
+higher and poor load balancing gets more likely. Anyway, large parallel jobs
+should be run in Mahti.
 
 ## Hybrid parallelization in Mahti
 
