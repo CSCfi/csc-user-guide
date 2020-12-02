@@ -6,10 +6,10 @@ The following partitions (aka queues) are currently available in **Puhti** for
 normal (CPU) nodes:
 
 
-| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
+| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage<br>[(nvme)](../creating-job-scripts-puhti/#local-storage) |  
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
 | test            | 15 minutes    | 80           |   2                      |  M                           | 382 GiB  |          |
-| interactive     | 7 days        | 1            |   1                      |  IO                          | 16 GiB   | 160 GiB  |
+| [interactive](interactive-usage.md)     | 7 days        | 4            |   1                      |  IO                          | 64 GiB   | 720 GiB  |
 | small           | 3 days        | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB |
 | large           | 3 days        | 4000         |   100                    |  M, L, IO                    | 382 Gib  | 3600 GiB | 
 | longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
