@@ -10,7 +10,7 @@ OpenFOAM is freely available and open source, and is licensed under the [GNU Gen
 
 ## Available
 
-Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti and Mahti servers](https://research.csc.fi/csc-s-servers).
+Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti and Mahti](../computing/available-systems.md) servers.
 
 ## Usage
 
