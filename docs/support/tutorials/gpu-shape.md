@@ -9,7 +9,8 @@ with 16 million structures (160 million conformations) on a GPU in Puhti.
 _Preparing_ the Molport database for GPU screening takes two weeks,
 but since the prepared _shape file_ is already available on Puhti the actual
 screening of your molecule takes only 5-20 minutes on a GPU. Read more 
-(in a blog to appear soon) how the shape file was prepared and shared.
+in a [blog on how sharing enables fast screening](https://www.csc.fi/-/sharing-enables-screening-16-million-structures-in-7-minutes)
+.
 
 ## HOW-TO
 
