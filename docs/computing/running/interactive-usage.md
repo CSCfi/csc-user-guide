@@ -52,7 +52,7 @@ Available options for `sinteractive` in Puhti are:
 | -j, --jobname | Job name.                                                | interactive          | |
 | -c, --cores   | Number of cores.                                         | 1                    | 4 |
 | -A, --account | Accounting project.                                      |                      | |
-| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).              | 32                   |720  |
+| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).              | 32                   |640  |
 | -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    | 0 |
 
 ### sinteractive in Mahti
