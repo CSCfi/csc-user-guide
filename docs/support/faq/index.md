@@ -16,6 +16,7 @@
 * [How to estimate how much memory my job needs?](how-much-memory-my-job-needs.md)
 * [When will my batch job run?](when-will-my-job-run.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
+* [Sending email when a job starts/finishes is not working](email_not_working.md )
 
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)

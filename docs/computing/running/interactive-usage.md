@@ -116,7 +116,7 @@ Note, as you may need to queue, it's convenient to ask for an email once the res
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> bash
+   bash
 ```
 
 Once the resource has been granted, you can work normally in the shell.
@@ -137,7 +137,7 @@ The following will start the application `myprog`:
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> myprog
+   myprog
 ```
 
 Note, that you can replace `myprog` with `bash`, which will launch a terminal
