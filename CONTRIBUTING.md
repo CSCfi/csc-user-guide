@@ -6,7 +6,7 @@ CSC staff: do these two things _first_:
 
 1. Join the Git organization [CSCfi](https://github.com/CSCfi) by sending email to vcs-support@csc.fi.
 2. Then [join here the CSC employees team](https://github.com/orgs/CSCfi/teams/employees/members). Membership
-gives you permissions to edit source files that build the user guide.
+gives you permissions to edit source files that build the user guide. (Wait for a confirmation email.)
 
 The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions.
 
