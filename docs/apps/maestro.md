@@ -8,7 +8,7 @@ chemical model systems.
 
 ## Available
 
-Puhti: 2019.3, 2019.4, 2020.1
+Puhti: 2019.4, 2020.2, 2020.3, 2020.4
 
 
 ## License
@@ -45,32 +45,34 @@ apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md
 the actual workflow below, you need to set up your Maestro environment on Puhti.
 
 These first four steps you only need to do once
+
 1. ssh to Puhti
      * `ssh your-username@puhti.csc.fi`
 1. `module load maestro`
      * Make sure you use the same version as on your local computer
-1. An error may appear on your screen. If it asks you to run a script to generate the hosts file. Run it (copy paste it to the command line)
-     * If you change Maestro version, you should do the same.
+1. An error may appear on your screen. If it asks you to run a script to generate the hosts file, run it (copy paste it to the command line)
      * Now you have your own `schrodinger.hosts` file in your `$HOME` directory
 1. Copy the HOST descriptions from the `schrodinger.hosts` file on Puhti to your local hosts file on your computer
-     * Copy everything starting with `name:    test` and paste it at the end of your local `schrodinger.hosts` file
+     * Copy everything starting from `name:    test` and paste it at the end of your local `schrodinger.hosts` file
      * This step may need administrator privileges
 
 For actual simulations we recommend using Puhti as follows:
 
 1. Set up your simulations on your local computer
-1. write the GUI generated input files on disk
-1. copy them to Puhti 
-1. edit the script (`your-jobname.sh`) if needed
-1. submit the job on the Puhti command line
-1. copy the results back for analysis
+1. Write the GUI generated input files on disk
+1. Copy them to Puhti 
+1. Edit the script (`your-jobname.sh`) if needed
+1. Run the script on the Puhti command line to submit the jobs to the queuing system
+1. Copy the results back for analysis
 
 The overall process is shown in the video below, and additional details and some diagnostics tips
 are explained in our [Maestro power usage tutorial](../support/tutorials/power-maestro.md)
 
-Note, that Maestro jobs
-are not run via batch scripts like most other applications at CSC, but
-via Schrödinger binaries using options.
+!!! note
+    Note, that Maestro jobs
+    are not run via batch scripts like most other applications at CSC, but
+    via Schrödinger binaries using options.
+
 For example, a Desmond workflow could be run with:
 
 ```
@@ -89,12 +91,12 @@ module load maestro
 bash your_script_name.sh
 ```
 
-The following video tutorial walks you through it (although the video was created for Taito, most steps work similarly also for Puhti):  
+The following video tutorial walks you through it:  
 
-[![Maestro Standalone](http://img.youtube.com/vi/oQDLa6Bh-q4/0.jpg)](http://www.youtube.com/watch?v=oQDLa6Bh-q4 "Maestro Standalone")
+[![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
 
 !!! note
-    We do not recommend running the Maestro GUI remotely on Puhti.
+    We do _not_ recommend running the Maestro GUI remotely on Puhti.
     It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
     and the performance is not very good. Also, **no long/heavy tasks** should be
     done on the login nodes. Please consult the
@@ -102,7 +104,7 @@ The following video tutorial walks you through it (although the video was create
     If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
 
 !!! note
-    **Windows** users, you'll need to edit the script created by GUI a little.
+    **Windows** users, may need to edit the script created by GUI a little.
     Replace the backslashes "\" with "/" in the path to the Maestro binary
     (right after `$SCHRODINGER` in the script). 
 

@@ -7,7 +7,7 @@ The purpose of this guide is to help you in choosing the right tools and environ
 To get started, you need to:
 
 - have a [CSC account](../../accounts/how-to-create-new-user-account.md)
-- be member of a CSC project, either by [creating a new project](../../accounts/how-to-create-new-project.md) or joining an existing project, e.g. by asking the [project manager to add you](../../accounts/how-to-add-member-to-project.md)
+- be member of a CSC project, either by [creating a new project](../../accounts/how-to-create-new-project.md) or joining an existing project, e.g. by asking the [project manager to add you](../../accounts/how-to-add-members-to-project.md)
 
 Finally, the project needs to have [access to the services](../../accounts/how-to-add-service-access-for-project.md) you will use.  More on our services below, and when you might use them.
 
@@ -34,7 +34,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 A great way to start with data analytics is to attend a course. You can check out upcoming courses on the [CSC training website](https://www.csc.fi/web/training). Also, CSC has some training materials that are suitable for self-learning, such as these introductory courses:
 
 - [R for Beginners](https://github.com/csc-training/R-for-beginners)
-- [Data Analysis with R](https://github.com/csc-training/da-with-r)
+- [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
 - [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
 
 If you are in the field of bioinformatics, you might also want to check out the [Chipster platform](https://chipster.csc.fi/).
@@ -42,13 +42,17 @@ If you are in the field of bioinformatics, you might also want to check out the 
 There is also plenty of data science information available online, some popular resources include [Udemy](https://www.udemy.com/courses/development/data-science/),
 [Coursera](https://www.coursera.org/browse/data-science) and [edX](https://www.edx.org/course/subject/data-science).
 
+If you don't want to set up a development environment on your own laptop, you can easily use [Rahti](../../cloud/rahti/access.md) to set up an RStudio environment using a ready-made RStudio template from the template catalog.
+More info about the RStudio template can be found in the [RStudio-openshift GitHub repository](https://github.com/CSCfi/rstudio-openshift).  
+We also have [instructions on how to use the Allas object storage from RStudio](https://github.com/CSCfi/rstudio-openshift/blob/master/Allas.md).
+
 ### Scaling up from your laptop (beginner)
 
 *You have been running analyses in R or Python for some time already, but you have reached the limits of your own laptop or desktop computer. Perhaps you need more memory or faster processing?*
 
 In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster. That means it's not one computer, but a collection of many computers. Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](../../computing/overview.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
 
-Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R](../../apps/r-env.md) and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
+Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R and RStudio Server](../../apps/r-env-singularity.md), and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
 
 As Puhti is a shared computing environment, users are restricted in what they can do, for example when it comes to installing customized software or processing sensitive data.  In some cases, it might make sense to instead use [**Pouta**](../../cloud/pouta/index.md) to create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Another option is [**Rahti**](../../cloud/rahti/index.md), where you can create virtual applications based on container images. See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
@@ -64,7 +68,7 @@ For more information:
 
 - [CSC's guide on GPU-accelerated machine learning](gpu-ml.md)
 
-If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores), it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
+If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env-singularity.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores) and threads, it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
 
 
 <!-- ### Big data processing (advanced)

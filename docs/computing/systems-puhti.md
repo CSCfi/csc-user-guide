@@ -5,7 +5,9 @@
 **Puhti** has a total of **682 CPU nodes**, with a theoretical peak
 performance of 1,8 petaflops. Each node is equipped with two Intel
 Xeon processors, code name _Cascade Lake_, with 20 cores each running
-at 2,1 GHz. The interconnect is based on Mellanox HDR InfiniBand. The
+at 2,1 GHz. The cores support AVX-512 vector instructions and VNNI
+instructions for AI _inference_ workloads. The interconnect is based
+on Mellanox HDR InfiniBand. The 
 nodes are connected with a 100 Gbps HDR100 link, and the topology is a
 fat tree with a blocking factor of approximately 2:1.
 

@@ -39,8 +39,7 @@ Example about a serial batch script job on Puhti
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 module load octave-env
 

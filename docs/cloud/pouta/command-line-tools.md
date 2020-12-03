@@ -79,9 +79,10 @@ This command has the minimum amount of information for launching a
 functioning virtual machine.
 
 !!! Note
-    Do not be alarmed by adminPass in the output from "openstack
-    server create". This is not used when connecting only with SSH keys
-    (the default on Pouta clouds).
+    The output of the command "openstack server create" shows also a 
+    password called adminPass. You do not need to store this password as
+    is not used when connecting to the virtual machine. The virtual 
+    machine allows access to a user only if the user uses SSH keys.
 
 ##### List instances
 
@@ -152,7 +153,7 @@ servers in the group are launched on different physical servers. If no
 suitable physical server is found, the virtual machine will not be
 created.
 
-    openstack server group create --policy <affinity or anti-affinity>] <server group name>
+    openstack server group create --policy <affinity or anti-affinity> <server group name>
 
 After that, you can launch virtual machines in the group by
 specifying the group ID in the hint parameter.

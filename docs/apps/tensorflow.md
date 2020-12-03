@@ -7,6 +7,7 @@ Deep learning framework for Python.
 Available on Puhti only.  Currently supported TensorFlow versions and corresponding modules to load:
 
 - 2.3.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.3-sng`
+- 2.2.0 with *experimental* [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.07-tf2-py3`
 - 2.2.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/2.2-hvd`
 - 2.2.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.2-sng`
 - 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.03-tf2-py3`
@@ -21,6 +22,15 @@ Available on Puhti only.  Currently supported TensorFlow versions and correspond
 - 1.13.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/1.13.1-hvd`
 
 Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.
+
+Modules starting with `nvidia` are based on NVIDIA's optimized
+container images from
+[NGC](https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow) with
+some CSC specific additions. See [NVIDIA's TensorFlow container
+release
+notes](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/index.html)
+for more information on provided software versions.
+
 
 !!! note 
 

@@ -9,7 +9,7 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 | Function |
 | :--- |
 | _Create_ a new bucket |
-| _Upload_ an object |
+| _Upload_ an object (max. 5GB) |
 | _View_ objects and buckets |
 | _Download_ an object |
 | _Remove_ objects and buckets |
@@ -28,6 +28,8 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 3\. Press the **+Container** button and name the bucket (see the [checklist for naming a bucket](../introduction.md#naming-buckets)). If you choose to make the bucket _Public_, the contents of the bucket can be [viewed via the internet](#view-objects-via-the-internet).
 
 ## Upload an object
+
+The data upload function of this interface works only for files smaller than 5 GB.
 
 1\. Choose the desired bucket and press the **upload symbol** on the right.
 

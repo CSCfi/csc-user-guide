@@ -24,7 +24,7 @@ In addition to the above commands, there are separate tools for other purposes:
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 
-# Example: Saving data from scratch direcory to Allas
+# Example: Saving data from scratch directory to Allas
 
 ## Opening a connection
 
@@ -47,7 +47,7 @@ allas-conf project_201234
 ```
 Note that the Allas project does not need to be the same as the project you are using in Puhti or Mahti.
 
-If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipelie takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
+If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipeline takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
 ```text
 allas-conf -k
 ```
@@ -97,20 +97,21 @@ define the project that will be used to store the data.
 2.    In the case of a directory, the content of the directory is collected as a single file
 using the `tar` command.
 
-3.    By default, the option `--compress` (`-c`) is used. The data is compressed using the _zstdmt_ command.
+3.    By default, the option `--compress` (`-c`) is used and the data is compressed using the _zstdmt_ command.
 This is the recommended way if you intend to use the data only on CSC's computing servers. If you plan to use the 
 uploaded data on other servers where the _zstdmt_ compression may not be available, you can disable the compression using the option `--nc` (`-n`).
+Also, in the case of data that does not compress well, like compressed files, images or other binary data, you should normally skip compression.
 
-4.    The compressed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
+4.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 
 By default, a-put uses the standard bucket and object names that depend on the username, project and location
 of the data uploaded:
 
-*    a) Data from $WRKDIR in Taito is uploaded to the bucket _username_projectNumber-taito-WRKDIR_
-*    b) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
-*    c) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
-*    d) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
-*    e) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
+*    a) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
+*    b) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
+*    c) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
+*    d) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
+*    e) Data from $LOCAL_SCRATCH in Puhti is uploaded to the bucket _projectNumber-puhti-LOCAL_SCRATCH_
 *    f) In other cases, the data is uploaded to _username-projectNumber-MISC_
 
 For example, for the user _kkayttaj_, a member of the project _12345_, data located in the HOME directory
@@ -190,21 +191,21 @@ The _a-check_ command compares the item names to be uploaded to the matching obj
 The files or directories that don't have a target object Allas, are reported and stored to a file:
 missing_bucket-name_number. If some of the objects in the sample commands above would be missing, then
 a-check would list the missing files and directories in file `missing_job123_67889` (the number in the end is
-just a random nuber).
+just a random number).
 
 This file of missing items can be used with a-put option --input-list, to continue the failed upload process:
 ```text
 a-put --input-list missing_job123_67889
 ```
 
-You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources. 
+You should note, that _a-check_ does does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
 
 In addition to checking, if upload was successful, _a-check_ can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or replaced before running the actual _a-put_ command. 
 
 
 ## a-list<a name="a-list"></a>
 
-a-list is used to show the names of buckets and objects stored to Allas. a-list is designed to be used for objects uploaded with _a-put_ but it shows objects that have been uploaded with other tools too. However, it doesn't show the _ameta_ metadata file files craeated by a-put, to keep the object listings shorter.
+a-list is used to show the names of buckets and objects stored to Allas. a-list is designed to be used for objects uploaded with _a-put_ but it shows objects that have been uploaded with other tools too. However, it doesn't show the _ameta_ metadata file files created by a-put, to keep the object listings shorter.
 
 ### a-list examples
 
@@ -220,7 +221,7 @@ Typing a part of an object's name lists a subset of objects:
 ```text
 a-list bucket_name/beginning_of_the_object
 ```
-A more detailed listing, containing object size and date can be obtaioned with option `-l`
+A more detailed listing, containing object size and date can be obtained with option `-l`
 ```text
 a-list -l 
 ```
@@ -243,7 +244,7 @@ The basic syntax:
 ```text
 a-publish file_name
 ```
-By default, the file is uploaded to the bucket _username-projectNumber_-pub. You can define other bucket names using the option _-b_. You should note that this command makes all data in the terget bucket publicly accessible, including data that has been previously uploaded to the bucket.
+By default, the file is uploaded to the bucket _username-projectNumber_-pub. You can define other bucket names using the option _-b_. You should note that this command makes all data in the target bucket publicly accessible, including data that has been previously uploaded to the bucket.
 
 The public URL of a data object will be:
 `https://a3s.fi/username-projectNumber-pub/object_name`
@@ -283,7 +284,7 @@ want to make a copy of a file visible on the internet for a short while e.g. for
 a-flip copies a file to Allas into a bucket that can be publicly accessed. Thus, anyone with the address (URL) of the 
 uploaded data object can read and download the data with a web browser or tools like _wget_ and _curl_. 
 a-flip works similarly to a-publish with some differences: 
-    1) Only the predfined bucket name (_username-projectNumber_-flip) can be used.
+    1) Only the predefined bucket name (_username-projectNumber_-flip) can be used.
     2) Upon execution, it checks the content of the flip bucket and deletes objects that are older than two days.
 
 The basic syntax:
@@ -325,7 +326,7 @@ The most commonly occurring special characters:
 Options:
 
 
-- **-a**, **--all**  By default only the standard buckets, used by a-put, are searched. Option `--all` defines that all the bukets of the project will be included in the search.
+- **-a**, **--all**  By default only the standard buckets, used by a-put, are searched. Option `--all` defines that all the buckets of the project will be included in the search.
 - **-f**, **--files** List the names of matching files inside the objects in addition to the object names.
 - **-p**,**--project _project_ID_** Search matches in the buckets of the defined project instead of the currently configured project. 
 - **-b**, **--bucket _bucket_name_** By default, all default buckets used by `a-put` are searched. The option _-bucket_ allows you to specify a single bucket for the search. Use this option also in cases where you have stored data in a bucket with a non-standard name.
@@ -363,7 +364,7 @@ Options:
 - **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
 - **--s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
 
-At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
+At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need to use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
 
 ```text
 #make a list of objects
@@ -382,7 +383,7 @@ rm object_list_bucket123
 
 ## a-delete<a name="a-delete"></a>
 a-delete is used to remove data that has been uploaded to Allas service using the a-put command.
-The basic syntax of the comand is:
+The basic syntax of the command is:
 <pre>a-delete object_name</pre>
 
 By default _a-delete_ asks user to confirm the removal of an object. This checking can be skipped with option `-f`.

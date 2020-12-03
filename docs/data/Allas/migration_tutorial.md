@@ -371,7 +371,7 @@ In the screen session, I first load the _allas module_ and use `allas-conf` to e
 module load allas
 allas-conf -k
 ```
-Here, `allas-conf` is used with the option `-k` that saves the allas password in an environment variable ($OS_PASSWORD), so that
+Here, `allas-conf` is used with the option `-k` that saves the Allas password in an environment variable ($OS_PASSWORD), so that
 the connection to Allas can later be automatically reconfigured without the need to define the password again.
 
 After opening the Allas connection, I move to the directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
@@ -415,7 +415,7 @@ Then, I reattach the screen session:
 screen -r
 ``` 
 
-Once the _a-put_ command is finished, you can run `a-check` command to checkh if all the data objects have been created. 
+Once the _a-put_ command is finished, you can run `a-check` command to check if all the data objects have been created.
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command would be:
 
 ```text
@@ -428,7 +428,7 @@ This file of missing items can be used with a-put option `--input-list`, to cont
 ```text
 a-put -b 2000136-uniref --nc --input-list missing_000136-uniref_63449
 ```
-You should note, that _a-check_ does does not check if the actual contect of the object is correct. It checks only the object names, which may originate from some other sources.
+You should note, that _a-check_ does does not check if the actual context of the object is correct. It checks only the object names, which may originate from some other sources.
 
 
 
