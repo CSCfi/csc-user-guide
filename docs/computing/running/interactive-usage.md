@@ -25,7 +25,7 @@ in Puhti and Mahti are not identical. There is some differences in both command 
 
 In Puhti, each user can have only one active session open in the `interactive` partition.
 In the interactive partition you can reserve in maximum 4 cores, with max 64 GB of memory,
-up to 7 days of time, and 720 GB of local scratch space.  GPUs cannot be reserved.
+up to 7 days of time, and 640 GB of local scratch space. GPUs cannot be reserved.
 
 If your requests exceed these limits or you already have a session in the
 interactive partition, `sinteractive` can submit the session request to `small` or `gpu`
