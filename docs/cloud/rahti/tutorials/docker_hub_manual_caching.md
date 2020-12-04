@@ -1,4 +1,4 @@
-# How to manualy cache images in Rahti's registry
+# How to manually cache images in Rahti's registry
 
 Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a limit of 100 pulls every 6 hours. This limit can be easily reached and it prevents new applications to be deployed if the image is in docker hub.
 
@@ -11,7 +11,7 @@ pulling image error : toomanyrequests: You have reached your pull rate limit. Yo
 
 One solution is to [add docker hub credentials to a project](/cloud/rahti/tutorials/docker_hub_login/). Each docker hub account (even the free ones), has a limit of 200 pulls every 6 hours. Also the limit will be applied to the pulls made by that account, meanwhile before the limit was shared by all Rahti projects.
 
-Other solution is to cache manualy the image in Rahti's internal registry. The process is simple:
+Other solution is to cache manually the image in Rahti's internal registry. The process is simple:
 
 * Go to <https://registry-console.rahti.csc.fi/registry>, there you must do two things:
   * Create an image in the project's space.

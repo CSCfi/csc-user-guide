@@ -28,7 +28,7 @@
 * [Short introduction to YAML](../../cloud/rahti/tutorials/yaml_introduction.md)
 * [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
 * [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
-* [How to manualy cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
+* [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
 
 ## Data analysis and machine learning
 
