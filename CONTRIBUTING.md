@@ -21,7 +21,9 @@ Once you've completed the steps above:
 ## Making changes using pull requests
 
 The csc-user-guide repository uses the 'master' as the default
-branch. You can make changes in web gui, command line or desktop application.
+branch. 
+
+You can make changes in web gui, command line or desktop application.
 
 Master branch is protected. You cannot make changes to it directly, but you
 must use pull requests.
@@ -30,6 +32,7 @@ must use pull requests.
 **writer:**
 
  - Create your own branch from master (or work in an already existing branch, if agreed)
+       - **How?** See below "Making pull request in the web GUI / on command line"
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
  - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (=apps) for example)
@@ -143,7 +146,7 @@ Tip 3. If pushing fails, the most probable reason is that somebody
 else has made edits while you were editing. This situation is called a
 conflict. (To be written: How to resolve conflicts?)
 
-### Making pull requests in the desktop application
+### Making pull requests in the Github Desktop application
 
 [GitHub Desktop](https://desktop.github.com/) offers the third way to work
 with the repository.
