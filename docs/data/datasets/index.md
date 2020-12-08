@@ -15,3 +15,4 @@ The ownership, copyrights and license of data is often best defined for the whol
 dataset, though in some cases finer-grained definitions might be needed. In 
 scientific writing dataset is usually cited as a single entity. 
 
+sisällysluettelo, mistä asiassa kyse, mikä on dataset
