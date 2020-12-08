@@ -11,8 +11,9 @@ You can apply for an initial project lifetime extension of one year.
 1. Accept the changes by clicking the'Apply' button
 1. Your project lifetime is now extended by one year.
 
-![](/img/project_extension2.png) ![](/img/project_extension1.png) 
 
+
+![](images/small/project_extension2.png) ![](imgages/small/project_extension1.png) 
 
 ## Closing your project
 
@@ -24,4 +25,4 @@ You can close unwanted or obsolete projects.
 1. Click on the 'Close' button
 1. On the confirmation popup please type in your project title to confirm the action
 
-![](/img/project_close.png)
+![](images/small/project_close.png)
