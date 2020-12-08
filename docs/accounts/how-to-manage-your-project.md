@@ -21,7 +21,7 @@ You can close unwanted or obsolete projects.
 
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _My Projects_ in the navigation menu on the left.
-1. Choose the project you want extend
+1. Choose the project you want close
 1. Click on the 'Close' button
 1. On the confirmation popup please type in your project title to confirm the action
 
