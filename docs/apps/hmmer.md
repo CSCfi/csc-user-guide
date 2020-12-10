@@ -10,9 +10,6 @@ The HMMER package contains tools to create and modify sequence alignmnet based H
 
 Database searches with HMM profiles can require very long computing times in normal computers.
 
-
-
- 
 ## Available
 Version on CSC's Servers
 
@@ -31,23 +28,24 @@ hmmsearch -h
 
 ### Pfam database
 
-In Puhti you can use Pfam_A database with HMMER commands. You can also create you own HMM databases. For example comparing protein sequence against a Pfam-A HMM-database could be performed with following commands.
+In Puhti you can use Pfam_A database with HMMER commands. You can also create your own HMM databases.
+For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with following commands.
 
-First open an interactive batch job session and load biokit:
+First, open an interactive batch job session and load biokit:
 
 ```text
 sinteractive -m 4G -c 4
 module load biokit
 ```
-With native HMMER, you can speed up the hmmpfam and hmmserach commands by using several processors. The number of processors to be used is indicated with option --cpu number.
+With native HMMER, you can speed up the `hmmpfam` and `hmmserach` commands by using several processors. The number of processors to be used is indicated with option `--cpu number`.
 ```text
 hmmscan --cpu 4 $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
-In Puhti HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file usinf 4 processor cores:
+In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
 
 ```text
 #!/bin/bash 
-#SBATCH --job-name=hmmer_jon
+#SBATCH --job-name=hmmer_job
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --time=04:00:00
@@ -63,7 +61,7 @@ module load biokit
 hmmscan --cpu 4 $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
-The job is submitted with command (where batch_job_file is the name of you batch job file):
+The job is submitted with command (where *batch_job_file* is the name of your batch job file):
 
 ```text
 sbatch batch_job_file
