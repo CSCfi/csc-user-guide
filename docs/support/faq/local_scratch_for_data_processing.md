@@ -61,5 +61,5 @@ the execution times will vary much, due to changes in the total load of the Lust
 |Total                          | 14m 15s       |   1h 8m 31s    |
 
 More detailed information about batch job specific local storages:
-[https://docs.csc.fi/computing/disk/](../computing/disk.md)                 
+[https://docs.csc.fi/computing/disk/](../../computing/disk.md)                 
  
