@@ -10,7 +10,7 @@ To launch an interactive session in Puhti, execute command:
 ```text
 sinteractive -i
 ```
-One of the useful features of interactive batch jobs is the *fast local scratch area*. The “normal” Lustre based project specific directories, *scratch* and *projappl*, can store large amounts of data and make it accessible to all the nodes of Puhti. However these directories are not good for managing a large number of files. 
+One of the useful features of interactive batch jobs is the **fast local scratch area ($LOCAL_SCRATCH)**. The “normal” Lustre based project specific directories, *scratch* and *projappl*, can store large amounts of data and make it accessible to all the nodes of Puhti. However these directories are not good for managing a large number of files. 
 
 Generally you should avoid work flows that require creating thousands of small files. If you anyhow need to work with a huge number of files, 
 you should consider using the NVME based local temporary scratch directories, either through normal or interactive batch jobs.
@@ -25,13 +25,14 @@ First we launch an interactive batch job with 2 cores, 4 GB of memory and 250 GB
 interactive -c 2 -m 4G -d 250
 ```
 The analysis is then done in three steps:
-*Step 1*. Move to the local scratch area using environment variable $LOCAL_SCRATCH and open the tar package to the fast local disk.
+
+**Step 1**. Move to the local scratch area using environment variable $LOCAL_SCRATCH and open the tar package to the fast local disk.
 ```
 cd $LOCAL_SCRATCH
 tar xvf /scratch/project_2001234/big_data.tar ./
 ```
 
-*Step 2*. Run the analysis. This time we run a for loop that uses command "transeq" to translate all the fasta files, found in the big_data directory, 
+**Step 2**. Run the analysis. This time we run a for loop that uses command "transeq" to translate all the fasta files, found in the big_data directory, 
 into new protein sequence files:
 ```text
 for ffile in $(find ./ | grep fasta$ )
@@ -42,7 +43,7 @@ done
 In this example about 52000 fasta files where found so after the processing the big_data directory contains 52000 more small files. 
 The actual translation is a simple task so relatively much time is consumed to just open and close files.
 
-*Step 3*. When the processing is finished we store the results back to scratch directory into a new tar file to the normal scratch directory
+**Step 3**. When the processing is finished we store the results back to scratch directory into a new tar file to the normal scratch directory
 ```text
 tar cvf /scratch/project_2001234/big_data.pep.tar ./
 ```
@@ -57,7 +58,7 @@ the execution times will vary much, due to changes in the total load of the Lust
 |Step 1. Opening tar file       | 2m 8s         |   4m 12s       |
 |Step 2. Analysis               | 9m 42s        |   21m 58s      |
 |Step 3. Creating new tar file  | 2m 25s        |   42m 21s      | 
-|Total                          | 14m 15s       |   1h 8m 31s  |
+|Total                          | 14m 15s       |   1h 8m 31s    |
 
 More detailed information about batch job specific local storages:
 [https://docs.csc.fi/computing/disk/](https://docs.csc.fi/computing/disk/)                 
