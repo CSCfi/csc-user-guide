@@ -1,4 +1,4 @@
-#Why Interactive batch jobs are good for processing large numbers of small files?
+# Why Interactive batch jobs are good for processing large numbers of small files?
                    
 An interactive batch job Puhti allows you to have a Puhti session that can have up to:
 *   4 cores
