@@ -16,6 +16,14 @@
 ## Accessibility
  - [General guidelines](https://www.saavutettavuusvaatimukset.fi/)
  - Docs specifics TBA
+ - Make accessible content! In short:
+      - `[Read more here](link-to-some-page)` is not accessible. `[Read more about free use cases](link-to-some-page)` is better.
+      - Avoid long walls of text and long sentences
+      - Lists and clear titles: good
+      - Use descriptive alt texts for images and videos 
+      - Avoid presenting something ONLY as a video, and use captions/subtitles in video. Also, do present import or difficult to follow things also with videos.
+      - Avoid using loadable pdfs
+      - Avoid using only color to signal some meaning
 
 ## Images, linked documents
  - Put all images in `/img` folder in docs root
