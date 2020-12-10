@@ -23,6 +23,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
 * [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
