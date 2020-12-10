@@ -60,6 +60,6 @@ the execution times will vary much, due to changes in the total load of the Lust
 |Step 3. Creating new tar file  | 2m 25s        |   42m 21s      | 
 |Total                          | 14m 15s       |   1h 8m 31s    |
 
-More detailed information about batch job specific local storages:
-[https://docs.csc.fi/computing/disk/](../../computing/disk.md)                 
+More detailed information about batch job specific local storage can be found 
+[here](../../computing/disk.md).                 
  
