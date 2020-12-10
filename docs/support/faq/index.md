@@ -34,7 +34,7 @@
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
-
+* [Local scatch](local_scratch_for_data_processing.md)
 ## Allas
 
 * [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
