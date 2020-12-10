@@ -5,14 +5,12 @@ We've used R and HMMER as examples, but the principles are the same for other
 applications as well. However, please always consult the [application specific
 page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
 
-[TOC]
-
 ## Get the exercise files
-**a) Log in to Puhti either from a terminal or using NoMachine client**
+### a) Log in to Puhti either from a terminal or using NoMachine client
 
 `ssh your-username@puhti.csc.fi`
 
-**b) Go to scratch directory and download the exercises file**
+### b) Go to scratch directory and download the exercises file
 
 `csc-workspaces` command will show you which projects you're a member of.
 ```
@@ -37,7 +35,7 @@ and download the input files with `wget`:
 wget https://a3s.fi/docs-files/input-data.tar
 ```
 
-**c) Uncompress the exercises file**
+### c) Uncompress the exercises file
 
 ```
 tar xvf input-data.tar
@@ -49,7 +47,7 @@ tar xvf input-data.tar
 
 ## A simple batch job script
 
-**a) Create a batch job script that prints the compute node on which it is running.**
+### a) Create a batch job script that prints the compute node on which it is running.
 
 Using nano editor (use whichever editor you like):
 
@@ -82,7 +80,7 @@ Submit the batch script to Puhti
 sbatch test_hostname.sh
 ```
 
-**b) Check the job status.**
+### b) Check the job status.
 
 In the following command replace _<your username\>_ with your
 CSC username - or which ever you used to log in to Puhti. If
@@ -93,7 +91,7 @@ this command `echo $USER`).
 squeue -u your_username
 ```
 
-**c) What and where did the job print out?**
+### c) What and where did the job print out?
 
 !!! Note 
     Here you need to replace the *JOBID* with the ID your job was given.
@@ -111,7 +109,7 @@ Run a simple R job from a script. The script will fit a straight line
 through a file containing some x,y value pairs. More info on
 [running R in the CSC environment](../../apps/r-env-singularity.md)
 
-**a) Set up an interactive batch job and initialize R-environment**
+### a) Set up an interactive batch job and initialize R-environment
 
 As we now plan to run an application interactively, we'll ask for an interactive
 batch job and work there, instead of the login node. The following
@@ -160,7 +158,7 @@ Then quit from the R-command prompt with
 q()
 ```
 
-**b) Create a script to run the same works.**
+### b) Create a script to run the same works.
 
 In the "r-job" directory, create an R script file (R
 commands to be executed) with the same commands as you pasted
@@ -176,19 +174,19 @@ cat fit.R
 ```
 You should see three lines with the R commands.
 
-**c) Run the script interactively**
+### c) Run the script interactively
 
 ```
 singularity_wrapper exec Rscript --no-save --no-restore -f fit.R
 ```
 
-**d) Did the job succeed? What are the fit coefficients?**
+### d) Did the job succeed? What are the fit coefficients?
 
 ## Simple R job as a batch job 
 
 Now run the previous R script as a batch job.
 
-**a) Create a batch job script, which will submit the job to the queue.**
+### a) Create a batch job script, which will submit the job to the queue.
 
 Copy the *serial batch script* template from [CSC's R-env-singularity page](https://docs.csc.fi/apps/r-env-singularity/#serial-batch-jobs)
 into a file called _batch.sh_
@@ -204,13 +202,13 @@ placeholder in the `--account` and `echo "TMPDIR=/scratch/...`
 lines with your own computing project. And finally, at the end of the script, 
 replace (`myscript.R`) i.e. the R-script to be executed to `fit.R`.
 
-**b) Submit the batch script with**
+### b) Submit the batch script with
 
 ```
 sbatch batch.sh
 ```
 
-**c) Did the job succeed? Where are the fit constants?**
+### c) Did the job succeed? Where are the fit constants?
 
 
 ## Run tens of R batch jobs as an array job
@@ -220,7 +218,7 @@ using the array job functionality of SLURM. Note, that for such short
 jobs it would not make sense to run them as separate batch jobs, but 
 you could loop over them in one job or better inside the R script.
 
-**a) Prepare a list of files to process.**
+### a) Prepare a list of files to process.
 
 Go to the folder named `r-array`. Create there a file called
 `datanames.txt`. This file will contain the names of all those files
@@ -233,7 +231,7 @@ ls
 ls > ../datanames.txt
 ```
 
-**b) Write the R script, that will do the fitting.**
+### b) Write the R script, that will do the fitting.
 
 Go back to the r-array folder, create a script named `modelscript.R`
 and put the following commands to it (you can copy the previous script
@@ -252,7 +250,7 @@ dataset to be fitted. The next line reads that data into the variable
 mydata. Then we fit, like in the previous example, and finally write the
 coefficients into a file.
 
-**c) Create a batch script to submit the job.**
+### c) Create a batch script to submit the job.
 
 Name it `R_array.sh`. Copy the contents from the previous example.
 Add the following line among the other lines starting #SBATCH:
@@ -285,12 +283,13 @@ srun singularity_wrapper exec Rscript --no-save modelscript.R $dataname
 ```
 
 You should now have:
-   1) `datanames.txt`, which has the names of your datafiles
-   2) `modelscript.R`, which contains the R code to do the fitting
-   3) `R_array.sh`, which is the batch script to submit the job
-   4) (and the folders `out, err, data_dir, result_dir` which were there already)
 
-**d) run the batch script with**
+   1. `datanames.txt`, which has the names of your datafiles
+   1. `modelscript.R`, which contains the R code to do the fitting
+   1. `R_array.sh`, which is the batch script to submit the job
+   1. (and the folders `out, err, data_dir, result_dir` which were there already)
+
+### d) run the batch script with
 
 ```
 sbatch R_array.sh
@@ -299,7 +298,7 @@ Since you're now running 20 jobs, they might take a moment in the queue.
 You should get the fit coefficients in separate files in the
 `result_dir`. Let's now use interactive R to look at the results.
 
-**f) Collect the results and plot them.**
+### e) Collect the results and plot them.
 
 Note, plotting will work only if you have 
 [remote X11 forwarding](../../../computing/connecting/using-graphical-applications) or you've
@@ -319,7 +318,7 @@ run (source) the script contents. The original data was
 created by calculating the y values by y=2x + some random noise.
 The plot will appear in a separate window.
 
-**e) How do the fit coefficients match that?**
+### f) How do the fit coefficients match that?
 
 ## Batch job with thread parallelization
 
@@ -335,19 +334,21 @@ sequences you want to study need to be copied first to be used as input:
 wget https://a3s.fi/docs-files/example.fasta
 ```
 
+### a) Serial HMMER job
+
 Let's first run the job with just one core. Copy one of the old batch
 scripts to current directory, and change / add the following items in
 it (or take a look at [these examples](../../computing/running//example-job-scripts-puhti.md)):
 
-   1) Output to out_%j.txt
-   2) error to err_%j.txt
-   3) run time 10 minutes
-   4) load the hmmer -module
-   5) remove the R specific environment settings
-   6) run command:
- 
+1. Output to `out_%j.txt`
+1. error to `err_%j.txt`
+1. run time 10 minutes
+1. load the `hmmer` -module
+1. remove the R specific environment settings
+1. run command:
+
 ```
-hmmscan $HMMERDB/Pfam-A.hmm example.fasta > example_1.result
+hmmscan $PFAMDB/pfam_a.hmm example.fasta > example_1.result
 ```
 
 Submit the job with: `sbatch your-jobscript-name.sh`
@@ -365,7 +366,7 @@ Or
 Once the job is finished you can check how much memory and time it used:
 
 ```
-sacct -j *\<SLURM\_JOBID\>* -o elapsed,reqmem,maxrss
+sacct -j <SLURM_JOBID> -o elapsed,reqmem,maxrss
 ```
 
 Did you reserve a good amount of memory? (not excessively too much, but
@@ -375,6 +376,8 @@ Another way to get a quick summary of used resources is:
 ```
 seff <SLURM_JOBID>
 ```
+
+### b) Parallel HMMER job
 
 Now, let's try with 4 cores. At this point we'll also switch to using
 the environment variable `$SLURM_CPUS_PER_TASK` to avoid mistakes
@@ -401,14 +404,16 @@ Submit the job and check with the `sacct` command how long it took to
 run the hmmer job and how did the memory usage change and try to answer
 these questions:
 
-**a) Does it make sense to use 4 cores instead of 1?**
-**b) Was the memory reservation ok?**
-**c) Does it make sense to use more than 4 cores?**
-**d) How to speed up the job?**
+- **Does it make sense to use 4 cores instead of 1?**
+- **Was the memory reservation ok?**
+- **Does it make sense to use more than 4 cores?**
+- **How to speed up the job?**
 
 ## Batch job memory consumption
 
-Create a new _R-script_ (like in the previoos exercise) named `mem-test.R`. It
+### a) Exceed memory allocation on purpose
+
+Create a new _R-script_ (like in the previous exercise) named `mem-test.R`. It
 should have the following contents:
 
 ```
@@ -445,7 +450,7 @@ the array?
   | | |  
   | | |  
 
-**a) How big matrix is needed to exceed the default allowed memory of the batch job?**
+### b) How big matrix is needed to exceed the default allowed memory of the batch job?
 
 ## Scaling test for an MPI parallel job
 
@@ -460,39 +465,43 @@ quick short simulations (*i.e.* using the actual production system) but
 only for like 1-5 minutes, which will be enough to reveal the
 performance.
 
+### a) Prepare a CP2k job
+
 First copy the input file to your working directory:
 
-FIXME
-`cp /appl/chem/cp2k/tests/QS/benchmark/H2O-32.inp .`
+```
+module load cp2k`
+cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
+```
 
-Then create the following batch script and submit it with `sbatch`
+Then create a batch script and submit it with `sbatch`
 !!! Tip
     Remember to check the CSC software pages for application specific
     examples for batch jobs: https://research.csc.fi/software
 
+For the first job, ask minimal resources (copy the rest of the
+batch script contents from CSC's CP2k page):
+
 ```
-#!/bin/bash -l
-#SBATCH --time=00:15:00
-#SBATCH --job-name=cp2k-1
-#SBATCH --partition=serial
-#SBATCH --mem-per-cpu=1000
-#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
 
-module load cp2k-env/5.1
-
+# submit the job
 srun cp2k.popt H2O-32.inp > H2O-32_$SLURM_NPROCS.out
 ```
 
+### b) Run the same job with increasing resources and note performance
+
 After running the job with one core, edit the batch script to use more
-cores/mpitasks (*e.g.* 2,4,8,16, ... this is the `--ntasks` flag) and rerun
+cores/mpitasks (*e.g.* 2,4,8,16, ... this is the `--ntasks` or `--ntasks-per-node` flag)
+and rerun
 the job. The output files will be named with the number of cores used to
-run them (`$SLURM_NPROCS`). Instead of the serial partition you can
-also use the `test` partition. If you ask for more than 24 cores, you
-need to switch to `parallel` partition. In that case it also makes
-sense to limit the number of *Nodes* so `#SBATCH -N 2-2` which asks for
-a minimum and maximum of 2 nodes, so that the job is not spread onto
-more nodes than necessary (creates unwanted communication overhead and
-fragments the allocations on the system).
+run them (`$SLURM_NPROCS`). Instead of the small partition you can
+also use the `test` partition. If you ask for more than 40 cores (in Puhti), you
+need to switch to `large` partition. In multinode jobs, always 
+limit the number of *Nodes*, so that the job is not spread onto
+more nodes than necessary as it [creates unwanted communication overhead and
+fragments the allocations on the system](../../computing/running/performance-checklist-md)).
 
 With the following command you can sum the time spent at different steps
 for each job.
@@ -524,11 +533,14 @@ You'll notice bad speedup anyway.
  | | | | 
  | | | | 
 
-**a) How many cores can you use efficiently? (i.e. how far does the job scale)**
-**b) How does the required memory depend on the number of cores?**
-**c) Why are the elapsed times reported by sacct slightly different to the sum of "CPU TIME" lines?**
-**d) Are all nodes similar? Should we limit which resources SLURM may give us?**
-**e) If we want to run a different cp2k system do we need to rerun the scaling test?**
+
+### c) Scaling test results
+
+- **How many cores can you use efficiently? (i.e. how far does the job scale)**
+- **How does the required memory depend on the number of cores?**
+- **Why are the elapsed times reported by sacct slightly different to the sum of "CPU TIME" lines?**
+- **Are all nodes similar? Should we limit which resources SLURM may give us?**
+- **If we want to run a different cp2k system do we need to rerun the scaling test?**
 
 ## Archive a file 
 ### (this probably should go and be replaced with some Allas stuff? Or be included in a different, Allas-specific tutorial to make the whole thing more modular) 
