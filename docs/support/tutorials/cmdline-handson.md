@@ -188,7 +188,7 @@ Now run the previous R script as a batch job.
 
 ### a) Create a batch job script, which will submit the job to the queue.
 
-Copy the *serial batch script* template from [CSC's R-env-singularity page](https://docs.csc.fi/apps/r-env-singularity/#serial-batch-jobs)
+Copy the *serial batch script* template from [CSC's R-env-singularity page](../../../apps/r-env-singularity/#serial-batch-jobs)
 into a file called _batch.sh_
 
 In addition to setting up the computing requirements, this script
@@ -301,7 +301,7 @@ You should get the fit coefficients in separate files in the
 ### e) Collect the results and plot them.
 
 Note, plotting will work only if you have 
-[remote X11 forwarding](../../../computing/connecting/using-graphical-applications) or you've
+[remote X11 forwarding](../../../computing/connecting/#using-graphical-applications) or you've
 connected to Puhti via [NoMachine](../../apps/nomachine.md).
 Actually, for R, there is even a tailored remote setup using 
 [RStudio Server](../../../apps/r-env-singularity/#using-rstudio-server),
@@ -450,7 +450,7 @@ the array?
   | | |  
   | | |  
 
-### b) How big matrix is needed to exceed the default allowed memory of the batch job?
+- **How big matrix is needed to exceed the default allowed memory of the batch job?**
 
 ## Scaling test for an MPI parallel job
 
@@ -542,11 +542,3 @@ You'll notice bad speedup anyway.
 - **Are all nodes similar? Should we limit which resources SLURM may give us?**
 - **If we want to run a different cp2k system do we need to rerun the scaling test?**
 
-## Archive a file 
-### (this probably should go and be replaced with some Allas stuff? Or be included in a different, Allas-specific tutorial to make the whole thing more modular) 
-
-* for the impatient, a-put with defaults
-    * how to get files back
-* or manually, create a bucket in Allas
-* put your files there
-* ...
