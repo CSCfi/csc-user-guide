@@ -57,7 +57,6 @@ due to changes in the total load of the Lustre file system.
 |Step 1. Opening tar file       | 2m 8s         |   4m 12s       |
 |Step 2. Analysis               | 9m 42s        |   21m 58s      |
 |Step 3. Creating new tar file  | 2m 25s        |   42m 21s      | 
-|-------------------------------|---------------|----------------|
 |Total                          | 14m 15s       |     1h 8m 31s  |
 
 More detailed information about batch job specific local storages:
