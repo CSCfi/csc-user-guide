@@ -37,10 +37,15 @@ First, open an interactive batch job session and load biokit:
 sinteractive -m 4G -c 4
 module load biokit
 ```
-With native HMMER, you can speed up the `hmmpfam` and `hmmserach` commands by using several processors. The number of processors to be used is indicated with option `--cpu number`.
+With native HMMER, you can speed up the `hmmpfam` and `hmmserach` commands by using several
+processors. The number of processors, e.g. 4, to be used is indicated with option `--cpu 4`
+but the number is better replaced with an environment variable which already has it *i.e.* 
+`$SLURM_CPUS_PER_TASK` so it's always in sync with the batch script request:
+
 ```text
-hmmscan --cpu 4 $PFAMDB/pfam_a.hmm protein.fasta > result.txt
+hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
+
 In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
 
 ```text
@@ -58,7 +63,7 @@ In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch job
 #
 
 module load biokit
-hmmscan --cpu 4 $PFAMDB/pfam_a.hmm protein.fasta > result.txt
+hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
 The job is submitted with command (where *batch_job_file* is the name of your batch job file):
