@@ -81,4 +81,4 @@ The job is submitted with command (where batch_job_file is the name of you batch
 ```text
 sbatch batch_job_file
 ```
-For more information on running batch jobs see the Computing User Guide.
+For more information on running batch jobs see the [Computing User Guide](../../computing/running/getting-started/).
