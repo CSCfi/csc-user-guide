@@ -72,4 +72,4 @@ For more information on running batch jobs see the [Computing User Guide](../com
 
 ## Help
 
-* [HMMRE user guide](http://eddylab.org/software/hmmer/Userguide.pdf)
+* [HMMER user guide](http://eddylab.org/software/hmmer/Userguide.pdf)
