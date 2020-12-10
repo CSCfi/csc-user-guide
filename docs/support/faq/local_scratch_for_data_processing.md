@@ -18,7 +18,7 @@ The local scratch area is visible only for the specific batch job and it is eras
 Because of that you always first need to import your data set to the local scratch and when you finish, copy the data you want to preserve back to some more 
 permanent storage place like scratch or Allas.
 
-To demonstrate the effectivity of local scratch area let’s study a sample directory called *big_data*. The directory contains about 100 GiB of data in 120 000 files. In the beginning the data is peaked one data tar-archive file in the scratch directory of project 2001234 (/scratch/project_2001234/big_data.tar)
+To demonstrate the effectivity of local scratch area let’s study a sample directory called *big_data*. The directory contains about 100 GiB of data in 120 000 files. In the beginning the data is packed in one tar-archive file in the scratch directory of project 2001234 (/scratch/project_2001234/big_data.tar)
 
 First we launch an interactive batch job with 2 cores, 4 GB of memory and 250 GB of fast temporary scratch disk.
 ```text
@@ -40,18 +40,19 @@ do
      transeq $ffile ${ffile}.pep
 done 
 ```
-In this example about 52000 fasta files where found so after the processing the big_data directory contains 52000 more small files. 
+In this example about 52000 fasta files were found, so after the processing the big_data directory contains 52000 more small files. 
+
 The actual translation is a simple task so relatively much time is consumed to just open and close files.
 
-**Step 3**. When the processing is finished we store the results back to scratch directory into a new tar file to the normal scratch directory
+
+**Step 3**. When the processing is finished we store the results back to scratch directory into a new tar file.
+
 ```text
 tar cvf /scratch/project_2001234/big_data.pep.tar ./
 ```
-Now the results are in safe in one file in scratch directory and we can exit from the interactive session.
+Now the results are safe in one file in scratch directory and we can exit from the interactive session.
 
-We could do the same analysis procedure in the scratch directory too.  Below is execution time comparison for running the three steps 
-above in LOCAL_SCRATCH and in normal scratch.  The response times of LOCAL_SCRATCH are be rather stable, but in the scratch directory 
-the execution times will vary much, due to changes in the total load of the Lustre file system.
+We could do the same analysis procedure in the scratch directory too.  Below is execution time comparison for running the three steps above in LOCAL_SCRATCH and in normal scratch.  The response times of LOCAL_SCRATCH are rather stable, but in the scratch directory the execution times will vary much, due to changes in the total load of the Lustre file system.
 
 |                               | LOCAL_SCRATCH |         scratch|
 |-------------------------------|---------------|----------------|    
