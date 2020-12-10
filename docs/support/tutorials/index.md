@@ -9,7 +9,7 @@
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference-2020-11-10.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/overview.md)
-* [WIP Interactive and batch job hands-on in Puhti](cmdline-handson.md)
+* [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 
 ## Allas
 * [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
