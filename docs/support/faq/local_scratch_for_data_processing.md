@@ -32,7 +32,7 @@ cd $LOCAL_SCRATCH
 tar xvf /scratch/project_2001234/big_data.tar ./
 ```
 
-**Step 2**. Run the analysis. This time we run a for loop that uses command "transeq" to translate all the fasta files, found in the big_data directory, 
+**Step 2**. Run the analysis. This time we run a for loop that uses command *transeq* to translate all the fasta files, found in the big_data directory, 
 into new protein sequence files:
 ```text
 for ffile in $(find ./ | grep fasta$ )
