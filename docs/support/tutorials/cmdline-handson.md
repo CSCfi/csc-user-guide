@@ -369,8 +369,8 @@ Once the job is finished you can check how much memory and time it used:
 sacct -j <SLURM_JOBID> -o elapsed,reqmem,maxrss
 ```
 
-Did you reserve a good amount of memory? (not excessively too much, but
-enough to not be close to memory running out and terminating the job).
+- **Did you reserve a good amount of memory? (not excessively too much, but
+enough to not be close to memory running out and terminating the job).**
 Another way to get a quick summary of used resources is:
 
 ```
