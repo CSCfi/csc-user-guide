@@ -1,6 +1,6 @@
 # Hands-on batch jobs in Puhti tutorial
 
-The next few exercises take you through sumbitting your first batch jobs on Puhti.
+The next few exercises take you through submitting your first batch jobs on Puhti.
 We've used R and HMMER as examples, but the principles are the same for other
 applications as well. However, please always consult the [application specific
 page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
@@ -120,7 +120,8 @@ sinteractive --account <project> --mem 4000 --tmp 10 --time 2:00:00
 ```
 
 Give `module load r-env-singularity` to initialize the R-environment.
-How do you know if it was already loaded?)
+
+- **How do you know if it is already loaded?**
 
 Go to the directory `r-job`, where you have the data (a file called
 `data.csv`) and launch R:
@@ -304,7 +305,7 @@ Note, plotting will work only if you have
 [remote X11 forwarding](../../../computing/connecting/#using-graphical-applications) or you've
 connected to Puhti via [NoMachine](../../apps/nomachine.md).
 Actually, for R, there is even a tailored remote setup using 
-[RStudio Server](../../../apps/r-env-singularity/#using-rstudio-server),
+[RStudio Server](../../apps/r-env-singularity.md),
 and you're welcome to use that, but in this tutorial, the key point is to 
 demonstrate the general approach.
 
