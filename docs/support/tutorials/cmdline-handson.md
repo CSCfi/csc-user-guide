@@ -180,7 +180,9 @@ You should see three lines with the R commands.
 singularity_wrapper exec Rscript --no-save --no-restore -f fit.R
 ```
 
-### d) Did the job succeed? What are the fit coefficients?
+### d) Results
+- **Did the job succeed?**
+- **What are the fit coefficients?**
 
 ## Simple R job as a batch job 
 
