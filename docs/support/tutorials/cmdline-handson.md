@@ -120,7 +120,7 @@ sinteractive --account <project> --mem 4000 --tmp 10 --time 2:00:00
 ```
 
 Give `module load r-env-singularity` to initialize the R-environment.
-How do you know if it was already loaded?)
+- **How do you know if it was already loaded?**
 
 Go to the directory `r-job`, where you have the data (a file called
 `data.csv`) and launch R:
@@ -541,4 +541,3 @@ You'll notice bad speedup anyway.
 - **Why are the elapsed times reported by sacct slightly different to the sum of "CPU TIME" lines?**
 - **Are all nodes similar? Should we limit which resources SLURM may give us?**
 - **If we want to run a different cp2k system do we need to rerun the scaling test?**
-
