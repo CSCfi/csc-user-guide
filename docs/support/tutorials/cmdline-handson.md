@@ -476,8 +476,8 @@ cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
 
 Then create a batch script and submit it with `sbatch`
 !!! Tip
-    Remember to check the CSC software pages for application specific
-    examples for batch jobs: https://research.csc.fi/software
+    Remember to check the CSC software pages for [application specific
+    examples for batch jobs:](../../apps/alpha.md)
 
 For the first job, ask minimal resources (copy the rest of the
 batch script contents from CSC's CP2k page):
