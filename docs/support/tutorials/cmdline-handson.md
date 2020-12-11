@@ -181,7 +181,9 @@ You should see three lines with the R commands.
 singularity_wrapper exec Rscript --no-save --no-restore -f fit.R
 ```
 
-### d) Did the job succeed? What are the fit coefficients?
+### d) Results
+- **Did the job succeed?**
+- **What are the fit coefficients?**
 
 ## Simple R job as a batch job 
 
@@ -370,8 +372,8 @@ Once the job is finished you can check how much memory and time it used:
 sacct -j <SLURM_JOBID> -o elapsed,reqmem,maxrss
 ```
 
-Did you reserve a good amount of memory? (not excessively too much, but
-enough to not be close to memory running out and terminating the job).
+- **Did you reserve a good amount of memory? (not excessively too much, but
+enough to not be close to memory running out and terminating the job).**
 Another way to get a quick summary of used resources is:
 
 ```
@@ -477,8 +479,8 @@ cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
 
 Then create a batch script and submit it with `sbatch`
 !!! Tip
-    Remember to check the CSC software pages for application specific
-    examples for batch jobs: https://research.csc.fi/software
+    Remember to check the CSC software pages for [application specific
+    examples for batch jobs:](../../apps/alpha.md)
 
 For the first job, ask minimal resources (copy the rest of the
 batch script contents from CSC's CP2k page):
@@ -542,4 +544,3 @@ You'll notice bad speedup anyway.
 - **Why are the elapsed times reported by sacct slightly different to the sum of "CPU TIME" lines?**
 - **Are all nodes similar? Should we limit which resources SLURM may give us?**
 - **If we want to run a different cp2k system do we need to rerun the scaling test?**
-
