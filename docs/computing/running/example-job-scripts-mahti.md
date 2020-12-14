@@ -91,7 +91,7 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=16
 #SBATCH --cpus-per-task=16
 
-# Note that the ntasks-per-core * cpus-per-task = 256
+# Note that the ntasks-per-node * cpus-per-task = 256
 
 # Set the number of threads based on --cpus-per-task
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
