@@ -8,9 +8,10 @@ CSC hosts or provides access to several datasets on different platforms.
  
 ## Chemistry
 * [CSD](../apps/csd.md) Cambridge Crystallographic Database – organic and metallo-organic crystal structures and tools
+* [Molport 6M molecule database](../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
 
 ## Geosciences
-* The main open Finnish spatial datasets are available in Puhti, located in `/appl/data/geo/` 
+* The main open Finnish spatial datasets are available in Puhti, located in `/appl/data/geo/` and in Allas.
 * [Detailed description](https://research.csc.fi/gis_data_in_csc_computing_env) of the available datasets
 
 ## Language research and other digital humanities and social sciences

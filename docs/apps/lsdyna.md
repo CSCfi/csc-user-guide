@@ -8,7 +8,7 @@ LS-DYNA is proprietary software. The licenses available at CSC are only for acad
 
 ## Available
 
-CSC's LS-DYNA licenses are available on CSC's computing platforms [Puhti and Mahti](https://research.csc.fi/csc-s-servers).  Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+CSC's LS-DYNA licenses are available on CSC's computing platforms [Puhti and Mahti](../computing/available-systems.md).  Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 ## Usage
 

@@ -6,9 +6,10 @@
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
-* [CSC Quick reference (pdf)](../../img/csc-quick-reference-2019-11-21.pdf)
+* [CSC Quick reference (pdf)](../../img/csc-quick-reference-2020-11-10.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/overview.md)
+* [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 
 ## Allas
 * [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
@@ -24,6 +25,11 @@
 * [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md)
 * [Configuration, ConfigMaps and Secrets](../../cloud/rahti/tutorials/configuration.md)
 * [Webhooks](../../cloud/rahti/tutorials/webhooks.md)
+* [Reverse proxy authentication using a sidecar container](../../cloud/rahti/tutorials/sidecar_proxy_authentication.md)
+* [Short introduction to YAML](../../cloud/rahti/tutorials/yaml_introduction.md)
+* [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
+* [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
+* [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
 
 ## Data analysis and machine learning
 
@@ -34,5 +40,6 @@
 * [Singularity applications on Puhti](bioapplications-puhti.md)
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Running Nextflow pipelines on Puhti](nextflow-puhti.md)
-* [Schrödinger Maestro Puhti tutorial](power-maestro.md)
+* [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
+* [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
