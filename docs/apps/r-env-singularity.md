@@ -140,7 +140,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -184,7 +184,7 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -217,7 +217,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../computing/runnin
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -266,7 +266,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
 
 # Load parallel and r-env-singularity
 module load parallel/20200122
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -335,7 +335,7 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -382,7 +382,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -437,7 +437,7 @@ An example batch job script can be found below. Here we submit a job using eight
 #SBATCH --mem-per-cpu=2000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -490,7 +490,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
 #SBATCH --mem-per-cpu=2000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -528,7 +528,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 #SBATCH --gres=nvme:10
 
 # Load the module
-module load r-env-singularity/4.0.3
+module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
