@@ -14,16 +14,18 @@ Currently supported R versions and corresponding modules:
 
 - 3.6.3: `r-env-singularity/3.6.3`
 - 4.0.2: `r-env-singularity/4.0.2`
+- 4.0.3: `r-env-singularity/4.0.3`
 
 CRAN package and Bioconductor versions:
 
 - 3.6.3: CRAN packages available on March 17 2020, Bioconductor 3.10
 - 4.0.2: CRAN packages available on September 24 2020, Bioconductor 3.11 
+- 4.0.3: CRAN packages available on December 09 2020, Bioconductor 3.12
 
 RStudio Server versions:
 
 - 3.6.3: 1.2.5033
-- 4.0.2: 1.3.1093
+- 4.0.2 and 4.0.3: 1.3.1093
 
 Other software and libraries:
 
@@ -138,7 +140,7 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -182,7 +184,7 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -215,7 +217,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../computing/runnin
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -264,7 +266,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
 
 # Load parallel and r-env-singularity
 module load parallel/20200122
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -333,7 +335,7 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -380,7 +382,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --mem-per-cpu=1000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -435,7 +437,7 @@ An example batch job script can be found below. Here we submit a job using eight
 #SBATCH --mem-per-cpu=2000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -488,7 +490,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
 #SBATCH --mem-per-cpu=2000
 
 # Load r-env-singularity
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
@@ -526,7 +528,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 #SBATCH --gres=nvme:10
 
 # Load the module
-module load r-env-singularity/4.0.2
+module load r-env-singularity/4.0.3
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then

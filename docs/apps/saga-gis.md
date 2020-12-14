@@ -10,7 +10,7 @@ __SAGA GIS__ is available in Puhti with following versions:
 * 7.3.0 (`r-env-singularity/3.6.3` module)
 * 7.9.0 (`r-env-singularity/4.0.2` module)
 
-## Usage with `saga-gis` module
+## Usage with `saga-gis` module
 
 The `saga-gis` module can be loaded with:
 
@@ -25,20 +25,21 @@ If you have connected with NoMachine or have X11 enabled on your SSH connection,
 `saga_gui`
 
 !!! note
-   We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti.
+    We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti.
 
 ## Usage with `r-env-singularity`
 
 You can utilize SAGA GIS functions through the `Rsagacmd` and `RSAGA` R packages included in the `r-env-singularity` module.  You can load it with:
 
-``` bash
+```bash
 module load r-env-singularity 
 ```
 
 For more information on running R jobs on Puhti, please see the [`r-env-singularity` documentation](r-env-singularity.md).
 
 !!! note
-   Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0. 
+
+    Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0.
 
 ## License and citing
 
