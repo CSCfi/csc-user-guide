@@ -15,6 +15,12 @@ at CSC, but you can of course develop or install your own.
   submit several independent jobs with one command
 * [GREASY](greasy.md) runs multiple job steps in a larger 
   allocation, and allows simple dependencies
-* [DIY gnuparallel](../../support/tutorials/many.md) tutorial which shows 
+* [DIY gnuparallel](../../support/tutorials/many.md) tutorial shows 
   how to efficiently run a very large number of serial jobs without 
   bloating the Slurm log
+
+## Science specific workflow tools
+
+* [Nextflow](../../support/tutorials/nextflow-puhti.md) singularity 
+  container based bioinformatics pipelines on Puhti
+* TBC
