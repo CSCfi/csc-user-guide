@@ -109,12 +109,6 @@ via OpenMP, make sure the performance of individual subjobs has not suffered. A 
 one node, but such a job could also be run as an array job. GREASY is thus better suited for jobs (much) 
 smaller than one node.
 
-
-
-
-
-
-
-
-
-
+While Greasy only creates one batch job, it will create a *job step* for each task it runs.
+A huge number of job tasks in a batch job will be problematic. If you need to run hundreds or thousands
+of job steps, please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) to look for alternatives.
