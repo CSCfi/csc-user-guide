@@ -6,7 +6,7 @@ This page is for the spatial R libraries and tools installed in the R environmen
 
 Currently supported R versions for spatial libraries:
 
-- 4.0.2 and 3.6.3 (`r-env-singularity` module)
+- 4.0.3, 4.0.2 and 3.6.3 (`r-env-singularity` module)
 
 ## Usage
 
@@ -66,7 +66,7 @@ The `r-env-singularity` module includes the following GDAL and SAGA GIS installa
 * [GDAL](gdal.md) 2.4.2 and its commandline tools 
 * [SAGA GIS](saga-gis.md) 7.3.0
 
-`r-env-singularity/4.0.2`:
+`r-env-singularity/4.0.2` and `r-env-singularity/4.0.3`:
 
 - GDAL 3.2.0 and its commandline tools
 
