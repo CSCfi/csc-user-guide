@@ -17,8 +17,6 @@ to consider when creating your own images that you would not
 need to consider when using the default images. For more information,,
 see [Advanced images](../adding-images)
 
-/* openstack image list --public */
-
 ## The main features of the images provided by CSC
 
 The images provided by CSC are mostly the same as upstream.
@@ -37,13 +35,14 @@ keep the additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
+|CentOS-8   |cloud-user | yes|
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
-|CentOS-8   |cloud-user | yes|
+|ScientificLinux-7   |cloud-user | yes|
+|Ubuntu-20.04   |**ubuntu** | no |
+|Ubuntu-18.04   |**ubuntu** | no |
 |Ubuntu-16.04   |cloud-user | yes|
 |Ubuntu-16.04-Cuda   |cloud-user | yes|
-|Ubuntu-18.04   |**ubuntu** | no |
-|Ubuntu-20.04   |**ubuntu** | no |
 
 ### CentOS-8
 Currently in a *tech preview* because we have found some
@@ -61,14 +60,6 @@ Another difference is that this image does not have automatic updates enabled.
 CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
 is the distribution that the Pouta admins are the most accustomed to. 
 This is the second-newest major release of CentOS.
-We are still waiting for the CentOS-8 cloud images to be
-released before we start providing CentOS-8 as well.
-
-### CentOS-6
-This is the oldest version of CentOS that we provide in Pouta. You should
-probably not use this version without a really good reason.
-We will remove our premade CentOS-6 images once CentOS-6 is at the end of its life
-in November 2020.
 
 ### CentOS-7-Cuda
 This is the same as CentOS-7 but comes with preinstalled NVIDIA drivers.
@@ -78,22 +69,22 @@ drivers installed, but sometimes we are lagging a bit behind. These images
 are huge, so you should use the normal CentOS-7 image if you are not
 using a GPU-flavor VM.
 
-### ScientificLinux-7 and ScientificLinux-6
-These are basically CentOS-7/CentOS-6 but with a slightly different topping. Some
+### ScientificLinux-7
+Basically CentOS-7 but with a slightly different topping. Some
 research organizations use ScientificLinux. If you are unsure, you
 should prefer CentOS-7.
-
-### Ubuntu-18.04 LTS
-Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that Ubuntu-18.04 has `ubuntu` as the default 
-username instead of `cloud-user`, since it was the first image type we started 
-to provide directly from the upstream.
 
 ### Ubuntu-20.04 LTS
 Ubuntu-20.04 LTS image, included in Pouta, another one from Ubuntu image family for
 those who do not want to use CentOS. Note that like Ubuntu-18.04, Ubuntu 20.04 also 
 has `ubuntu` as the default username instead of `cloud-user`.
 This is the another image type we started to provide directly from the upstream after Ubuntu-18.04.
+
+### Ubuntu-18.04 LTS
+Some like chocolate, some like strawberry. This is the choice for those that
+do not want to use CentOS. Note that Ubuntu-18.04 has `ubuntu` as the default 
+username instead of `cloud-user`, since it was the first image type we started 
+to provide directly from the upstream.
 
 ### Ubuntu-16.04 LTS
 If you for some reason need an older version of Ubuntu.
@@ -107,7 +98,7 @@ These images you should probably not use without a really good
 reason. You might be better off [creating your own image](../adding-images)
 
 If there any images that you think we should add, do not hesitate to contact
-servicedesk@csc.fi.
+[Service Desk](mailto:servicedesk@csc.fi).
 
 ### cirros
 This is a really small image which can be used to boot an instance really fast.
@@ -115,14 +106,6 @@ This can be useful for doing tests in Pouta, such as testing if the network work
 how fast you can launch an instance. You should not use this for persistent
 VMs, and you should always delete the instance when you are done with
 testing. There is very little reason for end-users using this image, and if
-you are unsure, CentOS and Ubuntu are better choices 99% of the time.
-
-### Ubuntu-14.04
-Ubuntu-14.04 has been at the end of standard support for some time and will go
-EOL in 2022. We recommend using newer Ubuntu images.
-
-### Fedora-Atomic-25
-You probably do not want to use this if you are not sure. We will most likely
-remove this image in the near future since it is getting quite out of date.
+you are unsure, CentOS and Ubuntu are better choices 99% of the time. 
 
 [GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
