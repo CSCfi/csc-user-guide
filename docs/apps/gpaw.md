@@ -52,8 +52,7 @@ A specific version can be initialized with `module load gpaw/version`, e.g.
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=2GB
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 80 core (2 full nodes) gpaw job, requesting
 # 30 minutes time and 2 GB of memory for each core
@@ -73,8 +72,7 @@ srun gpaw-python input.py
 #SBATCH --ntasks-per-node=32
 #SBATCH --cpus-per-task=4
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 1280 core (10 full nodes) gpaw job, using hybrid
 # MPI/OpenMP parallelization with 4 OpenMP threads per node,
@@ -98,8 +96,7 @@ srun gpaw-python input.py
 #SBATCH --nodes=10
 #SBATCH --ntasks-per-node=128
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 1280 core (10 full nodes) gpaw job, using pure
 # MPI parallelization requesting 30 minutes time.
