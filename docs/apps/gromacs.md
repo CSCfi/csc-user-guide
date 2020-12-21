@@ -180,12 +180,18 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 ### Visualizing trajectories and graphs
 
-In addition to ngmx program in Gromacs, trajectory files can be
+In addition to `ngmx` program in Gromacs, trajectory files can be
 visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
--   [VMD] visualizing program for large biomolecular systems.
+-   [VMD](vmd.md) visualizing program for large biomolecular systems.
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
+
+!!! note
+    Please don't run visualization or heavy Gromacs tool scripts in
+    the login node (see [usage policy for details](../../computing/overview/#usage-policy)).
+    You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
+    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
 
 ## References
 
@@ -218,6 +224,7 @@ for methods applied in your setup.
 -   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
 -   [Tutorials on the Gromacs website]  
 -   [More tutorials] by Justin A. Lemkul
+-   [Yet more nice tutorials](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html) by Bert de Groot.
 -   [Lots of material at BioExcel EU project]
 -   [HOW-TO] section on the Gromacs pages
 -   Gromacs [documentation]
@@ -226,7 +233,6 @@ for methods applied in your setup.
 
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/
-  [VMD]: http://www.ks.uiuc.edu/Research/vmd/
   [Gromacs performance checklist]: http://www.gromacs.org/Documentation/Performance_checklist
   [Tutorials on the Gromacs website]: http://www.gromacs.org/Documentation/Tutorials
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
