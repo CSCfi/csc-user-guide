@@ -180,8 +180,8 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 ### Visualizing trajectories and graphs
 
-In addition to `ngmx` program in Gromacs, trajectory files can be
-visualized with the following programs:
+In addition to `view` (not available at CSC, though) tool of Gromacs,
+trajectory files can be visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
 -   [VMD](vmd.md) visualizing program for large biomolecular systems.
