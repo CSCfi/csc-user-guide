@@ -187,8 +187,13 @@ body {
 }
 
 .md-nav__link--active {
+    color:#ffffff;
     font-weight: bold;
-    color: #C2C2C2;
+    text-decoration: underline;
+}
+
+.md-nav__item .md-nav__link--active {
+    color:rgb(64, 64, 64);
 }
 
 .md-nav__title {
@@ -284,6 +289,7 @@ img[src*="#headerlogo"] {
 
 a[title="Home"] {
     padding-left: 1.3rem;
+    color:  #ffffff !important;
 }
 
 .md-sidebar__scrollwrap::-webkit-scrollbar {
@@ -299,20 +305,6 @@ a[title="Home"] {
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
     background: #888888;
 }
-
-/* .md-search__input .md-search__input:active {
-    background-color:#ffffff;
-
-}
-
-.md-search__form .md-search__form:active {
-
-    background-color: #ffffff;
-} */
-
-/* :focus {
-    outline: 2px solid #ff5800;   
-} */
 
 
 .md-nav__link:focus {
@@ -356,4 +348,9 @@ a[title="Home"] {
 ::placeholder  {
     color: #4f4f4f !important;
     opacity: 1;
+}
+
+
+.md-typeset ul {
+    margin: 0;
 }

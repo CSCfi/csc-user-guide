@@ -15,19 +15,19 @@ template: main-index.html
 
 <h1 id="quicklinktitle"> Quick links </h1>
 
-<span id="index-quicklinks">
+<span class="index-quicklinks">
 [Puhti and Mahti Overview](computing/overview.md) 
 </span><br>
-<span id="index-quicklinks">
+<span class="index-quicklinks">
 [Allas User Guide](data/Allas/index.md)
 </span><br>
-<span id="index-quicklinks">
+<span class="index-quicklinks">
 [Kvasi QLM Guide](computing/available-systems.md#kvasi)
 </span><br>
-<span id="index-quicklinks">
+<span class="index-quicklinks">
 [Getting started with Puhti](support/tutorials/puhti_quick.md)
 </span><br>
-<span id="index-quicklinks">
+<span class="index-quicklinks">
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
 </span>
 
