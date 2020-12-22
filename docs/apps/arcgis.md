@@ -206,7 +206,7 @@ for it from CSC.
 | University of Oulu      | Lauri Aho                            |
 | TUT, Tampere AMK        | it-helpdesk at tuni.fi               |
 | University of Turku      | Leena Laurila |
-| Åbo Akademi             | Mats Lipkin                          |
+| Åbo Akademi             | Mårten Hedman                         |
 
 ------------------------------------------------------------------------
 
