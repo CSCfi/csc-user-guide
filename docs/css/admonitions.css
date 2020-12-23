@@ -1,0 +1,23 @@
+.md-typeset .admonition.mahti,
+.md-typeset details.mahti {
+  border-color: rgb(43, 155, 70);
+}
+.md-typeset .mahti > .admonition-title,
+.md-typeset .mahti > summary {
+  background-color: rgba(43, 155, 70, 0.1);
+}
+
+
+.md-typeset .mahti > .admonition-title::before,
+.md-typeset .mahti > summary::before {
+  background-color: none;
+          content: "";
+          background-size: 1.5rem 1.5rem;
+          display: inline-block;
+          left: 0.3rem;
+          top: 0.1rem;
+          width: 1.5rem; 
+          height: 1.5rem;
+          background-image: url(karhu.png)
+}
+

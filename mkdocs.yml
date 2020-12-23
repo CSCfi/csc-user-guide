@@ -171,6 +171,7 @@ theme:
   logo: 'img/Docs_CSC_logo.svg#headerlogo"'
 
 extra_css:
+  - 'css/admonitions.css'
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
 

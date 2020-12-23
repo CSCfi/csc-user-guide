@@ -11,4 +11,12 @@ template: main-index.html
 ## Details
 
 ??? success "I'm hiding some content"
-    Some hidden content
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+## Custom Admonitions
+
+!!! mahti "Mahti supercomputer"
+    Mahti has many AMD cores, while Puhti is using intel.
+
