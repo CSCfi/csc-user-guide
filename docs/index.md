@@ -53,14 +53,14 @@ template: main-index.html
 
 ## Simple raw Javascript
 <form >
-<label for="number">Number A:</label>
-<input type="number" id="n1" name="num_1">
+<label for="n1">Number A:</label>
+<input type="number" id="n1" style="border:3px solid " name="num">
 <br>
-<label for="number">Number B:</label>
-<input type="number" id="n2" name="num_2">
+<label for="n2">Number B:</label>
+<input type="number" id="n2" style="border:3px solid " name="num">
 <br>
 <br>
-<input type="button" onclick="myAdder()" value="Add">
+<input type="button" onclick="myAdder()" style="border:3px solid " value="Add">
 </form>
 
 <script>
@@ -93,4 +93,94 @@ var g = board.create('glider', [c]);
 var t = board.create('tangent', [g], {dash:2,strokeColor:'#a612a9'});
 var n = board.create('normal', [g], {dash:2,strokeColor:'#a612a9'});
 </script>
+
+## Batch script "Wizard"
+
+<script>
+function hideMahtiP(){
+ var x = document.getElementById("partitions_mahti");
+ var y = document.getElementById("partitions_puhti");
+ x.style.display = "none";
+ y.style.display = "block";
+}
+function hidePuhtiP(){
+ var x = document.getElementById("partitions_mahti");
+ var y = document.getElementById("partitions_puhti");
+ x.style.display = "block";
+ y.style.display = "none";
+}
+</script>
+
+
+**System:**
+<form id=system_form>
+  <input type="radio" id="puhti" name="system" value="puhti" onclick="hideMahtiP();" checked=checked>
+  <label for="puhti">Puhti</label>
+  <input type="radio" id="mahti" name="system" value="mahti" onclick="hidePuhtiP();">
+  <label for="mahti">Mahti</label><br>
+</form>
+
+**Partition:**
+<form  id=partitions_puhti>
+<select name="partition" id="partitions_p">
+  <option value="test">test</option>
+  <option value="small">small</option>
+  <option value="large">large</option>
+  <option value="longrun">longrun</option>
+  <option value="hugemem">hugemem</option>
+</select>
+</form>
+
+<form hidden id="partitions_mahti">
+<select name="partition" id="partitions_m">
+  <option value="test">test</option>
+  <option value="medium">medium</option>
+  <option value="large">large</option>
+  <option value="gc">gc</option>
+  <option value="hugemem">hugemem</option>
+</select>    
+</form>
+
+**Number of tasks**
+<input type="number" id="core_s" style="border:3px solid " >
+
+**Duration**
+<input type="text" id="time" style="border:3px solid " >
+
+**Project**
+<input type="text" id="project" style="border:3px solid " >
+
+<input type="button" onclick="GenerateBatch()" style="border:3px solid " value="Generate">
+<script>
+function GenerateBatch(){
+var radios = document.getElementsByName('system');
+var partition=""
+
+for (var i = 0, length = radios.length; i < length; i++) {
+  if (radios[i].checked) {
+    if(radios[i].value == "mahti"){
+        partition=document.getElementById("partitions_m").value
+    }
+    else if(radios[i].value == "puhti"){
+        partition=document.getElementById("partitions_p").value
+    }
+
+  break;
+  }
+}
+ var str="#!/bin/bash"
+ str+= "\n#SBATCH --partition="
+ str+= partition
+ str+= "\n#SBATCH --time=" + document.getElementById("time").value
+ str+= "\n#SBATCH --account=" + document.getElementById("project").value
+ str+= "\n#SBATCH --ntasks=" + document.getElementById("core_s").value
+document.getElementById("batch_code").innerHTML = str;
+}
+
+</script>
+
+<div class="tabbed-content">
+<div class="highlight" style="background-color:#ddd;"><pre id="wizard"><span></span><button class="md-clipboard" title="Copy to clipboard" data-clipboard-target="#wizard pre, #wizard code"><span class="md-clipboard__message"></span></button><code id=batch_code>
+</code></pre></div>
+</div>
 
