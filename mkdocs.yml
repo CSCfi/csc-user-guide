@@ -173,11 +173,13 @@ theme:
 extra_css:
   - 'css/admonitions.css'
   - 'css/tabbing.css'
+  - 'css/jsxgraph.css'
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
 
 extra_javascript:
-  - ./javascripts/config.js
+  - 'javascripts/jsxgraphcore.js'
+  - 'javascripts/config.js'
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
