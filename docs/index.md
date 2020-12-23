@@ -20,8 +20,37 @@ template: main-index.html
 !!! mahti "Mahti supercomputer"
     Mahti has many AMD cores, while Puhti is using intel.
 
+## Tabbing
 
-## Simple Javascript
+### MPI
+
+=== "Mahti"
+    ```
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium
+    #SBATCH --time=02:00:00
+    #SBATCH --nodes=10
+    #SBATCH --ntasks-per-node=128
+
+    srun myprog <options>
+
+    ```
+=== "Puhti"
+    ```
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=large
+    #SBATCH --time=02:00:00
+    #SBATCH --ntasks=80
+    #SBATCH --mem-per-cpu=4000
+
+    srun myprog <options>
+    ```
+
+## Simple raw Javascript
 <form >
 <label for="number">Number A:</label>
 <input type="number" id="n1" name="num_1">

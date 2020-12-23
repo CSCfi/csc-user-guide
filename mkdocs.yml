@@ -172,6 +172,7 @@ theme:
 
 extra_css:
   - 'css/admonitions.css'
+  - 'css/tabbing.css'
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
 
@@ -187,6 +188,8 @@ markdown_extensions:
   - attr_list
   - pymdownx.details
   - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.arithmatex:
       generic: true
 
