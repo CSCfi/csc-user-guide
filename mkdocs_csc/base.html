@@ -114,7 +114,7 @@
                     <div class="md-content role="main"">
                         <article class="md-content__inner md-typeset">
                             {% block content %} {% if page.edit_url %}
-                            <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a> {% endif %} {% if not "\x3ch1" in page.content %}
+                            <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon" alt="Edit this page in Github">&#xE3C9;</a> {% endif %} {% if not "\x3ch1" in page.content %}
                             <h1>{{ page.title | default(config.site_name, true)}}</h1>
                             {% endif %} {{ page.content }} {% block source %} {% if page and page.meta and page.meta.source %}
                             <h2 id="__source">{{ lang.t("meta.source") }}</h2>
