@@ -109,7 +109,7 @@ start-rstudio-server
 ```
 For a detailed guide to launching RStudio Server, see our documentation on the [`r-env-singularity module`](../../apps/r-env-singularity.md).
 
-### Example: Running an mpi job in an interactive session
+### Example: Running an MPI job in an interactive session
 
 Since the shell started in the interactive session is already a job step in Slurm, more job steps can't be started.
 This will disable, e.g. running Gromacs tools, as `gmx_mpi` is a parallel program and normally needs `srun`.
