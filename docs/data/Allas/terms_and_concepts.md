@@ -19,7 +19,7 @@ A _bucket_ is a container for objects that may also include metadata describing 
 
 ### Checksum
 
-A _checksum_ is a hashed string computed of an object to observe whether the object has changed (data integrity). 
+A _checksum_ is a hashed string computed of an object to observe whether the object has changed (data integrity).
 You can display the checksum using the command `md5sum`.
 
 ### Client
@@ -32,8 +32,12 @@ The _client software_ is used to access an object storage service, such as Allas
 
 ### Metadata
 
-_Metadata_ describes an object or bucket. It can be used to search for objects. 
+_Metadata_ describes an object or bucket. It can be used to search for objects.
 It is used via _key-value_ pairs (for example, name: John).
+
+### Object lifecycle
+
+_Object lifecycle_ Can be configured to automatically remove objects from Allas. Lifecycle is configured in the bucket level, where multiple expiration periods can be defined. Lifecycle is applied to the objects in the bucket based on their matching tags and/or prefixes.
 
 ### Object storage
 
@@ -61,6 +65,6 @@ in a bucket, listing the bucket will display a folder called _fishes_ and the tw
 
 ## Quota
 
-The _Allas quota_ defines the maximum amount of data (capacity) the project is allowed to store in Allas. 
+The _Allas quota_ defines the maximum amount of data (capacity) the project is allowed to store in Allas.
 
 See [Billing and quotas](./introduction.md#billing-and-quotas)
