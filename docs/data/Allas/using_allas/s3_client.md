@@ -348,9 +348,7 @@ https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b2
 
 ## Setting up an object lifecycle
 
-In order to delete/expire objects automatically, a lifecycle policy can be set-up to our Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object.
-
-Please see more at the [RedHat developer guide for Ceph storage](https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/developer_guide/index#s3-api-bucket-lifecycle).
+In order to delete/expire objects automatically, a lifecycle policy can be set-up to the Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object.
 
 In the following lifecycle policy we have three rules set. let's name it as `mypolicy.xml`.
 
@@ -406,6 +404,19 @@ We can verify current policy with `getlifecycle` sub-command:
 s3cmd getlifecycle s3://MY_BUCKET
 ```
 
+We can review the bucket (or object) with `info` sub-command:
+
+```bash
+s3cmd info s3://MY_BUCKET
+s3://MY_BUCKET/ (bucket):
+   Location:  cpouta-production
+   Payer:     BucketOwner
+   Expiration Rule: objects with key prefix 'annual/' will expire in '365' day(s) after creation
+   Policy:    none
+   CORS:      none
+   ACL:       project_xxxxxxx: FULL_CONTROL
+```
+
 In order to put your object(s) under the lifecycle policy, you may utilize tags and/or prefixes.
 
 * Tagging is done with adding a header with the format `x-amz-tagging:KEY=VALUE`.
@@ -424,3 +435,8 @@ s3cmd --add-header=x-amz-tagging:days=30 put MY_FILE_03.tar.gz s3://MY_BUCKET/
 # Should be removed at one year per rule ID: 1-year-expiration
 s3cmd put MY_FILE_04.tar.gz s3://MY_BUCKET/annual/
 ```
+
+Other references to setting up a lifecycle:
+* [RedHat developer guide for Ceph storage](https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/developer_guide/index#s3-api-bucket-lifecycle).
+* [Creating an intelligent object storage system with Ceph’s Object Lifecycle Management](https://shopnpaz.medium.com/creating-an-intelligent-object-storage-system-with-cephs-object-lifecycle-management-112e2e46d490)
+* [Multiple lifecycles - s3cmd](https://stackoverflow.com/questions/49615977/multiple-lifecycles-s3cmd)
