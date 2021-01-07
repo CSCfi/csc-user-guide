@@ -37,7 +37,7 @@ It is used via _key-value_ pairs (for example, name: John).
 
 ### Object lifecycle
 
-_Object lifecycle_ Can be configured to automatically remove objects from Allas. Lifecycle is configured in the bucket level, where multiple expiration periods can be defined. Lifecycle is applied to the objects in the bucket based on their matching tags and/or prefixes.
+_Object lifecycle_ Can be configured to automatically remove objects from Allas. Lifecycle is configured in the bucket level, where multiple expiration periods can be defined. Lifecycle is applied to the objects in the bucket based on their matching tags and/or prefixes. See an example in the [s3 client tool documentation](./using_allas/s3_client.md#setting-up-an-object-lifecycle)
 
 ### Object storage
 
