@@ -408,13 +408,13 @@ s3cmd getlifecycle s3://MY_BUCKET
 
 In order to put your object(s) under the lifecycle policy, you may utilize tags and/or prefixes.
 
-* Tagging is done with adding a header in the format `x-amz-tagging:KEY=VALUE`.
+* Tagging is done with adding a header with the format `x-amz-tagging:KEY=VALUE`.
 * Prefix can be considered as a "folder".
 
 Let's see the following cases:
 
 ```bash
-# Should be removed next day per rule ID: 1-days-expiration
+# Should be removed in 24 hours per rule ID: 1-days-expiration
 s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_01.tar.gz s3://MY_BUCKET/
 s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_02.tar.gz s3://MY_BUCKET/gone-in-one-day/
 
