@@ -8,7 +8,7 @@ X-emulators or X-term (in Linux).
 
 [TOC]
 
-![NoMachine sketch - full description below image](/img/nomachine.svg "NoMachine sketch")
+![NoMachine sketch - full description below image](../img/nomachine.svg "NoMachine sketch")
 
 A NoMachine client installed on your local machine is used to connect to
 NoMachine server in Kajaani, which is then used to make a fast local connection
