@@ -22,6 +22,7 @@
       - Lists and clear titles: good
       - Use descriptive alt texts for images and videos 
       - Avoid presenting something ONLY as a video, and use captions/subtitles in video. Also, do present import or difficult to follow things also with videos.
+      - Use title **and** alt-text in images: `![This alt-text here explains what the picture contains](/img/image.png 'Title for image')` If the alt-text cannot explain the information contained in the image, mention that the text below contains it.
       - Avoid using loadable pdfs
       - Avoid using only color to signal some meaning
 
