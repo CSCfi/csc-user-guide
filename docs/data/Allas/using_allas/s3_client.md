@@ -408,6 +408,7 @@ We can review the bucket (or object) with `info` sub-command:
 
 ```bash
 s3cmd info s3://MY_BUCKET
+
 s3://MY_BUCKET/ (bucket):
    Location:  cpouta-production
    Payer:     BucketOwner
