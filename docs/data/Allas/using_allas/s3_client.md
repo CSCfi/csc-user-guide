@@ -2,7 +2,7 @@
 # The S3 client
 
 This chapter describes how to use the Allas object storage service with the **s3cmd** command line client. This client uses
-the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. Normally data uploaded with S3 can be utilized with swift protocol too. However, over 5 GB files uploaded to Allas with swift can't be downloaded with S3 protocol. 
+the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. Normally data uploaded with S3 can be utilized with swift protocol too. However, over 5 GB files uploaded to Allas with swift can't be downloaded with S3 protocol.
 
 From the user perspective, one of the main differences between S3 and Swift protocols is that Swift based connections remain valid for eight hours at a time, but with S3, the connection remains permanently open. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
 
@@ -34,9 +34,9 @@ s3cmd -h
 ```
 ## Getting started with s3cmd
 
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection-in-supercomputers). 
+If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection-in-supercomputers).
 
-To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment. 
+To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
 
 **OpenStack s3cmd installation:**
 
@@ -66,12 +66,12 @@ Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [
 ** Configuring S3 connection in local computer **
 
 Once you have _OpenStack_ and _s3cmd_ installed in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
-script to set up the S3 connection to your Allas project. 
+script to set up the S3 connection to your Allas project.
 ```text
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --mode s3cmd --user your-csc-username
 ```
-Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your 
+Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your
 CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory).
 
 ## Configuring S3 connection in supercomputers
@@ -233,8 +233,8 @@ s3cmd setacl --recursive --acl-revoke=read:$other_project_uuid s3://my_fishbucke
 ```
 
 The shared objects and buckets can be used with both S3 and Swift based tools. Note howerver, that listing
-commands show only buckets owned by your project. In the case of shared buckets and objects you must know the 
-names of the buckets in order to use them.  
+commands show only buckets owned by your project. In the case of shared buckets and objects you must know the
+names of the buckets in order to use them.
 
 In the case of the example above, user from project _3d5b0ae8e724b439a4cd16d1290_ will not see _my_fishbucket_ , when it is shared, with command:
 
@@ -245,7 +245,7 @@ However she can list the content of the bucket with command:
 ```text
 s3cmd ls s3://my_fishbucket
 ```
-In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the URL. Move to some 
+In the Pouta web UI, user can move to a shared bucket by defining the bucket name in the URL. Move to some
 bucket of your project and replace the bucket name in the end of the URL with the name of the shared bucket:
 ```
 https://pouta.csc.fi/dashboard/project/containers/container/my_fishbucket
@@ -260,7 +260,7 @@ First, create a new bucket. The command `s3cmd ls` reveals that the object stora
 <pre>
 $ <b>s3cmd ls</b>
 ls
- 
+
 $ <b>s3cmd mb s3://fish-bucket</b>
 mb s3://fish-bucket/
 Bucket 's3://fish-bucket/' created
@@ -299,7 +299,7 @@ $ <b>s3cmd put zebrafish.tgz s3://fish-bucket</b>
 put zebrafish.tgz s3://fish-bucket
 upload: 'zebrafish.tgz' -> 's3://fish-bucket/zebrafish.tgz'  [1 of 1]
  2081306836 of 2081306836   100% in   39s    50.16 MB/s  done
- 
+
 $ <b>s3cmd ls s3://fish-bucket</b>
 ls s3://fish-bucket
 2019-10-01 12:11 9982519261   s3://fish-bucket/zebrafish.tgz
@@ -335,7 +335,7 @@ _https://a3s.fi/fish-bucket/zebrafish.tgz_
 
 With command _s3cmd signurl_ an object in Allas can be temporarily published with URL that includes security increasing access token.
 
-In the previous example object _s3://fish-bucket/zebrafish.tgz_ was made permanently accessible through simple static URL. 
+In the previous example object _s3://fish-bucket/zebrafish.tgz_ was made permanently accessible through simple static URL.
 With _signurl_ the same object could be shared more securely and only for a limited time. For example command:
 
 ```text
@@ -344,4 +344,83 @@ s3cmd signurl s3://fish-bucket/zebrafish.tgz +3600
 would print out an URL that remains valid for 3600 s (1 h). In this case URL, produced by the command above, would look something like:
 ```text
 https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b23bfd7a67&Expires=1599835116&Signature=OLyyCY14s%2F0HxKOOd108mldINyE%3D
+```
+
+## Setting up an object lifecycle
+
+In order to delete/expire objects automatically, a lifecycle policy can be set-up to our Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object.
+
+Please see more at the [RedHat developer guide for Ceph storage](https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/developer_guide/index#s3-api-bucket-lifecycle).
+
+In the following lifecycle policy we have three rules set. let's name it as `mypolicy.xml`.
+
+```xml
+<?xml version="1.0" ?>
+<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+   <Rule>
+      <ID>1-days-expiration</ID>
+      <Status>Enabled</Status>
+      <Expiration>
+         <Days>1</Days>
+      </Expiration>
+      <Filter>
+         <Tag>
+            <Key>days</Key>
+            <Value>1</Value>
+         </Tag>
+      </Filter>
+   </Rule>
+   <Rule>
+      <ID>30-days-expiration</ID>
+      <Status>Enabled</Status>
+      <Expiration>
+         <Days>30</Days>
+      </Expiration>
+      <Filter>
+         <Tag>
+            <Key>days</Key>
+            <Value>30</Value>
+         </Tag>
+      </Filter>
+   </Rule>
+   <Rule>
+      <ID>1-year-expiration</ID>
+      <Prefix>annual/</Prefix>
+      <Status>Enabled</Status>
+      <Expiration>
+         <Days>365</Days>
+      </Expiration>
+   </Rule>
+</LifecycleConfiguration>
+```
+
+To set this lifecycle policy into our bucket, we use the `setlifecycle` sub-command:
+
+```bash
+s3cmd setlifecycle mypolicy.xml s3://MY_BUCKET
+```
+
+We can verify current policy with `getlifecycle` sub-command:
+
+```bash
+s3cmd getlifecycle s3://MY_BUCKET
+```
+
+In order to put your object(s) under the lifecycle policy, you may utilize tags and/or prefixes.
+
+* Tagging is done with adding a header in the format `x-amz-tagging:KEY=VALUE`.
+* Prefix can be considered as a "folder".
+
+Let's see the following cases:
+
+```bash
+# Should be removed next day per rule ID: 1-days-expiration
+s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_01.tar.gz s3://MY_BUCKET/
+s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_02.tar.gz s3://MY_BUCKET/gone-in-one-day/
+
+# Should be removed in 30 days per rule ID: 30-days-expiration
+s3cmd --add-header=x-amz-tagging:days=30 put MY_FILE_03.tar.gz s3://MY_BUCKET/
+
+# Should be removed at one year per rule ID: 1-year-expiration
+s3cmd put MY_FILE_04.tar.gz s3://MY_BUCKET/annual/
 ```
