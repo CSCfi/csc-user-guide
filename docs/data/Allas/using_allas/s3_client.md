@@ -348,7 +348,9 @@ https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b2
 
 ## Setting up an object lifecycle
 
-In order to delete/expire objects automatically, a lifecycle policy can be set-up to the Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object.
+In order to delete/expire objects automatically, a lifecycle policy can be set-up to the Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object. Lifecycle policy is especially well suited for the cases where data needs to be removed as a "maintenance" measure after certain intervals.
+
+<font color="red">**Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project.**</font> (Legal or regulatory constrains).
 
 In the following lifecycle policy we have three rules set. let's name it as `mypolicy.xml`.
 
@@ -404,7 +406,7 @@ We can verify current policy with `getlifecycle` sub-command:
 s3cmd getlifecycle s3://MY_BUCKET
 ```
 
-We can review the bucket (or object) with `info` sub-command:
+To review the bucket (or object) with `info` sub-command:
 
 ```bash
 s3cmd info s3://MY_BUCKET
