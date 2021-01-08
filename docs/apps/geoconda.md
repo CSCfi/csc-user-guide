@@ -137,7 +137,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [pyproj]: https://pypi.python.org/pypi/pyproj?
   [pysal]: http://pysal.readthedocs.io/en/latest/
   [osmnx]: https://osmnx.readthedocs.io/en/stable/index.html
-  [rasterio]: https://mapbox.github.io/rasterio/
+  [rasterio]: https://github.com/mapbox/rasterio
   [rasterstats]: http://pythonhosted.org/rasterstats/
   [rtree]: http://toblerity.org/rtree/
   [shapely]: https://pypi.python.org/pypi/Shapely
@@ -146,12 +146,11 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [pdal]: https://github.com/PDAL/python
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
   [SNAP]: snap.md
-  [spyder]: https://pythonhosted.org/spyder/
+  [spyder]: https://docs.spyder-ide.org/
   [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
   [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
-  [Essential Python Geospatial Libraries]: http://spatialdemography.org/essential-python-geospatial-libraries/
   [Geoprocessing with Python using Open Source GIS]: http://www.gis.usu.edu/%7Echrisg/python/2009/
   [GeoExamples]: http://geoexamples.blogspot.fi/
   [Automating GIS processes course materials]: https://automating-gis-processes.github.io
