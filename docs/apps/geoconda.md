@@ -137,7 +137,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [pyproj]: https://pypi.python.org/pypi/pyproj?
   [pysal]: http://pysal.readthedocs.io/en/latest/
   [osmnx]: https://osmnx.readthedocs.io/en/stable/index.html
-  [rasterio]: https://github.com/mapbox/rasterio
+  [rasterio]: https://rasterio.readthedocs.io/en/latest/
   [rasterstats]: http://pythonhosted.org/rasterstats/
   [rtree]: http://toblerity.org/rtree/
   [shapely]: https://pypi.python.org/pypi/Shapely
