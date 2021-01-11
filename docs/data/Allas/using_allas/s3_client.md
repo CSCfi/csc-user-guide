@@ -352,7 +352,7 @@ In order to delete/expire objects automatically, a lifecycle policy can be set-u
 
 <font color="red">**Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project.**</font> (Legal or regulatory constrains).
 
-In the following lifecycle policy we have three rules set. let's name it as `mypolicy.xml`.
+In the following lifecycle policy we have two rules set. let's name it as `mypolicy.xml`.
 
 ```xml
 <?xml version="1.0" ?>
@@ -382,14 +382,6 @@ In the following lifecycle policy we have three rules set. let's name it as `myp
             <Value>30</Value>
          </Tag>
       </Filter>
-   </Rule>
-   <Rule>
-      <ID>1-year-expiration</ID>
-      <Prefix>annual/</Prefix>
-      <Status>Enabled</Status>
-      <Expiration>
-         <Days>365</Days>
-      </Expiration>
    </Rule>
 </LifecycleConfiguration>
 ```
@@ -423,7 +415,7 @@ s3://MY_BUCKET/ (bucket):
 In order to put your object(s) under the lifecycle policy, you may utilize tags and/or prefixes.
 
 * Tagging is done with adding a header with the format `x-amz-tagging:KEY=VALUE`.
-* Prefix can be considered as a "folder".
+* Prefix can be considered as a "folder". (Configuration example TBD)
 
 Let's see the following cases:
 
@@ -434,9 +426,6 @@ s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_02.tar.gz s3://MY_BUCKET/gon
 
 # Should be removed in 30 days per rule ID: 30-days-expiration
 s3cmd --add-header=x-amz-tagging:days=30 put MY_FILE_03.tar.gz s3://MY_BUCKET/
-
-# Should be removed at one year per rule ID: 1-year-expiration
-s3cmd put MY_FILE_04.tar.gz s3://MY_BUCKET/annual/
 ```
 
 Other references to setting up a lifecycle:
