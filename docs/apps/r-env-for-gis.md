@@ -26,7 +26,6 @@ module load r-env-singularity
 * [gdalcubes](https://cran.r-project.org/web/packages/gdalcubes/index.html) - for working with multitemporal raster data cubes
 * [gdalUtils](https://cran.r-project.org/web/packages/gdalUtils/index.html) - wrappers for GDAL utilities
 * [geoR](https://cran.r-project.org/web/packages/geoR/index.html) - geostatistical analysis including traditional, likelihood-based and Bayesian methods
-* [geoRglm](https://cran.r-project.org/web/packages/geoRglm/index.html) - functions for inference in generalised linear spatial models, extension to the `geoR` package
 * [geosphere](https://cran.r-project.org/web/packages/geosphere/index.html) - spherical trigonometry for geographic coordinates (lat, lon)
 * [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be ued (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
 * [gstat](https://cran.r-project.org/web/packages/gstat/index.html) - spatial and spatio-temporal geostatistical modelling, prediction and simulation. Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions
@@ -48,7 +47,6 @@ module load r-env-singularity
 * [sp](https://cran.r-project.org/web/packages/sp/index.html) - older main package for vector data
 * [spacetime](https://cran.r-project.org/web/packages/spacetime/index.html) - for working with spatio-temporal data
 * [spatial](https://cran.r-project.org/web/packages/spatial/index.html) - for kriging and point pattern analysis
-* [spatial.tools](https://cran.r-project.org/web/packages/spatial.tools/index.html) - to enhance the core functionality of the package `raster`, including a parallel processing engine for use with rasters
 * [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html) - for analysing point patterns
 * [spdep](https://cran.r-project.org/web/packages/spdep/index.html) - spatial dependence: weighting schemes, statistics and models
 * [stars](https://cran.r-project.org/web/packages/stars/index.html) - reading, manipulating, writing and plotting spatiotemporal arrays (raster and vector data cubes)
