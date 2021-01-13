@@ -58,20 +58,20 @@ module unload intel-mkl
 
 The most commonly used module commands:
 
-|  Module command                   |  Description                                          |
-|-----------------------------------|----------------------------------|
-| module help *modulename*          | Information about a module.      |
-| module load *modulename*          | Loads the default version of the environment module.    |
-| module load *modulename/version*  | Loads specific version of the module. |
-| module unload *modulename*        | Unloads the given environment module.  |
-| module list                       | List the loaded modules.         |
-| module avail                      | List all modules that are available to be loaded (i.e. compatible with your current environment).  |
-| module spider                     | List all existing modules        |
-| module spider *name*              | Search the entire list of existing modules. |
-| module spider *name/version*      | Gives information on how to load the module (prerequisites etc) |
+|  Module command                   |  Description                                                                                        |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------|
+| module help *modulename*          | Information about a module.                                                                         |
+| module load *modulename*          | Loads the default version of the environment module.                                                |
+| module load *modulename/version*  | Loads specific version of the module.                                                               |
+| module unload *modulename*        | Unloads the given environment module.                                                               |
+| module list                       | List the loaded modules.                                                                            |
+| module avail                      | List all modules that are available to be loaded (i.e. compatible with your current environment).   |
+| module spider                     | List all existing modules.                                                                          |
+| module spider *name*              | Search the entire list of existing modules.                                                         |
+| module spider *name/version*      | Gives information on how to load the module (prerequisites etc).                                    |
 | module swap *module1 module2*     | Replaces a module with another (and tries to re-load compatible versions of other loaded modules).  |
-| module show *name*                | Show commands in the module file.|
-| module purge                      | Unloads all modules.|
+| module show *name*                | Show commands in the module file.                                                                   |
+| module purge                      | Unloads all modules.                                                                                |
 
 
 ### Finding modules
