@@ -56,7 +56,7 @@ can be unloaded using `unload`:
 module unload intel-mkl
 ```
 
-The most commonly used module commands:
+#### The most commonly used module commands {#module-commands-table}
 
 |  Module command                   |  Description                                                                                        |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
