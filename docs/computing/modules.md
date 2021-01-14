@@ -21,7 +21,7 @@ CSC uses **Lmod** environment modules. They are developed at the Texas Advanced 
 The syntax of the module command:
 
 ```text
-module command module-name
+module command modulename
 ```
 
 Listing the modules loaded (including your current environment):
@@ -67,10 +67,10 @@ module unload intel-mkl
 | module list                       | List the loaded modules.                                                                            |
 | module avail                      | List all modules that are available to be loaded (i.e. compatible with your current environment).   |
 | module spider                     | List all existing modules.                                                                          |
-| module spider *name*              | Search the entire list of existing modules.                                                         |
-| module spider *name/version*      | Gives information on how to load the module (prerequisites etc).                                    |
-| module swap *module1 module2*     | Replaces a module with another (and tries to re-load compatible versions of other loaded modules).  |
-| module show *name*                | Show commands in the module file.                                                                   |
+| module spider *modulename*        | Search the entire list of existing modules.                                                         |
+| module spider *modulename/version*| Gives information on how to load the module (prerequisites etc).                                    |
+| module swap *modulename1 modulename2* | Replaces a module with another (and tries to re-load compatible versions of other loaded modules).  |
+| module show *modulename*          | Show commands in the module file.                                                                   |
 | module purge                      | Unloads all modules.                                                                                |
 
 
