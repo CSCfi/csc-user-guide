@@ -431,7 +431,7 @@ s3cmd info s3://MY_BUCKET
 s3://MY_BUCKET/ (bucket):
    Location:  cpouta-production
    Payer:     BucketOwner
-   Expiration Rule: objects with key prefix 'annual/' will expire in '365' day(s) after creation
+   Expiration Rule: objects with key prefix 'weekly/' will expire in '365' day(s) after creation
    Policy:    none
    CORS:      none
    ACL:       project_xxxxxxx: FULL_CONTROL
@@ -440,7 +440,7 @@ s3://MY_BUCKET/ (bucket):
 In order to put your object(s) under the lifecycle policy, you may utilize tags and/or prefixes.
 
 * Tagging is done with adding a header with the format `x-amz-tagging:KEY=VALUE`.
-* Prefix can be considered as a "folder". (Configuration example TBD)
+* Prefix can be considered as a "folder".
 
 Let's see the following cases:
 
