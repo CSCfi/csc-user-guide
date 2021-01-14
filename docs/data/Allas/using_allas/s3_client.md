@@ -392,20 +392,20 @@ Alternatively, one can set the policies using `prefix` which can be thought as a
 <?xml version="1.0" ?>
 <LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
    <Rule>
-   <ID>Daily</ID>
-   <Status>Enabled</Status>
-   <Prefix>daily/</Prefix>
-   <Expiration>
-      <Days>30</Days>
-   </Expiration>
+      <ID>Daily</ID>
+      <Status>Enabled</Status>
+      <Prefix>daily/</Prefix>
+      <Expiration>
+         <Days>30</Days>
+      </Expiration>
    </Rule>
    <Rule>
-   <ID>Weekly</ID>
-   <Status>Enabled</Status>
-   <Prefix>weekly/</Prefix>
-   <Expiration>
-      <Days>365</Days>
-   </Expiration>
+      <ID>Weekly</ID>
+      <Status>Enabled</Status>
+      <Prefix>weekly/</Prefix>
+      <Expiration>
+         <Days>365</Days>
+      </Expiration>
    </Rule>
 </LifecycleConfiguration>
 ```
