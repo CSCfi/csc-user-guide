@@ -350,7 +350,7 @@ https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b2
 
 In order to delete/expire objects automatically, a lifecycle policy can be set-up to the Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object. Lifecycle policy is especially well suited for the cases where data needs to be removed as a "maintenance" measure after certain intervals.
 
-<font color="red">**Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project.**</font> (Legal or regulatory constrains).
+ ![Warning](../img/warning-30x30.png) **Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project.** (Legal or regulatory constrains).
 
 In the following lifecycle policy we have two rules set. let's name it as `mypolicy.xml`.
 
@@ -382,6 +382,30 @@ In the following lifecycle policy we have two rules set. let's name it as `mypol
             <Value>30</Value>
          </Tag>
       </Filter>
+   </Rule>
+</LifecycleConfiguration>
+```
+
+Alternatively, one can set the policies using `prefix` which can be thought as an equivalent to `folder`. Both methods can also be combined using `<And>` tag.
+
+```xml
+<?xml version="1.0" ?>
+<LifecycleConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+   <Rule>
+   <ID>Daily</ID>
+   <Status>Enabled</Status>
+   <Prefix>daily/</Prefix>
+   <Expiration>
+      <Days>30</Days>
+   </Expiration>
+   </Rule>
+   <Rule>
+   <ID>Weekly</ID>
+   <Status>Enabled</Status>
+   <Prefix>weekly/</Prefix>
+   <Expiration>
+      <Days>365</Days>
+   </Expiration>
    </Rule>
 </LifecycleConfiguration>
 ```
@@ -426,9 +450,16 @@ s3cmd --add-header=x-amz-tagging:days=1 put MY_FILE_02.tar.gz s3://MY_BUCKET/gon
 
 # Should be removed in 30 days per rule ID: 30-days-expiration
 s3cmd --add-header=x-amz-tagging:days=30 put MY_FILE_03.tar.gz s3://MY_BUCKET/
+
+# Should be removed in 30 days per rule ID: Daily
+s3cmd put MY_FILE_04.tar.gz s3://MY_BUCKET/daily/
+
+# Should be removed in 365 days per rule ID: Weekly
+s3cmd put MY_FILE_05.tar.gz s3://MY_BUCKET/weekly/
 ```
 
 Other references to setting up a lifecycle:
+
 * [RedHat developer guide for Ceph storage](https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/developer_guide/index#s3-api-bucket-lifecycle).
 * [Creating an intelligent object storage system with Ceph’s Object Lifecycle Management](https://shopnpaz.medium.com/creating-an-intelligent-object-storage-system-with-cephs-object-lifecycle-management-112e2e46d490)
 * [Multiple lifecycles - s3cmd](https://stackoverflow.com/questions/49615977/multiple-lifecycles-s3cmd)
