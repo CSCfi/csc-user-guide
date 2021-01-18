@@ -10,6 +10,7 @@
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/overview.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
+* [Using csc-env](using_csc_env.md)
 
 ## Allas
 * [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
