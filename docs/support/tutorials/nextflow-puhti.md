@@ -52,8 +52,9 @@ You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environme
 SSH into the login node of Puhti cluster (See instructions [here](../../computing/overview.md))
 
 ```
-ssh <csc_username>@puhti.csc.fi
+ssh yourcscusername@puhti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC.
 
 ## 3. Activate the conda environment for Nextflow on Puhti
 

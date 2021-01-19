@@ -21,11 +21,11 @@ Further instructions are provided in the [Accounts section](../accounts/index.md
 Connect using a ssh client:
 
 ```
-ssh <csc_username>@puhti.csc.fi
+ssh yourcscusername@puhti.csc.fi
 ```
 or
 ```
-ssh <csc_username>@mahti.csc.fi
+ssh yourcscusername@mahti.csc.fi
 ```
 
 
@@ -33,12 +33,14 @@ This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
 ```
-ssh <csc_username>@puhti-login<number 1-2>.csc.fi
+ssh yourcscusername@puhti-login<number 1-2>.csc.fi
 ```
 or
 ```
-ssh <csc_username>@mahti-login<number 1-2>.csc.fi
+ssh yourcscusername@mahti-login<number 1-2>.csc.fi
 ```
+
+Where **yourcscusername** is the username you get from CSC.
 
 For more details, see the [connecting](connecting.md) page. 
 
