@@ -176,6 +176,9 @@ extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
 
+extra_javascript:
+  - 'assets/javascripts/extra.js'
+
 markdown_extensions:
   - toc:
       toc_depth: 2-6

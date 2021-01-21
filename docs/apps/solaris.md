@@ -41,4 +41,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 * [Solaris homepage](https://solaris.readthedocs.io)
 * [Solaris github](https://github.com/CosmiQ/solaris)
-* [CSC example pipeline](https://github.com/csc-training/geocomputing/tree/master/machineLearning/cnn)
+* [CSC example pipeline](https://github.com/csc-training/geocomputing/tree/master/machineLearning/04_cnn_solaris)

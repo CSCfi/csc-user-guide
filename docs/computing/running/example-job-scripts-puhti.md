@@ -107,8 +107,6 @@ srun myprog <options>
 #SBATCH --mem-per-cpu=8000
 #SBATCH --gres=gpu:v100:1
 
-module load gcc/8.3.0 cuda/10.1.168
-
 srun myprog <options>
 ```
 
@@ -124,8 +122,6 @@ srun myprog <options>
 #SBATCH --cpus-per-task=10
 #SBATCH --mem-per-cpu=8000
 #SBATCH --gres=gpu:v100:4
-
-module load gcc/8.3.0 cuda/10.1.168
 
 srun myprog <options>
 ```
