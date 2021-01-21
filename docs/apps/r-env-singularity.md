@@ -407,7 +407,7 @@ For multi-node analyses using `plan(cluster)`, the job can be submitted using th
 
 srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
-To use `plan(cluster)`, a cluster is started using `getMPIcluster()`. Upon completion the analysis, the cluster is stopped using `stopCluster()`:
+To use `plan(cluster)`, a cluster is started using `getMPIcluster()`. Upon completion of the analysis, the cluster is stopped using `stopCluster()`:
 
 ```r
 library(snow)
