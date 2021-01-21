@@ -365,6 +365,62 @@ a
 stopCluster(cl)
 ```
 
+*Jobs using `future` and `furrr`*
+
+The `future` package provides an API for R jobs using several future types (with options including multisession, multicore or cluster futures). More information can be found on the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html)). The `furrr` package enables the use of `map()` functions (from the package `purrr`) that can be resolved using `future`-supported backends. When using `future`, different future types are specified using the function `plan()`.
+
+When designing parallel jobs using `future` (and `furrr`), it is useful to consider the required number of nodes. For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable, with the former spawning multiple independent R processes and the latter forking the existing R process. Using `plan(multicore)` affords a speed benefit over `plan(multisession)` but assumes that your R code is forking-compatible (if in doubt, use `plan(multisession`). Using `plan(cluster)` is suitable for work using multiple nodes.
+
+To submit a batch job using multisession or multicore futures, one should specify a single node (`--nodes=1`) and the desired number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For further guidelines on designing your batch job file, see other batch job examples on this page.
+
+The analysis times between sequential, multisession and multicore futures could be compared using the R script below (with three workers allocated to options using parallel processing). We use the `tictoc` package to time the analyses and `furrr` to run `map()` (note that, to use this with a `future` backend, one must add `future_` to the function name).
+
+```r
+library(tictoc)
+library(furrr)
+
+# different future plans (choose one) 
+# plan(sequential)
+# plan(multisession, workers = 3)
+# plan(multicore, workers = 3)
+
+# analysis timing
+
+tic()
+nothingness <- future_map(c(2, 2, 2), ~Sys.sleep(.x))
+toc()
+
+# analysis times
+# sequential: 6.157 sec
+# multisession: 2.463 sec
+# multicore: 2.212 sec
+```
+
+When running multi-node jobs using `plan(cluster)`, the number of workers can be specified in the R code using `getMPIcluster()` (available via the package `snow`; see above for a further example). As we are using `snow`, R must be launched using `RMPISNOW`. Other necessities include specifying the number of nodes and `--ntasks-per-node`. One must also also remember that `snow` requires a master worker in addition to those needed by the analysis. For example, for a job using two nodes and seven workers for the analysis, the batch job file would need to include the following lines:
+
+```bash
+# Note: see elsewhere on this page for complete examples of batch job files
+
+#SBATCH --ntasks-per-node=4
+#SBATCH --nodes=2
+
+srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
+```
+A cluster plan for `future` can then be specified in the R script using the following commands, followed by `stopCluster()` at the end of the analysis:
+
+```r
+library(snow)
+
+cl <- getMPIcluster()
+plan(cluster, workers = cl)
+
+# Analysis here
+
+stopCluster(cl)
+```
+
+For a practical example of a multi-node R job using `plan(cluster)` with raster data, [see this page](https://github.com/csc-training/geocomputing/blob/master/R/contours/05_parallel_future/Calc_contours_future.R). 
+
 *Jobs using `pbdMPI`*
 
 In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun singularity_wrapper exec Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
@@ -647,4 +703,4 @@ citation("package") # for citing R packages
 
 - [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env-singularity` module)
 
-- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)
+- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [furrr](https://cran.r-project.org/web/packages/furrr/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)
