@@ -41,7 +41,7 @@ Go to your project's deployment, and edit it.
 
 ![Edit deployment](/cloud/rahti/img/edit_deployment.png)
 
-Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked. Finaly select the new image.
+Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked. Finally select the new image.
 
 ![Use cached image](/cloud/rahti/img/use_cached_image.png)
 
