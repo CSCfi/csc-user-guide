@@ -367,11 +367,11 @@ stopCluster(cl)
 
 *Jobs using `future` and `furrr`*
 
-The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details). The package `purrr` enables parallel processing of mapping functions offered by the package `purrr`, using `future`-supported backends. Whether futures are resolved sequentially or in parallel is determined using the `future` function `plan()`.
+The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details). The package `furrr` enables parallel processing of mapping functions offered by the package `purrr` using `future`-supported backends. Whether futures are resolved sequentially or in parallel is specified using the `future` function `plan()`.
 
-For analyses requiring a single node, the strategies `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
+For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
 
-To submit a job using multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
 
 The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. Note that, to run `map()` using `furrr`, one must add `future_` to the function name.
 
@@ -397,7 +397,7 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW`. Other necessities include specifying the number of nodes and `--ntasks-per-node`. We also need to remember that `snow` requires a master worker in addition to those employed by the analysis. For example, for a job using two nodes and seven workers for the analysis, the following lines would need to be included in the batch job file:
+For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW`. Other necessities include specifying the number of nodes and `--ntasks-per-node`. We also need to remember that `snow` requires a master worker in addition to those used by the analysis. For example, for a job using two nodes and seven workers for the analysis, the following lines would need to be included in the batch job file:
 
 ```bash
 # Note: see elsewhere on this page for full examples of batch job files
@@ -407,7 +407,7 @@ For multi-node analyses using `plan(cluster)`, the job can be submitted using th
 
 srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
-To use `plan(cluster)`, a cluster is started using `getMPIcluster()`. Upon completion of the analysis, the cluster is stopped using `stopCluster()`:
+To use `plan(cluster)`, a cluster is started using `getMPIcluster()`. Once the analysis if finished, the cluster is stopped using `stopCluster()`:
 
 ```r
 library(snow)
