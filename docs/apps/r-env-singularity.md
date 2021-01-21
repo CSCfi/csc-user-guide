@@ -369,7 +369,7 @@ stopCluster(cl)
 
 The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details). The package `purrr` enables parallel processing of mapping functions offered by the package `purrr`, using `future`-supported backends. Whether futures are resolved sequentially or in parallel is determined using the `future` function `plan()`.
 
-For analyses requiring a single node, the strategies `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. While `plan(multicore)` affords a speed benefit over `plan(multisession)`, it assumes that your R code is forking-compatible. Using `plan(cluster)` is suitable for work using multiple nodes.
+For analyses requiring a single node, the strategies `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
 
 To submit a job using multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
 
