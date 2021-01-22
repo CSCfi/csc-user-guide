@@ -397,7 +397,7 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW`. Other necessities include specifying the number of nodes and `--ntasks-per-node`. We also need to remember that `snow` requires a master worker in addition to those used by the analysis. For example, for a job using two nodes and seven workers for the analysis, the following lines would need to be included in the batch job file:
+For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW`. Other steps include specifying the number of nodes and `--ntasks-per-node`. We also need to remember that `snow` requires a master worker in addition to those used by the analysis. For example, for a job using two nodes and seven workers for the analysis, the following lines would need to be included in the batch job file:
 
 ```bash
 # Note: see elsewhere on this page for full examples of batch job files
