@@ -421,7 +421,7 @@ plan(cluster, workers = cl)
 stopCluster(cl)
 ```
 
-For a practical example of a multi-node job using `plan(cluster)` with raster data, [see this page](https://github.com/csc-training/geocomputing/blob/master/R/contours/05_parallel_future/Calc_contours_future.R). 
+For a practical example of a multi-node job using `plan(cluster)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/contours/05_parallel_future). 
 
 *Jobs using `pbdMPI`*
 
