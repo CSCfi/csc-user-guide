@@ -6,7 +6,7 @@ Illumina platform. Stacks was developed to work with restriction enzyme-based da
 the purpose of building genetic maps and conducting population genomics and phylogeography.
 
 ## Available
-Puhti: 2.53 
+Puhti: 2.54 
 
 ## Usage
 
