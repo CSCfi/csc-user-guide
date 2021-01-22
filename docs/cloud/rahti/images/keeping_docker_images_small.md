@@ -66,7 +66,7 @@ Currently the base image for Alpine (`docker.io/alpine`) is only 5.61 MB. For co
 
 ## Keep data out of the image
 
-Images should only contain the application's runtime. This means that the data needed to run the applicatiuon should not be added to the image. This way not only the image is smaller, but we avoid rebuilding i when the data changes. The data can de stored in a external volume (PVC) that will be attached to the Pod upon startup, or it can be stored in Allas and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a preload script) that understands where the data is and how to retreive it.
+Images should only contain the application's runtime. This means that the data needed to run the applicatiuon should not be added to the image. This way not only the image is smaller, but we avoid rebuilding i when the data changes. The data can de stored in a external volume (PVC) that will be attached to the Pod upon startup, or it can be stored in Allas and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a preload script) that understands where the data is and how to retrieve it.
 
 ## Use `.dockerignore`
 
