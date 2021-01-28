@@ -13,7 +13,7 @@
 * [Using csc-env](using_csc_env.md)
 
 ## Allas
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas_examples.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 
