@@ -8,7 +8,6 @@ Materials for hands-on exercises can be downloaded from Allas (the links are pro
 
 * [More about scientific visualisation at CSC](https://research.csc.fi/visualization)
 
-[TOC]
 
 ## Introduction to Blender
 
