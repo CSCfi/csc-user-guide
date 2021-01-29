@@ -2,7 +2,7 @@
 
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
-Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with them. It takes more time to pull, and it fills up the image's cache of the node faster. An image more thsan 1GB is already considered a very big image. See the article about [keeping docker images small](./keeping_docker_images_small.md)
+Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](./keeping_docker_images_small.md)
 
 ## Building images locally
 
@@ -10,12 +10,12 @@ In this example we are going to use the [official nginx image](https://hub.docke
 
 Three steps are needed to run build an image locally in a computer.
 
- * First a `Dockerfile` must be written, for example this:
+* First a `Dockerfile` must be written, for example this:
 
 ```Dockerfile
 FROM nginx:alpine
 
-# support running as arbitrary user which belogs to the root group
+# support running as arbitrary user which belongs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
     chown nginx.root /var/cache/nginx /var/run /var/log/nginx && \
     # users are not allowed to listen on privileged ports
