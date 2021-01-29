@@ -17,12 +17,17 @@
  - [General guidelines](https://www.saavutettavuusvaatimukset.fi/)
  - Docs specifics TBA
  - Make accessible content! In short:
-      - `[Read more here](link-to-some-page)` is not accessible. `[Read more about free use cases](link-to-some-page)` is better.
+      - **Links:** Link text needs to be descriptive
+            - `[Read more here](link-to-some-page)` is not accessible. `[Read more about free use cases](link-to-some-page)` is better.
+            - Pure URL is NOT an option! Imagine reading it: h-t-t-p-s column slash slash...
+            - If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>` This label is read by the screen readers but is not visible to others.
+      - **Images:** Use title **and** descriptive alt-text in images:  `![This alt-text here explains what the picture contains](/img/image.png 'Title for image')` If the alt-text cannot explain the information contained in the image, mention that the text below contains it. If image is only decorative, you can leave alt text empty.
+      - **Videos:** 
+            - Use `title` to describe the video content: `<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/PrgMFna3DKw?rel=0" title="Intro to Geocomputing" width="560"></iframe>`
+            - Avoid presenting something ONLY as a video, and use captions/subtitles in video (easy to add in Youtube). 
+            - Also, do present important or difficult to follow things also with videos.
       - Avoid long walls of text and long sentences
       - Lists and clear titles: good
-      - Use descriptive alt texts for images and videos 
-      - Avoid presenting something ONLY as a video, and use captions/subtitles in video. Also, do present import or difficult to follow things also with videos.
-      - Use title **and** alt-text in images: `![This alt-text here explains what the picture contains](/img/image.png 'Title for image')` If the alt-text cannot explain the information contained in the image, mention that the text below contains it.
       - Avoid using loadable pdfs
       - Avoid using only color to signal some meaning
 
