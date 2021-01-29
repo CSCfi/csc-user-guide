@@ -21,7 +21,7 @@ Visual Studio Code is a widely used open source code editor made by Microsoft th
 
 You can install VS Code to your computer [from the VS Code webpage](https://code.visualstudio.com) and the Remote SSH Plugin from the Extension tab on the program. 
 
-![Remote SSH extension in Visual Studio Code](/img/VSCode_remote_extension.png 'Remote SSH extension')
+![Remote SSH extension in Visual Studio Code](../img/VSCode_remote_extension.png 'Remote SSH extension')
 
 !!! note
         __Windows users__ also need an SSH client installed as PuTTy is not supported. 
@@ -39,11 +39,11 @@ ssh <csc_username>@puhti.csc.fi
 ```
 Also you need to choose a config file where it will save that connection to.
 
-![Adding a SSH Remote connection](/img/VSCode_add_connection.png 'Adding SSH connection')
+![Adding a SSH Remote connection](../img/VSCode_add_connection.png 'Adding SSH connection')
 
 After that you can connect to the new host and it will ask you what operation system the target machine has (Puhti is Linux) and also your CSC password.
 
-![Connecting to a host in VSCode](/img/VSCode_connect_to_host.png 'Connecting to host')
+![Connecting to a host in VSCode](../img/VSCode_connect_to_host.png 'Connecting to host')
 
 You are now in Puhti and can open a folder and edit files remotely.
 
