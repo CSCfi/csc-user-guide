@@ -14,7 +14,8 @@
 * [Developing scripts remotely](remote-dev.md)
 
 ## Allas
-* [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
+* [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 
 ## Pouta - cloud
