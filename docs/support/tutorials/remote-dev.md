@@ -1,6 +1,11 @@
 # Developing scripts remotely
 
-Often it is more efficient to use an IDE like Visual Studio Code or a text editor like Notepad++ or Sublime to modify and develop the scripts you are running in Puhti or Mahti. These tools have plugins that enable you to do that remotely using an SSH connection.
+Often it is more efficient to use an IDE like Visual Studio Code or a text editor like Notepad++ to modify and develop the scripts you are running in Puhti or Mahti. 
+
+**Pros:**
+
+* No need to use command line text editors like vi, vim or nano
+* No need to transfer files back and forth between your local computer and Puhti/Mahti
 
 Here are some installation and usage instructions for the following programs:
 
@@ -9,7 +14,7 @@ Here are some installation and usage instructions for the following programs:
 
 ## Visual Studio Code + Remote SSH plugin
 
-Visual Studio Code is a widely used open source code editor made by Microsoft that can be used remotely with the "Remote SSH" plugin. It is especially great for Python and bash scripts but can be used with any language. 
+Visual Studio Code is a widely used open source code editor made by Microsoft that can be used remotely with the __Remote SSH__ extension. It is especially great for Python and bash scripts but can be used with any programming language. VS Code has a lot of extensions for your needs, some notable are the Python extension and the Jupyter notebook extension. 
 
 
 ### Installation
