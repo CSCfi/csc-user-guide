@@ -68,10 +68,10 @@ flavors.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| hpc.5.16core    | 16 | 57  | 80 | 0 | 80 | 3.56|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 20 |
-| hpc.5.32core    | 32 | 115 | 80 | 0 | 80 | 3.59|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 40 |
-| hpc.5.64 core   | 64 | 230 | 80 | 0 | 80 | 3.59|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 80 |
-| hpc.5.128core   | 128| 458 | 80 | 0 | 80 | 3.57|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 160 |
+| hpc.5.16core    | 16 | 55  | 80 | 0 | 80 | 3.44|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 20 |
+| hpc.5.32core    | 32 | 110 | 80 | 0 | 80 | 3.44|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 40 |
+| hpc.5.64 core   | 64 | 220 | 80 | 0 | 80 | 3.44|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 80 |
+| hpc.5.128core   | 128| 443 | 80 | 0 | 80 | 3.46|![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 160 |
 | hpc.4.5core     | 5  | 20  | 80 | 0 | 80 | 4   |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 6   |
 | hpc.4.10core    | 10 | 40  | 80 | 0 | 80 | 4   |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 12  |
 | hpc.4.20core    | 20 | 82  | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 25  |
