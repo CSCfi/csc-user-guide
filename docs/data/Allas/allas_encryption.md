@@ -14,6 +14,14 @@ to Allas. When you use Allas with these scryption tools, remember that:
    
   ## Encrypting single file with a-put
   
+ In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to your can use a-put with option _--encrypt_ to encrypt the file or drectory you want to upload to Alls. For ecxample
+ 
+```text
+a-put --encrypt data_dir -b my_allas_bucket
+``` 
+With the emnryot option on the data is encrypted with _gpg_ command using _AES256_ enryption algorithm. When you launch the command it will ask for encryption password, and password confirmation, for each object to be created. Object name and metadata remain in human readable format. 
+
+  
   ## Creating encrypted reposoitury with rclone
   
   ## Restic
