@@ -10,7 +10,7 @@ Often it is more efficient to use an IDE like Visual Studio Code or a text edito
 Here are some installation and usage instructions for the following programs:
 
 * [Visual Studio Code instructions](#visual-studio-code-remote-ssh-plugin)
-* [Notepad++ instructions](#notepad)
+* [Notepad++ instructions](#notepad-and-nppftp-plugin)
 
 ## Visual Studio Code + Remote SSH plugin
 
