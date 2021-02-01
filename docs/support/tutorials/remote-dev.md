@@ -55,4 +55,11 @@ You can also run the code in Puhti by opening a terminal from the Terminal tab. 
 sinteractive -i
 ```
 
-## Notepad++
+## Notepad++ and NppFTP plugin
+
+Notepad++ with [NppFTP plugin](https://ashkulz.github.io/NppFTP/) enables viewing and editing remote files. Also creating, renaminig and deleting files is possible.
+* Install the plugin from Plugin Manager.
+* Open NppFTP window from Plugins -> NppFTP.
+* Set up the connection to Puhti, add new profile to Profile settings, use values similar to [FileZilla Puhti settings](https://docs.csc.fi/data/moving/graphical_transfer/#filezilla-general-file-transfer-tool). 
+* Navigate to correct folder in Puhti and open the file.
+* Saving the file in Notepad++ uploads the file automatically to Puhti.
