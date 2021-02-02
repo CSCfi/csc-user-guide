@@ -10,6 +10,8 @@ __PCL__ is available in Puhti with following versions:
 
 PCL has been compiled with Boost, Eigen, FLANN and Qhull
 
+If you have a need for an updated version, please contact us at servicedesk@csc.fi
+
 ## Usage
 
 PCL is included in the __pcl__ module and can be loaded with
