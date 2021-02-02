@@ -7,5 +7,5 @@ If you need a Database that needs to be accesible from other systems (like Puhti
 
 ## When is Rahti a good place to deploy a Database?
 
-Rahti is a good choice only if the application that needs to connect to the database is already deployed in Rahti. Rahti only acepts network connections from outside Rahti using the HTTP(s) protocol in ports 80 and 443.
+Rahti is a good choice only if the application that needs to connect to the database is already deployed in Rahti. Rahti only accepts network connections from outside Rahti using the HTTP(s) protocol in ports 80 and 443.
 
