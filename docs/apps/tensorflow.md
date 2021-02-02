@@ -6,6 +6,7 @@ Deep learning framework for Python.
 
 Available on Puhti only.  Currently supported TensorFlow versions and corresponding modules to load:
 
+- 2.4.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/2.4-hvd`
 - 2.4.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.4-sng`
 - 2.3.1 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.12-tf2-py3`
 - 2.3.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.3-sng`
