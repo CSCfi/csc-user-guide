@@ -21,7 +21,12 @@ Files in the frozen area are visible to other Fairdata services and can be inclu
 
 ## Configuring and using IDA in CSC supercomputers ##
 
-Before you can start using IDA client in CSC supercomputers you must set up your IDA connection by running the following command:
+The IDA client and configuration tools are activated with command:
+```text
+module load ida
+```
+
+When you start using IDA client in CSC supercomputers for the first time, you must set up your IDA connection by running the following command:
 ```text
 ida_configure
 ```
