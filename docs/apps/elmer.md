@@ -12,8 +12,8 @@ directives implemented.
 
 ## Available
 
--  Puhti: 8.4
--  Mahti: 8.4
+-  Puhti: 9.0
+-  Mahti: 9.0
 
 ## License
 Elmer is licensed under GPL and (as for the elmersolver.lib) LGPL, hence free to use for everyone.

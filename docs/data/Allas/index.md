@@ -60,4 +60,4 @@ CSC has previously provided the Pouta object storage service that is now merged 
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)
-* [Using Allas to migrate your data from Taito to Puhti](./migration_tutorial.md)
+

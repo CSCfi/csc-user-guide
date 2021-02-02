@@ -9,6 +9,7 @@ Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or
 All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is loaded with commands:
 
 ```text
+module load r-env-deprecated
 module load biokit
 module load biopythontools
 module load lazypipe
@@ -43,6 +44,7 @@ When you have the data available you can submit the task with commands:
 
 ```text
 cd /scratch/my_project
+module load r-env-deprecated
 module load biokit
 module load biopythontools
 module load lazypipe

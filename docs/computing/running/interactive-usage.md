@@ -109,6 +109,29 @@ start-rstudio-server
 ```
 For a detailed guide to launching RStudio Server, see our documentation on the [`r-env-singularity module`](../../apps/r-env-singularity.md).
 
+### Example: Running an MPI job in an interactive session
+
+Since the shell started in the interactive session is already a job step in Slurm, more job steps can't be started.
+This will disable, e.g. running Gromacs tools, as `gmx_mpi` is a parallel program and normally needs `srun`.
+In this case, in the interactive shell, `srun` must be replaced with `orterun -n 1`. Orterun does not know of the
+Slurm flags, so it needs to be told how many tasks/threads to use. The following example will run a
+[Gromacs](../../apps/gromacs.md) mean square displacement analysis for an existing trajectory.
+
+```bash
+sinteractive --account <project>
+module load gromacs-env
+orterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
+```
+To use all requested cores in parallel, you need to add `--oversubscribe`.
+E.g. for 4 cores, a parallel interactive job
+(launched *from* the interactive session) can be run with
+
+```bash
+sinteractive --account <project> -c 4
+module load gromacs-env
+orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
+```
+
 ## Explicit interactive shell without X11 graphics
 
 If you don't want to use the `sinteractive` wrapper, it's possible
