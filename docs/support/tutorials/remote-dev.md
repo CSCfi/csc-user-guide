@@ -1,18 +1,18 @@
 # Developing scripts remotely
 
-Often it is more efficient to use an IDE like Visual Studio Code or a text editor like Notepad++ to modify and develop the scripts you are running in Puhti or Mahti. 
+Often it is more efficient to use an IDE like Visual Studio Code or a text editor like Notepad++ to modify and develop the scripts you are running in Puhti, Mahti or cPouta virtual machine. 
 
 **Pros:**
 
 * No need to use command line text editors like vi, vim or nano
-* No need to transfer files back and forth between your local computer and Puhti/Mahti
+* No need to transfer files back and forth between your local computer and Puhti/Mahti/cPouta
 
 Here are some installation and usage instructions for the following programs:
 
-* [Visual Studio Code instructions](#visual-studio-code-remote-ssh-plugin)
-* [Notepad++ instructions](#notepad-and-nppftp-plugin)
+* [Visual Studio Code](#visual-studio-code-remote-ssh-plugin)
+* [Notepad++](#notepad-and-nppftp-plugin)
 
-## Visual Studio Code + Remote SSH plugin
+## Visual Studio Code with Remote SSH plugin
 
 Visual Studio Code is a widely used open source code editor made by Microsoft that can be used remotely with the __Remote SSH__ extension. It is especially great for Python and bash scripts but can be used with any programming language. VS Code has a lot of extensions for your needs, some notable are the Python extension and the Jupyter notebook extension. 
 
@@ -54,9 +54,10 @@ You can also run the code in Puhti by opening a terminal from the Terminal tab. 
 sinteractive -i
 ```
 
-## Notepad++ and NppFTP plugin
+## Notepad++ with NppFTP plugin
 
-Notepad++ with [NppFTP plugin](https://ashkulz.github.io/NppFTP/) enables viewing and editing remote files. Also creating, renaminig and deleting files is possible.
+Notepad++ with [NppFTP plugin](https://ashkulz.github.io/NppFTP/) enables viewing and editing remote files. Also creating, renaminig and deleting files is possible. 
+
 * Install the plugin from Plugin Manager.
 * Open NppFTP window from Plugins -> NppFTP.
 * Set up the connection to Puhti, add new profile to Profile settings, use values similar to [FileZilla Puhti settings](/data/moving/graphical_transfer/#filezilla-general-file-transfer-tool). 
