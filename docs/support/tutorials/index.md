@@ -11,6 +11,7 @@
 * [Linux basics for CSC](env-guide/overview.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env](using_csc_env.md)
+* [Developing scripts remotely](remote-dev.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
