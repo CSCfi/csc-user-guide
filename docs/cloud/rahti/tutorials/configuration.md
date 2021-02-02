@@ -110,5 +110,5 @@ jq " .data.$KEY_NAME = \"$B64\" " secret.json
 oc replace -f secret.json
 ```
 
-As you can the process can be a bit obfuscated.
+As you can see the process can be a bit obfuscated.
 
