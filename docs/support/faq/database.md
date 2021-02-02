@@ -11,7 +11,7 @@ Rahti is a good choice only if the application that needs to connect to the data
 
 ## Do you need a MySQL/MariaDB database?
 
-You could also consider the [Kaivos Databse service](/data/kaivos/overview/index.md) hosted by CSC,
+You could also consider the [Kaivos Database service](../..//data/kaivos/overview.md) hosted by CSC,
 which provides the server where you can apply for an account and an empty database will be 
 available for you. This way you don't need to manage the virtual machine.
 
