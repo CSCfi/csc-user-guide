@@ -25,7 +25,7 @@ When you retrieve the data with _a-get_ command, you will be asked for the encry
 
  ## Creating encrypted reposoitury with rclone
  
- Rclone has client side encrypitoin feature, that allows you create an ecrypted datarepository to Allas. In this approach you need to once definen an encrypted rclone connection to Allas and when this connection is used, all the data, icluding object and bucket names will be automatically endrypted.
+ Rclone has client side encrypitoin feature, that allows you create an ecrypted datarepository to Allas. In this approach you need to once definen an encrypted rclone connection to Allas and when this connection is used, all the data, icluding object and bucket names will be automatically encrypted.
  
  
  ## Restic
