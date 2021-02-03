@@ -25,7 +25,49 @@ When you retrieve the data with _a-get_ command, you will be asked for the encry
 
  ## Creating encrypted reposoitury with rclone
  
- Rclone has client side encrypitoin feature, that allows you create an ecrypted datarepository to Allas. In this approach you need to once definen an encrypted rclone connection to Allas and when this connection is used, all the data, icluding object and bucket names will be automatically encrypted.
+Rclone has client side encrypitoin feature, that allows you create an ecrypted datarepository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the data, cluding object names, will be automatically encrypted.
+
+Let's assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. Once you have configured a normal swift connection to Allas with command the _allas_conf_ script you can configue and encrypted 
+bucket to your Allas area. To stat process run command _rclone config_. As first step, choose opion: _n_ to createa new remote.
+The configuration process will ask for a name for the new rclone _remote_. In this the new remote is named as named as _allas-crypt_.
+
+<pre>
+[kkayttaj@puhti-login1 ~]$ <b>rclone config</b>
+Current remotes:
+
+Name                 Type
+====                 ====
+allas                swift
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q> <b>n</b>
+name> <b>allas-crypt</b>
+</pre>
+Next the configuation process asks you to configure storage type.
+Choose option 10 _Encrypt/Decrypt a remote_.
+<pre>
+Storage> <b>10</b>
+</pre>
+In the next step you need to define the bucket that will be used for encrypted data. 
+Note that the bucket name should be unique among all Allas users. This case we use buket name _allas:2001659-crypt_
+<pre>
+Remote to encrypt/decrypt.
+Normally should contain a ':' and a path, eg "myremote:path/to/dir",
+"myremote:bucket" or maybe "myremote:" (not recommended).
+Enter a string value. Press Enter for the default ("").
+remote> <b>allas:2001659-crypt</b>
+</pre>
+Next, the configuration process asks if the object and directory names are encrypted. In this case we want to encrypt the names so we choose _1_ for both cases.
+
+Next youy need to define passwords that will be useid in the encryption.
+
+ 
  
  
  ## Restic
