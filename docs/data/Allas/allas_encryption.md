@@ -117,8 +117,25 @@ The allas-crypt remote translates the ecrypyted data from the encrypyed bucket (
       352 4lpbj55pc5v8t119q0tp2o6k58/p87n5ins7g0hvfh06r6o6a91n0
 </pre>
 
+Similarly, command:
+```text
+rclone copy allas-crypt:job_6/hello.xrsl ./
+``` 
+Would doenload and uncrypt file _hello.xrsl_ from Allas to the local disk.
 
+The configurtation of the encrypted Allas connection is by defult stored to the rclone configuration file in $HOME/.config/rclone/rclone.conf
 
+In this case the allas-crypt cofiguration part could look like following:
+```text
+[allas-crypt]
+type = crypt
+remote = allas:2001659-crypt
+filename_encryption = standard
+directory_name_encryption = true
+password = A_JhQdTOEIx0ajyWb1gCvD2z0gBrEVzy41s
+password2 = UgmByNqlnb8vCZrFgpaBtUaQrgJkx30
+```
+The configuraion as such is not link to any specific server or user account. The connection to the ecrypted bucket could be opened from
 
 
 
