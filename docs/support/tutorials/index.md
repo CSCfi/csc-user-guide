@@ -11,10 +11,25 @@
 * [Linux basics for CSC](env-guide/overview.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env](using_csc_env.md)
+* [Developing scripts remotely](remote-dev.md)
 
 ## Allas
-* [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
+* [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
+
+## Bioinformatics
+* [Singularity applications on Puhti](bioapplications-puhti.md)
+* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
+* [Running Nextflow pipelines on Puhti](nextflow-puhti.md)
+* [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
+* [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
+* [Running your first job on Puhti](biojobs-on-puhti.md)
+
+## Data analysis and machine learning
+
+* [Data analysis guide](da-guide.md)
+* [GPU-accelerated machine learning](gpu-ml.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
@@ -32,15 +47,7 @@
 * [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
 * [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
 
-## Data analysis and machine learning
+## Visualisation
+* [Blender tutorial](blender-tutorial.md)
 
-* [Data analysis guide](da-guide.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
 
-## Bioinformatics
-* [Singularity applications on Puhti](bioapplications-puhti.md)
-* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
-* [Running Nextflow pipelines on Puhti](nextflow-puhti.md)
-* [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
-* [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
-* [Running your first job on Puhti](biojobs-on-puhti.md)

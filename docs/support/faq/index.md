@@ -9,6 +9,7 @@
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving)
 * [Disk quota exceeded](disk-quota-exceeded.md)
+* [I need a Database, where can I deploy it?](database.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
