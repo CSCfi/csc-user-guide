@@ -3,6 +3,7 @@
 This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others), but in the case of Allas, the Swift protocol is preferred. It is also the default option on the CSC servers. 
 
 > **WARNING:** Rclone should not be used to copy, move or rename objects **inside** Allas. Rclone provides commands for these operations but they don't work correctly for files larger than 5 GB.
+> **WARNING:** If a rclone data upload process for a over 5 GB file gets interrupted, please remove the partially uploaded object before restarting the upload process. Otherwise rclone sometimes reports a successful data upload even though not all data has been copied to Allas.
 
 
 The basic syntax of Rclone:
