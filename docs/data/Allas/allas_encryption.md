@@ -141,9 +141,34 @@ directory_name_encryption = true
 password = A_JhQdTOEIx0ajyWb1gCvD2z0gBrEVzy41s
 password2 = UgmByNqlnb8vCZrFgpaBtUaQrgJkx30
 ```
-The configuraion as such is not linked to any specific server or user account. The connection to the ecrypted bucket could be opened by anyone who has access to the Allas projevt and has the same settings (including the passwords) in their own rclone configuration file. This is handy in cases were you need an ecrypted data storage that can used by several trusted persons and sites. However, this causes potential security concern as the passwords in the configuration file are only _obsucured_ but not crypted.
+The configuraion as such is not linked to any specific server or user account. The connection to the ecrypted bucket could be opened by anyone who has 1) access to the Allas project and 2) has the same settings (including the passwords) in their own rclone configuration file. This is handy in cases were you need an ecrypted data storage that can used by several trusted persons and sites. However, this causes potential security concern as the passwords in the configuration file are only _obsucured_ but not crypted.
 
-To enhance the security the rclone configuration file can be encrypted. 
+To enhance the security the rclone configuration file can be encrypted. This can be done by running _rclone_conf_ command again.
+In this case select _s_ to go to _Set configuration mode_ and then _a_ to add a password. Setting the password has two effects:
+1. the rclone configuration files is converted to an encrypted format
+2. each time you execute rclone commands, you must give the configuration file password, so that rclone is able to read the settings.
+
+The second feature can be quite annying, especially if you mostly use the normal, non-encrypted Allas connection. Because or that it can be more resonable to create a separate rclone configuration file for the encrypted Allas usage and then, when ecryption is needed, define the usage of ecrypted configuration file with rclone option _--config_.
+
+For example:
+
+Make a coupy of exsiting rclone cofigurations file:
+```text
+cp $HOME/.config/rclone/rclone.conf $HOME/rc-encrypt.conf
+```
+Then run the rclone command to add the information of the encrypted Allas bucket and then to encrypt the file. You can do the both two steps
+in one _rclone config_ session.
+```text
+rclone config --config $HOME/rc-encrypt.conf
+```
+The configuration file encryption key can and should be personal. 
+
+Now you can use your protected configuration file with rclone command. For exmaple:
+
+```text
+rclone copy --config $HOME/rc-encrypt.conf job_6 allas-crypt:job_6
+```
+
 
 
 
