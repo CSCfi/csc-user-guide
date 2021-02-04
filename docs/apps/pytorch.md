@@ -6,14 +6,9 @@ Machine learning framework for Python.
 
 Available on Puhti only.  Currently supported PyTorch versions and corresponding modules to load:
 
-- 1.8.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.11-py3`
-- 1.7.0a0 with *experimental* [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.08-py3`
+- 1.7.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/1.7-sng`
 - 1.6.0: `pytorch/1.6`
-- 1.6.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.07-py3`
-- 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.03-py3`
-- 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.02-py3`
 - 1.4.0: `pytorch/1.4`
-- 1.4.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-19.11-py3`
 - 1.3.1: `pytorch/1.3.1`
 - 1.3.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using hpcx MPI: `pytorch/1.3.1-hvd`
 - 1.3.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using mpich MPI: `pytorch/1.3.1-hvd-mpich`
@@ -25,7 +20,9 @@ Available on Puhti only.  Currently supported PyTorch versions and corresponding
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA.
 
-Modules starting with `nvidia` are based on NVIDIA's optimized
+### NVIDIA's containers
+
+For convenience, we also offer modules which provide Singularity-images based NVIDIA's optimized
 container images from
 [NGC](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch) with
 some CSC specific additions. For these, the included PyTorch versions
@@ -33,6 +30,14 @@ are typically not the release versions, but the newest git commit at
 the time of creation. See [NVIDIA's PyTorch container release
 notes](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/index.html)
 for more information on provided software versions.
+
+- 1.8.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.11-py3`
+- 1.7.0a0 with *experimental* [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.08-py3`
+- 1.6.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.07-py3`
+- 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.03-py3`
+- 1.5.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-20.02-py3`
+- 1.4.0a0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/nvidia-19.11-py3`
+
 
 !!! note 
 
