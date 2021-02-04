@@ -12,5 +12,6 @@ You can apply for an initial project lifetime extension of one year.
 1. Your project lifetime is now extended by one year.
 
 ![](images/small/project_extension2.png)
+
 ![](images/small/project_extension1.png) 
 
