@@ -5,6 +5,8 @@ This chapter contains instructions for using Allas with [Rclone](https://rclone.
 > **WARNING:** Rclone should not be used to copy, move or rename objects **inside** Allas. Rclone provides commands for these operations but they don't work correctly for files larger than 5 GB.
 > **WARNING:** If a rclone data upload process for a over 5 GB file gets interrupted, please remove the partially uploaded object before restarting the upload process. Otherwise rclone sometimes reports a successful data upload even though not all data has been copied to Allas.
 
+> **WARNING:** If you use rclone and your data upload process gets interrupted, please remove the partially uploaded object before restarting the upload process. Otherwise it is possible for rclone to report successful data upload even if all data has not been copied to Allas.
+
 
 The basic syntax of Rclone:
 <pre>
