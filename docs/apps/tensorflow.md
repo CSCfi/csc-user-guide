@@ -34,12 +34,10 @@ release
 notes](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/index.html)
 for more information on provided software versions.
 
+If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
-!!! note 
+Some modules are Singularity-based. Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see our [machine learning guide](../support/tutorials/gpu-ml.md).
 
-    In Singularity-based modules you need to launch Python with `singularity_wrapper`, see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
-
-If you find that some package is missing, you can often install it yourself with `pip install --user`, or `singularity_wrapper exec pip install --user` in Singularity-based modules. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
 ## License
 
@@ -93,13 +91,6 @@ Example batch script for reserving one GPU and 10 CPUs in a single node:
 
 module load tensorflow/1.14.0
 srun python3 myprog.py <options>
-```
-
-For Singularity-based modules the last two lines would instead look like:
-
-```
-module load tensorflow/nvidia-20.02-tf2-py3
-srun singularity_wrapper exec python3 myprog.py <options>
 ```
 
 !!! note
