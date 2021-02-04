@@ -213,10 +213,9 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 
 -   No redundant power
 -      CPU:   AMD EPYC 7702 64-Core Processor,
-    ***hyper-threading***
 -   Network: Redundant 25 Gb/s
 -   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
+-   Single-node failure may cause downtime, but instances
     are recoverable.
 
 **hpc.4.\*:**
