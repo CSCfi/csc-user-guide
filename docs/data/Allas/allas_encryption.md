@@ -1,35 +1,41 @@
 # Tools for client side encryption for Allas
 
-Allas is not certifed for high level security and thus you should not use it to store sensitive data in drectly readable format.
-Howerver, if you use proper encryption, the sensitive data can be stored to Allas in encrypted format. However the ecrypytion must
-be done before data is transported to Allas
+Allas is not certifed for high level security and thus you should not use it to store sensitive data in readable format.
+Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas
 
-This document describes some password based (symmetric) ecryption tools that help you to move your data to from a secure environmnet 
-to Allas. When you use Allas with these scryption tools, remember that:
+This document describes some password based (symmetric) ecryption tools that help you to move your senitive data to from a secure environmnet to Allas. When you use Allas with these scryption tools, remember that:
    1. You can only store the encrypted data in Allas, but not open it there. 
-   2. You should use strong enough passwords
-   3. If your forget the encryption password, the data is lost. 
-      CSC can't provide you a new password to read your data  as the password is set by the users, not CSC.
+   2. You should use strong enough passwords and keep them safe
+   3. If your forget the encryption password, the data is lost. CSC can't provide you a new password to read your data as the password is set by the users, not CSC.
    
    
-  ## Encrypting single file with a-put
+  ## 1. Encrypting single file or directory with a-put
   
-In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to your can use a-put with option _--encrypt_ to encrypt the file or drectory you want to upload to Alls. For ecxample
+In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use a-put with option _--encrypt_ to encrypt the file or drectory you want to upload to Alls. For example:
  
 ```text
 a-put --encrypt data_dir -b my_allas_bucket
 ``` 
-With the emnryot option on the data is encrypted with _gpg_ command using _AES256_ enryption algorithm. When you launch the command it will ask for encryption password, and password confirmation. In this approach only that content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
+With the _--encrypt_ option on the data is encrypted with _gpg_ command using _AES256_ encryption algorithm. When you launch the command it will ask for encryption password, and password confirmation. In this approach only that content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
 
-When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that ecryption can be opened.
+When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that the object can be decrypted after download.
 
- ## Creating encrypted reposoitury with rclone
+ ## 2. Creating encrypted reposoitury with rclone
  
-Rclone has client side encrypitoin feature, that allows you create an ecrypted datarepository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the data, cluding object names, will be automatically encrypted.
+Rclone has client side encrypitoin feature, that allows you create an encrypted datarepository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the data, including object names, will be automatically encrypted.
 
-Let's assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. Once you have configured a normal swift connection to Allas with command the _allas_conf_ script you can configue and encrypted 
-bucket to your Allas area. To stat process run command _rclone config_. As first step, choose opion: _n_ to createa new remote.
-The configuration process will ask for a name for the new rclone _remote_. In this the new remote is named as named as _allas-crypt_.
+Let's assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. First you have to cnfigure a normal, unecrypted swift-connection to Allas. This can be done with the allas_conf script that is included in allas-cli-utils package:
+<pre>
+source allas-cli-utils/allas_conf -u <i>your-csc-username</i> -p <i>your-csc-project-name</i>
+</pre>
+
+Once you have configured a normal swift connection to Allas with command the _allas_conf_ script you can configue and encrypted bucket to your Allas area. To start the configuration process, run command _rclone config_. 
+
+The _allas_conf_ script has already created an rclone configutaion file with _rclone remote_ named as _allas_.
+
+As first step, choose opion: _n_ to create a _new remote_.
+The configuration process will ask for a name for the new rclone _remote_.
+In this case, the new remote is named as named as _allas-crypt_.
 
 <pre>
 [kkayttaj@puhti-login1 ~]$ <b>rclone config</b>
@@ -63,9 +69,9 @@ Normally should contain a ':' and a path, eg "myremote:path/to/dir",
 Enter a string value. Press Enter for the default ("").
 remote> <b>allas:2001659-crypt</b>
 </pre>
-Next, the configuration process asks if the object and directory names are encrypted. In this case we want to encrypt the names so we choose _1_ for both cases.
+Next, the configuration process asks if the object and directory names are encrypted. In this case we will encrypt the names so you choose _1_ for both cases.
 
-Next youy need to define two passwords, a main password and a so called _salt password_ that will be useid in the encryption. You can define these passwords yourself or you can let the configuration process to create them. Now the setup is ready an there is now a new rclonne remote called _allas-crypt_ defined. You can now exit the configuration process.
+Next you need to define two passwords, a main password and a so called _salt password_ that will be useid for the encryption. You can define these passwords yourself or you can let the configuration process to create them. Now the setup is ready an there is now a new rclonne remote called _allas-crypt_ defined. You can now exit the configuration process.
 
 Current remotes:
 <pre>
@@ -90,7 +96,7 @@ Now the repository is ready to be used. Say, you have a directry called _job_6_ 
 hello.xrsl  results  results.1601291937.71  runhello.sh
 </pre>
 
-Next  upload content of this directory to the encrypted bucket.
+You can now upload the content of this directory to the encrypted bucket.
 ```text
 rclone copy job_6 allas-crypt:job_6
 ```
@@ -121,9 +127,9 @@ Similarly, command:
 ```text
 rclone copy allas-crypt:job_6/hello.xrsl ./
 ``` 
-Would doenload and uncrypt file _hello.xrsl_ from Allas to the local disk.
+Would download and uncrypt file _hello.xrsl_ from Allas to the local disk.
 
-The configurtation of the encrypted Allas connection is by defult stored to the rclone configuration file in $HOME/.config/rclone/rclone.conf
+The configurtation of the Allas connections is by defult stored to the rclone configuration file in $HOME/.config/rclone/rclone.conf
 
 In this case the allas-crypt cofiguration part could look like following:
 ```text
@@ -135,7 +141,12 @@ directory_name_encryption = true
 password = A_JhQdTOEIx0ajyWb1gCvD2z0gBrEVzy41s
 password2 = UgmByNqlnb8vCZrFgpaBtUaQrgJkx30
 ```
-The configuraion as such is not link to any specific server or user account. The connection to the ecrypted bucket could be opened from
+The configuraion as such is not linked to any specific server or user account. The connection to the ecrypted bucket could be opened by anyone who has access to the Allas projevt and has the same settings (including the passwords) in their own rclone configuration file. This is handy in cases were you need an ecrypted data storage that can used by several trusted persons and sites. However, this causes potential security concern as the passwords in the configuration file are only _obsucured_ but not crypted.
+
+To enhance the security the rclone configuration file can be encrypted. 
+
+
+
 
 
 
