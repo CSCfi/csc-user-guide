@@ -14,8 +14,9 @@ if you already have access.** On Puhti, you can also use command `csc-projects`.
 
 Connect via [NoMachine](../../apps/nomachine.md) or using a normal ssh-client:
 ```
-$ ssh <csc_username>@puhti.csc.fi
+$ ssh yourcscusername@puhti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC.
 
 ## Module system:
 
