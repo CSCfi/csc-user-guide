@@ -11,8 +11,9 @@ typically offer more options on things like font size, copy-paste etc.
 On Linux or macOS open a terminal. In Windows 10 open Powershell. Give command:
 
 ```text
-ssh <csc_username>@puhti.csc.fi
+ssh yourcscusername@puhti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC.
 
 You can find more detailed instructions in our User Guide: [Connecting
 to CSC supercomputers](../../computing/connecting.md).

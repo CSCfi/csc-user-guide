@@ -57,6 +57,7 @@
  - For a list of all supported languages see: http://pygments.org/docs/lexers/
  - Give commands, environment variables, command options, as well as partition 
    names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
+ - Format email addresses using `mailto:` as in `[servicedesk@csc.fi](mailto:servicedesk@csc.fi)`  
 
 ## Terminology
  - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only

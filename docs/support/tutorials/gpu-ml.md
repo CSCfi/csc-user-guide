@@ -184,23 +184,11 @@ srun python3 myprog.py <options>
 
 ### Singularity
 
-We also provide GPU-enabled applications via Singularity containers.  For example recent NVIDIA-optimized versions of TensorFlow and PyTorch are available via `nvidia-` prefixed modules, e.g. `pytorch/nvidia-20.02-py3`.  See each application for details on available modules.
+Our machine learning modules are increasingly being built using [Singularity containers](https://en.wikipedia.org/wiki/Singularity_(software)). If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), Singularity containers as essentially the same thing, but are better suited for multi-user systems such as CSC's supercomputers. Containers provide an isolated software environment for each application, which has several benefits, including typically a much shorter start-up time.
 
-Here is an example submission script.  Note that the `singularity_wrapper` command is essential, otherwise the program will not run inside the image.
+In most cases, Singularity-based modules can be used in the same way as other modules as we have provided wrapper scripts so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. Common paths such as `/projappl`, `/scratch` and users' home directories should be visible from inside the container.
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:1
-
-module load pytorch/nvidia-20.02-py3
-srun singularity_wrapper exec python3 myprog.py <options>
-```
+However, if you need to run something else inside the container, you need to prefix that command with `singularity_wrapper exec`, for example `singularity_wrapper exec ps`. Another useful command is `singularity_wrapper shell` which starts a shell session inside the container.
 
 Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
 

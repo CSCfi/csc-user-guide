@@ -15,8 +15,9 @@ access.**
 
 Connect using a normal ssh-client:
 ```
-$ ssh <csc_username>@mahti.csc.fi
+$ ssh yourcscusername@mahti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC.
 
 ## Module system
 
