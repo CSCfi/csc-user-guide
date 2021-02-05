@@ -98,18 +98,6 @@ storage with a default quota of 50 GB. It is located under `/projappl/<project>`
 You can [check your current disk usage](../faq/disk-quota-exceeded.md) with `csc-workspaces`, more detailed information about storage can be found [here](../../computing/disk.md).
 
 
-## Moving data from Taito to Puhti
-
-Taito.csc.fi cluster was finally closed in June 2020. The disks are still accessible via 
-[datamangler](../../../data/Allas/migration_tutorial/#datamangler), 
-now is the last change to salvage your important data.
-
-The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito.
-Puhti does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
-
-*    [Data migration tutorials](../../data/Allas/migration_tutorial.md)
-*    [Allas user guide](../../data/Allas/index.md)
-
 ## Linux basics Tutorial for CSC
 
 If you are new to Linux command line or using supercomputers, please consult [this tutorial section](env-guide/overview.md)!
