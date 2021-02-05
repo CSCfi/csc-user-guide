@@ -16,55 +16,28 @@ Software may be installed to the computers of the consortium member university a
 and students and may be used at home or during field work according to the user terms. The more detailed terms of
 use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_Institution_terms_and_conditions_2020-2022.pdf).
 
-To the members of ArcGIS software consortium the following ArcGIS
-Educational license is available:
+To the members of ArcGIS software consortium these products are available (for details see the license agreement Appendix A):
 
--   ArcGIS Online: 
--   ArcGIS Desktop and Pro (Advanced, Standard, Basic) and its extensions:
-    -   3D Analyst, Data Interoperability, Data Reviewer, Geostatistical Analyst, 
-    Network Analyst, Spatial Analyst, Workflow Manager, Image Analyst, 
-    Publisher, Aviation: Airports, Defense Mapping, Maritime: Charting, Production Mapping, 
-    LocateXT, Maritime: Bathymetry, Roads and Highways
-
--   ArcGIS Enterprise:
-    - ArcGIS Enterprise Advanced, including the following extensions: Advanced and its
-    extensions: 3D Analyst, Data Interoperability, Data Reviewer,
-    GeoEvent Processor, Geostatistical Analyst, Image, Network, Roads
-    and Highways, Spatial Analyst, Workflow Manager.
-    - ArcGIS Image Server, ArcGIS GeoEvent Server, ArcGIS GeoAnalytics Server, ArcGIS Notebook Server Advanced
-    - ArcGIS Enterprise—Viewer User Type Licenses and GIS Professional Advanced User Type Licenses
-
+-   ArcGIS Online
+-   ArcGIS Desktop and Pro
+-   ArcGIS Enterprise 
 -   Esri CityEngine
 -   ArcPad
 -   ArcGIS Monitor
 -   ArcGIS Hub Premium
 -   ArcGIS Developer Subscription
+-   ArcGIS Premium Apps
 -   Virtual Campus courses
-
--   ArcGIS Premium Apps: ArcGIS Business Analyst Web App, ArcGIS Business Analyst Mobile App, 
-ArcGIS Community Analyst, GeoPlanner for ArcGIS (for use with ArcGIS Online and ArcGIS Enterprise), 
-Insights for ArcGIS in ArcGIS Online, Insights for ArcGIS in ArcGIS Enterprise, Esri Redistricting 
-(for use with ArcGIS Online), ArcGIS Excalibur (for use with ArcGIS Enterprise), ArcGIS Urban, 
-ArcGIS QuickCapture (for use with ArcGIS Online and ArcGIS Enterprise)
-
 -   Finnish road and street dataset by Esri Finland. It is meant for
     using with ArcGIS Desktop or Pro, and enables routing and geocoding. This
     dataset is based on Digiroad, but includes several corrections and
     enhancements. [Additional information and data download].
 
-All software products are available for *unlimited* number of users for educational and academic use.
+Most of the software products are available for *unlimited* number of users.
 
 ------------------------------------------------------------------------
 
-### ArcGIS in CSC's computing environment
-
-ArcGIS Desktop or ArcGIS Pro are not istalled to CSC supercomputers, because these are available
-only for Windows. [ArcGIS Python API](geoconda.md) is available in Puhti. ArcGIS Server could be installed to cPouta. 
-Some hints for using ArcGIS for heavy computing can be found [here](https://research.csc.fi/arcgis-computing).
-
-------------------------------------------------------------------------
-
-### ArcGIS for Desktop  and ArcGIS Pro (Advanced, Standard, Basic)
+### ArcGIS for Desktop  and ArcGIS Pro (Advanced)
 
 #### Installation:
 
@@ -123,15 +96,7 @@ License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arc
 -   Always borrow the base product ArcGIS Desktop or ArcGIS Pro, only Advanced level is available.
 -   All extensions need to be borrowed separately, you are free to
     choose which ones you need. Especially with ArcGIS Pro make sure you borrow all the extensions you need. It is not possible to add extensions to already borrowed base product.
--   Returning of licenses does not work. If returning of licenses does not work, the
-    license is returned automatically after 100 days.    
--   In 2018 it has been noticed in some cases that starting ArcMap with
-    a borrowed license is slow (2-4 min), but eventually it will start.
-    Start up is faster, if the computer does not have any Internet
-    connection.
--   Licenses borrowed at the end of year and during first weeks of
-    January are also always returned on 30th of January, because annual
-    license renewal.
+-   Licenses borrowed at the end of year are  always returned on 31th of December, because annual license renewal.
 
 #### Single Use licenses
 
@@ -180,6 +145,34 @@ with a fee, you also need to be added to consortium's ArcGIS accont, ask
 for it from CSC.
 
 ------------------------------------------------------------------------
+
+### Performance tips for ArcGIS desktop software **
+
+* ArcMap and ArcGIS Pro both have several functions that can run in parallel and especially in ArcGIS Pro the situation is improving constantly, so check the online documentation for up-to-date situation with specific tools. For activating the parallel processing set [Parallel processing factor](https://pro.arcgis.com/en/pro-app/tool-reference/environment-settings/parallel-processing-factor.htm) in your environment settings or used tool's setting correctly.
+*   For best performance with ArcGIS Pro or ArcMap enable [64-bit-background Geoprocessing](http://desktop.arcgis.com/en/arcmap/latest/analyze/executing-tools/64bit-background.htm) (64 bit). Using 64 bit processing to perform analysis on systems with large amounts of RAM may help when processing large data which may have otherwise failed in a 32 bit environment.
+*   Using the [in_memory workspace](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm) instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available.
+It is also possible to write ArcPy scripts where the parallelization is added with Python, for example Multiprocessing or Parallel packages.
+*   [Parallel Python: Multiprocessing With ArcPy](http://proceedings.esri.com/library/userconf/devsummit17/papers/dev_int_39.pdf), [examples](https://github.com/nRajasekar92/DevSummit-2017)
+*   [Blog:](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/) [Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
+*   Example: [Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
+
+### ArcGIS in CSC's computing environment
+
+ArcGIS Desktop or ArcGIS Pro are not istalled to CSC supercomputers, because these are available
+only for Windows. [ArcGIS Python API](geoconda.md) is available in Puhti. ArcGIS Server could be installed to cPouta. 
+Some hints for using ArcGIS for heavy computing can be found [here](https://research.csc.fi/arcgis-computing).
+
+
+*   ArcGIS desktop tools ArcGIS Pro or ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
+*   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can in principle be installed to cPouta cloud.
+*   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](https://docs.csc.fi/apps/geoconda/) module, that can be used also for data analysis.
+*   For running ArcPy scripts in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
+
+#### ArcGIS in parallel
+
+
+------------------------------------------------------------------------
+
 
 ### Contact 
 
