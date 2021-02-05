@@ -3,14 +3,15 @@
 Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
 ```
-ssh <csc_username>@puhti.csc.fi
+ssh yourcscusername@puhti.csc.fi
 ```
 
 and for Mahti with
 
 ```
-ssh <csc_username>@mahti.csc.fi
+ssh yourcscusername@mahti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC.
 
 In Linux and macOS the `ssh` command can be given in the terminal. In Windows, `ssh` is available within PowerShell, [MobaXterm](https://mobaxterm.mobatek.net/) and [PuTTY](https://putty.org/). If you prefer to use PuTTy, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal session and asks for your CSC-username and password. Guidelines for MobaXterm are provided below (see [Setting up SSH keys](#setting-up-ssh-keys)).
 
@@ -37,7 +38,7 @@ If you for some reason want to use a slower, X11 based graphical connection, you
 Depending on your local `ssh` version, you may also need to add option `-X` or `-Y` to your ssh command:
 
 ```
-ssh -X <csc_username>@puhti.csc.fi
+ssh -X yourcscusername@puhti.csc.fi
 ```
 
 In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> SSH -> X11: Enable X11 forwarding).
@@ -76,7 +77,7 @@ In Linux, macOS and MobaXterm the public key can be copied with
 `ssh-copy-id`, for example in order to copy the key to Puhti use:
 
 ```bash
-ssh-copy-id <csc_username>@puhti.csc.fi
+ssh-copy-id yourcscusername@puhti.csc.fi
 ```
 
 You will be prompted for your CSC password (not the passphrase in the
@@ -124,5 +125,5 @@ If you would like to use an SSH agent, the `pageant` application in PuTTY is sim
 
 - Go to **Putty -> Connection -> SSH** and add the following: 
   
-  - Remote command: `ssh -L <port_number_of_Puhti_login_node>:localhost:<port_number_of_Puhti_compute_node> <csc_username>@<compute_node_name>`
+  - Remote command: `ssh -L <port_number_of_Puhti_login_node>:localhost:<port_number_of_Puhti_compute_node> yourcscusername@<compute_node_name>`
   - For example: `ssh -L 49636:localhost:49636 john@r07c49.bullx` (use the same port numbers for the Puhti login and compute nodes)
