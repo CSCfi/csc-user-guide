@@ -2,6 +2,11 @@
 
 Machine learning framework for Python.
 
+!!! Important
+
+    **Starting from PyTorch version 1.7 our modules will be based on Singularity by default**. This is mainly due to the performance issues of conda-based environments on shared file systems, causing long  start-up delays for Python scripts on CSC's supercomputers. Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see our [machine learning guide](../support/tutorials/gpu-ml.md).
+
+
 ## Available
 
 Available on Puhti only.  Currently supported PyTorch versions and corresponding modules to load:
