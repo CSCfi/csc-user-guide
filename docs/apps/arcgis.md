@@ -87,17 +87,13 @@ installation, these are available from University's contact persons.
 ## ArcGIS Online
 
 [ArcGIS Online] is a platform for making and sharing maps, applications
-and spatial data. This [ESRI guideline] helps you search data from
-ArcGIS Online. Example [videos about using ArcGIS Online] from ESRI.
+and spatial data. ArcGIS Online is available for consortium members - each university may have up to 5000 users and use 50 000 [ArcGIS
+Online -credits](http://www.esri.com/software/arcgis/arcgisonline/credits) per year. For joining ArcGIS Online ask your University's ArcGIS contact person.
 
-ArcGIS Online is available for consortium members - each university may have up to 5000 users and use 50 000 [ArcGIS
-Online -credits](http://www.esri.com/software/arcgis/arcgisonline/credits) per year. .
+Guidelines for the ArcGIS Online administrators:
 
-For joining ArcGIS Online ask your University's ArcGIS contact person.
-
-Guideline for the ArcGIS Online administrators:
-- [Invite and add members]
-- [Granting ArcGIS licenses in ArcGIS Online].
+- [Invite and add members](http://doc.arcgis.com/en/arcgis-online/administer/invite-users.htm)
+- [Granting ArcGIS licenses in ArcGIS Online](http://pro.arcgis.com/en/pro-app/get-started/manage-licenses.htm)
 
 ------------------------------------------------------------------------
 
@@ -169,7 +165,7 @@ for it from CSC.
 
 ------------------------------------------------------------------------
 
-### Manual
+## Manual
 
 -   [ArcGIS help](https://doc.arcgis.com/en/)
 -   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla] (Harri
@@ -179,10 +175,6 @@ for it from CSC.
 
   [ArcGIS software]: http://www.esri.com/software/arcgis
   [Additional information and data download]: https://wiki.eduuni.fi/display/cscjemma/Accessible+for+ArcGIS+consortium+members
-  [Guidelines for granting ArcGIS licenses in ArcGIS Online]: http://pro.arcgis.com/en/pro-app/get-started/manage-licenses.htm
   [ArcGIS Online]: http://www.arcgis.com/features/
-  [ESRI guideline]: http://resources.arcgis.com/en/help/arcgisonline/index.html#//010q0000000n000000
-  [videos about using ArcGIS Online]: http://doc.arcgis.com/en/arcgis-online/reference/videos.htm
-  [Invite and add members]: http://doc.arcgis.com/en/arcgis-online/administer/invite-users.htm
   [Esri-helpdesk]: http://www.esri.fi/kayttajatuki/
   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla]: http://jultika.oulu.fi/Record/isbn978-952-62-0788-9
