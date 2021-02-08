@@ -42,24 +42,24 @@ All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://supp
 -   Please install also necessary [patches and service packs](https://support.esri.com/en/Products/Desktop/arcgis-desktop/arcmap/).
 
 ### Licensing
-ArcGIS products need also be licensed. Licensing options for consortium members:
+ArcGIS products need to be authorized. Licensing options for consortium members:
 
--   **Named users**, main option for ArcGIS Pro, not available for ArcGIS desktop. User must have home university's ArcGIS Online 
+-   **Named users**, main option for ArcGIS Pro, not available for ArcGIS desktop. The user must have home university's ArcGIS Online 
 account with personal ArcGIS Pro license. Ask this from your home university ArcGIS Online administrator.  
--   **Concurrent licenses** from CSC license server, main option ArcGIS for Desktopfor, but also available for ArcGIS Pro. 
+-   **Concurrent licenses** from CSC license server, main option ArcGIS for Desktop, but also available for ArcGIS Pro. 
 Ask your home university's ArcGIS contact person for address of the license server and the port numbers to be opened. 
-Guideline for using concurrent licenses from [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm) 
+Help: [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm) 
 and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/authorization-wizard.htm).
 -   **Single use license**s, for ArcGIS Pro and ArcGIS for Desktop, only for university personnel. Single Use license does not 
 need internet connection, so useful for example during field work. Single Use licenses are always valid until end of the calendar year. 
 Single Use licenses are available from University's contact persons.
 
   
--   **Attention**! License server is available only from FUNET (Finnish
+!!! note
+    CSC license server is available only from FUNET (Finnish
     Universities) network. When working outside the FUNET network, for
-    example at home or field trip, you should first connect to your
-    university network (VPN). Or you may borrow the license in advance
-    or use Single Use licenses.
+    example at home, you should first connect to your
+    university network (VPN). 
 
 #### Borrowing concurrent licenses
 
@@ -90,14 +90,14 @@ installation, these are available from University's contact persons.
 and spatial data. This [ESRI guideline] helps you search data from
 ArcGIS Online. Example [videos about using ArcGIS Online] from ESRI.
 
-ArcGIS Online is available for consortium members - each university may have up to 5000 users and use 500 000 ArcGIS
-Online -credits per year. The use of credits is described [here].
+ArcGIS Online is available for consortium members - each university may have up to 5000 users and use 50 000 [ArcGIS
+Online -credits](http://www.esri.com/software/arcgis/arcgisonline/credits) per year. .
 
 For joining ArcGIS Online ask your University's ArcGIS contact person.
 
 Guideline for the ArcGIS Online administrators:
 - [Invite and add members]
-- [Guidelines for granting ArcGIS licenses in ArcGIS Online].
+- [Granting ArcGIS licenses in ArcGIS Online].
 
 ------------------------------------------------------------------------
 
@@ -108,7 +108,7 @@ the focus is on ESRI tools and technology. A lot of Virtual Campus
 courses are free, in addition consortium members have access to all
 courses of types Web Course or Training seminar.
 
--   [The full list of Virtual campus courses]
+-   [The full list of Virtual campus courses](https://www.esri.com/training/catalog/search/)
 
 For participating in a Virtual Campus course you need an ESRI Global
 Account, if needed you can create it yourself [here][1]. For courses
@@ -121,7 +121,7 @@ for it from CSC.
 
 * ArcMap and ArcGIS Pro both have several functions that can run in parallel and especially in ArcGIS Pro the situation is improving constantly, so check the online documentation for up-to-date situation with specific tools. For activating the parallel processing set [Parallel processing factor](https://pro.arcgis.com/en/pro-app/tool-reference/environment-settings/parallel-processing-factor.htm) in your environment settings or used tool's setting correctly.
 * For best performance with ArcMap enable [64-bit-background Geoprocessing](http://desktop.arcgis.com/en/arcmap/latest/analyze/executing-tools/64bit-background.htm). 
-* Using the `memory / in_memory` workspace instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available. [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm) / [ArcGIS desktop](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm).
+* Using the `memory / in_memory` workspace instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available. Help: [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm) / [ArcGIS desktop](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm).
 * Use ArcPy scripts where the parallelization is added with Python, for example Multiprocessing or Parallel packages.
    * [Parallel Python: Multiprocessing With ArcPy](http://proceedings.esri.com/library/userconf/devsummit17/papers/dev_int_39.pdf), [examples](https://github.com/nRajasekar92/DevSummit-2017)
    * [Blog:](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/) [Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
@@ -132,7 +132,7 @@ for it from CSC.
 
 *   ArcGIS desktop tools ArcGIS Pro or ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
 *   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can in principle be installed to cPouta cloud.
-*   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](https://docs.csc.fi/apps/geoconda/) module, that can be used also for data analysis.
+*   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](geoconda.md) module, that can be used also for data analysis.
 *   For running ArcPy scripts in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
 
 ------------------------------------------------------------------------
@@ -180,14 +180,9 @@ for it from CSC.
   [ArcGIS software]: http://www.esri.com/software/arcgis
   [Additional information and data download]: https://wiki.eduuni.fi/display/cscjemma/Accessible+for+ArcGIS+consortium+members
   [Guidelines for granting ArcGIS licenses in ArcGIS Online]: http://pro.arcgis.com/en/pro-app/get-started/manage-licenses.htm
-  [log in with your personal ArcGIS Online account]: http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-named-user-license.htm
-  [using concurrent licenses from ArcGIS Pro]: 
   [ArcGIS Online]: http://www.arcgis.com/features/
   [ESRI guideline]: http://resources.arcgis.com/en/help/arcgisonline/index.html#//010q0000000n000000
   [videos about using ArcGIS Online]: http://doc.arcgis.com/en/arcgis-online/reference/videos.htm
-  [here]: http://www.esri.com/software/arcgis/arcgisonline/credits
   [Invite and add members]: http://doc.arcgis.com/en/arcgis-online/administer/invite-users.htm
-  [The full list of Virtual campus courses]: https://www.esri.com/training/catalog/search/
-  [1]: https://accounts.esri.com/signup?redirect_uri=https%253A%252F%252Fwww.esri.com%252Ftraining%252Fcatalog%252Fsearch%252F
   [Esri-helpdesk]: http://www.esri.fi/kayttajatuki/
   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla]: http://jultika.oulu.fi/Record/isbn978-952-62-0788-9
