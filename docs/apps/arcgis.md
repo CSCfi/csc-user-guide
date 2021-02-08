@@ -20,10 +20,9 @@ To the members of ArcGIS software consortium these products are available (for d
 -   ArcGIS Developer Subscription
 -   ArcGIS Premium Apps
 -   Virtual Campus courses
--   Finnish road and street dataset by Esri Finland. It is meant for
-    using with ArcGIS Desktop or Pro, and enables routing and geocoding. This
-    dataset is based on Digiroad, but includes several corrections and
-    enhancements. [Additional information and data download].
+-   [Finnish road and street dataset by Esri Finland](https://wiki.eduuni.fi/display/cscjemma/Accessible+for+ArcGIS+consortium+members). It is meant for
+    routing and geocoding. This dataset is based on Digiroad, but includes several corrections and
+    enhancements. 
 
 Most of the software products are available for *unlimited* number of users. ArcGIS may be used for teaching, 
 research or in limited amounts for administrative work. Use for commercial purposes is forbidden. 
@@ -37,8 +36,8 @@ use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_In
 All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan), because active development of ArcGIS Desktop has stopped.
 
 ### Installation
--   Installation guidelines for [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/install-and-sign-in-to-arcgis-pro.htm) and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm).
--   For the installation you need **installation package**, ask your University's ArcGIS contact person. ArcGIS Pro installation package can also be downloaded from [ArcGIS Online](https://pro.arcgis.com/en/pro-app/latest/get-started/download-arcgis-pro.htm#ESRI_SECTION1_F19E35C5A28F44F69A0EA3F464A0E015). 
+-   [Installation guidelines for ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/install-and-sign-in-to-arcgis-pro.htm) and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm).
+-   For the installation you need **installation package**, ask your University's ArcGIS contact person. ArcGIS Pro installation package can also be [downloaded from ArcGIS Online](https://pro.arcgis.com/en/pro-app/latest/get-started/download-arcgis-pro.htm#ESRI_SECTION1_F19E35C5A28F44F69A0EA3F464A0E015). 
 -   Please install also necessary [patches and service packs](https://support.esri.com/en/Products/Desktop/arcgis-desktop/arcmap/).
 
 ### Licensing
@@ -107,8 +106,7 @@ courses of types Web Course or Training seminar.
 -   [The full list of Virtual campus courses](https://www.esri.com/training/catalog/search/)
 
 For participating in a Virtual Campus course you need an ESRI Global
-Account, if needed you can create it yourself [here][1]. For courses
-with a fee, you also need to be added to consortium's ArcGIS accont, ask
+Account. For courses with a fee, you also need to be added to consortium's ArcGIS accont, ask
 for it from CSC.
 
 ------------------------------------------------------------------------
@@ -120,8 +118,8 @@ for it from CSC.
 * Using the `memory / in_memory` workspace instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available. Help: [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm) / [ArcGIS desktop](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm).
 * Use ArcPy scripts where the parallelization is added with Python, for example Multiprocessing or Parallel packages.
    * [Parallel Python: Multiprocessing With ArcPy](http://proceedings.esri.com/library/userconf/devsummit17/papers/dev_int_39.pdf), [examples](https://github.com/nRajasekar92/DevSummit-2017)
-   * [Blog:](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/) [Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
-   * Example: [Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
+   * [Blog: Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
+   * [Example: Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
 
 ------------------------------------------------------------------------
 ## ArcGIS in CSC's computing environment
@@ -174,7 +172,7 @@ for it from CSC.
 ------------------------------------------------------------------------
 
   [ArcGIS software]: http://www.esri.com/software/arcgis
-  [Additional information and data download]: https://wiki.eduuni.fi/display/cscjemma/Accessible+for+ArcGIS+consortium+members
+  [Additional information and data download]: 
   [ArcGIS Online]: http://www.arcgis.com/features/
   [Esri-helpdesk]: http://www.esri.fi/kayttajatuki/
   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla]: http://jultika.oulu.fi/Record/isbn978-952-62-0788-9
