@@ -1,25 +1,17 @@
-## ArcGIS
+# ArcGIS
 
-### Description
-
-[ArcGIS software] covers a very wide range of sophisticated GIS
+[ArcGIS software] covers a wide range of sophisticated GIS
 (Geographic Information System) tools. It can be used in desktop, server, web
 and mobile environments.
 
 CSC organizes ArcGIS software consortium for Finnish universities and
 universities of applied sciences. The members of current consortium are
-listed at the end of this page. If interested in joining a consortium,
-please contact CSC.
-
-ArcGIS may be used for teaching, research or in limited amounts for administrative work. Use for commercial purposes is forbidden. 
-Software may be installed to the computers of the consortium member university and computers of personnel 
-and students and may be used at home or during field work according to the user terms. The more detailed terms of
-use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_Institution_terms_and_conditions_2020-2022.pdf).
+listed at the end of this page. 
 
 To the members of ArcGIS software consortium these products are available (for details see the license agreement Appendix A):
 
 -   ArcGIS Online
--   ArcGIS Desktop and Pro
+-   ArcGIS Pro and Desktop.
 -   ArcGIS Enterprise 
 -   Esri CityEngine
 -   ArcPad
@@ -33,52 +25,36 @@ To the members of ArcGIS software consortium these products are available (for d
     dataset is based on Digiroad, but includes several corrections and
     enhancements. [Additional information and data download].
 
-Most of the software products are available for *unlimited* number of users.
+Most of the software products are available for *unlimited* number of users. ArcGIS may be used for teaching, 
+research or in limited amounts for administrative work. Use for commercial purposes is forbidden. 
+Software may be installed to the computers of the consortium member university and computers of personnel 
+and students and may be used at home or during field work according to the user terms. The more detailed terms of
+use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_Institution_terms_and_conditions_2020-2022.pdf).
 
 ------------------------------------------------------------------------
 
-### ArcGIS for Desktop  and ArcGIS Pro (Advanced)
+## ArcGIS  Desktop  and ArcGIS Pro
+All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan), because active development of ArcGIS Desktop has stopped.
 
-#### Installation:
+### Installation
+-   Installation guidelines for [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/install-and-sign-in-to-arcgis-pro.htm) and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm).
+-   For the installation you need **installation package**, ask your University's ArcGIS contact person. ArcGIS Pro installation package can also be downloaded from [ArcGIS Online](https://pro.arcgis.com/en/pro-app/latest/get-started/download-arcgis-pro.htm#ESRI_SECTION1_F19E35C5A28F44F69A0EA3F464A0E015). 
+-   Please install also necessary [patches and service packs](https://support.esri.com/en/Products/Desktop/arcgis-desktop/arcmap/).
 
--   For installation you need **installation package** for the product
-    you want to install, ask your University's ArcGIS contact person if
-    needed.
--   [Installation guidelines] for ArcGIS Pro and ArcGIS for Desktop are
-    available in Finnish and English from Esri Finland homepage.
--   **Licensing** options for consortium members (more details below):
-    -   Named users, only for ArcGIS Pro and GeoPlanner.
-    -   Concurrent licenses from CSC license server, for ArcGIS Pro and
-        ArcGIS for Desktop.
-    -   Single use licenses, for ArcGIS Pro and ArcGIS for Desktop, only
-        for personnel.
--   Please install also necessary patches and service packs: [Patches
-    and Service Packs for ArcGIS Desktop]
+### Licensing
+ArcGIS products need also be licensed. Licensing options for consortium members:
 
-#### Named User licenses
+-   **Named users**, main option for ArcGIS Pro, not available for ArcGIS desktop. User must have home university's ArcGIS Online 
+account with personal ArcGIS Pro license. Ask this from your home university ArcGIS Online administrator.  
+-   **Concurrent licenses** from CSC license server, main option ArcGIS for Desktopfor, but also available for ArcGIS Pro. 
+Ask your home university's ArcGIS contact person for address of the license server and the port numbers to be opened. 
+Guideline for using concurrent licenses from [ArcGIS Pro](http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm) 
+and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/authorization-wizard.htm).
+-   **Single use license**s, for ArcGIS Pro and ArcGIS for Desktop, only for university personnel. Single Use license does not 
+need internet connection, so useful for example during field work. Single Use licenses are always valid until end of the calendar year. 
+Single Use licenses are available from University's contact persons.
 
-ArcGIS Pro's primary licensing model in "named users", which is
-administred in home university's ArcGIS Online, ask you university's
-contact person for the license:
-
-1.  Become a member of home university's ArcGIS Online. See guidelines
-    below under ArcGIS Online.
-2.  Ask for personal license from your university ArcGIS Online
-    administrator.  
-        -Guideline for the ArcGIS Online administrator: [Guidelines for
-    granting ArcGIS licenses in ArcGIS Online].
-3.  Install ArcGIS Pro, after installation [log in with
-    your personal ArcGIS Online account].
-
-#### Concurrent licenses
-    
-ArcGIS for Desktop users normally use concurrent licenses from CSC
-license server, but there also ArcGIS Pro licenses available.  Ask your
-University's ArcGIS contact person for address of the license server and
-the port numbers to be opened.
-
-    -Guideline for [using concurrent licenses from ArcGIS Pro]
-
+  
 -   **Attention**! License server is available only from FUNET (Finnish
     Universities) network. When working outside the FUNET network, for
     example at home or field trip, you should first connect to your
@@ -96,25 +72,19 @@ License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arc
 -   Always borrow the base product ArcGIS Desktop or ArcGIS Pro, only Advanced level is available.
 -   All extensions need to be borrowed separately, you are free to
     choose which ones you need. Especially with ArcGIS Pro make sure you borrow all the extensions you need. It is not possible to add extensions to already borrowed base product.
--   Licenses borrowed at the end of year are  always returned on 31th of December, because annual license renewal.
-
-#### Single Use licenses
-
-Single Use licenses are available for university's personnel. These are
-especially suitable for people working from distance. Single Use
-licenses are always valid until January next year. Single Use licenses
-are available from University's contact persons.
+-   Licenses borrowed at the end of year are always returned on 31th of December, because annual license renewal.
+- Returning borrowed license does not work with ArcGIS Pro. License is automatically returned at the last day of borrow.
 
 ------------------------------------------------------------------------
 
-### ArcGIS Server, ArcPad, Esri Developer Subscription 
+## ArcGIS Server, ArcPad 
 
 These do not use license server, they need registration code for
 installation, these are available from University's contact persons.
 
 ------------------------------------------------------------------------
 
-### ArcGIS Online
+## ArcGIS Online
 
 [ArcGIS Online] is a platform for making and sharing maps, applications
 and spatial data. This [ESRI guideline] helps you search data from
@@ -125,12 +95,13 @@ Online -credits per year. The use of credits is described [here].
 
 For joining ArcGIS Online ask your University's ArcGIS contact person.
 
--   Guideline for the ArcGIS Online administrator: [Invite and add
-    members]
+Guideline for the ArcGIS Online administrators:
+- [Invite and add members]
+- [Guidelines for granting ArcGIS licenses in ArcGIS Online].
 
 ------------------------------------------------------------------------
 
-### Virtual Campus 
+## Virtual Campus 
 
 Virtual Campus includes a wide selection of Internet courses about GIS,
 the focus is on ESRI tools and technology. A lot of Virtual Campus
@@ -146,35 +117,28 @@ for it from CSC.
 
 ------------------------------------------------------------------------
 
-### Performance tips for ArcGIS desktop software **
+## Performance tips for ArcGIS desktop software 
 
 * ArcMap and ArcGIS Pro both have several functions that can run in parallel and especially in ArcGIS Pro the situation is improving constantly, so check the online documentation for up-to-date situation with specific tools. For activating the parallel processing set [Parallel processing factor](https://pro.arcgis.com/en/pro-app/tool-reference/environment-settings/parallel-processing-factor.htm) in your environment settings or used tool's setting correctly.
-*   For best performance with ArcGIS Pro or ArcMap enable [64-bit-background Geoprocessing](http://desktop.arcgis.com/en/arcmap/latest/analyze/executing-tools/64bit-background.htm) (64 bit). Using 64 bit processing to perform analysis on systems with large amounts of RAM may help when processing large data which may have otherwise failed in a 32 bit environment.
-*   Using the [in_memory workspace](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm) instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available.
-It is also possible to write ArcPy scripts where the parallelization is added with Python, for example Multiprocessing or Parallel packages.
-*   [Parallel Python: Multiprocessing With ArcPy](http://proceedings.esri.com/library/userconf/devsummit17/papers/dev_int_39.pdf), [examples](https://github.com/nRajasekar92/DevSummit-2017)
-*   [Blog:](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/) [Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
-*   Example: [Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
+* For best performance with ArcMap enable [64-bit-background Geoprocessing](http://desktop.arcgis.com/en/arcmap/latest/analyze/executing-tools/64bit-background.htm). 
+* Using the `memory / in_memory` workspace instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available. [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm) / [ArcGIS desktop](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm).
+* Use ArcPy scripts where the parallelization is added with Python, for example Multiprocessing or Parallel packages.
+   * [Parallel Python: Multiprocessing With ArcPy](http://proceedings.esri.com/library/userconf/devsummit17/papers/dev_int_39.pdf), [examples](https://github.com/nRajasekar92/DevSummit-2017)
+   * [Blog:](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/) [Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
+   * Example: [Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
 
-### ArcGIS in CSC's computing environment
-
-ArcGIS Desktop or ArcGIS Pro are not istalled to CSC supercomputers, because these are available
-only for Windows. [ArcGIS Python API](geoconda.md) is available in Puhti. ArcGIS Server could be installed to cPouta. 
-Some hints for using ArcGIS for heavy computing can be found [here](https://research.csc.fi/arcgis-computing).
-
+------------------------------------------------------------------------
+## ArcGIS in CSC's computing environment
 
 *   ArcGIS desktop tools ArcGIS Pro or ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
 *   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can in principle be installed to cPouta cloud.
 *   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](https://docs.csc.fi/apps/geoconda/) module, that can be used also for data analysis.
 *   For running ArcPy scripts in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
 
-#### ArcGIS in parallel
-
-
 ------------------------------------------------------------------------
 
 
-### Contact 
+## Contact 
 
 -   Each university has its own ArcGIS contact person, for students and personnel she/he
     is the first point of contact.
@@ -201,11 +165,7 @@ Some hints for using ArcGIS for heavy computing can be found [here](https://rese
 | University of Turku      | Leena Laurila |
 | Åbo Akademi             | Mårten Hedman                         |
 
-------------------------------------------------------------------------
 
-### Support
-
-servicedesk@csc.fi
 
 ------------------------------------------------------------------------
 
@@ -219,11 +179,9 @@ servicedesk@csc.fi
 
   [ArcGIS software]: http://www.esri.com/software/arcgis
   [Additional information and data download]: https://wiki.eduuni.fi/display/cscjemma/Accessible+for+ArcGIS+consortium+members
-  [Installation guidelines]: http://www.esri.fi/sitecore/content/esrifi/home/tuki/asennusohjeet
-  [Patches and Service Packs for ArcGIS Desktop]: http://support.esri.com/en/downloads/patches-servicepacks/list/productid/160
   [Guidelines for granting ArcGIS licenses in ArcGIS Online]: http://pro.arcgis.com/en/pro-app/get-started/manage-licenses.htm
   [log in with your personal ArcGIS Online account]: http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-named-user-license.htm
-  [using concurrent licenses from ArcGIS Pro]: http://pro.arcgis.com/en/pro-app/get-started/start-arcgis-pro-with-a-concurrent-use-license.htm
+  [using concurrent licenses from ArcGIS Pro]: 
   [ArcGIS Online]: http://www.arcgis.com/features/
   [ESRI guideline]: http://resources.arcgis.com/en/help/arcgisonline/index.html#//010q0000000n000000
   [videos about using ArcGIS Online]: http://doc.arcgis.com/en/arcgis-online/reference/videos.htm
