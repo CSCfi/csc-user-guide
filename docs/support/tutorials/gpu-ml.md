@@ -184,7 +184,7 @@ srun python3 myprog.py <options>
 
 ### Singularity
 
-Our machine learning modules are increasingly being built using [Singularity containers](https://en.wikipedia.org/wiki/Singularity_(software)). If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), Singularity containers as essentially the same thing, but are better suited for multi-user systems such as Puhti and Mahti. Containers provide an isolated software environment for each application, which has several benefits, including typically a much shorter start-up time.
+Our machine learning modules are increasingly being built using [Singularity containers](https://en.wikipedia.org/wiki/Singularity_(software)). If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), Singularity containers as essentially the same thing, but are better suited for multi-user systems such as CSC's supercomputers. Containers provide an isolated software environment for each application, which has several benefits, including typically a much shorter start-up time.
 
 In most cases, Singularity-based modules can be used in the same way as other modules as we have provided wrapper scripts so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. Common paths such as `/projappl`, `/scratch` and users' home directories should be visible from inside the container.
 

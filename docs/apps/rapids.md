@@ -17,11 +17,9 @@ Modules ending with `-sng` are based on NVIDIA's optimized container
 images from
 [NGC](https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai).
 
-!!! note 
+If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important RAPIDS-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
-    In Singularity-based modules you need to launch Python with `singularity_wrapper`, see [here for a usage example](../support/tutorials/gpu-ml.md#singularity).
-
-If you find that some package is missing, you can often install it yourself with `pip install --user`, or `singularity_wrapper exec pip install --user` in Singularity-based modules. If you think that some important RAPIDS-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+Some modules are Singularity-based. Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see our [machine learning guide](../support/tutorials/gpu-ml.md).
 
 ## License
 
