@@ -29,7 +29,7 @@ In the exaple here, we assume that you are using a server where you have [rclone
 source allas-cli-utils/allas_conf -u <i>your-csc-username</i> -p <i>your-csc-project-name</i>
 </pre>
 
-Once you have configured a normal swift connection to Allas, you can configue an encrypted bucket to your Allas area. To start the configuration process, run command _rclone config_. 
+Once you have configured a normal swift connection to Allas, you can configure an encrypted bucket to your Allas area. To start the configuration process, run command _rclone config_. 
 
 The _allas_conf_ script has already created an rclone configuration file with _rclone remote_ named as _allas_.
 
