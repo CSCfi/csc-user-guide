@@ -47,6 +47,7 @@ For more details, see the [connecting](connecting.md) page.
 
 ## Usage policy
 
+### Login nodes
 When you login to CSC supercomputers, you end up to one of the login nodes of the cluster.
 These login nodes are shared by all users and they are **not** intended for heavy computing.
 
@@ -64,6 +65,49 @@ Programs not adhering to these rules will be terminated without warning.
 
 !!! warning "Important"
     The login nodes are not meant for long or heavy processes.
+
+### GPU usage policy
+
+CSC policy is that V100 GPUs in Puhti-AI should only be used for the following workloads:
+
+ * ML/AI workloads
+ * Code development for porting codes GPUs 
+ * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should perform at least 2x as good on one V100 GPU compared to one Puhti node. 
+
+
+CSC policy is that A100 GPUs in Mahti-AI should only be used for the following workloads:
+
+ * ML/AI workloads
+ * Code development for porting codes GPUs 
+ * HPC applications that can use the new hardware features in A100 (tensor cores). This means that the code should perform at least 3x as good on one A100 GPU compared to one Mahti node. 
+
+
+
+The rational for this policy is:
+
+ * The majority of compute resources are CPU based. Hence it is likely that you'll
+actually also get results faster due to less queuing if your code can use both CPUs and GPUs.
+ * Puhti-AI and Mahti-AI have been specifically funded to be used in
+machine learning (ML) and artificial intelligence (AI) related
+research. A signficant part of these resources must be available for
+this use.
+ *  ML/AI workfloads often use libraries and frameworks specifically optimized for GPUs. Typically, a ML/AI workflow will be many times faster if run on a GPU, compared to running e.g. using a full node of CPUs. Typically, the benefit for GPU optimized other HPC workloads is smaller, although sometimes still faster than with a full CPU node.
+ * The significant improvement of the A100 GPU cards in Mahti-AI over V100 in Puhti-AI are the tensor cores. There are many ML/AI workloads
+that can make use of them resulting in large speedups, whereas non-AI/ML workloads often don't. Optimal usage of this resource requires ability to utilize the tensor cores. 
+
+
+
+
+### Scalability
+
+Don't allocate more resources to your job that it can use
+efficiently. This needs to be verified for each new code and job type
+(different input) by a scaling test. The policy is that the job should
+be **at least 1.5 times faster** when you double the resources
+(cores). [Instructions for performing a scalability
+test](support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
+
+
 
 ## Projects and quotas
 
