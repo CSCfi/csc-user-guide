@@ -48,7 +48,7 @@ Additionally geoconda includes:
     list.
     
 !!! note
-    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance
+    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance. You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
 
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
