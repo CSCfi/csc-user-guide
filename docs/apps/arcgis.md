@@ -117,14 +117,15 @@ for it from CSC.
 * For best performance with ArcMap enable [64-bit-background Geoprocessing](http://desktop.arcgis.com/en/arcmap/latest/analyze/executing-tools/64bit-background.htm). 
 * Using the `memory / in_memory` workspace instead of using geometry objects is faster, but if you need memory also for calculation and have a big dataset loaded, there might not be enough memory available. Help: [ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm) / [ArcGIS desktop](http://desktop.arcgis.com/en/arcmap/latest/analyze/modelbuilder/the-in-memory-workspace.htm).
 * Use ArcPy scripts where the parallelization is added with Python, for example Multiprocessing or Parallel packages.
-   * [Parallel Python: Multiprocessing With ArcPy](https://www.youtube.com/watch?v=KAzCG6C8-7g), [examples](https://github.com/nRajasekar92/DevSummit-2017)
-   * [Blog: Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
-   * [Example: Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
+   - [Arcpy multiprocessing examples](https://www.e-education.psu.edu/geog489/node/2261)
+   - [Parallel Python: Multiprocessing With ArcPy](https://www.youtube.com/watch?v=KAzCG6C8-7g), [examples](https://github.com/nRajasekar92/DevSummit-2017)
+   - [Blog: Using Arcpy with multiprocessing](https://pythongisandstuff.wordpress.com/2013/07/31/using-arcpy-with-multiprocessing-part-3/)
+   - [Example: Producing Building Shadows](http://gis.stackexchange.com/questions/19935/port-producing-building-shadows-avenue-code-to-arcgis-10/20352#20352)
 
 ------------------------------------------------------------------------
 ## ArcGIS in CSC's computing environment
 
-*   ArcGIS desktop tools ArcGIS Pro or ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
+*   ArcGIS desktop tools ArcGIS Pro and ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
 *   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can in principle be installed to cPouta cloud.
 *   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](geoconda.md) module, that can be used also for data analysis.
 *   For running ArcPy scripts in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
