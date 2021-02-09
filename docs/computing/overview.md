@@ -66,20 +66,20 @@ Programs not adhering to these rules will be terminated without warning.
 !!! warning "Important"
     The login nodes are not meant for long or heavy processes.
 
-### GPU usage policy
+### GPU nodes
 
-CSC policy is that V100 GPUs in Puhti-AI should only be used for the following workloads:
-
- * ML/AI workloads
- * Code development for porting codes GPUs 
- * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should perform at least 2x as good on one V100 GPU compared to one Puhti node. 
-
-
-CSC policy is that A100 GPUs in Mahti-AI should only be used for the following workloads:
+Puhti-AI's V100 GPUs should only be used for the following workloads:
 
  * ML/AI workloads
  * Code development for porting codes GPUs 
- * HPC applications that can use the new hardware features in A100 (tensor cores). This means that the code should perform at least 3x as good on one A100 GPU compared to one Mahti node. 
+ * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should be at least **2x** as fast on one V100 GPU compared to one Puhti node. 
+
+
+Mahti-AI's A100 GPUs should only be used for the following workloads:
+
+ * ML/AI workloads
+ * Code development for porting codes GPUs 
+ * HPC applications that can use the new hardware features in A100 (tensor cores). This means that the code should be at least **3x** as fast on one A100 GPU compared to one Mahti node. 
 
 
 
