@@ -60,8 +60,10 @@ Choose option 10 _Encrypt/Decrypt a remote_.
 <pre>
 Storage> <b>10</b>
 </pre>
-In the next step you need to define the bucket that will be used for encrypted data. 
-Note that the bucket name should be unique among all Allas users. This case we use bucket name _allas:2001659-crypt_
+In the next step you need to define the Allas bucket, that will be used for encrypted data. When defining the bucket, note that you 
+have to define both the bucket and the site (i.e. rclone remote connection name) where the bucket locates. 
+In the case of Allas, the remote name is _allas:_. The actual bucket name should be unique among all Allas users. 
+In this case we use definition _allas:2001659-crypt_ that defines that the encrypted data will be stored to Allas to bucket 2001659-crypt.
 <pre>
 Remote to encrypt/decrypt.
 Normally should contain a ':' and a path, eg "myremote:path/to/dir",
