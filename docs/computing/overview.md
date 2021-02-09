@@ -89,7 +89,7 @@ The rational for this policy is:
 actually also get results faster due to less queuing if your code can use both CPUs and GPUs.
  * Puhti-AI and Mahti-AI have been specifically funded to be used in
 machine learning (ML) and artificial intelligence (AI) related
-research. A signficant part of these resources must be available for
+research. A significant part of these resources must be available for
 this use.
  *  ML/AI workfloads often use libraries and frameworks specifically optimized for GPUs. Typically, a ML/AI workflow will be many times faster if run on a GPU, compared to running e.g. using a full node of CPUs. Typically, the benefit for GPU optimized other HPC workloads is smaller, although sometimes still faster than with a full CPU node.
  * The significant improvement of the A100 GPU cards in Mahti-AI over V100 in Puhti-AI are the tensor cores. There are many ML/AI workloads
