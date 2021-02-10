@@ -13,12 +13,12 @@ The 8.0 version has been installed as a singularity container. There are small d
 ### Installed plugins 
 
 * Sentinel toolboxes (1,2,3) 
-* All Idepix processors (only in 7.0)
+* All Idepix processors __(only in 7.0)__
 * SMOS toolbox 
-* SNAPHU (only in 7.0)
+* SNAPHU __(only in 7.0)__
 * Radarsat toolbox 
 * PROBA-V toolbox
-* Sen2Cor (external tool) (only in 7.0)
+* Sen2Cor (external tool) __(only in 7.0)__
 
 You can install more plugins to your user directory from the SNAP Graphical user interface
 
@@ -52,24 +52,32 @@ You could also request a fast [nvme](../computing/running/creating-job-scripts-p
 If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface on an interactive batch job session
 
 __SNAP 8.0__
-`sinteractive -i`
-`singularity_wrapper exec snap`
+```
+sinteractive -i
+singularity_wrapper exec snap
+```
 
 __SNAP 7.0__
-`sinteractive -i`
-`snap`
+```
+sinteractive -i
+snap
+```
 
 !!! note
-   We recommend using [NoMachine](nomachine.md) for launching graphical user interfaces on Puhti
+         We recommend using [NoMachine](nomachine.md) for launching graphical user interfaces on Puhti
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
 The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. It can be run for example with the following commands
 
 __8.0__
-`singularity_wrapper exec gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>`
+```
+singularity_wrapper exec gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
+```
 __7.0__
-`gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>`
+```
+gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
+```
 
 Some relevant __gpt__ options include
 
@@ -81,10 +89,14 @@ More information on the [SNAP command line tutorial](http://step.esa.int/docs/tu
 
 There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable __$SLURM_ARRAY_TASK_ID__ and make sure each job has an individual cache folder.
 __8.0__
-`singularity_wrapper exec gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
+```
+singularity_wrapper exec gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
+```
 
 __7.0__
-`gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>`
+```
+gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
+```
 
 [Here is a full example of using gpt_array in our Github](https://github.com/csc-training/geocomputing/tree/master/snap)
 ### Using SNAP with the Python library snappy
@@ -104,7 +116,9 @@ pip3 install <package>
 ```
 
 you can exit the container with
-`exit`
+```
+exit
+```
 
 __7.0__
 The SNAP 7.0 has a conda environment that includes pandas, geopandas, rasterio, rasterstats, sentinelsat, spyder
