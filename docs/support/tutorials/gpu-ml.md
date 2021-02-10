@@ -109,10 +109,10 @@ For example, from the following excerpts we can see that on GPU 0 a `python3` jo
 ```
 
 
-Alternatively, you can use `gpuseff` which shows GPU utilisation statistics for the whole running time.  **NOTE:** `gpuseff` is currently in testing usage, and still under development.
+Alternatively, you can use `seff` which shows GPU utilisation statistics for the whole running time.
 
 ```bash
-gpuseff <job_id>
+seff <job_id>
 ```
 
 In this example we can see that maximum utilization is 100%, but average is 92%.  If the average improves over time it is probably due to slow startup time, e.g., initial startup processing where the GPU is not used at all.
