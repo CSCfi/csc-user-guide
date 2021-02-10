@@ -70,11 +70,11 @@ snap
 
 The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. It can be run for example with the following commands
 
-__8.0__
+__SNAP 8.0__
 ```
 singularity_wrapper exec gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
 ```
-__7.0__
+__SNAP 7.0__
 ```
 gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
 ```
@@ -88,12 +88,12 @@ Some relevant __gpt__ options include
 More information on the [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 
 There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable __$SLURM_ARRAY_TASK_ID__ and make sure each job has an individual cache folder.
-__8.0__
+__SNAP 8.0__
 ```
 singularity_wrapper exec gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
 ```
 
-__7.0__
+__SNAP 7.0__
 ```
 gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
 ```
@@ -103,7 +103,8 @@ gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <norma
 
 It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a python environment is also loaded that has __python 2.7__ (SNAP 7.0) or __python 3.6__ (SNAP 8.0) and __snappy__ installed 
 
-__8.0__
+__SNAP 8.0__
+
 The SNAP 8.0 is a simple Python environment where you can install your own packages with pip. They are installed in your HOME directory.
 
 You can install packages by starting a shell session inside the container and installing packages
@@ -120,10 +121,11 @@ you can exit the container with
 exit
 ```
 
-__7.0__
+__SNAP 7.0__
+
 The SNAP 7.0 has a conda environment that includes pandas, geopandas, rasterio, rasterstats, sentinelsat, spyder
 
-And many more, for retrieving the full list in Puhti use: `list-packages`
+for retrieving the full list in Puhti use: `list-packages`
 
 ## License and citing
 
