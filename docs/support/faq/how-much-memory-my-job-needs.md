@@ -78,8 +78,10 @@ where,
 * your job has used a maximum of 113789K i.e. 111 MB per core -> this does not agree with the seff output earlier. This could be due to the short job and small amount of memory used.
 * a batch job of 6 minutes is too short. If you have many such jobs, run them sequentially in the same job as separate job steps. Now, the overhead of setting up the job is significant compared to the actual work.
 
-Remember that the new job might have different needs. If you estimate the required time too big, your job might need to queue longer than necessary, but no resources will be wasted. Here the big difference (queuing-wise) is whether the job is less than 3 days or more. Jobs in the longrun partition queue longer.
+## General guidelines and tips
 
-If you estimate the memory needs much too big, then resources will likely be wasted. This is because if your job uses only 4 cores but all the memory in node, then no other jobs fit in that node and the N-4 remaining cores will be idle.
+Remember that a similar but still new job might have different needs. If you estimate the required time too big, your job might need to queue longer than necessary, but no resources will be wasted nor billed. Here the big difference (queuing-wise) is whether the job is less than 3 days or more. Jobs in the longrun partition queue longer.
+
+If you estimate the memory needs much too big, then resources will likely be wasted. This is because if your job uses only 4 cores but all the memory in node, then no other jobs fit in that node and the N-4 remaining cores will be idle. Also the full memory request - used or not - will be billed from your computing quota.
 
 Note, that if your job **needs** the memory, then it is perfectly ok to reserve all the memory in the node, but please don't reserve that "just in case" or because you don't have any idea how much the job needs. You can get an estimate from similar previous jobs, and you can query that information with the command shown above. You just need the slurm jobid for those jobs.
