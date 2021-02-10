@@ -12,15 +12,15 @@ __SNAP__ is available in Puhti with following versions:
 The 8.0 version has been installed as a singularity container. There are small differences in the commands between 7.0 and 8.0, see below
 ### Installed plugins 
 
-* Sentinel toolboxes (1,2,3) (7.0 & 8.0)
-* All Idepix processors (7.0)
-* SMOS toolbox (7.0 & 8.0)
-* SNAPHU (7.0)
-* Radarsat toolbox (7.0 & 8.0)
-* PROBA-V toolbox (7.0 & 8.0)
-* Sen2Cor (external tool) (7.0)
+* Sentinel toolboxes (1,2,3) 
+* All Idepix processors (only in 7.0)
+* SMOS toolbox 
+* SNAPHU (only in 7.0)
+* Radarsat toolbox 
+* PROBA-V toolbox
+* Sen2Cor (external tool) (only in 7.0)
 
-You can install more plugins to your user folder from the SNAP Graphical user interface
+You can install more plugins to your user directory from the SNAP Graphical user interface
 
 ## Usage
 
@@ -45,24 +45,27 @@ If you run the command with another folder again, it overwrites the previous set
 You could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
 
 !!! note
-        SNAP graphical user interface is not affected by this. It will create a __.snap__ folder inside your HOME directory
+        The graphical user interface is not affected by this. Using it will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory
 
 ### Using SNAP with graphical user interface
 
-If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface of SNAP with the following commands
+If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface on an interactive batch job session
 
 __SNAP 8.0__
+`sinteractive -i`
 `singularity_wrapper exec snap`
 
 __SNAP 7.0__
+`sinteractive -i`
 `snap`
 
 !!! note
-   We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti. The graphical user interface will not launch properly on login nodes.
+   We recommend using [NoMachine](nomachine.md) for launching graphical user interfaces on Puhti
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. It can be run with the following commands
+The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. It can be run for example with the following commands
+
 __8.0__
 `singularity_wrapper exec gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>`
 __7.0__
