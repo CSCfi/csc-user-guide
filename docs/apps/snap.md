@@ -98,7 +98,7 @@ __SNAP 7.0__
 gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
 ```
 
-[Here is a full example of using gpt_array in our Github](https://github.com/csc-training/geocomputing/tree/master/snap)
+[Here is a full example of using gpt_array with Puhti array jobs](https://github.com/csc-training/geocomputing/tree/master/snap)
 ### Using SNAP with the Python library snappy
 
 It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a python environment is also loaded that has __python 2.7__ (SNAP 7.0) or __python 3.6__ (SNAP 8.0) and __snappy__ installed 
