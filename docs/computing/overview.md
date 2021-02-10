@@ -75,7 +75,7 @@ Puhti-AI's V100 GPUs should only be used for the following workloads:
  * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should be at least **2x** as fast on one V100 GPU compared to one Puhti node. 
 
 
-Mahti-AI's A100 GPUs should only be used for the following workloads:
+Mahti-AI's A100 GPUs (coming soon) should only be used for the following workloads:
 
  * ML/AI workloads
  * Code development for porting codes GPUs 
@@ -83,11 +83,11 @@ Mahti-AI's A100 GPUs should only be used for the following workloads:
 
 
 
-The rational for this policy is:
+The rationale for this policy is:
 
- * The majority of compute resources are CPU based. Hence it is likely that you'll
+ * The majority of compute resources are CPU based. Hence it is likely that you'll (and everyone)
 actually also get results faster due to less queuing if your code can use both CPUs and GPUs.
- * Puhti-AI and Mahti-AI have been specifically funded to be used in
+ * Puhti-AI and Mahti-AI (coming soon) have been specifically funded to be used in
 machine learning (ML) and artificial intelligence (AI) related
 research. A significant part of these resources must be available for
 this use.
@@ -106,6 +106,7 @@ efficiently. This needs to be verified for each new code and job type
 be **at least 1.5 times faster** when you double the resources
 (cores). [Instructions for performing a scalability
 test](support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
+Please also consider [other important factors related to performance.](performance.md)
 
 
 
