@@ -35,7 +35,7 @@ a different module `amber/20-cuda`, but it does not have all the AmberTools avai
 
 !!! note
     Run only GPU aware binaries in the gpu partition. If you're unsure,
-    check with gpuseff <slurm_obid> that GPU has been used, and the job
+    check with seff <slurm_obid> that GPU has been used, and the job
     was significantly faster than without GPUs.
     
 Our tests show that for moderate sized systems the most efficient setup
