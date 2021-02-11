@@ -14,7 +14,7 @@
 * [Developing scripts remotely](remote-dev.md)
 
 ## Performance
-* [Optimising parallel I/O](performance/lustre_performance.md)
+* [Optimising parallel I/O](lustre_performance.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)

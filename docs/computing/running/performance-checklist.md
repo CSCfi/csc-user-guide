@@ -113,4 +113,4 @@ be often improved by proper Lustre settings:
 * If your application performs parallel I/O, set a proper stripe count
   with `lfs setstripe -c`, [Lustre best practices](../lustre.md#best-practises).
 * Use collective parallel I/O if possible.
-* See also more extensive [I/O optimization hints](../../support/tutorials/performance/lustre_performance.md).
+* See also more extensive [I/O optimization hints](../../support/tutorials/lustre_performance.md).
