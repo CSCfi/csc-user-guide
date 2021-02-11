@@ -94,15 +94,23 @@ completes faster.
 Note, that not all codes or job types can be run in parallel. Confirm this first
 for your code.
 
-## Mind your IO - it can make a big difference
+## Mind your I/O - it can make a big difference
 
-If your workload writes or reads a large number of small files then you may see poor IO performance
+If your workload writes or reads a large number of small files then you may see poor I/O performance
 even if the total volume is not that big. Please consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some nodes have
  [fast local disk](../creating-job-scripts-puhti/#local-storage), but we've seen
   10 fold performance improvement by switching to use it. Check your performance: don't
   use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
-* Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
+* Investigate if you can choose how your application does I/O (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
 * One way to avoid a large number of (small) files is to set up your complex python or R
  based software in a singularity container. This also helps with the [file number quotas](../../disk/) on projappl. Detailed examples on how to do this are being written.
+
+For applications writing and reading large files, I/O performance can
+be often improved by proper Lustre settings:
+
+* If your application performs parallel I/O, set a proper stripe count
+  with `lfs setstripe -c`, [Lustre best practices](../lustre.md#best-practises).
+* Use collective parallel I/O if possible.
+* See also more extensive [I/O optimization hints](../../support/tutorials/performance/lustre_performance.md).
