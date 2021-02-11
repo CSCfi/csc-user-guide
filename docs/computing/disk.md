@@ -3,7 +3,7 @@
 CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes.
 The disk areas for different supercomputers are separate, *i.e.*
 **home**, **projappl** and **scratch** in Puhti cannot be directly
-accessed from Mahti.
+accessed from Mahti. A more technical description about the Lustre filesystem used in these directoties can be found [here](lustre.md).
 
 |              |  Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
