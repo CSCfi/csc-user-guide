@@ -24,7 +24,7 @@ OST/MDT to implement parallel I/O.
 * The Metadata Server (MDS): A server that tracks the locations for all the data so it can decide which OSS and OST will be used. For example, once a file is opened, the MDS is not involved any more.
 * The Metadata Target (MDT): The storage contains information about such as the data, file names, permissions, directories. Each file on MDT includes a layout such as the OST number, object identifier.
 
-!["Lustre file system view"](../img/lustre.png)
+!["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and DST servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
 
 *Lustre file system view*
 
@@ -60,7 +60,7 @@ to access as few OSTs/OSSs as possible to avoid network
 contention. When the stripes are aligned, they can be distributed uniformly
 to each OST.
 
-!["Lustre file striping"](../img/file_striping.png)
+!["Schematic showing a file split into chunks and each stored in a different OST."](../img/file_striping.png 'Lustre file striping and alignment')
 
 *Lustre file striping and alignment*
 
@@ -119,9 +119,9 @@ lmm_stripe_offset: 6
 
 ```
 
-**Note:** If the file is already created with a specific stripe, you
-can not change it. Also, if you move a file, its stripe settings will not
-change. In order to change striping, file needs to be copied:
+!!!! Note If the file is already created with a specific stripe, you
+     can not change it. Also, if you move a file, its stripe settings will not
+     change. In order to change striping, file needs to be copied:
 
 * using `setstripe`, create a new, empty file with the desired stripe settings and then copy the old file to the new file, or
 * setup a directory with the desired configuration and copy (not move) the file into the directory.
@@ -147,7 +147,7 @@ not interfere from the different file systems. Moreover, the `scratch` on Mahti 
 
 The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/sec for read. However, this performance was achieved on dedicated system with 64 compute nodes, which means around to 1.5 GB/sec per compute node. If more nodes are used or many jobs do significant I/O, then you will not achieve 1.5 GB/sec, including also that maybe the I/O pattern of an application is not efficient. The corresponding performance for Puhti is half of Mahti.
 
-## Best practises
+## Best practices
 
 * If possible, avoid using `ls -l` as the information on ownership and permission metadata is stored on MDTs, the file size metadata is available from OSTs. Use `ls` instead if you do not need the extra information.
 
@@ -164,5 +164,5 @@ The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/
     * A rule of thumb is to use as striping the square root of the file size in GB. If the file is 90 GB, the square root is 9.5, so use at least 9 OSTs.
     * If you use, for example, 16 MPI processes for parallel I/O, the number of the used OSTs should be less or equal to 16.
 
-In order to read more information about Lustre performance
-optimization read [here](../support/tutorials/performance/lustre_performance.md).
+For more details, please consult our [Lustre performance
+optimization tutorial](../support/tutorials/lustre_performance.md).
