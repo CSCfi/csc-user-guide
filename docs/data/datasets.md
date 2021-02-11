@@ -12,7 +12,7 @@ CSC hosts or provides access to several datasets on different platforms.
 
 ## Geosciences
 * The main open Finnish spatial datasets are available in Puhti, located in `/appl/data/geo/` and in Allas.
-* [Detailed description](https://research.csc.fi/gis_data_in_csc_computing_env) of the available datasets
+* [Detailed description](/data/datasets/spatial-data-in-csc-computing-env.md) of the available datasets
 
 ## Language research and other digital humanities and social sciences
 * The latest versions of CLARIN PUB or ACA licensed [corpora](https://www.kielipankki.fi/corpora/) are available unpacked in `/appl/data/kielipankki/`
