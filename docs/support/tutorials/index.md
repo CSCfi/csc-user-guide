@@ -13,6 +13,9 @@
 * [Using csc-env](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 
+## Performance
+* [Optimising parallel I/O](performance/lustre_performance.md)
+
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
