@@ -12,6 +12,7 @@ nav:
      - How to create new project: accounts/how-to-create-new-project.md
      - How to add members to project: accounts/how-to-add-members-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
+     - How to manage your project: accounts/how-to-manage-your-project.md
      - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
      - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
@@ -79,6 +80,7 @@ nav:
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
+         - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - Rahti Templates: cloud/rahti/template-docs.md
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
