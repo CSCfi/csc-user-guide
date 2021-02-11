@@ -12,7 +12,7 @@ The Lustre file system is constituted by a set of I/O servers called Object Stor
 * The Metadata Server (MDS): A server that tracks the locations for all the data so it can decide which OSS and OST will be used. For example, once a file is opened, the MDS is not involved anymore.
 * The Metadata Target (MDT): The storage contains information about such as the data, filenames, permissions, directories. Each file on MDT includes a layout such as the OST number, object identifier.
 
-!["Lustre file system view"](../../img/lustre.png)
+!["Lustre file system view"](../img/lustre.png)
 
 *Lustre file system view*
 
@@ -22,7 +22,7 @@ Hint: When a user opens/closes a file many times in a loop during the execution 
 
 In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process accesses different stripe of a file during parallel I/O, this can be achieved through stripe alignment. This is the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as few OSTs/OSSs as possible to avoid network contention. When the stripes are aligned, then they can be uniform distributed on each OST. 
 
-!["Lustre file striping"](../../img/file_striping.png)
+!["Lustre file striping"](../img/file_striping.png)
 
 *Lustre file striping and alignment*
 
@@ -44,7 +44,7 @@ Hint 2: If your application reads/writes only small files, do not increase the s
 ## Differences between Puhti and Mahti systems
 
 
-It is known from our guide that both Puhti and Mahti have the storage areas Puhti [home](./../disk.md#home-directory), [project](./../disk.md#projappl-directory) and [scratch](./../disk.md#scratch-directory). However, the Lustre configuration, is not the same between them. 
+It is known from our guide that both Puhti and Mahti have the storage areas Puhti [home](disk.md#home-directory), [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory). However, the Lustre configuration, is not the same between them. 
 
 |  Name       | Puhti  |        | Mahti  |        |
 |-------------|--------|--------|--------|--------|
@@ -109,4 +109,4 @@ lmm_stripe_offset: 22
 
 In the above example, the file is using the 24 OSTs of Mahti and the stripe size is 1 MB. 
 
-In order to read more information about Lustre performance read [here](lustre_performance.md)
+In order to read more information about Lustre performance read [here](../support/tutorials/performance/lustre_performance.md)

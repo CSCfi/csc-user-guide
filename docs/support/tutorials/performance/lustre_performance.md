@@ -8,7 +8,7 @@ In this section, we discuss more technical details about Lustre performance and 
 
 * Example 8 MPI processes, 4 MPI processes per computing node, collective I/O, all the processes write on the same file. 
 
-!["MPI I/O aggregators"](../../img/aggregators.png)
+!["MPI I/O aggregators"](../../../img/aggregators.png)
 
 *MPI I/O Aggregators example*
 
@@ -19,7 +19,7 @@ By default, for collective I/O, the OpenMPI on Mahti defines 1 MPI I/O aggregato
 
 Some applications create one file per MPI process. Although this sounds easy, it is not necessarily efficient. If you use a lot of processes per compute node then you will create contention starting from the network on the compute nodes and the time to conclude the I/O operations except that can get a long time, that will interfere with other network operations, maybe also they will never finish because of scheduler time out operations etc. However, there can be cases that they are efficient but always be careful and think about scalability, as this approach is not scalable.
 
-!["File Per Process"](../../img/file_per_process.png)
+!["File Per Process"](../../../img/file_per_process.png)
 
 *File Per Process*
 

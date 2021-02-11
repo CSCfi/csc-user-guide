@@ -44,7 +44,7 @@ In addition to the compute nodes above, Puhti has two login nodes with 40 cores 
 Puhti has a 4.8 PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
 [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
 
-The Lustre configuration, is not the same between our supercomputers. You can see the Lustre terminology [here](running/lustre.md)
+The Lustre configuration, is not the same between our supercomputers. You can see the Lustre terminology [here](lustre.md)
 
 |  Name       | Puhti  |        |
 |-------------|--------|--------|

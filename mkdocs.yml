@@ -26,7 +26,9 @@ nav:
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
      - Connecting: computing/connecting.md
-     - Disk areas: computing/disk.md
+     - Supercomputer storage:
+        - Disk areas: computing/disk.md
+        - Lustre filesystem: computing/lustre.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
@@ -39,8 +41,6 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-        - Lustre filesystem: computing/running/lustre.md
-        - Lustre Performance: computing/running/lustre_performance.md
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
