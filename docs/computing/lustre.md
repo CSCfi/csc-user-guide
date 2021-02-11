@@ -1,26 +1,64 @@
-# Lustre filesystem
+# Lustre file system
 
-Both systems Puhti and Mahti have Lustre, a parallel distributed file system, with some differences in their configuration between the systems.
+CSC supercomputers use [Lustre](https://www.lustre.org/) as the parallel distributed file system.
 
 
-## Lustre Terminology
+## Lustre architecture
 
-The Lustre file system is constituted by a set of I/O servers called Object Storage Servers (OSSs) and disks called Object Storage Targets (OSTs). The metadata operations of a file are controlled by Metadata Servers (MDSs) and stored on Metadata Targets (MDTs). Basically, the servers handle the RPC requests in order to access the files and metadata; the clients do not access storage directly. Each OSS/MDS exports multiple OST/MDT to improve the I/O parallelism
+Lustre separates file data and metadata into separate
+services. **Data** is the actual contents of the file, while
+**metadata** includes information like file size, permissions, access
+date etc.
 
-* Object Storage Servers (OSSs): They handle RPC requests from the clients in order to access the storage. Moreover, they manage a set of OSTs; each OSS has more than one OST to improve the I/O parallelism.
+The Lustre file system constitutes of a set of I/O servers called Object
+Storage Servers (OSSs) and disks called Object Storage Targets (OSTs)
+which handle the actual data. The metadata of a file are controlled by
+Metadata Servers (MDSs) and stored on Metadata Targets
+(MDTs). Basically, the servers handle the requests for accessing the
+files and metadata; the applications do not access storage
+directly. Lustre systems uses typically multiple OSS/MDS and multiple
+OST/MDT to implement parallel I/O.
+
+* Object Storage Servers (OSSs): They handle requests from the clients in order to access the storage. Moreover, they manage a set of OSTs; each OSS has more than one OST to improve the I/O parallelism.
 * Object Storage Targets (OSTs): Usually, an OST consists of a block of storage devices under RAID configuration. The data are stored in one or more objects, and each object is stored on a separate OST. 
-* The Metadata Server (MDS): A server that tracks the locations for all the data so it can decide which OSS and OST will be used. For example, once a file is opened, the MDS is not involved anymore.
-* The Metadata Target (MDT): The storage contains information about such as the data, filenames, permissions, directories. Each file on MDT includes a layout such as the OST number, object identifier.
+* The Metadata Server (MDS): A server that tracks the locations for all the data so it can decide which OSS and OST will be used. For example, once a file is opened, the MDS is not involved any more.
+* The Metadata Target (MDT): The storage contains information about such as the data, file names, permissions, directories. Each file on MDT includes a layout such as the OST number, object identifier.
 
 !["Lustre file system view"](../img/lustre.png)
 
 *Lustre file system view*
 
-Hint: When a user opens/closes a file many times in a loop during the execution of an application, then the workload on MDT increases. When many users do a similar approach, then the metadata could be slow and influence many users, even to be slow editing a file from a login node. Be cautious when you develop your application.
+Lustre is designed for efficient parallel I/O for large
+files. However, when dealing with small files and intensive metadata
+operations, the MDS/MDT can become a bottleneck. As an example, when a
+user opens/closes a file many times in a loop during the workload on
+MDT increases. When many users do similar operations, the
+metadata operations can slow down and influence many users. As login
+and compute nodes share the file system, this can show up even as slow
+editing of files in a login node. Also, if in parallel application
+the different processes perform lot of operations on the same small
+files, metadata operations can slow down. Innocent looking Linux
+commands can also increase metadata workload: as an example `ls -l`
+prints out file metadata, and giving the command in a directory with
+lots of files causes many requests to MDS.
 
 ## File striping and alignment
 
-In order to gain from the Lustre performance, your data should be distributed across many OSTs. The distribution across many OSTs is called file striping. During file striping, a file is split in chunks of bytes and are located on different OSTs, so that the read/write operations to perform faster. The default stripe size is 1 MB on our Lustre. As we use the network during file striping, depending on the workload of OSSs and OSTs, the performance is not always as expected. It is important that each process accesses different stripe of a file during parallel I/O, this can be achieved through stripe alignment. This is the procedure where a process access the file at offsets of the stripe boundaries. Moreover, an MPI process is better to access as few OSTs/OSSs as possible to avoid network contention. When the stripes are aligned, then they can be uniform distributed on each OST. 
+In order to gain from the Lustre parallelization, your data should be
+distributed across many OSTs. The distribution across many OSTs is
+called **file striping**. In file striping, a file is split in chunks
+of bytes that are located on different OSTs, so that the read/write
+operations can be performed concurrently. The default stripe size in
+CSC Lustre is 1 MB. As the supercomputers have many more nodes than
+OSSs/OSTs the I/O performance can vary a lot depending on the I/O
+workload of the whole supercomputer. 
+
+In parallel program, it is important that each process accesses different stripe
+of a file during parallel I/O, which can be achieved through stripe
+alignment. Moreover, an MPI process is better
+to access as few OSTs/OSSs as possible to avoid network
+contention. When the stripes are aligned, they can be distributed uniformly
+to each OST.
 
 !["Lustre file striping"](../img/file_striping.png)
 
@@ -28,33 +66,84 @@ In order to gain from the Lustre performance, your data should be distributed ac
 
 If in the above example, we had a file of 5 MB, then the OST 0 would have an extra 1 MB of data. If the processes are not aligned, then a process could have to access more than one OST and cause network contention issues. 
 
-### Example set stripe equal to 4
+### Controlling striping
+
+The stripe settings for a file or directory can be queried with the
+`lfs getstripe` command:
+
+```
+lfs getstripe my_file 
+```
+which prints out:
+```
+my_file
+lmm_stripe_count:  2
+lmm_stripe_size:   1048576
+lmm_pattern:       raid0
+lmm_layout_gen:    0
+lmm_stripe_offset: 11
+	obdidx		 objid		 objid		 group
+	    11	      29921659	    0x1c8917b	             0
+	    20	      29922615	    0x1c89537	             0
+
+```
+The output shows that the file is distributed over two OSTs (stripe
+count 2).
+
+For a directory, the output shows the settings that will be used for
+any files that will be created in the directory.
+
+Stripe configuration can be set with the `lfs setstripe` command. In
+most cases, it is enough the set the stripe count with the `-c`
+option, however, also other options can be set, see [Lustre
+wiki](https://wiki.lustre.org/Configuring_Lustre_File_Striping).
 
 ```
 mkdir experiments
 lfs setstripe -c 4 experiments
+touch experiments/new_file
+```
+Executing now `lfs getstripe experiments/new_file` outputs:
+```
+experiments/new_file
+lmm_stripe_count:  4
+lmm_stripe_size:   1048576
+lmm_pattern:       raid0
+lmm_layout_gen:    0
+lmm_stripe_offset: 6
+	obdidx		 objid		 objid		 group
+	     6	      29925064	    0x1c89ec8	             0
+	     1	      29925258	    0x1c89f8a	             0
+	    19	      29926834	    0x1c8a5b2	             0
+	    15	      29921764	    0x1c891e4	             0
+
 ```
 
-Hint 1: In case you want all the files of a folder to have a new striping, change the striping to an empty folder. The files that are already located in a folder will not change their striping. 
+**Note:** If the file is already created with a specific stripe, you
+can not change it. Also, if you move a file, its stripe settings will not
+change. In order to change striping, file needs to be copied:
 
-Hint 2: If your application reads/writes only small files, do not increase the striping.
+* using `setstripe`, create a new, empty file with the desired stripe settings and then copy the old file to the new file, or
+* setup a directory with the desired configuration and copy (not move) the file into the directory.
 
+## Differences between Puhti and Mahti
 
-
-## Differences between Puhti and Mahti systems
-
-
-It is known from our guide that both Puhti and Mahti have the storage areas Puhti [home](disk.md#home-directory), [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory). However, the Lustre configuration, is not the same between them. 
+Puhti and Mahti have similar storage areas
+[home](disk.md#home-directory), [project](disk.md#projappl-directory)
+and [scratch](disk.md#scratch-directory), however, their the Lustre
+configuration is not the same. 
 
 |  Name       | Puhti  |        | Mahti  |        |
 |-------------|--------|--------|--------|--------|
-|**Storage area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
+|**Disk area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
 | home        |  24    |   4    |    8    |   1    | 
 | projappl    |  24    |   4    |    8    |   1    |
 | scratch     |  24    |   4    |   24    |   2    |
 
 
-One main difference is that for Mahti there are separate MDTs between `scratch`, `home`, and `project`, thus the metadata performance does not interfere from the different filesystems. Moreover, the `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them.
+One main difference is that for Mahti there are separate MDTs between
+`scratch`, `home`, and `project`, thus the metadata performance does
+not interfere from the different file systems. Moreover, the `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them.
 
 The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/sec for read. However, this performance was achieved on dedicated system with 64 compute nodes, which means around to 1.5 GB/sec per compute node. If more nodes are used or many jobs do significant I/O, then you will not achieve 1.5 GB/sec, including also that maybe the I/O pattern of an application is not efficient. The corresponding performance for Puhti is half of Mahti.
 
@@ -67,46 +156,14 @@ The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/
 
 * If possible, avoid accessing a large number of small files on Lustre.
 
-* If an application opens a file for reading, then open the file in read mode only.
+* Make sure that the stripe count for small files is 1.
 
+* If an application opens a file for reading, then open the file in read mode only.
 
 * Increase striping count for parallel access, especially on large files:
     * The striping factor should be a factor of the number of used processes performing parallel I/O
     * A rule of thumb is to use as striping the square root of the file size in GB. If the file is 90 GB, the square root is 9.5, so use at least 9 OSTs.
     * If you use, for example, 16 MPI processes for parallel I/O, the number of the used OSTs should be less or equal to 16.
 
-* There is no need to stripe in a case of one file per MPI process 
-
-* How to increase the stripping of a file or a directory to 16:
-
-```
-lfs setstripe -c 16 filename
-```
-
-* If the file is already created with a specific stripe, you can not change its stripe. Then copy the older file to the new one. Also, if you copy a file under a new striped folder, the file will get the new stripe. If you move a file under a folder, its stripe will not change.
-
-
-* How to check the stripping of a file or a directory
-
-```
-lfs getstripe filename
-
-path/filename
-lmm_stripe_count:  24
-lmm_stripe_size:   1048576
-lmm_pattern:       raid0
-lmm_layout_gen:    0
-lmm_stripe_offset: 22
-	obdidx		 objid		 objid		 group
-	    22	       7561377	     0x7360a1	             0
-	     8	       7557109	     0x734ff5	             0
-	     4	       7561274	     0x73603a	             0
-...
-	    19	       7561455	     0x7360ef	             0
-	    15	       7556931	     0x734f43	             0
-
-```
-
-In the above example, the file is using the 24 OSTs of Mahti and the stripe size is 1 MB. 
-
-In order to read more information about Lustre performance read [here](../support/tutorials/performance/lustre_performance.md)
+In order to read more information about Lustre performance
+optimization read [here](../support/tutorials/performance/lustre_performance.md).
