@@ -111,6 +111,6 @@ For applications writing and reading large files, I/O performance can
 be often improved by proper Lustre settings:
 
 * If your application performs parallel I/O, set a proper stripe count
-  with `lfs setstripe -c`, [Lustre best practices](../lustre.md#best-practises).
+  with `lfs setstripe -c`, more details in [Lustre best practices](../lustre.md#best-practises).
 * Use collective parallel I/O if possible.
 * See also more extensive [I/O optimization hints](../../support/tutorials/lustre_performance.md).
