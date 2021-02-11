@@ -1,7 +1,7 @@
 # Spatial data in CSC computing environment
 ## Spatial data in Puhti
 
-Currently (Feb 2021) there are following datasets:
+Puhti has following datasets:
 
 *   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki..
     -   [Full list of Paituli datasets](https://paituli.csc.fi/metadata.html)
@@ -9,7 +9,7 @@ Currently (Feb 2021) there are following datasets:
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS normal color ortho images are not available in Puhti, but the infrared ones are.
     - Additions to NLS data:
-        +   Dem 2m and 10m have virtual rasters, see Puhti virtual rasters, see below.
+        +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
 *   **LUKE, multi-source national forest inventory**, 2013, 2015 and 2017. LUKE license changed in Aug 2019 to CC BY 4.0.
@@ -28,23 +28,17 @@ Open spatial data in Puhti is maintained by CSC personnel. If you notice any pro
 
 ### Puhti virtual rasters
 
-CSC has added virtual rasters to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
+CSC has added [virtual rasters](../../support/tutorials/gis/virtual-rasters.md) to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
 
 1.  The **direct** virtual rasters contain directly the source tif images without any hierarchical structure, overviews or pre-calculated statistics. The direct virtual raster is meant for using **only in scripts**. It should **not** be opened in QGIS, unless zoomed in and need to open only a few files etc:
     *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_direct.vrt`
     *   10m DEM: `/appl/data/geo/mml/dem10m/dem10m_direct.vrt`
     *   infrared orthophotos: `/appl/data/geo/mml/orto/infrared_3067/infrared_euref_direct.vrt`
 
-2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and it's subfolders. For example if I wanted to view 2m DEM data from area of mapsheet M4, you would simply open the `/appl/data/geo/mml/dem2m_vrt/2008_latest/M4/M4.vrt` file. That would load virtual rasters for mapsheets M41, M42, M43 and M44, which in turn contain information about the actual tif files. If you wanted to view the whole 2m DEM dataset, you would simply open the `dem2m_hierarchical.vrt` file.  
-
-    The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire 2m or 10m DEM datasets for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels.  
-
-    You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
+2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and it's subfolders. The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire DEM dataset for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels. You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
 
     *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
     *   10m DEM: `/appl/data/geo/mml/dem10m/dem10m_hierarchical.vrt`
-
-
 
 #### Puhti: create virtual rasters of DEM for custom area
 
@@ -55,13 +49,9 @@ module load geoconda
 python /appl/soft/geo/vrt/vrt_creator.py dataset polygon_file output_directory
 ```
 
-Supported _dataset_ values are:
+Supported _dataset_ values are: dem2m, dem10m and demCombined. The last option prefers 2m DEM whenever it's available and interpolating rest of the areas to 2m resolution from 10m DEM using bicubic interpolation.
 
-*   dem2m - 2m DEM 
-*   dem10m - 10m DEM 
-*   demCombined - DEM covering whole Finland using 2m DEM whenever it's available and interpolating rest of the areas to 2m resolution from 10m DEM using bicubic interpolation.
-
-with optional arguments:
+Optional arguments:
 
 *   -i: create individual vrt for each polygon, default behavior is to create one vrt covering all polygons.
 *   -o: create overviews
