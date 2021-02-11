@@ -70,7 +70,7 @@ Programs not adhering to these rules will be terminated without warning.
 
 Puhti-AI's V100 GPUs should only be used for the following workloads:
 
- * ML/AI workloads
+ * Machine Learning (ML) / Artificial Intelligence (AI) workloads
  * Code development for porting codes GPUs 
  * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should be at least **2x** as fast on one V100 GPU compared to one Puhti node. 
 
