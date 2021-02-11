@@ -1,4 +1,5 @@
-# Spatial data in Puhti
+# Spatial data in CSC computing environment
+## Spatial data in Puhti
 
 Currently (Feb 2021) there are following datasets:
 
@@ -8,7 +9,7 @@ Currently (Feb 2021) there are following datasets:
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS normal color ortho images are not available in Puhti, but the infrared ones are.
     - Additions to NLS data:
-        +   Dem 2m and 10m have virtual rasters, see [Puhti virtual rasters](https://research.csc.fi/puhti-virtual-rasters).
+        +   Dem 2m and 10m have virtual rasters, see Puhti virtual rasters, see below.
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
 *   **LUKE, multi-source national forest inventory**, 2013, 2015 and 2017. LUKE license changed in Aug 2019 to CC BY 4.0.
@@ -25,14 +26,56 @@ The open spatial data is stored in Puhti: **/appl/data/geo**
 
 Open spatial data in Puhti is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
 
+### Puhti virtual rasters
 
-# Spatial data in Allas
+CSC has added virtual rasters to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
+
+1.  The **direct** virtual rasters contain directly the source tif images without any hierarchical structure, overviews or pre-calculated statistics. The direct virtual raster is meant for using **only in scripts**. It should **not** be opened in QGIS, unless zoomed in and need to open only a few files etc:
+    *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_direct.vrt`
+    *   10m DEM: `/appl/data/geo/mml/dem10m/dem10m_direct.vrt`
+    *   infrared orthophotos: `/appl/data/geo/mml/orto/infrared_3067/infrared_euref_direct.vrt`
+
+2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and it's subfolders. For example if I wanted to view 2m DEM data from area of mapsheet M4, you would simply open the `/appl/data/geo/mml/dem2m_vrt/2008_latest/M4/M4.vrt` file. That would load virtual rasters for mapsheets M41, M42, M43 and M44, which in turn contain information about the actual tif files. If you wanted to view the whole 2m DEM dataset, you would simply open the `dem2m_hierarchical.vrt` file.  
+
+    The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire 2m or 10m DEM datasets for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels.  
+
+    You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
+
+    *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
+    *   10m DEM: `/appl/data/geo/mml/dem10m/dem10m_hierarchical.vrt`
+
+
+
+#### Puhti: create virtual rasters of DEM for custom area
+
+In some cases it might be useful to create virtual rasters that cover only your study area or some part of it. CSC has made a Python script for creating virtual rasters for custom area from NLS 2m and 10m DEM datasets in Puhti. It's used in the following way:
+
+```
+module load geoconda
+python /appl/soft/geo/vrt/vrt_creator.py dataset polygon_file output_directory
+```
+
+Supported _dataset_ values are:
+
+*   dem2m - 2m DEM 
+*   dem10m - 10m DEM 
+*   demCombined - DEM covering whole Finland using 2m DEM whenever it's available and interpolating rest of the areas to 2m resolution from 10m DEM using bicubic interpolation.
+
+with optional arguments:
+
+*   -i: create individual vrt for each polygon, default behavior is to create one vrt covering all polygons.
+*   -o: create overviews
+*   -p: output name prefix
+
+## Spatial data in Allas
 
 CSC computing services users are welcome to share spatial data in Allas with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
 
 Currently available:
 
 1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) has downloaded data of Finland from vegetation period (ca 10.5.-1.9.) in 2016-2020. 
+
+
 
 ## License and citing
 
