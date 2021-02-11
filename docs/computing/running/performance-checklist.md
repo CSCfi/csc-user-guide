@@ -100,12 +100,12 @@ If your workload writes or reads a large number of small files then you may see 
 even if the total volume is not that big. Please consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some nodes have
- [fast local disk](../creating-job-scripts-puhti/#local-storage), but we've seen
+ [fast local disk](creating-job-scripts-puhti.md#local-storage), but we've seen
   10 fold performance improvement by switching to use it. Check your performance: don't
-  use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
+  use the resource if it doesn't help. [AI batch job example](../../support/tutorials/gpu-ml.md#data-storage)
 * Investigate if you can choose how your application does I/O (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
 * One way to avoid a large number of (small) files is to set up your complex python or R
- based software in a singularity container. This also helps with the [file number quotas](../../disk/) on projappl. Detailed examples on how to do this are being written.
+ based software in a singularity container. This also helps with the [file number quotas](../disk.md) on projappl. Detailed examples on how to do this are being written.
 
 For applications writing and reading large files, I/O performance can
 be often improved by proper Lustre settings:
