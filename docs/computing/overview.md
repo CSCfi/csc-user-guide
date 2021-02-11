@@ -134,11 +134,10 @@ Latest resource grant: 2019-03-04
 ```
 The command reports the owner of the project, title, start and end dates. In addition the command prints out the budgeting information for the project: how many billing units have been granted to your project, how much has been used and how much still remain. 
 
-The disk areas of your Puhti projects can be checked with command:
+The [disk areas](disk.md) of your Puhti projects can be checked with command:
 ```text
 csc-workspaces
 ```
-Check [Disk areas](disk.md) chapter for details.
 
 ## Using Puhti and Mahti
 
