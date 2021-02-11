@@ -85,7 +85,7 @@ Mahti-AI's A100 GPUs (coming soon) should only be used for the following workloa
 
 The rationale for this policy is:
 
- * The majority of compute resources are CPU based. Hence it is likely that you'll (and everyone)
+ * The majority of compute resources are CPU based. Hence it is likely that you (and everyone) will
 actually also get results faster due to less queuing if your code can use both CPUs and GPUs.
  * Puhti-AI and Mahti-AI (coming soon) have been specifically funded to be used in
 machine learning (ML) and artificial intelligence (AI) related
