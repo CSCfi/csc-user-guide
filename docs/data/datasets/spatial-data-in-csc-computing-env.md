@@ -8,7 +8,7 @@ Currently (Feb 2021) there are following datasets:
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS normal color ortho images are not available in Puhti, but the infrared ones are.
     - Additions to NLS data:
-        +   Dem 2m and 10m have virtual rasters, see [Puhti virtual rasters](/puhti-virtual-rasters).
+        +   Dem 2m and 10m have virtual rasters, see [Puhti virtual rasters](https://research.csc.fi/puhti-virtual-rasters).
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
 *   **LUKE, multi-source national forest inventory**, 2013, 2015 and 2017. LUKE license changed in Aug 2019 to CC BY 4.0.
