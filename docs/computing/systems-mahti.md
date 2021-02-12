@@ -62,7 +62,7 @@ In Mahti there are 234 nodes in each dragonfly group and the internal fat tree h
 Mahti has a 8.7 PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
 [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
 
-The Lustre configuration in Mahti is following (see the Lustre terminology [here](lustre.md)):
+The Lustre configuration in Mahti is following (see the [Lustre terminology](lustre.md)):
 
 |  Name       | Mahti  |        |
 |-------------|--------|--------|

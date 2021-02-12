@@ -63,8 +63,7 @@ by default. SMT support can be enabled with `--hint=multithread` option.
 When this option is used, it is important to use the `--ntasks-per-node=X` and
 `--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the
 actual physical cores unallocated and performance will be suboptimal.
- Example batch job script can be found
-[here](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
+[Example batch job script for SMT](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
 
 ## Undersubscribing nodes
 
