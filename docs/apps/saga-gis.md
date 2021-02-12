@@ -1,6 +1,6 @@
 # SAGA GIS
 
-[Saga GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. It can be used with a graphical user interface, command line tools or through the R package RSAGA. 
+[Saga GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. It can be used with a graphical user interface, command line tools or through the R package `Rsagacmd` or `RSAGA`. Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0.
 
 ## Available
 
@@ -14,18 +14,11 @@ __SAGA GIS__ is available in Puhti with following versions:
 
 SAGA GIS is installed in the general R module in Puhti. It is a Singularity container which means the commands are slightly different compared to old installations.
 
-You can utilize SAGA GIS functions through the `Rsagacmd` and `RSAGA` R packages included in the `r-env-singularity` module. The module also has a working graphical user interface if you have a NoMachine connection. 
-
-The `r-env-singularity ` module can be loaded with:
-
-```
-module load r-env-singularity 
-```
-
-Before running anything, you should first start an interactive session on a computing node. You can do that with 
+Before running anything, you should first start an [interactive session](../computing/running/interactive-usage.md) on a computing node and load `r-env-singularity ` module.
 
 ```
 sinteractive -i
+module load r-env-singularity 
 ```
 
 You can test that SAGA GIS loaded successfully and print the command line tools help information with
@@ -34,7 +27,7 @@ You can test that SAGA GIS loaded successfully and print the command line tools 
 singularity_wrapper exec saga_cmd -h
 ```
 
-If you have connected with NoMachine or have X11 enabled on your SSH connection, you can launch a graphical user interface with
+If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface with
 
 ```
 singularity_wrapper exec saga_gui
@@ -42,36 +35,20 @@ singularity_wrapper exec saga_gui
 
 For more information on running R jobs on Puhti, please see the [`r-env-singularity` documentation](r-env-singularity.md).
 
-!!! note
-        Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0.
-
 ## Usage with old saga-gis module
 
-The `saga-gis` module can be loaded with:
+Same commands for older SAGA GIS 7.2.0 version
 
 ```
+sinteractive -i
 module load gcc/9.1.0 saga-gis
-```
-
-You can test that SAGA GIS loaded successfully and print the command line tools help information with:
-
-```
 saga_cmd -h
-```
-
-If you have connected with NoMachine or have X11 enabled on your SSH connection, you can launch a graphical user interface with:
-
-```
 saga_gui
 ```
 
-!!! note
-        We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti.
-
-
 ## License and citing
 
-SAGA GIS is published under the [GPL](http://www.gnu.org/licenses/gpl.html) license. For more information, [see here.](http://saga-gis.sourceforge.net/en/)
+SAGA GIS is published under the [GPL](http://www.gnu.org/licenses/gpl.html) license. 
 
 In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
