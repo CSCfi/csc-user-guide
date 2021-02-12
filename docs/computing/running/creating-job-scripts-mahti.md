@@ -71,10 +71,9 @@ If an application requires more memory per core than there is available
 with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
-only a single core per NUMA domain or L3 cache (look
+only a single core per NUMA domain or L3 cache (look at
 [Mahti technical description](../systems-mahti.md) for details.
-Note that billing is, however, always based
-on full nodes.
+Note that billing is, however, always based on full nodes.
 
 When undersubscribing nodes, one should always set
 `--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,

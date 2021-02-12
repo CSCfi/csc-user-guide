@@ -16,15 +16,19 @@ which store the actual data. The metadata of a file are controlled by
 Metadata Servers (MDSs) and stored on Metadata Targets
 (MDTs). Basically, the servers handle the requests for accessing the
 file contents and metadata; the applications do not access disks
-directly. Lustre systems uses typically multiple OSSs/MDSs together
+directly. Lustre systems use typically multiple OSSs/MDSs together
 with multiple OSTs/MDTs to provide parallel I/O capabilities.
 
-* Object Storage Servers (OSSs): They handle requests from the clients
+* *Object Storage Servers* (OSSs): They handle requests from the clients
   in order to access the storage. Moreover, they manage a set of OSTs;
   each OSS can have more than one OST to improve the I/O parallelism.
-* Object Storage Targets (OSTs): Usually, an OST consists of a block of storage devices under RAID configuration. The data are stored in one or more objects, and each object is stored on a separate OST. 
-* The Metadata Server (MDS): A server that tracks the locations for all the data so it can decide which OSS and OST will be used. For example, once a file is opened, the MDS is not involved any more.
-* The Metadata Target (MDT): The storage contains information about
+* *Object Storage Targets* (OSTs): Usually, an OST consists of a block of
+  storage devices under RAID configuration. The data is stored in one or more
+  objects, and each object is stored on a separate OST.
+* *Metadata Server* (MDS): A server that tracks the locations for all the
+  data so it can decide which OSS and OST will be used. For example, once a
+  file is opened, the MDS is not involved any more.
+* *Metadata Target* (MDT): The storage contains information about
   the files and directories such as file sizes, permissions, access
   dates. For each file MDT includes information about the layout of
   data in the OSTs such as the OST numbers and object identifiers.
@@ -35,15 +39,15 @@ with multiple OSTs/MDTs to provide parallel I/O capabilities.
 
 Lustre is designed for efficient parallel I/O for large
 files. However, when dealing with small files and intensive metadata
-operations, the MDS/MDT can become a bottleneck. As an example, when a
+operations, the MDS/MDT can become a bottleneck. For example, when a
 user opens/closes a file many times in a loop, the workload on
-MDT increases. When several users do similar operations, the
-metadata operations can slow down the whole system and influence many users. As login
+MDT increases. When several users do similar operations, the metadata
+operations can slow down the whole system and influence many users. As login
 and compute nodes share the file system, this can show up even as slow
-editing of files in a login node. Also, if in parallel application
-the different processes perform lot of operations on the same small
+editing of files in a login node. Also, if in a parallel application
+the different processes perform a lot of operations on the same small
 files, metadata operations can slow down. Innocent looking Linux
-commands can also increase metadata workload: as an example `ls -l`
+commands can also increase metadata workload: for example `ls -l`
 prints out file metadata, and giving the command in a directory with
 lots of files causes many requests to MDS.
 
@@ -54,20 +58,20 @@ distributed across many OSTs. The distribution across many OSTs is
 called **file striping**. Logically, a file is a linear sequence of
 bytes. In file striping, the file is split in chunks
 of bytes that are located on different OSTs, so that the read/write
-operations can be performed concurrently. 
+operations can be performed concurrently.
 
 Striping can increase the bandwidth available for accessing files,
 however, there is also an overhead due to increase in network
 operations and possible server contention. Thus, striping is normally
-beneficial only for large files. 
+beneficial only for large files.
 
 As the supercomputers have many more nodes than OSSs/OSTs, the I/O
 performance can vary a lot depending on the I/O workload of the whole
 supercomputer.
 
-In parallel program, performance is improved when each parallel process accesses different stripe
-of a file during parallel I/O. Moreover, in order to avoid network
-contention each process should access as few OSTs/OSSs as
+In a parallel program, performance is improved when each parallel process
+accesses a different stripe of a file during parallel I/O. Moreover, in order
+to avoid network contention each process should access as few OSTs/OSSs as
 possible. This can be achieved through stripe alignment. Best
 performance is obtained when the data is distributed uniformly to
 OSTs, and the parallel processes access the file at offsets that
@@ -95,7 +99,7 @@ The stripe settings for a file or directory can be queried with the
 `lfs getstripe` command
 
 ```
-lfs getstripe my_file 
+lfs getstripe my_file
 ```
 which prints out:
 ```
@@ -105,9 +109,9 @@ lmm_stripe_size:   1048576
 lmm_pattern:       raid0
 lmm_layout_gen:    0
 lmm_stripe_offset: 11
-	obdidx		 objid		 objid		 group
-	    11	      29921659	    0x1c8917b	             0
-	    20	      29922615	    0x1c89537	             0
+    obdidx         objid        objid         group
+        11      29921659    0x1c8917b             0
+        20      29922615    0x1c89537             0
 
 ```
 The output shows that the file is distributed over two OSTs (stripe
@@ -135,11 +139,11 @@ lmm_stripe_size:   1048576
 lmm_pattern:       raid0
 lmm_layout_gen:    0
 lmm_stripe_offset: 6
-	obdidx		 objid		 objid		 group
-	     6	      29925064	    0x1c89ec8	             0
-	     1	      29925258	    0x1c89f8a	             0
-	    19	      29926834	    0x1c8a5b2	             0
-	    15	      29921764	    0x1c891e4	             0
+    obdidx         objid        objid         group
+         6      29925064    0x1c89ec8             0
+         1      29925258    0x1c89f8a             0
+        19      29926834    0x1c8a5b2             0
+        15      29921764    0x1c891e4             0
 
 ```
 
@@ -147,27 +151,33 @@ lmm_stripe_offset: 6
      can not change it. Also, if you move a file, its stripe settings will not
      change. In order to change striping, file needs to be copied:
 
-* using `setstripe`, create a new, empty file with the desired stripe settings and then copy the old file to the new file, or
-* setup a directory with the desired configuration and copy (not move) the file into the directory.
+* using `setstripe`, create a new, empty file with the desired stripe settings
+  and then copy the old file to the new file, or
+* setup a directory with the desired configuration and copy (not move) the
+  file into the directory.
 
 ## Differences between Puhti and Mahti
 
 Puhti and Mahti have similar storage areas
 [home](disk.md#home-directory), [project](disk.md#projappl-directory)
 and [scratch](disk.md#scratch-directory), however, their the Lustre
-configuration is not the same. 
+configuration is not the same.
 
 |  Name       | Puhti  |        | Mahti  |        |
 |-------------|--------|--------|--------|--------|
 |**Disk area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
-| home        |  24    |   4    |    8    |   1    | 
+| home        |  24    |   4    |    8    |   1    |
 | projappl    |  24    |   4    |    8    |   1    |
 | scratch     |  24    |   4    |   24    |   2    |
 
 
 One main difference is that for Mahti there are separate MDTs between
 `scratch`, `home`, and `project`, thus the metadata performance does
-not interfere from the different file systems. Moreover, the `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them.
+not interfere from the different file systems. Moreover, the `scratch` on
+Mahti can have better performance than the other storage areas if your
+application and the data size is big enough because of more OSTs and MDTs. On
+Puhti, all the OSTs and MDTs are shared across the storage areas, thus the
+performance should be similar between them.
 
 The peak I/O performance for Mahti is around to 100 GB/sec for write
 and 115 GB/sec for read. However, this performance was achieved on
@@ -179,20 +189,28 @@ corresponding performance for Puhti is half of that of Mahti.
 
 ## Best practices
 
-* If possible, avoid using `ls -l` as the information on ownership and permission metadata is stored on MDTs, the file size metadata is available from OSTs. Use `ls` instead if you do not need the extra information.
+* If possible, avoid using `ls -l` as the information on ownership and
+  permission metadata is stored on MDTs, the file size metadata is available
+  from OSTs. Use `ls` instead if you do not need the extra information.
 
-* Avoid saving a large number of files in a single directory, better to split in more directories.
+* Avoid saving a large number of files in a single directory, better to split
+  in more directories.
 
 * If possible, avoid accessing a large number of small files on Lustre.
 
 * Make sure that the stripe count for small files is 1.
 
-* If an application opens a file for reading, then open the file in read mode only.
+* If an application opens a file for reading, then open the file in read mode
+  only.
 
 * Increase striping count for parallel access, especially on large files:
-    * The striping factor should be a factor of the number of used processes performing parallel I/O
-    * A rule of thumb is to use as striping the square root of the file size in GB. If the file is 90 GB, the square root is 9.5, so use at least 9 OSTs.
-    * If you use, for example, 16 MPI processes for parallel I/O, the number of the used OSTs should be less or equal to 16.
+    * The striping factor should be a factor of the number of used processes
+      performing parallel I/O
+    * A rule of thumb is to use as striping the square root of the file size
+      in GB. If the file is 90 GB, the square root is 9.5, so use at least 9
+      OSTs.
+    * If you use, for example, 16 MPI processes for parallel I/O, the number
+      of the used OSTs should be less or equal to 16.
 
 For more details, please consult our [Lustre performance
 optimization tutorial](../support/tutorials/lustre_performance.md).
