@@ -1,7 +1,7 @@
 # Lustre file system
 
 CSC supercomputers use [Lustre](https://www.lustre.org/) as the parallel distributed file system.
-
+This article provides a brief technical description of Lustre.
 
 ## Lustre architecture
 
@@ -10,19 +10,24 @@ services. **Data** is the actual contents of the file, while
 **metadata** includes information like file size, permissions, access
 date etc.
 
-The Lustre file system constitutes of a set of I/O servers called Object
+The Lustre file system consists of a set of I/O servers called Object
 Storage Servers (OSSs) and disks called Object Storage Targets (OSTs)
-which handle the actual data. The metadata of a file are controlled by
+which store the actual data. The metadata of a file are controlled by
 Metadata Servers (MDSs) and stored on Metadata Targets
 (MDTs). Basically, the servers handle the requests for accessing the
-files and metadata; the applications do not access storage
-directly. Lustre systems uses typically multiple OSS/MDS and multiple
-OST/MDT to implement parallel I/O.
+file contents and metadata; the applications do not access disks
+directly. Lustre systems uses typically multiple OSSs/MDSs together
+with multiple OSTs/MDTs to provide parallel I/O capabilities.
 
-* Object Storage Servers (OSSs): They handle requests from the clients in order to access the storage. Moreover, they manage a set of OSTs; each OSS has more than one OST to improve the I/O parallelism.
+* Object Storage Servers (OSSs): They handle requests from the clients
+  in order to access the storage. Moreover, they manage a set of OSTs;
+  each OSS can have more than one OST to improve the I/O parallelism.
 * Object Storage Targets (OSTs): Usually, an OST consists of a block of storage devices under RAID configuration. The data are stored in one or more objects, and each object is stored on a separate OST. 
 * The Metadata Server (MDS): A server that tracks the locations for all the data so it can decide which OSS and OST will be used. For example, once a file is opened, the MDS is not involved any more.
-* The Metadata Target (MDT): The storage contains information about such as the data, file names, permissions, directories. Each file on MDT includes a layout such as the OST number, object identifier.
+* The Metadata Target (MDT): The storage contains information about
+  the files and directories such as file sizes, permissions, access
+  dates. For each file MDT includes information about the layout of
+  data in the OSTs such as the OST numbers and object identifiers.
 
 !["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and DST servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
 
@@ -31,9 +36,9 @@ OST/MDT to implement parallel I/O.
 Lustre is designed for efficient parallel I/O for large
 files. However, when dealing with small files and intensive metadata
 operations, the MDS/MDT can become a bottleneck. As an example, when a
-user opens/closes a file many times in a loop during the workload on
-MDT increases. When many users do similar operations, the
-metadata operations can slow down and influence many users. As login
+user opens/closes a file many times in a loop, the workload on
+MDT increases. When several users do similar operations, the
+metadata operations can slow down the whole system and influence many users. As login
 and compute nodes share the file system, this can show up even as slow
 editing of files in a login node. Also, if in parallel application
 the different processes perform lot of operations on the same small
@@ -44,32 +49,50 @@ lots of files causes many requests to MDS.
 
 ## File striping and alignment
 
-In order to gain from the Lustre parallelization, your data should be
+In order to gain from parallel I/O with Lustre, the data should be
 distributed across many OSTs. The distribution across many OSTs is
-called **file striping**. In file striping, a file is split in chunks
+called **file striping**. Logically, a file is a linear sequence of
+bytes. In file striping, the file is split in chunks
 of bytes that are located on different OSTs, so that the read/write
-operations can be performed concurrently. The default stripe size in
-CSC Lustre is 1 MB. As the supercomputers have many more nodes than
-OSSs/OSTs the I/O performance can vary a lot depending on the I/O
-workload of the whole supercomputer. 
+operations can be performed concurrently. 
 
-In parallel program, it is important that each process accesses different stripe
-of a file during parallel I/O, which can be achieved through stripe
-alignment. Moreover, an MPI process is better
-to access as few OSTs/OSSs as possible to avoid network
-contention. When the stripes are aligned, they can be distributed uniformly
-to each OST.
+Striping can increase the bandwidth available for accessing files,
+however, there is also an overhead due to increase in network
+operations and possible server contention. Thus, striping is normally
+beneficial only for large files. 
+
+As the supercomputers have many more nodes than OSSs/OSTs, the I/O
+performance can vary a lot depending on the I/O workload of the whole
+supercomputer.
+
+In parallel program, performance is improved when each parallel process accesses different stripe
+of a file during parallel I/O. Moreover, in order to avoid network
+contention each process should access as few OSTs/OSSs as
+possible. This can be achieved through stripe alignment. Best
+performance is obtained when the data is distributed uniformly to
+OSTs, and the parallel processes access the file at offsets that
+correspond to stripe boundaries.
 
 !["Schematic showing a file split into chunks and each stored in a different OST."](../img/file_striping.png 'Lustre file striping and alignment')
 
 *Lustre file striping and alignment*
 
-If in the above example, we had a file of 5 MB, then the OST 0 would have an extra 1 MB of data. If the processes are not aligned, then a process could have to access more than one OST and cause network contention issues. 
+If in the above example, we had a file of 5 MB, then the OST 0 would
+have an extra 1 MB of data. If the data would be distributed evenly
+between four processes, each process would have 1.5 MB and the access
+would not be stripe aligned: first process needs to access OST 0 and
+1, next process OST 1 and 2, *etc.* processes are not aligned. This
+could now cause network contention issues.
 
 ### Controlling striping
 
+The default stripe size in CSC's Lustre is 1 MB and stripe count is 1,
+i.e. by default the files are not striped. Stripe settings can be,
+however, changed by user which can at best improve the I/O performance
+a lot.
+
 The stripe settings for a file or directory can be queried with the
-`lfs getstripe` command:
+`lfs getstripe` command
 
 ```
 lfs getstripe my_file 
@@ -88,14 +111,15 @@ lmm_stripe_offset: 11
 
 ```
 The output shows that the file is distributed over two OSTs (stripe
-count 2).
+count 2), output also shows that the particular OSTs are 11 and 20.
 
 For a directory, the output shows the settings that will be used for
-any files that will be created in the directory.
+any files to be created in the directory.
 
 Stripe configuration can be set with the `lfs setstripe` command. In
-most cases, it is enough the set the stripe count with the `-c`
-option, however, also other options can be set, see [Lustre
+most cases, it is enough to set the stripe count with the `-c`
+option, however, also other options can be set, see e.g. `man
+lfs-setstripe` or [Lustre
 wiki](https://wiki.lustre.org/Configuring_Lustre_File_Striping).
 
 ```
@@ -145,7 +169,13 @@ One main difference is that for Mahti there are separate MDTs between
 `scratch`, `home`, and `project`, thus the metadata performance does
 not interfere from the different file systems. Moreover, the `scratch` on Mahti can have better performance than the other storage areas if your application and the data size is big enough because of more OSTs and MDTs. On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them.
 
-The peak I/O performance for Mahti is around to 100 GB/sec for write and 115 GB/sec for read. However, this performance was achieved on dedicated system with 64 compute nodes, which means around to 1.5 GB/sec per compute node. If more nodes are used or many jobs do significant I/O, then you will not achieve 1.5 GB/sec, including also that maybe the I/O pattern of an application is not efficient. The corresponding performance for Puhti is half of Mahti.
+The peak I/O performance for Mahti is around to 100 GB/sec for write
+and 115 GB/sec for read. However, this performance was achieved on
+dedicated system with 64 compute nodes, which means around to 1.5
+GB/sec per compute node. If more nodes are used or many jobs do
+significant I/O, then you will not achieve 1.5 GB/sec, including also
+that maybe the I/O pattern of an application is not efficient. The
+corresponding performance for Puhti is half of that of Mahti.
 
 ## Best practices
 

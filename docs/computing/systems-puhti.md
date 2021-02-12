@@ -44,7 +44,7 @@ In addition to the compute nodes above, Puhti has two login nodes with 40 cores 
 Puhti has a 4.8 PB Lustre parallel storage system providing space for [home](disk.md#home-directory), 
 [project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory) storages. 
 
-The Lustre configuration, is not the same between our supercomputers. You can see the Lustre terminology [here](lustre.md)
+The Lustre configuration in Puhti is following (see the Lustre terminology [here](lustre.md)):
 
 |  Name       | Puhti  |        |
 |-------------|--------|--------|
@@ -53,4 +53,7 @@ The Lustre configuration, is not the same between our supercomputers. You can se
 | projappl    |  24    |   4    |
 | scratch     |  24    |   4    | 
 
-On Puhti, all the OSTs and MDTs are shared across the storage areas, thus the performance should be similar between them. The peak performance for Puhti is around ~50 GB/s with 64 compute nodes under dedicated access to the system.
+All the OSTs and MDTs are shared across the storage areas, thus the
+performance should be similar between them. The peak I/O performance
+in Puhti is around ~50 GB/s with 64 compute nodes under dedicated
+access to the system. 
