@@ -4,12 +4,12 @@ Nowadays agile software development methodologies are being used to satisfy
 the continuously changing requirements of a given software. The main aim of 
 agile software development is to continuously and quickly deliver new pieces 
 of software and improve customer satisfaction.  Continuous Integration and 
-Continous Delivery (CI/CD) provides developers the necessary tools to streamline 
+Continuous Delivery (CI/CD) provides developers the necessary tools to streamline 
 and accelerate the speed at which they can deploy new code and become more agile. 
 
 In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes concepts 
 such as _ImageStream_, _BuildConfig_, and _DeploymentConfig_. Please refer to these Kubernetes
-concepts in [Kubernetes and OpenShift concepts](/cloud/rahti/concept/).
+concepts in [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/).
 
 !!! Note
 
@@ -45,7 +45,7 @@ Make sure you are in the right project with `oc project` and if not you can crea
 with `oc new-project <your-new-project-name>`. 
 
 We have all the necessary object definitions in the `rahti-bc-example` project under the `k8s-api-objs.yaml`. 
-Please refer to [Kubernetes and OpenShift concepts](/cloud/rahti/concept/) to understand the objects 
+Please refer to [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/) to understand the objects 
 defined under `k8s-api-objs.yaml`. You can easily create these objects necessary for our CI/CD pipeline using 
 the `oc create` command as follows:
 
@@ -67,7 +67,7 @@ oc start-build dockerfile-example --from-dir=./ -F
 ```
 
 Once the pipeline finishes running you can visit your application deployment 
-by following the route whcih should look like `http://dockerfile-example-<your_project_name>.rahtiapp.fi/`.
+by following the route which should look like `http://dockerfile-example-<your_project_name>.rahtiapp.fi/`.
 This pipeline can be triggered again after any update to your application (e.g. update on `index.html`) and 
 the changes would reflect almost immediately.
 
