@@ -44,7 +44,7 @@ After that you can connect to the new host and it will ask you what operation sy
 
 ![Connecting to a host in VSCode](../../img/VSCode_connect_to_host.png 'Connecting to host')
 
-You are now in Puhti and can open a folder and edit files remotely.
+You are now in Puhti and can open a folder and edit files remotely. Notice that you can also transfer files to Puhti/Mahti by dragging and dropping them to VS Code.
 
 ### Running the code using the terminal
 

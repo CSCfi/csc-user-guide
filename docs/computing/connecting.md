@@ -13,7 +13,7 @@ ssh yourcscusername@mahti.csc.fi
 ```
 Where **yourcscusername** is the username you get from CSC.
 
-In Linux and macOS the `ssh` command can be given in the terminal. In Windows, `ssh` is available within PowerShell, [MobaXterm](https://mobaxterm.mobatek.net/) and [PuTTY](https://putty.org/). If you prefer to use PuTTy, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal session and asks for your CSC-username and password. Guidelines for MobaXterm are provided below (see [Setting up SSH keys](#setting-up-ssh-keys)).
+In Linux and macOS the `ssh` command can be given in the terminal. In Windows, `ssh` is available within PowerShell, [MobaXterm](https://mobaxterm.mobatek.net/) and [PuTTY](https://putty.org/). If you prefer to use PuTTy, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal session and asks for your CSC-username and password. Guidelines for MobaXterm are provided below (see [Setting up SSH keys](#setting-up-ssh-keys)). You can also use some code editors like Visual Studio Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-dev.md).
 
 Once the terminal connection to Puhti is open you can start using it with the Linux command line tools (bash shell). An introduction to operating on the Linux command line can be found, for example, in our [Linux Basics tutorial for CSC](../support/tutorials/env-guide/overview.md). You can have several Puhti connections open at the same time.
 
