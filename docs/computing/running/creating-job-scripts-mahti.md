@@ -72,8 +72,8 @@ with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
 only a single core per NUMA domain or L3 cache (look
-[here](../systems-mahti.md) for details
-about Mahti architecture). Note that billing is, however, always based
+[Mahti technical description](../systems-mahti.md) for details.
+Note that billing is, however, always based
 on full nodes.
 
 When undersubscribing nodes, one should always set
