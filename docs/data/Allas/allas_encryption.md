@@ -220,7 +220,7 @@ Added to the repo: 1.154 KiB
 
 processed 258 files, 2.027 MiB in 0:00
 snapshot e3b46fe2 saved
-<b>
+</b>
 
 With command _restic sanpshots_ we can se that we have two versions of my_data in the backup repositopry:
 
@@ -235,8 +235,30 @@ e3b46fe2  2021-02-12 14:47:18  r07c52.bullx              /run/nvme/job_4891841/d
 2 snapshots
 </pre>
 
-If we would like to get back the first version, we could download it with snapshot id and command _restic restore_
+If we would like to get back the first version, we could download it with snapshot id and command _restic restore_.
 
+<pre><b>restic restore --repo swift:123_restic:/backup a706c054 --target ./ </b>
+enter password for repository: <b>************</b>
+repository a70df2ce opened successfully, password is correct
+found 3 old cache directories in /users/kkmattil/.cache/restic, run `restic cache --cleanup` to remove them
+restoring <Snapshot a706c054 of [/run/nvme/job_4891841/data/my_data] at 2021-02-12 14:43:03.215110283 +0200 EET by kkayttaj@r07c52.bullx> to ./
+</pre>
+
+The actual data is stored as encrypted hash objects that are usable for other Allas tools. For example the data that was stored by resrtic to bucket
+123_restic in the example above loos like below, when listed with rclone:
+```
+rclone ls allas:123_restic
+      155 backup/config
+     1349 backup/data/26/263a8a412486d0fe6278ec1992c3b2dc64352041ca4236de0ddab07a30e7f725
+  2133179 backup/data/46/4643d0d98ef90363629561828a3c113c2ca1acbdefcd3ef0f548724501c1e8f3
+   108646 backup/data/77/77f36c6b6f7b346010d76e6709c8e3e4a61a7bc25dce4ffee726fe2a9b208e48
+      895 backup/data/b7/b757b4f8b370a3f7199d717128f8bcb90139c589b761d2d6e683cbb3943c32e9
+      550 backup/index/3b824311bf222eb9131e83dc22b76ee1686a41deff8db73912a6ec4b58ec7c9c
+    32326 backup/index/9e7e8858bc9e8cdcd96f7020ad9f1246629e3a80b2008c1debec30ac21c2b717
+      458 backup/keys/9f47c0adcdaa29d1e89eab4763fbcf9269c834b6590b45fd9a0ac079e2ee483e
+      272 backup/snapshots/a706c054a77edba31337669ebd851c80f34dfbc3ca92255dee1ff0c0cad8cedf
+      348 backup/snapshots/e3b46fe293fae187a53296f8cde25f7aec9f896e4586d96ac4df78ba27cdd911
+```
 
 
 
