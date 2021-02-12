@@ -1,9 +1,9 @@
 # Tools for client side encryption for Allas
 
 Allas is not certified as high level security storage platform and thus you should not use it to store sensitive data in readable format.
-Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas
+Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas.
 
-This document describes some password based (symmetric) encryption tools that help you to move your sensitive data to Allas so that data gets encrypted before it leaves your local environment. When you use Allas with these encryption tools, remember that:
+This document describes some password based (symmetric) encryption tools that help you to move your sensitive data to Allas so that data gets encrypted before it leaves your secure environment. When you use Allas with these encryption tools, remember that:
    1. You can only store the encrypted data in Allas, but not open it there or in the HPC environment of CSC. 
    2. You should use strong enough passwords and keep them safe
    3. If your forget the encryption password, the data is lost. CSC can't provide you a new password to read your data as the password is set by the users, not CSC.
@@ -16,13 +16,13 @@ In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to t
 ```text
 a-put --encrypt data_dir -b my_allas_bucket
 ``` 
-With the _--encrypt_ option on the data is encrypted with _gpg_ command using _AES256_ encryption algorithm. When you launch the command it will ask for encryption password, and password confirmation. In this approach only the content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
+With the _--encrypt_ option on the data is encrypted with _gpg_ command using _AES256_ encryption algorithm, that generally considerd good enough for sensitive data. When you launch the command it will ask for encryption password, and password confirmation. In this approach only the content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
 
 When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that the object can be decrypted after download.
 
  ## 2. Creating encrypted reposoitury with rclone
  
-Rclone has client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the transported data will be automatically encrypted.
+Rclone has client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the transported data will be automatically encrypted. The automatic encrypiton of rclone is basded on _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it was one of the ecryption tools recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
 
 In the exaple here, we assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. First you have to configure a normal, un-encrypted swift-connection to Allas. This can be done with the _allas_conf_ script that is included in _allas-cli-utils_ package:
 <pre>
@@ -172,6 +172,70 @@ Now you can use your protected configuration file with rclone command. For examp
 rclone copy --config $HOME/rc-encrypt.conf job_6 allas-crypt:job_6
 ```
 
+
+# Restic - Backup tool that includes incryption.
+
+[Restic](https://restic.net/) is a backup program that can use Allas as storage spase fot the abacuped data. In stead of importing the data directly, Restic stores the data as a collection hash. This feature enables effective storage of datasets that include small changes. Thus different versions of a dataset can be stored so that in the case of a new dataset version, only the changes copared to the previous version needs to be stored. This approach also enables retroieving not just the latest versio, also earlier versions of the backupped data. 
+
+In addition to hashing restic encrypts the data using AES256 cipher. Allas specifi backup tool, allas-backp (available in Puhti and Mahti) is based on restic but it uses fixed pre-defined encryption password and thus it shoud not be used, is high security level is require. In those cases you can use restic drectly.
+
+To use Allas as the storge place for Restic, first open connection to Allas. When you start using restic for the first time, you must set up a restic reposirtory.
+The repository definition includes protocol (swift in this case), location that is the buket name in the case of allas and prefix for the  stored data objects. For exaple 
+<pre><b>restic init --repo swift:123_restic:/backup</b>
+enter password for new repository: <b>************</b>
+enter password again: <b>************</b>
+
+created restic repository a70df2ced1 at swift:123_restic:/backup
+
+Please note that knowledge of your password is required to access
+the repository. Losing your password means that your data is
+irrecoverably lost.
+</pre>
+
+The intialization process asks for an ecryption password for the repository. In this case the daat will end up to bucket 
+
+Now you can backup a file or drectory to the restic repository in Allas. In the example below a directory _my_data_ is back-upped.
+
+<pre> <b>restic backup --repo swift:123_restic:/backup my_data/</b>
+enter password for repository: <b>************</b>
+repository a70df2ce opened successfully, password is correct
+created new cache in /users/kkayttaj/.cache/restic
+
+Files:         258 new,     0 changed,     0 unmodified
+Dirs:            0 new,     0 changed,     0 unmodified
+Added to the repo: 2.018 MiB
+
+processed 258 files, 2.027 MiB in 0:00
+snapshot a706c054 saved
+</pre>
+
+After modifying one file in _my_data_ directory we do second backup:
+<pre><b>restic backup --repo swift:123_restic:/backup my_data/</b>
+enter password for repository: <b>************</b>
+repository a70df2ce opened successfully, password is correct
+
+Files:           0 new,     1 changed,   257 unmodified
+Dirs:            0 new,     0 changed,     0 unmodified
+Added to the repo: 1.154 KiB
+
+processed 258 files, 2.027 MiB in 0:00
+snapshot e3b46fe2 saved
+<b>
+
+With command _restic sanpshots_ we can se that we have two versions of my_data in the backup repositopry:
+
+<pre><b>restic snapshots --repo swift:123_restic:/backup</b> 
+enter password for repository: <b>************</b>
+repository a70df2ce opened successfully, password is correct
+ID        Time                 Host          Tags        Paths
+-------------------------------------------------------------------------------------------
+a706c054  2021-02-12 14:43:03  r07c52.bullx              /run/nvme/job_4891841/data/my_data
+e3b46fe2  2021-02-12 14:47:18  r07c52.bullx              /run/nvme/job_4891841/data/my_data
+-------------------------------------------------------------------------------------------
+2 snapshots
+</pre>
+
+If we would like to get back the first version, we could download it with snapshot id and command _restic restore_
 
 
 
