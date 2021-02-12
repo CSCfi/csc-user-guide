@@ -49,15 +49,21 @@ For more information on running R jobs on Puhti, please see the [`r-env-singular
 
 The `saga-gis` module can be loaded with:
 
-`module load gcc/9.1.0 saga-gis`
+```
+module load gcc/9.1.0 saga-gis
+```
 
 You can test that SAGA GIS loaded successfully and print the command line tools help information with:
 
-`saga_cmd -h`
+```
+saga_cmd -h
+```
 
 If you have connected with NoMachine or have X11 enabled on your SSH connection, you can launch a graphical user interface with:
 
-`saga_gui`
+```
+saga_gui
+```
 
 !!! note
         We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti.
