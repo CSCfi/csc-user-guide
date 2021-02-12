@@ -57,7 +57,7 @@ If the original coordinate system is not written to file or GDAL does not unders
 
 **Add coordinate system**
 
-For manually adding coordinate system to a file use **-a_srs** (this does not change the data, just adds information about coordiante system).
+For manually adding coordinate system to a file use **-a_srs** (this does not change the data, just adds information about coordinate system).
 
 `ogr2ogr -a_srs EPSG:2394 output_no_srs.shp input_kkj4.shp`  
 `gdal_edit -a_srs EPSG:3067 input.tif`  
@@ -95,7 +95,7 @@ ogr2ogr -where "admin_level='8'" fin_municipalities.shp finland-latest.osm.pbf m
 
 **Optimize Shape file's dbf-file**
 
-Shape datasets have ofter too big .dbf-files, because field lenghts are based to defaults, not data. For optimizing field lengths for string and integer fields:
+Shape datasets have ofter too big .dbf-files, because field lengths are based to defaults, not data. For optimizing field lengths for string and integer fields:
 
 `ogr2ogr output.shp input.shp –lco RESIZE=YES`
 
@@ -103,7 +103,7 @@ For existing file the same can be done with ogrinfo.
 
 `ogrinfo file1.dbf -sql "RESIZE file1"`
 
-One option for fixing the double type field lengts is to to it manually with OpenCalc. When the .dbf is opened in OpenCalc, the field types and lenghts are displayed on first row, for example: N,19,11\. These can be manually changed to more suitable, for example N,9,2.
+One option for fixing the double type field lengths is to to it manually with OpenCalc. When the .dbf is opened in OpenCalc, the field types and lengths are displayed on first row, for example: N,19,11\. These can be manually changed to more suitable, for example N,9,2.
 
 **CSV to Shape**
 
