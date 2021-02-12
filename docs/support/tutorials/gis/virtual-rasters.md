@@ -62,7 +62,7 @@ Following tools support creating virtual rasters:
 *   [lidR](https://cran.r-project.org/web/packages/lidR/index.html) supports writing lidar data analysis results directly as virtual raster
 * vrt_creator.py in Puhti for custom areas with 2m or 10m DEM
 
-In Puhti glalbuildvrt is included in all [modules including GDAL](../../../apps/gdal.md), Python BuildVRT and QGIS in [geoconda](../../../apps/geoconda.md), R gdalUtils and lidR in [r-singularity-env](../../../apps/r-singularity-env.md) modules.
+In Puhti glalbuildvrt is included in all [modules including GDAL](../../../apps/gdal.md), Python BuildVRT and QGIS in [geoconda](../../../apps/geoconda.md), R gdalUtils and lidR in [r-singularity-env](../../../apps/r-env-singularity.md) modules.
 
 ### Creating virtual raster with GDAL gdalbuildvrt
 
