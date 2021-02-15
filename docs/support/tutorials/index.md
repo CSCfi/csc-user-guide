@@ -13,6 +13,9 @@
 * [Using csc-env](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 
+## Performance
+* [Optimising parallel I/O](lustre_performance.md)
+
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
@@ -30,6 +33,10 @@
 
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
+
+## Geoinformatics
+* [GDAL tutorial](gis/gdal.md)
+* [Virtual rasters](gis/virtual-rasters.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)

@@ -1,8 +1,9 @@
 # Getting started with Puhti
 
 This is a quick start guide for Puhti users. It is assumed
-that you have previously used CSC cluster resources like Taito/Sisu. If not,
-you can start by looking [here](../../computing/overview.md).
+that you have previously used CSC cluster resources like Taito/Sisu.
+If not, you can start by looking at
+[overview of CSC supercomputers](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Puhti or view your projects and their project numbers
 if you already have access.** On Puhti, you can also use command `csc-projects`.
@@ -25,7 +26,7 @@ CSC uses the [Lmod](https://lmod.readthedocs.io) module system.
 Modules are set up in a hierarchical fashion, meaning you need to load a compiler 
 before MPI and other libraries appear.
 
-More information about modules [here](../../computing/modules.md).
+See [more information about modules](../../computing/modules.md).
 
 ## Compilers
 
@@ -33,12 +34,12 @@ The system comes with two compiler families installed, the Intel and GCC compile
 We have installed both the 18 and 19 versions of the Intel compiler, and for GCC 9.1, 8.3 and 7.4 are available.
 The pgi compiler 19.7 is available for building gpu applications.
 
-More information about compilers [here](../../computing/compiling-puhti.md).
+See [more information about compilers](../../computing/compiling-puhti.md).
 
 ## High performance libraries
 
-Puhti has several high performance libraries installed, more
-information [here](../../computing/hpc-libraries.md).
+Puhti has several high performance libraries installed, see [more
+information about libraries](../../computing/hpc-libraries.md).
 
 
 ## MPI
