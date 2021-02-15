@@ -16,17 +16,25 @@ Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed 
 
 After login on the server, give command
 
-    module load openfoam
+    module spider openfoam
 
-the command only lists available versions with some extra information.  For to launch a spesific version, follow given instructions, that is, for example, for to launch OpenFOAM Foundation's versio 7, give command
+The command lists available OpenFOAM versions on the server.  To get more information about a specific version, for example about OpenFOAM Foundation's version 7, use command
 
-    openfoam-7
+    module spider openfoam/7
 
-OpenCFD's versions are recognized of version sign starting with letter v, ie, for to launch version v1906, give command
+For to launch a specific version, here version 7, give command
 
-    openfoam-v1906
+    module load openfoam/7
 
-Version specific example files for a batch job scripts are available on the servers.  The instructions how to copy those example files are printed on the terminal after module loading command. 
+OpenCFD's versions are recognized of version sign starting with letter _v_, ie, for to launch version v1906, give command
+
+    module load openfoam/v1906
+	
+Example files for a batch job script are available on the servers.  After giving the launch command (_module load_, see above), the example script is the file
+
+    $WM_PROJECT_INST_DIR/parjob_openfoam_<server>
+
+where \<server\> is either _puhti_ or _mahti_.  Copy that in your working directory for further modifications.
 
 ### Use collated parallel IO method on CSC's servers
 
