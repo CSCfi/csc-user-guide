@@ -20,11 +20,11 @@ With the _--encrypt_ option on the data is encrypted with _gpg_ command using _A
 
 When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that the object can be decrypted after download.
 
- ## 2. Creating encrypted reposoitury with rclone
+ ## 2. Creating encrypted repository with rclone
  
-Rclone has client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the transported data will be automatically encrypted. The automatic encrypiton of rclone is basded on _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it was one of the ecryption tools recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
+Rclone has client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the transported data will be automatically encrypted. The automatic encryption of rclone is based on _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it was one of the ecryption tools recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
 
-In the exaple here, we assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. First you have to configure a normal, un-encrypted swift-connection to Allas. This can be done with the _allas_conf_ script that is included in _allas-cli-utils_ package:
+In the example here, we assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. First you have to configure a normal, un-encrypted swift-connection to Allas. This can be done with the _allas_conf_ script that is included in _allas-cli-utils_ package:
 <pre>
 source allas-cli-utils/allas_conf -u <i>your-csc-username</i> -p <i>your-csc-project-name</i>
 </pre>
@@ -33,7 +33,7 @@ Once you have configured a normal swift connection to Allas, you can configure a
 
 The _allas_conf_ script has already created an rclone configuration file with _rclone remote_ named as _allas_.
 
-As first step, choose opion: _n_ to create a _new remote_.
+As first step, choose option: _n_ to create a _new remote_.
 The configuration process will ask for a name for the new rclone _remote_.
 In this case, the new remote is named as named as _allas-crypt_.
 
@@ -73,7 +73,7 @@ remote> <b>allas:2001659-crypt</b>
 </pre>
 Next, the configuration process asks if the object and directory names are encrypted. In this case we will encrypt the names so you choose _1_ for both cases.
 
-After that you need to define two passwords, a main password and a so called _salt password_. This password pair will be used for the encryption. You can define these passwords yourself or you can let the configuration process to create them. In any case, store seucurely the passwords you have used. Other users and servewrs may need to use them too. Now the setup is ready an there is now a new rclone remote called _allas-crypt_ defined. You can now exit the configuration process.
+After that you need to define two passwords, a main password and a so called _salt password_. This password pair will be used for the encryption. You can define these passwords yourself or you can let the configuration process to create them. In any case, store securely the passwords you have used. Other users and servers may need to use them too. Now the setup is ready an there is now a new rclone remote called _allas-crypt_ defined. You can now exit the configuration process.
 
 Current remotes:
 <pre>
@@ -112,7 +112,7 @@ The data has now been copied to Allas and you can check the uploaded files with 
        86 results/std.err
  </pre>
 
-The allas-crypt remote translates the edata from the encrypted bucket (allas:2001659-crypt) automatically into readable format. However if you study the content of the encrypted bucket directly, you can see that the object names, as well as the stored data, are in encrypted format:
+The allas-crypt remote translates the data from the encrypted bucket (allas:2001659-crypt) automatically into readable format. However if you study the content of the encrypted bucket directly, you can see that the object names, as well as the stored data, are in encrypted format:
 
 <pre>[kkayttaj@puhti-login3 ~]$ <b>rclone ls allas:2001659-crypt</b>
       125 4lpbj55pc5v8t119q0tp2o6k58/36sb832och3tde30k9nlks3dpo
@@ -155,7 +155,7 @@ The second feature can be quite annoying, especially if you mostly use the norma
 
 For example:
 
-Make a copy of existing rclone cofiguration file (before you define the encrypted connection described above).
+Make a copy of existing rclone configuration file (before you define the encrypted connection described above).
 
 ```text
 cp $HOME/.config/rclone/rclone.conf $HOME/rc-encrypt.conf
@@ -175,12 +175,12 @@ rclone copy --config $HOME/rc-encrypt.conf job_6 allas-crypt:job_6
 
 # Restic - Backup tool that includes incryption.
 
-[Restic](https://restic.net/) is a backup program that can use Allas as storage spase fot the abacuped data. In stead of importing the data directly, Restic stores the data as a collection hash. This feature enables effective storage of datasets that include small changes. Thus different versions of a dataset can be stored so that in the case of a new dataset version, only the changes copared to the previous version needs to be stored. This approach also enables retroieving not just the latest versio, also earlier versions of the backupped data. 
+[Restic](https://restic.net/) is a backup program that can use Allas as storage space for the bacuped data. In stead of importing the data directly, Restic stores the data as a collection hash. This feature enables effective storage of datasets that include small changes. Thus different versions of a dataset can be stored so that in the case of a new dataset version, only the changes compared to the previous version needs to be stored. This approach also enables retrieving not just the latest version, also earlier versions of the backuped data. 
 
-In addition to hashing restic encrypts the data using AES256 cipher. Allas specifi backup tool, allas-backp (available in Puhti and Mahti) is based on restic but it uses fixed pre-defined encryption password and thus it shoud not be used, is high security level is require. In those cases you can use restic drectly.
+In addition to hashing Restic encrypts the data using AES256 cipher. Allas specifi backup tool, allas-backp (available in Puhti and Mahti) is based on restic but it uses fixed pre-defined encryption password and thus it should not be used, is high security level is require. In those cases you can use Restic directly.
 
-To use Allas as the storge place for Restic, first open connection to Allas. When you start using restic for the first time, you must set up a restic reposirtory.
-The repository definition includes protocol (swift in this case), location that is the buket name in the case of allas and prefix for the  stored data objects. For exaple 
+To use Allas as the storage place for Restic, first open connection to Allas. When you start using restic for the first time, you must set up a restic repository.
+The repository definition includes protocol (swift in this case), location that is the bucket name in the case of Allas and prefix for the stored data objects. For example 
 <pre><b>restic init --repo swift:123_restic:/backup</b>
 enter password for new repository: <b>************</b>
 enter password again: <b>************</b>
@@ -192,9 +192,9 @@ the repository. Losing your password means that your data is
 irrecoverably lost.
 </pre>
 
-The intialization process asks for an ecryption password for the repository. In this case the daat will end up to bucket 
+The initialization process asks for an encryption password for the repository. 
 
-Now you can backup a file or drectory to the restic repository in Allas. In the example below a directory _my_data_ is back-upped.
+Now you can backup a file or directory to the Restic repository in Allas. In the example below a directory _my_data_ is back-upped.
 
 <pre> <b>restic backup --repo swift:123_restic:/backup my_data/</b>
 enter password for repository: <b>************</b>
@@ -220,7 +220,7 @@ Added to the repo: 1.154 KiB
 
 processed 258 files, 2.027 MiB in 0:00
 snapshot e3b46fe2 saved
-</b>
+</pre>
 
 With command _restic sanpshots_ we can se that we have two versions of my_data in the backup repositopry:
 
