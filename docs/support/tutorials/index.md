@@ -34,6 +34,10 @@
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
 
+## Geoinformatics
+* [GDAL tutorial](gis/gdal.md)
+* [Virtual rasters](gis/virtual-rasters.md)
+
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
 
