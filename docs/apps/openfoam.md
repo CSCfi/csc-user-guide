@@ -14,19 +14,19 @@ Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed 
 
 ## Usage
 
-After login on the server, give command
+After login on to the server, give the command
 
     module spider openfoam
 
-The command lists available OpenFOAM versions on the server.  To get more information about a specific version, for example about OpenFOAM Foundation's version 7, use command
+The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example about OpenFOAM Foundation's version 7, use the command
 
     module spider openfoam/7
 
-For to launch a specific version, here version 7, give command
+To launch a specific version, here version 7, give the command
 
     module load openfoam/7
 
-OpenCFD's versions are recognized of version sign starting with letter _v_, ie, for to launch version v1906, give command
+OpenCFD's versions are recognized by a version string starting with letter _v_, ie, to launch version v1906, give the command
 
     module load openfoam/v1906
 	
@@ -34,14 +34,14 @@ Example files for a batch job script are available on the servers.  After giving
 
     $WM_PROJECT_INST_DIR/parjob_openfoam_<server>
 
-where \<server\> is either _puhti_ or _mahti_.  Copy that in your working directory for further modifications.
+where \<server\> is either _puhti_ or _mahti_.  Copy that into your working directory for further modifications.
 
 ### Use collated parallel IO method on CSC's servers
 
 -   on CSC's computing servers, use OpenFOAM's [collated IO method](https://openfoam.org/news/parallel-io/) when ever possible
 -   use of collated method absolutely necessary when the model size is large and lot of disk IO is necessary
 
-The file system used in CSC's computing platforms Puhti and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become hevily overloaded, and the whole computing platform can get jammed.
+The file system used in CSC's computing platforms Puhti and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become heavily overloaded, and the whole computing platform can get jammed.
 
 Above described, OpenFOAM's traditional parallel IO method can in the latest versions of OpenFOAM be replaced with collated parallel IO method, where the output data is written only in few files.  Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
 
