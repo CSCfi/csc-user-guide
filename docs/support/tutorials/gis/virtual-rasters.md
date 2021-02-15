@@ -38,7 +38,7 @@ with rasterio.open(vrt_path) as src:
 ```
 
 
-### Running analysis that reads only some parts of the virtual raster**
+### Running analysis that reads only some parts of the virtual raster
 
 It's possible to work with very large virtual rasters when the analysis doesn't actually need to output a raster of similar size. A good example would be calculating zonal statistics for polygons spread out across large area, see [CSC training github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats) for example. In this case raster data is read only from areas overlapping with the polygons.
 
