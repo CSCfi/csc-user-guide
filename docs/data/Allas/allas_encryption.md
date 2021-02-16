@@ -9,7 +9,7 @@ This document describes some password based (symmetric) encryption tools that he
  .  3. If your forget the encryption password, the data is lost. CSC can't provide you a new password to read your data as the password is set by the users, not CSC.
    
    
-  ## 1. Encrypting single file or directory with a-put
+## 1. Encrypting single file or directory with a-put
   
 In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use a-put with option _--encrypt_ to encrypt the file or directory you want to upload to Allas. For example:
  
@@ -20,7 +20,7 @@ With the _--encrypt_ option on the data is encrypted with _gpg_ command using _A
 
 When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that the object can be decrypted after download.
 
- ## 2. Creating encrypted repository with rclone
+## 2. Creating encrypted repository with rclone
  
 Rclone has client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted rclone connection to Allas and when this connection is used, all the transported data will be automatically encrypted. The automatic encryption of rclone is based on _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it was one of the ecryption tools recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
 
@@ -173,7 +173,7 @@ rclone copy --config $HOME/rc-encrypt.conf job_6 allas-crypt:job_6
 ```
 
 
-# Restic - Backup tool that includes incryption.
+## Restic - Backup tool that includes encryption
 
 [Restic](https://restic.net/) is a backup program that can use Allas as storage space for the bacuped data. In stead of importing the data directly, Restic stores the data as a collection hash. This feature enables effective storage of datasets that include small changes. Thus different versions of a dataset can be stored so that in the case of a new dataset version, only the changes compared to the previous version needs to be stored. This approach also enables retrieving not just the latest version, also earlier versions of the backuped data. 
 
