@@ -4,9 +4,12 @@ Allas is not certified as high level security storage platform and thus you shou
 Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas.
 
 This document describes some password based (symmetric) encryption tools that help you to move your sensitive data to Allas so that data gets encrypted before it leaves your secure environment. When you use Allas with these encryption tools, remember that:
+   
    1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in evironments with high enough secututy level. For example in the HPC environment of CSC is NOT secure enough for sensitive data. 
-   2. You should use strong enough enryption passwords and keep them safe
- .  3. If your forget the encryption password, the data is lost. CSC can't provide you a new password to read your data as the password is set by the users, not CSC.
+   
+   2. You should use strong enough enryption passwords and keep them safe.  
+   
+   3. If your forget the encryption password, the data is lost. CSC can't provide you a new password to read your data as the password is set by the users, not CSC.
    
    
 ## 1. Encrypting single file or directory with a-put
