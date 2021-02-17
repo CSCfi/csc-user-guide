@@ -8,6 +8,7 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
+* 3.16 in a singularity container
 * 3.14 via conda in geoconda-3.8
 * 3.10 via conda in geoconda-3.7
 
@@ -15,13 +16,36 @@ __QGIS__ is available in Puhti with following versions:
 
 ### Using QGIS with graphical user interface
 
+QGIS has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation.
+
+### Singularity installation
+
+You can load the singularity installation with
+
+```
+module load qgis
+```
+
+And after that, you can start QGIS preferably in an interactive session with
+
+```
+sinteractive -i
+qgis
+```
+
+### Conda installation
+
 QGIS is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
 
-`module load geoconda`
+```
+module load geoconda
+```
 
 If you are using [NoMachine](nomachine.md) or have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface with
 
-`qgis`
+```
+qgis
+```
 
 !!! note
     The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
