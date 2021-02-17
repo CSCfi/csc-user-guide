@@ -29,7 +29,7 @@ You can also use the command line tools that come in GRASS. See the [GRASS GIS m
 
 For GRASS commands to work in Puhti, you need to add `singularity_wrapper exec` before the GRASS commands. 
 
-For example printing the instrucitons for the command grass74
+For example printing the instructions for the command grass74
 
 ```
 singularity_wrapper exec grass74 -h
