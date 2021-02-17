@@ -58,7 +58,7 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | test      | 1-2         | 1  hours      | all              |
 | medium    | 1-20        | 36 hours      | all              |
 | large     | 20-200      | 36 hours      | scalability test |
-| gc        | 1-700       | 36 hours      | Grand Challenge  |
+| gc        | 200-700       | 36 hours      | Grand Challenge  |
 | interactive | 1         |  7 days       | all              |
 
 [Interactive partition](./interactive-usage.md#sinteractive-in-mahti), is intended for pre- and post processing tasks. 
@@ -69,8 +69,6 @@ gives better performance. In these partitions billing is based on the allocated 
 
 The _large_ partition on Mahti is only accessible to projects that have done a
 [scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
-`qc` is only accessible to Grand Challenge projects and has a higher
-priority.
-
+`gc` is only accessible to Grand Challenge projects and allows users to run extremely large simulations. 
 
 
