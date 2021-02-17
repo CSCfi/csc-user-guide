@@ -6,12 +6,15 @@
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
-* [CSC Quick reference (pdf)](../../img/csc-quick-reference-2020-11-10.pdf)
+* [CSC Quick reference (pdf)](../../img/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/overview.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
+
+## Performance
+* [Optimising parallel I/O](lustre_performance.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
@@ -30,6 +33,10 @@
 
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
+
+## Geoinformatics
+* [GDAL tutorial](gis/gdal.md)
+* [Virtual rasters](gis/virtual-rasters.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
