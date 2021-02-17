@@ -1,8 +1,8 @@
 # QGIS
 
-[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysising geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
+[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
 
-In Puhti, QGIS could be used for example to visualize the resulting files from other sources (lastools, grass, python)
+In Puhti, QGIS could be used for example to visualize the resulting files from other sources (lastools, R, python)
 
 ## Available
 
@@ -16,41 +16,37 @@ __QGIS__ is available in Puhti with following versions:
 
 ### Using QGIS with graphical user interface
 
-QGIS has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation.
+First, connect to Puhti with [NoMachine](nomachine.md). A SSH connection with __X11 forwarding__ should also work, but is likely slower.
 
-### Singularity installation
-
-You can load the singularity installation with
-
-```
-module load qgis
-```
-
-And after that, you can start QGIS preferably in an interactive session with
+Second, start an [interactive session](../computing/running/interactive-usage.md)
 
 ```
 sinteractive -i
+```
+
+QGIS has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation.
+
+
+### Singularity installation
+
+Load the module and start QGIS
+
+```
+module load qgis
 qgis
 ```
 
 ### Conda installation
 
-QGIS is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+QGIS is older older versions are included in the [geoconda](../apps/geoconda.md) module and can be started with
 
 ```
 module load geoconda
-```
-
-If you are using [NoMachine](nomachine.md) or have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface with
-
-```
 qgis
-```
+```    
 
-!!! note
-    The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
-
-It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/) library
+### PyQGIS
+It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). With `qgis module` use `python3` for accessing PyQGIS libraries.
 
 
 ### QGIS and Allas
@@ -67,3 +63,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 * [QGIS homepage](https://www.qgis.org/)
 * [QGIS tutorials](https://www.qgistutorials.com/en/)
 * [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
+* [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
