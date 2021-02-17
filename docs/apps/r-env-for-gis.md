@@ -97,10 +97,12 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 ## References
 
-* [Geocomputation with R (book)](https://geocompr.robinlovelace.net/)
-* [CSC course on spatial R](https://www.csc.fi/web/training/-/spatial-data-analysis-with-1)
-* [Intro to GIS and Spatial analysis](https://mgimond.github.io/Spatial/index.html)
-* [List of spatial R packages](https://cran.r-project.org/web/views/Spatial.html)
-* [Spatial data science with R](https://rspatial.org/index.html)
-* [Spatial analysis examples (CSC)](https://github.com/csc-training/geocomputing/tree/master/R)
+* [Examples for using R spatial packages for GIS in Puhti](https://github.com/csc-training/geocomputing/tree/master/R), CSC
+* [List of spatial R packages in CRAN](https://cran.r-project.org/web/views/Spatial.html)
+* [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/), Edzer Pebesma, Roger Bivand
+* [Geocomputation with R](https://geocompr.robinlovelace.net/), Robin Lovelace, Jakub Nowosad, Jannes Muenchow
+* [Spatial data science with R](https://rspatial.org/index.html), Robert J. Hijmans
+* [Intro to GIS and Spatial analysis](https://mgimond.github.io/Spatial/index.html), Manuel Gimond
+* [Spatial Modelling for Data Scientists](https://gdsl-ul.github.io/san/), Francisco Rowe, Dani Arribas-Bel
 * [Tutorial for geospatial R tools](https://datacarpentry.org/r-raster-vector-geospatial/)
+* [CSC course on spatial R](https://www.csc.fi/web/training/-/spatial-data-analysis-with-1), Marko Kallio, Juha Aalto
