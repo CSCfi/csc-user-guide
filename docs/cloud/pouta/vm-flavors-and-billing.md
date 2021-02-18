@@ -212,7 +212,7 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 **hpc.5.\*:**
 
 -   Redundant power
--      CPU:   AMD EPYC 7702 64-Core Processor,
+-   CPU:  AMD EPYC 7702 64-Core Processor,
 -   Network: Redundant 25 Gb/s
 -   Flavor disk: Stored in the central storage
 -   Single-node failure may cause downtime, but instances
@@ -221,7 +221,7 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 **hpc.4.\*:**
 
 -   No redundant power
--      CPU:   Intel(R)    Xeon(R)   Gold    6148   CPU    @   2.40GHz,
+-   CPU: Intel(R)    Xeon(R)   Gold    6148   CPU    @   2.40GHz,
     ***hyper-threading***
 -   Network: Redundant 25 Gb/s
 -   Flavor disk: Stored in the central storage
