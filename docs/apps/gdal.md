@@ -39,8 +39,7 @@ You can test if gdal loaded successfully with following
 `gdalinfo --version`
 
 
-
-## Using files directly from Allas
+### Using files directly from Allas
 
 It is possible to __read__ files from Allas directly with GDAL, but not to write. For results, write them first to Puhti scratch and move later to Allas. The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
 
@@ -81,9 +80,9 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 * `allas-conf` command saves your credentials in your home directory to .aws/credentials file. This needs to be run only once before first use or when you want to switch to another CSC project.
 
 
-## Virtual rasters
+### Virtual rasters
 
-With large quantities of raster data (also in Allas), the most convenient method of accessing them might be GDAl virtual rasters. More information [here](https://research.csc.fi/virtual_rasters). 
+With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
 ## License and citing
 
@@ -91,9 +90,9 @@ GDAL/OGR is licensed under an [MIT/X style license](https://gdal.org/license.htm
 
 In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
-### References
+## References
 
-* [GDAL tutorials](https://gdal.org/tutorials/index.html)
-* [GDAL Github](https://github.com/OSGeo/GDAL)
-* [GDAL commands](https://gdal.org/programs/index.html)
-* [GDAL Virtual Rasters in Puhti](https://research.csc.fi/virtual_rasters)
+* [GDAL documentation, programs](https://gdal.org/programs/index.html)
+* [GDAL tutorial by CSC](../support/tutorials/gis/gdal.md)
+* [GDAL cheat sheet](https://github.com/dwtkns/gdal-cheat-sheet)
+* [GDAL Linux examples](https://github.com/clhenrick/shell_scripts)

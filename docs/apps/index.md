@@ -115,10 +115,12 @@
 * [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
+* [GRASS GIS](grass.md) GIS application for analysis, image processing, spatial modeling, and visualization
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [OpenDroneMap](opendronemap.md) open source command line toolkit for processing aerial drone imagery
 * [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
+* [PCL](pcl.md) tools for 2D/3D image and point cloud processing
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
