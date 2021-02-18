@@ -14,14 +14,7 @@ Currently all FGCI usage is controlled through the one VO called
 *fgi.csc.fi*. This is the same VO that was previously used for FGI grid
 and the name was preserved when FGCI was taken in use. In the future
 there may also be other, more focused VOs in FGCI. The *fgi.csc.fi* VO
-is open for all academic university researchers working in Finland. To
-join the *fgi.csc.fi* VO first download and install following
-certificate to your browser:
-
-<span id="OBJ_PREFIX_DWT4379_com_zimbra_url" class="Object"
-role="link"><span id="OBJ_PREFIX_DWT4398_com_zimbra_url"
-class="Object-hover"
-role="link"><http://ca.nordugrid.org/NorduGrid-2015.crt></span></span>
+is open for all academic university researchers working in Finland.
 
 Then go to [FGI Virtual Organization web page](https://voms.fgi.csc.fi:8443/voms/fgi.csc.fi)
 
