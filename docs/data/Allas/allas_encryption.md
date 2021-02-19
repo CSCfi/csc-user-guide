@@ -19,7 +19,7 @@ In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to t
 ```text
 a-put --encrypt data_dir -b my_allas_bucket
 ``` 
-With the _--encrypt_ option on the data is encrypted with _gpg_ command using _AES256_ encryption algorithm, that generally considerd good enough for sensitive data. When you launch the command it will ask for encryption password, and password confirmation. In this approach only the content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
+With the _--encrypt_ option on the data is encrypted with _gpg_ command using _AES256_ encryption algorithm, that generally considered good enough for sensitive data. When you launch the command it will ask for encryption password, and password confirmation. In this approach only the content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
 
 When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that the object can be decrypted after download.
 
