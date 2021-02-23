@@ -16,7 +16,7 @@ If resources are requested simply by:
 the queuing system may spread them on tens of nodes (just a few cores each).
 This will be very bad for the performance of the job, and will cause a lot of
 (unnecessary) communication in the system interconnect. If the performance of
-your parallel jobs has decreased, this could be the reason. 
+your parallel jobs has decreased, this could be the reason.
 Overall, this should be avoided. This also
 fragments the system increasing queuing times for large jobs.
 
@@ -56,7 +56,7 @@ should be run in Mahti.
 Many HPC applications benefit from binding OpenMP threads to CPU cores
 which can be achieved by setting `export OMP_PLACES=cores` in the
 batch job script. Note! Due to bug in OpenBLAS thread binding should not be
-specified when using threaded OpenBLAS (openblas/0.3.10-omp module). 
+specified when using threaded OpenBLAS (openblas/0.3.10-omp module).
 
 When starting new production runs it is also good
 practice to ensure correct thread affinity by adding to batch job
@@ -94,15 +94,32 @@ completes faster.
 Note, that not all codes or job types can be run in parallel. Confirm this first
 for your code.
 
-## Mind your IO - it can make a big difference
+## Mind your I/O - it can make a big difference
 
-If your workload writes or reads a large number of small files then you may see poor IO performance
-even if the total volume is not that big. Please consider the following items to mitigate potential bottlenecks:
+If your workload writes or reads a large number of small files then you may
+see poor I/O performance even if the total volume is not that big. Please
+consider the following items to mitigate potential bottlenecks:
 
-* Use local storage for especially AI workloads instead of scratch. Only some nodes have
- [fast local disk](../creating-job-scripts-puhti/#local-storage), but we've seen
-  10 fold performance improvement by switching to use it. Check your performance: don't
-  use the resource if it doesn't help. [AI batch job example](../../../support/tutorials/gpu-ml/#data-storage)
-* Investigate if you can choose how your application does IO (e.g. OpenFoam can use the collated file format) and don't write unnecessary  information on disk or do it too often (Gromacs with the `-v` flag should not be used at CSC).
-* One way to avoid a large number of (small) files is to set up your complex python or R
- based software in a singularity container. This also helps with the [file number quotas](../../disk/) on projappl. Detailed examples on how to do this are being written.
+* Use local storage for especially AI workloads instead of scratch. Only some
+  nodes have [fast local disk](creating-job-scripts-puhti.md#local-storage),
+  but we've seen 10 fold performance improvement by switching to use it. Check
+  your performance: don't use the resource if it doesn't help.
+  [AI batch job example](../../support/tutorials/gpu-ml.md#data-storage)
+* Investigate if you can choose how your application does I/O (e.g. OpenFoam
+  can use the collated file format) and don't write unnecessary information
+  on disk or do it too often (e.g. Gromacs with the `-v` flag should not be
+  used at CSC).
+* One way to avoid a large number of (small) files is to set up your complex
+  python or R based software in a singularity container. This also helps with
+  the [file number quotas](../disk.md) on projappl. Detailed examples on how
+  to do this are being written.
+
+For applications writing and reading large files, I/O performance can be often
+improved by proper Lustre settings:
+
+* If your application performs parallel I/O, set a proper stripe count
+  with `lfs setstripe -c`, more details in
+  [Lustre best practices](../lustre.md#best-practices).
+* Use collective parallel I/O if possible.
+* See also more extensive
+  [I/O optimization hints](../../support/tutorials/lustre_performance.md).

@@ -2,8 +2,8 @@
 
 This is a quick start guide for Mahti users. It is assumed that you have
 previously used CSC supercomputing resources like Puhti, Sisu or
-Taito. If not, you can start by looking
-[here](../../computing/overview.md).
+Taito. If not, you can start by looking at
+[overview of CSC supercomputers](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Mahti or
 view your projects and their project numbers if you already have
@@ -23,8 +23,8 @@ Where **yourcscusername** is the username you get from CSC.
 
 Modules are set up in a hierarchical fashion, meaning you need to load
 a compiler before MPI and other libraries appear. CSC uses the
-[Lmod](https://lmod.readthedocs.io) module system. More information
-about modules [here](../../computing/modules.md).
+[Lmod](https://lmod.readthedocs.io) module system. See [more information
+about modules](../../computing/modules.md).
 
 Default modules, which are loaded automatically, are `gcc/9.3.0`,
 `openmpi/4.0.3` and `openblas/3.10`.
@@ -41,15 +41,15 @@ In Mahti, many applications benefit from hybrid MPI/OpenMP
 parallelization, so it is recommended to build a hybrid version if it
 is supported by your application.
 
-More information about compilers [here](../../computing/compiling-mahti.md).
+See [more information about compilers](../../computing/compiling-mahti.md).
 
 !!! warning "Note" 
     You need to have the MPI module loaded when submitting your jobs
 
 ## High performance libraries
 
-Mahti has several high performance libraries installed, more
-information [here](../../computing/hpc-libraries.md).
+Mahti has several high performance libraries installed, see [more
+information about libraries](../../computing/hpc-libraries.md).
 
 ## Applications
 
