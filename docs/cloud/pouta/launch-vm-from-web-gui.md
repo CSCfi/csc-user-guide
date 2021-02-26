@@ -157,6 +157,16 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 **Figure** Floating IP association dialog
 
 !!! Tip
-    Please note: Allocated and assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
+    Please note: Allocated and assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
+
+## Adding a security groups to the machine in cPouta
+
+At each time, a new security group can be created and added to the project. Different security rules can be added to the new security group. 
+
+![Create a security group](/img/create_security_group.png)
+
+The new security group can be added to different virtual machine. A virtual machine can have many security groups. Different security groups can be added or removed from idfferent VMs. 
+
+![Attach a security group](/img/attach_security_group_vm.png)
 
   [Applying for Pouta access]: ../../accounts/how-to-add-service-access-for-project.md
