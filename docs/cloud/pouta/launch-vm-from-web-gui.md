@@ -161,12 +161,16 @@ Click the plus to create a new IP, select the IP, select your machine under **In
 
 ## Adding a security groups to the machine in cPouta
 
-At each time, a new security group can be created and added to the project. Different security rules can be added to the new security group. 
+In the project, a user can manage the security group by creating or updating existing ones. A security group can be updated by adding different security rules for allowing or preventing network traffics. 
 
 ![Create a security group](/img/create_security_group.png)
 
-The new security group can be added to different virtual machine. A virtual machine can have many security groups. Different security groups can be added or removed from idfferent VMs. 
+**Figure** Creating and managing security groups
+
+The new security group can be added to different virtual machines. A virtual machine can have many security groups. Different security groups can be added or removed from idfferent VMs. 
 
 ![Attach a security group](/img/attach_security_group_vm.png)
+
+**Figure** Managing security groups for virtual machine
 
   [Applying for Pouta access]: ../../accounts/how-to-add-service-access-for-project.md
