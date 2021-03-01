@@ -167,7 +167,7 @@ In the project, a user can manage the security group by creating or updating exi
 
 **Figure** Creating and managing security groups
 
-The new security group can be added to different virtual machines. A virtual machine can have many security groups. Different security groups can be added or removed from idfferent VMs. 
+The new security group can be added to different virtual machines. A virtual machine can have many security groups. Different security groups can be added or removed from the existing VMs. 
 
 ![Attach a security group](/img/attach_security_group_vm.png)
 
