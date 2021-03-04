@@ -69,6 +69,6 @@ gives better performance. In these partitions billing is based on the allocated 
 
 The _large_ partition on Mahti is only accessible to projects that have done a
 [scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
-`gc` is only accessible to Grand Challenge projects and allows users to run extremely large simulations. 
+_gc_ is only accessible to [Grand Challenge projects](https://research.csc.fi/grand-challenge-proposals) and allows users to run extremely large simulations. 
 
 
