@@ -29,16 +29,20 @@ A short video will appear in here.
 !!! note 
     this _may_ require admin privileges
 
-Download the NoMachine Enterprise _client_ (not the Desktop) from here: [https://www.nomachine.com/download-enterprise](https://www.nomachine.com/download-enterprise)
+Download the **NoMachine Enterprise client** (not the Desktop) from here: [https://www.nomachine.com/download-enterprise](https://www.nomachine.com/download-enterprise)
 
 ## Configuration
 
-1.   Open NoMachine and click "new" at the top bar (or "Create a new connection" if you see one).
-2.   Accept the "NX" protocol and click continue.
-3.   Fill in nxkajaani.csc.fi as the host, keep the port default port (4000) and click continue.
-4.   Accept the default (password) and click continue.
-5.   Unless you know that you need a proxy, accept the default (no proxy) and click continue. If your organization uses a proxy, contact your local IT support for the configuration.
-6    Give some name for your setup and click Done.
+1.   Open NoMachine and click "Add" at the top bar.
+2.   In the address tab fill in:
+     * name: CSC 
+     * host: `nxkajaani.csc.fi`
+     * port: `4000` (default)
+     * protocol: `NX` (default)
+3.  In configuration tab the default settings are normally ok, inc `Use password authenitcation`. 
+5.  Click Connect.
+
+If you need to use proxy, it can be done from main menu Settings -> Security tab.
 
 ## Open connection
 
