@@ -39,7 +39,7 @@ Download the **NoMachine Enterprise client** (not the Desktop) from here: [https
      * host: `nxkajaani.csc.fi`
      * port: `4000` (default)
      * protocol: `NX` (default)
-3.  In configuration tab the default settings are normally ok, inc `Use password authenitcation`. 
+3.  In configuration tab the default settings are normally ok, inc `Use password authentication`. 
 5.  Click Connect.
 
 If you need to use proxy, it can be done from main menu Settings -> Security tab.
