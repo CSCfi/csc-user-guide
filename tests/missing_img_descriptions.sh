@@ -5,7 +5,7 @@ while IFS= read -r res; do
     f_name=${arr[0]}
     if [[ ! "$f_name" = "$old_f_name" ]]; then
         old_f_name=$f_name
-        echo "Missing alt-txt in file $f_name"
+        echo "Missing title or alt-txt in file $f_name"
     fi
     line=${arr[1]}
     link=("${arr[@]:2}")
