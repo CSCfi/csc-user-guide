@@ -39,8 +39,8 @@ Download the **NoMachine Enterprise client** (not the Desktop) from here: [https
      * host: `nxkajaani.csc.fi`
      * port: `4000` (default)
      * protocol: `NX` (default)
-3.  In configuration tab the default settings are normally ok, inc `Use password authentication`. 
-5.  Click Connect.
+3.  In configuration tab the default settings are normally ok, including `Use password authentication`. 
+4.  Click Connect.
 
 If you need to use proxy, it can be done from main menu Settings -> Security tab.
 
@@ -51,7 +51,7 @@ If you need to use proxy, it can be done from main menu Settings -> Security tab
 3.   After a while, you'll be shown a few pages presenting the different functionality of NoMachine.
     In the first screen, untick the box from "Change server resolution to match the client when I reconnect".
 4.   Take a while to read through, and if you don't want to see them again, click the box at lower right corner, proceed with "ok".
-5.   Once you see a black screen, you're there. Now right click at the black background and select "CSC local servers" then "puhti" / "mahti.
+5.   Once you see a black screen, you're there. Now right click at the black background and select "CSC local servers" then "Puhti" / "Mahti.
 6.   You'll be prompted for your CSC password. Give it, and you'll have a terminal open on Puhti / Mahti. The terminal can display remote graphics.
 
 ## Recommended tips
