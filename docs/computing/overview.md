@@ -72,14 +72,14 @@ Puhti-AI's V100 GPUs should only be used for the following workloads:
 
  * Machine Learning (ML) / Artificial Intelligence (AI) workloads
  * Code development for porting codes GPUs 
- * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should be at least **2x** as fast on one V100 GPU compared to one Puhti node. 
+ * HPC applications benefitting greatly from GPUs, or even only supporting GPUs. This means that the code should be at least **2x** as fast on one V100 GPU compared to one Puhti node. Please confirm this for your use case and keep the log files and corresponding SLURM jobids in case we ask for them later.
 
 
 Mahti-AI's A100 GPUs (coming soon) should only be used for the following workloads:
 
  * ML/AI workloads
  * Code development for porting codes GPUs 
- * HPC applications that can use the new hardware features in A100 (tensor cores). This means that the code should be at least **3x** as fast on one A100 GPU compared to one Mahti node. 
+ * HPC applications that can use the new hardware features in A100 (tensor cores). This means that the code should be at least **3x** as fast on one A100 GPU compared to one Mahti node. Please confirm this for your use case and keep the log files and corresponding SLURM jobids in case we ask for them later.
 
 
 

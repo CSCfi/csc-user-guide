@@ -106,7 +106,7 @@ Pekka creates a new bucket with public access and uploads the data to the bucket
 ```text
 a-publish -b hiano-project-public001 zz_364872.dat zz_242165.dat
 ```
-Next Pekka describes basic information about the data in [Fairdata Qvain Light Tool](https://www.fairdata.fi/en/qvain/) and provides the two URLs (one for each file in Allas) as a Remote Resource in Qvain. After this the data can then be published as a dataset with a landing page and a persistent identifier. This way the preliminary data can be shared among colleaques using this persistent identifier. The dataset can also be explored via [Fairdata Etsin Service](https://www.fairdata.fi/en/etsin/) with structured information and direct access to download the files in Allas.
+Next Pekka describes basic information about the data in [Fairdata Qvain Tool](https://www.fairdata.fi/en/qvain/) and provides the two URLs (one for each file in Allas) as a Remote Resource in Qvain. After this the data can then be published as a dataset with a landing page and a persistent identifier. This way the preliminary data can be shared among colleaques using this persistent identifier. The dataset can also be explored via [Fairdata Etsin Service](https://www.fairdata.fi/en/etsin/) with structured information and direct access to download the files in Allas.
 
 
 ## Act 5. The end ##
