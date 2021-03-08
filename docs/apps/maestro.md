@@ -1,3 +1,6 @@
+---
+description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
+---
 # Maestro
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
@@ -8,7 +11,7 @@ chemical model systems.
 
 ## Available
 
-Puhti: 2019.4, 2020.2, 2020.3, 2020.4
+Puhti: 2020.3, 2020.4, 2021.1
 
 
 ## License
