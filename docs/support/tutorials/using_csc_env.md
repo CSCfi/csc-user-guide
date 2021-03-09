@@ -1,4 +1,4 @@
-# csc-env
+# csc-env command
 
 `csc-env` is a command line tool for testing for common issues in the programming environment,
 and resetting the login- and ssh-settings on CSC supercomputers.
