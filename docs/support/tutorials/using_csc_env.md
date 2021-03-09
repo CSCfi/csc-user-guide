@@ -1,4 +1,4 @@
-# csc-env
+# csc-env command
 
 `csc-env` is a command line tool for testing for common issues in the programming environment,
 and resetting the login- and ssh-settings on CSC supercomputers.
@@ -135,6 +135,17 @@ If you accidentally do `csc-env reset` twice in a row, do not panic, your files 
 See the next chapter for information on how to recover them. 
 
 ### Advanced usage
+
+#### Running commands in a clean environment
+
+Using the command `csc-env run-base` the user can be dropped into a
+new shell where no user modifications are present. This is useful for testing and debugging
+without changes to any files. Running a command in a clean environment can be done with
+`csc-env run-base -- -c "command args"`
+
+Note that clean here means the default login settings (so default modules will be loaded)
+
+#### Manually creating and selecting saves 
 
 Each invocation of `csc-env reset` or `csc-env restore` automatically saves the current selected settings. 
 The command `csc-env list-saved` will list all saves:
