@@ -31,7 +31,7 @@ while IFS= read -r head; do
     if [[ "$h_print" = "true" ]] && ( [[ "$skip" -gt 1 ]] || [[ "$unique_h1" = "false"  ]] ); then
         h_print=false 
         ret_code=1
-        echo "Incorrect headders in file $md_file"
+        echo "Incorrect headers in file $md_file"
     fi
     if  [[ "$skip" -gt 1 ]]; then
         echo -e "\t$(eval $(echo printf '"#%0.s"' {1..$lvl})) $h_name"
@@ -40,12 +40,12 @@ while IFS= read -r head; do
     
     if [[ "$unique_h1" = "false" ]];then
         echo -e "\t # $h_name"
-        echo -e "\t   Multiple level 1 headders"
+        echo -e "\t   Multiple level 1 headers"
         unique_h1=true
     fi
     prev_lvl=$lvl
 done <<< "$lvsl"
 if [[ $ret_code -eq 0 ]]; then
-    echo "Headders are ok"
+    echo "Headers are ok"
 fi
 exit $ret_code
