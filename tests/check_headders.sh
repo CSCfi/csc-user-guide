@@ -1,9 +1,10 @@
+source tests/common_functions.sh
 lvsl=$(grep -r "<\s*h[0-9][^>]*>[^<]*</h[0-9]>" --include=*.html $1 -o | grep -v "toc-title" | sed 's/\s*id=\s*"[a-z,0-9, _,-]*"\s*//g' | sed 's/<\/h[0-9]>//g' | sed 's/<h//g' | sed 's/>/:/g')
-
 old_f_name=""
 prev_lvl="100"
 h1_found=false
 unique_h1=true       
+ret_code=0
 while IFS= read -r head; do
     IFS=':' read -r -a arr <<< "$head"
     f_name=${arr[0]}
@@ -26,9 +27,10 @@ while IFS= read -r head; do
         h1_found=true
     fi
     skip=$(( lvl-prev_lvl ))
-    h_name="${arr[@]:2}"
+    h_name=$(join_by : "${arr[@]:2}")
     if [[ "$h_print" = "true" ]] && ( [[ "$skip" -gt 1 ]] || [[ "$unique_h1" = "false"  ]] ); then
         h_print=false 
+        ret_code=1
         echo "Incorrect headders in file $md_file"
     fi
     if  [[ "$skip" -gt 1 ]]; then
@@ -43,3 +45,7 @@ while IFS= read -r head; do
     fi
     prev_lvl=$lvl
 done <<< "$lvsl"
+if [[ $ret_code -eq 0 ]]; then
+    echo "Headders are ok"
+fi
+exit $ret_code

@@ -43,3 +43,7 @@ script:
   - bash tests/check_fixme.sh
   # Test that no files are masked by folder/index.md
   - bash tests/check_masked.sh
+  # Check that only one lvl 1 headder per file and no jumps in depth
+  - bash tests/check_headders.sh
+  # Check that there are descriptions in links and images + check that urls are not used as an description
+  - bash tests/check_description.sh
