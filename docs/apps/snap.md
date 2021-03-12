@@ -6,7 +6,7 @@
 
 __SNAP__ is available in Puhti with following versions:
 
-* 8.0 (Singularity container)
+* 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
 * 7.0 (with snappy 6.0 and python 2.7.5)
 
 The 8.0 version has been installed as a singularity container. There are small differences in the commands between 7.0 and 8.0, see below
@@ -32,20 +32,25 @@ This loads the newest available version. You can load an older version with
 
 `module load snap/<VERSION>`
 
-### SNAP userdir configuration (Do this the first time!) 
+### SNAP userdir and Java temp dir configuration 
 
-SNAP uses significant amount of storage space for cache and temporary files. These files easily fill your HOME directory so a script was written for configuring the snap user directories easily. You should always run this the first time you start using SNAP in Puhti or if you switch projects.
+SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti or want to change the used folders. 
 
 After loading the module run
 
 `source snap_add_userdir <YOUR-PROJECTS-SCRATCH-FOLDER>`
 
-If you run the command with another folder again, it overwrites the previous settings. 
-
 You could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
 
+`source snap_add_userdir $LOCAL_SCRATCH` with batch jobs
+
+`source snap_add_userdir $TMPDIR` with interactive jobs
+
+This scripts sets also Java temporary folder, it is set to be snap/temp subfolder in the folder you defined. If you want to set Java temporary folder to be somewhere else use:
+`export _JAVA_OPTIONS=-Djava.io.tmpdir=<SOME-FOLDER>
+
 !!! note
-        The graphical user interface is not affected by this. Using it will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory
+        The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
 
 ### Using SNAP with graphical user interface
 
@@ -54,12 +59,14 @@ If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your
 __SNAP 8.0__
 ```
 sinteractive -i
+<set up snap.userdir>
 singularity_wrapper exec snap
 ```
 
 __SNAP 7.0__
 ```
 sinteractive -i
+<set up snap.userdir>
 snap
 ```
 
@@ -101,25 +108,27 @@ gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <norma
 [Here is a full example of using gpt_array with Puhti array jobs](https://github.com/csc-training/geocomputing/tree/master/snap)
 ### Using SNAP with the Python library snappy
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ Python library. When loading the snap module with `module load snap`, a python environment is also loaded that has __python 2.7__ (SNAP 7.0) or __python 3.6__ (SNAP 8.0) and __snappy__ installed 
+It is also possible to access SNAP functionalities from Python with the __snappy__ library.
 
 __SNAP 8.0__
 
-The SNAP 8.0 is a simple Python environment where you can install your own packages with pip. They are installed in your HOME directory.
-
-You can install packages by starting a shell session inside the container and installing packages
-
+Running snappy scripts with batch jobs:
 ```
-sinteractive
-singularity_wrapper shell
-*now we are inside the container*
-pip3 install <package>
+singularity_wrapper exec python3 <YOUR-PYTHON-SCRIPT>
 ```
 
-you can exit the container with
+See available packages:
 ```
-exit
+singularity_wrapper exec pip list
 ```
+
+Installing new packages to your HOME directory, see [geoconda](https://docs.csc.fi/apps/geoconda/#adding-more-python-packages-to-geoconda) instructions how to change installation directory.
+
+```
+singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
+```
+
+
 
 __SNAP 7.0__
 
