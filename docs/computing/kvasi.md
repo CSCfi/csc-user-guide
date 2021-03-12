@@ -13,19 +13,19 @@ In order to use the Jupyter notebook environment, you need to set up an SSH tunn
 
 1. Login to Kvasi with SSH:
     * `ssh <userid>@kvasi.csc.fi`
-2. Start the Jupyter server: `./qlm_notebook/launch_qlm_notebooks`. This will give you two values:
+2. Start the Jupyter server: `./qlm_notebooks/launch_qlm_notebooks`. This will give you two values:
     * The Jupyter port number. It will be `8888`, or higher
     * The token for accessing the web interface (a string of letters and numbers)
     * Example output:
 
 ```
-Jupyter port : 8890
+Jupyter port : 8888
 Jupyter token: 123456abcdef
 
 To access your Jupyter notebook from your local computer:
 
 1. Create SSH tunnel:
-    ssh -L 8890:localhost:8890 <userid>@kvasi.csc.fi
+    ssh -L 8890:localhost:8888 yourcscusername@kvasi.csc.fi
 
 2. Open browser link: http://127.0.0.1:8890/?token=123456abcdef
 ```
@@ -61,4 +61,4 @@ After logging in, simply launch a new "myQLM Notebooks" environment and open it 
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)
 
 ---
-Latest update: 16 Oct 2020
+Latest update: 27 Nov 2020

@@ -89,7 +89,7 @@ the grid environment.
 The sample job above could be executed using the normal *arcsub*,
 *arcstat* and *arcget* commands.
 
-## Executing MPI based parallel program in FGI environment
+## Executing MPI based parallel program in FGCI environment
 
 The way, how an MPI based applications are launched in FGCI environment
 may differ between different applications. For application specific

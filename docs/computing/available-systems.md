@@ -21,12 +21,14 @@ There are also 80 GPU nodes, with total of 320 GPUs. This partition is
 suitable for all kinds workloads capable of utilizing GPUs, even heavy
 AI models that span multiple nodes. 
 
-A more technical description  about Puhti can be found [here](systems-puhti.md)
+Puhti has  wide selection of [scientific software](../apps/by_system.md#puhti) installed.
+
+[A more technical description about Puhti](systems-puhti.md).
 
 ## Mahti
 
 The Mahti supercomputer, Atos BullSequana XH2000 system based on AMD
-CPUs, will be launched in August, 2020. Mahti is designed for
+CPUs, was launched on August 26, 2020. Mahti is designed for
 massively parallel jobs requiring high floating point performance and
 a fast interconnect. The system has in total 1404 nodes equipped with
 powerful AMD Rome CPUs. These are connected with a fast interconnect,
@@ -37,7 +39,10 @@ simulations requiring Petaflops of compute power. Also smaller
 parellel workloads that are able to use full nodes efficiently can
 utilize Mahti. 
 
-A more technical description  about Mahti can be found [here](systems-mahti.md)
+The selection of installed [scientific software](../apps/by_system.md#mahti) in
+Mahti is more limited than in Puhti.
+
+[A more technical description about Mahti](systems-mahti.md).
 
 
 ## Kvasi

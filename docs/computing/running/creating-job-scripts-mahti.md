@@ -63,8 +63,7 @@ by default. SMT support can be enabled with `--hint=multithread` option.
 When this option is used, it is important to use the `--ntasks-per-node=X` and
 `--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the
 actual physical cores unallocated and performance will be suboptimal.
- Example batch job script can be found
-[here](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
+[Example batch job script for SMT](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
 
 ## Undersubscribing nodes
 
@@ -72,10 +71,9 @@ If an application requires more memory per core than there is available
 with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
-only a single core per NUMA domain or L3 cache (look
-[here](../systems-mahti.md) for details
-about Mahti architecture). Note that billing is, however, always based
-on full nodes.
+only a single core per NUMA domain or L3 cache (look at
+[Mahti technical description](../systems-mahti.md) for details.
+Note that billing is, however, always based on full nodes.
 
 When undersubscribing nodes, one should always set
 `--ntasks-per-node=X` and `--cpus-per-task=Y` so that `X * Y = 128`,
@@ -145,3 +143,15 @@ Jobs in interactive partition can reserve 1-8 cores and each core reserves 1,875
 
 python post-proc.py output
 ```
+
+## Executing large amounts of small non-MPI jobs
+
+In Mahti, GREASY meta sheduler can be used to process large amounts of small non-MPI jobs.
+Please check the GREASY instructon page for more details.
+*   [GREASY in Mahti](greasy.md)
+
+
+
+
+
+

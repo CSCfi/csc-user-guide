@@ -93,5 +93,5 @@ tamper-proof as possible. Keep the logs for a reasonably long.
 Consider logging to a remote server as well.
 
 *Reused with kind permission from <a
-href="http://support.rc.nectar.org.au/technical_guides/security.html"
+href="https://support.ehelp.edu.au/support/solutions"
 class="external-link">NeCTAR</a>.*

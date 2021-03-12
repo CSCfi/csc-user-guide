@@ -68,8 +68,7 @@ test at the scaling limit, rather than run very long scaling tests in advance.
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 15 minutes time
 
@@ -93,8 +92,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 1 core gromacs job, requesting 15 minutes time
 
@@ -114,8 +112,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --time=00:10:00
 #SBATCH --partition=gpu
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 module load gromacs-env/2020-gpu
 
@@ -146,8 +143,7 @@ Submit the script with `sbatch script_name.sh`
 #SBATCH --ntasks-per-node=128
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
@@ -169,8 +165,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 # 64 tasks per node, each with 2 OpenMP threads
@@ -185,12 +180,18 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 ### Visualizing trajectories and graphs
 
-In addition to ngmx program in Gromacs, trajectory files can be
-visualized with the following programs:
+In addition to `view` (not available at CSC, though) tool of Gromacs,
+trajectory files can be visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
--   [VMD] visualizing program for large biomolecular systems.
+-   [VMD](vmd.md) visualizing program for large biomolecular systems.
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
+
+!!! note
+    Please don't run visualization or heavy Gromacs tool scripts in
+    the login node (see [usage policy for details](../../computing/overview/#usage-policy)).
+    You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
+    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
 
 ## References
 
@@ -223,6 +224,7 @@ for methods applied in your setup.
 -   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
 -   [Tutorials on the Gromacs website]  
 -   [More tutorials] by Justin A. Lemkul
+-   [Yet more nice tutorials](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html) by Bert de Groot.
 -   [Lots of material at BioExcel EU project]
 -   [HOW-TO] section on the Gromacs pages
 -   Gromacs [documentation]
@@ -231,7 +233,6 @@ for methods applied in your setup.
 
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/
-  [VMD]: http://www.ks.uiuc.edu/Research/vmd/
   [Gromacs performance checklist]: http://www.gromacs.org/Documentation/Performance_checklist
   [Tutorials on the Gromacs website]: http://www.gromacs.org/Documentation/Tutorials
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg

@@ -1,7 +1,7 @@
 site_name: Docs CSC
 edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
 site_url: "https://docs.csc.fi/"
-site_description: Instructions and user guides for the CSC supercomputer Puhti, Allas storage, Pouta, Rahti, software list, FAQ and tutorials.
+site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 nav:
   - Home: index.md
   - Accounts:
@@ -12,6 +12,7 @@ nav:
      - How to create new project: accounts/how-to-create-new-project.md
      - How to add members to project: accounts/how-to-add-members-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
+     - How to manage your project: accounts/how-to-manage-your-project.md
      - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
      - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
@@ -25,7 +26,9 @@ nav:
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
      - Connecting: computing/connecting.md
-     - Disk areas: computing/disk.md
+     - Supercomputer storage:
+        - Disk areas: computing/disk.md
+        - Lustre filesystem: computing/lustre.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
@@ -35,7 +38,7 @@ nav:
         - Mahti example scripts: computing/running/example-job-scripts-mahti.md
         - Submitting a job: computing/running/submitting-jobs.md
         - Available batch job partitions: computing/running/batch-job-partitions.md
-        - Array jobs: computing/running/array-jobs.md
+        - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
      - Compiling:
@@ -67,6 +70,8 @@ nav:
          - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
          - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
          - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
+         - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
+         - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -75,6 +80,7 @@ nav:
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
+         - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - Rahti Templates: cloud/rahti/template-docs.md
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
@@ -193,6 +199,9 @@ theme:
 extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
+
+extra_javascript:
+  - 'assets/javascripts/extra.js'
 
 markdown_extensions:
   - toc:

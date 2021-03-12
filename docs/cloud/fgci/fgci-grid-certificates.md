@@ -1,9 +1,10 @@
 ## Grid certificates
 
-FGCI, like most of the middleware based grid environments, uses personal
-X.509 certificates for user authentication. In this approach the users
-doesn't need a personal user accounts in the cluster they are using.
-This means also that CSC user account is not necessary for FGCI usage.
+FGCI uses personal X.509 certificates for user authentication as do most
+of the middleware based grid environments. In this approach the user
+doesn't need a cluster specific personal user account since the authentication
+is done on the grid level. This also means that CSC user account is not
+necessary for FGCI usage.
 
 Certificate requests need to be signed by a Certification Authority (CA)
 which acts as a trusted third party. CSC is using [GÉANT Trusted
@@ -18,9 +19,7 @@ Identity Provider ( i.e. home university or institute) most must be
 compatible with [eduGAIN] service. If the name of your home institute is
 not recognized by the Sectigo Certificate Manager (English
 institute names are recognized) that means that your home
-institute is not compatible with the eduGAIN service. In this case you
-can still request a personal certificate from Nordugrid: [Personal
-Nordugrid certificate].
+institute is not compatible with the eduGAIN service.
 
 ## Obtaining a grid certificate from GEANT
 

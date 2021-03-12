@@ -6,12 +6,12 @@ The following partitions (aka queues) are currently available in **Puhti** for
 normal (CPU) nodes:
 
 
-| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage (nvme) |  
+| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage<br>[(nvme)](../creating-job-scripts-puhti/#local-storage) |  
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
 | test            | 15 minutes    | 80           |   2                      |  M                           | 382 GiB  |          |
-| interactive     | 7 days        | 1            |   1                      |  IO                          | 16 GiB   | 160 GiB  |
+| [interactive](interactive-usage.md)     | 7 days        | 4            |   1                      |  IO  | 64 GiB   | 640 GiB  |
 | small           | 3 days        | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB |
-| large           | 3 days        | 4000         |   100                    |  M, L, IO                    | 382 Gib  | 3600 GiB | 
+| large           | 3 days        | 1040         |   26                     |  M, L, IO                    | 382 Gib  | 3600 GiB | 
 | longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
 | hugemem         | 3 days        | 160          |   4                      |  XL, BM                      | 1534 GiB |         |
 | hugemem_longrun | 7 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
@@ -58,7 +58,7 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | test      | 1-2         | 1  hours      | all              |
 | medium    | 1-20        | 36 hours      | all              |
 | large     | 20-200      | 36 hours      | scalability test |
-| gc        | 1-700       | 36 hours      | Grand Challenge  |
+| gc        | 200-700       | 36 hours      | Grand Challenge  |
 | interactive | 1         |  7 days       | all              |
 
 [Interactive partition](./interactive-usage.md#sinteractive-in-mahti), is intended for pre- and post processing tasks. 
@@ -69,8 +69,6 @@ gives better performance. In these partitions billing is based on the allocated 
 
 The _large_ partition on Mahti is only accessible to projects that have done a
 [scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
-`qc` is only accessible to Grand Challenge projects and has a higher
-priority.
-
+_gc_ is only accessible to [Grand Challenge projects](https://research.csc.fi/grand-challenge-proposals) and allows users to run extremely large simulations. 
 
 

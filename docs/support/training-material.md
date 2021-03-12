@@ -43,6 +43,7 @@ for self study.
 ## Chemistry
 *   [Spring School in Computational Chemistry course materials](https://events.prace-ri.eu/e/CSC_Spring_School_2020)
 *   [Jupyter Machine Learning in Chemistry](https://notebooks.csc.fi) (Notebook requires Haka, Virtu or CSC account)
+*   [Advanced GROMACS workshop 2021 materials](https://a3s.fi/advanced_gmx/PRACE_CSC_BioExcelWorkshop-GROMACS_workflows_and_advanced_topics.html) 
  
 ## Data management
 *   [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)

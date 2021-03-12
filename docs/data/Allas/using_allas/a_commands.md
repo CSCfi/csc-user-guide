@@ -21,6 +21,7 @@ In addition to the above commands, there are separate tools for other purposes:
  * __allas_conf__ : Set up and open a connection to Allas
  * __allas-backup__ : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
+ * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 
@@ -97,20 +98,21 @@ define the project that will be used to store the data.
 2.    In the case of a directory, the content of the directory is collected as a single file
 using the `tar` command.
 
-3.    By default, the option `--compress` (`-c`) is used. The data is compressed using the _zstdmt_ command.
+3.    By default, the option `--compress` (`-c`) is used and the data is compressed using the _zstdmt_ command.
 This is the recommended way if you intend to use the data only on CSC's computing servers. If you plan to use the 
 uploaded data on other servers where the _zstdmt_ compression may not be available, you can disable the compression using the option `--nc` (`-n`).
+Also, in the case of data that does not compress well, like compressed files, images or other binary data, you should normally skip compression.
 
-4.    The compressed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
+4.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 
 By default, a-put uses the standard bucket and object names that depend on the username, project and location
 of the data uploaded:
 
-*    a) Data from $WRKDIR in Taito is uploaded to the bucket _username_projectNumber-taito-WRKDIR_
-*    b) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
-*    c) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
-*    d) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
-*    e) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
+*    a) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
+*    b) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
+*    c) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
+*    d) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
+*    e) Data from $LOCAL_SCRATCH in Puhti is uploaded to the bucket _projectNumber-puhti-LOCAL_SCRATCH_
 *    f) In other cases, the data is uploaded to _username-projectNumber-MISC_
 
 For example, for the user _kkayttaj_, a member of the project _12345_, data located in the HOME directory
@@ -197,7 +199,7 @@ This file of missing items can be used with a-put option --input-list, to contin
 a-put --input-list missing_job123_67889
 ```
 
-You should note, that _a-check_ does does not check if the actual context of the object is correct. It checks only the object names, which may originate from some other sources.
+You should note, that _a-check_ does does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
 
 In addition to checking, if upload was successful, _a-check_ can be used to do a "dry-run" test for _a-put_ to see, what objects will be created or replaced before running the actual _a-put_ command. 
 
@@ -363,7 +365,7 @@ Options:
 - **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
 - **--s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
 
-At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
+At the moment, _a-get_ can download only one object at a time. If you need to download large number of objects you need to use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
 
 ```text
 #make a list of objects

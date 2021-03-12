@@ -3,7 +3,7 @@
 When you login to CSC supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [Usage policy](../overview.md#usage-policy) for details.
 If you need to do heavy computing interactively, you should use interactive batch jobs.
 
-In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) virtual desktop.
+In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) remote desktop.
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` area will be removed. 
@@ -23,7 +23,9 @@ in Puhti and Mahti are not identical. There is some differences in both command 
 
 ### sinteractive in Puhti
 
-In Puhti, each user can have only one active session open in the `interactive` partition. In the interactive partition you can reserve in maximum 1 core, with max 16 GB of memory, up to 7 days of time, and 160 GB of local scratch space.  GPUs cannot be reserved.
+In Puhti, each user can have only one active session open in the `interactive` partition.
+In the interactive partition you can reserve in maximum 4 cores, with max 64 GB of memory,
+up to 7 days of time, and 640 GB of local scratch space. GPUs cannot be reserved.
 
 If your requests exceed these limits or you already have a session in the
 interactive partition, `sinteractive` can submit the session request to `small` or `gpu`
@@ -42,16 +44,16 @@ sinteractive --account project_2001234 --time 48:00:00 --mem 8000 --tmp 100
 
 Available options for `sinteractive` in Puhti are:
 
-| Option        | Function                                                 | Default              |
-| ------------- | -------------------------------------------------------- | -------------------- |
-| -i, --interactive | Set resource requests for the job interactively       |                      |
-| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
-| -m, --mem     | Memory reservation in MB.                                | 1000                 |
-| -j, --jobname | Job name.                                                | interactive          |
-| -c, --cores   | Number of cores.                                         | 1                    |
-| -A, --account | Accounting project.                                      |                      |
-| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).             | 32                   |
-| -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    |
+| Option        | Function                                                 | Default              | Max |
+| ------------- | -------------------------------------------------------- | -------------------- |-----|
+| -i, --interactive | Set resource requests for the job interactively      |                      | |
+| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             | 7-00:00:00 |
+| -m, --mem     | Memory reservation in MB.                                | 1000                 | 64000|
+| -j, --jobname | Job name.                                                | interactive          | |
+| -c, --cores   | Number of cores.                                         | 1                    | 4 |
+| -A, --account | Accounting project.                                      |                      | |
+| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).              | 32                   |640  |
+| -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    | 0 |
 
 ### sinteractive in Mahti
 
@@ -107,6 +109,29 @@ start-rstudio-server
 ```
 For a detailed guide to launching RStudio Server, see our documentation on the [`r-env-singularity module`](../../apps/r-env-singularity.md).
 
+### Example: Running an MPI job in an interactive session
+
+Since the shell started in the interactive session is already a job step in Slurm, more job steps can't be started.
+This will disable, e.g. running Gromacs tools, as `gmx_mpi` is a parallel program and normally needs `srun`.
+In this case, in the interactive shell, `srun` must be replaced with `orterun -n 1`. Orterun does not know of the
+Slurm flags, so it needs to be told how many tasks/threads to use. The following example will run a
+[Gromacs](../../apps/gromacs.md) mean square displacement analysis for an existing trajectory.
+
+```bash
+sinteractive --account <project>
+module load gromacs-env
+orterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
+```
+To use all requested cores in parallel, you need to add `--oversubscribe`.
+E.g. for 4 cores, a parallel interactive job
+(launched *from* the interactive session) can be run with
+
+```bash
+sinteractive --account <project> -c 4
+module load gromacs-env
+orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
+```
+
 ## Explicit interactive shell without X11 graphics
 
 If you don't want to use the `sinteractive` wrapper, it's possible
@@ -116,7 +141,7 @@ Note, as you may need to queue, it's convenient to ask for an email once the res
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> bash
+   bash
 ```
 
 Once the resource has been granted, you can work normally in the shell.
@@ -137,7 +162,7 @@ The following will start the application `myprog`:
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> myprog
+   myprog
 ```
 
 Note, that you can replace `myprog` with `bash`, which will launch a terminal

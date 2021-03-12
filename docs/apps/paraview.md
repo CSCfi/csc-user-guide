@@ -138,9 +138,8 @@ sbatch pvserver581-4GPU-node.sh
 #SBATCH --partition=gpu
 # fill in your project number (mandatory)
 #SBATCH --account=<project>
-# remove the extra # and fill in your email address, to receive email when job starts
-##SBATCH --mail-user=<email address>
-#SBATCH --mail-type=BEGIN
+# remove the extra # to receive email when job starts
+##SBATCH --mail-type=BEGIN
 ### Optionally, if queues are long, you may want to control when your job starts.
 ### To activate the SBATCH commands, remove the extra # so that only one remains.
 ### "Test-only" does not submit a job, but returns an estimate of the queuing time

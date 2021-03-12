@@ -1,4 +1,4 @@
-<h1> Applications</h1>
+# Applications
 
 ## Biosciences
 
@@ -23,6 +23,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
 * [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
@@ -97,6 +98,7 @@
 * [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [Star-CCM+](starccm+.md) Computational Fluid Dynamics software by Siemens Digital Industries Software
 
 ## Data Analytics and Machine Learning
 
@@ -113,10 +115,12 @@
 * [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
+* [GRASS GIS](grass.md) GIS application for analysis, image processing, spatial modeling, and visualization
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [OpenDroneMap](opendronemap.md) open source command line toolkit for processing aerial drone imagery
 * [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
+* [PCL](pcl.md) tools for 2D/3D image and point cloud processing
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
