@@ -122,7 +122,7 @@ See available packages:
 singularity_wrapper exec pip list
 ```
 
-Installing new packages to your HOME directory, see [geoconda](geoconda/#adding-more-python-packages-to-geoconda) instructions how to change installation directory.
+Installing new packages to your HOME directory, see [geoconda.md](geoconda/#adding-more-python-packages-to-geoconda) instructions how to change installation directory.
 
 ```
 singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
