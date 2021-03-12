@@ -16,3 +16,14 @@ dataset, though in some cases finer-grained definitions might be needed. In
 scientific writing dataset is usually cited as a single entity. 
 
 sisällysluettelo, mistä asiassa kyse, mikä on dataset
+
+* [files-and-file-formats.md](files-and-file-formats.md)
+* [allas-datasets-using-fairdata.md](allas-datasets-using-fairdata.md)
+* [sourcing-datasets.md](sourcing-datasets.md)
+* [persistent-identifiers.md](persistent-identifiers.md)
+* [licensing-new-datasets.md](licensing-new-datasets.md)
+* [phases-of-dataset-use.md](phases-of-dataset-use.md)
+* [gathering-datasets.md](gathering-datasets.md)
+* [specific-datasets-hosted-by-csc.md](specific-datasets-hosted-by-csc.md)
+* [data-licensing.md](data-licensing.md)
+* [metadata-and-documentation.md](metadata-and-documentation.md)
