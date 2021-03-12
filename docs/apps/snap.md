@@ -47,7 +47,7 @@ You could also request a fast [nvme](../computing/running/creating-job-scripts-p
 `source snap_add_userdir $TMPDIR` with interactive jobs
 
 This scripts sets also Java temporary folder, it is set to be snap/temp subfolder in the folder you defined. If you want to set Java temporary folder to be somewhere else use:
-`export _JAVA_OPTIONS=-Djava.io.tmpdir=<SOME-FOLDER>
+`export _JAVA_OPTIONS=-Djava.io.tmpdir=<SOME-FOLDER>`
 
 !!! note
         The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
@@ -122,7 +122,7 @@ See available packages:
 singularity_wrapper exec pip list
 ```
 
-Installing new packages to your HOME directory, see [geoconda.md](geoconda/#adding-more-python-packages-to-geoconda) instructions how to change installation directory.
+Installing new packages to your HOME directory, see [geoconda](geoconda.md/#adding-more-python-packages-to-geoconda) instructions how to change installation directory.
 
 ```
 singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
