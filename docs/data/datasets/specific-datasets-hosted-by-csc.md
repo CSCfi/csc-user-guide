@@ -12,11 +12,11 @@ CSC hosts or provides access to several datasets on different platforms.
 * [Chipster_genomes](../../apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
  
 ## Chemistry
-* [CSD - Cambridge Crystallographic Database](../apps/csd.md) – organic and metallo-organic crystal structures and tools
-* [Molport 6M molecule database](../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
+* [CSD - Cambridge Crystallographic Database](../../apps/csd.md) – organic and metallo-organic crystal structures and tools
+* [Molport 6M molecule database](../../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
 
 ## Geosciences
-* [Open Finnish spatial datasets are available in Puhti or in Allas](datasets/spatial-data-in-csc-computing-env.md).
+* [Open Finnish spatial datasets are available in Puhti or in Allas](spatial-data-in-csc-computing-env.md).
 
 ## Language research and other digital humanities and social sciences
 
