@@ -47,7 +47,7 @@ module load biokit
 ```
 Then launch an interactive bactch job session with command:
 ```text
-sinteractuive -i
+sinteractive -i
 ```
 Reserve 8 GiB of memory, for your interactive session.
 
