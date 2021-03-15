@@ -162,7 +162,7 @@ Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
 
 ## Using the inline Dockerfile method
 
-It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Got repository.
+It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
 
 ```bash
 oc new-build -D $'FROM centos:7'
