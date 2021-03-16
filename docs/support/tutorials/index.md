@@ -10,7 +10,7 @@
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/overview.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
-* [Using csc-env](using_csc_env.md)
+* [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 
 ## Performance
