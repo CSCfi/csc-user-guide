@@ -27,7 +27,53 @@ the web UI, you can add the environment variables by running the script as:
 
 `source <project_name>-openrc.sh`
 
-And supplying your CSC account username and password when prompted.  
+And supplying your CSC account username and password when prompted. After this 
+You coud make requests to the Pouta cloud. Normally you would start with 
+authenticating yourself as: 
+
+```
+curl -i   -H "Content-Type: application/json"   -d '
+{"auth": {
+    "identity": {
+      "methods": ["password"],
+      "password": {
+        "user": {
+          "name": "'$OS_USERNAME'",
+          "domain": {"name": "'$OS_USER_DOMAIN_NAME'"},
+          "password": "'$OS_PASSWORD'"
+        }
+      }
+    },
+    "scope": {
+      "project": {
+        "domain": {"id": "'$OS_PROJECT_DOMAIN_ID'"},
+        "name": "'$OS_PROJECT_NAME'"
+      }
+    }
+  }
+}' "$OS_AUTH_URL/auth/tokens?nocatalog" | python -m json.tool
+```
+And obtaining your token as an `X-Subject-Token` response header. The response 
+body for our request will also contain additional useful information which includes 
+the expiration date and time of the token as `"expires_at":"datetime"`.  
+
+Once authenticated, we can make further CRUD requests to the various APIs handling our 
+cloud resources. For example, we can request the compute API for the list of available 
+virtual machine flavors as:
+
+```
+export OS_TOKEN=<copy-your-token-here>
+export OS_COMPUTE_API=https://pouta.csc.fi:8777/v2.1
+```
+
+```
+curl -s -H "X-Auth-Token: $OS_TOKEN" \
+  $OS_COMPUTE_API/flavors \
+  | python -m json.tool
+```
+
+You can consult the [Pouta web interface] (https://pouta.csc.fi/dashboard/project/api_access/) further 
+to get the right values for the Pouta API endpoints such as `OS_COMPUTE_API`.  
 
 ### Pouta access through client libraries
 
