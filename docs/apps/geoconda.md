@@ -40,6 +40,7 @@ Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
 -   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.4 in geoconda-3.8 and 3.0.2 in geoconda-3.7
+-   [GMT] The Generic Mapping Tools in geoconda-3.8
 -   [PDAL] 2.1.0 in geoconda-3.8 and 2.0.1 in geoconda-3.7
 -   [QGIS](../apps/qgis.md) 3.14 in geoconda-3.8 and 3.10 in geoconda-3.7
 -   [LasTools](../apps/lastools.md) 20171231
@@ -48,7 +49,7 @@ Additionally geoconda includes:
     list.
     
 !!! note
-    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance
+    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance. You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
 
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
@@ -129,6 +130,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [fiona]: https://pypi.python.org/pypi/Fiona
   [gdal]: https://pypi.python.org/pypi/GDAL
   [geoalchemy2]: https://geoalchemy-2.readthedocs.io/en/latest/
+  [GMT]: https://www.generic-mapping-tools.org/
   [SQLAlchemy]: http://sqlalchemy.org 
   [geopandas]: http://geopandas.org/
   [pandas]: http://pandas.pydata.org 

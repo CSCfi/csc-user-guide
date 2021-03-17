@@ -3,7 +3,8 @@
 CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes.
 The disk areas for different supercomputers are separate, *i.e.*
 **home**, **projappl** and **scratch** in Puhti cannot be directly
-accessed from Mahti.
+accessed from Mahti. Also [a more technical description of the Lustre 
+filesystem](lustre.md) used in these directories is available.
 
 |              |  Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
@@ -137,7 +138,7 @@ either file or directory) from
 Puhti to the directory */scratch/project_2002291* in Mahti, one can
 issue in Puhti the command: 
 ```bash
-rsync -azP my_results <username>@mahti.csc.fi:/scratch/project_2002291
+rsync -azP my_results yourcscusername@mahti.csc.fi:/scratch/project_2002291
 ```
 See [Using rsync](../data/moving/rsync.md) for more detailed instructions
 for *rsync*.
@@ -161,7 +162,7 @@ of files are stored to the _scratch_ area.
 
 ### Login nodes
 
-All of the login nodes have 2900 GiB of fast local storage. The storage
+Each of the login nodes have 2900 GiB of fast local storage. The storage
 is located under `$TMPDIR` and is separate for each login node.  
 
 The local storage is good for compiling applications and performing 
@@ -174,7 +175,7 @@ archive files.
 
 ### Compute nodes in Puhti 
 
-Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable $TMPDIR and in normal batch jobs with $LOCAL_SCRATCH. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
+Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas. 
 
