@@ -72,8 +72,9 @@ must use pull requests.
 
 ### Previewing active branches
 
-Preview is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
-Here you can preview your ongoing work. Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
+The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in mkdocs correctly.
+A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi.
 
 ### Making pull requests in the web GUI
 
@@ -121,8 +122,8 @@ git commit -v
 git push origin your_branch_name
 ```
 
-Now you can ask a person to review and merge the changes. One can request
-reviewers in the Github web interface.
+Now, in the github web GUI you can create a pull request, ask a person to review
+it and (some admin to) merge the changes.
 
 After the PR has been merged, the branch on github can be deleted.
 
