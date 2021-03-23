@@ -13,6 +13,12 @@ viruses. The siRNA profile of these undetermined contigs are provided as
 guidance to discovery novel viruses which do not show sequence
 similarity with known viruses.
 
+[TOC]
+
+## License
+
+Developers state that the software is free to use and open source, but do not provide
+a specific license.
 
 ## Available
 

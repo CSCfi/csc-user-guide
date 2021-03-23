@@ -5,6 +5,12 @@ Stacks is a software pipeline for building loci from short-read sequences, such 
 Illumina platform. Stacks was developed to work with restriction enzyme-based data, such as RAD-seq, for 
 the purpose of building genetic maps and conducting population genomics and phylogeography.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 Puhti: 2.54 
 
