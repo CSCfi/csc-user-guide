@@ -21,7 +21,11 @@ Examples of application areas of EMBOSS tools are given below.
 *    Presentation tools for publication
 *    RNA secondary structure prediction
 
+[TOC]
 
+## License
+
+Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 
 ## Available
 
