@@ -2,13 +2,13 @@
 
 ## What CSC service to use?
 
-If you need GPU-accelerated machine learning, CSC's supercomputer Puhti is usually the way to go.  First, please read the [instructions on how to access Puhti](../../computing/overview.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
+If you need GPU-accelerated machine learning, CSC's supercomputers, Puhti and Mahti, are usually the way to go.  First, please read the [instructions on how to access Puhti and Mahti](../../computing/overview.md), and [how to submit computing jobs](../../computing/running/getting-started.md).
 
 In some special cases, a virtual server on [**Pouta**](../../cloud/pouta/index.md) might make sense as it also offers GPUs.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  For model deployment, the [**Rahti**](../../cloud/rahti/index.md) contained cloud service might be used, however, it currently doesn't offer GPU support. See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
-## Using Puhti
+## Using CSC's supercomputers
 
-For GPU-accelerated machine learning on Puhti, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [MXNET](../../apps/mxnet.md), and [RAPIDS](../../apps/rapids.md).  Please read the detailed instructions for the specific application that you are interested in.  In brief, you need to use the [module system](../../computing/modules.md) to load the application you want, for example:
+For GPU-accelerated machine learning on CSC's supercomputers, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [MXNET](../../apps/mxnet.md), and [RAPIDS](../../apps/rapids.md).  Please read the detailed instructions for the specific application that you are interested in.  In brief, you need to use the [module system](../../computing/modules.md) to load the application you want, for example:
 
 ```bash
 module load tensorflow/2.0.0
@@ -47,7 +47,7 @@ swift download <bucket-name> your-dataset.tar
     Please **do not read a huge number of files from the shared file system**, use fast local disk or package your data into larger files instead!
 
 
-Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of Puhti.  Instead, consider more efficient approaches, including:
+Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file systems (e.g. `/scratch`, `/projappl` and users' home directories) do not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of the supercomputer.  Instead, consider more efficient approaches, including:
 
 - packaging your dataset into larger files 
 - taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts-puhti.md#local-storage) on the GPU nodes.
@@ -200,6 +200,14 @@ Finally, we provide some special Singularity-based applications which are not sh
 ```bash
 module use /appl/soft/ai/singularity/modulefiles/
 ```
+
+##### Intel TensorFlow
+
+Intel CPU-optimized version of tensorflow in the module `intel-tensorflow/2.3-cpu-sng`.
+
+##### DeepLabCut
+
+[DeepLabCut](http://www.mackenziemathislab.org/deeplabcut/) is a software package for animal pose estimation, available in the module `deeplabcut/2.1.9`.
 
 ##### Turku neural parser
 
