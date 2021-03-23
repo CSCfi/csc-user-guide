@@ -4,25 +4,27 @@ Deep learning framework for Python.
 
 ## Available
 
-Available on Puhti only.  Currently supported TensorFlow versions and corresponding modules to load:
+Currently supported TensorFlow versions:
 
-- 2.4.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/2.4-hvd`
-- 2.4.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.4-sng`
-- 2.3.1 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.12-tf2-py3`
-- 2.3.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.3-sng`
-- 2.2.0 with *experimental* [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.07-tf2-py3`
-- 2.2.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/2.2-hvd`
-- 2.2.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/2.2-sng`
-- 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.03-tf2-py3`
-- 2.1.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-20.02-tf2-py3`
-- 2.0.0 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `tensorflow/nvidia-19.11-tf2-py3`
-- 2.0.0: `tensorflow/2.0.0`
-- 2.0.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/2.0.0-hvd`
-- 1.15.0 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/1.15-hvd`
-- 1.14.0: `tensorflow/1.14.0`
-- 1.14.0 optimized for CPU usage, no GPU support: `tensorflow/1.14.0-cpu`
-- 1.13.1: `tensorflow/1.13.1`
-- 1.13.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support: `tensorflow/1.13.1-hvd`
+| Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                        |
+|:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|------------------------------|
+| 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       |                              |
+| 2.4.0   | `tensorflow/2.4-sng`              | X     | -     | Sing.    | -       |                              |
+| 2.3.1   | `tensorflow/nvidia-20.12-tf2-py3` | X     | -     | Sing.    | -       |                              |
+| 2.3.0   | `tensorflow/2.3-sng`              | X     | -     | Sing.    | -       |                              |
+| 2.2.0   | `tensorflow/nvidia-20.07-tf2-py3` |       |       | Conda    | X       | experimental Horovod support |
+| 2.2.0   | `tensorflow/2.2-hvd`              | X     | -     | Conda    | X       |                              |
+| 2.2.0   | `tensorflow/2.2-sng`              | X     | -     | Sing.    | -       |                              |
+| 2.1.0   | `tensorflow/nvidia-20.03-tf2-py3` | X     | -     | Sing.    | -       |                              |
+| 2.1.0   | `tensorflow/nvidia-20.02-tf2-py3` | X     | -     | Sing.    | -       |                              |
+| 2.0.0   | `tensorflow/nvidia-19.11-tf2-py3` | X     | -     | Sing.    | -       |                              |
+| 2.0.0:  | `tensorflow/2.0.0`                | X     | -     | Conda    | -       |                              |
+| 2.0.0   | `tensorflow/2.0.0-hvd`            | X     | -     | Conda    | X       |                              |
+| 1.15.0  | `tensorflow/1.15-hvd`             | X     | -     | Conda    | X       |                              |
+| 1.14.0: | `tensorflow/1.14.0`               | X     | -     | Conda    | -       |                              |
+| 1.14.0  | `tensorflow/1.14.0-cpu`           | X     | -     | Conda    | -       | Optimized for CPU            |
+| 1.13.1: | `tensorflow/1.13.1`               | X     | -     | Conda    | -       |                              |
+| 1.13.1  | `tensorflow/1.13.1-hvd`           | X     | -     | Conda    | X       |                              |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) with GPU support via CUDA.
 
@@ -36,7 +38,9 @@ for more information on provided software versions.
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
 
-Some modules are Singularity-based. Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see our [machine learning guide](../support/tutorials/gpu-ml.md).
+Some modules are Singularity-based (indicated in the "Environ." column in the table above). Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see the [Singularity section in our machine learning guide](../support/tutorials/gpu-ml.md#singularity).
+
+Some modules support [Horovod](https://horovod.ai/), which is our recommended framework for multi-node jobs, i.e., jobs needing more than 4 GPUs. For more information, read the [Multi-GPU section in our machine learning guide](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs).
 
 
 ## License
@@ -45,7 +49,7 @@ TensorFlow is licensed under [Apache License 2.0](https://github.com/tensorflow/
 
 ## Usage
 
-To use this software on Puhti, initialize it with:
+To use this software on Puhti or Mahti, initialize it with:
 
 ```text
 module load tensorflow
@@ -79,6 +83,8 @@ list-packages
 
 Example batch script for reserving one GPU and 10 CPUs in a single node:
 
+**Puhti**
+
 ```bash
 #!/bin/bash
 #SBATCH --account=<project>
@@ -93,9 +99,26 @@ module load tensorflow/1.14.0
 srun python3 myprog.py <options>
 ```
 
+**Mahti**
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=gpu
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=64G
+#SBATCH --time=1:00:00
+#SBATCH --gres=gpu:a100:1
+
+module load tensorflow/1.14.0
+srun python3 myprog.py <options>
+```
+
+
 !!! note
 
-    Please **do not read a huge number of files from the shared file system**, use fast local disk or package your data into larger files instead!  See the [GPU-accelerated machine learning guide](../support/tutorials/gpu-ml.md#data-storage) for more details.
+    Please **do not read a huge number of files from the shared file system**, use fast local disk or package your data into larger files instead!  See the [Data storage section in our machine learning guide](../support/tutorials/gpu-ml.md#data-storage) for more details.
 
 ### Big datasets, multi-GPU and multi-node jobs
 
