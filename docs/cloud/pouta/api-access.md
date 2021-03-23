@@ -77,6 +77,21 @@ to get the right values for the Pouta API endpoints such as `OS_COMPUTE_API`.
 
 ### Pouta access through client libraries
 
+[Openstacksdk](https://docs.openstack.org/openstacksdk/latest/) is a client library (SDK) for 
+building applications that work with OpenStack Clouds. It provides a consistent and complete 
+set of features to interact with the various OpenStack components. The SDK implements Python 
+bindings to the OpenStack API, which enables you to perform automation tasks in Python by 
+making calls on Python objects rather than making REST calls directly
+
+In order to use it with our applications we need to first install as: 
+
+`pip install openstacksdk`
+
+Next we need to provide our credentials through a `clouds.yaml` file which can be downloaded from 
+the [Pouta web interface] (https://pouta.csc.fi/dashboard/project/api_access/) after logging in. Openstacksdk 
+expects this file in one of the following folders: the `current directory`, the `~/.config/openstack` 
+directory, or `/etc/openstack` directory. 
+
 
 
 
