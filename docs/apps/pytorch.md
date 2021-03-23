@@ -28,7 +28,7 @@ Currently supported PyTorch versions:
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with GPU support via CUDA. 
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important PyTorch-related package should be included in the module provided by CSC, you can send an email to [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 Some modules are Singularity-based (indicated in the "Environ." column in the table above). Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see the [Singularity section in our machine learning guide](../support/tutorials/gpu-ml.md#singularity).
 
@@ -59,7 +59,7 @@ To use this software on Puhti or Mahti, initialize it with:
 module load pytorch
 ```
 
-to access the default version, or if you wish to have a specific version (see [above for available versions](#available)):
+to access the default version, or if you wish to have a specific version ([see above for available versions](#available)):
 
 ```text
 module load pytorch/1.7
@@ -128,11 +128,11 @@ srun python3 myprog.py <options>
 
 ### Big datasets, multi-GPU and multi-node jobs
 
-Please see our tutorial for [GPU-accelerated machine learning](../support/tutorials/gpu-ml.md), which covers more advanced topics, including how to work with big data sets, multi-GPU and multi-node jobs.
+Please see our [guide for GPU-accelerated machine learning](../support/tutorials/gpu-ml.md), which covers more advanced topics, including how to work with big data sets, multi-GPU and multi-node jobs.
 
 
 ## More information
 
-- CSC's guide for [GPU-accelerated machine learning](../support/tutorials/gpu-ml.md)
+- [CSC's guide for GPU-accelerated machine learning](../support/tutorials/gpu-ml.md)
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
 - [Horovod with PyTorch example](https://github.com/horovod/horovod/blob/master/docs/pytorch.rst)

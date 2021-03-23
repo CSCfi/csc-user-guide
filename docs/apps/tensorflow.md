@@ -36,7 +36,7 @@ release
 notes](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/index.html)
 for more information on provided software versions.
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important TensorFlow-related package should be included in a module provided by CSC, you can send an email to [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 Some modules are Singularity-based (indicated in the "Environ." column in the table above). Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see the [Singularity section in our machine learning guide](../support/tutorials/gpu-ml.md#singularity).
 
@@ -55,7 +55,7 @@ To use this software on Puhti or Mahti, initialize it with:
 module load tensorflow
 ```
 
-to access the default version, or if you wish to have a specific version (see [above for available versions](#available)):
+to access the default version, or if you wish to have a specific version ([see above for available versions](#available)):
 
 ```text
 module load tensorflow/2.0.0
@@ -127,7 +127,7 @@ Please see our tutorial for [GPU-accelerated machine learning](../support/tutori
 
 ## More information
 
-- CSC's guide for [GPU-accelerated machine learning](../support/tutorials/gpu-ml.md)
+- [CSC's guide for GPU-accelerated machine learning](../support/tutorials/gpu-ml.md)
 - [TensorFlow overview](https://www.tensorflow.org/overview/)
 - [Get Started with TensorFlow](https://www.tensorflow.org/tutorials)
 - [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf)
