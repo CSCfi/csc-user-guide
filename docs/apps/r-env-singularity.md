@@ -10,7 +10,7 @@
 
 `r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
 
-With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
+With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
 Current modules and supported versions:
 
@@ -40,7 +40,7 @@ Other software and libraries:
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 
-Licensing information within the `r-env-singularity` container is available in the file `/usr/licensing.txt`. The file also includes details on copies of license texts included in the image file. 
+Licensing information within the `r-env-singularity` container is available in the file `/usr/licensing.txt`.
 
 ## Usage
 
