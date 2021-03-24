@@ -19,7 +19,7 @@ some mundane tasks as a demonstration.
 Before we can use cURL or any other client to make API requests we need 
 to set some environment variables which hold our credentials to Pouta. This 
 can be done by running a script that you can download from the 
-[Pouta web interface] (https://pouta.csc.fi/dashboard/project/api_access/) 
+[Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) 
 after logging in. See more details from [here](install-client.md).
 
 Once you have the script with your credentials (`<project_name>-openrc.sh`) from 
@@ -53,6 +53,7 @@ curl -i   -H "Content-Type: application/json"   -d '
   }
 }' "$OS_AUTH_URL/auth/tokens?nocatalog" | python -m json.tool
 ```
+
 And obtaining your token as an `X-Subject-Token` response header. The response 
 body for our request will also contain additional useful information which includes 
 the expiration date and time of the token as `"expires_at":"datetime"`.  
@@ -72,26 +73,68 @@ curl -s -H "X-Auth-Token: $OS_TOKEN" \
   | python -m json.tool
 ```
 
-You can consult the [Pouta web interface] (https://pouta.csc.fi/dashboard/project/api_access/) further 
+You can consult the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) further 
 to get the right values for the Pouta API endpoints such as `OS_COMPUTE_API`.  
 
 ### Pouta access through client libraries
 
 [Openstacksdk](https://docs.openstack.org/openstacksdk/latest/) is a client library (SDK) for 
-building applications that work with OpenStack Clouds. It provides a consistent and complete 
+building applications and services that work with OpenStack Clouds. It provides a consistent and complete 
 set of features to interact with the various OpenStack components. The SDK implements Python 
 bindings to the OpenStack API, which enables you to perform automation tasks in Python by 
-making calls on Python objects rather than making REST calls directly
+making calls on Python objects rather than making REST calls directly.
 
-In order to use it with our applications we need to first install as: 
+In order to use it with our applications we need to first install the SDK as: 
 
 `pip install openstacksdk`
 
-Next we need to provide our credentials through a `clouds.yaml` file which can be downloaded from 
-the [Pouta web interface] (https://pouta.csc.fi/dashboard/project/api_access/) after logging in. Openstacksdk 
-expects this file in one of the following folders: the `current directory`, the `~/.config/openstack` 
-directory, or `/etc/openstack` directory. 
+Next, we need to provide our configurations and credentials through a `clouds.yaml` file which can be downloaded from 
+the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) after logging in. 
+Openstacksdk expects this file in one of the following folders: the `current` directory, the `~/.config/openstack` 
+directory, or `/etc/openstack` directory. For quick test purposes, you can add your password in the `clouds.yaml` as: 
 
+```
+clouds:
+  openstack:
+    auth:
+      auth_url: https://pouta.csc.fi:5001/v3
+      username: "username"
+      password: XXXXXXXXXXX
+      project_id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      project_name: "project_xxxxxx"
+      user_domain_name: "Default"
+    regions:
+    - regionOne
+    interface: "public"
+    identity_api_version: 3
+```
 
+You can also split out your secrets such as the password field into a separate optional file 
+named `secure.yaml` and placed in the same folder as your `clouds.yaml` file as: 
 
+```
+clouds:
+  openstack:
+    auth:
+      password: XXXXXXXXXX
+```
 
+Now, you can run the following simple example which lists the available virtual machine flavors:
+
+```
+import openstack
+
+# Initialize and turn on debug logging
+openstack.enable_logging(debug=True)
+
+# Initialize cloud
+conn = openstack.connect(cloud='openstack')
+
+# list VM flavors  
+for flavor in conn.compute.flavors():
+    print(flavor.to_dict())
+``` 
+   
+### External documentation
+
+More detailed information can be found from the [OpenStack SDK Documentation](https://docs.openstack.org/openstacksdk/latest/).
