@@ -8,24 +8,17 @@
 
 ## Available
 
-`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
+`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
 
-Currently supported R versions and corresponding modules:
+With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-- 3.6.3: `r-env-singularity/3.6.3`
-- 4.0.2: `r-env-singularity/4.0.2`
-- 4.0.3: `r-env-singularity/4.0.3`
+Current modules and supported versions:
 
-CRAN package and Bioconductor versions:
-
-- 3.6.3: CRAN packages available on March 17 2020, Bioconductor 3.10
-- 4.0.2: CRAN packages available on September 24 2020, Bioconductor 3.11 
-- 4.0.3: CRAN packages available on December 09 2020, Bioconductor 3.12
-
-RStudio Server versions:
-
-- 3.6.3: 1.2.5033
-- 4.0.2 and 4.0.3: 1.3.1093
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | 
+| ----------------------- | ------------------- | -------------------- | ---------------------- |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               |
 
 Other software and libraries:
 
@@ -35,7 +28,7 @@ Other software and libraries:
 
 ## Licenses
 
-- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/).
+- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. For information on citing R and different R packages, [see here](#citation).
 
 - The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). The RStudio End User License Agreement can be found [here](https://rstudio.com/about/eula/).
 
@@ -46,6 +39,8 @@ Other software and libraries:
 - Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf). 
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
+
+Licensing information within the `r-env-singularity` container is available in the file `/usr/licensing.txt`. The file also includes details on copies of license texts included in the image file. 
 
 ## Usage
 
