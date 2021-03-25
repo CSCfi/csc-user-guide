@@ -20,7 +20,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 In addition to the above commands, there are separate tools for other purposes:
 
  * __allas_conf__ : Set up and open a connection to Allas
- * __allas-backup__ : Create a backup copy of a local dataset in a backup repository in Allas.
+ * [__allas-backup__](./allas_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
  
@@ -424,14 +424,14 @@ a-access +/-type project_id bucket
 ```
 Options:
 
-**+r**  **+read** <project_id>        Grant read access to the bucket for the project.
-**+w**  **+write** <project_id>       Grant write access to the bucket for the project.
-**+rw** **+read-write**  <project_id> Grant read and write access to the bucket for the project.
-**-r**  **-read** <project_id>        Remove read access from the bucket.
-**-w**  **-write** <project_id>       Remove write access from the bucket.
-**-rw** **-read-write**  <project_id> Remove read and write access from the bucket to the project.
-**+p**  **+public**                   Give public read-only access to the bucket.
-**-p**  **-public**                   Remove public read-only access to the bucket.
+- **+r**,  **+read** <project_id>        Grant read access to the bucket for the project.
+- **+w**,  **+write** <project_id>       Grant write access to the bucket for the project.
+- **+rw**, **+read-write**  <project_id> Grant read and write access to the bucket for the project.
+- **-r**,  **-read** <project_id>        Remove read access from the bucket.
+- **-w**,  **-write** <project_id>       Remove write access from the bucket.
+- **-rw**, **-read-write**  <project_id> Remove read and write access from the bucket to the project.
+- **+p**,  **+public**                   Give public read-only access to the bucket.
+- **-p**,  **-public**                   Remove public read-only access to the bucket.
 
 For example, to allow members of project: _project_2001234_ to have read-only access to bucket: _my_data_bucket_, you can use command:
 ```text
