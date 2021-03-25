@@ -20,7 +20,7 @@ Before we can use cURL or any other client to make API requests we need
 to set some environment variables which hold our credentials to Pouta. This 
 can be done by running a script that you can download from the 
 [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) 
-after logging in. See more details from [here](install-client.md).
+after logging in. See more details from the last section under [Installing the OpenStack tools](install-client.md).
 
 Once you have the script with your credentials (`<project_name>-openrc.sh`) from 
 the web UI, you can add the environment variables by running the script as:
@@ -32,7 +32,7 @@ You coud make requests to the Pouta cloud. Normally you would start with
 authenticating yourself as: 
 
 ```
-curl -i   -H "Content-Type: application/json"   -d '
+curl -v -s  -H "Content-Type: application/json"   -d '
 {"auth": {
     "identity": {
       "methods": ["password"],
@@ -99,7 +99,6 @@ clouds:
     auth:
       auth_url: https://pouta.csc.fi:5001/v3
       username: "username"
-      password: XXXXXXXXXXX
       project_id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       project_name: "project_xxxxxx"
       user_domain_name: "Default"
