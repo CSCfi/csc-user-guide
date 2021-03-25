@@ -16,12 +16,12 @@ Puhti: 2020.3, 2020.4, 2021.1
 
 ## License
 
-Maestro is available for all academic users: staff and students.
+Maestro is available for all academic users in Finland: staff and students,
+for academic purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
+for the exact definition. 
+Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens.
-It is possible for one user to take up all licenses for a 
-certain module. If licenses run out, contact Atte via [ServiceDesk](mailto:servicedesk@csc.fi).
-Using Maestro means that you accept the
-[EULA](https://www.schrodinger.com/maestro-academic-eula).
+If licenses run out, contact Atte via [ServiceDesk](mailto:servicedesk@csc.fi).
 
 ## Usage
 
