@@ -50,7 +50,7 @@ defined under `k8s-api-objs.yaml`. You can easily create these objects necessary
 the `oc create` command as follows:
 
 ```
-$oc create -f k8s-api-objs.yaml 
+$ oc create -f k8s-api-objs.yaml 
 imagestream.image.openshift.io/dockerfile-example created
 buildconfig.build.openshift.io/dockerfile-example created
 deploymentconfig.apps.openshift.io/dockerfile-example created
