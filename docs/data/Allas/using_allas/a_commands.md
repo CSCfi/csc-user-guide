@@ -456,7 +456,7 @@ And download objects from the bucket with a-get.
 a-access manages the access permissions only in the project and bucket level.
 Use **swift post** command for more sophisticated access control.
 
-If you run _a-access_ command for a bucket with out any modification options,
+If you run _a-access_ command for a bucket without any modification options,
 it will print out the current settings of the bucket.
 
 
