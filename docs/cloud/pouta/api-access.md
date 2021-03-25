@@ -91,7 +91,7 @@ In order to use it with our applications we need to first install the SDK as:
 Next, we need to provide our configurations and credentials through a `clouds.yaml` file which can be downloaded from 
 the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) after logging in. 
 Openstacksdk expects this file in one of the following folders: the `current` directory, the `~/.config/openstack` 
-directory, or `/etc/openstack` directory. For quick test purposes, you can add your password in the `clouds.yaml` as: 
+directory, or `/etc/openstack` directory. The `clouds.yaml` should look like: 
 
 ```
 clouds:
@@ -108,8 +108,9 @@ clouds:
     identity_api_version: 3
 ```
 
-You can also split out your secrets such as the password field into a separate optional file 
-named `secure.yaml` and placed in the same folder as your `clouds.yaml` file as: 
+You should add your secrets such as the password field into a separate file 
+named `secure.yaml` and place it in the same folder as your `clouds.yaml` file. 
+The `secure.yaml` file should look like: 
 
 ```
 clouds:
@@ -121,6 +122,7 @@ clouds:
 Now, you can run the following simple example which lists the available virtual machine flavors:
 
 ```
+#!/bin/python3
 import openstack
 
 # Initialize and turn on debug logging
