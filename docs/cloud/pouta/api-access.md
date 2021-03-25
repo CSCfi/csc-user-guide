@@ -122,7 +122,7 @@ clouds:
 Now, you can run the following simple example which lists the available virtual machine flavors:
 
 ```
-#!/bin/python3
+#!/usr/bin/python3
 import openstack
 
 # Initialize and turn on debug logging
