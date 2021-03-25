@@ -460,5 +460,3 @@ If you run _a-access_ command for a bucket with out any modification options,
 it will print out the current settings of the bucket.
 
 
-Related commands: a-put, a-get, a-list
-
