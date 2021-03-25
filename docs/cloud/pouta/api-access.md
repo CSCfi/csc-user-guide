@@ -11,7 +11,7 @@ using direct HTTP requests (e.g., with `curl`) or using one of the
 client libraries (e.g., the `openstacksdk`). 
 
 In this article, we briefly look into using cURL to make direct HTTP requests 
-to the OpenStack APIs  and move to check how to use the `openstacksdk` to automate 
+to the OpenStack APIs and move to check how to use the `openstacksdk` to automate 
 some mundane tasks as a demonstration. 
 
 ### Pouta access through cURL
