@@ -66,6 +66,10 @@ MPI/OpenMP hybrid applications:
 | GNU and AMD    | -fopenmp    |
 | Intel          | -qopenmp    |
 
+## Building GPU applications
+
+TBA ...
+
 ## Building serial applications
 
 For building serial applications, one needs to use compiler suite
