@@ -17,7 +17,7 @@ similarity with known viruses.
 
 ## License
 
-Developers state that the software is free to use and open source, but do not provide
+Developers state that the software is free to use and open source, do not provide
 a specific license.
 
 ## Available
