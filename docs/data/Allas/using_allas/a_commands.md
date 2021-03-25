@@ -20,7 +20,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 In addition to the above commands, there are separate tools for other purposes:
 
  * __allas_conf__ : Set up and open a connection to Allas
- * [__allas-backup__](./allas_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
+ * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
  
