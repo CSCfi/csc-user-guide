@@ -97,6 +97,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
+            - API Access to Pouta: cloud/pouta/api-access.md  
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md
