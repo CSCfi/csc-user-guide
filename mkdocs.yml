@@ -154,8 +154,8 @@ nav:
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
      - Working with datasets:
+        - Data management: data/datasets/dataset-sources.md
         - Overview: data/datasets/index.md
-        - Dataset sources: data/datasets/dataset-sources.md
       # - Phases of dataset use: data/datasets/phases-of-dataset-use.md
       #  - Gathering datasets: 
       #    - Overview: data/datasets/gathering-datasets.md
