@@ -1,19 +1,19 @@
 # Working with data / Data management / Data life-cycle
 
 | Data Management	| Dataset Sources	| Using Datasets |
-|-----------------|-----------------|----------------|
+|:---------------:|:---------------:|:--------------:|
 |`Overview` |`Etsin, B2Find, Paituli etc` | `Versioning and documenting` |
 |  |`Specific datasets hosted by CSC` | `Processing and analysing data`  |
 |  |`(Datasets by discipline?)` | `Building data lakes` |
 
 | Storing and Moving Data	| Hosting Datasets at CSC	| Best Practices for Data Management |
-|-------------------------|-------------------------|------------------------------------|
+|:-----------------------:|:-----------------------:|:----------------------------------:|
 |`Moving data` | |  |
 |`Allas` | |  | 
 |`Kaivos, siiretään?` | |  |
 
 | Metadata and Documentation	| Publishing Datasets	| Sensitive Data |
-|-----------------------------|---------------------|----------------|
+|:---------------------------:|:-------------------:|:--------------:|
 | | | | | 
 | | | |	|
 | | |	| |
