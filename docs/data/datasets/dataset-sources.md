@@ -1,11 +1,24 @@
 # Working with data / Data management / Data life-cycle
 
-| Data management	| Dataset sources	| Using datasets |	Tom cell |
+| Data Management	| Dataset Sources	| Using Datasets |	 |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
-|`* Overview` |`*   Etsin, B2Find, Paituli etc` | `Versioning and documenting` | `tom cell` |
-|  |`Specific datasets hosted by CSC` | `Processing and analysing data`  |	`tom cell`| 
-|  |`(Datasets by discipline?)` | `Building data lakes` |	`tom cell` |
-|  | |	`s3cmd put data1.txt s3://buck_123/` | `tom cell` |
+|`Overview` |`Etsin, B2Find, Paituli etc` | `Versioning and documenting` |  |
+|  |`Specific datasets hosted by CSC` | `Processing and analysing data`  |	| 
+|  |`(Datasets by discipline?)` | `Building data lakes` |	 |
+
+| Storing and Moving Data	| Hosting Datasets at CSC	| Best Practices for Data Management |	 |
+|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
+|`Moving data` | |  |  |
+|`Allas` | |  |	| 
+|`Kaivos, siiretään?` | |  |	 |
+|  | |	 |  |
+
+| Metadata and Documentation	| Publishing Datasets	| Sensitive Data |	 |
+|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
+| | | | |
+| | | | | 
+| | | |	|
+| | |	| |
 
 ## Datasets by discipline
 
