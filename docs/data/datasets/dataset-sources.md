@@ -2,7 +2,7 @@
 
 | Data management	| Dataset sources	| Using datasets |	Tom cell |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
-| `Overview |Etsin, B2Find, Paituli etc` | `Versioning and documenting` | `tom cell` |
+|`Overview` |`Etsin, B2Find, Paituli etc` | `Versioning and documenting` | `tom cell` |
 |  |`Specific datasets hosted by CSC` | `Processing and analysing data`  |	`tom cell`| 
 |  |`(Datasets by discipline?)` | `Building data lakes` |	`tom cell` |
 |  | |	`s3cmd put data1.txt s3://buck_123/` | `tom cell` |
