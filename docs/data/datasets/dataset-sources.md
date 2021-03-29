@@ -2,7 +2,7 @@
 
 
 <div align="left">
-
+<table>
 | Data Management	| Dataset Sources	| Using Datasets |
 |:---------------:|:---------------:|:--------------:|
 |`Overview` |`Etsin, B2Find, Paituli etc` | `Versioning and documenting` |
@@ -20,7 +20,7 @@
 | | | | | 
 | | | |	|
 | | |	| |
-
+</table>
 </div>
 
 ## Datasets by discipline
