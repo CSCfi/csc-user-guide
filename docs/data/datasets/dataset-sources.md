@@ -25,8 +25,17 @@
 CSC hosts or provides access to several datasets on different platforms.
 
 ### Biosciences
-[ChEMBL](https://docs.csc.fi/apps/chembl/) Database of bioactive molecules.
-[Chipster_genomes](https://docs.csc.fi/apps/chipster_genomes/) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
+[ChEMBL](apps/chembl.md) Database of bioactive molecules.
+[Chipster_genomes](apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
+
+### Chemistry
+[CSD - Cambridge Crystallographic Database](apps/csd.md) – organic and metallo-organic crystal structures and tools
+[Molport 6M molecule database](support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
+
+### Geosciences
+Open Finnish spatial datasets are available in Puhti or in Allas.
+Language research and other digital humanities and social sciences
+The latest versions of CLARIN PUB or ACA licensed corpora are available unpacked in /appl/data/kielipankki/
 
 ### Dataset sources
 
