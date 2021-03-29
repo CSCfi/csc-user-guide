@@ -3,19 +3,19 @@
 
 | Data Management <img width=200/>	| Dataset Sources <img width=200/>	| Using Datasets <img width=200/> |
 |:---------------:|:---------------:|:--------------:|
-|Overview |Etsin, B2Find, Paituli etc | Versioning and documenting |
-|  |`Specific datasets hosted by CSC` | `Processing and analysing data`  |
-|  |`(Datasets by discipline?)` | `Building data lakes` |
+|Overview |Etsin, B2Find, Paituli etc | [Versioning and documenting](versioning-and-documenting.md) |
+|  |Specific datasets hosted by CSC | Processing and analysing data  |
+|  |(Datasets by discipline?) | Building data lakes |
 
 | Storing and Moving Data <img width=200/>	| Hosting Datasets at CSC <img width=200/>	| Best Practices for Data Management <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
-|`Moving data` | |  |
-|`Allas` | |  | 
-|`Kaivos, siiretään?` | |  |
+|Moving data | |  |
+|Allas | |  | 
+|Kaivos, siiretään? | |  |
 
 | Metadata and Documentation <img width=200/>	| Publishing Datasets <img width=200/>	| Sensitive Data <img width=200/> |
 |:---------------------------:|:-------------------:|:--------------:|
-|`Testar texten` | | | | 
+| | | | | 
 | | | |	|
 | | |	| |
 
