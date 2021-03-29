@@ -3,7 +3,7 @@
 
 | Data Management <img width=200/>	| Dataset Sources <img width=200/>	| Using Datasets <img width=200/> |
 |:---------------:|:---------------:|:--------------:|
-|`Overview` |`Etsin, B2Find, Paituli etc` | `Versioning and documenting` |
+|Overview |Etsin, B2Find, Paituli etc | Versioning and documenting |
 |  |`Specific datasets hosted by CSC` | `Processing and analysing data`  |
 |  |`(Datasets by discipline?)` | `Building data lakes` |
 
