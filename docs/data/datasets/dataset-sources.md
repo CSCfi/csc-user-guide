@@ -15,7 +15,7 @@
 
 | Metadata and Documentation <img width=200/>	| Publishing Datasets <img width=200/>	| Sensitive Data <img width=200/> |
 |:---------------------------:|:-------------------:|:--------------:|
-| | | | | 
+|`Testar texten` | | | | 
 | | | |	|
 | | |	| |
 
