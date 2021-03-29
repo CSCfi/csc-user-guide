@@ -1,8 +1,8 @@
-#Working with data / Data management / Data life-cycle
+# Working with data / Data management / Data life-cycle
 
 
 
-##Datasets by discipline
+## Datasets by discipline
 
 CSC hosts or provides access to several datasets on different platforms.
 
