@@ -7,6 +7,12 @@ microbial pathways in a community from metagenomic or metatranscriptomic sequenc
 This process (functional profiling) aims to describe the metabolic potential of a microbial community 
 and its members. 
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/biobakery/humann/master/LICENSE).
+
 ## Availability
 
 *   HUMAnN 2.2.1 is available in Puhti

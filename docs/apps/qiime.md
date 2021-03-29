@@ -12,6 +12,11 @@ and production of publication-quality graphics.
 On 2017 a totally rewritten version of Qiime: Qiime2 was released. The development of the original Qiime version has stopped. 
 At the moment only Qiime2 is available in Puhti.
 
+[TOC]
+
+## License
+
+Free to use and open source under [BSD 3-Clause License](https://github.com/qiime2/qiime2/blob/master/LICENSE).
 
 ## Available
 

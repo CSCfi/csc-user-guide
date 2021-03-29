@@ -10,6 +10,12 @@ to extract full-length splicing isoforms and to tease apart transcripts derived.
 
 The Trinity module at CSC also includes TransDecoder and Trinotate tools to anlyze the results of a Trinity run.
 
+[TOC]
+
+## License
+
+Free to use and open source under [Broad Institute License]https://github.com/genome-vendor/trinity/blob/master/LICENSE).
+
 ## Available
 Version on CSC's Servers
 
