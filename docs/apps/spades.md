@@ -22,6 +22,11 @@ In addition to the general purpose spades there spcific Spadesw parameter sets f
 *   RNA-Seq assembly ([rnaspades.py](http://cab.spbu.ru/files/release3.13.1/rnaspades_manual.html))
 *   Assemblly with Illumina TruSeq data ([truspades.py](http://cab.spbu.ru/files/release3.13.1/truspades_manual.html)) 
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 
 ## Available
 
