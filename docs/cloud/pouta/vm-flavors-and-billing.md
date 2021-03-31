@@ -124,6 +124,10 @@ billing unit coefficients.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| hpc.5.16core    | 16 | 55  | 80 | 0 | 80 | 3.44|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 22.5 |
+| hpc.5.32core    | 32 | 110 | 80 | 0 | 80 | 3.44|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 45 |
+| hpc.5.64 core   | 64 | 220 | 80 | 0 | 80 | 3.44|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 90 |
+| hpc.5.128core   | 128| 443 | 80 | 0 | 80 | 3.46|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 180 |
 | hpc.fullnode.haswell | 46 | 230 | 80 | 0 | 80 | 5   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 72  |
 | hpc.3.28core         | 28 | 115 | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 48  |
 | hpc.3.56core         | 56 | 240 | 80 | 0 | 80 | 4.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 96  |
@@ -237,6 +241,15 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 -   Instances can be lost due to a single-node or disk failure.
 
 **ePouta HPC flavor characteristics:**
+
+**hpc.5.\*:**
+
+-   Redundant power
+-   CPU:  AMD EPYC 7702 64-Core Processor,
+-   Network: Redundant 25 Gb/s
+-   Flavor disk: Stored in the central storage
+-   Single-node failure may cause downtime, but instances
+    are recoverable.
 
 **hpc.4\*:**
 
