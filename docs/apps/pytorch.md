@@ -11,6 +11,7 @@ Machine learning framework for Python.
 
 Available on Puhti only.  Currently supported PyTorch versions and corresponding modules to load:
 
+- 1.8.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/1.8`
 - 1.7.1 with [Horovod](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs) support using [Singularity](../support/tutorials/gpu-ml.md#singularity): `pytorch/1.7`
 - 1.6.0: `pytorch/1.6`
 - 1.4.0: `pytorch/1.4`
@@ -64,7 +65,7 @@ module load pytorch
 to access the default version, or if you wish to have a specific version (see [above for available versions](#available)):
 
 ```text
-module load pytorch/1.4
+module load pytorch/1.8
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries, so **there is no need to load cuda and cudnn modules separately!**
@@ -100,7 +101,7 @@ Example batch script for reserving one GPU and 10 CPUs in a single node:
 #SBATCH --time=1:00:00
 #SBATCH --gres=gpu:v100:1
 
-module load pytorch/1.4
+module load pytorch/1.8
 srun python3 myprog.py <options>
 ```
 
