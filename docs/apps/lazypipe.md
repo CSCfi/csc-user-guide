@@ -4,6 +4,12 @@
 
 Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or environmental samples. The main emphasis is on assembling, taxonomic binning and taxonomic profiling of bacterial/viral sequences.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/OverZealous/lazypipe/master/LICENSE).
+
 ## Usage
 
 All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is loaded with commands:

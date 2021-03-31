@@ -17,6 +17,13 @@ data in ways that are typically difficult or impossible with web based systems.
 
 [TOC]
 
+## License
+Bioperl is free to use and open source.
+
+BioPerl is licensed under the same terms as Perl itself which is dually-licensed under the terms of the [Perl Artistic license](https://dev.perl.org/licenses/artistic.html) or [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
+
+
 ## Available
 
 -   Perl 5.30.0 with Bioperl 1.007002 is available in Puhti

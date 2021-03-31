@@ -1,22 +1,23 @@
-## Picard Tools
+# Picard Tools
 
-### Description
+## Description
 
 Picard is a set of command line tools for manipulating high-throughput
 sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
 
-------------------------------------------------------------------------
 
-### Available
+[TOC]
 
-##### Version on CSC's Servers
+## License
 
-  
-Puhti: 2.21.4
+Free to use and open source under [MIT License](https://github.com/broadinstitute/picard/blob/master/LICENSE.txt).
 
-------------------------------------------------------------------------
+## Available
 
-### Usage
+Version on CSC's Servers
+- Puhti: 2.21.4
+
+## Usage
 
 To load Picard, laod biokit:
 ```text
@@ -46,7 +47,7 @@ Example:
 picard16 SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
-### Manual
+## Manual
 
 -   [Picard home page](http://broadinstitute.github.io/picard/)
 -   [Detailed tool documentation](http://broadinstitute.github.io/picard/command-line-overview.html)

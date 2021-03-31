@@ -11,6 +11,12 @@ using either exhaustive dynamic programming, or a variety of heuristics. You can
 *   Genome to genome alignment
 *   Exhaustive Smith-Waterman-Gotoh alignment
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 Version on CSC's Servers
 
