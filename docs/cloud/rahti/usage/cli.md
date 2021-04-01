@@ -71,6 +71,8 @@ oc policy add-role-to-user system:image-pusher pusher
 docker login -p $(oc sa get-token pusher) -u unused docker-registry.rahti.csc.fi
 ```
 
+This service account token, the one you get with `oc sa get-token pusher` does not expire.
+
 Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
 
 ## CLI cheat sheet
