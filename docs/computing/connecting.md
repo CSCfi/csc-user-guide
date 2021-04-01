@@ -87,7 +87,27 @@ which requires the user to provide the passphrase only once per session.
 
 If you created the SSH key using Windows Powershell, you need to manually copy-paste the public key to supercomputer. Look for the public key file. It may be in the folder where you created it, in `.ssh\id_rsa.pub` under the HOME folder, or in `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content to the clipboard. Next, connect to Puhti and open the file `.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
 
-### **Using SSH keys with PuTTy**
+### Using SSH keys with MobaXterm
+At least with Windows operating system some extra steps might be useful with MobaXterm.
+
+1. Set permanent home directory where to store the SSH key and other settings before generating the SSH key: `Settings -> Configuration -> General`
+2. Generate the keys as described above.
+3. If you do not want to type your key passphrase for every connection, use SSH Agent - MobAgent and/or Pageant: `Settings -> Configuration -> SSH`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, enable also "Forward SSH Agents": `Settings -> Configuration -> SSH`
+4. If you want to store your key in not default location, set it in <permanent_mobaxterm_home>/.ssh/config file. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes to <permanent_mobaxterm_home>/.ssh/config file.
+
+```
+Host puhti.csc.fi
+  HostName puhti.csc.fi
+  User <csc-username>
+  ForwardAgent yes
+  IdentityFile /<path_to_your_key_file>/<key_file>
+
+Host *.bullx
+  IdentityFile /<path_to_your_key_file>/<key_file>
+```
+
+
+### Using SSH keys with PuTTy
 
 If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SSH tunneling. For more detailed instructions on SSH keys, see our [Pouta user guide](../../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys). 
 
