@@ -48,7 +48,8 @@ nav:
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
-        - Running existing containers: computing/containers/run-existing.md
+        - Running containers: computing/containers/run-existing.md
+        - Creating containers: computing/containers/creating.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
