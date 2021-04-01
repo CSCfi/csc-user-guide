@@ -29,14 +29,15 @@ Another useful command is `singularity_wrapper shell` which starts a shell sessi
 
 Inside the container, the root directory in general is read-only, i.e., you cannot change the image itself. Common paths such as `/projappl`, `/scratch` and users' home directories are "bound" to the real paths and can thus be read from and written to as usual from inside the container.
 
-You can also use `singularity_wrapper` with containers that you have created yourself. You just need to set the `SING_IMAGE` to point to the correct Singularity image file. You can also set additional options via the SING_FLAGS variable. For example (the `--nv` option is needed for GPU support):
+You can also use `singularity_wrapper` with containers that you have created yourself. You just need to set the `SING_IMAGE` to point to the correct Singularity image file. For example:
 
 ```bash
 export SING_IMAGE=/path/to/singularity_image.sif
-export SING_FLAGS="--nv"
 
 singularity_wrapper exec command_to_run
 ```
+
+You can also set additional Singularity options via the `SING_FLAGS` variable.
 
 ### Running Singularity directly
 
