@@ -63,7 +63,7 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 
 ### Using a service account token
 
-Rahti also offers the oportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti namespace: builder, default and deployer, it is recomended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
+Rahti also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
 
 ```sh
 oc create serviceaccount pusher
