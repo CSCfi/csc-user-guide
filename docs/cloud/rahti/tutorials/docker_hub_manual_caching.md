@@ -1,6 +1,6 @@
 # How to manually cache images in Rahti's registry
 
-It is possible to cache manually images in Rahti's internal registry. This could be usefull to remove an external dependency that could be deleted, or to improve performance.
+It is possible to cache manually images in Rahti's internal registry. This could be useful to remove an external dependency that could be deleted, or to improve performance.
 
 The process is simple, go to <https://registry-console.rahti.csc.fi/registry>, there you must do two things:
 
