@@ -53,7 +53,7 @@ command line.
 
 ## How to login in the registry?
 
-In order to use Rahti internal container registry, it is necessary to login separately.
+In order to use Rahti internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
 
 ### Using personal account
 
@@ -72,8 +72,6 @@ docker login -p $(oc sa get-token pusher) -u unused docker-registry.rahti.csc.fi
 ```
 
 This service account token, the one you get with `oc sa get-token pusher` does not expire.
-
-Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
 
 ## CLI cheat sheet
 
