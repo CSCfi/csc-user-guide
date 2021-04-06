@@ -1,50 +1,51 @@
-# Running existing containers
+# Running Singularity containers
 
-Puhti supports running [Singularity](https://sylabs.io/singularity/) containers. For some use cases, CSC's staff has provided ready-made Singularity containers that can be used simply by loading the right module. Please check the [application pages](../../apps/index.md) if a pre-installed container is already available, and see the specific application's page for instructions on how to use it.
+## Background
 
-If you find some image missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](https://www.csc.fi/en/contact-info).  Otherwise you can also build them yourself by converting existing Docker container images (see instructions below).
+If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), [Singularity containers](https://sylabs.io/singularity/) are essentially the same thing, but are better suited for multi-user systems such as CSC's supercomputers. Containers provide an isolated software environment for each application, which makes it easier to install complex applications. On shared file systems, such as those used on CSC's supercomputers, launch times can also be much shorter for containers compared to alternatives such as conda.
 
+You can [read more about Singularity in the official user guide](https://sylabs.io/guides/3.6/user-guide/).
 
-## Converting Docker images for use with Puhti
+## Running Singularity
 
-If you cannot find a suitable Singularity image among those provided by CSC's staff, you can convert it yourself from an existing Docker image.  For example, NVIDIA has a library of container images for different GPU-enabled applications in their [NVIDIA GPU cloud (NGC)](https://ngc.nvidia.com/).
+CSC's supercomputers Puhti and Mahti both support running Singularity containers. For many use cases, CSC's staff has provided ready-made containers that can be used simply by loading the corresponding module. Please check the [application pages](../../apps/index.md) if a pre-installed container is already available for the application you are interested in. See that specific application's page for detailed instructions on how to use it.
 
-Here is an example how to build a Singularity image from NVIDIA's PyTorch Docker image. We'll use `sinteractive` as heavy processing should not be done in the login nodes.
+If you find that some Singularity container is missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](https://www.csc.fi/en/contact-info).  Otherwise you can also look into [building your own Singularity container images](creating.md).
 
-```bash
-# Let's start a 1 hour interactive job
-sinteractive --account <project> --time 1:00:00
+### Using `singularity_wrapper`
 
-# Let's use the fast local drive for temporary storage
-export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
-export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
+Unless otherwise specified in the application-specific documentation, all CSC's Singularity-based applications can be easily used with the `singularity_wrapper` command. In many cases also other common commands, such as `python` or `R`, have also been wrapped to make the user experience seamless. See the [individual application documentation pages](../../apps/index.md) for details.
 
-# This is just to avoid some annoying warnings
-unset XDG_RUNTIME_DIR
+When you load a Singularity-based module it sets appropriate values to the `SING_IMAGE` and `SING_FLAGS` shell environment variables which are used by `singularity_wrapper` to set all the appropriate options automatically for running Singularity.
 
-# Do the actual conversion
-# NOTE: the Docker image is downloaded straight from NGC
-singularity build pytorch_20.03-py3.sif docker://nvcr.io/nvidia/pytorch:20.03-py3
-```
-
-Note that the Singularity image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project application directory [projappl](/computing/disk). 
-
-To run a slurm batch job using a container you need to use the `singularity exec` command, and remember to bind all the necessary paths with the `--bind` option.  As an alternative you can also use our `singularity_wrapper` command which automatically includes all the necessary binds for CSC's environment.
-
-For example, to a run a GPU job with the PyTorch image created above you could use the following script:
+The typical way to run something using the activated container is as follows:
 
 ```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --cpus-per-task=10 
-#SBATCH --partition=gputest
-#SBATCH --gres=gpu:v100:1 
-#SBATCH --time=15
-#SBATCH --mem=16G  # Total amount of memory reserved for job
-
-module purge
-
-srun singularity_wrapper exec --nv /path/to/pytorch_20.03-py3.sif python3 myprog.py <options>
+module load modulename
+singularity_wrapper exec command_to_run
 ```
 
-Note that the `module purge` is important as a loaded singularity-based module would override what image to use for the `singularity_wrapper` command.  The `--nv` flag is only needed for GPU jobs.
+Another useful command is `singularity_wrapper shell` which starts a shell session inside the container.
+
+Inside the container, the root directory in general is read-only, i.e., you cannot change the image itself. Common paths such as `/projappl`, `/scratch` and users' home directories are "bound" to the real paths and can thus be read from and written to as usual from inside the container.
+
+You can also use `singularity_wrapper` with containers that you have created yourself. You just need to set the `SING_IMAGE` to point to the correct Singularity image file. For example:
+
+```bash
+export SING_IMAGE=/path/to/singularity_image.sif
+
+singularity_wrapper exec command_to_run
+```
+
+You can also set additional Singularity options via the `SING_FLAGS` variable.
+
+### Running Singularity directly
+
+You can also run Singularity directly if the `singularity_wrapper` script for some reason isn't appropriate for you.  Then you need to provide the path to the Singularity image yourself and bind any paths that you need to be able to access from inside the image.
+
+Usage examples:
+
+```bash
+singularity exec /path/to/singularity_image.sif -B /scratch:/scratch command_to_run
+singularity shell /path/to/singularity_image.sif
+```
