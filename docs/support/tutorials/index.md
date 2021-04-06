@@ -15,6 +15,7 @@
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)
+* [Dask & parallel Python](dask-python.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
