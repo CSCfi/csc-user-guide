@@ -14,15 +14,16 @@ With a small number of exceptions, R package versions on `r-env-singularity` are
 
 Current modules and supported versions:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | 
-| ----------------------- | ------------------- | -------------------- | ---------------------- |
-| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               |
-| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               |
-| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               |
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | GPU support       |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------- |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		    |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		    |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | NA		    |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| TensorFlow 2.4.1  |
 
 Other software and libraries:
 
-- Open MPI 4.0.2 (with Mellanox OFED™ software)
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4) (with Mellanox OFED™ software)
 - Intel® MKL 2020.0-088
 - cget 0.1.9
 
@@ -591,6 +592,43 @@ Further to temporary file storage, data sets for analysis can be stored on a fas
 ```
 Sys.getenv("LOCAL_SCRATCH")
 ```
+
+#### Using GPU acceleration (R interface to TensorFlow)
+
+The `r-env-singularity/4.0.4` module supports GPU jobs using [Keras](https://keras.rstudio.com/) and the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+
+To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_tensorflow
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=gpu
+#SBATCH --time=01:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:v100:1
+
+# Load the module
+module load r-env-singularity/4.0.4
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
 
 #### R package installations
 
