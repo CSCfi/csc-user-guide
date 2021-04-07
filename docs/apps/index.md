@@ -151,7 +151,7 @@
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
-* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server, SAGA and TensorFlow (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
