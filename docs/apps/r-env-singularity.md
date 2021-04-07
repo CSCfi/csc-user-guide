@@ -14,7 +14,7 @@ With a small number of exceptions, R package versions on `r-env-singularity` are
 
 Current modules and supported versions:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | GPU support       |
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | TensorFlow        |
 | ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------- |
 | r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		    |
 | r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		    |
@@ -593,9 +593,9 @@ Further to temporary file storage, data sets for analysis can be stored on a fas
 Sys.getenv("LOCAL_SCRATCH")
 ```
 
-#### Using GPU acceleration (R interface to TensorFlow)
+#### R interface to TensorFlow
 
-The `r-env-singularity/4.0.4` module supports GPU jobs using [Keras](https://keras.rstudio.com/) and the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+The `r-env-singularity/4.0.4` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
 
 To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
 
