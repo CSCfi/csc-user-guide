@@ -2,13 +2,16 @@
 
 In this tutoriual we are going to show how to backup a PostgreSQL DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
 
-This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption. It just shows the basic idea of creating a backup and putting in the object storage.
+This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption, ... it just shows the basic idea of creating a backup and putting it in object storage.
 
 ## Prerequisites
 
-* A postgres DB already running. You must have access to it. To deploy a new DB, you can use the Postgres template that Rahti provides. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti, in the same namespace as the backup process will be run.
+* A postgres DB. You need to have read access to it. To deploy a new DB in Rahti, you can use the Postgres template provided in the catalog. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti in the same namespace as the backup process will be run.
 
-* The ACCESS_KEY and SECRET_KEY to access Allas. You may get then by doing:
+
+* A secret called `postgresql` with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by Postgres's template, but will need to be created manually if Postgres is running outside Rahti.
+
+* The `ACCESS_KEY` and `SECRET_KEY` to access Allas. You may get then by doing:
 
 ```bash
 pip install python-openstackclient
@@ -18,7 +21,7 @@ Then go to [Access & Security](https://pouta.csc.fi/dashboard/project/access_and
 
 ```bash
 $ source ~/Downloads/project_XXXXXXX-openrc.sh
-Please enter your OpenStack Password for project project_2001316 as user <USER>:
+Please enter your OpenStack Password for project project_XXXXXXX as user <USER>:
 
 ```
 
@@ -28,7 +31,7 @@ Finally you can create the credentials:
 openstack ec2 credentials create
 ```
 
-If you already have credentials, you may show them by:
+Or if you already have created the credentials, you may show them by doing:
 
 ```bash
 openstack ec2 credentials list -f yaml
