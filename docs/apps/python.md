@@ -24,7 +24,7 @@ In Mahti:
 ## Jupyter Notebooks
 [Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python code. python-env, python-singularity, [python-data](python-data.md), deep learning modules and [geoconda](geoconda.md) have Jupyter notebook libraries included.
 
-[Jupyter Notebook instructions](../computing/running/interactive-usage/#example-running-a-jupyter-notebook-server-via-sinteractive) describe how to set up and connect to a Jupyter Notebook in computing node during interactive session.
+[Jupyter Notebook instructions](../computing/running/interactive-usage#example-running-a-jupyter-notebook-server-via-sinteractive) describe how to set up and connect to a Jupyter Notebook in computing node during interactive session.
 
 If you want to use custom conda environment inside Jupyter notebook, the following workflow could be used:
 
@@ -38,7 +38,7 @@ module load bioconda
 conda create --name gromacs-tutorials -c conda-forge -c bioconda gromacs=2020.4 matplotlib nglview notebook numpy requests pandas seaborn  
 # Activate the new conda äenvironment
 source activate gromacs-tutorials  
-# Start Jupyter kernel, you will see a seperate kernel with name "gromacs"
+# Start Jupyter kernel, you will see a separate kernel with name "gromacs"
 python -m ipykernel install --user --name gromacs-tutorials --display-name "gromacs" 
 # load one of those packages that have jupyter
 module load python-data  
@@ -58,7 +58,7 @@ Python has several different libraries for code parallellization:
    * [joblib](https://joblib.readthedocs.io/en/latest/)
    * [dask](https://docs.dask.org)
 
-`multiprocessing` package is likely easiest to use and in inlcuded in all Python installations by default. `joblib` provides some more flexibility. `multiprocessing` and `joblib` are suitable for one node (max 40 cores). `dask` is the most versatile has several optins for parallelization, the examples here include both single-node (max 40 cores) and multi-node example.
+`multiprocessing` package is likely easiest to use and in included in all Python installations by default. `joblib` provides some more flexibility. `multiprocessing` and `joblib` are suitable for one node (max 40 cores). `dask` is the most versatile has several optins for parallelization, the examples here include both single-node (max 40 cores) and multi-node example.
 
 [Examples for using the different options with Puhti.](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
 
@@ -87,7 +87,7 @@ With venv, you can keep separate environments for each program. The next time yo
 If you think that some important package should be included in a module provided by CSC, you can send an email to <servicedesk@csc.fi>. 
 
 ## Creating your own Python environments
-It is also possible to create your own Python enviroments. The main options are conda and Singularity. Singularity could be prefered at least when you know a suitable ready Singularity or Docker container. conda is very easy to use and flexible, but it might create a lot of files that might be slow at library imports.
+It is also possible to create your own Python environments. The main options are conda and Singularity. Singularity could be preferred at least when you know a suitable ready Singularity or Docker container. conda is very easy to use and flexible, but it might create a lot of files that might be slow at library imports.
 
 Singularity:
    * [Running Singularity containers](../computing/containers/run-existing.md)
