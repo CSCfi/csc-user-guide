@@ -46,7 +46,7 @@ First you need to clone the repository with the template and add it to the Rahti
 ```sh
 git clone https://github.com/lvarin/rclone-template.git -b psql
 cd rclone-template
-$ oc create -f rclone.yaml
+oc create -f rclone.yaml
 ```
 
 Once the template is added to your namespace, you just need to deploy it:
