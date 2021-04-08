@@ -44,7 +44,7 @@ openstack ec2 credentials list -f yaml
 First you need to clone the repository with the template and add it to the Rahti namespace where Postgres is running:
 
 ```sh
-git clone https://github.com/lvarin/rclone-template.git
+git clone https://github.com/lvarin/rclone-template.git -b psql
 cd rclone-template
 $ oc create -f rclone.yaml
 ```
