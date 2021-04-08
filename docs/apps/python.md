@@ -5,6 +5,7 @@
 Both Puhti and Mahti have system Python available by default without loading any module. By default are provided Python 2 - `python` (= 2.7.5) and for Python 3 - `python3` (= 3.6.8). The default Python does not include any optional Python libraries.
 
 In Puhti there are several Python modules available that include different sets of scientific libraries: 
+
    * python-env - anaconda Python with conda tools
    * [python-data](python-data.md) - for data analytics and machine learning
    * [MXNet](mxnet.md) - MXNet deep learning framework
@@ -18,13 +19,12 @@ In Puhti there are several Python modules available that include different sets 
    * and several other modules may include Python...
 
 In Mahti:
+
    * python-env - anaconda Python with conda tools
    * python-singularity - 
 
 ## Jupyter Notebooks
-[Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python code. python-env, python-singularity, [python-data](python-data.md), deep learning modules and [geoconda](geoconda.md) have Jupyter notebook libraries included.
-
-[Jupyter Notebook instructions](../computing/running/interactive-usage#example-running-a-jupyter-notebook-server-via-sinteractive) describe how to set up and connect to a Jupyter Notebook in computing node during interactive session.
+[Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python code. python-env, python-singularity, [python-data](python-data.md), deep learning modules and [geoconda](geoconda.md) have Jupyter notebook libraries included. [Jupyter Notebook instructions](../computing/running/interactive-usage#example-running-a-jupyter-notebook-server-via-sinteractive) describe how to set up and connect to a Jupyter Notebook in computing node during interactive session.
 
 If you want to use custom conda environment inside Jupyter notebook, the following workflow could be used:
 
@@ -54,9 +54,10 @@ You can also [edit Python scripts in Puhti from your local PC](../support/tutori
 
 ## Python parallel jobs
 Python has several different libraries for code parallellization:
+
    * [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
    * [joblib](https://joblib.readthedocs.io/en/latest/)
-   * [dask](https://docs.dask.org)
+   * [dask](https://docs.dask.org). [CSC Dask tutorial](../support/tutorials/dask-python.md).
 
 `multiprocessing` package is likely easiest to use and in included in all Python installations by default. `joblib` provides some more flexibility. `multiprocessing` and `joblib` are suitable for one node (max 40 cores). `dask` is the most versatile has several optins for parallelization, the examples here include both single-node (max 40 cores) and multi-node example.
 
@@ -90,10 +91,12 @@ If you think that some important package should be included in a module provided
 It is also possible to create your own Python environments. The main options are conda and Singularity. Singularity could be preferred at least when you know a suitable ready Singularity or Docker container. conda is very easy to use and flexible, but it might create a lot of files that might be slow at library imports.
 
 Singularity:
+
    * [Running Singularity containers](../computing/containers/run-existing.md)
    * [Creating Singularity containers](../computing/containers/creating.md), including how to convert Docker container to Singularity container.
 
 Conda:
+
    * [CSC conda tutorial](../support/tutorials/conda.md) describes in detail what conda is and how to use it. 
    * [Bioconda](bioconda.md) provides conda tools preinstalled.
 
