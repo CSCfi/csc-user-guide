@@ -47,11 +47,11 @@ Data can now be uploaded to Allas with command:
 ```text
 a-put --encrypt c4gh --pk allaskey.pub data_dir -b my_allas_bucket
 ```
-The command above first encrypts the data using crypt4gh and the public key and then uploads the encrypted data to Allas. Note that you don't need the secret key for encrypition. You can deliver the public key to a another server ( and to anoyther user) so that data can be securely uploaded to Allas from an external secure location. Secret key is needed only in the environment where to data is downloaded from Allas:
+The command above first encrypts the data using crypt4gh and the public key and then uploads the encrypted data to Allas. Note that you don't need the secret key for encrypition. You can deliver the public key to a another server ( and to another user) so that data can be securely uploaded to Allas from an external secure location. Secret key is needed only in the environment where to data is downloaded from Allas:
 ```text
 a-get --sk allaskey.sec my_allas_bucket/data_dir.tar.zst.c4gh
 ```
-The command above will download the encrypted object from Allas, ask for the password of the secret key and the unpack the data into readble files. 
+The command above will download the encrypted object from Allas, ask for the password of the secret key and the unpack then data into readable files. 
 
 
 ## 2. Creating encrypted repository with rclone
