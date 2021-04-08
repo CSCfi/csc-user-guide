@@ -14,14 +14,45 @@ This document describes some password based (symmetric) encryption tools that he
    
 ## 1. Encrypting single file or directory with a-put
   
-In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use a-put with option _--encrypt_ to encrypt the file or directory you want to upload to Allas. For example:
+In you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use a-put with option _--encrypt_ to encrypt the file or directory you want to upload to Allas. You can use either symmetric (i.e. password) encryption with [**gpg**](https://gnupg.org/) or asymmetric key based encryption with [**crypt4gh**](https://crypt4gh.readthedocs.io/en/latest/). Gpg is available in most linux systems while crypt4gh is not so widely used so you may need to install it to your local system if you wish to use asymmetric encryption.
+
+### Symmetric gpg encryption
+
+Symmetric gpg encryption can be executed with command:
  
 ```text
-a-put --encrypt data_dir -b my_allas_bucket
+a-put --encrypt gpg data_dir -b my_allas_bucket
 ``` 
-With the _--encrypt_ option on the data is encrypted with _gpg_ command using _AES256_ encryption algorithm, that generally considered good enough for sensitive data. When you launch the command it will ask for encryption password, and password confirmation. In this approach only the content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
+When option _--encrypt gpg_ is in use the data is encrypted with _gpg_ command using _AES256_ encryption algorithm, that generally considered good enough for sensitive data. When you launch the command it will ask for encryption password, and password confirmation. In this approach only the content of the file or directory is encrypted. Object name and metadata remain in human readable format. 
 
 When you retrieve the data with _a-get_ command, you will be asked for the encryption password so that the object can be decrypted after download.
+
+```text
+a-get my_allas_bucket/data_dir.tar.zst.gpg
+```
+
+### Asymmetric crypt4gh encryption
+
+If you want to use asymmetric _crypt4gh_ encryption, you need to have a public key file for encryption and a secret key file for decryption.
+In Puhti you first need to make crypt4gh available with commands:
+```text
+module load biokit
+module load biopythontools
+```
+Now you can create keys with command like: 
+```text
+crypt4gh-keygen --sk allaskey.sec --pk allaskey.pub
+```
+Data can now be uploaded to Allas with command:
+```text
+a-put --encrypt c4gh --pk allaskey.pub data_dir -b my_allas_bucket
+```
+The command above first encrypts the data using crypt4gh and the public key and then uploads the encrypted data to Allas. Note that you don't need the secret key for encrypition. You can deliver the public key to a another server ( and to anoyther user) so that data can be securely uploaded to Allas from an external secure location. Secret key is needed only in the environment where to data is downloaded from Allas:
+```text
+a-get --sk allaskey.sec my_allas_bucket/data_dir.tar.zst.c4gh
+```
+The command above will download the encrypted object from Allas, ask for the password of the secret key and the unpack the data into readble files. 
+
 
 ## 2. Creating encrypted repository with rclone
  
