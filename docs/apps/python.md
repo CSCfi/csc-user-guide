@@ -24,7 +24,7 @@ In Mahti:
    * python-singularity - 
 
 ## Jupyter Notebooks
-[Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python code. python-env, python-singularity, [python-data](python-data.md), deep learning modules and [geoconda](geoconda.md) have Jupyter notebook libraries included. [Jupyter Notebook instructions](../computing/running/interactive-usage#example-running-a-jupyter-notebook-server-via-sinteractive) describe how to set up and connect to a Jupyter Notebook in computing node during interactive session.
+[Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python code. python-env, python-singularity, [python-data](python-data.md), deep learning modules and [geoconda](geoconda.md) have Jupyter notebook libraries included. [Jupyter Notebook instructions](../computing/running/interactive-usage.md#example-running-a-jupyter-notebook-server-via-sinteractive) describe how to set up and connect to a Jupyter Notebook in computing node during interactive session.
 
 If you want to use custom conda environment inside Jupyter notebook, the following workflow could be used:
 
