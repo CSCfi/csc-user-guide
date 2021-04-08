@@ -1,3 +1,24 @@
+
+In general, applications require some sort of contextual information as input. 
+Such contexts are often provided in the form of configuration files, command-line 
+arguments, and environment variables. Therefore, when containerizing applications 
+and creating images we need to decouple the generic image content from the 
+customizable configuration information. This is mainly done to keep the 
+containerized applications portable. Kubernetes and Openshift have two types 
+of abstractions called Secrets and ConfigMaps that can be used to inject 
+contextual information (configuration) into containers during startup and 
+avoid hardcoding them in images. A good example use case for ConfigMaps and 
+Secrets are application (service) admin passwords and their configuration files. 
+Service passwords can be set as Secrets and added to containers as environment 
+variables, and configuration files can be stored as ConfigMaps that can be 
+mounted under containers as files on startup.
+
+!!! Note
+
+    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](/cloud/rahti/concepts/) 
+    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](/cloud/rahti/tutorials/elemental_tutorial/) 
+    to get some hands-on experience. 
+
 ## ConfigMap
 
 **ConfigMaps** are useful in collecting configuration type data in Kubernetes
