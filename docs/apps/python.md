@@ -160,19 +160,24 @@ Python has several different packages for parallel processing:
    * [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
    * [joblib](https://joblib.readthedocs.io/en/latest/)
    * [dask](https://docs.dask.org)
-   * FIXME: None of our modules seem to include mpi4py, should it still be mentioned here? [mpi4py](https://mpi4py.readthedocs.io) - Python interface to MPI 
+   * [mpi4py](https://mpi4py.readthedocs.io) - Python interface to MPI 
 
 The `multiprocessing` package is likely the easiest to use and as it is part of the 
 Python standard library it is included in all Python installations. `joblib` provides 
 some more flexibility. `multiprocessing` and `joblib` are suitable for one 
 node (max 40 cores). `dask` is the most versatile and has several options for 
 parallelization. Please see [CSC's Dask tutorial](../support/tutorials/dask-python.md) 
-which includes both single-node (max 40 cores) and multi-node examples.
+which includes both single-node (max 40 cores) and multi-node examples. 
 
 See our GitHub repository for some [examples for using the different
 parallelization options with
 Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti).
 
+The `mpi4py` is not included in the current Python environments in CSC supercomputers, 
+however, for multinode jobs with non-trivial parallelization it is generally the most 
+efficient option. For a short tutorial on `mpi4py` along with other approaches to improve
+performance of Python programs see the free online course 
+[Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc)
 
 ## License
 
