@@ -24,9 +24,9 @@ lunr==0.5.8
 Markdown==3.3.2
 MarkupSafe==1.1.1
 nltk==3.5
-Pygments==2.7.4
+Pygments==2.8.0
 pytoml==0.1.14
-PyYAML==5.4
+PyYAML==5.4.1
 regex==2020.10.15
 singledispatch==3.4.0.3
 six==1.15.0
