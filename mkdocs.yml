@@ -126,6 +126,30 @@ nav:
                    - Using storage elements for data transport in FGCI: cloud/fgci/fgci-using-storage-elements-for-data-transport.md
              - The Grid Monitor: cloud/fgci/fgci-grid-monitor.md
   - Data:
+     - Working with datasets:
+        - Overview: data/datasets/dataset-sources.md
+        - About data management: data/datasets/datamanagemet.md
+      # - Phases of dataset use: data/datasets/phases-of-dataset-use.md
+      #  - Gathering datasets: 
+      #    - Overview: data/datasets/gathering-datasets.md
+         - Datasets sources: data/datasets/sourcing-datasets.md
+      #    - Specific datasets hosted by CSC: data/datasets/specific-datasets-hosted-by-csc.md
+      #    - Persistent identifiers: data/datasets/persistent-identifiers.md
+      #    - Files and file formats: data/datasets/files-and-file-formats.md
+      #    - Licensing: data/datasets/data-licensing.md
+        - Using datasets: data/datasets/using-datasets.md
+      #     - Overview: data/datasets/using-datasets.md
+      #     - Versioning and documenting: data/datasets/versioning-and-documenting.md
+      #     - Processing and analysing data: data/datasets/processing-and-analysing-data.md
+      #     - Building data lakes: data/datasets/building-datalakes.md
+      #     - How to manage sensitive data: data/datasets/how-to-manage-sensitive-data.md
+          # - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
+        - Storing and moving data:
+        - Hosting and publishing datasets at CSC: data/datasets/hosting-and-publishing-datasets.md
+      #     - General: data/datasets/hosting-and-publishing-datasets.md
+      #     - Tools to host and publish data: data/datasets/tools-to-host-and-publish-data.md
+          # - Metadata and documentation: data/datasets/metadata-and-documentation.md
+          # - Licensing new datasets: data/datasets/licensing-new-datasets.md
      - Moving data:
         - Copying files using scp: data/moving/scp.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
@@ -153,29 +177,6 @@ nav:
         - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
-     - Working with datasets:
-        - Data management: data/datasets/dataset-sources.md
-        - Overview: data/datasets/index.md
-      # - Phases of dataset use: data/datasets/phases-of-dataset-use.md
-      #  - Gathering datasets: 
-      #    - Overview: data/datasets/gathering-datasets.md
-      #    - Sourcing datasets: data/datasets/sourcing-datasets.md
-      #    - Specific datasets hosted by CSC: data/datasets/specific-datasets-hosted-by-csc.md
-      #    - Persistent identifiers: data/datasets/persistent-identifiers.md
-      #    - Files and file formats: data/datasets/files-and-file-formats.md
-      #    - Licensing: data/datasets/data-licensing.md
-        - Using datasets: 
-           - Overview: data/datasets/using-datasets.md
-           - Versioning and documenting: data/datasets/versioning-and-documenting.md
-           - Processing and analysing data: data/datasets/processing-and-analysing-data.md
-           - Building data lakes: data/datasets/building-datalakes.md
-           - How to manage sensitive data: data/datasets/how-to-manage-sensitive-data.md
-          # - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
-        - Hosting and publishing datasets at CSC: 
-           - General: data/datasets/hosting-and-publishing-datasets.md
-           - Tools to host and publish data: data/datasets/tools-to-host-and-publish-data.md
-          # - Metadata and documentation: data/datasets/metadata-and-documentation.md
-          # - Licensing new datasets: data/datasets/licensing-new-datasets.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
