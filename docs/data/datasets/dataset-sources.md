@@ -1,9 +1,9 @@
 # Working with data / Data management / Data life-cycle
 
 
-| Data Management <img width=200/>	| Dataset Sources <img width=200/>	| Using Datasets <img width=200/> |
+| [Data Management](overview.md) <img width=200/>	| Dataset Sources <img width=200/>	| [Using Datasets](using-datasets.md) <img width=200/> |
 |:---------------:|:---------------:|:--------------:|
-|Overview |Etsin, B2Find, Paituli etc | [Versioning and documenting](versioning-and-documenting.md) |
+|[About data management](overview.md) |Etsin, B2Find, Paituli etc | [Versioning and documenting](versioning-and-documenting.md) |
 |  |Specific datasets hosted by CSC | [Processing and analysing data](processing-and-analysing-data)  |
 |  |(Datasets by discipline?) | [Building data lakes](building-datalakes) |
 
