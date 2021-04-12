@@ -1,6 +1,6 @@
 # How to backup a Postgres DB into Allas
 
-In this tutoriual we are going to show how to backup a PostgreSQL DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
+In this tutorial we are going to show how to backup a PostgreSQL DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
 
 This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption, ... it just shows the basic idea of creating a backup and putting it in object storage.
 
@@ -11,7 +11,7 @@ This is a simple example, the backup SQL file is not compressed, the checksums a
 
 * A secret called `postgresql` with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by Postgres's template, but will need to be created manually if Postgres is running outside Rahti.
 
-* The `ACCESS_KEY` and `SECRET_KEY` to access Allas. You may get then by doing:
+* The `ACCESS_KEY` and `SECRET_KEY` to access Allas. You may get them by doing:
 
 ```bash
 pip install python-openstackclient
