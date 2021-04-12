@@ -13,11 +13,11 @@ ssh yourcscusername@mahti.csc.fi
 ```
 Where **yourcscusername** is the username you get from CSC.
 
-In Linux and macOS the `ssh` command can be given in the terminal. In Windows, `ssh` is available within PowerShell, [MobaXterm](https://mobaxterm.mobatek.net/) and [PuTTY](https://putty.org/). If you prefer to use PuTTy, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal session and asks for your CSC-username and password. Guidelines for MobaXterm are provided below (see [Setting up SSH keys](#setting-up-ssh-keys)). You can also use some code editors like Visual Studio Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-dev.md).
+In Linux, macOS, Windows PowerShell and [MobaXterm](https://mobaxterm.mobatek.net/) the `ssh` command can be given in the terminal. To connect with [PuTTY](https://putty.org/) in Windows, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH connection type). Clicking the _Open_ button starts a new terminal session and asks for your CSC-username and password. You can also use some code editors like Visual Studio Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-dev.md).
 
 Once the terminal connection to Puhti is open you can start using it with the Linux command line tools (bash shell). An introduction to operating on the Linux command line can be found, for example, in our [Linux Basics tutorial for CSC](../support/tutorials/env-guide/overview.md). You can have several Puhti connections open at the same time.
 
-By default, SSH access to Puhti is authenticated with the password of your CSC user account.
+By default, SSH access to Puhti is authenticated with the password of your CSC user account. You can [set up also SSH keys](#setting-up-ssh-keys) for connecting to Puhti and Mahti. 
 
 !!! warning "Login nodes: important note for Puhti and Mahti"
     The login nodes can be used for **light** pre- and postprocessing, compiling
@@ -25,6 +25,7 @@ By default, SSH access to Puhti is authenticated with the password of your CSC u
 	compute nodes using the [batch job system](running/getting-started.md). 
 	Programs not adhering to these rules will be terminated without warning. 
 	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
+
 
 
 ## Using graphical applications
@@ -47,11 +48,11 @@ In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> 
 
 SSH keys provide more secure authentication, which can be enabled with a two-step process:
 
-1. **Generate SSH Keys**<br> 
+1. **Generate SSH Keys on your local PC**<br> 
    The SSH Keys are always generated in pairs, one *public key* and
    one *private key*. These keys should be generated on the computer
    you are using to connect to CSC supercomputers.    
-2. **Copy public key to supercomputer**<br>
+2. **Copy public key from local PC to supercomputer**<br>
 	Only the *public key* should be copied, don't copy the private key. 
 
 !!! warning "Note"
@@ -59,7 +60,7 @@ SSH keys provide more secure authentication, which can be enabled with a two-ste
     CSC staff. It should be also stored only in the local computer (Public key
     can be safely stored in cloud services).
 
-An SSH key pair can be generated in the Linux and macOS terminal as well as in Windows PowerShell as follows. If you are a Windows user, you can also use [PuTTy](#using-ssh-keys-with-putty) or [MobaXterm](https://mobaxterm.mobatek.net/documentation.html#6_3_2).
+An SSH key pair can be generated in the Linux, macOS, Windows PowerShell and MobaXterm terminal as follows. For Putty, see [PuTTy SSH keys instructions](#using-ssh-keys-with-putty) below.
 
 ```bash
 ssh-keygen -t rsa -b 4096
@@ -85,15 +86,11 @@ previous phase). In subsequent logins you should then provide
 the passphrase. It is possible to use an SSH agent (`ssh-agent` in Linux)
 which requires the user to provide the passphrase only once per session. 
 
-If you created the SSH key using Windows Powershell, you need to manually copy-paste the public key to supercomputer. Look for the public key file. It may be in the folder where you created it, in `.ssh\id_rsa.pub` under the HOME folder, or in `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content to the clipboard. Next, connect to Puhti and open the file `.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
+!!! warning "Note"
+    Windows PowerShell does not support 
 
-### Using SSH keys with MobaXterm
-At least with Windows operating system some extra steps might be useful with MobaXterm.
-
-1. Set permanent home directory where to store the SSH key and other settings before generating the SSH key: `Settings -> Configuration -> General`
-2. Generate the keys as described above.
-3. If you do not want to type your key passphrase for every connection, use SSH Agent - MobAgent and/or Pageant: `Settings -> Configuration -> SSH`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, enable also "Forward SSH Agents": `Settings -> Configuration -> SSH`
-4. If you want to store your key in not default location, set it in <permanent_mobaxterm_home>/.ssh/config file. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes to <permanent_mobaxterm_home>/.ssh/config file.
+### SSH key file with not-default name or location
+If you want to store your key in not default location (something else than `~/.ssh/id_rsa`), set the key location in `~/.ssh/config` file or use `ssh-agent`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes.
 
 ```
 Host puhti.csc.fi
@@ -106,14 +103,27 @@ Host *.bullx
   IdentityFile /<path_to_your_key_file>/<key_file>
 ```
 
+### Manual copying of public SSH key
+If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer. 
+1. In your local PC, find the public key and copy it to the clipboard. 
+   * In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
+   * With **Windows Powershell** the public key file is in the folder where you saved the private key. By default it is `.ssh\id_rsa.pub` under the HOME folder, normally `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content.
+2. In Puhti and open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
 
-### Using SSH keys with PuTTy
+### SSH keys with MobaXterm
+At least with Windows operating system some extra steps might be useful with MobaXterm.
+
+* **Before generating the SSH key**, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
+* If you do not want to type your key passphrase for every connection, use SSH Agent - MobAgent and/or Pageant: `Settings -> Configuration -> SSH`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, enable also "Forward SSH Agents".
+
+
+### SSH keys with PuTTy
 
 If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SSH tunneling. For more detailed instructions on SSH keys, see our [Pouta user guide](../../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys). 
 
 *Step 1.* Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
 
-*Step 2.* Copy the public key to Puhti. Following the instructions for Windows Powershell ([see above](#setting-up-ssh-keys)), select and copy the public key from the first text box as an extra line to Puhti (`.ssh\authorized_keys`).
+*Step 2.* [Copy the public key to Puhti manually](#manual-copying-of-public-SSH-key). 
 
 If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to the `ssh-agent` in Linux.
 
