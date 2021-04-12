@@ -105,7 +105,7 @@ efficiently. This needs to be verified for each new code and job type
 (different input) by a scaling test. The policy is that the job should
 be **at least 1.5 times faster** when you double the resources
 (cores). [Instructions for performing a scalability
-test](support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
+test](../../support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
 Please also consider [other important factors related to performance.](performance.md)
 
 

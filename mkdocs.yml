@@ -48,7 +48,8 @@ nav:
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
-        - Running existing containers: computing/containers/run-existing.md
+        - Running containers: computing/containers/run-existing.md
+        - Creating containers: computing/containers/creating.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
@@ -72,6 +73,7 @@ nav:
          - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
+         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -96,6 +98,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
+            - API Access to Pouta: cloud/pouta/api-access.md  
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md

@@ -17,6 +17,11 @@ Further, in GTF files negative location values are removed.
 
 Thus the data downloaded from Chipster server may in some cases differ from the data obtained directly from Ensembl.
 
+[TOC]
+
+## License
+
+Free to use and open source.
  
 ## Available
 

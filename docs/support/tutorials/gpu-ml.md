@@ -192,7 +192,6 @@ However, if you need to run something else inside the container, you need to pre
 
 Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
 
-
 #### Special Singularity-based applications
 
 Finally, we provide some special Singularity-based applications which are not shown by default in the module system.  You can enable them by running:
@@ -200,6 +199,14 @@ Finally, we provide some special Singularity-based applications which are not sh
 ```bash
 module use /appl/soft/ai/singularity/modulefiles/
 ```
+
+##### Intel TensorFlow
+
+Intel CPU-optimized version of tensorflow in the module `intel-tensorflow/2.3-cpu-sng`.
+
+##### DeepLabCut
+
+[DeepLabCut](http://www.mackenziemathislab.org/deeplabcut/) is a software package for animal pose estimation, available in the module `deeplabcut/2.1.9`.
 
 ##### Turku neural parser
 
