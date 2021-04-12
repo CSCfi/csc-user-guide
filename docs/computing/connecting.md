@@ -87,7 +87,7 @@ the passphrase. It is possible to use an SSH agent (`ssh-agent` in Linux)
 which requires the user to provide the passphrase only once per session. 
 
 !!! warning "Note"
-    Windows PowerShell does not support 
+    Windows PowerShell does not support jump servers, so it can not be used for connecting to RStudio Server or Jupyter Notebooks on the compute node.
 
 ### SSH key file with not-default name or location
 If you want to store your key in not default location (something else than `~/.ssh/id_rsa`), set the key location in `~/.ssh/config` file or use `ssh-agent`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes.
