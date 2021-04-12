@@ -104,7 +104,8 @@ Host *.bullx
 ```
 
 ### Manual copying of public SSH key
-If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer. 
+If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer.
+
 1. In your local PC, find the public key and copy it to the clipboard. 
 
    * In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
