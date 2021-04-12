@@ -103,7 +103,8 @@ Host *.bullx
   IdentityFile /<path_to_your_key_file>/<key_file>
 ```
 
-### Manual copying of public SSH key from local PC to supercomputer NEW (keep?)
+### Manual copying of public SSH key from local PC to supercomputer 
+NEW (keep?)
 If you created the SSH key using Windows Powershell or Putty or if copying the public key failed with `ssh-copy-id`, you need to manually copy the public key to the supercomputer.
 
 * With Linux, macOS, Windows PowerShell and MobaXterm use these commands to copy the public SSH key. The public key file is in the folder where you saved the private key and has `.pub` extension. By default it is `.ssh\id_rsa.pub` under the HOME folder, in Windows normally `C:\Users\Username\.ssh`.
@@ -140,7 +141,7 @@ If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SS
 
 *Step 1.* Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
 
-*Step 2.* [Copy the public key to Puhti manually](#manual-copying-of-public-ssh-key). 
+*Step 2.* [Copy the public key to Puhti manually](#manual-copying-of-public-ssh-key-from-local-pc-to-supercomputer). 
 
 If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to the `ssh-agent` in Linux.
 
