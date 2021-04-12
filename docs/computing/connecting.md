@@ -60,7 +60,7 @@ SSH keys provide more secure authentication, which can be enabled with a two-ste
     CSC staff. It should be also stored only in the local computer (Public key
     can be safely stored in cloud services).
 
-An SSH key pair can be generated in the Linux, macOS, Windows PowerShell and MobaXterm terminal as follows. For Putty, see [PuTTy SSH keys instructions](#using-ssh-keys-with-putty) below.
+An SSH key pair can be generated in the Linux, macOS, Windows PowerShell and MobaXterm terminal as follows. For Putty, see [PuTTy SSH keys instructions](#ssh-keys-with-putty) below.
 
 ```bash
 ssh-keygen -t rsa -b 4096
@@ -123,7 +123,7 @@ If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SS
 
 *Step 1.* Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
 
-*Step 2.* [Copy the public key to Puhti manually](#manual-copying-of-public-SSH-key). 
+*Step 2.* [Copy the public key to Puhti manually](#manual-copying-of-public-ssh-key). 
 
 If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to the `ssh-agent` in Linux.
 
