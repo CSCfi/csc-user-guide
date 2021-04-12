@@ -3,10 +3,14 @@
 Puhti and Mahti.
 
 ## Available
-Both Puhti and Mahti have a system Python available by default without loading
-any module. By default are provided Python 2 - `python` (= 2.7.5) and for Python
-3 - `python3` (= 3.6.8). The default Python does not include any optional Python
-libraries. However, you can [install simple packages for yourself by the methods
+
+* Puhti: various 2.x and 3.x versions
+* Mahti: various 2.x and 3.x versions
+ 
+System Python is available by default both in Puhti and Mahti without loading
+any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) Python
+3 (= 3.6.8) as `python3`. The default system Python does not include any optional Python
+packages. However, you can [install simple packages for yourself by the methods
 explained below](python.md#installing-python-packages-to-existing-modules).
 
 In Puhti there are several Python modules available that include different sets
@@ -151,18 +155,19 @@ during an [interactive session](../computing/running/interactive-usage.md) with
 [NoMachine](../support/tutorials/nomachine-usage.md).
 
 ## Python parallel jobs
-Python has several different libraries for code parallellization:
+Python has several different packages for parallel processing:
 
    * [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
    * [joblib](https://joblib.readthedocs.io/en/latest/)
    * [dask](https://docs.dask.org)
+   * FIXME: None of our modules seem to include mpi4py, should it still be mentioned here? [mpi4py](https://mpi4py.readthedocs.io) - Python interface to MPI 
 
-The `multiprocessing` package is likely the easiest to use and is included in
-all Python installations by default. `joblib` provides some more flexibility.
-`multiprocessing` and `joblib` are suitable for one node (max 40 cores). `dask`
-is the most versatile and has several options for parallelization. Please see
-[CSC's Dask tutorial](../support/tutorials/dask-python.md) which includes both
-single-node (max 40 cores) and multi-node examples.
+The `multiprocessing` package is likely the easiest to use and as it is part of the 
+Python standard library it is included in all Python installations. `joblib` provides 
+some more flexibility. `multiprocessing` and `joblib` are suitable for one 
+node (max 40 cores). `dask` is the most versatile and has several options for 
+parallelization. Please see [CSC's Dask tutorial](../support/tutorials/dask-python.md) 
+which includes both single-node (max 40 cores) and multi-node examples.
 
 See our GitHub repository for some [examples for using the different
 parallelization options with
