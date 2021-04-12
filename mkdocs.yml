@@ -132,7 +132,7 @@ nav:
       # - Phases of dataset use: data/datasets/phases-of-dataset-use.md
       #  - Gathering datasets: 
       #    - Overview: data/datasets/gathering-datasets.md
-         - Datasets sources: data/datasets/sourcing-datasets.md
+        - Datasets sources: data/datasets/sourcing-datasets.md
       #    - Specific datasets hosted by CSC: data/datasets/specific-datasets-hosted-by-csc.md
       #    - Persistent identifiers: data/datasets/persistent-identifiers.md
       #    - Files and file formats: data/datasets/files-and-file-formats.md
