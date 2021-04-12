@@ -107,8 +107,8 @@ Host *.bullx
 If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer.
 
 - In your local PC, find the public key and copy it to the clipboard. 
-  - In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
-  - With **Windows Powershell** the public key file is in the folder where you saved the private key. By default it is `.ssh\id_rsa.pub` under the HOME folder, normally `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content.
+    - In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
+    - With **Windows Powershell** the public key file is in the folder where you saved the private key. By default it is `.ssh\id_rsa.pub` under the HOME folder, normally `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content.
 - In Puhti and open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
 
 ### SSH keys with MobaXterm
@@ -135,11 +135,11 @@ If you would like to use an SSH agent, the `pageant` application in PuTTY is sim
 *Step 4*. To set up SSH tunneling to a login node with PuTTy:
 
 - Go to **PuTTy -> Connection -> SSH -> Tunnels** and add the following settings: 
-  - Source port: `<local_port_number>` 
-    - For example 8787 or some other number, this is the port number for your local machine.
-  - Destination: `localhost:<port_number_of_Puhti_login_node>` 
-    - For example 9999 or some other number, depending on the application. 
-    - If setting up SSH tunneling to a compute node (see below), use the same port number as on the compute node.
+    - Source port: `<local_port_number>`. 
+        - For example 8787 or some other number, this is the port number for your local machine.
+    - Destination: `localhost:<port_number_of_Puhti_login_node>` 
+        - For example 9999 or some other number, depending on the application. 
+        - If setting up SSH tunneling to a compute node (see below), use the same port number as on the compute node.
   - Keep the type as 'Local'.
   - Click 'Add'.
 - If you are forwarding a web page, open a web browser in your local machine: `localhost:<local_port_number>`  
@@ -155,6 +155,5 @@ If you would like to use an SSH agent, the `pageant` application in PuTTY is sim
 - Set up SSH tunneling to a Puhti login node, see step 4.
 
 - Go to **Putty -> Connection -> SSH** and add the following: 
-  
-  - Remote command: `ssh -L <port_number_of_Puhti_login_node>:localhost:<port_number_of_Puhti_compute_node> yourcscusername@<compute_node_name>`
-  - For example: `ssh -L 49636:localhost:49636 john@r07c49.bullx` (use the same port numbers for the Puhti login and compute nodes)
+    - Remote command: `ssh -L <port_number_of_Puhti_login_node>:localhost:<port_number_of_Puhti_compute_node> yourcscusername@<compute_node_name>`
+    - For example: `ssh -L 49636:localhost:49636 john@r07c49.bullx` (use the same port numbers for the Puhti login and compute nodes)
