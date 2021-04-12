@@ -1,11 +1,11 @@
 # Working with data / Data management / Data life-cycle
 
 
-| [Data Management](overview.md) <img width=200/>	| Dataset Sources <img width=200/>	| [Using Datasets](using-datasets.md) <img width=200/> |
+| [Data Management](overview.md) <img width=200/>	| [Dataset Sources](sourcing-datasets.md) <img width=200/>	| [Using Datasets](using-datasets.md) <img width=200/> |
 |:---------------:|:---------------:|:--------------:|
-|[About data management](overview.md) |Etsin, B2Find, Paituli etc | [Versioning and documenting](versioning-and-documenting.md) |
-|  |Specific datasets hosted by CSC | [Processing and analysing data](processing-and-analysing-data)  |
-|  |(Datasets by discipline?) | [Building data lakes](building-datalakes) |
+|[About data management](overview.md) |[Etsin, B2Find, Paituli etc](sourcing-datasets.md/#Etsin,-B2Find,-Paituli-etc) | [Versioning and documenting](using-datasets.md/#versioning-and-documenting) |
+|  |[Specific datasets hosted by CSC](sourcing-datasets.md/#Specific-datasets-hosted-by-CSC) | [Processing and analysing data](using-datasets.md/#processing-and-analysing-data)  |
+|  |[Datasets by discipline](sourcing-datasets.md/#Datasets-by-discipline) | [Building data lakes](using-datasets.md/#building-datalakes) |
 
 | Storing and Moving Data <img width=200/>	| Hosting Datasets at CSC <img width=200/>	| Best Practices for Data Management <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
