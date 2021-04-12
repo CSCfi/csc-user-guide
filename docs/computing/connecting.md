@@ -106,10 +106,10 @@ Host *.bullx
 ### Manual copying of public SSH key
 If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer.
 
-* In your local PC, find the public key and copy it to the clipboard. 
-   * In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
-   * With **Windows Powershell** the public key file is in the folder where you saved the private key. By default it is `.ssh\id_rsa.pub` under the HOME folder, normally `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content.
-* In Puhti and open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
+- In your local PC, find the public key and copy it to the clipboard. 
+  - In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
+  - With **Windows Powershell** the public key file is in the folder where you saved the private key. By default it is `.ssh\id_rsa.pub` under the HOME folder, normally `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content.
+- In Puhti and open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
 
 ### SSH keys with MobaXterm
 At least with Windows operating system some extra steps might be useful with MobaXterm.
