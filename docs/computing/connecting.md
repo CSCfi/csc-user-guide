@@ -103,7 +103,23 @@ Host *.bullx
   IdentityFile /<path_to_your_key_file>/<key_file>
 ```
 
-### Manual copying of public SSH key
+### Manual copying of public SSH key from local PC to supercomputer NEW (keep?)
+If you created the SSH key using Windows Powershell or Putty or if copying the public key failed with `ssh-copy-id`, you need to manually copy the public key to the supercomputer.
+
+* With Linux, macOS, Windows PowerShell and MobaXterm use these commands to copy the public SSH key. The public key file is in the folder where you saved the private key and has `.pub` extension. By default it is `.ssh\id_rsa.pub` under the HOME folder, in Windows normally `C:\Users\Username\.ssh`.
+```
+scp ~/.ssh/id_rsa.pub user@puhti.csc.fi:~/.ssh/mypubkey.pub
+ssh user@puhti.csc.fi 
+cat ~/.ssh/mypubkey.pub >> ~/.ssh/authorized_keys
+rm ~/.ssh/mypubkey.pub
+```
+
+* With Putty and PuTTygen: 
+    * Copy the public key (`ssh-rsa ...`) that displayed in PuTTygen main window, make sure to scroll down the text box to the bottom. 
+    * In Puhti/Mahti open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save it.
+    * If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that everything is on one row only and does not include any spaces in the key itself.
+
+### Manual copying of public SSH key from local PC to supercomputer OLD (remove?)
 If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer.
 
 - In your local PC, find the public key and copy it to the clipboard. 
