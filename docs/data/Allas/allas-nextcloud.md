@@ -20,7 +20,7 @@ In this document we show a simple use case with the following steps:
 ## 1. Launch a new Ubuntu18 Virtual Machine
 
 First, launch a new Ubuntu18 based server in cPouta service. 
-See instructions in the [cPouta documentation](../..//cloud/pouta/) and
+See instructions in the [cPouta documentation](../../../cloud/pouta/) and
 in [tutorial video](https://www.youtube.com/watch?v=CvoN4pv0RJQ).
 
 In most cases the combination of “standard small” flavor and Ubuntu18.04 image is sufficient.
