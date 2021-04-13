@@ -127,30 +127,3 @@ If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SS
 
 ## SSH agent
 If you do not want to type your key passphrase for every connection, use [SSH Agent](https://www.ssh.com/academy/ssh/agent). `ssh-agent` is available by default in Linux and MacOS. Putty has [`pageant`](https://the.earth.li/~sgtatham/putty/0.74/htmldoc/Chapter9.html#pageant) and MobaXterm MobAgent (`Settings -> Configuration -> SSH`) for similar purposes.
-
-## SSH tunnelling
-Using RStudio or Jupyter Notebooks requires SSH tunnelling via login-node to compute-node. SSH tunnelling requires that you have [set up SSH-keys](#setting-up-ssh-keys). 
-* With Linux, macOS and MobaXterm the SSH tunnelling works by default and the SSH tunnelling commands printed out by RStudio or Jupyter Notebooks can be used as such. 
-* PuTTy requires filling in the settings to PuTTy tabs. 
-* Windows PowerShell does not support jump servers, so it can not be used for SSH tunnelling. 
-
-If SSH agent is used, enable also SSH Agents Forwarding.
-
-### SSH tunnelling with PuTTy
-Both RStudio and Jupyter Notebooks print out also PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
-
-```
-    PuTTy:
-    ssh -N -L 8889:localhost:8889 john@r07c49.bullx
-    Set Source (8889) and Destination (localhost:8889) in:
-    PuTTy -> Connection -> SSH -> Tunnels
-```
-
-1. Set up SSH tunneling to a login node with PuTTy. Add port forwarding in **PuTTy -> Connection -> SSH -> Tunnels** : 
-    - Source port: `8889`. 
-    - Destination: `localhost:8889` 
-    - Keep the type as 'Local'.
-    - Click 'Add'.
-2. Set up SSH tunneling from login node to compute node in **Putty -> Connection -> SSH**: 
-    - Remote command: `ssh -N -L 8889:localhost:8889 john@r07c49.bullx`
-3: `Open` to start connection.
