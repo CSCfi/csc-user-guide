@@ -129,6 +129,7 @@ nav:
      - Working with datasets:
         - Overview: data/datasets/dataset-sources.md
         - About data management: data/datasets/datamanagemet.md
+        - Metadata and documentation: data/datasets/metadata-and-documentation.md
       # - Phases of dataset use: data/datasets/phases-of-dataset-use.md
       #  - Gathering datasets: 
       #    - Overview: data/datasets/gathering-datasets.md
@@ -144,8 +145,7 @@ nav:
       #     - Building data lakes: data/datasets/building-datalakes.md
       #     - How to manage sensitive data: data/datasets/how-to-manage-sensitive-data.md
           # - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
-        - Hosting datasets at CSC: data/datasets/hosting-datasets-at-CSC.md
-        - Metadata and documentation: data/datasets/metadata-and-documentation.md
+        - Storing, hosting and moving data: data/datasets/hosting-datasets-at-CSC.md
         - Publishing datasets: data/datasets/publishing-datasets.md
       #     - General: data/datasets/hosting-and-publishing-datasets.md
       #     - Tools to host and publish data: data/datasets/tools-to-host-and-publish-data.md
