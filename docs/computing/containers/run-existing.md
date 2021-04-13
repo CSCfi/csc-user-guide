@@ -49,3 +49,34 @@ Usage examples:
 singularity exec /path/to/singularity_image.sif -B /scratch:/scratch command_to_run
 singularity shell /path/to/singularity_image.sif
 ```
+
+### Mounting datasets with SquashFS 
+
+A common problem with supercomputers is that accessing datasets with a huge number of files on the shared file system is very inefficient. For more details, please read [our technical description of the Lustre file system](../lustre.md). Using Singularity, one potential solution to this problem would be [accessing the dataset using a SquashFS image](https://sylabs.io/guides/3.7/user-guide/bind_paths_and_mounts.html#squashfs-image-files). 
+
+First, create a SquashFS image of your dataset, thus reducing it to one big file. We recommend doing this in an [interactive session](../running/interactive-usage.md) using the fast local drive for temporary storage. For example, to launch an interactive session with 100 GiB local drive (adjust size as needed) you can run:
+
+```bash
+sinteractive --time 1:00:00 --tmp 100 --cores 4
+```
+
+Then in the interactive session:
+```bash
+# Extract individual files to local drive
+cd $LOCAL_SCRATCH
+tar xf /scratch/project/my_dataset.tar
+# Create squashfs file
+mksquashfs my_dataset my_dataset.sqfs -processors 4
+# Move the resulting squashfs file back to the shared drive
+mv my_dataset.sqfs /scratch/project/
+```
+
+In the commands above we assume you have your dataset stored in a tar-package, and it extracts to a directory called `my_dataset`. Adjust the commands to your own situation.
+
+Next, you would mount this image to your Singularity execution so that it appears as a normal directory inside the container.  We simply need to add a bind mount option to the Singularity command: `-B /scratch/project/my_dataset.sqfs:/data:image-src=/`. If you are using the `singularity_wrapper` you can do this by adding it to the `SING_FLAGS environment variable:
+
+```
+export SING_FLAGS="-B /scratch/project/my_dataset.sqfs:/data:image-src=/ $SING_FLAGS"
+```
+
+After this the dataset will be available under the `/data` path inside the container.

@@ -150,6 +150,7 @@
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
+* [Python](python.md) programming language and its modules at CSC.
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [r-env-singularity](r-env-singularity.md) R, RStudio Server, SAGA and TensorFlow (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R

@@ -127,11 +127,11 @@ Create a new security group:
 Add a rule to this new group that allows ping from a specific
 source network:
 
-    openstack security group rule create --proto icmp --src-ip <source network> --dst-port 0 <security group name>
+    openstack security group rule create --proto icmp --remote-ip <source network> --dst-port 0 <security group name>
 
 Add a rule that allows SSH from a specific source network:
 
-    openstack security group rule create --proto tcp --src-ip <source network> --dst-port 22 <security group name>
+    openstack security group rule create --proto tcp --remote-ip <source network> --dst-port 22 <security group name>
 
 Assign the newly created security group to your virtual server:
 

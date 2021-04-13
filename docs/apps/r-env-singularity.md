@@ -14,12 +14,12 @@ With a small number of exceptions, R package versions on `r-env-singularity` are
 
 Current modules and supported versions:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | TensorFlow        |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------- |
-| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		    |
-| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		    |
-| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | NA		    |
-| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| TensorFlow 2.4.1  |
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | TensorFlow version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ------------------ |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		     |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		     |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | NA		     |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| TensorFlow 2.4.1   |
 
 Other software and libraries:
 
@@ -37,7 +37,11 @@ Other software and libraries:
 
 - Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
 
-- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf). 
+- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf).
+
+- NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
+
+- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 
