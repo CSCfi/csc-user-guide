@@ -21,7 +21,7 @@ SSH tunnelling requires that you have [set up SSH-keys](/computing/connecting/#s
 ### 1. Start interactive session
 Start interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usege page.](../../computing/running/interactive-usage.md)
 
-### 2. Load suitable modules and start RStudio or Jupyter notebook server
+### 2. Load module and start RStudio or Jupyter notebook server
 In the interactive session run:
 
 **RStudio**
@@ -57,7 +57,7 @@ Keep also this terminal open as long as you are working, to have remote access t
 * Open a web browser on your local machine and copy the URL printed out by the start-up script. For example: `http://localhost:8787/`  
 * For RStudio, insert the credentials printed out by the start-up script.
 
-### 5. Closing your session
+### 5. Close the session
 Once you have finished: 
 
 * Exit RStudio or Jupyter notebook server by entering `Ctrl + C` in the interactive terminal session on Puhti. 
