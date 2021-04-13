@@ -30,7 +30,6 @@ module load r-env-singularity
 start-rstudio-server
 ```
 This set up works with any [r-env-singularity module](../../apps/r-env-singularity.md), but does not work with [r-env-depricated](../../apps/r-env.md) modules.
-Further to launching RStudio in the background, the command selects a free port on the compute node while producing a session-specific random password for RStudio.
 
 **Jupyter notebook**
 ```
@@ -38,6 +37,8 @@ module load python-data
 start-jupyter-server
 ```
 Alternatively some other [Python module](../../apps/python.md) including Jupyter Notebook libraries
+
+***
 
 This will start the RStudio or Jupyter notebook server on the compute node and print out the instructions for next steps. 
 
