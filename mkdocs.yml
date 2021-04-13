@@ -146,7 +146,7 @@ nav:
           # - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
         - Hosting datasets at CSC: data/datasets/hosting-datasets-at-CSC.md
         - Metadata and documentation: data/datasets/metadata-and-documentation.md
-        - Publishing datasets at CSC: data/datasets/publishing-datasets-at-CSC.md
+        - Publishing datasets: data/datasets/publishing-datasets.md
       #     - General: data/datasets/hosting-and-publishing-datasets.md
       #     - Tools to host and publish data: data/datasets/tools-to-host-and-publish-data.md
           # - Metadata and documentation: data/datasets/metadata-and-documentation.md
