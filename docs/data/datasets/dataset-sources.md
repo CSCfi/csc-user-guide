@@ -9,10 +9,10 @@
 
 |[Using Datasets](using-datasets.md) <img width=200/>	| Storing and Moving Data <img width=200/> | [Publishing Datasets](publishing-datasets.md) <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
-|[Allas datasets using Fairdata](using-datasets.md#Allas-datasets-using-Fairdata |[Moving data](../moving/scp.md) | |[Overview](publishing-datasets.md#overview)  |
-|[Versioning and documenting](using-datasets.md#versioning-and-documenting) |[Allas](../Allas/index.md) | | [Licensing](publishing-datasets.md#Licensing) | 
-|[Processing and analysing data](using-datasets.md#processing-and-analysing-data)|[Kaivos](../kaivos/overview.md) | |[Perservation](publishing-datasets.md#Perservation)  |
-|[Building data lakes](using-datasets.md#building-datalakes)|[Hosting Datasets](hosting-datasets-at-CSC.md) | | |
+|[Allas datasets using Fairdata](using-datasets.md#Allas-datasets-using-Fairdata) |[Moving data](../moving/scp.md)|[Overview](publishing-datasets.md#overview)  |
+|[Versioning and documenting](using-datasets.md#versioning-and-documenting) |[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#persistent-identifiers) | 
+|[Processing and analysing data](using-datasets.md#processing-and-analysing-data)|[Kaivos](../kaivos/overview.md)|[Licensing](publishing-datasets.md#Licensing) |
+|[Building data lakes](using-datasets.md#building-datalakes)|[Hosting Datasets](hosting-datasets-at-CSC.md)|[Preservation](publishing-datasets.md#Preservation)  |
 
 
 ## [Sensitive Data](how-to-manage-sensitive-data.md)
