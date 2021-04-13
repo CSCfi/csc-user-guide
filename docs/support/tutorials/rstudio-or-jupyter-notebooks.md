@@ -58,6 +58,7 @@ Keep also this terminal open as long as you are working, to have remote access t
 
 ### 5. Closing your session
 Once you have finished: 
+
 * Exit RStudio or Jupyter notebook server by entering `Ctrl + C` in the interactive terminal session on Puhti. 
 * Close (`exit`) also the interactive session. 
 * Close SSH tunnel with `Ctrl + C`.
