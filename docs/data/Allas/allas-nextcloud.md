@@ -1,33 +1,33 @@
-# Using Nextcloud as front end for Allas storage system.
+# Using Nextcloud as front end for Allas storage system
 
 Motivation: Allas is a general purpose storage system for research data. 
-It can be used with tools based on Swift and S3 protocols. However many cases, 
+It can be used with tools based on Swift and S3 protocols. However, in many cases, 
 using Allas directly trough S3 or Swift is limited by the rather plain structure 
-of user management and by the fact that the access is based on personal CSC-user accounts.
+of user management and by the fact that the access is based on personal CSC user accounts.
 
-Using Nextcloud server as a front end, allows you to create and manage your own user 
+Using Nextcloud server as a front end allows you to create and manage your own user 
 base for your Allas storage area and control the access to different datasets and storage areas. 
-Further, Nextcloud provides several user interfaces (including WWW-interface and cell phone app) 
+Further, Nextcloud provides several user interfaces (including a WWW-interface and a cell phone app) 
 that are often easier to use and more flexible to use that native Swift or S3 applications.
 
-In this document we show simple use case where:
+In this document we show a simple use case with the following steps:
 
    1. Launch a new Ubuntu18 Virtual Machine
-   2. Install a Nextcloud server into the new VM.
-   3. Link The Next Cloud server is linked to a data bucket in Allas
-   4. New Next Cloud user account  is  created for an external user.
+   2. Install a Nextcloud server into the new VM
+   3. Link The Nextcloud server is linked to a data bucket in Allas
+   4. New Nextcloud user account is created for an external user
 
 ## 1. Launch a new Ubuntu18 Virtual Machine
 
-First launch a new Ubuntu18 based server in cPouta service. 
-See instructions in the [cPouta documentation](https://docs.csc.fi/cloud/pouta/) and
+First, launch a new Ubuntu18 based server in cPouta service. 
+See instructions in the [cPouta documentation](../..//cloud/pouta/) and
 in [tutorial video](https://www.youtube.com/watch?v=CvoN4pv0RJQ).
 
-In most cases combination of  “standard small” flavor and Ubuntu18.04 image is sufficient
+In most cases the combination of “standard small” flavor and Ubuntu18.04 image is sufficient.
 
 When you create the security group for the VM, the instructions above show how 
 port 22 is opened for ssh access. In this case, use the same procedure to open 
-port 443 (https) too as it will be used to access the Nextcloud server.
+port 443 (https), too, as it will be used to access the Nextcloud server.
 
 
 ## 2. Setting up a Next Cloud sever in the VM
@@ -46,7 +46,7 @@ sudo snap install nextcloud
 sudo nextcloud.enable-https self-signed
 ```
 The latter command enables https with self signed certificate that is sufficient for testing. 
-For production you should use real certificates (e.g. lets-encrypt in stead of self-signed )
+For production you should use real certificates (e.g. lets-encrypt instead of self-signed)
 
 The Nextcloud server is now up and running, but you are not yet able to access is.
 
@@ -70,7 +70,7 @@ For example the case of IP:86.50.252.77 the definition should look like
   ),
 ```
 
-Now you  should be able to connect your Nextcoud server running in _https://ip-of-your-VM_
+Now you should be able to connect your Nextcoud server running in _https://ip-of-your-VM_
 
 So in this example: _https://86.50.252.77_
 
@@ -84,12 +84,13 @@ other sites to access the https port.
 
 
 If the connection web interface fails check that:
+
 *   you are using the right protocol and ip address
-*   port number 443 and your local IP address (not the server IP ) is defined in the cPouta security group and that this security group is in use.
+*   port number 443 and your local IP address (not the server IP) is defined in the cPouta security group and that this security group is in use
 *   your browser accepts self-signed certificates
  
 
-Nextcloud software is modular, it can be extended with Nextcloud Apps.  Once you have the
+Nextcloud software is modular, it can be extended with Nextcloud Apps. Once you have the
 Nextcloud up and running, it is a good practise to check what Apps are enabled and how
 different features are configured to work. You can do this in the Nextcloud user interface
 when you are loggind in as admin. If you wish, you can also start this by running a CSC
@@ -110,11 +111,11 @@ To be able to link Allas to your Nextcloud server, you must have a valid S3 key 
 
 You can do this things for example in puhti.csc.fi with commands:
 
-### 1. setting up the connection:
+### 1. Setting up the connection:
 
 ```text
    module load allas
-   allas-conf -–mode s3cmd
+   allas-conf --mode s3cmd
 ```
 
 ### 2. Creating a new empty bucket
@@ -135,22 +136,21 @@ the bucket name could be:
 grep key $HOME/.s3cfg
 ```
 
-Now return to the Nextcloud WWW-interface. Once you have defined the Nextcoud admin account, log in as the admin. 
+Now return to the Nextcloud WWW-interface. Once you have defined the Nextcloud admin account, log in as the admin. 
 Click the round symbol on the right end of the blue menu bar and select +Apps from the pop-up menu.
 
-From the application list, that opens, enable _External storage support_. 
+From the appearing application list enable _External storage support_. 
 
 Then click the round symbol again and open _settings_ .
 
-
-Tn the settings panel on the left side, scroll to the Administration section add select: _External storages_ .
+In the settings panel on the left side, scroll to the Administration section add select: _External storages_ .
 
 Open the _Add storage_ menu and select : _Amazon S3_
 
 This opens a definition menu here you need to file following parameters
 
 Folder name: display name for the allas bucket (2001234-nextcloud)
-Bucket: The bucket  you just created  or some older bucket.
+Bucket: The bucket you just created  or some older bucket.
 Port: 443
 Region: US
 Enable SSL
@@ -166,9 +166,7 @@ you should see an new external storage folder named as defined above.
 Now you can click this folder and start uploading and downloading data 
 from and to this Allas bucket using the Nextcloud interface.
 
-
-## 4. Create new Nextcloud user account for an external user.
-
+## 4. Create new Nextcloud user account for an external user
 
 The Nextcloud admin account can create new users and user groups to the Nextcloud server. 
 Click the round symbol on the right end of the blue menu bar and select _Users_ from the pop-up menu.
@@ -180,14 +178,14 @@ Then a new user is created by  clicking _add user_
 User name and password needs to be defined for the user and the 
 new account is added to group _Users_.
 
-Finally we need to allow this new user to access the  _External storage_ (the bucket from Allas). 
-To do that, go back Settings view and  open again the _External storages_ settings from the Administration tools. 
+Finally, we need to allow this new user to access the  _External storage_ (the bucket from Allas). 
+To do that, go back to the Settings view and reopen the _External storages_ settings from the Administration tools. 
 
 Now in the “Available for” column, click the definition field. This lists the users and user groups. 
-Choose either the use or user group to allow  the new user to use the Allas bucket. By define both 
-read and write permissions are granted, but you can also give just read-only access to a user or user group. 
+Choose either the user or user group to allow the new user to access the Allas bucket. You can define both 
+read and write permissions or you can also give just read-only access to a user or user group. 
 These options are set with the menu that opens from the three dots next to the definition field.
 
 Now you can send the account information to the new user and he/she will be able to use Nextcloud 
-to upload and download data to the data bucket that was linked to the Nextcloud server. Note that this 
-user doesn't need to have CSC account, Nextcloud account is enough.
+to upload and download data to the data bucket that was linked to the Nextcloud server. Note, that this 
+user doesn't need to have CSC account, a Nextcloud account is enough.

@@ -7,3 +7,4 @@ Clients for accessing **Allas**:
 - [rclone](using_allas/rclone.md) A versatile command line client. Installed on the CSC servers and available for Linux and MacOS machines.
 - [a-commands](using_allas/a_commands.md) Easy-to-use command line tools developed for the CSC computing environments.
 - [Python](using_allas/python_library.md) Programmatic access to Allas.
+- [Setting up a Nextcloud front end to use Allas](allas-nextcloud.md).
