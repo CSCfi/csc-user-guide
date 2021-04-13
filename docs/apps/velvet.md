@@ -4,6 +4,12 @@
 
 Velvet is a sequence assembler for very short reads.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+
 ## Available
 
 -   Puhti: 1.2.10

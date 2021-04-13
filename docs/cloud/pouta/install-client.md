@@ -1,18 +1,18 @@
 # OpenStack command line tool installation using package manager tools
 
-This article describes how to install the OpenStack command line tools on 
-Ubuntu, Red Hat and OS X based systems 
-to effienctly manage various features of OpenStack.
+This article describes how to install the OpenStack command line tools on
+Ubuntu, Red Hat and OS X based systems
+to efficiently manage various features of OpenStack.
 The installation instructions are based on Python's _pip_ package. Once pip is
 in place, the steps are the same for all systems.
 
 !!! note
     If you do not have root/administrator access
     to the system on which you want to run the command line clients,
-    see the instructions about [virtual environments](#optional-installation-in-a-python-virtual-environment)
+    see the instructions about [virtual environments](#optional-installation-in-a-python-virtual-environment).
 
 Installing in Windows is also possible, but it is beyond the scope
-of this guide. Rackspace maintains a guide for [installing the python-novaclient on Windows](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-windows)
+of this guide. Rackspace maintains a guide for [installing the python-novaclient on Windows](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-windows).
 
 We recommend first familiarizing yourself with the [Pouta web GUI](launch-vm-from-web-gui.md) and the main concepts.
 
@@ -40,7 +40,7 @@ commands.
 ### Preparation
 
 To prepare for the installation of the actual command line tools, we will
-install the pip and Python development packages. 
+install the pip and Python development packages.
 
 !!! note
     We assume here that you already have Python installed. This is
@@ -53,11 +53,11 @@ Find out if Python is installed and which version it is:
 python --version
 ~~~~
 
-You will need Python 2.7 or newer in order to install the command line
+You will need Python 3 or newer in order to install the command line
 client tools. If you are running even a relatively recent version of
 your operating system, this should not be an issue. However, if you
 have a Red Hat based system that is older than version 7, you will not be
-able to install Python 2.7 the normal way. See the note for
+able to install Python 3 the normal way. See the note for
 RHEL/CentOS 6 users under the corresponding subheading below.
 
 If for some reason you do not have Python installed, please [install it
@@ -68,26 +68,26 @@ first].
 If running Ubuntu 16.04 or newer:
 
 ~~~~
-sudo apt install python-pip python-dev
+sudo apt install python3-pip python3-dev
 ~~~~
 
 For versions older than 16.04:
 
-    sudo apt-get install python-pip python-dev
+    sudo apt-get install python3-pip python3-dev
 
 #### Preparation: Red Hat based systems
 
 If running version 7 or newer:
 
-    sudo yum install python-pip python-devel
+    sudo yum install python3-pip python3-devel
 
 !!! note
 
     If you are running RHEL/CentOS 6, the latest version of Python
     available by default is 2.6. This is too old to run recent versions of
-    the OpenStack client tools. It is possible to install Python 2.7 for
+    the OpenStack client tools. It is possible to install Python 3 for
     these operating systems as well, but that is out of the scope of this
-    guide. You can find information on how to install Python 2.7 at
+    guide. You can find information on how to install Python 3 at
     [SoftwareCollections.org]. Once you have done that, you should
     be able to follow the instructions for newer Red Hat based systems
     above.
@@ -125,22 +125,22 @@ environment for installing the client tools. If you do not want to use
 virtual environments, you can skip these steps and move directly to
 the installation instructions using pip.
 
-First install the virtualenv Python package:
+First install the python3-venv package. On Ubuntu:
 
-    sudo pip install virtualenv
+    sudo apt install python3-venv
 
-You can also use the packages provided by your operating system, for
-example on Red Hat, you could install python-virtualenv with
-yum. Create a directory for your virtual environments. We give it a
+Note that on Red Hat based systems there is no need of installing a 
+dedicated package. 
+
+Create a directory for your virtual environments. We give it a
 specific name but you can call it something else as well:
 
     mkdir python_virtualenvs
 
-Go to the directory and create a new virtual environment using
-virtualenv:
+Go to the directory and create a new virtual environment:
 
     cd python_virtualenvs
-    virtualenv osclient
+    python3 -m venv osclient
 
 This creates a new directory called "osclient" in the
 "python\_virtualenvs" directory. This directory will contain
@@ -173,7 +173,7 @@ virtual environment.
 
 OpenStack provides a set of Python tools for managing various aspects
 of its operation. Each subcomponent of OpenStack has its own tool. It
-also provides the common shared tool 
+also provides the common shared tool
 *python-openstackclient*. The easiest way to install most of the
 command line tools is to install python-openstackclient. It should
 pull several other clients as dependencies. If a tool you need is
@@ -198,7 +198,7 @@ the beginning of this page:
 
 Depending on your computer's setup, some dependencies might be
 missing. The error message `ImportError: No module named
-&lt;module&gt;` can usually be fixed by installing the missing module
+<module>` can usually be fixed by installing the missing module
 with pip and then repeating the previous, failed command. For some
 errors during installation, updating setuptools or pip might help.
 Upgrade a package:
@@ -213,13 +213,13 @@ web interface. You can download this script at the following URL
 after logging in:
 
 > <a
-> href="https://pouta.csc.fi/dashboard/project/access_and_security/api_access/openrc/"
-> class="external-link">https://pouta.csc.fi/dashboard/project/access_and_security/api_access/openrc/</a>
+> href="https://pouta.csc.fi/dashboard/project/api_access/"
+> class="external-link">https://pouta.csc.fi/dashboard/project/api_access/</a>
 
 To download this in the web interface, navigate to the
-*Access & Security* screen, and press *Download OpenStack RC File v3.*
+*API Access* section, and press *Download OpenStack RC File v3.*
 
-![RC file example](/img/rc-file-example20190121-b.png)
+![RC file example](/img/pouta-openrc.png)
 
 Once you have the openrc script from the web UI, you can add the
 environment variables:

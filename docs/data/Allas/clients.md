@@ -1,6 +1,6 @@
 Clients for accessing **Allas**:
 
-- [web client](using_allas/web_client.md) A part of the Pouta www interface. Limited performance. No configutaion steps needed.
+- [web client](using_allas/web_client.md) A part of the Pouta www interface. Limited performance. No configuration steps needed.
 - [Cyberduck](accessing_allas.md#cyberduck-functions) An easy-to-use graphical object storage client for Windows and MacOS.
 - [Swift](using_allas/swift_client.md) A native Swift command line client. Installed on the CSC servers and available for Linux and MacOS machines.
 - [s3cmd](using_allas/s3_client.md) A command line client for the S3 protocol. Installed on the CSC servers and available for Linux and MacOS machines. 

@@ -1,10 +1,13 @@
+---
+description: Things to include in your CSC servicedesk support request
+---
 #How to write good support requests
 
 Writing a good support request will enable us to resolve your issue faster. Below is a list of good practices.
 
 ##Specify your environment
 
-Have you or your colleague compiled the code? Which modules were loaded? If you use non-default modules or e.g. conda and you do not tell us about it, we will waste time when debugging with in a different environment.
+On what system are running? Have you or your colleague compiled the code? Which modules were loaded? If you use non-default modules or e.g. conda and you do not tell us about it, we will waste time when debugging with in a different environment.
 
 ##Include actual commands and error messages
 
@@ -12,7 +15,7 @@ We cover this below, but it’s so important it needs to be mentioned at the top
 
 ##Give a descriptive subject
 
-Your subject line should be descriptive. "Problem on Puhti" is not a good subject line since it could be valid for many of the support emails we get. A good subject will speed up the issue going to the right specialist.
+Your subject line should be descriptive. "Problem on Mahti" is not a good subject line since it could be valid for many of the support emails we get. The support staff is a team. The subjects are the first thing that we see. A good subject will speed up the issue going to the right specialist.
 
 ##Be specific
 
@@ -65,6 +68,10 @@ You run a calculation which crashes after running for one week. You are tempted 
 
 ##If you can't create an example, explain what you've done
 
-Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) to attach files, or [Allas](../data/Allas/allas_project_example.md). Be specific, see above.
+Explain the steps and commands you've given before the problem and all output and errors that are produced. If the amount of data is large (more than 1MB) you can use [FUNET FileSender](https://filesender.funet.fi/) or [a-flip](../data/Allas/using_allas/a_commands.md#a-flip) to deliver files. Be specific, see above.
+
+##Specify your environment
+
+Have you or your colleague compiled the code? Which modules were loaded? If you use non-default modules or e.g. conda and you do not tell us about it, we will waste time when debugging with in a different environment.
 
 [_"How to" reused by permission from HPC group - UiT The Arctic University of Norway._](http://hpc.uit.no/en/latest/help/writing-support-requests.html)

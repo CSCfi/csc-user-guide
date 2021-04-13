@@ -64,7 +64,13 @@ Then you can mount it:
 
     sudo mount /dev/vdb /media/volume
 
-Remember to unmount the volume before detaching it!
+Finally, you need to change the ownership to be able to read and write data in it.
+In the following command, we are assuming the username is cloud-user.
+
+    sudo chown cloud-user:cloud-user /media/volume
+
+After this step, you should be able to use your volume normally.
+Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
 
     sudo umount /dev/vdb
 
@@ -80,6 +86,8 @@ After you attach the volume to another machine, you only need to run:
 
     mkdir -p /media/volume
     mount /dev/vdb /media/volume
+
+After these commands, in order to allow the user of the virtual machine to read and write data on the disk, you might need to give the ownership of the /media/volume folder to the user.
 
 ## Creating and attaching volumes with command line tools
 

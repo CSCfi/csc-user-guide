@@ -9,6 +9,7 @@
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving)
 * [Disk quota exceeded](disk-quota-exceeded.md)
+* [I need a Database, where can I deploy it?](database.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -16,6 +17,7 @@
 * [How to estimate how much memory my job needs?](how-much-memory-my-job-needs.md)
 * [When will my batch job run?](when-will-my-job-run.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
+* [Sending email when a job starts/finishes is not working](email_not_working.md )
 
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
@@ -33,6 +35,7 @@
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
+* [What directory I shouild use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
 
 ## Allas
 
@@ -71,3 +74,5 @@
 
 * [Protecting against DDoS Attacks](DDos.md)
 * [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
+* [Why this container report permission denied errors?](why-this-container-does-not-work.md)
+* [Does Rahti support UDP connections?](rahti-udp.md)

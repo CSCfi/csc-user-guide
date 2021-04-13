@@ -23,7 +23,11 @@ Other blast commands
 *    **blastdbcmd** retrieve a sequence or a set of sequences form BLAST databases
 *    **makeblastdb** create a new BLAST database
 *    **blast_formatter** reformat a BLAST archive formatted BLAST result file.
+[TOC]
 
+## License
+
+Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 ## Available
 
@@ -47,7 +51,7 @@ module load biokit
 ```
 Then launch an interactive bactch job session with command:
 ```text
-sinteractuive -i
+sinteractive -i
 ```
 Reserve 8 GiB of memory, for your interactive session.
 
@@ -142,8 +146,8 @@ ensemblfetch.sh -names
 ```
 ## Running BLAST in FGCI grid with gb
 
-**gb** (grib blast) is currently available in Taito, but not in Puhti.
-*  [gb instructions](./grid_blast.md)
+**gb** (grid blast) will soon be available in Puhti.
+<!-- *  [gb instructions](./grid_blast.md) -->
 
 Below is a list of BLAST databases maintained at the servers of CSC.
 

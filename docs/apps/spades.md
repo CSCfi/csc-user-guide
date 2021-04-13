@@ -14,21 +14,25 @@ SPAdes (`spares.py`) includes several separate modules:
 We recommend to run SPAdes with BayesHammer/IonHammer to obtain high-quality assemblies. However, if you use your own read correction tool, it is possible to turn error correction module off. It is also possible to use only the read error correction stage, if you wish to use another assembler. See the SPAdes options section. 
 
 In addition to the general purpose spades there spcific Spadesw parameter sets for:
-
+*   Coronaspades (coronaspades.py)
+*   Metaviralspades (metaviralspades.py)
+*   Rnaviralspades (rnaviralspades.py)
 *   Metagenomics ([metaspades.py](https://genome.cshlp.org/content/27/5/824.short))
 *   Plasmid assembly ([plasmidspades.py](https://www.biorxiv.org/content/10.1101/048942v3))
 *   RNA-Seq assembly ([rnaspades.py](http://cab.spbu.ru/files/release3.13.1/rnaspades_manual.html))
 *   Assemblly with Illumina TruSeq data ([truspades.py](http://cab.spbu.ru/files/release3.13.1/truspades_manual.html)) 
 
+[TOC]
 
+## License
 
-
+Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 
 ## Available
 
 Version on CSC's Servers
 
--   Puhti: 3.14.1
+-   Puhti: 3.15.0
 
 ## Usage
 

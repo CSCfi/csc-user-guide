@@ -1,7 +1,10 @@
 # Disk areas
 
-Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes before using Puhti.
-
+CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes.
+The disk areas for different supercomputers are separate, *i.e.*
+**home**, **projappl** and **scratch** in Puhti cannot be directly
+accessed from Mahti. Also [a more technical description of the Lustre 
+filesystem](lustre.md) used in these directories is available.
 
 |              |  Owner    | Environment variable | Path                                            | Cleaning      |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
@@ -10,46 +13,47 @@ Puhti has three main disk areas: **home**, **projappl** and **scratch**. Please 
 | **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
 
 
+
 These disk areas have quotas for both the amount of data and total number of files:
 
-|              | Capacity   | Number of files   |
-| -------------| --------   | -------------     |
-| **home**     | 10 GiB     | 100 000 files     |
-| **projappl** | 50 GiB     | 100 000 files     |
-| **scratch**  | 1 TiB      | 1 000 000 files   |
+|              | Capacity | Number of files      |
+| -------------| ---------|----------------      |
+| **home**     | 10 GiB   |  100 000 files       |
+| **projappl** | 50 GiB   |  100 000 files       |
+| **scratch**  | 1 TiB    |  1 000 000 files     |
 
 See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
 
 ## Home directory
 
-Each Puhti user has a home directory (`$HOME`) that can contain up to 10 GB of
+Each user has a home directory (`$HOME`) that can contain up to 10 GB of
 data.
 
 The home directory is the default directory where you begin after
-logging in to Puhti. However, typically you should change to your
-project's _scratch_ directory when working with Puhti because the
+logging in to supercomputer. However, typically you should change to your
+project's _scratch_ directory when working because the
 **home directory is not intended for data analysis or computing**. Its
 purpose is to store configuration files and other minor personal
 data. A home directory exceeding its capacity causes various account
 problems.
 
-The home directory is the only user-specific directory in Puhti. All other directories
+The home directory is the only user-specific directory in supercomputers. All other directories
 are project-specific. If you are a member of several projects, you also have access
 to several _scratch_ or _projappl_ directories, but still have only one home directory.
 
 !!! note
     The home directory is not automatically backed up by CSC (the same applies to
-    all directories in Puhti), which means that data accidentally deleted by the
+    all directories), which means that data accidentally deleted by the
     user cannot be recovered.
 
 
 ## Scratch directory
 
-Each project has by default 1 TB of scratch disk space in the directory
-`/scratch/<project>`.
+
+Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage
-space for the data that is used in Puhti. The scratch directory is not intended for
+space for the data that is used in supercomputers. The scratch directory is not intended for
 long-term data storage and **any files that have not been used for 90 days will
 be automatically removed**.
 
@@ -66,12 +70,14 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 ## Using Scratch and ProjAppl directories
 
-An overview of your directories in Puhti can be displayed with:
+
+An overview of your directories in a supercomputer you are currently
+logged on can be displayed with:
+
 ```text
 csc-workspaces 
 ```
-The above command displays all _scratch_ and _projappl_ directories you have access to within
-active projects with Puhti access. 
+The above command displays all _scratch_ and _projappl_ directories you have access to.
 
 For example, if you are member in two projects, with unix groups _project_2012345_
 and _project_3587167_, then you have access to two scratch and projappl directories:
@@ -98,8 +104,9 @@ Moving to the scratch directory of project_2012345:
 ```text
 cd /scratch/project_2012345
 ```
-Please note that not all CSC projects have Puhti access, so you may not
+Please note that not all CSC projects have Puhti/Mahti access, so you may not
 necessarily find a _scratch_ or _projappl_ directory for all your CSC projects.
+
 
 **The _scratch_ and _projappl_ directories are shared by all the members of the
 project**. All new files and directories are also fully accessible for other
@@ -115,11 +122,29 @@ chmod -R g-w my_directory
 
 As mentioned earlier, the _scratch_ directory is only intended for processing data.
 Any data that should be preserved for a longer time should be copied to the
-_Allas_ storage server. Instructions for backing up files from Puhti to Allas
-will be included in this guide as soon as the Allas storage service is available.
+_Allas_ storage server. Instructions for backing up files from CSC
+supercomputers to Allas can be found in the [Allas guide](../data/Allas/index.md).
 
+## Moving data between supercomputers
+
+Data can be moved between supercomputers via Allas by first uploading
+the data in one supercomputer and then downloading in another
+supercomputer. This is the recommended approach if the data should also
+be preserved for a longer time.
+
+Data can also be moved directly between the supercomputers with the
+_rsync_ command. For example, in order to copy *my_results* (which can be
+either file or directory) from
+Puhti to the directory */scratch/project_2002291* in Mahti, one can
+issue in Puhti the command: 
+```bash
+rsync -azP my_results yourcscusername@mahti.csc.fi:/scratch/project_2002291
+```
+See [Using rsync](../data/moving/rsync.md) for more detailed instructions
+for *rsync*.
 
 ## Increasing Quotas
+
 
 You can use **MyCSC portal** to [manage quotas of the _scratch_ and _projappl_ directories](../accounts/how-to-increase-disk-quotas.md).
 
@@ -137,7 +162,7 @@ of files are stored to the _scratch_ area.
 
 ### Login nodes
 
-All of the login nodes have 2900 GiB of fast local storage. The storage
+Each of the login nodes have 2900 GiB of fast local storage. The storage
 is located under `$TMPDIR` and is separate for each login node.  
 
 The local storage is good for compiling applications and performing 
@@ -148,11 +173,11 @@ archive files.
     The local storage is meant for **temporary** storage and is cleaned frequently.
     Remember to move your data to a shared disk area after completing your task. 
 
-### Compute nodes 
+### Compute nodes in Puhti 
 
-Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable $TMPDIR and in normal batch jobs with $LOCAL_SCRATCH. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
+Interactive batch jobs as well as jobs running in the IO- and gpu-nodes have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas. 
 
-For more information see: [creating job scripts](running/creating-job-scripts.md#local-storage). 
+For more information see: [creating job scripts](running/creating-job-scripts-puhti.md#local-storage). 
 

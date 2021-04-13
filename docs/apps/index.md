@@ -1,4 +1,4 @@
-<h1> Applications</h1>
+# Applications
 
 ## Biosciences
 
@@ -23,6 +23,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
 * [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
@@ -30,6 +31,7 @@
 * [Kraken2](kraken.md) Taxonomic sequence classification system
 * [Krona](krona.md) Visualization tool for taxonomic classification and other hierarchical data
 * [Lazypipe](lazypipe.md) A stand-alone pipeline for identifying viruses in host-associated or environmental samples
+* [MaxQuant](../support/tutorials/MaxQuant-tutorial.md) A proteomics software for processing of Mass-spectromtery data
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
@@ -39,11 +41,11 @@
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
 * [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
 * [Pannzer](pannzer.md) Automatic protein annotation tool
-* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files.
+* [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
 * [Prokka](prokka.md) Rapid prokaryotic genome annotation
 * [QIIME2](qiime.md) Package for microbial community analysis of amplicon sequencing data
 * [RAxML](raxml.md) Program for inferring phylogenies with likelihood
-* [Roary](roary.md) Pan genome pipeline.
+* [Roary](roary.md) Pan genome pipeline
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
@@ -70,6 +72,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [LAMMPS](lammps.md) Fast molecular dynamics engine with large force field selection
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
 * [MOLDEN](molden.md) Processing program for molecular and electronic structure calculations
@@ -78,6 +81,7 @@
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
@@ -94,6 +98,7 @@
 * [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [Star-CCM+](starccm+.md) Computational Fluid Dynamics software by Siemens Digital Industries Software
 
 ## Data Analytics and Machine Learning
 
@@ -110,10 +115,12 @@
 * [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
 * [GDAL](gdal.md) Translator library for geospatial data formats
 * [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
+* [GRASS GIS](grass.md) GIS application for analysis, image processing, spatial modeling, and visualization
 * [LAStools](lastools.md) Toolbox for LiDAR datasets
 * [Mapnik](mapnik.md) Open source toolkit for rendering maps
 * [OpenDroneMap](opendronemap.md) open source command line toolkit for processing aerial drone imagery
 * [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
+* [PCL](pcl.md) tools for 2D/3D image and point cloud processing
 * [PDAL](pdal.md) open source command line application for point cloud translations and processing
 * [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
@@ -143,8 +150,9 @@
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
+* [Python](python.md) programming language and its modules at CSC.
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
-* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server, SAGA and TensorFlow (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 

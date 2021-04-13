@@ -55,3 +55,5 @@ bottlenecks. At CSC, several profiling tools are available:
   for Python programs
 * [nvprof](nvprof.md) is a command-line CUDA profiler and tracing tool
   for CUDA programs
+* [mpiP](mpip.md) is a lightweight MPI profiler
+* [IPM](ipm.md) is a lightweight MPI profiler

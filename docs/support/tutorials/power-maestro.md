@@ -90,8 +90,8 @@ different things. The HOST entries define resources using Slurm partitions.
 
 ## How to speed up simulations?
 
-All other Maestro modules run serial jobs, except Jaguar, which can run
-"real" parallel jobs. Don't choose the "parallel" HOST for any other job type.
+All other Maestro modules run serial jobs, except Jaguar and Quantum Espresso, which can run
+"real" parallel jobs. Don't choose a "parallel" HOST for any other job type.
 Instead of MPI-parallel jobs, Maestro modules typically
 split the workload into multiple parts, each of which can be run independent
 of the others. The Maestro help pages have an
@@ -144,7 +144,7 @@ different modules: in Maestro help select: "Installation and jobs"
 For jobs that finish within about two days, and 10 subjobs just use:
 
 ```
--HOST serial:10
+-HOST normal_72h:10
 ```
 
 or if they all finish within 7 days, use:
@@ -161,15 +161,18 @@ that will be alive for the whole duration of the workflow. Good
 options are _interactive_ and _longrun_, if you estimate the complete
 workflow to take more than 3 days (queuing included). A "driver process"
 that is not using a lot of CPU is also allowed on a login node, but
-a subjob is not. Never submit jobs on Puhti login nodes with
-`-HOST localhost`.
+a subjob is not. Never submit jobs on Puhti _login nodes_ with
+`-HOST localhost`. (It's ok if you create your own batch script _and_
+use localhost on a computenode, but that's for special cases only 
+and not discussed on this page.)
 
 Set the "driver" or "master" to run on a HOST that allows for long
 run times (if it's a big calculation). The driver needs to be alive
-for the whole duration of the workflow. You can use "interactive"
+for the whole duration of the workflow (otherwise, your subjob
+likely ends up fizzled). You can use "interactive"
 which allows for 7 days for one core. If you need to run multiple
 workflows at the same time, choose "longrun" for the next drivers.
-In both cases select a "normal" HOST 
+In both cases select some "normal" HOST 
 (i.e. "small" Slurm partition) for the (sub)jobs. Suitable
 splitting will reduce your queuing time. Asking for the longrun HOST "just
 in case" is not dangerous, but may lead to unnecessary queuing.
@@ -186,9 +189,9 @@ path described above.
 
 In summary, for a large workflow edit the GUI generated script along
 the lines:
-`-HOST "serial:10"` to `-HOST "longrun:1 serial:9"`
+`-HOST "normal_72h:10"` to `-HOST "longrun:1 normal_72h:9"`
 or e.g.
-`-HOST "serial"` to `-HOST "interactive:1 serial:9"`
+`-HOST "normal_72h"` to `-HOST "interactive:1 normal_72h:9"`
 
 Note, that you can have only one single core job running in the
 interactive HOST. 
@@ -247,7 +250,7 @@ and waiting in the queue have been in for nothing.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use
-the [NMVE local disk](../../../computing/running/creating-job-scripts/#local-storage),
+the [NMVE local disk](../../../computing/running/creating-job-scripts-puhti/#local-storage),
 which is available only on some of the
 compute nodes. Since most jobs don't gain speed advantage of NVME disk, you'll
 likely queue less, when not asking for it. If your job will require a lot or random I/O,
@@ -389,7 +392,7 @@ to get the issue solved.
 * Don't run the Maestro GUI on the login node (use `sinteractive -i` if you _must_ run the GUI on Puhti)
 * Don't specify too many subjobs - an optimal subjob takes 2-24 hours
 * Don't specify too many subjobs - there are many researchers using the same license
-* Don't run a heavy "driver process" on the login node (if it's heavy, for 10 simultaneous jobs use `-HOST "longrun:1 serial:9"`)
+* Don't run a heavy "driver process" on the login node (if it's heavy, for 10 simultaneous jobs use `-HOST "longrun:1 normal_72h:9"`)
 * Never run anything in parallel on the login node (localhost should not be in your script)
 * Submit all jobs from your /scratch area
 * If your local computer is Windows, edit `\` to `/` in your script
@@ -397,4 +400,3 @@ to get the issue solved.
 
 If you have suggestions on how to improve this text, e.g. to give examples of efficient workflows,
 fork a copy (top right pen icon), edit and propose merge, or send your suggestion to servicedesk@csc.fi.
-

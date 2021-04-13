@@ -50,7 +50,7 @@ swift download <bucket-name> your-dataset.tar
 Many machine learning tasks, such as training a model, require reading a huge number of relatively small files from the drive.  Unfortunately the Lustre-shared file system (e.g. `/scratch`, `/projappl` and users' home directories) does not perform very well when opening a lot of files, and it also causes noticeable slowdowns for all users of Puhti.  Instead, consider more efficient approaches, including:
 
 - packaging your dataset into larger files 
-- taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts.md#local-storage) on the GPU nodes.
+- taking into use the [NVME fast local storage](../../computing/running/creating-job-scripts-puhti.md#local-storage) on the GPU nodes.
 
 #### More efficient data format
 
@@ -76,7 +76,7 @@ tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
 ```
 
-Note that you need to communicate somehow to your own program where to find the dataset, for example with a command line argument.  Also see our [general instructions on how to take the fast local storage into use](../../computing/running/creating-job-scripts.md#local-storage).
+Note that you need to communicate somehow to your own program where to find the dataset, for example with a command line argument.  Also see our [general instructions on how to take the fast local storage into use](../../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 If you are running a multi-node job (see next section), you need to modify the `tar` line so that it is performed on each node separately:
 
@@ -109,10 +109,10 @@ For example, from the following excerpts we can see that on GPU 0 a `python3` jo
 ```
 
 
-Alternatively, you can use `gpuseff` which shows GPU utilisation statistics for the whole running time.  **NOTE:** `gpuseff` is currently in testing usage, and still under development.
+Alternatively, you can use `seff` which shows GPU utilisation statistics for the whole running time.
 
 ```bash
-gpuseff <job_id>
+seff <job_id>
 ```
 
 In this example we can see that maximum utilization is 100%, but average is 92%.  If the average improves over time it is probably due to slow startup time, e.g., initial startup processing where the GPU is not used at all.
@@ -157,7 +157,7 @@ train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 
 Multi-GPU jobs are also supported by specifying the number of GPUs required in the `--gres` flag, for example to have 4 GPUs (which is the maximum for a single node in Puhti): `--gres=gpu:v100:4`.  Please also make sure that your code can take advantage of multiple GPUs, this typically requires some changes to the program.
 
-For large jobs requiring more than 4 GPUs we recommend using [Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow and PyTorch on Puhti.  Horovod uses MPI and NCCL for interprocess communication. See also [MPI based batch jobs](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs).  Modules that support Horovod have the `-hvd` suffix in their name.  Note that Horovod is supported only for some specific versions of TensorFlow and PyTorch.  You can run `module avail hvd` to see all Horovod-enabled modules.  To take Horovod into use, just load the appropriate module, e.g:
+For large jobs requiring more than 4 GPUs we recommend using [Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow and PyTorch on Puhti.  Horovod uses MPI and NCCL for interprocess communication. See also [MPI based batch jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs).  Modules that support Horovod have the `-hvd` suffix in their name.  Note that Horovod is supported only for some specific versions of TensorFlow and PyTorch.  You can run `module avail hvd` to see all Horovod-enabled modules.  To take Horovod into use, just load the appropriate module, e.g:
 
 ```bash
 module load tensorflow/2.0.0-hvd
@@ -184,26 +184,13 @@ srun python3 myprog.py <options>
 
 ### Singularity
 
-We also provide GPU-enabled applications via Singularity containers.  For example recent NVIDIA-optimized versions of TensorFlow and PyTorch are available via `nvidia-` prefixed modules, e.g. `pytorch/nvidia-20.02-py3`.  See each application for details on available modules.
+Our machine learning modules are increasingly being built using [Singularity containers](https://en.wikipedia.org/wiki/Singularity_(software)). If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), Singularity containers as essentially the same thing, but are better suited for multi-user systems such as CSC's supercomputers. Containers provide an isolated software environment for each application, which has several benefits, including typically a much shorter start-up time.
 
-Here is an example submission script.  Note that the `singularity_wrapper` command is essential, otherwise the program will not run inside the image.
+In most cases, Singularity-based modules can be used in the same way as other modules as we have provided wrapper scripts so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. Common paths such as `/projappl`, `/scratch` and users' home directories should be visible from inside the container.
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:1
-
-module load pytorch/nvidia-20.02-py3
-srun singularity_wrapper exec python3 myprog.py <options>
-```
+However, if you need to run something else inside the container, you need to prefix that command with `singularity_wrapper exec`, for example `singularity_wrapper exec ps`. Another useful command is `singularity_wrapper shell` which starts a shell session inside the container.
 
 Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
-
 
 #### Special Singularity-based applications
 
@@ -212,6 +199,14 @@ Finally, we provide some special Singularity-based applications which are not sh
 ```bash
 module use /appl/soft/ai/singularity/modulefiles/
 ```
+
+##### Intel TensorFlow
+
+Intel CPU-optimized version of tensorflow in the module `intel-tensorflow/2.3-cpu-sng`.
+
+##### DeepLabCut
+
+[DeepLabCut](http://www.mackenziemathislab.org/deeplabcut/) is a software package for animal pose estimation, available in the module `deeplabcut/2.1.9`.
 
 ##### Turku neural parser
 
