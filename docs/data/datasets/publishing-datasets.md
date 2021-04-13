@@ -1,6 +1,6 @@
 # Publishing datasets
 
-## Introduction
+## Overview
 
 Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. 
 When publishing datasets, the focus should on enabling new work to be carried on them at some undefined point in future. Publishing should be based on commonly accepted 
