@@ -83,11 +83,7 @@ ssh-copy-id yourcscusername@puhti.csc.fi
 
 You will be prompted for your CSC password (not the passphrase in the
 previous phase). In subsequent logins you should then provide
-the passphrase. It is possible to use an SSH agent (`ssh-agent` in Linux)
-which requires the user to provide the passphrase only once per session. 
-
-!!! warning "Note"
-    Windows PowerShell does not support jump servers, so it can not be used for connecting to RStudio Server or Jupyter Notebooks on the compute node.
+the passphrase.  
 
 ### SSH key file with not-default name or location
 If you want to store your key in not default location (something else than `~/.ssh/id_rsa`), set the key location in `~/.ssh/config` file or use `ssh-agent`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes.
@@ -104,7 +100,6 @@ Host *.bullx
 ```
 
 ### Manual copying of public SSH key from local PC to supercomputer 
-NEW (keep?)
 If you created the SSH key using Windows Powershell or Putty or if copying the public key failed with `ssh-copy-id`, you need to manually copy the public key to the supercomputer.
 
 * With Linux, macOS, Windows PowerShell and MobaXterm use these commands to copy the public SSH key. The public key file is in the folder where you saved the private key and has `.pub` extension. By default it is `.ssh\id_rsa.pub` under the HOME folder, in Windows normally `C:\Users\Username\.ssh`.
@@ -120,57 +115,42 @@ rm ~/.ssh/mypubkey.pub
     * In Puhti/Mahti open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save it.
     * If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that everything is on one row only and does not include any spaces in the key itself.
 
-### Manual copying of public SSH key from local PC to supercomputer OLD (remove?)
-If you created the SSH key using Windows Powershell or Putty, you need to manually copy-paste the public key to the supercomputer.
-
-- In your local PC, find the public key and copy it to the clipboard. 
-    - In **PuTTygen** the public key (`ssh-rsa ...`) is displayed the text box after the key creation. Copy this text, make sure to scroll down the text box to the bottom. (If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that the key is on one row and does not include any spaces in the key itself.)
-    - With **Windows Powershell** the public key file is in the folder where you saved the private key. By default it is `.ssh\id_rsa.pub` under the HOME folder, normally `C:\Users\Username\.ssh` (where `Username` is your user name). Note that you may need to edit your Windows settings to see hidden folders i.e. those which start with ".". Once located, open it with an editor and copy the content.
-- In Puhti and open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save the file.
-
 ### SSH keys with MobaXterm
-At least with Windows operating system some extra steps might be useful with MobaXterm.
-
-* **Before generating the SSH key**, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
-* If you do not want to type your key passphrase for every connection, use SSH Agent - MobAgent and/or Pageant: `Settings -> Configuration -> SSH`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, enable also "Forward SSH Agents".
-
+At least with Windows operating system, before generating the SSH key, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
 
 ### SSH keys with PuTTy
-
 If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SSH tunneling. For more detailed instructions on SSH keys, see our [Pouta user guide](../../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys). 
 
-*Step 1.* Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
+1. Generate and save public and private SSH keys with passhphrase using [`PuTTygen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally, if you created the keys using Powershell or `ssh-keygen`, convert the private key to PuTTy's format (*Load an existing private key file, Save private key*). 
+2. [Copy the public key to Puhti manually](#manual-copying-of-public-ssh-key-from-local-pc-to-supercomputer). 
+3. When starting a connection with `PuTTY`, select the private key file in **Connection > SSH > Auth**. Save the session, so that the settings can be utilized automatically everytime you connect.
 
-*Step 2.* [Copy the public key to Puhti manually](#manual-copying-of-public-ssh-key-from-local-pc-to-supercomputer). 
+## SSH agent
+If you do not want to type your key passphrase for every connection, use [SSH Agent](https://www.ssh.com/academy/ssh/agent). `ssh-agent` is available by default in Linux and MacOS. Putty has [`pageant`](https://the.earth.li/~sgtatham/putty/0.74/htmldoc/Chapter9.html#pageant) and MobaXterm MobAgent (`Settings -> Configuration -> SSH`) for similar purposes.
 
-If you would like to use an SSH agent, the `pageant` application in PuTTY is similar to the `ssh-agent` in Linux.
+## SSH tunnelling
+Using RStudio or Jupyter Notebooks requires SSH tunnelling via login-node to compute-node. SSH tunnelling requires that you have [set up SSH-keys](#setting-up-ssh-keys). 
+* With Linux, macOS and MobaXterm the SSH tunnelling works by default and the SSH tunnelling commands printed out by RStudio or Jupyter Notebooks can be used as such. 
+* PuTTy requires filling in the settings to PuTTy tabs. 
+* Windows PowerShell does not support jump servers, so it can not be used for SSH tunnelling. 
 
-*Step 3.* When starting a connection with `PuTTY`, select the private key file in **Connection > SSH > Auth**. By saving the session, the settings can be utilized automatically everytime you connect.
+If SSH agent is used, enable also SSH Agents Forwarding.
 
-**PuTTy and SSH tunneling to a Puhti login node**
+### SSH tunnelling with PuTTy
+Both RStudio and Jupyter Notebooks print out also PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
 
-*Step 4*. To set up SSH tunneling to a login node with PuTTy:
+```
+    PuTTy:
+    ssh -N -L 8889:localhost:8889 john@r07c49.bullx
+    Set Source (8889) and Destination (localhost:8889) in:
+    PuTTy -> Connection -> SSH -> Tunnels
+```
 
-- Go to **PuTTy -> Connection -> SSH -> Tunnels** and add the following settings: 
-    - Source port: `<local_port_number>`. 
-        - For example 8787 or some other number, this is the port number for your local machine.
-    - Destination: `localhost:<port_number_of_Puhti_login_node>` 
-        - For example 9999 or some other number, depending on the application. 
-        - If setting up SSH tunneling to a compute node (see below), use the same port number as on the compute node.
-  - Keep the type as 'Local'.
-  - Click 'Add'.
-- If you are forwarding a web page, open a web browser in your local machine: `localhost:<local_port_number>`  
-
-**PuTTy and SSH tunneling to a Puhti compute node** 
-
-*Step 5*. To set up SSH tunneling to a compute node with PuTTy, follow these instructions. Before starting, you must have:
-
-- A batch job running on a Puhti compute node, for example an [sinteractive](../computing/running/interactive-usage.md) job. You must know the name of the node, for example `r07c49.bullx`.
-
-- SSH keys set up with Puhti, see steps 1-3.
-
-- Set up SSH tunneling to a Puhti login node, see step 4.
-
-- Go to **Putty -> Connection -> SSH** and add the following: 
-    - Remote command: `ssh -L <port_number_of_Puhti_login_node>:localhost:<port_number_of_Puhti_compute_node> yourcscusername@<compute_node_name>`
-    - For example: `ssh -L 49636:localhost:49636 john@r07c49.bullx` (use the same port numbers for the Puhti login and compute nodes)
+1. Set up SSH tunneling to a login node with PuTTy. Add port forwarding in **PuTTy -> Connection -> SSH -> Tunnels** : 
+    - Source port: `8889`. 
+    - Destination: `localhost:8889` 
+    - Keep the type as 'Local'.
+    - Click 'Add'.
+2. Set up SSH tunneling from login node to compute node in **Putty -> Connection -> SSH**: 
+    - Remote command: `ssh -N -L 8889:localhost:8889 john@r07c49.bullx`
+3: `Open` to start connection.
