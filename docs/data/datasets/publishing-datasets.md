@@ -1,5 +1,6 @@
 # Publishing datasets
 
+<a name="header1"></a>
 ## Overview
 
 Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. 
@@ -7,6 +8,12 @@ When publishing datasets, the focus should on enabling new work to be carried on
 standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the 
 most important future user for datasets is the original author, so that the effort spent on publishing data properly is often quickly paid back.
 
+<a name="header2"></a>
+## Persistens identifiers
+
+=> https://research.csc.fi/identifiers-and-dataset-versioning
+
+<a name="header3"></a>
 ## Licensing
 
 Today, it is possible to use data produced in previous research to be put to more diverse use in new research, thus eliminating the need to collect data, to come up with new methods, or to write code from scratch.
@@ -35,6 +42,7 @@ When making data available, it is recommended that licenses are used. It allows 
 [Creative Commons webpages](https://creativecommons.org/licenses/)
 [creativecommons.fi webpages](https://creativecommons.fi/)
 
+<a name="header4"></a>
 ## Preservation
 
 Digital preservation refers to the reliable preservation of digital information for several decades or even centuries. Hardware, software, and file formats will become outdated, while the information must be preserved. Reliable digital preservation requires active monitoring of information integrity and anticipation of various risks. Metadata, which describes for example the information content, provenance information and how the content can be used, has a key role in this.
