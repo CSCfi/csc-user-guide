@@ -19,7 +19,7 @@ SSH tunnelling requires that you have [set up SSH-keys](/computing/connecting/#s
 6) Open RStudio or Jupyter notebook in local web browser
 
 ### 1. Start interactive session
-Start interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usege page.](../computing/running/interactive-usage.md)
+Start interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usege page.](../../computing/running/interactive-usage.md)
 
 ### 2. Load suitable modules and start RStudio or Jupyter notebook server
 In the interactive session run:
@@ -29,7 +29,7 @@ In the interactive session run:
 module load r-env-singularity
 start-rstudio-server
 ```
-This set up works with any [r-env-singularity module](../apps/r-env-singularity.md), but does not work with [r-env-depricated](../apps/r-env.md) modules.
+This set up works with any [r-env-singularity module](../../apps/r-env-singularity.md), but does not work with [r-env-depricated](../../apps/r-env.md) modules.
 Further to launching RStudio in the background, the command selects a free port on the compute node while producing a session-specific random password for RStudio.
 
 **Jupyter notebook**
@@ -37,7 +37,7 @@ Further to launching RStudio in the background, the command selects a free port 
 module load python-data 
 start-jupyter-server
 ```
-Alternatively some other [Python module](../apps/python.md) including Jupyter Notebook libraries
+Alternatively some other [Python module](../../apps/python.md) including Jupyter Notebook libraries
 
 This will start the RStudio or Jupyter notebook server on the compute node and print out the instructions for next steps. 
 
