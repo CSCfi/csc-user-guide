@@ -144,7 +144,9 @@ nav:
       #     - Building data lakes: data/datasets/building-datalakes.md
       #     - How to manage sensitive data: data/datasets/how-to-manage-sensitive-data.md
           # - Allas datasets using Fairdata: data/datasets/allas-datasets-using-fairdata.md
-        - Hosting and publishing datasets at CSC: data/datasets/hosting-and-publishing-datasets.md
+        - Hosting datasets at CSC: data/datasets/hosting-datasets-at-CSC.md
+        - Metadata and documentation: data/datasets/metadata-and-documentation.md
+        - Publishing datasets at CSC: data/datasets/publishing-datasets-at-CSC.md
       #     - General: data/datasets/hosting-and-publishing-datasets.md
       #     - Tools to host and publish data: data/datasets/tools-to-host-and-publish-data.md
           # - Metadata and documentation: data/datasets/metadata-and-documentation.md
