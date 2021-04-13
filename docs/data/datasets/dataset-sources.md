@@ -3,17 +3,18 @@
 
 | [Data Management](datamanagement.md) <img width=200/>	| [Metadata and Documentation](metadata-and-documentation.md) <img width=200/> | [Dataset Sources](sourcing-datasets.md) <img width=200/>	|
 |:---------------:|:---------------:|:--------------:|
-|[About data management](datamanagement.md)  | [Metadata types](metadata-and-documentation.md#metadata-types) |[Etsin, B2Find, Paituli etc](sourcing-datasets.md#Etsin,-B2Find,-Paituli-etc)|
-|[Best practices](datamanagement.md#best-practices)  | [Files and File Formats](metadata-and-documentation.md#files-and-file-formats) |[Specific datasets hosted by CSC](sourcing-datasets.md#Specific-datasets-hosted-by-CSC) |  |
-|  |  |[Datasets by discipline](sourcing-datasets.md#Datasets-by-discipline) | |
+|[About data management](datamanagement.md)  |[Overview](metadata-and-documentation.md#header1) |[Overview](sourcing-datasets.md#header1) |
+|[Best practices](datamanagement.md#header1)  |[Metadata types](metadata-and-documentation.md#header2)|[Etsin, B2Find, Paituli etc](sourcing-datasets.md#header2) | 
+|  |[Files and File Formats](metadata-and-documentation.md#header3) |[Specific datasets hosted by CSC](sourcing-datasets.md#header3) |
+|  |  |[Datasets by discipline](sourcing-datasets.md#header4) |
 
 |[Using Datasets](using-datasets.md) <img width=200/>	| Storing and Moving Data <img width=200/> | [Publishing Datasets](publishing-datasets.md) <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
-|[Allas datasets using Fairdata](using-datasets.md#Allas-datasets-using-Fairdata) |[Moving data](../moving/scp.md)|[Overview](publishing-datasets.md#overview)  |
-|[Versioning and documenting](using-datasets.md#versioning-and-documenting) |[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#persistent-identifiers) | 
-|[Processing and analysing data](using-datasets.md#processing-and-analysing-data)|[Kaivos](../kaivos/overview.md)|[Licensing](publishing-datasets.md#Licensing) |
-|[Building data lakes](using-datasets.md#building-datalakes)|[Hosting Datasets](hosting-datasets-at-CSC.md)|[Preservation](publishing-datasets.md#Preservation)  |
-
+|[Overview](using-datasets.md#header1) |[Moving data](../moving/scp.md)|[Overview](publishing-datasets.md#header1)  |
+|[Allas datasets using Fairdata](using-datasets.md#header2)|[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#header2) | 
+|[Versioning and documenting](using-datasets.md#header3) |[Kaivos](../kaivos/overview.md)|[Licensing](publishing-datasets.md#header3) |
+|[Processing and analysing data](using-datasets.md#header4) |[Hosting Datasets](hosting-datasets-at-CSC.md)|[Preservation](publishing-datasets.md#header3)  |
+|[Building data lakes](using-datasets.md#header5)  |  | |
 
 ## [Sensitive Data](how-to-manage-sensitive-data.md)
 
