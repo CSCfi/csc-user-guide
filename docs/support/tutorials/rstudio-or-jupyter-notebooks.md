@@ -1,4 +1,4 @@
-# Using RStudio or Jupyter notebook 
+# Using RStudio or Jupyter notebooks in Puhti 
 
 [RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convinient ways for developing and running R or Python code. 
 The tools run the code on compute node within an [interactive session], but the tools itself are used  via a local web browser. So, there is no
