@@ -78,7 +78,7 @@ Other than those, you have to parallelize your own R code which can be done with
 
 ## Interactive usage
 
-It is possible to use [RStudio with an interactive session]((../support/tutorials/rstudio-or-jupyter-notebooks.md)).
+It is possible to use [RStudio with an interactive session](../../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 ## Using Allas from R
 
