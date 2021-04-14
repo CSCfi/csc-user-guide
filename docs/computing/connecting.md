@@ -126,4 +126,4 @@ If you are using `PuTTY`, follow these steps to set up SSH keys and to enable SS
 3. When starting a connection with `PuTTY`, select the private key file in **Connection > SSH > Auth**. Save the session, so that the settings can be utilized automatically everytime you connect.
 
 ## SSH agent
-If you do not want to type your key passphrase for every connection, use [SSH Agent](https://www.ssh.com/academy/ssh/agent). `ssh-agent` is available by default in Linux and MacOS. Putty has [`pageant`](https://the.earth.li/~sgtatham/putty/0.74/htmldoc/Chapter9.html#pageant) and MobaXterm MobAgent (`Settings -> Configuration -> SSH`) for similar purposes.
+If you do not want to type the passphrase of your SSH key for every connection, use [SSH Agent](https://www.ssh.com/academy/ssh/agent). On most Linux and MacOS systems, `ssh-agent` is automatically configured and run, and no additional actions are required to use it. Putty has [`pageant`](https://the.earth.li/~sgtatham/putty/0.74/htmldoc/Chapter9.html#pageant) and MobaXterm MobAgent (`Settings -> Configuration -> SSH`) for similar purposes.
