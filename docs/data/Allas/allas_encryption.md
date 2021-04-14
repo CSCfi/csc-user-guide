@@ -16,7 +16,7 @@ This document describes some password based (symmetric) encryption tools that he
   
 If you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use a-put with option _--encrypt_ to encrypt the file or directory you want to upload to Allas. You can use either symmetric (i.e. password) encryption with [**gpg**](https://gnupg.org/) or asymmetric key based encryption with [**crypt4gh**](https://crypt4gh.readthedocs.io/en/latest/). Gpg is available in most linux systems while crypt4gh is not so widely used so you may need to install it to your local system if you wish to use asymmetric encryption.
 
-Note, that by default _a-put_ creates an additional metadata object that contains information about the uploaded files. These metadata objects (the _\_ameta_ files) will not be encrypted. In cases where the file names should not be sored in readable format, you should turn of the metadata object creation by using a-put with option _--no-ameta_.
+Note, that by default _a-put_ creates an additional metadata object that contains information about the uploaded files. When _--encrypt_ option is used, the actual data content will be encrypted, but the metadata objects (the _\_ameta_ files) will not be encrypted. In cases where the file names should not be stored in readable format, you should turn of the metadata object creation by using a-put with option _--no-ameta_.
 
 
 ### Symmetric gpg encryption
