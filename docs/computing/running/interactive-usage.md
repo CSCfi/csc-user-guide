@@ -80,34 +80,8 @@ Available options for `sinteractive` in Mahti are:
 
 
 
-### Example: Running a Jupyter notebook server via sinteractive
-
-You can start a Jupyter notebook server on a Puhti compute node,
-and access it with your local web browser. In this case there is no
-need to start NoMachine. In the Puhti terminal session, run the command:
-
-```text
-sinteractive --account <project> start-jupyter-server
-```
-
-This command will start the server, and it will then print out a web
-address and a ssh command. Execute the ssh command (copy-paste) in
-another linux terminal on your local machine to form a tunnel between
-your machine and the compute node. Note that you need to set up
-[passwordless access using ssh keys](/computing/connecting/#setting-up-ssh-keys) to do so. After this you can access
-the Jupyter server by copy-pasting the web address into your local web browser.
-
-### Example: RStudio Server in sinteractive session
-
-RStudio Server can also be launched on a Puhti compute node and accessed through a local web browser.
-The process is similar to starting a Jupyter notebook server:
-
-```text
-sinteractive --account <project> --mem 8000 --tmp 100
-module load r-env-singularity 
-start-rstudio-server
-```
-For a detailed guide to launching RStudio Server, see our documentation on the [`r-env-singularity module`](../../apps/r-env-singularity.md).
+### Example: Running a Jupyter notebook or RStudio server via sinteractive
+See the [Using RStudio or Jupyter notebook tutorial](../../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 ### Example: Running an MPI job in an interactive session
 
