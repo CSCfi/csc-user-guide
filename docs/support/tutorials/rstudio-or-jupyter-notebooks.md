@@ -1,13 +1,13 @@
 # Using RStudio or Jupyter notebooks in Puhti 
 
 [RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convinient ways for developing and running R or Python code. 
-The tools run the code on compute node within an [interactive session], but the tools itself are used  via a local web browser. So, there is no
+The R or Python code is run on compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools itself are used  via a local web browser. So, there is no
 need to use NoMachine.
 
 Using RStudio or Jupyter Notebooks involves creating a SSH tunnel from local PC to compute-node, and as compute nodes are not accessible from internet 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it not is 
 not suitable for RStudio or Jupyter notebooks in Puhti. 
-SSH tunnelling requires that you have [set up SSH-keys](/computing/connecting/#setting-up-ssh-keys). 
+SSH tunnelling requires that you have [set up SSH-keys](../../computing/connecting.md#setting-up-ssh-keys). 
 
 * With Linux, macOS and MobaXterm the SSH tunnelling works by default.
 * PuTTy requires filling in the settings to PuTTy tabs, so it is a slower and more complicated, but possible.
