@@ -86,7 +86,7 @@ previous phase). In subsequent logins you should then provide
 the passphrase.  
 
 ### SSH key file with not-default name or location
-If you want to store your key in not default location (something else than `~/.ssh/id_rsa`), set the key location in `~/.ssh/config` file or use `ssh-agent`. If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes.
+If you want to store your key in not default location (something else than `~/.ssh/id_rsa`), set the key location in `~/.ssh/config` file or use [`ssh-agent`](#ssh-agent). If you use RStudio, Jupyter Notebooks or something else that requires piping via login-node to compute-node, add agent-forwarding and key file for compute-nodes.
 
 ```
 Host puhti.csc.fi
@@ -102,7 +102,7 @@ Host *.bullx
 ### Manual copying of public SSH key from local PC to supercomputer 
 If you created the SSH key using Windows Powershell or Putty or if copying the public key failed with `ssh-copy-id`, you need to manually copy the public key to the supercomputer.
 
-* With Linux, macOS, Windows PowerShell and MobaXterm use these commands to copy the public SSH key. The public key file is in the folder where you saved the private key and has `.pub` extension. By default it is `.ssh\id_rsa.pub` under the HOME folder, in Windows normally `C:\Users\Username\.ssh`.
+* With Linux, macOS, Windows PowerShell and MobaXterm use these commands to copy the public SSH key. The public key file is in the folder where you saved the private key and has `.pub` extension. By default it is `.ssh/id_rsa.pub` under the HOME folder, in Windows normally `C:\Users\Username\.ssh\id_rsa.pub`.
 ```
 scp ~/.ssh/id_rsa.pub user@puhti.csc.fi:~/.ssh/mypubkey.pub
 ssh user@puhti.csc.fi 
