@@ -35,6 +35,7 @@
 
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
