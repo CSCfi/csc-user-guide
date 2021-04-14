@@ -1,15 +1,16 @@
 # Using RStudio or Jupyter notebook 
 
-[RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convinient ways for developing R or Python code. 
-The tools are run on compute node during an [interactive session] and opened in a local web browser, so there is no
+[RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convinient ways for developing and running R or Python code. 
+The tools run the code on compute node within an [interactive session], but the tools itself are used  via a local web browser. So, there is no
 need to use NoMachine.
 
-Using RStudio or Jupyter Notebooks happens with SSH tunnelling via login-node to compute-node. 
+Using RStudio or Jupyter Notebooks involves creating a SSH tunnel from local PC to compute-node, and as compute nodes are not accessible from internet 
+the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it not is 
+not suitable for RStudio or Jupyter notebooks in Puhti. 
 SSH tunnelling requires that you have [set up SSH-keys](/computing/connecting/#setting-up-ssh-keys). 
 
 * With Linux, macOS and MobaXterm the SSH tunnelling works by default.
 * PuTTy requires filling in the settings to PuTTy tabs, so it is a slower and more complicated, but possible.
-* Windows PowerShell does not support jump servers, so it can not be used for SSH tunnelling, and therefore not is not suitable for RStudio or Jupyter notebooks in Puhti. 
 
 ## The workflow for using RStudio or Jupyter notebooks in Puhti
 
@@ -36,7 +37,7 @@ This set up works with any [r-env-singularity module](../../apps/r-env-singulari
 module load python-data 
 start-jupyter-server
 ```
-Alternatively some other [Python module](../../apps/python.md) including Jupyter Notebook libraries. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-enviroment-with-jupyter-notebook)
+Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-enviroment-with-jupyter-notebook)
 
 ***
 
