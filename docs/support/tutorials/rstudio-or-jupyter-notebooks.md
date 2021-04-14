@@ -37,7 +37,7 @@ This set up works with any [r-env-singularity module](../../apps/r-env-singulari
 module load python-data 
 start-jupyter-server
 ```
-Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-enviroment-with-jupyter-notebook)
+Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebook)
 
 ***
 
@@ -65,13 +65,13 @@ Once you have finished:
 * Close (`exit`) also the interactive session. 
 * Close SSH tunnel with `Ctrl + C`.
 
-## Custom Python enviroment with Jupyter notebook
+## Custom Python environment with Jupyter notebook
 
 If you want to use a custom conda environment with Jupyter notebook, the
 following workflow could be used (adapted to your situation):
 
 ```bash
-# Set up PROJAPPL environtment variable, where to install your conda environment. 
+# Set up PROJAPPL environment variable, where to install your conda environment. 
 # Add your project here
 export PROJAPPL=/projappl/project_xxx
 # Activate conda commands
