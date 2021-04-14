@@ -36,7 +36,7 @@ This set up works with any [r-env-singularity module](../../apps/r-env-singulari
 module load python-data 
 start-jupyter-server
 ```
-Alternatively some other [Python module](../../apps/python.md) including Jupyter Notebook libraries
+Alternatively some other [Python module](../../apps/python.md) including Jupyter Notebook libraries. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-enviroment-with-jupyter-notebook)
 
 ***
 
@@ -63,6 +63,30 @@ Once you have finished:
 * Exit RStudio or Jupyter notebook server by entering `Ctrl + C` in the interactive terminal session on Puhti. 
 * Close (`exit`) also the interactive session. 
 * Close SSH tunnel with `Ctrl + C`.
+
+## Custom Python enviroment with Jupyter notebook
+
+If you want to use a custom conda environment with Jupyter notebook, the
+following workflow could be used (adapted to your situation):
+
+```bash
+# Set up PROJAPPL environtment variable, where to install your conda environment. 
+# Add your project here
+export PROJAPPL=/projappl/project_xxx
+# Activate conda commands
+module load bioconda
+# Create conda environment with your packages
+# It is important to include notebook package
+conda create --name gromacs-tutorials -c conda-forge -c bioconda gromacs=2020.4 matplotlib nglview notebook numpy requests pandas seaborn  
+# Activate the new conda environment
+source activate gromacs-tutorials
+# Start Jupyter kernel, you will see a separate kernel with name "gromacs"
+python -m ipykernel install --user --name gromacs-tutorials --display-name "gromacs" 
+# load one of those packages that have jupyter
+module load python-data
+# Launch jupyter
+start-jupyter-server 
+```
 
 ## SSH tunnelling with PuTTy
 Both RStudio and Jupyter Notebooks print out also PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
