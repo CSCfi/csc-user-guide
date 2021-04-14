@@ -119,12 +119,13 @@ Finally, several graphical programming environments can be used directly on the
 supercomputer, such as Jupyter Notebooks and Spyder.
 
 ### Jupyter Notebooks
-[Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python
-code. Many of our modules, including python-env, python-singularity,
+[Jupyter Notebook](https://jupyter.org/) allows one to run Python code via a web browser 
+running on a local PC. The notebooks can combine code, equations, visualizations and narrative text
+in a single document. Many of our modules, including python-env, python-singularity,
 [python-data](python-data.md), the deep learning modules and
-[geoconda](geoconda.md) have Jupyter notebook libraries included. See the tutorial
-[how to set up and connect to a Jupyter Notebook in an interactive
-session](../support/tutorials/rstudio-or-jupyter-notebooks.md).
+[geoconda](geoconda.md) include Jupyter notebook package. See the tutorial
+[how to set up and connect to a Jupyter Notebook](../support/tutorials/rstudio-or-jupyter-notebooks.md)
+for using Jupyter in CSC environment.
 
 ### Spyder
 [Spyder](https://www.spyder-ide.org/) is scientific Python development
