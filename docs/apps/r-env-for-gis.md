@@ -78,7 +78,7 @@ Other than those, you have to parallelize your own R code which can be done with
 
 ## Interactive usage
 
-It is possible to use RStudio with [an interactive batch job](r-env-singularity.md) on Puhti. The `r-env-singularity` module includes an [RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session) installation, making it possible to run RStudio from your local browser with a SSH tunnel.
+It is possible to use [RStudio with an interactive session]((../support/tutorials/rstudio-or-jupyter-notebooks.md)).
 
 ## Using Allas from R
 
