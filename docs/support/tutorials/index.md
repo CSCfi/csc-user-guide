@@ -25,7 +25,8 @@
 ## Bioinformatics
 * [Singularity applications on Puhti](bioapplications-puhti.md)
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
-* [Running Nextflow pipelines on Puhti](nextflow-puhti.md)
+* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
+* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
 * [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
@@ -34,6 +35,7 @@
 
 * [Data analysis guide](da-guide.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
