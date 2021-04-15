@@ -119,33 +119,13 @@ Finally, several graphical programming environments can be used directly on the
 supercomputer, such as Jupyter Notebooks and Spyder.
 
 ### Jupyter Notebooks
-[Jupyter Notebooks](https://jupyter.org/) is a common way for organizing Python
-code. Many of our modules, including python-env, python-singularity,
+[Jupyter Notebook](https://jupyter.org/) allows one to run Python code via a web browser 
+running on a local PC. The notebooks can combine code, equations, visualizations and narrative text
+in a single document. Many of our modules, including python-env, python-singularity,
 [python-data](python-data.md), the deep learning modules and
-[geoconda](geoconda.md) have Jupyter notebook libraries included. See an example
-of [how to set up and connect to a Jupyter Notebook in an interactive
-session](../computing/running/interactive-usage.md#example-running-a-jupyter-notebook-server-via-sinteractive).
-
-If you want to use a custom conda environment inside a Jupyter notebook, the
-following workflow could be used (adapted to your situation):
-
-```bash
-# Set up PROJAPPL environtment variable, where to install your conda environment. 
-# Add your project here
-export PROJAPPL=/projappl/project_xxx
-# Activate conda commands
-module load bioconda
-# Create conda environment with your packages
-conda create --name gromacs-tutorials -c conda-forge -c bioconda gromacs=2020.4 matplotlib nglview notebook numpy requests pandas seaborn  
-# Activate the new conda environment
-source activate gromacs-tutorials
-# Start Jupyter kernel, you will see a separate kernel with name "gromacs"
-python -m ipykernel install --user --name gromacs-tutorials --display-name "gromacs" 
-# load one of those packages that have jupyter
-module load python-data
-# Launch jupyter
-start-jupyter-server 
-```
+[geoconda](geoconda.md) include Jupyter notebook package. See the tutorial
+[how to set up and connect to a Jupyter Notebook](../support/tutorials/rstudio-or-jupyter-notebooks.md)
+for using Jupyter in CSC environment.
 
 ### Spyder
 [Spyder](https://www.spyder-ide.org/) is scientific Python development

@@ -37,7 +37,8 @@ can be found in the "Command Line Tools" page in the web interface:
 
 ![Command line tools](img/cli_help_menu_3.7.png)
 
-The oc tool is a single binary that only needs to be included in your _path_.
+## How to login with `oc`?
+
 The oc login command to login can be found in one of the fields on the page. There is a
 button next to it for copying the command to the clipboard:
 
@@ -49,6 +50,28 @@ command line.
 !!! note
     If you open multiple terminals, the login session for oc will be active in
     all of them.
+
+## How to login in the registry?
+
+In order to use Rahti internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
+
+### Using personal account
+
+After login with `oc`, it is possible to use the command to generate a token (`oc whoami -t`):
+
+`docker login -p $(oc whoami -t ) -u unused docker-registry.rahti.csc.fi`
+
+### Using a service account token
+
+Rahti also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
+
+```sh
+oc create serviceaccount pusher
+oc policy add-role-to-user system:image-pusher pusher
+docker login -p $(oc sa get-token pusher) -u unused docker-registry.rahti.csc.fi
+```
+
+This service account token, the one you get with `oc sa get-token pusher` does not expire.
 
 ## CLI cheat sheet
 
