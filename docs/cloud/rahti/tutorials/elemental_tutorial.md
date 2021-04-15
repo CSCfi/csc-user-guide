@@ -170,6 +170,8 @@ documentation](https://kubernetes.io/docs/tasks/configure-pod-container/quality-
 
 ----
 
+![Network](img/routeServicePod.drawio.svg)
+
 ## Service
 
 The IP addresses of pods are not consistent and may change if, for example,
