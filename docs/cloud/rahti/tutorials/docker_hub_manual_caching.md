@@ -1,6 +1,6 @@
 # How to manually cache images in Rahti's registry
 
-It is possible to cache manually images in Rahti's internal registry. This could be useful to remove an external dependency that could be deleted, or to improve performance.
+It is possible to manually cache images in Rahti's internal registry. This could be useful to remove an external dependency or improve performance.
 
 The process is simple, go to <https://registry-console.rahti.csc.fi/registry>, there you must do two things:
 
@@ -35,4 +35,3 @@ Go to your project's deployment, and edit it.
 Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked. Finally select the new image.
 
 ![Use cached image](/cloud/rahti/img/use_cached_image.png)
-
