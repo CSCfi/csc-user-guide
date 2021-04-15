@@ -4,7 +4,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2019, ADF2019, BAND2019, DFTB2019, MOPAC2019, ReaxFF2019 , Version 2019.301
+-   Puhti: AMS2020, ADF2020, BAND2020, DFTB2020, MOPAC2020, ReaxFF2020 , Version 2020.102
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -17,7 +17,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 Initialise AMS on Puhti like this:
 
 ```bash
-module load adf/2019.301
+module load ams/2020.102
 ```
 
 
@@ -27,20 +27,20 @@ module load adf/2019.301
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=40 # MPI tasks per node
-#SBATCH --account=<project>  # insert here the project to be billed 
+#SBATCH --ntasks-per-node=40      # MPI tasks per node
+#SBATCH --account=yourprojectname # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as hh:mm:ss
-
-ulimit -s unlimited
-export SCM_TMPDIR=$PWD/SCM_TMP_$SLURM_JOB_ID
-mkdir -p $SCM_TMPDIR
-export SCM_USE_LOCAL_IMPI=yes
 module purge
-module load intel/19.0.4 intel-mpi/18.0.5 
-module load adf/2019.301
+module load ams/2020.102
+export SCM_USE_LOCAL_IMPI=yes
+export SCM_TMPDIR=$PWD
 
-$ADFBIN/adf < methane_dimer_dispersion.inp > methane_dimer_dispersion.log
-seff $SLURM_JOBID
+# Copy an example input file and remove from it the three first and the last lines
+# This is only necessary for this particular example
+cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run .
+sed -i -e  '1,3d;$d' ./Si35_TZ2P.run
+ 
+"$AMSBIN/ams" < ./Si35_TZ2P.run > ./Si35_TZ2P.log
 ```
 !!! note
     Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
@@ -51,22 +51,23 @@ seff $SLURM_JOBID
 
 ```
 #!/bin/bash
-#SBATCH --partition=large
+#SBATCH --partition=test
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=40 # MPI tasks per node
-#SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as hh:mm:ss
-#SBATCH --gres=nvme:100      # requested local disk space in GB 
-ulimit -s unlimited
+#SBATCH --ntasks-per-node=40      # MPI tasks per node
+#SBATCH --account=yourprojectname # insert here the project to be billed
+#SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --gres=nvme:100           # requested local disk space in GB 
+module load ams/2020.102
+export SCM_USE_LOCAL_IMPI=yes
 export SCM_TMPDIR=$LOCAL_SCRATCH/$SLURM_JOB_ID
 mkdir -p $SCM_TMPDIR
-export SCM_USE_LOCAL_IMPI=yes
-module purge
-module load intel/19.0.4 intel-mpi/18.0.5
-module load adf/2019.301
 
-$ADFBIN/adf < methane_dimer_dispersion.inp > methane_dimer_dispersion.log
-seff $SLURM_JOBID
+# Copy an example input file and remove from it the three first and the last lines
+# This is only necessary for this particular example
+cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run .
+sed -i -e  '1,3d;$d' ./Si35_TZ2P.run
+
+"$AMSBIN/ams" < ./Si35_TZ2P.run > ./Si35_TZ2P.log
 ```
 ### The AMS-GUIs
 
@@ -80,7 +81,7 @@ In both cases the actual calculations should be done as batch jobs. Example queu
 Depending on your usage, be careful to properly cite the AMS driver, used calculation engines as well as feature references. For details, see the [relevant documentation](https://www.scm.com/support/ ) 
 
 ## More information
--   [AMS2019 Support pages](https://www.scm.com/support/)
+-   [AMS2020 Support pages](https://www.scm.com/support/)
 -   [Tutorials](https://www.scm.com/doc/Tutorials/index.html)
 -   [Teaching materials](https://www.scm.com/support/adf-teaching-materials/)
 -   [FAQ](https://www.scm.com/faq/)
