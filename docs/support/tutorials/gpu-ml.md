@@ -192,7 +192,6 @@ However, if you need to run something else inside the container, you need to pre
 
 Also check our [general instructions for using Singularity on Puhti](../../computing/containers/run-existing.md).
 
-
 #### Special Singularity-based applications
 
 Finally, we provide some special Singularity-based applications which are not shown by default in the module system.  You can enable them by running:

@@ -8,6 +8,11 @@ databases using a range of data formats and execution and parsing of the results
 molecular biology programs. Consequently, Biopython enables developing scripts that can analyze 
 large quantities of sequence data in ways that are typically difficult or impossible with web based systems.
  
+[TOC]
+
+## License
+
+Biopython is free to use and open source. It is dual licensed under [Biopython License](https://raw.githubusercontent.com/biopython/biopython/master/LICENSE.rst) or [BSD 3-Clause License](https://docs.conda.io/en/latest/license.html).
 
 ## Available
 
