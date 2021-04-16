@@ -25,6 +25,11 @@ Several additional functions are also provided:
 *    **epost** uploads unique identifiers (UIDs) or sequence accession numbers.
 *    **nquire** sends a URL request to a web page or CGI service
 
+[TOC]
+
+## License
+
+Free to use for all users. [Public Domain notice](https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Appendices)
 
 ## Usage
 

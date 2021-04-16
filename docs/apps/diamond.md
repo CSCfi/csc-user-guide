@@ -11,6 +11,12 @@ The key features of Diamond are:
 *   Low resource requirements and suitable for running on standard desktops or laptops.
 *   Various output formats, including BLAST pairwise, tabular and XML, as well as taxonomic classification.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+
 ## Available
 *   Diamond 2.0.4 is available in Puhti
 

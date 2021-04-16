@@ -5,6 +5,12 @@
 
 llumina BaseSpace command line client,`bs`, can be used to retrievie data from the Illumina BaseSpace environment to Puhti.
 
+[TOC]
+
+## License
+
+Software is free to use.
+
 ## Available
 
 *    bs version 1.0.0 is available in Puhti
