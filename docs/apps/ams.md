@@ -30,6 +30,7 @@ module load ams/2020.102
 #SBATCH --ntasks-per-node=40      # MPI tasks per node
 #SBATCH --account=yourprojectname # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 module purge
 module load ams/2020.102
 export SCM_USE_LOCAL_IMPI=yes
@@ -51,12 +52,13 @@ sed -i -e  '1,3d;$d' ./Si35_TZ2P.run
 
 ```
 #!/bin/bash
-#SBATCH --partition=test
+#SBATCH --partition=large
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40      # MPI tasks per node
 #SBATCH --account=yourprojectname # insert here the project to be billed
 #SBATCH --time=00:10:00           # time as hh:mm:ss
-#SBATCH --gres=nvme:100           # requested local disk space in GB 
+#SBATCH --mem-per-cpu=1500        # requested memory per process in MB
+#SBATCH --gres=nvme:100           # requested local disk space in GB
 module load ams/2020.102
 export SCM_USE_LOCAL_IMPI=yes
 export SCM_TMPDIR=$LOCAL_SCRATCH/$SLURM_JOB_ID
