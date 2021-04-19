@@ -2,6 +2,17 @@
 
 Deep learning framework for Python.
 
+!!! News
+
+    TensorFlow is now available on Mahti with GPU support in the new Mahti-AI
+    paritition. 
+
+    All TensorFlow installations on Mahti will be based on Singularity. This is
+    mainly due to the performance issues of conda-based environments on shared file
+    systems, causing long start-up delays for Python scripts on CSC's
+    supercomputers. For more information, see the [Singularity section in our
+    machine learning guide](../support/tutorials/gpu-ml.md#singularity).
+
 ## Available
 
 Currently supported TensorFlow versions:
@@ -12,10 +23,10 @@ Currently supported TensorFlow versions:
 | 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       |                              |
 | 2.4.0   | `tensorflow/2.4-sng`              | X     | -     | Sing.    | -       |                              |
 | 2.3.1   | `tensorflow/nvidia-20.12-tf2-py3` | X     | -     | Sing.    | -       |                              |
-| 2.3.0   | `tensorflow/2.3-sng`              | X     | -     | Sing.    | -       |                              |
+| 2.3.0   | `tensorflow/2.3`                  | X     | X     | Sing.    | -       |                              |
 | 2.2.0   | `tensorflow/nvidia-20.07-tf2-py3` |       |       | Conda    | X       | experimental Horovod support |
 | 2.2.0   | `tensorflow/2.2-hvd`              | X     | -     | Conda    | X       |                              |
-| 2.2.0   | `tensorflow/2.2-sng`              | X     | -     | Sing.    | -       |                              |
+| 2.2.0   | `tensorflow/2.2`                  | X     | X     | Sing.    | -       |                              |
 | 2.1.0   | `tensorflow/nvidia-20.03-tf2-py3` | X     | -     | Sing.    | -       |                              |
 | 2.1.0   | `tensorflow/nvidia-20.02-tf2-py3` | X     | -     | Sing.    | -       |                              |
 | 2.0.0   | `tensorflow/nvidia-19.11-tf2-py3` | X     | -     | Sing.    | -       |                              |
