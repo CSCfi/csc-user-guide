@@ -32,8 +32,8 @@ Please read our [usage policy for the GPU
 nodes](../../computing/overview.md#gpu-nodes). In particular, the policy favors
 machine learning and AI workloads for Mahti's GPU partition (Mahti-AI). Another
 thing to consider is that the Slurm queuing situation may vary between Puhti and
-Mahti at different times. *In case you are unsure which supercomputer to use,
-Puhti is a good default as it has a wider set of software supported.*
+Mahti at different times. **In case you are unsure which supercomputer to use,
+Puhti is a good default** as it has a wider set of software supported.
 
 
 ## Using CSC's supercomputers
@@ -248,8 +248,8 @@ next batch to process. It is then a common practice to reserve more CPUs to
 perform data loading and pre-processing in several parallel threads or
 processes. A good rule of thumb in Puhti is to **reserve 10 CPUs per GPU** (as
 there are 4 GPUs and 40 CPUs per node). On Mahti you can reserve up to 32 cores,
-as that corresponds to 1/4 of the node. *Remember that CPUs are a much cheaper
-resource than the GPU!*
+as that corresponds to 1/4 of the node. **Remember that CPUs are a much cheaper
+resource than the GPU!**
 
 You might have noticed that we have already followed this advice in our example
 job scripts:
