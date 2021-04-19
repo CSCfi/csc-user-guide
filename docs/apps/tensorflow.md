@@ -5,7 +5,7 @@ Deep learning framework for Python.
 !!! News
 
     TensorFlow is now available on Mahti with GPU support in the new Mahti-AI
-    paritition. 
+    partition. 
 
     All TensorFlow installations on Mahti will be based on Singularity. This is
     mainly due to the performance issues of conda-based environments on shared file

@@ -5,7 +5,7 @@ Machine learning framework for Python.
 !!! News
 
     PyTorch is now available on Mahti with GPU support in the new Mahti-AI
-    paritition. 
+    partition. 
 
     All PyTorch modules on Mahti, and Puhti modules starting from PyTorch version
     1.7, will be based on Singularity by default. This is mainly due to the

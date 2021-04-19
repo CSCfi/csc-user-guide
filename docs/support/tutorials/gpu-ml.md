@@ -16,19 +16,24 @@ however, it currently doesn't offer GPU support. See some examples of [how to
 deploy machine learning models on
 Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
-### Puhti or Mahti
+### Puhti or Mahti?
 
-Puhti and Mahti are CSC's two supercomputers. **Puhti should be considered the
-default option for machine learning applications**, as it has the largest number
-of GPUs and offers the widest selection of software installed. Since April 2021,
-Mahti also has a small number of the faster NVIDIA A100 GPUs. We aim to support
-the newest version of popular frameworks on Mahti, but will not (in general)
-install older versions on Mahti.
+Puhti and Mahti are CSC's two supercomputers. Puhti has the largest number of
+GPUs (V100) and offers the widest selection of installed software, while Mahti
+has a smaller number of faster newer generation A100 GPUs. The main GPU-related
+statistics are summarized in the table below.
 
-|       | GPU nodes | GPUs/node | Total GPUs | GPU type           |
-|-------|-----------|-----------|------------|--------------------|
-| Puhti | 80        | 4         | 320        | NVIDIA Volta V100  |
-| Mahti | 24        | 4         | 96         | NVIDIA Ampere A100 |
+|       | GPU type           | GPU memory | GPU nodes | GPUs/node | Total GPUs |
+|-------|--------------------|------------|-----------|-----------|------------|
+| Puhti | NVIDIA Volta V100  | 32 GB      | 80        | 4         | 320        |
+| Mahti | NVIDIA Ampere A100 | 40 GB      | 24        | 4         | 96         |
+
+Please read our [usage policy for the GPU
+nodes](../../computing/overview.md#gpu-nodes). In particular, the policy favors
+machine learning and AI workloads for Mahti's GPU partition (Mahti-AI). Another
+thing to consider is that the Slurm queuing situation may vary between Puhti and
+Mahti at different times. *In case you are unsure which supercomputer to use,
+Puhti is a good default as it has a wider set of software supported.*
 
 
 ## Using CSC's supercomputers
@@ -83,6 +88,10 @@ srun python3 myprog.py <options>
 
 srun python3 myprog.py <options>
 ```
+
+Mahti's `gpusmall` queue supports only single-GPU jobs. If you need multi-GPU or
+multi-node jobs, use the `gpumedium` queue. You can [read more about multi-GPU
+and multi-node jobs](#multi-gpu-and-multi-node-jobs) below.
 
 For more detailed information, see our page about [the available batch job
 partitions on CSC's
@@ -278,9 +287,11 @@ multiple GPUs, this typically requires some changes to the program**.
 
 For large jobs requiring more than 4 GPUs we recommend using
 [Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow
-and PyTorch. Horovod uses MPI and NCCL for interprocess communication.
-See also [MPI based batch
+and PyTorch. Horovod uses MPI and NCCL for interprocess communication. See also
+[MPI based batch
 jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs).
+Horovod can also be used with single-node jobs for 4 GPUs, and in some
+benchmarks this has proved to be faster than other multi-GPU implementations.
 
 Note that Horovod is supported only for some specific versions of TensorFlow and
 PyTorch, please check the application pages to see which versions support
@@ -312,7 +323,7 @@ srun python3 myprog.py <options>
 **Mahti**
 
 Note that on Mahti you have to use the `gpumedium` partition for multi-node
-jobs. The `gpusmall` partition supports only single-node jobs.
+jobs. The `gpusmall` partition supports only single-GPU jobs.
 
 ```bash
 #!/bin/bash
@@ -335,7 +346,7 @@ Our machine learning modules are increasingly being built using [Singularity
 containers](https://en.wikipedia.org/wiki/Singularity_(software)). For
 background and general usage, we strongly recommend to first read our [general
 instructions for using Singularity on CSC's
-Supercomputers](../../computing/containers/run-existing.md).
+supercomputers](../../computing/containers/run-existing.md).
 
 In most cases, Singularity-based modules can be used in the same way as other
 modules as we have provided wrapper scripts so that common commands such as
