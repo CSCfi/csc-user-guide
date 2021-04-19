@@ -16,6 +16,21 @@ however, it currently doesn't offer GPU support. See some examples of [how to
 deploy machine learning models on
 Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
+### Puhti or Mahti
+
+Puhti and Mahti are CSC's two supercomputers. **Puhti should be considered the
+default option for machine learning applications**, as it has the largest number
+of GPUs and offers the widest selection of software installed. Since April 2021,
+Mahti also has a small number of the faster NVIDIA A100 GPUs. We aim to support
+the newest version of popular frameworks on Mahti, but will not (in general)
+install older versions on Mahti.
+
+|       | GPU nodes | GPUs/node | Total GPUs | GPU type           |
+|-------|-----------|-----------|------------|--------------------|
+| Puhti | 80        | 4         | 320        | NVIDIA Volta V100  |
+| Mahti | 24        | 4         | 96         | NVIDIA Ampere A100 |
+
+
 ## Using CSC's supercomputers
 
 For GPU-accelerated machine learning on CSC's supercomputers, we support
@@ -33,8 +48,9 @@ Please note that our modules already include CUDA and cuDNN libraries, so
 **there is no need to load cuda and cudnn modules separately!**
 
 To submit a job to the slurm queue using GPUs, you need to use the `gpu`
-partition and also specify the type and number of GPUs using the `--gres` flag.
-An example batch script for reserving one GPU and 10 CPUs in a single node:
+partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and also specify the
+type and number of GPUs using the `--gres` flag. Below are example batch scripts
+for reserving one GPU and a corresponding 1/4 of the CPU cores of a single node:
 
 **Puhti**
 
@@ -42,6 +58,7 @@ An example batch script for reserving one GPU and 10 CPUs in a single node:
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --partition=gpu
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=64G
@@ -56,7 +73,7 @@ srun python3 myprog.py <options>
 ```bash
 #!/bin/bash
 #SBATCH --account=<project>
-#SBATCH --partition=gpu
+#SBATCH --partition=gpusmall
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
@@ -66,6 +83,10 @@ srun python3 myprog.py <options>
 
 srun python3 myprog.py <options>
 ```
+
+For more detailed information, see our page about [the available batch job
+partitions on CSC's
+supercomputers](../../computing/running/batch-job-partitions.md).
 
 ### Data storage
 
@@ -217,7 +238,8 @@ and pre-process the training data fast enough, and the GPU has to wait for the
 next batch to process. It is then a common practice to reserve more CPUs to
 perform data loading and pre-processing in several parallel threads or
 processes. A good rule of thumb in Puhti is to **reserve 10 CPUs per GPU** (as
-there are 4 GPUs and 40 CPUs per node). *Remember that CPUs are a much cheaper
+there are 4 GPUs and 40 CPUs per node). On Mahti you can reserve up to 32 cores,
+as that corresponds to 1/4 of the node. *Remember that CPUs are a much cheaper
 resource than the GPU!*
 
 You might have noticed that we have already followed this advice in our example
@@ -249,73 +271,83 @@ train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 ### Multi-GPU and multi-node jobs
 
 Multi-GPU jobs are also supported by specifying the number of GPUs required in
-the `--gres` flag, for example to have 4 GPUs (which is the maximum for a single
-node in Puhti): `--gres=gpu:v100:4`. Please also make sure that your code can
-take advantage of multiple GPUs, this typically requires some changes to the
-program.
+the `--gres` flag, for example to have 4 GPUs on Puhti (which is the maximum for
+a single node): `--gres=gpu:v100:4`. On Mahti the flag would be:
+`--gres=gpu:a100:4`. **Please also make sure that your code can take advantage of
+multiple GPUs, this typically requires some changes to the program**.
 
 For large jobs requiring more than 4 GPUs we recommend using
 [Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow
-and PyTorch on Puhti. Horovod uses MPI and NCCL for interprocess communication.
+and PyTorch. Horovod uses MPI and NCCL for interprocess communication.
 See also [MPI based batch
 jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs).
-Modules that support Horovod have the `-hvd` suffix in their name. Note that
-Horovod is supported only for some specific versions of TensorFlow and PyTorch.
-You can run `module avail hvd` to see all Horovod-enabled modules. To take
-Horovod into use, just load the appropriate module, e.g:
+
+Note that Horovod is supported only for some specific versions of TensorFlow and
+PyTorch, please check the application pages to see which versions support
+Horovod. To take Horovod into use, just load the appropriate module, e.g:
 
 ```bash
-module load tensorflow/2.0.0-hvd
+module load tensorflow/2.4
 ```
 
-Below is an example slurm batch script that uses 8 GPUs across two computers.  In MPI terminology we have 8 tasks on 2 nodes, each task has one GPU and 10 CPUs.
+Below are example slurm batch scripts that use 8 GPUs across two computers. In
+MPI terminology we have 8 tasks on 2 nodes, each task has one GPU and 10 CPUs.
+
+**Puhti**
 
 ```bash
 #!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=gpu
 #SBATCH --nodes=2
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=10
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:v100:4
+#SBATCH --mem=64G
 #SBATCH --time=1:00:00
-#SBATCH --mem=32G
-#SBATCH --account=<project>
-
-# uncomment the following line if you want to see some debug info from NCCL
-# export NCCL_DEBUG=INFO
+#SBATCH --gres=gpu:v100:4
 
 srun python3 myprog.py <options>
 ```
 
+**Mahti**
+
+Note that on Mahti you have to use the `gpumedium` partition for multi-node
+jobs. The `gpusmall` partition supports only single-node jobs.
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=gpumedium
+#SBATCH --nodes=2
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=128G
+#SBATCH --time=1:00:00
+#SBATCH --gres=gpu:a100:4
+
+srun python3 myprog.py <options>
+```
+
+
 ### Singularity
 
 Our machine learning modules are increasingly being built using [Singularity
-containers](https://en.wikipedia.org/wiki/Singularity_(software)). If you are
-familiar with [Docker
-containers](https://en.wikipedia.org/wiki/Docker_(software)), Singularity
-containers as essentially the same thing, but are better suited for multi-user
-systems such as CSC's supercomputers. Containers provide an isolated software
-environment for each application, which has several benefits, including
-typically a much shorter start-up time.
+containers](https://en.wikipedia.org/wiki/Singularity_(software)). For
+background and general usage, we strongly recommend to first read our [general
+instructions for using Singularity on CSC's
+Supercomputers](../../computing/containers/run-existing.md).
 
 In most cases, Singularity-based modules can be used in the same way as other
 modules as we have provided wrapper scripts so that common commands such as
-`python`, `python3`, `pip` and `pip3` should work as normal. Common paths such
-as `/projappl`, `/scratch` and users' home directories should be visible from
-inside the container.
+`python`, `python3`, `pip` and `pip3` should work as normal. However, if you
+need to run something else inside the container, you need to prefix that command
+with `singularity_wrapper exec`.
 
-However, if you need to run something else inside the container, you need to
-prefix that command with `singularity_wrapper exec`, for example
-`singularity_wrapper exec ps`. Another useful command is `singularity_wrapper
-shell` which starts a shell session inside the container.
-
-Also check our [general instructions for using Singularity on
-Puhti](../../computing/containers/run-existing.md).
 
 #### Special Singularity-based applications
 
-Finally, we provide some special Singularity-based applications which are not
-shown by default in the module system. You can enable them by running:
+Finally, on Puhti, we provide some special Singularity-based applications which
+are not shown by default in the module system. You can enable them by running:
 
 ```bash
 module use /appl/soft/ai/singularity/modulefiles/

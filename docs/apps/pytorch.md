@@ -125,6 +125,7 @@ a single node:
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --partition=gpu
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=64G
@@ -141,6 +142,7 @@ srun python3 myprog.py <options>
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --partition=gpusmall
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=128G

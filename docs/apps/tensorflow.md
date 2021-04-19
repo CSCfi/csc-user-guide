@@ -8,6 +8,7 @@ Currently supported TensorFlow versions:
 
 | Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                        |
 |:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|------------------------------|
+| 2.4.1   | `tensorflow/2.4`                  | X     | X     | Sing.    | X       |                              |
 | 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       |                              |
 | 2.4.0   | `tensorflow/2.4-sng`              | X     | -     | Sing.    | -       |                              |
 | 2.3.1   | `tensorflow/nvidia-20.12-tf2-py3` | X     | -     | Sing.    | -       |                              |
@@ -105,13 +106,14 @@ a single node:
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --partition=gpu
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=64G
 #SBATCH --time=1:00:00
 #SBATCH --gres=gpu:v100:1
 
-module load tensorflow/1.14.0
+module load tensorflow/2.4
 srun python3 myprog.py <options>
 ```
 
@@ -121,6 +123,7 @@ srun python3 myprog.py <options>
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --partition=gpusmall
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=128G
