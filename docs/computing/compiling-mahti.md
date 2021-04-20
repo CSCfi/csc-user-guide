@@ -151,4 +151,31 @@ For C++ code:
 nvc++ -acc example.cpp -gpu=cc80
 ```
 
+### OpenMP Offloading
+
+To enable OpenMP Offloading, the options `-mp=gpu` is required
+
+For example, compile a C code with OpenMP offloading:
+```bash
+nvc -mp=gpu example.c -gpu=cc80
+```
+
+For Fortran code:
+```bash
+nvfortran -mp=gpu example.F90 -gpu=cc80
+```
+
+For C++ code:
+```bash
+nvc++ -mp=gpu example.cpp -gpu=cc80
+```
+
+The `nvc++` compiler supports codes that contain OpenACC, OpenMP Offloading and C++ parallel algorithms in the same code, 
+for such case you can compile with:
+```bash
+nvc++ -stdpar -acc -mp=gpu example.cpp -gpu=cc80
+```
+
+
+
 
