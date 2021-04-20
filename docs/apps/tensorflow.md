@@ -23,10 +23,10 @@ Currently supported TensorFlow versions:
 | 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       |                              |
 | 2.4.0   | `tensorflow/2.4-sng`              | X     | -     | Sing.    | -       |                              |
 | 2.3.1   | `tensorflow/nvidia-20.12-tf2-py3` | X     | -     | Sing.    | -       |                              |
-| 2.3.0   | `tensorflow/2.3`                  | X     | X     | Sing.    | -       |                              |
-| 2.2.0   | `tensorflow/nvidia-20.07-tf2-py3` |       |       | Conda    | X       | experimental Horovod support |
+| 2.3.0   | `tensorflow/2.3`                  | X     | -     | Sing.    | -       |                              |
+| 2.2.0   | `tensorflow/nvidia-20.07-tf2-py3` | X     | -     | Conda    | X       | experimental Horovod support |
 | 2.2.0   | `tensorflow/2.2-hvd`              | X     | -     | Conda    | X       |                              |
-| 2.2.0   | `tensorflow/2.2`                  | X     | X     | Sing.    | -       |                              |
+| 2.2.0   | `tensorflow/2.2`                  | X     | -     | Sing.    | -       |                              |
 | 2.1.0   | `tensorflow/nvidia-20.03-tf2-py3` | X     | -     | Sing.    | -       |                              |
 | 2.1.0   | `tensorflow/nvidia-20.02-tf2-py3` | X     | -     | Sing.    | -       |                              |
 | 2.0.0   | `tensorflow/nvidia-19.11-tf2-py3` | X     | -     | Sing.    | -       |                              |
