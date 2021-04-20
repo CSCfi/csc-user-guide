@@ -95,22 +95,60 @@ module load nvhpc/21.2
 For more detailed information about the available modules, please see `module
 spider nvhpc`.
 
+Compilers:
+* The (`nvc`) is a C11 compiler that supports OpenACC for NVIDIA  GPUs while  OpenACC and OpenMP for multicore CPUs.
+
+* The compiler (`nvc++`) is a C++17 compiler which supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP
+Offloading on NVIDIA GPUs. It does not support yet C++ CUDA codes.
+
+* The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
+
+* The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs, it supports OpenACC as also multicore for OpenACC and OpenMP.
+
+
+
 ### CUDA
-
-The compiler (`nvc++`) is a C++17 compiler which supports CUDA, OpenACC, and OpenMP
-Offloading on NVIDIA GPUs.
-The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
-The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs.
-
 
 To generate code for a given target device, tell the CUDA
 compiler what compute capability the target device supports. On Mahti, the
 GPUs (Ampere V100) support compute capability 8.0. Specify this using
 `-gencode arch=compute_80,code=sm_80`.
 
-For example, compiling a CUDA kernel (`example.cu`) on Puhti:
+For example, compiling a CUDA kernel (`example.cu`) on Puhti (for C or C++ codes):
 ```bash
 nvcc -gencode arch=compute_80,code=sm_80 example.cu
+```
+
+Compile a CUDA Fortran code named example.cuf
+```bash
+nvfortran -gpu=cc80 example.cuf
+```
+
+### OpenACC
+
+To enable OpenACC support, one needs to give `-acc` flag to the compiler.
+
+To generate code for a given target device, tell the compiler
+what compute capability the target device supports. On Puhti, the GPUs (Ampere A100) 
+support compute capability 8.0. 
+
+For example, to compiling C code that uses OpenACC directives (`example.c`):
+
+```bash
+nvc -acc example.c .gpu=cc80
+```
+
+For information about what the compiler actually does with the OpenACC
+directives, use `-Minfo=all`.
+
+For Fortran code:
+```bash
+nvfortran -acc example.F90 -gpu=cc80
+```
+
+For C++ code:
+```bash
+nvc++ -acc example.cpp -gpu=cc80
 ```
 
 
