@@ -32,8 +32,10 @@ Please read our [usage policy for the GPU
 nodes](../../computing/overview.md#gpu-nodes). In particular, the policy favors
 machine learning and AI workloads for Mahti's GPU partition (Mahti-AI). Another
 thing to consider is that the Slurm queuing situation may vary between Puhti and
-Mahti at different times. **In case you are unsure which supercomputer to use,
-Puhti is a good default** as it has a wider set of software supported.
+Mahti at different times. However, note that Puhti and Mahti have different file
+systems, so you need to manually copy your files if you wish to change the
+system. **In case you are unsure which supercomputer to use, Puhti is a good
+default** as it has a wider set of software supported.
 
 
 ## Using CSC's supercomputers
