@@ -3,7 +3,7 @@
 To get access to Puhti, you need a CSC account and a project with Puhti
 service. Please see the [Accounts section](/accounts/how-to-add-service-access-for-project/)
 
-**Common problems and some tips:**
+## Common problems and some tips
 
   - Note, that you need to accept the terms for Puhti of use in MyCSC before you can access Puhti. There is some delay before the information is updated to Puhti.
   - Note, that if you have just changed your CSC password, there is longer delay before this information is updated to Puhti.
