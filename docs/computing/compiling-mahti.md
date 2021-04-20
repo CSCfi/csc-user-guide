@@ -173,6 +173,12 @@ for such case you can compile with:
 nvc++ -stdpar -acc -mp=gpu example.cpp -gpu=cc80
 ```
 
+For MPI, load the module
+```bash
+module load openmpi/4.0.5
+```
+
+The use of the wrappers `mpicc`, `mpic++`, `mpif90`, executes the corresponding `nvc`,`nvc++`,`nvfortran` respectively.
 
 
 
