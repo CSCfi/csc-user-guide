@@ -80,3 +80,37 @@ specific compiler command:
 | GNU            | gcc | g++ | gfortran |
 | AMD            | clang | clang++ | flang |
 | Intel          | icc | icpc | ifort |
+
+## Building GPU applications
+
+The CUDA, OpenACC and OpenMP Offloading (for C++ codes) programming 
+models are supported on Mahti. Specific modules have to be loaded 
+in order to use them.
+
+For example, to load the NVIDIA HPC SDK 21.2 environment:
+```bash
+module load nvhpc/21.2
+```
+
+For more detailed information about the available modules, please see `module
+spider nvhpc`.
+
+### CUDA
+
+The compiler (`nvc++`) is a C++17 compiler which supports CUDA, OpenACC, and OpenMP
+Offloading on NVIDIA GPUs.
+The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
+The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs.
+
+
+To generate code for a given target device, tell the CUDA
+compiler what compute capability the target device supports. On Mahti, the
+GPUs (Ampere V100) support compute capability 8.0. Specify this using
+`-gencode arch=compute_80,code=sm_80`.
+
+For example, compiling a CUDA kernel (`example.cu`) on Puhti:
+```bash
+nvcc -gencode arch=compute_80,code=sm_80 example.cu
+```
+
+
