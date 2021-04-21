@@ -40,6 +40,30 @@ data:
     baz=notbar
 ```
 
+ConfigMaps can be created in various ways. If we have a ConfigMap object definition 
+as listed under `configmap.yaml`, then, an instance of it can be created using 
+the `oc create -f configmap.yaml` command. You can also use the more specific 
+command `oc create configmap <configmap_name> [options]` to create an instance 
+of a ConfigMap easily from directories, specific files, or literal values. 
+For example, if you have a directory with files containing the data needed to 
+populate a ConfigMap as follows: 
+
+
+```$ ls example-dir
+data.prop.a
+data.prop.b
+data.prop.long
+```
+
+You can then create a ConfigMap as: 
+
+```$ oc create configmap game-config \
+    --from-file=example-dir/
+```
+
+This command also works with files instead of directories. 
+
+
 The following pod imports the value of `data.prop.a` to the `DATA_PROP_A`
 environment variable and creates the files `data.prop.a`, `data.prop.b` and
 `data.prop.long` inside `/etc/my-config`:
@@ -48,7 +72,7 @@ environment variable and creates the files `data.prop.a`, `data.prop.b` and
 
 ```yaml
 kind: Pod
-apiVersion: Pod
+apiVersion: v1
 metadata:
   name: my-config-map-pod
 spec:
