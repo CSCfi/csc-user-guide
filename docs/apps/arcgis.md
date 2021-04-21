@@ -32,7 +32,7 @@ use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_In
 
 ------------------------------------------------------------------------
 
-## ArcGIS  Desktop  and ArcGIS Pro
+## ArcGIS  Desktop and ArcGIS Pro
 All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan), because active development of ArcGIS Desktop has stopped.
 
 ### Installation
@@ -40,7 +40,7 @@ All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://supp
 -   For the installation you need **installation package**, ask your University's ArcGIS contact person. ArcGIS Pro installation package can also be [downloaded from ArcGIS Online](https://pro.arcgis.com/en/pro-app/latest/get-started/download-arcgis-pro.htm#ESRI_SECTION1_F19E35C5A28F44F69A0EA3F464A0E015). 
 -   Please install also necessary [patches and service packs](https://support.esri.com/en/Products/Desktop/arcgis-desktop/arcmap/).
 
-### Licensing
+### License
 ArcGIS products need to be authorized. Licensing options for consortium members:
 
 -   **Named users**, main option for ArcGIS Pro, not available for ArcGIS desktop. The user must have home university's ArcGIS Online 
