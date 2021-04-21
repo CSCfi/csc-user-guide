@@ -5,8 +5,8 @@ for the general introduction to batch scripts in the CSC supercomputing
 environment. On this page we focus on Mahti specific topics.
 
 !!! Note
-    Mahti does not have GPUs, NVMe disk on compute nodes, or the need
-    to reserve memory. Instead, full nodes are allocated for jobs,
+    Only Mahti GPU nodes have NVMe disk on compute nodes and only on GPU nodes memory reservation flag `--mem` is needed.  
+    Otherwise full nodes are allocated for jobs,
     with the exception of [interactive jobs](../interactive-usage/#sinteractive-in-mahti), also
     [see below](#using-interactive-partition-for-non-parallel-pre-or-post-processing). Many options also work
     differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti
@@ -64,6 +64,55 @@ When this option is used, it is important to use the `--ntasks-per-node=X` and
 `--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the
 actual physical cores unallocated and performance will be suboptimal.
 [Example batch job script for SMT](../example-job-scripts-mahti#mpi-openmp-with-simultaneous-multithreading).
+
+## GPU batch jobs
+
+Mahti has 24 GPU nodes and each of them has four Nvidia Ampere A100 GPUs and a local 3,8 TB Nvme drive. 
+The GPUs are available on the `gputest` ,`gpusmall` and `gpumedium` partitions using the option:
+```
+#SBATCH --gres=gpu:a100:<number_of_gpus_per_node>
+```
+Mahti's `gpusmall` partition supports only single-GPU jobs.
+```
+#SBATCH --partition=gpusmall
+#SBATCH --gres=gpu:a100:1
+```
+Mahti's `gpumedium` partition will support multi-GPU jobs, an example below four GPUs per compute node so eight GPUs all together. 
+```
+#SBATCH --nodes=2
+#SBATCH --partition=gpumedium
+#SBATCH --gres=gpu:a100:4
+```
+The `gpumedium` is the only gpu partition where more than one compute node is available ( maximun number for the `--nodes` flag is six ).
+
+The `gputest` partition is for short test runs. Maximun for the `--time` flag is 15 minutes and one job per account can be run on a RUNNING state.
+Maximum for the  `--nodes` flag is one but all four GPUs on a node can be allocated for a test job.
+
+On Mahti a fast local storage is only availabe on GPU nodes and it is good for IO intensive applications.
+Request local storage using the `--gres` flag in the job submission:
+```
+#SBATCH --gres=nvme:<local_storage_space_per_node>
+```
+The amount of space is given in GB (with a maximum of 3800 GB per node). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis.
+
+Multiple resources can be requested with a comma-separated list.
+Request both GPU and local storage:
+```
+#SBATCH --gres=gpu:a100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
+```
+Many GPU applications also support cpu multithreading but not all. If cpu threading is supported cpu cores for the application threading operations can be enabled using `--cpus-per-task` flag. The example below will use one GPU and 32 cores are available for cpu threading (32 is 1/4 of the CPU cores of a single node) and 128GB memory (128GB is 1/4 of the total main memory of a single node) also 950 GB local fast disk storage (1/4 of the total amount of local disk on a node). Ampere A100 GPU has also own 40GB memory (and that memory will not need any reservation flag). 
+```
+#SBATCH --partition=gpusmall
+#SBATCH --mem=128G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --gres=gpu:a100:1,nvme:950
+
+# If multithreading is OpenMP implementation then define also OMP_NUM_THREADS environment variable
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+```
+So above example will use 1/4 of all resources on a GPU node and therefore four similar batch jobs could run on a GPU node.
+
 
 ## Undersubscribing nodes
 
