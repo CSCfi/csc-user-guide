@@ -4,7 +4,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2020, ADF2020, BAND2020, DFTB2020, MOPAC2020, ReaxFF2020 , Version 2020.102
+-   Puhti: AMS2020, ADF2020, BAND2020, DFTB2020, MOPAC2020, ReaxFF2020 , Version 2020.103
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -14,10 +14,10 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Usage
 
-Initialise AMS on Puhti like this:
+Initialise AMS on Puhti:
 
 ```bash
-module load ams/2020.102
+module load ams/2020.103
 ```
 
 
@@ -32,16 +32,13 @@ module load ams/2020.102
 #SBATCH --time=00:10:00           # time as hh:mm:ss
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 module purge
-module load ams/2020.102
+module load ams/2020.103
 export SCM_USE_LOCAL_IMPI=yes
 export SCM_TMPDIR=$PWD
 
-# Copy an example input file and remove from it the three first and the last lines
-# This is only necessary for this particular example
-cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run .
-sed -i -e  '1,3d;$d' ./Si35_TZ2P.run
- 
-"$AMSBIN/ams" < ./Si35_TZ2P.run > ./Si35_TZ2P.log
+# Copy an example input file
+cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
+"$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
 ```
 !!! note
     Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
@@ -59,24 +56,30 @@ sed -i -e  '1,3d;$d' ./Si35_TZ2P.run
 #SBATCH --time=00:10:00           # time as hh:mm:ss
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 #SBATCH --gres=nvme:100           # requested local disk space in GB
-module load ams/2020.102
+module load ams/2020.103
 export SCM_USE_LOCAL_IMPI=yes
-export SCM_TMPDIR=$LOCAL_SCRATCH/$SLURM_JOB_ID
-mkdir -p $SCM_TMPDIR
+export SCM_TMPDIR=$LOCAL_SCRATCH
 
-# Copy an example input file and remove from it the three first and the last lines
-# This is only necessary for this particular example
-cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run .
-sed -i -e  '1,3d;$d' ./Si35_TZ2P.run
-
-"$AMSBIN/ams" < ./Si35_TZ2P.run > ./Si35_TZ2P.log
+# Copy an example input file
+cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
+"$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
 ```
 ### The AMS-GUIs
 
-The Graphical User Interfaces (GUIs) that are installed on Puhti can be used via [NoMachine](nomachine.md). For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti, for details see ["Managing remote jobs"](https://www.scm.com/doc/Installation/Installation.html#managing-remote-jobs ).
+The Graphical User Interfaces (GUIs) that are installed on Puhti can be used via [NoMachine](nomachine.md).
+Do a NoMachine login to Puhti and start an [interactive session](../computing/running/interactive-usage.md).
+Move to a suitable scratch directory and load the ams module ```module load ams/2020.103```.
+Start the input builder ```adfiput``` and construct your job. Once ready, submit the job to the batch queue (for settings, see the picture below).
+
+ For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti, for details see ["Managing remote jobs"](https://www.scm.com/doc/Installation/Installation.html#managing-remote-jobs ).
 For Windows users there is a [helpful video on how to do the setup](https://www.scm.com/wp-content/uploads/Videos/RemoteQueuesWithADFJobs.mp4).
 In both cases the actual calculations should be done as batch jobs. Example queuing settings that can be used in the GUI:
-![Slurm settings](/img/amsgui_puhti_queue_settings.png)
+![Slurm settings](../img/amsgui_puhti_queue_settings.svg)
+The prolog line is:
+ 
+```
+source /appl/soft/chem/adf/ams2020.103/adf_csc.bash; export SCM_TMPDIR=$(mktemp -d /scratch/yourproject/$USER.XXXXXXXXX); export FORT_TMPDIR=$SCM_TMPDIR
+```
 
 ## References
 
