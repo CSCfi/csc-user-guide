@@ -81,7 +81,7 @@ The prolog line is:
 source /appl/soft/chem/adf/ams2020.103/adf_csc.bash; export SCM_TMPDIR=$(mktemp -d /scratch/yourproject/$USER.XXXXXXXXX); export FORT_TMPDIR=$SCM_TMPDIR
 ```
 !!! note
-Please change the emphasized *yourusername* and *yourproject* to correspond to yours.
+    Please change the emphasized *yourusername* and *yourproject* to correspond to yours.
 
 
 ## References
