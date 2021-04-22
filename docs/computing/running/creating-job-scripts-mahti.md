@@ -88,7 +88,7 @@ The `gpumedium` is the only gpu partition where more than one compute node is av
 The `gputest` partition is for short test runs. Maximun for the `--time` flag is 15 minutes and one job per account can be run on a RUNNING state.
 Maximum for the  `--nodes` flag is one but all four GPUs on a node can be allocated for a test job.
 
-On Mahti a fast local storage is only availabe on GPU nodes and it is good for IO intensive applications.
+On Mahti a fast local storage is only available on GPU nodes and it is good for IO intensive applications.
 Request local storage using the `--gres` flag in the job submission:
 ```
 #SBATCH --gres=nvme:<local_storage_space_per_node>
