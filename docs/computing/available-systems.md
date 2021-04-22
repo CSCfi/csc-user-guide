@@ -17,7 +17,7 @@ the user to reserve compute and memory resources flexibly, and the
 user can run anything from interactive single core data processing to
 medium scale simulations spanning multiple nodes. 
 
-There are also 80 GPU nodes, with total of 320 GPUs. This partition is
+There are also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This partition is
 suitable for all kinds workloads capable of utilizing GPUs, even heavy
 AI models that span multiple nodes. 
 
@@ -38,6 +38,10 @@ node. Mahti is in particular geared towards medium to large scale
 simulations requiring Petaflops of compute power. Also smaller
 parellel workloads that are able to use full nodes efficiently can
 utilize Mahti. 
+
+There are also 24 GPU nodes, with total of 96 Nvidia Ampere A100 GPUs. This partition is
+suitable for all kinds workloads capable of utilizing GPUs, even heavy
+AI models that span multiple nodes. With this new partition workloads and workflows that also require GPUs for part of the computation can 
 
 The selection of installed [scientific software](../apps/by_system.md#mahti) in
 Mahti is more limited than in Puhti.
