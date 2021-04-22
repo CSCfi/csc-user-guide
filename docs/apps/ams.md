@@ -71,7 +71,7 @@ Do a NoMachine login to Puhti and start an [interactive session](../computing/ru
 Move to a suitable scratch directory and load the ams module ```module load ams/2020.103```.
 Start the input builder ```adfiput``` and construct your job. Once ready, submit the job to the batch queue (for settings, see the picture below).
 
- For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti,see [Setting up SSH keys](../computing/connecting/#setting-up-ssh-keys).
+ For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti,see [Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
 For Windows users there is a [helpful video on how to do the setup](https://www.scm.com/wp-content/uploads/Videos/RemoteQueuesWithADFJobs.mp4).
 
 Either using NoMachine or the local installation for building the job, the actual calculation should be done as batch jobs. 
