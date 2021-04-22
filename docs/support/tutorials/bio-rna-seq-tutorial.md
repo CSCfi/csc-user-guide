@@ -72,7 +72,7 @@ The input data:
 
 The analysis pipeline is illustrated in figure below.
 
-![RNA-Seq analysis pipeline](../../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
+![RNA-Seq analysis pipeline](../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
 
 
@@ -828,7 +828,7 @@ shows us how the read counts are modified within DESeq2.
 
 You should get the following plots as outputs:
 
-![PCA and dispersion plots](../../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
+![PCA and dispersion plots](../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
 
 PCA and dispersion plots.
 
@@ -867,7 +867,7 @@ Let's draw a heatmap of the most highly variable genes: 
     pheatmap(highly_variable_genes)
 
 
-![Heatmap of most variable genes](../../../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
+![Heatmap of most variable genes](../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
 
 Heatmap of most variable genes.
 
@@ -936,7 +936,7 @@ In R:
 As a result, you should get the following plot and the results.tsv
 table:
 
-![Variation plot](../../../img/Rplot-plotBCV.jpg "Variation plot")
+![Variation plot](../img/Rplot-plotBCV.jpg "Variation plot")
 
 
 Compare the dispersion plots from DESeq2 and edgeR, do they look
