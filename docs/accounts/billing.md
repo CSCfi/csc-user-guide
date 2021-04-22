@@ -44,7 +44,7 @@ The default 50 GiB projappl disk quota is free. Increased quota is charged:
 In contrast to Puhti, in Mahti resources are used and billed per node in all
 normal partitions. In the interactive partition, which can be used for
 interactive work, as well as for small scale pre- and postprocessing, the usage
-is billed per CPU core. Memory is not billed separately. The GPU nodes in Mahti are billed according to the number of reserved GPUs
+is billed per CPU core.  The GPU nodes in Mahti are billed according to the number of reserved GPUs. Memory is not billed separately.
 
  * Each reserved CPU node consumes **100** BU per hour.
  * In interactive partition each core consumes **1** BU per hour.
