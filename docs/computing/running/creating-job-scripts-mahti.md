@@ -5,7 +5,7 @@ for the general introduction to batch scripts in the CSC supercomputing
 environment. On this page we focus on Mahti specific topics.
 
 !!! Note
-    Only Mahti GPU nodes have NVMe disk on compute nodes and only on GPU nodes memory reservation flag `--mem` is needed.  
+    Only Mahti GPU nodes have NVMe disk on compute nodes.  
     Otherwise full nodes are allocated for jobs,
     with the exception of [interactive jobs](../interactive-usage/#sinteractive-in-mahti), also
     [see below](#using-interactive-partition-for-non-parallel-pre-or-post-processing). Many options also work
@@ -100,10 +100,9 @@ Request both GPU and local storage:
 ```
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
-Many GPU applications also support cpu multithreading but not all. If cpu threading is supported cpu cores for the application threading operations can be enabled using `--cpus-per-task` flag. The example below will use one GPU and 32 cores are available for cpu threading (32 is 1/4 of the CPU cores of a single node) and 128GB memory (128GB is 1/4 of the total main memory of a single node) also 950 GB local fast disk storage (1/4 of the total amount of local disk on a node). Ampere A100 GPU has also own 40GB memory (and that memory will not need any reservation flag). 
+Many GPU applications also support cpu multithreading but not all. If cpu threading is supported cpu cores for the application threading operations can be enabled using `--cpus-per-task` flag. The example below will use one GPU and 32 cores are available for cpu threading (32 is 1/4 of the CPU cores of a single node) also 950 GB local fast disk storage (1/4 of the total amount of local disk on a node). Ampere A100 GPU has also own 40GB memory (and that memory will not need any reservation flag). Default amount of main memory allocated per GPU is 122.5GB
 ```
 #SBATCH --partition=gpusmall
-#SBATCH --mem=128G
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:1,nvme:950
