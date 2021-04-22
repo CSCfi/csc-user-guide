@@ -137,7 +137,6 @@ srun python3 myprog.py <options>
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
 #SBATCH --time=1:00:00
 #SBATCH --gres=gpu:a100:1
 
