@@ -61,7 +61,7 @@ The following partitions (aka queues) are currently available in **Mahti**:
 | gc        | 200-700       | 36 hours      | Grand Challenge  |
 | interactive | 1         |  7 days       | all              |
 
-The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 32 cores/task.
+The following partitions are available on GPU nodes. Note that for each GPU, you can reserve at most 32 cores/task.
 
 | Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-mahti.md) | Max<br>memory | Max<br>local storage (nvme) |
 |-----------------|---------------|-------------|--------------|----------------------------|---------------|-----------------------------|
