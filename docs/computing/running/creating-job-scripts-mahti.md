@@ -72,12 +72,13 @@ The GPUs are available on the `gputest` ,`gpusmall` and `gpumedium` partitions u
 ```
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>
 ```
-Mahti's `gpusmall` partition supports only single-GPU jobs.
+Mahti's `gpusmall` partition supports only one or two GPU jobs. So the maximum is `--gres=gpu:a100:2`
 ```
 #SBATCH --partition=gpusmall
 #SBATCH --gres=gpu:a100:1
 ```
-Mahti's `gpumedium` partition will support multi-GPU jobs, an example below four GPUs per compute node so eight GPUs all together. 
+Mahti's `gpumedium` partition will support multi-GPU jobs and only four GPUs per compute node. 
+An example below will allocate four GPUs per compute node so eight GPUs all together. 
 ```
 #SBATCH --nodes=2
 #SBATCH --partition=gpumedium
