@@ -40,29 +40,35 @@ data:
     baz=notbar
 ```
 
+### Create a ConfigMap
+
 ConfigMaps can be created in various ways. If we have a ConfigMap object definition 
-as listed under `configmap.yaml`, then, an instance of it can be created using 
+as listed above in `configmap.yaml`, then, an instance of it can be created using 
 the `oc create -f configmap.yaml` command. You can also use the more specific 
 command `oc create configmap <configmap_name> [options]` to create an instance 
-of a ConfigMap easily from directories, specific files, or literal values. 
+of a ConfigMap from directories, specific files, or literal values. 
 For example, if you have a directory with files containing the data needed to 
 populate a ConfigMap as follows: 
 
 
-```$ ls example-dir
+```sh
+$ ls example-dir
 data.prop.a
 data.prop.b
 data.prop.long
 ```
 
-You can then create a ConfigMap as: 
+You can then create a ConfigMap similar to the one difined in `configmap.yaml` as: 
 
-```$ oc create configmap game-config \
+```sh
+oc create configmap my-config-map \
     --from-file=example-dir/
 ```
 
 This command also works with files instead of directories. 
 
+
+### Use a ConfigMap
 
 The following pod imports the value of `data.prop.a` to the `DATA_PROP_A`
 environment variable and creates the files `data.prop.a`, `data.prop.b` and
@@ -126,6 +132,21 @@ data:
 metadata:
   name: webhooksecret
   namespace: mynamespace     # set this to your project namespace
+```
+
+### Create a secret
+
+As with any other OpenShift/Kubernetes objects, Secrets can also be created from a Secret object definition. 
+For the definition listed above as `secret.yaml`, a Secret instance can be created using 
+the `oc create -f secret.yaml` command. You can also use the more specific command `oc create secret [flags] <secret_name> [options]` 
+to create an instance of a Secret from directories, specific files, or literal values. 
+For example, if you have a file  called `WebHookSecretKey` containing a secret key  you can 
+use it to create an instance of a secret similar to the one specified in the previous `secret.yaml` file 
+as follows: 
+
+```sh
+oc create secret generic webhooksecret \
+   --from-file=WebHookSecretKey
 ```
 
 ### Edit a secret
