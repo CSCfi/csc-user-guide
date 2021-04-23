@@ -90,12 +90,12 @@ srun python3 myprog.py <options>
 srun python3 myprog.py <options>
 ```
 
-Mahti's `gpusmall` queue supports only single-GPU jobs. If you need multi-GPU or
-multi-node jobs, use the `gpumedium` queue. You can [read more about multi-GPU
-and multi-node jobs](#multi-gpu-and-multi-node-jobs) below.
+Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
+GPUs, use the `gpumedium` queue. You can [read more about multi-GPU and
+multi-node jobs](#multi-gpu-and-multi-node-jobs) below.
 
-For more detailed information, see our page about [the available batch job
-partitions on CSC's
+For more detailed information about the different paritions, see our page about
+[the available batch job partitions on CSC's
 supercomputers](../../computing/running/batch-job-partitions.md).
 
 ### Data storage
@@ -216,7 +216,7 @@ utilization is 99% (i.e., very good).
 
 
 Alternatively, you can use `seff` which shows GPU utilisation statistics for the
-whole running time.
+whole running time. (NOTE: this works only on Puhti at the moment.)
 
 ```bash
 seff <job_id>
@@ -283,7 +283,9 @@ train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 Multi-GPU jobs are also supported by specifying the number of GPUs required in
 the `--gres` flag, for example to have 4 GPUs on Puhti (which is the maximum for
 a single node): `--gres=gpu:v100:4`. On Mahti the flag would be:
-`--gres=gpu:a100:4`. **Please also make sure that your code can take advantage of
+`--gres=gpu:a100:4`. Note that on Mahti, the `gpusmall` partition only supports
+a maximum of 2 GPUs, for 4 GPUs or more you need to use the `gpumedium` partition.
+**Please also make sure that your code can take advantage of
 multiple GPUs, this typically requires some changes to the program**.
 
 For large jobs requiring more than 4 GPUs we recommend using
@@ -324,7 +326,7 @@ srun python3 myprog.py <options>
 **Mahti**
 
 Note that on Mahti you have to use the `gpumedium` partition for multi-node
-jobs. The `gpusmall` partition supports only single-GPU jobs.
+jobs.
 
 ```bash
 #!/bin/bash
