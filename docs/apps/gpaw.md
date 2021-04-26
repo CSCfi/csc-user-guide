@@ -45,7 +45,8 @@ $ module load gpaw
 A specific version can be initialized with `module load gpaw/version`, e.g.
 `module load gpaw/20.1.0`
 
-!!! warning Note: in CSC environment GPAW calculations are run with the **gpaw-python** command.
+!!! warning "Note:" 
+    In CSC environment GPAW calculations are run with the **gpaw-python** command.
 
 **Example parallel batch script for Puhti**
 
