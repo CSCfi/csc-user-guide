@@ -135,7 +135,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun myprog <options>
 ```
 
-## 1-2 GPU job i.e. `#SBATCH --partition= --gpusmall`
+## 1-2 GPU job i.e. `#SBATCH --partition=gpusmall`
 
 ```
 #!/bin/bash
@@ -156,7 +156,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## 4 GPUs per node and multinode GPU job i.e. `#SBATCH --partition= --gpumedium`
+## 4 GPUs per node and multinode GPU job i.e. `#SBATCH --partition=gpumedium`
 
 ```
 #SBATCH --job-name=example
