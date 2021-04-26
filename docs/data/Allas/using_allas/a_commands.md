@@ -460,3 +460,27 @@ If you run _a-access_ command for a bucket without any modification options,
 it will print out the current settings of the bucket.
 
 
+### Configuring your a-commands
+
+A users can modify the default settings of a-commands by making a configuration file named as **.a_tools_conf** to their **home directory**.  In this file you can set default values for many of the functions that are defined with a-put command options.
+
+For example, if you are working with files that do not benefit from compression, you could skip the compression.
+You can do this by using the _--nc_ option with a-put, but if you want this to be default setting you could create .a_tools_conf file
+that contains setting:
+
+```text
+compression=0 
+```
+Now command:
+```text
+a-put my_data.b
+```
+will not compress the data during the upload process (that would normally be the case). However, you can still use compression with option _--compress_.
+
+```text
+a-put --compress my_data.b
+```
+ 
+You can check most commonly used settings from this sample [.a_tools_conf](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf) file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
+
+
