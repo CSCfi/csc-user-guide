@@ -19,10 +19,13 @@ Some features of the software:
 
 ## Available
 
--   Puhti: 1.4.0, 1.5.2, 20.1.0
--   Mahti: 20.1.0
+-   Puhti: 1.4.0, 1.5.2, 20.1.0, 20.10.0, 21.1.0
+-   Mahti: 20.1.0, 20.10.0, 21.1.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
+-   Modules ending with `-omp` have the optional OpenMP parallelization enabled,
+    see [GPAW documentation about parallel runs](https://wiki.fysik.dtu.dk/gpaw/documentation/parallel_runs/parallel_runs.html?highlight=openmp#manual-openmp)
+    for more details.
 
 ### PAW Setups
 
@@ -41,6 +44,8 @@ $ module load gpaw
 
 A specific version can be initialized with `module load gpaw/version`, e.g.
 `module load gpaw/20.1.0`
+
+!!! warning Note: in CSC environment GPAW calculations are run with the **gpaw-python** command.
 
 **Example parallel batch script for Puhti**
 
@@ -80,7 +85,9 @@ srun gpaw-python input.py
 # Please experiment with optimum MPI task / OpenMP thread ratio with
 # your particular input
 
-module load gpaw  # Note: only the default 20.1.0-omp version supports OpenMP
+# Note: only the modules with "-omp" ending supports OpenMP
+# (default version in Mahti is OpenMP enabled)
+module load gpaw  
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
