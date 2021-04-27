@@ -127,13 +127,12 @@ variety of small to medium sized jobs including special resources.
 |------------------------------------|-----------------------|------------------------------------|
 | Resources are granted              | By full nodes         | By finer detail (cores/memory/...) |
 | Minimum job size                   | 128 cores (1 node)    | 1 core (1/40 node)                 |
-| Maxmimum job size (cores)          | 200 nodes (*) (25600) | 100 (**) nodes (40000)             |
+| Maxmimum job size (cores)          | 200 nodes (*) (25600) | 26 nodes (1040)             |
 | Memory per node (average per core) | 245 GB (2 GB)         | 192 - 1500 GB (4 - 37 GB)          |
 | GPUs                               | NVIDIA A100           | NVIDIA V100                        |
-| Fast local disk                    | no                    | yes (NMVe)                         |
+| Fast local disk                    | (only on GPU nodes)   | yes (NMVe)                         |
 | Preinstalled applications          | ~15                   | ~120                               |
 
 <pre>
 (*) And even more via Grand Challenge calls.
-(**) To be scaled down to 25 nodes in autumn 2020.
 </pre>
