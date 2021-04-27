@@ -135,7 +135,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun myprog <options>
 ```
 
-## 1-2 GPU job i.e. `#SBATCH --partition=gpusmall`
+## 1-2 GPU job i.e. `gpusmall` partition
 
 ```
 #!/bin/bash
@@ -146,8 +146,8 @@ srun myprog <options>
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:1
-## if local fast disk on a node is also needed 
-#SBATCH --gres=nvme:900
+## if local fast disk on a node is also needed, replace above line with:
+#SBATCH --gres=gpu:a100:1,nvme:900
 #
 ## Please remember to load the environment your application may need.
 ## And use the variable $LOCAL_SCRATCH in your batch job script 
@@ -156,7 +156,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## 4 GPUs per node and multinode GPU job i.e. `#SBATCH --partition=gpumedium`
+## 4 GPUs per node and multinode GPU job i.e. `gpumedium` partition
 
 ```
 #SBATCH --job-name=example
@@ -167,8 +167,8 @@ srun myprog <options>
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:4
-## if local fast disk on nodes is also needed 
-#SBATCH --gres=nvme:3600
+## if local fast disk on nodes is also needed, replace above line with: 
+#SBATCH --gres=gpu:a100:4,nvme:3600
 #
 ## Please remember to load the environment your application may need.
 ## And use the variable $LOCAL_SCRATCH in your batch job script 
