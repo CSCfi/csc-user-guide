@@ -123,15 +123,15 @@ likely should start with [Puhti](puhti_quick.md) and some [introductory tutorial
 In a nutshell, Mahti is meant for large parallel jobs, and Puhti for a wide
 variety of small to medium sized jobs including special resources.
 
-|Resource                | Mahti           | Puhti                             |
-|------------------------|-----------------|-----------------------------------|
-|Resources are granted   | By full nodes   | By finer detail (cores/memory/...)|
-|Minimum job size        | 128 cores (1 node)| 1 core (1/40 node)              |
-|Maxmimum job size (cores) | 200 nodes (*) (25600)| 100 (**) nodes (40000)           |
-|Memory per node (average per core) | 245 GB (2 GB)   |  192 - 1500 GB (4 - 37 GB) |
-|GPUs                    | no              | yes                               |
-|Fast local disk         | no              | yes (NMVe)                        |
-|Preinstalled applications |  ~15          | ~120                              |
+| Resource                           | Mahti                 | Puhti                              |
+|------------------------------------|-----------------------|------------------------------------|
+| Resources are granted              | By full nodes         | By finer detail (cores/memory/...) |
+| Minimum job size                   | 128 cores (1 node)    | 1 core (1/40 node)                 |
+| Maxmimum job size (cores)          | 200 nodes (*) (25600) | 100 (**) nodes (40000)             |
+| Memory per node (average per core) | 245 GB (2 GB)         | 192 - 1500 GB (4 - 37 GB)          |
+| GPUs                               | NVIDIA A100           | NVIDIA V100                        |
+| Fast local disk                    | no                    | yes (NMVe)                         |
+| Preinstalled applications          | ~15                   | ~120                               |
 
 <pre>
 (*) And even more via Grand Challenge calls.
