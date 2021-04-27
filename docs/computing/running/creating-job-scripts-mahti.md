@@ -86,10 +86,10 @@ An example below will allocate four GPUs per compute node so eight GPUs all toge
 ```
 The `gpumedium` is the only gpu partition where more than one compute node is available ( maximun number for the `--nodes` flag is six ).
 
-The `gputest` partition is for short test runs. Maximun for the `--time` flag is 15 minutes and one job per account can be run on a RUNNING state.
+The `gputest` partition is for short test runs. Maximum for the `--time` flag is 15 minutes and one job per account can be run in a RUNNING state.
 Maximum for the  `--nodes` flag is one but all four GPUs on a node can be allocated for a test job.
 
-On Mahti a fast local storage is only available on GPU nodes and it is good for IO intensive applications.
+In Mahti fast local storage is only available on GPU nodes and it is good for IO intensive applications.
 Request local storage using the `--gres` flag in the job submission:
 ```
 #SBATCH --gres=nvme:<local_storage_space_per_node>
@@ -101,7 +101,7 @@ Request both GPU and local storage:
 ```
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
-Many GPU applications also support cpu multithreading but not all. If cpu threading is supported cpu cores for the application threading operations can be enabled using `--cpus-per-task` flag. The example below will use one GPU and 32 cores are available for cpu threading (32 is 1/4 of the CPU cores of a single node) also 950 GB local fast disk storage (1/4 of the total amount of local disk on a node). Ampere A100 GPU has also own 40GB memory (and that memory will not need any reservation flag). Default amount of main memory allocated per GPU is 122.5GB
+Many GPU applications also support cpu multithreading but not all. If cpu threading is supported cpu cores for the application threading operations can be enabled using `--cpus-per-task` flag. The example below will use one GPU and 32 cores are available for cpu threading (32 is 1/4 of the CPU cores of a single node) also 950 GB local fast disk storage (1/4 of the total amount of local disk on a node). Ampere A100 GPU also has its own 40GB memory (and that memory will not need any reservation flag). Default amount of main memory allocated per GPU is 122.5GB
 ```
 #SBATCH --partition=gpusmall
 #SBATCH --ntasks=1
