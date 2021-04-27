@@ -1,3 +1,24 @@
+
+In general, applications require some sort of contextual information as input. 
+Such contexts are often provided in the form of configuration files, command-line 
+arguments, and environment variables. Therefore, when containerizing applications 
+and creating images we need to decouple the generic image content from the 
+customizable configuration information. This is mainly done to keep the 
+containerized applications portable. Kubernetes and Openshift have two types 
+of abstractions called Secrets and ConfigMaps that can be used to inject 
+contextual information (configuration) into containers during startup and 
+avoid hardcoding them in images. A good example use case for ConfigMaps and 
+Secrets are application (service) admin passwords and their configuration files. 
+Service passwords can be set as Secrets and added to containers as environment 
+variables, and configuration files can be stored as ConfigMaps that can be 
+mounted under containers as files on startup.
+
+!!! Note
+
+    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](/cloud/rahti/concepts/) 
+    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](/cloud/rahti/tutorials/elemental_tutorial/) 
+    to get some hands-on experience. 
+
 ## ConfigMap
 
 **ConfigMaps** are useful in collecting configuration type data in Kubernetes
@@ -19,6 +40,36 @@ data:
     baz=notbar
 ```
 
+### Create a ConfigMap
+
+ConfigMaps can be created in various ways. If we have a ConfigMap object definition 
+as listed above in `configmap.yaml`, then, an instance of it can be created using 
+the `oc create -f configmap.yaml` command. You can also use the more specific 
+command `oc create configmap <configmap_name> [options]` to create an instance 
+of a ConfigMap from directories, specific files, or literal values. 
+For example, if you have a directory with files containing the data needed to 
+populate a ConfigMap as follows: 
+
+
+```sh
+$ ls example-dir
+data.prop.a
+data.prop.b
+data.prop.long
+```
+
+You can then create a ConfigMap similar to the one difined in `configmap.yaml` as: 
+
+```sh
+oc create configmap my-config-map \
+    --from-file=example-dir/
+```
+
+This command also works with files instead of directories. 
+
+
+### Use a ConfigMap
+
 The following pod imports the value of `data.prop.a` to the `DATA_PROP_A`
 environment variable and creates the files `data.prop.a`, `data.prop.b` and
 `data.prop.long` inside `/etc/my-config`:
@@ -27,7 +78,7 @@ environment variable and creates the files `data.prop.a`, `data.prop.b` and
 
 ```yaml
 kind: Pod
-apiVersion: Pod
+apiVersion: v1
 metadata:
   name: my-config-map-pod
 spec:
@@ -81,6 +132,21 @@ data:
 metadata:
   name: webhooksecret
   namespace: mynamespace     # set this to your project namespace
+```
+
+### Create a secret
+
+As with any other OpenShift/Kubernetes objects, Secrets can also be created from a Secret object definition. 
+For the definition listed above as `secret.yaml`, a Secret instance can be created using 
+the `oc create -f secret.yaml` command. You can also use the more specific command `oc create secret [flags] <secret_name> [options]` 
+to create an instance of a Secret from directories, specific files, or literal values. 
+For example, if you have a file  called `WebHookSecretKey` containing a secret key  you can 
+use it to create an instance of a secret similar to the one specified in the previous `secret.yaml` file 
+as follows: 
+
+```sh
+oc create secret generic webhooksecret \
+   --from-file=WebHookSecretKey
 ```
 
 ### Edit a secret
