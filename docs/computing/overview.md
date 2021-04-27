@@ -4,7 +4,7 @@ Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
 2 September 2019 and Mahti has been available since 26 August 2020.
 
 Puhti contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI), while
-Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). 
+Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition from 2021 (Mahti AI) with latest generation Nvidia GPUs.
 See [specifications](available-systems.md) for details on the systems.
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with basics of [Linux command line usage](../support/tutorials/env-guide/overview.md) before starting.
