@@ -31,6 +31,10 @@
 * [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
 
+## Chemistry
+* [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
+
+
 ## Data analysis and machine learning
 
 * [Data analysis guide](da-guide.md)
