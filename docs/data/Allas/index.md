@@ -35,7 +35,7 @@ module load allas
 allas-conf
 ```
 
-### Basic Allas operations with different tools.
+Basic Allas operations with different tools.
 
 | Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
