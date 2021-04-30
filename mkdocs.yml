@@ -140,7 +140,7 @@ nav:
         - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
         - Remote disk mounts: data/moving/disk_mount.md
      - Allas object storage:
-        - Allas object storage: data/Allas/index.md
+        - Overview: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
