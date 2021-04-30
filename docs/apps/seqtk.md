@@ -5,6 +5,11 @@
 
 Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. It seamlessly parses both FASTA and FASTQ files which can also be optionally compressed by gzip.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blob/master/LICENSE).
 
 ## Available
 

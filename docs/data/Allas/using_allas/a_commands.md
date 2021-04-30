@@ -15,12 +15,14 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | [a-find](#a-find) | Search and locate data uploaded with *a-put* |
 | [a-delete](#a-delete) | Delete an object in Allas |
 | [a-info](#a-info) | Display information about an object in Allas |
+| [a-access](#a-access) | Control access permissions of a bucket in Allas |
 
 In addition to the above commands, there are separate tools for other purposes:
 
  * __allas_conf__ : Set up and open a connection to Allas
- * __allas-backup__ : Create a backup copy of a local dataset in a backup repository in Allas.
+ * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
+ * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 
@@ -407,3 +409,78 @@ done
 a-delete --rmb bucket_123
 rm object_list_bucket123
 ```
+## a-access<a name="a-access"></a>
+
+By default, only project members can read and write the data in a bucket.
+Members of the project can grant read and write access to the bucket and 
+the objects it contains, for other Allas projects or make the bucket publicly
+accessible to the internet.
+
+**a-access** is a tool to control access permissions (swift protocol) of a bucket in Allas.
+
+Syntax 
+```text
+a-access +/-type project_id bucket
+```
+Options:
+
+- **+r**,  **+read** <project_id>        Grant read access to the bucket for the project.
+- **+w**,  **+write** <project_id>       Grant write access to the bucket for the project.
+- **+rw**, **+read-write**  <project_id> Grant read and write access to the bucket for the project.
+- **-r**,  **-read** <project_id>        Remove read access from the bucket.
+- **-w**,  **-write** <project_id>       Remove write access from the bucket.
+- **-rw**, **-read-write**  <project_id> Remove read and write access from the bucket to the project.
+- **+p**,  **+public**                   Give public read-only access to the bucket.
+- **-p**,  **-public**                   Remove public read-only access to the bucket.
+
+For example, to allow members of project: _project_2001234_ to have read-only access to bucket: _my_data_bucket_, you can use command:
+```text
+a-access +r project_2001234  my_data_bucket
+```
+The access permissions are set similarly to the corresponding _segments bucket too.
+
+Note, that bucket listing tools don't show the bucket names of other projects,
+not even in cases were the project has read and/or write permissions to the bucket.
+
+For example in this case a user, belonging to project _project_2001234_, 
+don't see the _my_data_bucket_ in the bucket list produced by command:
+```text  
+a-list
+```
+but the user can still list the contents of this bucket with command:  
+```text
+a-list my_data_bucket
+```
+And download objects from the bucket with a-get.
+
+a-access manages the access permissions only in the project and bucket level.
+Use **swift post** command for more sophisticated access control.
+
+If you run _a-access_ command for a bucket without any modification options,
+it will print out the current settings of the bucket.
+
+
+### Configuring your a-commands
+
+A users can modify the default settings of a-commands by making a configuration file named as **.a_tools_conf** to their **home directory**.  In this file you can set default values for many of the functions that are defined with a-put command options.
+
+For example, if you are working with files that do not benefit from compression, you could skip the compression.
+You can do this by using the _--nc_ option with a-put, but if you want this to be default setting you could create .a_tools_conf file
+that contains setting:
+
+```text
+compression=0 
+```
+Now command:
+```text
+a-put my_data.b
+```
+will not compress the data during the upload process (that would normally be the case). However, you can still use compression with option _--compress_.
+
+```text
+a-put --compress my_data.b
+```
+ 
+You can check most commonly used settings from this sample [.a_tools_conf](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf) file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
+
+

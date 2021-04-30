@@ -18,12 +18,14 @@
  - Make accessible content! In short:
  - **Links:** Link text needs to be descriptive
    - `[Read more here](link-to-some-page)` is not accessible. `[Read more about free use cases](link-to-some-page)` is better.
-   - Pure URL is NOT an option! Imagine reading it: h-t-t-p-s column slash slash...
+   - Pure URL is NOT an option! Imagine reading it: h-t-t-p-s colon slash slash...
    - If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>` This label is read by the screen readers but is not visible to others.
 - **Images:** 
-   - Use title **and** descriptive alt-text in images:  `![This alt-text here explains what the picture contains](/img/image.png 'Title for image')` 
-   - If the alt-text cannot explain the information contained in the image, mention that the text below contains it. 
-   - If image is only decorative, you can leave alt text empty.
+   - Use descriptive alt-text and  in images:  `![This alt-text is for screen readers](/img/image.png 'Helpful text shown as mouse-over')` 
+   - If the alt-text cannot explain the information contained in the image, mention that the text below contains it.
+   - If image is only decorative, you can leave alt-text empty.
+   - Alt-txt should not be too long (8+ words)
+   - You can use the same text in alt-txt and mouse over
    - Images should be of high contrast and large enough font within them
 - **Videos:** 
    - Use `title` to describe the video content: `<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/PrgMFna3DKw?rel=0" title="Intro to Geocomputing" width="560"></iframe>`
@@ -57,7 +59,22 @@
  - For a list of all supported languages see: http://pygments.org/docs/lexers/
  - Give commands, environment variables, command options, as well as partition 
    names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
+ - Format email addresses using `mailto:` as in `[servicedesk@csc.fi](mailto:servicedesk@csc.fi)`  
 
 ## Terminology
  - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only
    when needed.
+
+## Advanced: page metadata
+
+ - All pages use the _site_description_ metadata by default: 
+    - _site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials_
+ - This can be changed per page by adding this to the page top:
+```
+---
+description: Relevant keywords describing this page
+---
+```
+ - This _may_ be shown next to the url and title in a google search and this _may_ help in search result ranking.
+ - Some [discussion on good metadata](https://themeisle.com/blog/meta-description-examples/)
+ - Examples in docs: support/support-howto.md, TBA

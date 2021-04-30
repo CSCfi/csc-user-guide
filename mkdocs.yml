@@ -12,6 +12,7 @@ nav:
      - How to create new project: accounts/how-to-create-new-project.md
      - How to add members to project: accounts/how-to-add-members-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
+     - How to manage your project: accounts/how-to-manage-your-project.md
      - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
      - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
      - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
@@ -20,12 +21,14 @@ nav:
      - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
-     - Systems: 
+     - Systems:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
      - Connecting: computing/connecting.md
-     - Disk areas: computing/disk.md
+     - Supercomputer storage:
+        - Disk areas: computing/disk.md
+        - Lustre filesystem: computing/lustre.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
@@ -45,7 +48,8 @@ nav:
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
-        - Running existing containers: computing/containers/run-existing.md
+        - Running containers: computing/containers/run-existing.md
+        - Creating containers: computing/containers/creating.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
@@ -69,6 +73,9 @@ nav:
          - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
+         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
+         - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
+         - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -77,6 +84,7 @@ nav:
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
+         - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - Rahti Templates: cloud/rahti/template-docs.md
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
@@ -92,6 +100,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
+            - API Access to Pouta: cloud/pouta/api-access.md  
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md

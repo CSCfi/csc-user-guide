@@ -25,7 +25,7 @@ Jupyter token: 123456abcdef
 To access your Jupyter notebook from your local computer:
 
 1. Create SSH tunnel:
-    ssh -L 8890:localhost:8888 <userid>@kvasi.csc.fi
+    ssh -L 8890:localhost:8888 yourcscusername@kvasi.csc.fi
 
 2. Open browser link: http://127.0.0.1:8890/?token=123456abcdef
 ```

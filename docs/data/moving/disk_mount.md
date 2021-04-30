@@ -16,7 +16,9 @@ mkdir csc_home
 sshfs kayttaja@puhti.csc.fi:/users/kayttaja csc_home
 ```
 
- 
+!!! Note
+    On MacOS you might need to add the `-o defer_permissions` option to the sshfs
+    command in case you are getting `Permission denied` errors after mounting.   
 
 The first command creates an empty directory that will be used as the mount point in the second command. When the remote mount is established, you can use the directory as any directory in your Linux system. For example, to see the content of the CSC home directory of _kayttaja_, you could now give a command:
 
@@ -35,3 +37,5 @@ For our example, the command would be:
 ```bash
 fusermount -u csc_home
 ```
+
+On MacOS, replace the `fusermount -u` command with `umount`.

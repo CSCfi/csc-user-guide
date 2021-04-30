@@ -46,7 +46,7 @@ If you are already familiar with SSH keys, you can use your existing SSH keys to
 
 If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you. Go to **Key Pairs** section, select **Create Key Pair**. Give your key a name and click **Create**. You get a "_keyname.pem_" to save. Save it in your home directory.
 
-![ssh key pairs](/img/pouta-user-guide-keypairs.png)
+![The Access & Security subpage in the cPouta web interface](/img/pouta-user-guide-keypairs.png 'ssh key pairs')
 
 **Figure** The _Access & Security_ subpage in the cPouta web interface
 
@@ -70,7 +70,7 @@ _keyname.pem_ is the file you downloaded.
 
 In **Windows** environments, the downloaded private key can be loaded, for example, in the Putty SSH client. This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use. Putty and puttygen are available at [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html). Using these programs does not require administrator privileges. As with Linux, in Windows it is also important to store the keyfile in a secure location with limited permissions.
 
-![Screenshot puttygen](/img/Screenshot-puttygen-ppk2.png)
+![Saving the private key in the password protected .ppk format with puttygen](/img/Screenshot-puttygen-ppk2.png 'Screenshot puttygen')
 
 **Figure** Saving the private key in the password protected .ppk format with puttygen
 
@@ -126,9 +126,9 @@ Once the SSH keys and security groups, discussed in Chapter 3.2.1, have been set
 
 In the main page of the Pouta web interface, open the **Instances** view. The process to launch a new virtual machine is now started by clicking the **Launch Instance** button in the top of the view. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
 
-![Launch cPouta instance](/img/pouta-launch-instance.jpg)
+![Launch the instance view](/img/pouta-launch-instance.jpg 'Launch cPouta instance')
 
-**Figure** Launch the instance view.
+**Figure** Launch the instance view
 
 On the **Details** tab of the _launch instance_ view, first select **Instance Boot Source**. You will most likely want to select "Boot from image" in the dropdown menu. In case you want to be more cloud-native, you can select the "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
 
@@ -146,17 +146,31 @@ When a virtual machine is launched, it only gets a _NATed internal network_. Thi
 
 When the _Instances_ view shows that your machine is _Active_ and in the _Running_ state, select **Associate Floating IP** from the drop down menu that shows up when you click the arrow symbol next to the "Create Snapshot" button.
 
-![Associate floating IP menu](/img/associate-floating-ip-menu.png)
+![Floating IP association options](/img/associate-floating-ip-menu.png 'Associate floating IP menu')
 
 **Figure** Floating IP association options
 
 Click the plus to create a new IP, select the IP, select your machine under **Instance**, and click **Associate**. It takes some minutes before you are able to see the second, public IP address in the _Instances view_. Once the second IP is shown as well, your machine has a public IP and is accessible on the internet.
 
-![Assign IP](/img/pouta-assign-ip.jpg)
+![Floating IP association dialog](/img/pouta-assign-ip.jpg 'Assign IP')
 
 **Figure** Floating IP association dialog
 
 !!! Tip
-    Please note: Allocated and assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://pouta.blog.csc.fi) for management of floating IPs in a cPouta project.
+    Please note: Allocated and assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
+
+## Adding a security group to the machine in cPouta
+
+In the project, a user can manage the security group by creating or updating existing ones. A security group can be updated by adding different security rules for allowing or preventing network traffics. 
+
+![Creating and managing security groups](/img/create_security_group.png 'Create a security group')
+
+**Figure** Creating and managing security groups
+
+A new security group can be added to other VMs in the same project. On the other hand, we can also remove a security group from running VM.
+
+![Managing security groups for virtual machine](/img/attach_security_group_vm.png 'Attach a security group')
+
+**Figure** Managing security groups for virtual machine
 
   [Applying for Pouta access]: ../../accounts/how-to-add-service-access-for-project.md

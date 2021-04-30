@@ -9,7 +9,7 @@ You can use MyCSC to manage these quotas.
 
 1. Login to [MyCSC](https://my.csc.fi) and **select the project** you want to
    modify.
-1. In the Services list, click open the settings for **Puhti** or **Mahti** service as needed. This
+1. In the Services list, click edit configuration (gearwheel symbol) for **Puhti** or **Mahti** service as needed. This
    opens a page where the project manager can modify the quotas.
 
 You can check the default limits of scratch and projappl areas from the table

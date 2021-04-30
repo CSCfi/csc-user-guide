@@ -11,22 +11,22 @@ mkdocs-windmill==1.0.0
 # These are dependencies of the above
 backports-abc==0.5
 backports.ssl-match-hostname==3.5.0.1
-bleach==3.1.4
+bleach==3.3.0
 certifi==2017.11.5
 click==7.1.2
 future==0.18.2
 html5lib==1.0.1
 importlib-metadata==2.0.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 joblib==0.17.0
 livereload==2.6.3
 lunr==0.5.8
 Markdown==3.3.2
 MarkupSafe==1.1.1
 nltk==3.5
-Pygments==2.7.1
+Pygments==2.8.0
 pytoml==0.1.14
-PyYAML==5.3.1
+PyYAML==5.4.1
 regex==2020.10.15
 singledispatch==3.4.0.3
 six==1.15.0

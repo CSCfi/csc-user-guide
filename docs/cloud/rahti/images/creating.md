@@ -2,18 +2,20 @@
 
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
+Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](./keeping_docker_images_small.md)
+
 ## Building images locally
 
 In this example we are going to use the [official nginx image](https://hub.docker.com/_/nginx) built over the [Alpine Linux](https://www.alpinelinux.org/) distribution, and make the necessary changes to make it work in OpenShift.
 
 Three steps are needed to run build an image locally in a computer.
 
- * First a `Dockerfile` must be written, for example this:
+* First a `Dockerfile` must be written, for example this:
 
 ```Dockerfile
 FROM nginx:alpine
 
-# support running as arbitrary user which belogs to the root group
+# support running as arbitrary user which belongs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
     chown nginx.root /var/cache/nginx /var/run /var/log/nginx && \
     # users are not allowed to listen on privileged ports
@@ -96,9 +98,7 @@ and it will be visible to internet at
 `docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
 compatible clients.
 
-For command line usage with docker compatible clients, the docker repository
-password will be the access token shown when authorizing Rahti command line
-session and user name can be `unused`.
+For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
 
 The Docker CLI tool login instructions are also shown in the [Rahti registry
 console](https://registry-console.rahti.csc.fi).
@@ -159,3 +159,13 @@ oc start-build os-sample-python
 ```
 
 Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
+
+## Using the inline Dockerfile method
+
+It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
+
+```bash
+oc new-build -D $'FROM centos:7'
+```
+
+In this example, we will build an image that is a copy of `CentOS 7`.

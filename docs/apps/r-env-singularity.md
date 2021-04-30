@@ -8,44 +8,44 @@
 
 ## Available
 
-`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
+`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
 
-Currently supported R versions and corresponding modules:
+With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-- 3.6.3: `r-env-singularity/3.6.3`
-- 4.0.2: `r-env-singularity/4.0.2`
-- 4.0.3: `r-env-singularity/4.0.3`
+Current modules and supported versions:
 
-CRAN package and Bioconductor versions:
-
-- 3.6.3: CRAN packages available on March 17 2020, Bioconductor 3.10
-- 4.0.2: CRAN packages available on September 24 2020, Bioconductor 3.11 
-- 4.0.3: CRAN packages available on December 09 2020, Bioconductor 3.12
-
-RStudio Server versions:
-
-- 3.6.3: 1.2.5033
-- 4.0.2 and 4.0.3: 1.3.1093
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | TensorFlow version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ------------------ |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		     |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		     |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | NA		     |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| TensorFlow 2.4.1   |
 
 Other software and libraries:
 
-- Open MPI 4.0.2 (with Mellanox OFED™ software)
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4) (with Mellanox OFED™ software)
 - Intel® MKL 2020.0-088
 - cget 0.1.9
 
 ## Licenses
 
-- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/).
+- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. More information on [citing R and different R packages](#citation) (at the bottom of the page).
 
-- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). The RStudio End User License Agreement can be found [here](https://rstudio.com/about/eula/).
+- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). Please consult also the [RStudio End User License Agreement](https://rstudio.com/about/eula/).
 
 - Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
 
 - Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
 
-- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf). 
+- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf).
+
+- NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
+
+- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
+
+Licensing information within the `r-env-singularity` container is available in the file `/usr/licensing.txt`.
 
 ## Usage
 
@@ -320,7 +320,7 @@ mpi.quit()
 
 *Jobs using `snow`*
 
-Whereas most parallel R jobs employing the `r-env-singularity` module can be submitted using `srun singularity_wrapper exec Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). For example:
+Whereas most parallel R jobs employing the `r-env-singularity` module can be submitted using `srun singularity_wrapper exec Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). `snow` relies on a communication model where a master process is used to control other processes (workers). Because of this, the batch job file must specify one more task than the planned number of `snow` workers, as the master needs its own task. For example, for a job requiring seven workers, we could submit a job as follows:
 
 ```bash
 #!/bin/bash -l
@@ -364,6 +364,54 @@ a
 
 stopCluster(cl)
 ```
+
+*Jobs using `future`*
+
+The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details). Whether futures are resolved sequentially or in parallel is specified using the function `plan()`.
+
+For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
+
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
+
+The R script below could be used to compare analysis times using sequential, multisession and multicore strategies.
+
+```r
+library(future)
+library(tictoc)
+library(furrr)
+
+# Different future plans (choose one) 
+# (Note: three workers used for parallel options)
+
+# plan(sequential)
+# plan(multisession, workers = 3)
+# plan(multicore, workers = 3)
+
+# Analysis timing
+
+tic()
+nothingness <- future_map(c(2, 2, 2), ~Sys.sleep(.x))
+toc()
+
+# sequential: 6.157 sec
+# multisession: 2.463 sec
+# multicore: 2.212 sec
+```
+
+For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW` and we should specify enough tasks for both the master and worker processes (see 'Jobs using `snow`'). To use `future` with `snow`, the following lines would also need to be included in the R script:
+
+```r
+library(future)
+
+cl <- getMPIcluster()
+plan(cluster, workers = cl)
+
+# Analysis here
+
+stopCluster(cl)
+```
+
+For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/contours/05_parallel_future). 
 
 *Jobs using `pbdMPI`*
 
@@ -549,6 +597,43 @@ Further to temporary file storage, data sets for analysis can be stored on a fas
 Sys.getenv("LOCAL_SCRATCH")
 ```
 
+#### R interface to TensorFlow
+
+The `r-env-singularity/4.0.4` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+
+To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_tensorflow
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=gpu
+#SBATCH --time=01:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:v100:1
+
+# Load the module
+module load r-env-singularity/4.0.4
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
+
 #### R package installations
 
 It is possible to check if a particular package is already installed as follows.
@@ -647,4 +732,4 @@ citation("package") # for citing R packages
 
 - [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env-singularity` module)
 
-- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)
+- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [furrr](https://cran.r-project.org/web/packages/furrr/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)
