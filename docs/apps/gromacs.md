@@ -49,7 +49,7 @@ The most important are:
 -   For large jobs, use full nodes (multiples of 40 cores, on Puhti) see example below.
 
 For a more complete description, consult the 
-[Gromacs performance checklist] on the Gromacs page.
+[mdrun performance checklist] on the Gromacs page.
 
 We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
@@ -62,7 +62,7 @@ test at the scaling limit, rather than run very long scaling tests in advance.
 
 ### Example parallel batch script for Puhti
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=large
 #SBATCH --ntasks-per-node=40
@@ -87,7 +87,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 ### Example serial batch script for Puhti
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
@@ -105,7 +105,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     
 ### Example GPU script for Puhti
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --gres=gpu:v100:1
@@ -127,17 +127,15 @@ srun gmx_mpi mdrun -s verlet -pin on -dlb yes
 ```
 !!! note
     Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
-    as using one full node of CPU cores. Otherwise, don't use GPUs.
-    You can compare the "cost" of using
-    CPU vs. GPU in the [billing calculator](https://research.csc.fi/billing-and-monitoring)
-
+    as using one full node of CPU cores according to the [usage policy](../../computing/overview/#gpu-nodes).
+    Otherwise, don't use GPUs.
 
 Submit the script with `sbatch script_name.sh`
 
 ### Example mpi-only parallel batch script for Mahti
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=medium
 #SBATCH --ntasks-per-node=128
@@ -148,7 +146,7 @@ Submit the script with `sbatch script_name.sh`
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
 
 export OMP_NUM_THREADS=1
 
@@ -158,7 +156,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ### Example mixed parallel batch script for Mahti
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=medium
 #SBATCH --ntasks-per-node=64
@@ -171,7 +169,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 # 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -222,20 +220,17 @@ for methods applied in your setup.
 ## More information
 
 -   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
--   [Tutorials on the Gromacs website]  
--   [More tutorials] by Justin A. Lemkul
--   [Yet more nice tutorials](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html) by Bert de Groot.
+-   [Hands-on tutorials] by Justin A. Lemkul
+<!-- gone  [Yet more nice tutorials](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html) by Bert de Groot. -->
 -   [Lots of material at BioExcel EU project]
--   [HOW-TO] section on the Gromacs pages
--   Gromacs [documentation]
+-   [HOW-TO](https://manual.gromacs.org/documentation/current/how-to/index.html) section on the Gromacs pages
+-   Gromacs [documentation] and [mdrun performance checklist]
 -   [The PRODRG Server] for online creation of small molecule topology
--   [2019 Advanced Gromacs Workshop materials](https://research.csc.fi/web/training/-/advanced-gromacs-workshop)
+-   [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 
+  [mdrun performance checklist]: https://manual.gromacs.org/2020/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/
-  [Gromacs performance checklist]: http://www.gromacs.org/Documentation/Performance_checklist
-  [Tutorials on the Gromacs website]: http://www.gromacs.org/Documentation/Tutorials
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
-  [HOW-TO]: http://www.gromacs.org/Documentation/How-tos
   [Lots of material at BioExcel EU project]: http://bioexcel.eu/software/gromacs/
-  [More tutorials]: http://www.mdtutorials.com/gmx/
+  [Hands-on tutorials]: http://www.mdtutorials.com/gmx/
