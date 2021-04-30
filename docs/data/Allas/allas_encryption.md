@@ -3,7 +3,7 @@
 Allas is not certified as high level security storage platform and thus you should not use it to store sensitive data in readable format.
 Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas.
 
-This document describes some password based (symmetric) encryption tools that help you to move your sensitive data to Allas so that data gets encrypted before it leaves your secure environment. When you use Allas with these encryption tools, remember that:
+This document describes some encryption tools that help you to move your sensitive data to Allas so that data gets encrypted before it leaves your secure environment. When you use Allas with these encryption tools, remember that:
    
    1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in evironments with high enough security level. For example, in the HPC environment of CSC is NOT secure enough for sensitive data. 
    
