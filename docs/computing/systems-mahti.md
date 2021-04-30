@@ -1,14 +1,20 @@
 # Technical details about Mahti
 
-## Compute
+## Compute nodes
 
-**Mahti** has a total of **1404** nodes, with a theoretical peak performance
-of 7,5 petaflops. Each node has two AMD Rome 7H12 CPUs with 64 cores each,
+**Mahti** has a total of **1404** CPU nodes and **24** GPU nodes. The theoretical peak performance is 7,5 petaflops for the CPU nodes and 2,0 petaflops for the GPU nodes, in total 9,5 petaflops. 
+
+
+Both CPU and GPU nodes have two AMD Rome 7H12 CPUs with 64 cores each,
 making the total core count about 180 000. The CPUs are based on AMD Zen 2 architecture,
 supporting the AVX2 vector instruction set, and run at 2.6 GHz base frequency (max boost up to 3.3 GHz).
 The CPUs support simultaneous multithreading (SMT) where each core can run two
 hardware threads. When SMT is enabled, the total thread count per node is 256
-threads. Each node has 256 GB of memory.
+threads. 
+
+The CPU nodes are equipped with 256 GB of memory, and no local disks.
+
+The GPU nodes are equipped with 512 GB of memory and a local 3,8 TB Nvme drive. They also have four Nvidia Ampere A100 GPUs.
 
 ### NUMA configuration
 
