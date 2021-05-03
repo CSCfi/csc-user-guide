@@ -27,7 +27,7 @@ Available in Puhti and Mahti. These can be installed to local Linux and Mac OSX 
    * [s3cmd](using_allas/s3_client.md) A command line client for the S3 protocol. 
    * [Python](using_allas/python_library.md) Programmatic access to Allas.
 
-### Sample commands for Puhti and Mahti 
+### Example commands for Puhti and Mahti 
 Open connection:
 
 ```text
@@ -46,7 +46,7 @@ Basic Allas operations with different tools.
 
 \*For s3cmd, open Allas connection with command`allas-conf -m s3cmd`
 
-Other information
+### Understanding error messages
 
    * [Error messages](./using_allas/error_messages.md)
    * [Directory errors](./using_allas/directory_object_error.md )
@@ -54,10 +54,11 @@ Other information
 ## [Allas and cPouta object storage, what has changed?](./allas_cpouta_change.md) 
 CSC has previously provided the Pouta object storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to existing Pouta object storage users.
 
-### Tutorials: 
+## Tutorials 
 
 * [Using Allas interactively in Puhti and Mahti](./allas-examples.md) 
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
+* [Tools for client side encryption for Allas](./allas_encryption.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)
 

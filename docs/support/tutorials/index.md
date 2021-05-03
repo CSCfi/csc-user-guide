@@ -21,6 +21,7 @@
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
+* [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
 
 ## Bioinformatics
 * [Singularity applications on Puhti](bioapplications-puhti.md)
@@ -30,6 +31,10 @@
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
 * [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
+
+## Chemistry
+* [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
+
 
 ## Data analysis and machine learning
 
