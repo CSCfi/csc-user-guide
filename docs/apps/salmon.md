@@ -16,20 +16,22 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
--   Puhti: v0.14.1
+-   Puhti: v0.14.1, 0.99.0b2, 1.1.0, 1.4.0
 
 ## Usage
 
-In Puhti, the Salmon command is activated by loading the biokit environment.
+In Puhti, the Salmon command is activated by loading the salmon module.
 
 ```text
-module load biokit
+module load salmon
 ```
 For usage help use command:
 ```text
 salmon --help
 ```
-
+!!! Note
+    Note that loading the biokit module will load a version of Salmon that comes with Trinity.
+    To use latest vesion of salmon, load salmon module instead.
 
 
 ## Manual
