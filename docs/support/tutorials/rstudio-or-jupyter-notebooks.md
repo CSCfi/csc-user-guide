@@ -1,10 +1,10 @@
 # Using RStudio or Jupyter Notebooks in Puhti 
 
-[RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convenient ways for developing and running R or Python code. 
+[RStudio](https://www.rstudio.com/) and [Jupyter Notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
 The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser. So, there is no
 need to use NoMachine.
 
-Using RStudio or Jupyter Notebooks involves creating a SSH tunnel from a local PC to a compute node. As compute nodes are not accessible via the Internet, 
+Using RStudio or Jupyter Notebooks involves creating a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
 not suitable for RStudio or Jupyter Notebooks in Puhti. 
 SSH tunnelling requires that you have [set up SSH keys](../../computing/connecting.md#setting-up-ssh-keys). 
@@ -20,7 +20,7 @@ SSH tunnelling requires that you have [set up SSH keys](../../computing/connecti
 * Open RStudio or Jupyter Notebook in local web browser
 
 ### 1. Start interactive session
-Start interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usege page.](../../computing/running/interactive-usage.md)
+Start interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usage page.](../../computing/running/interactive-usage.md)
 
 ### 2. Load module and start RStudio or Jupyter Notebook server
 In the interactive session run:
@@ -33,14 +33,14 @@ start-rstudio-server
 This set up works with any [r-env-singularity module](../../apps/r-env-singularity.md), but does not work with [r-env-deprecated](../../apps/r-env.md) modules.
 
 It is also possible to launch a multi-threaded RStudio session using `start-rstudio-server-multithread`. 
-Details on using threading with R can be found on the [r-env-singularity main page](../../apps/r-env-singularity.md#improving-performance-using-threading)
+Details on using threading with R can be found on the [r-env-singularity main page](../../apps/r-env-singularity.md#improving-performance-using-threading).
 
 **Jupyter Notebook**
 ```
 module load python-data 
 start-jupyter-server
 ```
-Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebooks)
+Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can also use your [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebooks).
 
 ***
 
