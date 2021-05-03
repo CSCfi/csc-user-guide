@@ -31,8 +31,8 @@ salmon --help
 ```
 !!! Note
 
-    Note that loading the biokit module will load a version of Salmon that comes with Trinity.
-    To use latest vesion of salmon, load salmon module instead.
+    Note that loading the biokit module will load an older version of Salmon that comes with Trinity.
+    To use latest vesion of Salmon, load salmon module instead.
 
 
 ## Manual
