@@ -1,18 +1,18 @@
-# Using RStudio or Jupyter Notebooks in Puhti 
+# Using RStudio or Jupyter Notebook in Puhti 
 
-[RStudio](https://www.rstudio.com/) and [Jupyter Notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
+[RStudio](https://www.rstudio.com/) and [Jupyter Notebook](https://jupyter.org/) are convenient options for developing and running R or Python code. 
 The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser. So, there is no
 need to use NoMachine.
 
-Using RStudio or Jupyter Notebooks involves creating a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
+Using RStudio or Jupyter Notebook involves creating a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
-not suitable for RStudio or Jupyter Notebooks in Puhti. 
+not suitable for RStudio or Jupyter Notebook in Puhti. 
 SSH tunnelling requires that you have [set up SSH keys](../../computing/connecting.md#setting-up-ssh-keys). 
 
 * With Linux, macOS and MobaXterm the SSH tunnelling works by default.
 * PuTTy requires filling in the settings to PuTTy tabs, so it is slower and more complicated, but possible.
 
-## The workflow for using RStudio or Jupyter Notebooks in Puhti
+## The workflow for using RStudio or Jupyter Notebook in Puhti
 
 * Start interactive session
 * Load suitable modules and start RStudio or Jupyter Notebook server
@@ -39,7 +39,7 @@ It is also possible to launch a multi-threaded RStudio session using `start-rstu
 module load python-data 
 start-jupyter-server
 ```
-Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can also use your [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebooks).
+Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can also use your [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebook).
 
 ***
 
@@ -49,7 +49,7 @@ Keep this terminal open as long as you are working, to keep the RStudio or Jupyt
 
 ### 3. Create SSH tunnel from your PC to Puhti compute node
 * With Linux, MacOS ja MobaXterm, open a second SSH terminal on your local machine (do not connect to Puhti yet) and 
-run the SSH tunnelling command printed out by the RStudio or Jupyter Notebooks start-up script. 
+run the SSH tunnelling command printed out by the RStudio or Jupyter Notebook start-up script. 
 For example `ssh -N -L 8787:localhost:42896 -J john@puhti.csc.fi john@r07c49.bullx`
 * With PuTTy see the [SSH tunnelling with PuTTy](#ssh-tunnelling-with-putty) instructions.
 * The command does not print out anything specific, unless you get some error, you likely succeeded.
@@ -67,9 +67,9 @@ Once you have finished:
 * Close (`exit`) also the interactive session. 
 * Close SSH tunnel with `Ctrl + C`.
 
-## Custom Python environment with Jupyter Notebooks
+## Custom Python environment with Jupyter Notebook
 
-If you want to use a custom Conda environment with Jupyter Notebooks, the
+If you want to use a custom Conda environment with Jupyter Notebook, the
 following workflow could be used (adapted to your situation):
 
 ```bash
@@ -92,7 +92,7 @@ start-jupyter-server
 ```
 
 ## SSH tunnelling with PuTTy
-Both RStudio and Jupyter Notebooks also print out PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
+Both RStudio and Jupyter Notebook also print out PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
 
 ```
     PuTTy:
