@@ -30,6 +30,7 @@ For usage help use command:
 salmon --help
 ```
 !!! Note
+
     Note that loading the biokit module will load a version of Salmon that comes with Trinity.
     To use latest vesion of salmon, load salmon module instead.
 
