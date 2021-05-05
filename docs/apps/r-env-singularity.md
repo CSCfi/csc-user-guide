@@ -8,23 +8,23 @@
 
 ## Available
 
-`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
+`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
 Current modules and supported versions:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | TensorFlow version |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ------------------ |
-| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		     |
-| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		     |
-| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | NA		     |
-| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| TensorFlow 2.4.1   |
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | MKL version		 | TensorFlow version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ---------------------- | ------------------ |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| Intel® MKL 2020.0-088  | TensorFlow 2.4.1   |
+| r-env-singularity/4.0.5 | Apr 20 2021		| 3.12		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.4.1   |
 
 Other software and libraries:
 
-- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4) (with Mellanox OFED™ software)
-- Intel® MKL 2020.0-088
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4 and 4.0.5) (with Mellanox OFED™ software)
 - cget 0.1.9
 
 ## Licenses
@@ -78,29 +78,7 @@ start-r
 
 ***Using RStudio Server***
 
-The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Instructions for this are provided in our [documentation on setting up SSH keys on Windows, MacOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
-
-!!! note
-    If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
-
-Once you have started an interactive shell session using SSH authentication, run the following commands. As with `start-r`, the `start-rstudio-server` command needs to be run on a compute node:
-
-```bash
-module load r-env-singularity
-start-rstudio-server
-```
-
-While this will not yet open up RStudio on your screen, running `start-rstudio-server` prints out information needed to gain remote access to RStudio. Further to launching RStudio in the background, the command selects a free port on the compute node while producing a session-specific random password for RStudio.
-
-To open RStudio on your browser:
-
-- Copy the SSH login command given by `start-rstudio-server`. Note that there are separate SSH login instructions for PuTTY. Leave this window open and running until your session finishes.
-
-- Launch a local terminal window and enter the SSH login command there. Leave this window open as well for the duration of your session. As long as the command is running, you have remote access to RStudio.
-
-- Open RStudio Server by entering the following address in your browser: localhost:8787. The RStudio login screen will ask for your username and the random password generated earlier (these can be copy-pasted from the `start-rstudio-server` output). 
-
-Once you have finished, you can exit RStudio Server by entering `Ctrl + C` in the interactive terminal session on Puhti.
+The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
 
 #### Interactive use on a login node
 
