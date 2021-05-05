@@ -1,8 +1,7 @@
 # Using RStudio or Jupyter notebooks in Puhti 
 
 [RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convinient ways for developing and running R or Python code. 
-The R or Python code is run on compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools itself are used  via a local web browser. So, there is no
-need to use NoMachine.
+The R or Python code is run on compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools itself are used  via a local web browser. So, there is no need to use NoMachine.
 
 Using RStudio or Jupyter Notebooks involves creating a SSH tunnel from local PC to compute-node, and as compute nodes are not accessible from internet 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it not is 
@@ -32,12 +31,21 @@ start-rstudio-server
 ```
 This set up works with any [r-env-singularity module](../../apps/r-env-singularity.md), but does not work with [r-env-depricated](../../apps/r-env.md) modules.
 
+Jupyter notebooks can be used with traditional Jupyter notebook or more advanced JupyterLab server.
+
 **Jupyter notebook**
 ```
 module load python-data 
 start-jupyter-server
 ```
-Also some other [Python modules](../../apps/python.md) include Jupyter Notebook. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebook)
+
+**JupyterLab**
+```
+module load python-data 
+start-jupyterlab-server
+```
+
+It is possible to use also some other pre-installed [Python module](../../apps/python.md) than `python-data`, if it includes Jupyter. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebook)
 
 ***
 
