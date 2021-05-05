@@ -35,7 +35,8 @@
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
-* [What directory I shouild use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
+* [What directory I should use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
+* [How can I install my own software?](how-to-install-own-software.md)
 
 ## Allas
 
@@ -56,7 +57,6 @@
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
-* [How to access the CSC archive service from cPouta?](how-to-access-csc-archive-services-from-cpouta.md)
 * [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
