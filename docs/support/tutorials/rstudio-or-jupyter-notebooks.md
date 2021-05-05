@@ -34,6 +34,7 @@ It is also possible to launch a multi-threaded RStudio session using `start-rstu
 Details on using threading with R can be found on the [r-env-singularity main page](../../apps/r-env-singularity.md#improving-performance-using-threading).
 
 **Jupyter**
+
 Jupyter notebooks can be used with traditional Jupyter notebook or more advanced JupyterLab server.
 
 Jupyter Notebook:
