@@ -33,15 +33,17 @@ This set up works with any [r-env-singularity module](../../apps/r-env-singulari
 It is also possible to launch a multi-threaded RStudio session using `start-rstudio-server-multithread`, if you have specified multiple cores when starting an interactive session. 
 Details on using threading with R can be found on the [r-env-singularity main page](../../apps/r-env-singularity.md#improving-performance-using-threading).
 
+**Jupyter**
 Jupyter notebooks can be used with traditional Jupyter notebook or more advanced JupyterLab server.
-**Jupyter Notebook**
+
+Jupyter Notebook:
 
 ```
 module load python-data 
 start-jupyter-server
 ```
 
-**JupyterLab**
+JupyterLab:
 ```
 module load python-data 
 start-jupyterlab-server
