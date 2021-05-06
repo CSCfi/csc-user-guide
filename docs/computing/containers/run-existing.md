@@ -46,9 +46,11 @@ You can also run Singularity directly if the `singularity_wrapper` script for so
 Usage examples:
 
 ```bash
-singularity exec /path/to/singularity_image.sif -B /scratch:/scratch command_to_run
+singularity exec -B /scratch:/scratch /path/to/singularity_image.sif command_to_run
 singularity shell /path/to/singularity_image.sif
 ```
+
+If you need GPU support, add the `--nv` flag to your command.
 
 ### Mounting datasets with SquashFS 
 
