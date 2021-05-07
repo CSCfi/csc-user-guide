@@ -78,7 +78,7 @@ pip install my_package_to_install
 
 With `venv`, you can keep separate environments for each program. The next time
 you wish to activate the environment you only need to run `source
-my-venv/bin/activate`.
+my-venv/bin/activate`. `venv` does not work with Python modules installed with Singularity.
 
 If you think that some important package should be included in a module provided
 by CSC, you can send an email to <servicedesk@csc.fi>.
