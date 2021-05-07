@@ -1,7 +1,7 @@
 # Using RStudio or Jupyter Notebook in Puhti 
 
-[RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convinient ways for developing and running R or Python code. 
-The R or Python code is run on compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser. So, there is no need to use NoMachine.
+[RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
+The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser. So, there is no need to use NoMachine.
 
 Using RStudio or Jupyter Notebook involves creating a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
@@ -19,7 +19,7 @@ SSH tunnelling requires that you have [set up SSH keys](../../computing/connecti
 * Open RStudio or Jupyter Notebook in local web browser
 
 ### 1. Start interactive session
-Start interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usage page.](../../computing/running/interactive-usage.md)
+Start an interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usage page.](../../computing/running/interactive-usage.md)
 
 ### 2. Load module and start RStudio or Jupyter Notebook server
 In the interactive session run:
@@ -35,7 +35,7 @@ Details on using threading with R can be found on the [r-env-singularity main pa
 
 **Jupyter**
 
-Jupyter notebooks can be used with traditional Jupyter notebook or more advanced JupyterLab server.
+Jupyter notebooks can be used with the traditional Jupyter Notebook or the more advanced JupyterLab server.
 
 Jupyter Notebook:
 
@@ -50,7 +50,7 @@ module load python-data
 start-jupyterlab-server
 ```
 
-It is possible to use also some other pre-installed [Python module](../../apps/python.md) than `python-data`, if it includes Jupyter. You can use also [own custom Python environment with Jupyter Notebook](#custom-python-environment-with-jupyter-notebook)
+It is also possible to use some other pre-installed [Python module](../../apps/python.md) than `python-data`, if it includes Jupyter. You can also use your [own custom Python environment with Jupyter Notebook.](#custom-python-environment-with-jupyter-notebook)
 
 ***
 
