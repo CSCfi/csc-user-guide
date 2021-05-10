@@ -15,4 +15,4 @@ Metadata is information regarding the data, for example, where, when, why, and h
 <a name="header3"></a>
 ## Files and file formats
 
-bla bla
+=> nykyinen https://research.csc.fi/files-and-file-formats => olisi syytä käydä läpi tästä uudesta näkökulmasta
