@@ -1,44 +1,22 @@
 # Working with data / Data management / Data life-cycle
 
 
-| [Data Management](datamanagement.md) <img width=200/>	| [Metadata and Documentation](metadata-and-documentation.md) <img width=200/> | [Dataset Sources](sourcing-datasets.md) <img width=200/>	|
+| [Data Management](datamanagement.md) <img width=200/>	| [Metadata and Documentation](metadata-and-documentation.md) <img width=200/> | [Datasets](sourcing-datasets.md) <img width=200/>	|
 |:---------------:|:---------------:|:--------------:|
 |[About data management](datamanagement.md)  |[Overview](metadata-and-documentation.md#header1) |[Overview](sourcing-datasets.md#header1) |
 |[Best practices](datamanagement.md#header1)  |[Metadata types](metadata-and-documentation.md#header2)|[Etsin, B2Find, Paituli etc](sourcing-datasets.md#header2) | 
-|  |[Files and File Formats](metadata-and-documentation.md#header3) |[Specific datasets hosted by CSC](sourcing-datasets.md#header3) |
-|  |  |[Datasets by discipline](sourcing-datasets.md#header4) |
+|  |[Files and File Formats](metadata-and-documentation.md#header3) |[Etsin, B2Find, Paituli etc](sourcing-datasets.md#header3) |
+|  |  |[Specific datasets hosted by CSC](sourcing-datasets.md#header4) |
+|  |  |[Datasets by discipline](sourcing-datasets.md#header5) |
 
 |[Using Datasets](using-datasets.md) <img width=200/>	| Storing and Moving Data <img width=200/> | [Publishing Datasets](publishing-datasets.md) <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
 |[Overview](using-datasets.md#header1) |[Moving data](../moving/scp.md)|[Overview](publishing-datasets.md#header1)  |
 |[Allas datasets using Fairdata](using-datasets.md#header2)|[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#header2) | 
-|[Versioning and documenting](using-datasets.md#header3) |[Kaivos](../kaivos/overview.md)|[Licensing](publishing-datasets.md#header3) |
-|[Processing and analysing data](using-datasets.md#header4) |[Hosting Datasets](hosting-datasets-at-CSC.md)|[Preservation](publishing-datasets.md#header3)  |
-|[Building data lakes](using-datasets.md#header5)  |  | |
+|[Versioning and documenting](using-datasets.md#header3) |[Kaivos](../kaivos/overview.md)|[Licensing & Rights](publishing-datasets.md#header3) |
+|[Processing and analysing data](using-datasets.md#header4) |[Hosting Datasets](hosting-datasets-at-CSC.md)|[Access control](publishing-datasets.md#header4)  |
+|[Building data lakes](using-datasets.md#header5)  |  |[Preservation](publishing-datasets.md#header5) |
 
-## [Sensitive Data](how-to-manage-sensitive-data.md)
+## [How to Manage Sensitive Data](how-to-manage-sensitive-data.md)
 
 Bla bla
-
-## Datasets by discipline
-
-CSC hosts or provides access to several datasets on different platforms.
-
-### Biosciences
-[ChEMBL](../apps/chembl.md) Database of bioactive molecules.
-[Chipster_genomes](../apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
-
-### Chemistry
-[CSD - Cambridge Crystallographic Database](../apps/csd.md) – organic and metallo-organic crystal structures and tools
-[Molport 6M molecule database](../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
-
-### Geosciences
-[Open Finnish spatial datasets are available in Puhti or in Allas.](spatial-data-in-csc-computing-env.md)
-
-### Language research and other digital humanities and social sciences
-The latest versions of [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are available unpacked in /appl/data/kielipankki/
-
-### Dataset sources
-
-(Etsin, B2Find, Paituli etc) (ks. myös https://research.csc.fi/en/open-gis-data)
-tämän alisivuiksi voisi tulla reseachista esim. https://research.csc.fi/en/puhti-virtual-rasters ks. myös https://research.csc.fi/en/gis_data_in_csc_computing_env
