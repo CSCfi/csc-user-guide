@@ -151,6 +151,7 @@ This opens a definition menu here you need to file following parameters
 
 Folder name: display name for the allas bucket (2001234-nextcloud)
 Bucket: The bucket you just created  or some older bucket.
+Host: a3s.fi
 Port: 443
 Region: US
 Enable SSL
