@@ -6,25 +6,33 @@ Salmon is a wicked-fast program to produce a highly-accurate, transcript-level q
 
 NOTE: Salmon works by (quasi)-mapping sequencing reads directly to the transcriptome. This means the Salmon index should be built on a set of target transcripts, not on the genome of the underlying organism. If indexing appears to be taking a very long time, or using a tremendous amount of memory (which it should not), please ensure that you are not attempting to build an index on the genome of your organism!
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
 
 Version on CSC's Servers
 
--   Puhti: v0.14.1
+-   Puhti: v0.14.1, 0.99.0b2, 1.1.0, 1.4.0
 
 ## Usage
 
-In Puhti, the Salmon command is activated by loading the biokit environment.
+In Puhti, the Salmon command is activated by loading the salmon module.
 
 ```text
-module load biokit
+module load salmon
 ```
 For usage help use command:
 ```text
 salmon --help
 ```
+!!! Note
 
+    Note that loading the biokit module will load an older version of Salmon that comes with Trinity.
+    To use latest vesion of Salmon, load salmon module instead.
 
 
 ## Manual

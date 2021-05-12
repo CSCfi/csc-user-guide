@@ -1,18 +1,12 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md).
-
-## Available
-
-Currently supported R versions for spatial libraries:
-
-- 4.0.3, 4.0.2 and 3.6.3 (`r-env-singularity` module)
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md). Spatial libraries are included in all R versions in Puhti.
 
 ## Usage
 
 ### Loading the module
 
-You can load the general R module with
+Load the general R module with
 
 ```
 module load r-env-singularity
@@ -59,16 +53,14 @@ You can also install your own additional libraries. Just follow the instructions
 
 The `r-env-singularity` module includes the following GDAL and SAGA GIS installations.
 
-`r-env-singularity/3.6.3`:
+| Module name (R version) | GDAL version | SAGA GIS version | 
+| ----------------------- | ------------------- | -------------------- | 
+| r-env-singularity/3.6.3 |2.4.2         | 7.3.0                 | 
+| r-env-singularity/4.0.2 | 3.2.0         | 7.9.0                 | 
+| r-env-singularity/4.0.3 | 3.2.0         | 7.9.0                 |   
+| r-env-singularity/4.0.4 | 3.2.0		| 7.10.0		       | 
+| r-env-singularity/4.0.5 | 3.2.0		| 7.10.0		       | 
 
-* [GDAL](gdal.md) 2.4.2 and its commandline tools 
-* [SAGA GIS](saga-gis.md) 7.3.0
-
-`r-env-singularity/4.0.2` and `r-env-singularity/4.0.3`:
-
-- GDAL 3.2.0 and its commandline tools
-
-- SAGA GIS 7.9.0
 
 ### Parallel computing
 
@@ -78,7 +70,7 @@ Other than those, you have to parallelize your own R code which can be done with
 
 ## Interactive usage
 
-It is possible to use RStudio with [an interactive batch job](r-env-singularity.md) on Puhti. The `r-env-singularity` module includes an [RStudio Server](../computing/running/interactive-usage.md#example-rstudio-server-in-sinteractive-session) installation, making it possible to run RStudio from your local browser with a SSH tunnel.
+It is possible to use [RStudio with an interactive session](../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 ## Using Allas from R
 
@@ -97,10 +89,12 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 ## References
 
-* [Geocomputation with R (book)](https://geocompr.robinlovelace.net/)
-* [CSC course on spatial R](https://www.csc.fi/web/training/-/spatial-data-analysis-with-1)
-* [Intro to GIS and Spatial analysis](https://mgimond.github.io/Spatial/index.html)
-* [List of spatial R packages](https://cran.r-project.org/web/views/Spatial.html)
-* [Spatial data science with R](https://rspatial.org/index.html)
-* [Spatial analysis examples (CSC)](https://github.com/csc-training/geocomputing/tree/master/R)
+* [Examples for using R spatial packages for GIS in Puhti](https://github.com/csc-training/geocomputing/tree/master/R), CSC
+* [List of spatial R packages in CRAN](https://cran.r-project.org/web/views/Spatial.html)
+* [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/), Edzer Pebesma, Roger Bivand
+* [Geocomputation with R](https://geocompr.robinlovelace.net/), Robin Lovelace, Jakub Nowosad, Jannes Muenchow
+* [Spatial data science with R](https://rspatial.org/index.html), Robert J. Hijmans
+* [Intro to GIS and Spatial analysis](https://mgimond.github.io/Spatial/index.html), Manuel Gimond
+* [Spatial Modelling for Data Scientists](https://gdsl-ul.github.io/san/), Francisco Rowe, Dani Arribas-Bel
 * [Tutorial for geospatial R tools](https://datacarpentry.org/r-raster-vector-geospatial/)
+* [CSC course on spatial R](https://www.csc.fi/web/training/-/spatial-data-analysis-with-1), Marko Kallio, Juha Aalto

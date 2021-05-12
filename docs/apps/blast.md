@@ -23,7 +23,11 @@ Other blast commands
 *    **blastdbcmd** retrieve a sequence or a set of sequences form BLAST databases
 *    **makeblastdb** create a new BLAST database
 *    **blast_formatter** reformat a BLAST archive formatted BLAST result file.
+[TOC]
 
+## License
+
+Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 ## Available
 

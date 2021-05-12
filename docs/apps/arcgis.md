@@ -32,7 +32,7 @@ use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_In
 
 ------------------------------------------------------------------------
 
-## ArcGIS  Desktop  and ArcGIS Pro
+## ArcGIS  Desktop and ArcGIS Pro
 All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan), because active development of ArcGIS Desktop has stopped.
 
 ### Installation
@@ -40,7 +40,7 @@ All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://supp
 -   For the installation you need **installation package**, ask your University's ArcGIS contact person. ArcGIS Pro installation package can also be [downloaded from ArcGIS Online](https://pro.arcgis.com/en/pro-app/latest/get-started/download-arcgis-pro.htm#ESRI_SECTION1_F19E35C5A28F44F69A0EA3F464A0E015). 
 -   Please install also necessary [patches and service packs](https://support.esri.com/en/Products/Desktop/arcgis-desktop/arcmap/).
 
-### Licensing
+### License
 ArcGIS products need to be authorized. Licensing options for consortium members:
 
 -   **Named users**, main option for ArcGIS Pro, not available for ArcGIS desktop. The user must have home university's ArcGIS Online 
@@ -127,7 +127,7 @@ for it from CSC.
 
 *   ArcGIS desktop tools ArcGIS Pro and ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
 *   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can in principle be installed to cPouta cloud.
-*   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](geoconda.md) module, that can be used also for data analysis.
+*   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](geoconda.md) module, that can be used also for data analysis. [ArcGIS Python API has Apache 2.0 license](https://github.com/Esri/arcgis-python-api/blob/master/LICENSE).
 *   For running ArcPy scripts in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
 
 ------------------------------------------------------------------------

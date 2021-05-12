@@ -9,6 +9,12 @@ FreeBayes is haplotype-based, in the sense that it calls variants based on the l
 
 FreeBayes uses short-read alignments (BAM files) for any number of individuals from a population and a reference genome to determine the most-likely combination of genotypes for the population at each position in the reference. It reports positions which it finds putatively polymorphic in variant call file (VCF) format. It can also use an input set of variants (VCF) as a source of prior information, and a copy number variant map (BED) to define non-uniform ploidy variation across the samples under analysis.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/freebayes/freebayes/master/LICENSE).
+
 ## Available
 
 *    FreeBayes version 1.3.1 is available in Puhti

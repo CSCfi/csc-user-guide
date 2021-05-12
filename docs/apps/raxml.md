@@ -4,6 +4,12 @@
 
 RAxML is a fast program for the inference of phylogenies with maximum likelihood method. RAxML offers several different evolutionary models for both DNA and amino acid sequences.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 
 Version on CSC's Servers

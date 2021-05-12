@@ -19,6 +19,8 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kubernetes.
 
+![Network](img/routeServicePod.drawio.svg)
+
 ## Preparation
 
 Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](/cloud/rahti/usage/cli/) if you need help on that.

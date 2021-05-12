@@ -9,6 +9,16 @@ individuals are migrants or admixed.
 
 It can be applied to most of the commonly-used genetic markers, including SNPS, microsatellites, RFLPs and AFLPs. 
 
+[TOC]
+
+## License
+
+- Structure is free to use and open source, but no license specified.
+- Strauto is free to use and open source, but no license specified.
+- strasuto-puhti is free to use and open source, but no license specified.
+- structureHarvester is free to use and open source under its own [License](https://github.com/dentearl/structureHarvester/blob/master/LICENSE)
+- CLUMPP is free to use, but no license specified.
+
 ## Version
 
 *    Structre 2.3.4 is available in Puhti

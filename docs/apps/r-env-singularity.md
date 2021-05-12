@@ -8,44 +8,44 @@
 
 ## Available
 
-`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
+`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
-Currently supported R versions and corresponding modules:
+With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-- 3.6.3: `r-env-singularity/3.6.3`
-- 4.0.2: `r-env-singularity/4.0.2`
-- 4.0.3: `r-env-singularity/4.0.3`
+Current modules and supported versions:
 
-CRAN package and Bioconductor versions:
-
-- 3.6.3: CRAN packages available on March 17 2020, Bioconductor 3.10
-- 4.0.2: CRAN packages available on September 24 2020, Bioconductor 3.11 
-- 4.0.3: CRAN packages available on December 09 2020, Bioconductor 3.12
-
-RStudio Server versions:
-
-- 3.6.3: 1.2.5033
-- 4.0.2 and 4.0.3: 1.3.1093
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | MKL version		 | TensorFlow version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ---------------------- | ------------------ |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| Intel® MKL 2020.0-088  | TensorFlow 2.4.1   |
+| r-env-singularity/4.0.5 | Apr 20 2021		| 3.12		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.4.1   |
 
 Other software and libraries:
 
-- Open MPI 4.0.2 (with Mellanox OFED™ software)
-- Intel® MKL 2020.0-088
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4 and 4.0.5) (with Mellanox OFED™ software)
 - cget 0.1.9
 
 ## Licenses
 
-- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/).
+- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. More information on [citing R and different R packages](#citation) (at the bottom of the page).
 
-- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). The RStudio End User License Agreement can be found [here](https://rstudio.com/about/eula/).
+- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). Please consult also the [RStudio End User License Agreement](https://rstudio.com/about/eula/).
 
 - Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
 
 - Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
 
-- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf). 
+- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf).
+
+- NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
+
+- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
+
+Licensing information within the `r-env-singularity` container is available in the file `/usr/licensing.txt`.
 
 ## Usage
 
@@ -78,29 +78,7 @@ start-r
 
 ***Using RStudio Server***
 
-The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Instructions for this are provided in our [documentation on setting up SSH keys on Windows, MacOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
-
-!!! note
-    If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
-
-Once you have started an interactive shell session using SSH authentication, run the following commands. As with `start-r`, the `start-rstudio-server` command needs to be run on a compute node:
-
-```bash
-module load r-env-singularity
-start-rstudio-server
-```
-
-While this will not yet open up RStudio on your screen, running `start-rstudio-server` prints out information needed to gain remote access to RStudio. Further to launching RStudio in the background, the command selects a free port on the compute node while producing a session-specific random password for RStudio.
-
-To open RStudio on your browser:
-
-- Copy the SSH login command given by `start-rstudio-server`. Note that there are separate SSH login instructions for PuTTY. Leave this window open and running until your session finishes.
-
-- Launch a local terminal window and enter the SSH login command there. Leave this window open as well for the duration of your session. As long as the command is running, you have remote access to RStudio.
-
-- Open RStudio Server by entering the following address in your browser: localhost:8787. The RStudio login screen will ask for your username and the random password generated earlier (these can be copy-pasted from the `start-rstudio-server` output). 
-
-Once you have finished, you can exit RStudio Server by entering `Ctrl + C` in the interactive terminal session on Puhti.
+The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
 
 #### Interactive use on a login node
 
@@ -596,6 +574,43 @@ Further to temporary file storage, data sets for analysis can be stored on a fas
 ```
 Sys.getenv("LOCAL_SCRATCH")
 ```
+
+#### R interface to TensorFlow
+
+The `r-env-singularity/4.0.4` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+
+To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_tensorflow
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=gpu
+#SBATCH --time=01:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:v100:1
+
+# Load the module
+module load r-env-singularity/4.0.4
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
 
 #### R package installations
 

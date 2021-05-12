@@ -98,9 +98,7 @@ and it will be visible to internet at
 `docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
 compatible clients.
 
-For command line usage with docker compatible clients, the docker repository
-password will be the access token shown when authorizing Rahti command line
-session and user name can be `unused`.
+For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
 
 The Docker CLI tool login instructions are also shown in the [Rahti registry
 console](https://registry-console.rahti.csc.fi).
@@ -161,3 +159,13 @@ oc start-build os-sample-python
 ```
 
 Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
+
+## Using the inline Dockerfile method
+
+It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
+
+```bash
+oc new-build -D $'FROM centos:7'
+```
+
+In this example, we will build an image that is a copy of `CentOS 7`.
