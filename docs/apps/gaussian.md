@@ -32,5 +32,7 @@ Some hints on how to estimate memory and disk requirements can be found [here](h
 ## More information
 
 * [Online Gaussian user reference](http://gaussian.com/man/)
+* [Using Gabedit as GUI for Gaussian jobs on Puhti](https://docs.csc.fi/support/tutorials/gabedit_gaussian/)
+* [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
 
