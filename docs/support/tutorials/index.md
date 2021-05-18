@@ -34,6 +34,7 @@
 
 ## Chemistry
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
+* [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
 
 ## Data analysis and machine learning
