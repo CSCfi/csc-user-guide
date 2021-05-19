@@ -12,11 +12,9 @@ Metadata is information regarding the data, for example, where, when, why, and h
 
 Metadata is a broad term and it includes a variety of descriptive information about a dataset.
 
-<ol>
-<li>Descriptive metadata enables discovery, reuse and correct interpretation.</li>
-<li>Administrative metadata defines who owns and who can access the data, and who has the right to manage it and how it can be used.</li>
-<li>Structural metadata describes how data sets were produced, structured and for instance what software are needed</li>
-</ol>
+1. Descriptive metadata enables discovery, reuse and correct interpretation.
+2. Administrative metadata defines who owns and who can access the data, and who has the right to manage it and how it can be used.
+3. Structural metadata describes how data sets were produced, structured and for instance what software are needed.
  
 ![Types of metadata: Descriptive. Administrative. Structural.](../../img/metadata-categories_v5.png "Three types of metadata: Descriptive, Administrative, Structural")
 
@@ -26,32 +24,25 @@ License: CC BY 4.0
 
 Descriptive metadata of a dataset can be divided into two subcategories: core metadata (for discovery and identification - for search and citation) and detailed descriptive metadata (variables configurations etc. - for enabling assessment and reuse).
 
-**Core metadata includes**<ul>
-<li>a persistent identifier to be used when citing the dataset or reporting re-use</li>
-<li>general information about the dataset (title, field of science, keywords, content coverage, variables)</li>
-<li>information about agents (creators, contributors, publisher, distributor)</li>
-<li>information about access (download link or access information, rights statements and licenses)</li>
-<li>information about lifecycle events and related entities (provenance)</li>
-<li>technical information like checksum, size, file format, media type</li>
-</ul>
-
+**Core metadata includes**
+-  a persistent identifier to be used when citing the dataset or reporting re-use
+-  general information about the dataset (title, field of science, keywords, content coverage, variables)
+-  information about agents (creators, contributors, publisher, distributor)
+-  information about access (download link or access information, rights statements and licenses)
+-  information about lifecycle events and related entities (provenance)
+-  technical information like checksum, size, file format, media type
+ 
 You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
 
 **Detailed descriptive metadata**
 
 It is important that you create relevant metadata for reuse and future credit. If you have additional metadata that does not fit in the data catalogue, additional metadata and documentation like code books or configuration files can be added to the dataset as separate files. Metadata can also be innate within the data files. Remember that this can make the data more hard to find. If you add extra metadata:
 
-<ol>
-<li>Use metadata standards if possible: Repositories often require the use of a specific metadata standard; structured formats that use specific vocabularies or ontologies in describing the data. Check whether a discipline/community or repository based metadata schema or standard (i.e., preferred sets of metadata elements) exists that can be adopted. Discipline-specific standards can be found from the [Digital Curation Centre website](http://www.dcc.ac.uk/resources/metadata-standards).
-<ul>
-<li>
-Some research instruments create standardised metadata formats automatically. Choose a standard which is compatible with other software, if possible.</li>
-</ul>
-<li>Use separate metadata files or metadata included in the data files, configuration files, license deeds, code books and other data or information that is important for replication and reuse of the data.
-<ul>
-<li>Readme file(s) providing information about data files to ensure correct interpretation</li>
-<li>Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.</li>
-</ul></ol>
+1. Use metadata standards if possible: Repositories often require the use of a specific metadata standard; structured formats that use specific vocabularies or ontologies in describing the data. Check whether a discipline/community or repository based metadata schema or standard (i.e., preferred sets of metadata elements) exists that can be adopted. Discipline-specific standards can be found from the [Digital Curation Centre website](http://www.dcc.ac.uk/resources/metadata-standards).
+   -  Some research instruments create standardised metadata formats automatically. Choose a standard which is compatible with other software, if possible.
+2. Use separate metadata files or metadata included in the data files, configuration files, license deeds, code books and other data or information that is important for replication and reuse of the data.
+   -  Readme file(s) providing information about data files to ensure correct interpretation
+   -  Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.
 
 Also think about your file naming conventions, directory structure and version control. Read more from Files and file formats.
 
