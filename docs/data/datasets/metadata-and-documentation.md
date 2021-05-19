@@ -39,10 +39,10 @@ You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/
 It is important that you create relevant metadata for reuse and future credit. If you have additional metadata that does not fit in the data catalogue, additional metadata and documentation like code books or configuration files can be added to the dataset as separate files. Metadata can also be innate within the data files. Remember that this can make the data more hard to find. If you add extra metadata:
 
 1. Use metadata standards if possible: Repositories often require the use of a specific metadata standard; structured formats that use specific vocabularies or ontologies in describing the data. Check whether a discipline/community or repository based metadata schema or standard (i.e., preferred sets of metadata elements) exists that can be adopted. Discipline-specific standards can be found from the [Digital Curation Centre website](http://www.dcc.ac.uk/resources/metadata-standards).
-   -  Some research instruments create standardised metadata formats automatically. Choose a standard which is compatible with other software, if possible.
+    - Some research instruments create standardised metadata formats automatically. Choose a standard which is compatible with other software, if possible.
 2. Use separate metadata files or metadata included in the data files, configuration files, license deeds, code books and other data or information that is important for replication and reuse of the data.
-   -  Readme file(s) providing information about data files to ensure correct interpretation
-   -  Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.
+    - Readme file(s) providing information about data files to ensure correct interpretation
+    - Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.
 
 Also think about your file naming conventions, directory structure and version control. Read more from Files and file formats.
 
