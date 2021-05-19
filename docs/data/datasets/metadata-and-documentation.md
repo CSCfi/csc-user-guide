@@ -25,6 +25,7 @@ License: CC BY 4.0
 Descriptive metadata of a dataset can be divided into two subcategories: core metadata (for discovery and identification - for search and citation) and detailed descriptive metadata (variables configurations etc. - for enabling assessment and reuse).
 
 **Core metadata includes**
+
  * a persistent identifier to be used when citing the dataset or reporting re-use
  * general information about the dataset (title, field of science, keywords, content coverage, variables)
  * information about agents (creators, contributors, publisher, distributor)
@@ -64,6 +65,7 @@ Structural metadata describes how the dataset is organised internally and how do
 All digital information is structured data. When organising your research data it is important to create coherent and intelligible entities that are easy to access and reuse.
 
 **Organising your data**
+
 - Sort and classify your information
    - For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later
 - Think about granularity (file size) and metadata
