@@ -67,7 +67,7 @@ All digital information is structured data. When organising your research data i
 **Organising your data**
 
 - Sort and classify your information
-   - For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later
+  - For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later
 - Think about granularity (file size) and metadata
 - Decide on formats, units, codes etc. and be consistent
   - Use common file formats, preferably open
@@ -86,19 +86,20 @@ All digital information is structured data. When organising your research data i
 **Files and folders: structuring and naming**
 
 It is important to take some time to plan file and folder structures and naming.
--  Create and agree on a system for naming files and folders and be consequent
--  Try to organise files logically using folders and subfolders rather than including all files in a single folder
-   -  Avoid very deep folder structures, since they can be difficult to handle
--  If your data is time-sensitive, and logically organised by time periods, it could be useful to organise files by time-specific folders, such as YYYY-MM-DD
--  Use meaningful, unique file and folder names
--  Keep file and folder names as short as possible but relevant. 25 characters is usually considered maximum.
--  Dates in YYYY-MM-DD format allows you to sort and search your files
--  Avoid using special characters such as % & / \ : ; * . ? < > ^! " () and Scandinavians
--  Use three digits (or 4 if you have a large number of files) i.e. 001, 002…….201, 202 (not 1, 2, 21).
--  Use underscores (_) instead of spaces
--  If using a personal name in the name give the surname first followed by first name
-   -  Though, be very careful with personal data when naming files and folders
--  Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
+
+- Create and agree on a system for naming files and folders and be consequent
+- Try to organise files logically using folders and subfolders rather than including all files in a single folder
+  - Avoid very deep folder structures, since they can be difficult to handle
+- If your data is time-sensitive, and logically organised by time periods, it could be useful to organise files by time-specific folders, such as YYYY-MM-DD
+- Use meaningful, unique file and folder names
+- Keep file and folder names as short as possible but relevant. 25 characters is usually considered maximum.
+- Dates in YYYY-MM-DD format allows you to sort and search your files
+- Avoid using special characters such as % & / \ : ; * . ? < > ^! " () and Scandinavians
+- Use three digits (or 4 if you have a large number of files) i.e. 001, 002…….201, 202 (not 1, 2, 21).
+- Use underscores (_) instead of spaces
+- If using a personal name in the name give the surname first followed by first name
+   - Though, be very careful with personal data when naming files and folders
+- Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
 
 **More reading**
 
