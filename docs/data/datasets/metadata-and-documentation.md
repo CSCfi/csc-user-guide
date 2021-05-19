@@ -63,42 +63,40 @@ Structural metadata describes how the dataset is organised internally and how do
 
 All digital information is structured data. When organising your research data it is important to create coherent and intelligible entities that are easy to access and reuse.
 
-**Organising your data**<ul>
-<li>Sort and classify your information</li>
-<ul><li>For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later</li></ul>
-<li>Think about granularity (file size) and metadata</li>
-<li>Decide on formats, units, codes etc. and be consistent</li>
-<ul><li>Use common file formats, preferably open</li>
-<li>You can find a list of recommended file formats on the website about digital preservation . If you use other formats you will need to think about adding technical documentation of the file format.</li></ul>
-<li>Write a code book, document. Read me files are often necessary.</li>
-<li>Think about intelligibility</li>
-<li>Be careful when rearranging, reformatting, sorting or copy-pasting data</li>
-<li>Try to avoid including temporary or hidden system files along with actual data files</li>
-<li>Have processes in place for checking the data quality and completeness</li>
-<li>Be clear about master copies and other copies</li>
-<li>Be careful and plan well for sensitive data and anonymisation</li>
-<li>Think about security and access rights</li>
-<li>Plan and agree on which versions of a dataset will be archived and/or published</li>
-<li>Think about reproducibility and citing data</li>
-</ul>
+**Organising your data**
+-  Sort and classify your information
+   -  For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later
+-  Think about granularity (file size) and metadata
+-  Decide on formats, units, codes etc. and be consistent
+   -  Use common file formats, preferably open
+   -  You can find a list of recommended file formats on the website about digital preservation . If you use other formats you will need to think about adding technical documentation of the file format.
+-  Write a code book, document. Read me files are often necessary.
+-  Think about intelligibility
+-  Be careful when rearranging, reformatting, sorting or copy-pasting data
+-  Try to avoid including temporary or hidden system files along with actual data files
+-  Have processes in place for checking the data quality and completeness
+-  Be clear about master copies and other copies
+-  Be careful and plan well for sensitive data and anonymisation
+-  Think about security and access rights
+-  Plan and agree on which versions of a dataset will be archived and/or published
+-  Think about reproducibility and citing data
 
 **Files and folders: structuring and naming**
 
-It is important to take some time to plan file and folder structures and naming.<ul>
-<li>Create and agree on a system for naming files and folders and be consequent</li>
-<li>Try to organise files logically using folders and subfolders rather than including all files in a single folder</li>
-<ul><li>Avoid very deep folder structures, since they can be difficult to handle</li></ul>
-<li>If your data is time-sensitive, and logically organised by time periods, it could be useful to organise files by time-specific folders, such as YYYY-MM-DD</li>
-<li>Use meaningful, unique file and folder names</li>
-<li>Keep file and folder names as short as possible but relevant. 25 characters is usually considered maximum.</li>
-<li>Dates in YYYY-MM-DD format allows you to sort and search your files</li>
-<li>Avoid using special characters such as % & / \ : ; * . ? < > ^! " () and Scandinavians</li>
-<li>Use three digits (or 4 if you have a large number of files) i.e. 001, 002…….201, 202 (not 1, 2, 21).</li>
-<li>Use underscores (_) instead of spaces</li>
-<li>If using a personal name in the name give the surname first followed by first name</li>
-<ul><li>Though, be very careful with personal data when naming files and folders</li></ul>
-<li>Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)</li>
-</ul>
+It is important to take some time to plan file and folder structures and naming.
+-  Create and agree on a system for naming files and folders and be consequent
+-  Try to organise files logically using folders and subfolders rather than including all files in a single folder
+   -  Avoid very deep folder structures, since they can be difficult to handle
+-  If your data is time-sensitive, and logically organised by time periods, it could be useful to organise files by time-specific folders, such as YYYY-MM-DD
+-  Use meaningful, unique file and folder names
+-  Keep file and folder names as short as possible but relevant. 25 characters is usually considered maximum.
+-  Dates in YYYY-MM-DD format allows you to sort and search your files
+-  Avoid using special characters such as % & / \ : ; * . ? < > ^! " () and Scandinavians
+-  Use three digits (or 4 if you have a large number of files) i.e. 001, 002…….201, 202 (not 1, 2, 21).
+-  Use underscores (_) instead of spaces
+-  If using a personal name in the name give the surname first followed by first name
+   -  Though, be very careful with personal data when naming files and folders
+-  Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
 
 **More reading**
 
