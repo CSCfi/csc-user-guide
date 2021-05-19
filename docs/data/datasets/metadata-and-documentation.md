@@ -67,11 +67,11 @@ All digital information is structured data. When organising your research data i
 **Organising your data**
 
 - Sort and classify your information
-  - For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later
+    - For instance: don't mix different types of information in excel columns: it is usually easier to combine datasets than sort out ill structured data later
 - Think about granularity (file size) and metadata
 - Decide on formats, units, codes etc. and be consistent
-  - Use common file formats, preferably open
-  - You can find a list of recommended file formats on the website about digital preservation . If you use other formats you will need to think about adding technical documentation of the file format.
+    - Use common file formats, preferably open
+    - You can find a list of recommended file formats on the website about digital preservation . If you use other formats you will need to think about adding technical documentation of the file format.
 -  Write a code book, document. Read me files are often necessary.
 -  Think about intelligibility
 -  Be careful when rearranging, reformatting, sorting or copy-pasting data
@@ -98,7 +98,7 @@ It is important to take some time to plan file and folder structures and naming.
 - Use three digits (or 4 if you have a large number of files) i.e. 001, 002…….201, 202 (not 1, 2, 21).
 - Use underscores (_) instead of spaces
 - If using a personal name in the name give the surname first followed by first name
-   - Though, be very careful with personal data when naming files and folders
+    - Though, be very careful with personal data when naming files and folders
 - Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
 
 **More reading**
