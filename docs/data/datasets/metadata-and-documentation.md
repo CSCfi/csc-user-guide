@@ -18,7 +18,7 @@ Metadata is a broad term and it includes a variety of descriptive information ab
 <li>Structural metadata describes how data sets were produced, structured and for instance what software are needed</li>
 </ol>
  
-![Types of metadata: Descriptive. Administrative. Structural.](/datasets/images/metadata-categories_v5.png "Types of metadata")
+![Types of metadata: Descriptive. Administrative. Structural.](../../img/metadata-categories_v5.png "Types of metadata")
 
 License: CC BY 4.0
  
