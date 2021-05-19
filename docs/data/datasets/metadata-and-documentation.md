@@ -89,7 +89,7 @@ It is important to take some time to plan file and folder structures and naming.
 
 - Create and agree on a system for naming files and folders and be consequent
 - Try to organise files logically using folders and subfolders rather than including all files in a single folder
-  - Avoid very deep folder structures, since they can be difficult to handle
+    - Avoid very deep folder structures, since they can be difficult to handle
 - If your data is time-sensitive, and logically organised by time periods, it could be useful to organise files by time-specific folders, such as YYYY-MM-DD
 - Use meaningful, unique file and folder names
 - Keep file and folder names as short as possible but relevant. 25 characters is usually considered maximum.
