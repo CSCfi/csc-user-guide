@@ -25,12 +25,12 @@ License: CC BY 4.0
 Descriptive metadata of a dataset can be divided into two subcategories: core metadata (for discovery and identification - for search and citation) and detailed descriptive metadata (variables configurations etc. - for enabling assessment and reuse).
 
 **Core metadata includes**
- - a persistent identifier to be used when citing the dataset or reporting re-use
- - general information about the dataset (title, field of science, keywords, content coverage, variables)
- - information about agents (creators, contributors, publisher, distributor)
- - information about access (download link or access information, rights statements and licenses)
- - information about lifecycle events and related entities (provenance)
- - technical information like checksum, size, file format, media type
+ * a persistent identifier to be used when citing the dataset or reporting re-use
+ * general information about the dataset (title, field of science, keywords, content coverage, variables)
+ * information about agents (creators, contributors, publisher, distributor)
+ * information about access (download link or access information, rights statements and licenses)
+ * information about lifecycle events and related entities (provenance)
+ * technical information like checksum, size, file format, media type
  
 You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
 
