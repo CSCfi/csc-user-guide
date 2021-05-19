@@ -17,7 +17,7 @@ How to make dataset available in CSC's computing environment, ks. https://resear
 => pohja-ajatuksia löytyy täältä: https://wiki.csc.fi/ResourceAllocation/DataSetProcess?validation_key=50beba6f122c2a4b34aa1f7f56138edb
 
 <a name="header2"></a>
-## Persistens identifiers
+## Persistent identifiers
 
 Persistent identifiers are used when citing and managing research data and information. Persistence in a digital context always means good life cycle management. Identification implies that the object or content the identifier represents doesn't change over time. A persistent identifier is globally unique and documented. A persistent identifier should be machine actionable, so that it for instance resolves to a web page that (re)presents the content.
 
