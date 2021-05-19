@@ -39,48 +39,33 @@ First, it is good to update the Ubuntu system:
 sudo apt-get update
 ```
 In this example we use _snap_ as it provides an easy way to install Nextcloud.
-You can do the installations with just few commands:
+You can do the installations with just few commands.
 
+First do the next-cloud installation with command:
 ```text
 sudo snap install nextcloud
+```
+Then, Nextcloud administration account is created. In the command below the account name is
+defined to be _ncadmin_ with password _1Hu9kgFsN_.
+```text
+sudo nextcloud.manual-install ncadmin 1Hu9kgFsN
+```
+Next you need to enable https with self signed certificate. Self signed certificates are sufficient for testing, but 
+for production you should use real certificates (e.g. lets-encrypt instead of self-signed).
+```text
 sudo nextcloud.enable-https self-signed
 ```
-The latter command enables https with self signed certificate that is sufficient for testing. 
-For production you should use real certificates (e.g. lets-encrypt instead of self-signed)
 
-The Nextcloud server is now up and running, but you are not yet able to access is.
-
-To enable remote access you need to edit the configuration file of your Nextcloud server. 
-In this case the file is in the standard location defined by snap. You can open it 
-for editing with command:
-
+As a last step. add the IP-address of your Nextcloud server to the list of trusted domains. The IP-address is the Floating IP address 
+that you assigned for the VM and that you used to open the terminal connection. 
+For example the case of IP:86.50.252.77 the definition could be done with command:
 ```text
-sudo nano /var/snap/nextcloud/current/nextcloud/config/config.php
-```
-In the config file, find the trusted_domains specification and add the IP-address of 
-your Nextcloud server to the list of trusted domains (this is the Floating IP address 
-that you assigned for the VM in the puhti and that you used to open the terminal connection). 
-For example the case of IP:86.50.252.77 the definition should look like
-
-```text
-  'trusted_domains' => 
-   array (
-    0 => '127.0.0.1',
-    1 => '86.50.252.77',
-  ),
+sudo nextcloud.occ config:system:set trusted_domains 1 --value=86.50.252.77
 ```
 
 Now you should be able to connect your Nextcoud server running in _https://ip-of-your-VM_
 
 So in this example: _https://86.50.252.77_
-
-
-When the connection to the server is made for the first time, the WWW interface asks the 
-first user to define admin account and password. That account will be used in the future 
-to manage the Nextcloud server. Due to this you should first use a security group that 
-allows access to the 443 port only from your own computer and define the admin account 
-immediately after starting the server. Once the admin account is defined you can allow 
-other sites to access the https port.
 
 
 If the connection web interface fails check that:
@@ -136,8 +121,8 @@ the bucket name could be:
 grep key $HOME/.s3cfg
 ```
 
-Now return to the Nextcloud WWW-interface. Once you have defined the Nextcloud admin account, log in as the admin. 
-Click the round symbol on the right end of the blue menu bar and select +Apps from the pop-up menu.
+Now return to the Nextcloud WWW-interface and log in as the admin. 
+Click the round symbol on the right end of the blue menu bar and select _+Apps_ from the pop-up menu.
 
 From the appearing application list enable _External storage support_. 
 
@@ -147,20 +132,21 @@ In the settings panel on the left side, scroll to the Administration section add
 
 Open the _Add storage_ menu and select : _Amazon S3_
 
-This opens a definition menu here you need to file following parameters
+This opens a definition menu here you need to file following parameters: 
 
-Folder name: display name for the allas bucket (2001234-nextcloud)
-Bucket: The bucket you just created  or some older bucket.
-Port: 443
-Region: US
-Enable SSL
-Access key: from the output of the grep command above
-Secret key: from the output of the grep command above
+*   Folder name: display name for the allas bucket (2001234-nextcloud)
+*   Bucket: The bucket you just created  or some older bucket.
+*   Host:a3s.fi
+*   Port: 443
+*   Region: US
+*   Enable SSL
+*   Access key: from the output of the grep command above
+*   Secret key: from the output of the grep command above
 
-Then go to the “External storages” in your “Personal” settings click the line containing 
+Then go to the _External storages_ in your _Personal_ settings and click the line containing 
 the external folder name just created to ensure that the storage works.
 
-If you now move to the Files tool in the main menu (blue bar on the top), 
+If you now move to the _Files_ tool in the main menu (blue bar on the top), 
 you should see an new external storage folder named as defined above.
 
 Now you can click this folder and start uploading and downloading data 
