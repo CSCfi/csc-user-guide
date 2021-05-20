@@ -6,8 +6,9 @@
 
 PDAL is available in the following versions:
 
-* 2.1.0 (included in the geoconda-3.8 module)
-* 2.0.1 (included in the geoconda-3.7 module)
+* 2.2.0 in geoconda-3.8.8 module
+* 2.1.0 in geoconda-3.8 module
+* 2.0.1 in geoconda-3.7 module
 
 ## Usage
 

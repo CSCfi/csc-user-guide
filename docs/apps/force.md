@@ -6,7 +6,7 @@ FORCE (Framework for Operational Radiometric Correction for Environmental monito
 
 __FORCE__ is available in Puhti with the following versions:
 
-* 3.5.1 (Singularity container)
+* 3.6.5 (Singularity container)
 
 ## Usage 
 
@@ -20,25 +20,13 @@ By default the latest __force__ module is loaded. If you want a specific version
 
 ## Running FORCE commands
 
-FORCE is installed as a container. This means you need to use singularity_wrapper to run its commands
-
-`singularity_wrapper exec <normal FORCE command>`
+FORCE is installed as a container, but it has wrappers for all FORCE commands, so it can be used normally. 
 
 If working interactively, you can also start a shell inside the container with
 
-`singularity_wrapper shell`
-
-and after that use normal FORCE commands
+`_debug_shell`
 
 We have an example of running L1 to L2 pipeline for Sentinel images in [our Github examples](https://github.com/csc-training/geocomputing/tree/master/force)
-
-## Using FORCE to download sentinel images
-
-For downloading files with FORCE you need __ESA Scihub__ credentials. The credentials should be saved in your __home directory__ to a __.scihub__ file and. Username in the first row, password second.
-
-Here is an example that finds suitable satellite images from an area and time with cloud coverage of 10% and downloads them. More information on Sentinel imagery download can be found from the [FORCE documentation](https://force-eo.readthedocs.io/en/latest/components/lower-level/level1/level1-sentinel2.html#level1-sentinel2).
-
-`singularity_wrapper exec force-level1-sentinel2 /scratch/<PROJECT>/sentinel_images/ /scratch/<PROJECT>/sentinel_images/files.txt "60.15/24.77,60.25/24.77,60.25/25.04,60.15/25.04,60.15/24.77" 2020-03-01 2020-03-08 0 10`
 
 ## License and citing
 

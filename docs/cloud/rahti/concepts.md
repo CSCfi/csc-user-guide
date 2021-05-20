@@ -290,7 +290,7 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new **ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
+* **DeploymentConfig** objects create new [**ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
 
 ### DeploymentConfig
 
@@ -413,3 +413,32 @@ request the OpenShift cluster to build the image:
 ```
 
 Other source strategies include `custom`, `jenkins` and `source`.
+
+### Route
+
+Route objects are the OpenShift equivalent of Ingress in vanilla Kubernetes, they expose a Service object to the internet via HTTP/HTTPS. A typical Route definition would be:
+
+```yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: <name-of-the-route>
+spec:
+  host: <host.name.dom>
+  to:
+    kind: Service
+    weight: 100
+    name: <name-of-service>
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+status:
+  ingress: []
+```
+
+This will redirect any traffics coming to `<host.name.dom>` to the service `name-of-service`.
+
+* `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
+* `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
+
+Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/) article for more information.

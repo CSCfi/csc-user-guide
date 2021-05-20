@@ -18,7 +18,13 @@ be used to search protein signatures from following databases:
     SuperFamily
     Coils
     Gene3d
-    
+
+[TOC]
+
+## License
+
+Free to use and open source under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
 ## Version
 
 *   InterProScan version 5.47-82.0 is available in Puhti

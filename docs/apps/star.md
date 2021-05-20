@@ -3,6 +3,12 @@
 ## Description
 STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for  RNA-seq data.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 
 Version on CSC's Servers

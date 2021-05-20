@@ -6,6 +6,12 @@
 MIRA is a whole genome shotgun and EST sequence assembler. The current version is able to perform true hybrid de novo 
 assemblies using reads gathered through NGS sequencing technology.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+
 ## Available
 
 *   Puhti: MIRA 4.9.6

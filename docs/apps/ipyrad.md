@@ -4,6 +4,11 @@
 
 iPyrad is an interactive toolkit for assembly and analysis of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS) for population genetic and phylogenetic studies.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
 
