@@ -1,7 +1,7 @@
 <a name="header1"></a>
 # About Data Management
 
-=> General information about datamanagement and links to external read more resources
+=> Decide what to move here from [https://research.csc.fi/data-management-planning](https://research.csc.fi/data-management-planning)
 
 <a name="header2"></a>
 # Best practices
