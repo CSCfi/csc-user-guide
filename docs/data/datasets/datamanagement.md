@@ -1,4 +1,4 @@
-# Data Management
+# Data management
 
 <a name="header1"></a>
 ## Overview
