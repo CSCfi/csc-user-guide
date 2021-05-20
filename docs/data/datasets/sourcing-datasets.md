@@ -20,7 +20,7 @@ The first phase of dataset driven work is where datasets are gathered. It is pos
 => Fairdata, Eudat ja esimerkkejä tiedealaspesifeistä hyvistä lähteistä
 
 <a name="header4"></a>
-## Specific datasets hosted by CSC
+## Specific datasets hosted in CSC computing environment
 
 => nykyinen https://docs.csc.fi/data/datasets/: => muotoilua syytä tarkentaa, ettei synny kuvaa, että tässä on kaikki meidän hostaamat datasetit
 
@@ -30,15 +30,19 @@ The first phase of dataset driven work is where datasets are gathered. It is pos
 CSC hosts or provides access to several datasets on different platforms.
 
 ### Biosciences
-[ChEMBL](../../apps/chembl.md) Database of bioactive molecules.
-[Chipster_genomes](../../apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
+
+ - [ChEMBL](../../apps/chembl.md) Database of bioactive molecules
+ - [Chipster_genomes](../../apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
 
 ### Chemistry
-[CSD - Cambridge Crystallographic Database](../../apps/csd.md) – organic and metallo-organic crystal structures and tools
-[Molport 6M molecule database](../../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
+
+ - [CSD - Cambridge Crystallographic Database](../../apps/csd.md) – organic and metallo-organic crystal structures and tools
+ - [Molport 6M molecule database](../../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
 
 ### Geosciences
-[Open Finnish spatial datasets are available in Puhti or in Allas.](spatial-data-in-csc-computing-env.md)
+
+ - [Open Finnish spatial datasets are available in Puhti or in Allas.](spatial-data-in-csc-computing-env.md)
 
 ### Language research and other digital humanities and social sciences
-The latest versions of [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are available unpacked in /appl/data/kielipankki/
+
+ - The latest versions of [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are available unpacked in /appl/data/kielipankki/
