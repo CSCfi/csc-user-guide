@@ -1,7 +1,7 @@
 # Working with data / Data management / Data life-cycle
 
 
-| [Data Management](datamanagement.md) <img width=200/>	| [Metadata and Documentation](metadata-and-documentation.md) <img width=200/> | [Dataset Sources](sourcing-datasets.md) <img width=200/>	|
+| [Data Management](datamanagement.md) <img width=200/>	| [Metadata and Documentation](metadata-and-documentation.md) <img width=200/> | [Data Sources](sourcing-datasets.md) <img width=200/>	|
 |:---------------:|:---------------:|:--------------:|
 |[About data management](datamanagement.md#header1)  |[Overview](metadata-and-documentation.md#header1) |[Overview](sourcing-datasets.md#header1) |
 |[Best practices](datamanagement.md#header2)  |[Metadata types](metadata-and-documentation.md#header2)|[Gathering datasets](sourcing-datasets.md#header2) | 
