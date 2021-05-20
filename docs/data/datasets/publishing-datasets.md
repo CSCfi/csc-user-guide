@@ -71,7 +71,7 @@ Webinar recording in Finnish: [Tukea pysyvien tunnisteiden hyödyntämiseen - CS
 
 
 <a name="header3"></a>
-## Licensing & Rights
+## Licensing & rights
 
 Today, it is possible to use data produced in previous research to be put to more diverse use in new research, thus eliminating the need to collect data, to come up with new methods, or to write code from scratch.
 
@@ -100,7 +100,7 @@ When making data available, it is recommended that licenses are used. It allows 
 [creativecommons.fi webpages](https://creativecommons.fi/)
 
 <a name="header4"></a>
-## Access Control
+## Access control
 
 Bla bla
 
