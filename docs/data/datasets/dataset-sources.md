@@ -6,7 +6,7 @@
 |[About data management](datamanagement.md#header1)  |[Overview](metadata-and-documentation.md#header1) |[Overview](sourcing-datasets.md#header1) |
 |[Best practices](datamanagement.md#header2)  |[Metadata types](metadata-and-documentation.md#header2)|[Gathering datasets](sourcing-datasets.md#header2) | 
 |[Phases of dataset use](datamanagement.md#header3)  |[Files and File Formats](metadata-and-documentation.md#header3) |[Etsin, B2Find, Paituli etc](sourcing-datasets.md#header3) |
-|  |  |[Specific datasets hosted by CSC](sourcing-datasets.md#header4) |
+|  |[Data types](metadata-and-documentation.md#header4)|[Specific datasets hosted by CSC](sourcing-datasets.md#header4) |
 |  |  |[Datasets by discipline](sourcing-datasets.md#header5) |
 
 |[Using Datasets](using-datasets.md) <img width=200/>	| Storing and Moving Data <img width=200/> | [Publishing Datasets](publishing-datasets.md) <img width=200/> |
