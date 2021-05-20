@@ -1,4 +1,4 @@
-# Data Sources
+# Data sources
 
 <a name="header1"></a>
 ## Overview
