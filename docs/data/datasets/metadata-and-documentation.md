@@ -104,3 +104,8 @@ It is important to take some time to plan file and folder structures and naming.
 **More reading**
 
 [The UK Data Service: Format your data](https://www.ukdataservice.ac.uk/manage-data/format)
+
+<a name="header4"></a>
+## Data types
+
+Jessica/Hanna
