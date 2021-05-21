@@ -48,6 +48,7 @@ If the bucket containing the objects is set to _public_, the objects can be view
 **Figure** Making an object public or private
 
 For example, the public object called _my_fish_ in the container _my_fishbucket_ can be viewed with the URL _a3s.fi/my_fishbucket/my_fish_.
+Note that in cases, where a large object is stored to Allas as segments, you must set to _public_ also the segments containing bucket ( e.g. _my_fichbucket_segments_ ).
 
 ## Download an object
 

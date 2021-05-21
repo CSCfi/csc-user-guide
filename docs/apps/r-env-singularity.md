@@ -123,7 +123,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -167,7 +166,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -200,7 +198,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -249,7 +246,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -318,7 +314,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -413,7 +408,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -445,9 +439,9 @@ By default, `r-env-singularity` is single-threaded. While users may set a desire
 !!! note
     Note that simply adding more resources does not necessarily guarantee faster computation!
 
-The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. 
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env-singularity` is based on a Singularity container, when specifying the number of OpenMP threads we need to use the environment variable `SINGULARITYENV_OMP_NUM_THREADS`.
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `SINGULARITYENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `SINGULARITYENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://pages.tacc.utexas.edu/~eijkhout/pcse/html/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
 
 ```bash
 #!/bin/bash -l
@@ -468,14 +462,17 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
 # Match thread and core numbers
-echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
+export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Thread affinity control
+export SINGULARITYENV_OMP_PLACES=cores
+export SINGULARITYENV_OMP_PROC_BIND=close
 
 # Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
@@ -500,7 +497,7 @@ Further to [executing multi-threaded R jobs on a single node](#improving-perform
 
 When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). For large multinode jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
 
-As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`.
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
 
 ```bash
 #!/bin/bash -l
@@ -521,14 +518,17 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
  sed -i '/TMPDIR/d' ~/.Renviron
- sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
 # Match thread and core numbers
-echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
+export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Thread affinity control
+export SINGULARITYENV_OMP_PLACES=cores
+export SINGULARITYENV_OMP_PROC_BIND=close
 
 # Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
@@ -559,7 +559,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify NVME temp folder path
@@ -600,7 +599,6 @@ module load r-env-singularity/4.0.4
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
