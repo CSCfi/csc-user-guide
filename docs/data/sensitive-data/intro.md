@@ -1,6 +1,6 @@
 ## Overview
 
-# CSC cloud Services for Sensitive Data Management
+# CSC Cloud Services for Sensitive Data Management
 
 **Sensitive Data Connect** and **Sensitive Data Desktop** are Web user interfaces which allow you to:
 1. access your own secure and personalized cloud computing environment 
