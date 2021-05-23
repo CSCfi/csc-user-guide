@@ -17,7 +17,7 @@ When you create a project you can (guided by the **Personal Data Handeling form*
 1. Apply for billing units or disk quota
 1. Renew your password annually
 
-For specific guidance regarding these steps check the [Accouns](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
+For specific guidance regarding these steps check the [Accounts](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
 
 
 ## Useful terminology:
