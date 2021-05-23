@@ -21,7 +21,7 @@ There are different encryption methods available that facilitate secure data sha
 
  
 
-##Crypt4GH graphical user interface 
+## Crypt4GH graphical user interface 
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
@@ -45,16 +45,20 @@ After the download, you can find the Crypt4GH application in your download folde
  
 Next you call follow these steps:
 
-**Step1**	Open the application and	Click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
+**Step1**	Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
 
 When you click on _OK_, the tool will generate a key pair: 
 - a private key (nsurname_crypt4gh.key)
 - a public key (nsurname_crypt4gh.pub)
 
-The keys and file names will be showed in the Activity Log and saved in the the same folder in which the Application was downloaded.
+ **SDD_Screeshot4_5**
+
+The keys/file names will be displayed in the Activity Log and saved in the the same folder in which the Application was downloaded.
+
+ **SDD_Screeshot6**
 
 !!! Note
-If you loose of forget the password you will be unable to decrypt the files. 
+If you loose or forget the password you will be unable to decrypt the files. 
 Do not share your private key and your password. 
 
 
