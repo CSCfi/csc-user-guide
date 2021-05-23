@@ -85,14 +85,14 @@ If the upload is successful, the tool will show the current path in title bar.
 
  **SDD_Screeshot7_8**
  
-**Step3. Upload the file /zipped folder and do the Encryption**
+**Step3. Upload and encrypt the the file /zipped folder**
 Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin. 
 If the ecryption is sucessful, the activity Log display the following message:
 _Encrypting....
 Encryption has finished.
 Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
 
-Currently,there the application is nto provided with a progress bar. If the file/zippedfolder contaids a big dataset, the encryption can take up to minutes.
+Currently,the  Cryot4GH application is not provided with a progress bar. If the file/zippedfolder contains a big dataset, the encryption can take up to minutes.
 
 
  
