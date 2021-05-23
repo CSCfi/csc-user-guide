@@ -76,30 +76,38 @@ You don’t need to generate new key pairs each time you open the application.
 **Step2. Prepare your datsets and files.**
 
 With Crypt4GH GUI is possible to encrypt only one file at the time.
-If youneed to encrypt multiple file, save them in one directoty/folder and zip the folder (right click on the folder and click on _send to_, next select _compressed (zippped) folder_.
-If you need to encrpyt large datasets, check the intructions on hpw to progammatically encrypt files with Crypt4GH.
+
+If you need to encrypt multiple file, save them in one directoty/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zippped) folder_.
+
+If you need to encrpyt large datasets, check the intructions on how to progammatically encrypt files with Crypt4GH.
+
 SDD_Screenshot7
 
 **Step2. Load the ecryption keys.**
 
-Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_ 
+Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_.
+
 If the upload is successful, the tool will show the current path in title bar.
-Next, click on _Load thir public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible ith SD Desktop atuomated decryption and then click on _Open_.
+
+Next, click on _Load their public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption and then click on _Open_.
+
 If the upload is successful, the tool will show the current path in title bar.
 
 SDD_Screeshot8_9
  
 **Step3. Upload and encrypt the the file /zipped folder.**
 
-Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
+Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. 
+
+Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
 
 If the ecryption is sucessful the file/zipped folder extention will change to *.c4gh* and  the activity Log display the following message:
 
 _Encrypting....
 
-Encryption has finished.
+_Encryption has finished._
 
-Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
+_Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
 
 Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
@@ -108,6 +116,8 @@ SDD_Screeshot8_9
 
  
  **Step4. Data decryption.**
+ 
+ !!! Note. If during encryption you use SDS public key, the encrypted file/zipped folder will be decripted automated manner when you will import the data from SD Connect to your own personal computing enviroment in SD Desktop. Thus, you can skip this step.
  
  
 Access your secure computing environment in SD Destkop. If you did not install Crypt4GH yet .........
@@ -127,9 +137,6 @@ _decrypting....._
 _Decription has finished_
 
 _Decrypted file: C:/users/samesurname/exampledirectory/examplefile_
-
-
-!!! Note. If during encryption you used SDS public key, the encrypted file/zipped folder will be decripted automated manner when you will import the data from SD Connect to your own personal computing enviroment in SD Desktop. Thus, you can skip this step.
 
 
 
