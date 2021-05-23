@@ -4,7 +4,7 @@ For data encryption we suggest the use of **Crypt4GH**, a tool originally design
 
 !!! Note
 
-If you use Crypt4GH to encrypt your datasets and include CSC public key during data encryption, the dataset will be automatically decrypted when uploaded to SD Desktop.  
+If you include SDS public key during data encryption with Cryot4GH, the dataset will be automatically decrypted when uploaded into SD Desktop your computing enviroment from SD Connect.
 
  
 
@@ -14,7 +14,7 @@ According to CSC policies and [general terms of use] (https://research.csc.fi/ge
 
 There are different encryption methods available that facilitate secure data sharing or data storage: 
 
-_symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
+1._symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
 1. _asymmetric encryption_, which uses two encryption keys. A private encryption key, which remains secrete and protected, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
 
