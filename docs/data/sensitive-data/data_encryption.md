@@ -15,7 +15,7 @@ There are different encryption methods available that facilitate secure data sha
 
 1._symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
-1._asymmetric encryption_, which uses two encryption keys. A private encryption key, which remains secrete and protected, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
+1._asymmetric encryption_, which uses two encryption keys. A private encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
 
  
 
@@ -38,7 +38,7 @@ After the download, you can find the Crypt4GH application in your download folde
 
 **SDD_Screenshot1**
 
- When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on Run anyway. 
+ When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
  
  **SDD_Screeshot2_3**
  
@@ -60,6 +60,14 @@ The keys/file names will be displayed in the Activity Log and saved in the the s
 !!! Note
 If you loose or forget the password you will be unable to decrypt the files. 
 Do not share your private key and your password. 
+Do not share your private key publicly.
+
+!!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
+You don’t need to generate new key pairs each time you open the application.
+
+**Step2** 
+Click on _Load my private key_ button and select your private key (example_crypt4gh.key) and then click on _Open_ 
+The tool will show the …..
 
 
 
