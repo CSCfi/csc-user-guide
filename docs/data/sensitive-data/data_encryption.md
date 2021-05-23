@@ -110,7 +110,7 @@ SDD_Screeshot8_9
  
  
  
- ## Crpt4GH Command Line tool (CLI)
+ ## Crypt4GH Command Line tool (CLI)
  
  
  
