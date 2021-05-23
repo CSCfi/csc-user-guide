@@ -39,11 +39,12 @@ You can download the user interface specific to your operating system from the [
 Verify, that the program has been digitally signed by CSC - IT Center for Science.  
 After the download, you can find the Crypt4GH application in your download folder. 
 
-SDD_Screenshot1
+ ![](img/SDEnScreenshot_1.png)
 
 When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
  
- SDD_Screeshot2_3
+
+ ![](img/SDEnScreenshot_2.png)
  
  
 Next you call follow these steps:
@@ -56,7 +57,6 @@ When you click on _OK_, the tool will generate a key pair:
 - a private key (nsurname_crypt4gh.key)
 - a public key (nsurname_crypt4gh.pub)
 
- SDD_Screeshot4_5
 
 The keys/file names will be displayed in the Activity Log with the following message:
 
@@ -66,13 +66,14 @@ Private key: name_surname.crypt4gh.key
 Public key: name_surname.crypt4gh.pub
 All the fields must be filled before file encryption will be started
 ````
-
+ ![](img/SDEnScreenshot_3.png)
+ 
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
-SDD_Screeshot6_7
+![](img/SDEnScreenshot_4.png)
 
 !!! Note
-If you loose or forget the password you will be unable to decrypt the files. 
+If you lose or forget your private key password you will be unable to decrypt the files. 
 Do not share your private key and your password. 
 Do not share your private key publicly.
 
@@ -88,7 +89,8 @@ If you need to encrypt multiple file, save them in one directory/folder and zip 
 
 If you need to encrypt large datasets, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
-SDD_Screenshot7
+
+![](img/SDEnScreenshot_5.png)
 
 **Step 3. Load the encryption keys.**
 
@@ -96,7 +98,7 @@ Click on _Load my private key_ button and select your private key (name_surname.
 
 Next, click on _Load their public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption and then click on _Open_.
 
-SDD_Screeshot8_9
+![](img/SDEnScreenshot_6.png)
  
 **Step 4. Upload and encrypt the file /zipped folder.**
 
@@ -114,7 +116,7 @@ Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
 
 Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
-SDD_Screeshot8_9
+![](img/SDEnScreenshot_7.png)
 
 
  
@@ -143,6 +145,9 @@ Decryption has finished
 
 Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 ````
+
+
+![](img/SDEnScreenshot_8.png)
 
 
  
