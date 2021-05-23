@@ -17,10 +17,11 @@ When you create a project you can (guided by the **Personal Data Handeling form*
 1. Apply for billing units or disk quota
 1. Renew your password annually
 
-FOr specific guidance check the [Account](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
+For specific guidance regarding these steps check the [Accouns](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
 
 
 ## Useful terminology:
+
 
 **Virtual machine (VM)**: is a virtual computing environment which works like a real-physical computer. It has a processor, memory and operating system but it exists only as a code or a partition of the host computer. VMs used for the Sensitive Data Services currently support only Linux operating system and are completely isolated from the internet for security reasons. 
 
