@@ -27,18 +27,18 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 **Step1** You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
-*For [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
+*  [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
 
-*For [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
-
-*For [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
+*  [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
+ 
+*  [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
 
 Verify, that the program has been digitally signed by CSC - IT Center for Science.  
 After the download, you can find the Crypt4GH application in your download folder. 
 
 **SDD_Screenshot1**
 
- When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
+When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
  
  **SDD_Screeshot2_3**
  
@@ -53,7 +53,13 @@ When you click on _OK_, the tool will generate a key pair:
 
  **SDD_Screeshot4_5**
 
-The keys/file names will be displayed in the Activity Log and saved in the the same folder in which the Application was downloaded.
+The keys/file names will be displayed in the Activity Log with the following message:
+_Key pais has been generated, our private key will be aoutoloaded the next time you will launch this tool:
+Private key: name_surname.crypt4gh.key
+Public key: name_surname.crypt4gh.pub
+All the fields must be filled before file encryption will be started_
+
+The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
  **SDD_Screeshot6**
 
@@ -65,9 +71,8 @@ Do not share your private key publicly.
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
 
-**Step2** 
-Click on _Load my private key_ button and select your private key (example_crypt4gh.key) and then click on _Open_ 
-The tool will show the …..
+**Step2** Click on _Load my private key_ button and select your private key (example_crypt4gh.key) and then click on _Open_ 
+The tool will show the current path in title bar.
 
 
 
