@@ -20,7 +20,7 @@ There are different encryption methods available that facilitate secure data sha
 
 
 ## Crypt4GH graphical user interface 
-**Begginer's guide to data encryption with Crypt4GH**
+## (Begginer's guide to data encryption with Crypt4GH)
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
@@ -56,10 +56,12 @@ When you click on _OK_, the tool will generate a key pair:
 
 The keys/file names will be displayed in the Activity Log with the following message:
 
-_Key pair has been generated, your private key will be auto-loaded the next time you will launch this tool:
+````
+Key pair has been generated, your private key will be auto-loaded the next time you will launch this tool:
 Private key: name_surname.crypt4gh.key
 Public key: name_surname.crypt4gh.pub
-All the fields must be filled before file encryption will be started_
+All the fields must be filled before file encryption will be started
+````
 
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
@@ -104,11 +106,13 @@ Click on _Open_ and on _Encrypt file_. The tool will ask the password for your p
 
 If the ecryption is sucessful the file/zipped folder extention will change to *.c4gh* and  the activity Log display the following message:
 
-_Encrypting....
+````
+Encrypting....
 
-_Encryption has finished._
+Encryption has finished.
 
-_Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
+Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
+````
 
 Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
@@ -132,12 +136,16 @@ If you don't select a public key, the activity log will display the following (t
 
 _Sender public key has not been set, authenticity will not be verified._
 
-If your decryption runs suvvessfully, the activity log will display the following:
-_decrypting....._
+If your decryption runs successfully, the activity log will display the following:
 
-_Decription has finished_
+````
+Decrypting.....
 
-_Decrypted file: C:/users/samesurname/exampledirectory/examplefile_
+Decription has finished
+
+Decrypted file: C:/users/samesurname/exampledirectory/examplefile
+````
+
 
 
 
