@@ -13,13 +13,11 @@ According to CSC policies and [general terms of use](https://research.csc.fi/gen
 
 There are different encryption methods available that facilitate secure data sharing or data storage: 
 
-*  symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
+*  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
-*  asymmetric encryption_, which uses two encryption keys. A private encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
+* **asymmetric encryption**, which uses two encryption keys. A private encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
 
- 
 
- 
 
 ## Crypt4GH graphical user interface 
 
@@ -86,13 +84,15 @@ If the upload is successful, the tool will show the current path in title bar.
  **SDD_Screeshot7_8**
  
 **Step3. Upload and encrypt the the file /zipped folder**
-Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin. 
-If the ecryption is sucessful, the activity Log display the following message:
+Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
+
+If the ecryption is sucessful the file/zipped folder extention will change to *.c4gh* and  the activity Log display the following message:
+
 _Encrypting....
 Encryption has finished.
 Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
 
-Currently,the  Cryot4GH application is not provided with a progress bar. If the file/zippedfolder contains a big dataset, the encryption can take up to minutes.
+Currently,Cryot4GH application is not provided with a progress bar. If the file/zippedfolder contains a big dataset, the encryption process can last for up to minutes.
 
 
  
