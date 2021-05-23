@@ -1,8 +1,8 @@
-# Data encryption with Crypt4GH and use of CSC/SDS ? public encryption key 
+# Data encryption with Crypt4GH and use of SDS public encryption key 
 
-For data encryption we suggest the use of Crypt4GH, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses asymmetric encryption.   
+For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses asymmetric encryption.   
 
-!!! Note 
+!!!Note 
 If you use Crypt4GH to encrypt your datasets and include CSC public key during data encryption, the dataset will be automatically decrypted when uploaded to SD Desktop.  
 
  
