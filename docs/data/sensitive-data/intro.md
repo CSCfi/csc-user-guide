@@ -2,10 +2,10 @@
 
 # CSC Cloud Services for Sensitive Data Management
 
-**SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta verisions) are Web user interfaces which allow you to:
-1. access your own secure and personalized computing environment CSC cloud computing platform (ePouta)
+**SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta verisions) are web user interfaces which allow you to:
+1. access your own secure and personalized computing environment in CSC cloud computing platform (ePouta)
 1. securely compute and process sensitive data with your project memebers and you collaborators without the needs of generating multiple copies of your data
-1. easily share/collect  and store (for the project duration) **encrypted sensitive data** CSC cloud storage solution (Allas)
+1. easily share/collect  and store (for the project duration) **encrypted sensitive data** in CSC cloud storage solution (Allas)
 
 ## Getting access
 
@@ -24,7 +24,7 @@ All these tasks can be performed in the [self-service portal MyCSC](https://my.c
 
 **Virtual machine (VM)**: is a virtual computing environment which works like a real-physical computer. It has a processor, memory and operating system but it exists only as a code or a partition of the host computer. VMs used for the Sensitive Data Services currently support only Linux operating system and are completely isolated from the internet for security reasons. 
 
-**Virtual machine Flavor (VM Flavor)**: a flavor defines the resources and configurations of a cloud computing environment. It specifies the compute, memory, and storage capacity that can be assigned to virtual machine. 
+**Virtual machine flavor (VM flavor)**: a flavor defines the resources and configurations of a cloud computing environment. It specifies the compute, memory, and storage capacity that can be assigned to virtual machine. 
 
 **CSC Project**: All your data in CSC belong inside a project. You can have one project or multiple projects. When you set up a project you can add project members, you need to define a project manager, and you need to described which type of sensitive data you are processing. 
 
