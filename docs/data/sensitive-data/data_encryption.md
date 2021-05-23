@@ -19,7 +19,8 @@ There are different encryption methods available that facilitate secure data sha
 
 
 
-## Crypt4GH graphical user interface (begginer's guide to data encryption with Crypt4GH)
+## Crypt4GH graphical user interface 
+**Begginer's guide to data encryption with Crypt4GH**
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
