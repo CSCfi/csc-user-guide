@@ -294,7 +294,7 @@ add here possible erros?
 
 Notes:
 encryption with CLI requires to zip a folder also?
-how do they intall crypt4CH in SD Desktop?
+how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
 where do they find the data?
 where do they find the sds public key and how to we call it?
 
