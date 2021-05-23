@@ -39,7 +39,7 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 
 
-
+Add here also encryption?
 
 
   
