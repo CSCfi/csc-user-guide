@@ -43,7 +43,7 @@ When you open the application your might encounter an error message. In this cas
  
 Next you call follow these steps:
 
-**Step1. Generate your encryption keys.**
+**Step 1. Generate your encryption keys.**
 
 Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
 
@@ -75,7 +75,7 @@ Do not share your private key publicly.
 You don’t need to generate new key pairs each time you open the application.
 
 
-**Step2. Prepare your datsets and files.**
+**Step 2. Prepare your datsets and files.**
 
 With Crypt4GH GUI is possible to encrypt only one file at the time.
 
@@ -85,7 +85,7 @@ If you need to encrpyt large datasets, check the intructions on how to progammat
 
 SDD_Screenshot7
 
-**Step2. Load the ecryption keys.**
+**Step 3. Load the ecryption keys.**
 
 Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_. If the upload is successful, the tool will show the current path in title bar.
 
@@ -93,7 +93,7 @@ Next, click on _Load their public key_ button and select your public key (name_s
 
 SDD_Screeshot8_9
  
-**Step3. Upload and encrypt the the file /zipped folder.**
+**Step 4. Upload and encrypt the the file /zipped folder.**
 
 Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
 
@@ -113,7 +113,7 @@ SDD_Screeshot8_9
 
 
  
- **Step4. Data decryption.**
+ **Step 5. Data decryption.**
  
  !!! Note. If during encryption you use SDS public key, the encrypted file/zipped folder will be decripted automated manner when you will import the data from SD Connect to your own personal computing enviroment in SD Desktop. Thus, you can skip this step.
  
@@ -145,7 +145,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
  
- **Step1. Install the latest version of Crypt4GH encryption tool. ** 
+ **Step 1. Install the latest version of Crypt4GH encryption tool. ** 
  
  Choose one of the following options. Python 3.6+ required to use the crypt4gh encryption utility.
  
@@ -195,7 +195,7 @@ Environment variables:
 ```
 
 
-**Step2.Generates a permanent public-private keypair**
+**Step 2.Generate a permanent public-private keypair**
 
 ```
 $ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
@@ -208,7 +208,7 @@ Passphrase for examplename.sec:
 ```
 
 
-**Step3 Encrypt the data**
+**Step 3. Encrypt the file or directory**
 
 Load your private or screte key (_sk examplename.sec_), your public key (_pk examplename.pub_) or a recipient public key and load the fileor directory you want to encrypt. 
 In this exaple we are loding two recipients public keys (_pk sds.pub_) and (_pk secondrecipientexample.pub_) and encrypting a the file containing a dog image ( _dog.jpg_).
@@ -236,7 +236,7 @@ If you add the SDS public key your data to be decrypted atomatically when upload
 Programmatically you can add more then one public key (no limit?). This could be useful in case the data you will analized will  for example shared with you from a speicific data owner or a sequencing facility. They can share with you the data, once they encrypt them with their private secrete key and add your public key to the encryption.
 
 
-**Step4. Data Decryption*:
+**Step 4. Data Decryption**
 
 If you did not use SDS public key you need to decrypt the data in SD Destkop. Login into your private computing enviroment and first install Crypt4GH:
 
@@ -261,11 +261,33 @@ And output the decripted file:
 > dog.jpg
 ```
 
-As an example you can check this [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) or 
+
+
+As an example you can check this video:
+* in which Bob sends an ecrypted message to Alice [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) 
+  the message is encrypoted by Bob, using is own private key and Alice public key
+  the message is then decrypted by Alice using Alice private key
+  
+* in which Me and You exchange an ecrypted text file [Video](https://asciinema.org/a/y23ZPc6uQ9YBkts1gPZHjvfWT)
+   the file is encrypted by Me using my private key and your public key
+   the file is then decrypted by you, using your private key
 
 
 
 
+
+## Errors:
+
+
+
+
+
+
+Notes:
+encryption with CLI requires to zip a folder also?
+how do they intall crypt4CH in SD Desktop?
+where do they find the data?
+where do they find the sds public key and how to we call it?
 
  
  
