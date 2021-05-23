@@ -15,12 +15,11 @@ There are different encryption methods available that facilitate secure data sha
 
 *  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
-* **asymmetric encryption**, which uses two encryption keys. A private encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
+* **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair.  
 
 
 
-## Crypt4GH graphical user interface 
-## (Begginer's guide to data encryption with Crypt4GH)
+## Crypt4GH graphical user interface **(Begginer's guide to data encryption with Crypt4GH)**
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
@@ -88,21 +87,15 @@ SDD_Screenshot7
 
 **Step2. Load the ecryption keys.**
 
-Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_.
-
-If the upload is successful, the tool will show the current path in title bar.
+Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_. If the upload is successful, the tool will show the current path in title bar.
 
 Next, click on _Load their public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption and then click on _Open_.
-
-If the upload is successful, the tool will show the current path in title bar.
 
 SDD_Screeshot8_9
  
 **Step3. Upload and encrypt the the file /zipped folder.**
 
-Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. 
-
-Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
+Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
 
 If the ecryption is sucessful the file/zipped folder extention will change to *.c4gh* and  the activity Log display the following message:
 
@@ -147,32 +140,128 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 ````
 
 
-
-
  
 ## Crypt4GH Command Line tool (CLI)
+
+For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
  
- **Step1. Install the latest version of Crypt4GH encryption tool. ** with
+ **Step1. Install the latest version of Crypt4GH encryption tool. ** 
+ 
+ Choose one of the following options. Python 3.6+ required to use the crypt4gh encryption utility.
+ 
+````
+$ crypt4gh -h      
+````
+or if you prefer the latest sources from Github:
 
-$ pip install https://github.com/EGA-archive/crypt4gh.git
+```
+pip install -r crypt4gh/requirements.txt
+pip install ./crypt4gh
+```
 
-**Step2.Generats a permanent public-private keypair**
+or
 
-$ crypt4gh-keygen --sk example.sec --pk example.pub
+```
+pip install git+https://github.com/EGA-archive/crypt4gh.git
+```
+
+The usual -h flag shows you the different options that the tool accepts:
+
+```
+$ crypt4gh -h
+
+Utility for the cryptographic GA4GH standard, reading from stdin and outputting to stdout.
+
+Usage:
+   {PROG} [-hv] [--log <file>] encrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--range <start-end>]
+   {PROG} [-hv] [--log <file>] decrypt [--sk <path>] [--sender_pk <path>] [--range <start-end>]
+   {PROG} [-hv] [--log <file>] rearrange [--sk <path>] --range <start-end>
+   {PROG} [-hv] [--log <file>] reencrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--trim]
+
+Options:
+   -h, --help             Prints this help and exit
+   -v, --version          Prints the version and exits
+   --log <file>           Path to the logger file (in YML format)
+   --sk <keyfile>         Curve25519-based Private key.
+                          When encrypting, if neither the private key nor C4GH_SECRET_KEY are specified, we generate a new key 
+   --recipient_pk <path>  Recipient's Curve25519-based Public key
+   --sender_pk <path>     Peer's Curve25519-based Public key to verify provenance (akin to signature)
+   --range <start-end>    Byte-range either as  <start-end> or just <start> (Start included, End excluded)
+   -t, --trim             Keep only header packets that you can decrypt
+
+Environment variables:
+   C4GH_LOG         If defined, it will be used as the default logger
+   C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
+```
+
+
+**Step2.Generates a permanent public-private keypair**
+
+```
+$ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
+```
+where _ sk examplename.sec_ is your private secrete (sk) key and _ pk examplename.pub_ is your public key (pk).
+
+The tool will then ask you to input your private key password. Use a strong password.
+```
+Passphrase for examplename.sec: 
+```
 
 
 **Step3 Encrypt the data**
 
-$ crypt4gh encrypt --sk example.sec --recipient_pk sds.pub --recipient_pk csc.pub < dog.jpg > dog.jpg.c4gh
+Load your private or screte key (_sk examplename.sec_), your public key (_pk examplename.pub_) or a recipient public key and load the fileor directory you want to encrypt. 
+In this exaple we are loding two recipients public keys (_pk sds.pub_) and (_pk secondrecipientexample.pub_) and encrypting a the file containing a dog image ( _dog.jpg_).
+
+```
+$ crypt4gh encrypt --sk examplename.sec --recipient_pk sds.pub --recipient_pk secondrecipeintexample.pub < dog.jpg 
+```
+
+The tool will ask the password for your private key and next the data will be encrypted.
+
+```
+Passphrase for bob.sec: 
+```
+
+The tool will visualize the following and the extension of the original file will be changed to.c4gh, underlining that the ecryption was succesful.
+
+```
+total 48                                                                                                                                                                   -rw-r--r--  1 daz  staff   115B Nov  6 21:03 exanplename.pub                                                                                                                   -rw-r--r--  1 daz  staff   235B Nov  6 21:03 examplename.sec                                                                                                                    -rw-r--r--  1 daz  staff   115B Nov  6 21:03 sds.pub                                                                                                                            -rw-r--r--  1 daz  staff   235B Nov  6 21:03 dsd.sec                                                                                                                           -rw-r--r--  1 daz  staff    17B Nov  6 21:05 dog.jpg                                                                                                                          -rw-r--r--  1 daz  staff   169B Nov  6 21:05 dog.jpg.c4gh
+```
+
+!!! Note 
+If you add the SDS public key your data to be decrypted atomatically when uploaded to SD Destkop from SD Connect. Using SDS public key will also guarantee that in case you loose your private encryption key or your passrword, CSC could still help you to retrive your data.
+
+!!!Note
+Programmatically you can add more then one public key (no limit?). This could be useful in case the data you will analized will  for example shared with you from a speicific data owner or a sequencing facility. They can share with you the data, once they encrypt them with their private secrete key and add your public key to the encryption.
 
 
 **Step4. Data Decryption*:
 
-$ crypt4gh decrypt --sk researcher.sec < dog.jpg.c4gh > dog-decrypted-researcher.jpg
+If you did not use SDS public key you need to decrypt the data in SD Destkop. Login into your private computing enviroment and first install Crypt4GH:
 
+```
+$ crypt4gh -h
+```
 
-Video:
-https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs
+Next input your private key (_sk exaplename.sec_) and add the file that you want to decrypt (_ < dog.jpg.c4gh >_):
+
+```
+$ crypt4gh decrypt --sk exaplename.sec < dog.jpg.c4gh
+```
+
+The tool will ask you to imput your private key password:
+
+```
+Passphrase for alice.sec:
+```
+And output the decripted file: 
+
+```
+> dog.jpg
+```
+
+As an example you can check this [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) or 
 
 
 
