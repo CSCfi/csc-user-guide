@@ -84,7 +84,7 @@ If you need to import specific scrips for GitHub or other trusted repositories, 
 
     Import the script/ files or other non-sensitive data to SD Desktop 
     
-## Active session or VM discionnetion
+## Active session/ VM disconnection / Kill session
 
 If you turn off the computing environment……….. 
 
