@@ -13,9 +13,9 @@ According to CSC policies and [general terms of use](https://research.csc.fi/gen
 
 There are different encryption methods available that facilitate secure data sharing or data storage: 
 
-1._symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
+*  symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
-1._asymmetric encryption_, which uses two encryption keys. A private encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
+*  asymmetric encryption_, which uses two encryption keys. A private encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
 
  
 
@@ -45,7 +45,7 @@ When you open the application your might encounter an error message. In this cas
  
 Next you call follow these steps:
 
-**Step1**	Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
+**Step1, Generate your encryption keys** Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
 
 When you click on _OK_, the tool will generate a key pair: 
 - a private key (nsurname_crypt4gh.key)
@@ -54,14 +54,15 @@ When you click on _OK_, the tool will generate a key pair:
  **SDD_Screeshot4_5**
 
 The keys/file names will be displayed in the Activity Log with the following message:
-_Key pais has been generated, our private key will be aoutoloaded the next time you will launch this tool:
+
+_Key pair has been generated, your private key will be auto-loaded the next time you will launch this tool:
 Private key: name_surname.crypt4gh.key
 Public key: name_surname.crypt4gh.pub
 All the fields must be filled before file encryption will be started_
 
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
- **SDD_Screeshot6**
+ **SDD_Screeshot6_7**
 
 !!! Note
 If you loose or forget the password you will be unable to decrypt the files. 
@@ -71,8 +72,18 @@ Do not share your private key publicly.
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
 
-**Step2** Click on _Load my private key_ button and select your private key (example_crypt4gh.key) and then click on _Open_ 
-The tool will show the current path in title bar.
+**Step2, Load the ecryption keys** Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_ 
+If the upload is successful, the tool will show the current path in title bar.
+Next, click on _Load thir public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible ith SD Desktop atuomated decryption and then click on _Open_.
+If the upload is successful, the tool will show the current path in title bar.
+
+ **SDD_Screeshot7_8**
+ 
+**Step3,prepare and upload your files**
+
+
+ 
+ **Step4**
 
 
 
