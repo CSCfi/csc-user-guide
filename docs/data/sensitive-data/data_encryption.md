@@ -231,7 +231,13 @@ Passphrase for bob.sec:
 The tool will visualize the following and the extension of the original file will be changed to.c4gh, underlining that the ecryption was succesful.
 
 ```
-total 48                                                                                                                                                                   -rw-r--r--  1 daz  staff   115B Nov  6 21:03 exanplename.pub                                                                                                                   -rw-r--r--  1 daz  staff   235B Nov  6 21:03 examplename.sec                                                                                                                    -rw-r--r--  1 daz  staff   115B Nov  6 21:03 sds.pub                                                                                                                            -rw-r--r--  1 daz  staff   235B Nov  6 21:03 dsd.sec                                                                                                                           -rw-r--r--  1 daz  staff    17B Nov  6 21:05 dog.jpg                                                                                                                          -rw-r--r--  1 daz  staff   169B Nov  6 21:05 dog.jpg.c4gh
+total 48     
+-rw--rwr--r--  1 daz  staff   115B Nov  6 21:03 exanplename.pub    
+-rw-r--r--  1 daz  staff   235B Nov  6 21:03 examplename.sec 
+-rw-r--r--  1 daz  staff   115B Nov  6 21:03 sds.pub   
+-rw-r--r--  1 daz  staff   235B Nov  6 21:03 dsd.sec 
+-rw-r--r--  1 daz  staff    17B Nov  6 21:05 dog.jpg  
+-rw-r--r--  1 daz  staff   169B Nov  6 21:05 dog.jpg.c4gh
 ```
 
 !!! Note 
@@ -268,23 +274,21 @@ And output the decripted file:
 
 
 
-As an example you can check this video:
-* in which Bob sends an ecrypted message to Alice [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) 
-  the message is encrypoted by Bob, using is own private key and Alice public key
-  the message is then decrypted by Alice using Alice private key
+As an example you can check:
+* a [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) in which Bob sends an ecrypted message to Alice
+
+  1.the message is encrypoted by Bob, using is own private key and Alice public key
+  1.the message is then decrypted by Alice using Alice private key
   
-* in which Me and You exchange an ecrypted text file [Video](https://asciinema.org/a/y23ZPc6uQ9YBkts1gPZHjvfWT)
-   the file is encrypted by Me using my private key and your public key
-   the file is then decrypted by you, using your private key
+* a [Video](https://asciinema.org/a/y23ZPc6uQ9YBkts1gPZHjvfWT) in which Me and You exchange an ecrypted text file
 
-
-
+   1.the file is encrypted by Me using my private key and your public key
+   1.the file is then decrypted by you, using your private key
 
 
 ## Errors:
 
-
-
+add here possible erros?
 
 
 
