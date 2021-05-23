@@ -10,7 +10,7 @@ If you include SDS public key during data encryption with Cryot4GH, the dataset 
 
 ## Background information 
 
-According to CSC policies and [general terms of use] (https://research.csc.fi/general-terms-of-use), sensitive data always need to be encrypted when uploaded or stored in CSC services for sensitive data management. Sensitive data need to be encrypted even if, for example, downloaded from public repositories. 
+According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always need to be encrypted when uploaded or stored in CSC services for sensitive data management. Sensitive data need to be encrypted even if, for example, downloaded from public repositories. 
 
 There are different encryption methods available that facilitate secure data sharing or data storage: 
 
@@ -28,11 +28,11 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 You can download the user interface specific to your operating system from the [GitHub repository] https://github.com/CSCfi/crypt4gh-gui/releases):  
 
-*For Windows https://kannu.csc.fi/s/iDiNR5HdwtFrXCY 
+*For [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
 
-*For Mac https://kannu.csc.fi/s/88MFCb4wNRt2mwb 
+*For [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
 
-*For Linux: https://kannu.csc.fi/s/NAgiSeS8mFXKnC4 
+*For [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
 
  
 
