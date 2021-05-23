@@ -36,11 +36,11 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 Verify, that the program has been digitally signed by CSC - IT Center for Science.  
 After the download, you can find the Crypt4GH application in your download folder. 
 
-**Screenshot1**
+**SDD_Screenshot1**
 
  When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on Run anyway. 
  
- **SCreeshot2-3**
+ **SDD_Screeshot2_3**
  
  
 Next you call follow these steps:
@@ -50,10 +50,12 @@ Next you call follow these steps:
 When you click on _OK_, the tool will generate a key pair: 
 - a private key (nsurname_crypt4gh.key)
 - a public key (nsurname_crypt4gh.pub)
-The keys an file names will be showed in the Activity Log. 
+
+The keys and file names will be showed in the Activity Log and saved in the the same folder in which the Application was downloaded.
 
 !!! Note
-If you lose of forget the password, you will be unable to decrypt the files.Do not share your private key and your password. 
+If you loose of forget the password you will be unable to decrypt the files. 
+Do not share your private key and your password. 
 
 
 
