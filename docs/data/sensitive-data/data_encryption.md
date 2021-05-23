@@ -18,6 +18,11 @@ There are different encryption methods available that facilitate secure data sha
 * **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair.  
 
 
+!!! Note. Nomenclature when using the GUI and CLI:
+
+* a **private key** is abbreviated  to **sk**  (as secrete key) in the command line tool. The private secrete key file extention in Crypt4GH is **.sec**
+* a **public key** is abbriviated to **pk** in the command line tool. The public key file extention in crypt4GH is **.pub**
+
 
 ## Crypt4GH graphical user interface **(Begginer's guide to data encryption with Crypt4GH)**
 
