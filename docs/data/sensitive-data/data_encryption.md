@@ -95,10 +95,13 @@ Next click on _Select file_ and choose the file or zipped folder that you wish t
 If the ecryption is sucessful the file/zipped folder extention will change to *.c4gh* and  the activity Log display the following message:
 
 _Encrypting....
+
 Encryption has finished.
+
 Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
 
-Currently,Cryot4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+
 SDD_Screeshot8_9
 
 
@@ -106,11 +109,38 @@ SDD_Screeshot8_9
  **Step4. Data decryption.**
  
  
- 
+Access your secure computing environment in SD Destkop. You can find the encrypted data in your home directory.
+
+Next, open Crypt4GH, Load the private key. Select the file you want to decrypt and click on _Open_. Next click on _decrypt file_
+Next you need to write the password of the private key, press _ok_
+The file is decrypted in the same location of the original file. 
+
  
  
  
  ## Crypt4GH Command Line tool (CLI)
+ 
+ **Step1. Install the latest version of Crypt4GH encryption tool. ** with
+
+$ pip install https://github.com/EGA-archive/crypt4gh.git
+
+**Step2.Generats a permanent public-private keypair**
+
+$ crypt4gh-keygen --sk example.sec --pk example.pub
+
+
+**Step3 Encrypt the data**
+
+$ crypt4gh encrypt --sk example.sec --recipient_pk sds.pub --recipient_pk csc.pub < dog.jpg > dog.jpg.c4gh
+
+
+**Step4. Data Decryption*:
+
+$ crypt4gh decrypt --sk researcher.sec < dog.jpg.c4gh > dog-decrypted-researcher.jpg
+
+
+
+
  
  
  
