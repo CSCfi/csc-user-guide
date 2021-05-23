@@ -1,1 +1,149 @@
 
+# SD Desktop (Sensitive Data Desktop)
+
+## User Interface and Login 
+
+ 
+To acces SD Desktop you need a CSC account, a CSC project and service access to SD Destkop and to Allas (CSC cloud storage solution). 
+Login is possible with user identity federation systems (ELIXIR AAI, Haka or Virtu ) or with a CSC account at: https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. 
+
+All the project members belonging to a specific CSC project can access the same computing environment (or Virtual machine, VM) in SD Desktop. Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
+
+!!! Note: It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+
+
+**Step1. Lanuching the virtual machine**
+
+Once you Login, from SD Desktop Homepage you can launch your VM clicking on _Go to the Launching page_ and choose the preferred flavors. 
+For the beta version of the service, you can choose between five different VM flavours (operating system: Linux) based on your dataset size and analysis complexity:  
+
+
+
+### Standard flavors
+
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| standard.tiny    | 1 | 1  | 80 | 0 | 80 | 1   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|1  |
+| standard.medium  | 3 | 4  | 80 | 0 | 80 | 1.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1  |
+| standard.xlarge  | 6 | 15 | 80 | 0 | 80 | 2.5 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1  |
+| standard.xxlarge | 8 | 30 | 80 | 0 | 80 | 3.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1  |
+| hpc.4.40core     | 40 | 165 | 80 | 0 | 80 | 4.1 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1 |
+| hpc.3.56core     | 56 | 240 | 80 | 0 | 80 | 4.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1 |
+Technical details 
+
+CPU         RAM                  GPU   
+	
+
+Example usage 
+
+Type 1 
+	
+
+ 
+	
+
+Statistical analysis of small datasets 
+
+Type 2 
+	
+
+ 
+	
+
+Complex analysis of large datasets 
+
+Type 3 
+	
+
+ 
+	
+
+Parallel computing of large datasets (e.g. machine learning) 
+
+ 
+
+Here you can find the list of software available in the computing environment: 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step3 
+
+Next, click on launch icon and go back to SD desktop homepage.  
+
+Here in recent connections you can see the …… and click on the image to open it?  Once you launched the VM you can access the computing environment in SD Desktop Recent Connection, Click on the image.  
+
+ 
+
+ 
+
+ 
+
+Note: only the project manager or group leader can launch a new VM.  
+
+ 
+
+Computing environment: 
+
+Once you launched the VM you can access the computing environment in SD Desktop Recent Connection, Click on the image.  
+
+ 
+
+Ince you access the computing environment, you need to install the necessary software with the following steps. 
+
+    You can search or query for a specific software in the search bar and then  
+
+    You can run the following command 
+
+ 
+
+If you need to import specific scrips for GitHub or other trusted repositories, you need to: 
+
+    Download the script from the internet to SD Connect in a specific bucket 
+
+    Import the script/ files or other non-sensitive data to SD Desktop 
+
+If you turn off the computing environment……….. 
+
+ 
+
+Settings:  
+
+Active session: If you click on click session................ 
+
+ 
+
+Preferences: 
+
+ 
+
+ 
+
+ 
+
+How to import sensitive data or scripts to SD Desktop: 
+
+It is possible to visualize and import data saved in buckets belonging to your projects (note, the same project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
+
+With the following tool, you will be able to import data and automatically de encrypt the data if you used CSC public key to encrypted them or to import encrypted data if you used your own encryption keys. 
+
+ 
+
+      
+
+How to export processed sensitive data or non-sensitive data (results) data from the secure computing environment 
+
+SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export processed sensitive data, please write to servicedesk@csc.fi and use Sensitive Data Services Export Request in the object field. Only the project manager or group leader can make the following request. Add the project number and container ID (?) and save the data that need to be exported in the following folder/directory. The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
+
+ 
+
+Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with crypth4GH. 
