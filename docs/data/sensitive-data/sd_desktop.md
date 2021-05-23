@@ -66,7 +66,7 @@ Here you can find the comeplete list of software and packages available in SD De
 !!! Note: only the project manager or group leader can launch a new VM.  
 
  
-**Step3. Data upload from SD Connect**
+## Data upload from SD Connect
 
 To import your data you need to:
 
@@ -76,8 +76,7 @@ With the following tool, you will be able to import data and automatically decry
 
 
 
-
-**Step4. Upload of specific scripts or packajes from GitHub**
+## Upload of specific scripts or packajes from GitHub**
 
 If you need to import specific scrips for GitHub or other trusted repositories, you need to: 
 
@@ -85,7 +84,7 @@ If you need to import specific scrips for GitHub or other trusted repositories, 
 
     Import the script/ files or other non-sensitive data to SD Desktop 
     
-**Step5. Active session or VM discionnetion**
+## Active session or VM discionnetion**
 
 If you turn off the computing environment……….. 
 
@@ -98,10 +97,9 @@ Active session: If you click on click session................
 
 Preferences: 
 
- 
 
 
-**Data export**
+## Data export
 
 How to export processed sensitive data or non-sensitive data (results) data from the secure computing environment 
 
