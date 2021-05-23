@@ -15,7 +15,7 @@ There are different encryption methods available that facilitate secure data sha
 
 1._symmetric encryption_, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
-1. _asymmetric encryption_, which uses two encryption keys. A private encryption key, which remains secrete and protected, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
+1._asymmetric encryption_, which uses two encryption keys. A private encryption key, which remains secrete and protected, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party, he/she will be able to decrypt the data using the corresponding private key pair.  
 
  
 
@@ -43,6 +43,21 @@ After the download, you can find the Crypt4GH application in your download folde
  **SCreeshot2-3**
  
  
- 
+Next you call follow these steps:
+
+**Step1**	Open the application and	Click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
+
+When you click on _OK_, the tool will generate a key pair: 
+- a private key (nsurname_crypt4gh.key)
+- a public key (nsurname_crypt4gh.pub)
+The keys an file names will be showed in the Activity Log. 
+
+!!! Note
+If you lose of forget the password, you will be unable to decrypt the files.Do not share your private key and your password. 
+
+
+
+
+
 
 
