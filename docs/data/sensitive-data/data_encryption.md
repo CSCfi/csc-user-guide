@@ -34,22 +34,24 @@ You can download the user interface specific to your operating system from the [
 Verify, that the program has been digitally signed by CSC - IT Center for Science.  
 After the download, you can find the Crypt4GH application in your download folder. 
 
-**SDD_Screenshot1**
+SDD_Screenshot1
 
 When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
  
- **SDD_Screeshot2_3**
+ SDD_Screeshot2_3
  
  
 Next you call follow these steps:
 
-**Step1, Generate your encryption keys** Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
+**Step1, Generate your encryption keys.**
+
+Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
 
 When you click on _OK_, the tool will generate a key pair: 
 - a private key (nsurname_crypt4gh.key)
 - a public key (nsurname_crypt4gh.pub)
 
- **SDD_Screeshot4_5**
+ SDD_Screeshot4_5
 
 The keys/file names will be displayed in the Activity Log with the following message:
 
@@ -60,7 +62,7 @@ All the fields must be filled before file encryption will be started_
 
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
- **SDD_Screeshot6_7**
+SDD_Screeshot6_7
 
 !!! Note
 If you loose or forget the password you will be unable to decrypt the files. 
@@ -71,19 +73,23 @@ Do not share your private key publicly.
 You don’t need to generate new key pairs each time you open the application.
 
 
-**Step2. Prepare your datsets and files**
+**Step2. Prepare your datsets and files.**
+
 With Crypt4GH GUI is possible to encrypt only one file at the time.
 If youneed to encrypt multiple file, save them in one directoty/folder and zip the folder (right click on the folder and click on _send to_, next select _compressed (zippped) folder_.
 If you need to encrpyt large datasets, checl the intructions for progammatically encrypt files with Crypt4GH.
 
-**Step2. Load the ecryption keys** Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_ 
+**Step2. Load the ecryption keys.**
+
+Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_ 
 If the upload is successful, the tool will show the current path in title bar.
 Next, click on _Load thir public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible ith SD Desktop atuomated decryption and then click on _Open_.
 If the upload is successful, the tool will show the current path in title bar.
 
- **SDD_Screeshot7_8**
+SDD_Screeshot7_8
  
-**Step3. Upload and encrypt the the file /zipped folder**
+**Step3. Upload and encrypt the the file /zipped folder.**
+
 Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
 
 If the ecryption is sucessful the file/zipped folder extention will change to *.c4gh* and  the activity Log display the following message:
@@ -92,11 +98,22 @@ _Encrypting....
 Encryption has finished.
 Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
 
-Currently,Cryot4GH application is not provided with a progress bar. If the file/zippedfolder contains a big dataset, the encryption process can last for up to minutes.
+Currently,Cryot4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+SDD_Screeshot8_9
 
 
  
- **Step4. Data decryption**
+ **Step4. Data decryption.**
+ 
+ 
+ 
+ 
+ 
+ 
+ ## Crpt4GH Command Line tool (CLI)
+ 
+ 
+ 
  
 
 
