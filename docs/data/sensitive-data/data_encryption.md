@@ -200,7 +200,7 @@ Environment variables:
 ```
 
 
-**Step 2.Generate a permanent public-private keypair**
+**Step 2. Generate a permanent public-private keypair**
 
 ```
 $ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
