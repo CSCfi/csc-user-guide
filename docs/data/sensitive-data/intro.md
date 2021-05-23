@@ -12,6 +12,7 @@
 Instructions to get user account and a project to access CSC's services using [MyCSC](https://my.csc.fi).  portal:
 1. Create a user account
 1. Create or join a project
+2. 
 When you create a project you can (guided by the **Personal Data Handeling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you wili process) and sign CSC **Data Processing Agreement** (for legal advice and support, contact your institution legal service division/department).
 1. Add service access for your project to SD Desktop and to Allas (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
 1. Apply for billing units or disk quota
