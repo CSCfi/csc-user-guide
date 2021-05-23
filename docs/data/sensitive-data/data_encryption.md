@@ -2,7 +2,7 @@
 
 For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses asymmetric encryption.   
 
-!!! warning "Login nodes: important note for Puhti and Mahti"
+!!!Note
 If you include SDS public key during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into SD Desktop your computing enviroment from SD Connect.
 
  
