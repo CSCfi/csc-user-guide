@@ -12,14 +12,26 @@ All the project members belonging to a specific CSC project can access the same 
 !!! Note: It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
 
-**Step1. Lanuching the virtual machine**
+**Step1. Launching the computing enviroment (or VM)**
 
-Once you Login, from SD Desktop Homepage you can launch your VM clicking on _Go to the Launching page_ and choose the preferred flavors. 
-For the beta version of the service, you can choose between five different VM flavours (operating system: Linux) based on your dataset size and analysis complexity:  
-
+Once you Login in SD Destkop Homepage you can launch your VM clicking on _Go to the Launching page_. 
 
 
-### Standard flavors
+
+Here you can:
+
+* select your CSC project
+
+* choose the operating system (for beta versions, only possible operating system is Linux)
+
+* select the preferred VM flavor (based on your study/reaserch) and click on _+ Create_
+
+If the VM is created successfully this message: 
+
+
+
+
+For the beta version of the service, you can choose between six different VM flavors:  
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -30,33 +42,14 @@ For the beta version of the service, you can choose between five different VM fl
 | standard.xxlarge | 8 | 30 | 80 | 0 | 80 | 3.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 8    |
 | hpc.3.56core     | 56 | 240 | 80 | 0 | 80 | 4.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 96  |
 | hpc.4.40core     | 40 | 168 | 80 | 0 | 80 | 4.2 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 60  |
-CPU         RAM                  GPU   
+
+
+
 	
 
 Example usage 
-
-Type 1 
-	
-
- 
-	
-
 Statistical analysis of small datasets 
-
-Type 2 
-	
-
- 
-	
-
 Complex analysis of large datasets 
-
-Type 3 
-	
-
- 
-	
-
 Parallel computing of large datasets (e.g. machine learning) 
 
  
