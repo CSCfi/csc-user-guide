@@ -16,8 +16,8 @@ All the project members belonging to a specific CSC project can access the same 
 
 Once you Login in SD Destkop Homepage you can launch your VM clicking on _Go to the Launching page_. 
 
-
-
+ ![](img/SDkScreenshot_1.png)
+ 
 Here you can:
 
 * select your CSC project
@@ -25,6 +25,8 @@ Here you can:
 * choose the operating system (for beta versions, only possible operating system is Linux)
 
 * select the preferred VM flavor (based on your study/reaserch) and click on _+ Create_
+
+ ![](img/SDEnScreenshot_2.png)
 
 If the VM is created successfully this message: 
 
@@ -45,68 +47,48 @@ For the beta version of the service, you can choose between six different VM fla
 
 
 
-	
-
 Example usage 
 Statistical analysis of small datasets 
 Complex analysis of large datasets 
 Parallel computing of large datasets (e.g. machine learning) 
 
+ **Step2. Access to the computing enviroment and softwear installation**
  
+From SD Desktop Homapage you can access the _Recent Connections_ or _All connections_ and open the VM with double click.
 
-Here you can find the list of software available in the computing environment: 
-
+ ![](img/SDEnScreenshot_3.png)
  
+Once the compting enviroment is open, you can start the installation of necessary softwear or packages searching ---- and using the following command-------
 
- 
+Here you can find the comeplete list of software and packages available in SD Desktop: (link ?)
 
- 
 
- 
-
- 
-
- 
-
-Step3 
-
-Next, click on launch icon and go back to SD desktop homepage.  
-
-Here in recent connections you can see the …… and click on the image to open it?  Once you launched the VM you can access the computing environment in SD Desktop Recent Connection, Click on the image.  
+!!! Note: only the project manager or group leader can launch a new VM.  
 
  
+**Step3. Data upload from SD Connect**
 
- 
+To import your data you need to:
 
- 
+It is possible to visualize and import data saved in buckets belonging to your projects (note, the same project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
 
-Note: only the project manager or group leader can launch a new VM.  
+With the following tool, you will be able to import data and automatically decrypt the data if you used SDS public key to encrypted them or to import encrypted data if you used your own encryption keys. 
 
- 
 
-Computing environment: 
 
-Once you launched the VM you can access the computing environment in SD Desktop Recent Connection, Click on the image.  
 
- 
-
-Ince you access the computing environment, you need to install the necessary software with the following steps. 
-
-    You can search or query for a specific software in the search bar and then  
-
-    You can run the following command 
-
- 
+**Step4. Upload of specific scripts or packajes from GitHub**
 
 If you need to import specific scrips for GitHub or other trusted repositories, you need to: 
 
     Download the script from the internet to SD Connect in a specific bucket 
 
     Import the script/ files or other non-sensitive data to SD Desktop 
+    
+**Step5. Active session or VM discionnetion**
 
 If you turn off the computing environment……….. 
 
- 
 
 Settings:  
 
@@ -118,24 +100,11 @@ Preferences:
 
  
 
- 
 
- 
-
-How to import sensitive data or scripts to SD Desktop: 
-
-It is possible to visualize and import data saved in buckets belonging to your projects (note, the same project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
-
-With the following tool, you will be able to import data and automatically de encrypt the data if you used CSC public key to encrypted them or to import encrypted data if you used your own encryption keys. 
-
- 
-
-      
+**Data export**
 
 How to export processed sensitive data or non-sensitive data (results) data from the secure computing environment 
 
 SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export processed sensitive data, please write to servicedesk@csc.fi and use Sensitive Data Services Export Request in the object field. Only the project manager or group leader can make the following request. Add the project number and container ID (?) and save the data that need to be exported in the following folder/directory. The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
 
- 
-
-Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with crypth4GH. 
+!!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with crypth4GH. 
