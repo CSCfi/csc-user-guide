@@ -19,7 +19,7 @@ There are different encryption methods available that facilitate secure data sha
 
 
 
-## Crypt4GH graphical user interface 
+## Crypt4GH graphical user interface (begginer's guide to data encryption with Crypt4GH)
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
@@ -43,7 +43,7 @@ When you open the application your might encounter an error message. In this cas
  
 Next you call follow these steps:
 
-**Step1, Generate your encryption keys.**
+**Step1. Generate your encryption keys.**
 
 Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
 
@@ -77,7 +77,8 @@ You don’t need to generate new key pairs each time you open the application.
 
 With Crypt4GH GUI is possible to encrypt only one file at the time.
 If youneed to encrypt multiple file, save them in one directoty/folder and zip the folder (right click on the folder and click on _send to_, next select _compressed (zippped) folder_.
-If you need to encrpyt large datasets, checl the intructions for progammatically encrypt files with Crypt4GH.
+If you need to encrpyt large datasets, check the intructions on hpw to progammatically encrypt files with Crypt4GH.
+SDD_Screenshot7
 
 **Step2. Load the ecryption keys.**
 
@@ -86,7 +87,7 @@ If the upload is successful, the tool will show the current path in title bar.
 Next, click on _Load thir public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible ith SD Desktop atuomated decryption and then click on _Open_.
 If the upload is successful, the tool will show the current path in title bar.
 
-SDD_Screeshot7_8
+SDD_Screeshot8_9
  
 **Step3. Upload and encrypt the the file /zipped folder.**
 
@@ -109,16 +110,31 @@ SDD_Screeshot8_9
  **Step4. Data decryption.**
  
  
-Access your secure computing environment in SD Destkop. You can find the encrypted data in your home directory.
+Access your secure computing environment in SD Destkop. If you did not install Crypt4GH yet .........
 
-Next, open Crypt4GH, Load the private key. Select the file you want to decrypt and click on _Open_. Next click on _decrypt file_
-Next you need to write the password of the private key, press _ok_
-The file is decrypted in the same location of the original file. 
+Next, open Crypt4GH and click on _load your private key_.  
+Click on _Select FIle_ and upload the file/zipped folder you want to decrypt and click on _Open_. 
+Next click on _decrypt file_. The tool will ask you to write the password of the private key, press _ok_. 
+The file will be decrypted in the same location of the original file. 
+
+If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+
+_Sender public key has not been set, authenticity will not be verified._
+
+If your decryption runs suvvessfully, the activity log will display the following:
+_decrypting....._
+
+_Decription has finished_
+
+_Decrypted file: C:/users/samesurname/exampledirectory/examplefile_
+
+
+!!! Note. If during encryption you used SDS public key, the encrypted file/zipped folder will be decripted automated manner when you will import the data from SD Connect to your own personal computing enviroment in SD Desktop. Thus, you can skip this step.
+
+
 
  
- 
- 
- ## Crypt4GH Command Line tool (CLI)
+## Crypt4GH Command Line tool (CLI)
  
  **Step1. Install the latest version of Crypt4GH encryption tool. ** with
 
@@ -137,6 +153,11 @@ $ crypt4gh encrypt --sk example.sec --recipient_pk sds.pub --recipient_pk csc.pu
 **Step4. Data Decryption*:
 
 $ crypt4gh decrypt --sk researcher.sec < dog.jpg.c4gh > dog-decrypted-researcher.jpg
+
+
+Video:
+https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs
+
 
 
 
