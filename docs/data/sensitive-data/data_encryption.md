@@ -25,7 +25,7 @@ There are different encryption methods available that facilitate secure data sha
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
-**Step1** You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
+You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
 *  [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
 
@@ -72,20 +72,32 @@ Do not share your private key publicly.
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
 
-**Step2, Load the ecryption keys** Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_ 
+
+**Step2. Prepare your datsets and files**
+With Crypt4GH GUI is possible to encrypt only one file at the time.
+If youneed to encrypt multiple file, save them in one directoty/folder and zip the folder (right click on the folder and click on _send to_, next select _compressed (zippped) folder_.
+If you need to encrpyt large datasets, checl the intructions for progammatically encrypt files with Crypt4GH.
+
+**Step2. Load the ecryption keys** Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_ 
 If the upload is successful, the tool will show the current path in title bar.
 Next, click on _Load thir public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible ith SD Desktop atuomated decryption and then click on _Open_.
 If the upload is successful, the tool will show the current path in title bar.
 
  **SDD_Screeshot7_8**
  
-**Step3,prepare and upload your files**
+**Step3. Upload the file /zipped folder and do the Encryption**
+Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin. 
+If the ecryption is sucessful, the activity Log display the following message:
+_Encrypting....
+Encryption has finished.
+Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh_
+
+Currently,there the application is nto provided with a progress bar. If the file/zippedfolder contaids a big dataset, the encryption can take up to minutes.
 
 
  
- **Step4**
-
-
+ **Step4. Data decryption**
+ 
 
 
 
