@@ -25,7 +25,7 @@ There are different encryption methods available that facilitate secure data sha
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
-**Step1** You can download the user interface specific to your operating system from the [GitHub repository] https://github.com/CSCfi/crypt4gh-gui/releases):  
+**Step1** You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
 *For [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
 
@@ -34,7 +34,6 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 *For [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
 
 Verify, that the program has been digitally signed by CSC - IT Center for Science.  
-
 After the download, you can find the Crypt4GH application in your download folder. 
 
 **Screenshot1**
