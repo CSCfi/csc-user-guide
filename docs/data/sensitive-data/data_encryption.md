@@ -13,14 +13,14 @@ According to CSC policies and [general terms of use](https://research.csc.fi/gen
 
 There are different encryption methods available that facilitate secure data sharing or data storage: 
 
-*  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your collogues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
+*  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your colleagues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
 * **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair.  
 
 
 !!! Note. Nomenclature when using the GUI and CLI:
 
-* a **private key** is abbreviated  to **sk**  (as secrete key) in the command line tool. When you geenrate a private secrete key with Crypt4GH the file extension is **.sec**
+* a **private key** is abbreviated  to **sk**  (as secrete key) in the command line tool. When you generate a private secrete key with Crypt4GH the file extension is **.sec**
 * a **public key** is abbreviated to **pk** in the command line tool. When you generate a public key the file extension is **.pub**
 
 
@@ -41,7 +41,7 @@ After the download, you can find the Crypt4GH application in your download folde
 
  ![](img/SDEnScreenshot_1.png)
 
-When you open the application your might encounter an error message. In this case, click on more info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
+When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
  
 
  ![](img/SDEnScreenshot_2.png)
@@ -51,11 +51,11 @@ Next you call follow these steps:
 
 **Step 1. Generate your encryption keys.**
 
-Open the application and	click on _Generate Keys_ (on the top right corner). The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
-
-When you click on _OK_, the tool will generate a key pair: 
-- a private key (nsurname_crypt4gh.key)
-- a public key (nsurname_crypt4gh.pub)
+1. Open the application and	click on _Generate Keys_ (on the top right corner). 
+2. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
+3. When you click on _OK_, the tool will generate a key pair: 
+   - a private key (nsurname_crypt4gh.key)
+   - a public key (nsurname_crypt4gh.pub)
 
 
 The keys/file names will be displayed in the Activity Log with the following message:
@@ -83,9 +83,9 @@ You don’t need to generate new key pairs each time you open the application.
 
 **Step 2. Prepare your files.**
 
-With Crypt4GH GUI is possible to encrypt only one file at the time.
+With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
-If you need to encrypt multiple file, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_.
+If you need to encrypt multiple files, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
 
 If you need to encrypt large datasets, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
@@ -94,15 +94,19 @@ If you need to encrypt large datasets, check the instructions on how to programm
 
 **Step 3. Load the encryption keys.**
 
-Click on _Load my private key_ button and select your private key (name_surname.crypt4gh.key) and then click on _Open_. If the upload is successful, the tool will show the current path in title bar.
-
-Next, click on _Load their public key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption and then click on _Open_.
+1. Click on _Load My Private Key_ button.
+2. Select your private key (name_surname.crypt4gh.key).
+3. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
+4. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption
+5. Click on _Open_.
 
 ![](img/SDEnScreenshot_6.png)
  
 **Step 4. Upload and encrypt the file /zipped folder.**
 
-Next click on _Select file_ and choose the file or zipped folder that you wish to encrypt. Click on _Open_ and on _Encrypt file_. The tool will ask the password for your personal private key and once you click on _OK_ then the encryption process will begin.
+1. Click on _Select File_ and choose the file or zipped folder that you wish to encrypt. 
+2. Click on _Open_ and on _Encrypt File_. 
+3. The tool will ask the password for your personal private key and once you click on _OK_ the encryption process will begin.
 
 If the encryption is successful the file/zipped folder extension will end with *.c4gh* and  the Activity Log will display the following message:
 
@@ -122,15 +126,15 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
  
  **Step 5. Data decryption.**
  
- !!! Note. If during encryption you use SDS public key, the encrypted file/zipped folder will be decrypted automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
+ !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
  
  
-Access your secure computing environment in SD Destkop. If you did not install Crypt4GH yet .........
-
-Next, open Crypt4GH and click on _load your private key_.  
-Click on _Select File_ and upload the file/zipped folder you want to decrypt and click on _Open_. 
-Next click on _decrypt file_. The tool will ask you to write the password of the private key, press _ok_. 
-The file will be decrypted in the same location of the original file. 
+1. Access your secure computing environment in SD Destkop. If you did not install Crypt4GH yet .........
+2. Next, open Crypt4GH and click on _load Your Private Key_.  
+3. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
+4. Click on _Open_. 
+5. Next click on _Decrypt File_. 
+6. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file. 
 
 If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
@@ -221,7 +225,7 @@ Passphrase for examplename.sec:
 **Step 3. Encrypt the file or directory**
 
 Load your private or secrete key (_sk examplename.sec_), your public key (_pk examplename.pub_) or a recipient public key and load the file or directory you want to encrypt. 
-In this example we are loading two recipients public keys (_pk sds.pub_) and (_pk secondrecipientexample.pub_) and encrypting a the file containing a dog image ( _dog.jpg_).
+In this example we are loading two recipients public keys (_pk sds.pub_) and (_pk secondrecipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
 
 ```
 $ crypt4gh encrypt --sk examplename.sec --recipient_pk sds.pub --recipient_pk secondrecipeintexample.pub < dog.jpg 
@@ -249,7 +253,7 @@ total 48
 If you add the SDS public key your data to be decrypted automatically when uploaded to SD Desktop from SD Connect. Using SDS public key will also guarantee that in case you loose your private encryption key or your password, CSC could still help you to retrieve your data.
 
 !!!Note
-Programmatically you can add more then one public key (no limit?). This could be useful in case the data are originally encrypted by a data owner or a sequencing facility using your public key.
+Programmatically you can add more than one public key (no limit?). This could be useful in case the data are originally encrypted by a data owner or a sequencing facility using your public key.
 
 
 **Step 4. Data Decryption**
@@ -282,13 +286,13 @@ And output the decripted file:
 As an example you can check:
 * a [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) in which Bob sends an encrypted message to Alice
 
-  1.the message is encrypoted by Bob, using is own private key and Alice public key
-  1.the message is then decrypted by Alice using Alice private key
+1. the message is encrypoted by Bob, using is own private key and Alice public key
+2. the message is then decrypted by Alice using Alice private key
   
 * a [Video](https://asciinema.org/a/y23ZPc6uQ9YBkts1gPZHjvfWT) in which Me and You exchange an encrypted text file
 
-   1.the file is encrypted by Me using my private key and your public key
-   1.the file is then decrypted by you, using your private key
+1. the file is encrypted by Me using my private key and your public key
+2. the file is then decrypted by you, using your private key
 
 
 ## Errors:
