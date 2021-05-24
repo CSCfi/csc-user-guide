@@ -151,7 +151,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
  
-## Crypt4GH Command Line tool (CLI)
+## Crypt4GH Command Line Interface (CLI)
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
  
