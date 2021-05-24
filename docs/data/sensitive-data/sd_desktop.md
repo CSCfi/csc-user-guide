@@ -4,7 +4,7 @@
 ## User Interface and Login 
 
  
-To acces SD Desktop you need a CSC account, a CSC project and service access to SD Destkop and to Allas (CSC cloud storage solution). 
+To access SD Desktop you need a CSC account, a CSC project and service access to SD Destkop and to Allas (CSC cloud storage solution). 
 Login is possible with user identity federation systems (ELIXIR AAI, Haka or Virtu ) or with a CSC account at: https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. 
 
 All the project members belonging to a specific CSC project can access the same computing environment (or Virtual machine, VM) in SD Desktop. Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
@@ -12,11 +12,11 @@ All the project members belonging to a specific CSC project can access the same 
 !!! Note: It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
 
-**Step1. Launching the computing enviroment (or VM)**
+**Step1. Launching the computing environment (or VM)**
 
-Once you Login in SD Destkop Homepage you can launch your VM clicking on _Go to the Launching page_. 
+Once you Login in SD Desktp _Homepage_ you can launch your VM clicking on _Go to the Launching page_. 
 
- ![](img/SDkScreenshot_1.png)
+ ![](img/SDDkScreenshot_1.png)
  
 Here you can:
 
@@ -26,9 +26,9 @@ Here you can:
 
 * select the preferred VM flavor (based on your study/reaserch) and click on _+ Create_
 
- ![](img/SDEnScreenshot_2.png)
+ ![](img/SDDkScreenshot_2.png)
 
-If the VM is created successfully this message: 
+If the VM is created successfully: 
 
 
 
@@ -37,7 +37,6 @@ For the beta version of the service, you can choose between six different VM fla
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| standard.tiny    | 1 | 1  | 80 | 0 | 80 | 1   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 0.25 |
 | standard.medium  | 3 | 4  | 80 | 0 | 80 | 1.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1    |
 | standard.large   | 4 | 7  | 80 | 0 | 80 | 1.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 2    |
 | standard.xlarge  | 6 | 15 | 80 | 0 | 80 | 2.5 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 4    |
@@ -52,15 +51,15 @@ Statistical analysis of small datasets
 Complex analysis of large datasets 
 Parallel computing of large datasets (e.g. machine learning) 
 
- **Step2. Access to the computing enviroment and softwear installation**
+ **Step2. Access to the computing environment and software installation**
  
-From SD Desktop Homapage you can access the _Recent Connections_ or _All connections_ and open the VM with double click.
+From SD Desktop _Homepage_ you can access  _Recent Connections_ or _All connections_ and open the VM with double click.
 
- ![](img/SDEnScreenshot_3.png)
+ ![](img/SDDkScreenshot_3.png)
  
-Once the compting enviroment is open, you can start the installation of necessary softwear or packages searching ---- and using the following command-------
+Once the computing environment is open, you can start the installation of necessary software or packages searching ---- and using the following command-------
 
-Here you can find the comeplete list of software and packages available in SD Desktop: (link ?)
+Here you can find the complete list of software and packages available in SD Desktop: (link ?)
 
 
 !!! Note: only the project manager or group leader can launch a new VM.  
