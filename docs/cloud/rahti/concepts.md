@@ -13,7 +13,7 @@ These abstractions are objects, persistent entities in the Kubernetes system. Th
 
 ### Namespace
 
-Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are refered as **Projects**. The two names (project and namespace) are very common words in computing so it can leave to confusion when refering about them. In order to createa projet, please go to the [Creating a project](/cloud/rahti/usage/projects_and_quota/#creating-a-project) documentation.
+Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so it can leave to confusion when referring about them. In order to createa projet, please go to the [Creating a project](/cloud/rahti/usage/projects_and_quota/#creating-a-project) documentation.
 
 ### Pod
 
