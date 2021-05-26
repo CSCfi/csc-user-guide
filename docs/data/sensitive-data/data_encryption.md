@@ -1,9 +1,9 @@
 # Data encryption with Crypt4GH and use of SDS public encryption key 
 
-For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses asymmetric encryption.   
+For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses **asymmetric encryption**.   
 
 !!!Note
-If you include SDS public key during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into SD Desktop your computing environment from SD Connect.
+If you include SDS public key during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
  
 
@@ -28,37 +28,30 @@ There are different encryption methods available that facilitate secure data sha
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
-You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
+1. You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
-*  [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
+   - [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
+   - [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
+   - [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
 
-*  [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
- 
-*  [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
-
-Verify, that the program has been digitally signed by CSC - IT Center for Science.  
-After the download, you can find the Crypt4GH application in your download folder. 
-
+1. Verify, that the program has been digitally signed by CSC - IT Center for Science.  
+1. After the download, you can find the Crypt4GH application in your download folder. 
  ![](img/SDEnScreenshot_1.png)
+1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
+  ![](img/SDEnScreenshot_2.png)
 
-When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
- 
-
- ![](img/SDEnScreenshot_2.png)
- 
- 
 Next you call follow these steps:
 
 **Step 1. Generate your encryption keys.**
 
 1. Open the application and	click on _Generate Keys_ (on the top right corner). 
-2. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
-3. When you click on _OK_, the tool will generate a key pair: 
+1. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
+1. When you click on _OK_, the tool will generate a key pair: 
+
    - a private key (nsurname_crypt4gh.key)
    - a public key (nsurname_crypt4gh.pub)
 
-
-The keys/file names will be displayed in the Activity Log with the following message:
+1. The keys/file names will be displayed in the Activity Log with the following message:
 
 ````
 Key pair has been generated, your private key will be auto-loaded the next time you will launch this tool:
@@ -80,35 +73,30 @@ Do not share your private key publicly.
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
 
-
 **Step 2. Prepare your files.**
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
-If you need to encrypt multiple files, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
-
-If you need to encrypt large datasets, check the instructions on how to programmatically encrypt files with Crypt4GH.
-
-
+* If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
+* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 ![](img/SDEnScreenshot_5.png)
 
 **Step 3. Load the encryption keys.**
 
 1. Click on _Load My Private Key_ button.
-2. Select your private key (name_surname.crypt4gh.key).
-3. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
-4. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption
-5. Click on _Open_.
+1. Select your private key (name_surname.crypt4gh.key).
+1. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
+1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption
+1. Click on _Open_.
 
 ![](img/SDEnScreenshot_6.png)
  
 **Step 4. Upload and encrypt the file /zipped folder.**
 
 1. Click on _Select File_ and choose the file or zipped folder that you wish to encrypt. 
-2. Click on _Open_ and on _Encrypt File_. 
-3. The tool will ask the password for your personal private key and once you click on _OK_ the encryption process will begin.
-
-If the encryption is successful the file/zipped folder extension will end with *.c4gh* and  the Activity Log will display the following message:
+1. Click on _Open_ and on _Encrypt File_. 
+1. The tool will ask the password for your personal private key and once you click on _OK_ the encryption process will begin.
+1. If the encryption is successful the file/zipped folder extension will end with *.c4gh* and  the Activity Log will display the following message:
 
 ````
 Encrypting....
@@ -117,28 +105,28 @@ Encryption has finished.
 
 Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
 ````
-
 Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
 ![](img/SDEnScreenshot_7.png)
 
-
- 
  **Step 5. Data decryption.**
  
  !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
  
  
 1. Access your secure computing environment in SD Destkop. If you did not install Crypt4GH yet .........
-2. Next, open Crypt4GH and click on _load Your Private Key_.  
-3. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
-4. Click on _Open_. 
-5. Next click on _Decrypt File_. 
-6. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file. 
+1. Next, open Crypt4GH and click on _load Your Private Key_.  
+1. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
+1. Click on _Open_. 
+1. Next click on _Decrypt File_. 
+1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file. 
 
 If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
-_Sender public key has not been set, authenticity will not be verified._
+
+````
+Sender public key has not been set, authenticity will not be verified.
+````
 
 If your decryption runs successfully, the activity log will display the following:
 
