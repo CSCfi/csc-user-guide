@@ -9,7 +9,7 @@
 
 ## Getting access
 
-Instructions to get a user account and a project to access CSC's services using [MyCSC](https://my.csc.fi).  portal:
+Instructions to get a user account and a project to access CSC's services using [MyCSC](https://my.csc.fi) portal:
 1. Create a user account
 1. Create or join a project
 2. 
@@ -27,7 +27,7 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 **CSC Project**: All your data in CSC belong inside a project. You can have one project or multiple projects. When you set up a project you can add project members, you need to define a project manager, and you need to described which type of sensitive data you are processing. 
 
-**CSC Project ID** : It can be sourced using the following command using the CLI        or from this link        or from SD Connect User . It defines and it is used for
+**CSC Project ID**: It can be sourced using the following command using the CLI        or from this link        or from SD Connect User . It defines and it is used for
 
 **CSC Project name**: MY CSC project ID (NNNNN)
 
