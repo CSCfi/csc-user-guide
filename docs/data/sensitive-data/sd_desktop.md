@@ -69,11 +69,9 @@ Here you can find the complete list of software and packages available in SD Des
 
 To import your data you need to:
 
-It is possible to visualize and import data saved in buckets belonging to your projects (note, the same project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
+It is possible to visualize and import data saved in buckets belonging to your projects. Note, the same project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
 
-With the following tool, you will be able to import data and automatically decrypt the data if you used SDS public key to encrypted them or to import encrypted data if you used your own encryption keys. 
-
-
+If you use SDS public key to encrypt the data you will be able to import and decrypt the data automatically with the following tool. If you use your own encryption keys instead, you can import the encrypted data. 
 
 ## Upload of specific scripts from GitHub
 
