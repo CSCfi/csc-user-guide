@@ -16,7 +16,6 @@ location.href = "{{ page.meta.redirect }}" + (anchor ? "#" + anchor : "")
         <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
         <meta name="robots" content="noindex">
         <link rel="canonical" href="{{ page.meta.redirect }}"> {% elif page.canonical_url %}
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
         <link rel="canonical" href="{{ page.canonical_url }}"> {% endif %} {% if page and page.meta and page.meta.author %}
         <meta name="author" content="{{ page.meta.author | first }}"> {% elif config.site_author %}
         <meta name="author" content="{{ config.site_author }}"> {% endif %} {% for key in [ "clipboard.copy", "clipboard.copied", "search.language", "search.pipeline.stopwords", "search.pipeline.trimmer", "search.result.none", "search.result.one", "search.result.other", "search.tokenizer" ] %}
@@ -59,30 +58,6 @@ input {
         }
         </style>
         {% endif %} {% endblock %}
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5406715-9"></script>
-
-        <script>
-            function getCookie(cname) {
-                var name = cname + "=";
-                var decodedCookie = decodeURIComponent(document.cookie);
-                var ca = decodedCookie.split(';');
-                for(var i = 0; i <ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                        return c.substring(name.length, c.length);
-                    }
-                }
-                return "";
-            }
-var consent=getCookie("cookieconsent_status")
-if(consent == "" || consent != "allow" ){
-    window['ga-disable-UA-5406715-9'] = true;
-}
-        </script>
 
                 <link rel="stylesheet" href="{{ 'assets/fonts/material-icons.css' | url }}"> {% if config.extra.manifest %}
                 <link rel="manifest" href="{{ config.extra.manifest | url }}"> {% endif %} {% for path in config["extra_css"] %}
@@ -177,38 +152,6 @@ if(consent == "" || consent != "allow" ){
             {% for path in config["extra_javascript"] %}
             <script src="{{ path | url }}"></script>
             {% endfor %} {% endblock %}
-            <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-            <script>
-                window.cookieconsent.initialise({
-                    "palette": {
-                        "popup": {
-                            "background": "#237afc"
-                        },
-                        "button": {
-                            "background": "#fff",
-                            "text": "#237afc"
-                        }
-                    },
-                   onStatusChange: function(status) {
-                    if(this.hasConsented()){
-                        cookieconsent.status = "allow";
-                        window['ga-disable-UA-5406715-9'] = false
-                        location.reload(); 
-                    }
-                    else{
-                        cookieconsent.status = "deny";
-                        window['ga-disable-UA-5406715-9'] = true
-                        document.cookie = `_gat= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${window.location.hostname};`;
-                        document.cookie = `_ga= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${window.location.hostname};`;
-                        document.cookie = `_gid= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${window.location.hostname};`;
-                        location.reload(); 
-
-                    }
-                },
-                
-                    "type": "opt-in"
-                });
-            </script>
         </body>
 
 </html>
