@@ -9,26 +9,25 @@ __SNAP__ is available in Puhti with following versions:
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
 * 7.0 (with snappy 6.0 and python 2.7.5)
 
-The 8.0 version has been installed as a singularity container. There are small differences in the commands between 7.0 and 8.0, see below
 ### Installed plugins 
 
 * Sentinel toolboxes (1,2,3) 
-* All Idepix processors __(only in 7.0)__
+* All Idepix processors (only in 7.0)
 * SMOS toolbox 
-* SNAPHU __(only in 7.0)__
+* SNAPHU (only in 7.0)
 * Radarsat toolbox 
 * PROBA-V toolbox
-* Sen2Cor (external tool) __(only in 7.0)__
+* [Sen2Cor](sen2cor.md) (external tool) (only in 7.0)
 
 You can install more plugins to your user directory from the SNAP Graphical user interface
 
 ## Usage
 
-SNAP is included in the __snap__ module and can be loaded with
+SNAP is included in the __snap__ module and can be loaded with:
 
 `module load snap`
 
-This loads the newest available version. You can load an older version with 
+This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
@@ -36,7 +35,7 @@ This loads the newest available version. You can load an older version with
 
 SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti or want to change the used folders. 
 
-After loading the module run
+After loading the snap module run
 
 `source snap_add_userdir <YOUR-PROJECTS-SCRATCH-FOLDER>`
 
@@ -47,27 +46,22 @@ You could also request a fast [nvme](../computing/running/creating-job-scripts-p
 `source snap_add_userdir $TMPDIR` with interactive jobs
 
 This scripts sets also Java temporary folder, it is set to be snap/temp subfolder in the folder you defined. If you want to set Java temporary folder to be somewhere else use:
-`export _JAVA_OPTIONS=-Djava.io.tmpdir=<SOME-FOLDER>`
+`export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.io.tmpdir=<SOME-FOLDER>"` after setting the user directory.
 
 !!! note
         The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
+
+### Java memory settings
+__By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
 
 ### Using SNAP with graphical user interface
 
 If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface on an interactive batch job session
 
-__SNAP 8.0__
 ```
 sinteractive -i
-<set up snap.userdir>
-singularity_wrapper exec snap
-```
-
-__SNAP 7.0__
-```
-sinteractive -i
-<set up snap.userdir>
-snap
+source snap_add_userdir $TMPDIR
+snap -J-xmx10G
 ```
 
 !!! note
@@ -75,37 +69,38 @@ snap
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool __gpt__ is a command line tool used for bulk processing. It can be run for example with the following commands
+The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti partition](../computing/running/batch-job-partitions.md).
 
-__SNAP 8.0__
+GPT command looks often something like this:
+
 ```
-singularity_wrapper exec gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
-```
-__SNAP 7.0__
-```
-gpt <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
+gpt -J-xmx10G <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
 ```
 
-Some relevant __gpt__ options include
+Some relevant __gpt__ options include:
 
+* __-J-xmx10G__    maximum memory used by Java.
 * __-q__    Number of threads the gpt instance will use. Set it to the number of CPU cores requested or more
 * __-c__    Cache size in bytes. Change this if storage space becomes an issue
 * __-x__    Clear internal tile cache after writing a complete row of tiles to output file. Add this if memory becomes an issue
 
-More information on the [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 
-There is a also a custom made __gpt_array__ command that allows the usage of gpt with [Puhti array jobs](../computing/running/array-jobs.md). It solves the problem of multiple jobs using the same cache folder. The command is otherwise the same as __gpt__ but you include the cache-folder's path as first argument. In an array job you can define that cache folder dynamically with the iterating environment variable __$SLURM_ARRAY_TASK_ID__ and make sure each job has an individual cache folder.
-__SNAP 8.0__
-```
-singularity_wrapper exec gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
-```
+See the links under references at the end of this page for additional info about GPT.
 
-__SNAP 7.0__
+Also the following command is very useful in creating the graphs for different operators. It can be executed in an interactive session
 ```
-gpt_array /scratch/<project>/snap/tmp_snap_userdir_"$SLURM_ARRAY_TASK_ID" <normal gpt arguments>
+sinteractive -i
+module load snap
+gpt <snap-operator> -h
 ```
 
-[Here is a full example of using gpt_array with Puhti array jobs](https://github.com/csc-training/geocomputing/tree/master/snap)
+`gpt --diag -J-Xmx60G -c 40G` can be used to see which memory and cache settings are used by `gpt`.
+
+#### GPT examples for Puhti
+
+* [Full examples how to run GPT in Puhti in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
+
+
 ### Using SNAP with the Python library snappy
 
 It is also possible to access SNAP functionalities from Python with the __snappy__ library.
@@ -128,8 +123,6 @@ Installing new packages to your HOME directory, see [Python](python.md#installin
 singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
 
-
-
 __SNAP 7.0__
 
 The SNAP 7.0 has a conda environment that includes pandas, geopandas, rasterio, rasterstats, sentinelsat, spyder
@@ -146,8 +139,10 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 * [SNAP homepage](http://step.esa.int/main/toolboxes/snap/)
 * [SNAP CSC example](https://github.com/csc-training/geocomputing/tree/master/snap)
-* [SNAP command line tutorial](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
+* [SNAP command line tutorial (GPT)](http://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf)
 * [SNAP wiki](https://senbox.atlassian.net/wiki/spaces/SNAP/overview)
 * [SNAP tutorials](http://step.esa.int/main/doc/tutorials/)
 * [snappy Python examples](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python)
+* [Creating a GPF Graph](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503590/Creating+a+GPF+Graph)
+* [Bulk Processing with GPT command](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503475/Bulk+Processing+with+GPT)
 
