@@ -42,7 +42,7 @@ performance has improved.
 | :----------------- | :---------------- | :--------------------------- | :----------- |
 | **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2 -march=native  |
 | **Intermediate**   | -O3 -march=native | -O2                    | -O3 -march=native |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
+| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops -mfma | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops -mfma |
 
 
 A detailed list of options for the Intel and GNU compilers can be found on the _man_
