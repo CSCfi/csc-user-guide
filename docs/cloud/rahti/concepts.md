@@ -21,11 +21,10 @@ These abstractions are objects, persistent entities in the Kubernetes system. Th
 unit in Kubernetes: when you run a workload in Kubernetes, it always runs in a
 pod. Kubernetes handles scheduling these pods on multiple servers. Pods can
 contain volumes of different types for accessing data. Each pod has its own IP
-address shared by all containers in the pod. In the most typical
+address shared by all containers in the pod, this IP address may change if the Pod gets killed and recreated. In the most typical
 case, a pod contains one container and perhaps one or a few different volumes.
 
-Pods are intended to be replaceable. Any data that needs to persist after a pod
-is killed should be stored on a volume attached to the pod.
+Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
 
 ![Pod](img/pods.png)
 
@@ -111,7 +110,7 @@ are typically not used on their own but rather as part of a **Deployment**
 contain a ReplicaSet and several pods. If you make a change that requires an
 update such as switching to a newer image for pod containers, the deployment
 ensures the change is made in a way that there are no service interruptions. It
-will perform a rolling update to replace all pods one by one with
+will perform a rolling update to kill all pods one by one and replace them with
 newer ones while making sure that end user traffic is directed towards working
 pods at all times.
 
