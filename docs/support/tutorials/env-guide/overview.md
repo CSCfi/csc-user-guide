@@ -55,7 +55,7 @@ is given.
     * [Replacing characters with tr](commands-for-data-processing.md#replacing-characters-with-tr)
     * [Replacing words and strings with sed](commands-for-data-processing.md#replacing-words-and-strings-with-sed)
 * [**Packing and compression tools**](packing-and-compression-tools.md)
-    * [Tar: packing several files into one file](packing-and-compression-tools.md#tar:-packing-several-files-into-one file)
+    * [Tar: packing several files into one file](packing-and-compression-tools.md#tar-packing-several-files-into-one file)
     * [Compressing files](packing-and-compression-tools.md#compressing-files)
 * [**Linux bash scripts**](linux-bash-scripts.md)
     * [Constructing a script file](linux-bash-scripts.md#constructing-a-script-file)
