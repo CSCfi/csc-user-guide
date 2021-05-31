@@ -41,7 +41,7 @@ is given.
     * [Using find to locate files](more-commands-for-managing-files.md#using-find-to-locate-files)
     * [File command tells the file type](more-commands-for-managing-files.md#file-command-tells-the-file-type)
     * [Count rows and characters with wc](more-commands-for-managing-files.md#count-rows-and-characters-with-wc)
-    * [Comparing two files with diff](more-commands-for-managing-files.md#comparing two files with diff)
+    * [Comparing two files with diff](more-commands-for-managing-files.md#comparing-two-files-with-diff)
     * [Using checksums to verify successful data storage or transfer](more-commands-for-managing-files.md#using-checksums-to-verify-successful-data-storage-or-transfer)
     * [Encrypting files with gpg](more-commands-for-managing-files.md#encrypting-files-with-gpg)
     * [Managing access permissions of files and directories](more-commands-for-managing-files.md#managing-access-permissions-of-files-and-directories)
