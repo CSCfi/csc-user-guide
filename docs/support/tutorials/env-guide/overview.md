@@ -1,6 +1,7 @@
 # Linux basics Tutorial for CSC
 
 * [Using Linux in command line](using-linux-in-command-line.md)
+   * [Files and directories in Linux])(using-linux-in-command-line.md#files-and-directories-in-linux)
 * [Editing text and viewing images](text-and-image-processing.md)
 * [Working with bash shell](working-with-bash-shell.md)
 * [More commands for managing files](more-commands-for-managing-files.md)
