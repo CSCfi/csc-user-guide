@@ -245,7 +245,7 @@ to share some data or execute self written programs the access
 permissions need to be modified.
 
 Note that the project specific disk areas in Puhti and Mahti supercomputers 
-are an execption to this rule.̣ There by default also other project members, 
+are an exception to this rule.̣ There by default also other project members, 
 belonging to the same unix group, have full rights to files created by other 
 usrers.
 
