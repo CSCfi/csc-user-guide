@@ -247,7 +247,7 @@ permissions need to be modified.
 Note that the project specific disk areas in Puhti and Mahti supercomputers 
 are an exception to this rule.̣ There by default also other project members, 
 belonging to the same unix group, have full rights to files created by other 
-usrers.
+users.
 
 
 You can check the access permissions with command **ls -l**. Let's take
