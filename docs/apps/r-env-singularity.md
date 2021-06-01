@@ -346,12 +346,14 @@ For analyses requiring a single node, `plan(multisession)` and `plan(multicore)`
 
 To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
 
-The R script below could be used to compare analysis times using sequential, multisession and multicore strategies.
+The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. Note that we need to separately specify `options(future.availableCores.methods = "Slurm")` for worker allocation to proceed as expected.
 
 ```r
 library(future)
 library(tictoc)
 library(furrr)
+
+options(future.availableCores.methods = "Slurm")
 
 # Different future plans (choose one) 
 # (Note: three workers used for parallel options)
@@ -375,6 +377,8 @@ For multi-node analyses using `plan(cluster)`, the job can be submitted using th
 
 ```r
 library(future)
+
+options(future.availableCores.methods = "Slurm")
 
 cl <- getMPIcluster()
 plan(cluster, workers = cl)
