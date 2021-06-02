@@ -19,4 +19,42 @@ var consent=getCookie("cookieconsent_status")
 if(consent == "" || consent != "allow" ){
     window['ga-disable-{{ analytics[0] }}'] = true;
 }
+function fix_youtube(){
+var frames = document.getElementsByTagName('iframe');
+
+    for (var idx =0; idx< frames.length ; idx++){
+
+
+        
+        youtube_id=frames[idx].srcdoc
+        youtube_link = `https://www.youtube.com/watch?v=${youtube_id}`
+        youtube_embed_link=`https://www.youtube.com/embed/${youtube_id}`
+        var consent=getCookie("cookieconsent_status")
+        logo_w=frames[idx].width /8;
+        logo_h=frames[idx].height/8;
+        
+        if( consent == "allow"){
+            frames[idx].src=youtube_embed_link
+            frames[idx].removeAttribute("srcdoc")
+        }
+        else{
+        content =`
+            <style>
+            .top {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+ }
+            </style>
+
+            <a href=${youtube_link} target="_blank"><img src=https://img.youtube.com/vi/${youtube_id}/0.jpg width=${frames[idx].width} height=${frames[idx].height} ></a>
+            <a href=${youtube_link} target="_blank"><img class="top" width=${logo_w} height=${logo_h} src=/img/youtube.png></a>
+        `
+        frames[idx].srcdoc=content
+        }
+    }
+    
+    }
+window.onload=fix_youtube 
 </script>
