@@ -114,7 +114,7 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
  !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
  
  
-1. Access your secure computing environment in SD Destkop. If you did not install Crypt4GH yet .........
+1. Access your secure computing environment in SD Desktop. If you did not install Crypt4GH yet .........
 1. Next, open Crypt4GH and click on _load Your Private Key_.  
 1. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
 1. Click on _Open_. 
