@@ -52,6 +52,7 @@ var frames = document.getElementsByTagName('iframe');
             <a href=${youtube_link} target="_blank"><img class="top" width=${logo_w} height=${logo_h} src=https://www.pngkit.com/png/full/2-21145_youtube-logo-transparent-png-pictures-transparent-background-youtube.png></a>
         `
         frames[idx].srcdoc=content
+        frames[idx].scrolling="no"
         }
     }
     
