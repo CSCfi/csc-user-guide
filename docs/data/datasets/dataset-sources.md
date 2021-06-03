@@ -11,8 +11,8 @@
 
 |[Using datasets](using-datasets.md) <img width=200/>	|Storing and moving data <img width=200/> |[Publishing datasets](publishing-datasets.md) <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
-|[Overview](using-datasets.md#header1) |[Moving data](../moving/scp.md)|[Overview](publishing-datasets.md#header1)  |
+|[Overview](using-datasets.md#header1) |[Overview](hosting-datasets-at-CSC.md#header1)|[Overview](publishing-datasets.md#header1)  |
 |[Allas datasets using Fairdata](using-datasets.md#header2)|[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#header2) | 
 |[Versioning and documenting](using-datasets.md#header3) |[Kaivos](../kaivos/overview.md)|[Licensing & rights](publishing-datasets.md#header3) |
-|[Processing and analysing data](using-datasets.md#header4) |[Hosting datasets](hosting-datasets-at-CSC.md)|[Access control](publishing-datasets.md#header4)  |
+|[Processing and analysing data](using-datasets.md#header4) |[Moving data](../moving/scp.md)|[Access control](publishing-datasets.md#header4)  |
 |[Building data lakes](using-datasets.md#header5)  |  |[Preservation](publishing-datasets.md#header5) |
