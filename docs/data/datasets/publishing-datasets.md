@@ -10,11 +10,17 @@ most important future user for datasets is the original author, so that the effo
 
 ### Tools to host and publish data
 
-Fairdata / B2Share, Allas + Qvain (https://wiki.csc.fi/SDS/AllasDatasetsUsingFairdata)
+[CSC's tools for hosting and storing data](https://research.csc.fi/en/service-catalog#store)
 
-How to make dataset available in CSC's computing environment, ks. https://research.csc.fi/en/gis_data_in_csc_computing_env → GIS Data in Allas
+[How to publish your dataset with Fairdata](https://www.fairdata.fi/en/user-guides/fairdata-quick-guide/)
 
-=> pohja-ajatuksia löytyy täältä: https://wiki.csc.fi/ResourceAllocation/DataSetProcess?validation_key=50beba6f122c2a4b34aa1f7f56138edb
+[Using Allas to host a data set for a research project](../Allas/allas_project_example/)
+
+[Example case 1: Sharing data during research project, publish FAIR when ready](https://research.csc.fi/example-case-1)
+
+[Example case 2: Data lifecycle at CSC – from collection to preservation](https://research.csc.fi/example-case-2)
+
+[How to make dataset available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
 
 <a name="header2"></a>
 ## Persistent identifiers
