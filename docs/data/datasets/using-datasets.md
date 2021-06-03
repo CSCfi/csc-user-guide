@@ -14,13 +14,24 @@ In this phase the actual processing and analysis of data is being done. Here the
 ## Versioning and documenting 
 => perussisältö: join versioning of code & data
 => uutta sisältöä?
+=> lisensoinnista tuotu tänne, sama teksti myös publishiningissa
+
+### What if the dataset terms of use are made by the producers themselves?
+
+The dataset creator reserves the right to specify the terms of use for their dataset, even without ready-made licenses. In such cases, the terms of use specified must be observed, but you can also negotiate the terms of use by contacting the owner of the dataset.
+
+### What if no terms of use have been specified for data?
+
+If there are no terms of use or the terms of use given are unclear, you should always contact the owner of the dataset in question.
 
 <a name="header4"></a>
 ## Processing and analysing data
-=> tämä vain linkkislistana muihin paikkoihin
-=> https://docs.csc.fi/support/tutorials/da-guide/
+
+ Read more in CSC's [Data analysis guide](../support/tutorials/da-guide/)
+ 
+ [CSC's services for processing and analysing data](https://research.csc.fi/en/service-catalog#compute)
 
 <a name="header5"></a>
 ## Building data lakes
-=> uutta sisältöä?
+=> uutta sisältöä - pyydetty Aleksilta.
 
