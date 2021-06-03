@@ -12,7 +12,7 @@ window.cookieconsent.initialise({
     "message": "Our website uses cookies to ensure you get the best experience on our website. Our website may also include third party cookies. ",
     "link": "Read more",
     "href": "https://www.csc.fi/en/use-of-cookies",
-    "policy": 'Cookie Policy',
+    "policy": 'Cookie Preferences',
     'allow': 'Approve',
     'deny': 'Refuse'    
     }
