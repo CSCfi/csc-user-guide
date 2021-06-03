@@ -14,7 +14,7 @@ In this phase the actual processing and analysis of data is being done. Here the
 ## Versioning and documenting 
 => perussisältö: join versioning of code & data
 => uutta sisältöä?
-=> lisensoinnista tuotu tänne, sama teksti myös publishiningissa
+=> lisensoinnista tuotu tänne nämä kaksi:
 
 ### What if the dataset terms of use are made by the producers themselves?
 
