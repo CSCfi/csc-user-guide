@@ -28,7 +28,7 @@
    - You can use the same text in alt-txt and mouse over
    - Images should be of high contrast and large enough font within them
 - **Videos:** 
-   - Use `title` to describe the video content: `<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/PrgMFna3DKw?rel=0" title="Intro to Geocomputing" width="560"></iframe>`
+   - Use `title` to describe the video content: `<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/PrgMFna3DKw?rel=0" title="Intro to Geocomputing" width="560"></iframe>`
    - Avoid presenting something ONLY as a video, and use captions/subtitles in video (easy to add in Youtube). 
    - Also, do present important or difficult to follow things also with videos.
 - Headers:
@@ -38,6 +38,10 @@
 - Lists and clear titles: good
 - Avoid using loadable pdfs
 - Avoid using only color to signal some meaning
+
+## Embeded Videos
+ - Iframes to youtube need to use the `srcdoc` attribute instead of `src`, this is due to a workaround
+ we use to avoid cookies if consent has not been granted. 
 
 ## Images, linked documents
  - Put all images in `/img` folder in docs root
