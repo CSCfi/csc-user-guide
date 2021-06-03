@@ -26,9 +26,10 @@ window.cookieconsent.initialise({
         else{
             cookieconsent.status = "deny";
             window[`ga-disable-${window._csc_ga_id}`] = true
-            document.cookie = `_gat= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${window.location.hostname};`;
-            document.cookie = `_ga= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${window.location.hostname};`;
-            document.cookie = `_gid= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${window.location.hostname};`;
+            cscfi_domain=`${window.location.hostname}`.split(".").slice(-2).join('.');
+            document.cookie = `_gat= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${cscfi_domain};`;
+            document.cookie = `_ga= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${cscfi_domain};`;
+            document.cookie = `_gid= ; expires= Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain= ${cscfi_domain};`;
             location.reload(); 
 
         }
