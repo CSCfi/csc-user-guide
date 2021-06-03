@@ -3,5 +3,5 @@
 => https://wiki.eduuni.fi/pages/viewpage.action?pageId=154446651
 
  - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
- - [Tools for client side encryption for Allas](../Allas/allas_encryption/)
+ - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
  - 
