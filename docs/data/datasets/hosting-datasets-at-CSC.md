@@ -1,3 +1,9 @@
-# Hosting datasets at CSC 
+# Storing, hosting and moving datasets at CSC 
 
-=> pohja-ajatuksia löytyy täältä: https://wiki.csc.fi/ResourceAllocation/DataSetProcess?validation_key=50beba6f122c2a4b34aa1f7f56138edb
+[CSC's services fore storing data] (https://research.csc.fi/en/service-catalog#store)
+
+Read more about how [Allas)](../Allas/index.md) can be used for storing datasets
+
+Read more about [moving datasets in CSC's environment)](../moving/scp.md)
+
+
