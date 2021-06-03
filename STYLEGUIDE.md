@@ -39,7 +39,7 @@
 - Avoid using loadable pdfs
 - Avoid using only color to signal some meaning
 
-## Embeded Videos
+## Embedded Videos
  - Iframes to youtube need to use the `srcdoc` attribute instead of `src`, this is due to a workaround
  we use to avoid cookies if consent has not been granted. 
 
