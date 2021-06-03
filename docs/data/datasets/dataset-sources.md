@@ -9,7 +9,7 @@
 |[How to manage sensitive data](how-to-manage-sensitive-data.md)|[Data types](metadata-and-documentation.md#header4)|[Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4) |
 |  |  | |
 
-|[Using datasets](using-datasets.md) <img width=200/>	|Storing and moving data <img width=200/> |[Publishing datasets](publishing-datasets.md) <img width=200/> |
+|[Using datasets](using-datasets.md) <img width=200/>	|[Storing, hosting and moving data](hosting-datasets-at-CSC.md) <img width=200/> |[Publishing datasets](publishing-datasets.md) <img width=200/> |
 |:-----------------------:|:-----------------------:|:----------------------------------:|
 |[Overview](using-datasets.md#header1) |[Overview](hosting-datasets-at-CSC.md#header1)|[Overview](publishing-datasets.md#header1)  |
 |[Allas datasets using Fairdata](using-datasets.md#header2)|[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#header2) | 
