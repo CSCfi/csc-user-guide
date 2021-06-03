@@ -15,16 +15,16 @@ The ownership, copyrights and license of data is often best defined for the whol
 The first phase of dataset driven work is where datasets are gathered. It is possible to locate and take into use existing well-defined datasets or to create new datasets by sourcing data and organising it into datasets. The gathering phase lays the foundation on which data-driven computing and analysis is built on. During this phase the focus should be on making sure licenses and terms of use for data are known and match the intended use, asserting that the origin for data is known for good provenance and that data is organised and documented well.
 
 <a name="header3"></a>
-## Etsin, B2Find, Paituli etc
+## Discover research data
 
-=> Fairdata, Eudat ja esimerkkejä tiedealaspesifeistä hyvistä lähteistä
+When utilising and re-using data collected or produced by others the origin, content, location, license, restrictions of use, and other necessary information are needed. Search services include descriptive information (metadata) on research datasets. The better the description of the dataset is, the easier it is to find and use it. Existing research datasets may be available for reuse.
+
+[See CSC's services for discovering datasets](https://research.csc.fi/service-catalog#open)
 
 <a name="header4"></a>
 ## Specific datasets hosted in CSC computing environment
 
-=> nykyinen https://docs.csc.fi/data/datasets/: => muotoilua syytä tarkentaa, ettei synny kuvaa, että tässä on kaikki meidän hostaamat datasetit
-
-CSC hosts or provides access to several datasets on different platforms.
+CSC also hosts or provides access to several datasets on different platforms.
 
 ### Biosciences
 
