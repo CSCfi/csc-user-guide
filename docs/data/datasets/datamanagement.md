@@ -67,8 +67,10 @@ Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (
 
 ### More reading on data management
 
-The Finnish Social Science Data Archive's [Data Management Guidelines](http://www.fsd.uta.fi/aineistonhallinta/en/) 
+The Finnish Social Science Data Archive's [Data Management Guidelines](http://www.fsd.uta.fi/aineistonhallinta/en/)
+
 The Academy of Finland Open Science pages - TODO: Linkki
+
 [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on Fairdata.fi website
 
 <a name="header3"></a>
