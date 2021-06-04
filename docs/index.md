@@ -14,7 +14,9 @@ template: main-index.html
 
 
 <h1 id="quicklinktitle"> Quick links </h1>
-
+<span class="index-quicklinks">
+[What's new](support/whats_new.md)
+</span><br>
 <span class="index-quicklinks">
 [Puhti and Mahti Overview](computing/overview.md) 
 </span><br>

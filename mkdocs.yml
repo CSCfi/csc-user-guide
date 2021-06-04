@@ -168,6 +168,7 @@ nav:
      - FAQ: support/faq/index.md
      - Training material: support/training-material.md
      - Contact: support/contact.md
+     - What's new: support/whats_new.md
 
 theme:
   name: material
