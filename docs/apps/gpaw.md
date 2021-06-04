@@ -36,13 +36,15 @@ GPAW is free software available under GPL, version 3+
 
 ## Usage
 
-The default version that is available with `module load gpaw` is subject to change, so we recommended to always load a specific GPAW version:
+Since the default version, that is available with `module load gpaw`, is
+subject to change when new versions are installed, we recommend to always load
+a specific GPAW version:
 
 ```bash
 module load gpaw/version
 ```
 
-!!! warning "Note:" 
+!!! warning "Note:"
     In CSC environment GPAW calculations are run with the **gpaw-python** command.
 
 **Example parallel batch script for Puhti**
@@ -85,7 +87,7 @@ srun gpaw-python input.py
 
 # Note: only the modules with "-omp" ending supports OpenMP
 # (default version in Mahti is OpenMP enabled)
-module load gpaw/21.1.0-omp  
+module load gpaw/21.1.0-omp
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
