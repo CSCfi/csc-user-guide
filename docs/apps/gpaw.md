@@ -19,7 +19,7 @@ Some features of the software:
 
 ## Available
 
--   Puhti: 1.4.0, 1.5.2, 20.1.0, 20.10.0, 21.1.0
+-   Puhti: 20.1.0, 20.10.0, 21.1.0
 -   Mahti: 20.1.0, 20.10.0, 21.1.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
@@ -36,14 +36,11 @@ GPAW is free software available under GPL, version 3+
 
 ## Usage
 
-Initialize default version:
+Load specific GPAW version:
 
 ```bash
-$ module load gpaw
+$ module load gpaw/version
 ```
-
-A specific version can be initialized with `module load gpaw/version`, e.g.
-`module load gpaw/20.1.0`
 
 !!! warning "Note:" 
     In CSC environment GPAW calculations are run with the **gpaw-python** command.
@@ -63,7 +60,7 @@ A specific version can be initialized with `module load gpaw/version`, e.g.
 # this script runs a 80 core (2 full nodes) gpaw job, requesting
 # 30 minutes time and 2 GB of memory for each core
 
-module load gpaw
+module load gpaw/21.1.0
 
 srun gpaw-python input.py
 ```
@@ -88,7 +85,7 @@ srun gpaw-python input.py
 
 # Note: only the modules with "-omp" ending supports OpenMP
 # (default version in Mahti is OpenMP enabled)
-module load gpaw  
+module load gpaw/21.1.0-omp  
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -109,7 +106,7 @@ srun gpaw-python input.py
 # this script runs a 1280 core (10 full nodes) gpaw job, using pure
 # MPI parallelization requesting 30 minutes time.
 
-module load gpaw
+module load gpaw/21.1.0
 
 export OMP_NUM_THREADS=1
 
