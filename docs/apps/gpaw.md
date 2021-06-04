@@ -36,10 +36,10 @@ GPAW is free software available under GPL, version 3+
 
 ## Usage
 
-Load specific GPAW version:
+The default version that is available with `module load gpaw` is subject to change, so we recommended to always load a specific GPAW version:
 
 ```bash
-$ module load gpaw/version
+module load gpaw/version
 ```
 
 !!! warning "Note:" 
