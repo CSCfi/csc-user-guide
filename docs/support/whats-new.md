@@ -1,6 +1,6 @@
 # What's new
 
-[toc]
+[TOC]
 
 ## MPHIC modules no longer work
 
