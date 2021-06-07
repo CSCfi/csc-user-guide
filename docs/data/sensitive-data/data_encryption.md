@@ -16,7 +16,9 @@ You can download here:
 or copy /paste the key in the command line tool (CLI):
 
 -----BEGIN CRYPT4GH PUBLIC KEY-----
+
 dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
+
 -----END CRYPT4GH PUBLIC KEY-----
 
  
