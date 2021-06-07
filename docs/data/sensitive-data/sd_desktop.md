@@ -3,7 +3,6 @@
 
 ## User Interface and Login 
 
- 
 To access SD Desktop you need:
 
 * **a CSC account**
@@ -12,7 +11,6 @@ To access SD Desktop you need:
 
 To import (or download) encrypted sensitive data to SD Desktop you need:
 * **service access to Allas** (CSC cloud storage solution). 
-
 
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. (last not trhough yet).
 
@@ -24,6 +22,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 ## Step1. Launching your private computing environment (or VM)
+
 
 Once you Login in SD Desktop _Homepage_ you can launch your VM by clicking on _Go to the Launching page_. 
 
@@ -69,19 +68,21 @@ Heavy Computation :Parallel computing of large datasets (e.g. machine learning)
 
 
 ## Step2. Access to the computing environment and software installation
+
  
 From SD Desktop _Homepage_ you can access  _Recent Connections_ or _All connections_ and open the VM with double click.
 
  ![](img/SDDkScreenshot_3.png)
  
-Once the computing environment is open, you can start the installation of necessary software or packages searching ---- and using the following command-------
+Once the computing environment is open, you can start the installation of necessary software or searching for specific packages using the search bar or  using the following command:
 
-Here you can find the complete list of software and packages available in SD Desktop: (link ?)
+`` bla bla bla``
+
 
 
 !!! Note: only the project manager or group leader can launch a new VM.  
 
-!!! Note: if you and your colleagues want to access the same computing enviroment in SD Desktop you all need to belong to the same CSC project as project members.
+!!! Note: if you and your colleagues want to ***access the same computing enviromen*** in SD Desktop you all need to belong to the ***same CSC project as project members.***
 
  
 ## Data upload 
