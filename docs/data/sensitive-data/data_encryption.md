@@ -5,6 +5,20 @@ For data encryption we suggest the use of **Crypt4GH**, a tool originally design
 !!!Note
 If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
+You can download here:
+
+
+
+
+
+
+
+or copy /paste the key in the command line tool (CLI):
+
+-----BEGIN CRYPT4GH PUBLIC KEY-----
+dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
+-----END CRYPT4GH PUBLIC KEY-----
+
  
 
 ## Background information 
