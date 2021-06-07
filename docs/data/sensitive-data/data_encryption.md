@@ -43,7 +43,7 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 <img width="448" alt="SDEnScreenShot_1" src="https://user-images.githubusercontent.com/83574067/121065445-7205b100-c7d1-11eb-97eb-d7a093f8121c.png">
 
- ![SDEnScreenShot_1](img/SDEnScreenshot_1.png)
+ ![](img/SDEnScreenshot_1.png)
  
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
 
@@ -75,6 +75,7 @@ All the fields must be filled before file encryption will be started
 ````
 
 
+
 <img width="512" alt="SDEnScreenshot_3" src="https://user-images.githubusercontent.com/83574067/121065552-8fd31600-c7d1-11eb-8c3d-7cd21464a4bd.png">
 
 
@@ -103,6 +104,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 * If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
 
+
 <img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
 
 ![](img/SDEnScreenshot_5.png)
@@ -114,6 +116,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 1. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
 1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or CSC Sensitive Data Services public key (csc-sd-services.pub) if you prefer your data to be compatible with SD Desktop automated decryption.
 1. Click on _Open_.
+
 
 
 <img width="623" alt="SDEnScreenshot_6" src="https://user-images.githubusercontent.com/83574067/121065628-a5484000-c7d1-11eb-8ded-9bd01ba7f277.png">
@@ -137,7 +140,9 @@ Encryption has finished.
 
 Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
 ````
+
 Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+
 
 
 <img width="626" alt="SDEnScreenshot_7" src="https://user-images.githubusercontent.com/83574067/121065650-ab3e2100-c7d1-11eb-8ec6-12e9d3863f33.png">
@@ -157,11 +162,7 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
 1. Next click on _Decrypt File_. 
 1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file. 
 
-If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
-
-
-<img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065722-c14be180-c7d1-11eb-93c3-c2ed4fb48da1.png">
-
+If you don't select your public key, the activity log will display the following (the decryption will be executed anyway):
 
 ````
 <img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065675-b2fdc580-c7d1-11eb-88ed-7a7f449ed950.png">
@@ -177,6 +178,7 @@ Decryption has finished
 
 Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 ````
+
 
 
 ![](img/SDEnScreenshot_8.png)
@@ -241,12 +243,14 @@ Environment variables:
 
 **Step 2. Generate a permanent public-private keypair**
 
+
 ```
 $ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
 ```
 where _ sk examplename.sec_ is your private secrete (sk) key and _ pk examplename.pub_ is your public key (pk).
 
 The tool will then ask you to input your private key password. Use a strong password.
+
 ```
 Passphrase for examplename.sec: 
 ```
@@ -305,6 +309,7 @@ The tool will ask you to input your private key password:
 ```
 Passphrase for alice.sec:
 ```
+
 And output the decripted file: 
 
 ```
@@ -314,6 +319,7 @@ And output the decripted file:
 
 
 As an example you can check:
+
 * a [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) in which Bob sends an encrypted message to Alice
 
 1. the message is encrypoted by Bob, using is own private key and Alice public key
@@ -339,6 +345,7 @@ Notes:
 4) Add link to our public key
 5) video with data owner or seq facility or multiple data owners
 6) example video SD better not?
+7) CLI with better example? 
 
  
  
