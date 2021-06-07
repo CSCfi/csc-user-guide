@@ -364,6 +364,12 @@ Notes:
 5) video with data owner or seq facility or multiple data owners
 6) example video SD better not?
 7) CLI with better example? 
+8) From K: Now I can't anymore decrypt the encrypted file (not with GUI or command line client) as I would need to have csc private key for that.
+Having my own private key in the "private key" field does not help as this key is not used in the cryp4gh header encryption.
+
+So if you use the GUI with CSC public key you can use the encrypted data only in the SD-desktop environment.
+
+9) Another confusing feature in the GUI is that if a file with the default encrypted file name already exists, it does not do anything: It does not override the old file or tell the user that encryption was not done due to overlapping file name.
 
  
  
