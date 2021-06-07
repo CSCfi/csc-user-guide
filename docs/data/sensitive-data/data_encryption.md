@@ -56,7 +56,7 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 Next you call follow these steps:
 
-**Step 1. Generate your encryption keys.**
+## **Step 1. Generate your encryption keys.**
 
 1. Open the application and	click on _Generate Keys_ (on the top right corner). 
 1. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
@@ -96,7 +96,7 @@ If you lose or forget your private key password you will be unable to decrypt th
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
 
-**Step 2. Prepare your files.**
+## **Step 2. Prepare your files.**
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
@@ -109,7 +109,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 ![](img/SDEnScreenshot_5.png)
 
-**Step 3. Load the encryption keys.**
+## **Step 3. Load the encryption keys.**
 
 1. Click on _Load My Private Key_ button.
 1. Select your private key (name_surname.crypt4gh.key).
@@ -126,7 +126,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 !!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing enviroment. 
 
  
-**Step 4. Upload and encrypt the file /zipped folder.**
+## **Step 4. Upload and encrypt the file /zipped folder.**
 
 1. Click on _Select File_ and choose the file or zipped folder that you wish to encrypt. 
 1. Click on _Open_ and on _Encrypt File_. 
@@ -150,7 +150,7 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
 
 ![](img/SDEnScreenshot_7.png)
 
- **Step 5. Data decryption.**
+ ## **Step 5. Data decryption.**
  
  !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
  
@@ -191,7 +191,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
  
- **Step 1. Install the latest version of Crypt4GH encryption tool. ** 
+ ## **Step 1. Install the latest version of Crypt4GH encryption tool. ** 
  
  Choose one of the following options. Python 3.6+ required to use the crypt4gh encryption utility.
  
@@ -241,7 +241,7 @@ Environment variables:
 ```
 
 
-**Step 2. Generate a permanent public-private keypair**
+## **Step 2. Generate a permanent public-private keypair**
 
 
 ```
@@ -256,7 +256,7 @@ Passphrase for examplename.sec:
 ```
 
 
-**Step 3. Encrypt the file or directory**
+## **Step 3. Encrypt the file or directory**
 
 Load your private or secrete key (_sk examplename.sec_), your public key (_pk examplename.pub_) or a recipient public key and load the file or directory you want to encrypt. 
 In this example we are loading two recipients public keys (_pk sds.pub_) and (_pk secondrecipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
@@ -290,7 +290,7 @@ If you add the SDS public key your data to be decrypted automatically when uploa
 Programmatically you can add more than one public key (no limit?). This could be useful in case the data are originally encrypted by a data owner or a sequencing facility using your public key.
 
 
-**Step 4. Data Decryption**
+## **Step 4. Data Decryption**
 
 If you did not use SDS public key you need to decrypt the data in SD Desktop. Login into your private computing environment and first install Crypt4GH:
 
