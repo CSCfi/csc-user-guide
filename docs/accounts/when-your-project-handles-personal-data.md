@@ -16,7 +16,7 @@ If you do not know how to fill in the form, please contact the data protection o
 Note also, that you can always edit and refine this description on your project's information page in MyCSC by clicking the pen icon, 
 if the processing of personal data changes over time in your research project, or download the description as a PDF (see screenshot below).
 
-![](images/small/Description of processing activities_MyCSC.png)
+![](images/small/description-of-processing-activities_MyCSC.png)
 
 ## Data processing agreement 
 [The General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use) with 
