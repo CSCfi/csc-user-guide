@@ -37,9 +37,9 @@ The new data processing agreement and the description of processing activities f
 Services for Research and Education, if personal data is processed. 
 
 Please refer to:
-* [The General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)
-* [The Data Processing Agreement](https://research.csc.fi/data-processing-agreement)
-* [Service descriptions](https://research.csc.fi/en/service-catalog)
-* [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+- [The General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)
+- [The Data Processing Agreement](https://research.csc.fi/data-processing-agreement)
+- [Service descriptions](https://research.csc.fi/en/service-catalog)
+- [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
 to find more detailed information on how we as data processor protect your personal data and you can assess the suitability of the service for the personal data processing activities you plan to do.
