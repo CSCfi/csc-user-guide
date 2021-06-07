@@ -110,7 +110,11 @@ SD Desktop is not connected to the internet for security reasons. Thus, to expor
 !!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with crypth4GH. 
 
 
-![Screenshot from 2021-06-04 13-42-40](https://user-images.githubusercontent.com/83574067/121056631-0e768600-c7c7-11eb-98c7-2f88f7d6b63b.png)
+
+
+            SDEnScreenshot_8.png
+          
+
 
 
 
