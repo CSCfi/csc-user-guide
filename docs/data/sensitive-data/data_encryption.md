@@ -3,7 +3,7 @@
 For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses **asymmetric encryption**.   
 
 !!!Note
-If you include SDS public key during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
+If you include SDS public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
  
 
@@ -18,7 +18,7 @@ There are different encryption methods available that facilitate secure data sha
 * **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair.  
 
 
-!!! Note. Nomenclature when using the GUI and CLI:
+!!! Note. Differences in nomenclature when using Crypt4GH  graphical user interface (GUI)  and command line tool (CLI):
 
 * a **private key** is abbreviated  to **sk**  (as secrete key) in the command line tool. When you generate a private secrete key with Crypt4GH the file extension is **.sec**
 * a **public key** is abbreviated to **pk** in the command line tool. When you generate a public key the file extension is **.pub**
@@ -290,11 +290,11 @@ add here possible erros?
 
 
 Notes:
-encryption with CLI requires to zip a folder also?
+encryption with CLI requires to zip/ compress a folder also?
 how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
 where do they find the data?
-where do they find the sds public key and how to we call it?
-video with data woner or seq facility or multiple data owners
+where do they find the sds public key and how to we call it? Add link
+video with data owner or seq facility or multiple data owners
 
  
  
