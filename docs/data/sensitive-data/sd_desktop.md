@@ -26,6 +26,8 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 Once you Login in SD Desktop _Homepage_ you can launch your VM by clicking on _Go to the Launching page_. 
 
+<img width="607" alt="SDDkSreenshot_1" src="https://user-images.githubusercontent.com/83574067/121067523-d590de00-c7d3-11eb-9fa9-e4675ab76f97.png">
+
  ![](img/SDDkScreenshot_1.png)
  
 Here you can:
@@ -71,6 +73,9 @@ Heavy Computation :Parallel computing of large datasets (e.g. machine learning)
 
  
 From SD Desktop _Homepage_ you can access  _Recent Connections_ or _All connections_ and open the VM with double click.
+
+<img width="641" alt="SDDkSreenshot_3" src="https://user-images.githubusercontent.com/83574067/121067560-e04b7300-c7d3-11eb-81c0-db5bf0eb81f3.png">
+
 
  ![](img/SDDkScreenshot_3.png)
  
