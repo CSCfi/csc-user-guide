@@ -12,6 +12,8 @@ To access SD COnnect you need:
 Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/
 using any modern web browser.
 
+!!! Note: all the data uploaded to SD Connect need to be encrypted. Checl the previous paragraph for more informations about encryption with Crypt4GH and CSC Sensitive Data Services Public encryption key.
+
 !!!Note: Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
@@ -25,7 +27,6 @@ SD Connect Browser page shows the containers available in your CSC project, as w
 
 ![](img/SDConScreenshot_1.png)
 
-The container can be opened with a double-click, or if the table row is active, enter.
 Any container can be opened, and the contents (uploaed files or folders) viewed. The object page shows information on the objects, e.g.
 
         The object name
@@ -42,12 +43,13 @@ Any container can be opened, and the contents (uploaed files or folders) viewed.
 ![](img/SDConScreenshot_2.png)
 
 
-On the top left corner, you can *select your CSC project* from the drop down menu bar. 
+On the top left corner, you can *select one of your CSC project* from the drop down menu bar. 
 
 
-![](img/SDConScreenshot_2.png)
+![](img/SDConScreenshot_3.png)
 
-## User Information
+
+## User Information ( this should be changed to Project information before the 22th)
 
 Behind the **User information** button in the front page, a user information dashboard is displayed. The dashboard displays statistics about the current resource usage, e.g.
 
@@ -59,15 +61,77 @@ Behind the **User information** button in the front page, a user information das
         
         SD Connect account ( also defined as project ID when using the command line tool)
 
-Additional information on different billing details is also provided, in the links contained in the dashboard bottom tile.
+
+![](img/SDConScreenshot_4.png)
 
 ## Shared
 
 In the **Shared** page you can:
 
-* in **Shared to the project** visualize the containers or bukets that other CSC users shared with you: From this view the shared access can be revoked, a new share initiated, or existing access synchronized to the sharing back-end, thus enabling it to be queried from the back-end in the future. (?)
 
-* in **Shater with the project** visualize the containers or bukets that you shared with other CSC users: From this view the granted access can be viewed, and any container can be opened just like when using the normal container browsing view. All features available in the ordinary container view work, such as downloading, uploading (if write access is granted to the container) and copying the container.
+* in **Shared to the project** visualize the containers or bukets that other CSC users shared with you: 
+
+From this view the shared access can be revoked, a new share initiated, or existing access synchronized to the sharing back-end, thus enabling it to be queried from the back-end in the future. (?)
+
+
+![](img/SDConScreenshot_5.png)
+
+* in **Shater with the project** visualize the containers or bukets that you shared with other CSC users: 
+
+From this view the granted access can be viewed, and any container can be opened just like when using the normal container browsing view. All features available in the ordinary container view work, such as downloading, uploading (if write access is granted to the container) and copying the container.
+
+
+![](img/SDConScreenshot_6.png)
+
+# Buket or Container creation in SD Connect
+
+
+Naming: 
+
+
+
+
+
+# Drag and Drop data upload (limits)
+
+
+# Data Download
+
+
+# Data Sharing  from your project to  other CSC users's project
+
+
+
+# Data Sharing from other CSC users to your project
+
+
+# Container deletion
+
+
+
+# Data upload using CLI for SD Connect
+
+
+## Linux enviroment
+
+
+## Windowns enviroment
+
+
+## MacoS
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
