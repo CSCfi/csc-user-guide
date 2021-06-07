@@ -394,7 +394,12 @@ So if you use the GUI with CSC public key you can use the encrypted data only in
 10) Fix the instructions of the CLI
 
  
- 
+ or the data encryption there are many options
+1. use crypt4gh and CSC's public key, so the data is automatically decrypted when you download it
+2. use crypt4gh and your own public key, then you need to upload your private key also, and use that to decrypt your files manually after you have downloaded them
+3. pack your files with 7zip and put a password to the compressed archive, upload that, and in your VM you need to unpack it and remember the password you used to secure it
+4. any other encryption method you want to use, as long as sensitive data is encrypted
+5. BONUS: non-sensitive data doesn't need to be encrypted (as far as I know)
  
  
 
