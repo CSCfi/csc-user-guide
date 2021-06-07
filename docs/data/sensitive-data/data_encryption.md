@@ -44,7 +44,7 @@ There are different encryption methods available that facilitate secure data sha
 
 !!! Note. If you are using the GUI and include CSC Sensitive Data Services public key (csc-sd-services.pub), the only way in which you can then access your data is in SD Desktop. The CLI, supports the use or two or more public keys at the same time, thus its use is more flexible. 
 
-## Crypt4GH graphical user interface **(Beginner's guide to data encryption with Crypt4GH)**
+## Crypt4GH graphical user interface GUI (Beginner's guide to data encryption with Crypt4GH)
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
@@ -114,7 +114,7 @@ If you lose or forget your private key password you will be unable to decrypt th
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
 
-## Step 2: Prepare your files.
+## Step 2: Prepare your files
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
