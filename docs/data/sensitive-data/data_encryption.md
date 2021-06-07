@@ -294,11 +294,12 @@ add here possible erros?
 
 
 Notes:
-encryption with CLI requires to zip/ compress a folder also?
-how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
-where do they find the data?
-where do they find the sds public key and how to we call it? Add link
-video with data owner or seq facility or multiple data owners
+1) encryption with CLI requires to zip/ compress a folder also?
+2) is zip comatible with SD Connect drag and drop upload? or does it get stuck? should we suggest other method od encryption?
+3) how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
+
+4) Add link to our public key
+5) video with data owner or seq facility or multiple data owners
 
  
  
