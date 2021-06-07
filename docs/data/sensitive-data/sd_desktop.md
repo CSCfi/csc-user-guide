@@ -116,6 +116,8 @@ Notes:
 1) how do they install stuff
 2) how do they import stuff
 3) naming of the VMs...confusing
+4) Adjust table
+5) examples use VM
          
 
 
