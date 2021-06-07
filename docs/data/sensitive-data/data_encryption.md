@@ -338,6 +338,7 @@ Notes:
 
 4) Add link to our public key
 5) video with data owner or seq facility or multiple data owners
+6) example video SD better not?
 
  
  
