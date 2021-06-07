@@ -69,7 +69,7 @@ Memdium Computation : complex analysis of large datasets (e.g. genetic sequences
 Heavy Computation :Parallel computing of large datasets (e.g. machine learning) 
 
 
-## Step2: Access to the computing environment and software installation
+## Step2: Access to the computing environment 
 
  
 From SD Desktop _Homepage_ you can access:
@@ -82,9 +82,11 @@ _Recent Connections_ or _All connections_ and open your  private computing envir
 
  ![](img/SDDkScreenshot_3.png)
  
-Once the computing environment is open, you can start the installation of necessary software or searching for specific packages using the search bar or  using the following command:
+Once the computing environment is open you can access the pre-installed software provided by CSC on each virtual machine.
 
-`` bla bla bla``
+A complete updated list is available here:
+
+https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
 
 
@@ -93,15 +95,35 @@ Once the computing environment is open, you can start the installation of necess
  
 ## Importing encrypted sensitive data to SD Desktop
 
-To import your data you need to:  
+To import from SD Connect your data you need to:  
 
-CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name)
+* Open the SD Connect Dowloader client
 
-It is possible to visualize and import data saved in buckets belonging to your projects. 
+* insert your CSC credentials (username and password) (They might not remeber it? WHat id they login with HAKA?)
+
+* select the correct  CSC project
+
+* select the correc container
+
+* select the file/ folders you want to import
+
+* click on dowload objects (the client will make a copy of the encrypted files/ folders in SD Dekstop, if you used CSC Sensitive Data Services public key the data will be deencrypted automatically)
+
+* click on open dowload location
+
+* then I am not sure where they find the folder : XXXX
+
+* If you use your own encryption key pair, you can import the encrypted data. 
+
+
+Video example:
+
+CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name), need to be redone or blured
+
 
 !!! Note, to access your encrypted data in SD Desktop, the same CSC project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
 
-If you use SDS public key to encrypt the data you will be able to import and decrypt the data automatically with the client:
+
 
 If you use your own encryption keys instead, you can import the encrypted data. 
 
@@ -145,16 +167,21 @@ SD Desktop is not connected to the internet for security reasons. Thus, to expor
 !!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with  .c4gh
 
 
+## End of your project and computing enviroment deletion
+
+
 
 
 Notes: 
 1) how do they install stuff
 2) how do they import stuff
-3) naming of the VMs...confusing
+3) naming of the VMs...confusing for some users
 4) Adjust table
 5) examples use VM
-6) Need to indicated container?
-7) Check homepage (what did we add there)?
+6) Need to indicated container? can they import the all container? is there a progress bar? how fast is it? do they always have to use a client? 
+is CSC password and accoun only?
+
+8) Check homepage (what did we add there)?
          
 
 
