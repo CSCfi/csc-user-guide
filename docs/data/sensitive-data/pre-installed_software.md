@@ -83,6 +83,7 @@ Notes:
 3) how do we explain to the user what they should use?
 4) video/audio files?
 5) Windows server? 
+6) Are 2 customers included?
 
 
 
