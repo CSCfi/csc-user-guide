@@ -39,11 +39,16 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 1. Verify, that the program has been digitally signed by CSC - IT Center for Science.  
 1. After the download, you can find the Crypt4GH application in your download folder. 
 
+
+
 <img width="448" alt="SDEnScreenShot_1" src="https://user-images.githubusercontent.com/83574067/121065445-7205b100-c7d1-11eb-97eb-d7a093f8121c.png">
 
  ![](img/SDEnScreenshot_1.png)
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
-  ![](img/SDEnScreenshot_2.png)<img width="512" alt="SDEnScreenshot_3" src="https://user-images.githubusercontent.com/83574067/121065529-89dd3500-c7d1-11eb-9f1d-ebdd40a15a46.png">
+
+
+
+  ![](img/SDEnScreenshot_2.png)
 
   <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
@@ -68,12 +73,15 @@ Public key: name_surname.crypt4gh.pub
 All the fields must be filled before file encryption will be started
 ````
 
+
 <img width="512" alt="SDEnScreenshot_3" src="https://user-images.githubusercontent.com/83574067/121065552-8fd31600-c7d1-11eb-8c3d-7cd21464a4bd.png">
 
 
  ![](img/SDEnScreenshot_3.png)
  
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
+
+
 
 <img width="481" alt="SDEnScreenshot_4" src="https://user-images.githubusercontent.com/83574067/121065592-9a8dab00-c7d1-11eb-8dc6-c237a1f22f3a.png">
 
@@ -93,6 +101,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 * If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
 * If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
+
 <img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
 
 ![](img/SDEnScreenshot_5.png)
@@ -104,6 +113,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 1. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
 1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or CSC Sensitive Data Services public key (csc-sd-services.pub) if you prefer your data to be compatible with SD Desktop automated decryption.
 1. Click on _Open_.
+
 
 <img width="623" alt="SDEnScreenshot_6" src="https://user-images.githubusercontent.com/83574067/121065628-a5484000-c7d1-11eb-8ded-9bd01ba7f277.png">
 
@@ -147,6 +157,8 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
 1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file. 
 
 If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+
+
 <img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065722-c14be180-c7d1-11eb-93c3-c2ed4fb48da1.png">
 
 
