@@ -43,7 +43,8 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 <img width="448" alt="SDEnScreenShot_1" src="https://user-images.githubusercontent.com/83574067/121065445-7205b100-c7d1-11eb-97eb-d7a093f8121c.png">
 
- ![](img/SDEnScreenshot_1.png)
+ ![SDEnScreenShot_1](img/SDEnScreenshot_1.png)
+ 
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
 
 
