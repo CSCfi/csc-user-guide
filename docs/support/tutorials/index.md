@@ -12,6 +12,7 @@
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
+* [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)

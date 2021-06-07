@@ -34,7 +34,7 @@ Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
 `module spider gromacs/version`.
 
-<!-- The module will set `$OMP_NUM_THREADS=1`
+<!-- The module will set `OMP_NUM_THREADS=1`
 as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
 
 ### Notes about performance
@@ -83,7 +83,8 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     To avoid multi node parallel jobs to spread over more nodes
     than necessary, don't use the --ntasks flag, but specify --nodes and
     --ntasks-per-node=40 to get full nodes. This minimizes communication
-    overhead and fragmentation of node reservations.
+    overhead and fragmentation of node reservations. Don't use the large
+    partition for jobs with less than 40 cores.
 
 ### Example serial batch script for Puhti
 ```bash
@@ -100,7 +101,7 @@ module purge
 module load gromacs-env
 export OMP_NUM_THREADS=1
 
-srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.2
 ```
     
 ### Example GPU script for Puhti
@@ -117,11 +118,10 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 module load gromacs-env/2020-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-export SLURM_CPU_BIND=none
 
-srun gmx_mpi mdrun -s verlet -pin on -dlb yes
+srun gmx_mpi mdrun -s verlet -dlb yes
 # additional flags, like these, may be useful - test!
-# srun gmx_mpi mdrun -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu \
+# srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu \
     -nstlist 200 -s verlet -pin on -dlb yes
 
 ```
