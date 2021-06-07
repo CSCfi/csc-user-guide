@@ -74,7 +74,7 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 Next you call follow these steps:
 
-## **Step 1. Generate your encryption keys.**
+##**Step 1. Generate your encryption keys.**
 
 1. Open the application and	click on _Generate Keys_ (on the top right corner). 
 1. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
