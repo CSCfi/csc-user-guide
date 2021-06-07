@@ -208,14 +208,19 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 ## Crypt4GH Command Line Interface (CLI)
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
+
+**Python 3.6+ required** to use the crypt4gh encryption utility. To install Python: https://www.python.org/downloads/release/python-3810/
+
  
  ## **Step 1. Install the latest version of Crypt4GH encryption tool. ** 
  
- Choose one of the following options. Python 3.6+ required to use the crypt4gh encryption utility.
+ 
+ To install Crypt4GH you can choose one of the following options: 
  
 ````
 $ crypt4gh -h      
 ````
+
 or if you prefer the latest sources from GitHub:
 
 ```
@@ -265,7 +270,12 @@ Environment variables:
 ```
 $ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
 ```
-where _ sk examplename.sec_ is your private secrete (sk) key and _ pk examplename.pub_ is your public key (pk).
+
+where:
+
+* _ sk examplename.sec_   is your private secrete (sk) key and
+
+* _ pk examplename.pub_ is your public key (pk).
 
 The tool will then ask you to input your private key password. Use a strong password.
 
@@ -276,17 +286,27 @@ Passphrase for examplename.sec:
 
 ## **Step 3. Encrypt the file or directory**
 
-Load your private or secrete key (_sk examplename.sec_), your public key (_pk examplename.pub_) or a recipient public key and load the file or directory you want to encrypt. 
-In this example we are loading two recipients public keys (_pk sds.pub_) and (_pk secondrecipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
+To ecrypt the files:
+
+* Load your private or secrete key (_sk exampl-your-name.sec_)
+
+*  your public key (_pk example-your-name.pub_) 
+
+*  a CSC sensitive data services public key (_pk csc-sd-services.pub_) or any other recipeint public key (e.g. public key of your collaborator)
+
+*  and load the file or directory you want to encrypt. 
+
+
+In this example we are loading two recipients public keys (_pk csc-sd-services.pub_) and (_pk second-recipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
 
 ```
-$ crypt4gh encrypt --sk examplename.sec --recipient_pk sds.pub --recipient_pk secondrecipeintexample.pub < dog.jpg 
+$ crypt4gh encrypt --sk example-your-name.sec --recipient_pk csc-sd-services.pub --recipient_pk second-recipeintexample.pub < dog.jpg 
 ```
 
 The tool will ask the password for your private key and next the data will be encrypted.
 
 ```
-Passphrase for bob.sec: 
+Passphrase for example-your-name.sec: 
 ```
 
 The tool will visualize the following and the extension of the original file will be changed to.c4gh, underlining that the encryption was successful.
@@ -302,7 +322,7 @@ total 48
 ```
 
 !!! Note 
-If you add the SDS public key your data to be decrypted automatically when uploaded to SD Desktop from SD Connect. Using SDS public key will also guarantee that in case you loose your private encryption key or your password, CSC could still help you to retrieve your data.
+If you add the CSC Sensitive Data Service public key your data to be decrypted automatically when uploaded to SD Desktop from SD Connect. Using SDS public key will also guarantee that in case you loose your private encryption key or your password, CSC could still help you to retrieve your data.
 
 !!!Note
 Programmatically you can add more than one public key (no limit?). This could be useful in case the data are originally encrypted by a data owner or a sequencing facility using your public key.
@@ -319,13 +339,13 @@ $ crypt4gh -h
 Next input your private key (_sk exaplename.sec_) and add the file that you want to decrypt (_ < dog.jpg.c4gh >_):
 
 ```
-$ crypt4gh decrypt --sk exaplename.sec < dog.jpg.c4gh
+$ crypt4gh decrypt --sk exaple-your-name.sec < dog.jpg.c4gh
 ```
 
 The tool will ask you to input your private key password:
 
 ```
-Passphrase for alice.sec:
+Passphrase for example-your-name.sec:
 ```
 
 And output the decripted file: 
@@ -356,20 +376,22 @@ add here possible erros?
 
 
 Notes:
-1) encryption with CLI requires to zip/ compress a folder also?
-2) is zip comatible with SD Connect drag and drop upload? or does it get stuck? should we suggest other method od encryption?
-3) how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
+1) encryption with CLI requires to zip/ compress a folder also? prepare your data:
+
+3) is zip comatible with SD Connect drag and drop upload? or does it get stuck? should we suggest other method od encryption?
+4) how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
 
 4) Add link to our public key?
 5) video with data owner or seq facility or multiple data owners
 6) example video SD better not?
-7) CLI with better example? 
+7) CLI video or with better example? 
 8) From K: Now I can't anymore decrypt the encrypted file (not with GUI or command line client) as I would need to have csc private key for that.
 Having my own private key in the "private key" field does not help as this key is not used in the cryp4gh header encryption.
 
 So if you use the GUI with CSC public key you can use the encrypted data only in the SD-desktop environment.
 
 9) Another confusing feature in the GUI is that if a file with the default encrypted file name already exists, it does not do anything: It does not override the old file or tell the user that encryption was not done due to overlapping file name.
+10) Fix the instructions of the CLI
 
  
  
