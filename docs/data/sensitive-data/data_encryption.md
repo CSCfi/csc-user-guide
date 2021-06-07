@@ -44,7 +44,7 @@ There are different encryption methods available that facilitate secure data sha
 
 !!! Note. If you are using the GUI and include CSC Sensitive Data Services public key (csc-sd-services.pub), the only way in which you can then access your data is in SD Desktop. The CLI, supports the use or two or more public keys at the same time, thus its use is more flexible. 
 
-## Crypt4GH graphical user interface GUI (Beginner's guide to data encryption with Crypt4GH)
+# Crypt4GH graphical user interface GUI (Beginner's guide to data encryption with Crypt4GH)
 
 CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
 
@@ -144,7 +144,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 !!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing enviroment. 
 
  
-## **Step 4: Upload and encrypt the file /zipped folder.**
+## Step 4: Upload and encrypt the file /zipped folder
 
 1. Click on _Select File_ and choose the file or zipped folder that you wish to encrypt. 
 1. Click on _Open_ and on _Encrypt File_. 
@@ -168,7 +168,7 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
 
 ![](img/SDEnScreenshot_7.png)
 
- ## Step 5: Data decryption
+ # Step 5: Data decryption
  
  !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
  
@@ -205,7 +205,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
  
-## Crypt4GH Command Line Interface (CLI)
+# Data encryption with Crypt4GH Command Line Interface (CLI)
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
