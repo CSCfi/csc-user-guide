@@ -169,6 +169,14 @@ SD Desktop is not connected to the internet for security reasons. Thus, to expor
 
 ## End of your project and computing enviroment deletion
 
+AT the end of your project or analisys, you can delete the computing enviroment going in:
+
+* SD Desktop Homepage
+* Launch the VM
+* Select Delet
+
+Note: all the data present in teh computing enviroment will be deleted and it will not be possible to retreve them. 
+
 
 
 
@@ -179,7 +187,7 @@ Notes:
 4) Adjust table
 5) examples use VM
 6) Need to indicated container? can they import the all container? is there a progress bar? how fast is it? do they always have to use a client? 
-is CSC password and accoun only?
+Does the dowloader yous CSC account only? Where do they find the info if they do not remeber it?
 
 8) Check homepage (what did we add there)?
          
