@@ -10,7 +10,7 @@ To access SD Desktop you need:
 * **a CSC project**
 * **Service access to SD Destkop.**
 
-To import (or download) encrypted sensitive data to SD Desktop you nee:
+To import (or download) encrypted sensitive data to SD Desktop you need:
 * **service access to Allas** (CSC cloud storage solution). 
 
 
@@ -59,9 +59,12 @@ For the beta version of the service, you can choose between six different VM fla
 
 Example usage:
 
-Light Computation : try services
+Light Computation : suitable to test the service (e.g. familiarise witht he user interface)
+
 Small Computation  : statistical analysis
-Memdium Computation : Complex analysis of lasrge datasets
+
+Memdium Computation : complex analysis of large datasets (e.g. genetic sequences)
+
 Heavy Computation :Parallel computing of large datasets (e.g. machine learning) 
 
 
