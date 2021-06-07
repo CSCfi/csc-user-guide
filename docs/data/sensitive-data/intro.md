@@ -39,9 +39,11 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 **Virtual machine flavor (VM flavor)**: a flavor defines the resources and configurations of a cloud computing environment. It specifies the compute, memory, and storage capacity that can be assigned to virtual machine. 
 
 
+
+Notes: 
 Add here also encryption?
 What document is required for people that are processign sensitive data but not personal data? where do they sign the DPA?
-nomenclature of buket (intructions for secutiry risk)
+
 
 
   
