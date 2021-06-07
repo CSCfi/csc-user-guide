@@ -7,7 +7,7 @@ For data encryption we suggest the use of **Crypt4GH**, a tool originally design
 !!!Note
 If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
-You can download here:
+You can download CSC Sensitive Data Services public key here:
 
 
 
@@ -15,7 +15,7 @@ You can download here:
 
 
 
-or copy /paste the key in the command line tool (CLI):
+or copy /paste the CSC Sensitive Data Services public key in the command line tool (CLI):
 
 -----BEGIN CRYPT4GH PUBLIC KEY-----
 
@@ -360,7 +360,7 @@ Notes:
 2) is zip comatible with SD Connect drag and drop upload? or does it get stuck? should we suggest other method od encryption?
 3) how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
 
-4) Add link to our public key
+4) Add link to our public key?
 5) video with data owner or seq facility or multiple data owners
 6) example video SD better not?
 7) CLI with better example? 
