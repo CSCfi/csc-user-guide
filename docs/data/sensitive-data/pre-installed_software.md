@@ -1,9 +1,9 @@
 
-## List of pre-installed software in Sensitive Data Desktop (SD Desktop)
+# List of pre-installed software in Sensitive Data Desktop (SD Desktop)
 
-All the following software will are pre-isntalled on each computing enviroment (or VM flavour). 
+All the following software  are pre-installed on each computing enviroment (or VM flavour) accessible from SD Desktop.
   
-## Basix Linux Desktop 
+# Basix Linux Desktop 
 
 **Operating system: Centos 7 with GNOME desktop**
 
@@ -16,7 +16,7 @@ tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm c
 * Go 1.16 
 *	Libreoffice (currently being installed) 
  
-## Scientific Analysis Desktop 
+# Scientific Analysis Desktop 
 
 **R / RStudio Server Singularity container**
 
@@ -47,7 +47,7 @@ Requirements from VM perspective:
 * Yum-installed Singularity + created folder in /opt 
 * Downloaded sif + launch scripts from Allas, made scripts executables 
  
-## Basic Windows Desktop 
+# Basic Windows Desktop 
 
 **Operating system: Windows Server 2016**
 
@@ -56,7 +56,7 @@ Pre-installed-software:
 * Go 1.16.2 
 * Firefox web browser (no internet connectivity)  
 
-## Genome Data Analysis Linux Desktop (to be build)  
+# Genome Data Analysis Linux Desktop (to be build)  
 
 **Operating system: Centos 7 with GNOME desktop**
 
@@ -73,7 +73,7 @@ Pre-installed software:
 * prettify (plink) 
 * plink2 (2.0) 
 
-## Data:  
+# Data:  
 •	1000genomes mitokondrion vcf ja tbi hakemistossa /data 
 
 
