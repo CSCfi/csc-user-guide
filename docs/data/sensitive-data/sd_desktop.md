@@ -4,12 +4,15 @@
 ## User Interface and Login 
 
  
-To access SD Desktop you need a CSC account, a CSC project and service access to SD Destkop and to Allas (CSC cloud storage solution). 
+To access SD Desktop you need **a CSC account, a CSC project and service access to SD Destkop**. 
+To import (or download)  encrypted sensitive data to SD Desktop you need  service access to Allas (CSC cloud storage solution). 
 Login is possible with user identity federation systems (ELIXIR AAI, Haka or Virtu ) or with a CSC account at https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. 
 
-All the project members belonging to a specific CSC project can access the same computing environment (or Virtual machine, VM) in SD Desktop. Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
+***All the project members belonging to a specific CSC project can access the same computing environment (or Virtual machine, VM) in SD Desktop.*** Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
 
 !!! Note: It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+
+!!!Note: Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 **Step1. Launching the computing environment (or VM)**
@@ -64,6 +67,8 @@ Here you can find the complete list of software and packages available in SD Des
 
 !!! Note: only the project manager or group leader can launch a new VM.  
 
+!!! Note: if you and your colleagues want to access the same computing enviroment in SD Desktop you all need to belong to the same CSC project as project members.
+
  
 ## Data upload 
 
@@ -100,6 +105,14 @@ Preferences:
 
 How to export processed sensitive data or non-sensitive data (results) data from the secure computing environment 
 
-SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export processed sensitive data, please write to servicedesk@csc.fi and use Sensitive Data Services Export Request in the object field. Only the project manager or group leader can make the following request. Add the project number and container ID (?) and save the data that need to be exported in the following folder/directory. The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
+SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export processed sensitive data, please write to ***servicedesk@csc.fi*** and use Senstive Data (Export Request) in the object field. Only the project manager or group leader can make the following request. Add the project number and container ID (?) and save the data that need to be exported in the following folder/directory. The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
 
 !!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with crypth4GH. 
+
+
+![Screenshot from 2021-06-04 13-42-40](https://user-images.githubusercontent.com/83574067/121056631-0e768600-c7c7-11eb-98c7-2f88f7d6b63b.png)
+
+
+
+
+
