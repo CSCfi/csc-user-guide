@@ -3,7 +3,7 @@
 For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses **asymmetric encryption**.   
 
 !!!Note
-If you include SDS public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
+If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
  
 
@@ -23,6 +23,8 @@ There are different encryption methods available that facilitate secure data sha
 * a **private key** is abbreviated  to **sk**  (as secrete key) in the command line tool. When you generate a private secrete key with Crypt4GH the file extension is **.sec**
 * a **public key** is abbreviated to **pk** in the command line tool. When you generate a public key the file extension is **.pub**
 
+
+!!! Note. If you are using the GUI and include CSC Sensitive Data Services public key (csc-sd-services.pub), the only way in which you can then access your data is in SD Desktop. The CLI, supports the use or two or more public keys at the same time, thus its use is more flexible. 
 
 ## Crypt4GH graphical user interface **(Beginner's guide to data encryption with Crypt4GH)**
 
@@ -66,11 +68,7 @@ The keys will be generated and saved in the the same folder in which the Applica
 ![](img/SDEnScreenshot_4.png)
 
 !!! Note
-If you lose or forget your private key password you will be unable to decrypt the files. 
-
-Do not share your private key or your password. 
-
-Do not share your private key publicly.
+If you lose or forget your private key password you will be unable to decrypt the files. Do not share your private key or your password. Do not share your private key publicly.
 
 
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
