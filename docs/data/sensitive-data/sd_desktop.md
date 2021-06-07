@@ -21,7 +21,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 !!!Note: Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-## Step1. Launching your private computing environment (or VM)
+## Step1: Launching your private computing environment (or VM) in SD Desktop
 
 
 Once you Login in SD Desktop _Homepage_ you can launch your VM by clicking on _Go to the Launching page_. 
@@ -69,10 +69,13 @@ Memdium Computation : complex analysis of large datasets (e.g. genetic sequences
 Heavy Computation :Parallel computing of large datasets (e.g. machine learning) 
 
 
-## Step2. Access to the computing environment and software installation
+## Step2: Access to the computing environment and software installation
 
  
-From SD Desktop _Homepage_ you can access  _Recent Connections_ or _All connections_ and open the VM with double click.
+From SD Desktop _Homepage_ you can access:
+
+_Recent Connections_ or _All connections_ and open your  private computing enviroment (or VM) with double click.
+
 
 <img width="641" alt="SDDkSreenshot_3" src="https://user-images.githubusercontent.com/83574067/121067560-e04b7300-c7d3-11eb-81c0-db5bf0eb81f3.png">
 
@@ -85,18 +88,23 @@ Once the computing environment is open, you can start the installation of necess
 
 
 
-!!! Note: only the project manager or group leader can launch a new VM.  
-
 !!! Note: if you and your colleagues want to ***access the same computing enviromen*** in SD Desktop you all need to belong to the ***same CSC project as project members.***
 
  
-## Data upload 
+## Importing encrypted sensitive data to SD Desktop
 
-To import your data you need to:
+To import your data you need to:  
 
-It is possible to visualize and import data saved in buckets belonging to your projects. Note, the same project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
+CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name)
 
-If you use SDS public key to encrypt the data you will be able to import and decrypt the data automatically with the following tool. If you use your own encryption keys instead, you can import the encrypted data. 
+It is possible to visualize and import data saved in buckets belonging to your projects. 
+
+!!! Note, to access your encrypted data in SD Desktop, the same CSC project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
+
+If you use SDS public key to encrypt the data you will be able to import and decrypt the data automatically with the client:
+
+If you use your own encryption keys instead, you can import the encrypted data. 
+
 
 ## Upload of specific scripts from GitHub
 
@@ -105,6 +113,7 @@ If you need to import specific scrips for GitHub or other trusted repositories, 
     Download the script from the internet to SD Connect in a specific bucket 
 
     Import the script/ files or other non-sensitive data to SD Desktop 
+    
     
 ## Active session/ VM disconnection / Kill session
 
@@ -121,13 +130,19 @@ Preferences:
 
 
 
-## Data export
+## Data export from SD Desktop
 
 How to export processed sensitive data or non-sensitive data (results) data from the secure computing environment 
 
-SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export processed sensitive data, please write to ***servicedesk@csc.fi*** and use Senstive Data (Export Request) in the object field. Only the project manager or group leader can make the following request. Add the project number and container ID (?) and save the data that need to be exported in the following folder/directory. The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
+SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export encrypted processed sensitive data:
 
-!!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with crypth4GH. 
+* **Only the project manager or group leader** can make the  request writing to ***servicedesk@csc.fi*** and use **SD Desktop (Export Request)** in the object field
+
+* Add the CSC project number and buket or container ID in SD Connect in which the data need will be exported by CSC Cloud administrators
+
+* The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
+
+!!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with  .c4gh
 
 
 
@@ -138,6 +153,8 @@ Notes:
 3) naming of the VMs...confusing
 4) Adjust table
 5) examples use VM
+6) Need to indicated container?
+7) Check homepage (what did we add there)?
          
 
 
