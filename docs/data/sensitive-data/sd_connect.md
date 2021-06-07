@@ -1,7 +1,7 @@
 
 # SD Connect (Sensitive Data Connect)
 
-## Login 
+# Login 
 
 To access SD COnnect you need:
 
@@ -15,9 +15,9 @@ using any modern web browser.
 !!!Note: Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-## SD Connect User Interface
+# SD Connect User Interface
 
-# Browser
+## Browser
 
 Once you Login in SD Connect you access the default front-page: **Browser**. 
 
@@ -47,7 +47,7 @@ On the top left corner, you can *select your CSC project* from the drop down men
 
 ![](img/SDConScreenshot_2.png)
 
-# User Information
+## User Information
 
 Behind the **User information** button in the front page, a user information dashboard is displayed. The dashboard displays statistics about the current resource usage, e.g.
 
@@ -61,7 +61,7 @@ Behind the **User information** button in the front page, a user information das
 
 Additional information on different billing details is also provided, in the links contained in the dashboard bottom tile.
 
-# Shared
+## Shared
 
 In the **Shared** page you can:
 
