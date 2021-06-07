@@ -10,7 +10,7 @@ A CSC user account is required for creating new projects.
 project_.
 1. Fill in the project name and description.
 1. Select the project type.
-1. Does your project handle personal data? Select _Yes_ or _No_.
+1. Does your project handle personal data? Select _Yes_ or _No_. Read more about [../accounts/handling personal data in your project](/when-your-project-handles-personal-data.md).
 1. Tick the boxes _I am eligible to be a project manager..._ and _I
 have read and accepted the General Terms of Use for..._
 1. Click _Create project_.
