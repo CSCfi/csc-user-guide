@@ -67,8 +67,11 @@ The keys will be generated and saved in the the same folder in which the Applica
 
 !!! Note
 If you lose or forget your private key password you will be unable to decrypt the files. 
-Do not share your private key and your password. 
+
+Do not share your private key or your password. 
+
 Do not share your private key publicly.
+
 
 !!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
 You don’t need to generate new key pairs each time you open the application.
@@ -86,10 +89,13 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 1. Click on _Load My Private Key_ button.
 1. Select your private key (name_surname.crypt4gh.key).
 1. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
-1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or SDS public key () if you prefer your data to be compatible with SD Desktop automated decryption
+1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or CSC Sensitive Data Services public key (csc-sd-services.pub) if you prefer your data to be compatible with SD Desktop automated decryption.
 1. Click on _Open_.
 
 ![](img/SDEnScreenshot_6.png)
+
+!!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing enviroment. 
+
  
 **Step 4. Upload and encrypt the file /zipped folder.**
 
