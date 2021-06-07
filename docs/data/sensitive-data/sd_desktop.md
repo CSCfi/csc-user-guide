@@ -12,7 +12,7 @@ To access SD Desktop you need:
 To import (or download) encrypted sensitive data to SD Desktop you need:
 * **service access to Allas** (CSC cloud storage solution). 
 
-Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. (last not trhough yet).
+Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. (CSCS account not possible but needed for download, also script??).
 
 ***All the project members belonging to a specific CSC project can access the same computing environment (or Virtual machine, VM) in SD Desktop.*** Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
 
