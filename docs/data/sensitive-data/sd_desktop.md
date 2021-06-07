@@ -112,10 +112,11 @@ SD Desktop is not connected to the internet for security reasons. Thus, to expor
 
 
 
-            SDEnScreenshot_8.png
-          
-
-
+Notes: 
+1) how do they install stuff
+2) how do they import stuff
+3) naming of the VMs...confusing
+         
 
 
 
