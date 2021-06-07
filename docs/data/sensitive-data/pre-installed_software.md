@@ -5,7 +5,7 @@ All the following software will are pre-isntalled on each computing enviroment (
   
 ## Basix Linux Desktop 
 
-Operating system: Centos 7 with GNOME desktop  
+***Operating system: Centos 7 with GNOME desktop***  
 
 Pre-installed software: 
 
@@ -18,7 +18,7 @@ tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm c
  
 ## Scientific Analysis Desktop 
 
-*** R / RStudio Server Singularity container 
+***R / RStudio Server Singularity container***
 
 General concept: 
 
@@ -49,7 +49,7 @@ Requirements from VM perspective:
  
 ## Basic Windows Desktop 
 
-Operating system: Windows Server 2016 
+***Operating system: Windows Server 2016***
 
 Pre-installed-software: 
 *Python 3.7.9 
@@ -80,6 +80,7 @@ Notes:
 2) why mitocondrial data?
 3) how do we explain to the user what they should use?
 4) video/audio files?
+5) Windows server? 
 
 
 
