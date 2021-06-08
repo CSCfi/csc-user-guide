@@ -12,7 +12,7 @@ To access SD Connect you need:
 Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/ using any modern web browser.
 
 
-!!! note
+!!! Note
     Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption.
 
 
