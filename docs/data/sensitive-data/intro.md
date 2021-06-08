@@ -10,6 +10,10 @@
 
 * Easily share, collect and store **encrypted sensitive data** for the duration of your project in CSC cloud storage solution (Allas)
 
+
+
+
+
 ## Getting access
 
 To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
@@ -36,6 +40,8 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. 
 For legal advice and support, contact your institution legal service division/department.
+
+
 
 
 # Useful terminology:
