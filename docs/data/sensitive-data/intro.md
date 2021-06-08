@@ -14,8 +14,8 @@
    * Login
    * SD Connect User interface:
        * Browser
-          * User Informations
-          * Shared
+       * User Informations
+       * Shared
    * Bukets or containers creation
    * Drag and Drop data upload
    * Data dowload
@@ -24,9 +24,8 @@
    * How to delete data
    * Data upload using CLI:
    
-          * for windows
-          
-          * for Linux
+   for windows     
+   for Linux
           
 
 
