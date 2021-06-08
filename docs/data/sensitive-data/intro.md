@@ -12,18 +12,19 @@
 
 ## Getting access
 
-To access CSC's services using [MyCSC](https://my.csc.fi) portal:
+To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
 
 1. Create a user account
 
 3. Create or join a project
 
-4.  Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**
-    For legal advice and support, contact your institution legal service division/department.
+4. Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**.
+   
+   For legal advice and support, contact your institution legal service division/department.
     
 5. Add project members to your CSC project
 
-5 . Each project member needs to ddd service access to SD Desktop and to Allas (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
+6. *Each project member* needs to add service access to SD Desktop and to Allas (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
 
 6. Apply for billing units or disk quota
 
@@ -35,7 +36,9 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. 
 For legal advice and support, contact your institution legal service division/department.
-## Useful terminology:
+
+
+# Useful terminology:
 
 **Bucket**: is a container in which all your data/ files/directories are stored. You can have multiple buckets for each project. Each bucket is accessible just to you, all the project members and CSC users you personally give access to using MyCSC or SD Connect. The container name is visible to the internet. 
 
