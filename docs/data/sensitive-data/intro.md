@@ -1,62 +1,6 @@
 # Sensitive Data Services for Reaserch
 
-##  User guide overview
-
-[Introduction](./sd_connect.md)
-
-   * Summary
-   * Getting access
-   * Useful terminology
-
-
-[SD Connect](./sd_connect.md)
-   
-   * Login
-   * SD Connect User interface:
-       * Browser
-       * User Informations
-       * Shared
-   * Bukets or containers creation
-   * Drag and Drop data upload
-   * Data dowload
-   * Data Sharing from your project to other CSC projects
-   * Data Sharing from other CSC projects to your projects
-   * How to delete data
-   * Data upload using CLI:
-   
-   for windows     
-   for Linux
-          
-
-
-**[SD Desktop](./sd_desktop.md)
-
-*
-*
-*
-*
-
-**[Data Encryption with Crypt4GH](./data_encryption.md)
-
-*
-*
-*
-*
-
-** [Pre-installed softwares in SD Desktop](./pre-installed_software.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Introduction
 
 **SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta versions) are web user interfaces which allow you to:
 
@@ -100,7 +44,7 @@ For legal advice and support, contact your institution legal service division/de
 
 
 
-# Useful terminology:
+## Useful terminology:
 
 **Bucket**: is a container in which all your data/ files/directories are stored. You can have multiple buckets for each project. Each bucket is accessible just to you, all the project members and CSC users you personally give access to using MyCSC or SD Connect. The container name is visible to the internet. 
 
