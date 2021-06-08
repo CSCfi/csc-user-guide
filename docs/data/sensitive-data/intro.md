@@ -1,5 +1,8 @@
 # Sensitive Data Services for Reaserch
 
+
+
+
 # Introduction
 
 **SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta versions) are web user interfaces which allow you to:
@@ -13,33 +16,21 @@
 
 
 
-
 ## Getting access
 
 To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
 
-1. Create a user account
+1. Create a **user account**
 
-3. Create or join a project
+3. Create or join a **CSC project** and add project members
 
-4. Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**.
-   
-   For legal advice and support, contact your institution legal service division/department.
+4. Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**. 
     
-5. Add project members to your CSC project
-
-6. *Each project member* needs to add service access to SD Desktop and to Allas (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
+5. **Each project member** needs to **add service access to SD Desktop and to Allas** (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
 
 6. Apply for billing units or disk quota
 
-8. Renew your password annually
-
 For specific guidance regarding these steps check the [Accounts](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
-
-
-
-When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. 
-For legal advice and support, contact your institution legal service division/department.
 
 
 
@@ -66,7 +57,8 @@ Notes:
 Add here also encryption?
 What document is required for people that are processign sensitive data but not personal data? where do they sign the DPA?
 
-
+When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. 
+For legal advice and support, contact your institution legal service division/department.
 
   
 
