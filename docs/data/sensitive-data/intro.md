@@ -1,6 +1,13 @@
 # Sensitive Data Services for Reaserch
 
-## Overview
+##  User guide overview
+
+[Introduction](./sd_connect.md)
+
+   * Summary
+   * Getting access
+   * Useful terminology
+
 
 [SD Connect](./sd_connect.md)
    
