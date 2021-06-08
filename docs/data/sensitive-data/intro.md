@@ -13,7 +13,7 @@
    
    * Login
    * SD Connect User interface:
-          * Browser
+       * Browser
           * User Informations
           * Shared
    * Bukets or containers creation
