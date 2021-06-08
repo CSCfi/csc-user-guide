@@ -11,6 +11,13 @@ To access SD Connect you need:
 
 Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/ using any modern web browser.
 
+---
+**NOTE**
+
+It works with almost all markdown flavours (the below blank line matters).
+
+---
+
 
 !!! Note
     Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption.
@@ -25,22 +32,15 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 ## Browser
 
 Once you Login in SD Connect you access the default front-page: **Browser**. 
-
+<img width="641" alt="SDDkSreenshot_3" src="https://user-images.githubusercontent.com/83574067/121243305-3f79b800-c8a6-11eb-891b-08a9e09ff536.png">
 SD Connect Browser page shows the containers available in your CSC project, as well as general information about them. 
 
-![](img/SDConScreenshot_1.png)
 
 Any container can be opened, and the contents (uploaed files or folders) viewed. The object page shows information on the objects, e.g.
+The object name, The object ETag  ??, A download link for the object, Content type, Last date of modification.
 
-        The object name
-
-        The object ETag  ??
-
-        A download link for the object
-
-        Content type
-
-        Last date of modification
+<img width="607" alt="SDDkSreenshot_1" src="https://user-images.githubusercontent.com/83574067/121242837-af3b7300-c8a5-11eb-9752-7bd4f3f21a77.png">
+![](img/SDConScreenshot_1.png)
 
 
 ![](img/SDConScreenshot_2.png)
