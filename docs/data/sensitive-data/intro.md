@@ -1,27 +1,40 @@
-## Overview
+## Sensitive Data Services for Reaserch
 
-# CSC Cloud Services for Sensitive Data Management
+# Overview
 
 **SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta versions) are web user interfaces which allow you to:
-1. Access your own secure and personalized computing environment in CSC cloud computing platform (ePouta)
-1. Securely compute and process sensitive data with your project members and collaborators without the needs of generating multiple copies of your data
-1. Easily share, collect and store **encrypted sensitive data** for the duration of your project in CSC cloud storage solution (Allas)
+
+* Access your own secure and personalized computing environment in CSC cloud computing platform (ePouta)
+
+* Securely compute and process sensitive data with your project members and collaborators without the needs of generating multiple copies of your data
+
+* Easily share, collect and store **encrypted sensitive data** for the duration of your project in CSC cloud storage solution (Allas)
 
 ## Getting access
 
-Instructions to get a user account and a project to access CSC's services using [MyCSC](https://my.csc.fi) portal:
+To access CSC's services using [MyCSC](https://my.csc.fi) portal:
+
 1. Create a user account
-1. Create or join a project
 
-When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. For legal advice and support, contact your institution legal service division/department.
+3. Create or join a project
 
-3. Add service access for your project to SD Desktop and to Allas (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
-3. Apply for billing units or disk quota
-3. Renew your password annually
+4.  Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**
+    For legal advice and support, contact your institution legal service division/department.
+    
+5. Add project members to your CSC project
+
+5 . Each project member needs to ddd service access to SD Desktop and to Allas (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
+
+6. Apply for billing units or disk quota
+
+8. Renew your password annually
 
 For specific guidance regarding these steps check the [Accounts](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
 
 
+
+When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. 
+For legal advice and support, contact your institution legal service division/department.
 ## Useful terminology:
 
 **Bucket**: is a container in which all your data/ files/directories are stored. You can have multiple buckets for each project. Each bucket is accessible just to you, all the project members and CSC users you personally give access to using MyCSC or SD Connect. The container name is visible to the internet. 
