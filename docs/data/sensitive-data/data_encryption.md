@@ -59,7 +59,7 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 
 
-![SD_Screenshot1](data/sensitive-data/images/SDEnScreenshot_1.png)
+![SD_Screenshot1](data/sensitive-data/images/SDEnScreenShot_1.png)
 **Fugure** Crypt4GH location
  
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
