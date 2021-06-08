@@ -3,6 +3,10 @@
 
 
 
+
+
+
+
 # Introduction
 
 **SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta versions) are web user interfaces which allow you to:
@@ -12,6 +16,10 @@
 * Securely compute and process sensitive data with your project members and collaborators without the needs of generating multiple copies of your data
 
 * Easily share, collect and store **encrypted sensitive data** for the duration of your project in CSC cloud storage solution (Allas)
+
+
+
+
 
 
 
@@ -31,6 +39,10 @@ To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) por
 6. Apply for billing units or disk quota
 
 For specific guidance regarding these steps check the [Accounts](https://docs.csc.fi/accounts/) paragraph in the beginning of this user guide. 
+
+
+
+
 
 
 
