@@ -19,6 +19,57 @@ It works with almost all markdown flavours (the below blank line matters).
 ---
 
 
+---
+header-includes:
+    - \usepackage[most]{tcolorbox}
+    - \definecolor{light-yellow}{rgb}{1, 0.95, 0.7}
+    - \newtcolorbox{myquote}{colback=light-yellow,grow to right by=-10mm,grow to left by=-10mm, boxrule=0pt,boxsep=0pt,breakable}
+    - \newcommand{\todo}[1]{\begin{myquote} \textbf{TODO:} \emph{#1} \end{myquote}}
+---
+
+blah blah
+
+\todo{something}
+
+blah
+
+
+---
+title: "Get Started"
+output: flexdashboard::flex_dashboard
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Column 1
+--------------------------------------------------
+
+### Chart A
+
+```{r}
+```
+
+Column 2
+--------------------------------------------------
+
+### Chart B
+
+```{r}
+```
+
+### Chart C
+
+```{r}
+```
+
+
+
+
+
+
+
 !!! Note
     Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption.
 
