@@ -34,14 +34,14 @@ extension *.tmp*.
 
 In the last find command examples we use **-mtime** search condition,
 that picks files based on their modification date.  With a following
-command you can check, what files have not been accessed during the last
+command you can check, what files have not been accessed in drectory _/scratch/project_2001234_ during the last
 28 days:
 
-    find $WRKDIR -mtime +28
+    find /scratch/project_2001234 -mtime +28
 
 Here the *+28* means "more than 28 days". In the same ways minus
 character (**-**) means *less than*. So to see what files have been
-modifies in your current directory less than 24 hours ago, you could use
+modified in your current directory less than 24 hours ago, you could use
 command:
 
     find ./ -mtime -1
@@ -243,6 +243,12 @@ Other users do not have any access permissions to the files. Normally
 this setting is good as it keeps your data private. However, if you wish
 to share some data or execute self written programs the access
 permissions need to be modified.
+
+Note that the project specific disk areas in Puhti and Mahti supercomputers 
+are an exception to this rule.̣ There by default also other project members, 
+belonging to the same unix group, have full rights to files created by other 
+users.
+
 
 You can check the access permissions with command **ls -l**. Let's take
 a look to the sample file listing that was previously used in the [ls
