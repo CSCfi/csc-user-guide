@@ -1,20 +1,26 @@
 
 # SD Connect (Sensitive Data Connect)
 
-# Login 
+## Login 
 
-To access SD COnnect you need:
+To access SD Connect you need:
 
 * **a CSC account**
 * **a CSC project**
 * **Service access to Allas** (CSC cloud storage solution)
 
-Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/
-using any modern web browser.
+Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/ using any modern web browser.
 
-!!! Note: all the data uploaded to SD Connect need to be encrypted. Checl the previous paragraph for more informations about encryption with Crypt4GH and CSC Sensitive Data Services Public encryption key.
 
-!!!Note: Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+!!! Note
+    
+    all the sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption with Crypt4GH and CSC Sensitive Data Services Public encryption key.
+
+
+
+!!! Note
+    
+    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 # SD Connect User Interface
