@@ -23,7 +23,9 @@
    * Data Sharing from other CSC projects to your projects
    * How to delete data
    * Data upload using CLI:
+   
           * for windows
+          
           * for Linux
           
 
