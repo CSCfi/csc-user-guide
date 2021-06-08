@@ -70,11 +70,11 @@ Column 2
 
 
 
-!!! Note
+!!! note
     Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption.
 
 
-!!! Note
+!!! note
     Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
