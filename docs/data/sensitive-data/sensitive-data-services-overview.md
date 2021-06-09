@@ -61,10 +61,23 @@
 
 ## [SD Desktop](./sd_desktop.md)
 
-*
-*
-*
-*
+* Login
+
+* Step1: Launching your private computing environment (or VM) 
+
+* Step2: Access to the computing environment
+
+* Step 3: Importing encrypted sensitive data to SD Desktop (?)
+
+* Upload of specific scripts from GitHub
+
+* Active session/ VM disconnection / Kill session
+
+* Data export from SD Desktop
+
+* End of your project and computing enviroment deletion
+
+
 
 
 
