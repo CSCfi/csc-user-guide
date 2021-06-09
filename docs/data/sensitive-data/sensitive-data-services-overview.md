@@ -23,12 +23,14 @@
 
 
 
-## [Data Encryption with Crypt4GH](./data_encryption.md)
+## [Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)
 
-  *
-  *
-  *
-  *
+  * Background information
+  
+  * Data encryption with Crypt4GH Grafical user interface (GUI)
+  
+  * Data encryption with Crypt4GH Command Line Interface (CLI)
+  
 
 
 
@@ -43,11 +45,15 @@
    
    * SD Connect User interface:
    
-       * Encrypted data upload and download
+       Encrypted data upload and download
        
-       * Encrypted data sharing 
+       Encrypted data sharing 
        
-   * SD Connect Clients
+   * SD Connect Clients:
+   
+       For Linux
+       
+       For Windowns
    
    
           
