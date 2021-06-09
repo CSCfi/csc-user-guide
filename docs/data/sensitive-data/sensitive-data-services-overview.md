@@ -49,7 +49,7 @@
        
        Encrypted data sharing 
        
-   * SD Connect Clients:
+   * SD Connect  compatible Clients:
    
        For Linux
        
@@ -63,19 +63,11 @@
 
 * Login
 
-* Step1: Launching your private computing environment (or VM) 
+* Access to the computing environment
 
-* Step2: Access to the computing environment
+* Importing and exporting data 
 
-* Step 3: Importing encrypted sensitive data to SD Desktop (?)
-
-* Upload of specific scripts from GitHub
-
-* Active session/ VM disconnection / Kill session
-
-* Data export from SD Desktop
-
-* End of your project and computing enviroment deletion
+* Computing enviroment  and data deletion
 
 
 
