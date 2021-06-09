@@ -7,7 +7,7 @@
 
 
 
-# Introduction
+## Introduction
 
 **SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta versions) are web user interfaces which allow you to:
 
@@ -49,15 +49,15 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 ## Useful terminology:
 
-**Bucket**: is a container in which all your data/ files/directories are stored. You can have multiple buckets for each project. Each bucket is accessible just to you, all the project members and CSC users you personally give access to using MyCSC or SD Connect. The container name is visible to the internet. 
+**Bucket**: is a container in which all your data/files/directories are stored. You can have multiple buckets for each project. Each bucket is accessible just to you, all the project members and CSC users you personally give access to using MyCSC or SD Connect. The container name is visible to the internet. 
 
-**CSC Project**: All your data in CSC belong inside a project. You can have one project or multiple projects. When you set up a project you can add project members, you need to define a project manager, and you need to described which type of sensitive data you are processing. 
+**CSC Project**: all your data in CSC belong inside a project. You can have one project or multiple projects. When you set up a project you can add project members, you need to define a project manager, and you need to described which type of sensitive data you are processing. 
 
 **CSC Project ID**: It can be sourced using the following command using the CLI        or from this link        or from SD Connect User . It defines and it is used for
 
 **CSC Project name**: MY CSC project ID (NNNNN)
 
-**SD Connect Account**: It the CSC project ID in Open Stak, it can to define who you are sharing a bucket with in SD Connect. It is a synonim of CSC Project ID, however displayed in account..... in the user interface.
+**SD Connect Account**: It is the CSC project ID in Open Stak, it is used to define the project with who you share your containers in SD Connect. It is a synonim of CSC Project ID when using the command line tool. In the SD Connect user interface is displayed unser * User Information> Project usage * and displayed as series of  32 numbers and letters: e.g. AUTH_3a66dbf90b2940dc9c651362af595b23. 
 
 **Virtual machine (VM)**: is a virtual computing environment which works like a real-physical computer. It has a processor, memory and operating system but it exists only as a code or a partition of the host computer. VMs used for the Sensitive Data Services currently support only Linux operating system and are completely isolated from the internet for security reasons. 
 
@@ -65,12 +65,13 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 
 
-Notes: 
-Add here also encryption?
-What document is required for people that are processign sensitive data but not personal data? where do they sign the DPA?
+Notes that require discussion:
 
-When you create a project you can (guided by the **Personal Data Handling form**) provide a description of processing activities according to the GDPR (e.g. define a data owner, describe the type of personal sensitive data you will process) and agree with CSC **Data Processing Agreement**. 
-For legal advice and support, contact your institution legal service division/department.
+-Add here also encryption?
+-What document is required for people that are processign sensitive data but not personal data? where do they sign the DPA?
+-Does it even make any sense to define bukect if in the SD Connect UI are called containers?
+- how can I source the project ID with CLI in Opne stack? or with CSC resources if I know---?
+- AUHT is still present in SD Connect
 
   
 
