@@ -1,5 +1,6 @@
 
 
+
 # Data encryption with Crypt4GH and use of CSC public encryption key 
 
 For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses **asymmetric encryption**.   
