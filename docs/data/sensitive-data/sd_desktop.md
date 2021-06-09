@@ -1,7 +1,7 @@
 
 # SD Desktop (Sensitive Data Desktop)
 
-## User Interface and Login 
+## Login 
 
 To access SD Desktop you need:
 
