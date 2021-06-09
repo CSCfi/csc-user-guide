@@ -168,7 +168,7 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
 
 ![](img/SDEnScreenshot_7.png)
 
- # Step 5: Data decryption
+ ## Step 5: Data decryption
  
  !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
  
@@ -381,7 +381,7 @@ Notes:
 3) is zip comatible with SD Connect drag and drop upload? or does it get stuck? should we suggest other method od encryption?
 4) how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
 
-4) Add link to our public key?
+4) Add link to our public key? How?
 5) video with data owner or seq facility or multiple data owners
 6) example video SD better not?
 7) CLI video or with better example? 
