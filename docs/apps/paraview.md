@@ -91,7 +91,7 @@ export __EGL_VENDOR_LIBRARY_DIRS=/appl/opt/vis/paraview/nvidia/glvnd/egl_vendor.
 module purge
 module load gcc/8.3.0 intel-mkl/2019.0.4
 
-export LD_LIBRARY_PATH=/appl/opt/vis/paraview/nvidia/nvidia-driver:/appl/opt/vis/ospray/1.8.5-gl/lib64:/appl/opt/vis/ospray/embree-3.6.1.x86_64.linux/lib:/appl/opt/vis/dependencies/VisRTX-0.1.6-install/lib64:/appl/opt/vis/dependencies/nvidia-index-libs-2.4.20200124-linux/lib/:/appl/opt/vis/dependencies/NVIDIA-OptiX-SDK-6.0.0/lib64:/appl/opt/vis/dependencies/mdl-sdk-314800.830/linux-x86-64/lib:/appl/opt/vis/llvm/7.0.1/lib:/appl/opt/vis/dependencies/oidn-1.0.0-install/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/appl/opt/vis/paraview/nvidia/NVIDIA-Linux-x86_64-460.73.01:/appl/opt/vis/ospray/1.8.5-gl/lib64:/appl/opt/vis/ospray/embree-3.6.1.x86_64.linux/lib:/appl/opt/vis/dependencies/VisRTX-0.1.6-install/lib64:/appl/opt/vis/dependencies/nvidia-index-libs-2.4.20200124-linux/lib/:/appl/opt/vis/dependencies/NVIDIA-OptiX-SDK-6.0.0/lib64:/appl/opt/vis/dependencies/mdl-sdk-314800.830/linux-x86-64/lib:/appl/opt/vis/llvm/7.0.1/lib:/appl/opt/vis/dependencies/oidn-1.0.0-install/lib64:$LD_LIBRARY_PATH
 
 MACHINEFILE="nodes.${SLURM_JOB_ID}"
 scontrol show hostnames ${SLURM_JOB_NODELIST} > $MACHINEFILE
@@ -99,13 +99,14 @@ FIRSTNODE=$(head -n 1 ${MACHINEFILE})
 MYPORT=`comm -23 <(seq 22300 22399 | sort) <(ss -Htan | awk '{print $4}' | cut -d':' -f2 | sort -u) | shuf | head -n 1`
 SERVER_MEMORY=$(( ${SLURM_MEM_PER_NODE}-1000 ))
 
+export SLURM_EXACT=1
 export GPU_DEVICE_ORDINAL=`srun -n1 printenv GPU_DEVICE_ORDINAL`
 export GALLIUM_DRIVER="swr"
 export KNOB_MAX_WORKER_THREADS=$SLURM_CPUS_PER_TASK
 export XDG_RUNTIME_DIR=$HOME
 echo "gpu_device_ordinal is ${GPU_DEVICE_ORDINAL}"
 
-srun --gres=gpu:v100:1 --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY /appl/opt/vis/paraview/pvserver-5.8.1-EGL/bin/pvserver --egl-device-index=$GPU_DEVICE_ORDINAL --server-port=$MYPORT --disable-xdisplay-test --force-offscreen-rendering &
+srun --gres=gpu:v100:1 --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY /appl/opt/vis/paraview/pvserver-5.8.1-EGL-new/bin/pvserver --egl-device-index=$GPU_DEVICE_ORDINAL --server-port=$MYPORT --disable-xdisplay-test --force-offscreen-rendering &
 srun --gres=none --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraView-5.8.1-client-builddir/bin/paraview --server-url=cs://${FIRSTNODE}.bullx:$MYPORT &
 wait
 ```
