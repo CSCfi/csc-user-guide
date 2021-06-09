@@ -228,7 +228,7 @@ for methods applied in your setup.
 -   [The PRODRG Server] for online creation of small molecule topology
 -   [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 
-  [mdrun performance checklist]: https://manual.gromacs.org/2020/user-guide/mdrun-performance.html
+  [mdrun performance checklist]: https://manual.gromacs.org/current/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
