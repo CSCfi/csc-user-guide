@@ -1,11 +1,11 @@
 
 
-# Data encryption with Crypt4GH and use of CSC Sensitive Data Services public encryption key 
+# Data encryption with Crypt4GH and use of CSC public encryption key 
 
 For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses **asymmetric encryption**.   
 
-!!!Note
-If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
+!!! note
+   If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
 You can download CSC Sensitive Data Services public key here:
 
@@ -204,7 +204,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
  
-# Data encryption with Crypt4GH Command Line Interface (CLI)
+## Data encryption with Crypt4GH Command Line Interface (CLI)
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
@@ -368,7 +368,7 @@ As an example you can check:
 2. the file is then decrypted by you, using your private key
 
 
-## Errors:
+** Errors:
 
 add here possible erros?
 
