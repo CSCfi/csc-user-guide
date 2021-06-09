@@ -78,4 +78,4 @@
 
 
 
-## [Pre-installed softwares in SD Desktop](./pre-installed_software.md)
+## [Pre-installed software in SD Desktop](./pre-installed_software.md)
