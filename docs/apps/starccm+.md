@@ -8,7 +8,7 @@ CSC - IT Center for Science has no own Star-CCM+ licenses available for customer
 
 ## Available
 
-Several versions of Star-CCM+ are available on the [Puhti](../computing/systems-puhti.md) server for analysis runs. Use command
+Several versions of Star-CCM+ are available on [Puhti and Mahti](../computing/available-systems.md) servers. Use command
 
     ls /appl/soft/eng/star/ | grep '^[0-9]'
 
