@@ -68,8 +68,6 @@ In the  **User information** page you can:
 
 
 
-  <img width="958" alt="Screenshot 2021-06-10 135303" src="https://user-images.githubusercontent.com/83574067/121513216-46621100-c9f3-11eb-8274-4b60047cdf7e.png">      
-
 
 
 
