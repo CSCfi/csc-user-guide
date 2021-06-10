@@ -23,6 +23,9 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 
 
 !!! note
+    SD Connect is not suiteble for permanet data storage. Make regular backups of important datasets.
+
+!!! note
     Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
@@ -39,24 +42,7 @@ Once you Login in SD Connect you access the default front-page: **Browser**.
 In this page you can :
 
 * view all **the containers (or buckets) available in your CSC project**, in which you can store encrypted sensitive data. The containers can be created, downloaded, deleted or shared, using the appropriate icons;
-
-!!! note
-    When you create a new bucket use the following suggestion to name it:
-    
-    * Bucket names must be unique across all existing bucket in CSC storage solution
-    
-    * Bucket names must not contain uppercase characters or underscores or non-ASCII (ä, ö etc.) characters
-    
-    * All bucket names are public, so please do not include any confidential information in the bucket names
-    
-    * You may, for example, use your project ID, e.g. ns2000620-raw-data-ddmmyy
-    
-    * It is not possible to rename a bucket.
-
-The data is spread across various servers, which protects against disk and server failures. Please note: This does not protect the data from e.g. accidental deletion. Please make regular backups of important data.
-    
-    
-
+   
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize container or data belonging to a specific project;
 
 *  open any container (double click) and view  thi contents (uploaded files or folders). Any file can be downloaded from the container or shared using the download link. From this view, you can also download the entire container, delete file or upload new files and folders.
@@ -87,74 +73,50 @@ In the  **User information** page you can:
 
 
 
-In the **Shared** page:
 
+
+
+In the **Shared** page:
 
 * in **Shared to the project** you can view the **containers or bukets that other CSC projects (belonging to your colligues or collaborators) shared with you**. With double click you can access the container and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
 !!! note 
     All the container listed here are own by another users that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
 
-
 * in **Shared with the project** you can view the containers or bukets which  **you shared with other CSC projects**. In this case you own the shared containers or bukets and you can decide when revoke access. 
 
 
 
 
-## Data upload using SD Connect:
-
-
-During the process of creating a new bucket, the system asks you to name the bucket. Therefore, please pay close attention on how to name your bucket correctly. The following are the rules for naming S3 buckets which are based on AWS naming convention and can be found here:
-
-    Bucket names must be unique across all existing bucket names.
-
-    Bucket names must comply with DNS naming conventions.
-
-    Bucket names must be at least 3 and no more than 63 characters long.
-
-    Bucket names must not contain uppercase characters or underscores.
-
-    Bucket names must start with a lowercase letter or number.
-
-    Bucket names must be a series of one or more labels. Adjacent labels are separated by a single period (.). Bucket names can contain lowercase letters, numbers, and hyphens. Each label must start and end with a lowercase letter or a number.
-
-    Bucket names must not be formatted as an IP address (for example, 192.168.5.4).
-
-    When you use virtual hosted–style buckets with Secure Sockets Layer (SSL), the SSL wildcard certificate only matches buckets that don't contain periods. To work around this, use HTTP or write your own certificate verification logic. We recommend that you do not use periods (".") in bucket names when using virtual hosted–style buckets.
-
-To sum it up, start the naming of your bucket with a lowercase letter. Use only lowercase letters and numbers. A bucket name could be for example switchs3 or switch-s3.
 
 
 
 
+## Data upload using SD Connect
 
-# Drag and Drop data upload (limits)
+To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (for data GB) in the browser page. One the upload has started, a progress bar will visulize the statud of the upload.
+
+If you did not create a buket yet, the user interface will automatically create a buket named: upload-nnnnnnnnnnnnn. Note that **it is not possible to rename buckets**.
+
+If you create a new buket use the following **suggestions to name it**:
+
+* Bucket **names must be unique** across all existing bucket in CSC storage solution
+    
+* Bucket names must **not contain uppercase characters or underscores or non-ASCII (ä, ö etc.) characters**
+    
+* All bucket **names are public**, so please do not include any confidential information in the bucket names
+ 
+Example: use your project ID- type of data-daymonthyear  , e.g. ns2000620-raw-data-ddmmyy
+  
 
 
-# Data Download
 
 
 # Data Sharing  from your project to  other CSC users's project
 
 
 
-# Data Sharing from other CSC users to your project
-
-
-# Container deletion
-
-
-
 # Data upload using CLI for SD Connect
-
-
-## Linux enviroment
-
-
-## Windowns enviroment
-
-
-## MacoS
 
 
 
