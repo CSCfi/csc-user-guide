@@ -57,11 +57,12 @@ This page you can :
 
 In the  **User information** page you can:
 
-* in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defount storage 10TiB);
+* in Currently Consumes view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defount storage 10TiB);
 
-* in **Project usage** you can view the **SD Connect Account, an ID associated to a specific CSC project**. This ID is required when you want to share cintaners with other CSC projects using SD Connect user interface. 
+* in **Project usage** you can view the **SD Connect Account, an ID associated your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface.
 
-* **Token icon** thorugh which you can generate a temporary tocken (necessary for data upload programmatically, using Swift client. For more info check below). 
+* access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
+
 
 
 <img width="515" alt="Screenshot 2021-06-10 184144" src="https://user-images.githubusercontent.com/83574067/121555306-905eed00-ca1b-11eb-991d-7bc53e719a3c.png">
@@ -69,29 +70,21 @@ In the  **User information** page you can:
 
 
 
+In the **Shared** page:
 
 
+* in **Shared to the project** you can view the **containers or bukets that other CSC projects (belonging to your colligues or collaborators) shared with you**. With double click you can access the container and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
-## Shared
-
-In the **Shared** page you can:
-
-
-* in **Shared to the project** visualize the containers or bukets that other CSC users shared with you: 
-
-From this view the shared access can be revoked, a new share initiated, or existing access synchronized to the sharing back-end, thus enabling it to be queried from the back-end in the future. (?)
+!!! note All the container listed here, are own by another users, that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
 
 
-![](img/SDConScreenshot_5.png)
+* in **Shared with the project** you can view the containers or bukets which  **you shared with other CSC projects**. In this case you own the shared containers or bukets and you can decide when revoke access. 
 
-* in **Shater with the project** visualize the containers or bukets that you shared with other CSC users: 
-
-From this view the granted access can be viewed, and any container can be opened just like when using the normal container browsing view. All features available in the ordinary container view work, such as downloading, uploading (if write access is granted to the container) and copying the container.
 
 
 ![](img/SDConScreenshot_6.png)
 
-# Buket or Container creation in SD Connect
+
 
 
 Naming: 
@@ -133,13 +126,16 @@ Naming:
 
 
 Questions:
+
 - DO we mention Chromes, works better?
 - Objects: in the defilition?
 - all the actiosn can be done just with files but now with folders.
 - some discrepancies in SD Connect nomenclature
-- Account is missleading. because if you change project it changes. It should be name project ID
-- could this one day become a link? (like MyCSC)?
-
+- Account is missleading. because if you change project it changes. It should be name project ID, could this one day become a link? (like MyCSC)?
+-links to cloud (can they be links to user guide)
+- could we add the public key here?
+- how do they find the ID linked to the project? there is a way
+- shared to the project (can they access that from SD Desktop or do they need to copy it?)
 
 
 
