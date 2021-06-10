@@ -16,7 +16,7 @@ To access SD Connect you need:
 * **a CSC project**
 * **Service access to Allas** (CSC cloud storage solution)
 
-Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/ using any modern web browser.
+Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://sd-connect.csc.fi/ using any modern web browser.
 
 
 !!! note
@@ -43,7 +43,7 @@ This page you can :
 
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize contaner or data beloging to a specific project;
 
-*   opene (double click) any container and view  the contents (uploaed files or folders). Any object can be downloaded from the container using the download link. From this view, you can also dowload the entire container, delete or upload new objects. 
+*   opene any container and view  the contents (uploaed files or folders). Any object can be downloaded from the container using the download link. From this view, you can also dowload the entire container, delete or upload new objects. 
 
 
 <img width="544" alt="Screenshot 2021-06-10 165847" src="https://user-images.githubusercontent.com/83574067/121538121-335c3a80-ca0d-11eb-89eb-55c9e0d8fb94.png">
@@ -162,7 +162,8 @@ Naming:
 
 
 
-
+Questions:
+- DO we mention Chromes works better?
 
 
 
