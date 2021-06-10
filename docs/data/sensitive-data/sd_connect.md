@@ -1,6 +1,13 @@
 
 # SD Connect (Sensitive Data Connect)
 
+
+
+
+
+
+
+
 ## Login 
 
 To access SD Connect you need:
@@ -11,112 +18,68 @@ To access SD Connect you need:
 
 Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:https://sd-connect.csc.fi/ using any modern web browser.
 
----
-**NOTE**
-
-It works with almost all markdown flavours (the below blank line matters).
-
----
-
-
----
-header-includes:
-    - \usepackage[most]{tcolorbox}
-    - \definecolor{light-yellow}{rgb}{1, 0.95, 0.7}
-    - \newtcolorbox{myquote}{colback=light-yellow,grow to right by=-10mm,grow to left by=-10mm, boxrule=0pt,boxsep=0pt,breakable}
-    - \newcommand{\todo}[1]{\begin{myquote} \textbf{TODO:} \emph{#1} \end{myquote}}
----
-
-blah blah
-
-\todo{something}
-
-blah
-
-
----
-title: "Get Started"
-output: flexdashboard::flex_dashboard
----
-
-```{r setup, include=FALSE}
-library(flexdashboard)
-```
-
-Column 1
---------------------------------------------------
-
-### Chart A
-
-```{r}
-```
-
-Column 2
---------------------------------------------------
-
-### Chart B
-
-```{r}
-```
-
-### Chart C
-
-```{r}
-```
-
-
-
-
-
-
 
 !!! note
-    Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption.
+    Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption with Crypt4GH.
 
 
 !!! note
     Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-# SD Connect User Interface
 
-## Browser
 
-Once you Login in SD Connect you access the default front-page: **Browser**. 
-<img width="641" alt="SDDkSreenshot_3" src="https://user-images.githubusercontent.com/83574067/121243305-3f79b800-c8a6-11eb-891b-08a9e09ff536.png">
-SD Connect Browser page shows the containers available in your CSC project, as well as general information about them. 
+
+
+
+
+## SD Connect User Interface
+
+Once you Login in SD Connect you access the default front-page: **Browser**. This page shows the containers (or bukets) available in your CSC project, as well as general information about them. 
+
+
+<img width="959" alt="Screenshot 2021-06-10 134145" src="https://user-images.githubusercontent.com/83574067/121511795-b4a5d400-c9f1-11eb-9ad9-2b0b362ee387.png">
 
 
 Any container can be opened, and the contents (uploaed files or folders) viewed. The object page shows information on the objects, e.g.
-The object name, The object ETag  ??, A download link for the object, Content type, Last date of modification.
-
-<img width="607" alt="SDDkSreenshot_1" src="https://user-images.githubusercontent.com/83574067/121242837-af3b7300-c8a5-11eb-9752-7bd4f3f21a77.png">
-![](img/SDConScreenshot_1.png)
+The object name, A download link for the object, Content type, Last date of modification.
 
 
-![](img/SDConScreenshot_2.png)
+<img width="959" alt="Screenshot 2021-06-10 134412" src="https://user-images.githubusercontent.com/83574067/121512161-19612e80-c9f2-11eb-8c6d-9e342f7804c1.png">
 
 
-On the top left corner, you can *select one of your CSC project* from the drop down menu bar. 
+On the top left corner of the browser page, you can ** list your CSC project** from the drop down menu bar. 
 
 
-![](img/SDConScreenshot_3.png)
+<img width="959" alt="Screenshot 2021-06-10 134657" src="https://user-images.githubusercontent.com/83574067/121512458-66dd9b80-c9f2-11eb-8a91-8dc6b6bcdc70.png">
 
 
-## User Information ( this should be changed to Project information before the 22th)
+If you click on the **User information** button in the front page, you will access thea page that displays:
 
-Behind the **User information** button in the front page, a user information dashboard is displayed. The dashboard displays statistics about the current resource usage, e.g.
-
-        Current billing unit consumption
-
-        Amount of containers and objects in a project
-
-        Total project data usage.
-        
-        SD Connect account ( also defined as project ID when using the command line tool)
+statistics about the current resource usage (billing unit consumption, amount of containers and objects (files or folders) present in each CSC project, the total project data usage. 
 
 
-![](img/SDConScreenshot_4.png)
+  <img width="958" alt="Screenshot 2021-06-10 135303" src="https://user-images.githubusercontent.com/83574067/121513216-46621100-c9f3-11eb-8274-4b60047cdf7e.png">      
+   
+   
+Morever, the page displays also the
+
+
+<img width="959" alt="Screenshot 2021-06-10 135501" src="https://user-images.githubusercontent.com/83574067/121513399-7c9f9080-c9f3-11eb-8199-b3caddc180df.png">
+
+<img width="959" alt="Screenshot 2021-06-10 135501" src="https://user-images.githubusercontent.com/83574067/121513769-e5870880-c9f3-11eb-8b50-2b1bc43399c9.png">
+
+
+
+
+And the token icon. From here you can generale a token necessary to upload data to SD Connect programmatically. For more info, check the ...below.
+
+
+<img width="959" alt="Screenshot 2021-06-10 135501" src="https://user-images.githubusercontent.com/83574067/121513769-e5870880-c9f3-11eb-8b50-2b1bc43399c9.png">
+<img width="960" alt="Screenshot 2021-06-10 135637" src="https://user-images.githubusercontent.com/83574067/121513758-e0c25480-c9f3-11eb-8d1e-c6a9b0c83ef8.png">
+
+
+
 
 ## Shared
 
