@@ -35,14 +35,13 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 
 ## SD Connect User Interface
 
-Once you Login in SD Connect you access the default front-page: **Browser**. 
+Once you Login in SD Connect you access the default front-page: **Browser**. This page shows:
 
-This page shows the containers (or bukets) available in your CSC project,in which you can store encrypted sensitive data. The user interface displays also the general information about them.
+* **the containers (or bukets) available in your CSC project**, in which you can store encrypted sensitive data. Any container can be opened, and the contents (uploaed files or folders) viewed. The object page shows information on the objects, e.g. The object name, A download link for the object, Content type, Last date of modification;
 
-Any container can be opened, and the contents (uploaed files or folders) viewed. The object page shows information on the objects, e.g.
-The object name, A download link for the object, Content type, Last date of modification.
+* on the top left corner of the browser page, you can **list and select your CSC project** from the drop down menu bar;
 
-On the top left corner of the browser page, you can **list and select your CSC project** from the drop down menu bar. 
+* on the right corner you can 
 
 
 
