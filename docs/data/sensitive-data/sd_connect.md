@@ -75,7 +75,8 @@ In the **Shared** page:
 
 * in **Shared to the project** you can view the **containers or bukets that other CSC projects (belonging to your colligues or collaborators) shared with you**. With double click you can access the container and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
-!!! note All the container listed here, are own by another users, that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
+!!! note 
+    All the container listed here, are own by another users, that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
 
 
 * in **Shared with the project** you can view the containers or bukets which  **you shared with other CSC projects**. In this case you own the shared containers or bukets and you can decide when revoke access. 
