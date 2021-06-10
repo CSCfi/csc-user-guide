@@ -40,6 +40,10 @@ Once you Login in SD Connect you access the default front-page: **Browser**. Thi
 
 
 
+
+
+
+
 <img width="959" alt="Screenshot 2021-06-10 134145" src="https://user-images.githubusercontent.com/83574067/121511795-b4a5d400-c9f1-11eb-9ad9-2b0b362ee387.png">
 
 
