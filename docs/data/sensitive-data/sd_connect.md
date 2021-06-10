@@ -36,13 +36,16 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 
 Once you Login in SD Connect you access the default front-page: **Browser**.
 
-This page you can :
+In this page you can :
 
 * view all **the containers (or buckets) available in your CSC project**, in which you can store encrypted sensitive data. The containers can be created, downloaded, deleted or shared, using the appropriate icons;
 
+!!! note
+    
+
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize container or data belonging to a specific project;
 
-*   open any container (double click) and view  the contents (uploaded files or folders). Any file can be downloaded from the container or shared using the download link. From this view, you can also download the entire container, delete file or upload new files and folders.
+*  open any container (double click) and view  thi contents (uploaded files or folders). Any file can be downloaded from the container or shared using the download link. From this view, you can also download the entire container, delete file or upload new files and folders.
 
 
 <img width="544" alt="Screenshot 2021-06-10 165847" src="https://user-images.githubusercontent.com/83574067/121538121-335c3a80-ca0d-11eb-89eb-55c9e0d8fb94.png">
