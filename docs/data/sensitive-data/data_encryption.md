@@ -18,12 +18,11 @@ You can download CSC Sensitive Data Services public key here:
 
 or copy /paste the CSC Sensitive Data Services public key in the command line tool (CLI):
 
+```text
 -----BEGIN CRYPT4GH PUBLIC KEY-----
-
 dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
-
 -----END CRYPT4GH PUBLIC KEY-----
-
+```
  
 
 ## Background information 
