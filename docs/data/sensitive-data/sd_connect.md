@@ -20,11 +20,11 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 
 
 !!! note
-    Sensitive data uploaded to SD Connect need to be encrypted. Check the previous paragraph for more informations about encryption with Crypt4GH.
+    Sensitive data need to be encrypted before upload to SD Connect. Check the previous paragraph for more informations about encryption with Crypt4GH.
 
 
 !!! note
-    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+    Currently, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 
@@ -35,26 +35,20 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 
 ## SD Connect User Interface
 
-Once you Login in SD Connect you access the default front-page: **Browser**. 
+Once you Login in SD Connect you access the default front-page: **Browser**.
 
 This page you can :
 
-* view all **the containers (or bukets) available in your CSC project**, in which you can store encrypted sensitive data. The containers can be downloaded, deleted or shared, using he appropriate icons;
+* view all **the containers (or buckets) available in your CSC project**, in which you can store encrypted sensitive data. The containers can be created, downloaded, deleted or shared, using the appropriate icons;
 
-*  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize contaner or data beloging to a specific project;
+*  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize container or data belonging to a specific project;
 
-*   opene any container and view  the contents (uploaed files or folders). Any object can be downloaded from the container using the download link. From this view, you can also dowload the entire container, delete or upload new objects. 
+*   open any container (double click) and view  the contents (uploaded files or folders). Any file can be downloaded from the container or shared using the download link. From this view, you can also download the entire container, delete file or upload new files and folders.
 
 
 <img width="544" alt="Screenshot 2021-06-10 165847" src="https://user-images.githubusercontent.com/83574067/121538121-335c3a80-ca0d-11eb-89eb-55c9e0d8fb94.png">
 
-<img width="569" alt="Screenshot 2021-06-10 172357" src="https://user-images.githubusercontent.com/83574067/121542307-b7fc8800-ca10-11eb-9125-150bfb5fa0ed.png">
-
-
-
-
-
-
+<img width="569" alt="Screenshot 2021-06-10 172357" src="https://user-images.githubusercontent.com/83574067/121542307-b7fc8800-ca10-11eb-9125-150bfb5fa0ed.png">  
 
 
 
@@ -65,7 +59,9 @@ This page you can :
 
 If you click on the **User information** button in the front page, you will access thea page that displays:
 
-statistics about the current resource usage (billing unit consumption, amount of containers and objects (files or folders) present in each CSC project, the total project data usage. 
+* statistics about the current resource usage (billing unit consumption, amount of containers and objects (files or folders) present in each CSC project, the total project data usage. 
+
+* the SD Connect Account. You can give this 
 
 
 
@@ -164,6 +160,8 @@ Naming:
 
 Questions:
 - DO we mention Chromes works better?
+- Objects: in the defilition?
+- all the actiosn can be done just with files but now with folders.
 
 
 
