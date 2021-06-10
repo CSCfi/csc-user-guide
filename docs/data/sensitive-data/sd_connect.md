@@ -61,38 +61,15 @@ In the  **User information** page you can:
 
 * in **Project usage** you can view the **SD Connect Account, an ID associated to a specific CSC project**. This ID is required when you want to share cintaners with other CSC projects using SD Connect user interface. 
 
+* **Token icon** thorugh which you can generate a temporary tocken (necessary for data upload programmatically, using Swift client. For more info check below). 
+
+
 <img width="515" alt="Screenshot 2021-06-10 184144" src="https://user-images.githubusercontent.com/83574067/121555306-905eed00-ca1b-11eb-991d-7bc53e719a3c.png">
 
 
 
   <img width="958" alt="Screenshot 2021-06-10 135303" src="https://user-images.githubusercontent.com/83574067/121513216-46621100-c9f3-11eb-8274-4b60047cdf7e.png">      
 
-
-
-
-
-
-
-
-
-   
-Morever, the page displays also the SD Connect Account. You can give this 
-
-
-
-
-
-<img width="959" alt="Screenshot 2021-06-10 135501" src="https://user-images.githubusercontent.com/83574067/121513399-7c9f9080-c9f3-11eb-8199-b3caddc180df.png">
-
-
-
-
-
-And the token icon. From here you can generale a token necessary to upload data to SD Connect programmatically. For more info, check the ...below.
-
-
-<img width="959" alt="Screenshot 2021-06-10 135501" src="https://user-images.githubusercontent.com/83574067/121513769-e5870880-c9f3-11eb-8b50-2b1bc43399c9.png">
-<img width="960" alt="Screenshot 2021-06-10 135637" src="https://user-images.githubusercontent.com/83574067/121513758-e0c25480-c9f3-11eb-8d1e-c6a9b0c83ef8.png">
 
 
 
