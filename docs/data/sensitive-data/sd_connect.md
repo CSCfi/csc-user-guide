@@ -41,6 +41,20 @@ In this page you can :
 * view all **the containers (or buckets) available in your CSC project**, in which you can store encrypted sensitive data. The containers can be created, downloaded, deleted or shared, using the appropriate icons;
 
 !!! note
+    When you create a new bucket use the following suggestion to name it:
+    
+    * Bucket names must be unique across all existing bucket in CSC storage solution
+    
+    * Bucket names must not contain uppercase characters or underscores or non-ASCII (ä, ö etc.) characters
+    
+    * All bucket names are public, so please do not include any confidential information in the bucket names
+    
+    * You may, for example, use your project ID, e.g. ns2000620-raw-data-ddmmyy
+    
+    * It is not possible to rename a bucket.
+
+The data is spread across various servers, which protects against disk and server failures. Please note: This does not protect the data from e.g. accidental deletion. Please make regular backups of important data.
+    
     
 
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize container or data belonging to a specific project;
