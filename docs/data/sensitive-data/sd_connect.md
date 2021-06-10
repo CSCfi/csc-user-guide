@@ -1,6 +1,3 @@
-![Trial layout](https://user-images.githubusercontent.com/83574067/121553900-622cdd80-ca1a-11eb-8feb-95a546b4c82d.png)
-![Trial layout](https://user-images.githubusercontent.com/83574067/121553920-65c06480-ca1a-11eb-9479-cfc39d6b1b53.png)
-
 # SD Connect (Sensitive Data Connect)
 
 
@@ -58,13 +55,13 @@ This page you can :
 
 
 
+In the  **User information** page you can:
 
-If you click on the **User information** button in the front page, you will access thea page that displays:
+* in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defount storage 10TiB);
 
-* statistics about the current resource usage (billing unit consumption, amount of containers and objects (files or folders) present in each CSC project, the total project data usage. 
+* in **Project usage** you can view the **SD Connect Account, an ID associated to a specific CSC project**. This ID is required when you want to share cintaners with other CSC projects using SD Connect user interface. 
 
-* the SD Connect Account. You can give this 
-
+<img width="515" alt="Screenshot 2021-06-10 184144" src="https://user-images.githubusercontent.com/83574067/121555306-905eed00-ca1b-11eb-991d-7bc53e719a3c.png">
 
 
 
@@ -161,9 +158,12 @@ Naming:
 
 
 Questions:
-- DO we mention Chromes works better?
+- DO we mention Chromes, works better?
 - Objects: in the defilition?
 - all the actiosn can be done just with files but now with folders.
+- some discrepancies in SD Connect nomenclature
+- Account is missleading. because if you change project it changes. It should be name project ID
+- could this one day become a link? (like MyCSC)?
 
 
 
