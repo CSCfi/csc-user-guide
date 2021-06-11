@@ -56,6 +56,7 @@ For the beta version of the service, you can choose between six different VM fla
 | Heavy Computation | 8 | 30 | 80 | 0 | 80 | 3.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 8    |
 
 
+CPU storage capacity Desktop 
 
 
 Example usage:
