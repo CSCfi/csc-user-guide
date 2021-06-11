@@ -1,19 +1,19 @@
 # Kubernetes and OpenShift concepts
 
-The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that 
-they provide for complex tasks such as load balancing, software updates for a 
-distributed system, or autoscaling. Here we give a very brief overview of some of the 
-most important abstractions, but we highly recommend that you read the concept 
-documentation for Kubernetes and OpenShift as well:
+The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
 * [OpenShift concepts](https://docs.okd.io/3.11/architecture/core_concepts/index.html)
 
-These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project. Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
+These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
 ![Kubernetes full picture](img/Kubernetes.drawio.svg)
 
 ## Kubernetes concepts
+
+### Namespace
+
+Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](/cloud/rahti/usage/projects_and_quota/#creating-a-project) documentation.
 
 ### Pod
 
@@ -290,6 +290,7 @@ OpenShift includes all Kubernetes objects, plus some extensions:
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
 * **DeploymentConfig** objects create new [**ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
+* **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
 
@@ -415,7 +416,7 @@ Other source strategies include `custom`, `jenkins` and `source`.
 
 ### Route
 
-Route objects are the OpenShift equivalent of Ingress in vanilla Kubernetes, they expose a Service object to the internet via HTTP/HTTPS. A typical Route definition would be:
+Route objects are the OpenShift equivalent of _Ingress_ in vanilla Kubernetes, they expose a Service object to the internet via HTTP/HTTPS. A typical Route definition would be:
 
 ```yaml
 apiVersion: route.openshift.io/v1
