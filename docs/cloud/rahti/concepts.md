@@ -24,7 +24,7 @@ contain volumes of different types for accessing data. Each pod has its own IP
 address shared by all containers in the pod, this IP address may change if the Pod gets killed and recreated. In the most typical
 case, a pod contains one container and perhaps one or a few different volumes.
 
-Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
+Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
 
 ![Pod](img/pods.png)
 
