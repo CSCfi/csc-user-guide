@@ -76,6 +76,10 @@ The Allas object storage is charged:
 
 * See [Rahti billing](../cloud/rahti/billing.md).
 
+## Kvasi
+* See [Kvasi billing](../computing/kvasi-billing.md)
+
+
 ## Monitoring billing unit consumption
 
 In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
