@@ -177,7 +177,8 @@ For security reasons, your private work space in SD Desktop is **completely isol
 * access SD Desktop and use the SD Connect Downloader to make a copy of the scripts
  
 
-!!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**.
+!!! note 
+    To import encrypted data from SD Connect to SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. Is this true :-)?
 
 
 ## Step 4: Logging out; Killing connection; Deleting your work environment
