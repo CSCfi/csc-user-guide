@@ -58,14 +58,12 @@ Once you fisrt login in SD Desktop _Homepage_ you can launch your Desktop by cli
 
 
 
-![SD Desktop homepage](images/sd-desktop-1.png)
 
 
 <img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
 
 
- ![](img/SDDkScreenshot_1.png)
- 
+
  
  
  
