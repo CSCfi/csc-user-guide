@@ -1,3 +1,4 @@
+
 # Sensitive Data Services for Reaserch
 
 
@@ -74,6 +75,11 @@ Notes that require discussion:
 -Does it even make any sense to define bukect if in the SD Connect UI are called containers?
 - how can I source the project ID with CLI in Opne stack? or with CSC resources if I know---?
 - AUHT is still present in SD Connect
+
+
+
+
+
 
   
 
