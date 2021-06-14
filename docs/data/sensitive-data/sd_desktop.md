@@ -84,7 +84,7 @@ In SD Dekstop (Open Beta) you can choose between **four different Desktops or wo
 | Medium Computation | add | add | add |  complex analysis of large datasets |
 | Heavy Computation | add | add | add | parallel computing e.g. machine learning |
 
-nbsp;   
+&nbsp; 
 &nbsp; 
 &nbsp; 
 &nbsp; 
@@ -129,7 +129,7 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 &nbsp;
 &nbsp;
 &nbsp;
-Once you are logged in into your SD Desktop workspace you can import encrypted data stored in SD Connect:
+Once you are logged in into your SD Desktop private workspace you can import encrypted data stored in SD Connect:
 
 * **Open SD Connect Downloader client** (link available on the Desktop...bit confusing :-) )
 
@@ -164,7 +164,11 @@ Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) th
 
 
 !!! note 
-     Open Beta version of SD Desktop has only **40 GB of disk space.** If you are trying to import more then 40 GB of data you will see the following error: XXXXX
+     Open Beta version of SD Desktop has only **40 GB of disk space.** If you are trying to import more then 40 GB of data you will see the following            error: XXXXX
+&nbsp; 
+&nbsp;   
+&nbsp;   
+&nbsp; 
 
 For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
@@ -176,78 +180,84 @@ For security reasons, your private work space in SD Desktop is **completely isol
 !!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**.
 
 
+## Step 4: Logging out; Killing connection; Deleting your work environment
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
 
 
-  
-  
-  
-    
-## Step 4: Logging out; Killing connection; Deleting your work enviroment
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+From SD Desktop Homepage you can **Kill your connection to SD Desktop**:
 
-As previuosy mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on comptuting and runnign jobs. You will always be able to access again your Desktop after log in.
+* on the top right corner of the browser, select your user name and select **settings**
 
-
-From SD Desktop Homapge you can **Kill your connection to SD Desktop**: 
-
-* on the top right corner fo the browser, select your user name and select **settings**
-
-* in the **Active session** window, select your connection and next click on Kill connection
+* in the **Active session** window, select your connection and next click on **Kill Connection**
 
 meaning: ?
 
 
 
-AT the end of your reaserch or your analysis, you can delete the computing enviroment going in:
+At the end of your research or your analysis, you can delete your private workspace in:
 
 * SD Desktop Homepage
 
-* click on **Go to launcing page**
+* click on **Go to launching page**
 
 * click on **Delete Instance**
 
 
-!!! note: all the data present in the computing enviroment will be deleted and it will not be possible to retreve them. 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+!!! note
+    All the data present in the computing environment will be deleted and it will not be                         possible to retrieve them.
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 <img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 ## Step 5: Data export from SD Desktop
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 SD Desktop is not connected to the internet for security reasons.
 
 To export processed sensitive data or non-sensitive data (results) data from your Desktop you need to:
 
-* **Only the project manager or group leader** can make the  request writing to ***servicedesk@csc.fi*** and use **SD Desktop (Export Request)** in the object field
+* make a request writing to ***servicedesk@csc.fi*** and use **SD Desktop (Export Request)** in the object field
+
+Note! **Only the project manager or group leader** can make the request
 
 * Add the CSC project number and bucket or container ID in SD Connect in which the data need will be exported by CSC Cloud administrators
 
 * The request will be **processed by CSC cloud administrators** and it may require **up to 10 days to be processed**.  
 
-!!! note Always **encrypt sensitive data that need to be exported out of SD Desktop.** If the encryption with Crypt4GH is successful, the file name will end with .c4gh
+!!! note
+    **Only the project manager or group leader** can apply for an export request.
+
+!!! note
+     Always **encrypted sensitive data which need to be exported out of SD Desktop.** If the encryption with Crypt4GH is successful, the file name will end with .c4gh
 
 
 
  Unclear points:
- - private computing enviroment / private work space / Desktop (mught be a bit confusing)
- - killing session
- - how access R studio and Phyton Crypt4GH? Can they install their own encryption tool?
+
+ - how do we define it? private computing environment / private workspace / Desktop (might be a bit confusing)
+ - killing session meaning
+ - how to access R studio and Python Crypt 4GH? Can they install their own encryption tool?
 
 
 
 
+
+
+
+  
