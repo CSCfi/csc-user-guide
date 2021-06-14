@@ -46,9 +46,10 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 ## Step 2: Launching your Desktop (your private work environment)
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 Once you login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_.
 &nbsp;   
@@ -76,8 +77,16 @@ Next, the system will create your private work space in SD Desktop. The process 
 If the process is successful you will be able to see........
 
 You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 In SD Dekstop (Open Beta) you can choose between four different Desktops:  
 
@@ -99,9 +108,10 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 
 
 ## Step3: Importing (or downloading) encrypted sensitive data to SD Desktop
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 To import your encrypted data from SD Connect to your SD Desktop you need to:  
 
 * **Open  SD Connect Dowloader client** (link available on the Desktop)
@@ -119,9 +129,17 @@ To import your encrypted data from SD Connect to your SD Desktop you need to:
 * click on **open dowload location**
 
 * then **I am not sure where they find the folder : XXXX**
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 
 
@@ -131,25 +149,27 @@ Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) th
 
 !!! note Open Beta version of SD Dekstop has only 40 GB of disk space. If you are trying to import more then 40 GB of data you will see the following error: XXXXX
 
-
-
-
-
-
 For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
 * dowload your scripts  from GitHub and save them in a specific conatiner in SD Desktop
 
 * access SD Desktop and use the SD Connect Dowloader to make a copy of the scripts 
  
- 
- 
 
 !!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. 
+
+
+
+
+
 
     
     
 ## Step 4: Logging out; Killing connection; Deleting your work enviroment
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 As previuosy mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on comptuting and runnign jobs. You will always be able to access again your Desktop after log in.
 
@@ -174,20 +194,24 @@ AT the end of your reaserch or your analysis, you can delete the computing envir
 
 
 !!! note: all the data present in the computing enviroment will be deleted and it will not be possible to retreve them. 
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 <img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
-
-
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 ## Step 5: Data export from SD Desktop
-
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 SD Desktop is not connected to the internet for security reasons.
 
 To export processed sensitive data or non-sensitive data (results) data from your Desktop you need to:
