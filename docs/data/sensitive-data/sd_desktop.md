@@ -91,12 +91,12 @@ You might encounter this error: write to servicedesk@csc.fi and use SD Desktop l
 
 In SD Dekstop Opeb Beta you can choose between four different Desktops:  
 
-|Desktop for|CPU|Srorage capacity|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Light Computation  | 3 | 4  | 80 | 0 | 80 | 1.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1    |
-| Small Computation   | 4 | 7  | 80 | 0 | 80 | 1.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 2    |
-| Memdium Computation | 6 | 15 | 80 | 0 | 80 | 2.5 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 4    |
-| Heavy Computation | 8 | 30 | 80 | 0 | 80 | 3.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 8    |
+|Desktop for|CPU|Storage capacity|Billing unites|example usage|
+|--- |:---:|:---:|:---:|:---:|
+| Light Computation  | 3 | 4  | 80 | testing the services |
+| Small Computation   | 4 | 7  | 80 | statistical analysis of smal datasets | 
+| Memdium Computation | 6 | 15 | 80 |  complex analysis of lasrge datasets |
+| Heavy Computation | 8 | 30 | 80 | parallel computing e.g. machine learning | 
 
 
 CPU storage capacity Desktop 
