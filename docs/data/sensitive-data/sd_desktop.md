@@ -57,7 +57,39 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 &nbsp; 
 &nbsp; 
 
-Once you login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_.
+Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**.
+
+Here you can:
+
+* **select your CSC project**
+
+* **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
+
+* **select** the preferred computing environment (based on your needs) and click on  + icon and on **Create instance**
+
+
+Next, the system will create your private work space in SD Desktop. The process is completely automated and might take up to 30 minutes. During this time, you can close your browser / log out /leave your browser window open/
+
+If the process is successful you will be able to see........
+
+You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
+
+
+In SD Dekstop (Open Beta) you can choose between **four different Desktops or workspaces**:  
+
+|Desktop for|CPU|Storage capacity|Billing unites|example usage|
+|--- |:---:|:---:|:---:|:---:|
+| Light Computation  | add | add  | add | testing the services |
+| Small Computation   | add | add | add | statistical analysis of small datasets |
+| Medium Computation | add | add | add |  complex analysis of large datasets |
+| Heavy Computation | add | add | add | parallel computing e.g. machine learning |
+
+
+A complete updated list of **preinstalled software** in every worsksapce is available here:
+
+https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
+
+
 &nbsp;   
 &nbsp; 
 &nbsp; 
@@ -71,22 +103,7 @@ Once you login in SD Desktop _Homepage_ you can launch your Desktop by clicking 
 &nbsp; 
 &nbsp; 
 &nbsp; 
-&nbsp; 
-
-Here you can:
-
-* select your CSC project
-
-* choose the operating system (for beta versions, only possible operating system is Linux CentOS 7)
-
-* select the preferred computing environment (based on your needs) and click on  + Create instance
-
-
-Next, the system will create your private work space in SD Desktop. The process is completely automated and might take up to 30 minutes. During this time, you can close your browser / log out /leave your browser window open/
-
-If the process is successful you will be able to see........
-
-You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
+&nbsp;
 &nbsp; 
 &nbsp; 
 &nbsp; 
@@ -101,23 +118,6 @@ You might encounter this error: write to servicedesk@csc.fi and use SD Desktop l
 &nbsp; 
 &nbsp; 
 &nbsp; 
-
-In SD Dekstop (Open Beta) you can choose between four different Desktops:  
-
-|Desktop for|CPU|Storage capacity|Billing unites|example usage|
-|--- |:---:|:---:|:---:|:---:|
-| Light Computation  | add | add  | add | testing the services |
-| Small Computation   | add | add | add | statistical analysis of small datasets |
-| Medium Computation | add | add | add |  complex analysis of large datasets |
-| Heavy Computation | add | add | add | parallel computing e.g. machine learning |
-
-A complete updated list of preinstalled software is available here:
-
-https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
-
-
-
-
 
 
 
