@@ -8,18 +8,18 @@ Sensitive Data Servises (SD Services) provide CSC customers a sercure
 cloud computing environment, that can be used for processing sensitive
 data. The SD Services have increased security, compared to the
 HPC (Puhti and Mahti) and genreal purpose cloud environets (cPouta and Rahti) of CSC.
-Thus dataset, that can't be processed in these environmnets may still prosessed in the
-SD Services environmnent. 
+Thus data, that can't be processed in these environments may still processed in the
+SD Services environment. 
 
 Compared to the secure ePouta cloud environment, SD servises are
-easy to access and share. The service can be used from everywhere and it does 
-not require dedicated connection between the user and CSC. This makes the service easier 
+easier to access and share. The service can be used from everywhere and it does 
+not require a dedicated network connection between the user and CSC. This makes the service easy
 to take in use and also enables studies, where reserachers from different organizations 
 need to share a secure work space.
 
 The SD Services consists of three components:
 
-   * **SC Connect** is a web user interface to import data to SD Services
+   * **SC Connect** is a web user interface to import data to SD Services-
    * **SD Desktop** provides web user interface to a project specific secure virtual desktop. This virtual machine
 desktop is not connected tp internet. This is enables secure compute and process sensitive data. All project members and collaborators can access thist desktop so you don't need to generating multiple copies of your data. As data can't be exported from SD desktop, it can be used it to provide a limited and restricted access to a spcific datatset.  
    * **SD Submit** service to store and share the results cretaed by the SD Desktop service. The data trasport is done in a conrolled way so that original data over can fully control the data export process.
