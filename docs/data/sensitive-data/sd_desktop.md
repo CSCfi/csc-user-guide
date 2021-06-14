@@ -78,7 +78,9 @@ Here you can:
 
 * select the preferred computing enviroment (based on your needs) and click on _+ Create instance_
 
- ![](img/SDDkScreenshot_2.png)
+
+ <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864468-9ef02180-cd05-11eb-8de3-09622b5a7df6.png">
+
  
 
 Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes.
@@ -89,7 +91,20 @@ You might encounter this error: write to servicedesk@csc.fi and use SD Desktop l
 
 
 
-In SD Dekstop Opeb Beta you can choose between four different Desktops:  
+
+
+
+
+<img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
+
+
+
+
+
+
+
+
+In SD Dekstop (Open Beta) you can choose between four different Desktops:  
 
 |Desktop for|CPU|Storage capacity|Billing unites|example usage|
 |--- |:---:|:---:|:---:|:---:|
@@ -99,18 +114,9 @@ In SD Dekstop Opeb Beta you can choose between four different Desktops:
 | Heavy Computation | 8 | 30 | 80 | parallel computing e.g. machine learning | 
 
 
-CPU storage capacity Desktop 
 
 
-Example usage:
 
-Light Computation : suitable to test the service (e.g. familiarise witht he user interface)
-
-Small Computation  : statistical analysis
-
-Memdium Computation : complex analysis of large datasets (e.g. genetic sequences)
-
-Heavy Computation :Parallel computing of large datasets (e.g. machine learning) 
 
 
 ## Step2: Access to the computing environment 
