@@ -8,17 +8,17 @@ CSC - IT Center for Science has no own Star-CCM+ licenses available for customer
 
 ## Available
 
-Several versions of Star-CCM+ are available on the [Puhti](../computing/systems-puhti.md) server for analysis runs. Use command
+Several versions of Star-CCM+ are available on [Puhti and Mahti](../computing/available-systems.md) servers. Use command
 
-    ls /appl/soft/eng/star/ | grep '^[0-9]'
+    ls /appl/soft/eng/starccm+/ | grep '^[0-9]'
 
 on the server to check the installed versions. The double precision version will have the -R8 suffix on the end of the module version number.
 
 ## Usage
 
-There is an example of **batch job script** available on Puhti server:
+There is an example of **batch job script** available on the servers:
 
-    /appl/soft/eng/star/parjob_star_puhti
+    /appl/soft/eng/starccm+/parjob_starccm+
 
 Copy the file and modify it for your own use. Further instructions are given in the file.  How to submit a batch job on CSC's servers, see the user guide *CSCDocs*, page [Getting started](../computing/running/getting-started.md).
 
