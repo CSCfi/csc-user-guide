@@ -3,6 +3,9 @@
 
 ## Step1 : Login 
 
+
+
+
 To access SD Desktop you need:
 
 * **a CSC account**
@@ -10,7 +13,7 @@ To access SD Desktop you need:
 * **a CSC project**
 
 * **Service access to SD Destkop.**
-* 
+
 
 To import (or download) encrypted sensitive data to SD Desktop you need:
 
@@ -47,6 +50,8 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 ## Step 2: Launching your Desktop (your private work environment)
 
 
+
+
 Once you fisrt login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
 
 
@@ -79,7 +84,7 @@ Here you can:
 * select the preferred computing enviroment (based on your needs) and click on _+ Create instance_
 
 
-Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes.
+Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes. During this time, you can close your browser / log out /leave your browser window open/
 
 If the process is sucessfull you will be able to see........
 
@@ -104,17 +109,15 @@ In SD Dekstop (Open Beta) you can choose between four different Desktops:
 
 |Desktop for|CPU|Storage capacity|Billing unites|example usage|
 |--- |:---:|:---:|:---:|:---:|
-| Light Computation  | 3 | 4  | 80 | testing the services |
-| Small Computation   | 4 | 7  | 80 | statistical analysis of smal datasets | 
-| Memdium Computation | 6 | 15 | 80 |  complex analysis of lasrge datasets |
-| Heavy Computation | 8 | 30 | 80 | parallel computing e.g. machine learning | 
+| Light Computation  | add | add  | add | testing the services |
+| Small Computation   | add | add | add | statistical analysis of smal datasets | 
+| Memdium Computation | add | add | add |  complex analysis of lasrge datasets |
+| Heavy Computation | add | add | add | parallel computing e.g. machine learning | 
 
 
 
 
-Once the computing environment is open you can access the pre-installed software in each Desktop:
-
-A complete updated list is available here:
+ In SD Desktop you can access a pre-installe list of software. A complete updated list is available here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
@@ -126,6 +129,8 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 
 ## Step2: Access to your Desktop (or private work enviroment)
 
+
+
  
 Once you have launched your privite work enviroment, you will be able to access it in SD Desktop *Connection page*:
 
@@ -133,10 +138,10 @@ Once you have launched your privite work enviroment, you will be able to access 
 
 * in **Recent connections** you can click on the work enviroment image
 
-The Desktop will always be available for computation and consume billing units unitil you will delete it. 
+Iven after you log out, the Desktop will always be available for computation and consume billing units, unitil you will delete it. 
 
 
-!!! note If you and your colleagues want to ***access the same SD Desktop you** all need to belong to the ***same CSC project as project members.***
+!!! note If you and your colleagues want to ***access the same SD Desktop you** you need to belong to the ***same CSC project as project members.***
 
 
 
@@ -152,30 +157,42 @@ The Desktop will always be available for computation and consume billing units u
  ![](img/SDDkScreenshot_3.png)
 
 
+!!! note If you and your colleagues / collaborators want to ***access the same SD Desktop you** you need to belong to the ***same CSC project as project members.***
+
+
+
+
+
+
 
 
  
-## Importing encrypted sensitive data to SD Desktop
+## Importing (or downloading) encrypted sensitive data to SD Desktop
 
-To import from SD Connect your data you need to:  
 
-* Open the SD Connect Dowloader client
 
-* insert your CSC credentials (username and password) (They might not remeber it? WHat id they login with HAKA?)
 
-* select the correct  CSC project
+To import your encrypted data from SD Connect to your SD Desktop you need to:  
 
-* select the correc container
+* **Open  SD Connect Dowloader client** (link available on the Desktop)
 
-* select the file/ folders you want to import
+* insert your **CSC credentials** (username and password. Note: we disable the copy paste options for security reasons,thus you need to type in your passorowd)
 
-* click on dowload objects (the client will make a copy of the encrypted files/ folders in SD Dekstop, if you used CSC Sensitive Data Services public key the data will be deencrypted automatically)
+* **select your CSC project**
 
-* click on open dowload location
+* **select the correc bucket (or container)**
 
-* then I am not sure where they find the folder : XXXX
+* **select the files** you want to import
 
-* If you use your own encryption key pair, you can import the encrypted data. 
+* **click on dowload objects** (the client will make a copy of the encrypted files in SD Dekstop. If you used CSC Sensitive Data Services public key the data will be deencrypted automatically)
+
+* click on **open dowload location**
+
+* then **I am not sure where they find the folder : XXXX**
+
+
+
+
 
 
 Video example:
@@ -183,7 +200,12 @@ Video example:
 CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name), need to be redone or blured
 
 
-!!! Note, to access your encrypted data in SD Desktop, the same CSC project needs to have service access for Allas (CSC storage solution and SD Connect) and SD Desktop. 
+!!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. 
+
+
+
+
+
 
 
 
