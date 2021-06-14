@@ -370,7 +370,16 @@ Limitations and caveats: 
     instance. The administrators are not able to access the GPGPU and
     check its health. Please report any errors or problems with the GPGPUs
     to CSC (and attach the output of the command "nvidia-smi -q").
--   The applications must be able to utilize the GPU to get a speedup.
+-   The applications must be able to utilize the GPU to get a speedup. Even
+    though there is no specific speedup target to be met to enable GPU usage
+    on Pouta, it is best to aim for higher speedups to compensate for the
+    relatively higher prices per hour associated with GPUs and their relative
+    scarcity.
+-   As the majority of computing resources in Pouta are CPU-based and GPU
+    resources are relatively limited, most likely, you will need to specify
+    your need for GPU resources in your application or make an additional
+    request via servicedesk@csc.fi to enable their usage on your existing
+    Pouta application.
 
 These instances are also tightly tied to the hardware. You may expect
 downtime of instances during the maintenance of the hardware.
