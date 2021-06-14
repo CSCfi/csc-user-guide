@@ -55,6 +55,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 Once you fisrt login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
 
 
+![sd_desktop_1](https://user-images.githubusercontent.com/83574067/121925717-ded6f900-cd45-11eb-8745-d1b4e53d7292.png)
 
 
 
