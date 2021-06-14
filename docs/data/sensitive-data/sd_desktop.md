@@ -22,22 +22,53 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 !!! note  Indipendently of the login method used, to import sensitive data in your SD Desktop computing enviroment, you need your CSC username and password. If you don't remeber it, check how to reset it at: https://docs.csc.fi/accounts/how-to-change-password/
 
+
+
+
 !!! note ***All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.*** Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
+
+
+
 
 !!! note It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
+
+
+
 !!! note Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+
+
+
+
+
+
 
 
 ## Step1: Launching your Desktop (your private work environment)
 
 
-Once you fisrt Login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
+Once you fisrt login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
+
+
+
+
+
+
+
+
 
 <img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
 
 
  ![](img/SDDkScreenshot_1.png)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 Here you can:
 
@@ -60,7 +91,7 @@ You might encounter this error: write to servicedesk@csc.fi and use SD Desktop l
 
 In SD Dekstop Opeb Beta you can choose between four different Desktops:  
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|Desktop for|CPU|Srorage capacity|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Light Computation  | 3 | 4  | 80 | 0 | 80 | 1.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 1    |
 | Small Computation   | 4 | 7  | 80 | 0 | 80 | 1.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 2    |
