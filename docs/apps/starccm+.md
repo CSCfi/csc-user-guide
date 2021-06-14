@@ -16,9 +16,9 @@ on the server to check the installed versions. The double precision version will
 
 ## Usage
 
-There is an example of **batch job script** available on Puhti server:
+There is an example of **batch job script** available on the servers:
 
-    /appl/soft/eng/star/parjob_star_puhti
+    /appl/soft/eng/starccm+/parjob_starccm+
 
 Copy the file and modify it for your own use. Further instructions are given in the file.  How to submit a batch job on CSC's servers, see the user guide *CSCDocs*, page [Getting started](../computing/running/getting-started.md).
 
