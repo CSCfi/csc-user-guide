@@ -23,12 +23,12 @@ To import (or download) encrypted sensitive data to SD Desktop you need:
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser. 
 
 
-!!! note  Indipendently of the login method used, to import sensitive data in your SD Desktop computing enviroment, you need your CSC username and password. If you don't remeber it, check how to reset it at: https://docs.csc.fi/accounts/how-to-change-password/
+!!! note  Indipendently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing enviroment (or workspace). If you don't remeber it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
 
 
 
 
-!!! note ***All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.*** Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
+!!! note **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to launch only one Desktop (or workspace) for each CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
 
 
 
@@ -230,14 +230,14 @@ To import your encrypted data from SD Connect to your SD Desktop you need to:
 Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) this will be re-done by Aada
 
 
-!!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. 
+!!! note Open Beta version of SD Dekstop has only 40 GB of disk space. If you are trying to import more then 40 GB of data you will see the following error: XXXXX
 
 
 
 
 
 
-For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import in SD Desktop specific scripts, for example from GitHub or other trusted repositories, you need to use the same procedure described before:
+For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
 * dowload your scripts  from GitHub and save them in a specific conatiner in SD Desktop
 
@@ -245,6 +245,8 @@ For security reasons, your private work space in SD Desktop is **completely isol
  
  
  
+
+!!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. 
 
     
     
@@ -293,7 +295,7 @@ To export processed sensitive data or non-sensitive data (results) data from you
 
 * **Only the project manager or group leader** can make the  request writing to ***servicedesk@csc.fi*** and use **SD Desktop (Export Request)** in the object field
 
-* Add the CSC project number and buket or container ID in SD Connect in which the data need will be exported by CSC Cloud administrators
+* Add the CSC project number and bucket or container ID in SD Connect in which the data need will be exported by CSC Cloud administrators
 
 * The request will be **processed by CSC cloud administrators** and it may require **up to 10 days to be processed**.  
 
@@ -301,7 +303,10 @@ To export processed sensitive data or non-sensitive data (results) data from you
 
 
 
-         
+ Unclear points:
+ - private computing enviroment / private work space / Desktop (mught be a bit confusing)
+ - killing session
+ - how access R studio and Phyton Crypt4GH? Can they install their own encryption tool?
 
 
 
