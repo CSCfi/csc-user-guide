@@ -10,7 +10,7 @@ CSC - IT Center for Science has no own Star-CCM+ licenses available for customer
 
 Several versions of Star-CCM+ are available on [Puhti and Mahti](../computing/available-systems.md) servers. Use command
 
-    ls /appl/soft/eng/star/ | grep '^[0-9]'
+    ls /appl/soft/eng/starccm+/ | grep '^[0-9]'
 
 on the server to check the installed versions. The double precision version will have the -R8 suffix on the end of the module version number.
 
