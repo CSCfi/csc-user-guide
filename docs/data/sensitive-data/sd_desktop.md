@@ -2,8 +2,10 @@
 # SD Desktop (Sensitive Data Desktop)
 
 ## Step1 : Login 
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 To access SD Desktop you need:
 
 * **a CSC account**
@@ -62,6 +64,10 @@ Once you login in SD Desktop _Homepage_ you can launch your Desktop by clicking 
 &nbsp; 
 &nbsp; 
 &nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
 Here you can:
 
@@ -83,6 +89,10 @@ You might encounter this error: write to servicedesk@csc.fi and use SD Desktop l
 &nbsp; 
 
 <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 &nbsp; 
 &nbsp; 
 &nbsp; 
