@@ -115,9 +115,7 @@ In SD Dekstop (Open Beta) you can choose between four different Desktops:
 | Heavy Computation | add | add | add | parallel computing e.g. machine learning | 
 
 
-
-
-In SD Desktop you can access a pre-installe list of software. A complete updated list is available here:
+ A complete updated list of pre-sintalled sofware is available here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
@@ -132,14 +130,13 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 
 
  
-Once you have launched your privite work enviroment, you will be able to access it in SD Desktop *Connection page*:
+Once you have launched your privite work enviroment, you will be able to access it in SD Desktop **Connection page** (homepage):
 
 * in **All connections** you can select a CSC project and after clicking on the + icon, you can open your Desktop clicking on the project name (example project_NNNNNN_NNNNN)
 
 * in **Recent connections** you can click on the work enviroment image
 
-A black screen might appear for a few second, depending on yout internet connection.
-Iven after you log out, the Desktop will always be available for computation and consume billing units, unitil you will delete it. 
+A black screen might appear for a few second, depending on yout internet connection. Iven after you log out, the Desktop will always be available for computation and consume billing units, unitil you will delete it. 
 
 
 
@@ -177,7 +174,9 @@ To **acess R Studio or Phyton** you can run the follwoing script:
 
 
 
-To share files or datasets with your colligues, you can save them in the **shared folder**. Note: even if you are 
+To share files or datasets with your colleagues, you can save them in the **shared folder**. 
+
+!!! note: even if you are using the same workspace in SD Desktop, in the open beta versionsof SD Desktop you will not be able to simultaneurly work on the same file (as, for security reasons the work enviroment is isolated form the internet).
 
 
 
@@ -228,9 +227,7 @@ To import your encrypted data from SD Connect to your SD Desktop you need to:
 
 
 
-Video example:
-
-CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name), need to be redone or blured
+Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) this will be re-done by Aada
 
 
 !!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. 
@@ -238,7 +235,9 @@ CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name), need to be r
 
 
 
-!!! note **Upload of specific scripts from GitHub** For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specicifc scripts fro example from GitHub ot other trusted repositories, you need to use the same procedure described before for sensitive data:
+
+
+For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import in SD Desktop specific scripts, for example from GitHub or other trusted repositories, you need to use the same procedure described before:
 
 * dowload your scripts  from GitHub and save them in a specific conatiner in SD Desktop
 
@@ -249,59 +248,59 @@ CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name), need to be r
 
     
     
-## Step 4: Logging out; Killing connection; Deleting your work envuroment
+## Step 4: Logging out; Killing connection; Deleting your work enviroment
 
-If you turn off the computing environment……….. 
+As previuosy mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on comptuting and runnign jobs. You will always be able to access again your Desktop after log in.
 
 
-Settings:  
+From SD Desktop Homapge you can **Kill your connection to SD Desktop**: 
 
-Active session: If you click on click session................ 
+* on the top right corner fo the browser, select your user name and select **settings**
 
- 
+* in the **Active session** window, select your connection and next click on Kill connection
 
-Preferences: 
+meaning: ?
+
+
+
+AT the end of your reaserch or your analysis, you can delete the computing enviroment going in:
+
+* SD Desktop Homepage
+
+* click on **Go to launcing page**
+
+* click on **Delete Instance**
+
+
+!!! note: all the data present in the computing enviroment will be deleted and it will not be possible to retreve them. 
+
+
+
+<img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
+
+
 
 
 
 ## Data export from SD Desktop
 
-How to export processed sensitive data or non-sensitive data (results) data from the secure computing environment 
 
-SD Desktop is not connected to the internet for security reasons. Thus, to export the results of your analysis (non-sensitive data) or to export encrypted processed sensitive data:
+
+
+SD Desktop is not connected to the internet for security reasons.
+
+To export processed sensitive data or non-sensitive data (results) data from your Desktop you need to:
 
 * **Only the project manager or group leader** can make the  request writing to ***servicedesk@csc.fi*** and use **SD Desktop (Export Request)** in the object field
 
 * Add the CSC project number and buket or container ID in SD Connect in which the data need will be exported by CSC Cloud administrators
 
-* The request will be processed by our cloud administrators and it may require up to 10 days to be processed.  
+* The request will be **processed by CSC cloud administrators** and it may require **up to 10 days to be processed**.  
 
-!!!Note: always encrypt sensitive data that need to be exported out of SD Desktop. If the encryption with Crypt4GH is successful, the file name will end with  .c4gh
-
-
-## End of your project and computing enviroment deletion
-
-AT the end of your project or analisys, you can delete the computing enviroment going in:
-
-* SD Desktop Homepage
-* Launch the VM
-* Select Delet
-
-Note: all the data present in teh computing enviroment will be deleted and it will not be possible to retreve them. 
+!!! note Always **encrypt sensitive data that need to be exported out of SD Desktop.** If the encryption with Crypt4GH is successful, the file name will end with .c4gh
 
 
 
-
-Notes: 
-1) how do they install stuff
-2) how do they import stuff
-3) naming of the VMs...confusing for some users
-4) Adjust table
-5) examples use VM
-6) Need to indicated container? can they import the all container? is there a progress bar? how fast is it? do they always have to use a client? 
-Does the dowloader yous CSC account only? Where do they find the info if they do not remeber it?
-
-8) Check homepage (what did we add there)?
          
 
 
