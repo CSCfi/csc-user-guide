@@ -4,31 +4,29 @@
 ## Step1 : Login 
 
 
-
-
 To access SD Desktop you need:
 
 * **a CSC account**
 
 * **a CSC project**
 
-* **Service access to SD Destkop.**
+* **Service access to SD Desktop.**
 
 
 To import (or download) encrypted sensitive data to SD Desktop you need:
 
-* **service access to Allas** (CSC cloud storage solution). 
+* **service access to Allas** (CSC cloud storage solution).
 
 
-Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser. 
+Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser.
 
 
-!!! note Indipendently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing enviroment (or workspace). If you don't remeber it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
+!!! note Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
 
 
 
 
-!!! note All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to launch only one Desktop (or workspace) for each CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
+!!! note All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to launch only one Desktop (or workspace) for each CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts.
 
 
 
@@ -120,38 +118,46 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 
 
 
+## Step 2: Launching your Desktop (your private work environment)
 
 
 
-## Step2: Access to your Desktop (or private work enviroment)
+
+Once you login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_.
+
+
+![sd_desktop_1](https://user-images.githubusercontent.com/83574067/121925717-ded6f900-cd45-11eb-8745-d1b4e53d7292.png)
+
+
+
+
+
+<img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
 
 
 
  
-Once you have launched your privite work enviroment, you will be able to access it in SD Desktop **Connection page** (homepage):
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Here you can:
 
-* in **All connections** you can select a CSC project and after clicking on the + icon, you can open your Desktop clicking on the project name (example project_NNNNNN_NNNNN)
+* select your CSC project
 
-* in **Recent connections** you can click on the work enviroment image
+* choose the operating system (for beta versions, only possible operating system is Linux CentOS 7)
 
-A black screen might appear for a few second, depending on yout internet connection. Iven after you log out, the Desktop will always be available for computation and consume billing units, unitil you will delete it. 
-
-
-
-
-
-
-
-
-
-
-<img width="960" alt="SD Desktop 4" src="https://user-images.githubusercontent.com/83574067/121869624-e7f6a480-cd0a-11eb-9436-55e4adcf5b4f.png">
+* select the preferred computing environment (based on your needs) and click on  + Create instance
 
 
- ![](img/SDDkScreenshot_3.png)
+Next, the system will create your private work space in SD Desktop. The process is completely automated and might take up to 30 minutes. During this time, you can close your browser / log out /leave your browser window open/
 
+If the process is successful you will be able to see........
 
-!!! note If you and your colleagues/ collaborators want to ***access the same SD Desktop you** you need to belong to the ***same CSC project as project members, and you all need service access to SD Desktop***
+You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
 
 
 
@@ -159,43 +165,32 @@ A black screen might appear for a few second, depending on yout internet connect
 
 
 
+<img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
 
-In SD Desktop you can **access a pre-installe list of software** from the top right corner in the **application drop down menu**.
 
-A complete updated list is available here:
+
+
+
+
+
+
+In SD Dekstop (Open Beta) you can choose between four different Desktops:  
+
+|Desktop for|CPU|Storage capacity|Billing unites|example usage|
+|--- |:---:|:---:|:---:|:---:|
+| Light Computation  | add | add  | add | testing the services |
+| Small Computation   | add | add | add | statistical analysis of small datasets |
+| Medium Computation | add | add | add |  complex analysis of large datasets |
+| Heavy Computation | add | add | add | parallel computing e.g. machine learning |
+
+
+ A complete updated list of preinstalled software is available here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
 
 
-To **acess R Studio or Phyton** you can run the follwoing script:
 
-
-
-To share files or datasets with your colleagues, you can save them in the **shared folder**. 
-
-!!! note: even if you are using the same workspace in SD Desktop, in the open beta versionsof SD Desktop you will not be able to simultaneurly work on the same file (as, for security reasons the work enviroment is isolated form the internet).
-
-
-
-
-
-<img width="960" alt="SD Desktop 3" src="https://user-images.githubusercontent.com/83574067/121873934-913f9980-cd0f-11eb-8c76-30be9f2e0f5b.png">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 ## Step3: Importing (or downloading) encrypted sensitive data to SD Desktop
 
 
