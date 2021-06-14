@@ -5,7 +5,7 @@ LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 # These need to be owned and writable by the root group in OpenShift
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
-ARG repo_branch=whats-new
+ARG repo_branch=master
 
 RUN yum -y install epel-release &&\
     yum -y install nginx &&\
