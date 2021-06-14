@@ -501,5 +501,5 @@ but they will be removed at some point in the near future.
   [command line instructions]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
   [Optimization service]: https://research.csc.fi/optimization-service
-  [Terms of Use]: https://https://research.csc.fi/pouta-user-policy
+  [Terms of Use]: https://research.csc.fi/pouta-user-policy
   [https://research.csc.fi/pouta-adding-images]: 
