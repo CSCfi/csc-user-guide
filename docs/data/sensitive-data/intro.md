@@ -1,31 +1,33 @@
 # Sensitive Data Services for Reaserch
 
 
-
-
-
-
-
-
 ## Introduction
 
-**SD Connect (Sensitive Data Connect)** and **SD Desktop (Sensitive Data Desktop)** (beta versions) are web user interfaces which allow you to:
+Sensitive Data Servises (SD Services) provide CSC customers a sercure 
+cloud computing environment, that can be used for processing sensitive
+data. The SD Services have increased security, compared to the
+HPC (Puhti and Mahti) and genreal purpose cloud environets (cPouta and Rahti) of CSC.
+Thus dataset, that can't be processed in these environmnets may still prosessed in the
+SD Services environmnent. 
 
-* Access your own secure and personalized computing environment in CSC cloud computing platform (ePouta)
+Compared to the secure ePouta cloud environment, SD servises are
+easy to access and share. The service can be used from everywhere and it does 
+not require dedicated connection between the user and CSC. This makes the service easier 
+to take in use and also enables studies, where reserachers from different organizations 
+need to share a secure work space.
 
-* Securely compute and process sensitive data with your project members and collaborators without the needs of generating multiple copies of your data
+The SD Services consists of three components:
 
-* Easily share, collect and store **encrypted sensitive data** for the duration of your project in CSC cloud storage solution (Allas)
-
-
-
-
-
+   * **SC Connect** is a web user interface to import data to SD Services
+   * **SD Desktop** provides web user interface to a project specific secure virtual desktop. This virtual machine
+desktop is not connected tp internet. This is enables secure compute and process sensitive data. All project members and collaborators can access thist desktop so you don't need to generating multiple copies of your data. As data can't be exported from SD desktop, it can be used it to provide a limited and restricted access to a spcific datatset.  
+   * **SD Submit** service to store and share the results cretaed by the SD Desktop service. The data trasport is done in a conrolled way so that original data over can fully control the data export process.
 
 
 
 ## Getting access
 
+SD Services are available for all CSC customers, 
 To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
 
 1. Create a **user account**
@@ -44,12 +46,12 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 
 
-
-
-
 ## Useful terminology:
 
-**Bucket**: is a container in which all your data/files/directories are stored. You can have multiple buckets for each project. Each bucket is accessible just to you, all the project members and CSC users you personally give access to using MyCSC or SD Connect. The container name is visible to the internet. 
+**Allas**: The general purpose data storage service of CSC. At the moment SD-connet is using Allas as the storage service and you can in
+practice consider Allas and SD Connect as a just one servise. However, on going development of SD connect is likely to make it to diverge from the standard Allas servise in the future. 
+
+**Bucket/Container**: In object stoarage systems the storage spaces, into which files are stored are called in some tools as _containers_ and in some tools as _bukcets_. These two terms refer to the same thing: the kind-of root directories in your storage area in Allas/SD Connect. The bucket/container name is visible to the internet. You can have multiple buckets in same project (up to 500), but each bucket must have a name that is unique throughout the whole storage system (including other projects). By default the data in a bucket is accessible just to the project members. However you can grant access to other CSC project  or usersr with SD Connect. 
 
 **CSC Project**: all your data in CSC belong inside a project. You can have one project or multiple projects. When you set up a project you can add project members, you need to define a project manager, and you need to described which type of sensitive data you are processing. 
 
