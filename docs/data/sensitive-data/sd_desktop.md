@@ -89,7 +89,7 @@ In SD Dekstop (Open Beta) you can choose between **four different Desktops or wo
 &nbsp; 
 &nbsp; 
 
-A complete updated list of **preinstalled software** available in every worsksapce is can be found here:
+A complete updated list of **preinstalled software** available in every worsksapce can be found here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
@@ -135,15 +135,15 @@ Once you are logged in into your SD Desktop private workspace you can import enc
 
 * insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
 
-* **select your CSC project**
+* select your CSC project
 
-* **select the correct bucket (or container)**
+* select the correct bucket (or container)
 
-* **select the files** you want to import
+* select the files you want to import
 
-* **click on download objects** (the client will make a copy of the encrypted files in SD Dekstop. If you used CSC Sensitive Data Services public key the data will be decrypted automatically)
+* click on download objects (the client will make a copy of the encrypted files in SD Dekstop. If you used CSC Sensitive Data Services public key the data will be decrypted automatically)
 
-* click on **open download location**
+* click on open download location
 
 * then **I am not sure where they find the folder : XXXX**
 
