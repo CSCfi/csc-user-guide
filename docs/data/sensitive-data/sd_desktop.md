@@ -117,7 +117,7 @@ In SD Dekstop (Open Beta) you can choose between four different Desktops:
 
 
 
- In SD Desktop you can access a pre-installe list of software. A complete updated list is available here:
+In SD Desktop you can access a pre-installe list of software. A complete updated list is available here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
@@ -138,10 +138,9 @@ Once you have launched your privite work enviroment, you will be able to access 
 
 * in **Recent connections** you can click on the work enviroment image
 
+A black screen might appear for a few second, depending on yout internet connection.
 Iven after you log out, the Desktop will always be available for computation and consume billing units, unitil you will delete it. 
 
-
-!!! note If you and your colleagues want to ***access the same SD Desktop you** you need to belong to the ***same CSC project as project members.***
 
 
 
@@ -157,7 +156,40 @@ Iven after you log out, the Desktop will always be available for computation and
  ![](img/SDDkScreenshot_3.png)
 
 
-!!! note If you and your colleagues / collaborators want to ***access the same SD Desktop you** you need to belong to the ***same CSC project as project members.***
+!!! note If you and your colleagues/ collaborators want to ***access the same SD Desktop you** you need to belong to the ***same CSC project as project members, and you all need service access to SD Desktop***
+
+
+
+
+
+
+
+
+In SD Desktop you can **access a pre-installe list of software** from the top right corner in the **application drop down menu**.
+
+A complete updated list is available here:
+
+https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
+
+
+
+To **acess R Studio or Phyton** you can run the follwoing script:
+
+
+
+To share files or datasets with your colligues, you can save them in the **shared folder**. Note: even if you are 
+
+
+
+
+
+<img width="960" alt="SD Desktop 3" src="https://user-images.githubusercontent.com/83574067/121873934-913f9980-cd0f-11eb-8c76-30be9f2e0f5b.png">
+
+
+
+
+
+
 
 
 
@@ -167,7 +199,7 @@ Iven after you log out, the Desktop will always be available for computation and
 
 
  
-## Importing (or downloading) encrypted sensitive data to SD Desktop
+## Step3: Importing (or downloading) encrypted sensitive data to SD Desktop
 
 
 
@@ -176,7 +208,7 @@ To import your encrypted data from SD Connect to your SD Desktop you need to:
 
 * **Open  SD Connect Dowloader client** (link available on the Desktop)
 
-* insert your **CSC credentials** (username and password. Note: we disable the copy paste options for security reasons,thus you need to type in your passorowd)
+* insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your passoword)
 
 * **select your CSC project**
 
@@ -191,6 +223,7 @@ To import your encrypted data from SD Connect to your SD Desktop you need to:
 * then **I am not sure where they find the folder : XXXX**
 
 
+<img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
 
 
 
@@ -205,23 +238,18 @@ CLI https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name), need to be r
 
 
 
+!!! note **Upload of specific scripts from GitHub** For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specicifc scripts fro example from GitHub ot other trusted repositories, you need to use the same procedure described before for sensitive data:
 
+* dowload your scripts  from GitHub and save them in a specific conatiner in SD Desktop
 
+* access SD Desktop and use the SD Connect Dowloader to make a copy of the scripts 
+ 
+ 
+ 
 
-
-If you use your own encryption keys instead, you can import the encrypted data. 
-
-
-## Upload of specific scripts from GitHub
-
-If you need to import specific scrips for GitHub or other trusted repositories, you need to: 
-
-    Download the script from the internet to SD Connect in a specific bucket 
-
-    Import the script/ files or other non-sensitive data to SD Desktop 
     
     
-## Active session/ VM disconnection / Kill session
+## Step 4: Logging out; Killing connection; Deleting your work envuroment
 
 If you turn off the computing environment……….. 
 
