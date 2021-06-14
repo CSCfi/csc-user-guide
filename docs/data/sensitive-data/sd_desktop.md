@@ -1,7 +1,7 @@
 
 # SD Desktop (Sensitive Data Desktop)
 
-## Login 
+## Step1 : Login 
 
 To access SD Desktop you need:
 
@@ -44,7 +44,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 
-## Step1: Launching your Desktop (your private work environment)
+## Step 2: Launching your Desktop (your private work environment)
 
 
 Once you fisrt login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
@@ -81,6 +81,11 @@ Here you can:
 
  <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864468-9ef02180-cd05-11eb-8de3-09622b5a7df6.png">
 
+
+
+
+
+
  
 
 Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes.
@@ -116,23 +121,7 @@ In SD Dekstop (Open Beta) you can choose between four different Desktops:
 
 
 
-
-
-
-## Step2: Access to the computing environment 
-
- 
-From SD Desktop _Homepage_ you can access:
-
-_Recent Connections_ or _All connections_ and open your  private computing enviroment (or VM) with double click.
-
-
-<img width="641" alt="SDDkSreenshot_3" src="https://user-images.githubusercontent.com/83574067/121067560-e04b7300-c7d3-11eb-81c0-db5bf0eb81f3.png">
-
-
- ![](img/SDDkScreenshot_3.png)
- 
-Once the computing environment is open you can access the pre-installed software provided by CSC on each virtual machine.
+Once the computing environment is open you can access the pre-installed software in each Desktop:
 
 A complete updated list is available here:
 
@@ -140,7 +129,27 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 
 
 
-!!! Note: if you and your colleagues want to ***access the same computing enviromen*** in SD Desktop you all need to belong to the ***same CSC project as project members.***
+
+
+
+
+## Step2: Access to your Desktop (or private work enviroment)
+
+ 
+Once you have launch your privite work enviroment, you will always be able to access it in SD Desktop *Connection page*:
+
+* in **All connections** you can select a CSC project and after clicking on the + icon, you can open your Desktop clicking on the project name (example project_NNNNNN_NNNNN)
+
+* in **Recent connections** you can click on the work enviroment image
+
+The Desktop will always be available for computation and consume billing units unitil you will delete it. 
+
+
+
+ ![](img/SDDkScreenshot_3.png)
+ 
+
+!!! note If you and your colleagues want to ***access the same computing enviroment*** in SD Desktop you all need to belong to the ***same CSC project as project members.***
 
  
 ## Importing encrypted sensitive data to SD Desktop
