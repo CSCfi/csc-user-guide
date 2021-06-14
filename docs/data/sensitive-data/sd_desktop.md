@@ -84,8 +84,12 @@ In SD Dekstop (Open Beta) you can choose between **four different Desktops or wo
 | Medium Computation | add | add | add |  complex analysis of large datasets |
 | Heavy Computation | add | add | add | parallel computing e.g. machine learning |
 
+nbsp;   
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
-A complete updated list of **preinstalled software** in every worsksapce is available here:
+A complete updated list of **preinstalled software** available in every worsksapce is can be found here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
@@ -120,65 +124,63 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 &nbsp; 
 
 
+## Step3: Importing encrypted sensitive data to SD Desktop
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+Once you are logged in into your SD Desktop workspace you can import encrypted data stored in SD Connect:
 
+* **Open SD Connect Downloader client** (link available on the Desktop...bit confusing :-) )
 
-## Step3: Importing (or downloading) encrypted sensitive data to SD Desktop
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-To import your encrypted data from SD Connect to your SD Desktop you need to:  
-
-* **Open  SD Connect Dowloader client** (link available on the Desktop)
-
-* insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your passoword)
+* insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
 
 * **select your CSC project**
 
-* **select the correc bucket (or container)**
+* **select the correct bucket (or container)**
 
 * **select the files** you want to import
 
-* **click on dowload objects** (the client will make a copy of the encrypted files in SD Dekstop. If you used CSC Sensitive Data Services public key the data will be deencrypted automatically)
+* **click on download objects** (the client will make a copy of the encrypted files in SD Dekstop. If you used CSC Sensitive Data Services public key the data will be decrypted automatically)
 
-* click on **open dowload location**
+* click on **open download location**
 
 * then **I am not sure where they find the folder : XXXX**
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
 
 
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
 
 Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) this will be re-done by Aada
 
 
-!!! note Open Beta version of SD Dekstop has only 40 GB of disk space. If you are trying to import more then 40 GB of data you will see the following error: XXXXX
+!!! note 
+     Open Beta version of SD Desktop has only **40 GB of disk space.** If you are trying to import more then 40 GB of data you will see the following error: XXXXX
 
 For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
-* dowload your scripts  from GitHub and save them in a specific conatiner in SD Desktop
+* download your scripts from GitHub and save them in a specific container in SD Desktop
 
-* access SD Desktop and use the SD Connect Dowloader to make a copy of the scripts 
+* access SD Desktop and use the SD Connect Downloader to make a copy of the scripts
  
 
-!!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. 
+!!! note To access your encrypted data in SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**.
 
 
 
 
-
-
-    
+  
+  
+  
     
 ## Step 4: Logging out; Killing connection; Deleting your work enviroment
 &nbsp; 
