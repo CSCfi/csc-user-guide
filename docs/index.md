@@ -33,4 +33,5 @@ template: main-index.html
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
 </span>
 
+# What's new
 
