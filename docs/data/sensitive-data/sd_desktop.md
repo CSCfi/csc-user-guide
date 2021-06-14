@@ -50,100 +50,10 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 
-Once you fisrt login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
-
-
-![sd_desktop_1](https://user-images.githubusercontent.com/83574067/121925717-ded6f900-cd45-11eb-8745-d1b4e53d7292.png)
-
-
-
-
-
-<img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
-Here you can:
-
-* select your CSC project
-
-* choose the operating system (for beta versions, only possible operating system is Linux ChentOS 7)
-
-* select the preferred computing enviroment (based on your needs) and click on _+ Create instance_
-
-
-Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes. During this time, you can close your browser / log out /leave your browser window open/
-
-If the process is sucessfull you will be able to see........
-
-You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
-
-
-
-
-
-
-
-<img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
-
-
-
-
-
-
-
-
-In SD Dekstop (Open Beta) you can choose between four different Desktops:  
-
-|Desktop for|CPU|Storage capacity|Billing unites|example usage|
-|--- |:---:|:---:|:---:|:---:|
-| Light Computation  | add | add  | add | testing the services |
-| Small Computation   | add | add | add | statistical analysis of smal datasets | 
-| Memdium Computation | add | add | add |  complex analysis of lasrge datasets |
-| Heavy Computation | add | add | add | parallel computing e.g. machine learning | 
-
-
- A complete updated list of pre-sintalled sofware is available here:
-
-https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
-
-
-
-
-## Step 2: Launching your Desktop (your private work environment)
-
-
-
-
 Once you login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_.
 
-
-![sd_desktop_1](https://user-images.githubusercontent.com/83574067/121925717-ded6f900-cd45-11eb-8745-d1b4e53d7292.png)
-
-
-
-
-
 <img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
 
-
-
- 
- 
- 
- 
- 
- 
- 
- 
 Here you can:
 
 * select your CSC project
@@ -159,20 +69,7 @@ If the process is successful you will be able to see........
 
 You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
 
-
-
-
-
-
-
 <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
-
-
-
-
-
-
-
 
 In SD Dekstop (Open Beta) you can choose between four different Desktops:  
 
@@ -183,16 +80,17 @@ In SD Dekstop (Open Beta) you can choose between four different Desktops:
 | Medium Computation | add | add | add |  complex analysis of large datasets |
 | Heavy Computation | add | add | add | parallel computing e.g. machine learning |
 
-
- A complete updated list of preinstalled software is available here:
+A complete updated list of preinstalled software is available here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
 
 
 
-## Step3: Importing (or downloading) encrypted sensitive data to SD Desktop
 
+
+
+## Step3: Importing (or downloading) encrypted sensitive data to SD Desktop
 
 
 
