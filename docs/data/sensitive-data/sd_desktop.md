@@ -6,27 +6,36 @@
 To access SD Desktop you need:
 
 * **a CSC account**
+
 * **a CSC project**
+
 * **Service access to SD Destkop.**
+* 
 
 To import (or download) encrypted sensitive data to SD Desktop you need:
+
 * **service access to Allas** (CSC cloud storage solution). 
 
-Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://anvil-test.sd.csc.fi/guacamole/#/ using any modern web browser. (CSCS account not possible but needed for download, also script??).
 
-***All the project members belonging to a specific CSC project can access the same computing environment (or Virtual machine, VM) in SD Desktop.*** Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
-
-!!! Note: It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
-
-!!!Note: Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser. 
 
 
-## Step1: Launching your private computing environment (or VM) in SD Desktop
+!!! note  Indipendently of the login method used, to import sensitive data in your SD Desktop computing enviroment, you need your CSC username and password. If you don't remeber it, check how to reset it at: https://docs.csc.fi/accounts/how-to-change-password/
+
+!!! note ***All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.*** Currently, it is possible to launch only one VM for one CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts. 
+
+!!! note It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+
+!!! note Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-Once you Login in SD Desktop _Homepage_ you can launch your VM by clicking on _Go to the Launching page_. 
+## Step1: Launching your Desktop (your private work environment)
 
-<img width="607" alt="SDDkSreenshot_1" src="https://user-images.githubusercontent.com/83574067/121067523-d590de00-c7d3-11eb-9fa9-e4675ab76f97.png">
+
+Once you fisrt Login in SD Desktop _Homepage_ you can launch your Desktop by clicking on _Go to the Launching page_. 
+
+<img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
+
 
  ![](img/SDDkScreenshot_1.png)
  
@@ -34,19 +43,22 @@ Here you can:
 
 * select your CSC project
 
-* choose the operating system (for beta versions, only possible operating system is Linux)
+* choose the operating system (for beta versions, only possible operating system is Linux ChentOS 7)
 
-* select the preferred VM flavor (based on your study/reaserch) and click on _+ Create_
+* select the preferred computing enviroment (based on your needs) and click on _+ Create instance_
 
  ![](img/SDDkScreenshot_2.png)
  
 
-If the VM is created successfully: 
+Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes.
+
+If the process is sucessfull you will be able to see........
+
+You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
 
 
 
-
-For the beta version of the service, you can choose between six different VM flavors:  
+In SD Dekstop Opeb Beta you can choose between four different Desktops:  
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
