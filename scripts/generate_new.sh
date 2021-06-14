@@ -1,3 +1,4 @@
+#!/bin/bash
 t_dir="docs/support/wn"
 
 
