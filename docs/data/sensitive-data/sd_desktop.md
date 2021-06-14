@@ -23,22 +23,26 @@ To import (or download) encrypted sensitive data to SD Desktop you need:
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser.
 
 
-!!! note Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
+!!! note 
+    Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment       (or workspace). If you don't remember it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
 
 
 
 
-!!! note All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to launch only one Desktop (or workspace) for each CSC project. Each CSC project has its own virtual private computing environment and each computing environment (or VM) is isolated from other projects or CSC accounts.
+!!! note 
+    All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to         launch only one Desktop (or workspace) for each CSC project. Each CSC project has its own virtual private computing environment and each computing         environment (or VM) is isolated from other projects or CSC accounts.
 
 
 
 
-!!! note It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+!!! note 
+    It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can       access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when         their contribution is no longer needed.  
 
 
 
 
-!!! note Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+!!! note 
+    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 
@@ -110,6 +114,7 @@ In SD Dekstop (Open Beta) you can choose between four different Desktops:
 A complete updated list of preinstalled software is available here:
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
+
 
 
 
