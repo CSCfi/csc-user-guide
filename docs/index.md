@@ -13,7 +13,6 @@ template: main-index.html
     * Or use the search functionality
 
 
-<div class=column>
 <h1 id="quicklinktitle"> Quick links </h1>
 <span class="index-quicklinks">
 [Puhti and Mahti Overview](computing/overview.md) 
@@ -30,8 +29,6 @@ template: main-index.html
 <span class="index-quicklinks">
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
 </span>
-</div>
 
-<div class=column>
 # What's new
 
