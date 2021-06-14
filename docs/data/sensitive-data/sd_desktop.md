@@ -79,15 +79,6 @@ Here you can:
 * select the preferred computing enviroment (based on your needs) and click on _+ Create instance_
 
 
- <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864468-9ef02180-cd05-11eb-8de3-09622b5a7df6.png">
-
-
-
-
-
-
- 
-
 Next, the system will create your private work space in SD Desktop. The process is completely authomated and might take up to 30 minutes.
 
 If the process is sucessfull you will be able to see........
@@ -136,7 +127,7 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 ## Step2: Access to your Desktop (or private work enviroment)
 
  
-Once you have launch your privite work enviroment, you will always be able to access it in SD Desktop *Connection page*:
+Once you have launched your privite work enviroment, you will be able to access it in SD Desktop *Connection page*:
 
 * in **All connections** you can select a CSC project and after clicking on the + icon, you can open your Desktop clicking on the project name (example project_NNNNNN_NNNNN)
 
@@ -145,11 +136,23 @@ Once you have launch your privite work enviroment, you will always be able to ac
 The Desktop will always be available for computation and consume billing units unitil you will delete it. 
 
 
+!!! note If you and your colleagues want to ***access the same SD Desktop you** all need to belong to the ***same CSC project as project members.***
+
+
+
+
+
+
+
+
+
+<img width="960" alt="SD Desktop 4" src="https://user-images.githubusercontent.com/83574067/121869624-e7f6a480-cd0a-11eb-9436-55e4adcf5b4f.png">
+
 
  ![](img/SDDkScreenshot_3.png)
- 
 
-!!! note If you and your colleagues want to ***access the same computing enviroment*** in SD Desktop you all need to belong to the ***same CSC project as project members.***
+
+
 
  
 ## Importing encrypted sensitive data to SD Desktop
