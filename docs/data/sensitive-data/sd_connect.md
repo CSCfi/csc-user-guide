@@ -2,17 +2,6 @@
 # SD Connect (Sensitive Data Connect)
 
 
-## Step1: Login 
-
-To access SD Connect you need:
-
-* **a CSC account**
-* **a CSC project**
-* **Service access to Allas** (CSC cloud storage solution)
-
-Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://sd-connect.csc.fi/ using any modern web browser.
-
-
 !!! note
     Sensitive data need to be encrypted before upload to SD Connect. Check the previous paragraph for more informations about encryption with Crypt4GH.
 
@@ -23,6 +12,16 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 !!! note
     Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
+
+## Step1: Login 
+
+To access SD Connect you need:
+
+* **a CSC account**
+* **a CSC project**
+* **Service access to Allas** (CSC cloud storage solution)
+
+Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://sd-connect.csc.fi/ using any modern web browser.
 
 
 ## Step 2: User Interface
@@ -37,7 +36,11 @@ In this page you can :
 
 *  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete file or upload new files and folders.
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
+
 <img width="956" alt="SD-Connect-1copy" src="https://user-images.githubusercontent.com/83574067/122087350-4906a100-ce0d-11eb-91ac-c39df3dedb23.png">
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 
@@ -49,9 +52,11 @@ In the  **User information** page you can:
 
 * access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 <img width="925" alt="SD-Connect-2" src="https://user-images.githubusercontent.com/83574067/122087374-4dcb5500-ce0d-11eb-9835-15f96f152df8.png">
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 In the **Shared** page:
@@ -63,7 +68,10 @@ In the **Shared** page:
 
 * in **Shared with the project** you can view the bukets which  **you shared with other CSC projects**. In this case you own the shared bukets and you can decide when revoke access. 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
+
 <img width="959" alt="SD-Connect-3" src="https://user-images.githubusercontent.com/83574067/122087777-c7fbd980-ce0d-11eb-9ccb-c98fdb897e02.png">
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 ## Step3: Data upload 
@@ -82,8 +90,11 @@ If you create a new buket use the following **suggestions to name it**:
  
 Example: ns-123456-raw-data-ddmmyy
   
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 <img width="953" alt="SD-Connect-4" src="https://user-images.githubusercontent.com/83574067/122090796-d5ff2980-ce10-11eb-986f-911c9a1f47bf.png">
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 # Step 4: Data Sharing 
@@ -93,6 +104,9 @@ To share a container with another CSC project (and thus one of your colligues or
 * **know in advance the SD Account of the CSC project you want to share a contaner with** (see above in Step1, where this can be found)
 
 * in the browser page click on the icon **share** next to the conatiner of interest. 
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
+
 
 In the next window called **Share the container** :
 
@@ -106,18 +120,24 @@ In the next window called **Share the container** :
 
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 Data Sharing:
 
 
 * next to the container click on the sahe icon
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 <img width="960" alt="SD-Connect-7" src="https://user-images.githubusercontent.com/83574067/122095850-8d4a6f00-ce16-11eb-9be2-093aaecc1b49.png">
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 * choose the read and write permissions 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 <img width="960" alt="SD-Connect-5b" src="https://user-images.githubusercontent.com/83574067/122095933-a18e6c00-ce16-11eb-9232-a676097ef4b4.png">
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 
@@ -126,11 +146,13 @@ Data Sharing:
 
 
 * Revoke access
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 <img width="960" alt="SD-Connect-6" src="https://user-images.githubusercontent.com/83574067/122095870-93405000-ce16-11eb-9e7e-f54914566827.png">
 
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/122103429-4745d900-ce1f-11eb-9910-b077595e6874.png">
 
 
 
