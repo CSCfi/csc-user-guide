@@ -121,27 +121,10 @@ In the next window called **Share the container** :
 
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
-Data Sharing:
 
-
-* next to the container click on the sahe icon
 <img width="960" alt="SD-Connect-7" src="https://user-images.githubusercontent.com/83574067/122095850-8d4a6f00-ce16-11eb-9be2-093aaecc1b49.png">
 
-
-* choose the read and write permissions 
-
-
 <img width="960" alt="SD-Connect-5b" src="https://user-images.githubusercontent.com/83574067/122095933-a18e6c00-ce16-11eb-9232-a676097ef4b4.png">
-
-
-
-
-
-
-
-
-* Revoke access
-
 
 <img width="960" alt="SD-Connect-6" src="https://user-images.githubusercontent.com/83574067/122095870-93405000-ce16-11eb-9e7e-f54914566827.png">
 
