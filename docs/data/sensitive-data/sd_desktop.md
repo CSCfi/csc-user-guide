@@ -249,11 +249,6 @@ Note! **Only the project manager or group leader** can make the request
 
 
 
- Unclear points:
-
- - how do we define it? private computing environment / private workspace / Desktop (might be a bit confusing)
- - killing session meaning
- - how to access R studio and Python Crypt 4GH? Can they install their own encryption tool?
 
 
 
