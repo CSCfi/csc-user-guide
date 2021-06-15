@@ -614,6 +614,39 @@ srun singularity_wrapper exec Rscript --no-save myscript.R
 
 Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
 
+#### GPU acceleration using NVBLAS
+
+It is possible to configure `r-env-singularity` to use NVIDIA NVBLAS, a drop-in BLAS replacement with GPU support for several BLAS3 routines (for details, see the [NVBLAS website](https://docs.nvidia.com/cuda/nvblas/index.html)). Routines not supported by NVBLAS are directed to a fallback BLAS library, i.e. oneMKL in the case of the `r-env-singularity` module.
+
+Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
+
+Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
+
+- Are BLAS3 routines the main bottleneck in your workflow? 
+- Are speed-ups possible through other means (e.g. rewriting or restructuring your code)?
+- Is it possible to run certain parts of your script on a CPU partition rather than the GPU partition?
+
+NVBLAS can be used by following these steps:
+
+1. Create a file called `nvblas.conf` in `~/nvblas` with the following contents:
+
+```
+NVBLAS_LOGFILE nvblas.log
+NVBLAS_GPU_LIST ALL
+NVBLAS_TRACE_LOG_ENABLED
+NVBLAS_CPU_BLAS_LIB /opt/intel/oneapi/mkl/2021.2.0/lib/intel64/libmkl_rt.so
+```
+Note that the CPU BLAS library listed above is specific to `r-env-singularity/4.0.5`.
+Adding `NVBLAS_TRACE_LOG_ENABLED` is optional and prompts NVBLAS to create a list of all intercepted BLAS calls for debugging.
+
+2. Add the following lines to your GPU batch job file:
+
+```
+# Use NVBLAS
+export SINGULARITYENV_LD_PRELOAD=/usr/local/cuda/targets/x86_64-linux/lib/libnvblas.so
+export SINGULARITYENV_NVBLAS_CONFIG_FILE=~/nvblas/nvblas.conf
+```
+
 #### R package installations
 
 It is possible to check if a particular package is already installed as follows.
