@@ -1,5 +1,8 @@
 
 # Senstive Data services: user guide overview
+&nbsp;   
+&nbsp;   
+&nbsp;   
 &nbsp; 
 &nbsp; 
 &nbsp; 
@@ -8,10 +11,7 @@
 &nbsp; 
 &nbsp; 
 &nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+&nbsp;   
 **[Introduction](./sd_connect.md)**
 &nbsp; 
 &nbsp; 
