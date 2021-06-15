@@ -39,18 +39,6 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
     Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment       (or workspace). If you don't remember it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
 
 
-!!! note 
-    All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to         launch only one Desktop (or workspace) for each CSC project. Each CSC project has its own virtual private computing environment and each computing         environment (or VM) is isolated from other projects or CSC accounts.
-
-
-!!! note 
-    It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can       access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when         their contribution is no longer needed.  
-
-!!! note 
-    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
-
-
-
 ## Step 2: Launching your Desktop (your private work environment)
 
 Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**.
