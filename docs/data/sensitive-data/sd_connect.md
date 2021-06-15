@@ -68,7 +68,7 @@ In the **Shared** page:
 
 ## Step3: Data upload 
 
-To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visulize the status of the upload. For bigger datasets or files, you can upload files programmatically  or folders use the clients described later.
+To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visulize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
 If you did not create a buket yet, the user interface will automatically create a buket named: upload-nnnnnnnnnnnnn. Note that **it is not possible to rename buckets**.
 
@@ -88,10 +88,32 @@ Example: ns-123456-raw-data-ddmmyy
 
 # Step 4: Data Sharing 
 
+To share a container with another CSC project (and thus one of your colligues or collaborators) using SD Connect you need to:
+
+* **know in advance the SD Account of the CSC project you want to share a contaner with** (see above in Step1, where this can be found)
+
+* in the browser page click on the icon **share** next to the conatiner of interest. 
+
+In the next window called **Share the container** :
+
+* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and dowload them
+
+* select also **Grant write permissions** if you want your colloeague to be able to add files and folder to the  shared conainer select. If you seelct only this option, your collieague or collaborator will be only able to add files to the container, but not be able to see its content.
+
+* in **UUIDs to share with** add the SD Account of the project you want to share the container with 
+
+* Next click on **Share**
+
+At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
 
+<img width="960" alt="SD-Connect-7" src="https://user-images.githubusercontent.com/83574067/122095850-8d4a6f00-ce16-11eb-9be2-093aaecc1b49.png">
 
 
+<img width="960" alt="SD-Connect-6" src="https://user-images.githubusercontent.com/83574067/122095870-93405000-ce16-11eb-9e7e-f54914566827.png">
+
+
+<img width="960" alt="SD-Connect-5b" src="https://user-images.githubusercontent.com/83574067/122095933-a18e6c00-ce16-11eb-9232-a676097ef4b4.png">
 
 
 
