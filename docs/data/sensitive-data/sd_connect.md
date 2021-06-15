@@ -6,7 +6,7 @@
     Sensitive data need to be **encrypted before upload** to SD Connect. Check the previous paragraph for more informations about encryption with Crypt4GH.
     
 !!! note    
-    SD Connect is not suitable for permanet data storage. **Make regular backups** of important datasets.
+    SD Connect is not suitable for permanent data storage. **Make regular backups** of important datasets.
      
 !!! note  
     Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
@@ -98,7 +98,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 
 
-# Step 4: Data Sharing 
+## Step 4: Data Sharing 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
 
@@ -130,16 +130,62 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 
 
-# Data upload using CLI for SD Connect
+## Data upload and dowload using CLI for SD Connect
+
+**Swift (Windowns)
+
+* Install the latest version of SD Connect CLI with: 
+
+$ pip install git+https://github.com/CSCfi/swift-sharing-tools 
+
+* Get the OpenStack credentials file by navigating through pouta.csc.fi -> access & security -> API Access -> Download OpenStack RC File v3 
+
+  Note the project name in the upper left corner, and make sure it's the one you'll be using for the upload 
+
+* Source your CSC project 
+
+$ source project_123-openrc.sh 
+
+*  Source the following additional environment variables and generate an access Token using SD Connect UI (this step needs to be done just once, during the first data upload).
+
+SWIFT_SHARING_URL=https://sharing.hana.rahtiapp.fi 
+SWIFT_REQUEST_URL=https://request.hana.rahtiapp.fi 
+SWIFT_UI_API_KEY=<see below> 
+    
+SWIFT_UI_API_KEY can be created in SD Connect by clicking User Information -> Tokens view. 
+    
+Note: this token needs to be generated just once, for authentication purposes.
+
+ 
+* Perform the upload :
+    
+$ swift-publish publish file_or_forder_name os_project_id r w
+$ swift-publish publish_request container_ID file_or_forder_name r w
+ (r for read, w for write, either one can be omitted if necessary). 
+    
+Note: The first command is for uploading files and publishing them to a single project, the ID of which is known. 
+      The second one is used when project ID is to be fetched from the `swift-sharing-request` API 
 
 
-
+    
+ * to perform download
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 Questions:
 
-- DO we mention Chromes, works better?
-- Objects: in the defilition?
+
+- Objects: in the definition?
 - all the actiosn can be done just with files but now with folders.
 - some discrepancies in SD Connect nomenclature
 - Account is missleading. because if you change project it changes. It should be name project ID, could this one day become a link? (like MyCSC)?
