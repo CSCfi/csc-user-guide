@@ -8,7 +8,7 @@ Sensitive Data Services (SD Services) provide CSC customers a secure
 cloud computing environment, that can be used for processing sensitive
 data. The SD Services have increased security, compared to the
 HPC (Puhti and Mahti) and general purpose cloud environments (cPouta and Rahti) of CSC.
-Thus data, that can't be processed in these environments may still processed in the
+Thus data, that can't be processed in these environments may still be processed in the
 SD Services environment.
 
 Compared to the secure ePouta cloud environment, SD services are
@@ -32,7 +32,7 @@ To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) por
 
 3. Create or join a **CSC project** and add project members
 
-4. Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**.
+4. Fill in the **Personal Data Handling form** and agree with CSC **Data Processing Agreement**
     
 5. **Each project member** needs to **add service access to SD Desktop and to Allas** (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas)
 
@@ -56,7 +56,7 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 **CSC Project name**: MY CSC project ID (NNNNN)
 
-**SD Connect Account**: It is the CSC project ID in Openstack, it is used to define the project with whom you share your containers in SD Connect. It is a synonym of CSC Project ID when using the command line tool. In the SD Connect user interface is displayed unser * User Information> Project usage * and displayed as a series of  32 numbers and letters: e.g. AUTH_3a66dbf90b2940dc9c651362af595b23.
+**SD Connect Account**: It is the CSC project ID in Openstack, it is used to define the project with whom you share your containers in SD Connect. It is a synonym of CSC Project ID when using the command line tool. In the SD Connect user interface is displayed under * User Information> Project usage * and displayed as a series of  32 numbers and letters: e.g. AUTH_3a66dbf90b2940dc9c651362af595b23.
 
 **Virtual machine (VM)**: is a virtual computing environment which works like a real-physical computer. It has a processor, memory and operating system but it exists only as a code or a partition of the host computer. VMs used for the Sensitive Data Services currently support only Linux operating systems and are completely isolated from the internet for security reasons.
 
