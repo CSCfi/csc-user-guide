@@ -3,11 +3,11 @@
 
 
 !!! note
-    Sensitive data need to be **encrypted before upload** to SD Connect. Check the previous paragraph for more informations about encryption with Crypt4GH.
+    * Sensitive data need to be **encrypted before upload** to SD Connect. Check the previous paragraph for more informations about encryption with Crypt4GH.
     
-    SD Connect is not suiteble for permanet data storage. **Make regular backups** of important datasets.
+    * SD Connect is not suitable for permanet data storage. **Make regular backups** of important datasets.
 
-    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+    * Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 ## Step1: Login 
