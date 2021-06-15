@@ -1,13 +1,7 @@
 # SD Connect (Sensitive Data Connect)
 
 
-
-
-
-
-
-
-## Login 
+## Step1: Login 
 
 To access SD Connect you need:
 
@@ -30,71 +24,50 @@ Login to SD Connect is possible with user identity federation systems (Haka, Vir
 
 
 
-
-
-
-
-
-## SD Connect User Interface
+## Step 2: User Interface
 
 Once you Login in SD Connect you access the default front-page: **Browser**.
 
 In this page you can :
 
-* view all **the containers (or buckets) available in your CSC project**, in which you can store encrypted sensitive data. The containers can be created, downloaded, deleted or shared, using the appropriate icons;
+* view all **the  buckets (or containers) available in your CSC project**, in which you can store encrypted sensitive data. The bukects can be created, downloaded, deleted or shared, using the appropriate icons;
    
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize container or data belonging to a specific project;
 
-*  open any container (double click) and view  thi contents (uploaded files or folders). Any file can be downloaded from the container or shared using the download link. From this view, you can also download the entire container, delete file or upload new files and folders.
+*  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete file or upload new files and folders.
 
-
-<img width="544" alt="Screenshot 2021-06-10 165847" src="https://user-images.githubusercontent.com/83574067/121538121-335c3a80-ca0d-11eb-89eb-55c9e0d8fb94.png">
-
-<img width="569" alt="Screenshot 2021-06-10 172357" src="https://user-images.githubusercontent.com/83574067/121542307-b7fc8800-ca10-11eb-9125-150bfb5fa0ed.png">  
-
-
-
-
+<img width="956" alt="SD-Connect-1copy" src="https://user-images.githubusercontent.com/83574067/122087350-4906a100-ce0d-11eb-91ac-c39df3dedb23.png">
 
 
 
 In the  **User information** page you can:
 
-* in Currently Consumes view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defount storage 10TiB);
+* in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defoult storage 10 TiB);
 
-* in **Project usage** you can view the **SD Connect Account, an ID associated your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface.
+* in **Project usage** you can view the **SD Connect Account, an ID associated your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not containe sensitive information, thus it can be sharer with your colleagues or collaborators via email.
 
 * access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
 
-
-<img width="515" alt="Screenshot 2021-06-10 184144" src="https://user-images.githubusercontent.com/83574067/121555306-905eed00-ca1b-11eb-991d-7bc53e719a3c.png">
-
-
-
-
+<img width="925" alt="SD-Connect-2" src="https://user-images.githubusercontent.com/83574067/122087374-4dcb5500-ce0d-11eb-9835-15f96f152df8.png">
 
 
 
 In the **Shared** page:
 
-* in **Shared to the project** you can view the **containers or bukets that other CSC projects (belonging to your colligues or collaborators) shared with you**. With double click you can access the container and view the content (if you have reading access) or add files to the container (if you have edits rights). 
+* in **Shared to the project** you can view the **bukets that other CSC projects (belonging to your colligues or collaborators) shared with you**. Next to the bucket name, under **Containeor Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
 !!! note 
     All the container listed here are own by another users that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
 
-* in **Shared with the project** you can view the containers or bukets which  **you shared with other CSC projects**. In this case you own the shared containers or bukets and you can decide when revoke access. 
+* in **Shared with the project** you can view the bukets which  **you shared with other CSC projects**. In this case you own the shared bukets and you can decide when revoke access. 
+
+<img width="959" alt="SD-Connect-3" src="https://user-images.githubusercontent.com/83574067/122087777-c7fbd980-ce0d-11eb-9ccb-c98fdb897e02.png">
 
 
+## Step3: Data upload 
 
-
-
-
-
-
-## Data upload using SD Connect
-
-To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (for data GB) in the browser page. One the upload has started, a progress bar will visulize the statud of the upload.
+To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visulize the status of the upload. For bigger datasets or files, you can upload files programmatically  or folders use the clients described later.
 
 If you did not create a buket yet, the user interface will automatically create a buket named: upload-nnnnnnnnnnnnn. Note that **it is not possible to rename buckets**.
 
@@ -106,7 +79,7 @@ If you create a new buket use the following **suggestions to name it**:
     
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
  
-Example: use your project ID- type of data-daymonthyear  , e.g. ns2000620-raw-data-ddmmyy
+Example: ns-123456-raw-data-ddmmyy
   
 
 
