@@ -1,44 +1,40 @@
 
 # Senstive Data services: user guide overview
-&nbsp;   
-&nbsp;   
-&nbsp;   
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp;   
+
+
+
+
+
+
+
+
 **[Introduction](./sd_connect.md)**
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+
+
+
+
+
+
    * **Summary**
    
    * **Getting access**
    
    * **Useful terminology**
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp;
+
+
+
+
+
+
+
+
+
 **[Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)**
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+
+
+
+
+
   * **Background information**
   
   * **Data encryption with Crypt4GH Grafical User Interface (GUI)**
