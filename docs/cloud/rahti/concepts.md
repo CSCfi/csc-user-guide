@@ -442,3 +442,12 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 * `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
 
 Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/) article for more information.
+
+It is possible to use annotations to enable **IP whitelisting**, where only few ip ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
+
+```sh
+oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
+```
+
+!!! Caution
+    If the whitelist entry is malformed, OpenShift will discard the whitelist and allow all traffic.

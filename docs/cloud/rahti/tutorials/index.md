@@ -10,3 +10,4 @@
 * [How to transfer data to Rahti?](/cloud/rahti/tutorials/transfer_data_rahti/)
 * [How to add docker hub credentials to a project](/cloud/rahti/tutorials/docker_hub_login/)
 * [How to manually cache images in Rahti's registry](/cloud/rahti/tutorials/docker_hub_manual_caching/)
+* [Annotations](/cloud/rahti/tutorials/annotations)
