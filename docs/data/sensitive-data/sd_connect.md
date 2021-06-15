@@ -21,7 +21,7 @@ To access SD Connect you need:
 * **a CSC project**
 * **Service access to Allas** (CSC cloud storage solution)
 
-Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://sd-connect.csc.fi/ using any modern web browser.
+Login to SD Connect is possible with Haka (an user identity federation systems) at https://sd-connect.csc.fi/ using any modern web browser.
 
 
 <img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
@@ -58,7 +58,7 @@ In the  **User information** page you can:
 
 
 
-<img width="925" alt="SD-Connect-2" src="https://user-images.githubusercontent.com/83574067/122087374-4dcb5500-ce0d-11eb-9835-15f96f152df8.png">
+<img width="925" alt="SD-Connect-2" src="https://user-images.githubusercontent.com/83574067/122105837-e5d33980-ce21-11eb-8fa9-988ee305a9d3.png">
 
 
 
