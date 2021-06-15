@@ -38,7 +38,7 @@
   
      Step 1: Install the latest version of Crypt4GH encryption tool
      
-     Step2:  Generate a permanent public-private keypair
+     Step 2:  Generate a permanent public-private keypair
   
      Step 3: Encrypt the file or directory
      
@@ -53,19 +53,19 @@
 
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
    
-   * Step1: Login
+   * Step 1: Login
    
-   *  SD Connect User interface:
+   * Step 2: User Interface
    
-       Encrypted data upload and download
-       
-       Encrypted data sharing 
-       
-   * SD Connect  compatible Clients:
+   * Step3: Data upload 
    
-       For Linux
+   * Step 4: Data Sharing 
        
-       For Windowns
+   * SD Connect compatible Clients:
+   
+       For Linux: R Clone
+       
+       For Windowns: Swift
    
  
  
@@ -77,9 +77,9 @@
 
 ## [Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)
 
-* Step1: Login
+* Step 1: Login
 
-* Step2: Launching your Desktop (your private work environment)
+* Step 2: Launching your Desktop (your private work environment)
 
 * Step 3: Importing encrypted sensitive data to SD Desktop (to your private workspace)
 
