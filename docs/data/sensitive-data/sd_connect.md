@@ -24,6 +24,10 @@ To access SD Connect you need:
 Login to SD Connect is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https://sd-connect.csc.fi/ using any modern web browser.
 
 
+<img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
+
+
+
 ## Step 2: User Interface
 
 Once you Login in SD Connect you access the default front-page: **Browser**.
