@@ -8,7 +8,7 @@
 &nbsp; 
 &nbsp; 
 &nbsp;  
-##[Introduction](./sd_connect.md)
+##[Introduction](./intro.md)
    
    * **Summary**
    
