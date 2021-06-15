@@ -8,11 +8,11 @@
 &nbsp; 
 &nbsp; 
 &nbsp;  
-**[Introduction](./sd_connect.md)**
+##**[Introduction](./sd_connect.md)**
 &nbsp; 
 &nbsp; 
 &nbsp; 
-&nbsp;   
+&nbsp;    
    * **Summary**
    
    * **Getting access**
@@ -26,7 +26,7 @@
 &nbsp; 
 &nbsp; 
 &nbsp;   
-**[Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)**
+##**[Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)**
 
 
 
@@ -61,7 +61,7 @@
 
 
 
-**[Sensitive Data Connect (SD Connect)](./sd_connect.md)**
+##**[Sensitive Data Connect (SD Connect)](./sd_connect.md)**
    
    * Step1: Login
    
@@ -85,7 +85,7 @@
           
 
 
-**[Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)**
+##**[Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)**
 
 * Step1: Login
 
@@ -100,7 +100,7 @@
 
 
 
-**[Pre-installed software in SD Desktop](./pre-installed_software.md)**
+##**[Pre-installed software in SD Desktop](./pre-installed_software.md)**
 
 
 
