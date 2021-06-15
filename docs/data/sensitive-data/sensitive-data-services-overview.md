@@ -53,13 +53,13 @@
 
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
    
-   * Step 1: Login
+   Step 1: Login
    
-   * Step 2: User Interface
+   Step 2: User Interface
    
-   * Step3: Data upload 
+   Step3: Data upload 
    
-   * Step 4: Data Sharing 
+   Step 4: Data Sharing 
        
    * **SD Connect compatible Clients**
    
@@ -77,15 +77,15 @@
 
 ## [Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)
 
-* Step 1: Login
+Step 1: Login
 
-* Step 2: Launching your Desktop (your private work environment)
+Step 2: Launching your Desktop (your private work environment)
 
-* Step 3: Importing encrypted sensitive data to SD Desktop (to your private workspace)
+Step 3: Importing encrypted sensitive data to SD Desktop (to your private workspace)
 
-* Step 4: Logging out; Killing connection; Deleting your work environment
+Step 4: Logging out; Killing connection; Deleting your work environment
 
-* Step 5: Data export from SD Desktop
+Step 5: Data export from SD Desktop
 
 
 
