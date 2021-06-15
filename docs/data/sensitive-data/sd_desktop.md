@@ -35,8 +35,8 @@ To import (or download) encrypted sensitive data to SD Desktop you need:
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser.
 
 
-!!! note 
-    Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment       (or workspace). If you don't remember it, check how to reset it at [Account: How to change password] (https://docs.csc.fi/accounts/how-to-change-password/)
+<img width="960" alt="sd-desktop-0" src="https://user-images.githubusercontent.com/83574067/122118478-bbd54380-ce30-11eb-95cc-589e6cb68a84.png">
+
 
 
 ## Step 2: Launching your Desktop (your private work environment)
