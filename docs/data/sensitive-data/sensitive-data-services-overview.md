@@ -61,11 +61,11 @@
    
    * Step 4: Data Sharing 
        
-   * SD Connect compatible Clients:
+   * **SD Connect compatible Clients**
    
-       For Linux: R Clone
+   For Linux: R Clone
        
-       For Windowns: Swift
+   For Windowns: Swift
    
  
  
