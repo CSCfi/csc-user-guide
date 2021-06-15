@@ -628,7 +628,7 @@ Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../com
 
 NVBLAS can be used by following these steps:
 
-1. Create a file called `nvblas.conf` in `~/nvblas` with the following contents:
+Step 1. Create a file called `nvblas.conf` in `~/nvblas` with the following contents:
 
 ```
 NVBLAS_LOGFILE nvblas.log
@@ -639,7 +639,7 @@ NVBLAS_CPU_BLAS_LIB /opt/intel/oneapi/mkl/2021.2.0/lib/intel64/libmkl_rt.so
 Note that the CPU BLAS library listed above is specific to `r-env-singularity/4.0.5`.
 Adding `NVBLAS_TRACE_LOG_ENABLED` is optional and prompts NVBLAS to create a list of all intercepted BLAS calls for debugging.
 
-2. Add the following lines to your GPU batch job file:
+Step 2. Add the following lines to your GPU batch job file:
 
 ```
 # Use NVBLAS
