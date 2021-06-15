@@ -100,16 +100,15 @@ Example: ns-123456-raw-data-ddmmyy
 
 # Step 4: Data Sharing 
 
-To share a container with another CSC project (and thus one of your colligues or collaborators) using SD Connect you need to:
+SD Connect user interface provides a simple way of sharing containers between different projects.
+
+To share a container with another CSC project (and thus one of your colligues or collaborators) you need to:
 
 * **know in advance the SD Account of the CSC project you want to share a contaner with** (see above in Step1, where this can be found)
 
-* in the browser page click on the icon **share** next to the conatiner of interest. 
+* in the browser page click on the **share** button on the row of the container in the container listing 
 
-
-
-
-In the next window called **Share the container** :
+Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the container is going to be shared to, and what rights to give: 
 
 * select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and dowload them
 
