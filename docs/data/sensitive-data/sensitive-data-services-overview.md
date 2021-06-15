@@ -57,7 +57,7 @@
    
    Step 2: User Interface
    
-   Step3: Data upload 
+   Step 3: Data upload 
    
    Step 4: Data Sharing 
        
