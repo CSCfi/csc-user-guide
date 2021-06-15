@@ -56,7 +56,6 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 &nbsp; 
 &nbsp; 
 &nbsp; 
-
 Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**.
 
 Here you can:
@@ -93,12 +92,10 @@ A complete updated list of **preinstalled software** available in every worsksap
 
 https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
-
 &nbsp;   
 &nbsp; 
 &nbsp; 
 &nbsp; 
-
 <img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
 &nbsp; 
 &nbsp; 
@@ -112,7 +109,6 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 &nbsp; 
 &nbsp; 
 &nbsp; 
-
 <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
 &nbsp; 
 &nbsp; 
@@ -121,9 +117,11 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 &nbsp; 
 &nbsp; 
 &nbsp; 
+&nbsp;
 &nbsp; 
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
 ## Step3: Importing encrypted sensitive data to SD Desktop
 &nbsp;
 &nbsp;
@@ -146,20 +144,31 @@ Once you are logged in into your SD Desktop private workspace you can import enc
 * click on open download location
 
 * then **I am not sure where they find the folder : XXXX**
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp;
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) this will be re-done by Aada
 
 
@@ -185,8 +194,7 @@ For security reasons, your private work space in SD Desktop is **completely isol
 &nbsp;
 &nbsp;
 &nbsp;
-&nbsp;
-
+&nbsp;  
 As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
 
 
@@ -211,19 +219,31 @@ At the end of your research or your analysis, you can delete your private worksp
 
 !!! note
     All the data present in the computing environment will be deleted and it will not be                         possible to retrieve them.
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 <img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 ## Step 5: Data export from SD Desktop
 &nbsp;
 &nbsp;
