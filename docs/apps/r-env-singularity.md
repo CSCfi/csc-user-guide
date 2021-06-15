@@ -623,8 +623,8 @@ Compared to CPU jobs, using NVBLAS may offer speed improvements without changes 
 Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
 
 - Are BLAS3 routines the main bottleneck in your workflow? 
-- Are speed-ups possible through other means (e.g. rewriting or restructuring your code)?
-- Is it possible to run certain parts of your script on a CPU partition rather than the GPU partition?
+- Are speed-ups possible through other means (e.g. rewriting your code)?
+- Can certain parts of your script be run on a CPU partition rather than the GPU partition?
 
 NVBLAS can be used by following these steps:
 
