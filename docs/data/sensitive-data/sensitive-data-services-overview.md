@@ -1,32 +1,47 @@
 
 # Senstive Data services: user guide overview
-
-
-
-
-
-
-
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 **[Introduction](./sd_connect.md)**
-
-   * Summary
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+   * **Summary**
    
-   * Getting access
+   * **Getting access**
    
-   * Useful terminology
-
-
-
-
-
-
-
-
+   * **Useful terminology**
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp;
 **[Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)**
-
-  * Background information
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+  * **Background information**
   
-  * Data encryption with Crypt4GH Grafical User Interface (GUI)
+  * **Data encryption with Crypt4GH Grafical User Interface (GUI)**
 
      Step 1: Generate your encryption keys
      
@@ -36,7 +51,7 @@
      
      Step 5: Data decryption
   
-  * Data encryption with Crypt4GH Command Line Interface (CLI)
+  * **Data encryption with Crypt4GH Command Line Interface (CLI)**
   
      Step 1: Install the latest version of Crypt4GH encryption tool
      
