@@ -368,38 +368,7 @@ As an example you can check:
 2. the file is then decrypted by you, using your private key
 
 
-** Errors:
 
-add here possible erros?
-
-
-
-Notes:
-1) encryption with CLI requires to zip/ compress a folder also? prepare your data:
-
-3) is zip comatible with SD Connect drag and drop upload? or does it get stuck? should we suggest other method od encryption?
-4) how do they install crypt4CH in SD Desktop? DO they need to install phyton first?
-
-4) Add link to our public key? How?
-5) video with data owner or seq facility or multiple data owners
-6) example video SD better not?
-7) CLI video or with better example? 
-8) From K: Now I can't anymore decrypt the encrypted file (not with GUI or command line client) as I would need to have csc private key for that.
-Having my own private key in the "private key" field does not help as this key is not used in the cryp4gh header encryption.
-
-So if you use the GUI with CSC public key you can use the encrypted data only in the SD-desktop environment.
-
-9) Another confusing feature in the GUI is that if a file with the default encrypted file name already exists, it does not do anything: It does not override the old file or tell the user that encryption was not done due to overlapping file name.
-10) Fix the instructions of the CLI
-
- 
- or the data encryption there are many options
-1. use crypt4gh and CSC's public key, so the data is automatically decrypted when you download it
-2. use crypt4gh and your own public key, then you need to upload your private key also, and use that to decrypt your files manually after you have downloaded them
-3. pack your files with 7zip and put a password to the compressed archive, upload that, and in your VM you need to unpack it and remember the password you used to secure it
-4. any other encryption method you want to use, as long as sensitive data is encrypted
-5. BONUS: non-sensitive data doesn't need to be encrypted (as far as I know)
- 
  
 
 
