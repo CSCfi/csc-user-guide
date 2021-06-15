@@ -1,3 +1,4 @@
+
 # SD Connect (Sensitive Data Connect)
 
 
@@ -82,10 +83,17 @@ If you create a new buket use the following **suggestions to name it**:
 Example: ns-123456-raw-data-ddmmyy
   
 
+<img width="953" alt="SD-Connect-4" src="https://user-images.githubusercontent.com/83574067/122090796-d5ff2980-ce10-11eb-986f-911c9a1f47bf.png">
+
+
+# Step 4: Data Sharing 
 
 
 
-# Data Sharing  from your project to  other CSC users's project
+
+
+
+
 
 
 
