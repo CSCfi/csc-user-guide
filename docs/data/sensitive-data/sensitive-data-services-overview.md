@@ -53,19 +53,19 @@
 
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
    
-     Step 1: Login
+ Step 1: Login
    
-     Step 2: User Interface
+ Step 2: User Interface
    
-     Step 3: Data upload 
-   
-     Step 4: Data Sharing 
+ Step 3: Data upload 
+ 
+ Step 4: Data Sharing 
        
    * **SD Connect compatible Clients**
    
-     For Linux: R Clone
+  Linux: R Clone
        
-     For Windowns: Swift
+  Windowns: Swift
    
  
  
