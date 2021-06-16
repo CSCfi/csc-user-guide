@@ -9,5 +9,5 @@ MPICH version 3.4 with UCX support is going to be installed on Puhti later, but 
 
 ## Slurm update and srun & behavior 4.5.2021
 
-`srun prog &` will produce errors like  "step creation still disabled, retrying (Requested nodes are busy)" if `SLURM_EXACT=1` or `SLURM_OVERLAP=1` is not set. See <https://slurm.schedmd.com/srun.html> for details
+Running `srun prog &` on Puhti  will produce errors like  "step creation still disabled, retrying (Requested nodes are busy)" if `SLURM_EXACT=1` or `SLURM_OVERLAP=1` is not set. See <https://slurm.schedmd.com/srun.html> for details
 
