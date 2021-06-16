@@ -16,7 +16,7 @@
             return "";
         }
 var consent=getCookie("cookieconsent_status")
-if(consent == "" || consent != "allow" ){
+if( consent != "allow" ){
     window['ga-disable-{{ analytics[0] }}'] = true;
 }
 function fix_youtube(){
