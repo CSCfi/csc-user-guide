@@ -73,8 +73,8 @@ Encryption creates a new encrypted file that is named by adding to the end exten
 The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 
-![cryp4SDS](data/sensitive-data/images/crypt4sds.png)
-**Fugure** Crypt4GH location
+![cryp4sds](img/crypt4sds.png)
+**Fugure** Crypt4GH GUI
 
 
 
