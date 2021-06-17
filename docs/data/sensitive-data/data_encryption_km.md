@@ -13,11 +13,11 @@ Crypt4GH uses **asymmetric encryption**, an encryption method that is based on t
    1) a **public key**, is used for ecryption but it can't decrypt the ecrypted data. You can share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they can encrypt the data with your public key and only you will be then able to decrypt the data with your own secret key. 
    2) a **secret key**, (private key) is used for decrypting a file that is encrypted the with the corresponding public key. This key should now be made available to other users an normally it is password protected to ensure that it remains secret. 
 
-In the case of SD Connect, you need to encrypt your data with the **CSC Sensitive Data Services public key** so that SD Desktop computing environment will be able to use it. When the data is downloaded from SD connect to SD Desktop the data is automatically decrypted with **CSC Sensitive Data Services secret key"**. This key is hosted securely by the SD Services and users never needs to do the decryption them selves.
+In the case of SD Connect, you need to encrypt your data with the **CSC Sensitive Data Services public key** so that SD Desktop will be able to use it. When the data is downloaded from SD connect to SD Desktop the data is automatically decrypted with **CSC Sensitive Data Services secret key"**. This key is hosted securely by the SD Services and users never needs to do the decryption them selves.
   
 
 !!! note
-Files that have been ecrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only in the SD servises environmnet. If you wish to encrypt your data for some other service, you should do another ecrypted file that uses other public keys.
+Files that have been ecrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only in the SD servises environment. If you wish to encrypt your data for some other service, you should do another ecrypted file that uses other public keys.
  
 
 
@@ -29,7 +29,7 @@ CSC developed a simple graphical user interface (GUI) that you can download to y
 
 1. You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
-Links here have not yet been updates
+Links here have not yet been updated
    - [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
    - [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
    - [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
@@ -42,7 +42,6 @@ Links here have not yet been updates
 **Fugure** Crypt4GH location
  
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
-
 
 
   ![](img/SDEnScreenshot_2.png)
@@ -73,20 +72,25 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 * If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
-
-
-
- 
  
 ## Data encryption with Crypt4GH Command Line Interface (CLI)
 
-For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
-
-**Python 3.6+ required** to use the crypt4gh encryption utility. To install Python: https://www.python.org/downloads/release/python-3810/
-
 ### Step 1: Install the latest version of Crypt4GH encryption tool
 
-CSC Sensitive Data Services public key can be dowloaded [here](./csc-sd-services.pub), or copy/paste the CSC Sensitive Data Services public key to a new file by copying the three lines from the box below.
+For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
+**Python 3.6+ required** to use the crypt4gh encryption utility. 
+To install Python: https://www.python.org/downloads/release/python-3810/
+
+If you have a working python installation and you have permissions to add libraries to your python istallaation, you can install Crypt4GH with command:
+
+```text
+pip install crypt4gh
+```
+
+### Step 2: Download CSC Sensitive Data services Public key
+
+Download CSC Sensitive Data Services public key from the link [here](./csc-sd-services.pub), or copy/paste the three lines from the box below into a new file.
+The file should be saved in text-only format. Here we assume that the key file is named as _csc-sd-services.pub_.
 
 ```text
 -----BEGIN CRYPT4GH PUBLIC KEY-----
@@ -94,116 +98,36 @@ dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
 -----END CRYPT4GH PUBLIC KEY-----
 ```
 
+## Step 3: Encrypt a file
 
+Cryp4GH is able to use several public keys for incryption. This can be very handy in cases were the encrypted data needs to be used by several users or services. Unfortunately SD Connect is not yet compatible with encryption with multiple keys. Because of that you must do the incryption using the CSC Sensitive Data Services public key only if you plan to upload the data to SD Connect. In this case the syntax of the encryption is:
 
-
-### Step 2: Download CSC Sensitive Data services Public key
-
-Download or copy the CSC
-
-
+```text
+crypt4gh encrypt --recipient_pk public-key < input > output
 ```
-$ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
+For example
+
+```text
+crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
 ```
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD connect.
+ 
 
-where:
+## Data encryption and upload with Allas help tool: a-put
 
-* _ sk examplename.sec_   is your private secrete (sk) key and
+The [allas client utilities](https://github.com/CSCfi/allas-cli-utils/) is a set of command line tools that can be installed and used in Linux and  MacOSX machines. If you have these tools, you can use data upload command _a-put_ with command line option _--sdx_ to upload data to Allas/SD Connect so that the uploded files are automatically encrypted with the CSC Sensitive Data Services public key before the upload. The public key is included to the tool so that you don't need to download your own copy of the key.
 
-* _ pk examplename.pub_ is your public key (pk).
+You can upload a single file with command like:
 
-The tool will then ask you to input your private key password. Use a strong password.
-
+```text
+a-put --sdx my_data1.csv
 ```
-Passphrase for examplename.sec: 
+By default _a-put --sdx_ uploads the encrypted file into bukect that has name _project-number-SD_CONNECT_ . 
+
+You can also upload complete diretories and define a specific target bucket. For exmple the command below will encrypt and upload all the files in directory _my_data_ to SD Connect into bucket _1234_SD_my_data_.
 ```
-
-
-## Step 3: Encrypt the file or directory
-
-To ecrypt the files:
-
-* Load your private or secrete key (_sk exampl-your-name.sec_)
-
-*  your public key (_pk example-your-name.pub_) 
-
-*  a CSC sensitive data services public key (_pk csc-sd-services.pub_) or any other recipeint public key (e.g. public key of your collaborator)
-
-*  and load the file or directory you want to encrypt. 
-
-
-In this example we are loading two recipients public keys (_pk csc-sd-services.pub_) and (_pk second-recipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
-
+a-put --sdx my_data -b 1234_SD_my_data
 ```
-$ crypt4gh encrypt --sk example-your-name.sec --recipient_pk csc-sd-services.pub --recipient_pk second-recipeintexample.pub < dog.jpg 
-```
-
-The tool will ask the password for your private key and next the data will be encrypted.
-
-```
-Passphrase for example-your-name.sec: 
-```
-
-The tool will visualize the following and the extension of the original file will be changed to.c4gh, underlining that the encryption was successful.
-
-```
-total 48     
--rw--rwr--r--  1 daz  staff   115B Nov  6 21:03 exanplename.pub    
--rw-r--r--  1 daz  staff   235B Nov  6 21:03 examplename.sec 
--rw-r--r--  1 daz  staff   115B Nov  6 21:03 sds.pub   
--rw-r--r--  1 daz  staff   235B Nov  6 21:03 dsd.sec 
--rw-r--r--  1 daz  staff    17B Nov  6 21:05 dog.jpg  
--rw-r--r--  1 daz  staff   169B Nov  6 21:05 dog.jpg.c4gh
-```
-
-!!! Note 
-If you add the CSC Sensitive Data Service public key your data to be decrypted automatically when uploaded to SD Desktop from SD Connect. Using SDS public key will also guarantee that in case you loose your private encryption key or your password, CSC could still help you to retrieve your data.
-
-!!!Note
-Programmatically you can add more than one public key (no limit?). This could be useful in case the data are originally encrypted by a data owner or a sequencing facility using your public key.
-
-
-## Step 4: Data Decryption
-
-If you did not use SDS public key you need to decrypt the data in SD Desktop. Login into your private computing environment and first install Crypt4GH:
-
-```
-$ crypt4gh -h
-```
-
-Next input your private key (_sk exaplename.sec_) and add the file that you want to decrypt (_ < dog.jpg.c4gh >_):
-
-```
-$ crypt4gh decrypt --sk exaple-your-name.sec < dog.jpg.c4gh
-```
-
-The tool will ask you to input your private key password:
-
-```
-Passphrase for example-your-name.sec:
-```
-
-And output the decripted file: 
-
-```
-> dog.jpg
-```
-
-
-
-As an example you can check:
-
-* a [Video](https://asciinema.org/a/mmCBfBdCFfcYCRBuTSe3kjCFs) in which Bob sends an encrypted message to Alice
-
-1. the message is encrypoted by Bob, using is own private key and Alice public key
-2. the message is then decrypted by Alice using Alice private key
-  
-* a [Video](https://asciinema.org/a/y23ZPc6uQ9YBkts1gPZHjvfWT) in which Me and You exchange an encrypted text file
-
-1. the file is encrypted by Me using my private key and your public key
-2. the file is then decrypted by you, using your private key
-
-
 
  
 
