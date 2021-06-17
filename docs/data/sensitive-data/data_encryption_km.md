@@ -9,8 +9,8 @@ According to CSC policies and [general terms of use](https://research.csc.fi/gen
 The SD Connect service is designed to support sensitive data that has been encrypted with **Cryp4GH** tool in combination with SD Connect specific encryption key.  Crypt4GH was originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format, but it can be used to encrypt any type of data.
 
 Crypt4GH uses **asymmetric encryption**, an encryption method that is based on two interlinked encryption keys: 
-    1) a **public key**, is used for ecryption but it can't decrypt the ecrypted data. You can share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they can encrypt the data with your public key and only you will be then able to decrypt the data with your own secret key. 
 
+    1) a **public key**, is used for ecryption but it can't decrypt the ecrypted data. You can share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they can encrypt the data with your public key and only you will be then able to decrypt the data with your own secret key. 
     2) a **secret key**, (private key) is used for decrypting a file that is encrypted the with the corresponding public key. This key should now be made availabel to other users an normally it is password protected to ensure that it remains secret. 
 
 In the case of SD Connect, you need to encrypt your data with the **CSC Sensitive Data Services public key** so that SD Desktop computing environment will be able to automatically decrypt the data using the corresponding private key. When the data is moved from SD connect to SD Desktop the data is automatically decrypted hosted securely by the SD services. 
