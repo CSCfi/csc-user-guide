@@ -1,4 +1,4 @@
-# Data encryption SD services 
+# Data encryption for SD services 
 
 ## Sensitive data needs to be encrypted before upload
 
