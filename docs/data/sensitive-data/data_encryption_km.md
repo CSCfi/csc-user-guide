@@ -69,12 +69,14 @@ Links here have not yet been updates
 
 The usage of the Encryption tool is very simple: Pressing __Select File__ button opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the __Encrypt__ button. This encryps the selected file with the _CSC Sensitive Data Services public key_ (the key is included to the tool, you don't need to import or specify it).
 
-
-Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*.
-
-For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_
-
+Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_. 
 The ecrypted file is now ready to be uploaded to _SD Connect_.
+
+
+![cryp4SDS](data/sensitive-data/images/crypt4sds.png)
+**Fugure** Crypt4GH location
+
+
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
