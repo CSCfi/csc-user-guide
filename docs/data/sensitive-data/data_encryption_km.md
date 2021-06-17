@@ -110,7 +110,7 @@ For example
 ```text
 crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
 ```
-The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD connect.
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect.
  
 
 ## Data encryption and upload with Allas help tool: a-put
