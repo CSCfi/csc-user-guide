@@ -1,9 +1,30 @@
+# Data encryption SD services 
+
+## Sensitive data needs to be encrypted before upload
+
+According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services. Sensitive data need to be encrypted even if, for example, downloaded from public repositories. The encryption requirement applies to the SD Connect service too. Automatic encryption during data upload has not been implemented to SD-Connect yet. Beacuse of this, at the moment, you must encrypt all the sensitive data on your local environment before you start to upload it to SD Connect. Data, that is not sensitive, can be uploaded without encryption.
+
+## SD Connect uses Crypt4CH for encryption
+
+The SD Connect service is designed to support sensitive data that has been encrypted with **Cryp4GH** tool in combination with SD Connect specific encryption key.  Crypt4GH was originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format, but it can be used to encrypt any type of data.
+
+Crypt4GH uses **asymmetric encryption**, an encryption method that is based on two interlinked encryption keys: 
+    1) a **public key**, is used for ecryption but it can't decrypt the ecrypted data. You can share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they can encrypt the data with your public key and only you will be then able to decrypt the data with your own secret key. 
+
+    2) a **secret key**, (private key) is used for decrypting a file that is encrypted the with the corresponding public key. This key should now be made availabel to other users an normally it is password protected to ensure that it remains secret. 
+
+In the case of SD Connect, you need to encrypt your data with the **CSC Sensitive Data Services public key** so that SD Desktop computing environment will be able to automatically decrypt the data using the corresponding private key. When the data is moved from SD connect to SD Desktop the data is automatically decrypted hosted securely by the SD services. 
+
+Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair. 
 
 
+There are different encryption methods available that facilitate secure data sharing or data storage: 
 
-# Data encryption with Crypt4GH and use of CSC public encryption key 
+*  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your colleagues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
 
-For data encryption we suggest the use of **Crypt4GH**, a tool originally designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) file format. Crypt4GH uses **asymmetric encryption**.   
+* **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key.
+
+  
 
 !!! note
    If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
