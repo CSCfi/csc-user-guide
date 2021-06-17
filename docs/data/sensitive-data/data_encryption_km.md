@@ -98,7 +98,7 @@ dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
 -----END CRYPT4GH PUBLIC KEY-----
 ```
 
-## Step 3: Encrypt a file
+### Step 3: Encrypt a file
 
 Cryp4GH is able to use several public keys for incryption. This can be very handy in cases were the encrypted data needs to be used by several users or services. Unfortunately SD Connect is not yet compatible with encryption with multiple keys. Because of that you must do the incryption using the CSC Sensitive Data Services public key only if you plan to upload the data to SD Connect. In this case the syntax of the encryption is:
 
