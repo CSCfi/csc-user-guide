@@ -73,10 +73,12 @@ Encryption creates a new encrypted file that is named by adding to the end exten
 The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 
-![cryp4sds](img/crypt4sds.png)
+!["cryp4sds"](img/crypt4sds.png)
 **Fugure** Crypt4GH GUI
 
 
+!["Creating a container"](img/allas_screenshot_create_container.png)  
+**Figure** Creating a container
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
