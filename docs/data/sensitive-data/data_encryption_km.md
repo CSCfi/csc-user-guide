@@ -69,7 +69,7 @@ Encryption creates a new encrypted file that is named by adding to the end exten
 
 For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_
 
-The ecrypted file is now ready to be uploaded to -SD Connect_.
+The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
