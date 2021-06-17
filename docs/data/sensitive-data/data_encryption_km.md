@@ -38,6 +38,8 @@ dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
 
 ## Crypt4GH graphical user interface GUI 
 
+### Installation
+
 CSC developed a simple graphical user interface (GUI) that you can download to your local enviroment to using Crypt4GH with CSC Sensitive Data Services public key. 
 
 1. You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
@@ -51,7 +53,6 @@ Links here have not yet been updates
 1. After the download, you can find the Crypt4GH application in your download folder. 
 
 
-
 ![SD_Screenshot1](data/sensitive-data/images/SDEnScreenShot_1.png)
 **Fugure** Crypt4GH location
  
@@ -63,7 +64,11 @@ Links here have not yet been updates
 
   <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
+
+### Usage
+
 The usage of the Encryption tool is very simple: Pressing __Select File__ button opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the __Encrypt__ button. This encryps the selected file with the _CSC Sensitive Data Services public key_ (the key is included to the tool, you don't need to import or specify it).
+
 
 Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*.
 
