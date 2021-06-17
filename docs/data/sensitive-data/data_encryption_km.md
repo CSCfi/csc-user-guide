@@ -11,31 +11,20 @@ The SD Connect service is designed to support sensitive data that has been encry
 Crypt4GH uses **asymmetric encryption**, an encryption method that is based on two interlinked encryption keys: 
 
    1) a **public key**, is used for ecryption but it can't decrypt the ecrypted data. You can share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they can encrypt the data with your public key and only you will be then able to decrypt the data with your own secret key. 
-   2) a **secret key**, (private key) is used for decrypting a file that is encrypted the with the corresponding public key. This key should now be made availabel to other users an normally it is password protected to ensure that it remains secret. 
+   2) a **secret key**, (private key) is used for decrypting a file that is encrypted the with the corresponding public key. This key should now be made available to other users an normally it is password protected to ensure that it remains secret. 
 
-In the case of SD Connect, you need to encrypt your data with the **CSC Sensitive Data Services public key** so that SD Desktop computing environment will be able to automatically decrypt the data using the corresponding private key. When the data is moved from SD connect to SD Desktop the data is automatically decrypted hosted securely by the SD services. 
-
-Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair. 
-
-
-There are different encryption methods available that facilitate secure data sharing or data storage: 
-
-*  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your colleagues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
-
-* **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key.
-
+In the case of SD Connect, you need to encrypt your data with the **CSC Sensitive Data Services public key** so that SD Desktop computing environment will be able to use it. When the data is downloaded from SD connect to SD Desktop the data is automatically decrypted with **CSC Sensitive Data Services secret key"**. This key is hosted securely by the SD Services and users never needs to do the decryption them selves.
   
 
 !!! note
-   If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
-
-You can download CSC Sensitive Data Services public key here:
+Files that have been ecrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only in the SD servises environmnet. If you wish to encrypt your data for some other service, you should do another ecrypted file that uses other public keys.
 
 
 
 
 
 
+CSC Sensitive Data Services public key can be dowloaded here 
 
 or copy /paste the CSC Sensitive Data Services public key in the command line tool (CLI):
 
@@ -46,31 +35,14 @@ dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
 ```
  
 
-## Background information 
-
-According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always need to be encrypted when uploaded or stored in CSC services for sensitive data management. Sensitive data need to be encrypted even if, for example, downloaded from public repositories. 
-
-There are different encryption methods available that facilitate secure data sharing or data storage: 
-
-*  **symmetric encryption**, which uses the same encryption key for encrypting and decrypting the data or files. In this case, if you need to share sensitive data with your colleagues or collaborators, you also need to share the same encryption key for them to be able to encrypt/decrypt the files. Sharing the encryption key (e.g. via email) increases security risks. 
-
-* **asymmetric encryption**, which uses two encryption keys. A private (or secrete) encryption key, which is password protected and  remains secrete, and a public encryption key, that can be shared publicly. If you share your public encryption key with your collaborators (e.g. multiple data owners, sequencing facilities etc), they will encrypt the data including your public key and you will be then able to decrypt the data with your own secrete private key. Moreover, if you encrypt your data with the public key from a third party (or recipient), they will be able to decrypt the data using the corresponding private key pair.  
-
-
-!!! Note. Differences in nomenclature when using Crypt4GH  graphical user interface (GUI)  and command line tool (CLI):
-
-* a **private key** is abbreviated  to **sk**  (as secrete key) in the command line tool. When you generate a private secrete key with Crypt4GH the file extension is **.sec**
-* a **public key** is abbreviated to **pk** in the command line tool. When you generate a public key the file extension is **.pub**
-
-
-!!! Note. If you are using the GUI and include CSC Sensitive Data Services public key (csc-sd-services.pub), the only way in which you can then access your data is in SD Desktop. The CLI, supports the use or two or more public keys at the same time, thus its use is more flexible. 
 
 ## Crypt4GH graphical user interface GUI 
 
-CSC developed a simple graphical user interface (GUI) that will allow you to generate encryption keys, to encrypt and decrypt data using Crypt4GH. 
+CSC developed a simple graphical user interface (GUI) that you can download to your local enviroment to using Crypt4GH with CSC Sensitive Data Services public key. 
 
 1. You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
+Links here have not yet been updates
    - [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
    - [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
    - [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
@@ -91,50 +63,13 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
   <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
+The usage of the Encryption tool is very simple: Pressing __Select File__ button opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the __Encrypt__ button. This encryps the selected file with the _CSC Sensitive Data Services public key_ (the key is included to the tool, you don't need to import or specify it).
 
-Next you call follow these steps:
+Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*.
 
-## Step 1: Generate your encryption keys
+For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_
 
-1. Open the application and	click on _Generate Keys_ (on the top right corner). 
-1. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated to your private key. Set a strong password.
-1. When you click on _OK_, the tool will generate a key pair: 
-
-   - a private key (nsurname_crypt4gh.key)
-   - a public key (nsurname_crypt4gh.pub)
-
-1. The keys/file names will be displayed in the Activity Log with the following message:
-
-````
-Key pair has been generated, your private key will be auto-loaded the next time you will launch this tool:
-Private key: name_surname.crypt4gh.key
-Public key: name_surname.crypt4gh.pub
-All the fields must be filled before file encryption will be started
-````
-
-
-
-<img width="512" alt="SDEnScreenshot_3" src="https://user-images.githubusercontent.com/83574067/121065552-8fd31600-c7d1-11eb-8c3d-7cd21464a4bd.png">
-
-
- ![](img/SDEnScreenshot_3.png)
- 
-The keys will be generated and saved in the the same folder in which the Application was downloaded.
-
-
-
-<img width="481" alt="SDEnScreenshot_4" src="https://user-images.githubusercontent.com/83574067/121065592-9a8dab00-c7d1-11eb-8dc6-c237a1f22f3a.png">
-
-![](img/SDEnScreenshot_4.png)
-
-!!! Note
-If you lose or forget your private key password you will be unable to decrypt the files. Do not share your private key or your password. Do not share your private key publicly.
-
-
-!!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it. 
-You don’t need to generate new key pairs each time you open the application.
-
-## Step 2: Prepare your files
+The ecrypted file is now ready to be uploaded to -SD Connect_.
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
