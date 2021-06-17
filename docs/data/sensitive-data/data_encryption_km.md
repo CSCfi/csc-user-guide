@@ -86,8 +86,7 @@ For documentation and more information you can check [Crypt4GH](https://github.c
 
 ### Step 1: Install the latest version of Crypt4GH encryption tool
 
-CSC Sensitive Data Services public key can be dowloaded [here](), or copy/paste the CSC Sensitive Data Services public key to a new file by copying the
-three lines from the box below.
+CSC Sensitive Data Services public key can be dowloaded [here](./csc-sd-services.pub), or copy/paste the CSC Sensitive Data Services public key to a new file by copying the three lines from the box below.
 
 ```text
 -----BEGIN CRYPT4GH PUBLIC KEY-----
