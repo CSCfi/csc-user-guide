@@ -2,18 +2,15 @@
 # SD Desktop (Sensitive Data Desktop)
 
 
-!!! note 
-    Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
+## Before you start: 
 
+Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
 
-!!! note 
-    **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
+**All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
-!!! note 
-    It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
-!!! note 
-    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 ## Step1 : Login 
@@ -52,18 +49,13 @@ Here you can:
 * **select** the preferred computing environment (based on your needs) and click on  + icon and on **Create instance**
 
 
-Next, the system will create your private work space in SD Desktop. The process is completely automated and might take up to 30 minutes. During this time, you can close your browser / log out /leave your browser window open/
-
-If the process is successful you will be able to see........
-
-You might encounter this error: write to servicedesk@csc.fi and use SD Desktop launch in the email subject.
+Next, the system will create your private workspace in SD Desktop. The process is completely automated and might take up to 30 minutes. 
 
 
-In SD Dekstop (Open Beta) you can choose between **four different Desktops or workspaces**:  
+In SD Dekstop (Open Beta) you can choose between **three different Desktops or workspaces**:  
 
 |Desktop for|CPU|Storage capacity|Billing unites|example usage|
-|--- |:---:|:---:|:---:|:---:|
-| Light Computation  | add | add  | add | testing the services |
+|--- |:---:|:---:|:---:|
 | Small Computation   | add | add | add | statistical analysis of small datasets |
 | Medium Computation | add | add | add |  complex analysis of large datasets |
 | Heavy Computation | add | add | add | parallel computing e.g. machine learning |
@@ -84,7 +76,7 @@ https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-
 
 Once you are logged in into your SD Desktop private workspace you can import encrypted data stored in SD Connect:
 
-* **Open SD Connect Downloader client** (link available on the Desktop...bit confusing :-) )
+* **Open SD Connect Downloader client** 
 
 * insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
 
@@ -104,20 +96,13 @@ Once you are logged in into your SD Desktop private workspace you can import enc
 
 Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) this will be re-done by Aada
 
-
-!!! note 
-     Open Beta version of SD Desktop has only **40 GB of disk space.** If you are trying to import more then 40 GB of data you will see the following            error: XXXXX
-
-
-For security reasons, your private work space in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
+For security reasons, your private workspace in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
 * download your scripts from GitHub and save them in a specific container in SD Desktop
 
 * access SD Desktop and use the SD Connect Downloader to make a copy of the scripts
  
 
-!!! note 
-    To import encrypted data from SD Connect to SD Desktop, **the same CSC project needs to have service access for Allas (CSC storage solution) and SD Desktop**. Is this true :-)?
 
 img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
 
@@ -146,7 +131,7 @@ At the end of your research or your analysis, you can delete your private worksp
 
 
 !!! note
-    All the data present in the computing environment will be deleted and it will not be                         possible to retrieve them.
+    All the data present in the computing environment will be deleted and it will not be possible to retrieve them.
 
 
 <img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
