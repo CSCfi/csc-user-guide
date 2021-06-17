@@ -18,21 +18,6 @@ In the case of SD Connect, you need to encrypt your data with the **CSC Sensitiv
 
 !!! note
 Files that have been ecrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only in the SD servises environmnet. If you wish to encrypt your data for some other service, you should do another ecrypted file that uses other public keys.
-
-
-
-
-
-
-CSC Sensitive Data Services public key can be dowloaded here 
-
-or copy /paste the CSC Sensitive Data Services public key in the command line tool (CLI):
-
-```text
------BEGIN CRYPT4GH PUBLIC KEY-----
-dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
------END CRYPT4GH PUBLIC KEY-----
-```
  
 
 
@@ -69,105 +54,29 @@ Links here have not yet been updates
 
 The usage of the Encryption tool is very simple: Pressing __Select File__ button opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the __Encrypt__ button. This encryps the selected file with the _CSC Sensitive Data Services public key_ (the key is included to the tool, you don't need to import or specify it).
 
-Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_. 
+Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_.  Currently,Crypt4GH application does not provid a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+
 The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 
 !["cryp4sds"](img/crypt4sds.png)
 **Fugure** Crypt4GH GUI
 
-
-!["Creating a container"](img/allas_screenshot_create_container.png)  
-**Figure** Creating a container
-
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 * If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
-* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
-
-
 
 <img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
 
 ![](img/SDEnScreenshot_5.png)
 
-## Step 3: Load the encryption keys
 
-1. Click on _Load My Private Key_ button.
-1. Select your private key (name_surname.crypt4gh.key).
-1. Click on _Open_. If the upload is successful, the tool will show the current path in title bar.
-1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or CSC Sensitive Data Services public key (csc-sd-services.pub) if you prefer your data to be compatible with SD Desktop automated decryption.
-1. Click on _Open_.
+* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
-
-
-<img width="623" alt="SDEnScreenshot_6" src="https://user-images.githubusercontent.com/83574067/121065628-a5484000-c7d1-11eb-8ded-9bd01ba7f277.png">
-
-![](img/SDEnScreenshot_6.png)
-
-!!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing enviroment. 
-
- 
-## Step 4: Upload and encrypt the file /zipped folder
-
-1. Click on _Select File_ and choose the file or zipped folder that you wish to encrypt. 
-1. Click on _Open_ and on _Encrypt File_. 
-1. The tool will ask the password for your personal private key and once you click on _OK_ the encryption process will begin.
-1. If the encryption is successful the file/zipped folder extension will end with *.c4gh* and  the Activity Log will display the following message:
-
-````
-Encrypting....
-
-Encryption has finished.
-
-Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
-````
-
-Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
 
 
-<img width="626" alt="SDEnScreenshot_7" src="https://user-images.githubusercontent.com/83574067/121065650-ab3e2100-c7d1-11eb-8ec6-12e9d3863f33.png">
-
-
-![](img/SDEnScreenshot_7.png)
-
- ## Step 5: Data decryption
  
- !!! Note. If you use SDS public key during encryption, the encrypted file/zipped folder will be decrypted in an automated manner when you will import the data from SD Connect to your own personal computing environment in SD Desktop. Thus, you can skip this step.
- 
- 
-1. Access your secure computing environment in SD Desktop. If you did not install Crypt4GH yet .........
-1. Next, open Crypt4GH and click on _load Your Private Key_.  
-1. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
-1. Click on _Open_. 
-1. Next click on _Decrypt File_. 
-1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file. 
-
-If you don't select your public key, the activity log will display the following (the decryption will be executed anyway):
-
-````
-<img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065675-b2fdc580-c7d1-11eb-88ed-7a7f449ed950.png">
-Sender public key has not been set, authenticity will not be verified.
-````
-
-If your decryption runs successfully, the activity log will display the following:
-
-````
-Decrypting.....
-
-Decryption has finished
-
-Decrypted file: C:/users/samesurname/exampledirectory/examplefile
-````
-
-
-
-![](img/SDEnScreenshot_8.png)
-
-<img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065754-c9a41c80-c7d1-11eb-87d3-10fa5b254555.png">
-
-
  
 ## Data encryption with Crypt4GH Command Line Interface (CLI)
 
@@ -175,60 +84,23 @@ For documentation and more information you can check [Crypt4GH](https://github.c
 
 **Python 3.6+ required** to use the crypt4gh encryption utility. To install Python: https://www.python.org/downloads/release/python-3810/
 
- 
- ## Step 1: Install the latest version of Crypt4GH encryption tool
- 
- 
- To install Crypt4GH you can choose one of the following options: 
- 
-````
-$ crypt4gh -h      
-````
+### Step 1: Install the latest version of Crypt4GH encryption tool
 
-or if you prefer the latest sources from GitHub:
+CSC Sensitive Data Services public key can be dowloaded [here](), or copy/paste the CSC Sensitive Data Services public key to a new file by copying the
+three lines from the box below.
 
-```
-pip install -r crypt4gh/requirements.txt
-pip install ./crypt4gh
-```
-
-or
-
-```
-pip install git+https://github.com/EGA-archive/crypt4gh.git
-```
-
-The usual -h flag shows you the different options that the tool accepts:
-
-```
-$ crypt4gh -h
-
-Utility for the cryptographic GA4GH standard, reading from stdin and outputting to stdout.
-
-Usage:
-   {PROG} [-hv] [--log <file>] encrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--range <start-end>]
-   {PROG} [-hv] [--log <file>] decrypt [--sk <path>] [--sender_pk <path>] [--range <start-end>]
-   {PROG} [-hv] [--log <file>] rearrange [--sk <path>] --range <start-end>
-   {PROG} [-hv] [--log <file>] reencrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--trim]
-
-Options:
-   -h, --help             Prints this help and exit
-   -v, --version          Prints the version and exits
-   --log <file>           Path to the logger file (in YML format)
-   --sk <keyfile>         Curve25519-based Private key.
-                          When encrypting, if neither the private key nor C4GH_SECRET_KEY are specified, we generate a new key 
-   --recipient_pk <path>  Recipient's Curve25519-based Public key
-   --sender_pk <path>     Peer's Curve25519-based Public key to verify provenance (akin to signature)
-   --range <start-end>    Byte-range either as  <start-end> or just <start> (Start included, End excluded)
-   -t, --trim             Keep only header packets that you can decrypt
-
-Environment variables:
-   C4GH_LOG         If defined, it will be used as the default logger
-   C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
+```text
+-----BEGIN CRYPT4GH PUBLIC KEY-----
+dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
+-----END CRYPT4GH PUBLIC KEY-----
 ```
 
 
-## Step 2: Generate a permanent public-private keypair
+
+
+### Step 2: Download CSC Sensitive Data services Public key
+
+Download or copy the CSC
 
 
 ```
