@@ -2,7 +2,7 @@
 
 ## Sensitive data needs to be encrypted before upload
 
-According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services. Sensitive data need to be encrypted even if, for example, downloaded from public repositories. The encryption requirement applies to the SD Connect service too. Automatic encryption during data upload has not been implemented to SD-Connect yet. Beacuse of this, at the moment, you must encrypt all the sensitive data on your local environment before you start to upload it to SD Connect. Data, that is not sensitive, can be uploaded without encryption.
+According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services. Sensitive data needs to be encrypted even if, for example, downloaded from public repositories. The encryption requirement applies to the SD Connect service too. Automatic encryption during data upload has not been implemented to SD Connect yet. Because of this, at the moment, you must encrypt all the sensitive data on your local environment before you start to upload it to SD Connect. Data, that is not sensitive, can be uploaded without encryption.
 
 ## SD Connect uses Crypt4CH for encryption
 
