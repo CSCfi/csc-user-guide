@@ -378,7 +378,7 @@ Limitations and caveats: 
 -   As the majority of computing resources in Pouta are CPU-based and GPU
     resources are relatively limited, most likely, you will need to specify
     your need for GPU resources in your application or make an additional
-    request via servicedesk@csc.fi to enable their usage on your existing
+    request via <servicedesk@csc.fi> to enable their usage on your existing
     Pouta application.
 
 These instances are also tightly tied to the hardware. You may expect
