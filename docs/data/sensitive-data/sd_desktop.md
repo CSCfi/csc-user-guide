@@ -92,7 +92,6 @@ If the launch is successful, when you return to SD Desktop **Homepage**  you wil
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-
 In the Desktop you will be able to access different applications from the manu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
@@ -148,15 +147,18 @@ For security reasons, your private workspace in SD Desktop is **completely isola
  
 ## Step 4: RStudio in SD Desktop
 
-To access RStudio in SD Desktop
+To access RStudio in SD Desktop open the terminal in your visrtual Destkop and launch RStudio with:
 
-R Studio can use the directory with R studio
+''start-rstudio-server''
 
-STart R Studio server it luanches the server in the local enviroemnt. Contact services usinf the URL and then it will ask username and passsword. It will take a few seconds, and in the next page you can service specific password (
+Next, you need to contact the service using the URL given in the terminal and usenal and passowrd. Paste the URL in Firefox and after a few second, you can inut the user and password service specific. Next, you will be able to use RStudio.
+
+Notice: if you need to work on the same dataset with yoru colloeagues, use the Shared-directory.
 
 
-
- ![Rstudio tot](https://user-images.githubusercontent.com/83574067/122614020-80d04b80-d08e-11eb-8232-25ba81108f2a.png)
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
 
