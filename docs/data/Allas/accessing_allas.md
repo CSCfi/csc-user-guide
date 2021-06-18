@@ -91,3 +91,9 @@ Cyberduck offers some basic functionalities for managing data in the object stor
  * _Remove_ objects and buckets
 
 The Cyberduck user interface is quite easy to use. The data management options can be displayed by either right-clicking the bucket/object or choosing the bucket/object and then clicking the **Action** button on the menu bar. To navigate back to the previous directory, use backspace.
+
+
+## SD Connect service
+
+The SD Connect WWW interface can be used upload, download, manage and share data in Allas.
+  * [CSC SD services](../sensitive-data/sensitive-data-services-overview.md)
