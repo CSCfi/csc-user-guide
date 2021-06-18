@@ -4,13 +4,13 @@
 
 ## Before you start: 
 
-Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
+* Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
 
-**All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
+* **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
-It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+* It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
-Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+* Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 ## Step1 : Login 
@@ -36,7 +36,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 
-## Step 2: Launching your Desktop (your private work environment)
+## Step 2: Launching your Desktop (or private computing environment)
 
 Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**.
 
@@ -46,19 +46,26 @@ Here you can:
 
 * **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
 
-* **select** the preferred computing environment (based on your needs) and click on  + icon and on **Create instance**
+* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
 
 Next, the system will create your private workspace in SD Desktop. The process is completely automated and might take up to 30 minutes. 
 
 
-In SD Dekstop (Open Beta) you can choose between **three different Desktops or workspaces**:  
+In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
-|Desktop for|CPU|Storage capacity|Billing unites|example usage|
-|--- |:---:|:---:|:---:|
-| Small Computation   | add | add | add | statistical analysis of small datasets |
-| Medium Computation | add | add | add |  complex analysis of large datasets |
-| Heavy Computation | add | add | add | parallel computing e.g. machine learning |
+
+|Desktop type|Example use|Billing Units|Pouta nomenclature flavour|Cores |Memory |Local disk|
+|--- |:---:|:---:|:---:|:---:|:---:|
+|standard.medium |3|4 |80 |0 |80 |
+|standard.large  |4|7 |80 |0 |80 |
+|standard.xlarge |6|15|80 |0 |80 |
+|standard.xxlarge|8|30|80 |0 |80 |
+|standard.3xlarge|8|60|80 |0 |80 |
+
+
+
+
 
 
 A complete updated list of **preinstalled software** available in every worsksapce can be found here:
