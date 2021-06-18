@@ -75,7 +75,7 @@ All the Destkop are provided with the same software. The complete and update lis
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
-![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122595864-bd417e80-d071-11eb-8fa8-b0a6b593145a.png)
+![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122608199-79a44000-d084-11eb-80c6-40dab45004ac.png)
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593108-dcd6a800-d06d-11eb-9b51-2faaf2937b3a.png">
 
 
