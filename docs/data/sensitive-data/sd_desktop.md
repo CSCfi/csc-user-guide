@@ -109,7 +109,8 @@ As previously mentioned, you can **logout** from your computing workspace in SD 
 
 Once you are logged in into your SD Desktop private workspace **you can import encrypted  sensitive data stored in SD Connect**.
 
-Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**.  If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
+!!! Note
+    **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**.  If you used your own key pair to           encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
 
 To import the data:
 
@@ -123,11 +124,11 @@ To import the data:
 
 * select the files you want to import 
 
-* click on download objects (the application will make a copy of the encrypted files in SD Dekstop).
+* click on **download objects** (the application will make a copy of the encrypted files in SD Dekstop).
 
-* click on open download location
+* click on **open download location**
 
-* then **I am not sure where they find the folder : XXXX**
+The files are downloaded to a directory called SDCONNECTDATA which is in the user's home directory. The forlder is automatically opened by Open Download Location.
 
 Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**. 
 
@@ -136,7 +137,6 @@ If you used your own key pair to encrypt the data, the application will make a c
 
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
 
-Video example: https://kannu.csc.fi/s/dXHeTy27LcAQATx    (T account and name) this will be re-done by Aada
 
 For security reasons, your private workspace in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
