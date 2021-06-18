@@ -170,8 +170,10 @@ At the end of your research or your analysis, you can delete your private worksp
 !!! note
     All the data present in the computing environment will be deleted and it will not be possible to retrieve them.
 
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+![SD_Desktop_deletingF](https://user-images.githubusercontent.com/83574067/122610703-c25df800-d088-11eb-8e44-2792c1bc2e6c.png)
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
-<img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
 
 ## Step 6: Data export from SD Desktop
 
