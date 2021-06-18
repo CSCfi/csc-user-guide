@@ -55,7 +55,7 @@ Next, the system will create your private computing enviroment in SD Desktop. Th
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
 
-|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |standard.medium |3|4 |80 |0 |80 |1.3|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|1    |
 |standard.xlarge |6|15|80 |0 |80 |2.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|4    |
