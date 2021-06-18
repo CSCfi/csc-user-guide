@@ -55,23 +55,21 @@ Next, the system will create a secure conenction to your private computing envir
 
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
-
 |Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Corrispondet Flavour|Example usage|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|
 |Light computation |3|4 |80 |standard.medium |testing the service |1.3|
 |Samll computation |6|15|80 |standard.xlarge |office software|5.2|
 |Medium computation|8|30|80 |standard.xxlarge |running statistical or genome alaysis |10.4|
-|Heavy computation |8|60|80 |hpc4.40core|non-interactive programmatic computation|78|
+|Heavy computation |8|168|80 |hpc4.40core|non-interactive programmatic computation|78|
+
+
+If you are not sure what is the best option for yoru needs/reaserch, contact us at servicedesk@csc.fi (email subject:SD Desktop). Do not choose the Heavy computation option for simple analysis, as it consumes large amout of resources.
+
+All the Destkop are provided with the same software. The complete and update list can be found in the following paragraph [Account: Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md)
 
 
 
 
-
-
-
-A complete updated list of **preinstalled software** available in every worsksapce can be found here:
-
-https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md
 
 
 <img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
