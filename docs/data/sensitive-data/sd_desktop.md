@@ -82,7 +82,7 @@ All the Destkop are provided with the same software. The complete and update lis
 
 If the launch is successful, when you return to SD Desktop **Homepage**  you will be able to access the computing enviroment from:
 
-* **Recent connection** , clicking on the image of your Desktop
+* **Recent connection**, clicking on the image of your Desktop
 
 * **All connection** if you click on + you can see all the connections associated to each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also be able to acess your computing enviroment. 
 
@@ -146,10 +146,17 @@ For security reasons, your private workspace in SD Desktop is **completely isola
  
  
  
-## Step 4: R-Studio
+## Step 4: RStudio in SD Desktop
+
+To access RStudio in SD Desktop
+
+R Studio can use the directory with R studio
+
+STart R Studio server it luanches the server in the local enviroemnt. Contact services usinf the URL and then it will ask username and passsword. It will take a few seconds, and in the next page you can service specific password (
 
 
 
+ ![Rstudio tot](https://user-images.githubusercontent.com/83574067/122614020-80d04b80-d08e-11eb-8232-25ba81108f2a.png)
 
 
 
@@ -158,13 +165,9 @@ For security reasons, your private workspace in SD Desktop is **completely isola
 
 ## Step 5:  Deleting your work environment
   
-At the end of your research or your analysis, you can delete your private workspace in:
+At the end of your research or your analysis, you can delete your computing enviroment and all the data in it. 
 
-* SD Desktop Homepage
-
-* click on **Go to launching page**
-
-* click on **Delete Instance**
+In SD Desktop Homepage click on **Go to launching page**. Here, in **Available istances** click on **Delete Desktop**. 
 
 
 !!! note
@@ -177,7 +180,7 @@ At the end of your research or your analysis, you can delete your private worksp
 
 ## Step 6: Data export from SD Desktop
 
-FOr security reseanse, Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+For security reseanse, Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
