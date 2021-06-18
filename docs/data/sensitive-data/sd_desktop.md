@@ -38,9 +38,9 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Step 2: Launching your Desktop (or private computing environment)
 
-Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**.
+Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**. This will become your private cloud computing enviroment for the duration of your project and it will be accessible to you and other project members at anytime.
 
-Here you can:
+By clicking on **Go to the Launching page** you can:
 
 * **select your CSC project**
 
@@ -49,19 +49,19 @@ Here you can:
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
 
-Next, the system will create your private workspace in SD Desktop. The process is completely automated and might take up to 30 minutes. 
+Next, the system will create your private computing enviroment in SD Desktop. The process is completely automated and might take up to 30 minutes. 
 
 
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
 
-|Desktop type|Example use|Billing Units|Pouta nomenclature flavour|Cores |Memory |Local disk|
-|--- |:---:|:---:|:---:|:---:|:---:|
-|standard.medium |3|4 |80 |0 |80 |
-|standard.large  |4|7 |80 |0 |80 |
-|standard.xlarge |6|15|80 |0 |80 |
-|standard.xxlarge|8|30|80 |0 |80 |
-|standard.3xlarge|8|60|80 |0 |80 |
+|Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|standard.medium |3|4 |80 |0 |80 |1.3|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|1    |
+|standard.xlarge |6|15|80 |0 |80 |2.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|4    |
+|standard.xxlarge|8|30|80 |0 |80 |3.8|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|8    |
+|hpc4.40core|8|60|80 |0 |80 |7.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|16   |
+
 
 
 
