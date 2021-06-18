@@ -30,12 +30,12 @@ CSC developed a simple graphical user interface (GUI) that you can download to y
 1. You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
 Links here have not yet been updated
-   - [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
-   - [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
-   - [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
+   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
+   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-macos-amd64.zip)
+   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
 
 1. Verify, that the program has been digitally signed by CSC - IT Center for Science.  
-1. After the download, you can find the Crypt4GH application in your download folder. 
+1. After the downloading and unzippling the file, you can find the Crypt4GH application in your download folder. 
 
 
 ![SD_Screenshot1](data/sensitive-data/images/SDEnScreenShot_1.png)
