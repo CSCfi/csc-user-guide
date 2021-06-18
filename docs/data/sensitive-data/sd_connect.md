@@ -2,14 +2,15 @@
 # SD Connect (Sensitive Data Connect)
 
 
-!!! note
-    Sensitive data need to be **encrypted before upload** to SD Connect. Check the previous paragraph for more informations about encryption with Crypt4GH.
+Note that Sensitive data needs to be **encrypted before upload** to SD Connect. Check the [previous paragraph](./data_ecryption.md) for more information about encryption with Crypt4GH. Non-sensitive data can be uploaded without encryption.
     
-!!! note    
-    SD Connect is not suitable for permanent data storage. **Make regular backups** of important datasets.
+SD Connect is based on the [Allas](./data/allas/overview.md) storage service. The genral rules and methods of usage are the same as in Allas.
+By default a project can strore up to 10 TiB of data. The storage space remains availabe as long as the project is active. You should not
+consider SD Connect as a permanent data storage. Instead, you should have a plan about what will happen to the data when proect is closed. 
+CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
      
 !!! note  
-    Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+    SD Connect and SD Desktop has not yeat been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 ## Step1: Login 
