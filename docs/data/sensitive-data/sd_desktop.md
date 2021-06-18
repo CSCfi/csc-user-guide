@@ -41,7 +41,9 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 Once you login, in **Homepage** you can launch your Desktop: your private and secure cloud computing enviroment, accessible all along the duration of your project. After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborats as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
 
 
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
 ![SD-Desktop-1final](https://user-images.githubusercontent.com/83574067/122592168-a0567c80-d06c-11eb-97f3-0c19675cd7e6.png)
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592746-6174f680-d06d-11eb-8d9b-6315c9766b46.png">
 
 
 To launch your Desktop, in Homepage, click on **Launching page** :
