@@ -31,6 +31,7 @@ To import (or download) encrypted sensitive data to SD Desktop you need:
 
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser.
 
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
 <img width="960" alt="sd-desktop-0" src="https://user-images.githubusercontent.com/83574067/122118478-bbd54380-ce30-11eb-95cc-589e6cb68a84.png">
 
@@ -73,21 +74,26 @@ All the Destkop are provided with the same software. The complete and update lis
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
-
+![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122595864-bd417e80-d071-11eb-8fa8-b0a6b593145a.png)
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593108-dcd6a800-d06d-11eb-9b51-2faaf2937b3a.png">
 
 
 
-After the auanch, the system will create your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
+After the launch, the system will create your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
 
 If the launch is successful:
 
-* the **Homepage** will contain a new connection belonging to your project. If you click on the connection or the image, you can access the computing enviroment.
+* the **Homepage** will contain a new connection belonging to your project. If you click on image in **Recent connection** or on the connection ID in **All connection** you can access the computing enviroment.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122595558-545a0680-d071-11eb-8a5b-6fffcb3ff356.png)
+![SD-Destkop-3](https://user-images.githubusercontent.com/83574067/122598352-650c7b80-d075-11eb-9e4e-996c2d559c03.png)
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
+
+
+
+
+
 
 
 As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
