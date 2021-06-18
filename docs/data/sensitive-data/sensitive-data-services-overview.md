@@ -1,4 +1,4 @@
-# Senstive Data Services: overview
+# Sensitive Data Services: overview
 &nbsp; 
 &nbsp; 
 &nbsp; 
@@ -23,7 +23,7 @@
 
   * **Background information**
   
-  * **Data encryption with Crypt4GH Grafical User Interface (GUI)**
+  * **Data encryption with Crypt4GH Graphical User Interface (GUI)**
 
      Step 1: Generate your encryption keys
      
@@ -37,7 +37,7 @@
   
      Step 1: Install the latest version of Crypt4GH encryption tool
      
-     Step 2:  Generate a permanent public-private keypair
+     Step 2:  Generate a permanent public-private key pair
   
      Step 3: Encrypt the file or directory
      
@@ -64,7 +64,7 @@
    
   Linux: R Clone
        
-  Windowns: Swift
+  Windows: Swift
    
  
 
