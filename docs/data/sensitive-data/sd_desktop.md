@@ -4,7 +4,7 @@
 
 ## Before you start: 
 
-Independently of the login method used, you need your **CSC username and password to import sensitive data** in your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
+Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
 
 **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
