@@ -79,18 +79,18 @@ All the Destkop are provided with the same software. The complete and update lis
 
 
 
-After the launch, the system will create your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
+After the launch, the system will create a  secure connection to your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
 
-If the launch is successful:
+If the launch is successful, when you return to SD Desktop **Homepage**  you will be able to view a new connection belonging to your project:
 
-* the **Homepage** will contain a new connection belonging to your project. If you click on image in **Recent connection** or on the connection ID in **All connection** you can access the computing enviroment.
+*  in **Recent connection** you can view an image of your Desktop, if you click on it you can connect to the computing enviroment (you might see a black screen for a few seconds while connecting)
+
+* in **All connection** you can view the CSC projects names and if you click on + all the connections associated to each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also be able to acess your computing enviroment. 
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 ![SD-Destkop-3](https://user-images.githubusercontent.com/83574067/122598352-650c7b80-d075-11eb-9e4e-996c2d559c03.png)
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
-
-
 
 
 
