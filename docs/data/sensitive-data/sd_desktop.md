@@ -57,6 +57,7 @@ To launch your Desktop, in Homepage, click on **Launching page** :
 
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
+The system will create a secure connection to your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
 
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
@@ -79,40 +80,40 @@ All the Destkop are provided with the same software. The complete and update lis
 
 
 
-After the launch, the system will create a  secure connection to your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
+If the launch is successful, when you return to SD Desktop **Homepage**  you will be able to access the computing enviroment from:
 
-If the launch is successful, when you return to SD Desktop **Homepage**  you will be able to view a new connection belonging to your project:
+* **Recent connection** , clicking on the image of your Desktop
 
-*  in **Recent connection** you can view an image of your Desktop, if you click on it you can connect to the computing enviroment (you might see a black screen for a few seconds while connecting)
-
-* in **All connection** you can view the CSC projects names and if you click on + all the connections associated to each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also be able to acess your computing enviroment. 
+* **All connection** if you click on + you can see all the connections associated to each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also be able to acess your computing enviroment. 
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-![SD-Destkop-3](https://user-images.githubusercontent.com/83574067/122598352-650c7b80-d075-11eb-9e4e-996c2d559c03.png)
+![SD-Desktop-Connection](https://user-images.githubusercontent.com/83574067/122604935-66db3c80-d07f-11eb-8364-df60b0e71699.png)
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
 
+In the Desktop you will be able to access different applications from the manu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
+If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
+As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
 
 
-As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
-
-
-
-<img width="958" alt="SD Desktop 1" src="https://user-images.githubusercontent.com/83574067/121861598-9ea25700-cd02-11eb-8ba0-4d10b0094f7e.png">
- 
-<img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
-
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+<img width="960" alt="SD-Desktop-Home" src="https://user-images.githubusercontent.com/83574067/122606520-ba4e8a00-d081-11eb-8a43-454776ab87d6.png">
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
 
 ## Step3: Importing encrypted sensitive data to SD Desktop
 
 
-Once you are logged in into your SD Desktop private workspace **you can import encrypted data stored in SD Connect**:
+Once you are logged in into your SD Desktop private workspace **you can import encrypted  sensitive data stored in SD Connect**.
 
-* **Open SD Connect Downloader client** (you can find the link to the application in your Desktop)
+Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**.  If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
+
+To import the data:
+
+* **Open SD Connect Downloader client** (you can find the link to the application on your Desktop)
 
 * insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
 
