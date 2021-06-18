@@ -38,7 +38,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Step 2: Launching your Desktop (or private computing environment)
 
-Once you login in SD Desktop **Homepage** you can launch your Desktop. This will become your private and secure cloud computing enviroment for the duration of your project. After launching your Destkop, you can access it any time. If you add project members to the same CSC project, they will be able to acces the same computing enviroment. 
+Once you login, in **Homepage** you can launch your Desktop: your private and secure cloud computing enviroment, accessible all along the duration of your project. After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborats as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
 
 
 To launch your Desktop, in Homepage, click on **Launching page** :
@@ -48,9 +48,6 @@ To launch your Desktop, in Homepage, click on **Launching page** :
 * **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
 
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
-
-
-Next, the system will create a secure conenction to your private computing enviroment. The process is completely automated and might take up to 30 minutes. 
 
 
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
@@ -63,12 +60,19 @@ In SD Dekstop (Open Beta) you can choose between **four different Desktops **:
 |Heavy computation |8|168|80 |hpc4.40core|non-interactive programmatic computation|78|
 
 
-If you are not sure what is the best option for yoru needs/reaserch, contact us at servicedesk@csc.fi (email subject:SD Desktop). Do not choose the Heavy computation option for simple analysis, as it consumes large amout of resources.
+If you are not sure what is the best option for your needs/reaserch, contact us at servicedesk@csc.fi (email subject:SD Desktop). Do not choose the Heavy computation option for simple computing or analysis, as it consumes large amout of resources.
 
-All the Destkop are provided with the same software. The complete and update list can be found in the following paragraph [Account: Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md)
+All the Destkop are provided with the same software. The complete and update list can be found in the following paragraph [Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md).
 
 
+After the auanch, the system will create your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
 
+If the launch is successful:
+
+* the **Homepage** will contain a new connection belonging to your project. If you click on the connection or the image, you can access the computing enviroment.
+
+
+As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
 
 
 
@@ -77,26 +81,33 @@ All the Destkop are provided with the same software. The complete and update lis
 <img width="960" alt="SD Desktop 2" src="https://user-images.githubusercontent.com/83574067/121864441-9697e680-cd05-11eb-8b68-ec01eec86943.png">
 
 
+
+
 ## Step3: Importing encrypted sensitive data to SD Desktop
 
 
-Once you are logged in into your SD Desktop private workspace you can import encrypted data stored in SD Connect:
+Once you are logged in into your SD Desktop private workspace **you can import encrypted data stored in SD Connect**:
 
-* **Open SD Connect Downloader client** 
+* **Open SD Connect Downloader client** (you can find the link to the application in your Desktop)
 
 * insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
 
 * select your CSC project
 
-* select the correct bucket (or container)
+* select the correct bucket 
 
-* select the files you want to import
+* select the files you want to import 
 
-* click on download objects (the client will make a copy of the encrypted files in SD Dekstop. If you used CSC Sensitive Data Services public key the data will be decrypted automatically)
+* click on download objects (the application will make a copy of the encrypted files in SD Dekstop).
 
 * click on open download location
 
 * then **I am not sure where they find the folder : XXXX**
+
+Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**. 
+
+If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
+
 
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
 
@@ -124,6 +135,9 @@ From SD Desktop Homepage you can **Kill your connection to SD Desktop**:
 * in the **Active session** window, select your connection and next click on **Kill Connection**
 
 meaning: ?
+
+As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
+
 
 
 
