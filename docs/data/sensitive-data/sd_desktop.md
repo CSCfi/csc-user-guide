@@ -4,7 +4,7 @@
 
 ## Before you start: 
 
-* Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment (or workspace). If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
+* Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
 
 * **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
@@ -38,9 +38,10 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Step 2: Launching your Desktop (or private computing environment)
 
-Once you login in SD Desktop **Homepage** you can launch your Desktop by clicking on **Go to the Launching page**. This will become your private cloud computing enviroment for the duration of your project and it will be accessible to you and other project members at anytime.
+Once you login in SD Desktop **Homepage** you can launch your Desktop. This will become your private and secure cloud computing enviroment for the duration of your project. After launching your Destkop, you can access it any time. If you add project members to the same CSC project, they will be able to acces the same computing enviroment. 
 
-By clicking on **Go to the Launching page** you can:
+
+To launch your Desktop, in Homepage, click on **Launching page** :
 
 * **select your CSC project**
 
@@ -49,18 +50,18 @@ By clicking on **Go to the Launching page** you can:
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
 
-Next, the system will create your private computing enviroment in SD Desktop. The process is completely automated and might take up to 30 minutes. 
+Next, the system will create a secure conenction to your private computing enviroment. The process is completely automated and might take up to 30 minutes. 
 
 
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
 
-|Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|standard.medium |3|4 |80 |0 |80 |1.3|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|1    |
-|standard.xlarge |6|15|80 |0 |80 |2.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|4    |
-|standard.xxlarge|8|30|80 |0 |80 |3.8|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|8    |
-|hpc4.40core|8|60|80 |0 |80 |7.5|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)|16   |
+|Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Corrispondet Flavour|Example usage|Billing<br/>Units<br/>/h|
+|--- |:---:|:---:|:---:|:---:|:---:|:---:|
+|standard.medium |3|4 |80 |0 |80 |1.3|
+|standard.xlarge |6|15|80 |0 |80 |2.5|
+|standard.xxlarge|8|30|80 |0 |80 |3.8|
+|hpc4.40core|8|60|80 |0 |80 |7.5|
 
 
 
