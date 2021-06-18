@@ -27,7 +27,7 @@ To access SD Desktop you need:
 To import (or download) encrypted sensitive data to SD Desktop you need:
 
 * **service access to Allas** (CSC cloud storage solution).
-
+  
 
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser.
 
