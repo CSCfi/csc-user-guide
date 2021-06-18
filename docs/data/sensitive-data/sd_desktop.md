@@ -104,7 +104,7 @@ As previously mentioned, you can **logout** from your computing workspace in SD 
 
 
 
-## Step3: Importing encrypted sensitive data to SD Desktop
+## Step 3: Importing encrypted sensitive data to SD Desktop
 
 
 Once you are logged in into your SD Desktop private workspace **you can import encrypted  sensitive data stored in SD Connect**.
@@ -134,9 +134,9 @@ Note: **If you used CSC Sensitive Data Service public encryption key to encrypt 
 
 If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
 
-
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
-
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 For security reasons, your private workspace in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
@@ -144,28 +144,20 @@ For security reasons, your private workspace in SD Desktop is **completely isola
 
 * access SD Desktop and use the SD Connect Downloader to make a copy of the scripts
  
+ 
+ 
+## Step 4: R-Studio
 
 
-img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
 
-## Step 4: Logging out; Killing connection; Deleting your work environment
+
+
+
+
+
+
+## Step 5:  Deleting your work environment
   
-As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
-
-
-From SD Desktop Homepage you can **Kill your connection to SD Desktop**:
-
-* on the top right corner of the browser, select your user name and select **settings**
-
-* in the **Active session** window, select your connection and next click on **Kill Connection**
-
-meaning: ?
-
-As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
-
-
-
-
 At the end of your research or your analysis, you can delete your private workspace in:
 
 * SD Desktop Homepage
@@ -181,26 +173,10 @@ At the end of your research or your analysis, you can delete your private worksp
 
 <img width="960" alt="SD Desktop 6" src="https://user-images.githubusercontent.com/83574067/121877371-3445e280-cd13-11eb-870d-99767242d402.png">
 
-## Step 5: Data export from SD Desktop
+## Step 6: Data export from SD Desktop
 
-SD Desktop is not connected to the internet for security reasons.
-
-To export processed sensitive data or non-sensitive data (results) data from your Desktop you need to:
-
-* make a request writing to ***servicedesk@csc.fi*** and use **SD Desktop (Export Request)** in the object field
-
-Note! **Only the project manager or group leader** can make the request
-
-* Add the CSC project number and bucket or container ID in SD Connect in which the data need will be exported by CSC Cloud administrators
-
-* The request will be **processed by CSC cloud administrators** and it may require **up to 10 days to be processed**.  
-
-!!! note
-    **Only the project manager or group leader** can apply for an export request.
-
-!!! note
-     Always **encrypted sensitive data which need to be exported out of SD Desktop.** If the encryption with Crypt4GH is successful, the file name will end with .c4gh
-
+FOr security reseanse, Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
