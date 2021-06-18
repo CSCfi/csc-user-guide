@@ -2,7 +2,7 @@
 # SD Desktop (Sensitive Data Desktop)
 
 
-## Before you start: 
+## Before you start
 
 * Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](https://docs.csc.fi/accounts/how-to-change-password/)
 
@@ -38,7 +38,9 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Step 2: Launching your Desktop (or private computing environment)
 
-Once you login, in **Homepage** you can launch your Desktop: your private and secure cloud computing enviroment, accessible all along the duration of your project. After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborats as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
+Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing enviroment, accessible all along the duration of your project. 
+
+After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborats as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
@@ -70,11 +72,22 @@ If you are not sure what is the best option for your needs/reaserch, contact us 
 All the Destkop are provided with the same software. The complete and update list can be found in the following paragraph [Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md).
 
 
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
+
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593108-dcd6a800-d06d-11eb-9b51-2faaf2937b3a.png">
+
+
+
 After the auanch, the system will create your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
 
 If the launch is successful:
 
 * the **Homepage** will contain a new connection belonging to your project. If you click on the connection or the image, you can access the computing enviroment.
+
+
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122595558-545a0680-d071-11eb-8a5b-6fffcb3ff356.png)
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
 As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select the XXX icon, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
