@@ -7,7 +7,7 @@
 &nbsp; 
 &nbsp; 
 &nbsp;  
-## [Introduction](./intro.md)
+## Introduction
    
    * **Summary**
    
@@ -15,7 +15,7 @@
    
    * **Useful terminology**
   
-## [Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)
+## Data Encryption with Crypt4GH and CSC Public Encryption Key
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
+## Sensitive Data Connect (SD Connect)
    
  Step 1: Login
    
@@ -67,14 +67,10 @@
   Windowns: Swift
    
  
- 
- 
- 
- 
-          
 
 
-## [Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)
+
+## Sensitive Data Desktop (SD Desktop)
 
   Step 1: Login
 
@@ -89,7 +85,7 @@
 
 
 
-## [Pre-installed software in SD Desktop](./pre-installed_software.md)
+## Pre-installed software in SD Desktop
 
 
 
