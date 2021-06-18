@@ -58,10 +58,10 @@ In SD Dekstop (Open Beta) you can choose between **four different Desktops **:
 
 |Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Corrispondet Flavour|Example usage|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|
-|standard.medium |3|4 |80 |0 |80 |1.3|
-|standard.xlarge |6|15|80 |0 |80 |2.5|
-|standard.xxlarge|8|30|80 |0 |80 |3.8|
-|hpc4.40core|8|60|80 |0 |80 |7.5|
+|Light computation |3|4 |80 |standard.medium |testing the service |1.3|
+|Samll computation |6|15|80 |standard.xlarge |office software|5.2|
+|Medium computation|8|30|80 |standard.xxlarge |running statistical or genome alaysis |10.4|
+|Heavy computation |8|60|80 |hpc4.40core|non-interactive programmatic computation|78|
 
 
 
