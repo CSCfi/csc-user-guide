@@ -185,9 +185,14 @@ theme:
 extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
+  - 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css'
 
 extra_javascript:
   - 'assets/javascripts/extra.js'
+  - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+  - 'assets/javascripts/cookie_consent.js'
+    
+
 
 markdown_extensions:
   - toc:
