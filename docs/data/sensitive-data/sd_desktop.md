@@ -8,12 +8,12 @@
 
 * **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
-* It is the project manager or group leader responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
+* It is the project manager or group leader's responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
 * Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-## Step1 : Login 
+## Login 
 
 To access SD Desktop you need:
 
@@ -37,11 +37,11 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 
-## Step 2: Launching your Desktop (or private computing environment)
+## Launching your Desktop (or private computing environment)
 
-Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing enviroment, accessible all along the duration of your project. 
+Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing environment, accessible all along the duration of your project. 
 
-After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborats as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
+After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
@@ -57,21 +57,21 @@ To launch your Desktop, in Homepage, click on **Launching page** :
 
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
-The system will create a secure connection to your private computing enviroment. The process is completely automated and might take **up to 30 minutes**. 
+The system will create a secure connection to your private computing environment. The process is completely automated and might take **up to 30 minutes**. 
 
 In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
 
-|Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Corrispondet Flavour|Example usage|Billing<br/>Units<br/>/h|
+|Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Correspondent Flavour|Example usage|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|
 |Light computation |3|4 |80 |standard.medium |testing the service |1.3|
-|Samll computation |6|15|80 |standard.xlarge |office software|5.2|
-|Medium computation|8|30|80 |standard.xxlarge |running statistical or genome alaysis |10.4|
+|Small computation |6|15|80 |standard.xlarge |office software|5.2|
+|Medium computation|8|30|80 |standard.xxlarge |running statistical or genome analysis |10.4|
 |Heavy computation |8|168|80 |hpc4.40core|non-interactive programmatic computation|78|
 
 
-If you are not sure what is the best option for your needs/reaserch, contact us at servicedesk@csc.fi (email subject:SD Desktop). Do not choose the Heavy computation option for simple computing or analysis, as it consumes large amout of resources.
+If you are not sure what is the best option for your needs/research, contact us at servicedesk@csc.fi (email subject:SD Desktop). Do not choose the Heavy computation option for simple computing or analysis, as it consumes  a large amount of resources.
 
-All the Destkop are provided with the same software. The complete and update list can be found in the following paragraph [Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md).
+All the Desktop are provided with the same software. The complete and updated list can be found in the following paragraph: [Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md).
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
@@ -80,11 +80,11 @@ All the Destkop are provided with the same software. The complete and update lis
 
 
 
-If the launch is successful, when you return to SD Desktop **Homepage**  you will be able to access the computing enviroment from:
+If the launch is successful, when you return to SD Desktop **Homepage**  you will be able to access the computing environment from:
 
 * **Recent connection**, clicking on the image of your Desktop
 
-* **All connection** if you click on + you can see all the connections associated to each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also be able to acess your computing enviroment. 
+* **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also be able to access your computing environment. 
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
@@ -92,7 +92,7 @@ If the launch is successful, when you return to SD Desktop **Homepage**  you wil
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-In the Desktop you will be able to access different applications from the manu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
+In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
 
@@ -109,7 +109,7 @@ As previously mentioned, you can **logout** from your computing workspace in SD 
 Once you are logged in into your SD Desktop private workspace **you can import encrypted  sensitive data stored in SD Connect**.
 
 !!! Note
-    **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**.  If you used your own key pair to           encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
+    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**.  If you use your own key pair to           encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
 
 To import the data:
 
@@ -127,7 +127,7 @@ To import the data:
 
 * click on **open download location**
 
-The files are downloaded to a directory called SDCONNECTDATA which is in the user's home directory. The forlder is automatically opened by Open Download Location.
+The files are downloaded to a directory called SDCONNECTDATA which is in the user's home directory. The folder is automatically opened by Open Download Location.
 
 Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**. 
 
@@ -147,13 +147,14 @@ For security reasons, your private workspace in SD Desktop is **completely isola
  
 ## Step 4: RStudio in SD Desktop
 
-To access RStudio in SD Desktop open the terminal in your visrtual Destkop and launch RStudio with:
+To access RStudio in SD Desktop open the terminal in your virtual Desktop and launch RStudio with:
 
 ''start-rstudio-server''
 
-Next, you need to contact the service using the URL given in the terminal and usenal and passowrd. Paste the URL in Firefox and after a few second, you can inut the user and password service specific. Next, you will be able to use RStudio.
+Next, you need to contact the service using the URL given in the terminal, usernamen and passowrd. Paste the URL in Firefox and after a few seconds, you can input the username and password (service specific). 
 
-Notice: if you need to work on the same dataset with yoru colloeagues, use the Shared-directory.
+!!! Note
+    Save your data in **Shared-directory** if you and your colleagues need to work on the same files.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
@@ -167,9 +168,9 @@ Notice: if you need to work on the same dataset with yoru colloeagues, use the S
 
 ## Step 5:  Deleting your work environment
   
-At the end of your research or your analysis, you can delete your computing enviroment and all the data in it. 
+At the end of your research or your analysis, you can delete your computing environment and all the data in it. 
 
-In SD Desktop Homepage click on **Go to launching page**. Here, in **Available istances** click on **Delete Desktop**. 
+In SD Desktop Homepage click on **Go to the launching page**. Here, in **Available instances** click on **Delete Desktop**. 
 
 
 !!! note
@@ -182,7 +183,7 @@ In SD Desktop Homepage click on **Go to launching page**. Here, in **Available i
 
 ## Step 6: Data export from SD Desktop
 
-For security reseanse, Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
