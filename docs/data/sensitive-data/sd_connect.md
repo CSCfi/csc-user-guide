@@ -1,19 +1,19 @@
 
 # SD Connect (Sensitive Data Connect)
 
+## Before you start
 
-Note that Sensitive data needs to be **encrypted before upload** to SD Connect. Check the [previous paragraph](./data_ecryption.md) for more information about encryption with Crypt4GH. Non-sensitive data can be uploaded without encryption.
+* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sentive data. Check the [encryption paragraph](./data_ecryption.md) for more information about encryption with Crypt4GH. 
     
-SD Connect is based on the [Allas](./data/allas/overview.md) storage service. The genral rules and methods of usage are the same as in Allas.
-By default a project can strore up to 10 TiB of data. The storage space remains availabe as long as the project is active. You should not
-consider SD Connect as a permanent data storage. Instead, you should have a plan about what will happen to the data when proect is closed. 
-CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
+* SD Connect is based on the [Allas](./data/allas/overview.md) cloud storage service. SD Connect is a user interface that facilitate working with sensitive data. 
+The genral rules and methods of usage are the same as in Allas. By default a project can strore up to 10 TiB of data. The storage space remains availabe as long as the project is active. You should not consider SD Connect as a permanent data storage. Instead, you should have a plan about what will happen to the data when proect is closed. 
+CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets. 
      
 !!! note  
     SD Connect and SD Desktop has not yeat been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-## Step1: Login 
+## Login 
 
 To access SD Connect you need:
 
@@ -28,15 +28,15 @@ Login to SD Connect is possible with Haka (an user identity federation systems) 
 
 
 
-## Step 2: User Interface
+## User Interface
 
 Once you Login in SD Connect you access the default front-page: **Browser**.
 
 In this page you can :
 
-* view all **the  buckets (or containers) available in your CSC project**, in which you can store encrypted sensitive data. The bukects can be created, downloaded, deleted or shared, using the appropriate icons;
+* view all **the  buckets available in your CSC project**, in which you can store encrypted sensitive data. The bukects can be created, downloaded, deleted or shared, using the appropriate icons;
    
-*  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize container or data belonging to a specific project;
+*  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize buckets belonging to a specific CSC project;
 
 *  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete file or upload new files and folders.
 
@@ -65,7 +65,7 @@ In the  **User information** page you can:
 
 In the **Shared** page:
 
-* in **Shared to the project** you can view the **bukets that other CSC projects (belonging to your colligues or collaborators) shared with you**. Next to the bucket name, under **Containeor Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
+* in **Shared to the project** you can view the **bukets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Containeor Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
 !!! note 
     All the container listed here are own by another users that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
@@ -78,7 +78,54 @@ In the **Shared** page:
 
 
 
-## Step3: Data upload 
+## Data encryption with CSC-sd-encryption key and Crypt4GH GUI for SDS.
+
+With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
+
+!!! note
+    As this is a simplified workflow, it is desigend to allow **easy and safe encryption and automated decription only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to descrypt this copy of the data. If you are interested in using your own encryption key pair check the [encryption paragraph](./data_ecryption.md)
+
+
+* **Step 1**: You can **download** the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v0.1.0):
+  
+   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-linux-amd64.zip)
+   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-macos-amd64.zip)
+   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-windows-amd64.zip)
+
+* **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science.  After the downloading and unzippling the file, you can find the Crypt4GH application in your download folder. 
+
+When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
+
+
+<img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
+
+* **Step 3**: Prepare your files
+
+With Crypt4GH GUI it is possible to encrypt only one file at the time.
+
+* If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
+* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
+
+<img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
+
+* **Step 4**: Encrypt the files
+
+* Open the Encryption tool
+
+* Next, presse the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
+
+Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_.  Currently,Crypt4GH application does not provid a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+
+The ecrypted file is now ready to be uploaded to _SD Connect_.
+
+![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
+
+
+* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
+
+
+
+## Data upload 
 
 To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visulize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
@@ -99,7 +146,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 
 
-## Step 4: Data Sharing 
+## Data Sharing 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
 
@@ -133,43 +180,9 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 ## Data upload and dowload using CLI for SD Connect
 
-**Swift (Windowns)
-
-* Install the latest version of SD Connect CLI with: 
-
-$ pip install git+https://github.com/CSCfi/swift-sharing-tools 
-
-* Get the OpenStack credentials file by navigating through pouta.csc.fi -> access & security -> API Access -> Download OpenStack RC File v3 
-
-  Note the project name in the upper left corner, and make sure it's the one you'll be using for the upload 
-
-* Source your CSC project 
-
-$ source project_123-openrc.sh 
-
-*  Source the following additional environment variables and generate an access Token using SD Connect UI (this step needs to be done just once, during the first data upload).
-
-SWIFT_SHARING_URL=https://sharing.hana.rahtiapp.fi 
-SWIFT_REQUEST_URL=https://request.hana.rahtiapp.fi 
-SWIFT_UI_API_KEY=<see below> 
-    
-SWIFT_UI_API_KEY can be created in SD Connect by clicking User Information -> Tokens view. 
-    
-Note: this token needs to be generated just once, for authentication purposes.
-
- 
-* Perform the upload :
-    
-$ swift-publish publish file_or_forder_name os_project_id r w
-$ swift-publish publish_request container_ID file_or_forder_name r w
- (r for read, w for write, either one can be omitted if necessary). 
-    
-Note: The first command is for uploading files and publishing them to a single project, the ID of which is known. 
-      The second one is used when project ID is to be fetched from the `swift-sharing-request` API 
+For uploading or dowloading data with a CLI, we suggest the use of [Swift Client](https://docs.csc.fi/data/Allas/using_allas/swift_client/)
 
 
-    
- * to perform download
     
     
     
@@ -178,23 +191,7 @@ Note: The first command is for uploading files and publishing them to a single p
     
     
     
-    
-    
-    
-
-
-Questions:
-
-
-- Objects: in the definition?
-- all the actiosn can be done just with files but now with folders.
-- some discrepancies in SD Connect nomenclature
-- Account is missleading. because if you change project it changes. It should be name project ID, could this one day become a link? (like MyCSC)?
--links to cloud (can they be links to user guide)
-- could we add the public key here?
-- how do they find the ID linked to the project? there is a way
-- shared to the project (can they access that from SD Desktop or do they need to copy it?)
-
+  
 
 
 
