@@ -103,7 +103,7 @@ As previously mentioned, you can **logout** from your computing workspace in SD 
 
 
 
-## Step 3: Importing encrypted sensitive data to SD Desktop
+## Importing encrypted sensitive data to SD Desktop
 
 
 Once you are logged in into your SD Desktop private workspace **you can import encrypted  sensitive data stored in SD Connect**.
@@ -145,7 +145,7 @@ For security reasons, your private workspace in SD Desktop is **completely isola
  
  
  
-## Step 4: RStudio in SD Desktop
+## RStudio in SD Desktop
 
 To access RStudio in SD Desktop open the terminal in your virtual Desktop and launch RStudio with:
 
@@ -166,7 +166,7 @@ Next, you need to contact the service using the URL given in the terminal, usern
 
 
 
-## Step 5:  Deleting your work environment
+## Deleting your work environment
   
 At the end of your research or your analysis, you can delete your computing environment and all the data in it. 
 
@@ -181,7 +181,7 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
-## Step 6: Data export from SD Desktop
+##  Data export from SD Desktop
 
 For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
