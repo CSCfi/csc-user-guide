@@ -58,7 +58,6 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
   ![SDEnScreenShoot_2](./images/SDEnScreenShoot_2.png)
 
-  <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
 
 Next you call follow these steps:
@@ -82,11 +81,7 @@ All the fields must be filled before file encryption will be started
 ````
 
 
-
-<img width="512" alt="SDEnScreenshot_3" src="https://user-images.githubusercontent.com/83574067/121065552-8fd31600-c7d1-11eb-8c3d-7cd21464a4bd.png">
-
-
- ![Screenshot3](./images/SDEnScreenShot_3.png)
+ ![Screenshot3](./images/SDEnScreenshot_3.png)
  
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
