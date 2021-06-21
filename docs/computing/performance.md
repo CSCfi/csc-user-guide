@@ -56,5 +56,6 @@ bottlenecks. At CSC, several profiling tools are available:
 * [nvprof](nvprof.md) is a command-line CUDA profiler and tracing tool
   for CUDA programs
 * [nsys](nvprof.md) is a command-line and graphical system-wide performance analysis tool designed to visualize an application’s algorithms
+* [ncu](nvprof.md) is a command-line and graphical tool for analysizing kernel's performance. 
 * [mpiP](mpip.md) is a lightweight MPI profiler
 * [IPM](ipm.md) is a lightweight MPI profiler
