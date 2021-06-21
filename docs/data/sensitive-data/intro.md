@@ -48,7 +48,7 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 **CSC Project**: Using CSC services is based on projets: all your data in CSC belong inside a project. You can belong to one or multiple projects. Each project has a main user, project manager, who can add members and services to the project. Project manager is responsible for the activities of the project. She for example needs to describe which type of sensitive data the project is processing.
 
-**SD Connect Account**: It is the CSC project ID in Openstack, it is used to define the project with whom you share your containers in SD Connect. It is a synonym of CSC Project ID when using the command line tool. In the SD Connect user interface is displayed under * User Information> Project usage * and displayed as a series of  32 numbers and letters: e.g. AUTH_3a66dbf90b2940dc9c651362af595b23.
+**SD Connect Account**: It is the CSC project ID in Openstack, it is used to define the project with whom you share your containers in SD Connect. It is a synonym of CSC Project ID when using the command line tool. In the SD Connect user interface is displayed under *User Information> Project usage* and displayed as a series of  32 numbers and letters: e.g. AUTH_3a66dbf90b2940dc9c651362af595b23.
 
 **Virtual machine (VM)**: is a virtual computing environment which works like a real-physical computer. It has a processor, memory and operating system but it exists only as a code or a partition of the host computer. VMs used for the Sensitive Data Services currently support only Linux operating systems and are completely isolated from the internet for security reasons.
 
