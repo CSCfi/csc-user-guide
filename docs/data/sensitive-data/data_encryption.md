@@ -5,14 +5,7 @@ For data encryption we suggest the use of **Crypt4GH**, a tool originally design
 !!! note
    If you include CSC Sensitive Data Services public key (csc-sd-services.pub) during data encryption with Crypt4GH, the dataset will be automatically decrypted when uploaded into your SD Desktop computing environment from SD Connect.
 
-You can download CSC Sensitive Data Services public key here:
-
-
-
-
-
-
-
+You can download CSC Sensitive Data Services public key [here](./csc-sd-services.pub)
 or copy /paste the CSC Sensitive Data Services public key in the command line tool (CLI):
 
 ```text
@@ -56,14 +49,14 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 
 
-![SD_Screenshot1](data/sensitive-data/images/SDEnScreenShot_1.png)
+![SD_Screenshot1](./images/SDEnScreenShot_1.png)
 **Fugure** Crypt4GH location
  
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
 
 
 
-  ![](img/SDEnScreenshot_2.png)
+  ![SDEnScreenShoot_2](./images/SDEnScreenshot_2.png)
 
   <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
@@ -101,7 +94,7 @@ The keys will be generated and saved in the the same folder in which the Applica
 
 <img width="481" alt="SDEnScreenshot_4" src="https://user-images.githubusercontent.com/83574067/121065592-9a8dab00-c7d1-11eb-8dc6-c237a1f22f3a.png">
 
-![](img/SDEnScreenshot_4.png)
+![DEnScreenshot_4](./images/SDEnScreenshot_4.png)
 
 !!! Note
 If you lose or forget your private key password you will be unable to decrypt the files. Do not share your private key or your password. Do not share your private key publicly.
@@ -121,7 +114,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 <img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
 
-![](img/SDEnScreenshot_5.png)
+![SDEnScreenshot_5](images/SDEnScreenshot_5.png)
 
 ## Step 3: Load the encryption keys
 
@@ -135,7 +128,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 <img width="623" alt="SDEnScreenshot_6" src="https://user-images.githubusercontent.com/83574067/121065628-a5484000-c7d1-11eb-8ded-9bd01ba7f277.png">
 
-![](img/SDEnScreenshot_6.png)
+![DEnScreenshot_6](./images/SDEnScreenshot_6.png)
 
 !!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing environment. 
 
@@ -162,7 +155,7 @@ Currently,Crypt4GH application is not provided with a progress bar. If the file/
 <img width="626" alt="SDEnScreenshot_7" src="https://user-images.githubusercontent.com/83574067/121065650-ab3e2100-c7d1-11eb-8ec6-12e9d3863f33.png">
 
 
-![](img/SDEnScreenshot_7.png)
+![SDEnScreenshot_7](./images/SDEnScreenshot_7.png)
 
  ## Step 5: Data decryption
  
@@ -195,7 +188,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
 
-![](img/SDEnScreenshot_8.png)
+![SDEnScreenshot_8](./images/SDEnScreenshot_8.png)
 
 <img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065754-c9a41c80-c7d1-11eb-87d3-10fa5b254555.png">
 
