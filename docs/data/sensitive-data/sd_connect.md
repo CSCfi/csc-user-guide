@@ -3,14 +3,14 @@
 
 ## Before you start
 
-* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sentive data. Check the [encryption paragraph](./data_ecryption.md) for more information about encryption with Crypt4GH. 
+* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. Check the [encryption paragraph](./data_ecryption.md) for more information about encryption with Crypt4GH. 
     
 * SD Connect is based on the [Allas](./data/allas/overview.md) cloud storage service. SD Connect is a user interface that facilitate working with sensitive data. 
-The genral rules and methods of usage are the same as in Allas. By default a project can strore up to 10 TiB of data. The storage space remains availabe as long as the project is active. You should not consider SD Connect as a permanent data storage. Instead, you should have a plan about what will happen to the data when proect is closed. 
+The general rules and methods of usage are the same as in Allas. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. You should not consider SD Connect as a permanent data storage. Instead, you should have a plan about what will happen to the data when proect is closed. 
 CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets. 
      
 !!! note  
-    SD Connect and SD Desktop has not yeat been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+    SD Connect and SD Desktop has not yet been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 ## Login 
@@ -21,7 +21,7 @@ To access SD Connect you need:
 * **a CSC project**
 * **Service access to Allas** (CSC cloud storage solution)
 
-Login to SD Connect is currently possible only with Haka (an user identity federation systems) at https://sd-connect.csc.fi/ using any modern web browser. If you do not have an Haka account and can not access the user interface, you can still upload data programmatically, directly into Allas (see the end of this paragraph). 
+Login to SD Connect is currently possible only with Haka (a user identity federation system) at https://sd-connect.csc.fi/ using any modern web browser. If you do not have an Haka account and can not access the user interface, you can still upload data programmatically, directly into Allas (see the end of this paragraph). 
 
 
 <img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
@@ -30,15 +30,15 @@ Login to SD Connect is currently possible only with Haka (an user identity feder
 
 ## User Interface
 
-Once you Login in SD Connect you access the default front-page: **Browser**.
+Once you login in SD Connect you access the default front-page: **Browser**.
 
 In this page you can :
 
-* view all **the  buckets available in your CSC project**, in which you can store encrypted sensitive data. The bukects can be created, downloaded, deleted or shared, using the appropriate icons;
+* view all **the  buckets available in your CSC project**, in which you can store encrypted sensitive data. The buckets can be created, downloaded, deleted or shared, using the appropriate icons;
    
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize buckets belonging to a specific CSC project;
 
-*  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete file or upload new files and folders.
+*  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete files or upload new files and folders.
 
 
 
@@ -52,7 +52,7 @@ In the  **User information** page you can:
 
 * in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defoult storage 10 TiB);
 
-* in **Project usage** you can view the **SD Connect Account, an ID associated your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not containe sensitive information, thus it can be sharer with your colleagues or collaborators via email.
+* in **Project usage** you can view the **SD Connect Account, an ID associated to your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
 
 * access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
@@ -65,12 +65,12 @@ In the  **User information** page you can:
 
 In the **Shared** page:
 
-* in **Shared to the project** you can view the **bukets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Containeor Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
+* in **Shared to the project** you can view the **buckets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Bucket Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
 !!! note 
-    All the container listed here are own by another users that can decide when revoke your access. You will not be able to access the file from SD Dekstop untill you make a copy of the container. 
+    All the buckets listed here are owned by another users that can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the container. 
 
-* in **Shared with the project** you can view the bukets which  **you shared with other CSC projects**. In this case you own the shared bukets and you can decide when revoke access. 
+* in **Shared with the project** you can view the buckets which  **you shared with other CSC projects**. In this case you own the shared buckets and you can decide when to revoke access. 
 
 
 
@@ -83,7 +83,7 @@ In the **Shared** page:
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
 !!! note
-    As this is a simplified workflow, it is desigend to allow **easy and safe encryption and automated decription only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to descrypt this copy of the data. If you are interested in using your own encryption key pair check the [encryption paragraph](./data_ecryption.md)
+    As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data. If you are interested in using your own encryption key pair check the [encryption paragraph](./data_ecryption.md)
 
 
 * **Step 1**: You can **download** the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v0.1.0):
@@ -92,9 +92,9 @@ With the following workflow, you can use a graphical user interface (Crypt4sds G
    - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-macos-amd64.zip)
    - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-windows-amd64.zip)
 
-* **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science.  After the downloading and unzippling the file, you can find the Crypt4GH application in your download folder. 
+* **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science.  After  downloading and unzipping the file, you can find the Crypt4GH application in your download folder. 
 
-When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
+When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_. 
 
 
 <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
@@ -112,7 +112,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 * Open the Encryption tool
 
-* Next, presse the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
+* Next, press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
 
 Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_.  Currently,Crypt4GH application does not provid a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
