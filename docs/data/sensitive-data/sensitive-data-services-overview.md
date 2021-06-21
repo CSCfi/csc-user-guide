@@ -54,13 +54,8 @@
 ## [Pre-installed software in SD Desktop](./pre-installed_software.md)
 
 
-## [Data Encryption with Crypt4GH and CSC Public Encryption Key](./data_encryption.md)
+## [Data Encryption with Crypt4GH](./encryption-cli.md)
 
-  * **Background information**
-  
-  * **Data encryption with Crypt4GH Command Line Interface (CLI)**
-  
-  * **Data encryption with Crypt4GH Command Line Interface (CLI) and your permanent encryption key pair**
   
     
 
