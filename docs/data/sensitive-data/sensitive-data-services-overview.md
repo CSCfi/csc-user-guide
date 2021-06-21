@@ -24,12 +24,14 @@
  * **Login**
    
  * **User Interface**
+ 
+ * **SD Services compatible data encryption**
    
  * **Data upload**
  
  * **Data Sharing**
        
- * **SD Connect compatible Clients**
+ * **Data upload with other clients**
    
   
 
