@@ -2,7 +2,8 @@
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
-**Python 3.6+ required** to use the crypt4gh encryption utility. To install Python: https://www.python.org/downloads/release/python-3810/
+**Python 3.6+ required** to use the crypt4gh encryption utility. 
+To install Python: https://www.python.org/downloads/release/python-3810/
 
  
  ## Step 1: Install the latest version of Crypt4GH encryption tool
