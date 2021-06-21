@@ -41,7 +41,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing environment, accessible all along the duration of your project. 
 
-After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder** (read more below).
+After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder**.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
@@ -94,7 +94,8 @@ If the launch is successful, when you return to SD Desktop **Homepage**  you wil
 
 In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
-As previously mentioned, you can **logout** from your computing workspace in SD  Desktop at any moment (in the workspace view, top left corner of the browser, select your username and log out). SD Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
+
+As previously mentioned, you can **logout** from your computing enviromen at any moment (in the workspace view, top left corner of the browser, select your username and log out). The Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
@@ -149,12 +150,32 @@ For security reasons, your private workspace in SD Desktop is **completely isola
 
 To access RStudio in SD Desktop open the terminal in your virtual Desktop and launch RStudio with:
 
-''start-rstudio-server''
+```text
+start-rstudio-server
+```
 
-Next, you need to contact the service using the URL given in the terminal, usernamen and passowrd. Paste the URL in Firefox and after a few seconds, you can input the username and password (service specific). 
+This will returt a URL and a service specific password:
+
+```
+RStudio Server - Sensitive Data Desktop Edition
+---------------------------------------------------------------------------------------
+Copy/Paste this URL into Firefox:
+Http://localhost:1234/
+-----------------------------------------------------------------------------------------
+Enter these at the RStudio Server sign-in screen
+----------------------------------------------------------------------------------------
+Username: accountname  Password: Example23241232
+----------------------------------------------------------------------------------------
+To stop RStudio Server: Ctrl+C
+```
+
+Nex:
+
+* paste the URL in Firefox 
+* after a few seconds, you can input the username and password (service specific) and access the server.
 
 !!! Note
-    Save your data in **Shared-directory** if you and your colleagues need to work on the same files.
+    Also when using RStudio, you need to save save your data in **Shared-directory** if you and your colleagues need to work on the same files.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
