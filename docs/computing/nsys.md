@@ -12,10 +12,17 @@ memory set and CUDA API calls and events or metrics for CUDA kernels.
 Profiling results are displayed in the console after the profiling data is
 collected, and may also be saved for later viewing by *nsys-ui* tool.
 
-To use `nsys`, one needs to first load a CUDA environment, for example:
+To use `nsys`, one needs to first load a CUDA environment. First load the appropriate `gcc` module 
 
-```bash
+```
 module load gcc/9.1.0
+```
+on Puhti, or 
+```
+module load gcc/10.3.0
+```
+on Mahti and then the  CUDA module
+```bash
 module load cuda
 ```
 
