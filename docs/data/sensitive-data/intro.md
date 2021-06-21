@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Sensitive Data Services for Research  (SD Services) provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To access the services and learn more about their future development check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
+Sensitive Data Services for Research  (SD Services) provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about the SD services future development check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
 
 The SD Services  (Open Beta) consists of two components:
 
