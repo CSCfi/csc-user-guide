@@ -115,7 +115,4 @@ Time(%)      Total Time       Calls         Average         Minimum         Maxi
     0.0            4758           1          4758.0            4758            4758  connect                                                                         
     0.0            4130           3          1376.7            1016            1945  read   
 ```
-`nsys` supports several very useful running options:
-
-* 
-For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-systems/).
+`nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-systems/).
