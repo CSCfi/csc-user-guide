@@ -1,4 +1,4 @@
-# Application software available in SD Desktop. 
+# Using application software in SD Desktop. 
 
 SD Desktop privides a remote Desktopt view to a Virtual Machine running at an isolated could environment at CSC. The virtual machie contains a limited set of pre-installed software (listed below).
 
@@ -7,11 +7,11 @@ Users are allowed to install their own user level software to SD Desktiop, but t
 In practice the only reasonable way to add your own software to your SD Desktop is to build a Singulary container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop.
 
 
-# List of pre-installed software in Sensitive Data Desktop (SD Desktop)
+## Pre-installed software in Sensitive Data Desktop (SD Desktop)
 
 All the following software  are pre-installed on each computing enviroment (or VM flavour) accessible from SD Desktop.
   
-# Basix Linux Desktop 
+### Basix Linux Desktop 
 
 **Operating system: Centos 7 with GNOME desktop**
 
@@ -24,7 +24,7 @@ tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm c
 * Go 1.16 
 *	Libreoffice (currently being installed) 
  
-# Scientific Analysis Desktop 
+## Scientific Analysis Desktop 
 
 **R / RStudio Server Singularity container**
 
