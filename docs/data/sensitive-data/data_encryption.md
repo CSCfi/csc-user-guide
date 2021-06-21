@@ -49,7 +49,7 @@ CSC developed a simple graphical user interface (GUI) that will allow you to gen
 
 
 
-![SD_Screenshot1](./images/SDEnScreenShot_1.png)
+![SD_Screenshot1](./images/SDEnScreenShot_1.png | width=100)
 **Fugure** Crypt4GH location
  
 1. When you open the application your might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietokniikan keskus Oy) and then click on _Run anyway_. 
@@ -84,9 +84,6 @@ All the fields must be filled before file encryption will be started
  ![Screenshot3](./images/SDEnScreenshot_3.png)
  
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
-
-
-t="SDEnScreenshot_4" src="https://user-images.githubusercontent.com/83574067/121065592-9a8dab00-c7d1-11eb-8dc6-c237a1f22f3a.png">
 
 ![SDEnScreenshot_4](./images/SDEnScreenshot_4.png)
 
