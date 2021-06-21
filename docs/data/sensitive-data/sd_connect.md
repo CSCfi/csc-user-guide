@@ -178,12 +178,15 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 
 
-## Data upload and dowload using CLI for SD Connect
+## Data upload with other clients
 
-For uploading or dowloading data with a CLI, we suggest the use of [Swift Client](https://docs.csc.fi/data/Allas/using_allas/swift_client/)
+SD Connect is using Allas object storage for storing data. In practice thie means that any data which you can access i Allas, can also be dowloaded to SD Desktop with SD-Conect Dowloader. Thus you can use any of the Allas compatible clients to upload your data to SD-Connect. Hower, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that realy in swift protocol. These include:
+   * [rclone](../Allas/using_allas/rclone.md) (with normal Allas confi guration)
+   * [swith command line client](../Allas/using_allas/swift_client.md)
+   * [Horizon web interface](../Allas/using_allas/web_client.md) in [https:pouta.csc.fi](https:pouta.csc.fi)
+   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Grafical data transport tool for Windos and Mac.
 
-
-
+Note that if you use these tools, you must encrypt your sensitive data, before you upload it to Allas. 
 
     
     
