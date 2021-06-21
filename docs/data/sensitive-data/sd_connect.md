@@ -59,7 +59,7 @@ In the  **User information** page you can:
 
 
 
-![sd-connect-2](https://user-images.githubusercontent.com/83574067/122786023-8d39eb80-d2bc-11eb-9fe7-641048e96047.png)
+
 
 
 
@@ -76,7 +76,7 @@ In the **Shared** page:
 
 
 
-
+![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
 
 
 
@@ -144,9 +144,8 @@ If you create a new buket use the following **suggestions to name it**:
 Example: ns-123456-raw-data-ddmmyy
   
 
-![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
 
-
+![sd-connect-5](https://user-images.githubusercontent.com/83574067/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
 
 
 ## Data Sharing 
@@ -172,9 +171,9 @@ Clicking the button takes you to **Share the container**  view, in which the use
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
 
-![sd-connect-5](https://user-images.githubusercontent.com/83574067/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
 ![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
 ![sd-connect-7](https://user-images.githubusercontent.com/83574067/122786201-bc505d00-d2bc-11eb-832a-9771eb80da72.png)
+![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 
 
