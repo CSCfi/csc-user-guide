@@ -21,7 +21,7 @@ module load cuda
 
 To profile a CUDA code, one then adds the command `nsys` before the normal
 command to execute the code. Running is otherwise similar to that of any other
-[CUDA job](running/example-job-scripts-puhti.md#single-gpu).
+CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
 
 An example of usage and output of `nsys`:
 ```
