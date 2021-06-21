@@ -1,19 +1,18 @@
 # nsys: CUDA profiler
 
 ## Available
-    Puhti: 3.4.1
-    Mahti: 3.4.1
+    Puhti: 
+    Mahti: 
 ## Usage    
 
-The *nvprof* profiling tool collects and views profiling data from the
+The *nsys* profiling tool collects and views profiling data from the
 command-line. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
 memory set and CUDA API calls and events or metrics for CUDA kernels.
 Profiling results are displayed in the console after the profiling data is
-collected, and may also be saved for later viewing by either *nvprof* or the
-*Visual Profiler*.
+collected, and may also be saved for later viewing by *nsys-ui* tool.
 
-To use nvprof, one needs to first load a CUDA environment, for example:
+To use `nsys`, one needs to first load a CUDA environment, for example:
 
 ```bash
 module load gcc/9.1.0
