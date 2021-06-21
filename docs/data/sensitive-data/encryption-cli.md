@@ -42,7 +42,7 @@ Here we describe how you can use Cryp4GC for storing data so that it can be used
 For more general informatin about using Crypt4GH at CSC check: 
    * [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git)
    * [crypt4gh exmple](./crypt4gh_client.md)
-   * [crypt4gh instructions for Allas]()
+   * [crypt4gh instructions for Puhti and Allas](../Allas/allas_encryption.md)
 
 
 ### Step 1: Install the latest version of Crypt4GH encryption tool
