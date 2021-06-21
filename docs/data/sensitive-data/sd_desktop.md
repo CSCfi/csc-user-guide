@@ -10,7 +10,7 @@
 
 * It is the project manager or group leader's responsibility to review the list of members belonging to a project frequently in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
-* Users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+* SD Connect and SD Desktop has not yeat been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
 
 ## Login 
@@ -140,7 +140,7 @@ If you used your own key pair to encrypt the data, the application will make a c
 
 For security reasons, your private workspace in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
 
-* download your scripts from GitHub and save them in a specific container in SD Desktop
+* download your scripts from GitHub and save them in a specific bucket in SD Connect
 
 * access SD Desktop and use the SD Connect Downloader to make a copy of the scripts
  
@@ -175,7 +175,7 @@ Nex:
 * after a few seconds, you can input the username and password (service specific) and access the server.
 
 !!! Note
-    Also when using RStudio, you need to save save your data in **Shared-directory** if you and your colleagues need to work on the same files.
+    Also when using RStudio, you need to save save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
