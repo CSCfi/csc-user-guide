@@ -59,7 +59,7 @@ To launch your Desktop, in Homepage, click on **Go To Launching Page** :
 
 The system will create a secure connection to your private computing environment. The process is completely automated and might take **up to 30 minutes**. 
 
-In SD Dekstop (Open Beta) you can choose between **four different Desktops **:  
+In SD Desktop (Open Beta) you can choose between **four different Desktops **:  
 
 |Desktop |Core|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Correspondent Flavour|Example usage|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -124,7 +124,7 @@ To import the data:
 
 * select the files you want to import 
 
-* click on **download objects** (the application will make a copy of the encrypted files in SD Dekstop).
+* click on **download objects** (the application will make a copy of the encrypted files in SD Desktop).
 
 * click on **open download location**
 
