@@ -8,13 +8,19 @@ Profiling results are displayed in the console after the profiling data is
 collected, and may also be saved for later viewing by either *nvprof* or the
 *Visual Profiler*.
 
-To use nvprof, one needs to first load a CUDA environment, for example:
+To use nvprof,  one needs to first load a CUDA environment. First load the appropriate `gcc` module 
 
-```bash
+```
 module load gcc/9.1.0
+```
+on Puhti, or 
+```
+module load gcc/10.3.0
+```
+on Mahti and then the CUDA module
+```bash
 module load cuda
 ```
-
 To profile a CUDA code, one then adds the command `nvprof` before the normal
 command to execute the code. Running is otherwise similar to that of any other
 CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
