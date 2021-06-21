@@ -93,7 +93,7 @@ All the fields must be filled before file encryption will be started
 <img width="512" alt="SDEnScreenshot_3" src="https://user-images.githubusercontent.com/83574067/121065552-8fd31600-c7d1-11eb-8c3d-7cd21464a4bd.png">
 
 
- ![](img/SDEnScreenshot_3.png)
+ ![Screenshot3](./img/SDEnScreenshot_3.png)
  
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
