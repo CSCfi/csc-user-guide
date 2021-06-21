@@ -8,23 +8,23 @@
 
 ## Available
 
-`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® Math Kernel Library (MKL)](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library.html).
+`r-env-singularity` includes 1000+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
 Current modules and supported versions:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | TensorFlow version |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ------------------ |
-| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | NA		     |
-| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | NA		     |
-| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | NA		     |
-| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| TensorFlow 2.4.1   |
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | MKL version		 | TensorFlow version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ---------------------- | ------------------ |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| Intel® MKL 2020.0-088  | TensorFlow 2.4.1   |
+| r-env-singularity/4.0.5 | Apr 20 2021		| 3.12		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.4.1   |
 
 Other software and libraries:
 
-- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4) (with Mellanox OFED™ software)
-- Intel® MKL 2020.0-088
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4 and 4.0.5) (with Mellanox OFED™ software)
 - cget 0.1.9
 
 ## Licenses
@@ -78,29 +78,7 @@ start-r
 
 ***Using RStudio Server***
 
-The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Instructions for this are provided in our [documentation on setting up SSH keys on Windows, MacOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
-
-!!! note
-    If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
-
-Once you have started an interactive shell session using SSH authentication, run the following commands. As with `start-r`, the `start-rstudio-server` command needs to be run on a compute node:
-
-```bash
-module load r-env-singularity
-start-rstudio-server
-```
-
-While this will not yet open up RStudio on your screen, running `start-rstudio-server` prints out information needed to gain remote access to RStudio. Further to launching RStudio in the background, the command selects a free port on the compute node while producing a session-specific random password for RStudio.
-
-To open RStudio on your browser:
-
-- Copy the SSH login command given by `start-rstudio-server`. Note that there are separate SSH login instructions for PuTTY. Leave this window open and running until your session finishes.
-
-- Launch a local terminal window and enter the SSH login command there. Leave this window open as well for the duration of your session. As long as the command is running, you have remote access to RStudio.
-
-- Open RStudio Server by entering the following address in your browser: localhost:8787. The RStudio login screen will ask for your username and the random password generated earlier (these can be copy-pasted from the `start-rstudio-server` output). 
-
-Once you have finished, you can exit RStudio Server by entering `Ctrl + C` in the interactive terminal session on Puhti.
+The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
 
 #### Interactive use on a login node
 
@@ -145,7 +123,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -189,7 +166,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -222,7 +198,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -271,7 +246,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -340,7 +314,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -373,12 +346,14 @@ For analyses requiring a single node, `plan(multisession)` and `plan(multicore)`
 
 To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
 
-The R script below could be used to compare analysis times using sequential, multisession and multicore strategies.
+The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. Note that we need to separately specify `options(future.availableCores.methods = "Slurm")` for worker allocation to proceed as expected.
 
 ```r
 library(future)
 library(tictoc)
 library(furrr)
+
+options(future.availableCores.methods = "Slurm")
 
 # Different future plans (choose one) 
 # (Note: three workers used for parallel options)
@@ -402,6 +377,8 @@ For multi-node analyses using `plan(cluster)`, the job can be submitted using th
 
 ```r
 library(future)
+
+options(future.availableCores.methods = "Slurm")
 
 cl <- getMPIcluster()
 plan(cluster, workers = cl)
@@ -435,7 +412,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -467,9 +443,9 @@ By default, `r-env-singularity` is single-threaded. While users may set a desire
 !!! note
     Note that simply adding more resources does not necessarily guarantee faster computation!
 
-The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. 
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env-singularity` is based on a Singularity container, when specifying the number of OpenMP threads we need to use the environment variable `SINGULARITYENV_OMP_NUM_THREADS`.
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `SINGULARITYENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `SINGULARITYENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://pages.tacc.utexas.edu/~eijkhout/pcse/html/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
 
 ```bash
 #!/bin/bash -l
@@ -490,14 +466,17 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
 # Match thread and core numbers
-echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
+export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Thread affinity control
+export SINGULARITYENV_OMP_PLACES=cores
+export SINGULARITYENV_OMP_PROC_BIND=close
 
 # Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
@@ -522,7 +501,7 @@ Further to [executing multi-threaded R jobs on a single node](#improving-perform
 
 When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). For large multinode jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
 
-As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`.
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
 
 ```bash
 #!/bin/bash -l
@@ -543,14 +522,17 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
  sed -i '/TMPDIR/d' ~/.Renviron
- sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
 # Match thread and core numbers
-echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
+export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Thread affinity control
+export SINGULARITYENV_OMP_PLACES=cores
+export SINGULARITYENV_OMP_PROC_BIND=close
 
 # Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
@@ -581,7 +563,6 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify NVME temp folder path
@@ -622,7 +603,6 @@ module load r-env-singularity/4.0.4
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
-    sed -i '/OMP_NUM_THREADS/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -633,6 +613,39 @@ srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
 Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
+
+#### GPU acceleration using NVBLAS
+
+It is possible to configure `r-env-singularity` to use NVIDIA NVBLAS, a drop-in BLAS replacement with GPU support for several BLAS3 routines (for details, see the [NVBLAS website](https://docs.nvidia.com/cuda/nvblas/index.html)). Routines not supported by NVBLAS are directed to a fallback BLAS library, i.e. oneMKL in the case of the `r-env-singularity` module.
+
+Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
+
+Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
+
+- Are BLAS3 routines the main bottleneck in your workflow? 
+- Are speed-ups possible through other means (e.g. rewriting your code)?
+- Can certain parts of your script be run on a CPU partition rather than the GPU partition?
+
+NVBLAS can be used by following these steps:
+
+Step 1. Create a file called `nvblas.conf` in `~/nvblas` with the following contents:
+
+```
+NVBLAS_LOGFILE nvblas.log
+NVBLAS_GPU_LIST ALL
+NVBLAS_TRACE_LOG_ENABLED
+NVBLAS_CPU_BLAS_LIB /opt/intel/oneapi/mkl/2021.2.0/lib/intel64/libmkl_rt.so
+```
+Note that the CPU BLAS library listed above is specific to `r-env-singularity/4.0.5`.
+Adding `NVBLAS_TRACE_LOG_ENABLED` is optional and prompts NVBLAS to create a list of all intercepted BLAS calls for debugging.
+
+Step 2. Add the following lines to your GPU batch job file:
+
+```
+# Use NVBLAS
+export SINGULARITYENV_LD_PRELOAD=/usr/local/cuda/targets/x86_64-linux/lib/libnvblas.so
+export SINGULARITYENV_NVBLAS_CONFIG_FILE=~/nvblas/nvblas.conf
+```
 
 #### R package installations
 

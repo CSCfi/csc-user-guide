@@ -27,17 +27,11 @@ grass
 
 You can also use the command line tools that come in GRASS. See the [GRASS GIS manual](https://grass.osgeo.org/learn/manuals/) for more information. 
 
-For GRASS commands to work in Puhti, you need to add `singularity_wrapper exec` before the GRASS commands. 
-
-For example printing the instructions for the command grass74
-
-```
-singularity_wrapper exec grass74 -h
-```
 
 !!! note
     The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
 
+[Exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
 
 ## License and citing
 

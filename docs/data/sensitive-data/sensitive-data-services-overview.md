@@ -1,21 +1,14 @@
 
-# Sensitive Data Services: overview
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp;   
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp;  
 ## [Introduction](./intro.md)
+
+
    
    * **Summary**
    
    * **Getting access**
    
    * **Useful terminology**
-  
+
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
    
@@ -57,8 +50,3 @@
 
 
 ## [Data Encryption with Crypt4GH](./encryption-cli.md)
-
-  
-    
-
-

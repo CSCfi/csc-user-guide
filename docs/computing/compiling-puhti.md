@@ -39,7 +39,7 @@ correct and the program's performance has improved.
 | :----------------- | :--------------------------- | :---------------- |
 | **Safe**           | -O2 -xHost -fp-model precise | -O2 -march=native |
 | **Intermediate**   | -O2 -xHost                   | -O3 -march=native |
-| **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
+| **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true -qopt-zmm-usage=high| -O3 -march=native -ffast-math -funroll-loops -mprefer-vector-width=512|
 
 Please note that not all applications benefit from the AVX-512 vector set
 (`-xHost` or `-march=native`). It may be a good idea to also test AVX2 
