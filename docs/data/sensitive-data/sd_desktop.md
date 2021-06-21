@@ -41,7 +41,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing environment, accessible all along the duration of your project. 
 
-After launch, you can login into your Desktop from your internet browser at any time. If you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder**.
+After launch, you can login into your Desktop from your internet browser at any time. Every Desktop is CSC project specific. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To access the same files or datasets, you need to save them in the same **shared folder**.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
@@ -69,7 +69,7 @@ In SD Dekstop (Open Beta) you can choose between **four different Desktops **:
 |Heavy computation |8|168|80 |hpc4.40core|non-interactive programmatic computation|78|
 
 
-If you are not sure what is the best option for your needs/research, contact us at servicedesk@csc.fi (email subject:SD Desktop). Do not choose the Heavy computation option for simple computing or analysis, as it consumes  a large amount of resources.
+If you are not sure what is the best option for your needs/research, contact us at servicedesk@csc.fi (email subject: SD Desktop). Do not choose the Heavy computation option for simple computing or analysis, as it consumes  a large amount of resources.
 
 All the Desktop are provided with the same software. The complete and updated list can be found in the following paragraph: [Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md).
 
@@ -110,7 +110,7 @@ As previously mentioned, you can **logout** from your computing enviromen at any
 Once you are logged in into your SD Desktop private workspace **you can import encrypted  sensitive data stored in SD Connect**.
 
 !!! Note
-    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**.  If you use your own key pair to           encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
+    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files are  automatically decrypted**.  If you use your own key pair to           encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
 
 To import the data:
 
@@ -130,7 +130,7 @@ To import the data:
 
 The files are downloaded to a directory called SDCONNECTDATA which is in the user's home directory. The folder is automatically opened by Open Download Location.
 
-Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files  will be decrypted automatically**. 
+Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files are automatically decrypted **. 
 
 If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
 
