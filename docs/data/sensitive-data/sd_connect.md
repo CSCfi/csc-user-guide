@@ -182,9 +182,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 For uploading or dowloading data with a CLI, we suggest the use of [Swift Client](https://docs.csc.fi/data/Allas/using_allas/swift_client/)
 
-Breafly:
 
-* intsall swift in
 
 
     
