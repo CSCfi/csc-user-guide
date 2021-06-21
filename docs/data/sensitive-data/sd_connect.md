@@ -42,7 +42,8 @@ In this page you can :
 
 
 
-<img width="956" alt="SD-Connect-1copy" src="https://user-images.githubusercontent.com/83574067/122087350-4906a100-ce0d-11eb-91ac-c39df3dedb23.png">
+![sd-connect-1](https://user-images.githubusercontent.com/83574067/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
+
 
 
 
@@ -58,7 +59,8 @@ In the  **User information** page you can:
 
 
 
-<img width="925" alt="SD-Connect-2" src="https://user-images.githubusercontent.com/83574067/122105837-e5d33980-ce21-11eb-8fa9-988ee305a9d3.png">
+![sd-connect-2](https://user-images.githubusercontent.com/83574067/122786023-8d39eb80-d2bc-11eb-9fe7-641048e96047.png)
+
 
 
 
@@ -74,7 +76,7 @@ In the **Shared** page:
 
 
 
-<img width="959" alt="SD-Connect-3" src="https://user-images.githubusercontent.com/83574067/122087777-c7fbd980-ce0d-11eb-9ccb-c98fdb897e02.png">
+
 
 
 
@@ -142,7 +144,8 @@ If you create a new buket use the following **suggestions to name it**:
 Example: ns-123456-raw-data-ddmmyy
   
 
-<img width="953" alt="SD-Connect-4" src="https://user-images.githubusercontent.com/83574067/122090796-d5ff2980-ce10-11eb-986f-911c9a1f47bf.png">
+![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
+
 
 
 
@@ -169,11 +172,10 @@ Clicking the button takes you to **Share the container**  view, in which the use
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
 
-<img width="960" alt="SD-Connect-7" src="https://user-images.githubusercontent.com/83574067/122095850-8d4a6f00-ce16-11eb-9be2-093aaecc1b49.png">
+![sd-connect-5](https://user-images.githubusercontent.com/83574067/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
+![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
+![sd-connect-7](https://user-images.githubusercontent.com/83574067/122786201-bc505d00-d2bc-11eb-832a-9771eb80da72.png)
 
-<img width="960" alt="SD-Connect-5b" src="https://user-images.githubusercontent.com/83574067/122095933-a18e6c00-ce16-11eb-9232-a676097ef4b4.png">
-
-<img width="960" alt="SD-Connect-6" src="https://user-images.githubusercontent.com/83574067/122095870-93405000-ce16-11eb-9e7e-f54914566827.png">
 
 
 
