@@ -1,7 +1,6 @@
 
 ## [Introduction](./intro.md)
 
-
    
    * **Summary**
    
@@ -50,3 +49,6 @@
 
 
 ## [Data Encryption with Crypt4GH](./encryption-cli.md)
+   * [General instructions for Crypt4GH](./data_encryption.md)
+   
+## [Quick guide](./quickguide.md)
