@@ -137,7 +137,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 ![](img/SDEnScreenshot_6.png)
 
-!!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing enviroment. 
+!!! Note. If you encrypt the file using CSC Sensitive Data Services public key, instead your own public key, you will be unable to decrypt them. When using CSC Sensitive Data Services public key, the only way in which you can access the unencrypted data is to upload them in SD Desktop in your private computing environment. 
 
  
 ## Step 4: Upload and encrypt the file /zipped folder
