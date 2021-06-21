@@ -1,8 +1,8 @@
 # nsys: CUDA profiler
 
 ## Available
-    Puhti: 
-    Mahti: 
+    Puhti: 2020.4.1.144
+    Mahti: 2021.1.1.66 
 ## Usage    
 
 The *nsys* profiling tool collects and views profiling data from the
