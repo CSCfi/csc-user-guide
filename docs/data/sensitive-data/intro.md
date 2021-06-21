@@ -35,7 +35,7 @@ To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) por
 
    6. Apply for billing units or disk quota
 
-For specific guidance regarding these steps check the [Accounts](../accounts.md) paragraph in the beginning of this user guide.
+For specific guidance regarding these steps check the [Accounts](../accounts/index.md) paragraph in the beginning of this user guide.
 
 
 
