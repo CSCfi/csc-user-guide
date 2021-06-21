@@ -5,7 +5,7 @@
 
 * According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. Check the [encryption paragraph](./data_encryption.md) for more information about encryption with Crypt4GH. 
     
-* SD Connect is based on the [Allas](../allas/overview.md) cloud storage service. SD Connect is a user interface that facilitate working with sensitive data. 
+* SD Connect is based on the Allas cloud storage service. SD Connect is a user interface that facilitate working with sensitive data. 
 The general rules and methods of usage are the same as in Allas. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. You should not consider SD Connect as a permanent data storage. Instead, you should have a plan about what will happen to the data when project is closed. 
 CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets. 
      
