@@ -11,7 +11,7 @@ For documentation and more information you can check [Crypt4GH](https://github.c
  To install Crypt4GH you can choose one of the following options: 
  
 ````
-$ crypt4gh -h      
+$ pip install crypt4gh     
 ````
 
 or if you prefer the latest sources from GitHub:
