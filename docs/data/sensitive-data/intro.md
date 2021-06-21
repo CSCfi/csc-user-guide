@@ -4,16 +4,16 @@
 
 ## Introduction
 
-Sensitive Data Services for Research  (SD Services) provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about the SD services future development check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
+Sensitive Data Services for Research  (SD Services) provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about SD services future development check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
 
-The SD Services  (Open Beta) consists of two components:
+SD Services  (Open Beta) consists of two components:
 
    * **SC Connect** is a web user interface to import data to SD Services and which facilitates sensitive data management
    
-   * **SD Desktop** provides a web user interface to secure a virtual computing environment ( or virtual desktop). This virtual desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same computing environment (or desktop ) so you don't need to generate multiple copies of your data. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
+   * **SD Desktop** provides a web user interface to secure a virtual computing environment ( or virtual desktop). This virtual desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same computing environment (or desktop ) so you don't have to generate multiple copies of your data. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
  
-The SD Services have increased security, compared to the HPC (Puhti and Mahti) and general purpose cloud environments (cPouta and Rahti) of CSC.
-Thus data that can't be processed in these environments may still be processed in the SD Services environment.
+SD Services have increased security, compared to the HPC (Puhti and Mahti) and general purpose cloud environments (cPouta and Rahti) of CSC.
+Thus data that can't be processed in these environments may still be processed in SD Services environment.
 
 Compared to the secure ePouta cloud environment, SD services are easier to access and share. The service can be used from everywhere and it does not require a dedicated network connection between the user and CSC. This makes the service easy to take in use and also enables studies, where researchers from different organizations need to share a secure work space.
 
@@ -42,9 +42,9 @@ For specific guidance regarding these steps check the [Accounts](https://docs.cs
 
 ## Useful terminology:
 
-**Allas**: The general purpose data storage service of CSC. At the moment SD-connect is using Allas as the storage service and you can in practice consider Allas and SD Connect as just one service. However, ongoing development of SD connect is likely to make it diverge from the standard Allas service in the future.
+**Allas**: The general purpose data storage service of CSC. At the moment SD-connect is using Allas as a storage service and you can in practice consider Allas and SD Connect as just one service. However, ongoing development of SD connect is likely to make it diverge from the standard Allas service in the future.
 
-**Bucket/Container**: In object storage systems the storage spaces into which files are stored are called in some tools as _containers_ and in some tools as _bukcets_. These two terms refer to the same thing: the kind-of root directories in your storage area in Allas/SD Connect. The bucket/container name is visible to the internet. You can have multiple buckets in the same project (up to 500), but each bucket must have a name that is unique throughout the whole storage system (including other projects). By default the data in a bucket is accessible just to the project members. However you can grant access to other CSC projects  or users with SD Connect.
+**Bucket/Container**: In object storage systems the storage spaces into which files are stored are called in some tools as _containers_ and in some tools as _bukcets_. These two terms refer to the same thing: the kind-of root directories in your storage area in Allas/SD Connect. The bucket/container name is visible to the internet. You can have multiple buckets in the same project (up to 500), but each bucket must have a name that is unique throughout the whole storage system (including other projects). By default the data in a bucket is accessible just to the project members. However you can grant access to other CSC projects or users with SD Connect.
 
 **CSC Project**: Using CSC services is based on projets: all your data in CSC belong inside a project. You can belong to one or multiple projects. Each project has a main user, project manager, who can add members and services to the project. Project manager is responsible for the activities of the project. She for example needs to describe which type of sensitive data the project is processing.
 
