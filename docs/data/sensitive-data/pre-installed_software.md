@@ -1,3 +1,11 @@
+# Application software available in SD Desktop. 
+
+SD Desktop privides a remote Desktopt view to a Virtual Machine running at an isolated could environment at CSC. The virtual machie contains a limited set of pre-installed software (listed below).
+
+Users are allowed to install their own user level software to SD Desktiop, but this can be quite diffucult. As SD Desktop is isolated from internet you can't use istallation tools like _git_, _coda_ or _pip_ that are depended on internet connections to external repositories. Further, SD Desktop users don't have superusers access to their virtual machine, so they can't do any opeartion that need superuser access.
+
+In practice the only reasonable way to add your own software to your SD Desktop is to build a Singulary container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop.
+
 
 # List of pre-installed software in Sensitive Data Desktop (SD Desktop)
 
