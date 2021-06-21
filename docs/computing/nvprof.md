@@ -11,7 +11,7 @@ collected, and may also be saved for later viewing by either *nvprof* or the
 To use nvprof, one needs to first load a CUDA environment, for example:
 
 ```bash
-module load gcc/8.3.0
+module load gcc/9.1.0
 module load cuda
 ```
 
