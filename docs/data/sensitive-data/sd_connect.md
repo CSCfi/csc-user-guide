@@ -13,7 +13,7 @@ CSC does not make backups of the data in SD Connect. You need to **make your own
     SD Connect and SD Desktop has not yet been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-## Login 
+## Login  
 
 To access SD Connect you need:
 
