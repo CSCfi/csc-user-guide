@@ -86,10 +86,9 @@ All the fields must be filled before file encryption will be started
 The keys will be generated and saved in the the same folder in which the Application was downloaded.
 
 
+t="SDEnScreenshot_4" src="https://user-images.githubusercontent.com/83574067/121065592-9a8dab00-c7d1-11eb-8dc6-c237a1f22f3a.png">
 
-<img width="481" alt="SDEnScreenshot_4" src="https://user-images.githubusercontent.com/83574067/121065592-9a8dab00-c7d1-11eb-8dc6-c237a1f22f3a.png">
-
-![DEnScreenshot_4](./images/SDEnScreenshot_4.png)
+![SDEnScreenshot_4](./images/SDEnScreenshot_4.png)
 
 !!! Note
 If you lose or forget your private key password you will be unable to decrypt the files. Do not share your private key or your password. Do not share your private key publicly.
@@ -106,10 +105,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 * If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
 
-
-<img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
-
-![SDEnScreenshot_5](images/SDEnScreenshot_5.png)
+![SDEnScreenshot_5](./images/SDEnScreenshot_5.png)
 
 ## Step 3: Load the encryption keys
 
@@ -119,9 +115,6 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or CSC Sensitive Data Services public key (csc-sd-services.pub) if you prefer your data to be compatible with SD Desktop automated decryption.
 1. Click on _Open_.
 
-
-
-<img width="623" alt="SDEnScreenshot_6" src="https://user-images.githubusercontent.com/83574067/121065628-a5484000-c7d1-11eb-8ded-9bd01ba7f277.png">
 
 ![DEnScreenshot_6](./images/SDEnScreenshot_6.png)
 
@@ -144,11 +137,6 @@ Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
 ````
 
 Currently,Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
-
-
-
-<img width="626" alt="SDEnScreenshot_7" src="https://user-images.githubusercontent.com/83574067/121065650-ab3e2100-c7d1-11eb-8ec6-12e9d3863f33.png">
-
 
 ![SDEnScreenshot_7](./images/SDEnScreenshot_7.png)
 
@@ -184,8 +172,6 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
 ![SDEnScreenshot_8](./images/SDEnScreenshot_8.png)
-
-<img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065754-c9a41c80-c7d1-11eb-87d3-10fa5b254555.png">
 
 
  
