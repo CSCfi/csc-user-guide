@@ -27,7 +27,7 @@
    
  * **Data upload**
  
- * **Data Sharing **
+ * **Data Sharing**
        
  * **SD Connect compatible Clients**
    
@@ -58,9 +58,9 @@
 
   * **Background information**
   
-  * **Data encryption with Crypt4GH Command Line Interface (CLI), compatible with SD Desktop automated decryption
+  * **Data encryption with Crypt4GH Command Line Interface (CLI)**
   
-  * **Data encryption with Crypt4GH Command Line Interface (CLI) and your permanent encryption key pair
+  * **Data encryption with Crypt4GH Command Line Interface (CLI) and your permanent encryption key pair**
   
     
 
