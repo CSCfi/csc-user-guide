@@ -1,8 +1,8 @@
 # ncu: GPU CUDA kernel analysis and debug
 
 ## Available
-    Puhti: 
-    Mahti:  
+    Puhti: 2020.2.0.18
+    Mahti: 2020.3.1.0
 ## Usage    
 
 The *ncu* profiling and debugging tool collects and views profiling data from the
