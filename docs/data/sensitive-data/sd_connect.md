@@ -21,7 +21,11 @@ To access SD Connect you need:
 * **a CSC project**
 * **Service access to Allas** (CSC cloud storage solution)
 
-Login to SD Connect is currently possible only with Haka (a user identity federation system) at https://sd-connect.csc.fi/ using any modern web browser. If you do not have an Haka account and can not access the user interface, you can still upload data programmatically, directly into Allas (see the end of this paragraph). 
+Login to SD Connect is currently possible only with Haka (a user identity federation system) at:
+
+   * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
+
+The interface is compatible with all modern web browsers. If you do not have an Haka account and can not access the user interface, you can still upload data using other Allas interfaces (see the end of this paragraph). 
 
 
 <img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
