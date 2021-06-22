@@ -1,4 +1,4 @@
-# ncu: CUDA debugger and profiler
+# ncu: GPU CUDA kernel analysis and debug
 
 ## Available
     Puhti: 
