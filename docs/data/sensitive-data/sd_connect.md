@@ -183,7 +183,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 SD Connect is using Allas object storage for storing data. In practice thie means that any data which you can access i Allas, can also be dowloaded to SD Desktop with SD-Conect Dowloader. Thus you can use any of the Allas compatible clients to upload your data to SD-Connect. Hower, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol. These include:
    * [rclone](../Allas/using_allas/rclone.md) (with normal Allas confi guration)
-   * [swith command line client](../Allas/using_allas/swift_client.md)
+   * [swift command line client](../Allas/using_allas/swift_client.md)
    * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
    * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Grafical data transport tool for Windos and Mac.
 
