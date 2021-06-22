@@ -120,9 +120,9 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 * Next, press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
 
-Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
-The ecrypted file is now ready to be uploaded to _SD Connect_.
+The encrypted file is now ready to be uploaded to _SD Connect_.
 
 ![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
 
@@ -130,15 +130,15 @@ The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 ## Data upload 
 
-To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visulize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
+To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
-If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on ceration time). Note that **it is not possible to rename buckets**.
+If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 If you create a new bucket use the following **suggestions to name it**:
 
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situations it is good practice to include some project specific identifiers (e.g. project ID numeber or acronym) in the bucket names.  
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situations it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
     
-* **Avoid using spaces and special chartacters in bucket names**. Preferred charactes are latin alphabeth (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
+* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
     
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
  
@@ -153,17 +153,17 @@ Example: ns-123456-raw-data-ddmmyy
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
 
-To share a container with another CSC project (and thus one of your colligues or collaborators) you need to:
+To share a container with another CSC project (and thus one of your colleagues or collaborators) you need to:
 
-* **know in advance the SD Account of the CSC project you want to share a contaner with** (see above in Step1, where this can be found)
+* **know in advance the SD Account of the CSC project you want to share a container with** (see above in Step1, where this can be found)
 
 * in the browser page click on the **share** button on the row of the container in the container listing 
 
 Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the container is going to be shared to, and what rights to give: 
 
-* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and dowload them
+* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and download them
 
-* select also **Grant write permissions** if you want your colloeague to be able to add files and folder to the  shared conainer select. If you seelct only this option, your collieague or collaborator will be only able to add files to the container, but not be able to see its content.
+* select also **Grant write permissions** if you want your colleague to be able to add files and folder to the  shared container select. If you select only this option, your colleague or collaborator will be only able to add files to the container, but not be able to see its content.
 
 * in **UUIDs to share with** add the SD Account of the project you want to share the container with 
 
@@ -182,12 +182,12 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 ## Data upload with other clients
 
-SD Connect is using Allas object storage for storing data. In practice thie means that any data which you can access in Allas, can also be dowloaded to SD Desktop with SD-Conect Dowloader. Thus you can use any of the Allas compatible clients to upload your data to SD-Connect. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol. These include:
+SD Connect is using Allas object storage for storing data. In practice this means that any data which you can access in Allas, can also be downloaded to SD Desktop with SD-Conect Dowloader. Thus you can use any of the Allas compatible clients to upload your data to SD-Connect. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol. These include:
 
-   * [rclone](../Allas/using_allas/rclone.md) (with normal Allas confi guration)
+   * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
    * [swift command line client](../Allas/using_allas/swift_client.md)
    * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
-   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Grafical data transport tool for Windos and Mac.
+   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
 
 Note that if you use these tools, you must encrypt your sensitive data, before you upload it to Allas. 
 
