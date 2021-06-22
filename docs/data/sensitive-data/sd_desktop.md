@@ -71,7 +71,7 @@ In SD Desktop (Open Beta) you can choose between **four different Desktops **:
 
 If you are not sure what is the best option for your needs/research, contact us at servicedesk@csc.fi (email subject: SD Desktop). Do not choose the Heavy computation option for simple computing or analysis, as it consumes a large amount of resources.
 
-All the Desktop are provided with the same software. The complete and updated list can be found in the following paragraph: [Pre-installed list of software](https://github.com/CSCfi/csc-user-guide/blob/sensitive-data/docs/data/sensitive-data/pre-installed_software.md).
+All the Desktop are provided with the same software. The complete and updated list can be found in the following paragraph: [Pre-installed list of software](./pre-installed_software.md).
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
