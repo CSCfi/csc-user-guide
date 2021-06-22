@@ -21,9 +21,11 @@ on Puhti, or
 ```
 module load gcc/10.3.0
 ```
-on Mahti and then the  CUDA module
+on Mahti and then the 
+on Mahti and then the  CUDA and `nsight-systems` modules
 ```bash
 module load cuda
+module load nsight-compute
 ```
 
 To profile a CUDA code, one then adds the command `nsys` before the normal
