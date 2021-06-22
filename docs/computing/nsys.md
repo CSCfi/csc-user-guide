@@ -25,7 +25,7 @@ on Mahti and then the
 on Mahti and then the  CUDA and `nsight-systems` modules
 ```bash
 module load cuda
-module load nsight-compute
+module load nsight-systems
 ```
 
 To profile a CUDA code, one then adds the command `nsys` before the normal
