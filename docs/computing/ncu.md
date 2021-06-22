@@ -6,7 +6,7 @@
 ## Usage    
 
 The *ncu* profiling and debugging tool collects and views profiling data from the
-command-line. It enables the collection of a timeline of CUDA-related
+command-line. It is a low level CUDA kernel profiling tool. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
 memory set and CUDA API calls and events or metrics for CUDA kernels.
 Profiling results are displayed in the console after the profiling data is
