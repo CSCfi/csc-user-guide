@@ -55,7 +55,7 @@ In this page you can :
 
 In the  **User information** page you can:
 
-* in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (defoult storage 10 TiB);
+* in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
 
 * in **Project usage** you can view the **SD Connect Account, an ID associated to your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
 
@@ -74,7 +74,7 @@ In the **Shared** page:
 * in **Shared to the project** you can view the **buckets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Bucket Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
 
 !!! note 
-    All the buckets listed here are owned by another users that can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the container. 
+    All the buckets listed here are owned by another users that can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the bucket. 
 
 * in **Shared with the project** you can view the buckets which  **you shared with other CSC projects**. In this case you own the shared buckets and you can decide when to revoke access. 
 
@@ -98,7 +98,7 @@ With the following workflow, you can use a graphical user interface (Crypt4sds G
    - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-macos-amd64.zip)
    - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-windows-amd64.zip)
 
-* **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science.  After  downloading and unzipping the file, you can find the Crypt4GH application in your download folder. 
+* **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science. After downloading and unzipping the file, you can find the Crypt4GH application in your download folder. 
 
 When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_. 
 
@@ -120,14 +120,11 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 * Next, press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
 
-Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4h_.  Currently,Crypt4GH application does not provid a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypring file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
 The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 ![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
-
-
-* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
 
 
@@ -135,13 +132,13 @@ The ecrypted file is now ready to be uploaded to _SD Connect_.
 
 To upload encrypted data in SD Connect it is suffiecint to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visulize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
-If you did not create a buket yet, the user interface will automatically create a buket named: upload-nnnnnnnnnnnnn. Note that **it is not possible to rename buckets**.
+If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on ceration time). Note that **it is not possible to rename buckets**.
 
-If you create a new buket use the following **suggestions to name it**:
+If you create a new bucket use the following **suggestions to name it**:
 
-* Bucket **names must be unique** across all existing bucket in CSC storage solution
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situations it is good practice to include some project specific identifiers (e.g. project ID numeber or acronym) in the bucket names.  
     
-* Bucket names must **not contain uppercase characters or underscores or non-ASCII (ä, ö etc.) characters**
+* **Avoid using spaces and special chartacters in bucket names**. Preferred charactes are latin alphabeth (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
     
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
  
