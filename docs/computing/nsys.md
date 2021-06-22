@@ -118,4 +118,4 @@ Time(%)      Total Time       Calls         Average         Minimum         Maxi
 
 `nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-systems/).
 
-The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, 'results_file.qdrep'. The file can be viewed directly on the CSC servers running 'nsys-ui' or copied on local computers and viewed using a local installation of the 'nsight-systems'.
+The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, `results_file.qdrep`. The file can be viewed directly on the CSC servers running `nsys-ui` or copied on local computers and viewed using a local installation of the `nsight-systems`.
