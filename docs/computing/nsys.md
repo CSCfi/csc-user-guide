@@ -31,7 +31,7 @@ command to execute the code. Running is otherwise similar to that of any other
 CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
 
 An example of usage and output of `nsys`:
-```
+```bash
 $ nsys profile -o results_file_name --stats=true --force-overwrite true ./a.out
 Collecting data...
 Processing events...
