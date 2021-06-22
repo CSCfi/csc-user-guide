@@ -32,7 +32,7 @@ CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](
 
 An example of usage and output of `nsys`:
 ```
-$ nsys profile -o results_file_name --stats=true --force-overwrite true ./a.out
+$ nsys profile -o results_file --stats=true --force-overwrite true ./a.out
 Collecting data...
 Processing events...
 Capturing symbol files...
@@ -116,3 +116,4 @@ Time(%)      Total Time       Calls         Average         Minimum         Maxi
     0.0            4130           3          1376.7            1016            1945  read   
 ```
 `nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-systems/).
+The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, 'results_file.qdrep'. The file can be viewed directly on the CSC servers running 'nsys-ui' or copied on local computers and viewed using a local installation of the 'nsight-systems'.
