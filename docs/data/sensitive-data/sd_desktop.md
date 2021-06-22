@@ -169,7 +169,7 @@ Username: accountname  Password: Example23241232
 To stop RStudio Server: Ctrl+C
 ```
 
-Nex:
+Next:
 
 * paste the URL in Firefox 
 * after a few seconds, you can input the username and password (service specific) and access the server.
