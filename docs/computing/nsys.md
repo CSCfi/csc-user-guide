@@ -1,4 +1,4 @@
-# nsys: CUDA profiler
+# nsys: Nvidia GPU and CPU profiler
 
 ## Available
     Puhti: 2020.4.1.144
