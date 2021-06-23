@@ -1,10 +1,11 @@
-# ncu: GPU CUDA kernel analysis and debug
+# ncu: GPU CUDA Kernel Profiler
 
 ## Available
     Puhti: 2020.2.0.18
     Mahti: 2020.3.1.0
 ## Usage    
 
+NVIDIA Nsight Compute is a CUDA kernel profiler that provides detailed performance data and offers guidance for optimizing your CUDA kernels.
 The *ncu* profiling and debugging tool collects and views profiling data from the
 command-line. It is a low level CUDA kernel profiling tool. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
@@ -116,5 +117,5 @@ Time(%)      Total Time       Calls         Average         Minimum         Maxi
     0.0            4758           1          4758.0            4758            4758  connect                                                                         
     0.0            4130           3          1376.7            1016            1945  read   
 ```
-`nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-systems/).
+`nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
 The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, 'results_file.qdrep'. The file can be viewed directly on the CSC servers running 'nsys-ui' or copied on local computers and viewed using a local installation of the 'nsight-systems'.
