@@ -102,7 +102,7 @@ If the data to be downloaded from IDA is a published open dataset visible in Fai
 
 Again continuing our example, the user selects a dataset directory for downloading in Etsin. After a while the zip package is ready and Etsin shows the download button:
 
-User selects the option menu to see command line options:
+User clicks the option menu in the download button to see command line options:
 
 ![Etsin download](img/etsin-download.png)
 
