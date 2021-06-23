@@ -104,7 +104,12 @@ Again continuing our example, the user selects a dataset directory for downloadi
 
 User selects the option menu to see command line options:
 
+![Etsin download](img/etsin-download.png)
+
 User copies the curl command and runs it in puhti:
+
+![Etsin download options](img/etsin-download-options.png)
+
 ```text
 module load ida
 cd /scratch/project_2000012/xferdir
