@@ -14,7 +14,7 @@ debugging by running:
 ```bash
 compute-sanitizer  --<tool> ./cuda_program
 ```
-`<tool>` is can be of the several sub-tools performing different type of checks:
+`<tool>` can be of the several sub-tools available for performing different type of checks:
 * `memcheck`: is capable of precisely detecting and attributing out of bounds and misaligned memory access errors in CUDA applications and it can also report hardware exceptions encountered by the GPU (default)
 * `racecheck`: can report shared memory data access hazards that can cause data races.
 * `initcheck`: can report cases where the GPU performs uninitialized accesses to global memory 
