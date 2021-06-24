@@ -8,7 +8,7 @@
 The *nsys* profiling tool collects and views profiling data from the
 command-line. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
-memory set and CUDA API calls and events or metrics for CUDA kernels. The tool is very useful in identifying the high-level bottlenecks and determine which kernels which should be targeted for optimization with the [Nsight Compute](ncu.md) tool.  
+memory set and CUDA API calls and events or metrics for CUDA kernels. The tool is very useful in identifying the high-level bottlenecks, hotspots and determine which kernels should be targeted for optimization and analysis with the [Nsight Compute](ncu.md) tool.  
 Profiling results are displayed in the console after the profiling data is
 collected, and may also be saved for later viewing by *nsys-ui* tool.
 
