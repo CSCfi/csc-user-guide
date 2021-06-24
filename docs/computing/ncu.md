@@ -32,9 +32,9 @@ To profile a CUDA code, one then adds the command `nsys` before the normal
 command to execute the code. Running is otherwise similar to that of any other
 CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
 
-An example of usage and output of `nsys`:
+An example of usage and output of `ncu`:
 ```
-$ nsys profile -o results_file --stats=true --force-overwrite true ./a.out
+$ ncu --set full -k compute_tendencies_x_276_gpu -s 4 -c 1 -o myreport ./a.out
 Collecting data...
 Processing events...
 Capturing symbol files...
@@ -117,5 +117,5 @@ Time(%)      Total Time       Calls         Average         Minimum         Maxi
     0.0            4758           1          4758.0            4758            4758  connect                                                                         
     0.0            4130           3          1376.7            1016            1945  read   
 ```
-`nsys` supports many useful running options. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
+`nsys` supports many useful running options, it is fully customizable (`ncu --help` for more options). Use command line arguments `--list metrics`and `--query-metrics` to check the available metrics and inquiere which metrics are available for the current platform. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
 The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, 'results_file.qdrep'. The file can be viewed directly on the CSC servers running 'nsys-ui' or copied on local computers and viewed using a local installation of the 'nsight-systems'.
