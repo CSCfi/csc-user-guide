@@ -8,7 +8,7 @@
 The *nsys* profiling tool collects and views profiling data from the
 command-line. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
-memory set and CUDA API calls and events or metrics for CUDA kernels. The tool is very useful in identifying the bottleneck in an application and indicate kenernels which should be targeted for optimization with the [Nsight Compute](ncu.md) tool.  
+memory set and CUDA API calls and events or metrics for CUDA kernels. The tool is very useful in identifying the high-level bottlenecks and determine which kernels which should be targeted for optimization with the [Nsight Compute](ncu.md) tool.  
 Profiling results are displayed in the console after the profiling data is
 collected, and may also be saved for later viewing by *nsys-ui* tool.
 
@@ -50,37 +50,34 @@ Generating CUDA API Statistics...
 
 CUDA API Statistics (nanoseconds)
 Time(%)      Total Time       Calls         Average         Minimum         Maximum  Name                                                                        
--------  --------------  ----------  --------------  --------------  --------------  ----------------------------------------------------------------------------
+-------  --------------  ----------  --------------  --------------  --------------  -------------------------------------------------------------
    85.3       323223522           4      80805880.5          128957       322811927  cudaMalloc                                                                      
    13.6        51524634           1      51524634.0        51524634        51524634  cudaDeviceReset 
    ....
-   
+     
 Generating CUDA Kernel Statistics...
 CUDA Kernel Statistics (nanoseconds)
-
-Time(%)      Total Time   Instances         Average         Minimum         Maximum  Name                                                                        
--------  --------------  ----------  --------------  --------------  --------------  ---------------------------------------------------------------------------- 
+Time(%)      Total Time   Instances         Average         Minimum         Maximum  Name     
+-------  --------------  ----------  --------------  --------------  --------------  -------------------------------------------------------------
   100.0           22912           1         22912.0           22912           22912  multiply_add_kn(float*, float const*, float const*, float const*, int)      
   
 Generating CUDA Memory Operation Statistics...
 CUDA Memory Operation Statistics (nanoseconds)
-
-Time(%)      Total Time  Operations         Average         Minimum         Maximum  Name                                                                          
--------  --------------  ----------  --------------  --------------  --------------  ----------------------------------------------------------------------------
+Time(%)      Total Time  Operations         Average         Minimum         Maximum  Name  
+-------  --------------  ----------  --------------  --------------  --------------  -------------------------------------------------------------
    79.0         2022300           3        674100.0          663903          692095  [CUDA memcpy HtoD]                                                          
    21.0          536223           1        536223.0          536223          536223  [CUDA memcpy DtoH]                                                           
    
 CUDA Memory Operation Statistics (KiB)
-              Total      Operations              Average            Minimum              Maximum  Name                                                           
--------------------  --------------  -------------------  -----------------  -------------------  ---------------------------------------------------------------
+              Total      Operations              Average            Minimum              Maximum  Name                                         
+-------------------  --------------  -------------------  -----------------  -------------------  ------------------------------------------------
            3906.250               1             3906.250           3906.250             3906.250  [CUDA memcpy DtoH]   
           11718.750               3             3906.250           3906.250             3906.250  [CUDA memcpy HtoD]                                             
 
 Generating Operating System Runtime API Statistics...
 Operating System Runtime API Statistics (nanoseconds)
-
-Time(%)      Total Time       Calls         Average         Minimum         Maximum  Name                                                                         
--------  --------------  ----------  --------------  --------------  --------------  ----------------------------------------------------------------------------
+Time(%)      Total Time       Calls         Average         Minimum         Maximum  Name                                                         
+-------  --------------  ----------  --------------  --------------  --------------  -------------------------------------------------------------
    67.0       343435124          29      11842590.5           23172       100249843  poll                                                                         
    22.6       115645051        1102        104941.1            1286        25309244  ioctl                                                                           
    5.5        28249766           4       7062441.5            3763        15288473   fread 
