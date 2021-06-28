@@ -36,6 +36,6 @@ An example of usage of `ncu`:
 ```
 ncu --set full -o myreport ./a.out
 ```
-Next the resulted report is analysed with `ncu-ui` on the CSC supercomputers or on the user's local machine. The performance of the program can be compared to the theoretical peak  (`speed-of-light`) performance or to a custom baseline (for example a previous realease to be compared to) can be used. The `ncu-ui` also gives a recommendation regarding bottlenecks and parts to be optimized.
+Next the resulted report is analysed with `ncu-ui` on the CSC supercomputers or on the user's local machine. The performance of the program can be compared to the theoretical peak  (`speed-of-light`) performance or to a custom baseline (for example a previous realease to be compared to) can be used. 
 
 `ncu` supports many useful running options, it is fully customizable. Use command line arguments `--list metrics`and `--query-metrics` to check the available metrics and enquire which metrics are available for the current platform. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
