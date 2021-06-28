@@ -28,94 +28,14 @@ module load cuda
 module load nsight-compute
 ```
 
-To profile a CUDA code, one then adds the command `nsys` before the normal
+To profile a CUDA code, one then adds the command `ncu` before the normal
 command to execute the code. Running is otherwise similar to that of any other
 CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
 
-An example of usage and output of `ncu`:
+An example of usage of `ncu`:
 ```
-$ ncu --set full -k compute_tendencies_x_276_gpu -s 4 -c 1 -o myreport ./a.out
-Collecting data...
-Processing events...
-Capturing symbol files...
-Saving temporary "/tmp/cristian/6584503/nsys-report-b4eb-c068-9292-3b17.qdstrm" file to disk...
-Creating final output files...
-
-Processing [==============================================================100%]
-Saved report file to "/tmp/cristian/6584503/nsys-report-b4eb-c068-9292-3b17.qdrep"
-Exporting 4657 events: [==================================================100%]
-
-Exported successfully to
-/tmp/cristian/6584503/nsys-report-b4eb-c068-9292-3b17.sqlite
-
-Generating CUDA API Statistics...
-CUDA API Statistics (nanoseconds)
-
-Time(%)      Total Time       Calls         Average         Minimum         Maximum  Name                                                                            
--------  --------------  ----------  --------------  --------------  --------------  --------------------------------------------------------------------------------
-   85.3       323223522           4      80805880.5          128957       322811927  cudaMalloc                                                                      
-   13.6        51524634           1      51524634.0        51524634        51524634  cudaDeviceReset                                                                 
-    0.9         3493858           4        873464.5          844824          902152  cudaMemcpy                                                                      
-    0.1          532291           4        133072.7          111648          186167  cudaFree                                                                        
-    0.0           39430           1         39430.0           39430           39430  cudaLaunchKernel                                                                
-    0.0            4730           1          4730.0            4730            4730  cuCtxSynchronize                                                                
-
-
-
-
-Generating CUDA Kernel Statistics...
-CUDA Kernel Statistics (nanoseconds)
-
-Time(%)      Total Time   Instances         Average         Minimum         Maximum  Name                                                                                                                                                                                                                                                                                                                                         
--------  --------------  ----------  --------------  --------------  --------------  --------------------------------------------------------------------------------------------------------------------                                                                                                                                                                                                                         
-  100.0           22912           1         22912.0           22912           22912  multiply_add_kn(float*, float const*, float const*, float const*, int)                                                                                                                                                                                                                                                                       
-
-
-
-Generating CUDA Memory Operation Statistics...
-CUDA Memory Operation Statistics (nanoseconds)
-
-Time(%)      Total Time  Operations         Average         Minimum         Maximum  Name                                                                            
--------  --------------  ----------  --------------  --------------  --------------  --------------------------------------------------------------------------------
-   79.0         2022300           3        674100.0          663903          692095  [CUDA memcpy HtoD]                                                              
-   21.0          536223           1        536223.0          536223          536223  [CUDA memcpy DtoH]                                                              
-
-
-CUDA Memory Operation Statistics (KiB)
-
-              Total      Operations              Average            Minimum              Maximum  Name                                                                            
--------------------  --------------  -------------------  -----------------  -------------------  --------------------------------------------------------------------------------
-           3906.250               1             3906.250           3906.250             3906.250  [CUDA memcpy DtoH]                                                              
-          11718.750               3             3906.250           3906.250             3906.250  [CUDA memcpy HtoD]                                                              
-
-
-
-
-Generating Operating System Runtime API Statistics...
-Operating System Runtime API Statistics (nanoseconds)
-
-Time(%)      Total Time       Calls         Average         Minimum         Maximum  Name                                                                            
--------  --------------  ----------  --------------  --------------  --------------  --------------------------------------------------------------------------------
-   67.0       343435124          29      11842590.5           23172       100249843  poll                                                                            
-   22.6       115645051        1102        104941.1            1286        25309244  ioctl                                                                           
-    5.5        28249766           4       7062441.5            3763        15288473  fread                                                                           
-    2.3        11863998          24        494333.3           22798        10949413  sem_timedwait                                                                   
-    1.7         8894519         138         64453.0            1075         1710281  mmap                                                                            
-    0.2         1149144           4        287286.0           57995          455065  pthread_create                                                                  
-    0.2         1116887          33         33845.1            2254          538272  fopen                                                                           
-    0.1          501819          88          5702.5            1738           18541  open64                                                                          
-    0.1          498306          27         18455.8            1728          263736  fclose                                                                          
-    0.1          465467           4        116366.8            1027          276396  fcntl                                                                           
-    0.0          198802          40          4970.1            1285            9396  munmap                                                                          
-    0.0          159076           1        159076.0          159076          159076  pthread_join                                                                    
-    0.0           65790           3         21930.0           18846           27543  fgets                                                                           
-    0.0           47281          18          2626.7            1838            3874  write                                                                           
-    0.0           35658           5          7131.6            2280           17982  open                                                                            
-    0.0           15553           4          3888.3            1786            9004  mprotect                                                                        
-    0.0            5354           1          5354.0            5354            5354  pipe2                                                                           
-    0.0            5080           2          2540.0            2380            2700  socket                                                                          
-    0.0            4758           1          4758.0            4758            4758  connect                                                                         
-    0.0            4130           3          1376.7            1016            1945  read   
+ncu --set full -o myreport ./a.out
 ```
-`nsys` supports many useful running options, it is fully customizable (`ncu --help` for more options). Use command line arguments `--list metrics`and `--query-metrics` to check the available metrics and inquiere which metrics are available for the current platform. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
-The report above can also be viewed using the graphical interface. The results of the analysis are saved in the the specified file, 'results_file.qdrep'. The file can be viewed directly on the CSC servers running 'nsys-ui' or copied on local computers and viewed using a local installation of the 'nsight-systems'.
+Next the resulted report is analysed with `ncu-ui` on the CSC supercomputers or on the user's local machine. The performance of the program can be compared to the theoretical peak  (`speed-of-light`) performance or to a custom baseline (for example a previous realease to be compared to) can be used. The `ncu-ui` gives also  recommendation regarding bottlenecks and parts to be optimized.
+
+`ncu` supports many useful running options, it is fully customizable. Use command line arguments `--list metrics`and `--query-metrics` to check the available metrics and enquire which metrics are available for the current platform. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
