@@ -443,7 +443,7 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 
 Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/) article for more information.
 
-It is possible to use annotations to enable **IP whitelisting**, where only few ip ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
+It is possible to use annotations to enable **IP whitelisting**, where only a few IP ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
 
 ```sh
 oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
