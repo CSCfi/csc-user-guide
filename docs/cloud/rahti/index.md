@@ -6,6 +6,7 @@ the topic:
   * [What is Rahti?](/cloud/rahti/rahti-what-is/)
   * [Containers and their Orchestration](/cloud/rahti/containers/)
   * [Kubernetes and OpenShift concepts](/cloud/rahti/concepts/)
+  * [Securirty guide](/cloud/rahti/security-guide/)
   * [Rahti Tutorials](/cloud/rahti/tutorials/)
   * [External documentation ](/cloud/rahti/ext_docs/)
 
