@@ -96,4 +96,4 @@ The Cyberduck user interface is quite easy to use. The data management options c
 ## SD Connect service
 
 The SD Connect WWW interface can be used upload, download, manage and share data in Allas.
-  * [CSC SD services](../sensitive-data/sensitive-data-services-overview.md)
+  * [CSC SD services](../sensitive-data/index.md)
