@@ -220,7 +220,7 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
     
     
     
-## Video tutotials
+## Video tutorials
 
 
 <figure class="video_container">
