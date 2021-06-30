@@ -25,10 +25,16 @@ Login to SD Connect is currently possible only with Haka (a user identity federa
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
 
+If you can not access SD Connect using Haka, check more intructions below on how to upload data into SD Connect programamtically using CSC credentials. 
+
 The interface is compatible with all modern web browsers. If you do not have an Haka account and can not access the user interface, you can still upload data using other Allas interfaces (see the end of this paragraph). 
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925767-e4fae580-d993-11eb-9fd4-12147dcb956d.png">
+
 <img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
@@ -44,10 +50,12 @@ In this page you can :
 
 *  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete files or upload new files and folders.
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
 
 
 ![sd-connect-1](https://user-images.githubusercontent.com/83574067/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
 
 
@@ -61,9 +69,11 @@ In the  **User information** page you can:
 
 * access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926085-37d49d00-d994-11eb-910f-4bcfa56c8589.png">
 
+![sd-connect-2](https://user-images.githubusercontent.com/83574067/123926039-2b504480-d994-11eb-8a27-cbcf973a454e.png)
 
-
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926095-3a36f700-d994-11eb-8eb7-df1722efdacf.png">
 
 
 
@@ -79,8 +89,10 @@ In the **Shared** page:
 * in **Shared with the project** you can view the buckets which  **you shared with other CSC projects**. In this case you own the shared buckets and you can decide when to revoke access. 
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926120-415e0500-d994-11eb-8455-9b8762c7a58b.png">
 
 ![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
 
 
 
@@ -105,6 +117,7 @@ When you open the application you might encounter an error message. In this case
 
 <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
+
 * **Step 3**: Prepare your files
 
 With Crypt4GH GUI it is possible to encrypt only one file at the time.
@@ -123,6 +136,8 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
 The encrypted file is now ready to be uploaded to _SD Connect_.
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926290-6a7e9580-d994-11eb-958d-1fc30adc05f3.png">
 
 ![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
 
@@ -145,8 +160,11 @@ If you create a new bucket use the following **suggestions to name it**:
 Example: ns-123456-raw-data-ddmmyy
   
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926328-710d0d00-d994-11eb-94e1-ea99ab121214.png">
 
 ![sd-connect-5](https://user-images.githubusercontent.com/83574067/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926335-7407fd80-d994-11eb-8efa-37908c600d01.png">
 
 
 ## Data Sharing 
@@ -172,6 +190,8 @@ Clicking the button takes you to **Share the container**  view, in which the use
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+
 ![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
 ![sd-connect-7](https://user-images.githubusercontent.com/83574067/122786201-bc505d00-d2bc-11eb-832a-9771eb80da72.png)
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
@@ -180,21 +200,36 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 
 
-## Data upload with other clients
+## Data upload to SD Connect programamtically 
 
-SD Connect is using Allas object storage for storing data. In practice this means that any data which you can access in Allas, can also be downloaded to SD Desktop with SD-Conect Dowloader. Thus you can use any of the Allas compatible clients to upload your data to SD-Connect. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol. These include:
+To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
+
+SD Connect is a user interterface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Dowloader.
+
+Thus you can use any of the Allas compatible clients to upload your data to SD-Connect programatically. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol.
+
+These include:
 
    * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
    * [swift command line client](../Allas/using_allas/swift_client.md)
    * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
    * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
 
-Note that if you use these tools, you must encrypt your sensitive data, before you upload it to Allas. 
+Note that if you use these tools, you must encrypt your sensitive data, before you upload it to SD Connect.
 
     
     
     
-    
+## Video tutotials
+
+
+<figure class="video_container">
+
+<iframe width="560" height="315"srcdoc="hhttps://www.youtube.com/watch?v=Npjpi-qVatc&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=x9uTYZcUFDw&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=qMVi8IgR0ho&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
     
     
     
