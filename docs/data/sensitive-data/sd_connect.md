@@ -204,7 +204,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
 
-SD Connect is a user interterface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Dowloader.
+SD Connect is a user interterface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Downloader.
 
 Thus you can use any of the Allas compatible clients to upload your data to SD-Connect programatically. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol.
 
