@@ -21,6 +21,7 @@ To access SD Connect you need:
 * **a CSC project**
 * **Service access to Allas** (CSC cloud storage solution)
 
+
 Login to SD Connect is currently possible only with Haka (a user identity federation system) at:
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
@@ -35,6 +36,7 @@ The interface is compatible with all modern web browsers. If you do not have an 
 <img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
 
 
 
@@ -53,9 +55,12 @@ In this page you can :
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
 
 
+
 ![sd-connect-1](https://user-images.githubusercontent.com/83574067/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
 
+
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
+
 
 
 
@@ -65,9 +70,11 @@ In the  **User information** page you can:
 
 * in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
 
+
 * in **Project usage** you can view the **SD Connect Account, an ID associated to your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
 
 * access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
+
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926085-37d49d00-d994-11eb-910f-4bcfa56c8589.png">
 
@@ -86,13 +93,16 @@ In the **Shared** page:
 !!! note 
     All the buckets listed here are owned by another users that can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the bucket. 
 
+
 * in **Shared with the project** you can view the buckets which  **you shared with other CSC projects**. In this case you own the shared buckets and you can decide when to revoke access. 
+
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926120-415e0500-d994-11eb-8455-9b8762c7a58b.png">
 
 ![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
+
 
 
 
@@ -110,7 +120,9 @@ With the following workflow, you can use a graphical user interface (Crypt4sds G
    - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-macos-amd64.zip)
    - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-windows-amd64.zip)
 
+
 * **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science. After downloading and unzipping the file, you can find the Crypt4GH application in your download folder. 
+
 
 When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_. 
 
@@ -133,13 +145,16 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 * Next, press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
 
+
 Encryption creates a new encrypted file that is named by adding to the end extension *.c4gh*. For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
 
 The encrypted file is now ready to be uploaded to _SD Connect_.
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926290-6a7e9580-d994-11eb-958d-1fc30adc05f3.png">
 
+
 ![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
+
 
 
 
@@ -154,6 +169,7 @@ If you create a new bucket use the following **suggestions to name it**:
 * Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situations it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
     
 * **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
+
     
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
  
@@ -167,17 +183,21 @@ Example: ns-123456-raw-data-ddmmyy
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926335-7407fd80-d994-11eb-8efa-37908c600d01.png">
 
 
+
 ## Data Sharing 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
+
 
 To share a container with another CSC project (and thus one of your colleagues or collaborators) you need to:
 
 * **know in advance the SD Account of the CSC project you want to share a container with** (see above in Step1, where this can be found)
 
+
 * in the browser page click on the **share** button on the row of the container in the container listing 
 
 Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the container is going to be shared to, and what rights to give: 
+
 
 * select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and download them
 
@@ -188,6 +208,7 @@ Clicking the button takes you to **Share the container**  view, in which the use
 * Next click on **Share**
 
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
+
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
@@ -217,6 +238,7 @@ These include:
 
 Note that if you use these tools, you must encrypt your sensitive data, before you upload it to SD Connect.
 
+
     
     
     
@@ -230,6 +252,7 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
  <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=x9uTYZcUFDw&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=qMVi8IgR0ho&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
     
     
     

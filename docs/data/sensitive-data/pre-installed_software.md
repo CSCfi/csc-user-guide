@@ -27,18 +27,16 @@ The following software are pre-installed on each computing environment (or VM fl
    * Python 3.7.9 including following packages:      
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
    * R / RStudio Server
+
       * Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
       * 1000+ pre-installed R packages (versions available on Apr 20 2021)
       * Intel® oneAPI Math Kernel Library (oneMKL)
       * GIS software (PROJ, GDAL, SAGA)
       * CUDA drivers 
       * TensorFlow (used with R TensorFlow back-end)
-   * samtools 1.10 
-   * bcftools 1.10.2 
-   * htslib 1.10.2 
-   * unix2dos 
-   * dos2unix 
-   * md5sum 
-   * plink (1.9) 
-   * prettify (plink) 
-   * plink2 (2.0)
+
+      * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
+   * GIS software (PROJ, GDAL, SAGA) 
+   * CUDA drivers 
+   * TensorFlow (used with R TensorFlow back-end) 
+

@@ -6,6 +6,7 @@
 
 * Independently of the login method used, you need a **CSC username and password to import data** into your Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](../../accounts/how-to-change-password.md)
 
+
 * **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
 * It is the project manager's or group leader's responsibility to review frequently the list of members belonging to a project in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
@@ -160,7 +161,9 @@ This will returt a URL and a service specific password:
 RStudio Server - Sensitive Data Desktop Edition
 ---------------------------------------------------------------------------------------
 Copy/Paste this URL into Firefox:
+
 http://localhost:8787/
+
 -----------------------------------------------------------------------------------------
 Enter these at the RStudio Server sign-in screen
 ----------------------------------------------------------------------------------------
@@ -220,5 +223,6 @@ For more information write to servicedesk@csc.fi (email subject SD Desktop)
  <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=OxgfZ4RKP3c&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=3UQLfYABP7A&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
 
   
