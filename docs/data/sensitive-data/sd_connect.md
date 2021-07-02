@@ -247,7 +247,7 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 
 <figure class="video_container">    
     
-<iframe width="250" srcdoc="https://www.youtube.com/embed/Npjpi-qVatc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="250" height="100" srcdoc="https://www.youtube.com/embed/Npjpi-qVatc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
  <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
