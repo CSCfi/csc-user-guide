@@ -19,20 +19,21 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module                    | Puhti | Mahti | Environ. | Horovod | Notes          |
-|:-------:|---------------------------|:-----:|:-----:|----------|:-------:|----------------|
-| 1.8.1   | `pytorch/1.8`             | X     | X     | Sing.    | X       |                |
-| 1.7.1   | `pytorch/1.7`             | X     | -     | Sing.    | X       |                |
-| 1.6.0   | `pytorch/1.6`             | X     | -     | Conda    | -       |                |
-| 1.4.0   | `pytorch/1.4`             | X     | -     | Conda    | -       |                |
-| 1.3.1   | `pytorch/1.3.1`           | X     | -     | Conda    | -       |                |
-| -"-     | `pytorch/1.3.1-hvd`       | X     | -     | Conda    | X       | with HPC-X MPI |
-| -"-     | `pytorch/1.3.1-hvd-mpich` | X     | -     | Conda    | X       | with mpich MPI |
-| 1.3.0   | `pytorch/1.3.0`           | X     | -     | Conda    | -       |                |
-| 1.2.0   | `pytorch/1.2.0`           | X     | -     | Conda    | -       |                |
-| 1.1.0   | `pytorch/1.1.0`           | X     | -     | Conda    | -       |                |
-| 1.0.1   | `pytorch/1.0.1`           | X     | -     | Conda    | -       |                |
-| 0.4.1   | `pytorch/0.4.1`           | X     | -     | Conda    | -       |                |
+| Version | Module                    | Puhti | Mahti | Environ. | Horovod | Notes             |
+|:-------:|---------------------------|:-----:|:-----:|----------|:-------:|-------------------|
+| 1.9.0   | `pytorch/1.9`             | X     | X     | Sing.    | X       |                   |
+| 1.8.1   | `pytorch/1.8`             | X     | X     | Sing.    | X       | (default version) |
+| 1.7.1   | `pytorch/1.7`             | X     | -     | Sing.    | X       |                   |
+| 1.6.0   | `pytorch/1.6`             | X     | -     | Conda    | -       |                   |
+| 1.4.0   | `pytorch/1.4`             | X     | -     | Conda    | -       |                   |
+| 1.3.1   | `pytorch/1.3.1`           | X     | -     | Conda    | -       |                   |
+| -"-     | `pytorch/1.3.1-hvd`       | X     | -     | Conda    | X       | with HPC-X MPI    |
+| -"-     | `pytorch/1.3.1-hvd-mpich` | X     | -     | Conda    | X       | with mpich MPI    |
+| 1.3.0   | `pytorch/1.3.0`           | X     | -     | Conda    | -       |                   |
+| 1.2.0   | `pytorch/1.2.0`           | X     | -     | Conda    | -       |                   |
+| 1.1.0   | `pytorch/1.1.0`           | X     | -     | Conda    | -       |                   |
+| 1.0.1   | `pytorch/1.0.1`           | X     | -     | Conda    | -       |                   |
+| 0.4.1   | `pytorch/0.4.1`           | X     | -     | Conda    | -       |                   |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
