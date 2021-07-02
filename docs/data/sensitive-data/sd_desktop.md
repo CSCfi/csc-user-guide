@@ -208,6 +208,7 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
 ##  Data export from SD Desktop
 
 For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
