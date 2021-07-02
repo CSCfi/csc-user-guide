@@ -43,13 +43,11 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 
 <figure class="video_container">
 
-<iframe width="560" height="315"srcdoc="https://www.youtube.com/watch?v=wbSf9wR305A&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/wbSf9wR305A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
- <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=x7PjZdJUh4c&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+ <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/x7PjZdJUh4c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=-d8yiaLTLmQ&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/-d8yiaLTLmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
 ## Useful terminology:
