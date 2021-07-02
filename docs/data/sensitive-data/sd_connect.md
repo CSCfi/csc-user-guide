@@ -245,16 +245,15 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 ## Video tutorials
 
 
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/QM-MlRs_pCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+<figure class="video_container">    
     
 <iframe width="560" height="315"srcdoc="https://www.youtube.com/embed/Npjpi-qVatc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
- <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=x9uTYZcUFDw&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+ <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=qMVi8IgR0ho&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/qMVi8IgR0ho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
+</figure>
     
     
     
