@@ -1,11 +1,17 @@
 # Applications
 
+## PyTorch 1.9, 2.7.2021
+
+PyTorch 1.9.0 is now available in the `pytorch/1.9` module on Puhti and Mahti.
+The module also includes the most recent versions of TorchVision, TorchAudio and
+TorchText. See the [official release
+notes](https://pytorch.org/blog/pytorch-1.9-released/) for more details.
 
 ## Python Data 3.9, 22.6.2021
 
 A new version of [Python Data](../../apps/python-data.md) is now available with
-`module load python-data/3.9-1`. It includes the most recent versions of
-Scikit-learn, Pandas, JupyterLab and many other popular data analytics and
+`module load python-data/3.9-1` on Puhti. It includes the most recent versions
+of Scikit-learn, Pandas, JupyterLab and many other popular data analytics and
 machine learning packages for Python 3.9.
 
 This is the first version of Python Data that has been installed using
