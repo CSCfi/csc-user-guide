@@ -208,6 +208,7 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
 ##  Data export from SD Desktop
 
 For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
@@ -218,11 +219,11 @@ For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 <figure class="video_container">
 
-<iframe width="560" height="315"srcdoc="https://www.youtube.com/watch?v=VebHTUonOSs&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=7" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
- <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=OxgfZ4RKP3c&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+ <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/OxgfZ4RKP3c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=3UQLfYABP7A&list=PLD5XtevzF3yGtuatGnWmvh39j12lefyp9&index=9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
   
