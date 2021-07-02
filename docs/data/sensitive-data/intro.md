@@ -49,6 +49,8 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/-d8yiaLTLmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
+</figure>
+
 
 ## Useful terminology:
 
