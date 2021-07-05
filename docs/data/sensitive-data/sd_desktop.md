@@ -96,7 +96,7 @@ If the launch is successful, when you return to SD Desktop **Homepage**,  you wi
 In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 
-As previously mentioned, you can **logout** from your computing enviroment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnet the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able too connect the desktop again.
+As previously mentioned, you can **logout** from your computing enviroment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnet the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect the desktop again.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
