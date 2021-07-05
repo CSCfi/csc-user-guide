@@ -1,3 +1,50 @@
+
+# Data encryption with own permanet encryption key pair
+
+## Sensitive data needs to be encrypted before upload
+
+According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always 
+needs to be encrypted when uploaded or stored in CSC services. Sensitive data needs to be encrypted even if, for example, 
+downloaded from public repositories. The encryption requirement applies to the SD Connect service too. 
+Automatic encryption during data upload has not been implemented to SD Connect yet. Because of this, at the moment, 
+you must encrypt all the sensitive data on your local environment before you start to upload it to SD Connect. 
+Data, that is not sensitive, can be uploaded without encryption.
+
+##  Crypt4CGH based encryption
+
+Crypt4GH was originally designed to encrypt and share human genetic data according to the 
+Global Alliance for Genomics and Health (GA4GH) standard, but it can be 
+used to encrypt any type of data.
+
+Crypt4GH uses **asymmetric encryption**, an encryption method that is based on two interlinked encryption keys: 
+
+   1) a **public key**, is used for encryption but it can't decrypt the encrypted data. You can share your public encryption key with your collaborators 
+   (e.g. multiple data owners, sequencing facilities etc), they can encrypt the data with your public key and only you will be then able to decrypt the 
+   data with your own secret key. 
+   
+   2) a **secret key**, (private key) is used for decrypting a file that is encrypted the with the corresponding public key. This key should not be made available to other users an normally it is password protected to ensure that it remains secret. 
+
+
+**When using CSC Sensitive Data Services for analyzing sensitive data you have two possibilities:**
+
+1) you can encrypt the data with the workflow described ealier in the SD Connect guide. With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public encryption key (using the Crypt4GH user inetrfaces or programmatically). In this way, when you will import the data to SD Desktop, they will be decripted  in an automated manner in your own private computing enviroment.  The data are automatically decrypted with **CSC Sensitive Data Services secret key"**.
+This key is hosted securely by the SD Services and users never needs to do the decryption them selves.
+  
+
+3) you can encrypt the data with your own permanent key pair, In this case, when imported in SD Desktop, the data needs o be manually descrypted. 
+
+
+!!! note
+Files that have been encrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding
+secret key is available only in the SD services environment. If you wish to encrypt your data for some other service, you should do another 
+encrypted file that uses other public keys.
+
+
+**When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key**.
+
+
+
+
 ## Data encryption with Crypt4GH Command Line Interface (CLI) and your own permanen key pair
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
@@ -115,11 +162,10 @@ total 48
 -rw-r--r--  1 daz  staff   169B Nov  6 21:05 dog.jpg.c4gh
 ```
 
-!!! Note 
-If you add the CSC Sensitive Data Service public key your data to be decrypted automatically when uploaded to SD Desktop from SD Connect. Using SDS public key will also guarantee that in case you loose your private encryption key or your password, CSC could still help you to retrieve your data.
+
 
 !!!Note
-Programmatically you can add more than one public key (no limit?). This could be useful in case the data are originally encrypted by a data owner or a sequencing facility using your public key.
+Programmatically you can add more than one public key. This could be useful in case you need to share your data with a collegue or collaborator: including thier public key will allow them to decryot the same dataset with thier private/public key pair. 
 
 
 ## Step 4: Data Decryption
