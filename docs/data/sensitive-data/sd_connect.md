@@ -3,9 +3,13 @@
 
 ## Before you start
 
-* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In thisparagraph, we peovide instructions on encrypting a copy of your data with CSC encryption key and Crypt4Gh. For general information about Crypt4GH check the [encryption with own permenent key pair paragraph](./data_encryption.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
+
+
+
+* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4Gh. For general information about Crypt4GH check the [encryption with own permanent key pair paragraph](./data_encryption.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
     
-* SD Connect facilitate working with sensitive data and it is a user interface for Allas, CSC cloud storage solution. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets. 
+* SD Connect facilitates working with sensitive data and it is a user interface for Allas, CSC cloud storage solution. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
+
      
 !!! note  
     SD Connect and SD Desktop has not yet been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
@@ -24,7 +28,7 @@ Login to SD Connect is currently possible only with Haka (a user identity federa
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
 
-If you can not access SD Connect using Haka, check more intructions below on how to upload data into SD Connect programamtically using CSC credentials. 
+If you can not access SD Connect using Haka, check more instructions below on how to upload data into SD Connect programmatically using CSC credentials.
 
 The interface is compatible with all modern web browsers. If you do not have an Haka account and can not access the user interface, you can still upload data using other Allas interfaces (see the end of this paragraph). 
 
@@ -86,10 +90,10 @@ In the  **User information** page you can:
 
 In the **Shared** page:
 
-* in **Shared to the project** you can view the **buckets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Bucket Owner**,  it is displayed the ID associated to CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights). 
+* in **Shared to the project** you can view the **buckets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Bucket Owner**,  it displays the ID associated with the CSC project to which the bucket belongs to (also called SD Account). With double click you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights).
 
-!!! note 
-    All the buckets listed here are owned by another users that can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the bucket. 
+!!! note
+    All the buckets listed here are owned by other users which can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the bucket.
 
 
 * in **Shared with the project** you can view the buckets which  **you shared with other CSC projects**. In this case you own the shared buckets and you can decide when to revoke access. 
@@ -159,13 +163,13 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 ## Data upload using SD Connect user interface
 
 
-To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
+To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
 If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 If you create a new bucket use the following **suggestions to name it**:
 
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situations it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
     
 * **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
 
@@ -187,8 +191,8 @@ Example: ns-123456-raw-data-ddmmyy
 ## Programmatic data encryption with Crypt4GH and _CSC encryption key_
 
 !!! note
-        Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decripted  only when imported in SD Desktop, thus using CSC Sensitive Data           Services.
-        If you wish to encrypt the data to transfer them to other services, you need to plan the encryption in advance and use your own encryption key pair. For more                 information, check the Data Sharing section in these paragrph below and the [encryption with own permanent key pair paragraph](./data_encryption.md).
+        Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decrypted only when imported in SD Desktop, thus using CSC Sensitive Data             Services.
+        If you wish to encrypt the data to transfer them to other services, you need to plan the encryption in advance and use your own encryption key pair. For more                 information, check the Data Sharing section in these paragraph below and the [encryption with own permanent key pair paragraph](./data_encryption.md).
 
 
 
@@ -256,9 +260,10 @@ a-put --sdx my_data -b 1234_SD_my_data
 
 To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
 
-SD Connect is a user interterface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Downloader.
+SD Connect is a user interface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Downloader.
 
-Thus you can use any of the Allas compatible clients to upload your data to SD-Connect programatically. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol.
+Thus you can use any of the Allas compatible clients to upload your data to SD-Connect programmatically. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol.
+
 
 These include:
 
@@ -273,8 +278,11 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 
 ## Data Sharing with SD Connect user interface
 
+
+
 !!! Note
-        If you are planning to use SD Desktop to process sensitive data collected using SD Connect, you or your collaborators can encrypt a copy of the data with CSC SD               public encryption key. However, if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and                       analyze them with different services, check the in this guide to lean more. 
+        If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key. However,             if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and analyze them with different services,                 check the [encryption with own permanent key pair paragraph](./data_encryption.md) to learn more.
+
 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
@@ -306,10 +314,6 @@ At this point the user interface will redirect you to the **Shared** page and th
 ![sd-connect-7](https://user-images.githubusercontent.com/83574067/122786201-bc505d00-d2bc-11eb-832a-9771eb80da72.png)
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
-
-
-!!! Note
-        If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key. However,             if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and analyze them with different services,                 check the [encryption with own permanent key pair paragraph](./data_encryption.md) to lrean more.
 
 
 
