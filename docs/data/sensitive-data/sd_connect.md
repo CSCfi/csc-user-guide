@@ -6,7 +6,7 @@
 
 
 
-* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4Gh. For general information about Crypt4GH check the [encryption with own permanent key pair paragraph](./data_encryption.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
+* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [encryption with own permanent key pair paragraph](./data_encryption.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
     
 * SD Connect facilitates working with sensitive data and it is a user interface for Allas, CSC cloud storage solution. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
 
