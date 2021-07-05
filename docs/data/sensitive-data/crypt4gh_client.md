@@ -1,5 +1,5 @@
 
-# Data encryption with own permanet encryption key pair
+# Data encryption with own permanent encryption key pair
 
 ## Sensitive data needs to be encrypted before upload
 
