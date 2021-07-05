@@ -4,7 +4,8 @@
 
 ## Before you start
 
-* Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](../../accounts/how-to-change-password.md)
+* Independently of the login method used, you need a **CSC username and password to import data** into your Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](../../accounts/how-to-change-password.md)
+
 
 * **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
@@ -160,7 +161,9 @@ This will returt a URL and a service specific password:
 RStudio Server - Sensitive Data Desktop Edition
 ---------------------------------------------------------------------------------------
 Copy/Paste this URL into Firefox:
-Http://localhost:1234/
+
+http://localhost:8787/
+
 -----------------------------------------------------------------------------------------
 Enter these at the RStudio Server sign-in screen
 ----------------------------------------------------------------------------------------
@@ -205,12 +208,22 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
 ##  Data export from SD Desktop
 
 For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
 
+## Video tutorials
 
+
+<figure class="video_container">
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/OxgfZ4RKP3c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
   
