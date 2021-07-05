@@ -57,7 +57,7 @@
 ## [Pre-installed software in SD Desktop](./pre-installed_software.md)
 
 
-## [Data Encryption with Crypt4GH](./encryption-cli.md)
-   * [General instructions for Crypt4GH](./data_encryption.md)
+## [Data Encryption with Crypt4GH and own permanent encryption key pair](./encryption-cli.md)
+  
    
 
