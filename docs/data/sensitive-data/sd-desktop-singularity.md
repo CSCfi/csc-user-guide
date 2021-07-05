@@ -1,10 +1,10 @@
 # Utilizing singularity containers in SD-Desktop
 
-The Linux environment used in the SD desktop includes [Singularity](https://sylabs.io/guides/3.8/user-guide/) 
-software container tool that allows running containerized software and workflows. In the SD Desktop, Singularity
-provides the easiest way to add software to your working enviroment. As the SD Desktop is not directly connected internet, 
+The Linux environment used in the SD Desktop includes [Singularity](https://sylabs.io/guides/3.8/user-guide/) 
+software container tool that allows running containerized software and workflows. Singularity
+provides the easiest way to add software to your SD Desktop enviroment. As the SD Desktop is not directly connected internet, 
 you can't use tools like git, conda or pip to install new software. Also in the case of Singularity, you have to first build 
-or download a singularity container somewere else, and then use Allas/SD Connect to import the container to SD Desktop.
+or download a singularity container somewere else, and then use _Allas/SD Connect_ to import the container to SD Desktop.
 
 ## Importing ready made containwer through Puhti
 
@@ -34,8 +34,8 @@ Then download a local copy of the Beta container with command
 ```text
 singularity pull beta.sif https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4
 ```
-This creates a new singularity container file, _beta.sif_, is then uploaded allas that. From the home pagea if BETA software 
-we download a test dataset for confirming that the container works.
+This creates a new singularity container file, _beta.sif_, is then uploaded allas that. From the home page of BETA software 
+we download also a test dataset for confirming that the container works.
 
 ```text
 wget http://cistrome.org/BETA/src/BETA_test_data.zip
@@ -50,7 +50,7 @@ a-put --nc beta.sif -b 2012345_beta
 a-put --nc BETA_test_data.zip -b 2012345_beta
 ```
 
-The commands above store the files into bucket _2012345_beta_ in Allas.
+The commands above store the files into bucket _2012345_beta_ in Allas. 
 
 
 
