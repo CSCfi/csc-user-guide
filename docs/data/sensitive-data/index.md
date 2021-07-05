@@ -7,6 +7,13 @@
    * **Getting access**
    
    * **Useful terminology**
+   
+
+## [Quickstart](./quickguide.md)
+    
+   * **Importing and processing sensitive data in your private computing enviroment (Desktop)**
+   
+   * **Sharing encrypted data with your collaborators using a permanent ecryption key pair and SD Connect**
 
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
@@ -17,13 +24,15 @@
    
  * **User Interface**
  
- * **SD Services compatible data encryption**
+ * **Data encryption with Crypt4GH user interface and CSC encryption key**
    
- * **Data upload**
+ * **Data upload using SD Connect user interface**
  
- * **Data Sharing**
+ * **Programmatic data encryption with Crypt4GH and CSC encryption key**
        
- * **Data upload with other clients**
+ * **Programmatic data upload and download with SD Connect**
+ 
+ * **Data Sharing with SD Connect user interface**
    
   
 
@@ -51,4 +60,4 @@
 ## [Data Encryption with Crypt4GH](./encryption-cli.md)
    * [General instructions for Crypt4GH](./data_encryption.md)
    
-## [Quick guide](./quickguide.md)
+
