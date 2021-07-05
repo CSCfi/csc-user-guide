@@ -45,12 +45,45 @@ Then we upload these two files to Allas for project _2012345_
 
 ```text
 module load allas
-allas-conf project-2012345
+allas-conf project_2012345
 a-put --nc beta.sif -b 2012345_beta
 a-put --nc BETA_test_data.zip -b 2012345_beta
 ```
 
 The commands above store the files into bucket _2012345_beta_ in Allas. 
+
+## Using contaoner in SD desktop
+
+Once the sif formatted singularity container file has been uploaded to Allaas, you can copy them to SD Desktop.
+Open _SD Connect downloader_ navigate the to the right project (_project_2012345_) and bucket (_2012345_beta_) 
+and download the sif file (_beta.sif_). This case we will also download the test data set (_BETA_test_data.zip_).
+
+After that open a Linux terminal in the SD-Desktop. In the terminal, move the singularity file and test data to 
+your current locations:
+
+```text
+mv SDCONNECTDATA/project_201234/2012345_beta/beta.sif ./
+mv SDCONNECTDATA/project_201234/2012345_beta/BETA_test_data.zip ./
+```
+Unzip the test dataset:
+```text 
+unzip BETA_test_data.zip
+```
+Now you can run BETA through singularity command. 
+For example the _help_ of command _BETA minus_ is shown with command:
+
+```text
+singularity exec beta.sif BETA minus -h
+```
+And the ananlysis with sample data in directory _BETA_test_data_ can
+be executed with commands like:
+
+```text
+singularity exec beta.sif BETA minus -p BETA_test_data/3656_peaksbed --bl -g hg19
+```
+In this example the results will be written to directory _BETA_OUTPUT_.
+
+
 
 
 
