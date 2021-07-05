@@ -106,7 +106,7 @@ In the **Shared** page:
 
 
 
-## Data encryption with CSC-sd-encryption key and Crypt4GH GUI for SDS.
+## Data encryption with CSC-sd-encryption key and Crypt4GH graphic user interface 
 
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
@@ -158,7 +158,8 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 
-## Data upload 
+## Data upload using SD Connect user interface
+
 
 To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less then 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
@@ -184,14 +185,100 @@ Example: ns-123456-raw-data-ddmmyy
 
 
 
-## Data Sharing 
+
+## Programmatic data encryption with Crypt4GH Command Line Interface (CLI) and _CSC Sensitive Data Services public key_
+
+!!! note
+Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decripted  only when imported in SD Desktop, thus using CSC Sensitive Data Services.
+If you wish to encrypt the data to transfer them in other services, you need to plan the encryption in advance and use your own encryption key pair. For more information, check the Data Sharing section in these paragraph. 
+
+
+For more general information about using Crypt4GH at CSC check: 
+   * [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git)
+   * [crypt4gh example](./crypt4gh_client.md)
+  
+
+### Step 1: Install the latest version of Crypt4GH encryption tool
+
+**Python 3.6+ required** to use the crypt4gh encryption utility. 
+To install Python: https://www.python.org/downloads/release/python-3810/
+
+If you have a working python installation and you have permissions to add libraries to your python installation, you can install Crypt4GH with command:
+
+```text
+pip install crypt4gh
+```
+
+### Step 2: Download CSC Sensitive Data services Public key
+
+Download CSC Sensitive Data Services public key from the link [here](./csc-sd-services.pub), or copy/paste the three lines from the box below into a new file.
+The file should be saved in text-only format. Here we assume that the key file is named as _csc-sd-services.pub_.
+
+```text
+-----BEGIN CRYPT4GH PUBLIC KEY-----
+dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
+-----END CRYPT4GH PUBLIC KEY-----
+```
+
+### Step 3: Encrypt a file
+
+Cryp4GH is able to use several public keys for encryption. This can be very handy in cases were the encrypted data needs to be used by several users or services. Unfortunately SD Connect is not yet compatible with encryption with multiple keys. Because of that you must do the encryption using the CSC Sensitive Data Services public key only, if you plan to upload the data to SD Connect. In this case the syntax of the encryption command is:
+
+```text
+crypt4gh encrypt --recipient_pk public-key < input > output
+```
+For example
+
+```text
+crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
+```
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect.
+ 
+
+## Data encryption and upload with Allas help tool: a-put
+
+The [allas client utilities](https://github.com/CSCfi/allas-cli-utils/) is a set of command line tools that can be installed and used in Linux and MacOSX machines. If you have these tools, you can use data upload command _a-put_ with command line option _--sdx_ to upload data to Allas/SD Connect so that the uploaded files are automatically encrypted with the CSC Sensitive Data Services public key before the upload. The public key is included to the tool so that you don't need to download your own copy of the key.
+
+You can upload a single file with command like:
+
+```text
+a-put --sdx my_data1.csv
+```
+By default _a-put --sdx_ uploads the encrypted file into bucket that has name _project-number-SD_CONNECT_ . 
+
+You can also upload complete directories and define a specific target bucket. For example the command below will encrypt and upload all the files in directory _my_data_ to SD Connect into bucket _1234_SD_my_data_.
+```
+a-put --sdx my_data -b 1234_SD_my_data
+```
+
+
+
+## Programmatic data upload and download to SD Connect
+
+To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
+
+SD Connect is a user interterface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Downloader.
+
+Thus you can use any of the Allas compatible clients to upload your data to SD-Connect programatically. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol.
+
+These include:
+
+   * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
+   * [swift command line client](../Allas/using_allas/swift_client.md)
+   * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
+   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
+
+Note that if you use these tools, you must encrypt your sensitive data, before you upload it to SD Connect.
+
+
+
+## Data Sharing with SD Connect user interface
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
 
-
 To share a container with another CSC project (and thus one of your colleagues or collaborators) you need to:
 
-* **know in advance the SD Account of the CSC project you want to share a container with** (see above in Step1, where this can be found)
+* **know in advance the SD Account of the CSC project you want to share a container with** (see above in *User Interface* paragraph, where this can be found)
 
 
 * in the browser page click on the **share** button on the row of the container in the container listing 
@@ -210,7 +297,6 @@ Clicking the button takes you to **Share the container**  view, in which the use
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
 
-
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
 ![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
@@ -219,28 +305,12 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 
 
+!!! Note
+If you are planning to use SD Desktop to process data, you can encrypt a copy of your data with CSC Sesntive Data Services encryption key. However, if you are planning to use your won encryption keypair or if you are planning to share data with your collaborators and analize them with different services, check the Crypt4GH paragraph in this guide to lean more. 
 
 
-## Data upload to SD Connect programamtically 
-
-To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
-
-SD Connect is a user interterface for CSC Allas object storage. In practice this means that any data which you can access in Allas, can also be imported to SD Desktop with SD-Connect Downloader.
-
-Thus you can use any of the Allas compatible clients to upload your data to SD-Connect programatically. However, as SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol.
-
-These include:
-
-   * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
-   * [swift command line client](../Allas/using_allas/swift_client.md)
-   * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
-   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
-
-Note that if you use these tools, you must encrypt your sensitive data, before you upload it to SD Connect.
 
 
-    
-    
     
 ## Video tutorials
 
