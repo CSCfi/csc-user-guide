@@ -16,7 +16,7 @@ This tool is available as a ready made Singularity container in [Biocontainers](
 by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ cintainer, 
 you can see that the sigularity module can be downloaded from url: "https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4" 
 
-As we don't need to build the container from scratch, we can use [puhti.csc.fi](../../computing/overview/) server to download the container 
+As we don't need to build the container from scratch, we can use [puhti.csc.fi](../../../computing/overview/) server to download the container 
 image and push it to Allas.
 
 First login to _puhti.csc.fi_. Then, start an interactive batch job session with command:
