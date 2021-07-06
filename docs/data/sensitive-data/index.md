@@ -13,7 +13,7 @@
     
    * **Importing and processing sensitive data in your private computing enviroment (Desktop)**
    
-   * **Sharing encrypted data with your collaborators using a permanent ecryption key pair and SD Connect**
+   * **Sharing encrypted sensitive data with SD Connect and permanent ecryption key pair and**
 
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
@@ -33,6 +33,8 @@
  * **Programmatic data upload and download with SD Connect**
  
  * **Data Sharing with SD Connect user interface**
+ 
+ * **Video tutorials**
    
   
 
@@ -42,15 +44,17 @@
 
   * **Login**
 
-  * **Launching your Desktop (or your private work environment)**
+  * **Launching your Desktop (or your private computing environment)**
 
   * **Importing encrypted sensitive data to SD Desktop**
 
   * **RStudio in SD Desktop**
 
-  * **Deleting your work environment**
+  * **Deleting your computing environment**
 
   * **Data export from SD Desktop**
+  
+  * **Video tutorials**
 
 
 
