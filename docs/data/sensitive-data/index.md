@@ -61,7 +61,7 @@
 ## [Pre-installed software in SD Desktop](./pre-installed_software.md)
 
 
-## [Utilizing singularity containers in SD-Desktop](sd-desktop-singularity.md)
+## [Utilizing singularity containers in SD Desktop](sd-desktop-singularity.md)
 
 
 ## [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair](./crypt4gh_client.md )
