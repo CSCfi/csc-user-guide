@@ -42,7 +42,145 @@ Files that have been encrypted with the _CSC Sensitive Data Services public key_
 encrypted file that uses other public keys.
 
 
-## Data encryption with Crypt4GH Command Line Interface (CLI) and your own permanen key pair
+
+
+## Crypt4GH graphical user interface GUI
+
+CSC developed a simple graphical user interface (GUI) that will allow you to generate your permanent encryption keys, to encrypt data with your permanent keys or with your collaborator public key and decrypt data using Crypt4GH.
+
+1. You can download the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
+
+   - [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
+   - [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
+   - [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
+
+1. Verify,  that the program has been digitally signed by CSC - IT Center for Science.  
+1. After the download, you can find the Crypt4GH application in your download folder.
+
+
+
+![SD_Screenshot1](./images/SDEnScreenShot_1.png).
+
+ 
+1. When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+
+
+
+  ![SDEnScreenShoot_2](./images/SDEnScreenShoot_2.png)
+
+
+
+Next you can follow these steps:
+
+### Step 1: Generate your encryption keys
+
+1. Open the application and    click on _Generate Keys_ (on the top right corner).
+1. The tool will open a new window and ask you to add a password (_Private Key Passphrase_). This password will be associated with your private key. Set a strong password.
+1. When you click on _OK_, the tool will generate a key pair:
+
+   - a private key (nsurname_crypt4gh.key)
+   - a public key (nsurname_crypt4gh.pub)
+
+1. The keys/file names will be displayed in the Activity Log with the following message:
+
+````
+Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
+Private key: name_surname.crypt4gh.key
+Public key: name_surname.crypt4gh.pub
+All the fields must be filled before file encryption will be started
+````
+
+The keys will be generated and saved in the same folder in which the Application was downloaded.
+
+![SDEnScreenshot_4](./images/SDEnScreenshot_4.png)
+
+!!! Note
+If you lose or forget your private key password you will be unable to decrypt the files. Do not share your private key or your password. Do not share your private key publicly.
+
+
+!!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it.
+You don’t need to generate new key pairs each time you open the application.
+
+## Step 2: Prepare your files
+
+With Crypt4GH GUI it is possible to encrypt only one file at the time.
+
+* If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
+* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
+
+
+![SDEnScreenshot_5](./images/SDEnScreenshot_5.png)
+
+### Step 3: Load the encryption keys
+
+1. Click on _Load My Private Key_ button.
+1. Select your private key (name_surname.crypt4gh.key).
+1. Click on _Open_. If the upload is successful, the tool will show the current path in the title bar.
+1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub) or your collaborator public key if you need to share the encrypted data. 
+1. Click on _Open_.
+
+
+![DEnScreenshot_6](./images/SDEnScreenshot_6.png)
+
+
+
+ 
+### Step 4: Upload and encrypt the file /zipped folder
+
+1. Click on _Select File_ and choose the file or zipped folder that you wish to encrypt.
+1. Click on _Open_ and on _Encrypt File_.
+1. The tool will ask the password for your personal private key and once you click on _OK_ the encryption process will begin.
+1. If the encryption is successful the file/zipped folder extension will end with *.c4gh* and  the Activity Log will display the following message:
+
+````
+Encrypting....
+
+Encryption has finished.
+
+Encrypted file: C:/users/samesurname/exampledirectory/examplefile.c4gh
+````
+
+Currently, Crypt4GH application is not provided with a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+
+![SDEnScreenshot_7](./images/SDEnScreenshot_7.png)
+
+### Step 5: Data decryption
+  
+ 
+1. Access your secure computing environment in SD Desktop. 
+1. Next, open Crypt4GH and click on _load Your Private Key_.  
+1. Click on _load Their private Key_ and upload your public key
+1. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
+1. Click on _Open_.
+1. Next click on _Decrypt File_.
+1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file.
+
+If you don't select your public key, the activity log will display the following (the decryption will be executed anyway):
+
+````
+<img width="612" alt="SDEnScreenshot_8" src="https://user-images.githubusercontent.com/83574067/121065675-b2fdc580-c7d1-11eb-88ed-7a7f449ed950.png">
+Sender public key has not been set, authenticity will not be verified.
+````
+
+If your decryption runs successfully, the activity log will display the following:
+
+````
+Decrypting.....
+
+Decryption has finished
+
+Decrypted file: C:/users/samesurname/exampledirectory/examplefile
+````
+
+
+
+![SDEnScreenshot_8](./images/SDEnScreenshot_8.png)
+
+
+
+
+
+## Data encryption with Crypt4GH Command Line Interface (CLI) and  own permanen key pair
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
@@ -54,7 +192,7 @@ In this example, first we generate your permanent key pair ( a private key passw
 To install Python: https://www.python.org/downloads/release/python-3810/
 
  
- ## Step 1: Install the latest version of Crypt4GH encryption tool
+ ### Step 1: Install the latest version of Crypt4GH encryption tool
  
 In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (Research group A:first-recipient example.pub and  Research group B: second-recipientexample.pub Reaserch group b). In this way, the collaborators will be able to decrypt the file in their safe environment using their own permanent key pair.
  
@@ -108,7 +246,7 @@ Environment variables:
 ```
 
 
-## Step 2: Generate a permanent public-private keypair
+### Step 2: Generate a permanent public-private keypair
 
 
 ```
@@ -128,7 +266,7 @@ Passphrase for examplename.sec:
 ```
 
 
-## Step 3: Encrypt the file or directory
+### Step 3: Encrypt the file or directory
 
 To ecrypt the files:
 
@@ -171,7 +309,7 @@ total 48
 Programmatically you can add more than one public key. This could be useful in case you need to share your data with a colleague or collaborator: including their public key will allow them to decrypt the same dataset with their private/public key pair.
 
 
-## Step 4: Data Decryption
+### Step 4: Data Decryption
 
 If you did not use SDS public key you need to decrypt the data in SD Desktop. Login into your private computing environment and first install Crypt4GH:
 
