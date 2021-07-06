@@ -6,10 +6,10 @@ In order to be able to copy data from Allas to IDA with this procedure, you need
 
 In short, there are four steps to follow
 
- 1 download the data from Allas to Puhti scratch
- 2 rearrange the data in the scratch
- 3 upload the data to IDA and describe it
- 4 clean the Puhti scratch
+  1. download the data from Allas to Puhti scratch
+  2. rearrange the data in the scratch
+  3. upload the data to IDA and describe it
+  4. clean the Puhti scratch
 
 ### Step 1. Download the data from Allas to Puhti scratch
 
