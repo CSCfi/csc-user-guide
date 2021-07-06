@@ -11,7 +11,7 @@ Singularity containers. In this document we show, how to import a ready-made Sin
 ## Importing ready made container through Puhti
 
 
-In the example below we import [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) sofware to SD Desktop.
+In the example below we import [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) software to SD Desktop.
 This tool is available as a ready made Singularity container in [Biocontainers](https://biocontainers.pro/registry) repository. You can find the tool
 by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ cintainer, 
 you can see that the sigularity module can be downloaded from url: "https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4" 
