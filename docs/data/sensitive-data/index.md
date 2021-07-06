@@ -11,7 +11,7 @@
 
 ## [Quickstart](./quickguide.md)
     
-   * **Importing and processing sensitive data in your private computing enviroment (Desktop)**
+   * **Importing and processing sensitive data in your private computing environment (Desktop)**
    
    * **Sharing encrypted sensitive data with SD Connect and permanent ecryption key pair and**
 
