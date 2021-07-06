@@ -6,7 +6,7 @@
 
 
 
-* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [encryption with own permanent key pair paragraph](./data_encryption.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
+* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair paragraph](./crypt4gh_client.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
     
 * SD Connect facilitates working with sensitive data and it is a user interface for Allas, CSC cloud storage solution. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
 
@@ -113,7 +113,7 @@ In the **Shared** page:
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
 !!! note
-    As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data. If you are interested in using your own encryption key pair check the [encryption with own permanent key pair paragraph](./data_encryption.md)
+    As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data. If you are interested in using your own encryption key pair check [the following paragraph](./crypt4gh_client.md)
 
 
 * **Step 1**: You can **download** the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v0.1.0):
@@ -192,7 +192,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 !!! note
         Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decrypted only when imported in SD Desktop, thus using CSC Sensitive Data             Services.
-        If you wish to encrypt the data to transfer them to other services, you need to plan the encryption in advance and use your own encryption key pair. For more                 information, check the Data Sharing section in these paragraph below and the [encryption with own permanent key pair paragraph](./data_encryption.md).
+        If you wish to encrypt the data to transfer them to other services, you need to plan the encryption in advance and use your own encryption key pair. For more                 information, check the Data Sharing section in these paragraph below and the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair](./crypt4gh_client.md).
 
 
 
@@ -279,9 +279,9 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 ## Data Sharing with SD Connect user interface
 
 
-
 !!! Note
-        If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key. However,             if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and analyze them with different services,                 check the [encryption with own permanent key pair paragraph](./data_encryption.md) to learn more.
+        If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key and upload           the data to SD Connect. You will then be able to import the data in SD Desktop, where they will be automatically decrypted. 
+        However, if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and analyze them with different services,         check the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair]](./crypt4gh_client.md) and the                                           [Quick start guide]  (./quickguide.md) to learn more.
 
 
 
