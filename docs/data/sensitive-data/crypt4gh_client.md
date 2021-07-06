@@ -1,7 +1,9 @@
 
 # Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair
 
-## Sensitive data needs to be encrypted before upload
+## Before you start
+
+### Sensitive data needs to be encrypted before upload
 
 According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always
 needs to be encrypted when uploaded or stored in CSC services. Sensitive data needs to be encrypted even if, for example,
@@ -10,7 +12,7 @@ Automatic encryption during data upload has not been implemented to SD Connect y
 you must encrypt all the sensitive data on your local environment before you start to upload it to SD Connect.
 Data that is not sensitive, can be uploaded without encryption.
 
-##  Crypt4GH based encryption
+### Crypt4GH based encryption
 
 Crypt4GH was originally designed to encrypt and share human genetic data according to the
 Global Alliance for Genomics and Health (GA4GH) standard, but it can be
@@ -180,7 +182,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
 
-## Data encryption with Crypt4GH Command Line Interface (CLI) and  own permanen key pair
+## Data encryption with Crypt4GH Graphical User Interface (GUI) and own permanent key pair
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
