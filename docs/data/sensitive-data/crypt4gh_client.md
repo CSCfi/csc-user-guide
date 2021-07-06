@@ -196,7 +196,7 @@ To install Python: https://www.python.org/downloads/release/python-3810/
  
  ### Step 1: Install the latest version of Crypt4GH encryption tool
  
-In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (Research group A:first-recipient example.pub and  Research group B: second-recipientexample.pub Reaserch group b). In this way, the collaborators will be able to decrypt the file in their safe environment using their own permanent key pair.
+In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (Research group A:first-recipient example.pub and  Research group B: second-recipientexample.pub Research group b). In this way, the collaborators will be able to decrypt the file in their safe environment using their own permanent key pair.
  
  
  To install Crypt4GH you can choose one of the following options:
