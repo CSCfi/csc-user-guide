@@ -57,7 +57,16 @@
 ## [Pre-installed software in SD Desktop](./pre-installed_software.md)
 
 
-## [Data Encryption with Crypt4GH and own permanent encryption key pair](./crypt4gh_client.md )
+## [Utilizing singularity containers in SD-Desktop](sd-desktop-singularity.md)
+
+
+## [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair](./crypt4gh_client.md )
   
-   
+  * **Before you start**
+
+  * **Data encryption with Crypt4GH Graphical User Interface (GUI) and own permanent key pair**
+
+  * **Data encryption with Crypt4GH Command Line Interface (CLI) and  own permanent key pair**
+
+  
 
