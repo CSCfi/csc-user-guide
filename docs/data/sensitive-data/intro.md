@@ -40,6 +40,18 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 
 
 
+
+<figure class="video_container">
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/wbSf9wR305A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/x7PjZdJUh4c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/-d8yiaLTLmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+</figure>
+
+
 ## Useful terminology:
 
 **Allas**: The general purpose data storage service of CSC. At the moment SD-connect is using Allas as a storage service and you can in practice consider Allas and SD Connect as just one service. However, ongoing development of SD connect is likely to make it diverge from the standard Allas service in the future.

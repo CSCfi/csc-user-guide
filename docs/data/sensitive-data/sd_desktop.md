@@ -4,7 +4,8 @@
 
 ## Before you start
 
-* Independently of the login method used, you need your **CSC username and password to import data** into your SD Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](../../accounts/how-to-change-password.md)
+* Independently of the login method used, you need a **CSC username and password to import data** into your Desktop computing environment. If you don't remember it, check how to reset it at [Account: How to change password](../../accounts/how-to-change-password.md)
+
 
 * **All the project members belonging to a specific CSC project can access the same computing environment in SD Desktop.** Currently, it is possible to **launch 3 Desktops (or workspaces) for each CSC project**. Each CSC project has its own virtual private computing environment and **each computing environment is isolated from other CSC projects or CSC accounts, unless you authorize it**.
 
@@ -92,10 +93,10 @@ If the launch is successful, when you return to SD Desktop **Homepage**,  you wi
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office; Jupyter Notebook etc). 
+In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office). 
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 
-As previously mentioned, you can **logout** from your computing enviromen at any moment (in the workspace view, top right corner of the browser, select your username and log out). The Desktop will keep on computing and running jobs. You will always be able to access your Desktop again after logging in.
+As previously mentioned, you can **logout** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect the desktop again.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
@@ -160,7 +161,9 @@ This will returt a URL and a service specific password:
 RStudio Server - Sensitive Data Desktop Edition
 ---------------------------------------------------------------------------------------
 Copy/Paste this URL into Firefox:
-Http://localhost:1234/
+
+http://localhost:8787/
+
 -----------------------------------------------------------------------------------------
 Enter these at the RStudio Server sign-in screen
 ----------------------------------------------------------------------------------------
@@ -187,7 +190,7 @@ Next:
 
 
 
-## Deleting your work environment
+## Deleting your computing environment
   
 At the end of your research or your analysis, you can delete your computing environment and all the data in it. 
 
@@ -205,12 +208,22 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
 ##  Data export from SD Desktop
 
 For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
+
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
 
+## Video tutorials
 
+
+<figure class="video_container">
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/OxgfZ4RKP3c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
   
