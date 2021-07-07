@@ -9,11 +9,10 @@
    * **Useful terminology**
    
 
-## [Quickstart](./quickguide.md)
-    
-   * **Importing and processing sensitive data in your private computing environment (Desktop)**
-   
-   * **Sharing encrypted sensitive data with SD Connect and permanent ecryption key pair and**
+## [Quickstart: Processing sensitive data in your Desktop](./quickguide.md)
+
+
+## [Quickstart: Sharing sensitive data with SD Connect](./quickguide_transfer.md)    
 
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
