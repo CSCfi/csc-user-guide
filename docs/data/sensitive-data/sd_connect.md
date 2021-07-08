@@ -24,18 +24,16 @@ To access SD Connect you need:
 * **Service access to Allas** (CSC cloud storage solution)
 
 
-Login to SD Connect is currently possible only with Haka (a user identity federation system) at:
+Login to SD Connect is currently possible only with Haka (a user identity federation system) and CSC credentials at:
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
-
-If you can not access SD Connect using Haka, check more instructions below on how to upload data into SD Connect programmatically using CSC credentials.
 
 The interface is compatible with all modern web browsers. If you do not have an Haka account and can not access the user interface, you can still upload data using other Allas interfaces (see the end of this paragraph). 
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925767-e4fae580-d993-11eb-9fd4-12147dcb956d.png">
 
-<img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
+<img width="960" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -55,7 +53,6 @@ In this page you can :
 *  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete files or upload new files and folders.
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
-
 
 
 ![sd-connect-1](https://user-images.githubusercontent.com/83574067/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
