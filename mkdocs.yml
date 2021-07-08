@@ -157,9 +157,7 @@ nav:
 #        - Quickguide: data/sensitive-data/quickguide.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Connect: data/sensitive-data/sd_connect.md
-        - Data encryption: data/sensitive-data/data_encryption.md
         - crypt4gh client: data/sensitive-data/crypt4gh_client.md
-        - Encryption on command line: data/sensitive-data/encryption-cli.md
         - Pre-installed software: data/sensitive-data/pre-installed_software.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
