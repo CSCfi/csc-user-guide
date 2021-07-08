@@ -23,11 +23,11 @@
    
  * **User Interface**
  
- * **Data encryption with Crypt4GH user interface and CSC encryption key**
+ * **Encryption with CSC encryption key - User Interface**
    
  * **Data upload using SD Connect user interface**
  
- * **Programmatic data encryption with Crypt4GH and CSC encryption key**
+ * **Encryption with CSC encryption key- Command Line Interface**
        
  * **Programmatic data upload and download with SD Connect**
  
@@ -63,13 +63,13 @@
 ## [Utilizing singularity containers in SD Desktop](sd-desktop-singularity.md)
 
 
-## [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair](./crypt4gh_client.md )
+## [Data encryption for data sharing](./crypt4gh_client.md )
   
   * **Before you start**
 
-  * **Data encryption with Crypt4GH Graphical User Interface (GUI) and own permanent key pair**
+  * **Crypt4GH Graphical User Interface (GUI)**
 
-  * **Data encryption with Crypt4GH Command Line Interface (CLI) and  own permanent key pair**
+  * **Crypt4GH Command Line Interface (CLI)**
 
   
 
