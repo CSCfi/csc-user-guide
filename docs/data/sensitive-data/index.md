@@ -7,6 +7,12 @@
    * **Getting access**
    
    * **Useful terminology**
+   
+
+## [Quickstart: Processing sensitive data in your Desktop](./quickguide.md)
+
+
+## [Quickstart: Sharing sensitive data with SD Connect](./quickguide_transfer.md)    
 
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
@@ -17,13 +23,17 @@
    
  * **User Interface**
  
- * **SD Services compatible data encryption**
+ * **Data encryption with Crypt4GH user interface and CSC encryption key**
    
- * **Data upload**
+ * **Data upload using SD Connect user interface**
  
- * **Data Sharing**
+ * **Programmatic data encryption with Crypt4GH and CSC encryption key**
        
- * **Data upload with other clients**
+ * **Programmatic data upload and download with SD Connect**
+ 
+ * **Data Sharing with SD Connect user interface**
+ 
+ * **Video tutorials**
    
   
 
@@ -33,22 +43,33 @@
 
   * **Login**
 
-  * **Launching your Desktop (or your private work environment)**
+  * **Launching your Desktop (or your private computing environment)**
 
   * **Importing encrypted sensitive data to SD Desktop**
 
   * **RStudio in SD Desktop**
 
-  * **Deleting your work environment**
+  * **Deleting your computing environment**
 
   * **Data export from SD Desktop**
+  
+  * **Video tutorials**
 
 
 
 ## [Pre-installed software in SD Desktop](./pre-installed_software.md)
 
 
-## [Data Encryption with Crypt4GH](./encryption-cli.md)
-   * [General instructions for Crypt4GH](./data_encryption.md)
-   
-## [Quick guide](./quickguide.md)
+## [Utilizing singularity containers in SD Desktop](sd-desktop-singularity.md)
+
+
+## [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair](./crypt4gh_client.md )
+  
+  * **Before you start**
+
+  * **Data encryption with Crypt4GH Graphical User Interface (GUI) and own permanent key pair**
+
+  * **Data encryption with Crypt4GH Command Line Interface (CLI) and  own permanent key pair**
+
+  
+
