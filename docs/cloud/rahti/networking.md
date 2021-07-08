@@ -6,7 +6,7 @@ All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs
 
 ## Namespaces
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be reffered as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](/cloud/rahti/concepts/#pod), [Services](/cloud/rahti/concepts/#service) and [Routes](/cloud/rahti/concepts/#route).
+Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](/cloud/rahti/concepts/#pod), [Services](/cloud/rahti/concepts/#service) and [Routes](/cloud/rahti/concepts/#route).
 
 ![Rahti Networking](/cloud/rahti/img/rahti-network.drawio.svg)
 
