@@ -13,6 +13,7 @@
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
+* [Building Singularity containers from scratch](singularity-scratch.md)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)
