@@ -70,14 +70,15 @@ In the  **User information** page you can:
 * in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
 
 
-* in **Project usage** you can view the **SD Connect Account, an ID associated to your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
+* in **Project usage** you can view the SD Connect **Project Identifier**, an ID associated to your CSC project. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
 
-* access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
+* access the **Sharing API tokens** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926085-37d49d00-d994-11eb-910f-4bcfa56c8589.png">
 
-![sd-connect-2](https://user-images.githubusercontent.com/83574067/123926039-2b504480-d994-11eb-8a27-cbcf973a454e.png)
+![SD-Connect-2](https://user-images.githubusercontent.com/83574067/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
+
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926095-3a36f700-d994-11eb-8eb7-df1722efdacf.png">
 
@@ -298,7 +299,7 @@ Clicking the button takes you to **Share the container**  view, in which the use
 
 * select also **Grant write permissions** if you want your colleague to be able to add files and folder to the  shared container select. If you select only this option, your colleague or collaborator will be only able to add files to the container, but not be able to see its content.
 
-* in **UUIDs to share with** add the SD Account of the project you want to share the container with 
+* in **Project Indetifiers to share with** add the SD Connect Project Identifier of the project you want to share the container with 
 
 * Next click on **Share**
 
