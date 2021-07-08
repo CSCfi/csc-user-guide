@@ -9,10 +9,10 @@
    * **Useful terminology**
    
 
-## [Quickstart: Processing sensitive data in your Desktop](./quickguide.md)
+## [Quickstart: Processing sensitive data in your Desktop](./Quickguide.md)
 
 
-## [Quickstart: Sharing sensitive data with SD Connect](./quickguide_transfer.md)    
+## [Quickstart: Sharing sensitive data with SD Connect](./Quickguide_transfer.md)    
 
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
