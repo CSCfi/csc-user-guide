@@ -4,16 +4,15 @@
 
 Rahti's routers are already configured to have some protection against DDoS. The timeout `http-request` and others have been added to the default HAProxy router image to protect the cluster against DDoS attacks (for example, [slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security))). The current configured values are:
 
-| Parameter | Timeout |
-|:--|:--|
-|http-request| 10s|
-|connect| 10s|
-|http-keep-alive| 10s|
-|check| 10s|
+| Parameter | Default timeout | Description |
+|:--|:--|:--|
+|http-request| 10s| HAProxy gives a client 10 seconds to send its headers HTTP request. [http-request](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20http-request) manual |
+|connect| 10s| Set the maximum time to wait for a connection attempt to a server to succeed. [connect](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4.2-timeout%20connect) manual |
+|http-keep-alive| 10s| Set the maximum allowed time to wait for a new HTTP request to appear [http-keep-alive](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20http-keep-alive) manual |
+|check| 10s| Set additional check timeout, but only after a connection has been already
+established. [check](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4-timeout%20check) manual |
 
-For example, the timeout `http-request` is set to 10 seconds. This means HAProxy gives a client 10 seconds to send its whole HTTP request. Otherwise, HAProxy shuts the connection with an error.
-
-It is possible to enable further protections on a per route basis. These annotations muist be added accordinly to the `Route` you may want to protect:
+It is possible to enable further protections on a per route basis. These annotations must be added accordingly to the `Route` you may want to protect:
 
 |Setting|Description|
 |:--|:--|
@@ -22,4 +21,5 @@ It is possible to enable further protections on a per route basis. These annotat
 |haproxy.router.openshift.io/rate-limit-connections.rate-tcp|The number of TCP connections that can be opened by a client IP.|
 |haproxy.router.openshift.io/rate-limit-connections.rate-http|The number of HTTP requests that a client IP can make in a 3-second period.|
 
-See [Protecting Against DDoS Attacks](https://docs.openshift.com/container-platform/3.11/install_config/router/default_haproxy_router.html#deploy-router-protecting-against-ddos-attacks) for more information.
+* See [Protecting Against DDoS Attacks](https://docs.openshift.com/container-platform/3.11/install_config/router/default_haproxy_router.html#deploy-router-protecting-against-ddos-attacks) for more information.
+* See other [Route-specific Annotations](https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html#route-specific-annotations)
