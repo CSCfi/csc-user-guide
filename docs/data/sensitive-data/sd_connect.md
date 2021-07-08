@@ -312,7 +312,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![sd-connect-7](https://user-images.githubusercontent.com/83574067/122786201-bc505d00-d2bc-11eb-832a-9771eb80da72.png)
+![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
