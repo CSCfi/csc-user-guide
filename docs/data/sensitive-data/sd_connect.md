@@ -106,7 +106,7 @@ In the **Shared** page:
 
 
 
-## Data encryption with Crypt4GH  user interface and _CSC encryption key_
+## Encryption with CSC encryption key - User Interface
 
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
@@ -158,7 +158,7 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 
-## Data upload using SD Connect user interface
+## Data upload using SD Connect User Interface
 
 
 To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
@@ -186,7 +186,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 
 
-## Programmatic data encryption with Crypt4GH and _CSC encryption key_
+## Encryption with CSC encryption key- Command Line Interface
 
 !!! note
         Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decrypted only when imported in SD Desktop, thus using CSC Sensitive Data             Services.
