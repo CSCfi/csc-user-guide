@@ -1,5 +1,5 @@
 
-# Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair
+# Data encryption for data sharing
 
 ## Before you start
 
@@ -39,9 +39,9 @@ This key is hosted securely by the SD Services and users never need to do the de
 * **When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example,  the sama dataset can be safely shared with multiple  colleagues or collaborators.
 
 
-!!! note
-Files that have been encrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only in the SD services environment. If you wish to encrypt your data for some other service, you should do another
-encrypted file that uses other public keys.
+!!! Note
+    Files that have been encrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is             available only in the SD services environment. If you wish to encrypt your data for some other service, you should do another
+    encrypted file that uses other public keys.
 
 
 
@@ -100,8 +100,9 @@ The keys will be generated and saved in the same folder in which the Application
 If you lose or forget your private key password you will be unable to decrypt the files. Do not share your private key or your password. Do not share your private key publicly.
 
 
-!!! Note: the Crypt4GH application will automatically load your private key the next time you will access it /open it.
-You don’t need to generate new key pairs each time you open the application.
+!!! Note
+    The Crypt4GH application will automatically load your private key the next time you will access it /open it.
+    You don’t need to generate new key pairs each time you open the application.
 
 ## Step 2: Prepare your files
 
@@ -182,7 +183,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
 
-## Data encryption with Crypt4GH Graphical User Interface (GUI) and own permanent key pair
+## Crypt4GH Command Line Interface (CLI)
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
@@ -307,8 +308,8 @@ total 48
 
 
 
-!!!Note
-Programmatically you can add more than one public key. This could be useful in case you need to share your data with a colleague or collaborator: including their public key will allow them to decrypt the same dataset with their private/public key pair.
+!!! Note
+    Programmatically you can add more than one public key. This could be useful in case you need to share your data with a colleague or collaborator: including           their public key will allow them to decrypt the same dataset with their private/public key pair.
 
 
 ### Step 4: Data Decryption
