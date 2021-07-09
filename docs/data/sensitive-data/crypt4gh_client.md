@@ -12,11 +12,12 @@ Automatic encryption during data upload has not been implemented to SD Connect y
 you must encrypt all the sensitive data on your local environment before you start to upload it to SD Connect.
 Data that is not sensitive, can be uploaded without encryption.
 
+
 ### Crypt4GH based encryption
 
-Crypt4GH was originally designed to encrypt and share human genetic data according to the
-Global Alliance for Genomics and Health (GA4GH) standard, but it can be
-used to encrypt any type of data.
+There many valid methods to encrypt your data. In this document we focus on [Crypt4GH](https://crypt4gh.readthedocs.io/en/latest/) as that
+is the default encryption tool in the CSC Sensitive Data Services. Crypt4GH was originally designed to encrypt and share human genetic data according to the
+Global Alliance for Genomics and Health (GA4GH) standard, but it can be used to encrypt any type of data.
 
 Crypt4GH uses **asymmetric encryption**, an encryption method that is based on two interlinked encryption keys:
 
@@ -29,18 +30,17 @@ Crypt4GH uses **asymmetric encryption**, an encryption method that is based on t
 
 * **When using CSC Sensitive Data Services for analyzing sensitive data you have two possibilities:**
 
-1) you can encrypt the data with the workflow described earlier in the SD Connect guide. With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public encryption key (using the Crypt4GH user interfaces or programmatically). In this way, when you import the data to SD Desktop, they will be decrypted  in an automated manner in your own private computing environment.  The data are automatically decrypted with **CSC Sensitive Data Services secret key"**.
-This key is hosted securely by the SD Services and users never need to do the decryption themselves.
+1) you can encrypt the data with the workflow described earlier in the SD Connect guide. With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public encryption key (using the Crypt4GH user interfaces or programmatically). In this way, the data is automatically decrypted with **CSC Sensitive Data Services secret key"** when it is imported to SD Desktop. This key is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
  
 
-2) you can encrypt the data with your own permanent key pair, in this case, when imported in SD Desktop, the data needs to be manually decrypt.
+2) you can encrypt the data with one or several public keys. In this case, when imported in SD Desktop, you need to decrypt the data manually. Note that in this case you need to have a corresponding secret key in SD Desktop.
 
 
-* **When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example,  the sama dataset can be safely shared with multiple  colleagues or collaborators.
+* **When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the same dataset can be safely shared with multiple colleagues or collaborators.
 
 
 !!! Note
-    Files that have been encrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is             available only in the SD services environment. If you wish to encrypt your data for some other service, you should do another
+    Files that have been encrypted only with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is             available only in the SD services environment. If you wish to encrypt your data for some other service, you should do another
     encrypted file that uses other public keys.
 
 
@@ -285,13 +285,7 @@ To ecrypt the files:
 In this example we are loading your private key and two recipients public keys (_pk first-recipientexample.pub_) and (_pk second-recipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
 
 ```
-$ crypt4gh encrypt --sk example-your-name.sec -fisrt-recipientexample.pub --recipient_pk second-recipeintexample.pub < dog.jpg
-```
-
-The tool will ask the password for your private key and next the data will be encrypted.
-
-```
-Passphrase for example-your-name.sec:
+$ crypt4gh encrypt --recipient_pk fisrt-recipientexample.pub --recipient_pk second-recipeintexample.pub < dog.jpg
 ```
 
 The tool will visualize the following and the extension of the original file will be changed to.c4gh, underlining that the encryption was successful.
@@ -323,7 +317,7 @@ $ crypt4gh -h
 Next input your private key (_sk exaplename.sec_) and add the file that you want to decrypt (_ < dog.jpg.c4gh >_):
 
 ```
-$ crypt4gh decrypt --sk exaple-your-name.sec < dog.jpg.c4gh
+$ crypt4gh decrypt --sk exaple-your-name.sec < dog.jpg.c4gh > dog.jpg
 ```
 
 The tool will ask you to input your private key password:
@@ -332,10 +326,10 @@ The tool will ask you to input your private key password:
 Passphrase for example-your-name.sec:
 ```
 
-And output the decrypted file:
+And the output the decrypted file to your current directory
 
 ```
-> dog.jpg
+dog.jpg
 ```
 
 
