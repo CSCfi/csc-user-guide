@@ -30,10 +30,10 @@ Crypt4GH uses **asymmetric encryption**, an encryption method that is based on t
 
 * **When using CSC Sensitive Data Services for analyzing sensitive data you have two possibilities:**
 
-1) you can encrypt the data with the workflow described earlier in the [SD Connect guide](./sd_connect.md). With this workflow, you will encrypt a copy of your data using the _CSC Sensitive Data public encryption key_ (using the Crypt4GH user interfaces or programmatically). In this way, the data is automatically decrypted with **CSC Sensitive Data Services secret key"** when it is imported to SD Desktop. This key is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
+1) you can encrypt the data with the workflow described earlier in the [SD Connect guide](./sd_connect.md). With this workflow, you will encrypt a copy of your data using the _CSC Sensitive Data public encryption key_. This ecnryption is automatically decrypted when the data is imported to SD Desktop. The **CSC Sensitive Data Services secret key"**, that is needed for decryption, is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
  
 
-2) you can encrypt the data with one or several public keys. In this case, when imported in SD Desktop, you need to decrypt the data there manually. Note that in this case you need to have a corresponding secret key in SD Desktop. In practice this means that you have to encrypt your private key using the option 1 above and upload it to SD Desktop through SD Connect.
+2) If you need to use data other environments too, can encrypt the data with one or several public keys. In this case, when imported in SD Desktop, you need to decrypt the data there manually. Note that in this case you need to have a corresponding secret key in SD Desktop. In practice this means that you have to encrypt your private key using the option 1 above and upload it to SD Desktop through SD Connect.
 
 
 * **When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the same dataset can be safely shared with multiple colleagues or collaborators.
@@ -49,13 +49,9 @@ Crypt4GH uses **asymmetric encryption**, an encryption method that is based on t
 
 ## Crypt4GH Command Line Interface (CLI)
 
-For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
-
-In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Then, we encrypt a file with your public key (_my_key.pub_) and your collaborators public key (_her_key.pub_). In this way, both you and your collaborator will be able to decrypt the file in your safe environment whithout a need to share secret keys or passwords.
+In this example, we first generate your permanent key pair: a _private key_ and a _public key_. Then, we encrypt a file with your public key (_my_key.pub_) and your collaborators public key (_her_key.pub_). In this way, both you and your collaborator will be able to decrypt the file in your safe environment whithout a need to share secret keys or passwords.
  
  
-
-
  
  ### Step 1: Install the latest version of Crypt4GH encryption tool
 
@@ -126,11 +122,9 @@ Passphrase for my_key.sec:
 ```
 
 Your collaborator should generate her own key pair in her own environment and send just the public key to you.
-Typically the same keypair is used for several encryption tasks.
-
-Keeping the amount of keys small is recommend as afterwards you can't check, what keys were used for encryption.
+Typically the same keypair is used for several encryption tasks. Keeping the amount of keys small is recommend 
+as afterwards you can't check, what keys were used for encryption.
 If you are not able to find the right secret key and password, your data can't be used any more.
-
 
 
 ### Step 3: Encrypt the file or directory
@@ -151,7 +145,7 @@ The command above creates an encrypted file _dog.jpg.c4gh_ that can be decrypted
 If you did not use Sensitive Data services public key you need to decrypt the data in SD Desktop. 
 Firtst make sure that you have your secret key available in the SD Desktop. (Import it through SD Conncect if needed.)
 
-Crypt4gh is available in the SD Desktop so you don't need to install it. 
+Crypt4gh is available in the SD Desktop so you don't need to install it there. 
 
 ```
 $ crypt4gh -h
