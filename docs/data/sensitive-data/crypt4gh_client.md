@@ -30,10 +30,10 @@ Crypt4GH uses **asymmetric encryption**, an encryption method that is based on t
 
 * **When using CSC Sensitive Data Services for analyzing sensitive data you have two possibilities:**
 
-1) you can encrypt the data with the workflow described earlier in the [SD Connect guide](./sd-connect.md). With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public encryption key (using the Crypt4GH user interfaces or programmatically). In this way, the data is automatically decrypted with **CSC Sensitive Data Services secret key"** when it is imported to SD Desktop. This key is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
+1) you can encrypt the data with the workflow described earlier in the [SD Connect guide](./sd_connect.md). With this workflow, you will encrypt a copy of your data using the _CSC Sensitive Data public encryption key_ (using the Crypt4GH user interfaces or programmatically). In this way, the data is automatically decrypted with **CSC Sensitive Data Services secret key"** when it is imported to SD Desktop. This key is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
  
 
-2) you can encrypt the data with one or several public keys. In this case, when imported in SD Desktop, you need to decrypt the data manually. Note that in this case you need to have a corresponding secret key in SD Desktop.
+2) you can encrypt the data with one or several public keys. In this case, when imported in SD Desktop, you need to decrypt the data there manually. Note that in this case you need to have a corresponding secret key in SD Desktop. In practice this means that you have to encrypt your private key using the option 1 above and upload it to SD Desktop through SD Connect.
 
 
 * **When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the same dataset can be safely shared with multiple colleagues or collaborators.
@@ -187,7 +187,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 For documentation and more information you can check [Crypt4GH](https://github.com/EGA-archive/crypt4gh.git)
 
-In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (Research group A:  and Research group b).
+In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with  your public key (_my_key.pub_) and your collaborators public key (_her_key.pub_). 
  
  
 
@@ -197,7 +197,7 @@ To install Python: https://www.python.org/downloads/release/python-3810/
  
  ### Step 1: Install the latest version of Crypt4GH encryption tool
  
-In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (Research group A:first-recipient example.pub and  Research group B: second-recipientexample.pub Research group b). In this way, the collaborators will be able to decrypt the file in their safe environment using their own permanent key pair.
+In this example, first we generate your permanent key pair ( a private key password protected and a public key that can be shared with collaborators). Next, we encrypt a file with your public key and the public key of your collaborator. In this way, the collaborator will be able to decrypt the file in her safe environment using her own secret key.
  
  
  To install Crypt4GH you can choose one of the following options:
@@ -253,68 +253,45 @@ Environment variables:
 
 
 ```
-$ crypt4gh-keygen --sk examplename.sec --pk examplename.pub
+$ crypt4gh-keygen --sk my_key.sec --pk my_key.pub
 ```
 
 where:
 
-* _ sk examplename.sec_   is your private secrete (sk) key and
+* _ sk my_key.sec_ is your private secrete (sk) key and
 
-* _ pk examplename.pub_ is your public key (pk).
+* _ pk my_key.pub_ is your public key (pk).
 
-The tool will then ask you to input your private key password. Use a strong password.
+When keys are generated the tool will then ask you to assign a password for your private key. Use a strong password.
 
 ```
-Passphrase for examplename.sec:
+Passphrase for my_key.sec:
 ```
 
 
 ### Step 3: Encrypt the file or directory
 
-To ecrypt the files:
 
-* Load your private or secret key (_sk example-your-name.sec_)
-
-*  your public key (_pk example-your-name.pub_)
-
-*  and a first recipient (_pk first-recipientexample.pub_) or any other recipient public key (e.g. public key of your collaborator)
-
-*  and load the file or directory you want to encrypt.
-
-
-In this example we are loading your private key and two recipients public keys (_pk first-recipientexample.pub_) and (_pk second-recipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
+In this example we are using your public key and the recipients public keys to encrypt a file containing a dog image ( _dog.jpg_).
 
 ```
-$ crypt4gh encrypt --recipient_pk fisrt-recipientexample.pub --recipient_pk second-recipeintexample.pub < dog.jpg
+$ crypt4gh encrypt --recipient_pk my_key.pub --recipient_pk her_key.pub < dog.jpg > dog.jpg.c4gh
 ```
 
-The tool will visualize the following and the extension of the original file will be changed to.c4gh, underlining that the encryption was successful.
+The command above creates an encrypted file _dog.jpg.c4gh_ that can be decrypted only using a secret key matching one of the two publick keys used.
 
-```
-total 48     
--rw--rwr--r--  1 daz  staff   115B Nov  6 21:03 exanplename.pub    
--rw-r--r--  1 daz  staff   235B Nov  6 21:03 examplename.sec
--rw-r--r--  1 daz  staff   115B Nov  6 21:03 sds.pub   
--rw-r--r--  1 daz  staff   235B Nov  6 21:03 dsd.sec
--rw-r--r--  1 daz  staff    17B Nov  6 21:05 dog.jpg  
--rw-r--r--  1 daz  staff   169B Nov  6 21:05 dog.jpg.c4gh
-```
-
-
-
-!!! Note
-    Programmatically you can add more than one public key. This could be useful in case you need to share your data with a colleague or collaborator: including           their public key will allow them to decrypt the same dataset with their private/public key pair.
 
 
 ### Step 4: Data Decryption
 
-If you did not use SDS public key you need to decrypt the data in SD Desktop. Login into your private computing environment and first install Crypt4GH:
+If you did not use Sensitive Data services public key you need to decrypt the data in SD Desktop. 
+Firtst make sure that you have your secret key available in the SD Desktop. (Import it through SD Conncect if needed.)
 
 ```
 $ crypt4gh -h
 ```
 
-Next input your private key (_sk exaplename.sec_) and add the file that you want to decrypt (_ < dog.jpg.c4gh >_):
+Next input your private key (_sk .sec_) and add the file that you want to decrypt (_ < dog.jpg.c4gh >_):
 
 ```
 $ crypt4gh decrypt --sk exaple-your-name.sec < dog.jpg.c4gh > dog.jpg
