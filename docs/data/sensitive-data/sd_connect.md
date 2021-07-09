@@ -24,18 +24,16 @@ To access SD Connect you need:
 * **Service access to Allas** (CSC cloud storage solution)
 
 
-Login to SD Connect is currently possible only with Haka (a user identity federation system) at:
+Login to SD Connect is currently possible only with Haka (a user identity federation system) and CSC credentials at:
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
-
-If you can not access SD Connect using Haka, check more instructions below on how to upload data into SD Connect programmatically using CSC credentials.
 
 The interface is compatible with all modern web browsers. If you do not have an Haka account and can not access the user interface, you can still upload data using other Allas interfaces (see the end of this paragraph). 
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925767-e4fae580-d993-11eb-9fd4-12147dcb956d.png">
 
-<img width="854" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/122104560-73ae2500-ce20-11eb-9ca8-eaa0e3e3f199.png">
+<img width="960" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -57,7 +55,6 @@ In this page you can :
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
 
 
-
 ![sd-connect-1](https://user-images.githubusercontent.com/83574067/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
 
 
@@ -73,14 +70,15 @@ In the  **User information** page you can:
 * in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
 
 
-* in **Project usage** you can view the **SD Connect Account, an ID associated to your CSC project**. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
+* in **Project usage** you can view the SD Connect **Project Identifier**, an ID associated to your CSC project. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
 
-* access the **Token icon** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
+* access the **Sharing API tokens** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926085-37d49d00-d994-11eb-910f-4bcfa56c8589.png">
 
-![sd-connect-2](https://user-images.githubusercontent.com/83574067/123926039-2b504480-d994-11eb-8a27-cbcf973a454e.png)
+![SD-Connect-2](https://user-images.githubusercontent.com/83574067/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
+
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926095-3a36f700-d994-11eb-8eb7-df1722efdacf.png">
 
@@ -108,7 +106,7 @@ In the **Shared** page:
 
 
 
-## Data encryption with Crypt4GH  user interface and _CSC encryption key_
+## Encryption with CSC encryption key - User Interface
 
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
@@ -160,7 +158,7 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 
-## Data upload using SD Connect user interface
+## Data upload using SD Connect User Interface
 
 
 To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
@@ -188,7 +186,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 
 
-## Programmatic data encryption with Crypt4GH and _CSC encryption key_
+## Encryption with CSC encryption key- Command Line Interface
 
 !!! note
         Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decrypted only when imported in SD Desktop, thus using CSC Sensitive Data             Services.
@@ -301,7 +299,7 @@ Clicking the button takes you to **Share the container**  view, in which the use
 
 * select also **Grant write permissions** if you want your colleague to be able to add files and folder to the  shared container select. If you select only this option, your colleague or collaborator will be only able to add files to the container, but not be able to see its content.
 
-* in **UUIDs to share with** add the SD Account of the project you want to share the container with 
+* in **Project Indetifiers to share with** add the SD Connect Project Identifier of the project you want to share the container with 
 
 * Next click on **Share**
 
@@ -314,7 +312,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![sd-connect-7](https://user-images.githubusercontent.com/83574067/122786201-bc505d00-d2bc-11eb-832a-9771eb80da72.png)
+![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
