@@ -15,8 +15,8 @@ Data that is not sensitive, can be uploaded without encryption.
 
 ### Crypt4GH based encryption
 
-There many valid methods to encrypt your data. In this document we focus on [Crypt4GH](https://crypt4gh.readthedocs.io/en/latest/) as that
-is the default encryption tool in the CSC Sensitive Data Services. Crypt4GH was originally designed to encrypt and share human genetic data according to the
+There are many valid methods to encrypt your data. In this document we focus on [Crypt4GH](https://crypt4gh.readthedocs.io/en/latest/) as that
+is the default encryption tool in the **CSC Sensitive Data Services**. Crypt4GH was originally designed to encrypt and share human genetic data according to the
 Global Alliance for Genomics and Health (GA4GH) standard, but it can be used to encrypt any type of data.
 
 Crypt4GH uses **asymmetric encryption**, an encryption method that is based on two interlinked encryption keys:
@@ -30,7 +30,7 @@ Crypt4GH uses **asymmetric encryption**, an encryption method that is based on t
 
 * **When using CSC Sensitive Data Services for analyzing sensitive data you have two possibilities:**
 
-1) you can encrypt the data with the workflow described earlier in the SD Connect guide. With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public encryption key (using the Crypt4GH user interfaces or programmatically). In this way, the data is automatically decrypted with **CSC Sensitive Data Services secret key"** when it is imported to SD Desktop. This key is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
+1) you can encrypt the data with the workflow described earlier in the [SD Connect guide](./sd-connect.md). With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public encryption key (using the Crypt4GH user interfaces or programmatically). In this way, the data is automatically decrypted with **CSC Sensitive Data Services secret key"** when it is imported to SD Desktop. This key is hosted securely by the SD Services and users never need to do the decryption themselves. Futher, the data can't be decrypted in any other environment.
  
 
 2) you can encrypt the data with one or several public keys. In this case, when imported in SD Desktop, you need to decrypt the data manually. Note that in this case you need to have a corresponding secret key in SD Desktop.
