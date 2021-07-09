@@ -285,7 +285,7 @@ To ecrypt the files:
 In this example we are loading your private key and two recipients public keys (_pk first-recipientexample.pub_) and (_pk second-recipientexample.pub_) and encrypting a file containing a dog image ( _dog.jpg_).
 
 ```
-$ crypt4gh encrypt --sk example-your-name.sec -fisrt-recipientexample.pub --recipient_pk second-recipeintexample.pub < dog.jpg
+$ crypt4gh encrypt --sk example-your-name.sec -first-recipientexample.pub --recipient_pk second-recipeintexample.pub < dog.jpg
 ```
 
 The tool will ask the password for your private key and next the data will be encrypted.
