@@ -57,7 +57,7 @@ is given.
 * [**Packing and compression tools**](packing-and-compression-tools.md)
     * [Tar: packing several files into one file](packing-and-compression-tools.md#tar-packing-several-files-into-one-file)
     * [Compressing files](packing-and-compression-tools.md#compressing-files)
-        * [gzip and gunzip](packing-and-compression-tools.md#gzip-and-gunzip)
+        * [gzip and gunzip](packing-and-compression-tools.md#gzipand-gunzip)
 * [**Linux bash scripts**](linux-bash-scripts.md)
     * [Constructing a script file](linux-bash-scripts.md#constructing-a-script-file)
     * [Variables and arrays](linux-bash-scripts.md#variables-and-arrays)
