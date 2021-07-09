@@ -41,8 +41,4 @@ Also see our [documentation on how to run Singularity containers](run-existing.m
 
 You can also build your own Singularity container from scratch. This is an option for more experienced users, and your main source of information is the [official Singularity documentation on building containers](https://sylabs.io/guides/3.6/user-guide/build_a_container.html).
 
-You can find some help also by looking at some of the [Singularity recipes used by CSC's staff to build the containers provided on our supercomputers](https://github.com/CSCfi/singularity-recipes/).
-
-!!! Note
-
-    Building a container requires root (superuser) access and thus cannot be done on CSC's supercomputers. Instead, you can use your own computer or for example a Pouta virtual machine to build the Singularity container image and then copy the resulting file to Puhti or Mahti.
+You can find some help also by looking at our [tutorial on building Singularity containers from scratch](../../support/tutorials/singularity-scratch.md).
