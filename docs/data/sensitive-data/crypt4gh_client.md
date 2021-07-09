@@ -115,9 +115,9 @@ $ crypt4gh-keygen --sk my_key.sec --pk my_key.pub
 
 where:
 
-* _ sk my_key.sec_ is your secret (sk) key and
+* _my_key.sec_ is your secret key and
 
-* _ pk my_key.pub_ is your public key (pk).
+* _my_key.pub_ is your public key.
 
 When keys are generated the tool will then ask you to assign a password for your private key. Use a strong password.
 
@@ -125,11 +125,18 @@ When keys are generated the tool will then ask you to assign a password for your
 Passphrase for my_key.sec:
 ```
 
+Your collaborator should generate her own key pair in her own environment and send just the public key to you.
+Typically the same keypair is used for several encryption tasks.
+
+Keeping the amount of keys small is recommend as afterwards you can't check, what keys were used for encryption.
+If you are not able to find the right secret key and password, your data can't be used any more.
+
+
 
 ### Step 3: Encrypt the file or directory
 
 
-In this example we are using your and the recipients public keys to encrypt a file containing a dog image ( _dog.jpg_).
+In this example we are using your and your collaborators public keys to encrypt a file containing a dog image ( _dog.jpg_).
 
 ```
 $ crypt4gh encrypt --recipient_pk my_key.pub --recipient_pk her_key.pub < dog.jpg > dog.jpg.c4gh
