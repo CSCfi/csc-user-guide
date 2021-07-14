@@ -25,11 +25,11 @@ First login to _puhti.csc.fi_. Then, start an interactive batch job session with
 sinteractive
 ```
 In the interactive session move to LOCAL_SCRATCH directory an set some Singularity related environment variables:
- 
- ```text
- export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
- export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
- unset XDG_RUNTIME_DIR
+
+```text
+export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
+export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
+unset XDG_RUNTIME_DIR
 ```
 
 Then download a local copy of the Beta container with command
