@@ -6,6 +6,7 @@
 
 According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services. Sensitive data needs to be encrypted even if, for example, downloaded from public repositories. The encryption requirement applies to the SD Connect service too. Automatic encryption during data upload has not been implemented to SD Connect yet. Because of this, at the moment, you must encrypt all the sensitive data on your local environment before you start uploading it to SD Connect. Data that is not sensitive can be uploaded without encryption.
 
+
 ### Crypt4GH based encryption
 
 Crypt4GH was originally designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard, but it can be used to encrypt any type of data.
