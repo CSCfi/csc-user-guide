@@ -245,7 +245,7 @@ Passphrase for groupA.sec:
 
 where `--sk groupA.sec` is a corresponding private key to one of the public keys used in the encryption. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg.c4gh` reads in an ecrypted file called _dog.jpg.c4gh_ and `>dog.jpg` writes out a decrypted file named _dog.jpg_.
 
-The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayd when you type it.
+The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
 !!! Note
    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
