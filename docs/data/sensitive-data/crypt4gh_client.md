@@ -229,7 +229,7 @@ Passphrase for mykey.sec:
 
 where `--sk mykey.sec` is your private key, `--recipient_pk groupA.pub` is the research group A's public key, and `--recipient_pk groupB.pub` is the research group B's public key. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called _dog.jpg_ and `>dog.jpg.c4gh` writes out an encrypted file named _dog.jpg.c4gh`.
 
-The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayd when you type it.
+The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
 !!! Note
     If you want to be able to decrypt the file yourself you must add your own public key also as a recipient.
