@@ -6,7 +6,6 @@
 
 According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services. Sensitive data needs to be encrypted even if, for example, downloaded from public repositories. The encryption requirement applies to the SD Connect service too. Automatic encryption during data upload has not been implemented to SD Connect yet. Because of this, at the moment, you must encrypt all the sensitive data on your local environment before you start uploading it to SD Connect. Data that is not sensitive can be uploaded without encryption.
 
-
 ### Crypt4GH based encryption
 
 Crypt4GH was originally designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard, but it can be used to encrypt any type of data.
@@ -67,10 +66,10 @@ All the fields must be filled before file encryption will be started
 The keys will be generated and saved to the same folder in which the application resides.
 
 !!! Note
-   If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
+    If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
 
 !!! Note
-   You need to create your keys only once and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you wish.
+    You need to create your keys only once and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you wish.
 
 ### Step 3: Prepare your files
 
@@ -214,10 +213,10 @@ Your public key has been saved in mykey.pub
 where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is your public key (pk). The tool will ask you to enter a password (passphrase) for your private key. For security reasons the password is not shown when you type it so the tool will ask you to enter it a second time to make sure you made no typing errors (or, you make the same errors twice…). Please, use a strong password!
 
 !!! Note
-   If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
+    If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
 
 !!! Note
-   You need to create your keys only once and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you wish.
+    You need to create your keys only once and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you wish.
 
 ### Step 3: Encrypt a file
 
@@ -249,4 +248,4 @@ where `--sk groupA.sec` is a corresponding private key to one of the public keys
 The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
 !!! Note
-   In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
+    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
