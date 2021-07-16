@@ -114,11 +114,11 @@ With the following workflow, you can use a graphical user interface (Crypt4sds G
     As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data. If you are interested in using your own encryption key pair check [the following paragraph](./crypt4gh_client.md)
 
 
-* **Step 1**: You can **download** the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v0.1.0):
+* **Step 1**: You can **download** the user interface specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
   
-   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-linux-amd64.zip)
-   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-macos-amd64.zip)
-   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v0.1.0/crypt4sds-python3.7-windows-amd64.zip)
+   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-linux-amd64.zip)
+   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-macos-amd64.zip)
+   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
 
 
 * **Step 2**: Verify that the program has been digitally signed by CSC - IT Center for Science. After downloading and unzipping the file, you can find the Crypt4GH application in your download folder. 
