@@ -174,7 +174,7 @@ could use command:
 $ tar xvzf project_3.tar.gz project_3/sample2.txt
 ~~~~
 
-## Compressing files 
+## Compressing files
 
 Compressing files saves storage space and makes data trasport faster,
 but it may take a lot of time. Data compression is CPU intensive and
@@ -261,7 +261,7 @@ these five methods in the Puhti supercluster.
 
  
 
-### gzip and gunzip 
+### gzip and gunzip
 
 **gzip** is probably the most commonly used packing tool in Unix and
 Linux systems. It uses the *Lempel-Ziv coding* (LZ77) for compressing
@@ -306,7 +306,7 @@ note that gunzip command is actually just a wrapper for the *gzip
 -d* command (option *-d* instructs gzip to decompress, rather than
 compress) so you will not find a separate manual page for that.
 
-#### gzip example 
+#### gzip example
 
 Lets assume we are in the $WRKDIR directory of Puhti-shell and there we
 have just one file called *my\_data.dat*. Lets first check the size of
@@ -343,7 +343,7 @@ total 1.5G
 The file listing now shows that the compressed file has disappeared and
 the original file is available again.
 
-### bzip2 and bunzip2 
+### bzip2 and bunzip2
 
 **bzip2** is a compression program that is used very similarly compared
 to [gzip][bzip2]. The main difference between the two programs is that
