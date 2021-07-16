@@ -22,7 +22,7 @@ Crypt4GH uses _asymmetric encryption_, an encryption method that is based on two
 
    2) You can encrypt the data with your own key pair. In this case, when imported to SD Desktop, the data needs to be decrypted manually.
 
-**When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the sama dataset can be safely shared with multiple colleagues or collaborators.
+**When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the same dataset can be safely shared with multiple colleagues or collaborators.
 
 !!! Note
     Files that have been encrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only to the SD services environment. If you wish to encrypt your data for some other service, you should create another encrypted file that uses other public keys.
@@ -82,7 +82,7 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 ### Step 4: Load the encryption keys
 
-The Crypt4GH GUI require that you define a _sectret key_ and _public key_ for encryption. The actual encryption is done with the public key and the secret key is used only for signing the encrypted file. The encryption signature can be later on used to verify, who has created the encrypted file. Due to this the secret and public keys are not always from the same key pair. If you will use the encrypted data yourself, then you should use your own secret and public keys, but if you are encrypting the data for some one else, thet you should use your private key and the recivers public key. 
+The Crypt4GH GUI require that you define a _secret key_ and _public key_ for encryption. The actual encryption is done with the public key and the secret key is used only for signing the encrypted file. The encryption signature can be later on used to verify, who has created the encrypted file. Due to this the secret and public keys are not always from the same key pair. If you will use the encrypted data yourself, then you should use your own secret and public keys, but if you are encrypting the data for some one else, then you should use your private key and the receivers public key. 
 
 1. Click on _Load My Private Key_ button.
 1. Select your private key (username_crypt4gh.key).
@@ -115,14 +115,14 @@ Currently, the Crypt4GH GUI application is not provided with a progress bar. If 
 
 1. Access your secure computing environment in SD Desktop.
 1. Next, open Crypt4GH and click on _load Your Private Key_.  
-1. Click on _load Their public Key_ and upload the public key of the user, who has done the ecryption. 
+1. Click on _load Their public Key_ and upload the public key of the user, who has done the encryption. 
 1. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
 1. Click on _Open_.
 1. Next click on _Decrypt File_.
 1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file.
 
 In the decryption process, the private key must match the public key that was used to encrypt the data.
-In case of decryption, the public key is not mandatory, but if you have the public key of person who has ecrypted the file
+In case of decryption, the public key is not mandatory, but if you have the public key of person who has encrypted the file
 then you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
 ```
