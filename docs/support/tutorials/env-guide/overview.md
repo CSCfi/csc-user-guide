@@ -58,7 +58,7 @@ is given.
     * [Tar: packing several files into one file](packing-and-compression-tools.md#tar-packing-several-files-into-one-file)
     * [Compressing files](packing-and-compression-tools.md#compressing-files)
         * [gzip and gunzip](packing-and-compression-tools.md#gzipand-gunzip)
-        * [bzip2 and bunzip2](packing-and-compression-tools.md#bzi2pand-bunzip2)
+        * [bzip2 and bunzip2](packing-and-compression-tools.md#bzip2and-bunzip2)
         * [zip and unzip: the combined compression and file archiving tool](packing-and-compression-tools.md#zip-and--unzip-the-combined-compression-and-file-archiving-tool)
         * [7zip packing and compression tool](packing-and-compression-tools.md#7zip-packing-and-compression-tool)
         * [Zstandard compression tool](packing-and-compression-tools.md#zstandard-compression-tool)
