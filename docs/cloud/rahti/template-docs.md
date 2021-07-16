@@ -66,3 +66,9 @@ Apache Airflow (or simply Airflow) is a platform to programmatically author, sch
 ![Rocker Chat](img/rocketchat.svg)
 
 Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full stack framework. It is a solution for communities and companies wanting to privately host their own chat service or for developers looking forward to build and evolve their own chat platforms.
+
+### Prometheus and Grafana
+
+![Prometheus](img/prometheus.png)
+
+The template deploys Prometheus and Grafana for monitoring pods running in the same Rahti namespace. Prometheus is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. Grafana is an open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics no matter where they are stored. It provides tools to turn time-series database (TSDB) data into graphs and visualizations. The documentation is currently available at <https://github.com/CSCfi/grafana-prometheus-template>
