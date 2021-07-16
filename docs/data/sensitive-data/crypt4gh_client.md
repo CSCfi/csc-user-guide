@@ -51,13 +51,13 @@ When you open the application for the first time you might encounter an error me
 
 1. Open the application and click on _Generate Keys_ (on the top right corner).
 1. The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your private key. Please, use a strong password!
-1. When you click on _OK_, the tool will generate a key pair consisting of a private key (name_surname.crypt4gh.key) and a public key (name_surname.crypt4gh.pub).
+1. When you click on _OK_, the tool will generate a key pair consisting of a private key (username_crypt4gh.key) and a public key (username_crypt4gh.pub).
 1. The keys/file names will be displayed in the Activity Log with the following message:
 
 ```
 Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
-Private key: name_surname.crypt4gh.key
-Public key: name_surname.crypt4gh.pub
+Private key: username_crypt4gh.key
+Public key: username_crypt4gh.pub
 All the fields must be filled before file encryption will be started
 ```
 
@@ -82,12 +82,12 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 ### Step 4: Load the encryption keys
 
-The Crypt4GH GUI require that you define a _sectret key_ and _public key_ for encryption. Here the actual encryption is done with the public key and the secret key is used only for signing the encrypted file. The encryption signature can be later on used to verify, who has created the ecrypted file. Due to this the secret and public key are not always from the same key pair. If you will use the encrypted data yourself, then you should use your own secret and public keys, but if you are encrypting the data for some one else, thet you should use your private key and the recivers public key. 
+The Crypt4GH GUI require that you define a _sectret key_ and _public key_ for encryption. The actual encryption is done with the public key and the secret key is used only for signing the encrypted file. The encryption signature can be later on used to verify, who has created the encrypted file. Due to this the secret and public keys are not always from the same key pair. If you will use the encrypted data yourself, then you should use your own secret and public keys, but if you are encrypting the data for some one else, thet you should use your private key and the recivers public key. 
 
 1. Click on _Load My Private Key_ button.
-1. Select your private key (name_surname.crypt4gh.key).
+1. Select your private key (username_crypt4gh.key).
 1. Click on _Open_. If the upload is successful, the tool will show the current path in the title bar.
-1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub), or your collaborator public key if you need to share the encrypted data.
+1. Next, click on _Load Their Public Key_ button and select your public key (usernmae_crypt4gh.pub), or your collaborator public key if you need to share the encrypted data.
 1. Click on _Open_.
 
 ![DEnScreenshot_6](./images/SDEnScreenshot_6.png)
@@ -121,9 +121,9 @@ Currently, the Crypt4GH GUI application is not provided with a progress bar. If 
 1. Next click on _Decrypt File_.
 1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file.
 
-In the decryption process, the private key must match the publick key that was used to ecrypt the data.
+In the decryption process, the private key must match the public key that was used to encrypt the data.
 In case of decryption, the public key is not mandatory, but if you have the public key of person who has ecrypted the file
-then you can use it to verify the ecryption signature. If you don't select your public key, the activity log will display the following (the decryption will be executed anyway):
+then you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
 ```
 Sender public key has not been set, authenticity will not be verified.
