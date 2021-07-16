@@ -58,11 +58,11 @@ nav:
        - What is Rahti: cloud/rahti/rahti-what-is.md
        - Containers & their Orchestration: cloud/rahti/containers.md
        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+       - Security guide: cloud/rahti/security-guide.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-         - Security guide: cloud/rahti/usage/security-guide.md
        - Rahti Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
@@ -77,6 +77,7 @@ nav:
          - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
+         - Annotations: /cloud/rahti/tutorials/annotations.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -150,6 +151,14 @@ nav:
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
+     - Sensitive data:
+        - Overview: data/sensitive-data/index.md
+        - Introduction: data/sensitive-data/intro.md
+#        - Quickguide: data/sensitive-data/quickguide.md
+        - SD Desktop: data/sensitive-data/sd_desktop.md
+        - SD Connect: data/sensitive-data/sd_connect.md
+        - crypt4gh client: data/sensitive-data/crypt4gh_client.md
+        - Pre-installed software: data/sensitive-data/pre-installed_software.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md

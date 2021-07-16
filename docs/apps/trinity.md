@@ -88,21 +88,14 @@ Please check the Trinity site to get hints for estimating the required resources
 
 ## Using autoTrinotate
 
-You can analyse the results of your Trinity job with `autoTrininotate`.
-You must first create a Trinotate-SQLite database that will be used to store the results of your autoTrinotate.  
+You can analyse the results of your Trinity job with `autoTrininotate`. You need two files, resulting from a successful Trinity assembly.
+    1. Fasta formatted nucleotide sequence file containing the final contigs created by Trinity (Trinity.fasta)
+    2. gene-to-trans map for the input fasta file (Trinity.fasta.gene_to_trans_map)
 
-This database is created with command:
-```
-$TRINOTATE_HOME/admin/Build_Trinotate_SQLite_db.pl my_db_name
-```
-!!! Note 
-    The command above is different as what is used in 
-    the Trinotate home page as the command has been slightly modified for Puhti
-
-After these settings you can launch autoTrinotate with command:
+You can launch autoTrinotate with command:
 
 ```bash
-$TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite my_db_name.sqlite --transcripts transcripts.fasta --gene_to_trans_map gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU 4
+$TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite $TRINOTATE_HOME/databases/Trinotate.sqlite --transcripts Trinity.fasta --gene_to_trans_map  Trinity.fasta.gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU  $SLURM_CPUS_PER_TASK
 ```
 !!! Note
     autoTrinotate analysis can require much resources so you should execute the command in
