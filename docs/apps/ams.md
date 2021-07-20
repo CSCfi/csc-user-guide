@@ -4,8 +4,8 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2020, ADF2020, BAND2020, DFTB2020, MOPAC2020, ReaxFF2020 , Version 2020.103
--   Mahti: AMS2020, ADF2020, BAND2020, DFTB2020, MOPAC2020, ReaxFF2020 , Version 2020.103
+-   Puhti: AMS2021, ADF2021, BAND2021, DFTB2021, MOPAC2021, ReaxFF2021 , Version 2021.102
+-   Mahti: AMS2021, ADF2021, BAND2021, DFTB2021, MOPAC2021, ReaxFF2021 , Version 2021.102
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
