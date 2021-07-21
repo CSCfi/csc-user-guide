@@ -72,7 +72,7 @@ The input data:
 
 The analysis pipeline is illustrated in figure below.
 
-![RNA-Seq analysis pipeline](../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
+![RNA-Seq analysis pipeline](../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
 
 
