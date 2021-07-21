@@ -12,7 +12,7 @@ analysis is done in R (also available in the virtual machine). The
 virtual machine mimics the CSC environment (Puhti supercomputer): later,
 when the Puhti-shell environment is in use, these steps can be run
 there. Meanwhile, see the [guide page for interactive usage of
-Puhti](https://docs.csc.fi/#computing/running/interactive-usage/).
+Puhti](../computing/running/interactive-usage/).
 
 
 !!! note
@@ -72,7 +72,7 @@ The input data:
 
 The analysis pipeline is illustrated in figure below.
 
-![RNA-Seq analysis pipeline](../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
+![RNA-Seq analysis pipeline](../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
 
 
@@ -134,7 +134,7 @@ to Files -\> Home -\> rnaseq.  
 New to command line? Don't worry, check the:
 
 -   [CSC's quick reference guide (with unix commands
-    listed)](https://docs.csc.fi/img/csc-quick-reference-2019-11-21.pdf)
+    listed)](../../img/csc-quick-reference-2019-11-21.pdf)
 
 
 
@@ -156,7 +156,7 @@ You can check the existing conda environments with command:
 -   [Conda user
     guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 -   [CSC's Conda
-    documentation](https://docs.csc.fi/support/tutorials/conda/)
+    documentation](../../support/tutorials/conda.md)
 
 Now we can get started with the actual analysis steps. 
 
@@ -165,7 +165,7 @@ Now we can get started with the actual analysis steps.
 
 
 First, we check the quality of the raw reads in the FASTQ files with
-[FastQC](https://docs.csc.fi/#apps/fastqc/) and
+[FastQC](../apps/fastqc.md) and
 [PRINSEQ](http://prinseq.sourceforge.net/manual.html) tools. After this,
 we trim the reads with
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to get rid
@@ -699,9 +699,7 @@ environment and type rstudio. 
 !!! note
     You can also use R and RStudio on CSC's Puhti supercomputer. The Bioconductor packages needed here are already installed there.
 
-
--   [R on CSC's Puhti supercomputer](https://docs.csc.fi/#apps/r-env/)
--   [RStudio on CSC's Puhti supercomputer](https://docs.csc.fi/#apps/rstudio/)
+-   [RStudio on CSC's Puhti supercomputer](../apps/rstudio-or-jupyter-notebooks.md)
 
 ...or you can also run these steps on your own computer, in which case
 you need to install these packages as descriped below.
@@ -828,7 +826,7 @@ shows us how the read counts are modified within DESeq2.
 
 You should get the following plots as outputs:
 
-![PCA and dispersion plots](../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
+![PCA and dispersion plots](../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
 
 PCA and dispersion plots.
 
@@ -867,7 +865,7 @@ Let's draw a heatmap of the most highly variable genes: 
     pheatmap(highly_variable_genes)
 
 
-![Heatmap of most variable genes](../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
+![Heatmap of most variable genes](../../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
 
 Heatmap of most variable genes.
 
@@ -1107,9 +1105,9 @@ First, open Terminal and log in to Puhti with your user credentials.
 
 More information about running jobs in Puhti:
 
--   [Connecting to Puhti](https://docs.csc.fi/computing/overview/)
--   [Running batch jobs in Puhti](https://docs.csc.fi/computing/running/getting-started/)
--   [Array jobs in Puhti](https://docs.csc.fi/computing/running/array-jobs/)
+-   [Connecting to Puhti](../computing/overview.md)
+-   [Running batch jobs in Puhti](../computing/running/getting-started.md)
+-   [Array jobs in Puhti](../computing/running/array-jobsmd)
 -   [How to get started with CSC services](https://research.csc.fi/accounts-and-projects)
 
 Next, we move to our projects SCRATCH directory. You can't run analyses
@@ -1124,8 +1122,8 @@ Go to your projects SCRATCH directory (use your project ID instead of the X's:)
 
 More information about Puhti disk areas and projects:
 
--   [Puhti disk areas](https://docs.csc.fi/computing/disk/)
--   [How to create a project](https://docs.csc.fi/#accounts/how-to-create-new-project/) 
+-   [Puhti disk areas](../computing/disk.md)
+-   [How to create a project](../accounts/how-to-create-new-project.md) 
 
 
 Check whether there are already some files in the SCRATCH directory.
@@ -1168,8 +1166,8 @@ need from the software pages: for example, for FastQC you need to module
 load biokit.
 
 
--   [Modules in Puhti](https://docs.csc.fi/computing/modules/)
--   [Applications available in Puhti  ](https://docs.csc.fi/apps/)
+-   [Modules in Puhti](../computing/modules.md)
+-   [Applications available in Puhti  ](../apps.md)
 
 
 Run the script with sbatch command. 
@@ -1219,9 +1217,9 @@ After you are done with the analysis, you want to store the data in
 Allas. From Allas, you can also easily share some of the files to your
 colleagues.
 
--   [Using Allas to host a dataset in a research project](https://docs.csc.fi/data/Allas/allas_project_example/)
--   [What is Allas?](https://docs.csc.fi/data/Allas/introduction/)
--   [a-commands in Allas](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
+-   [Using Allas to host a dataset in a research project](../data/Allas/allas_project_example.md)
+-   [What is Allas?](../data/Allas/introduction.md)
+-   [a-commands in Allas](../data/Allas/using_allas/a_commands.md)
 
 Load Allas module and set up a connection to Allas:
 
@@ -1232,7 +1230,7 @@ Now we can store our data to Allas. After the data is in Allas, you can
 delete it from Puhti: SCRATCH directory is automatically cleaned every
 90 days, but it might be easier to remember to move your data to Allas
 if you try to keep your SCRATCH directory clean. We use
-[a-commands](http://docs.csc.fi/data/Allas/using_allas/a_commands/) to
+[a-commands](../data/Allas/using_allas/a_commands.md) to
 load the data:
 
     cd ..
