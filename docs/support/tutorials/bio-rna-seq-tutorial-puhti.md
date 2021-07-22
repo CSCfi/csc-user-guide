@@ -1247,8 +1247,8 @@ need from the software pages: for example, for FastQC you need to module
 load biokit.
 
 
--   [Modules in Puhti](https://docs.csc.fi/computing/modules/)
--   [Applications available in Puhti  ](https://docs.csc.fi/apps/)
+-   [Modules in Puhti](../computing/modules)
+-   [Applications available in Puhti](../apps)
 
 
 Run the script with sbatch command. 
@@ -1298,9 +1298,9 @@ After you are done with the analysis, you want to store the data in
 Allas. From Allas, you can also easily share some of the files to your
 colleagues.
 
--   [Using Allas to host a dataset in a research project](https://docs.csc.fi/data/Allas/allas_project_example/)
--   [What is Allas?](https://docs.csc.fi/data/Allas/introduction/)
--   [a-commands in Allas](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
+-   [Using Allas to host a dataset in a research project](../data/Allas/allas_project_example)
+-   [What is Allas?](../data/Allas/introduction)
+-   [a-commands in Allas](../data/Allas/using_allas/a_commands)
 
 Load Allas module and set up a connection to Allas:
 
@@ -1311,7 +1311,7 @@ Now we can store our data to Allas. After the data is in Allas, you can
 delete it from Puhti: SCRATCH directory is automatically cleaned every
 90 days, but it might be easier to remember to move your data to Allas
 if you try to keep your SCRATCH directory clean. We use
-[a-commands](http://docs.csc.fi/data/Allas/using_allas/a_commands/) to
+[a-commands](../data/Allas/using_allas/a_commands) to
 load the data:
 
     cd ..
