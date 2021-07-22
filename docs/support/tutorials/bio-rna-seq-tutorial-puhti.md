@@ -566,8 +566,10 @@ Run a "test alignment" with HISAT2 default parameters:
 Run the RSeqQC tool infer_experiment. 
 
 !!! note
-    RSeQC can be found in bioconda package in Puhti, so load that first with ```module load bioconda```. Should you run into difficulties ("command not found"), try: ```source activate rseqc```.
+    RSeQC can be found in bioconda package in Puhti, so first load the bioconda module and activate the ```rseqc``` environment: 
 
+    module load bioconda
+    source activate rseqc
     infer_experiment.py -i results-hisat/hesc_subset.sam -r refseq_19.bed > results-hisat/strandedness_data.txt
 
 
@@ -670,7 +672,9 @@ Check if this tool counts all reads:
 Check if the coverage is uniform along the transcripts:
 
     geneBody_coverage.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam -o results-rseqc/hesc
-    xdg-open results-rseqc/hesc.geneBodyCoverage.curves.pdf 
+    # In vm: xdg-open results-rseqc/hesc.geneBodyCoverage.curves.pdf 
+    # In Puhti: 
+    evince results-rseqc/hesc.geneBodyCoverage.curves.pdf 
 
 
 Check how many of the splice junctions are novel:
