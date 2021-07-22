@@ -699,7 +699,7 @@ environment and type rstudio. 
 !!! note
     You can also use R and RStudio on CSC's Puhti supercomputer. The Bioconductor packages needed here are already installed there.
 
--   [RStudio on CSC's Puhti supercomputer](../apps/rstudio-or-jupyter-notebooks.md)
+-   [RStudio on CSC's Puhti supercomputer](../tutorials/rstudio-or-jupyter-notebooks.md)
 
 ...or you can also run these steps on your own computer, in which case
 you need to install these packages as descriped below.
@@ -1107,7 +1107,7 @@ More information about running jobs in Puhti:
 
 -   [Connecting to Puhti](../computing/overview.md)
 -   [Running batch jobs in Puhti](../computing/running/getting-started.md)
--   [Array jobs in Puhti](../computing/running/array-jobsmd)
+-   [Array jobs in Puhti](../computing/running/array-jobs.md)
 -   [How to get started with CSC services](https://research.csc.fi/accounts-and-projects)
 
 Next, we move to our projects SCRATCH directory. You can't run analyses
