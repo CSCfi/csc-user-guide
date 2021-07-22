@@ -134,7 +134,7 @@ to Files -\> Home -\> rnaseq.  
 New to command line? Don't worry, check the:
 
 -   [CSC's quick reference guide (with unix commands
-    listed)](../../img/csc-quick-reference-2019-11-21.pdf)
+    listed)](../img/csc-quick-reference-2019-11-21.pdf)
 
 
 
@@ -156,7 +156,7 @@ You can check the existing conda environments with command:
 -   [Conda user
     guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 -   [CSC's Conda
-    documentation](../../support/tutorials/conda.md)
+    documentation](../support/tutorials/conda.md)
 
 Now we can get started with the actual analysis steps. 
 
