@@ -77,20 +77,20 @@ The analysis pipeline is illustrated in figure below.
 
 ## Preparatory steps for Puhti use
 
-Using Puhti supercomputer for the step-by-step exercises is the recommended way, if you are planning to run the analysis on Puhti later on. CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. Please follow these [instructions for getting access to CSC services](https://docs.csc.fi/accounts/). If you are not planning on using CSC's resources, but simply wish to learn the basics of RNA-seq data analysis, you can use the virtual machine (see the instructions below.)
+Using Puhti supercomputer for the step-by-step exercises is the recommended way, if you are planning to run the analysis on Puhti later on. CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. Please follow these [instructions for getting access to CSC services](https://research.csc.fi/accounts-and-projects). If you are not planning on using CSC's resources, but simply wish to learn the basics of RNA-seq data analysis, you can use the virtual machine (see the instructions below.)
 
 To use CSCs supercomputer, you need some basic Linux skills. We suggest that you follow our [command line minicourse in e-lena](https://e-learn.csc.fi/course/view.php?id=58) or the [command line use basic tutorials](https://csc-training.github.io/csc-env-eff/#12-tutorials-and-exercises)
 
-1.  [Get a user account, project and access to Puhti and Allas](https://docs.csc.fi/accounts/)
-2.  [Use NoMachine to connect to Puhti's login node with virtual desktop](https://docs.csc.fi/support/tutorials/nomachine-usage/)
+1.  [Get a user account, project and access to Puhti and Allas](https://research.csc.fi/accounts-and-projects)
+2.  [Use NoMachine to connect to Puhti's login node with virtual desktop](../support/tutorials/nomachine-usage/)
 3.  Go to your project's SCRATCH folder, create a folder for the tutorial data there
 4.  Upload the data there
-5.  Use the [interactive batch job](https://docs.csc.fi/computing/running/interactive-usage/) for running the examples
+5.  Use the [interactive batch job](../computing/running/interactive-usage/) for running the examples
 
 
 ### 1. Get a user account, project and access to Puhti and Allas
 
-[You can follow the instructions here](https://docs.csc.fi/accounts/). In short, to get the user account, you log in to [MyCSC](http://my.csc.fi/) with your home organisations credentials (Haka or Virtu), and fill in a form in the sign up page, and then you receive an e-mail with your login information. (If you have CSC credentials already, use them.)
+[You can follow the instructions here](https://research.csc.fi/accounts-and-projects). In short, to get the user account, you log in to [MyCSC](http://my.csc.fi/) with your home organisations credentials (Haka or Virtu), and fill in a form in the sign up page, and then you receive an e-mail with your login information. (If you have CSC credentials already, use them.)
 
 !!! note
 
@@ -101,7 +101,7 @@ You should now have a CSC username, password and a project number.
 ### 2. Connecting to Puhti using ssh client
 
 Connecting and using Puhti happens through a ssh client, such as Putty (Windows), or if you are using MacOS or Linux, the ssh command can be given in the Terminal.
--   [Connecting to Puhti](https://docs.csc.fi/computing/connecting/)
+-   [Connecting to Puhti](../computing/connecting/)
 -   [Connecting to Puhti tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html)
 
 Open Terminal or Putty, and type:
@@ -113,17 +113,17 @@ You are now in the **login node** of Puhti. -X opens a graphical connection.
 ### 3. Connecting to Puhti with remote desktop (using NoMachine)
 
 During the exercises, we are looking some graphics (plots and R-Studio), which is why we want to use the **remote desktop** provided with the NoMachine client. You need to download the **NoMachine Enterprise client** (not the Desktop) and install it on your own computer (note that installing may require admin rights). 
--   [Instructions for installing the NoMachine client and opening the connection](https://docs.csc.fi/support/tutorials/nomachine-usage/)
+-   [Instructions for installing the NoMachine client and opening the connection](../support/tutorials/nomachine-usage/)
 
 1.  [Download the **NoMachine Enterprise client**](https://www.nomachine.com/download-enterprise) (note: not the "Desktop", but "Client"!) and install it on your own computer.
-2.  Follow the instructions for [configuration](https://docs.csc.fi/support/tutorials/nomachine-usage/#configuration) and [opening a connection](https://docs.csc.fi/support/tutorials/nomachine-usage/#open-connection).
+2.  Follow the instructions for [configuration](../support/tutorials/nomachine-usage/#configuration) and [opening a connection](../support/tutorials/nomachine-usage/#open-connection).
 3.  Once you see the black screen, click it, and choose to connect to Puhti. Give your CSC password when asked.
 
 You should now have NoMachine connection to Puhti: a black virtual desktop with white terminal open in one of Puhti's login nodes. 
 
 **Terminal** is the command line, where we will be typing our commands in the exercises. The commands are case-sensitive, so you need to be very precise when typing! Use the Tab button on your keyboard to finish the commands when possible. 
--   [Quick reference guide](https://docs.csc.fi/img/csc-quick-reference-2019-11-21.pdf) for command line commands etc
--   [Linux basics](https://docs.csc.fi//support/tutorials/env-guide/using-linux-in-command-line/)
+-   [Quick reference guide](../img/csc-quick-reference-2019-11-21.pdf) for command line commands etc
+-   [Linux basics](../support/tutorials/env-guide/using-linux-in-command-line/)
 
 ### 4. Create a folder, upload the data there
 
