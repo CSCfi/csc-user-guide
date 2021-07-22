@@ -79,6 +79,8 @@ The analysis pipeline is illustrated in figure below.
 
 Using Puhti supercomputer for the step-by-step exercises is the recommended way, if you are planning to run the analysis on Puhti later on. CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes. Please follow these [instructions for getting access to CSC services](https://docs.csc.fi/accounts/). If you are not planning on using CSC's resources, but simply wish to learn the basics of RNA-seq data analysis, you can use the virtual machine (see the instructions below.)
 
+To use CSCs supercomputer, you need some basic Linux skills. We suggest that you follow our [command line minicourse in e-lena](https://e-learn.csc.fi/course/view.php?id=58) or the [command line use basic tutorials](https://csc-training.github.io/csc-env-eff/#12-tutorials-and-exercises)
+
 1.  [Get a user account, project and access to Puhti and Allas](https://docs.csc.fi/accounts/)
 2.  [Use NoMachine to connect to Puhti's login node with virtual desktop](https://docs.csc.fi/support/tutorials/nomachine-usage/)
 3.  Go to your project's SCRATCH folder, create a folder for the tutorial data there
@@ -100,12 +102,13 @@ You should now have a CSC username, password and a project number.
 
 Connecting and using Puhti happens through a ssh client, such as Putty (Windows), or if you are using MacOS or Linux, the ssh command can be given in the Terminal.
 -   [Connecting to Puhti](https://docs.csc.fi/computing/connecting/)
+-   [Connecting to Puhti tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html)
 
 Open Terminal or Putty, and type:
 
-    ssh <csc_username>@puhti.csc.fi
+    ssh -X <csc_username>@puhti.csc.fi
 
-You are now in the **login node** of Puhti. 
+You are now in the **login node** of Puhti. -X opens a graphical connection.
 
 ### 3. Connecting to Puhti with remote desktop (using NoMachine)
 
@@ -155,10 +158,11 @@ Navigate to the same rnaseq folder also **with NoMachine**, and check that you s
     cd /scratch/project_xxxxxxx/rnaseq_test_yourname/rnaseq
     ls -lh
 
-#### 5. Upload the module
+#### 5. Load the "biokit" module
 
-CSC's Puhti has many users, and thus also many softwares installed. Often these softwares are mutually incompatible: this issue is solved by using **modules**. Different tools used in this analysis might require different modules. You can check which modules a tool needs from the [tools manual page](https://docs.csc.fi/apps/).
--   [Learn about modules](https://docs.csc.fi/computing/modules/)
+CSC's Puhti has many users, and thus also many softwares installed. Often these softwares are mutually incompatible: this issue is solved by using **modules**. Different tools used in this analysis might require different modules. You can check which modules a tool needs from the [tools manual page](../apps.md).
+-   [Learn about modules](../computing/modules.md)
+-   [Biomodules in Puhti tutorial](https://csc-training.github.io/csc-env-eff/hands-on/modules/module-exercise-with-aligners.html)
 
 Use **module load** command to load the **biokit** tools:
 
@@ -173,11 +177,12 @@ Use the following command on the ssh client to launch an interactive session on 
 
     sinteractive --account <project> --mem 8000 --tmp 100
 
+Now you have everything set up for the actual exercises! Skip to the [Quality control, trimming and filtering section](#Quality-control,-trimming-and-filtering)!
 
 ## Preparatory steps for virtual machine use
 
 
-Before starting the tutorial, you need to perform the following preparatory
+In case you choose to run the exercises **in the virtual machine INSTEAD of Puhti**, perform the following preparatory
 steps:
 
 
@@ -258,11 +263,11 @@ You can check the existing conda environments with command:
 Now we can get started with the actual analysis steps. 
 
 
-## Quality control & trimming/filtering
+## Quality control, trimming and filtering
 
 
 First, we check the quality of the raw reads in the FASTQ files with
-[FastQC](https://docs.csc.fi/#apps/fastqc/) and
+[FastQC](../apps/fastqc.md) and
 [PRINSEQ](http://prinseq.sourceforge.net/manual.html) tools. After this,
 we trim the reads with
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to get rid
@@ -291,10 +296,19 @@ Use:
 
 to see what the parameter -o means.
 
-Open the hesc\_fastqc.html file in browser:
+Open the hesc\_fastqc.html file in browser. In Puhti, Firefox is available in bioconda module, so we load that first:
 
+    module load bioconda
     firefox results-fastqc/hesc_fastqc.html
 
+Close the html window when you are done viewing. 
+It might be a bit slow to open/view, so another option is to load the html file to Allas and view it there:
+    
+    module load allas
+    allas-conf project_XXXXXXXXX # replace
+    a-flip results-fastqc/hesc_fastqc.html 
+
+Copy the public link to your browser and view the FASTQ report there.
 
 You can compare your FastQC report to [an example of a good Illumina
 data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)
@@ -309,61 +323,8 @@ are there? What do you think has happened? 
     reports](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 
-### 2. Check the quality of the reads with PRINSEQ
 
-
-Get a similar quality report using PRINSEQ. Compare the reports. Again,
-we start by creating a directory for the output files:
-
-    mkdir results-prinseq
-
-
-Unzip the fastq file, because PRINSEQ is not able to handle compressed
-files.
-
-    gunzip < hesc.fastq.gz > hesc.fastq
-
-Now, since the file is unzipped, you can take a look at what the FASTQ
-file looks like. How many lines are there for each read? Can you spot
-the sequence and the quality codings for the reads?
-
-    head hesc.fastq
-
-
-Make first the graph file:
-
-    prinseq-lite.pl -fastq hesc.fastq -out_good null -out_bad null -graph_data results-prinseq/hescgraph -verbose
-
-
-Check in the PRINSEQ manual what the different parameters mean using:
-
-    prinseq-lite.pl -help
-
-Which statistics were chosen to be calculated for the graphs?
-
-Check what files were created with:
-
-    ls -lh results-prinseq
-
-Convert the graph file to an html report:
-
-    prinseq-graphs.pl -i results-prinseq/hescgraph -html_all -o results-prinseq/hesc_prinseq
-
-Check what files were created with:
-
-    ls -lh results-prinseq
-
-
-Open the hesc\_fastqc.html file in browser:
-
-    firefox results-prinseq/hesc_prinseq.html
-
-Is there some new information compared to FastQ report? 
-
--   [PRINSEQ manual](http://prinseq.sourceforge.net/manual.html)
-
-
-### 3. Trim reads based on base quality with Trimmomatic
+### 2. Trim reads based on base quality with Trimmomatic
 
     mkdir results-trimmomatic
 
@@ -399,7 +360,7 @@ What changes you can spot in the report? 
 -   [Trimmomatic manual](http://www.usadellab.org/cms/?page=trimmomatic)
 
 
-### 4. BONUS exercise: Trim reads based on base quality with PRINSEQ
+### 3. BONUS exercise: Trim reads based on base quality with PRINSEQ
 
 Try the trimming step also with PRINSEQ with identical parameters: trim
 bases from the 3' end if the base quality is less than 5, and keep only
@@ -445,7 +406,7 @@ In the Single species data table, click on the link for DNA (FASTA) for
 Homo Sapiens. Right-click on the chromosome 19 file and copy the link
 (ftp://ftp.ensembl.org/pub/release-82/fasta/homo\_sapiens/dna/Homo\_sapiens.GRCh38.dna.chromosome.19.fa.gz)
 
-Get the file to the virtual machine by typing wget and pasting the link
+Get the file by typing wget and pasting the link
 to the command line:
 
     wget ftp://ftp.ensembl.org/pub/release-82/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.19.fa.gz\
@@ -468,7 +429,7 @@ Check that you have the files and unzip the files in the folder.
 Check the beginning of the GTF file to see where the chromosome
 information is located for each entry.
 
-    head Homo_sapiens.GRCh38.82.gtf\
+    head Homo_sapiens.GRCh38.82.gtf
 
 
 Make a subset of the GTF file so that it contains only genes for
@@ -490,14 +451,14 @@ Remove the original, whole genome GTF file using
 RseQC tool used after the alignment needs a BED file with gene locations
 and a BAM file. You can fetch a BED file for chromosome 19 using [UCSC
 Table browser](https://genome.ucsc.edu/cgi-bin/hgTables). BED file
-included in the virtual machine (refseq\_chr19\_actual.bed) was
+included in the given data that you wget in the very beginning (refseq\_chr19\_actual.bed) was
 originally obtained this way. It has a different chromosome naming to
 what is used in your BAM file (chr19 vs 19), so you need to remove
 the chr prefix first.
 
 Substitute chr with nothing using the command sed:
 
-    sed s/^chr// refseq_chr19_actual.bed > refseq_19.bed\
+    sed s/^chr// refseq_chr19_actual.bed > refseq_19.bed
 
 Have a look at the BED file to see if the chr is gone with:
 
@@ -509,28 +470,28 @@ Have a look at the BED file to see if the chr is gone with:
 !!! note
     For the course, indexes are already prepared for you: you don't need to run the commands with \# in beginning! 
 
-    # mkdir hisat-indexes\
-    # hisat2-build Homo_sapiens.GRCh38.dna.chromosome.19.fa hisat-indexes/hs_19\
+    # mkdir hisat-indexes
+    # hisat2-build Homo_sapiens.GRCh38.dna.chromosome.19.fa hisat-indexes/hs_19
 
 You can build the index with just the command above. However, we are
 learning to use also the gene locations information from the GTF file to
 create the index. For this, you first need to generate these HISAT
 specific splice site and exon files:
 
-    hisat2_extract_splice_sites.py hg38chr19.gtf > splice_sites.txt\
-    hisat2_extract_exons.py hg38chr19.gtf > exons.txt\
-    # hisat2-build --ss splice_sites.txt --exon exons.txt Homo_sapiens.GRCh38.dna.chromosome.19.fa hisat-indexes/hs_19\
+    hisat2_extract_splice_sites.py hg38chr19.gtf > splice_sites.txt
+    hisat2_extract_exons.py hg38chr19.gtf > exons.txt
+    # hisat2-build --ss splice_sites.txt --exon exons.txt Homo_sapiens.GRCh38.dna.chromosome.19.fa hisat-indexes/hs_19
 
 
 This command will take some time to run, so in the course we won't run
-this command. **Instead, these indexes are included in the VM.** You can
+this command. **Instead, these indexes are included in the given dataset.** You can
 find them in the folder called *hisat-indexes*.
 
 
 Check the index files. You should have there files hs\_19.1.ht2,
 hs\_19.2.ht2...
 
-    ls -lh hisat-indexes\
+    ls -lh hisat-indexes
 
 
 Why are there so many files? 
@@ -544,7 +505,7 @@ Why are there so many files? 
 
 ### 3. Align reads to reference genome with HISAT2
 
-    mkdir results-hisat\
+    mkdir results-hisat
 
 
 Align reads to reference genome using the index which is located in the
@@ -559,7 +520,7 @@ to understand the syntax. 
 -   [HISAT2 manual](http://ccb.jhu.edu/software/hisat2/manual.shtml)
 
 
-### Bonus: Check the strandedness of your data
+### Bonus: Check the strandedness of your data & learn to install application from Bioconda
 
 For alignment (HISAT2) and read counting (HTSeq), it is useful to know
 if our data was created with a **directional protocol**. This means that
@@ -582,13 +543,31 @@ Subset the data: take 20 000 reads using [Seq Kit sample
 tool](https://bioinf.shenwei.me/seqkit/usage/#sample):
 
     seqkit sample -s 15 hesc.fastq -n 200000 -o results-hisat/hesc_subset.fastq
+    
+!!! note 
+    Seqkit is not installed in Puhti, which you probably noticed :) 
+    So this is a great opportunity to learn how to install Bioconda packages to your own                environment in Puhti!
+    First, read the [Bioconda documentation: Installing software for your own use with bioconda](../apps/bioconda/#2-installing-software-for-your-own-use-with-bioconda). Run the following commands to install Seqkit to "my_biotools" (first two commands you probably have run already):
+    
+    # export PROJAPPL=/projappl/project_xxxxxx
+    # module load bioconda
+    conda create -n my_biotools seqkit
+    source activate my_biotools
+    # Re-run seqkit:
+    seqkit sample -s 15 hesc.fastq -n 200000 -o results-hisat/hesc_subset.fastq
+    # Deactivate the my_biotools environment:
+    conda deactivate
 
 
 Run a "test alignment" with HISAT2 default parameters:
 
     hisat2 -q -x hisat-indexes/hs_19 -U results-hisat/hesc_subset.fastq -S results-hisat/hesc_subset.sam
 
-Run the RSeqQC tool infer\_experiment:
+Run the RSeqQC tool infer_experiment. 
+
+!!! note
+    RSeQC can be found in bioconda package in Puhti, so load that first with ```module load bioconda```
+    NOT WORKING ATM!!!
 
     infer_experiment.py -i results-hisat/hesc_subset.sam -r refseq_19.bed > results-hisat/strandedness_data.txt
 
@@ -623,11 +602,14 @@ Finally, let's run HISAT2 to align our data:
 
 What was the alignment rate? How many reads aligned multiple times? 
 
+!!! note
+    Please note that this is a toy dataset, which has unreasonably good alignment rate (in fact, this fastq file was created by selecting reads that did align) -so don't get conserned if the alignment rate with your data is not as good!
+
 Let's convert the SAM into BAM.
 
-    cd results-hisat\
-    samtools view -bS hesc.sam > hesc.bam\
-    ls -lth\
+    cd results-hisat
+    samtools view -bS hesc.sam > hesc.bam
+    ls -lth
 
 
 View the hesc.bam as text and check in the header if the alignments have
@@ -643,9 +625,9 @@ and tags?
 
 Sort and index the BAM file:
 
-    samtools sort hesc.bam -o hesc_sorted.bam\
-    ls -lth\
-    samtools index hesc_sorted.bam\
+    samtools sort hesc.bam -o hesc_sorted.bam
+    ls -lth
+    samtools index hesc_sorted.bam
     ls -lth
 
 
@@ -658,7 +640,7 @@ Return to the rnaseq folder with
 
 Make a directory for RseQC result files:
 
-    mkdir results-rseqc\
+    mkdir results-rseqc
 
 
 RseQC consists of several Python scripts, which we run separately. Check
@@ -672,24 +654,24 @@ can view the files when they are generated.
 Check some statistics about the alignment. How many alignments are
 there? How many reads are spliced?
 
-    bam_stat.py -i results-hisat/hesc_sorted.bam > results-rseqc/hesc-stats.txt\
+    bam_stat.py -i results-hisat/hesc_sorted.bam > results-rseqc/hesc-stats.txt
 
 
 Get an overview of the read distribution. Do most of the reads map to
 exons?
 
-    read_distribution.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam > results-rseqc/hesc-distribution.txt\
+    read_distribution.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam > results-rseqc/hesc-distribution.txt
 
 
 Check if this tool counts all reads:
 
-    read_distribution.py -help\
+    read_distribution.py -help
 
 
 Check if the coverage is uniform along the transcripts:
 
-    geneBody_coverage.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam -o results-rseqc/hesc\
-    xdg-open results-rseqc/hesc.geneBodyCoverage.curves.pdf \
+    geneBody_coverage.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam -o results-rseqc/hesc
+    xdg-open results-rseqc/hesc.geneBodyCoverage.curves.pdf 
 
 
 Check how many of the splice junctions are novel:
@@ -701,8 +683,8 @@ Check how many of the splice junctions are novel:
 
 Check the saturation status of the splice junctions:
 
-    junction_saturation.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam -o results-rseqc/hesc\
-    xdg-open results-rseqc/hesc.junctionSaturation_plot.pdf \
+    junction_saturation.py -r refseq_19.bed -i results-hisat/hesc_sorted.bam -o results-rseqc/hesc
+    xdg-open results-rseqc/hesc.junctionSaturation_plot.pdf 
 
 
 ### **Bonus:** Check the alignment in IGV genome browser
@@ -711,8 +693,8 @@ You can view the BAM files in [IGV Genome
 Browser.](http://software.broadinstitute.org/software/igv/) Practise
 using IGV by browsing
 to [https://igv.org/app/](https://igv.org/app/) and uploading the BAM
-and BAI files: Tracks -\> Local files -\> select *hesc\_sorted.bam* and
-*hesc\_sorted.bai* in the results-hisat folder (use ctrl to select two
+and BAI files: Tracks -> Local files -> select *hesc_sorted.bam* and
+*hesc_sorted.bai* in the results-hisat folder (use ctrl to select two
 files). Check that you have the correct reference (hg19). Navigate for
 example to location chr19:281,093-281,252. Try zooming in and out. Which
 gene are we now looking at? Can you see any reads? What is the
@@ -735,24 +717,24 @@ own analysis, use the whole dataset.
 
 ## Count reads per genes using HTSeq
 
-    htseq-count -f bam --stranded=yes results-hisat/hesc_sorted.bam hisat-indexes/hg38chr19.gtf > hesc-counts-raw.tsv\
+    htseq-count -f bam --stranded=yes results-hisat/hesc_sorted.bam hisat-indexes/hg38chr19.gtf > hesc-counts-raw.tsv
 
 Check what the different parameters mean. What is the minimum mapping
 quality for a read to be counted? Was the strandedness parameter
 correct?
 
-    htseq-count --help\
+    htseq-count --help
 
 Look at the beginning and the end of the result file. Can you see genes
 with counts? How many alignments did not overlap with any gene?
 
-    head hesc-counts-raw.tsv\
-    tail hesc-counts-raw.tsv\
+    head hesc-counts-raw.tsv
+    tail hesc-counts-raw.tsv
 
-Remove the last 5 rows starting with "\_\_" (keep all but the last 5
+Remove the last 5 rows starting with "_ _" (keep all but the last 5
 rows).
 
-    head -n -5 hesc-counts-raw.tsv > hesc-counts.tsv\
+    head -n -5 hesc-counts-raw.tsv > hesc-counts.tsv
 
 
 
@@ -763,14 +745,14 @@ For the next step, you need to combine your count files into one file,
 so that each sample has one count column. To make this tutorial run
 smooth, we switch now to another data set with several samples -in real
 life, you would repeat the previous preprocessing and alignment steps
-for each sample, and then combine the samples into one count table. You
+for each sample (in a batch job), and then combine the samples into one count table. You
 would run these steps in our supercomputers, and through a script -we
 will take a look into that a bit later, once we first have learned all
 the individual steps of the analysis.
 
 !note
     In real life, you would use a script to process all the
-    samples at once. We will learn this a bit later.
+    samples at once (as a batch job). We will learn this a bit later.
 
 
 ## RNA-seq differential expression analysis using R
@@ -787,20 +769,20 @@ file: https://biotraining.object.pouta.csc.fi/rnaseq\_tutorial/RNA-Seq-Rscript.
 
 ### 1. Preparations
 
-Open RStudio (or R) in the virtual machine: activate the Conda base
+
+Option A) You can use R and RStudio on CSC's supercomputers. The Bioconductor packages needed here are already installed there (?). To use RStudio in Puhti, you first need to set up the ssh keys.
+
+-   [R on CSC's environments](--/apps/r-env-singularity)
+-   [Using RStudio in Puhti](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/)
+-   [Setting up the SSH keys](../computing/connecting/setting-up-ssh-keys)
+
+Option B) In virtual machine: Open RStudio (or R) in the virtual machine: activate the Conda base
 environment and type rstudio. 
 
     conda activate base
     rstudio
 
-!!! note
-    You can also use R and RStudio on CSC's Puhti supercomputer. The Bioconductor packages needed here are already installed there.
-
-
--   [R on CSC's Puhti supercomputer](https://docs.csc.fi/#apps/r-env/)
--   [RStudio on CSC's Puhti supercomputer](https://docs.csc.fi/#apps/rstudio/)
-
-...or you can also run these steps on your own computer, in which case
+Option C) You can also run these steps on your own computer, in which case
 you need to install these packages as descriped below.
 
 
