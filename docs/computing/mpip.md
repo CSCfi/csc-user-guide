@@ -10,7 +10,7 @@ module load mpip
 ```
 Next, the code is build as usual, but with the addition of the `-g` flag in compilation and the following linker flags. For Mahti one should use:
 ```
--lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib>-lunwind
+-lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib>-lunwind -unwind
 ```
 The path to the *unwind* library on mahti is `/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib`. 
 Similarly, for Puhti the relinking is done with:
@@ -19,6 +19,16 @@ Similarly, for Puhti the relinking is done with:
 ```
 The path to the *iberty* library is `/appl/spack/install-tree/intel-19.0.4/libiberty-2.31.1-o4es74/lib/`, while the path to *unwind* library is `/appl/spack/install-tree/intel-19.0.4/libunwind-1.2.1-45uplb/lib/`. 
 The above re-link will only work if it appears the last in the compiling line. 
+Note that the compike options `-lmpiP ...`  have to the last in the compilations. For example in a Makefile we would have:
+
+```
+FC=mpif90
+FCFLAGS=-O2 -g -fopenmp -march=native -fdefault-real-8 -fdefault-double-8 -lfftw3 -lfftw3_omp  -lmpiP -lm -lbfd -liberty -L/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib -lunwind
+
+all : TwoDMPIPFC.f
+	$(FC) -o TwoDMPIPFC TwoDMPIPFC.f ${FCFLAGS} 
+
+```
 Next the code is ran as a usual batch job. The following additions are needed to the job script:
 ```
 module load mpip
