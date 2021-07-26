@@ -50,6 +50,7 @@ given in the manual.
 ## More information
 -   [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
 -   [ORCA Tutorials](https://www.orcasoftware.de/tutorials_orca/)
+-   [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home) 
 -   [Release notes](https://orcaforum.kofo.mpg.de/viewtopic.php?f=51&t=7564)
 
 
