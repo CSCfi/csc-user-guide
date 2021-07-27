@@ -33,6 +33,7 @@ Next the code is ran as a usual batch job. The following additions are needed to
 ```
 module load mpip
 export LD_LIBRARY_PATH=<path-to-unwind-lib>:<path-to-iberty-lib>:$LD_LIBRARY_PATH
+export MPIP="-t 10.0 -k 2 -c"
 ```
 This will create profiling for all code in a file which is indicated before the programs's own output in the standard output. Here is an example of a output at the beginning of the execution of a code:
 
