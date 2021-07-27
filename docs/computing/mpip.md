@@ -209,4 +209,4 @@ call MPI_PCONTROL( 0 )
 call MPI_FINALIZE( ierr )
 ```
 In the above code the debugging is first disabled after the MPI initialization (with `call MPI_CONTROL(0)`)  and later it is switched back for the region of interest.  At the end of the region the profiling is disabled again. In this case the profiler will only collect information for the region between the lines  `call MPI_CONTROL(1)` and  `call MPI_CONTROL(0)`.
-Finally, mpiP has several configurable parameters  can set via the environment variable MPIP. For more details, please consult the related documentation at (https://github.com/LLNL/mpiP#mpip-run-time-flags).
+Finally, mpiP has several configurable parameters  can set via the environment variable MPIP. For more details, please consult the related documentation at (https://github.com/LLNL/mpiP).
