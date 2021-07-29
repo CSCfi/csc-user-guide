@@ -19,7 +19,7 @@ Similarly, for Puhti the relinking is done with:
 ```
 The path to the *iberty* library is `/appl/spack/install-tree/intel-19.0.4/libiberty-2.31.1-o4es74/lib/`, while the path to *unwind* library is `/appl/spack/install-tree/intel-19.0.4/libunwind-1.2.1-45uplb/lib/`. 
 The above re-link will only work if it appears the last in the compiling line. 
-Note that the compile options `-lmpiP ...`  have to the last in the compiling list. For example in a `Makefile` we would have:
+Note that the compile options `-lmpiP ...`  have to be the last in the compiling list. For example in a `Makefile` we would have:
 
 ```
 FC=mpif90
