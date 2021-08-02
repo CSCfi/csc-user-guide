@@ -51,6 +51,15 @@ nav:
      - Containers:
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
+     - Web interface:
+       - Overview: ood/index.md
+       - Job Composer: ood/job-composer.md
+       - Interactive apps:
+         - Desktop: ood/desktop.md
+         - Jupyter: ood/jupyter.md
+         - Rclone: ood/rclone.md
+         - RStudio: ood/rstudio.md
+         - Visual Studio Code: ood/vscode.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
