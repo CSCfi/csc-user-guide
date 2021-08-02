@@ -10,7 +10,7 @@ module load mpip
 ```
 Next, the code is build as usual, but with the addition of the `-g` flag in compilation and the following linker flags. For Mahti one should use:
 ```
--lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib>-lunwind -unwind
+-lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib> -lunwind 
 ```
 The path to the *unwind* library on mahti is `/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib`. 
 Similarly, for Puhti the relinking is done with:
