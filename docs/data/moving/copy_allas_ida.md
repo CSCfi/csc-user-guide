@@ -49,9 +49,9 @@ You should only copy data that is important enough to be described as datasets i
 
 This step is actually three substeps
 
- 1 uploading
- 2 freezing
- 3 describing the datasets
+ 1. uploading
+ 2. freezing
+ 3. describing the datasets
 
 
 You can upload the data using IDA command line tool:
@@ -82,10 +82,10 @@ In order to be able to copy data from IDA to Allas with this procedure, you need
 
 In short, there are four steps to follow
 
- 1 download the data from IDA to Puhti scratch
- 2 rearrange the data in the scratch, if necessary
- 3 upload the data to Allas
- 4 clean the Puhti scratch, if necessary
+ 1. download the data from IDA to Puhti scratch
+ 2. rearrange the data in the scratch, if necessary
+ 3. upload the data to Allas
+ 4. clean the Puhti scratch, if necessary
 
 ### Step 1. Download the data from IDA to Puhti scratch
 
