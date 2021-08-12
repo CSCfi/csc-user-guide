@@ -258,9 +258,6 @@ these five methods in the Puhti supercluster.
 </table>
 
  
-
- 
-
 ### gzip and gunzip
 
 **gzip** is probably the most commonly used packing tool in Unix and
