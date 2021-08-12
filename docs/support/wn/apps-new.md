@@ -1,5 +1,12 @@
 # Applications
 
+## Molpro 2021.2, 10.8.2021
+
+Molpro 2021.2 is now available and the default version on Puhti. List of recent
+changes are available on [Molpro website](https://www.molpro.net/manual/doku.php?id=recent_changes).
+Our [Molpro page](../../apps/molpro.md) also contains new scalability information and an example
+on how to use NVMe.
+
 ## PyTorch 1.9, 2.7.2021
 
 PyTorch 1.9.0 is now available in the `pytorch/1.9` module on Puhti and Mahti.
