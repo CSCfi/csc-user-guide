@@ -18,11 +18,11 @@ Crypt4GH uses _asymmetric encryption_, an encryption method that is based on two
 
 **When using CSC Sensitive Data Services for analyzing sensitive data you have two possibilities for encryption:**
 
-   1) You can encrypt the data with the workflow described earlier in the SD Connect guide. With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public key. In this way, when you import the data to SD Desktop, they will be decrypted in an automated manner in your own private computing environment. The data are automatically decrypted with **CSC Sensitive Data Services secret key"**. This key is hosted securely by the SD Services and users never need to do the decryption themselves.
+   1) You can encrypt the data with the workflow described earlier in the SD Connect guide. With this workflow, you will encrypt a copy of your data using CSC Sensitive Data public key. In this way, when you import the data to SD Desktop, they will be decrypted in an automated manner in your own private computing environment. The data are automatically decrypted with **CSC Sensitive Data Services secret key**. This key is hosted securely by the SD Services and users never need to do the decryption themselves.
 
    2) You can encrypt the data with your own key pair. In this case, when imported to SD Desktop, the data needs to be decrypted manually.
 
-**When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the sama dataset can be safely shared with multiple colleagues or collaborators.
+**When using SD Connect to safely share (or transfer) data with your collaborators, you need to plan data encryption in advance, as you need to encrypt the data with your collaborator's public encryption key for them to be able to decrypt the data**. Using Crypt4GH CLI, it is possible to encrypt data with multiple public encryption keys. Thus, for example, the same dataset can be safely shared with multiple colleagues or collaborators.
 
 !!! Note
     Files that have been encrypted with the _CSC Sensitive Data Services public key_, can't be used in any other services as the corresponding secret key is available only to the SD services environment. If you wish to encrypt your data for some other service, you should create another encrypted file that uses other public keys.
@@ -51,13 +51,13 @@ When you open the application for the first time you might encounter an error me
 
 1. Open the application and click on _Generate Keys_ (on the top right corner).
 1. The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your private key. Please, use a strong password!
-1. When you click on _OK_, the tool will generate a key pair consisting of a private key (name_surname.crypt4gh.key) and a public key (name_surname.crypt4gh.pub).
+1. When you click on _OK_, the tool will generate a key pair consisting of a private key (username_crypt4gh.key) and a public key (username_crypt4gh.pub).
 1. The keys/file names will be displayed in the Activity Log with the following message:
 
 ```
 Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
-Private key: name_surname.crypt4gh.key
-Public key: name_surname.crypt4gh.pub
+Private key: username_crypt4gh.key
+Public key: username_crypt4gh.pub
 All the fields must be filled before file encryption will be started
 ```
 
@@ -82,10 +82,12 @@ With Crypt4GH GUI it is possible to encrypt only one file at the time.
 
 ### Step 4: Load the encryption keys
 
+The Crypt4GH GUI require that you define a _secret key_ and _public key_ for encryption. The actual encryption is done with the public key and the secret key is used only for signing the encrypted file. The encryption signature can be later on used to verify, who has created the encrypted file. Due to this the secret and public keys are not always from the same key pair. If you will use the encrypted data yourself, then you should use your own secret and public keys, but if you are encrypting the data for some one else, then you should use your private key and the receivers public key. 
+
 1. Click on _Load My Private Key_ button.
-1. Select your private key (name_surname.crypt4gh.key).
+1. Select your private key (username_crypt4gh.key).
 1. Click on _Open_. If the upload is successful, the tool will show the current path in the title bar.
-1. Next, click on _Load Their Public Key_ button and select your public key (name_surname.crypt4gh.pub), or your collaborator public key if you need to share the encrypted data.
+1. Next, click on _Load Their Public Key_ button and select your public key (usernmae_crypt4gh.pub), or your collaborator public key if you need to share the encrypted data.
 1. Click on _Open_.
 
 ![DEnScreenshot_6](./images/SDEnScreenshot_6.png)
@@ -113,13 +115,15 @@ Currently, the Crypt4GH GUI application is not provided with a progress bar. If 
 
 1. Access your secure computing environment in SD Desktop.
 1. Next, open Crypt4GH and click on _load Your Private Key_.  
-1. Click on _load Their private Key_ and upload your public key
+1. Click on _load Their public Key_ and upload the public key of the user, who has done the encryption. 
 1. Click on _Select File_ and upload the file/zipped folder you want to decrypt.
 1. Click on _Open_.
 1. Next click on _Decrypt File_.
 1. The tool will ask you to write the password of the private key, press _ok_. The file will be decrypted in the same location as the original file.
 
-If you don't select your public key, the activity log will display the following (the decryption will be executed anyway):
+In the decryption process, the private key must match the public key that was used to encrypt the data.
+In case of decryption, the public key is not mandatory, but if you have the public key of person who has encrypted the file
+then you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
 ```
 Sender public key has not been set, authenticity will not be verified.
