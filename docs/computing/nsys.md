@@ -21,7 +21,6 @@ on Puhti, or
 ```
 module load gcc/10.3.0
 ```
-on Mahti and then the 
 on Mahti and then the  CUDA and `nsight-systems` modules
 ```bash
 module load cuda
