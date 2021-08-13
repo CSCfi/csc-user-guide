@@ -32,7 +32,6 @@ template: main-index.html
 
 # What's new
 
-
 ##  Applications
 
 - [CP2K 8.2, 13.8.2021](support/wn/apps-new.md#cp2k-82-1382021 )

@@ -8,7 +8,7 @@ A list of new features and changes is found on the [CP2K website](https://www.cp
 
 ## AMS 2021.102, 13.8.2021
 
-AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The [AMS documentation](https://docs.csc.fi/apps/ams/) has been updated accordingly to cover version 2021.102.
+AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The [AMS documentation](../../apps/ams.md) has been updated accordingly to cover version 2021.102.
 
 ## Molpro 2021.2, 10.8.2021
 

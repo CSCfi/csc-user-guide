@@ -3,7 +3,6 @@
 Here you will find news of new features
 and changes to the computing environment 
 
-
 ##  Applications
 
 - [CP2K 8.2, 13.8.2021](wn/apps-new.md#cp2k-82-1382021 )
