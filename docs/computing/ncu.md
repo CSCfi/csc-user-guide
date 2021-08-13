@@ -13,7 +13,7 @@ memory set and CUDA API calls and events or metrics for CUDA kernels.
 Profiling results are displayed in the console after the profiling data is
 collected, and may also be saved for later viewing by *ncu-ui* tool.
 
-To use `nsys`, one needs to first load a CUDA environment. First load the appropriate `gcc` module 
+To use `ncu`, one needs to first load a CUDA environment. First load the appropriate `gcc` module 
 
 ```
 module load gcc/9.1.0
