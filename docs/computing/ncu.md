@@ -22,7 +22,7 @@ on Puhti, or
 ```
 module load gcc/10.3.0
 ```
-on Mahti and then the CUDA and `nsight-systems` modules
+on Mahti and then the CUDA and `nsight-compute` modules
 ```bash
 module load cuda
 module load nsight-compute
