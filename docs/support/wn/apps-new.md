@@ -1,5 +1,15 @@
 # Applications
 
+## CP2K 8.2, 13.8.2021
+
+CP2K version 8.2 has been installed on Mahti and is available with `module load cp2k/8.2-omp`. This requires that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. Version `7.1-elpa` will remain the default module for now, but will be changed to `8.2-omp` in the near future (despite the name, the ELPA diagonalization library is also linked to the new 8.2 version). The `cp2k.psmp` binary of version `8.2-omp` has been tested and is roughly as efficient as `7.1-elpa`.
+
+A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history). Note that some keywords, such as `MAP_CONSISTENT` in the `QS` section, have been deprecated.
+
+## AMS 2021.102, 13.8.2021
+
+AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The [AMS documentation](https://docs.csc.fi/apps/ams/) has been updated accordingly to cover version 2021.102.
+
 ## Molpro 2021.2, 10.8.2021
 
 Molpro 2021.2 is now available and the default version on Puhti. List of recent
