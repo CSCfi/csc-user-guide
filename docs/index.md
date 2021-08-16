@@ -32,3 +32,4 @@ template: main-index.html
 
 # What's new
 
+<!-- Content will be generated here, do not EDIT manually -->  
