@@ -78,7 +78,8 @@ nav:
          - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
-         - Annotations: /cloud/rahti/tutorials/annotations.md
+         - Annotations: cloud/rahti/tutorials/annotations.md
+         - Expand a volume: cloud/rahti/tutorials/expand-volumes.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
