@@ -13,13 +13,13 @@ In short, there are four steps to follow
 
 ### Step 1. Download the data from Allas to Puhti scratch
 
-Scratch disk area in Puhti is recommended as it is by default much larger than other areas, like user's home area. Also you can request even bigger scratch quota if the default is not enough. In Puhti you can start the available disk arease and their usage with command:
+Scratch disk area in Puhti is recommended as it is by default much larger than other areas, like user's home area. Also you can request even bigger scratch quota if the default is not enough. In Puhti you can start the available disk areas and their usage with command:
 ```text
 csc-workspaces
 ```
 For more datails about Puhti disk areas see [Computing disk environment](../../computing/disk.md)
 
-An example how to create a new directory copydir for the data under project 2000013's scracth area:
+An example how to create a new directory copydir for the data under project 2000013's scratch area:
 ```text
 mkdir /scratch/project_2000013/copydir
 ```
@@ -37,11 +37,11 @@ a-get command downloads the data and unpacks it in to the copydir directory.
 
 ### Step 2. Rearrange the data in the scratch
 
-This is an important step when copying data from Allas to IDA. You should only copy data that is important enough to be described as dataset in Fairdata services. Also it makes the rest of the procedure easier to think at this point what kind of a directory structure would be good for the datasets, and arrange the data in the Puhti directory to follow that structure. No that in IDA you can't have more that 5000 files in one directory. If you have large amount of files to be storte you should pack them in larger  units(e.g. tar or zip archive files) or distribute them to serveral directories.
+This is an important step when copying data from Allas to IDA. You should only copy data that is important enough to be described as dataset in Fairdata services. Also it makes the rest of the procedure easier to think at this point what kind of a directory structure would be good for the datasets, and arrange the data in the Puhti directory to follow that structure. Note that in IDA you can't have more that 5000 files in one directory. If you have large amount of files to be storte you should pack them in larger  units(e.g. tar or zip archive files) or distribute them to serveral directories.
 
 In case you will include some files to more the one dataset, do not make duplicate files, IDA files may belong to more than one dataset.
 
-In our example case, the project decides that it makes sense to have two distict dataset and the data is rearranged in to two directories, experiment_a and survey_2021.
+In our example case, the project decides that it makes sense to have two distinct datasets and the data is rearranged in to two directories, experiment_a and survey_2021.
 
 ### Step 3. Upload the data to IDA and describe it
 
@@ -64,7 +64,7 @@ cd /scratch/project_2000013/copydir
 ida upload -p 2000002 experiment_a experiment_a
 ida upload -p 2000002 survey_2021 survey_2021
 ```
-More examples can be found from the [home page of ida command line client](https://github.com/CSCfi/ida2-command-line-tools#examples).
+More examples can be found from the [home page of ida command line tool](https://github.com/CSCfi/ida2-command-line-tools#examples).
 
 If the user has already configured the IDA command line tool, then the upload command uses that configuration. If not, the the upload command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida/#configuring-and-using-ida-in-csc-supercomputers).
 
