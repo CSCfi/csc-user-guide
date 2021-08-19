@@ -35,7 +35,7 @@ Example `launch.json`:
 Currently the linter does not work with the Singularity environments.
 
 ## C/C++
-The compiler used can be selected when launching the interactive ap.
+The compiler used can be selected when launching the interactive app.
 
 Changing compiler between the Intel compiler and gcc in the workspace may cause issues.
 Most of the problems can be solved by removing the launch and build configurations and creating them again.
