@@ -24,3 +24,14 @@ Note that the extended quota consumes your CSC billing units regardless of how
 much data you actually have in the directory. [See billing](billing.md) for
 details. Furthermore, even after the quota is increased, the automatic cleaning
 process will continue removing idle files from the scratch directory.
+
+## Increasing the storage capacity in Allas
+
+The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for 
+any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets.
+
+To increase your Allas quota, please send a request to: servicedesk@csc.fi 
+In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
+
+Note that storing data in Allas consumes billing units. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, 
+i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year. [How to apply for billing units] (how-to-apply-for-billing-units.md)
