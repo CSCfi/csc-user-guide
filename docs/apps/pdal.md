@@ -22,6 +22,8 @@ You can test if pdal loaded successfully with following
 
 `pdal --help`
 
+[Examples for using PDAL in Puhti](https://github.com/csc-training/geocomputing/tree/master/pdal).
+
 ## License and citing
 
 PDAL is licensed with the BSD open source license. The full licence can be found [here](https://pdal.io/copyright.html)
