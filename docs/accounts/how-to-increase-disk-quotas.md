@@ -35,3 +35,7 @@ In the request, define what Allas project you are using, how large storage space
 
 Note that storing data in Allas consumes billing units. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, 
 i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year. [How to apply for billing units] (how-to-apply-for-billing-units.md)
+
+## Increasing IDA storage space
+
+[About Monitoring and Adjusting Project Quota in IDA User Guide](https://www.fairdata.fi/en/user-guides/user-guide/#project-quota)
