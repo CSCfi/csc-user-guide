@@ -37,7 +37,7 @@ The collected data are saved in a series of `<executable>.stf` files in the runn
 ## Analyzing the traces
 
 In order to improve the performance of the graphical user interface, 
-we recommend to use [NoMachine](../../support/tutorials/nomachine-usage.md) remote desktop when carrying out the analysis. 
+we recommend to use [NoMachine](../support/tutorials/nomachine-usage.md) remote desktop when carrying out the analysis. 
 The analyzer is started with the command (note that the `intel-itac` module needs to be loaded):
 
 ```
