@@ -396,3 +396,7 @@ lemmatization created by the [Turku NLP group](http://turkunlp.org/).
     echo "Minulla on koira." | singularity_wrapper run stream fi_tdt parse_plaintext
 
 There is also a GPU-version `turku-neural-parser/fi-en-sv-gpu`.
+
+**NOTE:** running the command requires at least 4GB of RAM, so you need to run it
+in an [interactive session](../../computing/running/interactive-usage.md) or a
+batch job.
