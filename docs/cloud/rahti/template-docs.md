@@ -72,3 +72,9 @@ Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full
 ![Prometheus](img/prometheus.png)
 
 The template deploys Prometheus and Grafana for monitoring pods running in the same Rahti namespace. Prometheus is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. Grafana is an open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics no matter where they are stored. It provides tools to turn time-series database (TSDB) data into graphs and visualizations. The documentation is currently available at <https://github.com/CSCfi/grafana-prometheus-template>
+
+### JupyterHub
+
+![JupyterHub](img/jupyterhub.png)
+
+There are two templates for deploying JupyterHub on OpenShift depending on the authentication method used (GitHub OAuth or Native authenticator). JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. Users can get their work done in their own workspaces on shared resources which can be managed efficiently by system administrators. The documentation is currently available at https://github.com/CSCfi/jupyterhub-template.
