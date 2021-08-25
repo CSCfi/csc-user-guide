@@ -1,5 +1,9 @@
 # Applications
 
+## Turbomole 7.5.1, 25.8.2021
+
+Turbomole 7.5.1 is now available and the default module on Puhti. The most important change with this version is that the `ricc2` module for performing 2nd order approximate coupled cluster calculations works appropriately, while older versions on Puhti have been recently reported to suffer from numerical instabilities. These issues do not apply to TM v7.5 installed on Mahti.
+
 ## CP2K 8.2, 13.8.2021
 
 CP2K version 8.2 has been installed on Mahti and is available with `module load cp2k/8.2-omp`. This requires that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. Version `7.1-elpa` will remain the default module for now, but will be changed to `8.2-omp` in the near future (despite the name, the ELPA diagonalization library is also linked to the new 8.2 version). The `cp2k.psmp` binary of version `8.2-omp` has been tested and is roughly as efficient as `7.1-elpa`.
