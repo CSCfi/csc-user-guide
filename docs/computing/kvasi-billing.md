@@ -17,7 +17,7 @@ Cost: 1.500 € / 3 months (VAT 0%)
 
 ## Power package
 
-Full features of Kvasi available for use, with full memory available for 72 h / month. Corresponds to a simulation capacity of 30+ qubits _part of the time_ and roughly 25 qubits the rest of the time.
+Full features of Kvasi available for use, without memory restrictions for 72 h / month. Corresponds to a simulation capacity of up to 30 qubits _part of the time_ and roughly 25 qubits the rest of the time.
 
 Cost: 4.500 € / 3 months (VAT 0%)
 
