@@ -6,8 +6,8 @@
 
 __SAGA GIS__ is available in Puhti with following versions:
 
-* 7.10.0 in `r-env-singularity/4.0.4` and `r-env-singularity/4.0.4` modules
-* 7.9.0 in `r-env-singularity/4.0.2` and `r-env-singularity/4.0.3` modules
+* 7.10.0 in `r-env-singularity/4.0.4` module
+* 7.9.0 in `r-env-singularity/4.0.2`, `r-env-singularity/4.0.3` and `r-env-singularity/4.0.5` modules
 * 7.3.0 in `r-env-singularity/3.6.3` module
 * 7.2.0 in `saga-gis` module
 

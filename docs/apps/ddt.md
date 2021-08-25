@@ -22,10 +22,12 @@ program, with the compiler option `-g` to enable generation of debug
 information.
 
 Here are a few examples of debug sessions (MPI debug sessions). The first
-requests 40 processes in a single node and the second 40 processes divided
+`salloc` command requests 40 processes in a single node and the second 40 processes divided
 into two nodes:
 
 ```
+export SLURM_OVERLAP=1
+
 salloc --nodes=1 --ntasks-per-node=40 --time=00:30:00 --partition=small --account=<project_id> ddt srun ./debug_enabled_code
 salloc --nodes=2 --ntasks-per-node=20 --time=00:30:00 --partition=large --account=<project_id> ddt srun ./debug_enabled_code
 ```
