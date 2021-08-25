@@ -26,6 +26,7 @@ nav:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
+        - Kvasi: computing/kvasi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
         - Disk areas: computing/disk.md
