@@ -72,7 +72,7 @@ jobex -ri -c 300 > jobex.out
 ```
 
 !!! note
-    Second-order approximate coupled cluster calculations using the `ricc2` module have been reported to suffer from numerical errors resulting in crashed jobs. This applies for Turbomole versions 7.5 and older on Puhti. For reliable performance, we suggest running `ricc2` calculations using Turbomole 7.5.1 on Puhti or 7.5 on Mahti.
+    Second-order approximate coupled cluster calculations using the `ricc2` module have been reported to suffer from numerical errors resulting in crashed jobs. This applies to Turbomole versions 7.5 and older on Puhti. For reliable performance, we suggest running `ricc2` calculations using Turbomole 7.5.1 on Puhti or 7.5 on Mahti.
 
 !!! note
     Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
