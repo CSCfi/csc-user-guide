@@ -75,6 +75,6 @@ The template deploys Prometheus and Grafana for monitoring pods running in the s
 
 ### JupyterHub
 
-![JupyterHub](img/jupyterhub.svg)
+![JupyterHub](img/jupyterhub.png)
 
 There are two templates for deploying JupyterHub on OpenShift depending on the authentication method used (GitHub OAuth or Native authenticator). JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. Users can get their work done in their own workspaces on shared resources which can be managed efficiently by system administrators. The documentation is currently available at https://github.com/CSCfi/jupyterhub-template.
