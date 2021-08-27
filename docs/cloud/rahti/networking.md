@@ -23,7 +23,7 @@ For example, if we deploy the `nginx` image in a Pod. This Pod will get a random
 Services are built to export one or more ports, and they also provide an internal DNS name. Any of these names are valid and will resolve to the same service IP:
 
 * `<service_name>`, e.g., nginx.
-* `<service_name>.<namespace>`, ex: ngin.fenic
+* `<service_name>.<namespace>`, e.g., ngin.fenic
 * and `<service_name>.<namespace>.svc.cluster.local`, ex: nginx.fenic.svc.cluster.local.
 
 In the same manner than Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Other feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
