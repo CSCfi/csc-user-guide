@@ -1,6 +1,6 @@
 # Why my private SSH key does not work in Rahti?
 
-## Mismached keys
+## Mismatched keys
 
 There are few reasons why a SSH key may not work, the simplest one is when the **private key** does not match the **public key**. In order to check this, you can re-generate the public key from the private one by doing:
 
