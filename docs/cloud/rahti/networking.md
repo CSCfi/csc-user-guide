@@ -62,7 +62,7 @@ $ dig rahtiapp.fi A |  grep 'ANSWER SECTION' -A 1
 rahtiapp.fi.		328	IN	A	193.167.189.101
 ```
 
-Every single pre-created domain name ia configured as a `CNAME` that points to `rahtiapp..fi`, which itself points to ine on the HAProxy load balancers.
+Every single pre-created domain name is configured as a `CNAME` that points to `rahtiapp..fi`, which itself points to one of the HAProxy load balancers.
 
 Any other domain name is possible, but the DNS and the certificates must be managed by the customer.
 
