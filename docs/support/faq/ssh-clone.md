@@ -22,7 +22,7 @@ $ ssh-keygen -l -f repo-openshift-builder.pub
 
 Another common reason for failure is when the private key is protected by a passphrase. Even though it is generally recommended to protect a private key with a passphrase when storing the key in a workstation, Rahti does not have any mechanism to store the passphrase and will then fail to use the key. To check if a private key is protected with a passphrase, you may use the same command above to generate the public key, If the key is protected, the command will ask for the password.
 
-## Too new format used
+## New OpenSSH private key format used
 
 The most obscure reason is that Rahti expects the key to be provided in **PEM format**. PEM used to be the default key format for OpenSSH private keys, but now it is considered a legacy format. Newer versions of OpenSSH will generate keys in OpenSSH's own format that is not recognized by the current version of Rahti (v3.11). When generating keys to be used in Rahti using `ssh-keygen`, please use the parameter `-m PEM`. A complete example would be:
 
