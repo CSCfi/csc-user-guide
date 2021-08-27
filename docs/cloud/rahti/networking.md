@@ -26,7 +26,7 @@ Services are built to export one or more ports, and they also provide an interna
 * `<service_name>.<namespace>`, e.g., ngin.fenic
 * and `<service_name>.<namespace>.svc.cluster.local`, e.g., nginx.fenic.svc.cluster.local.
 
-In the same manner than Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Other feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
+In the same manner than Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Another feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
 
 Services are used to both internal and external connections. For example, if we have one or more MongoDB database replicas of the same pod running in the `fenic` namespace, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL <mongo:27017> to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
 
