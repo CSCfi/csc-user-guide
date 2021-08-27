@@ -43,10 +43,9 @@ information about libraries](../../computing/hpc-libraries.md).
 
 
 ## MPI
-Currently the system has a few different MPI implementations installed:
+Currently the system has a two MPI implementations installed:
 
 - hpcx-mpi
-- mpich
 - intel-mpi
 
 We recommend to test using 
