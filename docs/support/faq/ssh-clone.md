@@ -20,7 +20,7 @@ $ ssh-keygen -l -f repo-openshift-builder.pub
 
 ## Passphrase protected key
 
-Another common reason for failure is when the private key is protected by a passphrase. Meanwhile it is generally recommended to protect a private key with a passphrase when storing the key in a workstation, Rahti does not have any mechanism to store the passphase and will then fail to use the key. To check if a private key is protected by a passphrase, you may use the same command above to generate the public key, If the key is portected, the command will ask for the password.
+Another common reason for failure is when the private key is protected by a passphrase. Even though it is generally recommended to protect a private key with a passphrase when storing the key in a workstation, Rahti does not have any mechanism to store the passphrase and will then fail to use the key. To check if a private key is protected with a passphrase, you may use the same command above to generate the public key, If the key is protected, the command will ask for the password.
 
 ## Too new format used
 
