@@ -32,4 +32,4 @@ ssh-keygen -C "openshift-source-builder/repo" -f repo-openshift-builder -N '' -m
 
 This will generate two files `repo-openshift-builder` and `repo-openshift-builder.pub`.
 
-For a comprehensive guide of the whole process of using SSH keys to clone a repository in Rahti, please follow: [Repository SSH Keys](https://cloud.redhat.com/blog/private-git-repositories-part-2a-repository-ssh-keys).
+For a comprehensive guide of the whole process of using SSH keys to clone a private repository in Rahti, please follow: [Repository SSH Keys](https://cloud.redhat.com/blog/private-git-repositories-part-2a-repository-ssh-keys).
