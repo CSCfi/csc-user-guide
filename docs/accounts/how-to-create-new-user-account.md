@@ -32,7 +32,7 @@ this way.
 The application should include:
 
 * Project identifier (e.g. 2001679, uef4713)
-* Collaborator's name, organization and email address
+* Collaborator's name, organization and collaborator's email address at their organization
 * Period of time for which the right for use is applied
 
 !!! Note
