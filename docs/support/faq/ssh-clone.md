@@ -8,7 +8,7 @@ There are few reasons why a SSH key may not work, the simplest one is when the *
 ssh-keygen -y -f private_key_file
 ```
 
-Please check that the generated public key matches the one used. Some servers also generate a key fingerprint, you may generate this fingerprint from the public or private keys, the firgerprint must match. The command to use is:
+Please check that the generated public key matches the one used. Some servers also generate a key fingerprint, you may generate this fingerprint from the public or private keys, the fingerprint must match. The command to use is:
 
 ```
 $ ssh-keygen -l -f repo-openshift-builder
