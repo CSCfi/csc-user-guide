@@ -22,7 +22,7 @@ For example, if we deploy the `nginx` image in a Pod. This Pod will get a random
 
 Services are built to export one or more ports, and they also provide an internal DNS name. Any of these names are valid and will resolve to the same service IP:
 
-* `<service_name>`, ex: nginx.
+* `<service_name>`, e.g., nginx.
 * `<service_name>.<namespace>`, ex: ngin.fenic
 * and `<service_name>.<namespace>.svc.cluster.local`, ex: nginx.fenic.svc.cluster.local.
 
