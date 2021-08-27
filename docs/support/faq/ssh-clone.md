@@ -24,7 +24,7 @@ Another common reason for failure is when the private key is protected by a pass
 
 ## Too new format used
 
-The most obscure reason is that Rahti expects the key to be provided in **PEM format**. PEM used to be the default key format, but now it is considered a legacy format. Newer versions of OpenSSH will generate keys in its own format that is not recognized by the current version of Rahti (v3.11). When generating keys with `ssh-keygen` to be used in Rahti, please use the parameter `-m PEM`. A complete example would be:
+The most obscure reason is that Rahti expects the key to be provided in **PEM format**. PEM used to be the default key format for OpenSSH private keys, but now it is considered a legacy format. Newer versions of OpenSSH will generate keys in OpenSSH's own format that is not recognized by the current version of Rahti (v3.11). When generating keys to be used in Rahti using `ssh-keygen`, please use the parameter `-m PEM`. A complete example would be:
 
 ```
 ssh-keygen -C "openshift-source-builder/repo" -f repo-openshift-builder -N '' -m PEM
