@@ -8,8 +8,12 @@ In short, there are four steps to follow
 
   1. download the data from Allas to Puhti scratch
   2. rearrange the data in the scratch
-  3. upload the data to IDA and describe it
+  3. upload the data to IDA
   4. clean the Puhti scratch
+
+!!! Note
+    Data in IDA is required to be described as research datasets with Fairdata services.
+    For more information see [https://www.fairdata.fi/en/about-fairdata/benefits/](https://www.fairdata.fi/en/about-fairdata/benefits/)
 
 ### Step 1. Download the data from Allas to Puhti scratch
 
@@ -37,22 +41,15 @@ a-get command downloads the data and unpacks it in to the copydir directory.
 
 ### Step 2. Rearrange the data in the scratch
 
-This is an important step when copying data from Allas to IDA. You should only copy data that is important enough to be described as dataset in Fairdata services. Also it makes the rest of the procedure easier to think at this point what kind of a directory structure would be good for the datasets, and arrange the data in the Puhti directory to follow that structure. Note that in IDA you can't have more that 5000 files in one directory. If you have large amount of files to be storte you should pack them in larger  units(e.g. tar or zip archive files) or distribute them to serveral directories.
+This is an important step when copying data from Allas to IDA. You should only copy data that is important enough to be described as dataset in Fairdata services. Also it makes the rest of the procedure easier to think at this point what kind of a directory structure would be good for the datasets, and arrange the data in the Puhti directory to follow that structure. Note that in IDA you can't freeze (turn stable research data to an immutable state) more that 5000 files at once. So as a rule of thumb you should have at most that amount of files in one directory.
 
 In case you will include some files to more the one dataset, do not make duplicate files, IDA files may belong to more than one dataset.
 
 In our example case, the project decides that it makes sense to have two distinct datasets and the data is rearranged in to two directories, experiment_a and survey_2021.
 
-### Step 3. Upload the data to IDA and describe it
+### Step 3. Upload the data to IDA
 
-You should only copy data that is important enough to be described as datasets in Fairdata services. Also you shoud have the data already arraged to a directory structure that would be good for the datasets.
-
-This step is actually three substeps
-
- 1. uploading
- 2. freezing
- 3. describing the datasets
-
+You should only copy data that is important enough to be described as datasets in Fairdata services. Also you should have the data already arraged to a directory structure that would be good for the datasets.
 
 You can upload the data using IDA command line tool:
 <pre>ida upload <em>target_in_ida local_file</em>
@@ -68,9 +65,6 @@ More examples can be found from the [home page of ida command line tool](https:/
 
 If the user has already configured the IDA command line tool, then the upload command uses that configuration. If not, the the upload command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida/#configuring-and-using-ida-in-csc-supercomputers).
 
-Before you can use Fairdata tools to describe the data as datasets, the data needs to be frozen in IDA. Freezing action makes the data read only and it can be done in the IDA browser user interface [https://www.fairdata.fi/en/user-guides/user-guide/#freezing-files](https://www.fairdata.fi/en/user-guides/user-guide/#freezing-files).
-
-Dataset descriptions can be done either with Fairdata Qvain tool [https://www.fairdata.fi/en/qvain/](https://www.fairdata.fi/en/qvain/), or with Fairdata Metax API [https://www.fairdata.fi/en/metax/apis/](https://www.fairdata.fi/en/metax/apis/).
 
 ### Step 4. Clean the Puhti scratch
 
