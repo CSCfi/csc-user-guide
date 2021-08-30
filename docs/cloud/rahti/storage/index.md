@@ -10,7 +10,7 @@ One of the pillars of Docker is the immutability of images, once they are build,
 
 The solution more similar to Docker volumes is a [Persistent volume](/cloud/rahti/storage/persistent/). This is a volume located in an external storage, that is mounted directly into the filesystem of the container, like an additional hard disk would. This is the best solution for a seamless storage solution. You can also un-mount it from the Pods it is attached and attach it to another set of Pods. Moreover, persistent volumes represent a reliable storage option as the data in them is replicated.
 
-You can find additional information on the Persistent volume](/cloud/rahti/storage/persistent/) page.
+You can find additional information on the [Persistent volume](/cloud/rahti/storage/persistent/) page.
 
 ## Ephemeral storage
 
