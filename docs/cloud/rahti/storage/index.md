@@ -22,4 +22,4 @@ You can find additional information on the [Ephemeral storage](/cloud/rahti/stor
 
 In case you need to store large volumes of data, or you need that your data can be easily accessed over the Internet, e.g., using URLs, object storage is the storage solution you are looking for. By using object storage, you are free to create and delete your Pods as the object storage is not tied to any Pod. Moreover, your data is replicated, thus object storage represent a reliable storage option.
 
-At CSC, we offer Allas as our object storage solution. You can find additional information on the [Allas page](../../data/Allas/index.md).
+At CSC, we offer Allas as our object storage solution. You can find additional information on the [Allas page](../../../data/Allas/index.md).
