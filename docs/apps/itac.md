@@ -49,7 +49,7 @@ call between the tasks. For each performance issue the following information
 is provided: description, affected processes, and source locations.
 
 Intel Traceanalyzer can be used also for investigating OTF2 formatted traces produced by 
-other perfomance tools, such as [ScoreP/Scalasca](scalasca.md). This can be achieved by 
+other performance tools, such as [ScoreP/Scalasca](scalasca.md). This can be achieved by 
 starting the analyzer
 ```
 traceanalyzer
