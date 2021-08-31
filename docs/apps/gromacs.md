@@ -220,8 +220,7 @@ for methods applied in your setup.
 ## More information
 
 -   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
--   [Hands-on tutorials] by Justin A. Lemkul
-<!-- gone  [Yet more nice tutorials](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html) by Bert de Groot. -->
+-   [Hands-on tutorials] by Justin A. Lemkul, on [GROMACS tutorial home](https://tutorials.gromacs.org/) and by [Bert de Groot group](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
 -   [Lots of material at BioExcel EU project]
 -   [HOW-TO](https://manual.gromacs.org/documentation/current/how-to/index.html) section on the Gromacs pages
 -   Gromacs [documentation] and [mdrun performance checklist]
