@@ -2,7 +2,7 @@
 
 ## Schrödinger Maestro 2021.3, 30.8.2021
 
-Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a section on how to run efficient Quantum Espresso jobs using Maestro. A bug in the script that generates the `schrodinger.hosts` file has also been fixed (`parallel` HOST entry was set to use the `large` Slurm partition as intended).
+Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a section on how to speed up Quantum Espresso jobs. A bug in the script that generates the `schrodinger.hosts` file has also been fixed by setting the `parallel` HOST entry to use the `large` Slurm partition as intended.
 
 ## Turbomole 7.5.1, 25.8.2021
 
