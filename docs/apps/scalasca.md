@@ -153,7 +153,7 @@ For large traces, one may copy only the post-processed trace analysis
 result file `scorep_my_app_40_trace/scout.cubex`.
 
 The OTF2 formatted event trace `scorep_my_app_40_trace/trace.otf2` can
-be analyzed also with [Intel Traceanalyzer](itac.md).
+be analyzed also with [Intel Trace Analyzer](itac.md).
 
 
 ## More information
