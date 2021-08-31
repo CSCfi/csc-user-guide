@@ -1,5 +1,9 @@
 # Applications
 
+## Schrödinger Maestro 2021.3, 30.8.2021
+
+Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a section on how to run efficient Quantum Espresso jobs using Maestro. A bug in the script that generates the `schrodinger.hosts` file has also been fixed (`parallel` HOST entry was set to use the `large` Slurm partition as intended).
+
 ## Turbomole 7.5.1, 25.8.2021
 
 Turbomole 7.5.1 is now available and the default module on Puhti. The most important change with this version is that the `ricc2` module for performing 2nd order approximate coupled cluster calculations works appropriately, while older versions on Puhti have been recently reported to suffer from numerical instabilities. These issues do not apply to TM v7.5 installed on Mahti.
