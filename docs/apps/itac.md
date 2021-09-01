@@ -48,9 +48,9 @@ The Trace Analyzer can show the timeline of each process and map each MPI
 call between the tasks. For each performance issue the following information
 is provided: description, affected processes, and source locations.
 
-Intel Trace Analyzer can be used also for investigating OTF2 formatted traces produced by 
-other performance tools, such as [ScoreP/Scalasca](scalasca.md). This can be achieved by 
-starting the analyzer
+Intel Trace Analyzer can be used also for investigating OTF2 formatted traces 
+produced by other performance tools, such as [ScoreP/Scalasca](scalasca.md). 
+This can be achieved by starting the analyzer
 ```
 traceanalyzer
 ```
