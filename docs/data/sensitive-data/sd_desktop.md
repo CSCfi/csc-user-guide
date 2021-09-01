@@ -20,6 +20,7 @@
 <figure class="video_container">
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+  <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
 To access SD Desktop you need:
 
@@ -89,7 +90,9 @@ All the Desktop are provided with the same software. The complete and updated li
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
-![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122608199-79a44000-d084-11eb-80c6-40dab45004ac.png)
+  
+![Screenshot_SD_Desktop_0109_launchingpage](https://user-images.githubusercontent.com/83574067/131730263-374e5188-a7ee-4e03-a890-e7112745e2e3.png)
+
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593108-dcd6a800-d06d-11eb-9b51-2faaf2937b3a.png">
 
 
@@ -113,7 +116,9 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-<img width="960" alt="SD-Desktop-Home" src="https://user-images.githubusercontent.com/83574067/122606520-ba4e8a00-d081-11eb-8a43-454776ab87d6.png">
+
+ ![Screeshoot_SDDesktop_0109_wrokspace](https://user-images.githubusercontent.com/83574067/131730403-3e96b440-9750-4bda-a5ef-7703d0d9c3ee.png)
+
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
@@ -124,11 +129,13 @@ As previously mentioned, you can **logout** from your computing environment at a
 <figure class="video_container">
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
+  <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
-Once you are logged in into your SD Desktop private workspace **you can import encrypted sensitive data stored in SD Connect**.
+
+Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
 
 !!! Note
-    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files are  automatically decrypted**.  If you use your own key pair to           encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
+    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files are  automatically decrypted**.  If you use your own key pair to encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
 
 To import the data:
 
@@ -215,7 +222,9 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
     All the data present in the computing environment will be deleted and it will not be possible to retrieve them.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-![SD_Desktop_deletingF](https://user-images.githubusercontent.com/83574067/122610703-c25df800-d088-11eb-8e44-2792c1bc2e6c.png)
+
+![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
