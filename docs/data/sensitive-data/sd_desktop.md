@@ -65,6 +65,8 @@ To launch your Desktop, in Homepage, click on **Go To Launching Page** :
 
 * **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
   
+* optionally, you can name the Desktop (**update: 1 September 2021**).
+  
 * optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop (**update: 1 September 2021**).
 
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
@@ -148,7 +150,7 @@ The files are downloaded to a directory called SDCONNECTDATA which is in the use
 
 Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files are automatically decrypted **. 
 
-If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
+If you used your own key pair to encrypt the data, the application will make a copy and you need to manuallay decrypt them using Crypt4GH CLI. 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
@@ -170,7 +172,7 @@ To access RStudio in SD Desktop open the terminal in your virtual Desktop and la
 start-rstudio-server
 ```
 
-This will returt a URL and a service specific password:
+This will return a URL and a service specific password:
 
 ```
 RStudio Server - Sensitive Data Desktop Edition
@@ -193,7 +195,7 @@ Next:
 * after a few seconds, you can input the username and password (service specific) and access the server.
 
 !!! Note
-    Also when using RStudio, you need to save save your data in **Shared-directory** if your colleagues need to work on the same files.
+    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
