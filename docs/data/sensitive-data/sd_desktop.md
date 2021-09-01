@@ -11,10 +11,15 @@
 
 * It is the project manager's or group leader's responsibility to review frequently the list of members belonging to a project in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
-* SD Connect and SD Desktop has not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
+* SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
 
 ## Login 
+
+
+<figure class="video_container">
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 To access SD Desktop you need:
 
@@ -39,11 +44,15 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 ## Launching your Desktop (or private computing environment)
+  
+<figure class="video_container">
+<iframe width="280" height="155" srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing environment, accessible all along the duration of your project. 
+Once you access SD Desktop **Homepage** you can launch your  Desktop: a private and secure cloud computing environment.
+  
+After launch, you can login into your Desktop from any modern internet browser. Each Desktop will be accessible all along the duration of your CSC project.
 
-After launch, you can login into your Desktop from your internet browser at any time. Each Desktop is CSC project specific. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To edit the same files or datasets, you need to save them in the same **shared folder**.
-
+Each Desktop is CSC project specific. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same Desktop. To edit the same files or datasets, you need to save them in the same *shared folder*.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
 ![SD-Desktop-1final](https://user-images.githubusercontent.com/83574067/122592168-a0567c80-d06c-11eb-97f3-0c19675cd7e6.png)
@@ -55,6 +64,8 @@ To launch your Desktop, in Homepage, click on **Go To Launching Page** :
 * **select your CSC project**
 
 * **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
+  
+* optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop (**update: 1 September 2021**).
 
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
@@ -96,7 +107,7 @@ If the launch is successful, when you return to SD Desktop **Homepage**,  you wi
 In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office). 
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 
-As previously mentioned, you can **logout** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect the desktop again.
+As previously mentioned, you can **logout** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect to the Desktop again.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
@@ -106,6 +117,10 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 
 ## Importing encrypted sensitive data to SD Desktop
+  
+  
+<figure class="video_container">
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
 Once you are logged in into your SD Desktop private workspace **you can import encrypted sensitive data stored in SD Connect**.
@@ -187,12 +202,9 @@ Next:
 
 
 
-
-
-
 ## Deleting your computing environment
   
-At the end of your research or your analysis, you can delete your computing environment and all the data in it. 
+At the end of your research or your analysis, you can delete your Desktop and all the data in it. 
 
 In SD Desktop Homepage click on **Go to the launching page**. Here, in **Available instances** click on **Delete Desktop**. 
 
@@ -213,17 +225,6 @@ For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
-
-## Video tutorials
-
-
-<figure class="video_container">
-
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
- <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/OxgfZ4RKP3c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
   
