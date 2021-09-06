@@ -45,8 +45,8 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Launching your Desktop (or private computing environment)
   
+<iframe width="280" height="155"srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe width="280" height="155" srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 Once you access SD Desktop **Homepage** you can launch your  Desktop: a private and secure cloud computing environment.
   
