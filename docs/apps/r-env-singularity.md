@@ -669,19 +669,19 @@ Additional R package installations can be arranged via two routes:
 
 - Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 
-To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory:
+To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory. Note that the folder should be specific to the R version you are using (R packages installed using different `r-env-singularity` modules are not cross-compatible).
 
 ```r
 # On the command prompt:
 # First navigate to /projappl/<project>, then
-mkdir project_rpackages
+mkdir project_rpackages_<rversion>
 ```
 
 You can then add the folder to your library trees in R:
 
 ```r
 # Add this to your R code:
-.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))
+.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 libpath <- .libPaths()[1]
 
 # This command can be used to check that the folder is now visible:
@@ -694,13 +694,13 @@ libpath <- .libPaths()[1]
 To use R packages installed in `/projappl`, add the following to the beginning of your R script. This modifies your library trees within a given R session only. In other words, you will need to run this each time when launching R:
 
 ```r
-.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))
+.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
 Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
-echo "R_LIBS=/projappl/<project>/project_rpackages" >> ~/.Renviron
+echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 ```
 
 !!! note
