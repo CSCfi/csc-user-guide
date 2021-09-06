@@ -17,10 +17,9 @@
 ## Login 
 
 
-<figure class="video_container">
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
 To access SD Desktop you need:
 
@@ -46,7 +45,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Launching your Desktop (or private computing environment)
   
-<figure class="video_container">
+
 <iframe width="280" height="155" srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 Once you access SD Desktop **Homepage** you can launch your  Desktop: a private and secure cloud computing environment.
@@ -126,10 +125,9 @@ As previously mentioned, you can **logout** from your computing environment at a
 ## Importing encrypted sensitive data to SD Desktop
   
   
-<figure class="video_container">
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-  <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
 Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
