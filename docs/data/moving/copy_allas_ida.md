@@ -28,7 +28,7 @@ An example how to create a new directory copydir for the data under project 2000
 mkdir /scratch/project_2000013/copydir
 ```
 
-Download the data from Allas to that new directory. You should use the same protocol as was used to originally upload the data to Allas, and if the data was uploaded with command line tools, preferably also using the same command line tool. More information about the tools in Puhti is at [Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas/#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms)
+Download the data from Allas to that new directory. You should use the same protocol as was used to originally upload the data to Allas, and if the data was uploaded with command line tools, preferably also using the same command line tool. More information about the tools in Puhti is at [Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms)
 
 In our example case the data was originally uploaded to Allas with a-commands, so the user uses a-get to download the data:
 ```text
@@ -63,7 +63,7 @@ ida upload -p 2000002 survey_2021 survey_2021
 ```
 More examples can be found from the [home page of ida command line tool](https://github.com/CSCfi/ida2-command-line-tools#examples).
 
-If the user has already configured the IDA command line tool, then the upload command uses that configuration. If not, the the upload command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida/#configuring-and-using-ida-in-csc-supercomputers).
+If the user has already configured the IDA command line tool, then the upload command uses that configuration. If not, the the upload command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
 
 
 ### Step 4. Clean the Puhti scratch
@@ -85,7 +85,7 @@ In short, there are four steps to follow
 
 Scratch disk area is recommended as it is by default much larger than other areas, like user's home area. Also you can request even bigger scratch quota if the default is not enough. For more datails about Puhti disk areas see [Computing disk environment](../../computing/disk.md)
 
-An example how to create a new directory xferdir for the data under project 2000012's scracth area:
+An example how to create a new directory xferdir for the data under project 2000012's scratch area:
 ```text
 mkdir /scratch/project_2000012/xferdir
 ```
@@ -99,7 +99,7 @@ module load ida
 cd /scratch/project_2000012/xferdir
 ida download -p 2000001 testi testi.zip
 ```
-The last argument in the download command is the file name to be created in puhti, and in this case as a directory is downloaded, it will be downloaded as a zip package. If the user has used and configured the IDA command line tool, then the download command uses that configuration. If not, the the download command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida/#configuring-and-using-ida-in-csc-supercomputers).
+The last argument in the download command is the file name to be created in puhti, and in this case as a directory is downloaded, it will be downloaded as a zip package. If the user has used and configured the IDA command line tool, then the download command uses that configuration. If not, the the download command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
 
 If the data to be downloaded from IDA is a published open dataset visible in Fairdata Etsin, then downloading it requires two steps, locating and copying the download command in Etsin and then downloading the dataset. Download button in Etsin has option to show download commands for a few command line tools.
 
@@ -130,11 +130,11 @@ unzip testi.zip
 
 ### Step 3. Upload the data to Allas
 
-The easiest way to upload the data to Allas is using a-put command. a-put uploads a directory as one compressed obejct in to Allas. It needs enough space at the working directory to create the package to upload, so the currenct working directory should be the scartch area. The basic syntax of the a-put command:
+The easiest way to upload the data to Allas is using a-put command. a-put uploads a directory as one compressed obejct in to Allas. It needs enough space at the working directory to create the package to upload, so the currenct working directory should be the scratch area. The basic syntax of the a-put command:
 ```text
 a-put directory_or_file
 ```
-More information about the tools in Puhti is at [Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas/#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms)
+More information about the tools in Puhti is at [Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms)
 
 Continuing our example, the unzipped data to be uploaded to Allas is in a directory experiment_data, it can be uploaded with a-put:
 ```text
