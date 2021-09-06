@@ -5,7 +5,7 @@ It includes most standard and state of the art methods for ground state calculat
 
 ## Available
 
-*   Puhti: 7.5
+*   Puhti: 7.5, 7.5.1
 *   Mahti: 7.5
 
 ## License
@@ -20,7 +20,7 @@ It includes most standard and state of the art methods for ground state calculat
 Initialise Turbomole environment:
 
 ```bash
-module load turbomole/7.5
+module load turbomole/7.5.1
 ```
 
 
@@ -34,7 +34,7 @@ module load turbomole/7.5
 #SBATCH --account=<project>  # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as hh:mm:ss
 export PARA_ARCH=MPI         # use MPI 
-module load turbomole/7.5
+module load turbomole/7.5.1
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -55,7 +55,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --account=<project>  # insert here the project to be billed
 #SBATCH --time=00:10:00      # time as hh:mm:ss
 export PARA_ARCH=SMP         # use SMP threads   
-module load turbomole/7.5
+module load turbomole/7.5.1
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
 export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
@@ -70,6 +70,9 @@ jobex -ri -c 300 > jobex.out
 ``` 
     export TMPDIR=$TURBOTMPDIR
 ```
+
+!!! note
+    Second-order approximate coupled cluster calculations using the `ricc2` module have been reported to suffer from numerical errors resulting in crashed jobs. This applies to Turbomole versions 7.5 and older on Puhti. For reliable performance, we suggest running `ricc2` calculations using Turbomole 7.5.1 on Puhti or 7.5 on Mahti.
 
 !!! note
     Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
@@ -87,7 +90,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --time=00:10:00      # time as hh:mm:ss
 #SBATCH --gres=nvme:100      # requested local disk in GB
 export PARA_ARCH=MPI         # use MPI
-module load turbomole/7.5
+module load turbomole/7.5.1
 export SLURM_CPU_BIND=none
 # define local disk as scratch
 export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
