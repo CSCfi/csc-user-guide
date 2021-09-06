@@ -143,6 +143,7 @@ nav:
         - Sharing and transporting files using Funet FileSender: data/moving/funet.md
         - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
         - Remote disk mounts: data/moving/disk_mount.md
+        - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
      - Allas object storage:
         - Overview: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
