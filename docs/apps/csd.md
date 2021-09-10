@@ -52,7 +52,7 @@ Software to access and analyse CSD entries:
 There are three ways to access the CSD System:
 
 -   Local installation (Windows or Linux, takes up a lot of disk)
--   Using CSD System on Puhti (via [X11-tunneling](https://docs.csc.fi/computing/connecting/#using-graphical-applications) `ssh -X username@puhti.csc.fi`)
+-   Using CSD System on Puhti (via [X11-tunneling](../../computing/connecting/#using-graphical-applications) `ssh -X username@puhti.csc.fi`)
 -   WebCSD (limited functionality), point your browser in [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
 ### Using CSD as a local installation
@@ -66,7 +66,7 @@ recommended way for power users. The full installation requires ~18 GB of disk.
 
 ### Using CSD on Puhti
 
-Log in via [`ssh -X username@puhti.csc.fi`](https://docs.csc.fi/computing/connecting/#using-graphical-applications), initialize CSD by:
+Log in via [`ssh -X username@puhti.csc.fi`](../../computing/connecting/#using-graphical-applications), initialize CSD by:
 
 `module load ccdc`
 
