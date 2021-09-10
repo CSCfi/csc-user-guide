@@ -17,10 +17,10 @@
 ## Login 
 
 
-<figure class="video_container">
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
+
 
 To access SD Desktop you need:
 
@@ -46,10 +46,10 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Launching your Desktop (or private computing environment)
   
-<figure class="video_container">
-<iframe width="280" height="155" srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-Once you access SD Desktop **Homepage** you can launch your  Desktop: a private and secure cloud computing environment.
+<iframe width="280" height="155"srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
   
 After launch, you can login into your Desktop from any modern internet browser. Each Desktop will be accessible all along the duration of your CSC project.
 
@@ -109,7 +109,7 @@ If the launch is successful, when you return to SD Desktop **Homepage**,  you wi
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office). 
+In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office, Jupter Notebook ).
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 
 As previously mentioned, you can **logout** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect to the Desktop again.
@@ -126,10 +126,11 @@ As previously mentioned, you can **logout** from your computing environment at a
 ## Importing encrypted sensitive data to SD Desktop
   
   
-<figure class="video_container">
+
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-  <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
+
 
 
 Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
