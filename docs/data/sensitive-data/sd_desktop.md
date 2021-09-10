@@ -46,9 +46,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 ## Launching your Desktop (or private computing environment)
   
-
-<iframe width="280" height="155"srcdoc="https://youtu.be/eHWvyNd2uCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   
 After launch, you can login into your Desktop from any modern internet browser. Each Desktop will be accessible all along the duration of your CSC project.
