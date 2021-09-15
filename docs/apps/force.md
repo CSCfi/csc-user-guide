@@ -7,6 +7,7 @@ FORCE (Framework for Operational Radiometric Correction for Environmental monito
 __FORCE__ is available in Puhti with the following versions:
 
 * 3.6.5 (Singularity container)
+* 3.5.1 (Singularity container)
 
 ## Usage 
 
