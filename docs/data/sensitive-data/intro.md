@@ -8,8 +8,8 @@ Sensitive Data Services for Research provide CSC customers a secure cloud comput
 
 Sensitive Data Services for Reaserch (Open Beta) consists of two components:
 
-   * **Sensitive Data Connect**, a web user interface for storing and sharing sensitive data.  
-   * **Sensitive Data Desktop** is a web user interface that provides access to a secure virtual computing environment ( or virtual Desktop). The Desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same private Desktop. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
+   * **Sensitive Data Connect**: a web user interface for storing and sharing sensitive data during the active phases of research projects
+   * **Sensitive Data Desktop**: a web user interface that provides access to a secure virtual computing environment ( or virtual Desktop). The Desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same private Desktop. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
  
 Sensitive Data Services have increased security, compared to the HPC (Puhti and Mahti) and general purpose cloud environments (cPouta and Rahti) of CSC.
 Thus data that can't be processed in these environments may still be processed in SD Services environment.
