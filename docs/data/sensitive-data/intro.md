@@ -52,6 +52,32 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 </figure>
 
 
+
+
+## Quickstart guide for data analysis with SD Desktop
+
+This quickstart guides you through importing encrypted sensitive data in your private Desktop for data analysis.
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/ClG8mae8e3k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+[![Landing page](images/small/landing-page.png)](images/large/landing-page.png)
+[![My profile](images/small/my-profile.png)](images/large/my-profile.png)
+[![Change password](images/small/change-password.png)](images/large/change-password.png)
+
+
+## Quickstart guide for data analysis with SD Connect
+
+This quickstart guides you through  encrypted sensitive data with your own encryption keys for data sharing using SD Connect.
+
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/OOa3oKy5Xs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+
 ## Useful terminology:
 
 **Allas**: The general purpose data storage service of CSC. At the moment SD-connect is using Allas as a storage service and you can in practice consider Allas and SD Connect as just one service. However, ongoing development of SD connect is likely to make it diverge from the standard Allas service in the future.
