@@ -69,7 +69,7 @@ This quickstart guides you through importing encrypted sensitive data in your pr
 
 ## Quickstart guide for data analysis with SD Connect
 
-This quickstart guides you through  encrypted sensitive data with your own encryption keys for data sharing using SD Connect.
+This quickstart guides you through  encrypted sensitive data with personal encryption keys for data sharing using SD Connect.
 
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/OOa3oKy5Xs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
