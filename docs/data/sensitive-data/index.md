@@ -32,8 +32,7 @@
  
  * **Data Sharing with SD Connect user interface**
  
- * **Video tutorials**
-   
+
   
 
 ## [Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)
@@ -52,7 +51,6 @@
 
   * **Data export from SD Desktop**
   
-  * **Video tutorials**
 
 
 
