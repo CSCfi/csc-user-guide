@@ -127,7 +127,7 @@ jobex -ri -c 300 > jobex.out
 NumForce is a tool that can be used to calculate second derivatives (molecular Hessian) for all methods
 for which analytic gradients are available in `TURBOMOLE`.   
 A NumForce job spawns `3*N*2` (`N` = number of atoms ) independent gradient calculations. 
-Usually it is most efficient that the single gradient calculations are run as serial (unset PARA_ARCH). Each serial calculation is expected to take roughly the same time, hence optimally the total number of gradient calculations should be an integer multiple of the allocated cores.
+Usually it is most efficient that the single gradient calculations are run as serial (`unset PARA_ARCH`). Each serial calculation is expected to take roughly the same time, hence optimally the total number of gradient calculations should be an integer multiple of the allocated cores.
 
 A NumForce step in a job file:
 
