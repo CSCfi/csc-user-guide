@@ -46,6 +46,10 @@ The interface is compatible with all modern web browsers.
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+
+
 Once you log in to SD Connect you access the default front-page: **Browser**.
 
 In this page you can :
@@ -115,6 +119,9 @@ In the **Shared** page:
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
 !!! note
@@ -169,6 +176,10 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
  <iframe width="280" height="157" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+ 
+ 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
 
 
 To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
@@ -199,6 +210,9 @@ Example: ns-123456-raw-data-ddmmyy
 ## Encryption with CSC encryption key- Command Line Interface
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
 
 !!! note
         Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decrypted only when imported in SD Desktop, thus using CSC Sensitive Data             Services.
@@ -288,6 +302,9 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 ## Data Sharing with SD Connect user interface
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 !!! Note
