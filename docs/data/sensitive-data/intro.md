@@ -57,10 +57,8 @@ This quickstart guides you through importing encrypted sensitive data in your pr
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/ClG8mae8e3k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+[![Processing](/img/sd-processing-small.png)](/img/sd-processing-big.png)
 
-[![Landing page](images/small/landing-page.png)](images/large/landing-page.png)
-[![My profile](images/small/my-profile.png)](images/large/my-profile.png)
-[![Change password](images/small/change-password.png)](images/large/change-password.png)
 
 
 ## Quickstart: Sharing sensitive data with SD Connect
@@ -70,6 +68,7 @@ This quickstart guides you through encryptting sensitive data with personal encr
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/OOa3oKy5Xs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+[![Processing](/img/sd-sharing-small.png)](/img/sd-sharing-big.png)
 
 
 
