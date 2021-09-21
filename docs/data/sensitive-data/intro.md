@@ -68,7 +68,7 @@ This quickstart guides you through encryptting sensitive data with personal encr
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/OOa3oKy5Xs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[![Processing](/img/sd-sharing-small.png)](/img/sd-sharing-big.png)
+[![Sharing](/img/sd-sharing-small.png)](/img/sd-sharing-big.png)
 
 
 
