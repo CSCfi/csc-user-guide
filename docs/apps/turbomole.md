@@ -96,7 +96,7 @@ export SLURM_CPU_BIND=none
 export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
 mkdir -p $TURBOTMPDIR
 export PARNODES=$SLURM_NTASKS  # for MPI
-### Batch script example forexport PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
+export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
 dscf > dscf.out
 ccsdf12 > ccsdt.out
 ```
