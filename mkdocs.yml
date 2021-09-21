@@ -144,6 +144,7 @@ nav:
         - Sharing and transporting files using Funet FileSender: data/moving/funet.md
         - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
         - Remote disk mounts: data/moving/disk_mount.md
+        - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
      - Allas object storage:
         - Overview: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
@@ -158,10 +159,10 @@ nav:
         - Overview: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
 #        - Quickguide: data/sensitive-data/quickguide.md
-        - SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Connect: data/sensitive-data/sd_connect.md
-        - crypt4gh client: data/sensitive-data/crypt4gh_client.md
+        - SD Desktop: data/sensitive-data/sd_desktop.md
         - Pre-installed software: data/sensitive-data/pre-installed_software.md
+        - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
