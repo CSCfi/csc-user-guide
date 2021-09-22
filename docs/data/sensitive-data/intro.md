@@ -6,7 +6,7 @@
 
 Sensitive Data Services for Research provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about Sensitive Data services for Research and future developments check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
 
-Sensitive Data Services for Reaserch (Open Beta) consists of two components:
+Sensitive Data Services for Research (Open Beta) consists of two components:
 
    * **Sensitive Data Connect**: a web user interface for storing and sharing sensitive data during the active phases of research projects
    * **Sensitive Data Desktop**: a web user interface that provides access to a secure virtual computing environment ( or virtual Desktop). The Desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same private Desktop. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
