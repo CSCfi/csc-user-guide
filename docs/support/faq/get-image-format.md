@@ -27,7 +27,7 @@ You can find more information in the [How to add docker hub credentials to a pro
 
 ## Unsupported image format
 
-Other more obscure problem is when the format of the image is not supported by the current version of Rahti (v3.11), which uses an old version of the docker client. Currently there are two docker image formats, docker (`application/vnd.docker.container.image.v1+json`) and OCI (`application/vnd.oci.image.manifest.v1+json`), the current version of Rahti only supports `docker`.
+A more obscure problem is when the format of the image is not supported by the current version of Rahti (v3.11), which uses an old version of the docker client. Currently there are two docker image formats, docker (`application/vnd.docker.container.image.v1+json`) and OCI (`application/vnd.oci.image.manifest.v1+json`), the current version of Rahti only supports `docker`.
 
 When an old client is used to try to pull a image with the newer format, the client cannot find it and returns a `repository does not exist` error. There is not a trivial and definitive procedure to confirm that the image indeed exists but it is stored in the newer format. One way is to use an old version of docker (Rahti uses the one coming with centos7) to try to pull the image, and then use a newer version to try to pull the same image. If it pulls in the new, but not in the old, it is a clear indication that the image is using the new format.
 
