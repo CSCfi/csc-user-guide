@@ -105,7 +105,7 @@ main "$@"
 
 ## Workarounds
 
-* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This new pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../../cloud/rahti/tutorials/docker_hub_manual_caching/).
+* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This newly pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../../cloud/rahti/tutorials/docker_hub_manual_caching/).
 
 * If the image was built by your team, the [buildah](https://buildah.io) tool can be used. It allows to build docker images without the extra privileges the `docker build` requires, and even though by default it will build an image using the `OCI` format, it has an option to use the `docker` format instead:
 
