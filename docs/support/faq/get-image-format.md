@@ -16,7 +16,6 @@ $ oc create secret docker-registry <SECRET-NAME> \
       --docker-server=docker.io \
       --docker-email=<EMAIL> \
       --docker-password=<PASSWORD>
-secret/myprivaterepoaccess created
 
 $ oc secrets link default myprivaterepoaccess --for=pull
 ```
