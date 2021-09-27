@@ -8,7 +8,7 @@ Often there are simple causes for this problem. Maybe there is a typo in the ima
 
 ## Private
 
-Other option is that maybe the image is private. In this case it is necessary to setup a `docker-registry` secret with an account that has permissions to pull the image. For example for an image stored in docker hub:
+Another cause is that maybe the image is private. In this case, it is necessary to set up a `docker-registry` secret with an account credential having the required permissions to pull the image. For example, for an image stored in docker hub:
 
 ```bash
 $ oc create secret docker-registry myprivaterepoaccess \
