@@ -28,79 +28,8 @@ You can find more information in the [How to add docker hub credentials to a pro
 
 A more obscure problem is when the format of the image is not supported by the current version of Rahti (v3.11), which uses an old version of the docker client. Currently there are two docker image formats, docker (`application/vnd.docker.container.image.v1+json`) and OCI (`application/vnd.oci.image.manifest.v1+json`), the current version of Rahti only supports `docker`.
 
-When an old client is used to try to pull a image with the newer format, the client cannot find it and returns a `repository does not exist` error. There is not a trivial and definitive procedure to confirm that the image indeed exists but it is stored in the newer format. One way is to use an old version of docker (Rahti uses the one coming with centos7) to try to pull the image, and then use a newer version to try to pull the same image. If it pulls in the new, but not in the old, it is a clear indication that the image is using the new format.
+When an old client is used to try to pull a image with the newer format, the client cannot find it and returns a `repository does not exist` error. The easiest way to check the `mediaType` of an image is to use `docker manifest inspect <image>:<tag>`. This command will show the media type of the image and each of its layers.
 
-### Script
-
-Other option is to use the script below. When an image is pulled from a registry, the REST API of the registry is used. In the REST request it is necessary to indicate the accepted media type using an HTTPD header. The script makes a request using the old format media type. If the return code is `200` the image is in the old format, and if it is `404` the new.
-
-```bash
-#!/bin/bash -e
-
-readonly REGISTRY_ADDRESS="${REGISTRY_ADDRESS:-registry-1.docker.io}"
-readonly MEDIA_TYPE="${MEDIA_TYPE:-application/vnd.docker.container.image.v1+json}"
-#readonly MEDIA_TYPE="${MEDIA_TYPE:-application/vnd.oci.image.manifest.v1+json}"
-
-main() {
-
-  local image=$1
-  local tag=$2
-
-  if [ -z "$tag" ];
-  then
-    echo "Use: $0 <image> <tag>"
-    exit 1
-  fi
-
-  local token
-  token="$(get_token "$image")"
-
-  if [ -z "$token" ];
-  then
-    echo "No token returned" >&2
-    exit 2
-  fi
-
-  get_manifest "$image" "$tag" "$token"
-
-}
-
-get_token() {
-  local image=$1
-
-  curl \
-    --silent \
-    "https://auth.docker.io/token?scope=repository:$image:pull&service=registry.docker.io" \
-    | jq -r '.token'
-}
-
-get_manifest() {
-  local image=$1
-  local tag=$2
-  local token=$3
-
-  TMPF=$(mktemp)
-
-  code=$(curl \
-    -s \
-    --header "Accept: $MEDIA_TYPE" \
-    --header "Authorization: Bearer $token" \
-    -o "$TMPF" \
-    -w "%{http_code}" \
-    "https://$REGISTRY_ADDRESS/v2/$image/manifests/$tag")
-
-    if [ "$code" -eq "404" ];
-    then
-      cat "$TMPF" >&2
-    else
-     echo "($code) Image stored in $MEDIA_TYPE format" >&2
-    fi
-
-    rm "$TMPF"
-}
-
-main "$@"
-```
 
 ## Workarounds
 
