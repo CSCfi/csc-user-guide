@@ -11,10 +11,16 @@
 
 * It is the project manager's or group leader's responsibility to review frequently the list of members belonging to a project in MyCSC and verify who can access the data present in the project using SD Desktop or SD Connect. Remove the project members that do not need to have access to the data when their contribution is no longer needed.  
 
-* SD Connect and SD Desktop has not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
+* SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
 
 ## Login 
+
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
+
 
 To access SD Desktop you need:
 
@@ -39,11 +45,13 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 ## Launching your Desktop (or private computing environment)
+  
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you login, in SD Desktop **Homepage** you can launch your private and secure cloud computing environment, accessible all along the duration of your project. 
+  
+After launch, you can login into your Desktop from any modern internet browser. Each Desktop will be accessible all along the duration of your CSC project.
 
-After launch, you can login into your Desktop from your internet browser at any time. Each Desktop is CSC project specific. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same secure computing environment. To edit the same files or datasets, you need to save them in the same **shared folder**.
-
+Each Desktop is CSC project specific. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will be able to access the same Desktop. To edit the same files or datasets, you need to save them in the same *shared folder*.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122592729-5b7f1580-d06d-11eb-8913-9219c864954b.png">
 ![SD-Desktop-1final](https://user-images.githubusercontent.com/83574067/122592168-a0567c80-d06c-11eb-97f3-0c19675cd7e6.png)
@@ -55,6 +63,10 @@ To launch your Desktop, in Homepage, click on **Go To Launching Page** :
 * **select your CSC project**
 
 * **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
+  
+* optionally, you can name the Desktop (**update: 1 September 2021**).
+  
+* optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop (**update: 1 September 2021**).
 
 * **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
 
@@ -76,7 +88,9 @@ All the Desktop are provided with the same software. The complete and updated li
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593105-db0ce480-d06d-11eb-8a42-aab26cf289b8.png">
-![SD-Desktop-2final](https://user-images.githubusercontent.com/83574067/122608199-79a44000-d084-11eb-80c6-40dab45004ac.png)
+  
+![Screenshot_SD_Desktop_0109_launchingpage](https://user-images.githubusercontent.com/83574067/131730263-374e5188-a7ee-4e03-a890-e7112745e2e3.png)
+
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122593108-dcd6a800-d06d-11eb-9b51-2faaf2937b3a.png">
 
 
@@ -93,25 +107,34 @@ If the launch is successful, when you return to SD Desktop **Homepage**,  you wi
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office). 
+In the Desktop you will be able to access different applications from the menu bar on the page top left corner (e.g. Open Office, Jupter Notebook ).
 If you need to work on files or datasets with your colleagues, save them in the **Shared-directory**. The file will be visible and accessible to all the members of the same CSC project. 
 
-As previously mentioned, you can **logout** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect the desktop again.
+As previously mentioned, you can **logout** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in. **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect to the Desktop again.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-<img width="960" alt="SD-Desktop-Home" src="https://user-images.githubusercontent.com/83574067/122606520-ba4e8a00-d081-11eb-8a43-454776ab87d6.png">
+
+ ![Screeshoot_SDDesktop_0109_wrokspace](https://user-images.githubusercontent.com/83574067/131730403-3e96b440-9750-4bda-a5ef-7703d0d9c3ee.png)
+
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
 
 ## Importing encrypted sensitive data to SD Desktop
+  
+  
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-Once you are logged in into your SD Desktop private workspace **you can import encrypted sensitive data stored in SD Connect**.
+
+Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
 
 !!! Note
-    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files are  automatically decrypted**.  If you use your own key pair to           encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
+    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files are  automatically decrypted**.  If you use your own key pair to encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
 
 To import the data:
 
@@ -133,7 +156,7 @@ The files are downloaded to a directory called SDCONNECTDATA which is in the use
 
 Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files are automatically decrypted **. 
 
-If you used your own key pair to encrypt the data, the application will make a copy and you need to manullay decrypt them using Crypt4GH CLI. 
+If you used your own key pair to encrypt the data, the application will make a copy and you need to manuallay decrypt them using Crypt4GH CLI. 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 <img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
@@ -155,7 +178,7 @@ To access RStudio in SD Desktop open the terminal in your virtual Desktop and la
 start-rstudio-server
 ```
 
-This will returt a URL and a service specific password:
+This will return a URL and a service specific password:
 
 ```
 RStudio Server - Sensitive Data Desktop Edition
@@ -178,7 +201,7 @@ Next:
 * after a few seconds, you can input the username and password (service specific) and access the server.
 
 !!! Note
-    Also when using RStudio, you need to save save your data in **Shared-directory** if your colleagues need to work on the same files.
+    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
@@ -187,12 +210,9 @@ Next:
 
 
 
-
-
-
 ## Deleting your computing environment
   
-At the end of your research or your analysis, you can delete your computing environment and all the data in it. 
+At the end of your research or your analysis, you can delete your Desktop and all the data in it. 
 
 In SD Desktop Homepage click on **Go to the launching page**. Here, in **Available instances** click on **Delete Desktop**. 
 
@@ -201,7 +221,9 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
     All the data present in the computing environment will be deleted and it will not be possible to retrieve them.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-![SD_Desktop_deletingF](https://user-images.githubusercontent.com/83574067/122610703-c25df800-d088-11eb-8e44-2792c1bc2e6c.png)
+
+![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
@@ -213,17 +235,6 @@ For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
-
-## Video tutorials
-
-
-<figure class="video_container">
-
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
- <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/OxgfZ4RKP3c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 
   
