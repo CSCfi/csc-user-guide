@@ -19,7 +19,11 @@ In this tutorial we use a virtual machine that was launched using:
 *  Instance Boot Source: **Image**
 *  Image Name: **Ubuntu-20.04 (2.2 GB)**
 
-Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **singularity** to create new software containers and **allas tools** to upload the containers created to Allas.
+
+## 2. Installating singularity and Allas tools to Ubuntu 20.04 server
+
+Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **singularity** to create new software containers and **allas tools** to upload the containers we will create to Allas.
+
 
 The singularity installation is done with commands:
 
@@ -47,5 +51,25 @@ sudo apt install python3-swiftclient
 curl https://rclone.org/install.sh | sudo bash
 git clone https://github.com/CSCfi/allas-cli-utils
 cd 
+```
+Note that this installation process needs to be done only once for a virtual machine.
+
+
+## 3. Creating a singularity sand box
+
+There are many ways to create new Singularity containers. You can crate the a conntainer by creating a _sandbox_ in to which you log in and add contect by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to a _singularity definiton_ file that instucts the installation process.
+
+Here we use a mixture of this two. We first use a simple definition file to create a new continer sandbox and then we and the actual software installations manually.
+
+First open a new file called _ubuntu_with_conda.def_ with command:
+
+```text
+nano ubuntu_with_conda.def
+```
+
+And copy-paste to the new file the content from the sample definition file below:
+
+```
+
 ```
 
