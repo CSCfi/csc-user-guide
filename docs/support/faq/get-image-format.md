@@ -20,7 +20,7 @@ $ oc create secret docker-registry <SECRET-NAME> \
 $ oc secrets link default myprivaterepoaccess --for=pull
 ```
 
-**Note**: Substitute place holders with actual username, password and email (without <>).
+**Note**: Substitute placeholders with actual username, password, email, and an appropriate name for the secret (without <>).
 secret-name.
 
 You can find more information in the [How to add docker hub credentials to a project](../../../cloud/rahti/tutorials/docker_hub_login/) article.
