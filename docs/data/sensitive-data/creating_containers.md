@@ -69,7 +69,67 @@ nano ubuntu_with_conda.def
 
 And copy-paste to the new file the content from the sample definition file below:
 
-```
+```text
+Bootstrap: library
+From: ubuntu:20.04
+Stage: build
 
+%environment
+export LC_ALL=C
+export LC_NUMERIC=en_GB.UTF-8
+export PATH="/opt/miniconda/bin:$PATH"
+
+%help
+Container based on unbuntu containing miniconda.
+
+%runscript
+# sample runscript: bamtools passing all arguments from cli: $@
+# exec /opt/miniconda/bin/bamtools "$@"
+
+%post
+#commands needed to build minicvonda
+apt update
+apt install -y wget bzip2
+
+#install conda
+cd /opt
+rm -fr miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  -O miniconda.sh
+bash miniconda.sh -b -p /opt/miniconda
+export PATH="/opt/miniconda/bin:$PATH"
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+eval "$(/opt/miniconda/bin/conda  shell.bash hook)"
 ```
+Next we will use this definition file to create a new singularity sandbox
+
+```text
+sudo singularity build --sandbox sd_sandbox_1 ubuntu_with_miniconda.def
+```
+When the sandbox is ready we open a shell session into it. Option _-w_ enabes us to write to the sand box:
+
+```text
+sudo singularity shell -w sd_sandbox_1
+```
+Now we are inside the singuleity sandbox we can start adding software.
+We have conda already available and it will provied a handy way to install many software tools
+
+Nyt voit alkaa asentamaan ohjelmia tähän konttiin. Esim.
+
+conda install -c bioconda bamtools
+
+Kun asennus on tehty poistu kontista komennolla:
+
+exit
+
+
+Nyt voit alkaa asentamaan ohjelmia tähän konttiin. Esim.
+
+conda install -c bioconda bamtools
+
+Kun asennus on tehty poistu kontista komennolla:
+
+exit
+
 
