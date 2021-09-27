@@ -2,7 +2,7 @@
 
 ![Could not load image](img/Could_not_load_image_metadata.png)
 
-There are simple causes to this problem. Maybe there is a typo in the image name, or maybe the image has been deleted since the last time it was successfully pulled. These two problems are common, and it is worth to double check the source.
+Often there are simple causes for this problem. Maybe there is a typo in the image name, or the image might have been removed since the last time it was successfully pulled. These two problems are common, and as such, it is worth double-checking the image source.
 
 ![Failed to pull image](img/Failed_to_pull_image.png)
 
