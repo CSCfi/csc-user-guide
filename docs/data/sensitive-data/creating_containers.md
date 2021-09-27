@@ -57,14 +57,15 @@ Note that this installation process needs to be done only once for a virtual mac
 
 ## 3. Creating a singularity sand box
 
+### 3.1 Defaults file
 There are many ways to create new Singularity containers. You can crate the a conntainer by creating a _sandbox_ in to which you log in and add contect by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to a _singularity definiton_ file that instucts the installation process.
 
 Here we use a mixture of this two. We first use a simple definition file to create a new continer sandbox and then we and the actual software installations manually.
 
-First open a new file called _ubuntu_with_conda.def_ with command:
+First open a new file called _ubuntu_with_inst_tools.def_ with command:
 
 ```text
-nano ubuntu_with_conda.def
+nano ubuntu_with_inst_tools.def
 ```
 
 And copy-paste to the new file the content from the sample definition file below:
@@ -89,47 +90,67 @@ Container based on unbuntu containing miniconda.
 %post
 #commands needed to build minicvonda
 apt update
-apt install -y wget bzip2
+apt install -y wget bzip2 git autoconf automake build-essential zlib1g-dev pkg-config
 
 #install conda
 cd /opt
 rm -fr miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  -O miniconda.sh
 bash miniconda.sh -b -p /opt/miniconda
-export PATH="/opt/miniconda/bin:$PATH"
-conda config --add channels defaults
-conda config --add channels bioconda
-conda config --add channels conda-forge
-eval "$(/opt/miniconda/bin/conda  shell.bash hook)"
+mkdir -p /opt/tools/bin
+export PATH="/opt/tools/bin:/opt/miniconda/bin:$PATH"
 ```
+
+## 3.2 Creating and using sandbox
+
 Next we will use this definition file to create a new singularity sandbox
 
 ```text
-sudo singularity build --sandbox sd_sandbox_1 ubuntu_with_miniconda.def
+sudo singularity build --sandbox sd_sandbox_1 ubuntu_with_inst_tools.def
 ```
-When the sandbox is ready we open a shell session into it. Option _-w_ enabes us to write to the sand box:
+When the sandbox is ready we open a shell session into it. Option _-w_ enables us to write to the sand box:
 
 ```text
 sudo singularity shell -w sd_sandbox_1
 ```
-Now we are inside the singuleity sandbox we can start adding software.
-We have conda already available and it will provied a handy way to install many software tools
+Now we are inside the singularity sandbox and we can start installing software we need.
+We have conda already available and it will provied a handy way to install many software tools.
+For example, following commands install _bamtools_ and _samtools_. In the case of samtools we define 
+a spcific version (1.1.3)
 
-Nyt voit alkaa asentamaan ohjelmia tähän konttiin. Esim.
+```text
+conda install bamtools
+conda install samtools=1.13
+```
+We could also use normal installation procedures in stead of conda. For example in stead of _conda install vcftools_
+you could do vcftools installation with commands:
 
-conda install -c bioconda bamtools
-
-Kun asennus on tehty poistu kontista komennolla:
-
+```text
+cd /opt/tools
+git clone https://github.com/vcftools/vcftools
+cd vcftools/
+autoreconf -i
+./configure --prefix=/opt/tools
+make
+make install
+```
+When you are ready with the software installations you can exit the sanbox with command:
+```text
 exit
+```
+## 3.3 Creating a singularity image file
 
+Now we are back in the base virtual machine. Next we convert the sandbox into a singularity image file with command:
 
-Nyt voit alkaa asentamaan ohjelmia tähän konttiin. Esim.
+```text
+sudo singularity build sd_tools_1.sif sd_sandbox_1
+```
+After this, file listing (```ls -lh```) shows that out current diretory has a sandbox directory and singularity image file
 
-conda install -c bioconda bamtools
+```text
+drwxr-xr-x. 18 root   root   4.0K Sep 27 12:56 sd_sandbox_1
+-rwxr-xr-x   1 ubuntu ubuntu 419M Sep 27 13:43 sd_tools_1.sif
+```
 
-Kun asennus on tehty poistu kontista komennolla:
-
-exit
 
 
