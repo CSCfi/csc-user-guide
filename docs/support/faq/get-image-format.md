@@ -11,7 +11,7 @@ Often there are simple causes for this problem. Maybe there is a typo in the ima
 Another cause is that maybe the image is private. In this case, it is necessary to set up a `docker-registry` secret with an account credential having the required permissions to pull the image. For example, for an image stored in docker hub:
 
 ```bash
-$ oc create secret docker-registry myprivaterepoaccess \
+$ oc create secret docker-registry <SECRET-NAME> \
       --docker-username=<USERNAME> \
       --docker-server=docker.io \
       --docker-email=<EMAIL> \
