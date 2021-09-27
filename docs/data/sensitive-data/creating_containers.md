@@ -10,7 +10,7 @@ of extra steps into the process: you have to know how to launch and access virtu
 connection to the Allas service that is used to import the ready made containers to SD Desktop.
 
 As a first step launch virtual machine in cPouta as described in'cPouta user guide 
-* [Launching a virtual machine with the cPouta web interface](launch-vm-from-web-gui.md)
+* [Launching a virtual machine with the cPouta web interface](../../cloud/pouta/launch-vm-from-web-gui.md)
 
 and for example these tutorial videos:
 
