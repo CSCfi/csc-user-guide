@@ -14,8 +14,9 @@ As a first step launch virtual machine in cPouta as described in'cPouta user gui
 
 and for example these tutorial videos:
 
-[Launching a virtual machine] and connecting to it on a local macOS laptop
-[Creating a virtual machine in cPouta]
+[Launching a virtual machine](https://www.youtube.com/watch?v=CvoN4pv0RJQ) and connecting to it on a local macOS laptop
+
+[Creating a virtual machine in cPouta](https://www.youtube.com/watch?v=CIO8KRbgDoI) a webinar recording.
 
 
 
