@@ -11,13 +11,15 @@ Often there are simple causes for this problem. Maybe there is a typo in the ima
 Another cause is that maybe the image is private. In this case, it is necessary to set up a `docker-registry` secret with an account credential having the required permissions to pull the image. For example, for an image stored in docker hub:
 
 ```bash
-$ oc create secret docker-registry <SECRET-NAME> \
+oc create secret docker-registry <SECRET-NAME> \
       --docker-username=<USERNAME> \
       --docker-server=docker.io \
       --docker-email=<EMAIL> \
       --docker-password=<PASSWORD>
+```
 
-$ oc secrets link default myprivaterepoaccess --for=pull
+```bash
+oc secrets link default <SECRET-NAME> --for=pull
 ```
 
 **Note**: Substitute placeholders with actual username, password, email, and an appropriate name for the secret (without <>).
