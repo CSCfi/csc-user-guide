@@ -1,11 +1,13 @@
 # Data management
 
 <a name="header1"></a>
+
 ## Overview
 
 TODO: Tekstiä tähän?
 
 <a name="header2"></a>
+
 ## Best practices
 
 TODO: Otsikot linkkinä kuten reasearch.csc.fi?
@@ -74,8 +76,21 @@ The Academy of Finland Open Science pages - TODO: Linkki
 [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on Fairdata.fi website
 
 <a name="header3"></a>
+
 ## Phases of dataset use
 
 TODO: Tässä kuvataan lyhyesti ajatus siitä, että datan kanssa työskentelyssä on hyödyllistä erottaa eri työvaiheet ja niiden erilaiset tavoitteet. Sivulla käydään läpi mahdollisimman karsittu esimerkki siitä, että miten CSC:n ympäristössä voidaan tehdä alusta loppuun yksinkertainen datasetteihin nojaava analyysiprojekti tms.
 
 Pohjana voisi toimia: https://docs.csc.fi/data/Allas/allas_project_example/
+
+<a name="header4"></a>
+
+## How to manage sensitive data
+
+=> https://wiki.eduuni.fi/pages/viewpage.action?pageId=154446651
+
+ - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
+ - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
+ - 
+
+
