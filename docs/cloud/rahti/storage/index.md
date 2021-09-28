@@ -2,7 +2,7 @@
 
 This article introduces the storage options available in CSC's Rahti environment. Using the storage requires an account, a CSC project, a Rahti Namespace, and at least a Pod.
 
-One of the pillars of Docker is the immutability of images, once they are build, docker images never change. The issue for most of the applications is that it is necessary to store, update and later retrieve application data. In docker, this is solved by the concept of volumes, a external filesystem (to docker) that is mounted in the internal filesystem of a container. In Kubernetes, and by extension OpenShift, this problem can be solved in several ways.
+One of the pillars of Docker is the immutability of images, once they are built, docker images never change. The issue for most of the applications is that it is necessary to store, update and later retrieve application data. In docker, this is solved by the concept of volumes, an external filesystem (to docker) that is mounted in the internal filesystem of a container. In Kubernetes, and by extension OpenShift, this problem can be solved in several ways.
 
 ![Storage options](../img/storage-options.drawio.svg)
 
