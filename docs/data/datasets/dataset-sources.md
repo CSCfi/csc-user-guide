@@ -1,18 +1,45 @@
 # Working with data
 
+## [Data management](datamanagement.md)
 
-|[Data management](datamanagement.md) <img width=200/>	|[Metadata and documentation](metadata-and-documentation.md) <img width=200/> |[Data sources](sourcing-datasets.md) <img width=200/>	|
-|:---------------:|:---------------:|:--------------:|
-|[Overview](datamanagement.md#header1)  |[Overview](metadata-and-documentation.md#header1) |[Overview](sourcing-datasets.md#header1) |
-|[Best practices](datamanagement.md#header2)  |[Metadata types](metadata-and-documentation.md#header2)|[Gathering datasets](sourcing-datasets.md#header2) | 
-|[Phases of dataset use](datamanagement.md#header3)  |[Files and file formats](metadata-and-documentation.md#header3) |[Discover research data](sourcing-datasets.md#header3) |
-|[How to manage sensitive data](how-to-manage-sensitive-data.md)|[Data types](metadata-and-documentation.md#header4)|[Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4) |
-|  |  | |
+  - [Overview](datamanagement.md#header1)
+  - [Best practices](datamanagement.md#header2)
+  - [Phases of dataset use](datamanagement.md#header3)
+  - [How to manage sensitive data](datamanagement.md#header4)
 
-|[Using datasets](using-datasets.md) <img width=200/>	|[Storing, hosting and moving data](hosting-datasets-at-CSC.md) <img width=200/> |[Publishing datasets](publishing-datasets.md) <img width=200/> |
-|:-----------------------:|:-----------------------:|:----------------------------------:|
-|[Overview](using-datasets.md#header1) |[Overview](hosting-datasets-at-CSC.md#header1)|[Overview](publishing-datasets.md#header1)  |
-|[Allas datasets using Fairdata](using-datasets.md#header2)|[Allas](../Allas/index.md)|[Persistent identifiers](publishing-datasets.md#header2) | 
-|[Versioning and documenting](using-datasets.md#header3) |[Kaivos](../kaivos/overview.md)|[Licensing & rights](publishing-datasets.md#header3) |
-|[Processing and analysing data](using-datasets.md#header4) |[Moving data](../moving/scp.md)|[Access control](publishing-datasets.md#header4)  |
-|[Building data lakes](using-datasets.md#header5)  |  |[Preservation](publishing-datasets.md#header5) |
+## [Metadata and documentation](metadata-and-documentation.md)
+
+  - [Overview](metadata-and-documentation.md#header1)
+  - [Metadata types](metadata-and-documentation.md#header2)
+  - [Files and file formats](metadata-and-documentation.md#header3)
+  - [Data types](metadata-and-documentation.md#header4)
+
+## [Data sources](sourcing-datasets.md)
+
+  - [Overview](sourcing-datasets.md#header1)
+  - [Gathering datasets](sourcing-datasets.md#header2)
+  - [Discover research data](sourcing-datasets.md#header3)
+  - [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4)
+
+## [Using datasets](using-datasets.md)
+
+  - [Overview](using-datasets.md#header1)
+  - [Allas datasets using Fairdata](using-datasets.md#header2)
+  - [Versioning and documenting](using-datasets.md#header3)
+  - [Processing and analysing data](using-datasets.md#header4)
+  - [Building data lakes](using-datasets.md#header5)
+
+## [Storing, hosting and moving data](hosting-datasets-at-CSC.md)
+
+  - [Overview](hosting-datasets-at-CSC.md#header1)
+  - [Allas](../Allas/index.md)
+  - [Kaivos](../kaivos/overview.md)
+  - [Moving data](../moving/scp.md)
+
+## [Publishing datasets](publishing-datasets.md)
+
+  - [Overview](publishing-datasets.md#header1)
+  - [Persistent identifiers](publishing-datasets.md#header2)
+  - [Licensing & rights](publishing-datasets.md#header3)
+  - [Access control](publishing-datasets.md#header4)
+  - [Preservation](publishing-datasets.md#header5)
