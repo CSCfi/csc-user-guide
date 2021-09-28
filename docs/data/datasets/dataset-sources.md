@@ -1,4 +1,4 @@
-# Working with data / Data management / Data life-cycle
+# Working with data
 
 
 |[Data management](datamanagement.md) <img width=200/>	|[Metadata and documentation](metadata-and-documentation.md) <img width=200/> |[Data sources](sourcing-datasets.md) <img width=200/>	|
