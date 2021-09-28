@@ -6,13 +6,13 @@
 
 
 
-* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair paragraph](./crypt4gh_client.md) or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
+* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [Data encryption for data sharing](./crypt4gh_client.md) paragraph or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
     
 * SD Connect facilitates working with sensitive data and it is a user interface for Allas, CSC cloud storage solution. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
 
      
 !!! note  
-    SD Connect and SD Desktop has not yet been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+    SD Connect and SD Desktop have not yet been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
 ## Login  
@@ -28,7 +28,7 @@ Login to SD Connect is currently possible only with Haka (a user identity federa
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
 
-The interface is compatible with all modern web browsers. If you do not have an Haka account and can not access the user interface, you can still upload data using other Allas interfaces (see the end of this paragraph). 
+The interface is compatible with all modern web browsers. 
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925767-e4fae580-d993-11eb-9fd4-12147dcb956d.png">
@@ -42,7 +42,15 @@ The interface is compatible with all modern web browsers. If you do not have an 
 
 ## User Interface
 
-Once you login in SD Connect you access the default front-page: **Browser**.
+
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+
+
+Once you log in to SD Connect you access the default front-page: **Browser**.
 
 In this page you can :
 
@@ -108,6 +116,12 @@ In the **Shared** page:
 
 ## Encryption with CSC encryption key - User Interface
 
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
 
 !!! note
@@ -161,6 +175,13 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 ## Data upload using SD Connect User Interface
 
 
+ <iframe width="280" height="157" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+ 
+ 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+
+
 To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
 
 If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
@@ -188,10 +209,14 @@ Example: ns-123456-raw-data-ddmmyy
 
 ## Encryption with CSC encryption key- Command Line Interface
 
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+
 !!! note
         Files that have been encrypted with the _CSC Sensitive Data Services public key_, can be decrypted only when imported in SD Desktop, thus using CSC Sensitive Data             Services.
-        If you wish to encrypt the data to transfer them to other services, you need to plan the encryption in advance and use your own encryption key pair. For more                 information, check the Data Sharing section in these paragraph below and the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair](./crypt4gh_client.md).
-
+        If you wish to encrypt the data to transfer them to other services, you need to plan the encryption in advance and use your own encryption key pair. For more                 information, check the Data Sharing section in these paragraph below and the [Data encryption for data sharing](./crypt4gh_client.md) paragraph.
 
 
 For general information about using Crypt4GH at CSC check: 
@@ -276,6 +301,11 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 
 ## Data Sharing with SD Connect user interface
 
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
 
 !!! Note
         If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key and upload           the data to SD Connect. You will then be able to import the data in SD Desktop, where they will be automatically decrypted. 
@@ -323,20 +353,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 
     
-## Video tutorials
 
-
-<figure class="video_container">    
-    
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
- <iframe width="280" height="157" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</figure>
-    
-    
     
     
   
