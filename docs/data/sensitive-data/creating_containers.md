@@ -1,8 +1,16 @@
 # Extending SD Desktop software environment with Singularity containers
 
-In this tutorial we us cPouta to create a singularity conntainer that is used import missing software to SD Desktop.
+In this tutorial we use cPouta to create a singularity containers to import new software to SD Desktop.
 
-## 1. Createning your own singularity workbenc to cPouta.
+**Steps 1 ja 2** describe how to setup you own Virtual Machine with singularity environment to cPouta. This is 
+not the only option and if you have already a sigularity installed elsewhere, you can skip these steps and 
+use your own singularity enviroment.
+
+**Step 3** describes one approach to how you can build your own software containers.
+
+**Step 4** shows how a container is uploaded to Allas
+
+## 1. Createning your own singularity workbench to cPouta.
 
 In order to utilize all features of singularity you must run it in an environment where you have adminstration level access rights. At CSC, you can have adminstrarot level access in virtual machines running in cPouta. Using cPouta for the building process adds a bit of extra steps into the process: you have to know how to launch and access virtual machines in cPouta. On the other hand cPouta has a fast connection to the Allas service that is used to import the ready made containers to SD Desktop.
 
@@ -151,6 +159,38 @@ After this, file listing (```ls -lh```) shows that out current diretory has a sa
 drwxr-xr-x. 18 root   root   4.0K Sep 27 12:56 sd_sandbox_1
 -rwxr-xr-x   1 ubuntu ubuntu 419M Sep 27 13:43 sd_tools_1.sif
 ```
+Note that both the sandbox and singularity image file can be to execute the commands we just intalled. For example we can print out _bamtools_ help message with both commands below:
+
+```text
+singularity exec sd_sandbox_1 bamtools -h
+singularity exec sd_tools_1.sif bamtools -h
+```
+
+## 4. Uploading container to Allas/SD Connect
+
+In order to use the singulrity container in SD desktop, we need to upload it to Allas. As the container does not include any sensitive data, there is no need to encrypt it. Further from Allas the container can be downloaded to locations too. You can use a copy of the same container in other locations too. For example in Puhti and Mahti.
+
+For the upload process we use the Allas tools we installed in step 2, were we installed Allas tools to directory _$HOME/allas-cli-utils_.
+First we add this directory to command path:
+```text
+export PATH=${HOME}/allas-cli-utils:${PATH}
+```
+Next we open connetion to allas using the _allas_conf_ script. No that you must define your CSC user account
+with _-u your-csc-account_ . Here we assume that the user account is _kkayttaj_.
+
+```text
+source ${HOME}/allas-cli-utils/allas_conf -u kkayttaj
+```
+The command above asks for the password of the CSC user account and then lists the Allas projects that the user account has available.
+In this case we select the number that defines project _project_2000123_. After that the Allas connections to the selected project will remain active for the next eight hours.
+
+Now we can access Allas with [a-tools](../../Allas/using_allas/a_commands.md) or [rclone](../../Allas/using_allas/rclone.md). 
+Next we upload the container image we just created to Allas with command:
+
+```text
+a-put --nc sd_tools_1.sif -b 2000123_singularity -m "Contains bamtools, samtools and vcftools"
+```
+We don't want the compress the container, so we skip the compression with option _--nc_.  We store the container image to a bucket that contains the project number (2000123) to ensure uniquesnes. Otion _-m_ is used to add a small description to the metadata object that a-put creates.
 
 
 
