@@ -63,12 +63,13 @@ cd
 Note that this installation process needs to be done only once for a virtual machine.
 
 
-## 3. Creating a singularity sand box
+## 3. Creating a singularity container
+
+There are many ways to create new Singularity containers. You can crate the a conntainer by creating a _sandbox_ in to which you log in and add contect by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to a _singularity definiton_ file that instucts the installation process. A detailed view to the container building processes is provided by the [Singularity manual](https://sylabs.io/guides/3.8/user-guide/build_a_container.html)
+
+Here we use a mixture of these two approaches. We first use a simple definition file to create a new continer sandbox that contains a set of tools for software installation. Then we open a shell session to the container sandbox and do the actual software installations manually.
 
 ### 3.1 Defaults file
-There are many ways to create new Singularity containers. You can crate the a conntainer by creating a _sandbox_ in to which you log in and add contect by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to a _singularity definiton_ file that instucts the installation process.
-
-Here we use a mixture of this two. We first use a simple definition file to create a new continer sandbox and then we and the actual software installations manually.
 
 First open a new file called _ubuntu_with_inst_tools.def_ with command:
 
@@ -96,16 +97,16 @@ Container based on unbuntu containing miniconda.
 # exec /opt/miniconda/bin/bamtools "$@"
 
 %post
-#commands needed to build minicvonda
+#commands to help installation processes
 apt update
-apt install -y wget bzip2 git autoconf automake build-essential zlib1g-dev pkg-config
+apt install -y wget bzip2 git autoconf automake build-essential zlib1g-dev pkg-config nano
 
 #install conda
 cd /opt
 rm -fr miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  -O miniconda.sh
 bash miniconda.sh -b -p /opt/miniconda
-mkdir -p /opt/tools/bin
+mkdir -p /opt/tools
 export PATH="/opt/tools/bin:/opt/miniconda/bin:$PATH"
 ```
 
@@ -193,4 +194,18 @@ a-put --nc sd_tools_1.sif -b 2000123_singularity -m "Contains bamtools, samtools
 We don't want the compress the container, so we skip the compression with option _--nc_.  We store the container image to a bucket that contains the project number (2000123) to ensure uniquesnes. Otion _-m_ is used to add a small description to the metadata object that a-put creates.
 
 
+## 5. Using singularity containers in SD Desktop
 
+In order to use the singularity container you havew created you need first donload a copy of the container to the SD Desktop. At the momeny this is done with the SD Connect downloader too. First login to [SD Desktop](https://sd-desktop.csc.fi) and connect to the Virtual Desktop that you want to use. Open SD Connect downloader, navigate the to the right project (project_2000123) and bucket (2000123_singularity), and download the singularity image file (sd_tools_1.sif).
+
+After that open a Linux terminal in the SD-Desktop. In the terminal, move the singularity file and current location. In this example that could be done with command:
+```text
+mv SDCONNECTDATA/project_2000123/2000123_sigularity/sd_tools_1.sif ./
+```
+Now we could execute the for example the samtools command that is installed in the container.
+
+
+When using the singularity container, you should note that it has  
+By default Singularity bind mounts home diecrory (/home/$USER), /tmp, and current working directory $PWD into your container at runtime.
+So if your 
+ 
