@@ -209,8 +209,8 @@ singularity exec sd_tools_1.sif samtools --help
 ```
 The command above prints out the help for samtools version 1.13 that is installed in the container.
 
-When using the singularity container, you should note that it has its own file system that is read-only. 
-By default Singularity bind mounts home diecrory (/home/$USER), /tmp, and current working directory ($PWD) 
-into your container at runtime.
+When using the singularity container, you should note that it has its own file system that is read-only. In addition to these static filesystem singularity mounts selected directories from the host system into the container environment. This mounts can be used to import data to the container and they are also the only places into which new data can be written.
+
+By default Singularity bind mounts **home directory** (/home/$USER), **/tmp**, and **current working directory** ($PWD) into your container at runtime. If you need to mount additional directories you will need to define them with singularity option -B
 
  
