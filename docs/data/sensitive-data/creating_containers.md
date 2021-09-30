@@ -187,7 +187,7 @@ source ${HOME}/allas-cli-utils/allas_conf -u kkayttaj
 The command above asks for the password of the CSC user account and then lists the Allas projects that the user account has available.
 In this case we select the number that defines project _project_2000123_. After that the Allas connections to the selected project will remain active for the next eight hours.
 
-Now we can access Allas with [a-tools](../../Allas/using_allas/a_commands.md) or [rclone](../../Allas/using_allas/rclone.md). 
+Now we can access Allas with [a-tools](../Allas/using_allas/a_commands.md) or [rclone](../Allas/using_allas/rclone.md). 
 Next we upload the container image we just created to Allas with command:
 
 ```text
