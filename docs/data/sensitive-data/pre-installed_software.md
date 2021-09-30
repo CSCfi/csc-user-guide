@@ -6,7 +6,7 @@ Users are allowed to install their own user level software to SD Desktop, but th
 
 Often the most covienient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers
 
-   1. [Importing ready made software containders from a public repository to SD Desktop](./sd-desktop-singularity.md)
+   1. [Importing ready made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating you own Singularity contaner and importing it to SD Desktop](./creating_containers.md)
 
 ## Pre-installed software in Sensitive Data Desktop (SD Desktop)
