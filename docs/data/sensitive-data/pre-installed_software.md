@@ -4,7 +4,7 @@ SD Desktop provides a Remote Desktop view to a Virtual Machine running at an iso
 
 Users are allowed to install their own user level software to SD Desktop, but this can be quite difficult. As SD Desktop is isolated from internet you can't use istallation tools like _git_, _coda_, _cpan_ or _pip_ that are depended on internet connections to external repositories. Further, SD Desktop users can't do any opeartion that need superuser access.
 
-Oftten the most covienient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers
+Often the most covienient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers
 
    1. [Importing ready made software containders from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating you own Singularity contaner and importing it to SD Desktop](./creating_containers.md)
