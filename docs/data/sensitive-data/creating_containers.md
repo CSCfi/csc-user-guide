@@ -14,7 +14,7 @@ use your own singularity environment.
 
 ## 1. Creating your own singularity workbench to cPouta.
 
-In order to utilize all features of singularity you must run it in an environment where you have administrator level access rights. At CSC, you can have adminstrator level access in virtual machines running in cPouta. Using cPouta for the building process adds a bit of extra steps into the process: you have to know how to launch and access virtual machines in cPouta. On the other hand cPouta has a fast connection to the Allas service that is used to import the ready made containers to SD Desktop.
+In order to utilize all features of singularity you must run it in an environment where you have administrator level access rights. At CSC, you can have administrator level access in virtual machines running in cPouta. Using cPouta for the building process adds a bit of extra steps into the process: you have to know how to launch and access virtual machines in cPouta. On the other hand cPouta has a fast connection to the Allas service that is used to import the ready made containers to SD Desktop.
 
 As a first step launch virtual machine in cPouta as described in'cPouta user guide 
 *  [Launching a virtual machine with the cPouta web interface](../../cloud/pouta/launch-vm-from-web-gui.md)
