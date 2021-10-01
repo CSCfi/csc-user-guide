@@ -32,6 +32,13 @@ salloc --nodes=1 --ntasks-per-node=40 --time=00:30:00 --partition=small --accoun
 salloc --nodes=2 --ntasks-per-node=20 --time=00:30:00 --partition=large --account=<project_id> ddt srun ./debug_enabled_code
 ```
 
+By default, DDT sets the initial breakpoint at `MPI_Init`. For debugging scalar or plain OpenMP programs, set the following environment variables before starting the debugger:
+
+```
+export ALLINEA_MPI_INIT=main
+export ALLINEA_HOLD_MPI_INIT=1
+```
+
 ## Documentation
 
 * **On CSC supercomputers**: /appl/opt/ddt/20.1.1/doc/userguide-forge.pdf
