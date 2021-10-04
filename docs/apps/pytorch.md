@@ -28,7 +28,6 @@ Currently supported PyTorch versions:
 | 1.4.0   | `pytorch/1.4`             | X     | -     | Conda    | -       |                   |
 | 1.3.1   | `pytorch/1.3.1`           | X     | -     | Conda    | -       |                   |
 | -"-     | `pytorch/1.3.1-hvd`       | X     | -     | Conda    | X       | with HPC-X MPI    |
-| -"-     | `pytorch/1.3.1-hvd-mpich` | X     | -     | Conda    | X       | with mpich MPI    |
 | 1.3.0   | `pytorch/1.3.0`           | X     | -     | Conda    | -       |                   |
 | 1.2.0   | `pytorch/1.2.0`           | X     | -     | Conda    | -       |                   |
 | 1.1.0   | `pytorch/1.1.0`           | X     | -     | Conda    | -       |                   |

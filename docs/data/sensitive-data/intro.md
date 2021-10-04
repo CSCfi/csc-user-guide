@@ -4,25 +4,21 @@
 
 ## Introduction
 
-Sensitive Data Services for Research  (SD Services) provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about SD services future development check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
+Sensitive Data Services for Research provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about Sensitive Data services for Research and future developments check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data).
 
-SD Services  (Open Beta) consists of two components:
+Sensitive Data Services for Research (Open Beta) consists of two components:
 
-   * **SC Connect** is a web user interface for importing data to SD Services and for facilitating sensitive data management.
-   
-   * **SD Desktop** is a web user interface that provides access to a secure virtual computing environment ( or virtual desktop). This virtual desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same computing environment (or desktop ) so you don't have to generate multiple copies of your data. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
+   * **Sensitive Data Connect**: a web user interface for storing and sharing sensitive data during the active phases of research projects
+   * **Sensitive Data Desktop**: a web user interface that provides access to a secure virtual computing environment ( or virtual Desktop). The Desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same private Desktop. As data can't be exported from SD desktop, it can be used to provide a limited and restricted access to a specific dataset.  
  
-SD Services have increased security, compared to the HPC (Puhti and Mahti) and general purpose cloud environments (cPouta and Rahti) of CSC.
+Sensitive Data Services have increased security, compared to the HPC (Puhti and Mahti) and general purpose cloud environments (cPouta and Rahti) of CSC.
 Thus data that can't be processed in these environments may still be processed in SD Services environment.
-
-Compared to the secure ePouta cloud environment, SD services are easier to access and share. The service can be used from everywhere and it does not require a dedicated network connection between the user and CSC. This makes the service easy to take in use and also enables studies, where researchers from different organizations need to share a secure work space.
-
 
 
 
 ## Getting access
 
-SD Services are available for all CSC customers.
+Sensitive Data Services are available for all CSC customers.
 To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
 
    1. Create a **user account**
@@ -50,6 +46,31 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/-d8yiaLTLmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 </figure>
+
+
+
+
+## Quickstart: Processing sensitive data in your Desktop
+
+This quickstart guides you through importing encrypted sensitive data in your private Desktop for data analysis.
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/ClG8mae8e3k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+[![Processing](/img/sd-processing-small.png)](/img/sd-processing-big.png)
+
+
+
+## Quickstart: Sharing sensitive data with SD Connect
+
+This quickstart guides you through encryptting sensitive data with personal encryption keys for data sharing using SD Connect.
+
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/OOa3oKy5Xs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![Sharing](/img/sd-sharing-small.png)](/img/sd-sharing-big.png)
+
+
 
 
 ## Useful terminology:

@@ -6,13 +6,12 @@
    
    * **Getting access**
    
-   * **Useful terminology**
+   * **Quickstart:Processing sensitive data using SD Desktop**
    
+   * **Quickstart:Sharing sensitive data with SD Connect**
+   
+   * **Useful terminology**
 
-## [Quickstart: Processing sensitive data in your Desktop](./Quickguide_data_analysis.md)
-
-
-## [Quickstart: Sharing sensitive data with SD Connect](./Quickguide_data_sharing.md)    
 
   
 ## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
@@ -33,8 +32,7 @@
  
  * **Data Sharing with SD Connect user interface**
  
- * **Video tutorials**
-   
+
   
 
 ## [Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)
@@ -53,7 +51,6 @@
 
   * **Data export from SD Desktop**
   
-  * **Video tutorials**
 
 
 

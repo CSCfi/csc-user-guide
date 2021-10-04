@@ -113,8 +113,7 @@ directives, use `-Minfo=all`.
 
 ## Building MPI applications
 
-There are currently three MPI environments available: **hpcx-mpi**,
-**mpich**, and **intel-mpi**. The default is **hpcx-mpi**, which is 
+There are currently two MPI environments available: **hpcx-mpi** and **intel-mpi**. The default is **hpcx-mpi**, which is 
 also recommended to begin with.
 
 If **hpcx-mpi** is incompatible with your application or delivers insufficient performance, 
@@ -129,7 +128,7 @@ module load hpcx-mpi
 When building MPI applications, use _mpixxx_ compiler wrappers
 that differ depending on the compiler suite and the MPI environment:
 
-| Compiler suite | hpcx-mpi or mpich      | intel-mpi                 |
+| Compiler suite | hpcx-mpi               | intel-mpi                 |
 | :------------- | :--------------------- | :------------------------ |
 | Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
 | GNU            | mpif90, mpicc, mpicxx  | mpif90, mpicc, mpicxx     |
