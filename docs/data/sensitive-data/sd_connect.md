@@ -144,13 +144,9 @@ When you open the application you might encounter an error message. In this case
 <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
 
-* **Step 3**: Prepare your files
+* **Step 3**: Encrypt the files
 
-With Crypt4GH GUI it is possible to encrypt only one file at the time. If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
-
-<img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
-
-* **Step 4**: Encrypt the files
+With Crypt4GH GUI it is possible to encrypt only one file at the time. If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH CLI below. 
 
 * Open the Encryption tool
 
@@ -165,7 +161,6 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 ![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
-
 
 
 
