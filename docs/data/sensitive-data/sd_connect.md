@@ -300,9 +300,7 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 
 
 !!! Note
-        If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key and upload           the data to SD Connect. You will then be able to import the data in SD Desktop, where they will be automatically decrypted. 
-        However, if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and analyze them with different services,         check the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair]](./crypt4gh_client.md) and the                                           [Quick start guide]  (./quickguide.md) to learn more.
-
+        For more information about encryption with private keys check: [Data encryption for data sharing](crypt4gh_client.md).
 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
