@@ -146,10 +146,7 @@ When you open the application you might encounter an error message. In this case
 
 * **Step 3**: Prepare your files
 
-With Crypt4GH GUI it is possible to encrypt only one file at the time.
-
-* If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
-* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
+With Crypt4GH GUI it is possible to encrypt only one file at the time. If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
 
 <img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
 
@@ -182,7 +179,7 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 
-To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
+To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or folders, less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
 
 If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
@@ -258,7 +255,7 @@ For example
 ```text
 crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
 ```
-The encrypted file (_my_data1.csv.c4gh_) or an ecrypted compressed folder can now be uploaded to SD Connect and will be automatically decrypted when imported in your own private computing environment in SD Desktop.
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect and will be automatically decrypted when imported in your own private computing environment in SD Desktop.
  
 
 ### Data encryption and upload with Allas help tool: a-put
