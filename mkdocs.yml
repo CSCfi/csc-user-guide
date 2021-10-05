@@ -80,12 +80,12 @@ nav:
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
          - Annotations: cloud/rahti/tutorials/annotations.md
-         - Expand a volume: cloud/rahti/tutorials/expand-volumes.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
-         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
