@@ -3,10 +3,10 @@
 
 ## Intro
 
-The Puhti web interface at <www.puhti.csc.fi> can be used to acess the Puhti supercomputer 
+The Puhti web interface at <www.puhti.csc.fi> can be used to access the Puhti supercomputer 
 using just a web browser. In the web interface you can:
 
-- View, download and uppload files
+- View, download and upload files
 - Launch common graphical applications and connect to them directly from the browser
     - Jupyter
     - Rstudio
@@ -24,13 +24,13 @@ of a supercomputer, but easily accessible using just a web browser.
 
 ## Connecting
 
-Go to <puhti.csc.fi> using a web browser and login using your CSC user account (same username and password you use when connecti with `ssh`). 
+Go to <puhti.csc.fi> using a web browser and login using your CSC user account (same username and password you use when connecting with `ssh`). 
 ![Puhti web interface login page](/img/ood_login.png)
 
 After loggin in, you will see the front page.
 ![Puhti web interface front page](/img/ood_main.png)
 
-From here you can browse your files on Puhti, start a shell, view running jobs and start one of the many available programs. The frontpage also contains important system information.  
+From here you can browse your files on Puhti, start a shell, view running jobs and start one of the many available programs. The front page also contains important system information.  
 
 ## Available features
 
