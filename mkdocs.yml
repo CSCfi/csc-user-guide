@@ -54,7 +54,6 @@ nav:
         - Creating containers: computing/containers/creating.md
      - Web interface:
        - Overview: ood/index.md
-       - Job Composer: ood/job-composer.md
        - Interactive apps:
          - Desktop: ood/desktop.md
          - Jupyter: ood/jupyter.md

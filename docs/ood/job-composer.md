@@ -8,6 +8,7 @@ Jobs are created from templates, which can be selected in a few ways
  * Use a previous job as template
 
 ## Getting started
+
 An example of running a basic Slurm job.
 Create a job from the default template by clicking `From Default Template` in the `New Job` dropdown.
 To edit the name of the job click `Job Options`.
