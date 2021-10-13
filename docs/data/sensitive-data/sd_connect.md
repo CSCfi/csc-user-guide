@@ -339,7 +339,7 @@ At this point the user interface will redirect you to the **Shared** page and th
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 
-# Toubleshooting
+# Troubleshooting
 
 
 | Problem       |                                                                                          | Possible solution                                                                                                                                                                                                                               |
