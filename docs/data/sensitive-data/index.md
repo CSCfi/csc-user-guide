@@ -32,6 +32,8 @@
  
  * **Data Sharing with SD Connect user interface**
  
+ * **Troubleshooting**
+ 
 
   
 
@@ -51,6 +53,8 @@
 
   * **Data export from SD Desktop**
   
+   * **Troubleshooting**
+  
 
 
 
@@ -67,6 +71,8 @@
   * **Crypt4GH Graphical User Interface (GUI)**
 
   * **Crypt4GH Command Line Interface (CLI)**
+
+ * **Troubleshooting**
 
   
 
