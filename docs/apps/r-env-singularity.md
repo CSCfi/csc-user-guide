@@ -123,6 +123,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -166,6 +169,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -198,6 +204,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -246,6 +255,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -314,6 +326,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -412,6 +427,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -466,6 +484,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -521,7 +542,10 @@ module load r-env-singularity
 
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
- sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -563,6 +587,9 @@ module load r-env-singularity
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify NVME temp folder path
@@ -603,6 +630,9 @@ module load r-env-singularity/4.0.4
 # Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
+    sed -i '/OMP/d' ~/.Renviron
+    sed -i '/PKG/d' ~/.Renviron
+    sed -i '/SLURM/d' ~/.Renviron
 fi
 
 # Specify a temp folder path
@@ -697,7 +727,15 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
-Alternatively, you can add the desired changes to an `.Renviron` file:
+If you wish, it is possible to use `getRversion()` to do this more automatically. For example:
+ 
+```
+.libPaths(paste0("/projappl/<project>/project_rpackages_",  gsub("\\.", "", getRversion())))
+
+# Note that the exact R code will depend on how the R version is provided in the package folder name
+```
+
+Another option is to add the desired changes to an `.Renviron` file:
 
 ```bash
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
