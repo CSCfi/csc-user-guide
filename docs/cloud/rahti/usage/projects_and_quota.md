@@ -27,7 +27,7 @@ For example, if you have Rahti access via *project_1000123*, you would
 enter the following in the _Description_ field:
 
 ```yaml
-csc_project: project_1000123
+csc_project: 1000123
 ```
 
 You can also enter a human-readable description for the project, in which case
@@ -36,7 +36,7 @@ the field could look like this:
 ```yaml
 This project is used for hosting the Pied Piper web application.
 
-csc_project: project_1000123
+csc_project: 1000123
 ```
 
 This would make it so that any usage within that OpenShift project is billed
@@ -108,7 +108,7 @@ in the system.
 1. You *can* also enter a **human-readable display name** and.
 1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
 
-> csc_project: project_XXXXXXX
+> csc_project: XXXXXXX
 
 See the section about [accounts](/accounts/).
 
