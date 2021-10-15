@@ -65,7 +65,7 @@ In the future it will become possible to submit batch jobs through the web inter
 ### Interactive apps
 
 Interactive apps are programs that can be launched and run on the compute nodes and provide a web interface.
-These are apps such as Jupyter Notebook, RStudio, Visual Studio Code and Rclone.
+These are apps such as Jupyter Notebook, RStudio, Visual Studio Code and Rclone. 
 
 If the interactive app does not start or does not work as expected you can delete the session and try to launch the app again.
 
