@@ -16,9 +16,9 @@ To access another project's Allas you need to run `allas-conf` again and restart
 ## Using Rclone
 
 The explorer tab in Rclone is used for accessing the files on Puhti and Allas.
-![](/img/ood_rclone1.png)
+![](../../img/ood_rclone1.png)
 
 The home directory, scratch and projappl for each project have been added as remotes in Rclone for easy access.
-![](/img/ood_rclone2.png)
+![](../../img/ood_rclone2.png)
 
 Allas is accessed using the remote `allas`, or `s3allas`, depending on the protocol selected.

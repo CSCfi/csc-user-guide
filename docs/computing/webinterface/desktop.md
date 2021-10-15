@@ -7,7 +7,7 @@ The desktop can be launched with Mate or Xfce as desktop environment, or alterna
 Currently, only CPU rendering is supported in the graphical applications.
 
 ## Connecting
-![](/img/ood-vnc-connect.png)
+![](../../img/ood-vnc-connect.png)
 
 The noVNC Connection tab can be used to connect to the remote desktop using your browser by selecting wanted compression and quality and then clicking Launch Desktop.
 
