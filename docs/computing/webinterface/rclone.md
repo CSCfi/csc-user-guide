@@ -1,5 +1,5 @@
 # Rclone
-The Rclone interactive app is used for accessing and transferring files between Puhti and [Allas](../data/Allas/index.md).
+The Rclone interactive app is used for accessing and transferring files between Puhti and [Allas](../../data/Allas/index.md).
 
 ## Accessing Allas
 To access allas using Rclone you first have to generate the authentication token.
