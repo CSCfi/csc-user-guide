@@ -1,5 +1,8 @@
 # Computing environment 
 
+## Puhti web interface beta is available 18.10.2021
+
+An easy-to-use web interface for Puhti is now open for beta test use at <https://www.puhti.csc.fi>. The new user interface offers an easy way for new users to use Puhti, and for experienced users it makes access to some features quicker and easier. See [web interface](../../../computing/webinterface/) for details
 
 ## MPICH modules no longer work 4.5.2021 
 
