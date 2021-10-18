@@ -107,4 +107,4 @@ oc edit pvc postgresql
 The storage request is at **status > accessModes > ReadWriteOnce > capacity > storage**.
 
 !!! Note
-    In current v3.11 of OpenShift, dynamic resizing is deactivated. The storage drivers are not stable enough to trust dynamic resizing will be done without failure. On newer versions of OpenShift this will be revised.
+    In the current v3.11 of OpenShift, dynamic resizing is deactivated. The storage drivers are not stable enough to trust dynamic resizing will be done without failure. On newer versions of OpenShift, this will be revised.
