@@ -95,16 +95,3 @@ oc edit deploy/<name of deployment>
 * Finally scale up the deployment.
 
 In order to check the procedure worked, you may enter in a `Pod` that is mounting the volume and check the new size.
-
-## Dynamically
-
-If the volume was created with dynamic resize activated, it is as easy as editing the corresponding volume (`PVC` object) and change the size:
-
-```sh
-oc edit pvc postgresql
-```
-
-The storage request is at **status > accessModes > ReadWriteOnce > capacity > storage**.
-
-!!! Note
-    In the current v3.11 of OpenShift, dynamic resizing is deactivated. The storage drivers are not stable enough to trust dynamic resizing will be done without failure. On newer versions of OpenShift, this will be revised.
