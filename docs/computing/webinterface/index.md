@@ -3,7 +3,7 @@
 
 ## Intro
 
-The Puhti web interface at <www.puhti.csc.fi> can be used to access the Puhti supercomputer 
+The Puhti web interface at [www.puhti.csc.fi](https://www.puhti.csc.fi) can be used to access the Puhti supercomputer 
 using just a web browser. In the web interface you can:
 
 - View, download and upload files
@@ -24,7 +24,7 @@ of a supercomputer, but easily accessible using just a web browser.
 
 ## Connecting
 
-Go to <puhti.csc.fi> using a web browser and login using your CSC user account (same username and password you use when connecting with `ssh`). 
+Go to [puhti.csc.fi](https:/puhti.csc.fi)using a web browser and login using your CSC user account (same username and password you use when connecting with `ssh`). 
 ![Puhti web interface login page](../../img/ood_login.png)
 
 After loggin in, you will see the front page.
