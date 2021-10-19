@@ -27,7 +27,7 @@ of a supercomputer, but easily accessible using just a web browser.
 Go to [puhti.csc.fi](https://puhti.csc.fi) using a web browser and login using your CSC user account (same username and password you use when connecting with `ssh`). 
 ![Puhti web interface login page](../../img/ood_login.png)
 
-After loggin in, you will see the front page.
+After logging in, you will see the front page.
 ![Puhti web interface front page](../../img/ood_main.png)
 
 From here you can browse your files on Puhti, start a shell, view running jobs and start one of the many available programs. The front page also contains important system information.  
@@ -36,7 +36,7 @@ From here you can browse your files on Puhti, start a shell, view running jobs a
 
 ### Shell
 
-The shell app can be found at the bottom of the page or on the top navbar under the _Tools_section. This will launch a normal linux shell on one of the Puhti login nodes. Note that the same rules apply here as during a normal ssh session. **Login node are only for light pre/post processing** (see [Usage policy](/computing/overview/#usage-policy)).
+The shell app can be found at the bottom of the page or on the top navbar under the _Tools_ section. This will launch a normal linux shell on one of the Puhti login nodes. Note that the same rules apply here as during a normal ssh session. **Login node are only for light pre/post processing** (see [Usage policy](/computing/overview/#usage-policy)).
 
 ### Files
 
@@ -45,8 +45,8 @@ the shortcut to the home folder at the bottom of the front page. In the file bro
 you can upload/download files, create new files and directories, or open a shell in the current directory. 
 
 !!! note
-    Uploaded files will overwrite exisisting files with the same name without prompting.
-    Currently the maximum size for individual file upploads is 10GB
+    Uploaded files will overwrite existing files with the same name without prompting.
+    Currently the maximum size for individual file uploads is 10GB
 
 Clicking on a file will open it in view only mode, for more options like editing, renaming and deleting, use the button with three dots next to the filename.   
 
