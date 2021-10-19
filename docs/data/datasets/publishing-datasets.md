@@ -3,7 +3,7 @@
 <a name="header1"></a>
 ## Overview##
 
-Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should on enabling new work to be carried on them at some undefined point in future. Publishing should be based on commonly accepted standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so that the effort spent on publishing data properly is often quickly paid back.
+Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in future. Publishing should be based on commonly accepted standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so that the effort spent on publishing data properly is often quickly paid back.
 
 ## Tools to host and publish data##
 
@@ -20,6 +20,20 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 [How to make dataset available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
 
 <a name="header2"></a>
+
+## Data types##
+
+When choosing what to archive and/or publish, it is good to switch viewpoints, and consider what the data (re)user sees. How far back is the reader of your article able to follow the process towards the raw data, before it is no longer possible to reproduce the original process? In many cases it is not possible to get back to the raw data, but if the data documentation, automation, saving of logs and code, and their version management are practiced from the start it is possible to secure as much transparency as possible. If it is possible (this is highly discipline specific) it might be good to publish both raw data and processed data with the documentation.
+
+![Data publications](../../img/data-publications.png "Data types from the author's and the reader's viewpoints")
+
+License: CC BY 4.0
+
+Also consider what is actually the data product that you will publish with your scientific article. It may help to categorise the data already when you start. Raw data, is the data that you collect and/or digitize for your study or other data captured and repurposed from various sources. The readily available digital data, may be operational (red) data from a data source which is published for some other purpose in a highly dynamic format. **Operational data** may not necessarily be citable or quality controlled at the source. For reuse data can be captured from operational source or it can be already collected and published as (cumulative/) **generic research data** (green). The generic research data are versioned, documented and quality controlled and they should be possible to cite. What you publish as a result from your research is a stable data product ie. **Research dataset publication** (blue) that consists of (if possible) the raw data with the documentation describing the process that has lead to the results.   
+
+![Data types](../../img/data_types.png "Operational data, generic research data and research dataset publication")
+
+License: CC BY 4.0
 ## Persistent identifiers##
 
 Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or ORCID when you publish or cite data, the linking is protected despite changes in names or organisation. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
