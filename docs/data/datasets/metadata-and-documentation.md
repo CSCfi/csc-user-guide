@@ -20,7 +20,7 @@ Metadata is a broad term and it includes a variety of descriptive information ab
 2. Administrative metadata defines who owns and who can access the data, and who has the right to manage it and how it can be used.
 3. Structural metadata describes how data sets were produced, structured and for instance what software are needed.
  
-![Types of metadata: Descriptive. Administrative. Structural.](../../img/metadata-categories_v5.png "Three types of metadata: Descriptive, Administrative, Structural")
+![Discovery metadata. Data documentation. Data.](../../img/data-discoverymetadata.png "Discovery metadata. Data documentation. Data.")
 
 License: CC BY 4.0
  
