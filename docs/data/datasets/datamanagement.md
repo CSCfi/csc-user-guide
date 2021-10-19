@@ -14,8 +14,6 @@ Good research data management (RDM) is the basis of successful research. RDM is 
 
 ## Best practices
 
-TODO: Otsikot linkkinä kuten reasearch.csc.fi?
-
 Below are some guidelines for good data management practices. By browsing the data management pages you can find instructions for example of 
 making data formats, licensing, persistent identifiers and handling sensitive data.
 
