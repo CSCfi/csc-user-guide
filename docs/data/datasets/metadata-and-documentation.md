@@ -49,7 +49,7 @@ Other categories of administrative metadata include technical metadata (file typ
 
 Structural metadata describes how the dataset is organised internally and how does it relate to other datasets (managing versions etc.). In some disciplines data are published and shared with community endorsed standards and schemas, which are a formal and machine actionable way of expressing the structural metadata. Schemas are used to express the scientific domain, structure, relationships, field labels, and parameter-level standards for the dataset as a whole. A schema enables data to be shared, merged or transferred between information systems without losing the meaning or structure of the data (ie. data are interoperable). In addition to implementing technical standards and schemas, securing semantic interoperability between different data requires using and referring to published sematic artefacts.
 
-### Data documentation (also called *detailed descriptive metadata* or data-level metadata)###
+### Data documentation (also called *detailed descriptive metadata* or data-level metadata)
 
 It is important that you create relevant metadata for reuse and future credit. If you have additional metadata that does not fit in the data catalogue, additional metadata and **documentation** like code books or configuration files can be added to the dataset as separate files. This metadata can also be innate within the data files. Remember that this can make the data more hard to find. If you add extra metadata:
 
@@ -62,12 +62,12 @@ It is important that you create relevant metadata for reuse and future credit. I
 Also think about your file naming conventions, directory structure and **version control**. Read more from Files and file formats.
 
 <a name="header3"></a>
-## Semantic interoperability##
+## Semantic interoperability
 
 **Controlled vocabularies, thesauri, and ontologies** are all so called semantic artefacts, which are machine readable models of knowledge. They facilitate the extraction and representation of knowledge within data sets using annotations or assertions. When a data standard and schema express the data structure (relations of different elements in the data), semantic artefacts make the meaning of the content unambiguous and  "understandable" to a machine (machine actionable). For example, when you collect data about plants it may be obvious to other human readers, that the data is about living organisms and not about power plants and other factories, but a computer can't distinguish the difference by interpreting the meaning from the context as humans can. For this purpose, data should be accompanied with a vocabulary that tells a machine how to interpret the data in the context, and also what values in the variables are. It is also important to let the machine know whether an empty field means zero value, or if the data is simply missing. It can be crucial to the analyses and results if data is (mis)interpreted in different ways when reusing or merging datasets.
 
 <a name="header4"></a>
-## Data organization##
+## Data organization
 
 Important part of good data management is also taking care of data organization. This includes for example thoughtful file naming, clear folder structure, accessible file formats and explicit version control.
 
@@ -79,7 +79,7 @@ To keep data well organized you should have a **version control system** in use.
 
 When making new versions of data files, it is important to **keep a copy of the original raw data**. Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources and re-purposing the data use. Also, when sharing the data it might be worthwhile to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter. In some cases it is even possible to publish the data with the processing and analyses code as an executable paper in order to prove that the scientific process is reproducible. In other words executable papers are dynamic pieces of software that combine text, raw data, and the code used for the analysis, and that a reader can interact with. 
 
-## Files and file formats##
+## Files and file formats
 
 All digital information is structured data. When organising your research data it is important to create coherent and intelligible entities that are easy to access and reuse.
 
@@ -121,6 +121,6 @@ It is important to take some time to plan file and folder structures and naming.
 - Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
 
 
-## More reading##
+## More reading
 
 [The UK Data Service: Format your data](https://www.ukdataservice.ac.uk/manage-data/format)
