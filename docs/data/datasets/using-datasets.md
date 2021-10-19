@@ -27,7 +27,7 @@ If there are no terms of use or the terms of use given are unclear, you should a
 <a name="header4"></a>
 ## Processing and analysing data
 
- Read more in CSC's [Data analysis guide](../../support/tutorials/da-guide.md)
+ Read more in CSC's [Data analysis guide](../support/tutorials/da-guide/)
  
  [CSC's services for processing and analysing data](https://research.csc.fi/en/service-catalog#compute)
 
