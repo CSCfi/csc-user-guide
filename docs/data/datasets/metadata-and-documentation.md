@@ -79,17 +79,6 @@ To keep data well organized you should have a **version control system** in use.
 
 When making new versions of data files, it is important to **keep a copy of the original raw data**. Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources and re-purposing the data use. Also, when sharing the data it might be worthwhile to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter. In some cases it is even possible to publish the data with the processing and analyses code as an executable paper in order to prove that the scientific process is reproducible. In other words executable papers are dynamic pieces of software that combine text, raw data, and the code used for the analysis, and that a reader can interact with. 
 
-## Data types##
-TODO: → belongs to Publishing?
-
-When choosing what to archive and/or publish, it is good to switch viewpoints, and consider what the data (re)user sees. How far back is the reader of your article able to follow the process towards the raw data, before it is no longer possible to reproduce the original process? In many cases it is not possible to get back to the raw data, but if the data documentation, automation, saving of logs and code, and their version management are practiced from the start it is possible to secure as much transparency as possible. If it is possible (this is highly discipline specific) it might be good to publish both raw data and processed data with the documentation.
-
-TODO: KUVA!
-
-Also consider what is actually the data product that you will publish with your scientific article. It may help to categorise the data already when you start. Raw data, is the data that you collect and/or digitize for your study or other data captured and repurposed from various sources. The readily available digital data, may be operational (red) data from a data source which is published for some other purpose in a highly dynamic format. **Operational data** may not necessarily be citable or quality controlled at the source. For reuse data can be captured from operational source or it can be already collected and published as (cumulative/) **generic research data** (green). The generic research data are versioned, documented and quality controlled and they should be possible to cite. What you publish as a result from your research is a stable data product ie. **Research dataset publication** (blue) that consists of (if possible) the raw data with the documentation describing the process that has lead to the results.   
-
-TODO: KUVA!
-
 ## Files and file formats##
 
 TODO: Mitä tälle tapahtuu? Huom tähän viitataan ylhäällä!
