@@ -25,7 +25,7 @@ Current modules and supported versions:
 
 Other software and libraries:
 
-- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4 and 4.0.5) (with Mellanox OFED™ software)
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4-4.1.1) (with Mellanox OFED™ software)
 - cget 0.1.9
 
 ## Licenses
