@@ -585,7 +585,7 @@ Sys.getenv("LOCAL_SCRATCH")
 
 #### R interface to TensorFlow
 
-The `r-env-singularity/4.0.4` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+R modules from `r-env-singularity/4.0.4` onward support GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity/4.0.4` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
 
 To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
 
