@@ -10,8 +10,8 @@
 
   - [Overview](metadata-and-documentation.md#header1)
   - [Metadata types](metadata-and-documentation.md#header2)
-  - [Files and file formats](metadata-and-documentation.md#header3)
-  - [Data types](metadata-and-documentation.md#header4)
+  - [Semantic interoperability](metadata-and-documentation.md#header3)
+  - [Data organization](metadata-and-documentation.md#header4)
 
 ## [Data sources](sourcing-datasets.md)
 
