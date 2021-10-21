@@ -134,7 +134,7 @@ nav:
      - Working with data:
         - Contents: data/datasets/dataset-sources.md
         - Data management: data/datasets/datamanagement.md
-        - Metadata and documentation: data/datasets/metadata-and-documentation.md
+        - Metadata and data documentation: data/datasets/metadata-and-documentation.md
         - Datasets sources: data/datasets/sourcing-datasets.md
         - Using datasets: data/datasets/using-datasets.md
         - Storing, hosting and moving data: data/datasets/hosting-datasets-at-CSC.md
