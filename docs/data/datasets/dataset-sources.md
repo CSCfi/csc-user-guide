@@ -3,11 +3,10 @@
 ## [Data management](datamanagement.md)
 
   - [Overview](datamanagement.md#header1)
-  - [Best practices](datamanagement.md#header2)
-  - [Phases of dataset use](datamanagement.md#header3)
-  - [How to manage sensitive data](datamanagement.md#header4)
+  - [How to manage sensitive data](datamanagement.md#header2)
+  - [Best practices](datamanagement.md#header3)
 
-## [Metadata and documentation](metadata-and-documentation.md)
+## [Metadata and data documentation](metadata-and-documentation.md)
 
   - [Overview](metadata-and-documentation.md#header1)
   - [Metadata types](metadata-and-documentation.md#header2)
