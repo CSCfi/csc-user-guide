@@ -12,6 +12,7 @@ Good research data management (RDM) is the basis of successful research. RDM is 
 
 !!! note "FAIR principles"
     According to the FAIR principles, the data should be 
+    
     - Findable
     - Accessible
     - Interoperable
