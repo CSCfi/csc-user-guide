@@ -3,8 +3,8 @@
 ## [Data management](datamanagement.md)
 
   - [Overview](datamanagement.md#header1)
-  - [How to manage sensitive data](datamanagement.md#header2)
-  - [Best practices](datamanagement.md#header3)
+  - [Best practices](datamanagement.md#header2)
+  - [How to manage sensitive data](datamanagement.md#header3)
 
 ## [Metadata and data documentation](metadata-and-documentation.md)
 
