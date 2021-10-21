@@ -12,28 +12,6 @@ Good research data management (RDM) is the basis of successful research. RDM is 
 
 <a name="header2"></a>
 
-## How to manage sensitive data
-
-While not giving out exact technical details on how to process sensitive data, the EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
-
-  1. Minimise the data. This means that you should only process the data that is absolutely needed. 
-  2. Anonymise or pseudonymise the data whenever possible. 
-  3. Encrypt the data.
-  4. Destroy the data you do not need. 
-
-Remember to identify and name a
-  - **Data Controller** (usually the Principal Investigator either alone or together with another legal person or entity), who determines the means and procedures for processing the data, meaning that they control how data is processed and for what purposes. 
-  - **Data Processor**, who processes the data on behalf of the controller. 
-
-### More information on sensitive data management
-
- - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
- - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
- - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
- - [Webinar: What are the policies and possibilities for managing your sensitive data?](https://www.youtube.com/watch?v=29XmiG5Zj0s)
-
-<a name="header3"></a>
-
 ## Best practices
 
 Below are some guidelines for good data management practices. By browsing the data management pages you can find instructions for example of 
@@ -42,7 +20,6 @@ making data formats, licensing, persistent identifiers and handling sensitive da
 ![Checklist for data management planning](../../img/Checklist_for_DMP_v1.png "Checklist for how to be successful in data management planning")
 
 License: CC BY 4.0
-
  
 ### Maintain a data management plan
 
@@ -88,7 +65,29 @@ Deposit your data in a well-established repository provided by a trusted party t
 
 Data sharing is increasingly required by funding agencies and journals as it benefits the scientific community at large. It is also beneficial for data collectors as it is associated with increased visibility, collaboration and credit. You should consider sharing your data so that others can access and cite it. Equip your data with an established license (e.g. Creative Commons licenses) so the others know what they can and cannot do with the data.
 
-### Sources for this best practice review
+<a name="header3"></a>
+
+## How to manage sensitive data
+
+While not giving out exact technical details on how to process sensitive data, the EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
+
+  1. Minimise the data. This means that you should only process the data that is absolutely needed. 
+  2. Anonymise or pseudonymise the data whenever possible. 
+  3. Encrypt the data.
+  4. Destroy the data you do not need. 
+
+Remember to identify and name a
+  - **Data Controller** (usually the Principal Investigator either alone or together with another legal person or entity), who determines the means and procedures for processing the data, meaning that they control how data is processed and for what purposes. 
+  - **Data Processor**, who processes the data on behalf of the controller. 
+
+### More information on sensitive data management
+
+ - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
+ - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
+ - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
+ - [Webinar: What are the policies and possibilities for managing your sensitive data?](https://www.youtube.com/watch?v=29XmiG5Zj0s)
+
+## Sources for this best practice review
 
 Goodman, A., Pepe, A., Blocker, et. al. (2014). Ten Simple Rules for the Care and Feeding of Scientific Data. PLoS Computational Biology, 10(4), e1003542. [http://doi.org/10.1371/journal.pcbi.1003542](http://doi.org/10.1371/journal.pcbi.1003542)
 
@@ -100,7 +99,7 @@ Wilkinson, M., Dumontier, M., Aalbersberg, I. et al. The FAIR Guiding Principles
 
 Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (2017). Good enough practices in scientific computing. PLoS Computational Biology, 13(6), e1005510. [http://doi.org/10.1371/journal.pcbi.1005510](http://doi.org/10.1371/journal.pcbi.1005510)
 
-### More reading and resources on data management
+## More reading and resources on data management
 
 [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on [Fairdata.fi](http://fairdata.fi/) website
 
