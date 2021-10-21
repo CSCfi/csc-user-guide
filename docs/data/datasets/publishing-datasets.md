@@ -1,11 +1,12 @@
-# Publishing datasets#
+# Publishing datasets
 
 <a name="header1"></a>
-## Overview##
+
+## Overview
 
 Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in future. Publishing should be based on commonly accepted standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so that the effort spent on publishing data properly is often quickly paid back.
 
-## Tools to host and publish data##
+## Tools to host and publish data
 
 [CSC's tools for hosting and storing data](https://research.csc.fi/en/service-catalog#store)
 
@@ -21,7 +22,7 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 
 <a name="header2"></a>
 
-## Data types##
+## Data types
 
 When choosing what to archive and/or publish, it is good to switch viewpoints, and consider what the data (re)user sees. How far back is the reader of your article able to follow the process towards the raw data, before it is no longer possible to reproduce the original process? In many cases it is not possible to get back to the raw data, but if the data documentation, automation, saving of logs and code, and their version management are practiced from the start it is possible to secure as much transparency as possible. If it is possible (this is highly discipline specific) it might be good to publish both raw data and processed data with the documentation.
 
@@ -34,18 +35,21 @@ Also consider what is actually the data product that you will publish with your 
 ![Data types](../../img/data_types.png "Operational data, generic research data and research dataset publication")
 
 License: CC BY 4.0
-## Persistent identifiers##
+
+<a name="header3"></a>
+
+## Persistent identifiers
 
 Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or ORCID when you publish or cite data, the linking is protected despite changes in names or organisation. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
 
 You can read more about the researcher and contributor id ORCID and about guidelines for data citation. Do not hesitate to contact the research data services or library in your own organisation for further help. The more persistent identifiers you can include in your work flows, the better and easier is your information management.
 
-### For researchers###
+### For researchers
 Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or ORCID when you publish or cite data, the linking is protected despite changes in names or organisation. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
 
 You can read more about the researcher and contributor id [ORCID](https://researcheridentifier.fi/) and about guidelines for [data citation](https://www.fcrd.fi/). Do not hesitate to contact the research data services or library in your own organisation for further help. The more persistent identifiers you can include in your work flows, the better and easier is your information management.
 
-### More reading###
+### More reading
 
 [Support for Persistent Identifiers](https://research.csc.fi/support-for-persistent-identifiers) (at CSC)
 
@@ -57,9 +61,9 @@ You can read more about the researcher and contributor id [ORCID](https://resear
 
 [ANDS Persistent Identifiers Expert Level Guide](https://www.ands.org.au/guides/persistent-identifiers-expert)
 
+<a name="header4"></a>
 
-<a name="header3"></a>
-## Licensing & rights##
+## Licensing & rights
 
 Today, it is possible to use data produced in previous research to be put to more diverse use in new research, thus eliminating the need to collect data, to come up with new methods, or to write code from scratch.
 
@@ -71,19 +75,21 @@ Creative Commons licenses are very widely used for sharing and using data.
 
 Try out the [License Chooser](https://creativecommons.org/choose/) by Creative Commons.
 
-### How to license your own data?###
+### How to license your own data?
 When making data available, it is recommended that licenses are used. It allows you to specify the degree of publicity and user rights for your data. You can use licenses as a tool for openness. Research data can have varying degrees of publicity. Creative Commons licenses (CC BY) are widely used for licensing. CC BY 4.0 license for your data allows the use of your data but require that the author is mentioned. You can also give your data CC0 license. It means that you give full rights to others for using the data.
 
-### Sources###
+### Sources
 
 [Creative Commons webpages](https://creativecommons.org/licenses/)
 
-<a name="header4"></a>
-## Access control##
+<a name="header5"></a>
+
+## Access control
 
 TODO: Kirjoita teksti!
 
-<a name="header5"></a>
+<a name="header6"></a>
+
 ## Preservation
 
 Digital preservation refers to the reliable preservation of digital information for several decades or even centuries. Hardware, software, and file formats will become outdated, while the information must be preserved. Reliable digital preservation requires active monitoring of information integrity and anticipation of various risks. Metadata, which describes for example the information content, provenance information and how the content can be used, has a key role in this.
