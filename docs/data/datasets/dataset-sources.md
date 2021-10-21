@@ -38,7 +38,8 @@
 ## [Publishing datasets](publishing-datasets.md)
 
   - [Overview](publishing-datasets.md#header1)
-  - [Persistent identifiers](publishing-datasets.md#header2)
-  - [Licensing & rights](publishing-datasets.md#header3)
-  - [Access control](publishing-datasets.md#header4)
-  - [Preservation](publishing-datasets.md#header5)
+  - [Data types](publishing-datasets.md#header2)
+  - [Persistent identifiers](publishing-datasets.md#header3)
+  - [Licensing & rights](publishing-datasets.md#header4)
+  - [Access control](publishing-datasets.md#header5)
+  - [Preservation](publishing-datasets.md#header6)
