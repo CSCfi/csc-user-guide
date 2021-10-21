@@ -61,7 +61,7 @@ It is important that you create relevant metadata for reuse and future credit. I
     - Readme file(s) providing information about data files to ensure correct interpretation
     - Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.
 
-Also think about your file naming conventions, directory structure and **version control**. Read more from Files and file formats.
+Also think about your file naming conventions, directory structure and **version control**. Read more from [Data organization](#Data organization).
 
 <a name="header3"></a>
 
