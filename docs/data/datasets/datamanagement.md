@@ -12,6 +12,28 @@ Good research data management (RDM) is the basis of successful research. RDM is 
 
 <a name="header2"></a>
 
+## How to manage sensitive data
+
+While not giving out exact technical details on how to process sensitive data, the EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
+
+  1. Minimise the data. This means that you should only process the data that is absolutely needed. 
+  2. Anonymise or pseudonymise the data whenever possible. 
+  3. Encrypt the data.
+  4. Destroy the data you do not need. 
+
+Remember to identify and name a
+  - **Data Controller** (usually the Principal Investigator either alone or together with another legal person or entity), who determines the means and procedures for processing the data, meaning that they control how data is processed and for what purposes. 
+  - **Data Processor**, who processes the data on behalf of the controller. 
+
+### More information on sensitive data management
+
+ - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
+ - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
+ - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
+ - [Webinar: What are the policies and possibilities for managing your sensitive data?](https://www.youtube.com/watch?v=29XmiG5Zj0s)
+
+<a name="header3"></a>
+
 ## Best practices
 
 Below are some guidelines for good data management practices. By browsing the data management pages you can find instructions for example of 
@@ -90,22 +112,6 @@ The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.o
 
 [FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies.
 
-<a name="header3"></a>
 
-## Phases of dataset use
-
-TODO: Tässä kuvataan lyhyesti ajatus siitä, että datan kanssa työskentelyssä on hyödyllistä erottaa eri työvaiheet ja niiden erilaiset tavoitteet. Sivulla käydään läpi mahdollisimman karsittu esimerkki siitä, että miten CSC:n ympäristössä voidaan tehdä alusta loppuun yksinkertainen datasetteihin nojaava analyysiprojekti tms.
-
-Pohjana voisi toimia: https://docs.csc.fi/data/Allas/allas_project_example/
-
-<a name="header4"></a>
-
-## How to manage sensitive data
-
-=> https://wiki.eduuni.fi/pages/viewpage.action?pageId=154446651
-
- - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
- - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
- - 
 
 
