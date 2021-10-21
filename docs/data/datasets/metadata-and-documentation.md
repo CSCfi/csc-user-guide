@@ -1,6 +1,7 @@
 # Metadata and data documentation
 
 <a name="header1"></a>
+
 ## Overview
 
 Metadata and data documentation are the contextual information about the data and its provenance, necessary for interpreting it. Providing comprehensive metadata and documenting the data lifecycle according to your discipline's conventions makes your data understandable, discoverable, and reusable. 
@@ -10,6 +11,7 @@ Metadata and data documentation are the contextual information about the data an
 **Data documentation** means creating information, which enables interpretations of the data correctly and independently. It consists of files that explain how data were created or digitized, how the data should be interpreted, its structure, and how the data has been modified. This information can also be called *data-level* documentation or even metadata as it is information about data. Documenting data should be considered as best practice when managing data, and it is also essential for data preservation. Whenever data are used sufficient contextual information is required to interpret the data correctly and independently. Data documentation can be done by using (domain specific) metadata and data standards, electronic laboratory notebooks, dictionaries, vocabularies and readme-files, which all take part in explaining what the project data is and what it means.
 
 <a name="header2"></a>
+
 ## Metadata types
 
 Metadata is information regarding the data, for example, where, when, why, and how the data were collected, processed and interpreted. Metadata may also contain details about experiments, analytical methods, and research context.
@@ -62,11 +64,13 @@ It is important that you create relevant metadata for reuse and future credit. I
 Also think about your file naming conventions, directory structure and **version control**. Read more from Files and file formats.
 
 <a name="header3"></a>
+
 ## Semantic interoperability
 
 **Controlled vocabularies, thesauri, and ontologies** are all so called semantic artefacts, which are machine readable models of knowledge. They facilitate the extraction and representation of knowledge within data sets using annotations or assertions. When a data standard and schema express the data structure (relations of different elements in the data), semantic artefacts make the meaning of the content unambiguous and  "understandable" to a machine (machine actionable). For example, when you collect data about plants it may be obvious to other human readers, that the data is about living organisms and not about power plants and other factories, but a computer can't distinguish the difference by interpreting the meaning from the context as humans can. For this purpose, data should be accompanied with a vocabulary that tells a machine how to interpret the data in the context, and also what values in the variables are. It is also important to let the machine know whether an empty field means zero value, or if the data is simply missing. It can be crucial to the analyses and results if data is (mis)interpreted in different ways when reusing or merging datasets.
 
 <a name="header4"></a>
+
 ## Data organization
 
 Important part of good data management is also taking care of data organization. This includes for example thoughtful file naming, clear folder structure, accessible file formats and explicit version control.
@@ -79,7 +83,7 @@ To keep data well organized you should have a **version control system** in use.
 
 When making new versions of data files, it is important to **keep a copy of the original raw data**. Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources and re-purposing the data use. Also, when sharing the data it might be worthwhile to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter. In some cases it is even possible to publish the data with the processing and analyses code as an executable paper in order to prove that the scientific process is reproducible. In other words executable papers are dynamic pieces of software that combine text, raw data, and the code used for the analysis, and that a reader can interact with. 
 
-## Files and file formats
+### Files and file formats
 
 All digital information is structured data. When organising your research data it is important to create coherent and intelligible entities that are easy to access and reuse.
 
