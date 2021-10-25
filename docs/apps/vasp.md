@@ -20,7 +20,8 @@ module avail vasp
 The usage of VASP requires a license, which must be acquired directly
 from the developers of the software. After acquiring the license,
 please send email to [servicedesk@csc.fi](mailto:servicedesk@csc.fi),
-including your license number.
+including the email address you have registered for the VASP license and
+your user name at CSC.
 
 
 ## Usage
