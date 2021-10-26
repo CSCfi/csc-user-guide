@@ -1,15 +1,5 @@
 # Expand a volume
 
-## Dynamically
-
-If the volume was created with dynamic resize activated, it is as easy as editing the corresponding volume (`PVC` object) and change the size:
-
-```sh
-oc edit pvc postgresql
-```
-
-The storage request is at **status > accessModes > ReadWriteOnce > capacity > storage**.
-
 ## Non dynamically
 
 When dynamic volume expansion is not activated, the command line will give an error like:

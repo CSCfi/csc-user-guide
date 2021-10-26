@@ -22,18 +22,11 @@ allowed.
 ## Getting an account without Haka or Virtu
 
 The preferred registration method is to log in using Haka or
-Virtu. If they are not available, an alternative method is to mail
-the following information to servicedesk@csc.fi.
+Virtu. If they are not available, an alternative method is to contact servicedesk@csc.fi.
 
 This mostly applies to foreign collaborators of Finland-based research
 groups, but basically anybody who has a project to join can register
 this way.
-
-The application should include:
-
-* Project identifier (e.g. 2001679, uef4713)
-* Collaborator's name, organization and email address
-* Period of time for which the right for use is applied
 
 !!! Note
 
