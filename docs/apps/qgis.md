@@ -6,7 +6,7 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 ## Available
 
-__QGIS__ is available in Puhti with following versions:
+__QGIS__ has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation. QGIS is available in Puhti with following versions:
 
 * 3.16 in a singularity container
 * 3.14 via conda in geoconda-3.8
@@ -14,40 +14,23 @@ __QGIS__ is available in Puhti with following versions:
 
 ## Usage
 
-### Using QGIS graphical user interface with Puhti web interface
+### Using QGI Swith Puhti web interface
+This is the new recommended way.
 
-For general information about the web interface, please read the [Puhti web interface documentation](../computing/webinterface/index.md).
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/index.md).
+2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-To use QGIS in the web interface:
-* Navigate to https://puhti.csc.fi 
-* Log in using your CSC user account 
-* Navigate to Apps tab and choose Desktop under Graphical Applications
-* Fill out the form with 
-  * the number of the project where billing units should be used from 
-  * partition to be used 
-  * resources needed
-  * choose Desktop 'None' 
-  * find QGIS under Apps.
+### Alternative (old) use of QGIS with NoMachine
 
-After clicking the 'Launch' button, you may have to wait a moment to get the requested resources. Once they are granted, you can click the 'Launch Desktop' button to start your QGIS session.
-
-Now you can use QGIS graphical user interface directly on Puhti.
-
-### Alternative use of QGIS graphical user interface with NoMachine
-
-
-First, connect to Puhti with [NoMachine](nomachine.md). A SSH connection with __X11 forwarding__ should also work, but is likely slower.
-
-Second, start an [interactive session](../computing/running/interactive-usage.md)
+1. Connect to Puhti with [NoMachine](nomachine.md). A SSH connection with __X11 forwarding__ should also work, but is likely slower.
+2. Start an [interactive session](../computing/running/interactive-usage.md)
 
 ```
 sinteractive -i
 ```
 
-QGIS has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation.
 
-
-### Singularity installation
+#### Singularity installation
 
 Load the module and start QGIS
 
@@ -56,7 +39,7 @@ module load qgis
 qgis
 ```
 
-### Conda installation
+#### Conda installation
 
 QGIS is older older versions are included in the [geoconda](../apps/geoconda.md) module and can be started with
 
