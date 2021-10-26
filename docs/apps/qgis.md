@@ -14,7 +14,27 @@ __QGIS__ is available in Puhti with following versions:
 
 ## Usage
 
-### Using QGIS with graphical user interface
+### Using QGIS graphical user interface with Puhti web interface
+
+For general information about the web interface, please read the [Puhti web interface documentation](../computing/webinterface/index.md).
+
+To use QGIS in the web interface:
+* Navigate to https://puhti.csc.fi 
+* Log in using your CSC user account 
+* Navigate to Apps tab and choose Desktop under Graphical Applications
+* Fill out the form with 
+  * the number of the project where billing units should be used from 
+  * partition to be used 
+  * resources needed
+  * choose Desktop 'None' 
+  * find QGIS under Apps.
+
+After clicking the 'Launch' button, you may have to wait a moment to get the requested resources. Once they are granted, you can click the 'Launch Desktop' button to start your QGIS session.
+
+Now you can use QGIS graphical user interface directly on Puhti.
+
+### Alternative use of QGIS graphical user interface with NoMachine
+
 
 First, connect to Puhti with [NoMachine](nomachine.md). A SSH connection with __X11 forwarding__ should also work, but is likely slower.
 
