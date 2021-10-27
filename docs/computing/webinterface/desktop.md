@@ -2,6 +2,7 @@
 The desktop enables using graphical applications on a Puhti compute node.
 
 The desktop can be launched as:
+
 * **`Mate` or `Xfce` desktop**, where one or several applications can be started. The applications mentioned below have been tested to work. Also other graphical tools available in Puhti could work.
 * **Single application**, currently are supported: [COMSOL](../../apps/comsol.md), [Grace](../../apps/grace.md), [GRASS GIS](../../apps/grass.md), [Maestro](../../apps/maestro.md), [MATLAB](../../apps/matlab.md), [ParaView](../../apps/paraview.md), [QGIS](../../apps/qgis.md), [SAGA GIS](../../apps/saga-gis.md), [SNAP](../../apps/snap.md), [Visit](../../apps/visit.md) and [VMD](../../apps/vmd.md).
 
@@ -24,6 +25,7 @@ There are two options for connecting to the remote desktop:
 The applications mentioned above have a direct shortcuts on desktop.
 
 For starting any other software available in Puhti:
+
 1. Open terminal
 2. Start the software as described in [Applications section](../../apps/alpha.md), usually `module load XX` and `<start_command_for_XX>`.
 
