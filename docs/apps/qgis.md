@@ -14,7 +14,8 @@ __QGIS__ has been installed in two different ways to Puhti. The Singularity inst
 
 ## Usage
 
-### Using QGI Swith Puhti web interface
+### Using QGIS in Puhti web interface
+
 This is the new recommended way.
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/index.md).
