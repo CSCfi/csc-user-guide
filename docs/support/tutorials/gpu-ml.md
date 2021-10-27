@@ -78,36 +78,34 @@ partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and also specify the
 type and number of GPUs using the `--gres` flag. Below are example batch scripts
 for reserving one GPU and a corresponding 1/4 of the CPU cores of a single node:
 
-**Puhti**
+=== "Puhti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:1
+        
+    srun python3 myprog.py <options>
+    ```
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:1
+=== "Mahti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpusmall
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=32
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:1
     
-srun python3 myprog.py <options>
-```
-
-**Mahti**
-
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpusmall
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:a100:1
-
-srun python3 myprog.py <options>
-```
+    srun python3 myprog.py <options>
+    ```
 
 Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
 GPUs, use the `gpumedium` queue. You can [read more about multi-GPU and
@@ -335,36 +333,37 @@ module load tensorflow/2.4
 Below are example slurm batch scripts that use 8 GPUs across two computers. In
 MPI terminology we have 8 tasks on 2 nodes, each task has one GPU and 10 CPUs.
 
-**Puhti**
+=== "Puhti"
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --nodes=2
-#SBATCH --ntasks=8
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:4
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=2
+    #SBATCH --ntasks=8
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    srun python3 myprog.py <options>
+    ```
 
-srun python3 myprog.py <options>
-```
-
-**Mahti**
-
-Note that on Mahti you have to use the `gpumedium` partition for multi-node
-jobs.
-
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpumedium
-#SBATCH --nodes=2
-#SBATCH --ntasks=8
-#SBATCH --cpus-per-task=32
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:a100:4
-
-srun python3 myprog.py <options>
-```
+=== "Mahti"
+    
+    Note that on Mahti you have to use the `gpumedium` partition for multi-node
+    jobs.
+    
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=2
+    #SBATCH --ntasks=8
+    #SBATCH --cpus-per-task=32
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    srun python3 myprog.py <options>
+    ```
+    
