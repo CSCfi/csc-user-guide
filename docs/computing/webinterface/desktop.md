@@ -9,7 +9,7 @@ At the moment, only CPU rendering is supported in the graphical applications.
 
 ## Launching
 1. Open `Desktop` page under Apps 
-2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else in Puhti, so the required resources need to be defined before launching the desktop. The recommended partiotion is [interactive](../interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
+2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else in Puhti, so the required resources need to be defined before launching the desktop. The recommended partiotion is [interactive](../running/interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
 3. Select Desktop `Mate`, `Xfce` or 'None'. Use 'None', if starting single application.
 
 
