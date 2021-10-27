@@ -1,16 +1,32 @@
 # Desktop
-The desktop apps launches a remote desktop on the Puhti compute nodes for running graphical applications.
+The desktop enables using graphical applications on a Puhti compute node.
 
-The desktop environment, terminal and apps launched in it are running inside a Singularity container, which means that some programs may behave differently or not work at all. 
-The desktop can be launched with Mate or Xfce as desktop environment, or alternatively you can launch apps directly without a desktop environment.
+The desktop can be launched as:
+* **`Mate` or `Xfce` desktop**, where one or several applications can be started. The applications mentioned below have been tested to work. Also other graphical tools available in Puhti could work.
+* **Single application**, currently are supported: [COMSOL](../../apps/comsol.md), [Grace](../../apps/grace.md), [GRASS GIS](../../apps/grass.md), [Maestro](../../apps/maestro.md), [MATLAB](../../apps/matlab.md), [ParaView](../../apps/paraview.md), [QGIS](../../apps/qgis.md), [SAGA GIS](../../apps/saga-gis.md), [SNAP](../../apps/snap.md), [Visit](../../apps/visit.md) and [VMD](../../apps/vmd.md).
 
-Currently, only CPU rendering is supported in the graphical applications.
+At the moment, only CPU rendering is supported in the graphical applications.
+
+## Launching
+1. Open `Desktop` page under Apps 
+2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else in Puhti, so the required resources need to be defined before launching the desktop. The recommended partiotion is [interactive](../interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
+3. Select Desktop `Mate`, `Xfce` or 'None'. Use 'None', if starting single application.
+
 
 ## Connecting
+There are two options for connecting to the remote desktop:
+
+1. **With web-browser**. The noVNC Connection tab can be used to connect to the remote desktop using a web browser by selecting wanted compression and quality and then clicking `Launch Desktop`. Using the browser to connect is recommended for most users.
 ![](../../img/ood-vnc-connect.png)
+2. **With VNC client**. For better performance you can use a native VNC client, such as RealVNC or TigerVNC. Instructions for native VNC clients can be found in the Native instructions tab.
 
-The noVNC Connection tab can be used to connect to the remote desktop using your browser by selecting wanted compression and quality and then clicking Launch Desktop.
+## Using the desktop
+The applications mentioned above have a direct shortcuts on desktop.
 
-For better performance you can use a native VNC client, such as TigerVNC, to connect. Instructions for native VNC clients can be found in the Native instructions tab.
+For starting any other software available in Puhti:
+1. Open terminal
+2. Start the software as described in [Applications section](../../apps/alpha.md), usually `module load XX` and `<start_command_for_XX>`.
 
-Using the browser to connect is recommended for most users.
+(The applications menu in desktop does not include Puhti scientific applications, just basic Linux tools.)
+
+The desktop environment, terminal and apps launched in it are running inside a Singularity container, which means that some programs may behave differently or not work at all. 
