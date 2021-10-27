@@ -1,22 +1,6 @@
 # GPU-accelerated machine learning
 
-## What CSC service to use?
-
-If you need GPU-accelerated machine learning, CSC's supercomputers, Puhti and
-Mahti, are usually the way to go. First, please read the [instructions on how to
-access Puhti and Mahti](../../computing/overview.md), and [how to submit
-computing jobs](../../computing/running/getting-started.md).
-
-In some special cases, a virtual server on
-[**Pouta**](../../cloud/pouta/index.md) might make sense as it also offers GPUs.
-This gives you more control over the computing environment, but may not be
-suitable for very heavy computing tasks. For model deployment, the
-[**Rahti**](../../cloud/rahti/index.md) contained cloud service might be used,
-however, it currently doesn't offer GPU support. See some examples of [how to
-deploy machine learning models on
-Rahti](https://github.com/CSCfi/rahti-ml-examples).
-
-### Puhti or Mahti?
+## Puhti or Mahti?
 
 Puhti and Mahti are CSC's two supercomputers. Puhti has the largest number of
 GPUs (V100) and offers the widest selection of installed software, while Mahti
@@ -38,7 +22,7 @@ system. **In case you are unsure which supercomputer to use, Puhti is a good
 default** as it has a wider set of software supported.
 
 
-## Using CSC's supercomputers
+## Available machine learning software
 
 For GPU-accelerated machine learning on CSC's supercomputers, we support
 [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md),
@@ -53,6 +37,41 @@ module load tensorflow/2.4
 
 Please note that our modules already include CUDA and cuDNN libraries, so
 **there is no need to load cuda and cudnn modules separately!**
+
+Finally, on Puhti, we provide some special applications which are not shown by
+default in the module system. These have been made available due to user
+requests, but with limited support. You can enable them by running:
+
+```bash
+module use /appl/soft/ai/singularity/modulefiles/
+```
+
+<!-- ##### Intel TensorFlow -->
+
+<!-- Intel CPU-optimized version of tensorflow in the module -->
+<!-- `intel-tensorflow/2.3-cpu-sng`. -->
+
+<!-- ##### DeepLabCut -->
+
+<!-- [DeepLabCut](http://www.mackenziemathislab.org/deeplabcut/) is a software -->
+<!-- package for animal pose estimation, available in the module `deeplabcut/2.1.9`. -->
+
+<!-- ##### Turku neural parser -->
+
+<!-- [Turku neural parser](http://turkunlp.org/Turku-neural-parser-pipeline/) is a -->
+<!-- pipeline for segmentation, morphological tagging, dependency parsing and -->
+<!-- lemmatization created by the [Turku NLP group](http://turkunlp.org/). -->
+
+<!--     module use /appl/soft/ai/singularity/modulefiles/ -->
+<!--     module load turku-neural-parser/fi-en-sv-cpu -->
+<!--     echo "Minulla on koira." | singularity_wrapper run stream fi_tdt parse_plaintext -->
+
+<!-- There is also a GPU-version `turku-neural-parser/fi-en-sv-gpu`. -->
+
+<!-- **NOTE:** running the command requires at least 4GB of RAM, so you need to run it -->
+<!-- in an [interactive session](../../computing/running/interactive-usage.md) or a -->
+<!-- batch job. -->
+
 
 To submit a job to the slurm queue using GPUs, you need to use the `gpu`
 partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and also specify the
@@ -98,7 +117,7 @@ For more detailed information about the different paritions, see our page about
 [the available batch job partitions on CSC's
 supercomputers](../../computing/running/batch-job-partitions.md).
 
-### Data storage
+## Data storage
 
 It is recommended to store big datasets in [Allas](../../data/Allas/index.md),
 and download them to your project's [scratch directory](../../computing/disk.md)
@@ -130,7 +149,7 @@ approaches, including:
   on the GPU nodes
 - using a SquashFS image (Singularity-only)
 
-#### More efficient data format
+### More efficient data format
 
 Many machine learning frameworks support formats for packaging your data more
 efficiently. For example [TensorFlow's
@@ -147,7 +166,7 @@ desk](https://www.csc.fi/contact-info) if you need advice about how to access
 your data more efficiently.
 
 
-#### Fast local drive
+### Fast local drive
 
 If you really need to access the individual small files, you can use the fast
 local drive that is present in every GPU node. In brief, you just need to add
@@ -185,7 +204,7 @@ srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
     tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 ```
 
-#### Using SquashFS
+### Using SquashFS
 
 If you are running one of our [Singularity-based modules](#singularity), you can package your
 dataset into a SquashFS image and mount it so it's visible to the code as a
@@ -193,7 +212,7 @@ normal directory. See [our documentation on how to mount datasets with
 SquashFS](../../computing/containers/run-existing.md#mounting-datasets-with-squashfs)
 for the details.
 
-### GPU utilization
+## GPU utilization
 
 GPUs are an expensive resource compared to CPUs ([60 times more
 BUs!](../../accounts/billing.md)). Hence, ideally, a GPU should be maximally
@@ -250,7 +269,7 @@ desk](https://www.csc.fi/contact-info) if you need advice on how to improve you
 GPU utilization.
 
    
-#### Using multiple CPUs for data pre-processing
+### Using multiple CPUs for data pre-processing
 
 One common reason for the GPU utilization being low is when the CPU cannot load
 and pre-process the training data fast enough, and the GPU has to wait for the
@@ -287,7 +306,7 @@ supports loading with multiple processes:
 train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 ```
 
-### Multi-GPU and multi-node jobs
+## Multi-GPU and multi-node jobs
 
 Multi-GPU jobs are also supported by specifying the number of GPUs required in
 the `--gres` flag, for example to have 4 GPUs on Puhti (which is the maximum for
@@ -349,54 +368,3 @@ jobs.
 
 srun python3 myprog.py <options>
 ```
-
-
-### Singularity
-
-Our machine learning modules are increasingly being built using [Singularity
-containers](https://en.wikipedia.org/wiki/Singularity_(software)). For
-background and general usage, we strongly recommend to first read our [general
-instructions for using Singularity on CSC's
-supercomputers](../../computing/containers/run-existing.md).
-
-In most cases, Singularity-based modules can be used in the same way as other
-modules as we have provided wrapper scripts so that common commands such as
-`python`, `python3`, `pip` and `pip3` should work as normal. However, if you
-need to run something else inside the container, you need to prefix that command
-with `singularity_wrapper exec`.
-
-
-#### Special Singularity-based applications
-
-Finally, on Puhti, we provide some special Singularity-based applications which
-are not shown by default in the module system. You can enable them by running:
-
-```bash
-module use /appl/soft/ai/singularity/modulefiles/
-```
-
-##### Intel TensorFlow
-
-Intel CPU-optimized version of tensorflow in the module
-`intel-tensorflow/2.3-cpu-sng`.
-
-##### DeepLabCut
-
-[DeepLabCut](http://www.mackenziemathislab.org/deeplabcut/) is a software
-package for animal pose estimation, available in the module `deeplabcut/2.1.9`.
-
-##### Turku neural parser
-
-[Turku neural parser](http://turkunlp.org/Turku-neural-parser-pipeline/) is a
-pipeline for segmentation, morphological tagging, dependency parsing and
-lemmatization created by the [Turku NLP group](http://turkunlp.org/).
-
-    module use /appl/soft/ai/singularity/modulefiles/
-    module load turku-neural-parser/fi-en-sv-cpu
-    echo "Minulla on koira." | singularity_wrapper run stream fi_tdt parse_plaintext
-
-There is also a GPU-version `turku-neural-parser/fi-en-sv-gpu`.
-
-**NOTE:** running the command requires at least 4GB of RAM, so you need to run it
-in an [interactive session](../../computing/running/interactive-usage.md) or a
-batch job.

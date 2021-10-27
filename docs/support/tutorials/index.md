@@ -42,7 +42,8 @@
 ## Data analysis and machine learning
 
 * [Data analysis guide](da-guide.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
+* [Machine learning at CSC](ml-guide.md)
+  * [GPU-accelerated machine learning](gpu-ml.md)
 * [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
