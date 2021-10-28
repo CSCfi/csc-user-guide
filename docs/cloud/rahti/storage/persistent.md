@@ -36,6 +36,9 @@ mode by multiple nodes. Other access modes are ReadWriteOnce (Only one node can 
 
 Persistent storage can be requested also via the web console.
 
+!!! warning
+    When a volume contains a high amount of files (>15 000), the time it takes to mount and be available can be higher than 5 minutes. The more files, the more time it takes to be available.
+
 The persistent volume can be used in a pod by specifying `spec.volumes`
 (defines the volumes to attach) and `spec.containers.volumeMounts` (defines where
 to mount the attached volumes in the container's filesystem):
@@ -62,3 +65,6 @@ spec:
     persistentVolumeClaim:
       claimName: testing-pvc
 ```
+
+!!! warning
+    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](/data/Allas/using_allas/a_backup/).

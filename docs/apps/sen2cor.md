@@ -1,11 +1,12 @@
 # Sen2Cor
 
-[Sen2Cor](http://step.esa.int/main/third-party-plugins-2/sen2cor/sen2cor_v2-8/) is a stand-alone processor for Sentinel-2 Level 2A product generation and formatting.
+[Sen2Cor](http://step.esa.int/main/snap-supported-plugins/sen2cor/sen2cor-v2-9/) is a stand-alone processor for Sentinel-2 Level 2A product generation and formatting.
 
 ## Available
 
 __Sen2Cor__ is available in Puhti with following versions:
 
+* 2.9
 * 2.8
 
 ## Usage
@@ -22,7 +23,7 @@ More information on the available arguments can be displayed with
 
 `L2A_Process --help`
 
-or from [the Sen2Cor user manual](http://step.esa.int/thirdparties/sen2cor/2.8.0/docs/S2-PDGS-MPC-L2A-SUM-V2.8.pdf).
+or from [the Sen2Cor user manual](http://step.esa.int/thirdparties/sen2cor/2.9.0/docs/S2-PDGS-MPC-L2A-SUM-V2.9.0.pdf).
 
 ## License and citing
 
@@ -32,7 +33,7 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 ### References
 
-* [Sen2Cor user manual](http://step.esa.int/thirdparties/sen2cor/2.8.0/docs/S2-PDGS-MPC-L2A-SUM-V2.8.pdf)
-* [Sen2Cor v2.8 release notes ](http://step.esa.int/thirdparties/sen2cor/2.8.0/docs/S2-PDGS-MPC-L2A-SRN-V2.8.pdf)
+* [Sen2Cor user manual](http://step.esa.int/thirdparties/sen2cor/2.9.0/docs/S2-PDGS-MPC-L2A-SUM-V2.9.0.pdf)
+* [Sen2Cor v2.9 release notes ](http://step.esa.int/thirdparties/sen2cor/2.9.0/docs/S2-PDGS-MPC-L2A-SRN-V2.9.0.pdf)
 * [Sen2Cor user forum](https://forum.step.esa.int/c/s2tbx/sen2cor)
 

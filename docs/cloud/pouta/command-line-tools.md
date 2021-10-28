@@ -24,14 +24,14 @@ that uses the common OpenStack command line tool.
 
 ##### These versions of the OpenStack commands should work with ePouta and cPouta.
 
-    python-openstackclient==3.11.0
-    python-cinderclient==2.2.0
-    python-glanceclient==2.7.0
-    python-heatclient==1.5.1
-    python-keystoneclient==3.11.0
-    python-neutronclient==6.0.0
-    python-novaclient==9.0.1
-    python-swiftclient==3.3.0
+    python-openstackclient==3.14.3
+    python-cinderclient==3.5.0
+    python-glanceclient==2.10.1
+    python-heatclient==1.14.1
+    python-keystoneclient==3.15.1
+    python-neutronclient==6.7.0
+    python-novaclient==10.1.1
+    python-swiftclient==3.5.1
 
 ##### Openstack commands and help
 
@@ -51,7 +51,7 @@ subcommand, add the command name after "help". For example:
 generate a keypair. It will be used to access virtual machines. You
 can also optionally specify a public key you have previously generated,
 in which case the private key is the one you generated when the
-public key was generated. 
+public key was generated.
 
 Generate a key named "test" with a private key stored in "test.pem":
 
@@ -79,9 +79,10 @@ This command has the minimum amount of information for launching a
 functioning virtual machine.
 
 !!! Note
-    Do not be alarmed by adminPass in the output from "openstack
-    server create". This is not used when connecting only with SSH keys
-    (the default on Pouta clouds).
+    The output of the command "openstack server create" shows also a 
+    password called adminPass. You do not need to store this password as
+    is not used when connecting to the virtual machine. The virtual 
+    machine allows access to a user only if the user uses SSH keys.
 
 ##### List instances
 
@@ -126,11 +127,11 @@ Create a new security group:
 Add a rule to this new group that allows ping from a specific
 source network:
 
-    openstack security group rule create --proto icmp --src-ip <source network> --dst-port 0 <security group name>
+    openstack security group rule create --proto icmp --remote-ip <source network> --dst-port 0 <security group name>
 
 Add a rule that allows SSH from a specific source network:
 
-    openstack security group rule create --proto tcp --src-ip <source network> --dst-port 22 <security group name>
+    openstack security group rule create --proto tcp --remote-ip <source network> --dst-port 22 <security group name>
 
 Assign the newly created security group to your virtual server:
 
@@ -152,7 +153,7 @@ servers in the group are launched on different physical servers. If no
 suitable physical server is found, the virtual machine will not be
 created.
 
-    openstack server group create --policy <affinity or anti-affinity>] <server group name>
+    openstack server group create --policy <affinity or anti-affinity> <server group name>
 
 After that, you can launch virtual machines in the group by
 specifying the group ID in the hint parameter.

@@ -49,10 +49,25 @@ The log says that the instance couldn't boot because it can't find root "Kernel 
 Note, that you will modify grub, there are probably better ways to do it, so do not be afraid to see what other guides there are on the internet. This FAQ is mostly meant to show that there is a command named `nova rescue`. There is also a command named `openstack server rescue` which is almost the same as `nova rescue` but is missing the `--image` flag which is almost *always* required when rescuing servers.
 
 1. shutdown the instance <pre><code>openstack server stop $INSTANCE_UUID</pre></code>
+
 2. Use this command to rescue the instances. <pre><code>nova rescue $INSTANCE_UUID --image CentOS-7</pre></code>
-1. Make sure that the instance is in rescue mode with <pre><code>openstack server show $INSTANCE_UUID</pre></code>
-3. ssh into the instances.
-3. Check what volumes you have. If you don't have any other volumes attached it should looks something like this:
+
+In this step, you may need to use the image ID instead of the image name (CentOS-7) if you have many images with the same name. In order to find the ID of the image please use the following command: <pre><code> openstack image list </pre></code>.
+
+Also, if your intance is an Ubuntu instead of CentOS, then select Ubuntu image ID instead. 
+
+3. Make sure that the instance is in rescue mode with <pre><code>openstack server show $INSTANCE_UUID</pre></code>
+
+4. ssh into the instances.
+
+In case that you have this message in the terminal:  <pre><code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</pre></code>
+
+Fix it by removing the line of your instance IP address from the file ~/.ssh/known_hosts 
+
+An alternative way is the execution of the followiwng command: 
+<pre><code>ssh-keygen -f "~/.ssh/known_hosts" -R "$INSTANCE_IP"</pre></code>
+
+5. Check what volumes you have. If you don't have any other volumes attached it should looks something like this:
 <pre><code>$ lsblk
 NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 vda    253:0    0  10G  0 disk
@@ -60,11 +75,25 @@ vda    253:0    0  10G  0 disk
 vdb    253:16   0  80G  0 disk
 └─vdb1 253:17   0  80G  0 part /
 </code></pre>
-4. Now you want to mount `vdb1` to /tmp/mnt and go to that directory. <pre><code>$ sudo mkdir -p /tmp/mnt; $sudo mount /dev/vdb1 /tmp/mnt/</code></pre>
-5. Take a backup of grub <pre><code>$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-`date +"%F"`</pre></code>
-7. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. *NOTE:* This might not be the correct solution for your specific problem
-8. Log out from the instances and `unrescue` the instance <pre><code>nova unrescue $INSTANCE_UUID</pre></code>
-9. If the instance comes up successfully ssh into the instance and reinstall the kernel
-    <pre><code>yum reinstall kernel</pre></code>
-10. It would be a good idea to verify that a restart works after the kernel reinstallation. 
 
+6. Now you want to mount `vdb1` to /tmp/mnt and go to that directory. <pre><code>$ sudo mkdir -p /tmp/mnt; $sudo mount /dev/vdb1 /tmp/mnt/</code></pre>
+
+7. Take a backup of grub <pre><code>$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-`date +"%F"`</pre></code>
+
+8. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. *NOTE:* This might not be the correct solution for your specific problem.
+
+9. In case that your instance has issues due to some broken packages or drivers, then you can switch to your original and fix the problems using the following commands:
+
+<pre><code>
+$ sudo mv /tmp/mnt/etc/resolv.conf{,.bak}
+$ sudo cp /etc/resolv.conf /tmp/mnt/etc/resolv.conf
+$ sudo chroot /tmp/mnt
+$ sudo source /etc/environment
+</code></pre>
+
+10. Log out from the instances and `unrescue` the instance <pre><code>nova unrescue $INSTANCE_UUID</pre></code>
+
+11. If the instance comes up successfully ssh into the instance and reinstall the kernel. In case of CentOS-7, use the following command:
+    <pre><code>yum reinstall kernel</pre></code>
+
+12. It would be a good idea to verify that a restart works after the kernel reinstallation. 

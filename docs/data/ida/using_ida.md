@@ -21,14 +21,19 @@ Files in the frozen area are visible to other Fairdata services and can be inclu
 
 ## Configuring and using IDA in CSC supercomputers ##
 
-Before you can start using IDA client in CSC supercomputers you must set up your IDA connection by running the following command:
+The IDA client and configuration tools are activated with command:
+```text
+module load ida
+```
+
+When you start using IDA client in CSC supercomputers for the first time, you must set up your IDA connection by running the following command:
 ```text
 ida_configure
 ```
 The configuration process asks for your CSC project number, username and [application password](https://www.fairdata.fi/en/ida/user-guide/#app-passwords). 
 This information can be obtained from the [security settings page of the IDA WWW-interface](https://ida.fairdata.fi/settings/user/security). The configuration is stored to your home directory, so you need to do it only once.
 
-Once you have configured the connection, you can start using the `ida` command line client that enables data transport between the supercomputer and IDA. Data can be uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data from staging area to the frozen area is possible only through the [IDA WWW interface](https://ida.csc.fi).
+Once you have configured the connection, you can start using the `ida` command line client that enables data transport between the supercomputer and IDA. Data can be uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data from staging area to the frozen area is possible only through the [IDA WWW interface](https://ida.fairdata.fi).
 
 The basic syntax of the _ida_ commands is:
 <pre>

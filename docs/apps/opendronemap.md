@@ -6,6 +6,8 @@
 
 __OpenDroneMap__ is available in Puhti with following versions:
 
+* 2.5.7
+* 2.0.0
 * 0.9.1
 
 ## Usage
@@ -18,9 +20,11 @@ You can run OpenDroneMap in the following way.
 singularity run --bind <your-ODM-project-folder>:/datasets/code /appl/soft/geo/opendronemap/opendronemap.sif --project-path /datasets
 ```
 
+The container itself is in the **opendronemap.sif** file which links to the newest version available. If you need to use older versions, see what other **.sif** files are located in **/appl/soft/geo/opendronemap/**.
+
 It is possible to add [additional arguments](https://docs.opendronemap.org/arguments.html) to the end of the command. 
 
-The ODM project folder is the directory that includes the input images (in a folder /images) and where the output products will be written. It is recommended to have this directory in your project's __scratch-folder__. The __.sif__ file in the command is the actual container.
+The ODM project folder is the directory that includes the input images (in a folder /images) and where the output products will be written. It is recommended to have this directory in your project's __scratch-folder__. 
 
 Here is an example. For this to work, the __odm_project__ folder needs to exist and inside it needs to be a folder called images that has all the input images.
 
@@ -37,7 +41,7 @@ singularity run \
 #SBATCH --account=<YOUR-CSC-PROJECT>
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
-#SBATCH --mem-per-cpu=2G
+#SBATCH --mem-per-cpu=3G
 #SBATCH --partition=small
 #SBATCH --time=02:00:00
 

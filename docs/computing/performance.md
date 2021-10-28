@@ -49,9 +49,15 @@ bottlenecks. At CSC, several profiling tools are available:
 * [Intel VTune Profiler](../apps/vtune.md) is a powerful profiler that can be
   used to collect performance data of your application and is suited for both
   serial and multithreaded codes
+* [Scalasca](../apps/scalasca.md) is trace-based parallel performance analysis tool for MPI,
+  OpenMP and hybrid MPI+OpenMP programs
 * [Intel Trace Analyzer and Collector](../apps/itac.md) is a MPI profiling and
   tracing tool for parallel programs
 * [cProfile](cProfile.md) is the recommended, in-built profiling tool
   for Python programs
 * [nvprof](nvprof.md) is a command-line CUDA profiler and tracing tool
   for CUDA programs
+* [nsys](nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool designed to visualize an application’s algorithms
+* [ncu](ncu.md) is the command-line interface of Nsight Compute, a tool to debug and optimize CUDA kernels
+* [mpiP](mpip.md) is a lightweight MPI profiler
+* [IPM](ipm.md) is a lightweight MPI profiler

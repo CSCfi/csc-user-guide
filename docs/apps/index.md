@@ -1,4 +1,4 @@
-<h1> Applications</h1>
+# Applications
 
 ## Biosciences
 
@@ -23,6 +23,7 @@
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
 * [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
@@ -80,6 +81,7 @@
 * [NWChem](nwchem.md) A computational chemistry software package designed to perform well on parallel HPC systems.
 * [Open Babel](openbabel.md) Program to interconvert file formats currently used in molecular modeling
 * [ORCA](orca.md) General purpose quantum chemistry package
+* [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
 * [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
@@ -96,6 +98,7 @@
 * [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
+* [Star-CCM+](starccm+.md) Computational Fluid Dynamics software by Siemens Digital Industries Software
 
 ## Data Analytics and Machine Learning
 
@@ -108,23 +111,26 @@
 
 ## Geosciences
 
-* [ArcGIS](arcgis.md) ArcGIS software suite for working with spatial data 
-* [FORCE](force.md) All-in-one command line tool for mass-processing of medium-resolution satellite images
-* [GDAL](gdal.md) Translator library for geospatial data formats
-* [Geoconda](geoconda.md) Spatial analysis libraries for Python, QGIS, GDAL and LasTools
-* [LAStools](lastools.md) Toolbox for LiDAR datasets
-* [Mapnik](mapnik.md) Open source toolkit for rendering maps
-* [OpenDroneMap](opendronemap.md) open source command line toolkit for processing aerial drone imagery
-* [Orfeo ToolBox](otb.md) Open source toolbox for processing high resolution optical, multispectral and radar images
-* [PDAL](pdal.md) open source command line application for point cloud translations and processing
-* [QGIS](qgis.md) GIS application for viewing, editing, and analysing geospatial data
-* [R for GIS](r-env-for-gis.md) Documentation on the GIS libraries for R
-* [SAGA GIS](saga-gis.md) GIS application for spatial data editing and analysis
-* [Sen2Cor](sen2cor.md) Stand-alone processor for the Sentinel-2 satellite
-* [SNAP](snap.md) Remote sensing toolbox for satellites
-* [Sofi3d](sofi3D.md) Application for 3D Finite-Difference Seismic Wave Simulation
-* [Solaris](solaris.md) Open source deep learning pipeline for geospatial imagery
-* [SPLITS](splits.md) Software package to analyze time series of remotely sensed parameters
+* [ArcGIS](arcgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [FORCE](force.md) for mass-processing of medium-resolution satellite images
+* [GDAL](gdal.md) for geospatial data formats
+* [Geoconda](geoconda.md) - Python spatial analysis libraries
+* [GRASS GIS](grass.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [LAStools](lastools.md) for LiDAR datasets
+* [Mapnik](mapnik.md) for rendering maps
+* [OpenDroneMap](opendronemap.md) for processing aerial drone imagery
+* [Orfeo ToolBox](otb.md) for remote sensing applications
+* [PCL](pcl.md) for 2D/3D image and point cloud processing
+* [PDAL](pdal.md) for point cloud translations and processing
+* [pktools](pktools.md) for remote sensing applications
+* [QGIS](qgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [R for GIS](r-env-for-gis.md) R spataial analysis libraries
+* [SAGA GIS](saga-gis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel2 images
+* [SNAP](snap.md) for remote sensing applications
+* [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
+* [Solaris](solaris.md) deep learning pipeline for geospatial imagery
+* [SPLITS](splits.md) for time series analysis of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
 
@@ -145,8 +151,9 @@
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
+* [Python](python.md) programming language and its modules at CSC.
 * [R](r-env.md) Open-source language and environment for statistical analysis and graphics
-* [r-env-singularity](r-env-singularity.md) R, RStudio Server and SAGA (Singularity container)
+* [r-env-singularity](r-env-singularity.md) R, RStudio Server, SAGA and TensorFlow (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 

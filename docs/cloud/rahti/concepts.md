@@ -1,19 +1,19 @@
 # Kubernetes and OpenShift concepts
 
-The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that 
-they provide for complex tasks such as load balancing, software updates for a 
-distributed system, or autoscaling. Here we give a very brief overview of some of the 
-most important abstractions, but we highly recommend that you read the concept 
-documentation for Kubernetes and OpenShift as well:
+The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
+* [OpenShift concepts](https://docs.okd.io/3.11/architecture/core_concepts/index.html)
 
-These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project. Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
+These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
 ![Kubernetes full picture](img/Kubernetes.drawio.svg)
 
 ## Kubernetes concepts
+
+### Namespace
+
+Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](/cloud/rahti/usage/projects_and_quota/#creating-a-project) documentation.
 
 ### Pod
 
@@ -21,11 +21,10 @@ These abstractions are objects, persistent entities in the Kubernetes system. Th
 unit in Kubernetes: when you run a workload in Kubernetes, it always runs in a
 pod. Kubernetes handles scheduling these pods on multiple servers. Pods can
 contain volumes of different types for accessing data. Each pod has its own IP
-address shared by all containers in the pod. In the most typical
+address shared by all containers in the pod, this IP address may change if the Pod gets killed and recreated. In the most typical
 case, a pod contains one container and perhaps one or a few different volumes.
 
-Pods are intended to be replaceable. Any data that needs to persist after a pod
-is killed should be stored on a volume attached to the pod.
+Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
 
 ![Pod](img/pods.png)
 
@@ -111,7 +110,7 @@ are typically not used on their own but rather as part of a **Deployment**
 contain a ReplicaSet and several pods. If you make a change that requires an
 update such as switching to a newer image for pod containers, the deployment
 ensures the change is made in a way that there are no service interruptions. It
-will perform a rolling update to replace all pods one by one with
+will perform a rolling update to kill all pods one by one and replace them with
 newer ones while making sure that end user traffic is directed towards working
 pods at all times.
 
@@ -290,7 +289,8 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new **ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
+* **DeploymentConfig** objects create new [**ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
+* **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
 
@@ -301,7 +301,7 @@ DeploymentConfig objects may start new ReplicationControllers based on the state
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
 `serveimagestream:latest`. For other update strategies, see "[Deployment
-Strategies](https://docs.okd.io/latest/dev_guide/deployments/deployment_strategies.html)"
+Strategies](https://docs.okd.io/3.11/dev_guide/deployments/deployment_strategies.html)"
 in the OpenShift documentation.
 
 DeploymentConfig objects function similarly to deployments described in the
@@ -413,3 +413,41 @@ request the OpenShift cluster to build the image:
 ```
 
 Other source strategies include `custom`, `jenkins` and `source`.
+
+### Route
+
+Route objects are the OpenShift equivalent of _Ingress_ in vanilla Kubernetes, they expose a Service object to the internet via HTTP/HTTPS. A typical Route definition would be:
+
+```yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: <name-of-the-route>
+spec:
+  host: <host.name.dom>
+  to:
+    kind: Service
+    weight: 100
+    name: <name-of-service>
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+status:
+  ingress: []
+```
+
+This will redirect any traffics coming to `<host.name.dom>` to the service `name-of-service`.
+
+* `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
+* `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
+
+Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/) article for more information.
+
+It is possible to use annotations to enable **IP whitelisting**, where only a few IP ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
+
+```sh
+oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
+```
+
+!!! Caution
+    If the whitelist entry is malformed, OpenShift will discard the whitelist and allow all traffic.

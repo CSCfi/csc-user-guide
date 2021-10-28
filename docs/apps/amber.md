@@ -32,6 +32,12 @@ can be done on the login node as well (short serial AmberTools jobs).
 Molecular dynamics jobs are best run with `pmemd.CUDA`. They are much faster
 on GPGPUs than on CPUs. Please note, that using `pmemd.CUDA` requires
 a different module `amber/20-cuda`, but it does not have all the AmberTools available.
+
+!!! note
+    Run only GPU aware binaries in the gpu partition. If you're unsure,
+    check with seff <slurm_obid> that GPU has been used, and the job
+    was significantly faster than without GPUs.
+    
 Our tests show that for moderate sized systems the most efficient setup
 is one V100 GPGPU card and one CPU core. An example batch script would be:
 
@@ -48,7 +54,7 @@ is one V100 GPGPU card and one CPU core. An example batch script would be:
 
 module load amber/20-cuda
 
-srun --gres=gpu:v100:1 pmemd.cuda.MPI -O -i mdin -r restrt -x mdcrd -o mdout
+srun --gres=gpu:v100:1 pmemd.cuda -O -i mdin -r restrt -x mdcrd -o mdout
 ```
 
 !!! note
@@ -82,7 +88,8 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 !!! note
     `pmemd.CUDA` is way faster than `pmemd.MPI`, so use a CPU-only 
     version only in case you cannot use the CUDA version. If Amber performance
-    is not fast enough, consider using [Gromacs](gromacs.md), which can be
+    is not fast enough, consider using [Gromacs](gromacs.md), which can make use
+    of more CPU cores (i.e. scales further) can be (while using more resources)
     an order of magnitude faster. In particular, for large scale or very long MD
     simulations consider using a better scaling MD engine.
 

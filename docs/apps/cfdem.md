@@ -8,7 +8,7 @@ CFDEM®coupling-PUBLIC in open source, under Gnu General Public Licensing ([GPL]
 
 ## Available
 
-The software is available on CSC's Taito and Puhti [computing servers](https://research.csc.fi/csc-s-servers).
+The software is available on Puhti [computing servers](../computing/available-systems.md).
 
 
 ## Usage

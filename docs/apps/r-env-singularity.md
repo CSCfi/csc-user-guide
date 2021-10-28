@@ -1,6 +1,6 @@
 # r-env-singularity
 
-The `r-env-singularity` module is a [Singularity container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env-singularity` is a [Singularity container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -8,31 +8,45 @@ The `r-env-singularity` module is a [Singularity container](../../computing/cont
 
 ## Available
 
-The `r-env-singularity` module includes 800+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. Several [Bioconductor packages](https://www.bioconductor.org/) are also included. Bioconductor is an open-source project providing tools for the analysis of high-throughput genomic data.
+`r-env-singularity` includes 1100+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env-singularity` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
-Currently supported versions:
+With a small number of exceptions, R package versions on `r-env-singularity` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
-- R 3.6.3
-- Latest CRAN packages available on March 17 2020
-- Bioconductor 3.10
-- RStudio Server 1.2.5033
+Current modules and supported versions:
 
-Other software and libraries included in the module:
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | MKL version		 | TensorFlow version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ---------------------- | ------------------ |
+| r-env-singularity/3.6.3 | Mar 17 2020         | 3.10                 | 1.2.5033               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.2 | Sep 24 2020         | 3.11                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
+| r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| Intel® MKL 2020.0-088  | TensorFlow 2.4.1   |
+| r-env-singularity/4.0.5 | Apr 20 2021		| 3.12		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.4.1   |
+| r-env-singularity/4.1.1 | Oct 05 2021		| 3.13		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.6.0   |
 
-- Open MPI 4.0.2 (with Mellanox OFED™ software)
+Other software and libraries:
+
+- Open MPI 4.0.2 (R 3.6.3-4.0.3) or Open MPI 4.0.3 (R 4.0.4-4.1.1) (with Mellanox OFED™ software)
 - cget 0.1.9
 
 ## Licenses
 
-- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/).
+- Information on licenses that are in use for R and associated software (including packages) can be found on the [R Project website](https://www.r-project.org/Licenses/). The exact license of a package can also be checked inside R: `packageDescription("package", fields="License")`. More information on [citing R and different R packages](#citation) (at the bottom of the page).
 
-- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). The RStudio End User License Agreement can be found [here](https://rstudio.com/about/eula/).
+- The RStudio Server installation is based on the [Open Source Edition](https://rstudio.com/products/rstudio/#rstudio-desktop) (available under the [AGPL v3 license)](https://github.com/rstudio/rstudio/blob/master/COPYING). Please consult also the [RStudio End User License Agreement](https://rstudio.com/about/eula/).
 
 - Open MPI is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause) (details on the [Open MPI website](https://www.open-mpi.org/community/license.php)).
 
 - Mellanox OFED™ is based on OFED™ (available under a dual license of BSD or GPL 2.0), as well as proprietary components (see the [Mellanox OFED™ End-User Agreement](https://www.mellanox.com/page/mlnx_ofed_eula)).
 
+- Intel® MKL is distributed under the [Intel Simplified Software License](https://software.intel.com/content/dam/develop/external/us/en/documents/pdf/intel-simplified-software-license.pdf).
+
+- NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
+
+- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
+
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
+
+Licensing information within the `r-env-singularity` container is available in the file `/usr/licensing.txt`.
 
 ## Usage
 
@@ -65,29 +79,11 @@ start-r
 
 ***Using RStudio Server***
 
-The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. Doing so requires authentication using a Secure Shell (SSH) key. Instructions for this are provided in our [documentation on setting up SSH keys on Windows, MacOS and Linux](../../computing/connecting/#setting-up-ssh-keys). Using RStudio remotely enables a faster and more responsive user experience compared with other alternatives to accessing RStudio on Puhti.
+The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. For this, you have two options.
 
-!!! note
-    If you are a Windows user, follow the SSH key set-up instructions and launch RStudio Server using either PuTTy or MobaXterm. Guidelines for accessing RStudio through Powershell are under development.
+**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see Puhti web interface documentation](../computing/webinterface/index.md).
 
-Once you have started an interactive shell session using SSH authentication, run the following commands. As with `start-r`, the `start-rstudio-server` command needs to be run on a compute node:
-
-```bash
-module load r-env-singularity
-start-rstudio-server
-```
-
-While this will not yet open up RStudio on your screen, running `start-rstudio-server` prints out information needed to gain remote access to RStudio. Further to launching RStudio in the background, the command selects a free port on the compute node while producing a session-specific random password for RStudio.
-
-To open RStudio on your browser:
-
-- Copy the SSH login command given by `start-rstudio-server`. Note that there are separate SSH login instructions for PuTTY. Leave this window open and running until your session finishes.
-
-- Launch a local terminal window and enter the SSH login command there. Leave this window open as well for the duration of your session. As long as the command is running, you have remote access to RStudio.
-
-- Open RStudio Server by entering the following address in your browser: localhost:8787. The RStudio login screen will ask for your username and the random password generated earlier (these can be copy-pasted from the `start-rstudio-server` output). 
-
-Once you have finished, you can exit RStudio Server by entering `Ctrl + C` in the interactive terminal session on Puhti.
+**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
 
 #### Interactive use on a login node
 
@@ -126,13 +122,18 @@ Below is an example for submitting a single-processor R batch job on Puhti. Note
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -142,7 +143,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`
 
 The `r-env-singularity` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
 
-Further to the following examples, please see our separate [documentation](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) on MPI-based jobs. You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/contours) for examples of parallel computing using the `RSAGA` package.
+Further to the following examples, please see our separate [documentation](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) on MPI-based jobs. You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future) for examples of parallel computing using the `raster` package.
 
 !!! note
     For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone are unavailable due to compatibility issues.
@@ -164,13 +165,18 @@ To submit a job employing multiple cores on a single node, one could use the fol
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -191,13 +197,18 @@ Array jobs can be used to handle [*embarrassingly parallel*](../computing/runnin
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
@@ -233,15 +244,19 @@ To perform our analysis efficiently, we could take advantage of a module includi
 #SBATCH --mem-per-cpu=1000
 #SBATCH --cpus-per-task=4
 
+# Load parallel and r-env-singularity
 module load parallel/20200122
-module load r-env-singularity/3.6.3
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
+# Split runs into arrays and run the R script
 (( from_run = SLURM_ARRAY_TASK_ID * 150 + 1 ))
 (( to_run = SLURM_ARRAY_TASK_ID * 150 + 150 ))
 
@@ -251,10 +266,11 @@ sed -n "${from_run},${to_run}p" mylist.txt | \
                 $SLURM_ARRAY_TASK_ID
 ```
 
-If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function:
+If we wanted to access the unique run identifier as well as the array number within our R script, we could use the `commandArgs` function.
 
 ```r
-commandArgs(trailingOnly = TRUE)
+# For example:
+arrays <- commandArgs(trailingOnly = TRUE)
 ```
 
 *Jobs using `doMPI` (with `foreach`)*
@@ -283,7 +299,7 @@ mpi.quit()
 
 *Jobs using `snow`*
 
-Whereas most parallel R jobs employing the `r-env-singularity` module can be submitted using `srun singularity_wrapper exec Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). For example:
+Whereas most parallel R jobs employing the `r-env-singularity` module can be submitted using `srun singularity_wrapper exec Rscript`, those involving the package `snow` need to be executed using a separate command (`RMPISNOW`). `snow` relies on a communication model where a master process is used to control other processes (workers). Because of this, the batch job file must specify one more task than the planned number of `snow` workers, as the master needs its own task. For example, for a job requiring seven workers, we could submit a job as follows:
 
 ```bash
 #!/bin/bash -l
@@ -297,13 +313,18 @@ Whereas most parallel R jobs employing the `r-env-singularity` module can be sub
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec RMPISNOW --no-save --slave -f myscript.R
 ```
 
@@ -322,6 +343,58 @@ a
 stopCluster(cl)
 ```
 
+*Jobs using `future`*
+
+The `future` package provides an API for R jobs using futures (see the [future CRAN website](https://cran.r-project.org/web/packages/future/index.html) for details). Whether futures are resolved sequentially or in parallel is specified using the function `plan()`.
+
+For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
+
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
+
+The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. Note that we need to separately specify `options(future.availableCores.methods = "Slurm")` for worker allocation to proceed as expected.
+
+```r
+library(future)
+library(tictoc)
+library(furrr)
+
+options(future.availableCores.methods = "Slurm")
+
+# Different future plans (choose one) 
+# (Note: three workers used for parallel options)
+
+# plan(sequential)
+# plan(multisession, workers = 3)
+# plan(multicore, workers = 3)
+
+# Analysis timing
+
+tic()
+nothingness <- future_map(c(2, 2, 2), ~Sys.sleep(.x))
+toc()
+
+# sequential: 6.157 sec
+# multisession: 2.463 sec
+# multicore: 2.212 sec
+```
+
+For multi-node analyses using `plan(cluster)`, the job can be submitted using the package `snow`. As we are using `snow`, R must be launched using `RMPISNOW` and we should specify enough tasks for both the master and worker processes (see 'Jobs using `snow`'). To use `future` with `snow`, the following lines would also need to be included in the R script:
+
+```r
+library(future)
+
+options(future.availableCores.methods = "Slurm")
+
+cl <- getMPIcluster()
+plan(cluster, workers = cl)
+
+# Analysis here
+
+stopCluster(cl)
+```
+
+For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/contours/05_parallel_future). 
+
 *Jobs using `pbdMPI`*
 
 In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun singularity_wrapper exec Rscript` command. For example, we could submit a job with four tasks divided between two nodes (with two tasks allocated to each node):
@@ -334,18 +407,22 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 #SBATCH --error=errors_%j.txt
 #SBATCH --partition=test
 #SBATCH --time=00:05:00
-#SBATCH --ntasks=4
 #SBATCH --ntasks-per-node=2
 #SBATCH --nodes=2
 #SBATCH --mem-per-cpu=1000
 
-module load r-env-singularity/3.6.3
+# Load r-env-singularity
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify a temp folder path
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save --slave myscript.R
 ```
 
@@ -360,6 +437,110 @@ message <- paste("Hello from rank", comm.rank(), "of", comm.size())
 comm.print(message, all.rank = TRUE, quiet = TRUE)
 
 finalize()
+```
+
+#### Improving performance using threading
+
+`r-env-singularity` has been compiled using the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
+
+By default, `r-env-singularity` is single-threaded. While users may set a desired number of threads for a job, the benefits of this in terms of computation times depend on the analysis. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
+
+!!! note
+    Note that simply adding more resources does not necessarily guarantee faster computation!
+
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env-singularity` is based on a Singularity container, when specifying the number of OpenMP threads we need to use the environment variable `SINGULARITYENV_OMP_NUM_THREADS`.
+
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `SINGULARITYENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `SINGULARITYENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://pages.tacc.utexas.edu/~eijkhout/pcse/html/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_multithread
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=00:05:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --nodes=1
+#SBATCH --mem-per-cpu=2000
+
+# Load r-env-singularity
+module load r-env-singularity
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Match thread and core numbers
+export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Thread affinity control
+export SINGULARITYENV_OMP_PLACES=cores
+export SINGULARITYENV_OMP_PROC_BIND=close
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+In a multi-core interactive job, the number of threads can be automatically matched with the number of cores by running a multi-threaded version of the `start-r` or `start-rstudio-server` commands:
+
+```bash
+start-r-multithread # or
+start-rstudio-server-multithread
+```
+
+#### OpenMP / MPI hybrid jobs
+
+Further to [executing multi-threaded R jobs on a single node](#improving-performance-using-threading), these can also be run on multiple nodes. In such cases, one must specify the number of:
+
+- Nodes (`--nodes`) 
+
+- MPI processes per node (`--ntasks-per-node`) 
+
+- OpenMP threads used for each MPI process (`--cpus-per-task`)
+
+When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). For large multinode jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
+
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_multithread_multinode
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=2000
+
+# Load r-env-singularity
+module load r-env-singularity
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+ sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Match thread and core numbers
+export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Thread affinity control
+export SINGULARITYENV_OMP_PLACES=cores
+export SINGULARITYENV_OMP_PROC_BIND=close
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
 #### Using fast local storage
@@ -381,14 +562,18 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 #SBATCH --mem-per-cpu=1000
 #SBATCH --gres=nvme:10
 
-module load r-env-singularity/3.6.3
+# Load the module
+module load r-env-singularity
 
+# Clean up .Renviron file in home directory
 if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
+# Specify NVME temp folder path
 echo "TMPDIR=$TMPDIR" >> ~/.Renviron
 
+# Run the R script
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
@@ -396,6 +581,75 @@ Further to temporary file storage, data sets for analysis can be stored on a fas
 
 ```
 Sys.getenv("LOCAL_SCRATCH")
+```
+
+#### R interface to TensorFlow
+
+R modules from `r-env-singularity/4.0.4` onward support GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+
+To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
+
+```bash
+#!/bin/bash -l
+#SBATCH --job-name=r_tensorflow
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=gpu
+#SBATCH --time=01:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:v100:1
+
+# Load the module
+module load r-env-singularity
+
+# Clean up .Renviron file in home directory
+if test -f ~/.Renviron; then
+    sed -i '/TMPDIR/d' ~/.Renviron
+fi
+
+# Specify a temp folder path
+echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+
+# Run the R script
+srun singularity_wrapper exec Rscript --no-save myscript.R
+```
+
+Please note that interactive work using GPU acceleration (e.g. with RStudio) is not supported.
+
+#### GPU acceleration using NVBLAS
+
+It is possible to configure `r-env-singularity` to use NVIDIA NVBLAS, a drop-in BLAS replacement with GPU support for several BLAS3 routines (for details, see the [NVBLAS website](https://docs.nvidia.com/cuda/nvblas/index.html)). Routines not supported by NVBLAS are directed to a fallback BLAS library, i.e. oneMKL in the case of the `r-env-singularity` module.
+
+Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
+
+Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
+
+- Are BLAS3 routines the main bottleneck in your workflow? 
+- Are speed-ups possible through other means (e.g. rewriting your code)?
+- Can certain parts of your script be run on a CPU partition rather than the GPU partition?
+
+NVBLAS can be used by following these steps:
+
+Step 1. Create a file called `nvblas.conf` in `~/nvblas` with the following contents:
+
+```
+NVBLAS_LOGFILE nvblas.log
+NVBLAS_GPU_LIST ALL
+NVBLAS_TRACE_LOG_ENABLED
+NVBLAS_CPU_BLAS_LIB /opt/intel/oneapi/mkl/2021.2.0/lib/intel64/libmkl_rt.so
+```
+The CPU BLAS library listed above is specific to `r-env-singularity/4.1.1` and `r-env-singularity/4.0.5`.
+Adding `NVBLAS_TRACE_LOG_ENABLED` is optional and prompts NVBLAS to create a list of all intercepted BLAS calls for debugging.
+
+Step 2. Add the following lines to your GPU batch job file:
+
+```
+# Use NVBLAS
+export SINGULARITYENV_LD_PRELOAD=/usr/local/cuda/targets/x86_64-linux/lib/libnvblas.so
+export SINGULARITYENV_NVBLAS_CONFIG_FILE=~/nvblas/nvblas.conf
 ```
 
 #### R package installations
@@ -420,19 +674,19 @@ Additional R package installations can be arranged via two routes:
 
 - Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 
-To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory:
+To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory. Note that the folder should be specific to the R version you are using (R packages installed using different `r-env-singularity` modules are not cross-compatible).
 
 ```r
 # On the command prompt:
 # First navigate to /projappl/<project>, then
-mkdir project_rpackages
+mkdir project_rpackages_<rversion>
 ```
 
 You can then add the folder to your library trees in R:
 
 ```r
 # Add this to your R code:
-.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))
+.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 libpath <- .libPaths()[1]
 
 # This command can be used to check that the folder is now visible:
@@ -440,18 +694,22 @@ libpath <- .libPaths()[1]
 
 # Package installations should now be directed to the project
 # folder by default. You can also specify the path, e.g. install.packages("package", lib = libpath)
+
+# Note that it's also possible to fetch the R version automatically using getRversion(). For example:
+.libPaths(paste0("/projappl/<project>/project_rpackages_", gsub("\\.", "", getRversion()))) 
+
 ```
 
 To use R packages installed in `/projappl`, add the following to the beginning of your R script. This modifies your library trees within a given R session only. In other words, you will need to run this each time when launching R:
 
 ```r
-.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))
+.libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
 Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
-echo "R_LIBS=/projappl/<project>/project_rpackages" >> ~/.Renviron
+echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 ```
 
 !!! note
@@ -486,6 +744,8 @@ citation("package") # for citing R packages
 
 ## Further information
 
+- [r-env-singularity container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity) (link to public GitHub repository)
+
 - [R FAQs](https://cran.r-project.org/faqs.html) (hosted by CRAN)
 
 - [Related Projects](https://www.r-project.org/other-projects.html) (list of R-related projects on R Project website)
@@ -494,4 +754,4 @@ citation("package") # for citing R packages
 
 - [tidyverse](https://www.tidyverse.org/) (pre-installed on the `r-env-singularity` module)
 
-- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)
+- [doMPI](https://cran.r-project.org/web/packages/doMPI/index.html), [future](https://cran.r-project.org/web/packages/future/index.html), [furrr](https://cran.r-project.org/web/packages/furrr/index.html), [lidR](https://cran.r-project.org/web/packages/lidR/index.html), [pbdMPI](https://cran.r-project.org/web/packages/pbdMPI/index.html), [snow](https://cran.r-project.org/web/packages/snow/index.html) (CRAN pages for parallel R packages)

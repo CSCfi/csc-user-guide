@@ -37,7 +37,7 @@ interactive session, finally GOLD.
 module load ccdc
 srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> bash  # and wait for resources to be granted
+   bash  # and wait for resources to be granted
 gold
 ```
 

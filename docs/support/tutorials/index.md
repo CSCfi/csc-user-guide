@@ -6,16 +6,52 @@
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
-* [CSC Quick reference (pdf)](../../img/csc-quick-reference-2019-11-21.pdf)
+* [CSC Quick reference (pdf)](../../img/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/overview.md)
+* [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
+* [Using csc-env command](using_csc_env.md)
+* [Developing scripts remotely](remote-dev.md)
+* [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
+* [Building Singularity containers from scratch](singularity-scratch.md)
+
+## Performance
+* [Optimising parallel I/O](lustre_performance.md)
+* [Dask & parallel Python](dask-python.md)
 
 ## Allas
-* [Using Allas to migrate your data from Taito to Puhti](../../data/Allas/migration_tutorial.md)
+* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
+* [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
+* [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
+
+## Bioinformatics
+* [Singularity applications on Puhti](bioapplications-puhti.md)
+* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
+* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
+* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
+* [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
+* [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
+* [Running your first job on Puhti](biojobs-on-puhti.md)
+
+## Chemistry
+* [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
+* [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
+
+
+## Data analysis and machine learning
+
+* [Data analysis guide](da-guide.md)
+* [GPU-accelerated machine learning](gpu-ml.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+
+## Geoinformatics
+* [GDAL tutorial](gis/gdal.md)
+* [Virtual rasters](gis/virtual-rasters.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
+* [Learn cloud computing by developing and deploying a web application](cloud.md)
 
 ## Rahti - container cloud
 * [Core objects](../../cloud/rahti/concepts.md)
@@ -24,13 +60,13 @@
 * [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md)
 * [Configuration, ConfigMaps and Secrets](../../cloud/rahti/tutorials/configuration.md)
 * [Webhooks](../../cloud/rahti/tutorials/webhooks.md)
+* [Reverse proxy authentication using a sidecar container](../../cloud/rahti/tutorials/sidecar_proxy_authentication.md)
+* [Short introduction to YAML](../../cloud/rahti/tutorials/yaml_introduction.md)
+* [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
+* [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
+* [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
 
-## Data analysis and machine learning
+## Visualisation
+* [Blender tutorial](blender-tutorial.md)
 
-* [Data analysis guide](da-guide.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
 
-## Bioinformatics
-* [Singularity applications on Puhti](bioapplications-puhti.md)
-* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
-* [Schrödinger Maestro Puhti tutorial](power-maestro.md)

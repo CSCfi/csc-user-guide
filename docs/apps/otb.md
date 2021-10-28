@@ -6,6 +6,7 @@
 
 Orfeo ToolBox is available in the following versions:
 
+* 7.2.0
 * 6.6 
 
 ## Usage
@@ -44,7 +45,6 @@ app.SetParameterString("out", out)
 app.ExecuteAndWriteOutput()
 ```
 
-If you need additional libraries installed to the Python environment, contact **servicedesk@csc.fi**
 
 ### Running OTB applications in parallel 
 

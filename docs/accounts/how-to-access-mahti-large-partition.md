@@ -19,7 +19,7 @@ To request the 30 day test period, proceed as follows:
 In the second phase, test runs demonstrating the scalability are to be performed. Here are some general guidelines for scalability testing.
 
 * Testing should be done at minimum three different node counts up to
-target in production (for example with 25, 50, and 100 nodes).
+target in production (for example with 20, 40, 60, and 80 nodes).
 * Tests are run through the batch job system.
 * The test runs should reflect real production runs, i.e. the number of
 atoms, number of grid points, disk IO load etc. should be similar. 
@@ -31,15 +31,8 @@ not affect results, typically few minutes for the shortest run time
 (largest node count) is fine.
 * Parameters affecting the scalability can, and are encouraged to be,
 changed. Note, also the [performance checklist](../computing/running/performance-checklist.md)
+* Minimum requirement is 75 % parallel efficiency (*i.e.* speedup of 1.5 when doubling the number of nodes).
 
-If the parallel performance of a software is self-evident, e.g. based on
-earlier tests carried out on Mahti or other supercomputer, no further
-tests are required.
-
-Note however, that even if a software is
-shown to scale well with a certain data set, not all jobs (e.g. smaller
-data sets) may scale as well. In order to use the resources efficiently it
-is good to test scalability for each job type before extensive simulations.
 
 ## Reporting
 
@@ -73,7 +66,4 @@ portal](https://my.csc.fi) as follows:
 CSC's experts can help users in performing scalability tests if needed
 and also provide hints for improving the performance of their software.
 Contact CSC Service Desk if you need assistance with your software.
-
-
-
 

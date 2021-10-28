@@ -6,27 +6,29 @@
 
 GDAL is available in Puhti with following versions:
 
+* 3.2.1 via conda as Singularity container: [geoconda-3.8.8](geoconda.md)
+* 3.2.0 as Singularity container: [r-env-singularity 4.0.2 - 4.0.5](r-env-for-gis.md)
 * 3.0.4 via conda: [geoconda-3.8](geoconda.md), 
 * 3.0.2 via conda: [geoconda-3.7](geoconda.md), 
+* 3.0.1 stand-alone: gdal module,
 * 2.4.3 via conda: [snap](snap.md)
+* 2.4.2 stand-alone: gdal module, [r-env](r-env.md)
+* 2.4.2 as Singularity container: [r-env-singularity 3.6.3](r-env-for-gis.md)
 * 2.4.2 via conda: [mapnik](mapnik.md)
 * 2.4.1 via conda: [solaris](solaris.md) and [Orfeo ToolBox](otb.md)
-* 3.0.1 stand-alone: gdal module,
-* 2.4.2 stand-alone: gdal module, [r-env](r-env.md), additionally FORCE and Saga-GIS use this GDAL, but the GDAL commandline tools are not included in these modules.
-* 2.4.2 in [r-env-singularity](r-env-singularity.md) Singularity container
 
 !!! note
-    The stand-alone versions don't have python bindings installed so e.g __gdal_calc__ works only in the conda installations. Also, the supported file formats vary slightly between the gdal installations. For instance, the PostGIS driver is not available in gdal/3.0.1 but is included in the conda versions.
+    The stand-alone versions don't have python bindings installed so e.g __gdal_calc__ works only in the conda installations. Also, the supported file formats vary slightly between the GDAL installations. For instance, the PostGIS driver is not available in gdal/3.0.1 but is included in the conda versions.
 
 ## Usage
 
-### Using gdal
+### Using GDAL
 
 GDAL is included in the modules listed above, so it can be used when any of these modules is loaded, or it can be loaded separately with:
 
 `module load geoconda`
 
-If you need to use a stand-alone version of gdal or plan to build software on top of gdal, you can load gdal with
+If you need to use a stand-alone version of GDAL or plan to build software on top of GDAL, you can load GDAL with
 
 `module load gcc/9.1.0 gdal`
 
@@ -34,13 +36,16 @@ By default the latest gdal module is loaded. If you want a specific version you 
 
 `module load gcc/9.1.0 gdal/<VERSION>-omp`
 
-You can test if gdal loaded successfully with following
+You can test if GDAL loaded successfully with following
 
 `gdalinfo --version`
 
+With `r-env-singularity` gdal commands can be used as:
+
+`singularity_wrapper exec gdalinfo --version`
 
 
-## Using files directly from Allas
+### Using files directly from Allas
 
 It is possible to __read__ files from Allas directly with GDAL, but not to write. For results, write them first to Puhti scratch and move later to Allas. The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
 
@@ -81,19 +86,19 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 * `allas-conf` command saves your credentials in your home directory to .aws/credentials file. This needs to be run only once before first use or when you want to switch to another CSC project.
 
 
-## Virtual rasters
+### Virtual rasters
 
-With large quantities of raster data (also in Allas), the most convenient method of accessing them might be GDAl virtual rasters. More information [here](https://research.csc.fi/virtual_rasters). 
+With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
 ## License and citing
 
-GDAL/OGR is licensed under an [MIT/X style license](https://gdal.org/license.html)
+GDAL is licensed under an [MIT/X style license](https://gdal.org/license.html)
 
 In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
-### References
+## References
 
-* [GDAL tutorials](https://gdal.org/tutorials/index.html)
-* [GDAL Github](https://github.com/OSGeo/GDAL)
-* [GDAL commands](https://gdal.org/programs/index.html)
-* [GDAL Virtual Rasters in Puhti](https://research.csc.fi/virtual_rasters)
+* [GDAL documentation, programs](https://gdal.org/programs/index.html)
+* [GDAL tutorial by CSC](../support/tutorials/gis/gdal.md)
+* [GDAL cheat sheet](https://github.com/dwtkns/gdal-cheat-sheet)
+* [GDAL Linux examples](https://github.com/clhenrick/shell_scripts)

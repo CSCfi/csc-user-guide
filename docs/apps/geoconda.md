@@ -12,8 +12,9 @@ includes following python packages:
 -   [fiona] - reads and writes spatial data files.
 -   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
--   [igraph](https://igraph.org/python/) - for fast routing.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
+-   [igraph](https://igraph.org/python/) - for fast routing.
+-   [jupyter](https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti
 -   [laspy](https://pythonhosted.org/laspy/tut_part_1.html)
 -   [laxpy](https://github.com/brycefrank/laxpy)
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
@@ -29,6 +30,7 @@ includes following python packages:
 -   [rtree] - spatial indexing and search.
 -   [sentinelsat] - downloading Sentinel images
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
+-   [scipy](https://www.scipy.org/) - inc pandas, numpy, matplotlib etc
 -   [scikit-learn] - machine learning for Python.
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
@@ -39,16 +41,17 @@ includes following python packages:
 Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   [GDAL/OGR](../apps/gdal.md) commandline tools 3.0.4 in geoconda-3.8 and 3.0.2 in geoconda-3.7
--   [PDAL] 2.1.0 in geoconda-3.8 and 2.0.1 in geoconda-3.7
--   [QGIS](../apps/qgis.md) 3.14 in geoconda-3.8 and 3.10 in geoconda-3.7
--   [LasTools](../apps/lastools.md) 20171231
+-   [GDAL/OGR](../apps/gdal.md) commandline tools 3.2.1 in geoconda-3.8.8, 3.0.4 in geoconda-3.8 and 3.0.2 in geoconda-3.7
+-   [GMT] The Generic Mapping Tools in geoconda 3.8 and 3.8.8.
+-   [PDAL] 2.2.0 in geoconda-3.8.8, 2.1.0 in geoconda-3.8 and 2.0.1 in geoconda-3.7
+-   [QGIS](../apps/qgis.md) only in geoconda 3.8 and 3.7, latest version in own qgis module.
+-   [LasTools](../apps/lastools.md) only in geoconda 3.8 and 3.7, latest version in own lastools module.
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
--   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.7/bin`for full
+-   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.x/bin` or `/appl/soft/geo/conda/singularity/geoconda/2021/bin` for full
     list.
     
 !!! note
-    If you want to use Spyder, QGIS, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance
+    If you want to use Spyder, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance. You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
 
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
@@ -61,13 +64,13 @@ here, you can ask for installation from servicedesk@csc.fi.)
 
 The `geoconda` module is available in Puhti:
 
-* 3.8 (version number is the same as Python version)
+* 3.8.8 (Singularity installation with wrappers, so should be hidden from users in normal use-cases)
+* 3.8 
 * 3.7 
 
+Version number is the same as Python version.
 
 ## Usage
-
-### Using geoconda
 
 For using Python packages and other tools listed above, you can initialize them with:
 
@@ -85,20 +88,7 @@ To check the exact packages and versions included in the loaded module:
 
 `list-packages`
  
-
-### Adding more Python packages to GeoConda
-
-You can add more Python packages to Geoconda for your own use with `pip`, for example:
-
-`pip install [newPythonPackageName] --user`
-
-The packages are by default installed to your home directory under `.local/lib/python3.7/site-packages`. If you would like to change the installation folder define `PYTHONUSERBASE` environmentvariable with new installation location first:
-
-`export PYTHONUSERBASE=/projappl/<your_project>/python3.7_pip`
-
-You should use the same export command then always also before using, inc in the batch job files.
-
-If you would like to make a own conda environment, it is recommended to make also own [Miniconda installation](../support/tutorials/conda.md). Or then you can use [bioconda].
+You can add more Python packages to Geoconda, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
 
 ## Using Allas from Python
@@ -114,7 +104,6 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 -   [CSC Python parallelisation examples]
 -   [Python spatial] libraries
--   [Essential Python Geospatial Libraries]
 -   [Geoprocessing with Python using Open Source GIS]
 -   [GeoExamples], a lot of examples of using Python for spatial analysis
 -   [Automating GIS processes course materials], where most of the exercises are done using Python (University of Helsinki)
@@ -130,14 +119,15 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [fiona]: https://pypi.python.org/pypi/Fiona
   [gdal]: https://pypi.python.org/pypi/GDAL
   [geoalchemy2]: https://geoalchemy-2.readthedocs.io/en/latest/
+  [GMT]: https://www.generic-mapping-tools.org/
   [SQLAlchemy]: http://sqlalchemy.org 
   [geopandas]: http://geopandas.org/
   [pandas]: http://pandas.pydata.org 
   [networkx]: https://networkx.github.io/
   [pyproj]: https://pypi.python.org/pypi/pyproj?
-  [pysal]: http://pysal.readthedocs.io/en/latest/
+  [pysal]: https://pysal.org/
   [osmnx]: https://osmnx.readthedocs.io/en/stable/index.html
-  [rasterio]: https://mapbox.github.io/rasterio/
+  [rasterio]: https://rasterio.readthedocs.io/en/latest/
   [rasterstats]: http://pythonhosted.org/rasterstats/
   [rtree]: http://toblerity.org/rtree/
   [shapely]: https://pypi.python.org/pypi/Shapely
@@ -146,14 +136,13 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
   [pdal]: https://github.com/PDAL/python
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
   [SNAP]: snap.md
-  [spyder]: https://pythonhosted.org/spyder/
+  [spyder]: https://docs.spyder-ide.org/
   [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
   [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md
-  [Essential Python Geospatial Libraries]: http://spatialdemography.org/essential-python-geospatial-libraries/
   [Geoprocessing with Python using Open Source GIS]: http://www.gis.usu.edu/%7Echrisg/python/2009/
-  [GeoExamples]: http://geoexamples.blogspot.fi/
+  [GeoExamples]: https://geoexamples.com/
   [Automating GIS processes course materials]: https://automating-gis-processes.github.io
   [Geohack Week materials]: https://geohackweek.github.io/schedule.html
   [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html

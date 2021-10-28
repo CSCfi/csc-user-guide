@@ -39,7 +39,7 @@ correct and the program's performance has improved.
 | :----------------- | :--------------------------- | :---------------- |
 | **Safe**           | -O2 -xHost -fp-model precise | -O2 -march=native |
 | **Intermediate**   | -O2 -xHost                   | -O3 -march=native |
-| **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
+| **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true -qopt-zmm-usage=high| -O3 -march=native -ffast-math -funroll-loops -mprefer-vector-width=512|
 
 Please note that not all applications benefit from the AVX-512 vector set
 (`-xHost` or `-march=native`). It may be a good idea to also test AVX2 
@@ -113,8 +113,7 @@ directives, use `-Minfo=all`.
 
 ## Building MPI applications
 
-There are currently three MPI environments available: **hpcx-mpi**,
-**mpich**, and **intel-mpi**. The default is **hpcx-mpi**, which is 
+There are currently two MPI environments available: **hpcx-mpi** and **intel-mpi**. The default is **hpcx-mpi**, which is 
 also recommended to begin with.
 
 If **hpcx-mpi** is incompatible with your application or delivers insufficient performance, 
@@ -129,7 +128,7 @@ module load hpcx-mpi
 When building MPI applications, use _mpixxx_ compiler wrappers
 that differ depending on the compiler suite and the MPI environment:
 
-| Compiler suite | hpcx-mpi or mpich      | intel-mpi                 |
+| Compiler suite | hpcx-mpi               | intel-mpi                 |
 | :------------- | :--------------------- | :------------------------ |
 | Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
 | GNU            | mpif90, mpicc, mpicxx  | mpif90, mpicc, mpicxx     |

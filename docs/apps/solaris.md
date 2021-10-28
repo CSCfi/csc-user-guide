@@ -6,7 +6,6 @@
 
 __Solaris__ is available in Puhti with following versions:
 
-* 0.1.3 (with pytorch 1.1.0)
 * 0.3.0 (with pytorch 1.6.0)
 
 ## Usage
@@ -41,4 +40,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 
 * [Solaris homepage](https://solaris.readthedocs.io)
 * [Solaris github](https://github.com/CosmiQ/solaris)
-* [CSC example pipeline](https://github.com/csc-training/geocomputing/tree/master/machineLearning/cnn)
+* [CSC example pipeline](https://github.com/csc-training/geocomputing/tree/master/machineLearning/04_cnn_solaris)

@@ -1,7 +1,7 @@
 # Gromacs
 
 Gromacs is a very efficient engine to perform molecular dynamics
-simulations and energy minimization particularly for proteins. However,
+simulations and energy minimizations particularly for proteins. However,
 it can also be used to model polymers, membranes and e.g. coarse grained
 systems. It also comes with plenty of analysis scripts.
 
@@ -9,14 +9,15 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018.6-plumed, 2018.7, 2019.5, 2019.6, 2020.1, 2020.2
--   Check recommended version(s) with `module avail gromacs`
--   Some versions include also Plumed
+-   Puhti: 2018-2020 releases with regularly updated minor versions, several with plumed or cuda
+-   Mahti: 2019-2020 releases with regularly updated minor versions, several with plumed
+-   Check recommended version(s) with `module avail gromacs-env`
+-   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
 
 !!! note
-    Puhti has only the parallel version installed (gmx_mpi), but it can
+    We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
-    Instead of gmx grompp ... give gmx_mpi grompp
+    Instead of `gmx grompp` ... give `gmx_mpi grompp`
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
@@ -31,10 +32,10 @@ module load gromacs-env
 ```
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
-`module spider gromacs/version`. The module will set `$OMP_NUM_THREADS=1`
-as otherwise mdrun will spawn threads for cores it _thinks_ are free.
-See [GPU-example below](#example-gpu-script-for-puhti) for required additional flags
-if you need to use threads instead/in addition to mpi tasks.
+`module spider gromacs/version`.
+
+<!-- The module will set `OMP_NUM_THREADS=1`
+as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
 
 ### Notes about performance
 
@@ -48,29 +49,32 @@ The most important are:
 -   For large jobs, use full nodes (multiples of 40 cores, on Puhti) see example below.
 
 For a more complete description, consult the 
-[Gromacs performance checklist] on the Gromacs page.
+[mdrun performance checklist] on the Gromacs page.
 
 We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
 results are comparable.
 
-Note, a scaling test with a very large system (1M+ particles) may take a while to load balance optimally. It's better to increase the number of nodes in your production simulation, **IF** you see better performance than in the scaling test at the scaling limit, rather than run very long scaling tests in advance.
+A scaling test with a very large system (1M+ particles) may take a while to 
+load balance optimally. It's better to increase the number of nodes in your 
+production simulation, **IF** you see better performance than in the scaling 
+test at the scaling limit, rather than run very long scaling tests in advance.
 
 ### Example parallel batch script for Puhti
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=large
 #SBATCH --ntasks-per-node=40
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 80 core (2 full nodes) gromacs job, requesting 15 minutes time
 
 module purge
 module load gromacs-env
+export OMP_NUM_THREADS=1
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
@@ -79,78 +83,70 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     To avoid multi node parallel jobs to spread over more nodes
     than necessary, don't use the --ntasks flag, but specify --nodes and
     --ntasks-per-node=40 to get full nodes. This minimizes communication
-    overhead and fragmentation of node reservations.
+    overhead and fragmentation of node reservations. Don't use the large
+    partition for jobs with less than 40 cores.
 
 ### Example serial batch script for Puhti
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 1 core gromacs job, requesting 15 minutes time
 
 module purge
 module load gromacs-env
+export OMP_NUM_THREADS=1
 
-srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.2
 ```
-!!! note
-    You *must* fill in the computing project name in your script (replace
-    <project> with it). Otherwise, your job will not run. This project will be
-    used for billing the cpu usage.
     
 ### Example GPU script for Puhti
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --gres=gpu:v100:1
 #SBATCH --time=00:10:00
 #SBATCH --partition=gpu
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
-module load gromacs-env/2019-gpu
+module load gromacs-env/2020-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-export SLURM_CPU_BIND=none
 
-srun gmx_mpi mdrun -s verlet -pin on -dlb yes
+srun gmx_mpi mdrun -s verlet -dlb yes
 # additional flags, like these, may be useful - test!
-# srun gmx_mpi mdrun -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu \
+# srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu \
     -nstlist 200 -s verlet -pin on -dlb yes
 
 ```
 !!! note
     Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
-    as using one full node of CPU cores. Otherwise, don't use GPUs.
-    You can compare the "cost" of using
-    CPU vs. GPU in the [billing calculator](https://research.csc.fi/billing-and-monitoring)
-
+    as using one full node of CPU cores according to the [usage policy](../../computing/overview/#gpu-nodes).
+    Otherwise, don't use GPUs.
 
 Submit the script with `sbatch script_name.sh`
 
 ### Example mpi-only parallel batch script for Mahti
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=medium
 #SBATCH --ntasks-per-node=128
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
 
 export OMP_NUM_THREADS=1
 
@@ -160,21 +156,20 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ### Example mixed parallel batch script for Mahti
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --time=00:15:00
 #SBATCH --partition=medium
 #SBATCH --ntasks-per-node=64
 #SBATCH --cpus-per-task=2
 #SBATCH --nodes=2
 #SBATCH --account=<project>
-#SBATCH --mail-type=END
-##SBATCH --mail-user=your.email@your.domain  # edit the email and uncomment to get mail
+##SBATCH --mail-type=END #uncomment to get mail
 
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 # 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.2
+module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -183,12 +178,18 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 ### Visualizing trajectories and graphs
 
-In addition to ngmx program in Gromacs, trajectory files can be
-visualized with the following programs:
+In addition to `view` (not available at CSC, though) tool of Gromacs,
+trajectory files can be visualized with the following programs:
 
 -   [PyMOL] molecular modeling system.
--   [VMD] visualizing program for large biomolecular systems.
+-   [VMD](vmd.md) visualizing program for large biomolecular systems.
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
+
+!!! note
+    Please don't run visualization or heavy Gromacs tool scripts in
+    the login node (see [usage policy for details](../../computing/overview/#usage-policy)).
+    You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
+    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
 
 ## References
 
@@ -219,19 +220,16 @@ for methods applied in your setup.
 ## More information
 
 -   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
--   [Tutorials on the Gromacs website]  
--   [More tutorials] by Justin A. Lemkul
+-   [Hands-on tutorials] by Justin A. Lemkul, on [GROMACS tutorial home](https://tutorials.gromacs.org/) and by [Bert de Groot group](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
 -   [Lots of material at BioExcel EU project]
--   [HOW-TO] section on the Gromacs pages
--   Gromacs [documentation]
+-   [HOW-TO](https://manual.gromacs.org/documentation/current/how-to/index.html) section on the Gromacs pages
+-   Gromacs [documentation] and [mdrun performance checklist]
 -   [The PRODRG Server] for online creation of small molecule topology
+-   [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 
+  [mdrun performance checklist]: https://manual.gromacs.org/current/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
   [PyMOL]: http://www.pymol.org/
-  [VMD]: http://www.ks.uiuc.edu/Research/vmd/
-  [Gromacs performance checklist]: http://www.gromacs.org/Documentation/Performance_checklist
-  [Tutorials on the Gromacs website]: http://www.gromacs.org/Documentation/Tutorials
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
-  [HOW-TO]: http://www.gromacs.org/Documentation/How-tos
   [Lots of material at BioExcel EU project]: http://bioexcel.eu/software/gromacs/
-  [More tutorials]: http://www.mdtutorials.com/gmx/
+  [Hands-on tutorials]: http://www.mdtutorials.com/gmx/

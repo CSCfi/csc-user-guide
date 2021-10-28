@@ -2,8 +2,8 @@
 
 This is a quick start guide for Mahti users. It is assumed that you have
 previously used CSC supercomputing resources like Puhti, Sisu or
-Taito. If not, you can start by looking
-[here](../../computing/overview.md).
+Taito. If not, you can start by looking at
+[overview of CSC supercomputers](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Mahti or
 view your projects and their project numbers if you already have
@@ -15,15 +15,16 @@ access.**
 
 Connect using a normal ssh-client:
 ```
-$ ssh <csc_username>@mahti.csc.fi
+$ ssh yourcscusername@mahti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC.
 
 ## Module system
 
 Modules are set up in a hierarchical fashion, meaning you need to load
 a compiler before MPI and other libraries appear. CSC uses the
-[Lmod](https://lmod.readthedocs.io) module system. More information
-about modules [here](../../computing/modules.md).
+[Lmod](https://lmod.readthedocs.io) module system. See [more information
+about modules](../../computing/modules.md).
 
 Default modules, which are loaded automatically, are `gcc/9.3.0`,
 `openmpi/4.0.3` and `openblas/3.10`.
@@ -40,15 +41,15 @@ In Mahti, many applications benefit from hybrid MPI/OpenMP
 parallelization, so it is recommended to build a hybrid version if it
 is supported by your application.
 
-More information about compilers [here](../../computing/compiling-mahti.md).
+See [more information about compilers](../../computing/compiling-mahti.md).
 
 !!! warning "Note" 
     You need to have the MPI module loaded when submitting your jobs
 
 ## High performance libraries
 
-Mahti has several high performance libraries installed, more
-information [here](../../computing/hpc-libraries.md).
+Mahti has several high performance libraries installed, see [more
+information about libraries](../../computing/hpc-libraries.md).
 
 ## Applications
 
@@ -122,17 +123,16 @@ likely should start with [Puhti](puhti_quick.md) and some [introductory tutorial
 In a nutshell, Mahti is meant for large parallel jobs, and Puhti for a wide
 variety of small to medium sized jobs including special resources.
 
-|Resource                | Mahti           | Puhti                             |
-|------------------------|-----------------|-----------------------------------|
-|Resources are granted   | By full nodes   | By finer detail (cores/memory/...)|
-|Minimum job size        | 128 cores (1 node)| 1 core (1/40 node)              |
-|Maxmimum job size (cores) | 200 nodes (*) (25600)| 100 (**) nodes (40000)           |
-|Memory per node (average per core) | 245 GB (2 GB)   |  192 - 1500 GB (4 - 37 GB) |
-|GPUs                    | no              | yes                               |
-|Fast local disk         | no              | yes (NMVe)                        |
-|Preinstalled applications |  ~15          | ~120                              |
+| Resource                           | Mahti                 | Puhti                              |
+|------------------------------------|-----------------------|------------------------------------|
+| Resources are granted              | By full nodes         | By finer detail (cores/memory/...) |
+| Minimum job size                   | 128 cores (1 node)    | 1 core (1/40 node)                 |
+| Maxmimum job size (cores)          | 200 nodes (*) (25600) | 26 nodes (1040)             |
+| Memory per node (average per core) | 245 GB (2 GB)         | 192 - 1500 GB (4 - 37 GB)          |
+| GPUs                               | NVIDIA A100           | NVIDIA V100                        |
+| Fast local disk                    | (only on GPU nodes)   | yes (NMVe)                         |
+| Preinstalled applications          | ~15                   | ~120                               |
 
 <pre>
 (*) And even more via Grand Challenge calls.
-(**) To be scaled down to 25 nodes in autumn 2020.
 </pre>

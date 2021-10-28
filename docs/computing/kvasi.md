@@ -13,19 +13,19 @@ In order to use the Jupyter notebook environment, you need to set up an SSH tunn
 
 1. Login to Kvasi with SSH:
     * `ssh <userid>@kvasi.csc.fi`
-2. Start the Jupyter server: `./qlm_notebook/launch_qlm_notebook`. This will give you two values:
+2. Start the Jupyter server: `./qlm_notebooks/launch_qlm_notebooks`. This will give you two values:
     * The Jupyter port number. It will be `8888`, or higher
     * The token for accessing the web interface (a string of letters and numbers)
     * Example output:
 
 ```
-Jupyter port : 8890
+Jupyter port : 8888
 Jupyter token: 123456abcdef
 
 To access your Jupyter notebook from your local computer:
 
 1. Create SSH tunnel:
-    ssh -L 8890:localhost:8890 <userid>@kvasi.csc.fi
+    ssh -L 8890:localhost:8888 yourcscusername@kvasi.csc.fi
 
 2. Open browser link: http://127.0.0.1:8890/?token=123456abcdef
 ```
@@ -50,11 +50,18 @@ myQLM is a light-weight version of the QLM ecosystem that can be run outside the
 myQLM is now open access, and can be downloaded for Linux and Windows here:
 [myQLM docs and installation instructions](https://myqlm.github.io/index.html)
 
+You can also use myQLM directly from the [CSC Notebooks environment](https://notebooks.csc.fi).
+After logging in, simply launch a new "myQLM Notebooks" environment and open it in your browser.
+Training material related to previous course can be found under the Folder **CourseMaterial**
+
 
 ## Links
 
-* [Webinar: What is Quantum Computing?](https://www.csc.fi/web/training/-/quantum-computing)
+* [Webinar: Quantum Computing and Programming in Two Hours (2021)](https://youtu.be/whoTr3zM3jU)
+* [Webinar: Kvanttilaskentaa ja -ohjelmointia kahdessa tunnissa (2021)](https://youtu.be/EnDKcCAjRtg)
+* [Webinar: What is Quantum Computing? (2019)](https://www.csc.fi/web/training/-/quantum-computing)
+* [Online: Introduction to Quantum Computing and Algorithms](https://ssl.eventilla.com/event/mZ9Pa)
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)
 
 ---
-Latest update: 26 Aug 2020
+Latest update: 27 Nov 2020

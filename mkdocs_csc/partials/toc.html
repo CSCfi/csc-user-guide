@@ -2,7 +2,7 @@
   This file was automatically generated - do not edit
 -#}
 {% import "partials/language.html" as lang with context %}
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   {% set toc_ = page.toc %}
   {% if toc_ | first is defined and "\x3ch1 id=" in page.content %}
     {% set toc_ = (toc_ | first).children %}

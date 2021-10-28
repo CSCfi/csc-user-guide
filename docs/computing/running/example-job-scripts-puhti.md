@@ -107,8 +107,6 @@ srun myprog <options>
 #SBATCH --mem-per-cpu=8000
 #SBATCH --gres=gpu:v100:1
 
-module load gcc/8.3.0 cuda/10.1.168
-
 srun myprog <options>
 ```
 
@@ -125,8 +123,6 @@ srun myprog <options>
 #SBATCH --mem-per-cpu=8000
 #SBATCH --gres=gpu:v100:4
 
-module load gcc/8.3.0 cuda/10.1.168
-
 srun myprog <options>
 ```
 ## Interactive with X11 graphics
@@ -137,5 +133,5 @@ Note, as you may need to queue, it's convenient to ask for an email once the res
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> myprog
+  myprog
 ```
