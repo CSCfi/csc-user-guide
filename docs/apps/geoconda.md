@@ -64,8 +64,8 @@ Python has multiple packages for parallel computing, for example
 The `geoconda` module is available in Puhti:
 
 * 3.8.8 (Singularity installation with wrappers, so should be hidden from users in normal use-cases)
-* 3.8-depricated 
-* 3.7-depricated 
+* 3.8-deprecated 
+* 3.7-deprecated 
 
 3.8 and 3.7 are depricated, because these are normal conda installations, which causes heavy load to Puhti disk system.
 
