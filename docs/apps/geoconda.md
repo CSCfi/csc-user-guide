@@ -51,13 +51,12 @@ Additionally geoconda includes:
     list.
     
 !!! note
-    If you want to use Spyder, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance. You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
+    If you want to use Spyder, ncview or other tools with graphical user interfaces,connect to Puhti web interface and start a [remote desktop](../computing/webinterface/desktop.md) or [Visual Studio Code](../computing/webinterface/vscode.md). You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
 
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
-(If you think that some important GIS package for Python is missing from
-here, you can ask for installation from servicedesk@csc.fi.)
+(If you think that some important GIS package for Python is missing from here, you can ask for installation from servicedesk@csc.fi.)
 
 
 ## Available
@@ -65,8 +64,10 @@ here, you can ask for installation from servicedesk@csc.fi.)
 The `geoconda` module is available in Puhti:
 
 * 3.8.8 (Singularity installation with wrappers, so should be hidden from users in normal use-cases)
-* 3.8 
-* 3.7 
+* 3.8-depricated 
+* 3.7-depricated 
+
+3.8 and 3.7 are depricated, because these are normal conda isntallation, which causes heavy load to Puhti disk system.
 
 Version number is the same as Python version.
 
@@ -88,7 +89,7 @@ To check the exact packages and versions included in the loaded module:
 
 `list-packages`
  
-You can add more Python packages to Geoconda, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
+You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
 
 ## Using Allas from Python
