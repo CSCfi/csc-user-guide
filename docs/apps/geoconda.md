@@ -67,7 +67,7 @@ The `geoconda` module is available in Puhti:
 * 3.8-depricated 
 * 3.7-depricated 
 
-3.8 and 3.7 are depricated, because these are normal conda isntallation, which causes heavy load to Puhti disk system.
+3.8 and 3.7 are depricated, because these are normal conda installations, which causes heavy load to Puhti disk system.
 
 Version number is the same as Python version.
 
