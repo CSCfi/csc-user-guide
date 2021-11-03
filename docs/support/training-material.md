@@ -24,7 +24,7 @@ for self study.
 *   [Python basic course for geoscientists](https://geo-python.github.io/site/)
 *   [Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc) PRACE MOOC
  
-## Data analytics
+## Data analytics and machine learning
 *   [Data analysis guide](tutorials/da-guide.md)
 *   [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
  
