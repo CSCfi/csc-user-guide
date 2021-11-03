@@ -10,7 +10,7 @@ additional packages with pip. For example,
 
 ```
 module load geoconda
-pip install --user
+pip install --user ...package...
 ```
 
 This should work nicely with most everyday use. If you need to use mpi4py, or
