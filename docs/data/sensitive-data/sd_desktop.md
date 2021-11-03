@@ -121,7 +121,46 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 
 
-## Importing encrypted sensitive data to SD Desktop
+
+
+## Accessing encrypted sensitive data within SD Desktop with SD Connect Filesystem
+
+This workflow is available only on Desktops **launched after November 4th 2021**. SD Connect FIlesystem allows you to access encrypted data stored in SD Connect from your private computing enviroment. The encrypted files will be visible in read only mode (similarly to opening a pdf file or watching a youtube video). This solutions allows you to process big amout of data without the need of storing a copy of the files on your Desktop. 
+
+Once you are logged into your Desktop you can access encrypted sensitive data stored in SD Connect following these steps:
+
+* Open **SD Filesystem** (you can find the link to the application on your Desktop)
+
+* Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
+
+* **Click on ok**. The application will create a **new folder called Projects** accessible from your desktop or from the terminal. Do not close or log out from SD Filesystem.
+
+
+![SD Connect Filesystem](https://user-images.githubusercontent.com/83574067/140088063-5c099842-de29-42f4-b6a7-178f5ba03d86.png)
+
+
+
+* From the Projects folder, you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in SD Connect. 
+
+* If the files are encrypted with the CSC public encryption key you will be able to open them and see their content in read-only mode (similarly to opening a pdf file or watching a youtube video). The current streaming speed is about 50 MB/s. 
+
+* The Projects folder is available only when the SD Filesystem application is open. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
+
+![File system 2](https://user-images.githubusercontent.com/83574067/140088162-497699c5-c902-4d0b-a50a-b81f7d97d788.png)
+
+
+
+**If you need to edit the files /data**:
+
+ * access the files of interest in the Project folder using SD Connect Filesystem
+ *  make a copy and save it in your home directory (the files will be visible only from your browser) or in the shared folder (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
+ 
+For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts or containers into your Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described above.
+
+
+
+
+## Importing encrypted sensitive data to SD Desktop 
   
   
 
