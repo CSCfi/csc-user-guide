@@ -24,11 +24,13 @@ default** as it has a wider set of software supported.
 
 ## Available machine learning software
 
-For GPU-accelerated machine learning on CSC's supercomputers, we support
-[TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md),
-[MXNET](../../apps/mxnet.md), and [RAPIDS](../../apps/rapids.md). Please read
-the detailed instructions for the specific application that you are interested
-in. In brief, you need to use the [module system](../../computing/modules.md) to
+We support many applications for GPU-accelerated machine learning on CSC's supercomputers:
+[list of supported applications](../../apps/#data-analytics-and-machine-learning). 
+Please read the detailed instructions for the specific application that you are interested
+in, for example [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md),
+[MXNET](../../apps/mxnet.md), and [RAPIDS](../../apps/rapids.md).
+
+In brief, you need to use the [module system](../../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
@@ -111,7 +113,7 @@ Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
 GPUs, use the `gpumedium` queue. You can [read more about multi-GPU and
 multi-node jobs](#multi-gpu-and-multi-node-jobs) below.
 
-For more detailed information about the different paritions, see our page about
+For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
 supercomputers](../../computing/running/batch-job-partitions.md).
 
