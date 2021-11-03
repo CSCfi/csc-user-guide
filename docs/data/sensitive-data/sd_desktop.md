@@ -142,11 +142,17 @@ Once you are logged into your Desktop you can access encrypted sensitive data st
 
 * From the Projects folder you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in a specific bucket. 
 
+![FIlesystem 2](https://user-images.githubusercontent.com/83574067/140091946-33105054-5b65-4b53-9d29-6b7f0b6399fe.png)
+
+
+
+
 * If the files are **encrypted with the CSC public encryption key** you will be able to open them and access their content in read-only mode (similarly to opening a pdf file or streaming a youtube video). The current streaming speed is about 50 MB/s. 
 
 * The Projects folder is **available only when the SD Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
 
-![File system 2](https://user-images.githubusercontent.com/83574067/140088162-497699c5-c902-4d0b-a50a-b81f7d97d788.png)
+![Untitled-2](https://user-images.githubusercontent.com/83574067/140091591-139401d5-512e-4301-a046-e68d8bbc4d40.png)
+
 
 
 
