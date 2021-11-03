@@ -121,25 +121,22 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 
 
+## Accessing encrypted sensitive data within SD Desktop
 
+This workflow is available only on Desktops **launched after November 4th, 2021**.
 
-## Accessing encrypted sensitive data within SD Desktop 
+**SD Filesystem** is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without the need of storing any copy on your Desktop. If the files have been encrypted with CSC public encryption key, they will be automatically decrypted by the application.
 
-This workflow is available only on Desktops **launched after November 4th 2021**. 
-
-**SD Filesystem** is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process big amout of data without the need of storing a copy of the files on your Desktop. If data have been encrypted with CSC public encryption key, the .c4gh  files will be automatically decrypted by the applciation.
-
-Once you are logged into your Desktop you can access encrypted data stored in SD Connect following these steps:
+Once you are logged into your Desktop you can access encrypted data stored in SD Connect by following these steps:
 
 * Open **SD Filesystem** (you can find the link to the application on your Desktop)
 
-* Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
+* Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus you need to type in your password)
 
-* **Click on ok**. The application will create a **new folder called Projects** accessible **from your desktop or from the terminal**. Do not close or log out from SD Filesystem.
+* **Click on ok**. The application will create a **new folder called Projects** accessible **from your desktop or from the terminal**. **Do not close or log out from SD Filesystem.**
 
 
 ![SD Connect Filesystem](https://user-images.githubusercontent.com/83574067/140088063-5c099842-de29-42f4-b6a7-178f5ba03d86.png)
-
 
 
 * From the Projects folder you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in a specific bucket. 
@@ -147,9 +144,7 @@ Once you are logged into your Desktop you can access encrypted data stored in SD
 ![FIlesystem 2](https://user-images.githubusercontent.com/83574067/140091946-33105054-5b65-4b53-9d29-6b7f0b6399fe.png)
 
 
-
-
-* If the files are **encrypted with the CSC public encryption key** you will be able to open them and access their content in read-only mode (similarly to opening a pdf file or streaming a YouTube video). The current streaming speed is about 50 MB/s. 
+* If the files are **encrypted with the CSC public encryption key** you will be able to access their content in read-only mode. The current streaming speed is about 50 MB/s. 
 
 * The Projects folder is **available only when the SD Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
 
@@ -157,8 +152,7 @@ Once you are logged into your Desktop you can access encrypted data stored in SD
 
 
 
-
-**If you need to edit the files data**:
+**If you need to edit the files/data**:
 
  * access the files of interest in the Project folder **using SD Connect Filesystem**
  *  make a **copy** and save it in your **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
@@ -167,15 +161,13 @@ For security reasons, your private workspace in SD Desktop is completely isolate
 
 
 
-
 ## Importing encrypted sensitive data to SD Desktop 
-  
-  
 
+The SD Connect Downloader application will be available only till December 2021.
+  
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
-
 
 
 Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
