@@ -123,9 +123,9 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 
 
-## Accessing encrypted sensitive data within SD Desktop with SD Connect Filesystem
+## Accessing encrypted sensitive data within SD Desktop 
 
-This workflow is available only on Desktops **launched after November 4th 2021**. SD Connect FIlesystem allows you to access encrypted data stored in SD Connect from your private computing enviroment. The encrypted files will be visible in read only mode (similarly to opening a pdf file or watching a youtube video). This solutions allows you to process big amout of data without the need of storing a copy of the files on your Desktop. 
+This workflow is available only on Desktops **launched after November 4th 2021**. **SD Filesystem**  is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read only mode (similarly to opening a pdf file or streaming a youtube video)**. This solution allows you to process big amout of data without the need of storing a copy of the files on your Desktop. If you encrpted the data with CSC public encryption key, the .c4gh  files will be automatically decrypted by the applciation.
 
 Once you are logged into your Desktop you can access encrypted sensitive data stored in SD Connect following these steps:
 
@@ -140,22 +140,22 @@ Once you are logged into your Desktop you can access encrypted sensitive data st
 
 
 
-* From the Projects folder, you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in SD Connect. 
+* From the Projects folder you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in a specific bucket. 
 
-* If the files are encrypted with the CSC public encryption key you will be able to open them and see their content in read-only mode (similarly to opening a pdf file or watching a youtube video). The current streaming speed is about 50 MB/s. 
+* If the files are **encrypted with the CSC public encryption key** you will be able to open them and access their content in read-only mode (similarly to opening a pdf file or streaming a youtube video). The current streaming speed is about 50 MB/s. 
 
-* The Projects folder is available only when the SD Filesystem application is open. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
+* The Projects folder is **available only when the SD Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
 
 ![File system 2](https://user-images.githubusercontent.com/83574067/140088162-497699c5-c902-4d0b-a50a-b81f7d97d788.png)
 
 
 
-**If you need to edit the files /data**:
+**If you need to edit the files data**:
 
- * access the files of interest in the Project folder using SD Connect Filesystem
- *  make a copy and save it in your home directory (the files will be visible only from your browser) or in the shared folder (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
+ * access the files of interest in the Project folder **using SD Connect Filesystem**
+ *  make a **copy** and save it in your **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
  
-For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts or containers into your Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described above.
+For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts into your Desktop (for example from GitHub or other trusted repositories) you can use the same procedure described above.
 
 
 
