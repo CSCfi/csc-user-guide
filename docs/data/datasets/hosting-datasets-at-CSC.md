@@ -21,4 +21,4 @@ Read more about [moving datasets in CSC's environment](../moving/scp.md)
 |30 min HD video                         |2,1 GiB             |0                        |12                        |490                     |
 |full DVD                                |4,7 GiB             |0                        |6                         |218                     |
 
-* is based on data from 14,000 word processing files, 1,000 presentation graphics files, 4 million JPEG images, 27,000 PDF files, and 7,000 MPEG files related to the study, as well as data from 5 non-study 30-minute HD h264 videos. 
+ * is based on data from 14,000 word processing files, 1,000 presentation graphics files, 4 million JPEG images, 27,000 PDF files, and 7,000 MPEG files related to the study, as well as data from 5 non-study 30-minute HD h264 videos. 
