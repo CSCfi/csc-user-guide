@@ -22,7 +22,7 @@
   - [Processing and analysing data](sourcing-datasets.md#header5)
   - [Building data lakes](sourcing-datasets.md#header6)
 
-## [Storing, hosting and moving data](hosting-datasets-at-CSC.md)
+## [Storing and moving data](hosting-datasets-at-CSC.md)
 
   - [Overview](hosting-datasets-at-CSC.md#header1)
   - [Allas](../Allas/index.md)
