@@ -103,10 +103,11 @@ Remember to identify and name a
  - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
  - Webinar: What are the policies and possibilities for managing your sensitive data? 
 
-<figure class="video_container"> 
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+<figure class="video_container">
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
 </figure>
 
 ## Sources for this best practice review
