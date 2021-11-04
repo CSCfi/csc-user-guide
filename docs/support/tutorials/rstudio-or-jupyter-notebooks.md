@@ -5,7 +5,7 @@ The R or Python code is run on a compute node within an [interactive session](..
 
 There are two ways to esing RStudio Server or Jupyter Notebook on Puhti.
 
-1. The first (and easiest) option is to use [the Puhti web interface](../computing/webinterface/index.md).
+1. The first (and easiest) option is to use [the Puhti web interface](../../computing/webinterface/index.md).
 
 2. The second option is to create a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
@@ -15,11 +15,11 @@ SSH tunnelling requires that you have [set up SSH keys](../../computing/connecti
 * With Linux, macOS and MobaXterm the SSH tunnelling works by default.
 * PuTTy requires filling in the settings to PuTTy tabs, so it is slower and more complicated, but possible.
 
-## The workflow for using RStudio or Jupyter Notebook in Puhti
+## Workflow for using RStudio or Jupyter Notebook in Puhti
 
 *Using the Puhti Web Interface*
 
-* For instructions on this, [see the Puhti web interface documentation](../computing/webinterface/index.md)
+* For instructions on this, [see the Puhti web interface documentation.](../computing/webinterface/index.md)
 
 *Using SSH tunneling*
 
