@@ -18,9 +18,11 @@ SSH tunnelling requires that you have [set up SSH keys](../../computing/connecti
 ## The workflow for using RStudio or Jupyter Notebook in Puhti
 
 *Using the Puhti Web Interface*
+
 * For instructions on this, [see the Puhti web interface documentation](../computing/webinterface/index.md)
 
 *Using SSH tunneling*
+
 * Start interactive session
 * Load suitable modules and start RStudio or Jupyter Notebook server
 * Create SSH tunnel from your PC to Puhti compute node
