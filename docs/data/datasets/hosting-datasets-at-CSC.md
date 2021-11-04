@@ -3,7 +3,7 @@
 <a name="header1"></a>
 ## Overview
 
-[CSC's services fore storing data] (https://research.csc.fi/en/service-catalog#store)
+[CSC's services for storing data] (https://research.csc.fi/en/service-catalog#store)
 
 Read more about how [Allas](../Allas/index.md) can be used for storing datasets
 
