@@ -4,7 +4,7 @@
 
 ## Overview
 
-Good research data management (RDM) is the basis of successful research. RDM is the managing and organisation of data during and after the active phase of a project. Good data management is crucial for facilitating data sharing and ensuring the sustainability and accessibility of data in the long-term and therefore their re-use for future science.
+Good research data management (RDM) is the basis of successful research. RDM is the managing and organisation of data during and after the active phase of a project. Its purpose is to ensure reproducibility of research, which is fundamental prerequisite of all scientific research.  Good data management throughout the data life-cycle is crucial for facilitating data sharing and ensuring the sustainability and accessibility of data in the long-term and therefore their re-use for future science.
 
 !!! note "FAIR principles"
     According to the [FAIR principles](https://www.go-fair.org/fair-principles/), the data should be 
