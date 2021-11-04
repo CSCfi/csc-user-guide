@@ -14,6 +14,12 @@ The ownership, copyrights and license of data is often best defined for the whol
 
 The first phase of dataset driven work is where datasets are gathered. It is possible to locate and take into use existing well-defined datasets or to create new datasets by sourcing data and organising it into datasets. The gathering phase lays the foundation on which data-driven computing and analysis is built on. During this phase the focus should be on making sure licenses and terms of use for data are known and match the intended use, asserting that the origin for data is known for good provenance and that data is organised and documented well.
 
+**What if the dataset terms of use are made by the producers themselves?**
+The dataset creator reserves the right to specify the terms of use for their dataset, even without ready-made licenses. In such cases, the terms of use specified must be observed, but you can also negotiate the terms of use by contacting the owner of the dataset.
+
+**What if no terms of use have been specified for data?**
+If there are no terms of use or the terms of use given are unclear, you should always contact the owner of the dataset in question.
+
 <a name="header3"></a>
 ## Discover research data
 
