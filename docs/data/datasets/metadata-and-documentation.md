@@ -118,7 +118,11 @@ It is important to take some time to plan file and folder structures and naming.
     - Though, be very careful with personal data when naming files and folders
 - Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
 
-Video: [Manage well and get preserved – 6. Managing files and file naming](https://www.youtube.com/watch?v=Xkqkg1oiUOQ)
+Video: Manage well and get preserved – 6. Managing files and file naming
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/watch?v=Xkqkg1oiUOQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 ## More reading
 
