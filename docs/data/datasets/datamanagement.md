@@ -11,12 +11,14 @@ Youtube CSC:n Data Management kanava [https://youtube.com/playlist?list=PLD5Xtev
 Good research data management (RDM) is the basis of successful research. RDM is the managing and organisation of data during and after the active phase of a project. Good data management is crucial for facilitating data sharing and ensuring the sustainability and accessibility of data in the long-term and therefore their re-use for future science.
 
 !!! note "FAIR principles"
-    According to the FAIR principles, the data should be 
+    According to the [FAIR principles](https://www.go-fair.org/fair-principles/), the data should be 
     
     - Findable
     - Accessible
     - Interoperable
     - Re-usable
+    
+    [Get to know the principles with the video](https://youtu.be/K-kEvfaUJdA)
     
     
 <a name="header2"></a>
