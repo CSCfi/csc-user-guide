@@ -18,7 +18,7 @@ With Linux, macOS and MobaXterm the SSH tunnelling works by default. PuTTy requi
 
 *Using the Puhti Web Interface*
 
-* For instructions on this, [see the Puhti web interface documentation.](../computing/webinterface/index.md)
+* For instructions on this, [see the Puhti web interface documentation.](../../computing/webinterface/index.md)
 
 *Using SSH tunneling*
 
