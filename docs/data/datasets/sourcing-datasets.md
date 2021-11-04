@@ -49,3 +49,15 @@ CSC also hosts or provides access to several datasets on different platforms.
 ### Language research and other digital humanities and social sciences
 
  - The latest versions of [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are available unpacked in /appl/data/kielipankki/
+
+<a name="header5"></a>
+
+## Processing and analysing data
+Read more in [CSC's Data analysis guide](../support/tutorials/da-guide.md)
+
+[CSC's services for processing and analysing data](https://research.csc.fi/en/service-catalog#compute)
+
+<a name="header6"></a>
+
+## Building data lakes
+=> uutta sisältöä - pyydetty Aleksilta.
