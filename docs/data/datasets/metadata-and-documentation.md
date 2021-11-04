@@ -16,7 +16,7 @@ Metadata and data documentation are the contextual information about the data an
 
 Metadata is information regarding the data, for example, where, when, why, and how the data were collected, processed and interpreted. Metadata may also contain details about experiments, analytical methods, and research context.
  
-![Discovery metadata. Data documentation. Data.](../../img/levels-of-openess_v1.png "Discovery metadata. Data documentation. Data.")
+![Discovery metadata. Data documentation. Data.](../../img/levels-of-openness_v1.png "Discovery metadata. Data documentation. Data.")
 
 License: CC BY 4.0
  
