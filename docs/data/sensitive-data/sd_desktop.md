@@ -133,7 +133,7 @@ Once you are logged into your Desktop you can access encrypted data stored in SD
 
 * Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus you need to type in your password)
 
-* **Click on ok**. The application will create a **new folder called Projects** accessible **from your desktop or from the terminal**. **Do not close or log out from SD Filesystem.**
+* **Click on ok**. The application will create a **new folder called Projects** accessible **from your desktop or from the terminal**. **Do not close or log out from SD Access Filesystem.**
 
 
 ![SD Connect Filesystem](https://user-images.githubusercontent.com/83574067/140088063-5c099842-de29-42f4-b6a7-178f5ba03d86.png)
