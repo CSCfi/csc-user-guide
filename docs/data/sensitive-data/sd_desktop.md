@@ -144,7 +144,7 @@ Once you are logged into your Desktop you can access encrypted data stored in SD
 ![FIlesystem 2](https://user-images.githubusercontent.com/83574067/140091946-33105054-5b65-4b53-9d29-6b7f0b6399fe.png)
 
 
-* If the files are **encrypted with the CSC public encryption key** you will be able to access their content in read-only mode. The current streaming speed is about 50 MB/s. 
+* If the files are **encrypted with the CSC public encryption key** you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
 
 * The Projects folder is **available only when the SD Access Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
 
