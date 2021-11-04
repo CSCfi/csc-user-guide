@@ -15,14 +15,8 @@ Metadata and data documentation are the contextual information about the data an
 ## Metadata types
 
 Metadata is information regarding the data, for example, where, when, why, and how the data were collected, processed and interpreted. Metadata may also contain details about experiments, analytical methods, and research context.
-
-Metadata is a broad term and it includes a variety of descriptive information about a dataset.
-
-1. Descriptive metadata enables discovery, reuse and correct interpretation. It can also contain information about the data level documentation that is available with the data.
-2. Administrative metadata defines who owns and who can access the data, and who has the right to manage it and how it can be used.
-3. Structural metadata describes how data sets were produced, structured and for instance what software are needed.
  
-![Discovery metadata. Data documentation. Data.](../../img/data-discoverymetadata.png "Discovery metadata. Data documentation. Data.")
+![Discovery metadata. Data documentation. Data.](../../img/levels-of-openess_v1.png "Discovery metadata. Data documentation. Data.")
 
 License: CC BY 4.0
  
@@ -75,7 +69,7 @@ Also think about your file naming conventions, directory structure and **version
 
 Important part of good data management is also taking care of data organization. This includes for example thoughtful file naming, clear folder structure, accessible file formats and explicit version control.
 
-It is a good practice to make a clear **file naming system** from the start of your project and for example use the same system together with your research team. This helps you as well as your colleagues to understand what files contain from the name. Read tips for organizing your data and naming files and folders from [CSC Files and File Formats page](https://research.csc.fi/files-and-file-formats) or from [RDMKit Data Organization page](https://rdmkit.elixir-europe.org/data_organisation.html). 
+It is a good practice to make a clear **file naming system** from the start of your project and for example use the same system together with your research team. This helps you as well as your colleagues to understand what files contain from the name. Read tips for organizing your data and naming files and folders below or from [RDMKit Data Organization page](https://rdmkit.elixir-europe.org/data_organisation.html). 
 
 Your research field might also have instructions and guidelines for organizing data. For example Brain Imaging Data Structure (BIDS) has been created by the scientific community of brain researchers, and it defines the file formats, file naming rules and rules to organize the data in directories.
 
