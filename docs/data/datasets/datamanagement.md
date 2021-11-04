@@ -1,8 +1,4 @@
 # Data management
-TODO: Puuttuuko kappaleita, ...joista on jo olemassa tekstiä? / ...jotka olisi hyvä liittää tähän?
-esim: FAIR periaatteet (osaamisen kartuttaminen), versiointi, pitkäaikaissäilytys (ml. valintaprosessi) ?...
-CSC:n youtube materiaaleja voisi upottaa aiheen yhteyteen (ja/tai koota sivun loppuun?)
-Youtube CSC:n Data Management kanava [https://youtube.com/playlist?list=PLD5XtevzF3yEZw-8LadtaGVV8Um6CbMja9](https://youtube.com/playlist?list=PLD5XtevzF3yEZw-8LadtaGVV8Um6CbMja)
 
 <a name="header1"></a>
 
@@ -83,6 +79,7 @@ Data sharing is increasingly required by funding agencies and journals as it ben
   - The Academy of Finland [Open Science pages](https://www.aka.fi/en/research-funding/responsible-science/open-science/)
   - The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data’s life cycle. 
   - [FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies.
+  - [CSC:s videos on Data Management](https://youtube.com/playlist?list=PLD5XtevzF3yEZw-8LadtaGVV8Um6CbMja)
 
 <a name="header3"></a>
 
