@@ -76,6 +76,14 @@ Deposit your data in a well-established repository provided by a trusted party t
 
 Data sharing is increasingly required by funding agencies and journals as it benefits the scientific community at large. It is also beneficial for data collectors as it is associated with increased visibility, collaboration and credit. You should consider sharing your data so that others can access and cite it. Equip your data with an established license (e.g. Creative Commons licenses) so the others know what they can and cannot do with the data.
 
+## More reading and resources on data management
+
+  - [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on [Fairdata.fi](http://fairdata.fi/) website
+  - The Finnish Social Science Data Archive's [Data Management Guidelines](http://www.fsd.uta.fi/aineistonhallinta/en/)
+  - The Academy of Finland [Open Science pages](https://www.aka.fi/en/research-funding/responsible-science/open-science/)
+  - The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data’s life cycle. 
+  - [FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies.
+
 <a name="header3"></a>
 
 ## How to manage sensitive data
@@ -96,7 +104,11 @@ Remember to identify and name a
  - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
  - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
  - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
- - [Webinar: What are the policies and possibilities for managing your sensitive data?](https://www.youtube.com/watch?v=29XmiG5Zj0s)
+ - Webinar: What are the policies and possibilities for managing your sensitive data?
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+ 
 
 ## Sources for this best practice review
 
@@ -110,17 +122,6 @@ Wilkinson, M., Dumontier, M., Aalbersberg, I. et al. The FAIR Guiding Principles
 
 Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (2017). Good enough practices in scientific computing. PLoS Computational Biology, 13(6), e1005510. [http://doi.org/10.1371/journal.pcbi.1005510](http://doi.org/10.1371/journal.pcbi.1005510)
 
-## More reading and resources on data management
-
-[Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on [Fairdata.fi](http://fairdata.fi/) website
-
-The Finnish Social Science Data Archive's [Data Management Guidelines](http://www.fsd.uta.fi/aineistonhallinta/en/)
-
-The Academy of Finland [Open Science pages](https://www.aka.fi/en/research-funding/responsible-science/open-science/)
-
-The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data’s life cycle. 
-
-[FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies.
 
 
 
