@@ -125,11 +125,11 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 This workflow is available only on Desktops **launched after November 4th, 2021**.
 
-**SD Filesystem** is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without the need of storing any copy on your Desktop. If the files have been encrypted with CSC public encryption key, they will be automatically decrypted by the application.
+**SD Access Filesystem** is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without the need of storing any copy on your Desktop. If the files have been encrypted with CSC public encryption key, they will be automatically decrypted by the application.
 
 Once you are logged into your Desktop you can access encrypted data stored in SD Connect by following these steps:
 
-* Open **SD Filesystem** (you can find the link to the application on your Desktop)
+* Open **SD Access Filesystem** (you can find the link to the application on your Desktop)
 
 * Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus you need to type in your password)
 
@@ -146,7 +146,7 @@ Once you are logged into your Desktop you can access encrypted data stored in SD
 
 * If the files are **encrypted with the CSC public encryption key** you will be able to access their content in read-only mode. The current streaming speed is about 50 MB/s. 
 
-* The Projects folder is **available only when the SD Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
+* The Projects folder is **available only when the SD Access Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
 
 ![Untitled-2](https://user-images.githubusercontent.com/83574067/140091591-139401d5-512e-4301-a046-e68d8bbc4d40.png)
 
@@ -154,7 +154,7 @@ Once you are logged into your Desktop you can access encrypted data stored in SD
 
 **If you need to edit the files/data**:
 
- * access the files of interest in the Project folder **using SD Connect Filesystem**
+ * access the files of interest in the Project folder **using SD Access Filesystem**
  *  make a **copy** and save it in your **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
  
 For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts into your Desktop (for example from GitHub or other trusted repositories) you can use the same procedure described above.
