@@ -19,14 +19,8 @@
   - [Gathering datasets](sourcing-datasets.md#header2)
   - [Discover research data](sourcing-datasets.md#header3)
   - [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4)
-
-## [Using datasets](using-datasets.md)
-
-  - [Overview](using-datasets.md#header1)
-  - [Allas datasets using Fairdata](using-datasets.md#header2)
-  - [Versioning and documenting](using-datasets.md#header3)
-  - [Processing and analysing data](using-datasets.md#header4)
-  - [Building data lakes](using-datasets.md#header5)
+  - [Processing and analysing data](sourcing-datasets.md#header5)
+  - [Building data lakes](sourcing-datasets.md#header6)
 
 ## [Storing, hosting and moving data](hosting-datasets-at-CSC.md)
 
