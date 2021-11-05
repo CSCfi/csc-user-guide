@@ -1,5 +1,8 @@
 # Working with data
 
+!!! note "Note"
+    The old content of this page can be found here: [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4)
+
 ## [Data management](datamanagement.md)
 
   - [Overview](datamanagement.md#header1)
