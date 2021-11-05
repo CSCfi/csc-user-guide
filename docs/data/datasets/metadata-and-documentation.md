@@ -33,7 +33,10 @@ License: CC BY 4.0
  * information about lifecycle events and related entities (provenance)
  * technical information like checksum, size, file format, media type
  
-You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
+!!! note "Note"
+
+    You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. 
+    It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
 
 ***Administrative metadata***
 
