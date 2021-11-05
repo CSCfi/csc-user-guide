@@ -130,7 +130,7 @@ It is important to take some time to plan file and folder structures and naming.
     - Though, be very careful with personal data when naming files and folders
 - Indicate version number by using ‘V' or "version" and number (and subversions with more digits if minor changes)
 
-!!! note "More reading"
+!!! note "Additional readings"
     - [The UK Data Service: Format your data](https://www.ukdataservice.ac.uk/manage-data/format)
     - [RDMkit: Data Organisation](https://rdmkit.elixir-europe.org/data_organisation.html#what-is-the-best-way-to-name-a-file)
 
