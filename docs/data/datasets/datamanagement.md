@@ -72,7 +72,7 @@ Deposit your data in a well-established repository provided by a trusted party t
 
 Data sharing is increasingly required by funding agencies and journals as it benefits the scientific community at large. It is also beneficial for data collectors as it is associated with increased visibility, collaboration and credit. You should consider sharing your data so that others can access and cite it. Equip your data with an established license (e.g. Creative Commons licenses) so the others know what they can and cannot do with the data.
 
-!!! note "More reading and resources on data management"
+!!! note "Additional readings and resources on data management"
     - [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on [Fairdata.fi](http://fairdata.fi/) website
     - The Finnish Social Science Data Archive's [Data Management Guidelines](http://www.fsd.uta.fi/aineistonhallinta/en/)
     - The Academy of Finland [Open Science pages](https://www.aka.fi/en/research-funding/responsible-science/open-science/)
@@ -96,7 +96,7 @@ Remember to identify and name a
   - **Data Controller** (usually the Principal Investigator either alone or together with another legal person or entity), who determines the means and procedures for processing the data, meaning that they control how data is processed and for what purposes. 
   - **Data Processor**, who processes the data on behalf of the controller. 
 
-!!! note "More information on sensitive data management"
+!!! note "Additional information on sensitive data management"
     - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
     - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
