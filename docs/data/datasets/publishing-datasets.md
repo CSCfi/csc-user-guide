@@ -76,6 +76,12 @@ When making data available, it is recommended that licenses are used. It allows 
 
 License: CC BY 4.0
 
+Learn more about persistent identifiers in this video.
+
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=_4cZVli_xiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
 <a name="header5"></a>
 
 ## Access control
@@ -92,7 +98,6 @@ The [National Digital Preservation Services](http://digitalpreservation.fi/en) f
 
 Learn more about preservation of research data in this video.
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/watch?v=arJ5jJP_eOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=arJ5jJP_eOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
