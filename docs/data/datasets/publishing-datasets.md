@@ -42,24 +42,14 @@ License: CC BY 4.0
 
 Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or ORCID when you publish or cite data, the linking is protected despite changes in names or organisation. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
 
-You can read more about the researcher and contributor id ORCID and about guidelines for data citation. Do not hesitate to contact the research data services or library in your own organisation for further help. The more persistent identifiers you can include in your work flows, the better and easier is your information management.
-
-### For researchers
-Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or ORCID when you publish or cite data, the linking is protected despite changes in names or organisation. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
-
 You can read more about the researcher and contributor id [ORCID](https://researcheridentifier.fi/) and about guidelines for [data citation](https://www.fcrd.fi/). Do not hesitate to contact the research data services or library in your own organisation for further help. The more persistent identifiers you can include in your work flows, the better and easier is your information management.
 
-### More reading
-
-[Support for Persistent Identifiers](https://research.csc.fi/support-for-persistent-identifiers) (at CSC)
-
-[Digital Object Identifier (DOI)](https://www.doi.org/)
-
-[ORCID - researcher identifier](https://researcheridentifier.fi/)
-
-[Digital Preservation Handbook](https://www.dpconline.org/handbook/technical-solutions-and-tools/persistent-identifiers) by Digital Preservation Coalition
-
-[ANDS Persistent Identifiers Expert Level Guide](https://www.ands.org.au/guides/persistent-identifiers-expert)
+!!! note "Additional readings"
+    - [Support for Persistent Identifiers at CSC](https://research.csc.fi/support-for-persistent-identifiers)
+    - [Digital Object Identifier (DOI)](https://www.doi.org/)
+    - [ORCID - researcher identifier](https://researcheridentifier.fi/)
+    - [Digital Preservation Handbook](https://www.dpconline.org/handbook/technical-solutions-and-tools/persistent-identifiers) by Digital Preservation Coalition
+    - [ANDS Persistent Identifiers Expert Level Guide](https://www.ands.org.au/guides/persistent-identifiers-expert)
 
 <a name="header4"></a>
 
@@ -71,16 +61,16 @@ When using data produced by others, their terms of use must be taken into consid
 
 The terms of use for a dataset are always determined by the person producing it or a person to whom the producer has transferred the rights to that dataset ([Copyright Act 404/1961](http://www.finlex.fi/en/laki/kaannokset/1961/en19610404.pdf)). The easiest way for the owner of a dataset to determine the terms of use is with a licence. The terms of use can range from completely free for use to being subject to a variety of restrictions. If necessary, you can contact the owner of the data in order to clarify any uncertainty regarding its use.
 
-Creative Commons licenses are very widely used for sharing and using data.
-
-Try out the [License Chooser](https://creativecommons.org/choose/) by Creative Commons.
-
 ### How to license your own data?
-When making data available, it is recommended that licenses are used. It allows you to specify the degree of publicity and user rights for your data. You can use licenses as a tool for openness. Research data can have varying degrees of publicity. Creative Commons licenses (CC BY) are widely used for licensing. CC BY 4.0 license for your data allows the use of your data but require that the author is mentioned. You can also give your data CC0 license. It means that you give full rights to others for using the data.
 
-### Sources
+When making data available, it is recommended that licenses are used. It allows you to specify the degree of publicity and user rights for your data. [Creative Commons licenses](https://creativecommons.org/licenses/) (CC BY) are widely used for licensing. 
 
-[Creative Commons webpages](https://creativecommons.org/licenses/)
+!!! note "Try it out"
+    [License Chooser](https://creativecommons.org/choose/) by Creative Commons.
+    
+    CC BY 4.0 license for your data allows the use of your data but require that the author is mentioned. 
+    
+    You can also give your data CC0 license. It means that you give full rights to others for using the data.
 
 <a name="header5"></a>
 
@@ -94,6 +84,11 @@ TODO: Kirjoita teksti!
 
 Digital preservation refers to the reliable preservation of digital information for several decades or even centuries. Hardware, software, and file formats will become outdated, while the information must be preserved. Reliable digital preservation requires active monitoring of information integrity and anticipation of various risks. Metadata, which describes for example the information content, provenance information and how the content can be used, has a key role in this.
 
-Video: [Manage well and get preserved - 5. Preservation metadata](https://www.youtube.com/watch?v=arJ5jJP_eOM)
+The [National Digital Preservation Services](http://digitalpreservation.fi/en) for research data ensures the availability and preservation of digital research resources. Here you find more information about [becoming a partner organisation with the Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-organisations/).
 
-[National Digital Preservation Services](http://digitalpreservation.fi/en) 
+Learn more about preservation of research data in this video.
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/watch?v=arJ5jJP_eOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
