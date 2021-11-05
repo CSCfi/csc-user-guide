@@ -65,12 +65,14 @@ The terms of use for a dataset are always determined by the person producing it 
 
 When making data available, it is recommended that licenses are used. It allows you to specify the degree of publicity and user rights for your data. [Creative Commons licenses](https://creativecommons.org/licenses/) (CC BY) are widely used for licensing. 
 
-!!! note "Try it out"
+!!! note "Try it out!"
     [License Chooser](https://creativecommons.org/choose/) by Creative Commons.
     
-    CC BY 4.0 license for your data allows the use of your data but require that the author is mentioned. 
+    **CC BY 4.0 license** for your data allows the use of your data but require that the author is mentioned. 
     
-    You can also give your data CC0 license. It means that you give full rights to others for using the data.
+    You can also give your data **CC0 license**. It means that you give full rights to others for using the data. 
+
+![Creative commons license spectrum](../../img/Creative_commons_license_spectrum.svg "Creative commons license spectrum")
 
 <a name="header5"></a>
 
