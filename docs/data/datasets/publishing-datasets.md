@@ -91,7 +91,7 @@ License: CC BY 4.0
 Publishing your data doesn’t necessarily mean that your datasets must be available to anyone and everyone. If you have concerns that releasing your data openly could cause harm to someone or something, or have other negative consequences, you can choose to apply specific restrictions on how people can gain access to your data. Usually the options are:
 
 1. to **allow anyone** to download the files attached to your dataset (Open),
-1. to allow anyone can download the files attached to your dataset **from a certain date onwards** (Embargo),
+1. to allow anyone to download the files attached to your dataset **from a certain date onwards** (Embargo),
 1. to allow anyone to **apply for access** to download the files attached to your dataset (Mediated), or
 1. to **not allow** anyone to download the files attached to your dataset at all (Resitricted).  
 
