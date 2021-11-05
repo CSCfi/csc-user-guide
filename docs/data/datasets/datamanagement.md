@@ -105,6 +105,7 @@ Remember to identify and name a
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
+
 **Sources for this best practice review**
 
 Goodman, A., Pepe, A., Blocker, et. al. (2014). Ten Simple Rules for the Care and Feeding of Scientific Data. PLoS Computational Biology, 10(4), e1003542. [http://doi.org/10.1371/journal.pcbi.1003542](http://doi.org/10.1371/journal.pcbi.1003542)
