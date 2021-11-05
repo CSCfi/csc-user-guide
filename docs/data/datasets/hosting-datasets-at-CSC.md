@@ -18,6 +18,7 @@
 ## What to consider when choosing a suitable storage solution
 
 When you are looking for a place to store data during your research project, here are some things to consider:
+
 - how will the data be used (as a backup, ready for analysis etc)
 - what kind of interfaces are needed (e.g. browser based graphical user interfaces for audio/video/table, machine-readable interfaces, a mountable path for operating system etc.)
 - how much storage space is needed, is the need cumulative
