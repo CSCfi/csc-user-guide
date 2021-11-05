@@ -76,7 +76,7 @@ When making data available, it is recommended that licenses are used. It allows 
 
 License: CC BY 4.0
 
-!!! note "Try it out!"
+!!! note "Try it yourself!"
     [License Chooser](https://creativecommons.org/choose/) by Creative Commons.
     
     **CC BY 4.0 license** for your data allows the use of your data but require that the author is mentioned. 
@@ -88,11 +88,11 @@ License: CC BY 4.0
 
 ## Access restrictions
 
-Publishing your data doesn’t necessarily mean that your datasets must be available to anyone and everyone. If you have concerns that releasing your data openly could cause harm to someone or something, or have other negative consequences, you can choose to apply specific restrictions on how people can gain access to your data. Usually the options are: 
-   1) to **allow anyone** to download the files attached to your dataset (Open), 
-   2) to allow anyone can download the files attached to your dataset **from a certain date onwards** (Embargo),
-   3) to allow anyone to **apply for access** to download the files attached to your dataset (Mediated), or 
-   4) to **not allow** anyone to download the files attached to your dataset at all (Resitricted).  
+Publishing your data doesn’t necessarily mean that your datasets must be available to anyone and everyone. If you have concerns that releasing your data openly could cause harm to someone or something, or have other negative consequences, you can choose to apply specific restrictions on how people can gain access to your data. Usually the options are:
+  1. to **allow anyone** to download the files attached to your dataset (Open),
+  2. to allow anyone can download the files attached to your dataset **from a certain date onwards** (Embargo),
+  3. to allow anyone to **apply for access** to download the files attached to your dataset (Mediated), or
+  4. to **not allow** anyone to download the files attached to your dataset at all (Resitricted).  
 
 Whichever option is selected does not affect the visibility of the dataset’s descriptive metadata, meaning that even if access to data is restricted, descriptive information about the published dataset is displayed in the publishing platform. Any restriction needs however to be specified and contact information made available and kept up to date.
 
