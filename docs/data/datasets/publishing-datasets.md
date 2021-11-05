@@ -63,7 +63,11 @@ The terms of use for a dataset are always determined by the person producing it 
 
 ### How to license your own data?
 
-When making data available, it is recommended that licenses are used. It allows you to specify the degree of publicity and user rights for your data. [Creative Commons licenses](https://creativecommons.org/licenses/) (CC BY) are widely used for licensing. 
+When making data available, it is recommended that licenses are used. It allows you to specify the degree of publicity and user rights for your data. [Creative Commons licenses](https://creativecommons.org/licenses/) (CC BY) are widely used for licensing. Creative commons license spectrum between public domain (on top in picture below) and all rights reserved (bottom). Left side indicates the use-cases allowed, right side the license components.
+
+![Creative commons license spectrum](../../img/Creative_commons_license_spectrum.png "Creative commons license spectrum")
+
+License: CC BY 4.0
 
 !!! note "Try it out!"
     [License Chooser](https://creativecommons.org/choose/) by Creative Commons.
@@ -72,9 +76,7 @@ When making data available, it is recommended that licenses are used. It allows 
     
     You can also give your data **CC0 license**. It means that you give full rights to others for using the data. 
 
-![Creative commons license spectrum](../../img/Creative_commons_license_spectrum.png "Creative commons license spectrum")
 
-License: CC BY 4.0
 
 Learn more about persistent identifiers in this video.
 
