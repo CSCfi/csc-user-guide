@@ -72,7 +72,7 @@ When making data available, it is recommended that licenses are used. It allows 
     
     You can also give your data **CC0 license**. It means that you give full rights to others for using the data. 
 
-![Creative commons license spectrum](../../img/Creative_commons_license_spectrum.svg "Creative commons license spectrum")
+![Creative commons license spectrum](../../img/Creative_commons_license_spectrum.png "Creative commons license spectrum")
 
 License: CC BY 4.0
 
