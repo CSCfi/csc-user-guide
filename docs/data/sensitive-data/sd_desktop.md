@@ -44,7 +44,7 @@ Login to SD Desktop is possible with user identity federation systems (Haka, Vir
 
 
 
-## Launching your Desktop (or private computing environment)
+## Launching a private  Desktop
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -121,14 +121,53 @@ As previously mentioned, you can **logout** from your computing environment at a
 
 
 
-## Importing encrypted sensitive data to SD Desktop
-  
-  
+## Accessing encrypted sensitive data within SD Desktop
 
+This workflow is available only on Desktops **launched after November 4th, 2021**.
+
+**SD Access Filesystem** is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without the need of storing any copy on your Desktop. If the files have been encrypted with CSC public encryption key, they will be automatically decrypted by the application.
+
+Once you are logged into your Desktop you can access encrypted data stored in SD Connect by following these steps:
+
+* Open **SD Access Filesystem** (you can find the link to the application on your Desktop)
+
+* Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus you need to type in your password)
+
+* **Click on ok**. The application will create a **new folder called Projects** accessible **from your desktop or from the terminal**. **Do not close or log out from SD Access Filesystem.**
+
+
+![SD Connect Filesystem](https://user-images.githubusercontent.com/83574067/140088063-5c099842-de29-42f4-b6a7-178f5ba03d86.png)
+
+
+* From the Projects folder you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in a specific bucket. 
+
+![FIlesystem 2](https://user-images.githubusercontent.com/83574067/140091946-33105054-5b65-4b53-9d29-6b7f0b6399fe.png)
+
+
+* If the files are **encrypted with the CSC public encryption key** you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
+
+* The Projects folder is **available only when the SD Access Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
+
+![Untitled-2](https://user-images.githubusercontent.com/83574067/140091591-139401d5-512e-4301-a046-e68d8bbc4d40.png)
+
+
+
+**If you need to edit the files/data**:
+
+ * access the files of interest in the Project folder **using SD Access Filesystem**
+ *  make a **copy** and save it in your **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
+ 
+For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts into your Desktop (for example from GitHub or other trusted repositories) you can use the same procedure described above.
+
+
+
+## Importing encrypted sensitive data to SD Desktop 
+
+The SD Connect Downloader application will be available only till December 2021.
+  
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
-
 
 
 Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
@@ -233,8 +272,34 @@ For security reasons, your Desktop is isolated from the internet and it is not p
 
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
+## Troubleshooting
+
+| Problem               |                                                                                                                                    | Possible solution                                                                                                                                                                                                                                                                                                                |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Access                | Launched a new Desktop, but now the screen is balck/freezed.                                                                       | The creation of a new Desktop can take up to 30 minutes. Come back later.                                                                                                                                                                                                                                                        |
+|                       | Cannot login to SD Desktop                                                                                                         | Create a CSC account and a project in the MyCSC portal. Add service access for Allas (a CSC storage solution) and SD Desktop to your project.                                                                                                                                                                                    |
+|                       | Cannot turn off my Desktop.                                                                                                        | You can log out from Desktop at any moment (in the workspace view, top right corner of the browser, select your username and log out). You will always be able to access your Desktop again after logging in. Never use the lock or reboot buttons in SD Desktop as after that you will not be able to connect the desktop again |
+| Collaborative project | My collaborator added me to their CSC project, but I cannot access SD Desktop.                                                     | Accept the terms of use and add service access for SD Desktop in the MyCSC portal.                                                                                                                                                                                                                                               |
+|                       | Me and my colleague are members of the same CSC project. I cannot see the data they have analysed/edited  in our private Desktop.  | Save the files in the Shared directory, if you need to work on/edit files or datasets with your colleagues.                                                                                                                                                                                                                      |
+|                       | Cannot add more project members to the same Desktop.                                                                               | Your Desktop has too many simultaneous connections. Max 10 users can use the same Desktop at the same time. Furthermore, each individual user can have only one active connection to one Desktop. Remember to log out of the Desktop to end the active session.                                                                  |
+| Copy- Paste Function  | I cannot copy and paste my password or commands from outside the Desktop.                                                          | We disabled the copy/paste options for security reasons, thus you need to type in everything manually. Alternatively, you can import documents or scripts to SD Connect and do the copy-paste process inside SD Desktop.                                                                                                         |
+| Data export           | Cannot export results.                                                                                                             | Currently, a user can not export any data out from the SD Desktop for security reasons. We are implementing a feature to SD Desktop for data export later this year. Check our webpage for more information.                                                                                                                     |
+| Data Import           | The SD Connect Downloader client doesn’t work when I add my credentials.                                                           | Use the username and password of your CSC account. Check that your project has service access for Allas (a CSC storage solution). Check that you haven’t changed your environment variables. Do not use passwords that contain @                                                                                                 |
+|                       | I imported data from SD Connect with the Downloader client but the data isn't decrypted.                                           | If you want the data to be automatically decrypted in SD Desktop, you need to encrypt the files with a CSC Sensitive Data Services public key.                                                                                                                                                                                   |
+|                       | Need to import more than 80 GB of data. I already have an extra volume.                                                            | SD Connect Downloader client saves a copy of the data in SDCONNECTDATA folder (which has a disk space limit of 80 GB). You can make a link to the added volume from your terminal: `ls -s /path_to_volume_mount_point ~/SDCONNECTDATA`                                                                                           |
+| Disk space/ Volume    | Cannot add disk space to my Desktop.                                                                                               | It’s possible to add disk space only when you are launching a new Desktop.                                                                                                                                                                                                                                                       |
+|                       | Cannot make a copy of a big dataset.                                                                                               | Check that you have enough disk space on your Desktop. The maximum disk space of each Desktop is 280 GB.                                                                                                                                                                                                                         |
+| Mac OS                | Mac keyboard is not recognized e.g. command+C is not translated to CTRL+C.                                                         | You need to change the keyboard settings.                                                                                                                                                                                                                                                                                        |
+| Software              | Cannot open RStudio on my Desktop.                                                                                                 | To access RStudio in SD Desktop, you need to open the terminal in your virtual Desktop and launch RStudio with start-rstudio-server.Check for more instructions above inthe user guide.                                                                                                                                          |
+|                       | Need a software not provided in Desktop                                                                                            | Contact us at servicedesk@csc.fi (subject SD Desktop)                                                                                                                                                                                                                                                                            |
 
 
 
 
-  
+
+
+
+
+
+
+
