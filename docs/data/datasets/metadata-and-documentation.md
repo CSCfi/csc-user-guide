@@ -13,7 +13,8 @@ Metadata and data documentation are the contextual information about the data an
 !!! note "Data documentation can be done by using:"
     - (domain specific) metadata and data standards 
     - electronic laboratory notebooks
-    - dictionaries, vocabularies and readme-files 
+    - dictionaries and vocabularies
+    - readme-files 
     
     and they all take part in explaining what the project data is and what it means.
 
