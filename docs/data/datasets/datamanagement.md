@@ -101,9 +101,9 @@ Remember to identify and name a
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
     - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
 
 **Sources for this best practice review**
 
