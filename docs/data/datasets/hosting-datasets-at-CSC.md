@@ -1,6 +1,7 @@
 # Storing and moving datasets at CSC 
 
 <a name="header1"></a>
+
 ## Overview
 
 [CSC's services for storing data](https://research.csc.fi/en/service-catalog#store) are offered free of charge for academic research, education and training purposes in Finnish higher education institutions and in state research institutes. To start using the service, [register a CSC account and create a project](https://research.csc.fi/accounts-and-projects). Note that EUDAT services have their own registration process.
@@ -14,6 +15,8 @@
     - [Fairdata Services](https://www.fairdata.fi/en/)
     - [Eudat Services](https://www.eudat.eu/)
     - [Digital Preservation](https://www.fairdata.fi/en/dps-for-research-data/)
+
+<a name="header2"></a>
 
 ## What to consider when choosing a suitable storage solution
 
@@ -36,6 +39,8 @@ When you are looking for a place to store data during your research project, her
 
 As the research project has ended, bla bla: 
 - linkki sivuun https://wiki.eduuni.fi/x/IVC-D , digital preservation
+
+<a name="header3"></a>
 
 ## How much storage space is needed
 
