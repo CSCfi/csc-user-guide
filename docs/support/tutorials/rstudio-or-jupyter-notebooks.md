@@ -16,11 +16,11 @@ With Linux, macOS and MobaXterm the SSH tunnelling works by default. PuTTy requi
 
 ## Workflow for using RStudio or Jupyter Notebook in Puhti
 
-*Using the Puhti Web Interface*
+**Using the Puhti Web Interface**
 
 * For instructions on this, [see the Puhti web interface documentation.](../../computing/webinterface/index.md)
 
-*Using SSH tunneling*
+**Using SSH tunneling**
 
 * Start interactive session
 * Load suitable modules and start RStudio or Jupyter Notebook server
