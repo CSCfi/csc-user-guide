@@ -51,6 +51,13 @@ You can read more about the researcher and contributor id [ORCID](https://resear
     - [Digital Preservation Handbook](https://www.dpconline.org/handbook/technical-solutions-and-tools/persistent-identifiers) by Digital Preservation Coalition
     - [ANDS Persistent Identifiers Expert Level Guide](https://www.ands.org.au/guides/persistent-identifiers-expert)
 
+Learn more about persistent identifiers in this video.
+
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=_4cZVli_xiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
+
 <a name="header4"></a>
 
 ## Licensing & rights
@@ -76,13 +83,6 @@ License: CC BY 4.0
     
     You can also give your data **CC0 license**. It means that you give full rights to others for using the data. 
 
-
-
-Learn more about persistent identifiers in this video.
-
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=_4cZVli_xiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
 
 <a name="header5"></a>
 
