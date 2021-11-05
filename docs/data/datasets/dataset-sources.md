@@ -1,7 +1,7 @@
 # Working with data
 
 !!! note "Note"
-   The old Dataset section content can be found here: [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4)
+    The old Dataset section content can be found here: [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4)
 
 ## [Data management](datamanagement.md)
 
