@@ -14,7 +14,7 @@ Good research data management (RDM) is the basis of successful research. RDM cov
     - Interoperable
     - Re-usable
     
-    [Get to know the principles with the video](https://youtu.be/K-kEvfaUJdA)
+    [Get to know the principles with this video](https://youtu.be/K-kEvfaUJdA)
     
     
 <a name="header2"></a>
@@ -105,7 +105,7 @@ Remember to identify and name a
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-## Sources for this best practice review
+**Sources for this best practice review**
 
 Goodman, A., Pepe, A., Blocker, et. al. (2014). Ten Simple Rules for the Care and Feeding of Scientific Data. PLoS Computational Biology, 10(4), e1003542. [http://doi.org/10.1371/journal.pcbi.1003542](http://doi.org/10.1371/journal.pcbi.1003542)
 
