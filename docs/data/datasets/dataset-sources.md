@@ -28,9 +28,8 @@
 ## [Storing and moving data](hosting-datasets-at-CSC.md)
 
   - [Overview](hosting-datasets-at-CSC.md#header1)
-  - [Allas](../Allas/index.md)
-  - [Kaivos](../kaivos/overview.md)
-  - [Moving data](../moving/scp.md)
+  - [What to consider when choosing a suitable storage solution](hosting-datasets-at-CSC.md#header2)
+  - [How much storage space is needed](hosting-datasets-at-CSC.md#header3)
 
 ## [Publishing datasets](publishing-datasets.md)
 
