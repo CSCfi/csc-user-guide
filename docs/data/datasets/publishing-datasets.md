@@ -74,6 +74,8 @@ When making data available, it is recommended that licenses are used. It allows 
 
 ![Creative commons license spectrum](../../img/Creative_commons_license_spectrum.svg "Creative commons license spectrum")
 
+License: CC BY 4.0
+
 <a name="header5"></a>
 
 ## Access control
