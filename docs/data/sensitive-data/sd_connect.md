@@ -43,7 +43,7 @@ The interface is compatible with all modern web browsers.
 ## User Interface
 
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -116,7 +116,7 @@ In the **Shared** page:
 
 ## Encryption with CSC encryption key - User Interface
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -144,16 +144,9 @@ When you open the application you might encounter an error message. In this case
 <img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
 
-* **Step 3**: Prepare your files
+* **Step 3**: Encrypt the files
 
-With Crypt4GH GUI it is possible to encrypt only one file at the time.
-
-* If you need to encrypt **multiple files**, save them in one directory/folder and zip the folder (right click on the folder and click on _Send to_, next select _Compressed (zipped) folder_).
-* If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH.
-
-<img width="468" alt="SDEnScreenshot_5" src="https://user-images.githubusercontent.com/83574067/121065613-a0838c00-c7d1-11eb-9326-c9f36d0503fc.png">
-
-* **Step 4**: Encrypt the files
+With Crypt4GH GUI it is possible to encrypt only one file at the time. If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH CLI below. 
 
 * Open the Encryption tool
 
@@ -171,18 +164,17 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 
-
 ## Data upload using SD Connect User Interface
 
 
- <iframe width="280" height="157" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+ <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
  
  
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
-To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or datasets less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described later below.
+To upload encrypted data in SD Connect it is sufficient to use the **drag and drop function** (files or folders, less than 100 GB) in the browser page. Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
 
 If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
@@ -209,7 +201,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 ## Encryption with CSC encryption key- Command Line Interface
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -258,7 +250,7 @@ For example
 ```text
 crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
 ```
-The encrypted file (_my_data1.csv.c4gh_) or an ecrypted compressed folder can now be uploaded to SD Connect and will be automatically decrypted when imported in your own private computing environment in SD Desktop.
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect and will be automatically decrypted when imported in your own private computing environment in SD Desktop.
  
 
 ### Data encryption and upload with Allas help tool: a-put
@@ -301,16 +293,14 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 
 ## Data Sharing with SD Connect user interface
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 !!! Note
-        If you are planning to use SD Desktop to process sensitive data, you or your collaborators can encrypt a copy of the data with CSC public encryption key and upload           the data to SD Connect. You will then be able to import the data in SD Desktop, where they will be automatically decrypted. 
-        However, if you are planning to use your own encryption keypair or if you are planning to share data with your collaborators and analyze them with different services,         check the [Data encryption with Crypt4GH for data sharing or encryption with own permanent key pair]](./crypt4gh_client.md) and the                                           [Quick start guide]  (./quickguide.md) to learn more.
-
+        For more information about encryption with private keys check: [Data encryption for data sharing](crypt4gh_client.md).
 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
@@ -349,6 +339,27 @@ At this point the user interface will redirect you to the **Shared** page and th
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 
+# Troubleshooting
+
+
+
+| Problem           |                                                                                       | Possible Solution                                                                                                                                                                                                                                                                                                                                                            |
+|-------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Decryption        | I cannot decrypt the data I downloaded from CSC services.                             | You can decrypt the data only if you have used your own public key for the encryption. If you used a CSC Sensitive Data Services public for the encryption, the data can be decrypted only in SD Desktop. In that case, the decryption is automatic. If you used your collaborator’s public key to encrypt the data, only they can decrypt the data with their private key.  |
+| Encryption        | Encryption takes a long time.                                                         | For large files and datasets, the encryption can take up to a few minutes.                                                                                                                                                                                                                                                                                                   |
+| Folder encryption | I can not select the folder I want to encrypt with Crypt4GH graphical user interface. | It is not possible to encrypt an entire folder, just single files                                                                                                                                                                                                                                                                                                            |
+
+
+
+| Problem       |                                                                                          | Possible solution                                                                                                                                                                                                                               |
+|---------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data upload   | I am trying to upload a big file/folder with the user interface and the upload is stuck. | To upload files or folders that are larger than 200 GB, the data should be uploaded programmatically.                                                                                                                                           |
+|               | Low upload speed (programmatically)                                                      | Average upload speed can go from 100 to 200 MiB/s. Specific scripts can be used to optimize the upload of large files.                                                                                                                          |
+| Bucket        | I am not able to create a new bucket.                                                    | 1)      Check in MyCSC portal that your current project has service access for Allas 2)      Try to use a bucket name that is unique and doesn’t contain special characters. 3)  Select the correct project in SD Connect user interface        |
+|               | I cannot find my bucket.                                                                 | Check if the bucket is stored under a different project. If someone has shared the bucket with you, you can find it under the ‘Shared to’ section and copy it. If someone has shared the bucket with you, they could have revoked the sharing.  |
+|               | I cannot upload data into my bucket                                                      | Check that your project still has storage space left.                                                                                                                                                                                           |
+| Shared bucket | I cannot upload data into a shared bucket.                                               | Your colleague didn’t add editing rights when they shared the bucket.                                                                                                                                                                           |
+|               | I cannot see the content of a shared bucker.                                             | Your colleague didn’t add reading rights when they shared the bucket.                                                                                                                                                                           |
 
 
 

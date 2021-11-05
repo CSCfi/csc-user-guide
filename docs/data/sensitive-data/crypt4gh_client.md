@@ -253,3 +253,8 @@ The command will ask you to enter the password (passphrase) of your private key.
 
 !!! Note
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
+    
+ 
+    
+    
+    
