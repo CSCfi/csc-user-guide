@@ -8,9 +8,9 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation. QGIS is available in Puhti with following versions:
 
-* 3.16 in a singularity container
-* 3.14 via conda in geoconda-3.8
-* 3.10 via conda in geoconda-3.7
+* 3.16 in a singularity container: qgis module
+* 3.14 via conda in geoconda-3.8 module
+* 3.10 via conda in geoconda-3.7 module
 
 ## Usage
 
@@ -21,25 +21,8 @@ This is the new recommended way.
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
 2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-#### Singularity installation
-
-Load the module and start QGIS
-
-```
-module load qgis
-qgis
-```
-
-#### Conda installation
-
-QGIS is older older versions are included in the [geoconda](../apps/geoconda.md) module and can be started with
-
-```
-module load geoconda
-qgis
-```    
-
 ### PyQGIS
+
 It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). With `qgis module` use `python3` for accessing PyQGIS libraries.
 
 
