@@ -21,7 +21,7 @@ Current modules and supported versions:
 | r-env-singularity/4.0.3 | Dec 09 2020         | 3.12                 | 1.3.1093               | Intel® MKL 2020.0-088  | NA		      |
 | r-env-singularity/4.0.4 | Mar 19 2021		| 3.12		       | 1.4.1106		| Intel® MKL 2020.0-088  | TensorFlow 2.4.1   |
 | r-env-singularity/4.0.5 | Apr 20 2021		| 3.12		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.4.1   |
-| r-env-singularity/4.1.1 | Oct 05 2021		| 3.13		       | 1.4.1106		| Intel® oneMKL 2021.2.0 | TensorFlow 2.6.0   |
+| r-env-singularity/4.1.1 | Oct 05 2021		| 3.13		       | 1.4.1717		| Intel® oneMKL 2021.2.0 | TensorFlow 2.6.0   |
 
 Other software and libraries:
 
@@ -81,7 +81,7 @@ start-r
 
 The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. For this, you have two options.
 
-**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see Puhti web interface documentation](../computing/webinterface/index.md).
+**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
 
 **Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
 
