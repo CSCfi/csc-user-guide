@@ -1,9 +1,11 @@
 # Computing environment 
 
 ## Puhti web interface release 3 available
-Apps show more information about resources and reason for shutting down the app to help troubleshoot issues.
-Various app improvements have been done, especially Rclone, increased timeouts for launching apps.
-Login fails now show an error message.
+
+* App cards show more information about resources and reason for shutting down the app to help troubleshoot issues.
+* Various app improvements, especially Rclone.
+* Increased timeouts for launching apps.
+* Login fails now show an error message.
 
 ## Puhti web interface beta is available 18.10.2021
 
