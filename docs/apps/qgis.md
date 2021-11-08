@@ -19,7 +19,12 @@ __QGIS__ has been installed in two different ways to Puhti. The Singularity inst
 This is the new recommended way.
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
+2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS' 
+3. The QGIS GUI is started automatically when the Desktop is launched. To launch QGIS alternatively from the command line, use:
+```
+module load qgis
+qgis
+```
 
 ### PyQGIS
 
