@@ -10,14 +10,7 @@ __GRASS__ is available in Puhti with following versions:
 
 ## Usage
 
-### Using GRASS GIS in Puhti web interface
-
-This is the new recommended way.
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
-
-### Alternative (old) use of GRASS GIS with NoMachine
+### Using GRASS GIS Command Line Interface 
 
 In Puhti, GRASS GIS is installed inside the [QGIS singularity installation](qgis.md)
 
@@ -36,11 +29,14 @@ grass
 
 You can also use the command line tools that come in GRASS. See the [GRASS GIS manual](https://grass.osgeo.org/learn/manuals/) for more information. 
 
-
-!!! note
-    The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
-
 [Exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
+
+### Using GRASS GIS Graphical User Interface
+
+The GRASS GIS Graphical User Interface is available via the Puhti web interface:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
 
 ## License and citing
 

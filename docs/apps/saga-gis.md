@@ -13,18 +13,9 @@ __SAGA GIS__ is available in Puhti with following versions:
 
 ## Usage 
 
-### Using SAGA GIS in Puhti web interface
+### Using SAGA GIS command line interface
 
-This is the new recommended way.
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start SAGA GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'.
-
-### Alternative (old) use of QGIS with NoMachine
-
-With r-env-singularity module
-
-SAGA GIS is installed in the general R module in Puhti. It is a Singularity container which means the commands are slightly different compared to old installations.
+In Puhti, SAGA GIS is available from the r-env-singularity module. It is a Singularity container which means the commands are slightly different compared to old installations.
 
 Before running anything, you should first start an [interactive session](../computing/running/interactive-usage.md) on a computing node and load `r-env-singularity ` module.
 
@@ -39,13 +30,24 @@ You can test that SAGA GIS loaded successfully and print the command line tools 
 singularity_wrapper exec saga_cmd -h
 ```
 
-If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface with
+If you have X11 enabled on your SSH connection or want to start SAGA GIS from the command line within the Puhti web interface, you can launch a graphical user interface with
 
 ```
 singularity_wrapper exec saga_gui
 ```
 
+!!! note
+    It is recommended to use the SAGA GIS Graphical User Interface via the Puhti web interface, see below.
+
+
 For more information on running R jobs on Puhti, please see the [`r-env-singularity` documentation](r-env-singularity.md).
+
+### Using SAGA GIS in Puhti web interface
+
+The SAGA GIS Graphical User Interface is available via the Puhti web interface:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start SAGA GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'.
 
 ## Usage with old saga-gis module
 

@@ -21,16 +21,6 @@ This is the new recommended way.
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
 2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-### Alternative (old) use of QGIS with NoMachine
-
-1. Connect to Puhti with [NoMachine](nomachine.md). A SSH connection with __X11 forwarding__ should also work, but is likely slower.
-2. Start an [interactive session](../computing/running/interactive-usage.md)
-
-```
-sinteractive -i
-```
-
-
 #### Singularity installation
 
 Load the module and start QGIS
