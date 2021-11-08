@@ -18,7 +18,7 @@ __QGIS__ has been installed in two different ways to Puhti. The Singularity inst
 
 This is the new recommended way.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/index.md).
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
 2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
 ### Alternative (old) use of QGIS with NoMachine

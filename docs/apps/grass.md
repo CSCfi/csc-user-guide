@@ -10,7 +10,16 @@ __GRASS__ is available in Puhti with following versions:
 
 ## Usage
 
-In Puhti GRASS GIS is installed inside the [QGIS singularity installation](qgis.md)
+### Using GRASS GIS in Puhti web interface
+
+This is the new recommended way.
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
+
+### Alternative (old) use of GRASS GIS with NoMachine
+
+In Puhti, GRASS GIS is installed inside the [QGIS singularity installation](qgis.md)
 
 It can be loaded with
 

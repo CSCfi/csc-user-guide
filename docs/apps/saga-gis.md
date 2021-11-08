@@ -11,7 +11,18 @@ __SAGA GIS__ is available in Puhti with following versions:
 * 7.3.0 in `r-env-singularity/3.6.3` module
 * 7.2.0 in `saga-gis` module
 
-## Usage with r-env-singularity module
+## Usage 
+
+### Using SAGA GIS in Puhti web interface
+
+This is the new recommended way.
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start SAGA GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'.
+
+### Alternative (old) use of QGIS with NoMachine
+
+With r-env-singularity module
 
 SAGA GIS is installed in the general R module in Puhti. It is a Singularity container which means the commands are slightly different compared to old installations.
 

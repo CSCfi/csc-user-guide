@@ -54,7 +54,16 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
 ### Java memory settings
 __By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
 
-### Using SNAP with graphical user interface
+### Using SNAP with Graphical User Interface (GUI)
+
+#### Using Puhti web interface
+
+This is the new recommended way.
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start SNAP with Apps -> Desktop, choose Desktop: 'None' and App: 'SNAP'.
+
+#### Alternative (old) use of SNAP GUI with NoMachine
 
 If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface on an interactive batch job session
 
@@ -64,8 +73,6 @@ source snap_add_userdir $TMPDIR
 snap -J-xmx10G
 ```
 
-!!! note
-         We recommend using [NoMachine](nomachine.md) for launching graphical user interfaces on Puhti
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
