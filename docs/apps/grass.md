@@ -10,33 +10,23 @@ __GRASS__ is available in Puhti with following versions:
 
 ## Usage
 
-### Using GRASS GIS Command Line Interface 
+### GRASS GIS Command Line Interface 
 
-In Puhti, GRASS GIS is installed inside the [QGIS singularity installation](qgis.md)
+In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). For using GRASS GIS, see [exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
 
-It can be loaded with
+### GRASS GIS Graphical User Interface
+
+Using GRASS GIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
+
+Alternatively, especially if you want to use GRASS GIS and some other GUI tool together, GRASS GIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
 
 ```
 module load qgis
-```
-
-After loading the module you can use the GRASS GIS graphical user interface from an interactive session with 
-
-```
-sinteractive -i
 grass
 ```
-
-You can also use the command line tools that come in GRASS. See the [GRASS GIS manual](https://grass.osgeo.org/learn/manuals/) for more information. 
-
-[Exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
-
-### Using GRASS GIS Graphical User Interface
-
-The GRASS GIS Graphical User Interface is available via the Puhti web interface:
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
 
 ## License and citing
 
