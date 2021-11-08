@@ -6,29 +6,28 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 ## Available
 
-__QGIS__ has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation. QGIS is available in Puhti with following versions:
+__QGIS__ is available in Puhti with following versions:
 
 * 3.16 in a singularity container: qgis module
-* 3.14 via conda in geoconda-3.8 module
-* 3.10 via conda in geoconda-3.7 module
 
 ## Usage
 
-### Using QGIS in Puhti web interface
+Using QGIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
 
-This is the new recommended way.
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS' 
-3. The QGIS GUI is started automatically when the Desktop is launched. To launch QGIS alternatively from the command line, use:
+Alternatively, especially if you want to use QGIS and some other GUI tool together or want to use data from Allas, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+
 ```
 module load qgis
 qgis
 ```
 
+
 ### PyQGIS
 
-It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). With `qgis module` use `python3` for accessing PyQGIS libraries.
+It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). Use `python3` for accessing PyQGIS libraries.
 
 
 ### QGIS and Allas
