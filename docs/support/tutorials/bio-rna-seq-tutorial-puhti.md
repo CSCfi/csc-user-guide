@@ -950,7 +950,6 @@ Let's draw a heatmap of the most highly variable genes: 
 
 
 ![Heatmap of most variable genes](../../img/heatmap_rna_seq.png "Heatmap of most variable genes.")
-![PCA and dispersion plots](../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
 
 Heatmap of most variable genes.
 
