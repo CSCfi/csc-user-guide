@@ -1,5 +1,21 @@
 # Conda best practices
 
+
+## Please do not use conda on Puhti and Mahti
+
+Conda environments (with thousands of files) are a bad match with parallel file
+systems, and slow. Instead, use singularity packed environments, such as CSC's
+Python and R environments in Mahti, or more recent environments is Puhti. Install
+additional packages with pip. For example,
+
+```
+module load geoconda
+pip install --user ...package...
+```
+
+This should work nicely with most everyday use. If you need to use mpi4py, or
+the above does not work in your case, please contact servicedesk@csc.fi.
+
 ## What is conda
 
 [Conda] is
