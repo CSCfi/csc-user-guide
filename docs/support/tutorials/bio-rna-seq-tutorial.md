@@ -779,7 +779,7 @@ outliers in the data.
     p.value.cutoff <- 0.05
     sig <- sig[sig$padj <= p.value.cutoff, ] # choose adj. p-values < the cut off (0.05)
     sig <- sig[! (is.na(sig$padj)), ] # remove NAs
-    sig <- sig[ order(sig$padj), ] # order accroding to the adj. p-values
+    sig <- sig[ order(sig$padj), ] # order according to the adj. p-values
     DESEq2_DEGs <- sig
 
     #Get summary and write a .tsv-table. Open the table in Excel.
@@ -1012,7 +1012,7 @@ results.
     rnaseq_sig <- rnaseq_data
     rnaseq_sig <- rnaseq_sig[rnaseq_sig$padj <= p.value.cutoff, ] # choose adj. p-values < the cut off (0.05)
     rnaseq_sig <- rnaseq_sig[! (is.na(rnaseq_sig$padj)), ] # remove NAs
-    rnaseq_sig <- rnaseq_sig[ order(rnaseq_sig$padj), ] # order accroding to the adj. p-values
+    rnaseq_sig <- rnaseq_sig[ order(rnaseq_sig$padj), ] # order according to the adj. p-values
     
     # Draw heatmap just to see the clusters in the dataset especially when you have several singficant genes.
     # Please note that this is not a requirement for doing enrichment analysis:
@@ -1060,7 +1060,7 @@ Check meaning of gene sets here:
     # Register and download DBs files and use gene set as it relates to your experiments
     KEGG_pathways <- gmtPathways("./MSigDB/c2.cp.kegg.v6.2.symbols.gmt.txt")
     # Order of genes matter here.
-    # One needs to give sorted list according certian criteria.
+    # One needs to give sorted list according certain criteria.
     # We use logfold change value as sorting criteria;
     # one may use t-statistic,p-value, combination of fold change and p - value
     gene_rank <- rnaseq_data[,"log2FoldChange"]
