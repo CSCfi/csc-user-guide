@@ -116,13 +116,13 @@ During the exercises, we are looking some graphics (plots and R-Studio), which i
 -   [Instructions for installing the NoMachine client and opening the connection](../../support/tutorials/nomachine-usage.md)
 
 1.  [Download the **NoMachine Enterprise client**](https://www.nomachine.com/download-enterprise) (note: not the "Desktop", but "Client"!) and install it on your own computer.
-2.  Follow the instructions for [configuration](../support/tutorials/nomachine-usage.md/#configuration) and [opening a connection](../../support/tutorials/nomachine-usage.md/#open-connection).
+2.  Follow the instructions for [configuration](../../support/tutorials/nomachine-usage.md#configuration) and [opening a connection](../../support/tutorials/nomachine-usage.md#open-connection).
 3.  Once you see the black screen, click it, and choose to connect to Puhti. Give your CSC password when asked.
 
 You should now have NoMachine connection to Puhti: a black virtual desktop with white terminal open in one of Puhti's login nodes. 
 
 **Terminal** is the command line, where we will be typing our commands in the exercises. The commands are case-sensitive, so you need to be very precise when typing! Use the Tab button on your keyboard to finish the commands when possible. 
--   [Quick reference guide](../img/csc-quick-reference-2019-11-21.pdf) for command line commands etc
+-   [Quick reference guide](../../img/csc-quick-reference-2019-11-21.pdf) for command line commands etc
 -   [Linux basics](../../support/tutorials/env-guide/using-linux-in-command-line.md)
 
 ### 4. Create a folder, upload the data there
@@ -777,7 +777,7 @@ Option A) You can use R and RStudio on CSC's supercomputers. The Bioconductor pa
 
 -   [R on CSC's environments](../../apps/r-env-singularity.md)
 -   [Using RStudio in Puhti](../../support/tutorials/rstudio-or-jupyter-notebooks.md)
--   [Setting up the SSH keys](../../computing/connecting/setting-up-ssh-keys.md)
+-   [Setting up the SSH keys](../../computing/connecting.md/#setting-up-ssh-keys)
 
 Option B) In virtual machine: Open RStudio (or R) in the virtual machine: activate the Conda base
 environment and type rstudio. 
