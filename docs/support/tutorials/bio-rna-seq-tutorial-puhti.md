@@ -26,7 +26,7 @@ Most of the tools are run on command line. Part of the analysis is done in R (al
     from previous courses, using [Chipster software](https://chipster.csc.fi). You are welcome to use Chipster as well! [More info on getting the started with Chipster](https://chipster.csc.fi/access.shtml). 
 
 !!! note
-    Interested in running this course in your own organisation? [See how to get student accounts](https://docs.csc.fi/accounts/how-to-create-new-user-account/#getting-student-accounts-for-courses)!
+    Interested in running this course in your own organisation? [See how to get student accounts](../../accounts/how-to-create-new-user-account.md/#getting-student-accounts-for-courses)!
 
 ## Tutorial workflow and datasets 
 -------------------------------
@@ -177,7 +177,7 @@ Use the following command on the ssh client to launch an interactive session on 
 
     sinteractive --account <project> --mem 8000 --tmp 100
 
-Now you have everything set up for the actual exercises! Skip to the [Quality control, trimming and filtering section](#Quality-control,-trimming-and-filtering)!
+Now you have everything set up for the actual exercises! Skip to the **Quality control, trimming and filtering** section!
 
 ## Preparatory steps for virtual machine use
 
