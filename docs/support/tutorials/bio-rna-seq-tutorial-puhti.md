@@ -160,7 +160,7 @@ Navigate to the same rnaseq folder also **with NoMachine**, and check that you s
 
 #### 5. Load the "biokit" module
 
-CSC's Puhti has many users, and thus also many softwares installed. Often these softwares are mutually incompatible: this issue is solved by using **modules**. Different tools used in this analysis might require different modules. You can check which modules a tool needs from the [tools manual page](../../apps.md).
+CSC's Puhti has many users, and thus also many softwares installed. Often these softwares are mutually incompatible: this issue is solved by using **modules**. Different tools used in this analysis might require different modules. You can check which modules a tool needs from the [tools manual page](../../apps/alpha.md).
 -   [Learn about modules](../../computing/modules.md)
 -   [Biomodules in Puhti tutorial](https://csc-training.github.io/csc-env-eff/hands-on/modules/module-exercise-with-aligners.html)
 
