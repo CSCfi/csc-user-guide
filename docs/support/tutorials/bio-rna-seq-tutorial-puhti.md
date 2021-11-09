@@ -72,7 +72,7 @@ The input data:
 
 The analysis pipeline is illustrated in figure below.
 
-![RNA-Seq analysis pipeline](../../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
+![RNA-Seq analysis pipeline](../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
 
 ## Preparatory steps for Puhti use
@@ -82,10 +82,10 @@ Using Puhti supercomputer for the step-by-step exercises is the recommended way,
 To use CSCs supercomputer, you need some basic Linux skills. We suggest that you follow our [command line minicourse in e-lena](https://e-learn.csc.fi/course/view.php?id=58) or the [command line use basic tutorials](https://csc-training.github.io/csc-env-eff/#12-tutorials-and-exercises)
 
 1.  [Get a user account, project and access to Puhti and Allas](https://research.csc.fi/accounts-and-projects.md)
-2.  [Use NoMachine to connect to Puhti's login node with virtual desktop](../support/tutorials/nomachine-usage.md)
+2.  [Use NoMachine to connect to Puhti's login node with virtual desktop](../../support/tutorials/nomachine-usage.md)
 3.  Go to your project's SCRATCH folder, create a folder for the tutorial data there
 4.  Upload the data there
-5.  Use the [interactive batch job](../computing/running/interactive-usage.md) for running the examples
+5.  Use the [interactive batch job](../../computing/running/interactive-usage.md) for running the examples
 
 
 ### 1. Get a user account, project and access to Puhti and Allas
@@ -101,7 +101,7 @@ You should now have a CSC username, password and a project number.
 ### 2. Connecting to Puhti using ssh client
 
 Connecting and using Puhti happens through a ssh client, such as Putty (Windows), or if you are using MacOS or Linux, the ssh command can be given in the Terminal.
--   [Connecting to Puhti](../computing/connecting.md)
+-   [Connecting to Puhti](../../computing/connecting.md)
 -   [Connecting to Puhti tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html)
 
 Open Terminal or Putty, and type:
@@ -113,22 +113,22 @@ You are now in the **login node** of Puhti. -X opens a graphical connection.
 ### 3. Connecting to Puhti with remote desktop (using NoMachine)
 
 During the exercises, we are looking some graphics (plots and R-Studio), which is why we want to use the **remote desktop** provided with the NoMachine client. You need to download the **NoMachine Enterprise client** (not the Desktop) and install it on your own computer (note that installing may require admin rights). 
--   [Instructions for installing the NoMachine client and opening the connection](../support/tutorials/nomachine-usage.md)
+-   [Instructions for installing the NoMachine client and opening the connection](../../support/tutorials/nomachine-usage.md)
 
 1.  [Download the **NoMachine Enterprise client**](https://www.nomachine.com/download-enterprise) (note: not the "Desktop", but "Client"!) and install it on your own computer.
-2.  Follow the instructions for [configuration](../support/tutorials/nomachine-usage.md/#configuration) and [opening a connection](../support/tutorials/nomachine-usage.md/#open-connection).
+2.  Follow the instructions for [configuration](../support/tutorials/nomachine-usage.md/#configuration) and [opening a connection](../../support/tutorials/nomachine-usage.md/#open-connection).
 3.  Once you see the black screen, click it, and choose to connect to Puhti. Give your CSC password when asked.
 
 You should now have NoMachine connection to Puhti: a black virtual desktop with white terminal open in one of Puhti's login nodes. 
 
 **Terminal** is the command line, where we will be typing our commands in the exercises. The commands are case-sensitive, so you need to be very precise when typing! Use the Tab button on your keyboard to finish the commands when possible. 
 -   [Quick reference guide](../img/csc-quick-reference-2019-11-21.pdf) for command line commands etc
--   [Linux basics](../support/tutorials/env-guide/using-linux-in-command-line.md)
+-   [Linux basics](../../support/tutorials/env-guide/using-linux-in-command-line.md)
 
 ### 4. Create a folder, upload the data there
 
 Next, we move to our projects SCRATCH directory. You could now use either the ssh client or the NoMachine remote desktop for these commands: ssh client might be a bit easier, so we recommend that. You can't run analyses on your HOME directory.  
--   [Disk areas in Puhti](../computing/disk.md)
+-   [Disk areas in Puhti](../../computing/disk.md)
 
 note!
     SCRATCH directory is joined for all the members in the project! Be a good researcher and don't mess with other people's data. 
@@ -160,8 +160,8 @@ Navigate to the same rnaseq folder also **with NoMachine**, and check that you s
 
 #### 5. Load the "biokit" module
 
-CSC's Puhti has many users, and thus also many softwares installed. Often these softwares are mutually incompatible: this issue is solved by using **modules**. Different tools used in this analysis might require different modules. You can check which modules a tool needs from the [tools manual page](../apps.md).
--   [Learn about modules](../computing/modules.md)
+CSC's Puhti has many users, and thus also many softwares installed. Often these softwares are mutually incompatible: this issue is solved by using **modules**. Different tools used in this analysis might require different modules. You can check which modules a tool needs from the [tools manual page](../../apps.md).
+-   [Learn about modules](../../computing/modules.md)
 -   [Biomodules in Puhti tutorial](https://csc-training.github.io/csc-env-eff/hands-on/modules/module-exercise-with-aligners.html)
 
 Use **module load** command to load the **biokit** tools:
@@ -171,7 +171,7 @@ Use **module load** command to load the **biokit** tools:
 #### 6. Interactive use of Puhti
 
 As mentioned, it is forbidden to run any heavier tasks on the login nodes. Later on, we will learn how to run the commands learned in this tutorial for many samples effectively using a **batch job**. Now, when we are testing, learning and checking the results after each step, we need to use Puhti's **interactive partition**. 
--   [Interactive usage of Puhti](https://docs.csc.fi/computing/running/interactive-usage/)
+-   [Interactive usage of Puhti](../../computing/running/interactive-usage.md)
 
 Use the following command on the ssh client to launch an interactive session on a **computing node** (fill in your project ID in the prackets):
 
@@ -258,7 +258,7 @@ You can check the existing conda environments with command:
 -   [Conda user
     guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 -   [CSC's Conda
-    documentation](https://docs.csc.fi/support/tutorials/conda/)
+    documentation](../../support/tutorials/conda.md)
 
 Now we can get started with the actual analysis steps. 
 
@@ -267,7 +267,7 @@ Now we can get started with the actual analysis steps.
 
 
 First, we check the quality of the raw reads in the FASTQ files with
-[FastQC](../apps/fastqc.md) and
+[FastQC](../../apps/fastqc.md) and
 [PRINSEQ](http://prinseq.sourceforge.net/manual.html) tools. After this,
 we trim the reads with
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to get rid
@@ -547,7 +547,7 @@ tool](https://bioinf.shenwei.me/seqkit/usage/#sample):
 !!! note 
     Seqkit is not installed in Puhti, which you probably noticed :) 
     So this is a great opportunity to learn how to install Bioconda packages to your own                environment in Puhti!
-    First, read the [Bioconda documentation: Installing software for your own use with bioconda](../apps/bioconda.md/#2-installing-software-for-your-own-use-with-bioconda). Run the following commands to install Seqkit to "my_biotools" (first two commands you probably have run already):
+    First, read the [Bioconda documentation: Installing software for your own use with bioconda](../../apps/bioconda.md/#2-installing-software-for-your-own-use-with-bioconda). Run the following commands to install Seqkit to "my_biotools" (first two commands you probably have run already):
     
     # export PROJAPPL=/projappl/project_xxxxxx
     # module load bioconda
@@ -775,9 +775,9 @@ file: https://biotraining.object.pouta.csc.fi/rnaseq\_tutorial/RNA-Seq-Rscript.
 
 Option A) You can use R and RStudio on CSC's supercomputers. The Bioconductor packages needed here are already installed there (?). To use RStudio in Puhti, you first need to set up the ssh keys.
 
--   [R on CSC's environments](--/apps/r-env-singularity.md)
--   [Using RStudio in Puhti](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks.md)
--   [Setting up the SSH keys](../computing/connecting/setting-up-ssh-keys.md)
+-   [R on CSC's environments](../../apps/r-env-singularity.md)
+-   [Using RStudio in Puhti](../../support/tutorials/rstudio-or-jupyter-notebooks.md)
+-   [Setting up the SSH keys](../../computing/connecting/setting-up-ssh-keys.md)
 
 Option B) In virtual machine: Open RStudio (or R) in the virtual machine: activate the Conda base
 environment and type rstudio. 
@@ -910,7 +910,7 @@ shows us how the read counts are modified within DESeq2.
 
 You should get the following plots as outputs:
 
-![PCA and dispersion plots](../../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
+![PCA and dispersion plots](../../img/PCA_and_dispersion_plot.png "PCA and dispersion plots.")
 
 PCA and dispersion plots.
 
@@ -949,7 +949,7 @@ Let's draw a heatmap of the most highly variable genes: 
     pheatmap(highly_variable_genes)
 
 
-![Heatmap of most variable genes](../../../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
+![Heatmap of most variable genes](../../img/heatmap_rna_seq.pdf "Heatmap of most variable genes.")
 
 Heatmap of most variable genes.
 
@@ -1018,7 +1018,7 @@ In R:
 As a result, you should get the following plot and the results.tsv
 table:
 
-![Variation plot](../../../img/Rplot-plotBCV.jpg "Variation plot")
+![Variation plot](../../img/Rplot-plotBCV.jpg "Variation plot")
 
 
 Compare the dispersion plots from DESeq2 and edgeR, do they look
@@ -1189,9 +1189,9 @@ First, open Terminal and log in to Puhti with your user credentials.
 
 More information about running jobs in Puhti:
 
--   [Connecting to Puhti](https://docs.csc.fi/computing/overview/)
--   [Running batch jobs in Puhti](https://docs.csc.fi/computing/running/getting-started/)
--   [Array jobs in Puhti](https://docs.csc.fi/computing/running/array-jobs/)
+-   [Connecting to Puhti](../../computing/overview.md)
+-   [Running batch jobs in Puhti](../../computing/running/getting-started.md)
+-   [Array jobs in Puhti](../../computing/running/array-jobs.md)
 -   [How to get started with CSC services](https://research.csc.fi/accounts-and-projects)
 
 Next, we move to our projects SCRATCH directory. You can't run analyses
@@ -1206,8 +1206,8 @@ Go to your projects SCRATCH directory (use your project ID instead of the X's:)
 
 More information about Puhti disk areas and projects:
 
--   [Puhti disk areas](https://docs.csc.fi/computing/disk/)
--   [How to create a project](https://docs.csc.fi/#accounts/how-to-create-new-project/) 
+-   [Puhti disk areas](../../computing/disk.md)
+-   [How to create a project](../../accounts/how-to-create-new-project.md) 
 
 
 Check whether there are already some files in the SCRATCH directory.
@@ -1250,8 +1250,8 @@ need from the software pages: for example, for FastQC you need to module
 load biokit.
 
 
--   [Modules in Puhti](../computing/modules.md)
--   [Applications available in Puhti](../apps.md)
+-   [Modules in Puhti](../../computing/modules.md)
+-   [Applications available in Puhti](../../apps.md)
 
 
 Run the script with sbatch command. 
@@ -1301,9 +1301,9 @@ After you are done with the analysis, you want to store the data in
 Allas. From Allas, you can also easily share some of the files to your
 colleagues.
 
--   [Using Allas to host a dataset in a research project](../data/Allas/allas_project_example.md)
--   [What is Allas?](../data/Allas/introduction.md)
--   [a-commands in Allas](../data/Allas/using_allas/a_commands.md)
+-   [Using Allas to host a dataset in a research project](../../data/Allas/allas_project_example.md)
+-   [What is Allas?](../../data/Allas/introduction.md)
+-   [a-commands in Allas](../../data/Allas/using_allas/a_commands.md)
 
 Load Allas module and set up a connection to Allas:
 
@@ -1314,7 +1314,7 @@ Now we can store our data to Allas. After the data is in Allas, you can
 delete it from Puhti: SCRATCH directory is automatically cleaned every
 90 days, but it might be easier to remember to move your data to Allas
 if you try to keep your SCRATCH directory clean. We use
-[a-commands](../data/Allas/using_allas/a_commands.md) to
+[a-commands](../../data/Allas/using_allas/a_commands.md) to
 load the data:
 
     cd ..
