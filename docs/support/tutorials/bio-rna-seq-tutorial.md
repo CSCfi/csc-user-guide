@@ -72,7 +72,7 @@ The input data:
 
 The analysis pipeline is illustrated in figure below.
 
-![RNA-Seq analysis pipeline](../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
+![RNA-Seq analysis pipeline](../../img/rnaseq-pipeline.png "Figure 1. RNA-Seq analysis pipeline workflow: steps, tools and file formats.")
 
 
 
@@ -134,7 +134,7 @@ to Files -\> Home -\> rnaseq.  
 New to command line? Don't worry, check the:
 
 -   [CSC's quick reference guide (with unix commands
-    listed)](../img/csc-quick-reference-2019-11-21.pdf)
+    listed)](../../img/csc-quick-reference-2019-11-21.pdf)
 
 
 
@@ -156,7 +156,7 @@ You can check the existing conda environments with command:
 -   [Conda user
     guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 -   [CSC's Conda
-    documentation](../support/tutorials/conda.md)
+    documentation](../tutorials/conda.md)
 
 Now we can get started with the actual analysis steps. 
 
@@ -165,7 +165,7 @@ Now we can get started with the actual analysis steps.
 
 
 First, we check the quality of the raw reads in the FASTQ files with
-[FastQC](../apps/fastqc.md) and
+[FastQC](../../apps/fastqc.md) and
 [PRINSEQ](http://prinseq.sourceforge.net/manual.html) tools. After this,
 we trim the reads with
 [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to get rid
@@ -934,7 +934,7 @@ In R:
 As a result, you should get the following plot and the results.tsv
 table:
 
-![Variation plot](../img/Rplot-plotBCV.jpg "Variation plot")
+![Variation plot](../../img/Rplot-plotBCV.jpg "Variation plot")
 
 
 Compare the dispersion plots from DESeq2 and edgeR, do they look
@@ -1105,9 +1105,9 @@ First, open Terminal and log in to Puhti with your user credentials.
 
 More information about running jobs in Puhti:
 
--   [Connecting to Puhti](../computing/overview.md)
--   [Running batch jobs in Puhti](../computing/running/getting-started.md)
--   [Array jobs in Puhti](../computing/running/array-jobs.md)
+-   [Connecting to Puhti](](../../computing/overview.md)
+-   [Running batch jobs in Puhti](](../../computing/running/getting-started.md)
+-   [Array jobs in Puhti](](../../computing/running/array-jobs.md)
 -   [How to get started with CSC services](https://research.csc.fi/accounts-and-projects)
 
 Next, we move to our projects SCRATCH directory. You can't run analyses
@@ -1122,8 +1122,8 @@ Go to your projects SCRATCH directory (use your project ID instead of the X's:)
 
 More information about Puhti disk areas and projects:
 
--   [Puhti disk areas](../computing/disk.md)
--   [How to create a project](../accounts/how-to-create-new-project.md) 
+-   [Puhti disk areas](](../../computing/disk.md)
+-   [How to create a project](](../../accounts/how-to-create-new-project.md) 
 
 
 Check whether there are already some files in the SCRATCH directory.
@@ -1166,8 +1166,8 @@ need from the software pages: for example, for FastQC you need to module
 load biokit.
 
 
--   [Modules in Puhti](../computing/modules.md)
--   [Applications available in Puhti  ](../apps.md)
+-   [Modules in Puhti](](../../computing/modules.md)
+-   [Applications available in Puhti  ](](../../apps.md)
 
 
 Run the script with sbatch command. 
@@ -1217,9 +1217,9 @@ After you are done with the analysis, you want to store the data in
 Allas. From Allas, you can also easily share some of the files to your
 colleagues.
 
--   [Using Allas to host a dataset in a research project](../data/Allas/allas_project_example.md)
--   [What is Allas?](../data/Allas/introduction.md)
--   [a-commands in Allas](../data/Allas/using_allas/a_commands.md)
+-   [Using Allas to host a dataset in a research project](](../../data/Allas/allas_project_example.md)
+-   [What is Allas?](](../../data/Allas/introduction.md)
+-   [a-commands in Allas](](../../data/Allas/using_allas/a_commands.md)
 
 Load Allas module and set up a connection to Allas:
 
