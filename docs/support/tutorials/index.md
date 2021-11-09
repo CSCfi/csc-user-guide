@@ -69,4 +69,8 @@
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
 
-
+## Bioinformatics
+* [Singularity applications on Puhti](bioapplications-puhti.md)
+* [Schrödinger Maestro Puhti tutorial](power-maestro.md)
+* [RNA-seq gene expression data analysis tutorial](bio-rna-seq-tutorial.md)
+* [RNA-seq gene expression data analysis tutorial using Puhti](bio-rna-seq-tutorial-puhti.md)
