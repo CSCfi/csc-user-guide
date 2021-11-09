@@ -1230,7 +1230,7 @@ Now we can store our data to Allas. After the data is in Allas, you can
 delete it from Puhti: SCRATCH directory is automatically cleaned every
 90 days, but it might be easier to remember to move your data to Allas
 if you try to keep your SCRATCH directory clean. We use
-[a-commands](../data/Allas/using_allas/a_commands.md) to
+[a-commands](../../data/Allas/using_allas/a_commands.md) to
 load the data:
 
     cd ..
