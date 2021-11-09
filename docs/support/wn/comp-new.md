@@ -1,6 +1,6 @@
 # Computing environment 
 
-## Puhti web interface release 3 available
+## Puhti web interface release 3 available 9.11.2021
 
 * App cards show more information about resources and reason for shutting down the app to help troubleshoot issues.
 * Various app improvements, especially Rclone.
