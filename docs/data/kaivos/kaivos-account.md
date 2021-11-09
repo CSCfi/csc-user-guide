@@ -6,9 +6,9 @@ The kaivos.csc.fi database service can be accessed only from the computing serve
 
 1.   Register as CSC user 
 2.   Create a new project or select an already existing project
-3.   Download and fill in the [Kaivos application form](https://research.csc.fi/documents/48467/72092/Application+Form+for+Database+Service/39abff32-a8f9-412c-b4c3-5b483eea093e), and send it to servicedesk@csc.fi.
+3.   Send a request to servicedesk@csc.fi. The request should include the proposed name of the database and the size of the database ( in GB). 
 
-When the application is accepted, a new empty database is created to the database server (kaivos.csc.fi). The database service is used through MySQL client programs or other MySQL interfaces. The project manager will receive three database user accounts with passwords to access and manage the database. The database user accounts are based on the database name defined in the application form. The three database user accounts have different roles:
+When the application is processed, a new empty database is created to the database server (kaivos.csc.fi). The database service is used through MySQL client programs or other MySQL interfaces. The project manager will receive three database user accounts with passwords to access and manage the database. The database user accounts are based on the database name defined in the application form. The three database user accounts have different roles:
 
 * The **databasename_admin** user account is intended for database administration. This user account can create new tables and indexes for the database. This user account can also remove records and tables from the database. However, the admin user account can't create new databases or database user accounts. This user account has all rights to the database except the GRANT OPTION.
 
