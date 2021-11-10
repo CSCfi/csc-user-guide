@@ -97,7 +97,8 @@ Remember to identify and name a
   - **Data Processor**, who processes the data on behalf of the controller. 
 
 !!! note "Additional information on sensitive data management"
-    - [About sensitive data on research.csc.fi](https://research.csc.fi/sensitive-data)
+    - [CSC's Sensitive Data Services for Research](https://research.csc.fi/sensitive-data)
+    - [User Guide for Sensitive Data Services for Research](../sensitive-data.md)
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
     - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
 
