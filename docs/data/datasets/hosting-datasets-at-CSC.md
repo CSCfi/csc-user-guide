@@ -35,7 +35,7 @@ When you are looking for a place to store data during your research project, you
 - does the data contain personal information and/or sensitive data
 - what level of security does your data require
 
-As the research project ends, you need to consider what data should to be [published](publishing-datasets.md), for how long you need to retain the data and what data can be [deleted](publishing-datasets.md#data-deletion). Valuable data might also be digitally [preserved](publishing-datasets#preservation).
+As the research project ends, you need to consider what data should to be [published](publishing-datasets.md), for how long you need to retain the data according to the requirements of the funder, publisher or your home organization, and what data can be [deleted](publishing-datasets.md#data-deletion) at this point. Valuable data might also be digitally [preserved](publishing-datasets#preservation).
 
 <a name="header3"></a>
 
