@@ -11,14 +11,23 @@
 ## CSC's services for storing data
 
 [Store and Share Data](https://research.csc.fi/storage)
+
 [Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
+
 [Services for Sensitive Data](../../sensitive-data/index.md)
+
 [Allas Object Storage Service](../Allas/index.md)
+
 [Using Allas to host a data set for a research project](../Allas/allas_project_example.md)
+
 [Fairdata Services](https://www.fairdata.fi/en/)
+
 [Eudat Services](https://www.eudat.eu/)
+
 [Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-for-research-data/)
+
 [Moving datasets in CSC's environment](../moving/scp.md)
+
 
 <a name="header3"></a>
 
