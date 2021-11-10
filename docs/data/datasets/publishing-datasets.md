@@ -8,17 +8,21 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 
 ## Where to host or publish data
 
-[re3data.org](https://www.re3data.org/) - Registry of Research data Repositories offers detailed descriptions of more than 2600 repositories
+!!!Note "Note!"
 
-[CSC's tools for hosting and storing data](https://research.csc.fi/en/service-catalog#store)
+   **Registry of Research Data Repositories, [re3data.org](https://www.re3data.org/),** offers detailed descriptions of more than 2600 repositories in all scientific disciplines.
+
+[CSC's tools for publishing data](https://research.csc.fi/en/service-catalog#open)
 
 [How to publish your dataset with Fairdata](https://www.fairdata.fi/en/user-guides/fairdata-quick-guide/)
+
+[EUDAT Services](https://www.eudat.eu/)
+
+[How to make dataset available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
 
 [Example case 1: Sharing data during research project, publish FAIR when ready](https://research.csc.fi/example-case-1)
 
 [Example case 2: Data lifecycle at CSC – from collection to preservation](https://research.csc.fi/example-case-2)
-
-[How to make dataset available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
 
 <a name="header2"></a>
 
