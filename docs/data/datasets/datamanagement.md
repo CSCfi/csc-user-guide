@@ -54,23 +54,23 @@ Be consistent when naming variables and record enough information so the definit
 
 ### Document your data processing
 
-Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#Data documentation (also called detailed descriptive metadata or data-level metadata)) often leads to data loss. To keep data and documentation well organized you should also have a version control (manual or automatic) system in use. 
+Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata) often leads to data loss. To keep [data and documentation well organized](metadata-and-documentation.md#data-organization) you should also have a version control (manual or automatic) system in use. 
 
 ### Provide metadata
 
-Metadata is contextual information about the data and its provenance, necessary for interpreting the data. Providing metadata enables you, and others interested in extending your work, to return to it later. Providing comprehensive metadata according to your discipline's conventions makes your data discoverable and reusable.
+[Metadata](metadata-and-documentation.md#metadata-types) is contextual information about the data and its provenance, necessary for interpreting the data. Providing metadata enables you, and others interested in extending your work, to return to it later. Providing comprehensive metadata according to your discipline's conventions makes your data discoverable and reusable.
 
 ### Get identifiers for your data
 
-Data used in research and publications should be uniquely identifiable. Make sure the data repository you use provides your data with a permanent identifier (e.g DOI, URN). Use your dataset's identifier when sharing it and using it so it collects data citations for you.
+Data used in research and publications should be uniquely identifiable. Make sure the data repository you use provides your data with a [permanent identifier](publishing-datasets.md#persistent-identifiers) (e.g DOI, URN). Use your dataset's identifier when sharing it and using it so it collects data citations for you.
 
 ### Take care of storage
 
-Deposit your data in a well-established repository provided by a trusted party to ensure that your data is safely stored. Take note of your organisation's data policy and the requirements from funding bodies and journals. Consider where other researchers in your community are storing their data, what services the repositories provide and what needs you have in terms of e.g. storage quota, data openness.
+[Deposit your data](publishing-datasets.md#tools-to-host-and-publish-data) in a well-established repository provided by a trusted party to ensure that your data is safely stored. Take note of your organisation's data policy and the requirements from funding bodies and journals. Consider where other researchers in your community are storing their data, what services the repositories provide and what needs you have in terms of e.g. storage quota, data openness.
 
 ### Open your data
 
-Data sharing is increasingly required by funding agencies and journals as it benefits the scientific community at large. It is also beneficial for data collectors as it is associated with increased visibility, collaboration and credit. You should consider sharing your data so that others can access and cite it. Equip your data with an established license (e.g. Creative Commons licenses) so the others know what they can and cannot do with the data.
+Data sharing is increasingly required by funding agencies and journals as it benefits the scientific community at large. It is also beneficial for data collectors as it is associated with increased visibility, collaboration and credit. You should consider sharing your data so that others can access and cite it. Equip your data with an established [license](publishing-datasets.md#licensing-rights) (e.g. Creative Commons licenses) so the others know what they can and cannot do with the data.
 
 !!! note "Additional readings and resources on data management"
     - [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on [Fairdata.fi](http://fairdata.fi/) website
