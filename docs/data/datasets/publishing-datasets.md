@@ -1,7 +1,5 @@
 # Publishing datasets
 
-<a name="header1"></a>
-
 ## Overview
 
 Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in future. Publishing should be based on commonly accepted standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so that the effort spent on publishing data properly is often quickly paid back.
@@ -23,8 +21,6 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 
 [Example case 2: Data lifecycle at CSC – from collection to preservation](https://research.csc.fi/example-case-2)
 
-<a name="header2"></a>
-
 ## Data types
 
 When choosing what to archive and/or publish, it is good to switch viewpoints, and consider what the data (re)user sees. How far back is the reader of your article able to follow the process towards the raw data, before it is no longer possible to reproduce the original process? In many cases it is not possible to get back to the raw data, but if the data documentation, automation, saving of logs and code, and their version management are practiced from the start it is possible to secure as much transparency as possible. If it is possible (this is highly discipline specific) it might be good to publish both raw data and processed data with the documentation.
@@ -38,8 +34,6 @@ Also consider what is actually the data product that you will publish with your 
 ![Data types](../../img/data_types.png "Operational data, generic research data and research dataset publication")
 
 License: CC BY 4.0
-
-<a name="header3"></a>
 
 ## Persistent identifiers
 
@@ -60,8 +54,6 @@ Learn more about persistent identifiers in this video.
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=_4cZVli_xiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
-
-<a name="header4"></a>
 
 ## Licensing & rights
 
@@ -87,7 +79,6 @@ License: CC BY 4.0
     You can also give your data **CC0 license**. It means that you give full rights to others for using the data. 
 
 
-<a name="header5"></a>
 
 ## Access restrictions
 
@@ -100,13 +91,11 @@ Publishing your data doesn’t necessarily mean that your datasets must be avail
 
 Whichever option is selected does not affect the visibility of the dataset’s descriptive metadata, meaning that even if access to data is restricted, descriptive information about the published dataset is displayed in the publishing platform. Any restriction needs however to be specified and contact information made available and kept up to date.
 
-<a name="header6"></a>
 
 ## Data deletion
 
 Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data, and sensitive data should be disposed of in an appropriate manner. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of "special category personal data", is completely wiped from hard-drives, portable drives and any other kind of storage solutions.  
 
-<a name="header7"></a>
 
 ## Preservation
 
