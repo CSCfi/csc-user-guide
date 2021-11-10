@@ -26,7 +26,7 @@ Most of the tools are run on command line. Part of the analysis is done in R (al
     from previous courses, using [Chipster software](https://chipster.csc.fi). You are welcome to use Chipster as well! [More info on getting the started with Chipster](https://chipster.csc.fi/access.shtml). 
 
 !!! note
-    Interested in running this course in your own organisation? [See how to get student accounts](../../accounts/how-to-create-new-user-account.md/#getting-student-accounts-for-courses)!
+    Interested in running this course in your own organisation? [See how to get student accounts](../../accounts/how-to-create-new-user-account.md#getting-student-accounts-for-courses)!
 
 ## Tutorial workflow and datasets 
 -------------------------------
@@ -547,7 +547,7 @@ tool](https://bioinf.shenwei.me/seqkit/usage/#sample):
 !!! note 
     Seqkit is not installed in Puhti, which you probably noticed :) 
     So this is a great opportunity to learn how to install Bioconda packages to your own                environment in Puhti!
-    First, read the [Bioconda documentation: Installing software for your own use with bioconda](../../apps/bioconda.md/#2-installing-software-for-your-own-use-with-bioconda). Run the following commands to install Seqkit to "my_biotools" (first two commands you probably have run already):
+    First, read the [Bioconda documentation: Installing software for your own use with bioconda](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda). Run the following commands to install Seqkit to "my_biotools" (first two commands you probably have run already):
     
     # export PROJAPPL=/projappl/project_xxxxxx
     # module load bioconda
@@ -777,7 +777,7 @@ Option A) You can use R and RStudio on CSC's supercomputers. The Bioconductor pa
 
 -   [R on CSC's environments](../../apps/r-env-singularity.md)
 -   [Using RStudio in Puhti](../../support/tutorials/rstudio-or-jupyter-notebooks.md)
--   [Setting up the SSH keys](../../computing/connecting.md/#setting-up-ssh-keys)
+-   [Setting up the SSH keys](../../computing/connecting.md#setting-up-ssh-keys)
 
 Option B) In virtual machine: Open RStudio (or R) in the virtual machine: activate the Conda base
 environment and type rstudio. 
