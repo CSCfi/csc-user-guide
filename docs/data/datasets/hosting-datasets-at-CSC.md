@@ -9,7 +9,7 @@
 !!! note "Additional readings on CSC's storage services"
     - [Store and Share Data](https://research.csc.fi/storage)
     - [Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
-    - [Services for Sensitive Data](../sensitive-data/index.md)
+    - [Services for Sensitive Data](../../sensitive-data/index.md)
     - [Allas Object Storage Service](../Allas/index.md)
     - [Fairdata Services](https://www.fairdata.fi/en/)
     - [Eudat Services](https://www.eudat.eu/)
