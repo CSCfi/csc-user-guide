@@ -2,7 +2,7 @@
 
 ## Overview
 
-Good research data management (RDM) is the basis of successful research. RDM covers the whole life-cycle of data starting from data creation or collecting, the managing and organisation of data during the project and publishing and digital preservation after the active phase of a project. Its purpose is to ensure reproducibility of research, which is fundamental prerequisite of all scientific research.  Good data management throughout the data life-cycle is crucial for facilitating data sharing and ensuring the sustainability and accessibility of data in the long-term and therefore their re-use for future science.
+Good research data management (RDM) is the basis of successful research. RDM covers the whole life-cycle of data starting from data creation or collecting, the managing and organization of data during the project and publishing and digital preservation after the active phase of a project. Its purpose is to ensure the reproducibility of research, which is the fundamental prerequisite of all scientific research.  Good data management throughout the data life-cycle is crucial for facilitating data sharing and ensuring the sustainability and accessibility of data in the long-term and therefore their re-use for future science.
 
 !!! note "FAIR principles"
     According to the [FAIR principles](https://www.go-fair.org/fair-principles/), the data should be 
@@ -17,7 +17,7 @@ Good research data management (RDM) is the basis of successful research. RDM cov
    
 ## Best practices
 
-Below are some guidelines for good data management practices. By browsing the data management pages you can find instructions for example of 
+Below are some guidelines for good data management practices. By browsing the data management pages, you can find instructions for example of 
 making data formats, licensing, persistent identifiers and handling sensitive data.
 
 ![Checklist for data management planning](../../img/Checklist_for_DMP_v1.png "Checklist for how to be successful in data management planning")
@@ -26,11 +26,11 @@ License: CC BY 4.0
  
 ### Maintain a data management plan
 
-Make a clear plan for managing your data. A data management plan (DMP for short) is a document that describes how you will treat your data during a project and what happens with the data after the project ends. It should cover all stages of data life cycle from discovery,  collection, organisation, use, to data sharing and preservation. Most funding agencies require a data management plan when funding has been granted, and the DMP should be seen as a quality assurance tool that helps to ensure the reproducibility of your research as well as the interoperability and reusability of the data.
+Make a clear plan for managing your data. A data management plan (DMP for short) is a document that describes how you will treat your data during a project and what happens with the data after the project ends. It should cover all stages of data life cycle from discovery, collection, organization, use, to data sharing and preservation. Most funding agencies require a data management plan when funding has been granted, and the DMP should be seen as a quality assurance tool that helps to ensure the reproducibility of your research as well as the interoperability and reusability of the data.
 
 ### Keep raw data raw
 
-Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources. It might be worth while to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter.
+Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources. It might be worthwhile to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter.
 
 ### Create friendly data for analysis
 
@@ -38,19 +38,19 @@ To take full advantage of data, it should be structured in a way that makes use,
 
 ### Perform quality control
 
-Data, just like other research outputs, should undergo some level of quality control. Quality control makes it easier to analyse your own data, decreases and is vital if you intend to share your data with others. You can start with some basic sanity checks, e.g. verifying there are no non-numeric values in otherwise numeric data and checking consistency in units of measurement and naming schemes.
+Data, just like other research outputs, should undergo some level of quality control. Quality control makes it easier to analyse your own data, decreases and is vital if you intend to share your data with others. You can start with some basic sanity checks, e.g. verifying there are no non-numeric values in otherwise numeric data and checking consistency in the units of measurement and naming schemes.
 
 ### Use standard, open data formats
 
-Every researcher has their own favorite tools for storing and analysing data. To make your data easy to use it is best to store it in a standard and open file format which can be used by various software and remains accessible over time (e.g. CSV, XML). These types of data formats are also good candidates for digital preservation of data.
+Every researcher has their own favorite tools for storing and analysing data. To make your data easy to use it is best to store it in a standard and open file format which can be used by various software and remains accessible over time (e.g. CSV, XML). These types of data formats are also good candidates for the digital preservation of data.
 
 ### Use good variable names and null values
 
-Be consistent when naming variables and record enough information so the definitions of both variables and their values are clear. Follow the practices within your research community for naming variables e.g. using full taxonomic names. Many datasets also contain missing or empty data values which should be carefully marked (e.g. NaN) so they are distinguishable from true zeros.
+Be consistent when naming variables and record enough information in order to make the definitions of both the variables and their values are clear. Follow the practices within your research community for naming variables e.g. using full taxonomic names. Many datasets also contain missing or empty data values which should be carefully marked (e.g. NaN) so they are distinguishable from true zeros.
 
 ### Document your data processing
 
-Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata) often leads to data loss. To keep [data and documentation well organized](metadata-and-documentation.md#data-organization) you should also have a version control (manual or automatic) system in use. 
+Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata) often leads to data loss. To keep [data and documentation well-organized](metadata-and-documentation.md#data-organization) you should also have a version control (manual or automatic) system in use. 
 
 ### Provide metadata
 
@@ -62,27 +62,27 @@ Data used in research and publications should be uniquely identifiable. Make sur
 
 ### Take care of storage
 
-[Deposit your data](publishing-datasets.md#tools-to-host-and-publish-data) in a well-established repository provided by a trusted party to ensure that your data is safely stored. Take note of your organisation's data policy and the requirements from funding bodies and journals. Consider where other researchers in your community are storing their data, what services the repositories provide and what needs you have in terms of e.g. storage quota, data openness.
+[Deposit your data](publishing-datasets.md#tools-to-host-and-publish-data) in a well-established repository provided by a trusted party to ensure that your data is safely stored. Take note of the data policy of your organization and the requirements from funding bodies and journals. Consider where other researchers in your community are storing their data, what services the repositories provide and what need you have in terms e.g. of storage quota and of data openness.
 
 ### Open your data
 
 Data sharing is increasingly required by funding agencies and journals as it benefits the scientific community at large. It is also beneficial for data collectors as it is associated with increased visibility, collaboration and credit. You should consider sharing your data so that others can access and cite it. Equip your data with an established [license](publishing-datasets.md#licensing-rights) (e.g. Creative Commons licenses) so the others know what they can and cannot do with the data.
 
 !!! note "Additional readings and resources on data management"
-    - [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on [Fairdata.fi](http://fairdata.fi/) website
+    - [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) on the [Fairdata.fi](http://fairdata.fi/) website
     - The Finnish Social Science Data Archive's [Data Management Guidelines](http://www.fsd.uta.fi/aineistonhallinta/en/)
     - The Academy of Finland [Open Science pages](https://www.aka.fi/en/research-funding/responsible-science/open-science/)
-    - The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data’s life cycle.
+    - The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data life cycle
     - [FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies.
     - [CSC:s videos on Data Management](https://youtube.com/playlist?list=PLD5XtevzF3yEZw-8LadtaGVV8Um6CbMja)  
 
 
 ## How to manage sensitive data
 
-While not giving out exact technical details on how to process sensitive data, the EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
+The EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing, without giving any exact technical details on how to process sensitive data. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
 
-  1. Minimise the data. This means that you should only process the data that is absolutely needed. 
-  2. Anonymise or pseudonymise the data whenever possible. 
+  1. Minimize the data. This means that you should only process the data that is absolutely needed. 
+  2. Anonymize or pseudonymzse the data whenever possible. 
   3. Encrypt the data.
   4. Destroy the data you do not need. 
 
