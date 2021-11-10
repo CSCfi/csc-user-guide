@@ -1,6 +1,5 @@
 # Metadata and data documentation
 
-<a name="header1"></a>
 
 ## Overview
 
@@ -18,7 +17,6 @@ Metadata and data documentation are the contextual information about the data an
     
     and they all take part in explaining what the project data is and what it means.
 
-<a name="header2"></a>
 
 ## Metadata types
 
@@ -69,13 +67,9 @@ It is important that you create relevant metadata for reuse and future credit. I
 
 Also think about your file naming conventions, directory structure and **version control**. More about that in [Data organization](#data-organization).
 
-<a name="header3"></a>
-
 ## Semantic interoperability
 
 **Controlled vocabularies, thesauri, and ontologies** are all so called semantic artefacts, which are machine readable models of knowledge. When a data standard and schema express the data structure (relations of different elements in the data), semantic artefacts make the meaning of the content unambiguous and "understandable" to a machine (machine actionable). For example, when you collect data about plants it may be obvious to other human readers, that the data is about living organisms and not about power plants and other factories, but a computer can't distinguish the difference by interpreting the meaning from the context as humans can. For this purpose, data should be accompanied with or refer to a publicly available vocabulary that tells a machine how to interpret the data in the context, and also what values in the variables mean (for example are the numbers in the "Degrees" column Fahrenheit or Celsius degrees). It is also important to let the machine know whether an empty field, NULL, or zero means zero value, or if the data is simply missing. It can be crucial to the analyses and results if data is (mis)interpreted in different ways when reusing or merging datasets. 
-
-<a name="header4"></a>
 
 ## Data organization
 
