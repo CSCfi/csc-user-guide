@@ -25,7 +25,7 @@
   - [Processing and analysing data](sourcing-datasets.md#header5)
   - [Building data lakes](sourcing-datasets.md#header6)
 
-## [Storing and moving data](hosting-datasets-at-CSC.md)
+## [Storing datasets at CSC](hosting-datasets-at-CSC.md)
 
   - [Overview](hosting-datasets-at-CSC.md#header1)
   - [What to consider when choosing a suitable storage solution](hosting-datasets-at-CSC.md#header2)
