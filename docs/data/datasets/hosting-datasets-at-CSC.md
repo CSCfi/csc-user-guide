@@ -6,17 +6,21 @@
 
 [CSC's services for storing data](https://research.csc.fi/en/service-catalog#store) are offered free of charge for academic research, education and training purposes in Finnish higher education institutions and in state research institutes. To start using the service, [register a CSC account and create a project](https://research.csc.fi/accounts-and-projects). Note that EUDAT services have their own registration process.
 
-!!! note "Additional readings on CSC's storage services"
-    - [Store and Share Data](https://research.csc.fi/storage)
-    - [Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
-    - [Services for Sensitive Data](../../sensitive-data/index.md)
-    - [Allas Object Storage Service](../Allas/index.md)
-    - [Fairdata Services](https://www.fairdata.fi/en/)
-    - [Eudat Services](https://www.eudat.eu/)
-    - [Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-for-research-data/)
-    - [Moving datasets in CSC's environment](../moving/scp.md)
-
 <a name="header2"></a>
+
+## CSC's services for storing data
+
+[Store and Share Data](https://research.csc.fi/storage)
+[Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
+[Services for Sensitive Data](../../sensitive-data/index.md)
+[Allas Object Storage Service](../Allas/index.md)
+[Using Allas to host a data set for a research project](../Allas/allas_project_example.md)
+[Fairdata Services](https://www.fairdata.fi/en/)
+[Eudat Services](https://www.eudat.eu/)
+[Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-for-research-data/)
+[Moving datasets in CSC's environment](../moving/scp.md)
+
+<a name="header3"></a>
 
 ## What to consider when choosing a suitable storage solution
 
@@ -38,7 +42,7 @@ When you are looking for a place to store data during your research project, you
 As the research project ends, you need to consider what data should to be [published](publishing-datasets.md), for how long you need to retain the data according to the requirements of the funder, publisher or your home organization, and what data can be [deleted](publishing-datasets.md#data-deletion) at this point. Valuable data might also be digitally [preserved](publishing-datasets.md#preservation) .
 
 
-<a name="header3"></a>
+<a name="header4"></a>
 
 ## How much storage space is needed
 
