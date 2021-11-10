@@ -30,7 +30,7 @@ License: CC BY 4.0
  
 ### Discovery metadata
 
-**Descriptive metadata** of a dataset can be divided into two subcategories: **1) core metadata** *or study level metadata* (for discovery and identification - for search and citation) and **2) detailed descriptive metadata** *or data level metadata* (variables configurations, work-flows, processing code etc. - for enabling assessment and reuse) → see "Data documentation" chapter below
+**Descriptive metadata** of a dataset can be divided into two subcategories: **1) core metadata** *or study level metadata* (for discovery and identification - for search and citation) and **2) detailed descriptive metadata** *or data level metadata* (variables configurations, work-flows, processing code etc. - for enabling assessment and reuse). More about detailed descriptive metadata in [Data documentation](#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata).
 
 ***Core metadata* includes**
 
@@ -67,7 +67,7 @@ It is important that you create relevant metadata for reuse and future credit. I
     - Readme file(s) providing information about data files to ensure correct interpretation
     - Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.
 
-Also think about your file naming conventions, directory structure and **version control**. Read more from [Data organization](#data-organization) below.
+Also think about your file naming conventions, directory structure and **version control**. More about that in [Data organization](#data-organization).
 
 <a name="header3"></a>
 
