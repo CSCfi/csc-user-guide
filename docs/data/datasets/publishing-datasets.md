@@ -6,7 +6,9 @@
 
 Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in future. Publishing should be based on commonly accepted standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so that the effort spent on publishing data properly is often quickly paid back.
 
-## Tools to host and publish data
+## Where to host or publish data
+
+[re3data.org](https://www.re3data.org/) - Registry of Research data Repositories offers detailed descriptions of more than 2600 repositories
 
 [CSC's tools for hosting and storing data](https://research.csc.fi/en/service-catalog#store)
 
