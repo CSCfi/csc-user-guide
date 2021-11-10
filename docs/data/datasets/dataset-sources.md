@@ -38,4 +38,5 @@
   - [Persistent identifiers](publishing-datasets.md#header3)
   - [Licensing & rights](publishing-datasets.md#header4)
   - [Access control](publishing-datasets.md#header5)
+  - [Data deletion](publishing-datasets.md#header5)
   - [Preservation](publishing-datasets.md#header6)
