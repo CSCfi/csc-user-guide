@@ -699,7 +699,7 @@ environment and type rstudio. 
 !!! note
     You can also use R and RStudio on CSC's Puhti supercomputer. The Bioconductor packages needed here are already installed there.
 
--   [RStudio on CSC's Puhti supercomputer](../tutorials/rstudio-or-jupyter-notebooks.md)
+-   RStudio on CSC's Puhti supercomputer ADD LINK HERE 
 
 ...or you can also run these steps on your own computer, in which case
 you need to install these packages as descriped below.
