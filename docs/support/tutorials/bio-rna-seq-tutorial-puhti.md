@@ -776,7 +776,7 @@ file: https://biotraining.object.pouta.csc.fi/rnaseq\_tutorial/RNA-Seq-Rscript.
 Option A) You can use R and RStudio on CSC's supercomputers. The Bioconductor packages needed here are already installed there (?). To use RStudio in Puhti, you first need to set up the ssh keys.
 
 -   [R on CSC's environments](../../apps/r-env-singularity.md)
--   [Using RStudio in Puhti](../../support/tutorials/rstudio-or-jupyter-notebooks.md)
+-   Using RStudio in Puhti ADD LINK HERE
 -   [Setting up the SSH keys](../../computing/connecting.md#setting-up-ssh-keys)
 
 Option B) In virtual machine: Open RStudio (or R) in the virtual machine: activate the Conda base
@@ -1251,7 +1251,7 @@ load biokit.
 
 
 -   [Modules in Puhti](../../computing/modules.md)
--   [Applications available in Puhti](../../apps/by_system.md#puhti)
+-   Applications available in Puhti ADD LINK HERE 
 
 
 Run the script with sbatch command. 
