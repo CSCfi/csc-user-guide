@@ -1,5 +1,24 @@
 # Applications
 
+## PyTorch 1.10, 10.11.2021
+
+PyTorch 1.10.0 is now available in the `pytorch/1.10` module on Puhti and Mahti,
+and has been set as the default module. See the [official PyTorch 1.10 release
+notes](https://pytorch.org/blog/pytorch-1.10-released/) for more details. CSC's
+module has the following improvements:
+
+- Jupyter Lab now works (previously only regular Jupyter Notebook UI worked)
+- [DeepSpeed](https://www.deepspeed.ai/) support built in (experimental support)
+
+## TensorFlow 2.7, 9.11.2021
+
+TensorFlow 2.7.0 is now available in the `tensorflow/2.7` module on Puhti and
+Mahti, and has been set as the default module. See the [TensorFlow 2.7 release
+notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.7.0/)
+for more details. CSC's module has the following improvements:
+
+- Jupyter Lab now works (previously only regular Jupyter Notebook UI worked)
+
 ## Schrödinger Maestro 2021.3, 30.8.2021
 
 Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a section on how to speed up Quantum Espresso jobs. A bug in the script that generates the `schrodinger.hosts` file has also been fixed by setting the `parallel` HOST entry to use the `large` Slurm partition as intended.
