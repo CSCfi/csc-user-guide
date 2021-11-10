@@ -42,6 +42,11 @@
 ## Embedded Videos
  - Iframes to youtube need to use the `srcdoc` attribute instead of `src`, this is due to a workaround
  we use to avoid cookies if consent has not been granted. 
+ 
+ ## Links
+ - Internal links: ../../accounts/how-to-create-new-user-account.md, NOT https://docs.csc.fi/accounts/how-to-create-new-user-account/
+ - Make sure you have the correct number of parent directories (../../accounts/how-to-create-new-user-account.md vs ../accounts/how-to-create-new-user-account.md)
+ - When linking to subsections on pages, the syntax is: ../../accounts/how-to-create-new-user-account.md#getting-student-accounts-for-courses (NOT ../../accounts/how-to-create-new-user-account.md/#getting-student-accounts-for-courses, so NO / !)
 
 ## Images, linked documents
  - Put all images in `/img` folder in docs root
