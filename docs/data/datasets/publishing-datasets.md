@@ -14,8 +14,6 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 
 [How to publish your dataset with Fairdata](https://www.fairdata.fi/en/user-guides/fairdata-quick-guide/)
 
-[Using Allas to host a data set for a research project](../Allas/allas_project_example.md)
-
 [Example case 1: Sharing data during research project, publish FAIR when ready](https://research.csc.fi/example-case-1)
 
 [Example case 2: Data lifecycle at CSC – from collection to preservation](https://research.csc.fi/example-case-2)
