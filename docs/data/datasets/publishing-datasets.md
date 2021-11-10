@@ -99,6 +99,12 @@ Whichever option is selected does not affect the visibility of the dataset’s d
 
 <a name="header6"></a>
 
+## Data deletion
+
+Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data, and sensitive data should be disposed of in an appropriate manner. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of "special category personal data", is completely wiped from hard-drives, portable drives and any other kind of storage solutions.  
+
+<a name="header7"></a>
+
 ## Preservation
 
 Digital preservation refers to the reliable preservation of digital information for several decades or even centuries. Hardware, software, and file formats will become outdated, while the information must be preserved. Reliable digital preservation requires active monitoring of information integrity and anticipation of various risks. Metadata, which describes for example the information content, provenance information and how the content can be used, has a key role in this.
