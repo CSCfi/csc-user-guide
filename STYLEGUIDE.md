@@ -17,7 +17,7 @@
  - [General guidelines](https://www.saavutettavuusvaatimukset.fi/)
  - Make accessible content! In short:
  - **Links:** Link text needs to be descriptive
-   - `[Read more here](link-to-some-page)` is not accessible. `[Read more about free use cases](link-to-some-page)` is better.
+   - `[Read more here](link-to-some-page.md)` is not accessible. `[Read more about free use cases](link-to-some-page.md)` is better.
    - Pure URL is NOT an option! Imagine reading it: h-t-t-p-s colon slash slash...
    - If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>` This label is read by the screen readers but is not visible to others.
 - **Images:** 
@@ -44,9 +44,17 @@
  we use to avoid cookies if consent has not been granted. 
  
  ## Links
- - Internal links: ../../accounts/how-to-create-new-user-account.md, NOT https://docs.csc.fi/accounts/how-to-create-new-user-account/
- - Make sure you have the correct number of parent directories (../../accounts/how-to-create-new-user-account.md vs ../accounts/how-to-create-new-user-account.md)
- - When linking to subsections on pages, the syntax is: ../../accounts/how-to-create-new-user-account.md#getting-student-accounts-for-courses (NOT ../../accounts/how-to-create-new-user-account.md/#getting-student-accounts-for-courses, so NO / !)
+ - For internal links, include `.md` in the target:
+     - `[cool page](page.md)`
+     - `[stuff in page](page.md#anchor)`
+     - `[stuff in other section](../other_section/page.md)`
+     - `[stuff elsewhere in page](../other_section/page.md#anchor)` 
+     - **Do not make** _internal_ links with `https://...`
+ - Common issues:
+     - Incorrect number of parent directories (`../../accounts/how-to-create-new-user-account.md` vs `../accounts/how-to-create-new-user-account.md`)
+     - including `/` between page and anchor
+         - **Correct**: `../../accounts/how-to-create-new-user-account.md#getting-student-accounts-for-courses` 
+         - **Incorrect**: ` ../../accounts/how-to-create-new-user-account.md/#getting-student-accounts-for-courses`
 
 ## Images, linked documents
  - Put all images in `/img` folder in docs root
@@ -59,9 +67,6 @@
  - All examples should use minimum viable reserved resources. I.e don't write examples 
    with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. 
    Users tend to use these as default values.
- - Internal links as `[cool page](page.md)`, `[stuff in
-   page](page.md#anchor)`, `[stuff in other section](../other_section/page.md)`,
-   `[stuff elsewhere](../other_section/page.md#anchor)` (no _internal_ links with https://...)
  - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the 
    language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
  - If you don't want any syntax highlighting, just use \`\`\`text
