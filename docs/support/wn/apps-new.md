@@ -6,6 +6,7 @@ PyTorch 1.10.0 is now available in the pytorch/1.10 module on Puhti and Mahti.
 See the [official PyTorch 1.10 release
 notes](https://pytorch.org/blog/pytorch-1.10-released/) for more details. CSC's
 module has the following improvements:
+
 - Jupyter Lab now works (previously only regular Jupyter Notebook UI worked)
 - [DeepSpeed](https://www.deepspeed.ai/) support built in (experimental support)
 
@@ -15,6 +16,7 @@ TensorFlow 2.7.0 is now available in the tensorflow/2.7 module on Puhti and
 Mahti. See the [TensorFlow 1.10 release notes on
 GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.7.0/) for more
 details. CSC's module has the following improvements:
+
 - Jupyter Lab now works (previously only regular Jupyter Notebook UI worked)
 
 ## Schrödinger Maestro 2021.3, 30.8.2021
