@@ -8,9 +8,8 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 
 ## Where to host and publish data
 
-!!!Note "Note!"
-
-**Registry of Research Data Repositories, [re3data.org](https://www.re3data.org/),** offers detailed descriptions of more than 2600 repositories in all scientific disciplines.
+!!! note "Note!"
+    **Registry of Research Data Repositories, [re3data.org](https://www.re3data.org/),** offers detailed descriptions of more than 2600 repositories in all scientific disciplines.
 
 [CSC's tools for publishing data](https://research.csc.fi/en/service-catalog#open)
 
