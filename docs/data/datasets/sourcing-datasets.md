@@ -3,17 +3,17 @@
 <a name="header1"></a>
 ## Overview
 
-A dataset is a collection of data. Typically it consists of data files or database tables related to one single topic. Examples of datasets include Corpus of Old Literary Finnish, ChEMBL database of bioactive molecules and MovieLens dataset of movie recommendations.
+A dataset is a collection of data. Typically, it consists of data files or database tables related to one single topic. Examples of datasets include Corpus of Old Literary Finnish, ChEMBL database of bioactive molecules and MovieLens dataset of movie recommendations.
 
 Datasets are the corner stone of data driven computing and data analysis. Datasets allow to focus on the origin, life cycle and ethical use of data resources, instead of the technicalities of single data files or computing methods. CSC provides services for dataset oriented research and develops future services to better support datasets and other higher level aspects of data.
 
 !!! note "Note"
-    The ownership, copyrights and license of data is often best defined for the whole dataset, though in some cases finer-grained definitions might be needed. In scientific writing dataset is usually cited as a single entity.
+    The ownership, copyrights and license of data is often best defined for the whole dataset, though, in some cases finer-grained definitions might be needed. In scientific writing dataset is usually cited as a single entity.
 
 <a name="header2"></a>
 ## Gathering datasets
 
-The first phase of dataset driven work is where datasets are gathered. It is possible to locate and take into use existing well-defined datasets or to create new datasets by sourcing data and organising it into datasets. The gathering phase lays the foundation on which data-driven computing and analysis is built on. During this phase the focus should be on making sure licenses and terms of use for data are known and match the intended use, asserting that the origin for data is known for good provenance and that data is organised and documented well.
+The first phase of dataset driven work is where datasets are gathered. It is possible to locate and take into use existing, well-defined datasets or to create new datasets by sourcing data and organizing it into datasets. The gathering phase lays the foundation on which data-driven computing and analysis is built on. During this phase, the focus should be on making sure licenses and terms of use for data are known and match the intended use, asserting that the origin for data is known for good provenance and that data is organized and documented well.
 
 **What if the dataset terms of use are made by the producers themselves?**
 The dataset creator reserves the right to specify the terms of use for their dataset, even without ready-made licenses. In such cases, the terms of use specified must be observed, but you can also negotiate the terms of use by contacting the owner of the dataset.
@@ -24,7 +24,7 @@ If there are no terms of use or the terms of use given are unclear, you should a
 <a name="header3"></a>
 ## Discover research data
 
-When utilising and re-using data collected or produced by others the origin, content, location, license, restrictions of use, and other necessary information are needed. Search services include descriptive information (metadata) on research datasets. The better the description of the dataset is, the easier it is to find and use it. Existing research datasets may be available for reuse.
+When utilizing and re-using data collected or produced by others the origin, content, location, license, restrictions of use, and other necessary information are needed. Search services include descriptive information (metadata) on research datasets. The better the description of the dataset is, the easier it is to find and use it. Existing research datasets may be available for reuse.
 
 [See CSC's services for discovering datasets](https://research.csc.fi/service-catalog#open)
 
