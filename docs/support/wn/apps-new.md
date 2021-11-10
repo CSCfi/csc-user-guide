@@ -13,7 +13,7 @@ module has the following improvements:
 ## TensorFlow 2.7, 9.11.2021
 
 TensorFlow 2.7.0 is now available in the `tensorflow/2.7` module on Puhti and
-Mahti, and has been set as the default module. See the [TensorFlow 1.10 release
+Mahti, and has been set as the default module. See the [TensorFlow 2.7 release
 notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.7.0/)
 for more details. CSC's module has the following improvements:
 
