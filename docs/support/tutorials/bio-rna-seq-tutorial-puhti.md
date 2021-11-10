@@ -1251,7 +1251,7 @@ load biokit.
 
 
 -   [Modules in Puhti](../../computing/modules.md)
--   [Applications available in Puhti](../../apps.md)
+-   [Applications available in Puhti](../../apps/by_system.md#puhti)
 
 
 Run the script with sbatch command. 
