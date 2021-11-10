@@ -1,7 +1,5 @@
 # Data management
 
-<a name="header1"></a>
-
 ## Overview
 
 Good research data management (RDM) is the basis of successful research. RDM covers the whole life-cycle of data starting from data creation or collecting, the managing and organisation of data during the project and publishing and digital preservation after the active phase of a project. Its purpose is to ensure reproducibility of research, which is fundamental prerequisite of all scientific research.  Good data management throughout the data life-cycle is crucial for facilitating data sharing and ensuring the sustainability and accessibility of data in the long-term and therefore their re-use for future science.
@@ -15,10 +13,8 @@ Good research data management (RDM) is the basis of successful research. RDM cov
     - Re-usable
     
     [Get to know the principles with this video](https://youtu.be/K-kEvfaUJdA)
-    
-    
-<a name="header2"></a>
-
+   
+   
 ## Best practices
 
 Below are some guidelines for good data management practices. By browsing the data management pages you can find instructions for example of 
@@ -81,8 +77,6 @@ Data sharing is increasingly required by funding agencies and journals as it ben
     - [CSC:s videos on Data Management](https://youtube.com/playlist?list=PLD5XtevzF3yEZw-8LadtaGVV8Um6CbMja)  
 
 
-<a name="header3"></a>
-
 ## How to manage sensitive data
 
 While not giving out exact technical details on how to process sensitive data, the EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
@@ -118,8 +112,3 @@ Hart, E. M., Barmby, P., LeBauer, D., et al. (2016). Ten Simple Rules for Digita
 Wilkinson, M., Dumontier, M., Aalbersberg, I. et al. The FAIR Guiding Principles for scientific data management and stewardship. Sci Data 3, 160018 (2016). [https://doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)
 
 Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (2017). Good enough practices in scientific computing. PLoS Computational Biology, 13(6), e1005510. [http://doi.org/10.1371/journal.pcbi.1005510](http://doi.org/10.1371/journal.pcbi.1005510)
-
-
-
-
-
