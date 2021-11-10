@@ -54,7 +54,7 @@ Be consistent when naming variables and record enough information so the definit
 
 ### Document your data processing
 
-Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good data documentation often leads to data loss. To keep data and documentation well organized you should also have a version control (manual or automatic) system in use. 
+Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#Data documentation (also called detailed descriptive metadata or data-level metadata)) often leads to data loss. To keep data and documentation well organized you should also have a version control (manual or automatic) system in use. 
 
 ### Provide metadata
 
