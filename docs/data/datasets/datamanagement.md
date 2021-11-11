@@ -92,6 +92,8 @@ Remember to identify and name a
 
 !!! note "Additional information on sensitive data management"
     - [CSC's Sensitive Data Services for Research](https://research.csc.fi/sensitive-data)
+    - [Definition of sensitive data](https://research.csc.fi/en/definition-of-sensitive-data)
+    - [Managing sensitive data](https://research.csc.fi/en/managing-sensitive-data)
     - [User Guide for Sensitive Data Services for Research](../sensitive-data.md)
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
     - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
