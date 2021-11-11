@@ -6,7 +6,7 @@ If you need to do heavy computing interactively, you should use interactive batc
 In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) remote desktop.
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
-slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` area will be removed. 
+slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` and `$LOCAL_SCRATCH` areas will be removed. 
 
 
 ## Easy interactive work: sinteractive command
@@ -23,11 +23,11 @@ in Puhti and Mahti are not identical. There is some differences in both command 
 
 ### sinteractive in Puhti
 
-In Puhti, each user can have only one active session open in the `interactive` partition.
-In the interactive partition you can reserve in maximum 4 cores, with max 64 GB of memory,
-up to 7 days of time, and 640 GB of local scratch space. GPUs cannot be reserved.
+In Puhti, each user can have two active sessions open in the `interactive` partition.
+In the interactive partition you can reserve in maximum 8 cores, with max 76 GB of memory,
+up to 7 days of time, and 720 GB of local scratch space. GPUs cannot be reserved.
 
-If your requests exceed these limits or you already have a session in the
+If your requests exceed these limits or you already have two sessions in the
 interactive partition, `sinteractive` can submit the session request to `small` or `gpu`
 partitions instead. However, in these cases your session starts queuing just like normal batch job and
 you may need to wait some time before the requested resources become available and the interactive session 
@@ -35,24 +35,24 @@ starts.
 
 All the `sinterative` sessions are executed in nodes that have [NVMe fast local disk area](/computing/running/creating-job-scripts-puhti/#local-storage) available. The environment variable `$TMPDIR` points to the local disk area of the job. This local disk area has high I/O capacity and thus it is the ideal location for temporary files created by the application. Note however, that this disk area is erased when the interactive batch job session ends.
 
-For example, an interactive session with 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2001234_
+For example, an interactive session with 2 cores, 8 GiB  of memory, 48 h running time and 100 GiB local scratch using project _project_2001234_
 can be launched with command:
 
 ```text
-sinteractive --account project_2001234 --time 48:00:00 --mem 8000 --tmp 100
+sinteractive --account project_2001234 --cores 2 --time 48:00:00 --mem 8000 --tmp 100
 ```
 
 Available options for `sinteractive` in Puhti are:
 
 | Option        | Function                                                 | Default              | Max |
 | ------------- | -------------------------------------------------------- | -------------------- |-----|
-| -i, --interactive | Set resource requests for the job interactively      |                      | |
+| -i, --interactive | Set resource requests for the job interactively.      |                      | |
 | -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             | 7-00:00:00 |
-| -m, --mem     | Memory reservation in MB.                                | 1000                 | 64000|
+| -m, --mem     | Memory reservation in MB.                                | 2000                 | 76000|
 | -j, --jobname | Job name.                                                | interactive          | |
-| -c, --cores   | Number of cores.                                         | 1                    | 4 |
+| -c, --cores   | Number of cores.                                         | 1                    | 8 |
 | -A, --account | Accounting project.                                      |                      | |
-| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).              | 32                   |640  |
+| -d, --tmp     | Size of job specific $TMPDIR disk (in GiB).              | 32                   |720  |
 | -g, --gpu     | Number of GPU:s to reserve (max 4)                       | 0                    | 0 |
 
 ### sinteractive in Mahti

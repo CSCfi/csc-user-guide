@@ -4,14 +4,13 @@ description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
 # Maestro
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
-for *drug design* and *Materials Science*. It can be used to build, edit, run and analyse 
-chemical model systems.
+for *drug design* and *Materials Science*. It can be used to build, edit, run and analyse chemical model systems.
 
 [TOC]
 
 ## Available
 
-Puhti: 2020.3, 2020.4, 2021.1
+Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3
 
 
 ## License

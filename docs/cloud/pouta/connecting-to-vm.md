@@ -30,20 +30,20 @@ A new virtual machine only has a default user account and the
 *root* or *administrator* account, or in some cases, only the root
 account. The user account name depends on the image used. For images
 provided by CSC, it has usually been "cloud-user", but we are moving
-towards using the image's upstream defaults. For example, Ubuntu 18.04 
-uses "ubuntu". You can only log in using keypair-based authentication, 
+towards using the image's upstream defaults. For example, Ubuntu images
+use "ubuntu". You can only log in using keypair-based authentication,
 such as:
 
-    #for cPouta CentOS/ScientificLinux/Ubuntu 16.04 VMs
+    #for cPouta CentOS VMs
     ssh cloud-user@public-ip -i keyfile.pem
 
-    #for cPouta Ubuntu 18.04 VMs
+    #for cPouta Ubuntu VMs
     ssh ubuntu@public-ip -i keyfile.pem
 
-    #for ePouta CentOS/ScientificLinux/Ubuntu 16.04 VMs
+    #for ePouta CentOS VMs
     ssh cloud-user@vm-ip -i keyfile.pem
 
-    #for ePouta Ubuntu 18.04 VMs
+    #for ePouta Ubuntu VMs
     ssh ubuntu@vm-ip -i keyfile.pem
 
 With the default CSC images, when you try logging in as root, you

@@ -10,34 +10,23 @@ __GRASS__ is available in Puhti with following versions:
 
 ## Usage
 
-In Puhti GRASS GIS is installed inside the [QGIS singularity installation](qgis.md)
+### GRASS GIS Command Line Interface 
 
-It can be loaded with
+In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). For using GRASS GIS, see [exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
+
+### GRASS GIS Graphical User Interface
+
+Using GRASS GIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
+
+Alternatively, especially if you want to use GRASS GIS and some other GUI tool together, GRASS GIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
 
 ```
 module load qgis
-```
-
-After loading the module you can use the GRASS GIS graphical user interface from an interactive session with 
-
-```
-sinteractive -i
 grass
 ```
-
-You can also use the command line tools that come in GRASS. See the [GRASS GIS manual](https://grass.osgeo.org/learn/manuals/) for more information. 
-
-For GRASS commands to work in Puhti, you need to add `singularity_wrapper exec` before the GRASS commands. 
-
-For example printing the instructions for the command grass74
-
-```
-singularity_wrapper exec grass74 -h
-```
-
-!!! note
-    The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
-
 
 ## License and citing
 

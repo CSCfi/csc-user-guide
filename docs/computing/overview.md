@@ -44,6 +44,7 @@ Where **yourcscusername** is the username you get from CSC.
 
 For more details, see the [connecting](connecting.md) page. 
 
+Puhti can also be accessed via [Puhti web interface](../webinterface) available at [www.puhti.csc.fi](https://www.puhti.csc.fi).
 
 ## Usage policy
 
@@ -91,7 +92,7 @@ actually also get results faster due to less queuing if your code can use both C
 machine learning (ML) and artificial intelligence (AI) related
 research. A significant part of these resources must be available for
 this use.
- *  ML/AI workfloads often use libraries and frameworks specifically optimized for GPUs. Typically, a ML/AI workflow will be many times faster if run on a GPU, compared to running e.g. using a full node of CPUs. Typically, the benefit for GPU optimized other HPC workloads is smaller, although sometimes still faster than with a full CPU node.
+ *  ML/AI workloads often use libraries and frameworks specifically optimized for GPUs. Typically, a ML/AI workflow will be many times faster if run on a GPU, compared to running e.g. using a full node of CPUs. Typically, the benefit for GPU optimized other HPC workloads is smaller, although sometimes still faster than with a full CPU node.
  * The significant improvement of the A100 GPU cards in Mahti-AI over V100 in Puhti-AI are the tensor cores. There are many ML/AI workloads
 that can make use of them resulting in large speedups, whereas non-AI/ML workloads often don't. Optimal usage of this resource requires ability to utilize the tensor cores. 
 
@@ -144,6 +145,7 @@ csc-workspaces
 
 * [Systems](available-systems.md): What computational resources are available
 * [Connecting](connecting.md): How to connect to  CSC supercomputers 
+* [Puhti web interface](../webinterface): How to connect to Puhti using the web interface
 * [Disk areas](disk.md): What places are there for storing data on CSC supercomputers 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.

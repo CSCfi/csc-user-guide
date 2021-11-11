@@ -50,3 +50,4 @@ and to resolve runtime errors. At CSC, several debuggers are available:
   Fortran, etc.)
 * [PDB](pdb.md) is an interactive debugger for Python programs
 * [CUDA-GDB](cuda-gdb.md) is a command-line debugger for CUDA programs
+* [compute-sanitizer](compute-san.md) is a command-line functional correctness checking suite

@@ -10,7 +10,7 @@ module load mpip
 ```
 Next, the code is build as usual, but with the addition of the `-g` flag in compilation and the following linker flags. For Mahti one should use:
 ```
--lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib>-lunwind
+-lmpiP -lm -lbfd -liberty -L<path-to-unwind-lib> -lunwind 
 ```
 The path to the *unwind* library on mahti is `/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib`. 
 Similarly, for Puhti the relinking is done with:
@@ -19,10 +19,21 @@ Similarly, for Puhti the relinking is done with:
 ```
 The path to the *iberty* library is `/appl/spack/install-tree/intel-19.0.4/libiberty-2.31.1-o4es74/lib/`, while the path to *unwind* library is `/appl/spack/install-tree/intel-19.0.4/libunwind-1.2.1-45uplb/lib/`. 
 The above re-link will only work if it appears the last in the compiling line. 
+Note that the compile options `-lmpiP ...`  have to be the last in the compiling list. For example in a `Makefile` we would have:
+
+```
+FC=mpif90
+FCFLAGS=-O2 -g -fopenmp -march=native -fdefault-real-8 -fdefault-double-8 -lfftw3 -lfftw3_omp  -lmpiP -lm -lbfd -liberty -L/appl/spack/v014/install-tree/gcc-9.3.0/libunwind-1.3.1-otflii/lib -lunwind
+
+all : TwoDMPIPFC.f
+	$(FC) -o TwoDMPIPFC TwoDMPIPFC.f ${FCFLAGS} 
+
+```
 Next the code is ran as a usual batch job. The following additions are needed to the job script:
 ```
 module load mpip
 export LD_LIBRARY_PATH=<path-to-unwind-lib>:<path-to-iberty-lib>:$LD_LIBRARY_PATH
+export MPIP="-t 10.0 -k 2 -c"
 ```
 This will create profiling for all code in a file which is indicated before the programs's own output in the standard output. Here is an example of a output at the beginning of the execution of a code:
 
@@ -198,4 +209,4 @@ call MPI_PCONTROL( 0 )
 call MPI_FINALIZE( ierr )
 ```
 In the above code the debugging is first disabled after the MPI initialization (with `call MPI_CONTROL(0)`)  and later it is switched back for the region of interest.  At the end of the region the profiling is disabled again. In this case the profiler will only collect information for the region between the lines  `call MPI_CONTROL(1)` and  `call MPI_CONTROL(0)`.
-Finally, mpiP has several configurable parameters  can set via the environment variable MPIP. For more details, please consult the related documentation at (http://mpip.sourceforge.net/#Runtime_Configuration).
+Finally, mpiP has several configurable parameters  can set via the environment variable MPIP. For more details, please consult the related documentation at (https://github.com/LLNL/mpiP).

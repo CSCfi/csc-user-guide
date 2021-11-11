@@ -12,6 +12,8 @@ billed differently. Knowing about these different states in Pouta
 helps you make better decisions on how to maintain your infrastructure.
 This also helps you to save billing units. 
 
+## States
+
 The main states of virtual machines in Pouta:
 
 ### Active
@@ -19,14 +21,14 @@ A virtual machine is said to be active when it
 is in the *power on* state. It remains in the active state
 irrespective of whether you are using it or not. Virtual machines in
 the active state consume computing resources on one of our compute
-nodes and are thus billed normally as explained in [Pouta flavors and billing].
+nodes and are thus billed normally as explained in [Pouta flavors and billing](vm-flavors-and-billing.md).
 
 ### Shut off
 The virtual machine is not running and is *powered
 off*. However, a shut off virtual machine still consumes billing
 units in the same way as an **active** one. This is
 because active/powered off virtual machines consume the same computing
-resources on one of our compute nodes as explained in [Pouta flavors and billing].
+resources on one of our compute nodes as explained in [Pouta flavors and billing](vm-flavors-and-billing.md).
 
 !!! warning
     A *shut off* virtual machine still consumes billing units. To stop
@@ -83,18 +85,23 @@ use. They cannot be recovered, and all data stored in the virtual
 machine is deleted, excluding any attached volumes. Once the virtual
 machine is deleted, you are no longer billed for it.
 
-The figure below illustrates the state transitions between these
+## Save Your billing units
+
+The figure below illustrates the state transitions between
 states.
 
 ![Virtual machine lifecycle](/img/instance-lifecycle-1.png)
 
 In the above section, we discussed the main states of virtual
 machines in Pouta. Theoretically, there are other states as well.
-The full list of states and their behaviors: [OpenStack documentation].
+The full list of states and their behaviors: [OpenStack documentation](https://developer.openstack.org/api-guide/compute/server_concepts.html).
 
-# Save Your billing units
+In order to transition between states, you have two main options, use the [Command line client tools](/cloud/pouta/command-line-tools/), or use the webinterface.
+From the web interface you can transition your VM to all these states. In the main page of the Pouta web interface, open the **Instances** view. Under the **Actions** column, you will be able to see a drop-down menu with all the possible options.
 
-There are many practices which help save billing units:
+![Save your billing units](/img/Save-Your-billing-units.png)
+
+There are many other practices which help save billing units:
 
 ### Automated provisioning
 Automated provisioning and configuration
@@ -172,4 +179,3 @@ flexibility.
 
 
   [Pouta flavors and billing]: vm-flavors-and-billing.md
-  [OpenStack documentation]: https://developer.openstack.org/api-guide/compute/server_concepts.html

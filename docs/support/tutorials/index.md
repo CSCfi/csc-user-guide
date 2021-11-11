@@ -12,6 +12,8 @@
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
+* [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
+* [Building Singularity containers from scratch](singularity-scratch.md)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)
@@ -34,6 +36,7 @@
 
 ## Chemistry
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
+* [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
 
 ## Data analysis and machine learning
@@ -48,6 +51,7 @@
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
+* [Learn cloud computing by developing and deploying a web application](cloud.md)
 
 ## Rahti - container cloud
 * [Core objects](../../cloud/rahti/concepts.md)

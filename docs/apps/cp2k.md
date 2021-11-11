@@ -1,6 +1,6 @@
 # CP2K
 
-Versatile ab initio and classical molecular dynamics. CP2k is suited for large parallel quantum chemistry calculations, in
+Versatile ab initio and classical molecular dynamics. CP2K is suited for large parallel quantum chemistry calculations, in
 particular for AIMD.
 
 [TOC]
@@ -8,11 +8,11 @@ particular for AIMD.
 ## Available
 
 * Puhti: 6.1
-* Mahti: 7.1
+* Mahti: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2
 
 ## License
 
-CP2k is freely available under the GPL license.
+CP2K is freely available under the GPL license.
 
 ## Usage
 
@@ -41,7 +41,6 @@ utilize all the cores you request in the batch script.
 module load cp2k
 
 srun cp2k.popt H2O-32.inp > H2O-32.out
-
 ```
 
 ### Example batch script for Mahti using mixed MPI-OpenMP parallelization
@@ -63,11 +62,12 @@ export OMP_PLACES=cores
 
 srun cp2k.psmp H2O-32.inp > H2O-32.out
 ```
+
 ### Performance notes
 
 **Mahti:**
 
-The following table shows average time [s] for one MD step for H2O-64 benchmark
+The following table shows average time [s] for one AIMD step for the [H2O-64 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-64.inp)
 in Mahti. The column headers show how many omp-threads were used per mpi-task.
 
 Nodes|d1|d2|d4|d8
@@ -80,13 +80,13 @@ Nodes|d1|d2|d4|d8
   and 4 OMP-threads per task (like the [Mahti example](#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization))
   For this system the performance does not scale beyond 2 nodes.
 * Mixed parallization is efficient: choose tasks and threads so that they add up to 128
-  (physical) cores available per node (or upto 40 on Puhti)
-* Test for optimal run parameters for your model system and method
-* A version linked with ELPA (like the one above) is
+  (physical) cores available per node (or up to 40 on Puhti).
+* Test for optimal run parameters for your model system and method.
+* Versions linked with ELPA (`cp2k/7.1-elpa` and `cp2k/8.2-omp`) are
   significantly faster with (metallic) systems that require large matrix diagonalizations
-  for SCF
-* There are additional versions available at `/appl/soft/chem/cp2k/7.1_extra`, please
-  see corresponding `README.txt`, but the one above is the fastest found so far
+  for SCF.
+* There are additional 7.1 versions available at `/appl/soft/chem/cp2k/7.1_extra`, please
+  see corresponding `README.txt`, but `cp2k/7.1-elpa` and `cp2k/8.2-omp` are the fastest found so far.
 
 ## References
 
@@ -97,3 +97,4 @@ log file. Choose and cite the ones relevant to the methods you've used.
 
 * CP2K online manual: <http://manual.cp2k.org/>
 * CP2K home page: <http://www.cp2k.org/>
+  * Contains [tutorials](https://www.cp2k.org/howto) and links to useful [tools](https://www.cp2k.org/tools)

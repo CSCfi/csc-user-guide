@@ -1,60 +1,60 @@
 # Intel Trace Analyzer and Collector (ITAC)
 
 Intel Trace Analyzer and Collector (ITAC) is a MPI profiling and tracing tool
-that can be used to understand and visualize the MPI behavior of a code and to
-identify hotspots and reasons for poor scaling performance. The tool is available only on Puhti and at the moment it supports only the applications compiled with the Intel MPI library.
+that can be used to understand and visualize the behavior of a MPI code and to
+identify hotspots and reasons for poor parallel scaling and MPI performance. 
+The tool is available only on Puhti and at the moment it supports only the applications 
+compiled with the Intel MPI library.
 
-## Compiling
+## Collecting traces
 
-In order to start using ITAC, first one has to set up the correct environment
-with:
+For simple MPI tracing, no recompilation is needed, and it is enough to add following 
+settings into a normal batch job script:
 
 ```bash
 module load intel-itac
 export LD_PRELOAD=libVT.so
+
+srun myprog
 ```
+Trace Collector includes also other components, e.g. for fail-safe MPI tracing and correctness
+checking, which are used by replacing `libVT` with the particular component. More details about
+different components can be found in the [Intel documentation](https://software.intel.com/content/www/us/en/develop/documentation/itc-user-and-reference-guide/top/introduction/product-components.html).
 
-The code to be analyzed is compiled normally, but with two additional options:
-`-g` and `-trace`. The first flag turns on compiler debug symbols allowing
-source code-level profiling and the second flag turns on the ITAC trace
-collectors.
+Trace Collector allows also [tracing of user defined events](https://software.intel.com/content/www/us/en/develop/documentation/itc-user-and-reference-guide/top/user-guide/tracing-user-defined-events.html), however, this requires always recompilation of the 
+application. As tracing can generate very large files even for relatively small applications,
+it is often useful to [filter the collected data](https://software.intel.com/content/www/us/en/develop/documentation/itc-user-and-reference-guide/top/user-guide/filtering-trace-data.html).
 
-One should use the same optimizations settings (e.g. `-O3`, `-xhost`) as used
-for production runs, so that the results reflect a real-life production run
-and any optimization efforts can be focused on correct parts of the code.
+The collected data are saved in a series of `<executable>.stf` files in the running directory. 
 
+### Known issues
 
-## Running
+- In Fortran programs MPI tracing works only with `mpi` module (i.e. not with `use mpi_f08`)
+- Collector exits with error "Failed writing buffer to flush file "/tmp/xxx.dat": No space left on device". 
+  - As the `/tmp/` in compute nodes is small, temporary files might need to be stored in the running 
+    directory by setting `export VT_FLUSH_PREFIX=$PWD`
 
-To enable the code profiling, one needs to set the environment variable
-`VT_PCTRACE` to 1, for example by adding the following line to the job
-script:
+## Analyzing the traces
 
-```
-export VT_PCTRACE=1
-```
-
-The code is then run as it would be normally run:
-
-```
-srun ./mpi_executable arguments
-```
-
-Please note that large files may be generated.
-
-
-## Analyzing the results
-
-All data collected by the tool are saved in a series of `<executable>.stf`
-files in the running directory. The analysis is done using the command:
+In order to improve the performance of the graphical user interface, 
+we recommend to use [NoMachine](../support/tutorials/nomachine-usage.md) remote desktop when carrying out the analysis. 
+The analyzer is started with the command (note that the `intel-itac` module needs to be loaded):
 
 ```
 traceanalyzer <executable>.stf
 ```
 
-The trace analyzer tool can show the timeline of each process and map each MPI
+The Trace Analyzer can show the timeline of each process and map each MPI
 call between the tasks. For each performance issue the following information
 is provided: description, affected processes, and source locations.
+
+Intel Trace Analyzer can be used also for investigating OTF2 formatted traces 
+produced by other performance tools, such as [ScoreP/Scalasca](scalasca.md). 
+This can be achieved by starting the analyzer
+```
+traceanalyzer
+```
+and selecting then the OTF2 file via the "Open" dialog.
 
 For more details please check the
 [Intel documentation](https://software.intel.com/content/www/us/en/develop/articles/intel-trace-analyzer-and-collector-documentation.html)
