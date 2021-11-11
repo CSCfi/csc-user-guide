@@ -1,44 +1,17 @@
-# Working with data
+# Datasets by discipline
 
-!!! note "Note"
-    The old Dataset section content can be found here: [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#header4)
+CSC hosts or provides access to several datasets on different platforms.
 
-## [Data management](datamanagement.md)
+## Biosciences
+* [ChEMBL](../apps/chembl.md) Database of bioactive molecules.
+* [Chipster_genomes](../apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
+ 
+## Chemistry
+* [CSD - Cambridge Crystallographic Database](../apps/csd.md) – organic and metallo-organic crystal structures and tools
+* [Molport 6M molecule database](../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
 
-  - [Overview](datamanagement.md#overview)
-  - [Best practices](datamanagement.md#best-practices)
-  - [How to manage sensitive data](datamanagement.md#how-to-manage-sensitive-data)
+## Geosciences
+* [Open Finnish spatial datasets are available in Puhti or in Allas](datasets/spatial-data-in-csc-computing-env.md).
 
-## [Metadata and data documentation](metadata-and-documentation.md)
-
-  - [Overview](metadata-and-documentation.md#overview)
-  - [Metadata types](metadata-and-documentation.md#metadata-types)
-  - [Semantic interoperability](metadata-and-documentation.md#semantic-interoperability)
-  - [Data organization](metadata-and-documentation.md#data-organization)
-
-## [Data sources](sourcing-datasets.md)
-
-  - [Overview](sourcing-datasets.md#overview)
-  - [Gathering datasets](sourcing-datasets.md#gathering-datasets)
-  - [Discover research data](sourcing-datasets.md#discover-research-data)
-  - [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
-  - [Processing and analysing data](sourcing-datasets.md#processing-and-analysing-data)
-  - [Building data lakes](sourcing-datasets.md#building-data-lakes)
-
-## [Storing datasets at CSC](hosting-datasets-at-CSC.md)
-
-  - [Overview](hosting-datasets-at-CSC#overview)
-  - [CSC's services for storing data] (hosting-datasets-at-CSC#cscs-services-for-storing-data)
-  - [What to consider when choosing a suitable storage solution](hosting-datasets-at-CSC.md#what-to-consider-when-choosing-a-suitable-storage-solution)
-  - [How much storage space is needed](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
-
-## [Publishing datasets](publishing-datasets.md)
-
-  - [Overview](publishing-datasets.md#overview)
-  - [Where to host and publish data](publishing-datasets.md#where-to-host-and-publish-data)
-  - [Data types](publishing-datasets.md#data-types)
-  - [Persistent identifiers](publishing-datasets.md#persistent-identifiers)
-  - [Licensing & rights](publishing-datasets.md#licensing-rights)
-  - [Access restrictions](publishing-datasets.md#access-restrictions)
-  - [Data deletion](publishing-datasets.md#data-deletion)
-  - [Preservation](publishing-datasets.md#preservation)
+## Language research and other digital humanities and social sciences
+* The latest versions of [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are available unpacked in `/appl/data/kielipankki/`
