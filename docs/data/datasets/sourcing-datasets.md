@@ -3,7 +3,7 @@
 <a name="header1"></a>
 ## Overview
 
-A dataset is a collection of data. Typically, it consists of data files or database tables related to one single topic. Examples of datasets include Corpus of Old Literary Finnish, ChEMBL database of bioactive molecules and MovieLens dataset of movie recommendations.
+Data are observations or measurements (unprocessed or processed) represented as text, numbers, or multimedia. A **dataset** (also spelled 'data set') is *a structured and stable collection of data generally associated with a unique body of work (for example a research study).* In order for a dataset to be reusable for research purposes, the dataset needs to be FAIR (findable, accessible, interoperable, reusable). This means that it needs to e.g. have a unique [identifier](publishing-datasets.md#persistent-identifiers) such as a DOI or URN, sufficient [metadata](metadata-and-documentation.md#metadata-types) including provenance and creator information, and a [license](publishing-datasets.md#licensing-rights) enabling reuse. Datasets also need to fulfill discipline specific requirements and standards. More about the difference between data and dataset in [Data types](publishing-datasets.md#data-types).
 
 Datasets are the corner stone of data driven computing and data analysis. Datasets allow to focus on the origin, life cycle and ethical use of data resources, instead of the technicalities of single data files or computing methods. CSC provides services for dataset oriented research and develops future services to better support datasets and other higher level aspects of data.
 
