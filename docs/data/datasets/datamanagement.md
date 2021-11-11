@@ -62,7 +62,7 @@ Data used in research and publications should be uniquely identifiable. Make sur
 
 ### Take care of storage
 
-[Deposit your data](publishing-datasets.md#tools-to-host-and-publish-data) in a well-established repository provided by a trusted party to ensure that your data is safely stored. Take note of the data policy of your organization and the requirements from funding bodies and journals. Consider where other researchers in your community are storing their data, what services the repositories provide and what need you have in terms e.g. of storage quota and of data openness.
+[Deposit your data](publishing-datasets.md#where-to-host-and-publish-data) in a well-established repository provided by a trusted party to ensure that your data is safely stored. Take note of the data policy of your organization and the requirements from funding bodies and journals. Consider where other researchers in your community are storing their data, what services the repositories provide and what need you have in terms e.g. of storage quota and of data openness.
 
 ### Open your data
 
