@@ -18,4 +18,12 @@ Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
 Links:
 
-* [GPU-accelerated machine learning](gpu-ml.md).
+* [Using GPUs for machine learning on CSC's Supercomputers](gpu-ml.md)
+* [Data storage for machine learning](ml-data.md)
+* [Multi-GPU and multi-node machine learning jobs](ml-multi.md)
+
+TODO:
+* Singularity-stuff for ML?
+* Hyperparameter optimization
+* MLOps (MLflow, Rahti deployment)
+* Puhti web UI for ML?

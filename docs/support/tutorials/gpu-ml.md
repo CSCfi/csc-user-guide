@@ -25,7 +25,7 @@ default** as it has a wider set of software supported.
 ## Available machine learning software
 
 We support many applications for GPU-accelerated machine learning on CSC's supercomputers:
-[list of supported applications](../../apps/#data-analytics-and-machine-learning). 
+[list of supported applications](../../apps/index.md#data-analytics-and-machine-learning). 
 Please read the detailed instructions for the specific application that you are interested
 in, for example [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md),
 [MXNET](../../apps/mxnet.md), and [RAPIDS](../../apps/rapids.md).
@@ -116,101 +116,6 @@ multi-node jobs](#multi-gpu-and-multi-node-jobs) below.
 For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
 supercomputers](../../computing/running/batch-job-partitions.md).
-
-## Data storage
-
-It is recommended to store big datasets in [Allas](../../data/Allas/index.md),
-and download them to your project's [scratch directory](../../computing/disk.md)
-prior to starting your computation. Example:
-
-```bash
-module load allas
-allas-conf
-cd /scratch/<your-project>
-swift download <bucket-name> your-dataset.tar
-```
-
-!!! note
-
-    Please **do not read a huge number of files from the shared file system**, use
-    fast local disk or package your data into larger files instead!
-
-
-Many machine learning tasks, such as training a model, require reading a huge
-number of relatively small files from the drive. Unfortunately the Lustre-shared
-file systems (e.g. `/scratch`, `/projappl` and users' home directories) do not
-perform very well when opening a lot of files, and it also causes noticeable
-slowdowns for all users of the supercomputer. Instead, consider more efficient
-approaches, including:
-
-- packaging your dataset into larger files 
-- taking into use the [NVME fast local
-  storage](../../computing/running/creating-job-scripts-puhti.md#local-storage)
-  on the GPU nodes
-- using a SquashFS image (Singularity-only)
-
-### More efficient data format
-
-Many machine learning frameworks support formats for packaging your data more
-efficiently. For example [TensorFlow's
-TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) format. Other
-examples include using
-[HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
-or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/) formats, or
-even humble ZIP-files, e.g., via Python's
-[zipfile](https://docs.python.org/3/library/zipfile.html) library. The main
-point with all of these is that instead of many thousands of small files you
-have one, or a few bigger files, which are much more efficient to access and
-read linearly. Don't hesitate to [contact our service
-desk](https://www.csc.fi/contact-info) if you need advice about how to access
-your data more efficiently.
-
-
-### Fast local drive
-
-If you really need to access the individual small files, you can use the fast
-local drive that is present in every GPU node. In brief, you just need to add
-`nvme:<number-of-GB>` to the `--gres` flag in your submission script, and then
-the fast local storage will be available in the location specified by the
-environment variable `$LOCAL_SCRATCH`. Here is an example run that reserves 100
-GB of the fast local drive and extracts the dataset tar-package on that drive
-before launching the computation:
-
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:1,nvme:100
-
-tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
-
-srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
-```
-
-Note that you need to communicate somehow to your own program where to find the
-dataset, for example with a command line argument. Also see our [general
-instructions on how to take the fast local storage into
-use](../../computing/running/creating-job-scripts-puhti.md#local-storage).
-
-If you are running a multi-node job (see next section), you need to modify the
-`tar` line so that it is performed on each node separately:
-
-```bash
-srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
-    tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
-```
-
-### Using SquashFS
-
-If you are running one of our [Singularity-based modules](#singularity), you can package your
-dataset into a SquashFS image and mount it so it's visible to the code as a
-normal directory. See [our documentation on how to mount datasets with
-SquashFS](../../computing/containers/run-existing.md#mounting-datasets-with-squashfs)
-for the details.
 
 ## GPU utilization
 
@@ -305,67 +210,3 @@ supports loading with multiple processes:
 ```python
 train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 ```
-
-## Multi-GPU and multi-node jobs
-
-Multi-GPU jobs are also supported by specifying the number of GPUs required in
-the `--gres` flag, for example to have 4 GPUs on Puhti (which is the maximum for
-a single node): `--gres=gpu:v100:4`. On Mahti the flag would be:
-`--gres=gpu:a100:4`. Note that on Mahti, the `gpusmall` partition only supports
-a maximum of 2 GPUs, for 4 GPUs or more you need to use the `gpumedium` partition.
-**Please also make sure that your code can take advantage of
-multiple GPUs, this typically requires some changes to the program**.
-
-For large jobs requiring more than 4 GPUs we recommend using
-[Horovod](https://github.com/horovod/horovod), which is supported for TensorFlow
-and PyTorch. Horovod uses MPI and NCCL for interprocess communication. See also
-[MPI based batch
-jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs).
-Horovod can also be used with single-node jobs for 4 GPUs, and in some
-benchmarks this has proved to be faster than other multi-GPU implementations.
-
-Note that Horovod is supported only for some specific versions of TensorFlow and
-PyTorch, please check the application pages to see which versions support
-Horovod. To take Horovod into use, just load the appropriate module, e.g:
-
-```bash
-module load tensorflow/2.4
-```
-
-Below are example slurm batch scripts that use 8 GPUs across two computers. In
-MPI terminology we have 8 tasks on 2 nodes, each task has one GPU and 10 CPUs.
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks=8
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=64G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "Mahti"
-    
-    Note that on Mahti you have to use the `gpumedium` partition for multi-node
-    jobs.
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks=8
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    srun python3 myprog.py <options>
-    ```
-    
