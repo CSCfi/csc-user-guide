@@ -50,8 +50,8 @@ Additionally geoconda includes:
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.x/bin` or `/appl/soft/geo/conda/singularity/geoconda/2021/bin` for full
     list.
     
-!!! note
-    If you want to use Spyder, ncview or other tools with graphical user interfaces,connect to Puhti web interface and start a [remote desktop](../computing/webinterface/desktop.md) or [Visual Studio Code](../computing/webinterface/vscode.md). You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
+
+    
 
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
@@ -66,8 +66,6 @@ The `geoconda` module is available in Puhti:
 * 3.8.8 (Singularity installation with wrappers, the usage of singularity container should not be visible in normal use-cases.)
 * 3.8-deprecated 
 * 3.7-deprecated 
-
-3.8 and 3.7 are deprecated, because these are normal conda installations, which causes heavy load to Puhti disk system.
 
 Version number is the same as Python version.
 
@@ -91,6 +89,8 @@ To check the exact packages and versions included in the loaded module:
  
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
+!!! note
+You can edit your Python code with [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md) or Spyder in Puhti web interface [remote desktop](../computing/webinterface/desktop.md).
 
 ## Using Allas from Python
 
