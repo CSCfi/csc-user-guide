@@ -131,6 +131,7 @@ nav:
                    - Using storage elements for data transport in FGCI: cloud/fgci/fgci-using-storage-elements-for-data-transport.md
              - The Grid Monitor: cloud/fgci/fgci-grid-monitor.md
   - Data:
+     - Datasets: data/datasets.md
      - Working with data:
         - Contents: data/datasets/dataset-sources.md
         - Data management: data/datasets/datamanagement.md
