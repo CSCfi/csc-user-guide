@@ -11,7 +11,11 @@ jobs:
         uses: actions/checkout@v2
       - run: .github/fix_images.sh
       - run: git add docs
-      - run: git commit -m "Download images"
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Fix images" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:

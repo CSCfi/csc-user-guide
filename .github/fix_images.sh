@@ -7,3 +7,4 @@ for i in ${image_urls[@]}; do
 done
 cd ..
 cp -r temp_img/* docs/img/
+find docs -name "*.md" -exec sed -i  's@https://user-images\.githubusercontent\.com/[0-9]*/@/img/@g' {} \;
