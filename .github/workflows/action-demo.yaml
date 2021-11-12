@@ -10,6 +10,8 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: .github/fix_images.sh
+      - run: git add docs
+      - run: git commit -m "Download images"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
