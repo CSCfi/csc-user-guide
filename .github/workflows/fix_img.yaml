@@ -1,11 +1,17 @@
 name: Fix drag and drop images
-on: [push]
+on:
+  pull_request:
+    branches:
+      - master
+
 jobs:
   fix-img:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:  
+          ref: ${{ github.event.pull_request.head.sha }}
       - run: .github/fix_images.sh
       - run: git add docs
       - run: git_hash=$(git rev-parse --short "$GITHUB_SHA") && echo $git_hash
@@ -19,5 +25,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: ${{ github.ref }}
+          branch: ${{ github.event.pull_request.head_ref }}
 
