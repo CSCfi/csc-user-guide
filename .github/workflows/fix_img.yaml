@@ -1,8 +1,5 @@
 name: Fix drag and drop images
-on:
-  pull_request:
-    branches:
-      - master
+on: [push]
 jobs:
   fix-img:
     runs-on: ubuntu-latest
@@ -22,5 +19,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: ${{ github.head_ref }}
+          branch: ${{ github.ref }}
 
