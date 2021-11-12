@@ -98,7 +98,7 @@ Remember to identify and name a
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
     - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
 
-<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s" title="Webinar: What are the policies and possibilities for managing your sensitive data?" width="560"></iframe>
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/watch?v=29XmiG5Zj0s?rel=0" title="Webinar: What are the policies and possibilities for managing your sensitive data?" width="560"></iframe>
 
 
 **Sources for this best practice review**
