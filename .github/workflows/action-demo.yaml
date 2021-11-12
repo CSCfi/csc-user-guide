@@ -9,9 +9,8 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: List files in the repository
-        run: .github/fix_images.sh
+      - run: .github/fix_images.sh
       - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: ${{ github.ref }}
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.ref }}
