@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@master
         with:  
           ref: ${{ github.event.pull_request.head.sha }}
       - run: .github/fix_images.sh
       - run: git add docs
       - run: git_hash=$(git rev-parse --short "$GITHUB_SHA") && echo $git_hash
       - run: git_branch=${GITHUB_REF#refs/heads/} && echo $git_branch
+      - run: echo ${{ github.event.pull_request.head.sha }}
       - run: echo ${{ github.head_ref }}
       - name: Commit files
         run: |
