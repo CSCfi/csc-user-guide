@@ -79,5 +79,6 @@ Note that file sizes can vary a lot, depending for example on the quality of an 
 |MPEG video                             |650 MiB          |1                       |39                       |1600                    |
 |30 min HD video                        |2,1 GiB          |0                       |12                       |490                     |
 |full DVD                               |4,7 GiB          |0                       |6                        |218                     |
+|Human genome sequence                  |60 GiB           |0                       |0                        |17                      |
 
 **Average file size** is based on data from 14,000 word processing files, 1,000 presentation graphics files, 4 million JPEG images, 27,000 PDF files, and 7,000 MPEG files related to the study, as well as data from 5 non-study 30-minute HD h264 videos. 
