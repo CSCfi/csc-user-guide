@@ -23,7 +23,6 @@
   - [Discover research data](sourcing-datasets.md#discover-research-data)
   - [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
   - [Processing and analysing data](sourcing-datasets.md#processing-and-analysing-data)
-  - [Building data lakes](sourcing-datasets.md#building-data-lakes)
 
 ## [Storing datasets at CSC](hosting-datasets-at-CSC.md)
 
