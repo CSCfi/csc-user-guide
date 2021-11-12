@@ -58,7 +58,7 @@ Remember to record and report how your research data is analysed and processed. 
 
 ### Get identifiers for your data
 
-Data used in research and publications should be uniquely identifiable. Make sure the data repository you use provides your data with a [permanent identifier](publishing-datasets.md#persistent-identifiers) (e.g DOI, URN). Use your dataset's identifier when sharing it and using it so it collects data citations for you.
+Data used in research and publications should be uniquely identifiable. Make sure the data repository you use provides your data with a [persistent identifier](publishing-datasets.md#persistent-identifiers) (e.g DOI, URN). Use your dataset's identifier when sharing it and using it so it collects data citations for you.
 
 ### Take care of storage
 
