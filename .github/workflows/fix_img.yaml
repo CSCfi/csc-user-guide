@@ -1,0 +1,29 @@
+name: Fix drag and drop images
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  fix-img:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: .github/fix_images.sh
+      - run: git add docs
+      - run: git_hash=$(git rev-parse --short "$GITHUB_SHA") && echo $git_hash
+      - run: git_branch=${GITHUB_REF#refs/heads/} && echo $git_branch
+      - run: echo ${{ github.event.pull_request.head.sha }}
+      - run: echo ${{ github.head_ref }}
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Fix images" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch:  ${{ github.event.pull_request.head.ref }}
+
