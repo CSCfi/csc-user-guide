@@ -49,7 +49,7 @@ You can read more about the researcher and contributor id [ORCID](https://resear
     - [ANDS Persistent Identifiers Expert Level Guide](https://www.ands.org.au/guides/persistent-identifiers-expert)
 
 
-<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/watch?v=_4cZVli_xiU" title="Manage well and get preserved – 3. Persistent identifiers" width="560"></iframe>
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/_4cZVli_xiU" title="Manage well and get preserved – 3. Persistent identifiers" width="560"></iframe>
 
 
 ## Licensing & rights
@@ -102,6 +102,5 @@ The [National Digital Preservation Services](http://digitalpreservation.fi/en) f
 
 Learn more about the preservation of research data in this video.
 
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=arJ5jJP_eOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/arJ5jJP_eOM" title="Manage well and get preserved - 5. Preservation metadata" width="560"></iframe>
+
