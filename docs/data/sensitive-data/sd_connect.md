@@ -31,11 +31,11 @@ Login to SD Connect is currently possible only with Haka (a user identity federa
 The interface is compatible with all modern web browsers. 
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925767-e4fae580-d993-11eb-9fd4-12147dcb956d.png">
+<img width="570" alt="space in user guide" src="/img/123925767-e4fae580-d993-11eb-9fd4-12147dcb956d.png">
 
-<img width="960" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
+<img width="960" alt="SD-Connect-0" src="/img/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
@@ -46,7 +46,7 @@ The interface is compatible with all modern web browsers.
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
@@ -60,13 +60,13 @@ In this page you can :
 
 *  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete files or upload new files and folders.
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
+<img width="570" alt="space in user guide" src="/img/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
 
 
-![sd-connect-1](https://user-images.githubusercontent.com/83574067/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
+![sd-connect-1](/img/122786009-87dca100-d2bc-11eb-8a88-67b9bfc84930.png)
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
+<img width="570" alt="space in user guide" src="/img/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
 
 
@@ -83,12 +83,12 @@ In the  **User information** page you can:
 * access the **Sharing API tokens** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client. For more info check below).
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926085-37d49d00-d994-11eb-910f-4bcfa56c8589.png">
+<img width="570" alt="space in user guide" src="/img/123926085-37d49d00-d994-11eb-910f-4bcfa56c8589.png">
 
-![SD-Connect-2](https://user-images.githubusercontent.com/83574067/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
+![SD-Connect-2](/img/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926095-3a36f700-d994-11eb-8eb7-df1722efdacf.png">
+<img width="570" alt="space in user guide" src="/img/123926095-3a36f700-d994-11eb-8eb7-df1722efdacf.png">
 
 
 
@@ -106,10 +106,10 @@ In the **Shared** page:
 
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926120-415e0500-d994-11eb-8455-9b8762c7a58b.png">
+<img width="570" alt="space in user guide" src="/img/123926120-415e0500-d994-11eb-8455-9b8762c7a58b.png">
 
-![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
+![sd-connect-4](/img/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
+<img width="570" alt="space in user guide" src="/img/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
 
 
 
@@ -119,7 +119,7 @@ In the **Shared** page:
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 With the following workflow, you can use a graphical user interface (Crypt4sds GUI) developed by CSC to **encrypt and import a copy of your data to SD Desktop**.  
@@ -141,7 +141,7 @@ With the following workflow, you can use a graphical user interface (Crypt4sds G
 When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_. 
 
 
-<img width="385" alt="SDEnScreenShoot_2" src="https://user-images.githubusercontent.com/83574067/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
+<img width="385" alt="SDEnScreenShoot_2" src="/img/121065507-82b62700-c7d1-11eb-84ab-e6745eb76289.png">
 
 
 * **Step 3**: Encrypt the files
@@ -157,10 +157,10 @@ Encryption creates a new encrypted file that is named by adding to the end exten
 
 The encrypted file is now ready to be uploaded to _SD Connect_.
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926290-6a7e9580-d994-11eb-958d-1fc30adc05f3.png">
+<img width="570" alt="space in user guide" src="/img/123926290-6a7e9580-d994-11eb-958d-1fc30adc05f3.png">
 
 
-![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
+![Crytp4sds](/img/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
 
 
 
@@ -170,7 +170,7 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
  <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
  
  
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
@@ -190,11 +190,11 @@ If you create a new bucket use the following **suggestions to name it**:
 Example: ns-123456-raw-data-ddmmyy
   
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926328-710d0d00-d994-11eb-94e1-ea99ab121214.png">
+<img width="570" alt="space in user guide" src="/img/123926328-710d0d00-d994-11eb-94e1-ea99ab121214.png">
 
-![sd-connect-5](https://user-images.githubusercontent.com/83574067/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
+![sd-connect-5](/img/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926335-7407fd80-d994-11eb-8efa-37908c600d01.png">
+<img width="570" alt="space in user guide" src="/img/123926335-7407fd80-d994-11eb-8efa-37908c600d01.png">
 
 
 
@@ -203,7 +203,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 !!! note
@@ -296,7 +296,7 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 !!! Note
@@ -326,17 +326,17 @@ Clicking the button takes you to **Share the container**  view, in which the use
 At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**.
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+<img width="570" alt="space in user guide" src="/img/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
+![sd-connect-6](/img/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+<img width="570" alt="space in user guide" src="/img/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
+![SD-Connec-7](/img/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+<img width="570" alt="space in user guide" src="/img/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
+![sd-connect-8](/img/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 
 # Troubleshooting
