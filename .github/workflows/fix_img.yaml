@@ -2,10 +2,10 @@ name: Fix drag and drop images
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 jobs:
   fix-img:
     runs-on: ubuntu-latest
