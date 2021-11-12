@@ -1,5 +1,14 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 4 
+
+* Can now use custom python ienvironments for Jupyter notebooks, see xxxx.
+* Added new interactive shell app that gives a persistent shell in compute node for heavier commands that should not be run on login nodes.
+* App cards show more information  about resource usage after jobb has finished (seff output)
+* Can reset interactive forms to default settings
+* Open onDemand version updated to 2.0.19
+
+
 ## Puhti web interface beta updated to release 3 9.11.2021
 
 * App cards show more information about resources and reason for shutting down the app to help troubleshoot issues.
