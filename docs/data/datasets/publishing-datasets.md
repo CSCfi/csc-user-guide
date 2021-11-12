@@ -37,12 +37,13 @@ License: CC BY 4.0
 
 ## Persistent identifiers
 
-Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or ORCID when you publish or cite data, the linking is protected despite changes in names or organization. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
+Persistent identifiers offer managed ways to link and tag digital information. By using identifiers like DOI or URN when you publish or cite data, the linking is protected despite changes in names or organization. Identifiers are globally unique, which means that you can be sure you have the correct dataset at your hands or that you get credit for your publications.
 
-You can read more about the researcher and contributor id [ORCID](https://researcheridentifier.fi/) and about guidelines for [data citation](https://www.fcrd.fi/). Do not hesitate to contact the research data services or library in your own organization for further help. The more persistent identifiers you can include in your work flows, the better and easier is your information management.
+The more persistent identifiers you can include in your work flows, the better and easier is your information management. Do not hesitate to contact the research data services or library in your own organization for further help. 
 
 !!! note "Additional readings"
     - [Support for Persistent Identifiers at CSC](https://research.csc.fi/support-for-persistent-identifiers)
+    - [Cite Your Data - DataCite](https://datacite.org/cite-your-data.html)
     - [Digital Object Identifier (DOI)](https://www.doi.org/)
     - [ORCID - researcher identifier](https://researcheridentifier.fi/)
     - [Digital Preservation Handbook](https://www.dpconline.org/handbook/technical-solutions-and-tools/persistent-identifiers) by Digital Preservation Coalition
