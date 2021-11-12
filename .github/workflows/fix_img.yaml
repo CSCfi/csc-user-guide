@@ -19,5 +19,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: ${{ github.payload.pull_request.head.ref }}
+          branch: ${{ github.base_ref }}
 
