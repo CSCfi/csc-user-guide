@@ -128,8 +128,5 @@ It is important to take some time to plan file and folder structures and naming.
     - [The UK Data Service: Format your data](https://www.ukdataservice.ac.uk/manage-data/format)
     - [RDMkit: Data Organisation](https://rdmkit.elixir-europe.org/data_organisation.html#what-is-the-best-way-to-name-a-file)
 
-Video: Manage well and get preserved – 6. Managing files and file naming
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/watch?v=Xkqkg1oiUOQ" title="Manage well and get preserved – 6. Managing files and file naming" width="560"></iframe>
 
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=Xkqkg1oiUOQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
