@@ -10,7 +10,7 @@
 
 [Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
 
-[Services for Sensitive Data](../../sensitive-data/index.md)
+[Services for Sensitive Data](../sensitive-data/index.md)
 
 [Allas Object Storage Service](../Allas/index.md)
 
