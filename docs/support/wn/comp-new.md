@@ -1,5 +1,15 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 3 9.11.2021
+
+* App cards show more information about resources and reason for shutting down the app to help troubleshoot issues.
+* Various app improvements, especially Rclone.
+* Increased timeouts for launching apps.
+* Login fails now show an error message.
+
+## Puhti web interface beta (release 2) is available 18.10.2021
+
+An easy-to-use web interface for Puhti is now open for beta test use at <https://www.puhti.csc.fi>. The new user interface offers an easy way for new users to use Puhti, and for experienced users it makes access to some features quicker and easier. See [web interface](../../../computing/webinterface/) for details
 
 ## MPICH modules no longer work 4.5.2021 
 

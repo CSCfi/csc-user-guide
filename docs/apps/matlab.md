@@ -14,7 +14,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
+- Puhti: R2021b, R2021a, R2020b,R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
 
 ## License
 

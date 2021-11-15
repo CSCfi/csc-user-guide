@@ -52,6 +52,14 @@ nav:
      - Containers:
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
+     - Web interface:
+       - Overview: computing/webinterface/index.md
+       - Interactive apps:
+         - Desktop: computing/webinterface/desktop.md
+         - Jupyter: computing/webinterface/jupyter.md
+         - Rclone: computing/webinterface/rclone.md
+         - RStudio: computing/webinterface/rstudio.md
+         - Visual Studio Code: computing/webinterface/vscode.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
@@ -80,12 +88,12 @@ nav:
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
          - Annotations: cloud/rahti/tutorials/annotations.md
-         - Expand a volume: cloud/rahti/tutorials/expand-volumes.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
-         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
@@ -195,6 +203,7 @@ theme:
   logo: 'img/Docs_CSC_logo.svg#headerlogo"'
 
 extra_css:
+  - 'assets/stylesheets/tabbed.css'
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
   - 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css'
@@ -212,6 +221,8 @@ markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.superfences
   - pymdownx.snippets
 
 google_analytics:
