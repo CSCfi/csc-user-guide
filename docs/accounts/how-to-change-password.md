@@ -37,6 +37,4 @@ password reset link ordered to your email.
 * Reusing the old password will not stop your account from expiring
 * Never use the same password on multiple sites
 
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/SWxzBlqyvLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
+

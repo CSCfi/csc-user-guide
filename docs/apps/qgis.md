@@ -8,45 +8,26 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.16 in a singularity container
-* 3.14 via conda in geoconda-3.8
-* 3.10 via conda in geoconda-3.7
+* 3.16 in a singularity container: qgis module
 
 ## Usage
 
-### Using QGIS with graphical user interface
+Using QGIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
 
-First, connect to Puhti with [NoMachine](nomachine.md). A SSH connection with __X11 forwarding__ should also work, but is likely slower.
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-Second, start an [interactive session](../computing/running/interactive-usage.md)
-
-```
-sinteractive -i
-```
-
-QGIS has been installed in two different ways to Puhti. The Singularity installation is a container installation which makes it somewhat faster compared to the older conda installation.
-
-
-### Singularity installation
-
-Load the module and start QGIS
+Alternatively, especially if you want to use QGIS and some other GUI tool together or want to use data from Allas, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
 
 ```
 module load qgis
 qgis
 ```
 
-### Conda installation
-
-QGIS is older older versions are included in the [geoconda](../apps/geoconda.md) module and can be started with
-
-```
-module load geoconda
-qgis
-```    
 
 ### PyQGIS
-It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). With `qgis module` use `python3` for accessing PyQGIS libraries.
+
+It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). Use `python3` for accessing PyQGIS libraries.
 
 
 ### QGIS and Allas

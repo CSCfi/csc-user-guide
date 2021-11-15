@@ -31,7 +31,23 @@ This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
-### SNAP userdir and Java temp dir configuration 
+### Using SNAP with Graphical User Interface (GUI) via Puhti web interface
+
+Using SNAP in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start SNAP with Apps -> Desktop, choose Desktop: 'None' and App: 'SNAP'
+3. The SNAP GUI is started automatically when the Desktop is launched. 
+ 
+
+Alternatively, especially if you want to use QGIS and some other GUI tool together, SNAP can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+
+```
+source snap_add_userdir $TMPDIR
+snap -J-xmx10G
+```
+
+#### SNAP userdir and Java temp dir configuration 
 
 SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti or want to change the used folders. 
 
@@ -51,21 +67,8 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
 !!! note
         The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
 
-### Java memory settings
+#### Java memory settings
 __By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
-
-### Using SNAP with graphical user interface
-
-If you have connected with [NoMachine](nomachine.md) or have X11 enabled on your SSH connection, you can launch a graphical user interface on an interactive batch job session
-
-```
-sinteractive -i
-source snap_add_userdir $TMPDIR
-snap -J-xmx10G
-```
-
-!!! note
-         We recommend using [NoMachine](nomachine.md) for launching graphical user interfaces on Puhti
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 

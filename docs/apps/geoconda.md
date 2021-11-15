@@ -50,23 +50,22 @@ Additionally geoconda includes:
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.x/bin` or `/appl/soft/geo/conda/singularity/geoconda/2021/bin` for full
     list.
     
-!!! note
-    If you want to use Spyder, ncview or other tools with graphical user interfaces, you should connect to Puhti using NoMachine and [start an interactive session](../computing/running/interactive-usage.md) for best performance. You can also [edit and run Python code remotely](../support/tutorials/remote-dev.md) with some code editors like Visual Studio Code
+
+    
 
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
-(If you think that some important GIS package for Python is missing from
-here, you can ask for installation from servicedesk@csc.fi.)
+(If you think that some important GIS package for Python is missing from here, you can ask for installation from servicedesk@csc.fi.)
 
 
 ## Available
 
 The `geoconda` module is available in Puhti:
 
-* 3.8.8 (Singularity installation with wrappers, so should be hidden from users in normal use-cases)
-* 3.8 
-* 3.7 
+* 3.8.8 (Singularity installation with wrappers, the usage of singularity container should not be visible in normal use-cases.)
+* 3.8-deprecated 
+* 3.7-deprecated 
 
 Version number is the same as Python version.
 
@@ -88,8 +87,10 @@ To check the exact packages and versions included in the loaded module:
 
 `list-packages`
  
-You can add more Python packages to Geoconda, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
+You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
+!!! note
+You can edit your Python code with [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md) or Spyder in Puhti web interface [remote desktop](../computing/webinterface/desktop.md).
 
 ## Using Allas from Python
 
