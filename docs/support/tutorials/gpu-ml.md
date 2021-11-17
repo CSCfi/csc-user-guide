@@ -1,4 +1,11 @@
-# GPU-accelerated machine learning
+# GPU-accelerated machine learning on CSC's supercomputers
+
+This guide explains the basics of using GPUs in CSC's supercomputers. More in
+depth topics are covered in separate tutorials:
+
+* [Data storage for machine learning](ml-data.md)
+* [Multi-GPU and multi-node machine learning jobs](ml-multi.md)
+
 
 ## Puhti or Mahti?
 
@@ -48,33 +55,6 @@ requests, but with limited support. You can enable them by running:
 module use /appl/soft/ai/singularity/modulefiles/
 ```
 
-<!-- ##### Intel TensorFlow -->
-
-<!-- Intel CPU-optimized version of tensorflow in the module -->
-<!-- `intel-tensorflow/2.3-cpu-sng`. -->
-
-<!-- ##### DeepLabCut -->
-
-<!-- [DeepLabCut](http://www.mackenziemathislab.org/deeplabcut/) is a software -->
-<!-- package for animal pose estimation, available in the module `deeplabcut/2.1.9`. -->
-
-<!-- ##### Turku neural parser -->
-
-<!-- [Turku neural parser](http://turkunlp.org/Turku-neural-parser-pipeline/) is a -->
-<!-- pipeline for segmentation, morphological tagging, dependency parsing and -->
-<!-- lemmatization created by the [Turku NLP group](http://turkunlp.org/). -->
-
-<!--     module use /appl/soft/ai/singularity/modulefiles/ -->
-<!--     module load turku-neural-parser/fi-en-sv-cpu -->
-<!--     echo "Minulla on koira." | singularity_wrapper run stream fi_tdt parse_plaintext -->
-
-<!-- There is also a GPU-version `turku-neural-parser/fi-en-sv-gpu`. -->
-
-<!-- **NOTE:** running the command requires at least 4GB of RAM, so you need to run it -->
-<!-- in an [interactive session](../../computing/running/interactive-usage.md) or a -->
-<!-- batch job. -->
-
-
 To submit a job to the slurm queue using GPUs, you need to use the `gpu`
 partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and also specify the
 type and number of GPUs using the `--gres` flag. Below are example batch scripts
@@ -110,8 +90,8 @@ for reserving one GPU and a corresponding 1/4 of the CPU cores of a single node:
     ```
 
 Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
-GPUs, use the `gpumedium` queue. You can [read more about multi-GPU and
-multi-node jobs](#multi-gpu-and-multi-node-jobs) below.
+GPUs, use the `gpumedium` queue. You can read more about [multi-GPU and
+multi-node jobs in our separate tutorial](ml-multi.md).
 
 For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
@@ -149,7 +129,7 @@ utilization is 99% (i.e., very good).
 
 
 Alternatively, you can use `seff` which shows GPU utilisation statistics for the
-whole running time. (NOTE: this works only on Puhti at the moment.)
+whole running time.
 
 ```bash
 seff <job_id>
@@ -169,9 +149,8 @@ GPU memory
        r01g07             0         16.72          1.74         16.91 
 ```
 
-As always, don't hesitate to [contact our service
-desk](https://www.csc.fi/contact-info) if you need advice on how to improve you
-GPU utilization.
+As always, don't hesitate to [contact our service desk](../contact.md) if you
+need advice on how to improve you GPU utilization.
 
    
 ### Using multiple CPUs for data pre-processing
@@ -210,3 +189,9 @@ supports loading with multiple processes:
 ```python
 train_loader = torch.utils.data.DataLoader(..., num_workers=10)
 ```
+
+If you are using multiple data loaders, but data loading is still slow, it is
+also possible that you are using the shared file system inefficiently. A common
+error is to read a huge number of small files. You can read more about [how to
+store and load data in the most efficient way for machine learning in our
+separate tutorial](ml-data.md).

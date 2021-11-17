@@ -1,11 +1,34 @@
 # Machine learning at CSC
 
-This guide attempts to help users wishing to use machine learning at CSC to find
-the most suitable service, for example GPU-accelerated supercomputing or cloud
-services.
+This guide aims to give help and pointers to users who wish to do machine
+learning using CSC's computing resources.
 
-This guide also contains several in-depth tutorials on various advanced aspects
-of machine learning usage on CSC.
+## What CSC service to use?
+
+CSC offers several services which might be relevant for machine learning users:
+
+- [Supercomputers, Puhti and Mahti](../../computing/overview.md) are multi-user
+  clusters and offer the highest computing perfomance, including GPU
+  acceleration in a centrally controlled software environment,
+
+- [Pouta](../../cloud/pouta/index.md) offers your own virtual server with full
+  control of the software environment, but restricted computing performance
+  compared to supercomputers, 
+
+- [Rahti](../../cloud/rahti/index.md) offers a more automatised container-based
+  cloud environment, useful in particular for deploying web services.
+
+**Our recommendation is to use CSC's Puhti or Mahti supercomputers**, unless you
+need a very complicated software environment, or work with sensitive data. In
+those cases Pouta might be the right choice, and we also offer the ePouta
+variant which is suited for cases with high security requirements.
+
+If you are developing a service, for example want to deploy a trained model as a
+service, then Pouta or Rahti might be most relevant for you. 
+
+If you are unsure about the right service to use, don't hesitate to [contact our
+service desk](../contact.md) and explain your computing needs.
+
 
 ## CSC's supercomputers
 
@@ -17,14 +40,13 @@ software, and as with any shared resource one must follow the [usage
 policy](../../computing/overview.md#usage-policy) so that the service can remain
 usable.
 
-If you are a new user, please read at least:
-
-* [How to access Puhti and Mahti](../../computing/overview.md),
-* [How to submit computing jobs](../../computing/running/getting-started.md). 
+If you are a new user, please read [how to access Puhti and
+Mahti](../../computing/overview.md), and [how to submit computing
+jobs](../../computing/running/getting-started.md).
 
 Also check our related in-depth tutorials:
 
-* [Using GPUs for machine learning on CSC's Supercomputers](gpu-ml.md)
+* [GPU-accelerated machine learning on CSC's supercomputers](gpu-ml.md)
 * [Data storage for machine learning](ml-data.md)
 * [Multi-GPU and multi-node machine learning jobs](ml-multi.md)
 
