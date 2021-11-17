@@ -182,7 +182,20 @@ class Internal_link:
         source=self.source_file.path
         source="site/"+source[5:]
 
-        
+        # Check that the md file exists
+        if(self.ends_with_md):
+            if(self.is_absolute):
+                path_to_md="docs/"+ft
+            else:
+                path_to_md=f.path+"/"+ft 
+            command="readlink -ev -- " +path_to_md
+            res=run_bash(command)
+            if(res.returncode==1):
+                return
+            
+
+
+
         if(not self.source_is_index):
             target="../"+target
             source=source+"/"+self.source_file.name

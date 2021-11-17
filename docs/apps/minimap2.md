@@ -11,10 +11,15 @@ It can be used for:
 *    mapping full-length noisy Direct RNA or cDNA reads
 *    mapping and comparing assembly contigs or closely related full chromosomes of hundreds of megabases in length.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/lh3/minimap2/master/LICENSE.txt)
 
 ## Available
 
--   Puhti: 2.17-r941
+-   Puhti: 2.17-r941, 2.21-r1071
 -   Chipster graphical user interface
 
 

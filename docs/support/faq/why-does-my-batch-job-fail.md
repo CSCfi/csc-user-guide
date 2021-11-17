@@ -16,7 +16,7 @@ This error message refers to Slurm options `--account=<project>` and
 
 * Project does not exist.
 * Project exists, but you are not a member of it. See how to
-  [add a member to project](../../accounts/how-to-add-member-to-project.md)
+  [add a member to project](../../accounts/how-to-add-members-to-project.md)
 * You are a project member, but the project has not been enabled on Puhti. See
   how to
   [add service access for project](../../accounts/how-to-add-service-access-for-project.md).

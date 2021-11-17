@@ -8,7 +8,7 @@ Time Environment** (RTE). The RTE concept is analogous to the
 the commands of the selected software to the command path and sets up
 the environment variables that the software uses. In addition, RTEs are
 used to tell the ARC middleware what software are available on the
-different clusters. The FGI clusters don't all contain the same RTE:s.
+different clusters. The FGCI clusters don't all contain the same RTE:s.
 
 List and usage examples about RTEs that are available in FGCI can be
 found from the [FGI Runtime Environments pages](https://confluence.csc.fi/display/fgi/Runtime+Environments)

@@ -1,39 +1,46 @@
 # SAGA GIS
 
-[Saga GIS](http://www.saga-gis.org/)(System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. It can be used with a graphical user interface, command line tools or through the R package RSAGA. 
+[Saga GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. It can be used with a graphical user interface, command line tools or through the R package `Rsagacmd` or `RSAGA`. Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0 and higher.
 
 ## Available
 
-__SAGA GIS__ is available in Puhti with following versions:
+__SAGA GIS__ is available in Puhti in [r-env-singularity module  with different versions](r-env-for-gis.md).
 
-* 7.2.0
+## Usage 
 
-## Usage
+### SAGA GIS command line interface
 
-SAGA GIS is included in the __saga-gis__ module and can be loaded with
+`r-env-singularity` is a Singularity container, which means the commands are slightly different compared normal installations, basically all commands need to have `singularity_wrapper exec` before the usual command.
 
-`module load gcc/9.1.0 saga-gis`
+SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md).
 
-You can test that the program loaded successfully and print the command line tools help information with
+You can test that SAGA GIS loaded successfully and print the command line tools help information with
 
-`saga_cmd -h`
+```
+module load r-env-singularity 
+singularity_wrapper exec saga_cmd -h
+```
 
-If you have connected with NoMachine or have X11 enabled on your SSH connection, you can launch a graphical user interface with
+For more information on running R jobs on Puhti, please see the [`r-env-singularity` documentation](r-env-singularity.md).
 
-`saga_gui`
+### SAGA GIS Graphical User Interface
 
-!!! note
-   We recommend using [NoMachine](nomachine.md) and [an interactive batch job](../computing/running/interactive-usage.md) for launching graphical user interfaces on Puhti
+Using SAGA GIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
 
-## Usage with R
+1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+2. Start SAGA GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'.
 
-You can also utilize SAGA GIS functions through the RSAGA R library that is included in the r-env module. You can load it with
+Alternatively, especially if you want to use SAGA GIS and some other GUI tool together, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
 
-`module load r-env`
+```
+module load r-env-singularity 
+singularity_wrapper exec saga_gui
+```
+
 
 ## License and citing
 
-SAGA GIS is published under the [GPL](http://www.gnu.org/licenses/gpl.html) license. More information [here](http://saga-gis.sourceforge.net/en/)
+SAGA GIS is published under the [GPL](http://www.gnu.org/licenses/gpl.html) license. 
 
 In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
@@ -43,5 +50,3 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 * [SAGA GIS page on Sourceforge](https://sourceforge.net/projects/saga-gis/)
 * [SAGA GIS tutorials](https://sagatutorials.wordpress.com/)
 * [SAGA GIS tutorials on Sourceforge](https://sourceforge.net/p/saga-gis/wiki/Tutorials/)
-
-

@@ -1,5 +1,21 @@
 # Conda best practices
 
+
+## Please do not use conda on Puhti and Mahti
+
+Conda environments (with thousands of files) are a bad match with parallel file
+systems, and slow. Instead, use singularity packed environments, such as CSC's
+Python and R environments in Mahti, or more recent environments is Puhti. Install
+additional packages with pip. For example,
+
+```
+module load geoconda
+pip install --user ...package...
+```
+
+This should work nicely with most everyday use. If you need to use mpi4py, or
+the above does not work in your case, please contact servicedesk@csc.fi.
+
 ## What is conda
 
 [Conda] is
@@ -151,9 +167,9 @@ particular applications use. Examples of such environment variables are
 `PATH`, `LD_LIBRARY_PATH`, `CONDA_*`, and `PYTHONPATH`.
 
 As a general safe practice, try to rely on these environment variables as little
-as possible. Some environment module systems, such as the one in taito.csc.fi,
+as possible. Some environment module systems, such as the one in puhti.csc.fi,
 do extensively depend on modifying the values of environment variables. In
-taito.csc.fi it might be a good idea to run
+puhti.csc.fi it might be a good idea to run
 
 ```bash
 module purge
@@ -211,7 +227,7 @@ the package, and install it into a local channel.
 
 ## Examples
 
-The examples below should work without modifications in taito.csc.fi and
+The examples below should work without modifications in 
 puhti.csc.fi. The basic usage is the same in other machines, other clusters,
 laptops, etc.
 
@@ -383,7 +399,7 @@ dependencies:
 The first listed channel is in a local directory. In this case it is used as a
 repository for a self created package, here [GNU Global], which does not(?) have
 an existing Conda package in Anaconda or Conda-forge repositories. Naturally
-this environment can only be created in machine taito.csc.fi, if package
+this environment can only be created in machine puhti.csc.fi, if package
 `global` is included. TODO: Move the local channel to CSC's Allas object
 storage!
 

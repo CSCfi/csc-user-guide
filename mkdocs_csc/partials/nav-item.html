@@ -15,7 +15,7 @@
     <label class="md-nav__link" for="{{ path }}">
       {{ nav_item.title }}
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="{{ level }}">
+    <div class="md-nav" data-md-component="collapsible" data-md-level="{{ level }}">
       <label class="md-nav__title" for="{{ path }}">
         {{ nav_item.title }}
       </label>
@@ -27,7 +27,7 @@
           {% include "partials/nav-item.html"  %}
         {% endfor %}
       </ul>
-    </nav>
+    </div>
   </li>
 {% elif nav_item == page %}
   <li class="{{ class }}">

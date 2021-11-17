@@ -12,10 +12,15 @@ and production of publication-quality graphics.
 On 2017 a totally rewritten version of Qiime: Qiime2 was released. The development of the original Qiime version has stopped. 
 At the moment only Qiime2 is available in Puhti.
 
+[TOC]
+
+## License
+
+Free to use and open source under [BSD 3-Clause License](https://github.com/qiime2/qiime2/blob/master/LICENSE).
 
 ## Available
 
--   Puhti:qiime2-2020.6, qiime2-2020.2, qiime2-2019.10  
+-   Puhti: qiime2-2021.2, qiime2-2020.8, qiime2-2020.6, qiime2-2020.2, qiime2-2019.10  
 
 
 ## Usage
@@ -23,9 +28,10 @@ At the moment only Qiime2 is available in Puhti.
 In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
 
 ```text
+export PROJAPPL=/projappl/<project>  #replace <project> with your project name (typically project_some-number)
 module load bioconda
 conda env list
-source activate qiime2-2020.6
+source activate qiime2-2021.2
 source tab-qiime 
 ```
 
@@ -53,7 +59,7 @@ cd /scratch/<project>
 export PROJAPPL=/projappl/<project>
 module load bioconda
 conda env list
-source activate qiime2-2020.2
+source activate qiime2-2021.2
 ```
 
 Interactive batch jobs include local temporary disk that is mandatory for running Qiime. 
@@ -89,7 +95,7 @@ as a batch job using eight cores.
 #set up qiime
 export PROJAPPL=/projappl/<project>
 module load bioconda
-source activate qiime2-2019.10
+source activate qiime2-2021.2
 export TMPDIR="$LOCAL_SCRATCH"
 
 # run task. Don't use srun in submission as it resets TMPDIR
@@ -108,7 +114,7 @@ Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses thread
 the job is requested to use one task (`--ntasks=1`)  where all cores need to be in the same node (`--nodes=1`).
 This one task will use eight cores as parallel threads `--cpus-per-task=8` that 
 can use in total up to 16 GB of memory (` --mem=16G`). Note that the number of cores to be used needs to be defined in 
-actual qiime command, too. That is done with Megahit option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` 
+actual qiime command, too. That is done with Qiime option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` 
 variable that contains the _cpus-pre-task_ value ( we could as well use `--p-n-threads 8` but then we have to remember 
 to change the value if the number of reserved CPUs is changed).
 

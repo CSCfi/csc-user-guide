@@ -1,6 +1,10 @@
 # Using FGCI grid to run BLAST jobs
 
 
+!!! note
+    Grid blast is not yet installed on Puhti, but will be soon. The documentation
+    below will be updated.
+
 You can use the Finnish Grid and Cloud Infrastructure (FGCI) distributed computing environment 
 for running large BLAST sequence similarity search tasks. In FGCI, a BLAST search, consisting of 
 large number of query sequences is split into a number of sub-tasks that are submitted for execution 
@@ -14,7 +18,7 @@ shorter than what the clusters of CSC alone could provide.
 
 To be able to use grid resources for BLAST searches, you should have:
 
--     A valid grid certificate installed in the taito.csc.fi or taito-shell.csc.fi  server.
+-     A valid grid certificate installed in the puhti.csc.fi server.
 -     Membership of fgi.csc.fi Virtual Organization
 
 For detailed instructions, see the first chapter of the FGI user guide.

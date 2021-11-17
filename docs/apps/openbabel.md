@@ -5,7 +5,8 @@ Open Babel is a chemical toolbox designed to speak the many languages of chemica
 
 ## Available
 
--   Puhti: 3.0.a1
+-   Puhti: 3.1.1
+-   Mahti: 3.1.1
 
 ## License
 
@@ -16,7 +17,7 @@ Open Babel is free software available under  GNU GPL .
 Initialise Open Babel on Puhti like this:
 
 ```bash
-module load openbabel/3.0.a1
+module load openbabel/3.1.1
 ```
 
 A simple example, converting a PDB file to a Turbomole coord file:

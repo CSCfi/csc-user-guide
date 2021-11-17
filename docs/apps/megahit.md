@@ -4,6 +4,11 @@
 
 Megahit is an ultra fast assembly tool for metagenomics data.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
 

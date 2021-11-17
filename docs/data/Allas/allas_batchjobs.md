@@ -32,9 +32,9 @@ unset OS_PASSWORD
 To be able to use the automatized connection creation in batch jobs, you need to add the option `-f` to the 
 command, to skip certain internal checks that are not compatible with batch jobs. 
 Further, _allas-conf_ is just an alias of a _source_ command that reads the Allas configuration script that in 
-Puhti is located at `/appl/opt/allas-cli-utils/allas_conf`. In Mahti the location is `/appl/opt/allas/env/allas_conf `- 
-This aliased command is not available in batch jobs, so instead of _allas-conf_, you must use commands:
-Puhti:
+Puhti and Mahti is located at `/appl/opt/allas-cli-utils/allas_conf`. This aliased command is not available in batch jobs, 
+so instead of _allas-conf_, you must use the command:
+
 ```text
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 ```

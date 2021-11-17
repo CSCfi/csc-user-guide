@@ -10,6 +10,12 @@ Krona charts can be created using an Excel template or KronaTools, which include
 bioinformatics tools and raw data formats. The interactive charts are self-contained and can be 
 viewed with any modern web browser.
 
+[TOC]
+
+## License
+
+Krona is free to use and open source. It is provided under it's own [license](https://raw.githubusercontent.com/marbl/Krona/master/KronaTools/LICENSE.txt).
+
 ## Version
 
 *  Krona 2.7.1 is available in Puhti 

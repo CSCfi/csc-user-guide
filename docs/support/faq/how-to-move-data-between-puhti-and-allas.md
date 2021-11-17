@@ -49,7 +49,7 @@ rclone copy allas:2000620-raw-data/file.dat
 rclone copy allas:2000620-raw-data/file.dat doh
 ```
 
-For further guidance for using rclone with Allas from Supercomputers, see [Using Allas with rclone from Puhti and Taito](../../data/Allas/using_allas/rclone.md){target="_blank"}.
+For further guidance for using rclone with Allas from Supercomputers, see [Using Allas with rclone from Puhti](../../data/Allas/using_allas/rclone.md){target="_blank"}.
 
 ## Move data with s3cmd
 

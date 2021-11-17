@@ -11,6 +11,12 @@ MACS also uses a dynamic Poisson distribution to effectively capture local biase
 genome sequence, allowing for more sensitive and robust prediction. MACS compares can be 
 used for ChIP-Seq with or without control samples.
 
+[TOC]
+
+## License
+
+Free to use and open source under [BSD 3-Clause License](https://raw.githubusercontent.com/macs3-project/MACS/master/LICENSE).
+
 ## Available
 
 Version on CSC's Servers

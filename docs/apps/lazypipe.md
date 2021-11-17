@@ -4,12 +4,20 @@
 
 Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or environmental samples. The main emphasis is on assembling, taxonomic binning and taxonomic profiling of bacterial/viral sequences.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/OverZealous/lazypipe/master/LICENSE).
+
 ## Usage
 
 All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is loaded with commands:
 
 ```text
+module load r-env-deprecated
 module load biokit
+module load biopythontools
 module load lazypipe
 ```
 Now lazypipe starts with command:
@@ -42,7 +50,9 @@ When you have the data available you can submit the task with commands:
 
 ```text
 cd /scratch/my_project
+module load r-env-deprecated
 module load biokit
+module load biopythontools
 module load lazypipe
 sbatch-lazypipe -1 data/M15/M15_R1.fastq \
 --hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz \

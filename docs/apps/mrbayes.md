@@ -4,6 +4,12 @@
 
 MrBayes is a program for the Bayesian inference on phylogenies.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 
 Version on CSC's Servers

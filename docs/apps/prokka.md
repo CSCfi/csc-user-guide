@@ -4,6 +4,10 @@
 
 Prokka is a software tool to annotate bacterial, archaeal and viral genomes.
 
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 
 Prokka 1.14.6 is Available in Puhti.

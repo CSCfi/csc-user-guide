@@ -5,6 +5,12 @@
 SAMtools provides tools for using and manipulating SAM and BAM formatted alignments. 
 You can use SAMtools for example for indexing, variant calling and viewing alignments.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT/Expat License](https://github.com/samtools/samtools/blob/develop/LICENSE).
+
 ## Available
 
 Version on CSC's Servers
@@ -12,7 +18,7 @@ Version on CSC's Servers
 Puhti: 1.9
 
 
-Usage
+## Usage
 
 To use SAMtools in Puhti you can use initialization command:
 ```text

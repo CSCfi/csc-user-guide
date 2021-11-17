@@ -1,0 +1,2 @@
+docs/index.md
+docs/support/whats-new.md

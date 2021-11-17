@@ -6,9 +6,14 @@
 
 ### Using LAStools
 
-LAStools is included in the [geoconda](geoconda.md) module and can be loaded with
+LAStools is included in following modules:
 
-`module load geoconda` 
+* lastools: 2021
+* [geoconda](geoconda.md): 3.7 and 3.8
+
+Load one of these modules, for example:
+
+`module load lastools` 
 
 You can test LAStools loaded successfully with
 
@@ -18,18 +23,19 @@ You can test LAStools loaded successfully with
 
 Puhti installation includes only the open source tools of LAStools.
 
-* laszip - compresses the LAS files in a completely lossless manner
-* lasinfo - prints out a quick overview of the contents of a LAS file
-* lasindex - creates a spatial index LAX file for fast spatial queries
 * las2las - extracts last returns, clips, subsamples, translates, etc ...
-* lasmerge - merges several LAS or LAZ files into a single LAS or LAZ file
-* txt2las - converts LIDAR data from ASCII text to binary LAS format
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII
+* lasdiff - compares the data of two LAS/LAZ/ASCII files 
+* lasindex - creates a spatial index LAX file for fast spatial queries
+* lasinfo - prints out a quick overview of the contents of a LAS file
+* lasmerge - merges several LAS or LAZ files into a single LAS or LAZ file
 * lasprecision - analyses the actual precision of the LIDAR points
+* laszip - compresses the LAS files in a completely lossless manner
+* txt2las - converts LIDAR data from ASCII text to binary LAS format
 
 ### Using a licensed version
 
-Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl](../computing/disk.md) disk area.
+Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
 
 ```
 cd /projappl/<your_project>
@@ -78,7 +84,7 @@ Create an batch array job script that takes this list as an argument. This examp
 #SBATCH --partition small
 
 ### load geoconda that has the open source lastools commands
-module load geoconda
+module load lastools
 
 ### read a filepath to the .laz file given in the list of files
 inputfilepath=$(sed -n "$SLURM_ARRAY_TASK_ID"p $1)

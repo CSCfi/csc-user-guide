@@ -138,8 +138,8 @@ file:
 ```bash
 for i in 4 3 2
 do
-set row=(`sed -n "$i"p authors.txt `)
-echo "Row $i looks like: $row"
+  row=$(sed -n "$i"p authors.txt)
+  echo "Row $i looks like: $row"
 done
 ```
 

@@ -16,6 +16,12 @@ of at least ~50 samples. However, no part of XHMM explicitly requires these
 particular experimental conditions, just high coverage of genomic regions
 for many samples. 
 
+[TOC]
+
+## License
+
+Software is free to use and open source, but no license specified.
+
 ## Version
 
 *   xhmm 1.0 is available in Puhti
@@ -35,4 +41,4 @@ xhmm
 
 ## More information
 
-*   [XHMM home page](https://atgu.mgh.harvard.edu/xhmm/index.shtml)
+*   [XHMM home page](https://statgen.bitbucket.io/xhmm/index.html)

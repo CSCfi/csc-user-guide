@@ -1,8 +1,9 @@
 # Getting started with Puhti
 
 This is a quick start guide for Puhti users. It is assumed
-that you have previously used CSC cluster resources like Taito/Sisu. If not,
-you can start by looking [here](../../computing/overview.md).
+that you have previously used CSC cluster resources like Taito/Sisu.
+If not, you can start by looking at
+[overview of CSC supercomputers](../../computing/overview.md).
 
 **Go to [my.csc.fi](https://my.csc.fi) to apply for access to Puhti or view your projects and their project numbers
 if you already have access.** On Puhti, you can also use command `csc-projects`.
@@ -12,10 +13,13 @@ if you already have access.** On Puhti, you can also use command `csc-projects`.
 
 ## Connecting to Puhti
 
-Connect via [NoMachine](../../apps/nomachine.md) or using a normal ssh-client:
+Connect using a normal ssh-client:
 ```
-$ ssh <csc_username>@puhti.csc.fi
+$ ssh yourcscusername@puhti.csc.fi
 ```
+Where **yourcscusername** is the username you get from CSC. 
+
+There is also a beta [web interface](../../computing/webinterface/index.md) available at [www.puhti.csc.fi](https://www.puhti.csc.fi), where you can log in with your CSC user name. In this interface you can manage files, launch interactive applications and list jobs, quotas and project statuses. You can use it also for graphical applications, alternatively [NoMachine](../../apps/nomachine.md) is also available.
 
 ## Module system:
 
@@ -24,7 +28,7 @@ CSC uses the [Lmod](https://lmod.readthedocs.io) module system.
 Modules are set up in a hierarchical fashion, meaning you need to load a compiler 
 before MPI and other libraries appear.
 
-More information about modules [here](../../computing/modules.md).
+See [more information about modules](../../computing/modules.md).
 
 ## Compilers
 
@@ -32,15 +36,18 @@ The system comes with two compiler families installed, the Intel and GCC compile
 We have installed both the 18 and 19 versions of the Intel compiler, and for GCC 9.1, 8.3 and 7.4 are available.
 The pgi compiler 19.7 is available for building gpu applications.
 
-More information about compilers [here](../../computing/compiling.md).
+See [more information about compilers](../../computing/compiling-puhti.md).
 
+## High performance libraries
+
+Puhti has several high performance libraries installed, see [more
+information about libraries](../../computing/hpc-libraries.md).
 
 
 ## MPI
-Currently the system has a few different MPI implementations installed:
+Currently the system has a two MPI implementations installed:
 
 - hpcx-mpi
-- mpich
 - intel-mpi
 
 We recommend to test using 
@@ -48,8 +55,8 @@ _hpcx-mpi_ first, this one is from the network vendor and is based on OpenMPI.
 
  **You will need to have the MPI module loaded when submitting your jobs.**
 
-More information about [building](../../computing/compiling.md#building-mpi-applications) and
-[running](../../computing/running/creating-job-scripts.md#mpi-based-batch-jobs) MPI applications. 
+More information about [building](../../computing/compiling-puhti.md#building-mpi-applications) and
+[running](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) MPI applications. 
 
 
 ## Applications
@@ -67,8 +74,8 @@ Puhti uses the [slurm](https://slurm.schedmd.com/documentation.html) batch job s
 
 A description of the different slurm partitions can be found [here](../../computing/running/batch-job-partitions.md). Note that the GPU partitions are available from the normal login nodes. 
 
-Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts.md)
-and example batch job scripts are found [here](../../computing/running/example-job-scripts.md)
+Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts-puhti.md)
+and example batch job scripts are found [here](../../computing/running/example-job-scripts-puhti.md)
 
 !!! note "Very important change!!"
     You have to specify your billing project in your batch script with the `--account=<project>`
@@ -92,16 +99,6 @@ storage with a default quota of 50 GB. It is located under `/projappl/<project>`
 
 You can [check your current disk usage](../faq/disk-quota-exceeded.md) with `csc-workspaces`, more detailed information about storage can be found [here](../../computing/disk.md).
 
-
-## Moving data from Taito to Puhti
-
-Taito.csc.fi cluster will be finally closed in June 2020. Salvage your important data.
-
-The new Allas object storage service provides a platform that you can use to store your data that is currently in Taito.
-The new Puhti server, that is replacing Taito, does not provide permanent storage space for research data. Even if you would continue your work immediately in Puhti, it is good to make a more permanent copy of your data to Allas. This is done if you do the data migration from Taito to Puhti through Allas.
-
-*    [Data migration tutorials](../../data/Allas/migration_tutorial.md)
-*    [Allas user guide](../../data/Allas/index.md)
 
 ## Linux basics Tutorial for CSC
 

@@ -1,6 +1,6 @@
 # Ephemeral storage
 
-Some  Pouta virtual machine [flavors](vm-flavors-and-billing.md) have an *ephemeral storage* in
+Some Pouta virtual machine [flavors](vm-flavors-and-billing.md) have an *ephemeral storage* in
 addition to the root disk. This works as additional storage for the
 duration of the instance. This storage is not saved with the instance.
 This storage **does not** get saved when you create a snapshot of an
@@ -9,24 +9,26 @@ especially important to note regarding the io.\* flavors that the
 storage is based on RAID0 arrays optimized for performance, providing
 no redundancy whatsoever.
 
-For a detailed explanation of the ephemeral storage (and other storage
-options), you can see the [storage concepts](storage.md) section in the OpenStack
-user guide.
-
 The ephemeral storage is visible as an additional disk to the virtual
 machine (usually /dev/vdb). You need to format and mount it before you can use it:
 
     sudo mkfs.ext4 /dev/vdb
-    sudo mount /dev/vdb /mnt
+    sudo mkdir /mnt/myephdisk
+    sudo mount /dev/vdb /mnt/myephdisk
 
 You also need to add an entry in the /etc/fstab file on the
 machine to make sure the disk gets mounted after a reboot:
 
-    sudo umount /mnt/
+    sudo umount /mnt/myephdisk/
     sudo e2label /dev/vdb EPHEMERAL
-    sudo echo "LABEL=EPHEMERAL   /mnt   ext4  defaults,nofail 0 2 " >> /etc/fstab
-    sudo mount /mnt
+    sudo echo "LABEL=EPHEMERAL   /mnt/myephdisk   ext4  defaults,nofail 0 2 " >> /etc/fstab
+    sudo mount /mnt/myephdisk
 
-Some legacy flavors (tiny, mini, small, medium, large, fullnode) also
+After the storage has been mounted, you need to change the ownership to be able to read and write data in it.
+In the following command, we are assuming the username is cloud-user.
+
+    sudo chown cloud-user:cloud-user /mnt/myephdisk
+
+Please note that some legacy flavors (tiny, mini, small, medium, large, fullnode) also
 contained an ephemeral disk which was preformatted and mounted
 automatically.

@@ -42,7 +42,7 @@ You may also find the material and the exercises of the CSC container course
 helpful:
 
   * [CSC container course
-    material](https://github.com/Digipalvelutehdas/container-course-material)
+    material](https://rahti-course.a3s.fi/index.html)
 
 ## Blogs
 

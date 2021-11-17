@@ -30,5 +30,5 @@ For deeper insight in to the created objects, please see:
 
 * [Core objects](elemental_tutorial.md) for introduction to the fundamental objects on
   which OpenShift/Kubernetes applications are built upon.
-* [Utility objects](advanced_tutorial.md) for how managing applications in
+* Kubernetes and OpenShift [Concepts](../concepts.md) for how managing applications in
   OpenShift/Kubernetes is further streamlined using higher abstraction level objects.

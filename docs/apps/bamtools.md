@@ -3,7 +3,11 @@
 BamTools provides both a programmer's API and an end-user's toolkit for handling
 BAM files.
 
+[TOC]
 
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE)
 
 ## Available
 

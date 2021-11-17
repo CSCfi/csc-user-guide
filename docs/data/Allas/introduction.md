@@ -14,6 +14,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * The object storage can handle practically any static data.
  * The data can be accessed from anywhere using the URL.
  * The data can have different levels of access control.
+ * The data can have lifecycle policy set.
 
 **Limitations**
 
@@ -21,12 +22,12 @@ The stored objects can be of any data type, such as images or compressed data fi
  * It is unsuitable for files that change constantly during their lifetime (e.g. most SQL databases).
  * The data cannot be modified while it is in Allas. It must be downloaded to a server for processing, and the previous version replaced with a new one.
  * In case of swift protocol, files larger than 5 GB are divided into smaller segments. Normally, this is done automatically during the upload. See [Files larger than 5 GB](./using_allas/common_use_cases.md#files-larger-than-5-gb).
- 
+
 ## Billing and quotas
 
 Allas usage is based on CSC projects. All project members have equal access rights to the storage area that has been granted for the project. In practice, this means that if one project member uploads data to Allas, all other project members can also read, edit and delete the data. Allas itself does not store any information about who has uploaded the data to Allas.
 
-The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets. 
+The default quota for a new project is 10 TB, but that can be increased if needed. Allas is the preferred storage site for any large datasets in the CSC environment, so you should not hesitate to request a larger quota for Allas, if you work with larger data sets.
 
 To increase your Allas quota, please send a request to: `servicedesk@csc.fi`
 In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
@@ -44,7 +45,7 @@ Storing data in Allas consumes _billing units_. In Allas, billing is based on th
 
 Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.
 
- 
+
 
 ## Different ways to use Allas
 
@@ -52,7 +53,7 @@ You cannot mount Allas direcly to a computer. This means that in order to use Al
 
 ![Allas access clients](img/allas-access-flavors.png)
 
-1. In the CSC computing environment (Puhti and Mahti), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.  
+1. In the CSC computing environment (Puhti and Mahti), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.
 In the CSC computing environment, Allas should be used to store any data that needs to be preserved for longer than a few weeks. The supercomputer's own storage has a policy to delete idle data, so the data must be moved to Allas after computing. See [Computing disk environment](../../computing/disk.md)
 
 2. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. Instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
@@ -73,11 +74,11 @@ Due to this security concern, Swift is the recommended protocol for multiple-use
 The Swift and S3 protocols are <u>not</u> mutually compatible when handling objects. For small objects that do not need to be split during the upload, the protocols can be used interchangeably, but split objects can be accessed only with the protocol that was used for uploading them. The size limit for splitting an object depends on the settings and protocol. The limit is typically between 500 MB and 5 GB.
 
 Generic recommendations for selecting the protocol:
- 
+
  * If possible, use the _Swift_ protocol. It is better supported.
  * In any case, choose only one of the protocols. Do not mix _S3_ and _Swift_.
  * It is better to store a few large objects than many small objects.
- * Using over 100 GB objects may cause problems because of long upload/download times. 
+ * Using over 100 GB objects may cause problems because of long upload/download times.
 
 ## Clients
 
@@ -89,9 +90,9 @@ Allas is accessed via a client software that takes care of moving data to and fr
 | [a-commands](./using_allas/a_commands.md) | Provides easy-to-use tools for basic use. Requires Rclone, Swift and OpenStack. |
 | [swift python-swiftclient](./using_allas/swift_client.md)| The recommended Swift client. |
 | [s3cmd](./using_allas/s3_client.md) | The recommended S3 client (version 2.0.2 or later). |
-| [python-swift-library](./using_allas/python_library.md) |	Programmatic access. | 
+| [python-swift-library](./using_allas/python_library.md) |	Programmatic access. |
 | [rclone](./using_allas/rclone.md) | Useful with supercomputers. |
-| libs3	| |	 	 
+| libs3	| |
 | python-openstackclient | |
 | aws-cli | aws-cli and the boto3 Python library. |
 | curl | Extremely simple to use with public objects and temporary URLs. |
@@ -119,6 +120,7 @@ A _web client_ is suitable for using the basic functions. *a-commands* offer eas
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Set lifecycle policies** | | | | <font color="green">&#x2714;</font> |
 | **Move objects** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Edit metadata** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Upload large files** (over 5 GB) | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
@@ -142,6 +144,6 @@ Each bucket has a name that must be unique across all Allas users. If another us
 
 Object URLs can be in the DNS format, e.g. _https://a3s.fi/bucketname/objectname_. Please use a valid DNS name (RFC 1035). We recommend not using upper case or non-ASCII (&auml;, &ouml; etc.) characters.
 
-It is <u>not</u> possible to rename a bucket. 
+It is <u>not</u> possible to rename a bucket.
 
 The data is spread across various servers, which protects against disk and server failures. **Please note:** This does not protect the data from e.g. accidental deletion. Please make regular backups of important data.

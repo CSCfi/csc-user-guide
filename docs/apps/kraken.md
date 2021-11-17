@@ -7,6 +7,12 @@ Kraken examines the k-mers within a query sequence and uses the information with
 those k-mers to query a database. That database maps k-mers to the lowest common ancestor 
 of all genomes known to contain a given k-mer.
 
+[TOC]
+
+## License
+
+Free to use and open source under [MIT License](https://raw.githubusercontent.com/DerrickWood/kraken2/master/LICENSE).
+
 ## Version
 
 Kraken 2.0.8 is available in Puhti

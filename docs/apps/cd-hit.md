@@ -6,6 +6,12 @@ CD-HIT can be used for clustering large sequence sets or removing identical or h
 CD-HIT is often used as a tool to produce a non-redundant sequence set for further analysis of a large sequence set. 
 CD-HIT recognizes fasta and fastq sequence formats.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+
 ## Available
 Version on CSC's Servers
 

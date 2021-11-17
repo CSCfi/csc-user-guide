@@ -12,7 +12,7 @@ the dependent variables.
 
 ## Available
  
-- Puhti: 5.5, 5.4
+- Puhti: 5.6, 5.5, 5.4
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff and students) of Finnish higher education institutions.
@@ -34,7 +34,7 @@ The preferred method to use COMSOL interactively is via [NoMachine](nomachine.md
 ```bash
 $ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
-  --mail-user=<your email address> bash
+   bash
 ```
 
 You have to specify the execution time and memory requirement corresponding your needs. Remember to add your billing project, too. You will get an email notification, when requested computing resources are available. After that you can start COMSOL.

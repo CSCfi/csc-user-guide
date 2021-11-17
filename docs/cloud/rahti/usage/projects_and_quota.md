@@ -27,7 +27,7 @@ For example, if you have Rahti access via *project_1000123*, you would
 enter the following in the _Description_ field:
 
 ```yaml
-csc_project: project_1000123
+csc_project: 1000123
 ```
 
 You can also enter a human-readable description for the project, in which case
@@ -36,7 +36,7 @@ the field could look like this:
 ```yaml
 This project is used for hosting the Pied Piper web application.
 
-csc_project: project_1000123
+csc_project: 1000123
 ```
 
 This would make it so that any usage within that OpenShift project is billed
@@ -93,7 +93,7 @@ Unfortunately, this information is not available via a web interface yet.
 !!! note
     It is not possible for normal users to change the *csc_project* label
     after a project has been created. If you would like to change the label for
-    an existing project, please [contact the support](/cloud/rahti/contact). You can also create
+    an existing project, please [contact the support](/support/contact/). You can also create
     a completely new project if you want to use a different label.
 
 ## Creating a project
@@ -103,11 +103,16 @@ presented with the following view:
 
 ![OpenShift new project dialog](img/new_project_dialog_3.7.png)
 
-You need to pick a unique name that is not in use by any other project
-in the system. You can also enter a human-readable display name and a
-description for the project. You may also enter a CSC
-computing project in the _Description_ field as described above. Once
-you have filled in the fields, click "Create", and you will see the application
+1. You *need* to pick a **unique name** that is not in use by any other project
+in the system.
+1. You *can* also enter a **human-readable display name** and.
+1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
+
+> csc_project: XXXXXXX
+
+See the section about [accounts](/accounts/).
+
+Once you have filled in the fields, click "Create", and you will see the application
 catalog where you can pick an application template or import your
 own one.
 
@@ -133,19 +138,22 @@ own quota for the following resources:
 | Virtual cores per container      | 2       |
 | RAM per pod                      | 8 GiB   |
 | RAM per container                | 8 GiB   |
+| Storage                          | 50 GiB  |
+| Number of image streams          | 10      |
+| Size of each registry images     | 5 GiB   |
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under Resources -> Quota. Alternatively, you can use the oc
 command line tool:
 
 ```bash
-oc get quota -o yaml
-oc get limitranges -o yaml
+oc describe quota
+oc describe limitranges
 ```
 
 If you need to create more projects or you need more resources in a project for
 your application, you can apply for more quota by contacting the Rahti
-support. See the [Contact page ](/cloud/rahti/contact) for instructions. Quota requests are
+support. See the [Contact page](/support/contact/) for instructions. Quota requests are
 handled on a case-by-case basis depending on the currently available resources
 in Rahti and the use case.
 
@@ -163,7 +171,7 @@ top right corner.
 
 Note that it is important to use correct usernames when sharing projects
 with others. OpenShift allows you to freely enter any username and will not notify
-you for having entered a non-existent username. Usernames are also case-sensitive. 
+you for having entered a non-existent username. Usernames are also case-sensitive.
 You can find out your username in OpenShift via either the
 web interface or the command line:
 
@@ -176,3 +184,18 @@ If you would like to share a project you have created with members of the same C
 computing project, you can do so by selecting the _Groups_ tab, clicking _Edit
 Membership_, and entering the name of the computing project and a role in the
 dropdown menu on the right for the members of that computing project.
+
+## Deleting a project
+
+In order to delete a project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project"
+
+![Delete drop down](img/delete_project_menu.png)
+
+Then you will be asked to input the name of the project to prevent accidental deletions.
+
+!!! note
+    After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
+
+![Project name dialog](img/delete_project_name.png)
+
+After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti will liberate the project name, and it will be possible to create an empty project with the same name.

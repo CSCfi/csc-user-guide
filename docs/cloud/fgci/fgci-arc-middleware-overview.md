@@ -4,9 +4,9 @@ The grid computing environment of FGCI is used via the Advanced Resource
 Connector (ARC) middleware which is produced by the Nordugrid community.
 **All tasks and commands are submitted via the middleware and the user
 never needs to directly log into the actual computing clusters**. For
-this reason FGI can't be used to run programs interactively. Instead
+this reason FGCI can't be used to run programs interactively. Instead
 **the commands to be executed are collected into command files that are
-submitted to the FGI using ARC commands and job description files**.
+submitted to the FGCI using ARC commands and job description files**.
 
 In this section we provide an introduction to the xRSL (Extended
 Resource Specification Language) job description file format and to the

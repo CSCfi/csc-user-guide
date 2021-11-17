@@ -8,10 +8,17 @@ human genome (2.9 GB for paired-end).
 There are two versions of Bowtie available: Bowtie2 and Bowtie.  The more recent Bowtie2 program differs 
 significantly from its ancestor Bowtie. For example the command line options are different for these two tools.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+
 ## Available
 
--   Puhti: 2.3.5.1
+-   Puhti: 2.4.1, 2.3.5.1
 -   Chipster graphical user interface
+
 
 
 ## Usage

@@ -1,31 +1,33 @@
 # QGIS
 
-[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysising geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
+[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
 
-In Puhti, QGIS could be used for example to visualize the resulting files from other sources (lastools, grass, python)
+In Puhti, QGIS could be used for example to visualize the resulting files from other sources (lastools, R, python)
 
 ## Available
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.8.1 Zanzibar via conda
+* 3.16 in a singularity container: qgis module
 
 ## Usage
 
-### Using QGIS with graphical user interface
+Using QGIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
 
-QGIS is included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-`module load geoconda`
+Alternatively, especially if you want to use QGIS and some other GUI tool together or want to use data from Allas, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
 
-If you are using [NoMachine](nomachine.md) or have connected with a ssh connection that has __X11 forwarding__ enabled, you can launch a graphical user interface with
+```
+module load qgis
+qgis
+```
 
-`qgis`
 
-!!! note
-    The recommended way of using graphical interfaces in Puhti is through [NoMachine](nomachine.md) and an [interactive batch job](../computing/running/interactive-usage.md)
+### PyQGIS
 
-It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/) library
+It is also possible to access QGIS functionalities from Python without an graphical user interface with the [PyQGIS library](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/). Use `python3` for accessing PyQGIS libraries.
 
 
 ### QGIS and Allas
@@ -42,3 +44,4 @@ In your publications please acknowledge also oGIIR and CSC, for example “The a
 * [QGIS homepage](https://www.qgis.org/)
 * [QGIS tutorials](https://www.qgistutorials.com/en/)
 * [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
+* [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)

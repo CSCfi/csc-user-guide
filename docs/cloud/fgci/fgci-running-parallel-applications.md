@@ -4,8 +4,7 @@ In FGCI you can utilize POSIX threads (OpenMP) and
 MPI based parallel computing. In the case of threads based parallel
 computing the number of parallel processes (threads) is limited by the
 structure of the hardware: all the processes must be running in the same
-node. Thus in the case of older FGI machines, threads based programs
-can't use more than 12 computing cores. In the new FGCI hardware
+node. In the current FGCI hardware
 the one node contain 24 cores and as hyperthreading is used, one node
 can run 48 simultaneous threads.
 
@@ -18,7 +17,7 @@ cores will not be feasible. Because of that, scaling tests, where the
 application is tested with different core amounts, a should be run
 before the actual production runs.
 
-## Executing threads based parallel software in FGI
+## Executing threads based parallel software in FGCI
 
 In the case of many pre-installed threads utilizing programs, the
 Runtime Environment of the program automatically sets up the parameters
@@ -28,7 +27,7 @@ file.
 
 In the following example we use software package called *SOAPdenovo* to
 run a sequence assembly job in FGCI. SOAPdenovo is not available as a
-Runtime Environment in FGI. However you can download a pre-compiled
+Runtime Environment in FGCI. However you can download a pre-compiled
 Linux executables from the home page of SOAPdenovo. These executables
 can be copied to the remote cluster together with other input files. In
 this example we use executable called *SOAPdenovo-31mer*, job
@@ -61,8 +60,7 @@ The definition "(runtimeenvironment="ENV/ONENODE") " is essential for
 threads based parallel jobs. This definition ensures that all the cores,
 that the job uses, will be in the same computing node.
 
-In this case we use 12 computing cores (*count=12*) that is the maximum
-for thread based parallel jobs in old FGI servers. In ARC environment
+In this case we use 12 computing cores (*count=12*). In ARC environment
 the memory reservation is given per one core. For example in this
 example *(memory=2000)* reserves 2 GB for each core which means that the
 job requires total of 24 GB of memory. When you change the core number
@@ -91,9 +89,9 @@ the grid environment.
 The sample job above could be executed using the normal *arcsub*,
 *arcstat* and *arcget* commands.
 
-## Executing MPI based parallel program in FGI environment
+## Executing MPI based parallel program in FGCI environment
 
-The way, how an MPI based applications are launched in FGI environment
+The way, how an MPI based applications are launched in FGCI environment
 may differ between different applications. For application specific
 details, please check the runtime environment page of the application
 from the FGCI User pages. As MPI jobs can utilize several computing

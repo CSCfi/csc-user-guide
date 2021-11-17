@@ -1,0 +1,67 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config.google_analytics[0] }}"></script>
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+var consent=getCookie("cookieconsent_status")
+if( consent != "allow" ){
+    window['ga-disable-{{ analytics[0] }}'] = true;
+}
+function fix_youtube(){
+var frames = document.getElementsByTagName('iframe');
+
+    for (var idx =0; idx< frames.length ; idx++){
+        frames[idx].scrolling="no"
+        s_url=frames[idx].srcdoc.split('/');
+        
+        if(s_url.length == 1 ){
+            youtube_id=frames[idx].srcdoc;   
+        }
+        else{
+            id_index=1+s_url.findIndex(a => a=="embed");
+            youtube_id=s_url[id_index];
+        }
+        
+        youtube_link = `https://www.youtube.com/watch?v=${youtube_id}`
+        youtube_embed_link=`https://www.youtube.com/embed/${youtube_id}`
+        var consent=getCookie("cookieconsent_status")
+        logo_w=frames[idx].width /8;
+        logo_h=frames[idx].height/8;
+        
+        if( consent == "allow"){
+            frames[idx].src=youtube_embed_link
+            frames[idx].removeAttribute("srcdoc")
+        }
+        else{
+        content =`
+            <style>
+            .top {
+                position: absolute;
+                left: calc(50% - ${logo_w/2}px);
+                top: calc(50% - ${logo_h/2}px);
+                z-index: 1;
+            }
+            </style>
+
+            <a href=${youtube_link} target="_blank"><img src=https://img.youtube.com/vi/${youtube_id}/0.jpg width=${frames[idx].width} height=${frames[idx].height} ></a>
+            <a href=${youtube_link} target="_blank"><img class="top" width=${logo_w} src=https://www.pngkit.com/png/full/2-21145_youtube-logo-transparent-png-pictures-transparent-background-youtube.png></a>
+        `
+        frames[idx].srcdoc=content
+        }
+    }
+    
+    }
+window.onload=fix_youtube 
+</script>

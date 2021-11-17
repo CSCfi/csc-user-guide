@@ -21,7 +21,7 @@ CSC uses **Lmod** environment modules. They are developed at the Texas Advanced 
 The syntax of the module command:
 
 ```text
-module command module-name
+module command modulename
 ```
 
 Listing the modules loaded (including your current environment):
@@ -56,18 +56,23 @@ can be unloaded using `unload`:
 module unload intel-mkl
 ```
 
-The most commonly used module commands:
+#### The most commonly used module commands {#module-commands-table}
 
-|  Module command               |  Description                     |
-|-------------------------------|----------------------------------|
-| module help *modulename*      | Information about a module.      |
-| module load *modulename*      | Loads the environment module.    |
-| module unload *modulename*    | Unloads the environment module.  |
-| module list                   | List the loaded modules.         |
-| module avail                  | List all available modules.      |
-| module spider *name*          | Searches the entire module list. |
-| module swap *module1 module2* | Replace a module with another.   |
-| module show *name*            | Show commands in the module file.|
+|  Module command                   |  Description                                                                                        |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------|
+| module help *modulename*          | Information about a module.                                                                         |
+| module load *modulename*          | Loads the default version of the environment module.                                                |
+| module load *modulename/version*  | Loads specific version of the module.                                                               |
+| module unload *modulename*        | Unloads the given environment module.                                                               |
+| module list                       | List the loaded modules.                                                                            |
+| module avail                      | List all modules that are available to be loaded (i.e. compatible with your current environment).   |
+| module spider                     | List all existing modules.                                                                          |
+| module spider *modulename*        | Search the entire list of existing modules.                                                         |
+| module spider *modulename/version*| Gives information on how to load the module (prerequisites etc).                                    |
+| module swap *modulename1 modulename2* | Replaces a module with another (and tries to re-load compatible versions of other loaded modules).  |
+| module show *modulename*          | Show commands in the module file.                                                                   |
+| module purge                      | Unloads all modules.                                                                                |
+
 
 ### Finding modules
 

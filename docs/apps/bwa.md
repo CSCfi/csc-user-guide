@@ -4,6 +4,11 @@ Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively sho
 
 BWA can be used to align both single-end and paired end reads to a reference genome or sequence set.
 
+[TOC]
+
+## License
+
+Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
 
@@ -87,7 +92,7 @@ bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2
 
 In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job in Puhti:
 ```text
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=bwa
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt

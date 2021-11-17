@@ -8,7 +8,11 @@ The Bioconda environment is used for two purposes in Puhti:
 -    Some software tools, maintained by CSC, are installed and used as Conda environments.
 -    Puhti users can use bioconda module to install tools, available in Bioconda repository, to their own personal Conda environments.
 
+[TOC]
 
+## License
+
+Bioconda is free to and open source under [MIT License](https://raw.githubusercontent.com/bioconda/bioconda-common/master/LICENSE).
 
 ## Available
 
@@ -83,6 +87,18 @@ module load bioconda
 source activate my_biotools
 vcf2bed
 ```
+
+!!! Note
+
+    You should **not** use _conda init_ in Puhti. This applies to both
+    Bioconda and your own Conda installations.
+    
+    _conda init_ modifyes your account so that it takes the Conda environment automatically in use. 
+    This is in principle handy, but in practice it will often cause problems when you 
+    try to use software that were not installed with your default Conda environment.
+    
+
+
 
 ## Support
 
