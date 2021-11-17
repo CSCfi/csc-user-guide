@@ -1,8 +1,15 @@
 # Data storage for machine learning
 
-It is recommended to store big datasets in [Allas](../../data/Allas/index.md),
-and download them to your project's [scratch directory](../../computing/disk.md)
-prior to starting your computation. Example:
+## Where to store data?
+
+Puhti and Mahti have three types of disk areas: **home**, **projappl** and
+**scratch**. You can [read more about the disk areas
+here](../../computing/disk.md). In general keep you code and software in
+**projappl** and datasets, logs and calculation outputs in **scratch**.
+
+It is recommended to store big datasets in the [Allas object
+store](../../data/Allas/index.md), and download them to your project's scratch
+directory prior to starting your computation. Example:
 
 ```bash
 module load allas
@@ -11,26 +18,44 @@ cd /scratch/<your-project>
 swift download <bucket-name> your-dataset.tar
 ```
 
+Anything that needs to be stored for a longer time (project life-time) should be
+copied back to Allas. CSC may at some point start cleaning the scratch drive so
+that files older than 90 days will be automatically removed (this has not yet
+been activated!).
+
+Some CPU nodes and all GPU nodes also have a fast local NVME drive with at least
+3.6 TB disk space. This space is available only during the execution of the
+Slurm job, and is cleaned up afterwards. For data intensive jobs, it may still
+be worth copying the data to the NVME at the start of the job and then storing
+the final results on the scratch drive at the end of the job. [More information
+on how to use the fast local NVME drive below](#fast-local-drive).
+
+
+## Using the shared file system efficiently
+
+Training machine learning models often require reading a huge number of
+relatively small files from the shared drive. Unfortunately the Lustre-shared
+file systems (e.g. `/scratch`, `/projappl` and users' home directories) do not
+perform well when opening a lot of files or when performing many small reads. In
+addition to slowing down the computation it may also in extreme cases **cause
+noticeable slowdowns for all users of the supercomputer, sometimes making the
+entire supercomputer unusable for hours**.
+
 !!! note
 
     Please **do not read a huge number of files from the shared file system**, use
     fast local disk or package your data into larger files instead!
 
+For further reading, see CSC's [technical description of the Lustre
+filesystem](../../computing/lustre.md) and our general tutorial on [how to
+achieve better I/O performance on Lustre](../lustre_performance.md).
 
-Many machine learning tasks, such as training a model, require reading a huge
-number of relatively small files from the drive. Unfortunately the Lustre-shared
-file systems (e.g. `/scratch`, `/projappl` and users' home directories) do not
-perform very well when opening a lot of files, and it also causes noticeable
-slowdowns for all users of the supercomputer. Instead, consider more efficient
-approaches, including:
+As a solution for machine learning applications, we recommend either **using
+more efficent data formats**, such as TFRecords for TensorFlow, or **using the
+fast local NVME drive**. These approaches are described in more detail below.
 
-- packaging your dataset into larger files 
-- taking into use the [NVME fast local
-  storage](../../computing/running/creating-job-scripts-puhti.md#local-storage)
-  on the GPU nodes
-- using a SquashFS image (Singularity-only)
 
-## More efficient data format
+### More efficient data format
 
 Many machine learning frameworks support formats for packaging your data more
 efficiently. For example [TensorFlow's
@@ -42,12 +67,11 @@ even humble ZIP-files, e.g., via Python's
 [zipfile](https://docs.python.org/3/library/zipfile.html) library. The main
 point with all of these is that instead of many thousands of small files you
 have one, or a few bigger files, which are much more efficient to access and
-read linearly. Don't hesitate to [contact our service
-desk](https://www.csc.fi/contact-info) if you need advice about how to access
-your data more efficiently.
+read linearly. Don't hesitate to [contact our service desk](../contact.md) if
+you need advice about how to access your data more efficiently.
 
 
-## Fast local drive
+### Fast local drive
 
 If you really need to access the individual small files, you can use the fast
 local drive that is present in every GPU node. In brief, you just need to add
@@ -77,19 +101,10 @@ dataset, for example with a command line argument. Also see our [general
 instructions on how to take the fast local storage into
 use](../../computing/running/creating-job-scripts-puhti.md#local-storage).
 
-If you are running a multi-node job (see next section), you need to modify the
-`tar` line so that it is performed on each node separately:
+If you are running a [multi-node job](ml-multi.md), you need to modify the `tar`
+line so that it is performed on each node separately:
 
 ```bash
 srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
     tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 ```
-
-## Using SquashFS
-
-If you are running one of our [Singularity-based modules](#singularity), you can package your
-dataset into a SquashFS image and mount it so it's visible to the code as a
-normal directory. See [our documentation on how to mount datasets with
-SquashFS](../../computing/containers/run-existing.md#mounting-datasets-with-squashfs)
-for the details.
-
