@@ -65,11 +65,12 @@ not be suitable for very heavy computing tasks as it offers less computing
 resources than a supercomputer. Pouta has a limited amount of older NVIDIA P100
 GPUs.
 
-For model deployment, the [**Rahti**](../../cloud/rahti/index.md) contained
-cloud service might be used, however, it currently doesn't offer GPU support.
-See some examples of [how to deploy machine learning models on
-Rahti](https://github.com/CSCfi/rahti-ml-examples).
-
 *TODO*
 
-* MLOps (MLflow, Rahti deployment) - in which section?
+### MLOps
+
+For model deployment, the [**Rahti**](../../cloud/rahti/index.md) contained
+cloud service might be used, however, it currently doesn't offer GPU support.
+
+* [How to utilize MLflow to train and serve your ML model](https://github.com/CSCfi/mlflow-openshift)
+* [How to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples)
