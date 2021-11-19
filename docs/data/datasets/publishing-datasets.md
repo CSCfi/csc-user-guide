@@ -4,18 +4,18 @@
 
 Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in the future. Publishing should be based on commonly accepted the standards and definitions of good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so that the effort spent on publishing data properly is quickly paid back.
 
-## Where to host and publish data
+## Where to host and publish datasets
 
 !!! note "Note!"
     **The Registry of Research Data Repositories, [re3data.org](https://www.re3data.org/),** offers detailed descriptions of more than 2600 repositories in all scientific disciplines.
 
-[CSC's tools for publishing data](https://research.csc.fi/en/service-catalog#open)
+[CSC's tools for publishing datasets](https://research.csc.fi/en/service-catalog#open)
 
 [How to publish your dataset with Fairdata](https://www.fairdata.fi/en/user-guides/fairdata-quick-guide/)
 
 [EUDAT Services](https://www.eudat.eu/)
 
-[How to make dataset available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
+[How to make datasets available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
 
 [Example case 1: Sharing data during research project, publish FAIR when ready](https://research.csc.fi/example-case-1)
 
@@ -88,12 +88,6 @@ Publishing your data doesn’t necessarily mean that your datasets must be avail
 1. **not allow** anyone to download the files attached to your dataset at all (Restricted).  
 
 Whichever option is selected does not affect the visibility of the dataset’s descriptive metadata, meaning that even if access to data is restricted, descriptive information about the published dataset is displayed in the publishing platform. Any restriction needs however to be specified and contact information made available and kept up to date.
-
-
-## Data deletion
-
-Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data and sensitive data should be appropriately disposed. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of 'special category personal data', is completely wiped from hard drives, portable drives and storage solutions of any other kind.  
-
 
 ## Preservation
 
