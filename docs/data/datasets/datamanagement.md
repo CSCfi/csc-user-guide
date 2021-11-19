@@ -74,7 +74,7 @@ Data sharing is increasingly required by funding agencies and journals as it ben
     - The Academy of Finland [Open Science pages](https://www.aka.fi/en/research-funding/responsible-science/open-science/)
     - The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data life cycle
     - [FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies.
-    - [CSC:s videos on Data Management](https://youtube.com/playlist?list=PLD5XtevzF3yEZw-8LadtaGVV8Um6CbMja)  
+    - [CSC:s videos on Research Data Management](https://video.csc.fi/playlist/details/0_xtsuml9w)  
 
 
 ## How to manage sensitive data
