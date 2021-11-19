@@ -41,6 +41,8 @@ When you are looking for a place where to store data during your research projec
 - does the data contain personal information and/or sensitive data
 - what level of security does your data require
 
+After you have decided which storage solution to use, you should take some minutes to think through how you [organize your data](metadata-and-documentation.md#data-organization).
+
 ## When the research project ends
 
 As the research project ends, you need to consider:
