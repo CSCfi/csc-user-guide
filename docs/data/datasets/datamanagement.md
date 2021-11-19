@@ -1,4 +1,4 @@
-# Data management
+# Tips for Data management
 
 ## Overview
 
@@ -82,7 +82,7 @@ Data sharing is increasingly required by funding agencies and journals as it ben
 The EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing, without giving any exact technical details on how to process sensitive data. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
 
   1. Minimize the data. This means that you should only process the data that is absolutely needed. 
-  2. Anonymize or pseudonymzse the data whenever possible. 
+  2. Anonymize or pseudonymizse the data whenever possible. 
   3. Encrypt the data.
   4. Destroy the data you do not need. 
 
