@@ -9,15 +9,6 @@ Metadata and data documentation are the contextual information about the data an
 
 **Data documentation** means creating information, which enables the interpretations of the data correctly and independently. It consists of files that explain how data were created or digitized, how the data should be interpreted, its structure, and how the data has been modified. This information can also be called *data-level* documentation or even metadata as it is information about data. Documenting data should be considered as best practice when managing data and it is also essential for data preservation. Whenever data are used sufficient contextual information is required to interpret the data correctly and independently. 
 
-!!! note "Data documentation can be done by using:"
-    - (domain specific) metadata and data standards 
-    - electronic laboratory notebooks
-    - dictionaries and vocabularies
-    - readme-files 
-    
-    and they all take part in explaining what the project data is and what it means.
-
-
 ## Metadata types
 
 Metadata is information regarding the data, for example, where, when, why, and how the data were collected, processed and interpreted. Metadata may also contain details about experiments, analytical methods, and research context.
@@ -66,6 +57,14 @@ It is important that you create relevant metadata for reuse and future credit. I
     - Data dictionary / Code book explaining variables in the data and gathering codes used in a dataset.
 
 Also, think about your file naming conventions, directory structure and **version control**. More about that in [Data organization](#data-organization).
+
+!!! note "Data documentation can be done by using:"
+    - (domain specific) metadata and data standards 
+    - electronic laboratory notebooks
+    - dictionaries and vocabularies
+    - readme-files 
+    
+    and they all take part in explaining what the project data is and what it means.
 
 ## Semantic interoperability
 
