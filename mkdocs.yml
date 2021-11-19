@@ -147,10 +147,10 @@ nav:
      - Datasets: data/datasets.md
      - Working with data:
         - Contents: data/datasets/dataset-sources.md
-        - Data management: data/datasets/datamanagement.md
+        - Tips for data management: data/datasets/datamanagement.md
         - Metadata and data documentation: data/datasets/metadata-and-documentation.md
         - Datasets sources: data/datasets/sourcing-datasets.md
-        - Storing datasets at CSC: data/datasets/hosting-datasets-at-CSC.md
+        - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
         - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
         - Copying files using scp: data/moving/scp.md
