@@ -1,4 +1,4 @@
-# Tips for Data management
+# Tips for Data Management
 
 ## Overview
 
