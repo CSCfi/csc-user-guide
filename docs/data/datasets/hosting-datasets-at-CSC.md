@@ -1,4 +1,4 @@
-# Storing data at CSC 
+# Storing Data at CSC 
 
 ## Overview
 
