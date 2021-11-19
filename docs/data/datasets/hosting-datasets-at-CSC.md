@@ -1,4 +1,4 @@
-# Storing datasets at CSC 
+# Storing data at CSC 
 
 ## Overview
 
@@ -33,7 +33,7 @@ When you are looking for a place where to store data during your research projec
     - what happens to your data if you leave the university/research organization
     - who needs to have access to the data
 - what kind of interfaces are needed (e.g. browser based graphical user interfaces for audio/video/table, machine-readable interfaces, a mountable path for operating system etc.)
-- how much storage space is needed and is the need cumulative
+- [how much storage space is needed](#how-much-storage-space-is-needed) and is the need cumulative
     - are you able to pay for data storage costs, if needed
 - how big are the individual files (e.g. it is not sensible to store too small files or too big files)
 - should the file transfer be automated e.g. with a script
@@ -41,7 +41,15 @@ When you are looking for a place where to store data during your research projec
 - does the data contain personal information and/or sensitive data
 - what level of security does your data require
 
-As the research project ends, you need to consider what data should be [published](publishing-datasets.md), for how long you need to retain the data according to the requirements of the funder, publisher or your home organization, and what data can be [deleted](publishing-datasets.md#data-deletion) at this point. Valuable data might also be digitally [preserved](publishing-datasets.md#preservation).
+## When the research project ends
+
+As the research project ends, you need to consider:
+- what data should be [published](publishing-datasets.md), 
+- for how long do you need to retain the data according to the requirements of the funder, publisher or your home organization,
+- what data can be deleted at this point
+- do you have valuable data that needs to be digitally [preserved](publishing-datasets.md#preservation).
+
+Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data and sensitive data should be appropriately disposed. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of 'special category personal data', is completely wiped from hard drives, portable drives and storage solutions of any other kind.  
 
 ## How much storage space is needed
 
