@@ -74,7 +74,7 @@ Also, think about your file naming conventions, directory structure and **versio
 
 Important part of good data management is also taking care of data organization. This includes for example thoughtful file naming, clear folder structure, accessible file formats and explicit version control.
 
-It is good practice to make a clear **file naming system** from the start of your project and for example use the same system together with your research team. This helps you as well as your colleagues to understand what files contain from the name. Read tips for organizing your data and naming files and folders below or from [RDMKit Data Organization page](https://rdmkit.elixir-europe.org/data_organisation.html). 
+It is good practice to make a clear **file naming system** from the start of your project and for example use the same system together with your research team. This helps you as well as your colleagues to understand what files contain from the name. Read tips for organizing your data and naming files and folders below or from [RDMKit Data Organisation page](https://rdmkit.elixir-europe.org/data_organisation.html). 
 
 Your research field might also have instructions and guidelines for organizing data. Brain Imaging Data Structure (BIDS), for example, has been created by the scientific community of brain researchers, and it defines the file formats, file naming rules and rules to organize the data in directories.
 
