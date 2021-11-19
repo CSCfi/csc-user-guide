@@ -29,7 +29,7 @@
   - [Overview](hosting-datasets-at-CSC.md#overview)
   - [CSC's services for storing data](hosting-datasets-at-CSC.md#cscs-services-for-storing-data)
   - [What to consider when choosing a suitable storage solution](hosting-datasets-at-CSC.md#what-to-consider-when-choosing-a-suitable-storage-solution)
-  - [When the research project ends](hosting-datasets-at-CSC#when-the-research-project-ends)
+  - [When the research project ends](hosting-datasets-at-CSC.md#when-the-research-project-ends)
   - [How much storage space is needed](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
 
 ## [Publishing Datasets](publishing-datasets.md)
