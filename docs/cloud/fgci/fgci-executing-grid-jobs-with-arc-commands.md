@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # Executing grid jobs with ARC commands
 
 In this chapter we assume that the user has installed the personal grid

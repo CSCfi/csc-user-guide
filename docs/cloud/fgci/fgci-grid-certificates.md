@@ -1,3 +1,6 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
+
 ## Grid certificates
 
 FGCI uses personal X.509 certificates for user authentication as do most

@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # Using storage elements for data transport in FGCI
 
 Moving large datasets between the local computer and grid clusters is

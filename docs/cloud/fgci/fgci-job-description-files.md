@@ -1,3 +1,6 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
+
 # Job description files
 
 Submitting computing tasks to FGCI resembles submitting batch jobs to

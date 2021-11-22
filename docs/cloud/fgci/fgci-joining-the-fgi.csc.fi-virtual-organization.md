@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # Joining the fgi.csc.fi Virtual Organization
 
 Use of the FGCI computing environment is controlled through **Virtual
