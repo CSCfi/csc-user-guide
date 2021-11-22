@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # ARC middleware Overview
 
 The grid computing environment of FGCI is used via the Advanced Resource

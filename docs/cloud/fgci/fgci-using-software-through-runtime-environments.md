@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # Using software through runtime environments
 
 The FGCI environment contains a set of pre-installed software tools

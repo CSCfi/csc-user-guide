@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # Running parallel applications in FGCI
 
 In FGCI you can utilize POSIX threads (OpenMP) and

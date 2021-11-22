@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # FGCI User Guide
 
 

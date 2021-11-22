@@ -1,3 +1,5 @@
+
+**NOTE! Information deprecated as of 22.11.2021**
 # Using arcrunner to run large job sets in FGCI
 
 Grid computing can be very effective in cases where the analysis task
