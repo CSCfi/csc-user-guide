@@ -64,11 +64,6 @@
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
 
-## Finnish Grid Infrastructure (FGI)
-* [What is FGI?](what-is-FGI.md)
-* [How to access FGI?](how-to-access-FGI.md)
-* [How long a grid certificate is valid?](how-long-a-grid-certificate-is-valid.md)
-* [How to use FGCI grid form Pouta](how-to-use-fgci-from-pouta.md)
 
 ## Rahti
 
