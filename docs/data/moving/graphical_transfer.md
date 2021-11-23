@@ -1,4 +1,4 @@
-There are plenty of graphical file transport tools, that you can install to your local computer to transfer data between your local computer and CSC. Here we shortly introduce two of them: **FileZilla** that is available for Windows, Mac OSX and Linux machines and **WinSCP** that is available for windows. **Cybreduck**, discussed in the [Allas user guide](../Allas/accessing_allas.md), can be used for this purpose too.
+There are plenty of graphical file transport tools, that you can install to your local computer to transfer data between your local computer and CSC. Here we shortly introduce two of them: **FileZilla** that is available for Windows, Mac OSX and Linux machines and **WinSCP** that is available for windows. **Cyberduck**, discussed in the [Allas user guide](../Allas/accessing_allas.md), can be used for this purpose too.
 
 ####  FileZilla - general file transfer tool
 
