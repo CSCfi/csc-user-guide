@@ -97,6 +97,7 @@ Note that both the root and the ephemeral disks of all I/O flavors are hosted on
 
 |Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| gpu.3.1gpu | 12 | 1 | 228 | 80 | 1500 | 1580 | 23.5 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 150  |
 | gpu.1.1gpu | 14 | 1 | 112 | 80 |0 | 80 | 8 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 60  |
 | gpu.1.2gpu | 28 | 2 | 224 | 80 |0 | 80 | 8 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 120 |
 | gpu.1.4gpu | 56 | 4 | 447 | 80 |0 | 80 | 8 |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/n100.svg)| 240 |
