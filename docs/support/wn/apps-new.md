@@ -1,5 +1,9 @@
 # Applications
 
+## Schrödinger Maestro 2021.4, 24.11.2021
+
+Schrödinger Maestro 2021.4 has been installed on Puhti and set as the default module.
+
 ## PyTorch 1.10, 10.11.2021
 
 PyTorch 1.10.0 is now available in the `pytorch/1.10` module on Puhti and Mahti,
