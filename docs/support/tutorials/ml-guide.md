@@ -49,6 +49,7 @@ Also check our related in-depth tutorials:
 * [GPU-accelerated machine learning on CSC's supercomputers](gpu-ml.md)
 * [Data storage for machine learning](ml-data.md)
 * [Multi-GPU and multi-node machine learning jobs](ml-multi.md)
+* [Hyperparameter search](hyperparameter_search.md)
 
 *TODO*
 
