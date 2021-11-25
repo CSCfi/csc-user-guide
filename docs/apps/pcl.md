@@ -11,6 +11,7 @@ __PCL__ is available in Puhti with following versions:
 * 1.9.1 
 
 This version includes __PCLpy__ version 0.12.0 with Python 3.8.
+All included Python packages can be seen by using the command `list-packages`.
 
 PCL has been compiled with Boost, Eigen, FLANN and Qhull
 
