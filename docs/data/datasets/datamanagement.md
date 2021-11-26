@@ -79,7 +79,7 @@ Data sharing is increasingly required by funding agencies and journals as it ben
 
 ## How to manage sensitive data
 
-The EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing, without giving any exact technical details on how to process sensitive data. The list is long and definitions are complex, but certain basic rules may be easily highlighted.
+The EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing, without giving any exact technical details on how to process sensitive data. You can learn about sensitive data more from [CSC's definition of sensitive data](https://research.csc.fi/en/definition-of-sensitive-data). At this point only certain basic rules regarding sensitive personal data are highlighted.
 
   1. Minimize the data. This means that you should only process the data that is absolutely needed. 
   2. Anonymize or pseudonymizse the data whenever possible. 
@@ -92,7 +92,6 @@ Remember to identify and name a
 
 !!! note "Additional information on sensitive data management"
     - [CSC's Sensitive Data Services for Research](https://research.csc.fi/sensitive-data)
-    - [Definition of sensitive data](https://research.csc.fi/en/definition-of-sensitive-data)
     - [Managing sensitive data](https://research.csc.fi/en/managing-sensitive-data)
     - [User Guide for Sensitive Data Services for Research](../sensitive-data/index.md)
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
