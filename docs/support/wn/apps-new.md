@@ -1,5 +1,15 @@
 # Applications
 
+## Python Data default module now uses Singularity, 26.11.2021
+
+The default version of the `python-data` module has been changed to `3.9-1`.
+This means that if you have been simply doing `module load python-data` you will
+now get this new version automatically. This version has been installed using
+Singularity which should make loading times much faster. Thanks to wrapper
+scripts this change should be mostly invisible to users. If you still encounter
+any problems, don't hesitate to report them to [CSC's service
+desk](../contact.md).
+
 ## Schrödinger Maestro 2021.4, 24.11.2021
 
 Schrödinger Maestro 2021.4 has been installed on Puhti and set as the default module.
