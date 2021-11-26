@@ -14,7 +14,7 @@ These points are conditioned of each other. Hyperparameters can be numerical (di
 
 In order to do hyperparameter search, the data is randomly divided into three separate sets: *training*, *validation* and *test* sets. The search for hyperparameters are done such a way, that a model is trained against a validation set. Once the suitable set of hyperparameters have been found, the model is then evaluated against the test set.
 
-One thing to keep in mind however: since a change in a hyperparameter defines a new model, *all* hyperparameter searches select the best model w.r.t to a given metric (probability of error for example), which is statistically a questionable approach. Training $n$ models on the *same* data set induces a dependency, which has to be considered when comparing different models. ANOVA or Bernoulli trials could be considered here when comparing different models on the same data.
+One thing to keep in mind however: since a change in a hyperparameter defines a new model, *all* hyperparameter searches select the best model w.r.t to a given metric (probability of error for example), which is statistically a questionable approach. Training $$n$$ models on the *same* data set induces a dependency, which has to be considered when comparing different models. ANOVA or Bernoulli trials could be considered here when comparing different models on the same data.
 
 ## Search strategies
 
@@ -431,4 +431,53 @@ print("""Best accuracy over {} trials was {:.3} with
                  best_hyperparameters["momentum"]))
 		 
 ray.shutdown()
+```
+### A Bayesian approach to model comparison after hyperparameter search
+
+Here is an example of using **Bayesian analysis** for statistically comparing models from each other using hyperparameter search. The MNIST dataset will be used as an example.
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import fetch_openml
+import warnings
+warnings.simplefilter("ignore", UserWarning)
+
+# Load MNIST data
+X, y = fetch_openml("mnist_784", version=1, return_X_y=True, as_frame=False)
+
+train_samples = 5000
+test_samples  = 10000
+
+# Comparing three models: Logistic regression, Support vector machine and multi-layer perceptron. 
+# Default hyperparameters from scikit-learn library will be used, except some will be fine tuned.
+
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+
+import scipy.stats as stats
+
+svc = SVC()
+## Hyperparameters to search for SVM
+# Grid Search
+hp_svc_gs = [ { 'kernel': [ 'linear' ], 'C': [ 0.4, 0.8, 1.0 ], 'shrinking': [ True, False ] },
+              { 'kernel': [ 'poly' ]  , 'degree': [ 2, 3, 4, 5 ], 
+                'C': [ 0.4, 0.8, 1.0 ], 'shrinking': [ True, False ] }  
+            ]
+
+# Randomized and adaptive search
+hp_svc_rs = [ { 'kernel': [ 'linear' ], 'C': stats.uniform( 0, 1 ), 'shrinking': [ True, False ] },
+              { 'kernel': [ 'poly' ]  , 'degree': np.random.randint( 2, 10 ), 
+                'C': stats.uniform( 0, 1 ), 'shrinking': [ True, False ] }  
+            ]
+
+
+#lgr = LogisticRegression()
+## Hyperparameters to search for Logistic regression
+
+
+#mlp = MLPClassifier()
+## Hyperparameters to search for MLP
+
 ```
