@@ -19,7 +19,7 @@ However, all data is available across the projects.
 
 A project for the general partition and CSC's other services is created as described in [Creating new project](how-to-create-new-project.md) page. As the project type, choose _Academic_ and add Puhti and other services as needed as described in [Adding service access for project](how-to-add-service-access-for-project.md).
 
-A project for Puhti FMI partition is created similarly by choosing _FMI_ as the project type. Only Puhti FMI, Allas and IDA are available as services for FMI projects.
+A project for Puhti FMI partition is created similarly by choosing _FMI_ as the project type. Only Puhti FMI and Allas are available as services for FMI projects.
 
 ## Puhti FMI partition
 

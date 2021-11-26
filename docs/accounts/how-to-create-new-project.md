@@ -2,8 +2,6 @@
 
 A CSC user account is required for creating new projects.
 
-<iframe   width="560" height="315" srcdoc="r9fVWveBQy0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _My projects_ in the navigation menu on the left.
 1. Scroll down to the end of the page and choose _Create a new
