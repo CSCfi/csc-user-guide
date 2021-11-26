@@ -87,8 +87,8 @@ The EU General Data Protection Regulation (GDPR) outlines the principles on sens
   4. Destroy the data you do not need. 
 
 Remember to identify and name a
-  - **Data Controller** (usually the Principal Investigator either alone or together with another legal person or entity), who determines the means and procedures for processing the data, meaning that they control how data is processed and for what purposes. 
-  - **Data Processor**, who processes the data on behalf of the controller. 
+- **Data Controller** (usually the Principal Investigator either alone or together with another legal person or entity), who determines the means and procedures for processing the data, meaning that they control how data is processed and for what purposes.
+- **Data Processor**, who processes the data on behalf of the controller. 
 
 !!! note "Additional information on sensitive data management"
     - [CSC's Sensitive Data Services for Research](https://research.csc.fi/sensitive-data)
