@@ -7,6 +7,7 @@
 * App cards show more information  about resource usage after job has finished (seff output)
 * Can reset interactive forms to default settings
 * Rclone app now alerts about missing Allas authentication
+* Added terminal outside container to Desktop app
 * Quota and BU warnings can now be hidden
 * Open onDemand version updated to 2.0.19
 
