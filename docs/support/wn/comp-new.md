@@ -2,7 +2,7 @@
 
 ## Puhti web interface beta updated to release 4 
 
-* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../../computing/webinterface/jupyter).
+* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../../computing/webinterface/jupyter/).
 * Added new interactive shell app that gives a persistent shell in compute node for heavier commands that should not be run on login nodes.
 * App cards show more information  about resource usage after job has finished (seff output)
 * Can reset interactive forms to default settings
