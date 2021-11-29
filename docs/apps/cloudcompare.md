@@ -27,7 +27,8 @@ CloudCompare
 ## License 
 
 CloudCompare is published under the [GNU General Public License](https://github.com/CloudCompare/CloudCompare/blob/master/license.txt).
-You are free to use them for any purpose, including commercially or for education. 
+
+You are free to use CloudCompare for any purpose, including commercially or for education. 
 
 ## Citation
 
