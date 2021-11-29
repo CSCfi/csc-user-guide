@@ -32,7 +32,9 @@ You are free to use CloudCompare for any purpose, including commercially or for 
 
 ## Citation
 
+```
 CloudCompare (version 2.11.3) [GPL software]. (2021). Retrieved from http://www.cloudcompare.org/
+```
 
 ## References
 
