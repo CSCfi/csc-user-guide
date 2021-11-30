@@ -78,8 +78,8 @@
       - Page has email, service times, phone, support request how-to
  
 ## Redirecting pages
- - If there's an url that is has been linked to from the outside a lot and it changes, a (temporary) redirect can be made
- - Create a file with the name-of-the-old-page`.html` (or index.html if it was done that way) and as the content put:
+ - If there's an url that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made
+ - Create a file with the name-of-the-old-page`.html` (or index.html if it was done that way) and as the content:
 ```
 <!DOCTYPE html>
 <html>
@@ -92,7 +92,7 @@
 </html>
 ```
 
- - and edit `new-page` (and the anchor, if there, otherwise just remove) to match
+ - edit `new-page` (and the anchor, if there, otherwise just remove) to match
  - to pass the tests, add the page to `tests/python_link_tests/whitelist`, too
 
 ## Terminology
