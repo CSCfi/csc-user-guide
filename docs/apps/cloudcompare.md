@@ -35,8 +35,11 @@ You are free to use CloudCompare for any purpose, including commercially or for 
 ## Citation
 
 ```
-CloudCompare (version 2.11.3) [GPL software]. (2021). Retrieved from http://www.cloudcompare.org/
+CloudCompare (version 2.11.3) [GPL software]. (2021). Retrieved from <a href="http://www.cloudcompare.org/" aria-label="CloudCompare homepage">CloudCompare</a>
 ```
+
+Also cite the plugin authors, if you used a [plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plugins).
+
 
 ## References
 
