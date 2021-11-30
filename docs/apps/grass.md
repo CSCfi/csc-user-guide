@@ -22,7 +22,7 @@ Using GRASS GIS in [Puhti web interface with Desktop app](../computing/webinterf
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
 2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
 
-Alternatively, especially if you want to use GRASS GIS and some other GUI tool together, GRASS GIS can be started in Puhti web interface Desktop App (mate or xfce) from Desktop shortcut or with the ´host terminal´ (Desktop icon) with the commands:
+Alternatively, especially if you want to use GRASS GIS and some other GUI tool together, GRASS GIS can be started in Puhti web interface Desktop App (mate or xfce) from Desktop shortcut or from the ´host terminal´ (Desktop icon) with the commands:
 
 ```
 module load qgis
