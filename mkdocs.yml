@@ -129,20 +129,8 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-     - FGCI:
-             - Getting started:
-                   - Overview: cloud/fgci/fgci-user-guide-overview.md
-                   - Grid certificates: cloud/fgci/fgci-grid-certificates.md
-                   - Joining the Virtual Organization: cloud/fgci/fgci-joining-the-fgi.csc.fi-virtual-organization.md
-                   - ARC middleware: cloud/fgci/fgci-arc-middleware-overview.md
-             - Using FGCI with ARC middleware:
-                   - Job description files: cloud/fgci/fgci-job-description-files.md
-                   - Executing grid jobs with ARC commands: cloud/fgci/fgci-executing-grid-jobs-with-arc-commands.md
-                   - Using software through runtime environments: cloud/fgci/fgci-using-software-through-runtime-environments.md
-                   - Running parallel applications in FGCI: cloud/fgci/fgci-running-parallel-applications.md
-                   - Using arcrunner to run large job sets in FGCI: cloud/fgci/fgci-using-arcrunner-to-run-large-job-sets.md
-                   - Using storage elements for data transport in FGCI: cloud/fgci/fgci-using-storage-elements-for-data-transport.md
-             - The Grid Monitor: cloud/fgci/fgci-grid-monitor.md
+     - Grid computing:
+        - The Grid Monitor: cloud/grid/grid-monitor.md
   - Data:
      - Moving data:
         - Copying files using scp: data/moving/scp.md

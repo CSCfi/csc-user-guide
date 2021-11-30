@@ -10,7 +10,7 @@ for *drug design* and *Materials Science*. It can be used to build, edit, run an
 
 ## Available
 
-Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3
+Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4
 
 
 ## License
@@ -20,7 +20,7 @@ for academic purposes. Please consult the [EULA](https://www.schrodinger.com/mae
 for the exact definition. 
 Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens.
-If licenses run out, contact Atte via [ServiceDesk](mailto:servicedesk@csc.fi).
+If licenses run out, contact Atte via [ServiceDesk](/support/contact/)
 
 ## Usage
 
@@ -134,5 +134,5 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
    * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
    * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions 
-* Issues on how to run Maestro on CSC environment: [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
+* Issues on how to run Maestro on CSC environment: [contact ServiceDesk](/support/contact/)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)
