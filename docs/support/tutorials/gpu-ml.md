@@ -127,7 +127,8 @@ approaches, including:
 - packaging your dataset into larger files 
 - taking into use the [NVME fast local
   storage](../../computing/running/creating-job-scripts-puhti.md#local-storage)
-  on the GPU nodes.
+  on the GPU nodes
+- using a SquashFS image (Singularity-only)
 
 #### More efficient data format
 
@@ -183,6 +184,14 @@ If you are running a multi-node job (see next section), you need to modify the
 srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
     tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 ```
+
+#### Using SquashFS
+
+If you are running one of our [Singularity-based modules](#singularity), you can package your
+dataset into a SquashFS image and mount it so it's visible to the code as a
+normal directory. See [our documentation on how to mount datasets with
+SquashFS](../../computing/containers/run-existing.md#mounting-datasets-with-squashfs)
+for the details.
 
 ### GPU utilization
 
@@ -387,3 +396,7 @@ lemmatization created by the [Turku NLP group](http://turkunlp.org/).
     echo "Minulla on koira." | singularity_wrapper run stream fi_tdt parse_plaintext
 
 There is also a GPU-version `turku-neural-parser/fi-en-sv-gpu`.
+
+**NOTE:** running the command requires at least 4GB of RAM, so you need to run it
+in an [interactive session](../../computing/running/interactive-usage.md) or a
+batch job.

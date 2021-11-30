@@ -33,7 +33,7 @@ ida_configure
 The configuration process asks for your CSC project number, username and [application password](https://www.fairdata.fi/en/ida/user-guide/#app-passwords). 
 This information can be obtained from the [security settings page of the IDA WWW-interface](https://ida.fairdata.fi/settings/user/security). The configuration is stored to your home directory, so you need to do it only once.
 
-Once you have configured the connection, you can start using the `ida` command line client that enables data transport between the supercomputer and IDA. Data can be uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data from staging area to the frozen area is possible only through the [IDA WWW interface](https://ida.csc.fi).
+Once you have configured the connection, you can start using the `ida` command line client that enables data transport between the supercomputer and IDA. Data can be uploaded and downloaded from the _IDA staging area_. In the case of frozen area, only download is possible. Note that some key features of IDA, like moving data from staging area to the frozen area is possible only through the [IDA WWW interface](https://ida.fairdata.fi).
 
 The basic syntax of the _ida_ commands is:
 <pre>

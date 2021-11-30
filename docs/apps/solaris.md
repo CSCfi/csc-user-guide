@@ -6,7 +6,6 @@
 
 __Solaris__ is available in Puhti with following versions:
 
-* 0.1.3 (with pytorch 1.1.0)
 * 0.3.0 (with pytorch 1.6.0)
 
 ## Usage

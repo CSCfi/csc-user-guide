@@ -13,11 +13,13 @@ if you already have access.** On Puhti, you can also use command `csc-projects`.
 
 ## Connecting to Puhti
 
-Connect via [NoMachine](../../apps/nomachine.md) or using a normal ssh-client:
+Connect using a normal ssh-client:
 ```
 $ ssh yourcscusername@puhti.csc.fi
 ```
-Where **yourcscusername** is the username you get from CSC.
+Where **yourcscusername** is the username you get from CSC. 
+
+There is also a beta [web interface](../../computing/webinterface/index.md) available at [www.puhti.csc.fi](https://www.puhti.csc.fi), where you can log in with your CSC user name. In this interface you can manage files, launch interactive applications and list jobs, quotas and project statuses. You can use it also for graphical applications, alternatively [NoMachine](../../apps/nomachine.md) is also available.
 
 ## Module system:
 
@@ -43,10 +45,9 @@ information about libraries](../../computing/hpc-libraries.md).
 
 
 ## MPI
-Currently the system has a few different MPI implementations installed:
+Currently the system has a two MPI implementations installed:
 
 - hpcx-mpi
-- mpich
 - intel-mpi
 
 We recommend to test using 

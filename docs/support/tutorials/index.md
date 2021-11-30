@@ -12,6 +12,8 @@
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
+* [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
+* [Building Singularity containers from scratch](singularity-scratch.md)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)
@@ -49,6 +51,7 @@
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
+* [Learn cloud computing by developing and deploying a web application](cloud.md)
 
 ## Rahti - container cloud
 * [Core objects](../../cloud/rahti/concepts.md)

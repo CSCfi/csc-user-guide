@@ -12,7 +12,7 @@ Puhti has following datasets:
         +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
-*   **LUKE, multi-source national forest inventory**, 2013, 2015 and 2017. LUKE license changed in Aug 2019 to CC BY 4.0.
+*   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017 and 2019. LUKE license changed in Aug 2019 to CC BY 4.0.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).
 *   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project, **added in 2020**
     -   [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar): 10/2019 ->, 3 mosaics per month

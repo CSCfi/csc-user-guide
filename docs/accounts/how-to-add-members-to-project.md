@@ -10,8 +10,6 @@ want to use with their account.
 Direct addition is the best method if you have a small number of users to add.
 Only existing users can be added this way.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QM-MlRs_pCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _My Projects_ in the navigation menu on the left.
 1. Choose the project you want new persons to join.

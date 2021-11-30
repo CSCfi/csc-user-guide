@@ -148,7 +148,7 @@ for it from CSC.
 | Aalto university        | Pekka Karppinen                      |
 | University of Helsinki  | helpdesk at helsinki.fi              |
 | HAMK                    | Kirsi Laaksonen                         |
-| UEF                     | Eliisa Lotsari                       |
+| UEF                     | Sonja Kivinen                       |
 | University of Jyväskylä | Juha Alioravainen, Anssi Lensu       |
 | Karelia AMK             | Antti Lajunen                        |
 | Lapin AMK               | lisenssit at lapinamk.fi             |

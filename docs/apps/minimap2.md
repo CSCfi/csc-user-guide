@@ -19,7 +19,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
--   Puhti: 2.17-r941
+-   Puhti: 2.17-r941, 2.21-r1071
 -   Chipster graphical user interface
 
 

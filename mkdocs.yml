@@ -10,6 +10,7 @@ nav:
      - How to change password: accounts/how-to-change-password.md
      - How to manage user information: accounts/how-to-manage-user-information.md
      - How to create new project: accounts/how-to-create-new-project.md
+     - When your project handles personal data: accounts/when-your-project-handles-personal-data.md
      - How to add members to project: accounts/how-to-add-members-to-project.md
      - How to add service access for project: accounts/how-to-add-service-access-for-project.md
      - How to manage your project: accounts/how-to-manage-your-project.md
@@ -25,6 +26,7 @@ nav:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
+        - Kvasi: computing/kvasi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
         - Disk areas: computing/disk.md
@@ -50,6 +52,14 @@ nav:
      - Containers:
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
+     - Web interface:
+       - Overview: computing/webinterface/index.md
+       - Interactive apps:
+         - Desktop: computing/webinterface/desktop.md
+         - Jupyter: computing/webinterface/jupyter.md
+         - Rclone: computing/webinterface/rclone.md
+         - RStudio: computing/webinterface/rstudio.md
+         - Visual Studio Code: computing/webinterface/vscode.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
@@ -57,11 +67,12 @@ nav:
        - What is Rahti: cloud/rahti/rahti-what-is.md
        - Containers & their Orchestration: cloud/rahti/containers.md
        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+       - Networking: cloud/rahti/networking.md
+       - Security guide: cloud/rahti/security-guide.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-         - Security guide: cloud/rahti/usage/security-guide.md
        - Rahti Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
@@ -76,11 +87,13 @@ nav:
          - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
+         - Annotations: cloud/rahti/tutorials/annotations.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
-         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
@@ -116,20 +129,8 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-     - FGCI:
-             - Getting started:
-                   - Overview: cloud/fgci/fgci-user-guide-overview.md
-                   - Grid certificates: cloud/fgci/fgci-grid-certificates.md
-                   - Joining the Virtual Organization: cloud/fgci/fgci-joining-the-fgi.csc.fi-virtual-organization.md
-                   - ARC middleware: cloud/fgci/fgci-arc-middleware-overview.md
-             - Using FGCI with ARC middleware:
-                   - Job description files: cloud/fgci/fgci-job-description-files.md
-                   - Executing grid jobs with ARC commands: cloud/fgci/fgci-executing-grid-jobs-with-arc-commands.md
-                   - Using software through runtime environments: cloud/fgci/fgci-using-software-through-runtime-environments.md
-                   - Running parallel applications in FGCI: cloud/fgci/fgci-running-parallel-applications.md
-                   - Using arcrunner to run large job sets in FGCI: cloud/fgci/fgci-using-arcrunner-to-run-large-job-sets.md
-                   - Using storage elements for data transport in FGCI: cloud/fgci/fgci-using-storage-elements-for-data-transport.md
-             - The Grid Monitor: cloud/fgci/fgci-grid-monitor.md
+     - Grid computing:
+        - The Grid Monitor: cloud/grid/grid-monitor.md
   - Data:
      - Moving data:
         - Copying files using scp: data/moving/scp.md
@@ -139,6 +140,7 @@ nav:
         - Sharing and transporting files using Funet FileSender: data/moving/funet.md
         - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
         - Remote disk mounts: data/moving/disk_mount.md
+        - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
      - Allas object storage:
         - Overview: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
@@ -149,6 +151,14 @@ nav:
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
+     - Sensitive data:
+        - Overview: data/sensitive-data/index.md
+        - Introduction: data/sensitive-data/intro.md
+#        - Quickguide: data/sensitive-data/quickguide.md
+        - SD Connect: data/sensitive-data/sd_connect.md
+        - SD Desktop: data/sensitive-data/sd_desktop.md
+        - Pre-installed software: data/sensitive-data/pre-installed_software.md
+        - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
@@ -168,6 +178,7 @@ nav:
      - FAQ: support/faq/index.md
      - Training material: support/training-material.md
      - Contact: support/contact.md
+     - What's new: support/whats-new.md
 
 theme:
   name: material
@@ -180,11 +191,17 @@ theme:
   logo: 'img/Docs_CSC_logo.svg#headerlogo"'
 
 extra_css:
+  - 'assets/stylesheets/tabbed.css'
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
+  - 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css'
 
 extra_javascript:
   - 'assets/javascripts/extra.js'
+  - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+  - 'assets/javascripts/cookie_consent.js'
+    
+
 
 markdown_extensions:
   - toc:
@@ -192,6 +209,8 @@ markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.superfences
   - pymdownx.snippets
 
 google_analytics:

@@ -3,20 +3,33 @@
 [RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
 The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser. So, there is no need to use NoMachine.
 
-Using RStudio or Jupyter Notebook involves creating a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
+There are two ways to use RStudio Server or Jupyter Notebook on Puhti.
+
+1. The first (and easiest) option is to use [the Puhti web interface](../../computing/webinterface/index.md).
+
+2. The second option is to create a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
 not suitable for RStudio or Jupyter Notebook in Puhti. 
 SSH tunnelling requires that you have [set up SSH keys](../../computing/connecting.md#setting-up-ssh-keys). 
 
-* With Linux, macOS and MobaXterm the SSH tunnelling works by default.
-* PuTTy requires filling in the settings to PuTTy tabs, so it is slower and more complicated, but possible.
+With Linux, macOS and MobaXterm the SSH tunnelling works by default. PuTTy requires filling in the settings to PuTTy tabs, so it is slower and more complicated, but possible.
 
-## The workflow for using RStudio or Jupyter Notebook in Puhti
+## Workflow for using RStudio or Jupyter Notebook in Puhti
+
+**Using the Puhti Web Interface**
+
+* For instructions on this, [see the Puhti web interface documentation.](../../computing/webinterface/index.md)
+
+**Using SSH tunneling**
 
 * Start interactive session
 * Load suitable modules and start RStudio or Jupyter Notebook server
 * Create SSH tunnel from your PC to Puhti compute node
 * Open RStudio or Jupyter Notebook in local web browser
+
+More detailed information on the different steps to launch RStudio or Jupyter Notebook using SSH tunneling is provided in the following. 
+
+## Instructions for SSH tunneling
 
 ### 1. Start interactive session
 Start an interactive session, for example with `sinteractive -i`. For more options and maximum limits see the [interactive usage page.](../../computing/running/interactive-usage.md)

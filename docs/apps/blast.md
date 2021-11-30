@@ -31,7 +31,7 @@ Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/ol
 
 ## Available
 
--   Puhti: 2.10.0
+-   Puhti: 2.12.0
 -   FGCI: 2.6.0
 -   Chipster graphical user interface
 
@@ -55,7 +55,7 @@ sinteractive -i
 ```
 Reserve 8 GiB of memory, for your interactive session.
 
-After that you can start using the BLAST commands listed above. For example following command would search for sequence homologs form UniProt database for a protein sequence.
+After that you can start using the BLAST commands listed above. For example following command would search for sequence homologs from UniProt database for a protein sequence.
 ```text
 blastp -query proteinseq.fasta -db uniprot -out result.txt
 ```
@@ -103,6 +103,8 @@ The pb program also allows users to do BLAST searches against their own fasta fo
 ```text
 pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 ```
+If your database is big, building the BLAST indexes may require more that 1 GB of memory ( that is the job specific memory limit in Puhti login nodes). In those cases you can subhmit the job from an interactive batch job (with e.g. 8 GB of memory).
+
 ## Using taxonomy lists to focus the search
 
 Since BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a single taxonomy ID number or list of taxonomies, to focus the search only to an organism based subset from the search database.
@@ -144,10 +146,6 @@ You can see the list of species, available at Ensembl and Ensembl genomes databa
 ```text
 ensemblfetch.sh -names
 ```
-## Running BLAST in FGCI grid with gb
-
-**gb** (grid blast) will soon be available in Puhti.
-<!-- *  [gb instructions](./grid_blast.md) -->
 
 Below is a list of BLAST databases maintained at the servers of CSC.
 

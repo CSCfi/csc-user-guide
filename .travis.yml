@@ -28,6 +28,8 @@ script:
   - python3 tests/python_link_tests/link_check.py
   # Test if any http urls point to docs.csc.fi
   - bash tests/check_internal_url.sh
+  # Test if iframes contain src attribute
+  - bash tests/check_youtube_embed.sh
 
 
   # Testing style-guide and slurm erros
