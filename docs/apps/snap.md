@@ -40,9 +40,10 @@ Using SNAP in [Puhti web interface with Desktop app](../computing/webinterface/d
 3. The SNAP GUI is started automatically when the Desktop is launched. 
  
 
-Alternatively, especially if you want to use QGIS and some other GUI tool together, SNAP can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+Alternatively, especially if you want to use QGIS and some other GUI tool together, SNAP can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or or from the `Host Terminal` (Desktop icon) with the commands::
 
 ```
+module load snap
 source snap_add_userdir $TMPDIR
 snap -J-xmx10G
 ```
