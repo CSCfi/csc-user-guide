@@ -20,7 +20,7 @@ for academic purposes. Please consult the [EULA](https://www.schrodinger.com/mae
 for the exact definition. 
 Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens.
-If licenses run out, contact Atte via [contact ServiceDesk](/support/contact/)
+If licenses run out, contact Atte via [ServiceDesk](/support/contact/)
 
 ## Usage
 
