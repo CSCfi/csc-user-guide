@@ -18,7 +18,7 @@ Using QGIS in [Puhti web interface with Desktop app](../computing/webinterface/d
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
 2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
 
-Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti web interface within mate or xfce Desktop App from the QGIS icon on the Desktop or from the ´host terminal´ (Desktop icon) with the commands:
+Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti web interface within mate or xfce Desktop App from the QGIS icon on the Desktop or from the `Host Terminal` (Desktop icon) with the commands:
 
 ```
 module load qgis
