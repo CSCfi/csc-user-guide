@@ -90,7 +90,7 @@ To check the exact packages and versions included in the loaded module:
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
 !!! note
-You can edit your Python code with [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md) or Spyder in Puhti web interface [remote desktop](../computing/webinterface/desktop.md).
+You can edit your Python code with [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md) or Spyder in Puhti web interface [remote desktop](../computing/webinterface/desktop.md) using the `Host Terminal` (Desktop icon) to load the `geoconda` module and start `spyder`.
 
 ## Using Allas from Python
 
