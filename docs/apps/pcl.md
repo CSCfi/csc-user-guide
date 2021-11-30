@@ -2,11 +2,16 @@
 
 [PCL](https://pointclouds.org/) (Point Cloud Library) is a standalone, large scale, open project for 2D/3D image and point cloud processing.
 
+[PCLpy](https://github.com/davidcaron/pclpy) adds Python bindings to PCL.
+
 ## Available
 
 __PCL__ is available in Puhti with following versions:
 
 * 1.9.1 
+
+This version includes __PCLpy__ version 0.12.0 with Python 3.8.
+All included Python packages can be seen by using the command `list-packages`.
 
 PCL has been compiled with Boost, Eigen, FLANN and Qhull
 
@@ -21,6 +26,8 @@ PCL is included in the __pcl__ module and can be loaded with
 You can see all available binaries with the command
 
 `ls /appl/soft/geo/pcl/1.9.1/bin`
+
+Note, that not all PCL modules are available in PCLpy.
 
 ## License and citing
 

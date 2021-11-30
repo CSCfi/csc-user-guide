@@ -32,6 +32,7 @@ export ORCADIR=<path to your ORCA directory>/orca_5_0_0_linux_x86-64_shared_open
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 $ORCADIR/orca orca_5.0.inp > orca_5.0.out
 ```
+
 !!! note
     Please remember to adjust %pal nproc in your input file according to the total number of requested MPI tasks (nodes * ntasks-per-node) 
 
