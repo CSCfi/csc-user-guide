@@ -30,7 +30,7 @@ Using SAGA GIS in [Puhti web interface with Desktop app](../computing/webinterfa
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
 2. Start SAGA GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'.
 
-Alternatively, especially if you want to use SAGA GIS and some other GUI tool together, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+Alternatively, especially if you want to use SAGA GIS and some other GUI tool together, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or from the `Host Terminal` (Desktop icon) with the commands:
 
 ```
 module load r-env-singularity 
