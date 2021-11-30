@@ -50,7 +50,6 @@
 
 * [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
 * [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
-* [How to use FGCI grid form Pouta](how-to-use-fgci-from-pouta.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
 * [How to mount my Pouta Object Storage bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
@@ -64,11 +63,6 @@
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
 
-## Finnish Grid Infrastructure (FGI)
-* [What is FGI?](what-is-FGI.md)
-* [How to access FGI?](how-to-access-FGI.md)
-* [How long a grid certificate is valid?](how-long-a-grid-certificate-is-valid.md)
-* [How to use FGCI grid form Pouta](how-to-use-fgci-from-pouta.md)
 
 ## Rahti
 

@@ -6,7 +6,8 @@
 
 __GRASS__ is available in Puhti with following versions:
 
-* GRASS 7.4
+* GRASS 7.8.5 with default qgis module
+* GRASS 7.4 with older qgis/3.16 module
 
 ## Usage
 
