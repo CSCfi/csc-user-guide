@@ -3,7 +3,7 @@
 ## Puhti web interface beta updated to release 4 30.11.2021 
 
 * Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../../computing/webinterface/jupyter/).
-* Added new interactive shell app that gives a persistent shell on a compute node for commands that should not be run on login nodes.
+* Added new **Compute node shell** app that gives a persistent shell on a compute node for commands that should not be run on login nodes.
 * App cards show more information  about resource usage after job has finished (seff output)
 * Can reset interactive forms to default settings
 * Rclone app now alerts about missing Allas authentication
