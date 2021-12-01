@@ -22,7 +22,7 @@
 
 [Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-for-research-data/)
 
-[Moving datasets in CSC's environment](../moving/scp.md)
+[Moving datasets in CSC's environment](../moving/)
 
 ## What to consider when choosing a suitable storage solution
 
