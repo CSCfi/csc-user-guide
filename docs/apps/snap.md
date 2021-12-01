@@ -31,18 +31,23 @@ This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
-### Using SNAP with Graphical User Interface (GUI) via Puhti web interface
+### Using SNAP with Graphical User Interface (GUI) in Puhti web interface
 
-Using SNAP in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using SNAP is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start SNAP with Apps -> Desktop, choose Desktop: 'None' and App: 'SNAP'
+2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'SNAP'
 3. The SNAP GUI is started automatically when the Desktop is launched. 
  
 
-Alternatively, especially if you want to use QGIS and some other GUI tool together, SNAP can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+Alternatively, especially if you want to use SNAP together with some other GUI tool, want to user older version of SNAP or want to increase the default Java memory allocaiton, SNAP can be started in Puhti web interface with remote desktop:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start SNAP:
 
 ```
+module load snap
 source snap_add_userdir $TMPDIR
 snap -J-xmx10G
 ```
