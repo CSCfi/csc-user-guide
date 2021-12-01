@@ -48,7 +48,7 @@ Structural metadata describes how the dataset is organized internally and how it
 
 ### Data documentation (also called *detailed descriptive metadata* or data-level metadata)
 
-It is important that you create relevant metadata for reuse and future credit. If you have additional metadata that does not fit in the data catalogue, additional metadata and **documentation** like code books or configuration files can be added to the dataset as separate files. This metadata can also be innate within the data files. Remember that this can make the data harder to find. If you add extra metadata:
+If you have additional metadata that does not fit in the data catalogue, additional metadata and **documentation** like code books or configuration files can be added to the dataset as separate files. This metadata can also be innate within the data files. Remember that this can make the data harder to find. If you add extra metadata:
 
 1. Use metadata standards if possible: Repositories often require the use of a specific metadata standard; *structured formats that use specific vocabularies or ontologies in describing the data*. Check whether a discipline/community or repository based metadata schema or standard (i.e., preferred sets of metadata elements) exists that can be adopted. Discipline-specific standards can be found in the [Digital Curation Centre website](http://www.dcc.ac.uk/resources/metadata-standards).
     - Some research instruments create standardized metadata formats automatically. Choose a standard which is compatible with other software, if possible.
@@ -66,7 +66,7 @@ Also, think about your file naming conventions, directory structure and **versio
     
     and they all take part in explaining what the project data is and what it means.
 
-## Semantic interoperability
+## Semantic interoperability and machine-readability
 
 **Controlled vocabularies, thesauri, and ontologies** are all so called semantic artefacts, which are machine-readable models of knowledge. When a data standard and schema express the data structure (the relations of different elements in the data), semantic artefacts make the meaning of the content unambiguous and 'understandable' to a machine (machine actionable). For example, when you collect data about plants it may be obvious to other human readers, that the data is about living organisms and not about power plants and other factories, but a computer can't distinguish the difference by interpreting the meaning from the context as humans can. For this purpose, data should be accompanied by or refer to a publicly available vocabulary that tells a machine how to interpret the data in the context, and what values in the variables mean (for example are the numbers in the "Degrees" column Fahrenheit or Celsius degrees). It is also important to let the machine know whether an empty field, NULL, or zero means zero value, or if the data is simply missing. It can be crucial to the analyses and results if data is (mis)interpreted in different ways when reusing or merging datasets. 
 
@@ -116,7 +116,7 @@ It is important to take some time to plan file and folder structures and naming.
 - Use meaningful, unique file and folder names
 - Keep file and folder names as short as possible but relevant. 25 characters are usually considered maximum.
 - Dates in YYYY-MM-DD format allows you to sort and search your files
-- Avoid using special characters such as % & / \ : ; * . ? < > ^! " () and Scandinavians
+- Avoid using special characters such as % & / \ : ; * . ? < > ^! " () and Scandinavian letters
 - Use three digits (or 4 if you have a large number of files) i.e. 001, 002…….201, 202 (not 1, 2, 21).
 - Use underscores (_) instead of spaces
 - If using a personal name in the name give the surname first followed by the first name
