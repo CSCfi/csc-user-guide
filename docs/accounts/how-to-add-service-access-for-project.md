@@ -15,8 +15,6 @@ the service for the project and (2) members approve it for themselves.
 
 ## Project manager
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/1cMkuo0mV5M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _My Projects_ in the navigation menu on the left.
 1. Click the project you want to use with the service.
@@ -31,8 +29,6 @@ user account when the service access has been granted.
 When a project manager is granted service access, other
 members receive a message that their service access awaits their
 approval.
-
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/w9bPMQCoHVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _My Projects_ in the navigation menu on the left.
