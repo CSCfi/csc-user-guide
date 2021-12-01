@@ -17,12 +17,17 @@ In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command lin
 
 ### GRASS GIS Graphical User Interface
 
-Using GRASS GIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using GRASS GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start GRASS GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'.
+2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'GRASS GIS'
+3. GRASS GIS is started automatically when the Desktop is launched. 
 
-Alternatively, especially if you want to use GRASS GIS and some other GUI tool together, GRASS GIS can be started in Puhti web interface Desktop App (mate or xfce) from Desktop shortcut or from the `Host Terminal` (Desktop icon) with the commands:
+Alternatively, especially if you want to use GRASS GIS together with some other GUI tool or want to user older version, GRASS GIS can be started in Puhti web interface with remote desktop:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start GRASS GIS:
 
 ```
 module load qgis
