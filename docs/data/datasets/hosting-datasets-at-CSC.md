@@ -28,7 +28,7 @@
 
 When you are looking for a place where to store data during your research project, you should consider:
 
-- how will the data be used (as a backup, ready for analysis etc)
+- how will the data be used (as a backup, ready for analysis, etc.)
 - who decides the data lifecycle
     - what happens to your data if you leave the university/research organization
     - who needs to have access to the data
@@ -41,14 +41,14 @@ When you are looking for a place where to store data during your research projec
 - does the data contain personal information and/or sensitive data
 - what level of security does your data require
 
-After you have decided which storage solution to use, you should take some minutes to think through how you [organize your data](metadata-and-documentation.md#data-organization).
+After you have decided which storage solution to use, you should think through how you [organize your data](metadata-and-documentation.md#data-organization).
 
 ## When the research project ends
 
 As the research project ends, you need to consider:
 - what data should be [published](publishing-datasets.md), 
 - for how long do you need to retain the data according to the requirements of the funder, publisher or your home organization,
-- what data can be deleted at this point
+- what data can be deleted at this point,
 - do you have valuable data that needs to be digitally [preserved](publishing-datasets.md#preservation).
 
 Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data and sensitive data should be appropriately disposed. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of 'special category personal data', is completely wiped from hard drives, portable drives and storage solutions of any other kind.  
@@ -63,8 +63,6 @@ The user of CSC's services must estimate the size of storage space required, for
     
 
 It is also worth noting that transferring large amounts of data takes time. For example, transferring a 1 GiB file over a 10 Mbps connection typically takes about 10 minutes and over a high speed 100 Mb fixed connection a couple of minutes. We recommend using, for example, the fast fixed connection provided by the home organization and to avoid using browser interfaces to transfer large amounts of files / data.
-
-Below is a memory refreshing with information on storage sizes. 
 
 **File size units from the smallest to the largest:**
 
