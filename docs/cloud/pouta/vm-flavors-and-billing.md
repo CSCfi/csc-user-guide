@@ -423,7 +423,7 @@ batch system on Puhti-AI: <https://research.csc.fi/techspecs>.
 -   Redundant power
 -   CPU: AMD EPYC 7402 24-Core Processor
 -   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-1
+-   Flavor disk: Local NVME disks
 -   Instance can be lost due to a single-node or disk failure.
 -   Multi-Instance GPU (MIG) is supported
 
