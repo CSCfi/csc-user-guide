@@ -30,6 +30,7 @@
   - [CSC's services for storing data](hosting-datasets-at-CSC.md#cscs-services-for-storing-data)
   - [What to consider when choosing a suitable storage solution](hosting-datasets-at-CSC.md#what-to-consider-when-choosing-a-suitable-storage-solution)
   - [When the research project ends](hosting-datasets-at-CSC.md#when-the-research-project-ends)
+  - [Preservation](hosting-datasets-at-CSC.md#preservation)
   - [How much storage space is needed](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
 
 ## [Publishing Datasets](publishing-datasets.md)
@@ -40,4 +41,3 @@
   - [Persistent identifiers](publishing-datasets.md#persistent-identifiers)
   - [Licensing & rights](publishing-datasets.md#licensing-rights)
   - [Access restrictions](publishing-datasets.md#access-restrictions)
-  - [Preservation](publishing-datasets.md#preservation)
