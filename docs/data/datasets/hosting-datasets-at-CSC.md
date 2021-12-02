@@ -53,6 +53,16 @@ As the research project ends, you need to consider:
 
 Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data and sensitive data should be appropriately disposed. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of 'special category personal data', is completely wiped from hard drives, portable drives and storage solutions of any other kind.  
 
+## Preservation
+
+Digital preservation refers to the reliable preservation of digital information for several decades or even centuries. Hardware, software, and file formats will become outdated while the information must be preserved. Reliable digital preservation requires active monitoring of information integrity and anticipation of various risks. Metadata, which describes for example the information content, provenance information and how the content can be used, has a key role in this.
+
+The [National Digital Preservation Services](http://digitalpreservation.fi/en) for research data ensures the availability and preservation of digital research resources. Here you find more information about [becoming a partner organization with the Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-organisations/).
+
+Learn more about the preservation of research data in this video.
+
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/arJ5jJP_eOM" title="Manage well and get preserved - 5. Preservation metadata" width="560"></iframe>
+
 ## How much storage space is needed
 
 The user of CSC's services must estimate the size of storage space required, for example in gibibytes (GiB). One way to do this is to check the size of any existing files and assess the final space requirement based on these. The quota size of most CSC services can easily be increased (or decreased) in the [MyCSC customer portal](https://my.csc.fi/welcome).
