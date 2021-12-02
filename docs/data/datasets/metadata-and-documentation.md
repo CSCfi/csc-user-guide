@@ -49,7 +49,7 @@ Structural metadata describes how the dataset is organized internally and how it
  
 !!! note "Note"
 
-    You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. 
+    You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core, administrative and structural metadata for your dataset. 
     
     It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
 
