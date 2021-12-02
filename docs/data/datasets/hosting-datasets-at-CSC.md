@@ -49,7 +49,7 @@ As the research project ends, you need to consider:
 - what data should be [published](publishing-datasets.md), 
 - for how long do you need to retain the data according to the requirements of the funder, publisher or your home organization,
 - what data can be deleted at this point,
-- do you have valuable data that needs to be digitally [preserved](publishing-datasets.md#preservation).
+- do you have valuable data that needs to be digitally [preserved](hosting-datasets-at-CSC.md#preservation).
 
 Although it may be tempting to deposit all of your data just in case it proves useful in the future, this is not always possible, as archiving everything could prove to be costly and time-consuming and in some cases, unethical. If you are gathering data from human research participants, you will also need to ensure that you have gained their informed and valid consent for the specific archival, share and re-use. Files that are not published, archived or preserved should be deleted when they have fulfilled their purpose. Researchers have a legal responsibility for collected data and sensitive data should be appropriately disposed. Deleting files is not enough as tools are available to retrieve deleted data. You need to make sure that the data you want to discard, especially in cases of 'special category personal data', is completely wiped from hard drives, portable drives and storage solutions of any other kind.  
 
