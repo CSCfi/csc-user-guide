@@ -19,11 +19,11 @@ License: CC BY 4.0
  
 ### Discovery metadata
 
-**Descriptive metadata** of a dataset can be divided into two subcategories: **1) core metadata** *or study level metadata* (for discovery and identification - for search and citation) and **2) detailed descriptive metadata** *or data level metadata* (variable configurations, work-flows, processing code etc. - for enabling assessment and reuse). More about detailed descriptive metadata in [Data documentation](#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata).
+**Descriptive metadata** of a dataset can be divided into two subcategories: 
 
-***Core metadata* includes**
+**1) core metadata** *or study level metadata* (for discovery and identification - for search and citation), which includes:
 
- * a persistent identifier to be used when citing the dataset or reporting re-use
+* a persistent identifier to be used when citing the dataset or reporting re-use
  * general information about the dataset (title, the field of science, keywords, content coverage, variables)
  * information about agents (creators, contributors, publisher, distributor)
  * information about access (download link or access information and rights statements)
@@ -36,7 +36,12 @@ License: CC BY 4.0
     
     It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
 
-***Administrative metadata***
+
+**2) detailed descriptive metadata** *or data level metadata* (variable configurations, work-flows, processing code etc. - for enabling assessment and reuse). More about detailed descriptive metadata in [Data documentation](#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata).
+
+***Core metadata* includes**
+
+ ***Administrative metadata***
 
 Administrative metadata includes information about the rights of the dataset. This means information about license, type of restriction and reason for it (ethical, legal etc.), embargo time, owner of the rights, contact for reuse as well as how to apply for use permit and access.
 
