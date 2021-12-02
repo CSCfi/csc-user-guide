@@ -89,13 +89,4 @@ Publishing your data doesn’t necessarily mean that your datasets must be avail
 
 Whichever option is selected does not affect the visibility of the dataset’s descriptive metadata, meaning that even if access to data is restricted, descriptive information about the published dataset is displayed in the publishing platform. Any restriction needs however to be specified and contact information made available and kept up to date.
 
-## Preservation
-
-Digital preservation refers to the reliable preservation of digital information for several decades or even centuries. Hardware, software, and file formats will become outdated while the information must be preserved. Reliable digital preservation requires active monitoring of information integrity and anticipation of various risks. Metadata, which describes for example the information content, provenance information and how the content can be used, has a key role in this.
-
-The [National Digital Preservation Services](http://digitalpreservation.fi/en) for research data ensures the availability and preservation of digital research resources. Here you find more information about [becoming a partner organization with the Digital Preservation Service for Research Data](https://www.fairdata.fi/en/dps-organisations/).
-
-Learn more about the preservation of research data in this video.
-
-<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/arJ5jJP_eOM" title="Manage well and get preserved - 5. Preservation metadata" width="560"></iframe>
 
