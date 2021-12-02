@@ -3,7 +3,7 @@
 !!! note "Note"
     The old Dataset section content can be found here: [Specific datasets hosted in CSC computing environment](sourcing-datasets.md#specific-datasets-hosted-in-csc-computing-environment)
 
-## [Tips for Data management](datamanagement.md)
+## [Tips for Data Management](datamanagement.md)
 
   - [Overview](datamanagement.md#overview)
   - [Best practices](datamanagement.md#best-practices)
