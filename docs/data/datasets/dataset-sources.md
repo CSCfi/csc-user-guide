@@ -13,7 +13,7 @@
 
   - [Overview](metadata-and-documentation.md#overview)
   - [Metadata types](metadata-and-documentation.md#metadata-types)
-  - [Semantic interoperability](metadata-and-documentation.md#semantic-interoperability)
+  - [Semantic interoperability and machine readability](metadata-and-documentation.md#semantic-interoperability-and-machine-readability)
   - [Data organization](metadata-and-documentation.md#data-organization)
 
 ## [Dataset Sources](sourcing-datasets.md)
