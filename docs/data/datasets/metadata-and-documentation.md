@@ -21,11 +21,13 @@ License: CC BY 4.0
 
 Discovery metadata can be of three types: Descriptive, Administrative and Structural.
 
-***Descriptive metadata*** of a dataset can be divided into two subcategories: 
+***Descriptive metadata***
+
+Descriptive metadata of a dataset can be divided into two subcategories:
 
 **1) core metadata** *or study level metadata* (for discovery and identification - for search and citation), which includes:
 
-* a persistent identifier to be used when citing the dataset or reporting re-use
+ * a persistent identifier to be used when citing the dataset or reporting re-use
  * general information about the dataset (title, the field of science, keywords, content coverage, variables)
  * information about agents (creators, contributors, publisher, distributor)
  * information about access (download link or access information and rights statements)
