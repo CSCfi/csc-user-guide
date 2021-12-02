@@ -19,7 +19,9 @@ License: CC BY 4.0
  
 ### Discovery metadata
 
-**Descriptive metadata** of a dataset can be divided into two subcategories: 
+Discovery metadata can be of three types: Descriptive, Administrative and Structural.
+
+***Descriptive metadata*** of a dataset can be divided into two subcategories: 
 
 **1) core metadata** *or study level metadata* (for discovery and identification - for search and citation), which includes:
 
@@ -29,17 +31,8 @@ License: CC BY 4.0
  * information about access (download link or access information and rights statements)
  * information about lifecycle events and related entities (provenance)
  * technical information like checksum, size, file format, media type
- 
-!!! note "Note"
 
-    You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. 
-    
-    It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
-
-
-**2) detailed descriptive metadata** *or data level metadata* (variable configurations, work-flows, processing code etc. - for enabling assessment and reuse). More about detailed descriptive metadata in [Data documentation](#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata).
-
-***Core metadata* includes**
+**2) data documentation (also called *detailed descriptive metadata* or data-level metadata)** (variable configurations, work-flows, processing code etc. - for enabling assessment and reuse). More about detailed descriptive metadata in [Data documentation](#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata).
 
  ***Administrative metadata***
 
@@ -50,6 +43,15 @@ Other categories of administrative metadata include technical metadata (file typ
 ***Structural metadata***
 
 Structural metadata describes how the dataset is organized internally and how it relates to other datasets (managing versions etc.). In some disciplines, data are published and shared with community endorsed standards and schemas, which are a formal and machine actionable way of expressing the structural metadata. Schemas are used to express the scientific domain, structure, relationships, field labels, and parameter-level standards for the dataset as a whole. A schema enables data to be shared, merged or transferred between information systems without losing the meaning or structure of the data (i.e. data are interoperable). In addition to implementing technical standards and schemas, securing semantic interoperability between different data requires using and referring to published semantic artefacts.
+
+ 
+!!! note "Note"
+
+    You can use [Qvain - Research Dataset Metadata Tool](https://www.fairdata.fi/en/qvain/), to create core metadata for your dataset. 
+    
+    It will be published in [Etsin - Research Data Finder](https://www.fairdata.fi/en/services/etsin/).
+
+
 
 ### Data documentation (also called *detailed descriptive metadata* or data-level metadata)
 
