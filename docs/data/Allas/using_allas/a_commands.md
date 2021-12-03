@@ -16,7 +16,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | [a-delete](#a-delete) | Delete an object in Allas |
 | [a-info](#a-info) | Display information about an object in Allas |
 | [a-access](#a-access) | Control access permissions of a bucket in Allas |
-| [a-steram](#a-stream) | Stream the content of an object to standard output |
+| a-stream | Stream the content of an object to standard output |
 
 In addition to the above commands, there are separate tools for other purposes:
 
