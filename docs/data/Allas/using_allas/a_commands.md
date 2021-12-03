@@ -16,6 +16,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | [a-delete](#a-delete) | Delete an object in Allas |
 | [a-info](#a-info) | Display information about an object in Allas |
 | [a-access](#a-access) | Control access permissions of a bucket in Allas |
+| [a-steram](#a-stream) | Stream the content of an object to standard output |
 
 In addition to the above commands, there are separate tools for other purposes:
 
@@ -23,8 +24,15 @@ In addition to the above commands, there are separate tools for other purposes:
  * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
+ * __allas-dir-to-bucket__ : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
+
+Below we discuss briefly of the most frequetly used features of a-commands. New features are added to a-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
+```text
+a-put --help
+```
+
 
 # Example: Saving data from scratch directory to Allas
 
@@ -177,6 +185,9 @@ uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and co
 
 During upload datasets that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  bucket  _kkayttaj-12345-MISC_ the actual data would be stored as several pieces into bucket _kkayttaj-12345-MISC_segments_. The target bucket (_kkayttaj-12345-MISC_) would contain just a front object that contains information what segments make the stored dataset. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
 
+
+
+
 ## a-check<a name="a-check"></a>
 
 This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was successfully executed. `a-check` accepts the same command line options as `a-put`.
@@ -309,8 +320,7 @@ a-find query_term
 ```
 
 The query term is compared to the names and original paths of the files that have been uploaded to
-Allas, and matching objects are reported (but not downloaded). **Note:** Data uploaded 
-to Allas using other tools than `a-put` is not included in this search process.
+Allas, and matching objects are reported (but not downloaded).
 
 The query term is processed as a regular repression where some characters, e.g. period (.), have a special meaning.
 The same regular expression syntax is used with e.g. the _grep_, _awk_ and _sed_ commands.
@@ -390,25 +400,8 @@ The basic syntax of the command is:
 
 By default _a-delete_ asks user to confirm the removal of an object. This checking can be skipped with option `-f`.
 
-If you want to remove a bucket, you can use option `--rmb`. _a-delete_ can remove only empty buckets.
+If you want to remove a bucket, you can use option `--rmb`. By default _a-delete --rmb_ removes only empty buckets. If you want to delete non-empty bucket, you need to add option `--FORCE` to the command.
 
-At the moment, _a-delete_ can remove only one object at a time. If you need to remove large number of objects you need use loops.
-For example to remove all the objects in bucket _bucket_123_ , you could use commands:
-
-```text
-#make a list of objects
-a-list bucket_123 > object_list_bucket123
-
-#use the list in for loop
-for ob in $(cat object_list_bucket123)
-do
-  a-delete -f $ob
-done  
-
-#remove the empty bucket and the list
-a-delete --rmb bucket_123
-rm object_list_bucket123
-```
 ## a-access<a name="a-access"></a>
 
 By default, only project members can read and write the data in a bucket.
