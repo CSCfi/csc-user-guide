@@ -4,7 +4,7 @@ This guide explains the basics of using GPUs in CSC's supercomputers. More in
 depth topics are covered in separate tutorials:
 
 * [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning jobs](ml-multi.md)
+* [Multi-GPU and multi-node machine learning](ml-multi.md)
 
 
 ## Puhti or Mahti?
