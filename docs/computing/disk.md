@@ -6,11 +6,11 @@ The disk areas for different supercomputers are separate, *i.e.*
 accessed from Mahti. Also [a more technical description of the Lustre 
 filesystem](lustre.md) used in these directories is available.
 
-|              |  Owner    | Environment variable | Path                                            | Cleaning      |
-| ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------- |
-| **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No            |
-| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No            |
-| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Yes - 90 days |
+|              |  Owner    | Environment variable | Path                                            | Cleaning                  |
+| ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------------------- |
+| **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No                        |
+| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No                        |
+| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Not yet - will be 90 days |
 
 
 
@@ -54,8 +54,8 @@ Each project has by default 1 TB of scratch disk space in the directory `/scratc
 
 This fast parallel scratch space is intended as temporary storage
 space for the data that is used in supercomputers. The scratch directory is not intended for
-long-term data storage and **any files that have not been used for 90 days will
-be automatically removed**.
+long-term data storage. In the future, any files that have not been used for 90 days will
+be automatically removed, but this is not yet enabled.
 
 ## ProjAppl directory
 
@@ -148,7 +148,7 @@ for *rsync*.
 
 You can use **MyCSC portal** to [manage quotas of the _scratch_ and _projappl_ directories](../accounts/how-to-increase-disk-quotas.md).
 
-Remember that even after the quota is increased, the automatic cleaning
+Remember that even after the quota is increased, the planned automatic cleaning
 process will continue removing idle files from the _scratch_ directory.
 Data that is not under active computing should be stored in the Allas
 storage service.

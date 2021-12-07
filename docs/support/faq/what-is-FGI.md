@@ -1,3 +1,0 @@
-#What is FGI?
-
-The FGI (Finnish Grid Infrastructure) is a distributed grid computing environment that consists of 11 computing clusters located in different university campuses in Finland. CSC administrates the grid usage of these clusters. The FGI service is available for all researchers doing non-profit research in Finnish universities. Researchers can use the FGI directly form their personal computers or from the computing servers of CSC.

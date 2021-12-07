@@ -19,6 +19,8 @@ Currently supported TensorFlow versions:
 
 | Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                        |
 |:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|------------------------------|
+| 2.7.0   | `tensorflow/2.7`                  | X     | X     | Sing.    | X       | default version              |
+| 2.6.0   | `tensorflow/2.6`                  | X     | X     | Sing.    | X       |                              |
 | 2.5.0   | `tensorflow/2.5`                  | X     | X     | Sing.    | X       |                              |
 | 2.4.1   | `tensorflow/2.4`                  | X     | X     | Sing.    | X       |                              |
 | 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       |                              |
