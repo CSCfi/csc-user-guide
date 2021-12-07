@@ -44,29 +44,45 @@ If you are a new user, please read [how to access Puhti and
 Mahti](../../computing/overview.md), and [how to submit computing
 jobs](../../computing/running/getting-started.md).
 
+New users may in particular be interested in [Puhti's web
+interface](https://docs.csc.fi/computing/webinterface/), which can be accessed
+at [www.puhti.csc.fi](https://www.puhti.csc.fi). Via the web interface, one can
+easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
+Please note that Puhti's web interface is still in a beta stage and being
+continuously improved.
+
 Also check our related in-depth tutorials:
 
-* [GPU-accelerated machine learning on CSC's supercomputers](gpu-ml.md)
+* [GPU-accelerated machine learning](gpu-ml.md)
 * [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning jobs](ml-multi.md)
+* [Multi-GPU and multi-node machine learning](ml-multi.md)
 * [Hyperparameter search](hyperparameter_search.md)
-
-*TODO*
-
-* Singularity-stuff for ML?
-* Hyperparameter optimization
-* Puhti web UI for ML?
 
 
 ## Cloud services
 
-In some cases, a virtual server on [**Pouta**](../../cloud/pouta/index.md) might
-make sense as it gives you more control over the software environment, but may
-not be suitable for very heavy computing tasks as it offers less computing
-resources than a supercomputer. Pouta has a limited amount of older NVIDIA P100
-GPUs.
+There are some use cases where the supercomputers are not the right solution,
+and you may need a [virtual server on **Pouta**](../../cloud/pouta/index.md).
+Typical examples include:
 
-*TODO*
+- very complex software environment,
+- need for root access,
+- computation involving sensitive data.
+
+With Pouta you get your own virtual server, where you have root or administrator
+access. [HPC and GPU flavors are
+available](../../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) for heavy
+computing needs, however, the computing resources will always be smaller than in
+a supercomputer. For example Pouta only has a limited amount of older NVIDIA
+P100 GPUs.
+
+For computation involving highly sensitive data we also offer the ePouta variant
+which is suited for cases with high security requirements. With ePouta the
+virtual server will be integrated into your existing network infrastructure.
+
+See our [Pouta documentation pages on how to apply for
+access](../../cloud/pouta/index.md).
+
 
 ### MLOps
 

@@ -1,4 +1,4 @@
-# Multi-GPU and multi-node machine learning jobs
+# Multi-GPU and multi-node machine learning
 
 Multi-GPU jobs are also supported by specifying the number of GPUs required in
 the `--gres` flag, for example to have 4 GPUs on Puhti (which is the maximum for

@@ -42,9 +42,12 @@
 ## Data analysis and machine learning
 
 * [Data analysis guide](da-guide.md)
-* [Machine learning at CSC](ml-guide.md)
-  * [GPU-accelerated machine learning](gpu-ml.md)
 * [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+* [Machine learning at CSC](ml-guide.md)
+    * [GPU-accelerated machine learning](gpu-ml.md)
+    * [Data storage for machine learning](ml-data.md)
+    * [Multi-GPU and multi-node machine learning](ml-multi.md)
+    * [Hyperparameter search](hyperparameter_search.md)
 
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)

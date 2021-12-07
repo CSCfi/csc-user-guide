@@ -48,7 +48,7 @@ entire supercomputer unusable for hours**.
 
 For further reading, see CSC's [technical description of the Lustre
 filesystem](../../computing/lustre.md) and our general tutorial on [how to
-achieve better I/O performance on Lustre](../lustre_performance.md).
+achieve better I/O performance on Lustre](lustre_performance.md).
 
 As a solution for machine learning applications, we recommend either **using
 more efficent data formats**, such as TFRecords for TensorFlow, or **using the

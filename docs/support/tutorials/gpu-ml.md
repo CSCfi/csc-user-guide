@@ -1,4 +1,4 @@
-# GPU-accelerated machine learning on CSC's supercomputers
+# GPU-accelerated machine learning
 
 This guide explains the basics of using GPUs in CSC's supercomputers. More in
 depth topics are covered in separate tutorials:
@@ -31,21 +31,23 @@ default** as it has a wider set of software supported.
 
 ## Available machine learning software
 
-We support many applications for GPU-accelerated machine learning on CSC's supercomputers:
-[list of supported applications](../../apps/index.md#data-analytics-and-machine-learning). 
-Please read the detailed instructions for the specific application that you are interested
-in, for example [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md),
-[MXNET](../../apps/mxnet.md), and [RAPIDS](../../apps/rapids.md).
+We support many applications for GPU-accelerated machine learning on CSC's
+supercomputers: [list of supported
+applications](../../apps/index.md#data-analytics-and-machine-learning). Please
+read the detailed instructions for the specific application that you are
+interested in, for example [TensorFlow](../../apps/tensorflow.md),
+[PyTorch](../../apps/pytorch.md), [MXNET](../../apps/mxnet.md), and
+[RAPIDS](../../apps/rapids.md).
 
 In brief, you need to use the [module system](../../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
-module load tensorflow/2.4
+module load tensorflow/2.7
 ```
 
-Please note that our modules already include CUDA and cuDNN libraries, so
-**there is no need to load cuda and cudnn modules separately!**
+Please note that our modules already include CUDA and cuDNN libraries, so there
+is no need to load cuda and cudnn modules separately!
 
 Finally, on Puhti, we provide some special applications which are not shown by
 default in the module system. These have been made available due to user
@@ -54,6 +56,23 @@ requests, but with limited support. You can enable them by running:
 ```bash
 module use /appl/soft/ai/singularity/modulefiles/
 ```
+
+### Installing your own software
+
+In many cases, our existing modules provide the right framework you need, but a
+few packages are missing. In this case you can often load the appropriate module
+and then [install additional packages for personal use with the `pip` package
+manager](../../apps/python.md#installing-python-packages-to-existing-modules).
+
+For more complex software requirements, we recommend using Singularity
+containers. These are similar to Docker containers, and are well supported in
+CSC's supercomputers, in fact many of our own modules are based on Singularity.
+See our [documentation on how to run Singularity
+containers](../../computing/containers/run-existing.md), and [how to create your
+own containers](../../computing/containers/creating.md).
+
+
+## Running GPU jobs
 
 To submit a job to the slurm queue using GPUs, you need to use the `gpu`
 partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and also specify the
