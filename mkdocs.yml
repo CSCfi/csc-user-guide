@@ -59,6 +59,7 @@ nav:
          - Jupyter: computing/webinterface/jupyter.md
          - Rclone: computing/webinterface/rclone.md
          - RStudio: computing/webinterface/rstudio.md
+         - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
