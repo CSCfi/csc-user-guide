@@ -25,18 +25,23 @@ For more information on running R jobs on Puhti, please see the [`r-env-singular
 
 ### SAGA GIS Graphical User Interface
 
-Using SAGA GIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using SAGA GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start SAGA GIS with Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'.
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'SAGA GIS'
+3. The SNAP GUI is started automatically when the Desktop is launched. 
 
-Alternatively, especially if you want to use SAGA GIS and some other GUI tool together, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+
+Alternatively, especially if you want to use SAGA GIS together with some other GUI tool or want to user older version, SAGA GIS can be started in Puhti web interface with remote desktop:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
 module load r-env-singularity 
 singularity_wrapper exec saga_gui
 ```
-
 
 ## License and citing
 

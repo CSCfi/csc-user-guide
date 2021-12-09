@@ -69,11 +69,31 @@
    Users tend to use these as default values.
  - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the 
    language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
+      - *Note!* Add a blank line _after_ the three-ticks-codeblock! (Also two whitespaces after ticks work, but that's unofficial dialect)
  - If you don't want any syntax highlighting, just use \`\`\`text
  - For a list of all supported languages see: http://pygments.org/docs/lexers/
  - Give commands, environment variables, command options, as well as partition 
    names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
- - Format email addresses using `mailto:` as in `[servicedesk@csc.fi](mailto:servicedesk@csc.fi)`  
+ - Refer to servicedesk via the docs contact page: as in `[contact ServiceDesk](/support/contact/)`  
+      - Page has email, service times, phone, support request how-to
+ 
+## Redirecting pages
+ - If there's an url that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made
+ - Create a file with the name-of-the-old-page`.html` (or index.html if it was done that way) and as the content:
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="1; url='new-page/#anchor-on-that-page'" />
+  </head>
+  <body>
+    <p><a href="new-page/#anchor-on-that-page">Dataset content reorganized!</a>.</p>
+  </body>
+</html>
+```
+
+ - edit `new-page` (and the anchor, if there, otherwise just remove) to match
+ - to pass the tests, add the page to `tests/python_link_tests/whitelist`, too
 
 ## Terminology
  - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only

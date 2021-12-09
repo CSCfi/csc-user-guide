@@ -13,6 +13,7 @@ using just a web browser. In the web interface you can:
     - Visual Studio Code
     - and more
 - Open a shell on the login node
+- open a persistent shell on a compute node
 - View running batch jobs
 
 Everything still runs directly on Puhti, giving you all the resources and power
@@ -36,7 +37,16 @@ From here you can browse your files on Puhti, start a shell, view running jobs a
 
 ### Shell
 
-The shell app can be found at the bottom of the page or on the top navbar under the _Tools_ section. This will launch a normal linux shell on one of the Puhti login nodes. Note that the same rules apply here as during a normal ssh session. **Login node are only for light pre/post processing** (see [Usage policy](/computing/overview/#usage-policy)).
+The shell apps can be found at the bottom of the page or on the top navbar under the _Tools_ section.
+There are two different shells.
+
+The _Login node shell_ launches a normal linux shell on one of the Puhti login nodes.
+Any command that is running when the login shell browser tab is closed will stop.
+Note that the same rules apply here as during a normal ssh session.
+**Login nodes are only for light pre/postprocessing** (see [Usage policy](/computing/overview/#usage-policy)).
+
+The _Compute node shell_ launches a persistent shell on a compute node for heavier commands that should not be run on login nodes.
+The persistent shell will keep running even if you close your browser or lose internet connection.
 
 ### Files
 
