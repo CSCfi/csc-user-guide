@@ -19,7 +19,7 @@ Free to use and open source under [Broad Institute License]https://github.com/ge
 ## Available
 Version on CSC's Servers
 
-Puhti: 2.11.0, 2.8.5
+Puhti: 2.13.2, 2.11.0, 2.8.5
 
 
 ## Using Trinity 
@@ -29,7 +29,12 @@ In Puhti, Trinity is set up with command:
 ```text
 module load biokit
 ```
-The biokit module sets up a set of commonly used bioinformatics tools.
+The biokit module sets up a set of commonly used bioinformatics tools including
+trinity 2.8.5. If want to use version 2.13.2, run command:
+
+```text
+module load trinty/2.13.2
+```
 
 Trinity should be used used [interactively in a compute node](../computing/running/interactive-usage.md) 
 or preferably through the batch job system. Below is an example batch job file for Trinity.
@@ -48,7 +53,7 @@ or preferably through the batch job system. Below is an example batch job file f
 #
 #
 
-module load trinity
+module load trinity/2.13.2
 
 Trinity --seqType fq --max_memory 22G --left reads.left.fq --right \
 reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \

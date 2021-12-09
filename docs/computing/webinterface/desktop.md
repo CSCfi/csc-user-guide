@@ -31,4 +31,6 @@ For starting any other software available in Puhti:
 
 (The applications menu in desktop does not include Puhti scientific applications, just basic Linux tools.)
 
-The desktop environment, terminal and apps launched in it are running inside a Singularity container, which means that some programs may behave differently or not work at all. 
+The desktop environment, terminal and apps launched in it are running inside a Singularity container, which means that some programs may behave differently or not work at all.
+
+The `Host Terminal` found on the desktop is a terminal running outside the container. You can use it to launch apps that launch their own Singularity container.
