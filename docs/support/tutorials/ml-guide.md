@@ -1,7 +1,7 @@
 # Machine learning at CSC
 
-This guide aims to give help and pointers to users who wish to do machine
-learning using CSC's computing resources.
+This guide aims to help users who wish to do machine learning using CSC's
+computing resources.
 
 ## What CSC service to use?
 
@@ -51,7 +51,7 @@ easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
 Please note that Puhti's web interface is still in a beta stage and being
 continuously improved.
 
-Also check our related in-depth tutorials:
+Also check our in-depth tutorials related to using the supercomputers:
 
 * [GPU-accelerated machine learning](gpu-ml.md)
 * [Data storage for machine learning](ml-data.md)
@@ -60,6 +60,8 @@ Also check our related in-depth tutorials:
 
 
 ## Cloud services
+
+### Pouta
 
 There are some use cases where the supercomputers are not the right solution,
 and you may need a [virtual server on **Pouta**](../../cloud/pouta/index.md).
@@ -73,8 +75,7 @@ With Pouta you get your own virtual server, where you have root or administrator
 access. [HPC and GPU flavors are
 available](../../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) for heavy
 computing needs, however, the computing resources will always be smaller than in
-a supercomputer. For example Pouta only has a limited amount of older NVIDIA
-P100 GPUs.
+a supercomputer.
 
 For computation involving highly sensitive data we also offer the ePouta variant
 which is suited for cases with high security requirements. With ePouta the
@@ -84,10 +85,12 @@ See our [Pouta documentation pages on how to apply for
 access](../../cloud/pouta/index.md).
 
 
-### MLOps
+### Rahti
 
-For model deployment, the [**Rahti**](../../cloud/rahti/index.md) contained
+For model deployment, the [**Rahti**](../../cloud/rahti/index.md) container
 cloud service might be used, however, it currently doesn't offer GPU support.
+
+Below are a few examples of how Rahti can be used for machine learning tasks:
 
 * [How to utilize MLflow to train and serve your ML model](https://github.com/CSCfi/mlflow-openshift)
 * [How to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples)
