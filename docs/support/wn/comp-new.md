@@ -1,5 +1,11 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 5
+
+* Added new TensorBoard app for visualizing TensorFlow runs.
+* When launching apps, only partitions available for the selected project are visible now.
+* Open onDemand version updated to 2.0.20.
+
 ## Puhti web interface beta updated to release 4 30.11.2021 
 
 * Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../../computing/webinterface/jupyter/).
