@@ -15,4 +15,5 @@ To stop the app you can delete the session in the interactive sessions page.
  - [Jupyter](./jupyter.md)
  - [Rclone](./rclone.md)
  - [RStudio](./rstudio.md)
+ - [TensorBoard](./tensorboard.md)
  - [Visual Studio Code](./vscode.md)
