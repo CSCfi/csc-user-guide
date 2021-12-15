@@ -1,6 +1,7 @@
 # This is what we actually install
 mkdocs==1.2.3
 mkdocs-material==6.1.0
+mkdocs-material-extensions==1.0.3
 mdx-linkify==1.0
 mdx-environment==0.2.0
 yasha==4.1
