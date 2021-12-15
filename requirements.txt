@@ -1,5 +1,5 @@
 # This is what we actually install
-mkdocs==1.1.2
+mkdocs==1.2.3
 mkdocs-material==6.1.0
 mdx-linkify==1.0
 mdx-environment==0.2.0
