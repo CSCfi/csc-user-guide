@@ -48,8 +48,6 @@ The previous two approaches do not take into account of previously evaluated hyp
 
 This documentation is biased towards the Python programming languages. We present here which have a clearer API and documentation and suitable for using them in CSC's computing infrastructure.
 
-### Small to medium scale model building
-
 Due to package dependencies, you should load the python-data module with the latest python version:
 
 ```bash
@@ -114,9 +112,9 @@ from skopt import gp_minimize
 model_gp = gp_minimize( objective, hyperparams, n_class = 50, random_state = 123 )
 ```
 
-#### Ray pt.0
+#### Ray
 
-For the case you would like to enable parallel processing on small to medium scale models, *Ray* offers an easy way to enable parallelizing Python codes, and offers wrappers for various Python packages. In case you need packages that are not included in the python-data module, use
+For the case you would like to enable parallel model selection, *Ray* offers an efficient wrappers for various Python packages. In case you need packages that are not included in the python-data module, use
 ```python
 pip install --user <package-name>
 ```
@@ -157,6 +155,57 @@ tune_randomized = TuneSearchCV( model, hyperparameter_grid, early_stopping = Tru
 tune_bayes      = TuneSearchCV( model, hyperparameter_grid, early_stopping = True, 
                                     search_optimization = 'bayesian',
                                     max_iters = 10, use_gpu = False, n_jobs = -1 )
+```
+
+### Example using CSC's supercomputers
+
+Here are case examples of doing model selection using Puhti and Mahti. Be sure to assign the number of cpus **explicitly** in Puhti. In Mahti when you reserve a node, you automatically reserve the max number of cpus. Also check the documentation for the partition names to use in both Puhti and Mahti.
+
+
+```batch
+# example-slurhm.sh
+#!/bin/bash
+#SBATCH --partition=small
+#SBATCH --nodes=1
+#SBATCH --time=10:00:00
+#SBATCH --ntasks=1
+#SBATCH --mem=64G
+#SBATCH --cpus-per-task=40
+#SBATCH --account=projectname
+
+module load python-data/3.9-1
+
+set -xv
+python3 $*
+```
+
+```python
+# hyperparameter_example.py
+from ray.tune.sklearn import TuneGridSearchCV
+from sklearn.linear_model import SGDClassifier
+
+
+model               = SGDClassifier()
+hyperparameter_grid = { "loss": [ 'hinge', 'log', 'modified_huber', 'squared_hinge', 'perceptron' ],
+                        "max_iter": [ 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ],
+                        "n_iter_no_change": [ 5, 10, 15, 25, 40, 60 ] 
+                      }
+
+tune_search = TuneGridSearchCV( model, hyperparameter_grid, early_stopping = True, max_iters = 10, 
+                                use_gpu = False, n_jobs = -1 )
+
+X, y = load_digits(n_class=10, return_X_y=True)
+
+Xtrain, Xtest, ytrain, ytest = train_test_split( X, y, train_size = 0.90, test_size = .1, random_state = 0 ) # Split chosen arbitrarily
+
+tune_search.fit( Xtrain, ytrain )
+print( tune_search.best_params_ )
+print( tune_search.best_score_ )
+print( tune_search.score( Xtest, ytest ) )
+```
+
+```batch
+sbatch example-slurm.sh hyperparameter_example.py 
 ```
 
 ### Large-scale model building
