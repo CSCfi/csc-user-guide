@@ -2,7 +2,7 @@
 
 In machine learning (ML), one key component in model selection is to select a suitable set of configurations for a model for solving a given statistical problem. These model configurations are known as *hyperparameters*.
 
-This is in no way an easy task. Statistical estimation problems assumes that there exists an optimal solution, however in many real-world problems there is no guarantee that such a solution exists. For example, in biological and medical applications the variability of observations makes near impossible to obtain optimal, separable decision boundaries; whereas (the canonical) seabass and salmon sorting does have a more (or less) optimally defined solutions; and in linguistics they maybe statistically optimal solutions, however semantically the results may be incomprehensible to humans. The lack of an optimal solution makes it difficult to give recommendations for setting up hyperparameters in a ML for a given problem. For this reason, this document chooses to use the term **search** instead of **optimization** (as it appears more frequently in ML literature). 
+This is in no way an easy task. Statistical estimation problems assumes that there exists an optimal solution, however in many real-world problems there is no guarantee that such a solution exists. For example, in biological and medical applications the variability of observations makes near impossible to obtain optimal, separable decision boundaries; whereas (the canonical) seabass and salmon sorting does have a more (or less) optimally defined solutions; and in linguistics they maybe statistically optimal solutions, however semantically the results may be incomprehensible to humans. The lack of an optimal solution makes it difficult to give recommendations for setting up hyperparameters in a ML for a given problem. For this reason, this document chooses to use the term **search** instead of **optimization** (as optimization appears more frequently in ML literature). 
 
 Some key points when attempting hyperparameter searching:
 
@@ -163,7 +163,7 @@ Here are case examples of doing model selection using Puhti and Mahti. Be sure t
 
 
 ```batch
-# example-slurhm.sh
+# example-slurm.sh
 #!/bin/bash
 #SBATCH --partition=small
 #SBATCH --nodes=1
