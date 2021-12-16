@@ -1,4 +1,4 @@
-# Machine learning at CSC
+# Machine learning guide
 
 This guide aims to help users who wish to do machine learning using CSC's
 computing resources.
@@ -8,7 +8,7 @@ computing resources.
 CSC offers several services which might be relevant for machine learning users:
 
 - [Supercomputers, Puhti and Mahti](../../computing/overview.md) are multi-user
-  clusters and offer the highest computing perfomance, including GPU
+  clusters and offer the highest computing performance, including GPU
   acceleration in a centrally controlled software environment,
 
 - [Pouta](../../cloud/pouta/index.md) offers your own virtual server with full
@@ -88,9 +88,11 @@ access](../../cloud/pouta/index.md).
 ### Rahti
 
 For model deployment, the [**Rahti**](../../cloud/rahti/index.md) container
-cloud service might be used, however, it currently doesn't offer GPU support.
+cloud service might be used. However, it currently doesn't offer GPU support.
 
 Below are a few examples of how Rahti can be used for machine learning tasks:
 
-* [How to utilize MLflow to train and serve your ML model](https://github.com/CSCfi/mlflow-openshift)
+* Setting up an MLflow server on Rahti to store results and models: 
+  [how-to video](https://video.csc.fi/media/t/0_2frjyzz9) and 
+  [GitHub repository](https://github.com/CSCfi/mlflow-openshift)
 * [How to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples)
