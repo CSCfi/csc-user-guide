@@ -1,10 +1,7 @@
 # GPU-accelerated machine learning
 
-This guide explains the basics of using GPUs in CSC's supercomputers. More in
-depth topics are covered in separate tutorials:
-
-* [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning](ml-multi.md)
+This guide explains the basics of using GPUs in CSC's supercomputers. It is part
+of our [Machine learning guide](ml-guide.md).
 
 
 ## Puhti or Mahti?
@@ -12,7 +9,7 @@ depth topics are covered in separate tutorials:
 Puhti and Mahti are CSC's two supercomputers. Puhti has the largest number of
 GPUs (V100) and offers the widest selection of installed software, while Mahti
 has a smaller number of faster newer generation A100 GPUs. The main GPU-related
-statistics are summarised in the table below.
+statistics are summarized in the table below.
 
 |       | GPU type           | GPU memory | GPU nodes | GPUs/node | Total GPUs |
 |-------|--------------------|------------|-----------|-----------|------------|
@@ -115,20 +112,20 @@ For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
 supercomputers](../../computing/running/batch-job-partitions.md).
 
-## GPU utilisation
+## GPU utilization
 
 GPUs are an expensive resource compared to CPUs ([60 times more
 BUs!](../../accounts/billing.md)). Hence, ideally, a GPU should be maximally
-utilised once it has been reserved.
+utilized once it has been reserved.
 
-You can check the current GPU utilisation of a running job by `ssh`ing to the
+You can check the current GPU utilization of a running job by `ssh`ing to the
 node where it is running and running `nvidia-smi`. You should be able to
 identify your run from the process name or the process id, and check the
 corresponding "GPU-Util" column. Ideally it should be above 90%.
 
 For example, from the following excerpts we can see that on GPU 0 a `python3`
 job is running which uses roughly 17 GB of GPU memory and the current GPU
-utilisation is 99% (i.e., very good).
+utilization is 99% (i.e., very good).
 
 ```
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
@@ -146,14 +143,14 @@ utilisation is 99% (i.e., very good).
 ```
 
 
-Alternatively, you can use `seff` which shows GPU utilisation statistics for the
+Alternatively, you can use `seff` which shows GPU utilization statistics for the
 whole running time.
 
 ```bash
 seff <job_id>
 ```
 
-In this example we can see that maximum utilisation is 100%, but average is 92%.
+In this example we can see that maximum utilization is 100%, but average is 92%.
 
 ```
 GPU load 
@@ -166,12 +163,12 @@ GPU memory
 ```
 
 As always, don't hesitate to [contact our service desk](../contact.md) if you
-need advice on how to improve you GPU utilisation.
+need advice on how to improve you GPU utilization.
 
    
 ### Using multiple CPUs for data pre-processing
 
-One common reason for the GPU utilisation being low is when the CPU cannot load
+One common reason for the GPU utilization being low is when the CPU cannot load
 and pre-process the data fast enough, and the GPU has to wait for the next batch
 to process. It is then a common practice to reserve more CPUs to perform data
 loading and pre-processing in several parallel threads or processes. A good rule
@@ -190,7 +187,7 @@ job scripts:
 Your code also has to support parallel pre-processing. However, most high-level
 machine learning frameworks support this out of the box. For example in
 [TensorFlow you can use `tf.data`](https://www.tensorflow.org/guide/data) and
-set `num_parallel_calls` to the number of CPUs reserved and utilise `prefetch`:
+set `num_parallel_calls` to the number of CPUs reserved and utilize `prefetch`:
 
 ```python
 dataset = dataset.map(..., num_parallel_calls=10)

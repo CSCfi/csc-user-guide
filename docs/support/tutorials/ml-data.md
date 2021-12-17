@@ -1,5 +1,9 @@
 # Data storage for machine learning
 
+This guide explains how to store your data efficiently for machine learning
+applications on CSC's supercomputers. It is part of our [Machine learning
+guide](ml-guide.md).
+
 ## Where to store data?
 
 Puhti and Mahti have three types of shared disk areas: **home**, **projappl**
@@ -37,11 +41,13 @@ drive](#fast-local-drive).
 ## Using the shared file system efficiently
 
 The training data for machine learning models often consists of a huge number of
-files. Unfortunately the Lustre file system used in `/scratch`, `/projappl` and
-users' home directories does not perform well when opening a lot of files or
-when performing many small reads. In addition to slowing down the computation it
-may also in extreme cases **cause noticeable slowdowns for all users of the
-supercomputer, sometimes making the entire supercomputer unusable for hours**.
+files. A typical example is training a neural network with tens of thousands of
+relatively small JPEG image files. Unfortunately the Lustre file system used in
+`/scratch`, `/projappl` and users' home directories does not perform well when
+opening a lot of files or when performing many small reads. In addition to
+slowing down the computation it may also in extreme cases **cause noticeable
+slowdowns for all users of the supercomputer, sometimes making the entire
+supercomputer unusable for hours**.
 
 !!! note
 

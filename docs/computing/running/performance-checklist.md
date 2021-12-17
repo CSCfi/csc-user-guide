@@ -104,7 +104,7 @@ consider the following items to mitigate potential bottlenecks:
   nodes have [fast local disk](creating-job-scripts-puhti.md#local-storage),
   but we've seen 10 fold performance improvement by switching to use it. Check
   your performance: don't use the resource if it doesn't help.
-  [AI batch job example](../../support/tutorials/gpu-ml.md#data-storage)
+  [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive)
 * Investigate if you can choose how your application does I/O (e.g. OpenFoam
   can use the collated file format) and don't write unnecessary information
   on disk or do it too often (e.g. Gromacs with the `-v` flag should not be

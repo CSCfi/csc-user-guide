@@ -1,5 +1,9 @@
 # Multi-GPU and multi-node machine learning
 
+This guide explains how to utilize multiple GPUs and multiple nodes for machine
+learning applications on CSC's supercomputers. It is part of our [Machine
+learning guide](ml-guide.md).
+
 ## Multi-GPU, single-node jobs
 
 Each GPU node (computer) in both Puhti and Mahti have 4 GPU cards. This means
@@ -94,7 +98,7 @@ Horovod. To take Horovod into use, just load the appropriate module, e.g:
 module load tensorflow/2.7
 ```
 
-Below are example slurm batch scripts that use 8 GPUs across two computers. In
+Below are example Slurm batch scripts that use 8 GPUs across two computers. In
 MPI terminology we have 8 tasks on 2 nodes, each task has one GPU and 10 CPUs.
 Referring back to the discussion in the previous section, here we are using the
 single-job-per-GPU approach.

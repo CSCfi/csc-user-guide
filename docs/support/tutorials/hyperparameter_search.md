@@ -1,5 +1,10 @@
 # Hyperparameter search
 
+This guide explains how to do hyperparameter search for machine learning on
+CSC's supercomputers. It is part of our [Machine learning guide](ml-guide.md).
+
+## Introduction
+
 In machine learning (ML), one key component in model selection is to select a suitable set of configurations for a model for solving a given statistical problem. These model configurations are known as *hyperparameters*.
 
 This is in no way an easy task. Statistical estimation problems assumes that there exists an optimal solution, however in many real-world problems there is no guarantee that such a solution exists. For example, in biological and medical applications the variability of observations makes near impossible to obtain optimal, separable decision boundaries; whereas (the canonical) seabass and salmon sorting does have a more (or less) optimally defined solutions; and in linguistics they maybe statistically optimal solutions, however semantically the results may be incomprehensible to humans. The lack of an optimal solution makes it difficult to give recommendations for setting up hyperparameters in a ML for a given problem. For this reason, this document chooses to use the term **search** instead of **optimization** (as optimization appears more frequently in ML literature). 
@@ -10,7 +15,7 @@ Some key points when attempting hyperparameter searching:
 + choice of loss function ( determines what type of estimator to be used )
 + choice of solver
 
-These points are conditioned of each other. Hyperparameters can be numerical (discrete or continuous) or categorical (type of regularization, activation functions, solvers), and additionally many hyperparameters (may) have both linear and nonlinear effects on each other. Since ML models are applied to statistical problems, there is no substitue for good statistical knowledge of the problem at hand: this helps setting some possible hyperparameter options and their ranges and choosing the right type of estimator. For example, if all patterns, or almost all, are considered important to the problem at hand, parallel learning methods are preferable (such as neural networks); then if only some patterns are considered important then sequential statistical methods should be preferred. Choosing suitable hyperparameters can be done either manually or automatically. This documentation focuses on automated searching.
+These points are conditioned of each other. Hyperparameters can be numerical (discrete or continuous) or categorical (type of regularization, activation functions, solvers), and additionally many hyperparameters (may) have both linear and nonlinear effects on each other. Since ML models are applied to statistical problems, there is no substitute for good statistical knowledge of the problem at hand: this helps setting some possible hyperparameter options and their ranges and choosing the right type of estimator. For example, if all patterns, or almost all, are considered important to the problem at hand, parallel learning methods are preferable (such as neural networks); then if only some patterns are considered important then sequential statistical methods should be preferred. Choosing suitable hyperparameters can be done either manually or automatically. This documentation focuses on automated searching.
 
 In order to do hyperparameter search, the data is randomly divided into three separate sets: *training*, *validation* and *test* sets. The search for hyperparameters are done such a way, that a model is trained against a validation set. Once the suitable set of hyperparameters have been found, the model is then evaluated against the test set.
 
@@ -32,7 +37,7 @@ In *Grid search*, the hyperparameters of a model are considered occupying a grid
 
 ### Adaptive search
 
-The previous two approaches do not take into account of previously evaluated hyperparameter candidates. *Adaptive search*, or *Bayesian optimization*, utilizes previously evaluated hyperparameters to direct its search for a new set of hyperparameters. The search is done by training a *surrogate model*, which contains a set of initial hyperparameters. After a surrogate model has been trained, an *acquisition function* is used to direct the search for new hyperparameters. This approach is sequential in nature: the search moves forward only after the set of hyperparamters have been evaluated by the acquisition function, making adaptive search difficult to parallelize.
+The previous two approaches do not take into account of previously evaluated hyperparameter candidates. *Adaptive search*, or *Bayesian optimization*, utilizes previously evaluated hyperparameters to direct its search for a new set of hyperparameters. The search is done by training a *surrogate model*, which contains a set of initial hyperparameters. After a surrogate model has been trained, an *acquisition function* is used to direct the search for new hyperparameters. This approach is sequential in nature: the search moves forward only after the set of hyperparameters have been evaluated by the acquisition function, making adaptive search difficult to parallelize.
 
 
 ### Multifidelity search
@@ -42,7 +47,7 @@ The previous two approaches do not take into account of previously evaluated hyp
 
 ### Metaheuristics
 
-*Metaheuristics* are a set of search methods that can cope with difficult constraints, such as nonconvexity, noncontinuous and nonsmooth functions. In theory, metaheuristics can do better approximations to a global optimum (if a true optimum exists) for large scale models. For hyperparameter search, popular metaheuristic approaches are *evolutionary computation* and *particle swarm* approaches: in evolutionary computation, a set of initial, random hyperparameters are evaluated, then mutated and selected according to a fittness function; particle swarm approaches in a similar manner, but searching for hyperparameters are done in a semi-collective manner: each hyperparamter is individually evaluated and then information is shared between all hyperparameters to direct the search for a new set of hyperparameters. 
+*Metaheuristics* are a set of search methods that can cope with difficult constraints, such as nonconvexity, noncontinuous and nonsmooth functions. In theory, metaheuristics can do better approximations to a global optimum (if a true optimum exists) for large scale models. For hyperparameter search, popular metaheuristic approaches are *evolutionary computation* and *particle swarm* approaches: in evolutionary computation, a set of initial, random hyperparameters are evaluated, then mutated and selected according to a fitness function; particle swarm approaches in a similar manner, but searching for hyperparameters are done in a semi-collective manner: each hyperparameter is individually evaluated and then information is shared between all hyperparameters to direct the search for a new set of hyperparameters. 
 
 ## Software for hyperparameter search
 
@@ -159,7 +164,7 @@ tune_bayes      = TuneSearchCV( model, hyperparameter_grid, early_stopping = Tru
 
 ### Example using CSC's supercomputers
 
-Here are case examples of doing model selection using Puhti and Mahti. Be sure to assign the number of cpus **explicitly** in Puhti. In Mahti when you reserve a node, you automatically reserve the max number of cpus. Also check the documentation for the partition names to use in both Puhti and Mahti.
+Here are case examples of doing model selection using Puhti and Mahti. Be sure to assign the number of CPUs **explicitly** in Puhti. In Mahti when you reserve a node, you automatically reserve the max number of CPUs. Also check the documentation for the partition names to use in both Puhti and Mahti.
 
 
 ```batch

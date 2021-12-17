@@ -3,6 +3,14 @@
 This guide aims to help users who wish to do machine learning using CSC's
 computing resources.
 
+In addition to this page, this guide contains the following subsections:
+
+* [GPU-accelerated machine learning](gpu-ml.md)
+* [Data storage for machine learning](ml-data.md)
+* [Multi-GPU and multi-node machine learning](ml-multi.md)
+* [Hyperparameter search](hyperparameter_search.md)
+
+
 ## What CSC service to use?
 
 CSC offers several services which might be relevant for machine learning users:
@@ -15,7 +23,7 @@ CSC offers several services which might be relevant for machine learning users:
   control of the software environment, but restricted computing performance
   compared to supercomputers, 
 
-- [Rahti](../../cloud/rahti/index.md) offers a more automatised container-based
+- [Rahti](../../cloud/rahti/index.md) offers a more automatized container-based
   cloud environment, useful in particular for deploying web services.
 
 **Our recommendation is to use CSC's Puhti or Mahti supercomputers**, unless you
@@ -51,12 +59,9 @@ easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
 Please note that Puhti's web interface is still in a beta stage and being
 continuously improved.
 
-Also check our in-depth tutorials related to using the supercomputers:
-
-* [GPU-accelerated machine learning](gpu-ml.md)
-* [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning](ml-multi.md)
-* [Hyperparameter search](hyperparameter_search.md)
+Also check the subsections related to [efficient GPU utilization](gpu-ml.md),
+[how to work with big data sets](ml-data.md), and [multi-GPU and multi-node
+jobs](ml-multi.md).
 
 
 ## Cloud services
