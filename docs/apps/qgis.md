@@ -8,16 +8,23 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.16 in a singularity container: qgis module
+* 3.22 in a singularity container: qgis(/3.22 = default) module
+* 3.16 in a singularity container: qgis/3.16 module
 
 ## Usage
 
-Using QGIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
+2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
+3. QGIS is started automatically when the Desktop is launched. 
 
-Alternatively, especially if you want to use QGIS and some other GUI tool together or want to use data from Allas, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+
+Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti web interface with remote desktop:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start QGIS:
 
 ```
 module load qgis

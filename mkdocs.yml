@@ -131,7 +131,20 @@ nav:
              - Known problems and limitations: cloud/pouta/known-problems.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
+     - CSC Notebooks:
+       - Overview: cloud/csc_notebooks/index.md
+       - Getting started: cloud/csc_notebooks/getting_started.md
+       - Concepts: cloud/csc_notebooks/concepts.md
+       - Data persistence: cloud/csc_notebooks/data_persistence.md
   - Data:
+#    - Datasets: data/datasets.md
+     - Working with data:
+        - Contents: data/datasets/dataset-sources.md
+        - Tips for data management: data/datasets/datamanagement.md
+        - Metadata and data documentation: data/datasets/metadata-and-documentation.md
+        - Dataset sources: data/datasets/sourcing-datasets.md
+        - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
+        - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
         - Copying files using scp: data/moving/scp.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
@@ -168,7 +181,6 @@ nav:
         - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
-     - Datasets: data/datasets.md
   - Applications:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
