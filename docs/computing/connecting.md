@@ -120,7 +120,8 @@ rm ~/.ssh/mypubkey.pub
 !!! warning "Note"
     Setting up your SSH keys in my.csc.fi portal is currently available only for LUMI environment.
     
- You can set up your SSH keys in my.csc.fi portal by following these steps
+You can set up your SSH keys in my.csc.fi portal by following these steps
+
 1. Login to https://my.csc.fi portal with your CSC or HAKA/VIRTU credentials
 2. Proceed to 'My profile' section
 3. Scroll down to end of the page where you find the section 'SSH PUBLIC KEYS'
