@@ -118,11 +118,8 @@ rm ~/.ssh/mypubkey.pub
 ### Setting up your SSH keys in my.csc.fi portal
 
 !!! This option is only valid for LUMI environment
-    The private key should never be shared with anyone, not even with
-    CSC staff. It should be also stored only in the local computer (Public key
-    can be safely stored in cloud services).
-
-
+    Setting up your SSH keys in my.csc.fi portal is currently available only for LUMI environment.
+   
 ### SSH keys with MobaXterm
 At least with Windows operating system, before generating the SSH key, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
 
