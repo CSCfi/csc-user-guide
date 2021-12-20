@@ -115,6 +115,14 @@ rm ~/.ssh/mypubkey.pub
     * In Puhti/Mahti open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save it.
     * If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that everything is on one row only and does not include any spaces in the key itself.
 
+### Setting up your SSH keys in my.csc.fi portal
+
+!!! This option is only valid for LUMI environment
+    The private key should never be shared with anyone, not even with
+    CSC staff. It should be also stored only in the local computer (Public key
+    can be safely stored in cloud services).
+
+
 ### SSH keys with MobaXterm
 At least with Windows operating system, before generating the SSH key, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
 
