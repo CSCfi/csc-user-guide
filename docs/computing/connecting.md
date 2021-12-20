@@ -117,7 +117,7 @@ rm ~/.ssh/mypubkey.pub
 
 ### Setting up your SSH keys in my.csc.fi portal
 
-!!! This option is only valid for LUMI environment
+!!! warning "Note"
     Setting up your SSH keys in my.csc.fi portal is currently available only for LUMI environment.
    
 ### SSH keys with MobaXterm
