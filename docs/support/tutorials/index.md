@@ -48,6 +48,7 @@
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
+* [Multispectral satellite remote sensing](gis/satellite_ms_tutorial.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
