@@ -1,6 +1,6 @@
 # Data analysis guide
 
-The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organises a [wide variety of training courses](https://www.csc.fi/web/training), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
+The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organizes a [wide variety of training courses](https://www.csc.fi/web/training), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
 
 ## Getting started
 
@@ -66,7 +66,7 @@ For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorf
 
 For more information:
 
-- [CSC's guide on GPU-accelerated machine learning](gpu-ml.md)
+- [CSC's machine learning guide](ml-guide.md)
 
 If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env-singularity.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores) and threads, it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
 
