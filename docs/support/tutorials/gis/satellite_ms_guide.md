@@ -1,6 +1,14 @@
 # Multispectral satellite remote sensing
 
-## The long way
+The purpose of this guide is to help you finding the right data and tools for satellite remote sensing tasks. The basis of this guide is a seminar about the topic held at CSC in 2018. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. The guide has two parts, choose the first, if you just want to know how to get your processing done quickly (link), and the more detailed way with lots of information and considerations (link). If you encounter any problems or questions come up CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
+
+## Just give me what I need to know
+
+> most straight forward way to get started
+
+## I want to know every detail of every step, where do I start?
+
+> More information on each step of the way
 
 ### Finding and getting data
 
@@ -187,4 +195,4 @@ How to know what preprocessing has been done? ->
 
 * depends on above
 * FAIR!
-* 
+* think about long-term
