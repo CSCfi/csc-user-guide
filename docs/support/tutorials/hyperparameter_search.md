@@ -215,4 +215,4 @@ sbatch example-slurm.sh hyperparameter_example.py
 
 ### More examples
 
-More examples can be found from https://github.com/bilbrait/ml-guide-examples
+More examples can be found from <https://github.com/bilbrait/ml-guide-examples>.
