@@ -119,6 +119,14 @@ rm ~/.ssh/mypubkey.pub
 
 !!! warning "Note"
     Setting up your SSH keys in my.csc.fi portal is currently available only for LUMI environment.
+    
+ You can set up your SSH keys in my.csc.fi portal by following these steps
+ 1. Login to https://my.csc.fi portal with your CSC or HAKA/VIRTU credentials
+ 2. Proceed to 'My profile' section
+ 3. Scroll down to end of the page where you find the section 'SSH PUBLIC KEYS'
+ 4. Click 'Modify' and select 'Add new...' to add your SSH key
+ 5. Paste your public SSH key to the text field. Supported keys are: RSA 2048, ECDSA 521, ED25519 256
+ 6. Click 'Add' and your SSH key is now stored to your profile
    
 ### SSH keys with MobaXterm
 At least with Windows operating system, before generating the SSH key, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
