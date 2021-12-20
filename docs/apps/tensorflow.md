@@ -4,14 +4,12 @@ Deep learning framework for Python.
 
 !!! News
 
-    TensorFlow is now available on Mahti with GPU support in the new Mahti-AI
-    partition. 
-
-    All TensorFlow installations on Mahti will be based on Singularity. This is
-    mainly due to the performance issues of conda-based environments on shared file
-    systems, causing long start-up delays for Python scripts on CSC's
-    supercomputers. For more information, see the [Singularity section in our
-    machine learning guide](../support/tutorials/gpu-ml.md#singularity).
+    All recent and upcoming TensorFlow installations are and will be
+    based on Singularity. This is mainly due to the performance issues
+    of conda-based environments on shared file systems, causing long
+    start-up delays for Python scripts on CSC's supercomputers. For
+    more information, see the [Singularity section in our machine
+    learning guide](../support/tutorials/gpu-ml.md#singularity).
 
 ## Available
 
@@ -35,6 +33,7 @@ Currently supported TensorFlow versions:
 | 2.0.0   | `tensorflow/nvidia-19.11-tf2-py3` | X     | -     | Sing.    | -       |                              |
 | 2.0.0:  | `tensorflow/2.0.0`                | X     | -     | Conda    | -       |                              |
 | 2.0.0   | `tensorflow/2.0.0-hvd`            | X     | -     | Conda    | X       |                              |
+| 1.15.5  | `tensorflow/1.15`                 | X     | -     | Sing.    | X       |                              |
 | 1.15.0  | `tensorflow/1.15-hvd`             | X     | -     | Conda    | X       |                              |
 | 1.14.0: | `tensorflow/1.14.0`               | X     | -     | Conda    | -       |                              |
 | 1.14.0  | `tensorflow/1.14.0-cpu`           | X     | -     | Conda    | -       | Optimized for CPU            |
