@@ -7,9 +7,8 @@ Deep learning framework for Python.
     All recent and upcoming TensorFlow installations are and will be
     based on Singularity. This is mainly due to the performance issues
     of conda-based environments on shared file systems, causing long
-    start-up delays for Python scripts on CSC's supercomputers. For
-    more information, see the [Singularity section in our machine
-    learning guide](../support/tutorials/gpu-ml.md#singularity).
+    start-up delays for Python scripts on CSC's supercomputers. See 
+    below for more information.
 
 ## Available
 
@@ -57,13 +56,13 @@ package should be included in a module provided by CSC, you can send an email to
 Some modules are Singularity-based (indicated in the "Environ." column in the
 table above). Wrapper scripts have been provided so that common commands such as
 `python`, `python3`, `pip` and `pip3` should work as normal. For more
-information, see the [Singularity section in our machine learning
-guide](../support/tutorials/gpu-ml.md#singularity).
+information, see [CSC's general instructions on how to run Singularity
+containers](../computing/containers/run-existing.md).
 
 Some modules support [Horovod](https://horovod.ai/), which is our recommended
 framework for multi-node jobs, i.e., jobs needing more than 4 GPUs. For more
 information, read the [Multi-GPU section in our machine learning
-guide](../support/tutorials/gpu-ml.md#multi-gpu-and-multi-node-jobs).
+guide](../support/tutorials/ml-multi.md).
 
 
 ## License
@@ -113,38 +112,36 @@ list-packages
 Example batch script for reserving one GPU and 1/4 of the available CPU cores in
 a single node:
 
-**Puhti**
-
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:1
-
-module load tensorflow/2.4
-srun python3 myprog.py <options>
-```
-
-**Mahti**
-
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpusmall
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
-#SBATCH --time=1:00:00
-#SBATCH --gres=gpu:a100:1
-
-module load tensorflow/2.4
-srun python3 myprog.py <options>
-```
+=== "Puhti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:1
+    
+    module load tensorflow/2.4
+    srun python3 myprog.py <options>
+    ```
+    
+=== "Mahti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpusmall
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=32
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:1
+    
+    module load tensorflow/2.4
+    srun python3 myprog.py <options>
+    ```
 
 
 !!! note
@@ -152,18 +149,20 @@ srun python3 myprog.py <options>
     Please **do not read a huge number of files from the shared file system**, use
     fast local disk or package your data into larger files instead! See the [Data
     storage section in our machine learning
-    guide](../support/tutorials/gpu-ml.md#data-storage) for more details.
+    guide](../support/tutorials/ml-data.md) for more details.
 
 ### Big datasets, multi-GPU and multi-node jobs
 
-Please see our tutorial for [GPU-accelerated machine
-learning](../support/tutorials/gpu-ml.md), which covers more advanced topics,
-including how to work with big data sets, multi-GPU and multi-node jobs.
+Please see our [Machine learning guide](../support/tutorials/ml-guide.md), which
+covers more advanced topics, including [efficient GPU
+utilization](../support/tutorials/gpu-ml.md), [how to work with big data
+sets](../support/tutorials/ml-data.md), [multi-GPU and multi-node
+jobs](../support/tutorials/ml-multi.md).
 
 
 ## More information
 
-- [CSC's guide for GPU-accelerated machine learning](../support/tutorials/gpu-ml.md)
+- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
 - [TensorFlow overview](https://www.tensorflow.org/overview/)
 - [Get Started with TensorFlow](https://www.tensorflow.org/tutorials)
 - [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf)
