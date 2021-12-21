@@ -2,15 +2,19 @@
 
 The purpose of this guide is to help you finding the right data and tools for satellite remote sensing tasks. The basis of this guide is a seminar about the topic held at CSC in 2018. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. The guide has two parts, choose the first, if you just want to know how to get your processing done quickly (link), and the more detailed way with lots of information and considerations (link). If you encounter any problems or questions come up CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
 
-## Just give me what I need to know
+## Summary
 
-> most straight forward way to get started
+Follow these steps if you 'just want to get the preprocessing done', rather than read the full guide, the TL;DR so to say.
+
+1. Find data
+2. Get data
+3. 
 
 ## I want to know every detail of every step, where do I start?
 
 > More information on each step of the way
 
-### Finding and getting data
+### Finding the right data for your purpose
 
 What to consider:
 * resolution
@@ -19,21 +23,24 @@ What to consider:
     * spectral
 * costs
     * **free**
-        * Landsat
-        * MODIS
-        * Copernicus
-    * commercial
-        * Pleiades
-        * Spot
-        * Planet
-        * WorldView
+        * [Landsat](https://landsat.gsfc.nasa.gov/)
+        * [MODIS](https://modis.gsfc.nasa.gov/)
+        * [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
+    * others
+        * [Pleiades](https://pleiades.cnes.fr/en/PLEIADES/index.htm)
+        * [Spot](https://www.intelligence-airbusds.com/imagery/constellation/spot/)
+        * [Planet](https://www.planet.com/products/planet-imagery/)
+        * [WorldView](http://worldview3.digitalglobe.com/)
+        * and many more, but focus here is on Landsat 8 and Sentinel-2, as these are most used.
 * preprocessing needs
     * top of atmosphere vs bottom of atmosphere
 * GUI vs API, Python/R interface
 
 [Global satellite data providers](https://research.csc.fi/open-gis-data#intdata3)
 
-#### FinHub
+### Data sources
+
+=== "FinHub"
 
 [FinHub](https://finhub.nsdc.fmi.fi/#/home)
 
@@ -42,7 +49,7 @@ What to consider:
 * only Finland (and Baltics)
 * same GUI and API (older version?) as SciHub
 
-#### SciHub
+=== "SciHub"
 
 [SciHub](https://scihub.copernicus.eu/dhus/#/home)
 
@@ -53,7 +60,7 @@ What to consider:
 * GUI and API
 * Long term archive
 
-#### Earthexplorer
+=== "Earthexplorer"
 
 [Earthexplorer](https://earthexplorer.usgs.gov/)
 
@@ -65,7 +72,8 @@ What to consider:
 * GUI and bulk download
 * LS download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
 
-#### other solutions
+=== "other solutions, mostly commercial"
+
 * [AWS](https://registry.opendata.aws/sentinel-2/)
 * DIAS - Data and Information Access Services
     * [ONDA](https://www.onda-dias.eu/cms/)
@@ -77,18 +85,18 @@ What to consider:
 * [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
 
 
-#### Puhti
+=== "CSC Puhti"
 
 * FMI/SYKE mosaics (limited)
 * - link to example script
 
-#### Allas
+=== "CSC Allas"
 
 *  some data available in public buckets (limited)
 * - link to example script
 
 
-#### Image Mosaics
+=== "SYKE"
 
 * SYKE and FMI
 * instructions on how to use - link to example script
@@ -122,7 +130,7 @@ What to consider:
 
 ##### GUI
 
-[Puhti web interface](www.puhti.csc.fi) 
+[Puhti web interface](https://puhti.csc.fi) 
 
 ###### SNAP
 
