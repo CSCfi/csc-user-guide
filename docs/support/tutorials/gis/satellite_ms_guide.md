@@ -1,6 +1,8 @@
 # Multispectral satellite remote sensing
 
-The purpose of this guide is to help you finding the right data and tools for satellite remote sensing tasks. The basis of this guide is a seminar about the topic held at CSC in 2018. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. The guide has two parts, choose the first, if you just want to know how to get your processing done quickly (link), and the more detailed way with lots of information and considerations (link). If you encounter any problems or questions come up CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
+The purpose of this guide is to help you finding the right data and tools for satellite remote sensing tasks. The basis of this guide is a seminar about the topic held at CSC in 2018. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. The guide provides a shorter summary if you just want to know how to get your processing done quickly (link), and then a more detailed way with lots of information and considerations (link). If you encounter any problems or questions come up, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
+
+
 
 ## Summary
 
@@ -8,19 +10,24 @@ Follow these steps if you 'just want to get the preprocessing done', rather than
 
 1. Find data
 2. Get data
-3. 
+3. Process
+4. Store & Share
 
-## I want to know every detail of every step, where do I start?
+## Multispectral Satellite remote sensing data == Raster data
 
-> More information on each step of the way
+* raster data
+    * usually one file per band
+    * grid of pixel values
+    * example of continuous data
+    * Georeference: coordinate for the top left pixel in the image, the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the image is rotated.
 
-### Finding the right data for your purpose
+### What data do I need?
 
 What to consider:
 * resolution
-    * temporal 
-    * spatial
-    * spectral
+    * temporal: when and how often a certain area is visited
+    * spatial: the area on the ground that each pixel covers
+    * spectral: spectral width of each band provided
 * costs
     * **free**
         * [Landsat](https://landsat.gsfc.nasa.gov/)
@@ -31,142 +38,183 @@ What to consider:
         * [Spot](https://www.intelligence-airbusds.com/imagery/constellation/spot/)
         * [Planet](https://www.planet.com/products/planet-imagery/)
         * [WorldView](http://worldview3.digitalglobe.com/)
-        * and many more, but focus here is on Landsat 8 and Sentinel-2, as these are most used.
+        * and many more...
 * preprocessing needs
-    * top of atmosphere vs bottom of atmosphere
-* GUI vs API, Python/R interface
+    * top of atmosphere (data as collected by the instrument) vs bottom of atmosphere (or surface reflectance: atmospheric artifacts removed from data)
+* personal preferences for software
+    * Graphical User Interface (GUI)
+    * Command Line Interface (CLI)
+    * Application Programming interface (API)
 
 [Global satellite data providers](https://research.csc.fi/open-gis-data#intdata3)
 
-### Data sources
+### Where do I find the data?
 
 === "FinHub"
 
-[FinHub](https://finhub.nsdc.fmi.fi/#/home)
+    [FinHub](https://finhub.nsdc.fmi.fi/#/home)
 
-* needs [registration](https://nsdc.fmi.fi/services/service_finhub_registration)
-* only L1C 
-* only Finland (and Baltics)
-* same GUI and API (older version?) as SciHub
+    * needs [registration](https://nsdc.fmi.fi/services/service_finhub_registration)
+    * only L1C 
+    * only Finland (and Baltics)
+    * same GUI and API (older version?) as SciHub
 
 === "SciHub"
 
-[SciHub](https://scihub.copernicus.eu/dhus/#/home)
+    [SciHub](https://scihub.copernicus.eu/dhus/#/home)
 
-* needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
+    * needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
 
-* L1C and L2A
-* worldwide
-* GUI and API
-* Long term archive
+    * L1C and L2A
+    * worldwide
+    * GUI and API
+    * Long term archive
 
-=== "Earthexplorer"
+=== "EarthExplorer"
 
-[Earthexplorer](https://earthexplorer.usgs.gov/)
+    [Earthexplorer](https://earthexplorer.usgs.gov/)
 
-* needs [registration](https://ers.cr.usgs.gov/register)
+    * needs [registration](https://ers.cr.usgs.gov/register)
 
-* worldwide
-* lots of different data US related
-* main: Landsat
-* GUI and bulk download
-* LS download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
-
-=== "other solutions, mostly commercial"
-
-* [AWS](https://registry.opendata.aws/sentinel-2/)
-* DIAS - Data and Information Access Services
-    * [ONDA](https://www.onda-dias.eu/cms/)
-    * [sobloo](https://sobloo.eu/)
-    * [CREODIAS](https://creodias.eu/)
-    * [MUNDI](https://mundiwebservices.com/)
-* [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
-* [Sentinelhub](https://www.sentinel-hub.com/explore/)
-* [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+    * worldwide
+    * lots of different US related datasets 
+    * main: Landsat
+    * GUI in web interface and bulk download
+    * Landsat download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
 
 
-=== "CSC Puhti"
+=== "CSC environments"
 
-* FMI/SYKE mosaics (limited)
-* - link to example script
+    Puhti
+    * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
+        * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
+        * every CSC user has read access
+    Allas
+    * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
+        * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
 
-=== "CSC Allas"
+=== "Paikkatietoalusta"
 
-*  some data available in public buckets (limited)
-* - link to example script
+    * [Sentinel-2 mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
+    * instructions on how to use - link to example script
+
+=== "others"
+
+    * [AWS](https://registry.opendata.aws/sentinel-2/)
+    * DIAS - Data and Information Access Services
+        * [ONDA](https://www.onda-dias.eu/cms/)
+        * [sobloo](https://sobloo.eu/)
+        * [CREODIAS](https://creodias.eu/)
+        * [MUNDI](https://mundiwebservices.com/)
+    * [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
+    * [Sentinelhub](https://www.sentinel-hub.com/explore/)
+    * [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
 
 
-=== "SYKE"
+### Where can I store the data?
 
-* SYKE and FMI
-* instructions on how to use - link to example script
-
-### Storing data
-
-* raw vs intermediate vs final result data
-* considerations:
-    * who needs that data
+What to consider:
+    * raw vs intermediate vs final result data
+        * what needs to be stored?
     * accessibility
-    * 
-* Puhti vs Allas vs ext harddrive vs IDA vs EuDat vs other objectstorage
-* instructions on all with links
+        * who needs to have access?
+        * how needs the data to be accessed?
 
-### Processing data
+#### What storage solutions are available at CSC?
+
+=== "During the process"
+    
+    * For direct access data can be stored on the supercomputer, check out the [different available disk areas](../../computing/disk)
+    * Data can be stored on ```/scratch/project_xxx``` with xxx being your project number
+    * Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing
+
+=== "Short term storage"
+
+    * [Allas overview](https://research.csc.fi/-/allas)
+    * [Allas guide](../../data/Allas/index.md)
+
+=== "Long term storage"
+
+    * [Paituli](https://research.csc.fi/-/paituli-1)
+    * [IDA overview](https://www.fairdata.fi/en/user-guide/) and [IDA guide](https://www.fairdata.fi/en/user-guide/)
+    * [EUDat overview](https://research.csc.fi/-/eudat-services)
+
+See also CSCs general [guide on working with data](../../data/datasets/index.html).
+
+
+### How can I process the data?
 
 #### Software
 
 What to consider:
-* user skills
-    * scripting
-        * bash/(batch/powershell)
-        * python
+* user skills and preferences
+    * Graphical User Interface (GUI)
+    * Command Line Interface (CLI)
+    * Application Programming Interface (API)
+        * Python
         * R
         * Julia 
 * user needs
+    * batch processing
     * automation
     * reproducibility
 * open source vs commercial
-* GUI vs CLI
+    * this guide focusses on [software available on CSC supercomputer Puhti](../../apps/#geosciences) 
 
-##### GUI
+##### What software is available at CSC?
 
-[Puhti web interface](https://puhti.csc.fi) 
+* only Linux software
 
-###### SNAP
+=== "GUI"
 
-"All-in-one" GUI, CLI (gpt) with Python interfaces snappy and snapista
-* for initial test
+    Graphical User Interfaces of software available on Puhti can be accessed via the [Puhti web interface](https://puhti.csc.fi) or [NoMachine or X11 connection](../../computing/connecting/#using-graphical-applications). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should not happen here.
 
-###### QGIS 
+    ###### [SNAP](https://step.esa.int/main/toolboxes/snap/)
 
-GIS software with limited multispectral image processing capabilities
-* Visualization, mapmaking
-* Band math
-* semi-automatic classification plugin  (LS and others preprocessing, atmospheric correction, pansharpening; https://semiautomaticclassificationmanual.readthedocs.io/fi/latest/preprocessing_tab.html)
+    "All-in-one" Graphical User Interface for processing of Sentinel data (+ support for other data sources) with Python interfaces [snappy](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python) and [snapista](https://snap-contrib.github.io/snapista/) and the [Graph Processing Tool](https://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf) as Command Line Interface.
 
-###### Orfeo Toolbox (+CLI, difficult to use, bugs)
+    * [SNAP on Puhti](https://docs.csc.fi/apps/snap/)
 
-##### CLI
+    ###### [QGIS](https://www.qgis.org/en/site/) 
 
-###### SNAP GPT
-###### Sen2Cor
-###### FORCE
-###### GDAL (OGR)
+    GIS software with limited multispectral image processing capabilities
+    * Visualization
+    * [Map making](https://www.qgistutorials.com/en/docs/making_a_map.html)
+    * Map algebra / Band math and other [raster processing](https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html)
+    * [semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html) 
 
+    * [QGIS on Puhti](https://docs.csc.fi/apps/qgis/)
 
-##### Python
+    ###### [Orfeo Toolbox](https://www.orfeo-toolbox.org/)
 
-[Geospatial Python on Puhti](https://docs.csc.fi/apps/geoconda/)
+    Offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more!
 
-##### R
+    Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox.org/CookBook/CliInterface.html), [Graphical User Interface](https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html), Python API and as plugin to other applications.
+    
+    * GUI (https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html) 
 
-[Geospatial R on Puhti](https://docs.csc.fi/apps/r-env-for-gis/)
-[Geospatial R course material]()
+=== "CLI"
 
-##### Julia
+    ###### SNAP GPT
+    ###### Sen2Cor
+    ###### FORCE
+    ###### GDAL (OGR)
 
-[Julia on Puhti](https://docs.csc.fi/apps/julia/)
-[JuliaGeo](https://github.com/JuliaGeo)
+=== "Programming languages"
+
+    ##### Python
+
+    [Geospatial Python on Puhti](https://docs.csc.fi/apps/geoconda/)
+
+    ##### R
+
+    [Geospatial R on Puhti](https://docs.csc.fi/apps/r-env-for-gis/)
+    [Geospatial R course material]()
+
+    ##### Julia
+
+    [Julia on Puhti](https://docs.csc.fi/apps/julia/)
+    [JuliaGeo](https://github.com/JuliaGeo)
 
 #### Preprocessing
 
@@ -204,3 +252,9 @@ How to know what preprocessing has been done? ->
 * depends on above
 * FAIR!
 * think about long-term
+
+
+## Resources
+
+https://step.esa.int/main/doc/tutorials/
+https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/ 
