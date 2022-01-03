@@ -27,15 +27,15 @@ The total BU consumption per hour is the sum of the above terms:
 
 ### Scratch disk billing
 
-The default 1 TiB scratch disk quota is free. 
+Usage up to 1 TiB is free of charge. 
 
-* Excess usage is billed: 1 TiB consumes **5** BU per hour.
+* Excess usage beyond 1 TiB is billed: 1 TiB consumes **5** BU per hour.
 
 ### ProjAppl disk billing
 
-The default 50 GiB projappl disk quota is free. 
+Usage up to 50 GiB is free of charge. 
 
-* Excess usage is billed: 1 TiB consumes **5** BU per hour.
+* Excess usage beyond 50 GiB is billed: 1 TiB consumes **5** BU per hour.
 
 ## Mahti
 
@@ -52,15 +52,15 @@ is billed per CPU core.  The GPU nodes in Mahti are billed according to the numb
 
 ### Scratch disk billing
 
-The default 1 TiB scratch disk quota is free. 
+Usage up to 1 TiB is free of charge. 
 
-* Excess usage is billed: 1 TiB consumes **5** BU per hour.
+* Excess usage beyond 1 TiB is billed: 1 TiB consumes **5** BU per hour.
 
 ### ProjAppl disk billing
 
-The default 50 GiB projappl disk quota is free. 
+Usage up to 50 GiB is free of charge. 
 
-* Excess usage is billed: 1 TiB consumes **5** BU per hour.
+* Excess usage beyond 50 GiB is billed: 1 TiB consumes **5** BU per hour.
 
 ## Allas
 
