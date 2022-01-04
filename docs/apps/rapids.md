@@ -6,20 +6,30 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 The `rapids` module is available on Puhti only.  Currently supported RAPIDS versions:
 
-- 0.16 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `0.16-sng`
-- 0.15 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `0.15-sng`
-- 0.14 using [Singularity](../support/tutorials/gpu-ml.md#singularity): `0.14-sng`
+- 0.16 using Singularity: `0.16-sng`
+- 0.15 using Singularity: `0.15-sng`
+- 0.14 using Singularity: `0.14-sng`
 - 0.11
 
-Contains the [RAPIDS](https://rapids.ai/) suite (including [cuDF](https://github.com/rapidsai/cudf), [cuML](https://github.com/rapidsai/cuml), [cuGraph](https://github.com/rapidsai/cugraph), and [XGBoost](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
+Contains the [RAPIDS](https://rapids.ai/) suite (including
+[cuDF](https://github.com/rapidsai/cudf),
+[cuML](https://github.com/rapidsai/cuml),
+[cuGraph](https://github.com/rapidsai/cugraph), and
+[XGBoost](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
 
-Modules ending with `-sng` are based on NVIDIA's optimized container
-images from
+Modules ending with `-sng` are based on NVIDIA's optimized container images from
 [NGC](https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai).
 
-If you find that some package is missing, you can often install it yourself with `pip install --user`. If you think that some important RAPIDS-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+If you find that some package is missing, you can often install it yourself with
+`pip install --user`. If you think that some important RAPIDS-related package
+should be included in the module provided by CSC, you can send an email to
+<servicedesk@csc.fi>.
 
-Some modules are Singularity-based. Wrapper scripts have been provided so that common commands such as `python`, `python3`, `pip` and `pip3` should work as normal. For more information, see our [machine learning guide](../support/tutorials/gpu-ml.md).
+Some modules are Singularity-based. Wrapper scripts have been provided so that
+common commands such as `python`, `python3`, `pip` and `pip3` should work as
+normal. For more information, see [CSC's general instructions on how to run
+Singularity containers](../computing/containers/run-existing.md).
+
 
 ## License
 
@@ -49,11 +59,16 @@ list-packages
 
 !!! note 
 
-    Note that Puhti login nodes are not intended for heavy computing, please use slurm batch jobs instead. See our [instructions on how to use the batch job system](../computing/running/getting-started.md).
+    Note that Puhti login nodes are not intended for heavy computing, please use
+    slurm batch jobs instead. See our [instructions on how to use the batch job
+    system](../computing/running/getting-started.md).
 
 ### Local storage
 
-The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts-puhti.md#local-storage).
+The GPU nodes in Puhti have fast local storage which is useful for IO-intensive
+applications. See our [general instructions on how to take the fast local
+storage into
+use](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 ## More information
 

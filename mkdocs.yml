@@ -57,8 +57,8 @@ nav:
        - Interactive apps:
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
-         - Rclone: computing/webinterface/rclone.md
          - RStudio: computing/webinterface/rstudio.md
+         - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
@@ -131,6 +131,11 @@ nav:
              - Known problems and limitations: cloud/pouta/known-problems.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
+     - CSC Notebooks:
+       - Overview: cloud/csc_notebooks/index.md
+       - Getting started: cloud/csc_notebooks/getting_started.md
+       - Concepts: cloud/csc_notebooks/concepts.md
+       - Data persistence: cloud/csc_notebooks/data_persistence.md
   - Data:
 #    - Datasets: data/datasets.md
      - Working with data:
