@@ -82,7 +82,6 @@ What to consider:
     * GUI in web interface and bulk download
     * Landsat download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
 
-
 === "CSC environments"
 
     Puhti
@@ -110,15 +109,17 @@ What to consider:
     * [Sentinelhub](https://www.sentinel-hub.com/explore/)
     * [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
 
+See also examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
 
 ### Where can I store the data?
 
 What to consider:
-    * raw vs intermediate vs final result data
-        * what needs to be stored?
-    * accessibility
-        * who needs to have access?
-        * how needs the data to be accessed?
+
+* raw vs intermediate vs final result data
+    * what needs to be stored?
+* accessibility
+    * who needs to have access?
+    * how needs the data to be accessed?
 
 #### What storage solutions are available at CSC?
 
@@ -196,20 +197,49 @@ What to consider:
 === "CLI"
 
     ###### SNAP GPT
+
+    Command Line Interface for [SNAP](https://docs.csc.fi/apps/snap/).
+    See examples for use of SNAP GPT on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/snap).
+
     ###### Sen2Cor
+
+    [Sen2Cor](https://docs.csc.fi/apps/sen2cor/) is a stand-alone processor for Sentinel-2 Level 2A product generation and formatting.
+
     ###### FORCE
+
+    [FORCE](https://docs.csc.fi/apps/sen2cor/) (Framework for Operational Radiometric Correction for Environmental monitoring) is an all-in-one solution for mass-processing medium-resolution satellite images.
+
+    See examples for use of FORCE on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/force)
+
     ###### GDAL (OGR)
 
-=== "Programming languages"
+    [GDAL](https://docs.csc.fi/apps/gdal/) (Geospatial Data Abstraction Library) is a geospatial library for accessing and transforming geospatial data. 
+
+    See examples for use of GDAL on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/gdal)
+
+=== "API"
 
     ##### Python
 
     [Geospatial Python on Puhti](https://docs.csc.fi/apps/geoconda/)
 
+    The geoconda module provides many useful Python packages for multispectral raster data processing and analysis:
+
+    * geopandas:
+    * rasterio: access to geospatial raster data.
+    * rasterstats: summarizing geospatial raster datasets based on vector geometries.
+    * sentinelsat: downloading Sentinel images
+    * scimage: algorithms for image processing.
+    * xarray: working with multidimensional raster data. 
+    * dask: 
+
+    See examples for use of geopspatial Python on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/python)
+
     ##### R
 
     [Geospatial R on Puhti](https://docs.csc.fi/apps/r-env-for-gis/)
     [Geospatial R course material]()
+    [Examples geospatial R](https://github.com/csc-training/geocomputing/tree/master/R)
 
     ##### Julia
 
@@ -219,8 +249,9 @@ What to consider:
 #### Preprocessing
 
 (can be skipped if your data is preprocessed)
-How to know what preprocessing has been done? ->
-
+How to know what preprocessing has been done? 
+-> check filename and naming conventions of your platform
+Look out for words like Bottom of atmosphere / Surface Reflectance that indicate that atmospheric correction has been done to the product. 
 
 #### Common usecases
 
