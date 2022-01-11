@@ -114,7 +114,44 @@ In the **Shared** page:
 
 
 
-## Encryption with CSC encryption key - User Interface
+## Data encryption and upload (files < 1Gb) - User Interface
+
+SD Connect allows you to encrypt and upload files directly from your browser. 
+
+
+
+
+To upload data to SD Connect it is sufficient to use the **drag and drop function** (files or folders, less than 1 GB) in the browser page or clicking on the 
+
+
+
+Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
+
+If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+
+If you create a new bucket use the following **suggestions to name it**:
+
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
+    
+* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
+
+    
+* All bucket **names are public**, so please do not include any confidential information in the bucket names
+
+
+
+
+![Artboard 1](https://user-images.githubusercontent.com/83574067/148955556-50237c8c-3f77-49bc-90f1-c7edc30bdb72.png)
+
+
+
+
+
+
+
+## Data Encryption and upload with CSC encryption key (files > 1Gb) - User Interface
+
+## Encryption 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -164,7 +201,7 @@ The encrypted file is now ready to be uploaded to _SD Connect_.
 
 
 
-## Data upload using SD Connect User Interface
+### Data upload using SD Connect User Interface
 
 
  <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/x9uTYZcUFDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
@@ -199,7 +236,7 @@ Example: ns-123456-raw-data-ddmmyy
 
 
 
-## Encryption with CSC encryption key- Command Line Interface
+## Data encryption and upload with CSC encryption key- Command Line Interface
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -271,7 +308,7 @@ a-put --sdx my_data -b 1234_SD_my_data
 
 
 
-## Programmatic data upload and download with SD Connect
+### Programmatic data upload and download with SD Connect
 
 To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
 
