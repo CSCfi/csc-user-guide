@@ -4,8 +4,6 @@
 ## Before you start
 
 
-
-
 * According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [Data encryption for data sharing](./crypt4gh_client.md) paragraph or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
     
 * SD Connect facilitates working with sensitive data and it is a user interface for Allas, CSC cloud storage solution. By default a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
@@ -71,8 +69,6 @@ In this page you can :
 
 
 
-
-
 In the  **User information** page you can:
 
 * in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
@@ -89,7 +85,6 @@ In the  **User information** page you can:
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926095-3a36f700-d994-11eb-8eb7-df1722efdacf.png">
-
 
 
 
@@ -116,18 +111,16 @@ In the **Shared** page:
 
 ## Data encryption and upload (files < 1Gb) - User Interface
 
-SD Connect allows you to encrypt and upload files directly from your browser. 
+SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with SDS public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
 
+ 
+To upload data to SD Connect it is sufficient to use:
 
+* the **drag and drop function** (files or folders, less than 1 Gb) 
+ 
+* or clicking on the **upload** icon in the SD Connect browser window. 
 
-
-To upload data to SD Connect it is sufficient to use the **drag and drop function** (files or folders, less than 1 GB) in the browser page or clicking on the 
-
-
-
-Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
-
-If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+You will be then redirected to a new page desplaying the defouald encryption options. Here, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 If you create a new bucket use the following **suggestions to name it**:
 
@@ -135,22 +128,23 @@ If you create a new bucket use the following **suggestions to name it**:
     
 * **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
 
-    
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
 
 
+With the icon  **Click to add files that will be uploaded** you will open a browser window in which you can select the files.
 
-![SD Connect 1](https://user-images.githubusercontent.com/83574067/149001751-14ee71f1-bdf1-4846-8e43-f65514172215.png)
-
-
-
+![Autoencryption part 1](https://user-images.githubusercontent.com/83574067/149007654-e2378637-8c98-4c6d-880b-0c52608b19bd.png)
 
 
+Next click on **Encrypt and upload**: each file will be encrypted and uploaded to SD Connect. Once the process is finished, you can return to the SD Connect **browser** window, where you can see the encrypted files ending with extension *.c4gh*.
+
+
+![Autoencryption part 2](https://user-images.githubusercontent.com/83574067/149007669-62167f00-a026-41c5-9c36-f535847db569.png)
 
 
 
-## Data Encryption and upload with CSC encryption key (files > 1Gb) - User Interface
+## Data Encryption and upload with CSC encryption key (files <100 Gb) - User Interface
 
 ## Encryption 
 
