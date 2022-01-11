@@ -120,6 +120,11 @@ To upload data to SD Connect it is sufficient to use:
  
 * or clicking on the **upload** icon in the SD Connect browser window. 
 
+![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
+
+
+
+
 You will be then redirected to a new page desplaying the defouald encryption options. Here, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 If you create a new bucket use the following **suggestions to name it**:
@@ -134,13 +139,31 @@ If you create a new bucket use the following **suggestions to name it**:
 
 With the icon  **Click to add files that will be uploaded** you will open a browser window in which you can select the files.
 
-![Autoencryption part 1](https://user-images.githubusercontent.com/83574067/149007654-e2378637-8c98-4c6d-880b-0c52608b19bd.png)
 
 
-Next click on **Encrypt and upload**: each file will be encrypted and uploaded to SD Connect. Once the process is finished, you can return to the SD Connect **browser** window, where you can see the encrypted files ending with extension *.c4gh*.
 
 
-![Autoencryption part 2](https://user-images.githubusercontent.com/83574067/149007669-62167f00-a026-41c5-9c36-f535847db569.png)
+
+
+
+
+Next click on **Encrypt and upload**: each file will be encrypted and uploaded to SD Connect.
+
+
+
+
+
+Once the process is finished, you can return to the SD Connect **browser** window, where you can see the encrypted files ending with extension *.c4gh*.
+
+
+
+
+
+
+
+
+
+
 
 
 
