@@ -28,7 +28,7 @@ Some hints on how to estimate memory and disk requirements can be found [here](h
 
 ### Using local disk on Puhti
 
-Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast [NMVE local disk](../../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the overall load on the Lustre parallel file system. 
+Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast [NMVE local disk](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the overall load on the Lustre parallel file system. 
 
 On Puhti you can request your Gaussian job to use local disk by submitting the job with the 'subg16_nvme' script:
 
