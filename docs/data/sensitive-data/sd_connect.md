@@ -216,9 +216,7 @@ To upload the encrypted file (or a folder containing encrypted data) to SD Conne
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-
-
+![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
@@ -226,12 +224,14 @@ To upload the encrypted file (or a folder containing encrypted data) to SD Conne
 
 * Next, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**. If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names.
 
-![example encrypted file](https://user-images.githubusercontent.com/83574067/149021326-1d65196d-b63b-4309-bac3-1a587280848a.jpg)
-
-
-
-
 * Next, click on **Upload**. A progress bar will visualize the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extention *.c4hg*. 
+
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+![example upload 5](https://user-images.githubusercontent.com/83574067/149021515-32567945-c755-4f1d-a940-33dd23f42c46.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
