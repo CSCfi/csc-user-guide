@@ -205,8 +205,7 @@ As the workflow decribed above is still under development, files bigger then 1Gb
 * The encrypted file is now ready to be uploaded to _SD Connect_. It is sufficient to use the **drag and drop function** (files or folders, less than 100 GB) in the browser page.
 
 
-
- Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
+Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
 
 If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
@@ -248,18 +247,12 @@ To upload the encrypted file (or a folder containing encrypted data) to SD Conne
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-* You will be then **redirected to a new page**. As you have already encrypted the data, you can **de-select the option: Encrypt file before upload**. Next, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+* You will be then **redirected to a new page**. As you have already encrypted the data, you can **de-select the option: Encrypt file before upload**. 
 
-If you create a new bucket use the following **suggestions to name it**:
-
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
-    
-* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
-
-* All bucket **names are public**, so please do not include any confidential information in the bucket names
+* Next, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**. If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names
 
 
-Next, click on **Upload**. A progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
+* Next, click on **Upload**. A progress bar will visualize the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extention *.c4hg*. 
 
 
 
