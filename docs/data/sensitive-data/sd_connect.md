@@ -3,7 +3,6 @@
 
 ## Before you start
 
-<img width="960" alt="Screenshot 2022-01-11 162431" src="https://user-images.githubusercontent.com/83574067/148960698-4be71352-86b6-4cc8-b826-fd9a8bd3ce31.png">
 
 
 
@@ -142,8 +141,7 @@ If you create a new bucket use the following **suggestions to name it**:
 
 
 
-
-![Artboard 1](https://user-images.githubusercontent.com/83574067/148960333-4e664bb0-d9ea-46df-9e8f-3f3762e4afdd.png)
+![SD Connect 1](https://user-images.githubusercontent.com/83574067/149001751-14ee71f1-bdf1-4846-8e43-f65514172215.png)
 
 
 
