@@ -140,8 +140,9 @@ If you create a new bucket use the following **suggestions to name it**:
 
 
 
-![Artboard 1](https://user-images.githubusercontent.com/83574067/148959694-528d8919-5541-4db1-a3a6-80ee7fed6cd4.png)
 
+
+![Artboard 1](https://user-images.githubusercontent.com/83574067/148960333-4e664bb0-d9ea-46df-9e8f-3f3762e4afdd.png)
 
 
 
