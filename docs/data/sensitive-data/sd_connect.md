@@ -3,6 +3,7 @@
 
 ## Before you start
 
+<img width="960" alt="Screenshot 2022-01-11 162431" src="https://user-images.githubusercontent.com/83574067/148960698-4be71352-86b6-4cc8-b826-fd9a8bd3ce31.png">
 
 
 
