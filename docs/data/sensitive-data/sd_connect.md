@@ -195,37 +195,11 @@ As the workflow decribed above is still under development, files bigger then 1Gb
 
 * To **Encrypt the files**, open the encryotion tool and  press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
 
-* Encryption creates a **new encrypted file that is named by adding to the end extension *.c4gh***. For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar. If the file/zipped folder contains a big dataset, the encryption process can last for up to minutes.
+* The tool creates a **new encrypted file that is named by adding to the end extension *.c4gh***, located in the same folder as the original file  For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar and if the file is large the encryption process can last for up to minutes.
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926290-6a7e9580-d994-11eb-958d-1fc30adc05f3.png">
 
-![Crytp4sds](https://user-images.githubusercontent.com/83574067/122655808-243c6180-d15e-11eb-82b6-40ba33dbd274.png)
-
-
-* The encrypted file is now ready to be uploaded to _SD Connect_. It is sufficient to use the **drag and drop function** (files or folders, less than 100 GB) in the browser page.
-
-
-Once the upload has started, a progress bar will visualize the status of the upload. For bigger datasets or files, **you can upload files programmatically** using the clients described below.
-
-If you did not create a bucket yet, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
-
-If you create a new bucket use the following **suggestions to name it**:
-
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
-    
-* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
-
-    
-* All bucket **names are public**, so please do not include any confidential information in the bucket names
- 
-Example: ns-123456-raw-data-ddmmyy
-  
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926328-710d0d00-d994-11eb-94e1-ea99ab121214.png">
-
-![sd-connect-5](https://user-images.githubusercontent.com/83574067/122786181-b9556c80-d2bc-11eb-9a8f-3bea273eddab.png)
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926335-7407fd80-d994-11eb-8efa-37908c600d01.png">
+![crypt4gh new](https://user-images.githubusercontent.com/83574067/149019832-0d4b1849-2a16-4de1-8597-a4f11562de61.png)
 
 
 
@@ -243,13 +217,17 @@ To upload the encrypted file (or a folder containing encrypted data) to SD Conne
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
+
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
+
 * You will be then **redirected to a new page**. As you have already encrypted the data, you can **de-select the option: Encrypt file before upload**. 
 
-* Next, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**. If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names
+* Next, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**. If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names.
+
+![example encrypted file](https://user-images.githubusercontent.com/83574067/149021187-d6c8f91a-de5b-49a3-9067-9c86737f31ee.jpg)
+
 
 
 * Next, click on **Upload**. A progress bar will visualize the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extention *.c4hg*. 
