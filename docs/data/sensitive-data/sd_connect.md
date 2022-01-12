@@ -17,10 +17,10 @@
 
 To access SD Connect you need to go to [MyCSC](https://my.csc.fi) and set up:
 
-* [**a CSC account**](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-* [**a CSC project**](https://docs.csc.fi/accounts/how-to-create-new-project/)
-* add [**service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (CSC cloud storage solution)
-* fill in the [**Description of data processing activities**](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/) form 
+* [**a CSC account**](https://docs.csc.fi/accounts/how-to-create-new-user-account/);
+* [**a CSC project**](https://docs.csc.fi/accounts/how-to-create-new-project/);
+* add [**service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (CSC cloud storage solution);
+* fill in the [**description of data processing activities**](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/) form.
 
 
 Login to SD Connect is currently possible only with Haka (a user identity federation system) and CSC credentials at:
