@@ -19,8 +19,8 @@ To access SD Connect you need to go to [MyCSC](https://my.csc.fi) and set up:
 
 * [**a CSC account**](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 * [**a CSC project**](https://docs.csc.fi/accounts/how-to-create-new-project/)
-* add [**Service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)(CSC cloud storage solution)
-* fill in the [**Description of the data processing activities**] form (https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
+* add [**Service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (CSC cloud storage solution)
+* fill in the [**Description of data processing activities**] form (https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
 
 
 Login to SD Connect is currently possible only with Haka (a user identity federation system) and CSC credentials at:
@@ -73,7 +73,8 @@ In this page you can :
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
-![Tags example_2](https://user-images.githubusercontent.com/83574067/149054774-e319b647-39ac-4d3e-93ce-dcf7989f4c90.png)
+![Tags example](https://user-images.githubusercontent.com/83574067/149055176-86461357-29df-4260-a80a-5e43966ea680.png)
+
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
