@@ -72,7 +72,7 @@ In this page you can :
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
-![Tags example](https://user-images.githubusercontent.com/83574067/149055176-86461357-29df-4260-a80a-5e43966ea680.png)
+![Tags example](https://user-images.githubusercontent.com/83574067/149056850-4de8772d-340b-4ec3-be14-ea956a7c4d64.png)
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
