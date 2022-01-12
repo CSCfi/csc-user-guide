@@ -2,7 +2,11 @@
 
 ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses VTK library, in python wrapping. [NoMachine](nomachine.md) is recommended for smooth interactive use. ParaView is available on Puhti.
 
-ParaView is designed to run parallel tasks, and consists of one client and one or several servers (pvservers). There are many ways to run ParaView, to suit different needs. The following examples cover most cases.  
+ParaView is designed to run parallel tasks, and consists of one client and one or several servers (pvservers). There are many ways to run ParaView, to suit different needs. The following examples cover most cases.
+
+## License
+
+ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-license/) that enables the broadest possible audience, including commercial organizations, to use the software, royalty free, for most purposes.
 
 ## Standalone mode
 
