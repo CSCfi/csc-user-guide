@@ -20,17 +20,17 @@
 
  * **Login**
    
- * **User Interface**
+ * **User Interface Pages**
  
  * **Encryption with CSC encryption key - User Interface**
    
- * **Data upload using SD Connect user interface**
+ * **Data encryption and upload with Sensitive Data encryption key (1Gb)**
  
- * **Encryption with CSC encryption key- Command Line Interface**
+ * **Data Encryption and upload with Sensitive Data encryption key (100 Gb)**
+ 
+ * **Data encryption and upload with Sensitive Data encryption key - Command Line Interface**
        
- * **Programmatic data upload and download with SD Connect**
- 
- * **Data Sharing with SD Connect user interface**
+ * **Data Sharing**
  
  * **Troubleshooting**
  
