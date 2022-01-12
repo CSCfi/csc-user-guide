@@ -22,21 +22,20 @@
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
 
-To access SD Desktop you need:
+To access SD Desktop you need to go to [MyCSC](https://my.csc.fi) and set up:
 
-* **a CSC account**
+* [**a CSC account**](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+* [**a CSC project**](https://docs.csc.fi/accounts/how-to-create-new-project/)
+* add [**service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (to import (or download) encrypted sensitive data)
+* add [**service access to SD Desktop**]
+* fill in the [**description of data processing activities**](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/) form 
 
-* **a CSC project**
 
-* **Service access to SD Desktop.**
+Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and [Elixir ID](https://elixir-europe.org/register) or with a CSC account at
 
+[https:/sd-desktop.csc.fi](https:/sd-desktop.csc.fi)
 
-To import (or download) encrypted sensitive data to SD Desktop you need:
-
-* **service access to Allas** (CSC cloud storage solution).
-  
-
-Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and Elixir AAI) or with a CSC account at https:/sd-desktop.csc.fi using any modern web browser.
+using any modern web browser.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
