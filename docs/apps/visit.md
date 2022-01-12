@@ -2,6 +2,9 @@
 
 VisIt is an open source, versatile software for scientific visualization. [NoMachine](nomachine.md) is recommended for smooth interaction. VisIt is available on Puhti.
 
+## License
+
+VisIt is free also for commercial use and has been released under [BSD Open Source License](https://github.com/visit-dav/visit/blob/develop/LICENSE)
 
 ## Parallel use
 
