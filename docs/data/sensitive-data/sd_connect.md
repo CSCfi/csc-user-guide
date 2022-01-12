@@ -121,7 +121,7 @@ In the **Shared** page:
 
 ## Data encryption and upload with Sensitive Data encryption key (less then 1Gb) 
 
-SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with SDS public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
+SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with Sensitive Data services public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
 
  
 To upload data to SD Connect it is sufficient to:
@@ -137,7 +137,9 @@ To upload data to SD Connect it is sufficient to:
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-You will be then redirected to a new page desplaying the defouald encryption options. Here, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+
+You will be then redirected to a new page displaying the default encryption options. Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+
 
 If you create a new bucket use the following **suggestions to name it**:
 
@@ -158,7 +160,10 @@ With the icon  **Click to add files that will be uploaded** you will open a brow
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-Next click on **Encrypt and upload**: each file will be encrypted and uploaded to the bucket in SD Connect.
+Next click on **Encrypt and upload**: each file will be encrypted with SD encryption key and uploaded to the bucket in SD Connect.
+
+Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4hg*. 
+
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -166,8 +171,6 @@ Next click on **Encrypt and upload**: each file will be encrypted and uploaded t
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extention *.c4hg*. 
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -186,11 +189,11 @@ Once the process is completed, you can return to the SD Connect **browser** wind
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-As the workflow decribed above is still under development, files bigger then 1Gb needs to be encrypted  and uploaded in two different steps. However, we have developed a simple encryption tool (Crypt4ghsds GUI) that facilitates data encryption with SDS public encryption key. With this tool it is possible to encrypt only one file at the time.If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4GH CLI below. 
+As the workflow described above is still under development, files larger than 1 Gb need to be encrypted and uploaded in two different steps. For this reason, we have developed a simple encryption tool (Crypt4ghsds GUI) that facilitates data encryption with Sensitive Data public encryption key. With this tool it is possible to encrypt only one file at the time. If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4gh CLI below.
 
 
 !!! note
-    As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data Services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data unless analizing it in SD Desktop. If you are interested in using your own encryption key pair check [the following paragraph](./crypt4gh_client.md)
+    As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data unless analysing it in SD Desktop. If you are interested in using your own encryption key pair check [the following paragraph](./crypt4gh_client.md)
 
 
 * First, **download** the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
@@ -230,11 +233,13 @@ To upload the encrypted file (or a folder containing encrypted data) to SD Conne
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-* You will be then **redirected to a new page**. As you have already encrypted the data, you can **de-select the option: Encrypt file before upload**. 
+* You will be then **redirected to a new page**. As you have already encrypted the data, you can **deselect the option: Encrypt file before upload**.
 
-* Next, you can specify the name of the bukcet in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with 13 digit number based on creation time). Note that **it is not possible to rename buckets**. If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names.
+* Next, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**. 
 
-* Next, click on **Upload**. A progress bar will visualize the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extention *.c4hg*. 
+* If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names.
+
+* Next, click on **Upload**. A progress bar will visualise the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4hg*.
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
