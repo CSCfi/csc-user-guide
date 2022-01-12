@@ -41,6 +41,7 @@ The interface is compatible with all modern web browsers.
 
 ## User Interface pages
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -115,13 +116,12 @@ In the **Shared** page:
 
 
 
-
 ## Data encryption and upload with Sensitive Data encryption key (less then 1Gb) 
 
 SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with Sensitive Data services public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
 
  
-1. To upload data to SD Connect it is sufficient to:
+1- To upload data to SD Connect it is sufficient to:
 
 * use the **drag and drop function** 
  
@@ -135,12 +135,12 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-2. You will be **redirected to a new page displaying the default encryption options**. 
+2- You will be **redirected to a new page displaying the default encryption options**. 
 
-3. Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+3- Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 
-4. If you create a new bucket use the following **suggestions to name it**:
+4- If you create a new bucket use the following **suggestions to name it**:
 
 * Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
     
@@ -149,7 +149,7 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
 
-5. With the icon  **Click to add files that will be uploaded** you will open a browser window in which you can select and add more files. 
+5- With the icon  **Click to add files that will be uploaded** you will open a browser window in which you can select and add more files. 
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -159,14 +159,14 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-6. Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
+6-  Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 ![3](https://user-images.githubusercontent.com/83574067/149011679-38799458-8e8d-4ddb-9a61-142a651b1fcb.png)
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-7. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4gh*. 
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4gh*. 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 ![6](https://user-images.githubusercontent.com/83574067/149012441-fc6ec48a-3d87-4cc2-bdd8-5e44e6c3cfd6.png)
@@ -176,6 +176,7 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 
 ## Data Encryption and upload with Sensitive Data encryption key (100 Gb) 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -190,19 +191,19 @@ As the workflow described above is still under development, files larger than 1 
     As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data unless analysing it in SD Desktop. If you are interested in using your own encryption key pair check [the following paragraph](./crypt4gh_client.md)
 
 
-1. First, **download** the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
+* First, **download** the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
   
    - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-linux-amd64.zip)
    - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-macos-amd64.zip)
    - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
 
 
-2. **Verify** that the program has been digitally signed by CSC - IT Center for Science. After downloading and unzipping the file, you can find the Crypt4GH application in your download folder.  When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_. 
+* **Verify** that the program has been digitally signed by CSC - IT Center for Science. After downloading and unzipping the file, you can find the Crypt4GH application in your download folder.  When you open the application you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_. 
 
 
-3. To **Encrypt the files**, open the encryotion tool and  press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
+* To **Encrypt the files**, open the encryotion tool and  press the  **Select File** button. This opens a file browser that you can use to select the file that will be encrypted. When the file is selected, press the **Encrypt** button. This encrypts the selected file.
 
-4. The tool creates a **new encrypted file that is named by adding to the end extension *.c4gh***, located in the same folder as the original file  For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar and if the file is large the encryption process can last for up to minutes.
+* The tool creates a **new encrypted file that is named by adding to the end extension *.c4gh***, located in the same folder as the original file  For example, encrypting file _my_data1.csv_ will produce a new, encrypted file with name _my_data.csv.c4gh_.  Currently, Crypt4GH application does not provide a progress bar and if the file is large the encryption process can last for up to minutes.
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926290-6a7e9580-d994-11eb-958d-1fc30adc05f3.png">
 
@@ -215,7 +216,7 @@ As the workflow described above is still under development, files larger than 1 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-5. To upload the encrypted file (or a folder containing encrypted data) to SD Connect it is sufficient to:
+*To upload the encrypted file (or a folder containing encrypted data) to SD Connect it is sufficient to:
 
 * use the **drag and drop function** 
  
