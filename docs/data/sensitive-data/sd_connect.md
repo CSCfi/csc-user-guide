@@ -19,8 +19,8 @@ To access SD Connect you need to go to [MyCSC](https://my.csc.fi) and set up:
 
 * [**a CSC account**](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 * [**a CSC project**](https://docs.csc.fi/accounts/how-to-create-new-project/)
-* add [**Service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (CSC cloud storage solution)
-* fill in the [**Description of data processing activities**] form (https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
+* add [**service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (CSC cloud storage solution)
+* fill in the [**Description of data processing activities**](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/) form 
 
 
 Login to SD Connect is currently possible only with Haka (a user identity federation system) and CSC credentials at:
@@ -119,7 +119,7 @@ In the **Shared** page:
 
 
 
-## Data encryption and upload with Sensitive Data encryption key (files < 1Gb) 
+## Data encryption and upload with Sensitive Data encryption key (less then 1Gb) 
 
 SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with SDS public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
 
@@ -177,7 +177,7 @@ Once the process is completed, you can return to the SD Connect **browser** wind
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-## Data Encryption and upload with Sensitive Data encryption key (files <100 Gb) 
+## Data Encryption and upload with Sensitive Data encryption key (100 Gb) 
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
