@@ -108,7 +108,7 @@ In the **Shared** page:
 
 
 
-## Data encryption and upload with Sensitive Data encryption key (less then 1Gb) 
+## Data encryption and upload with Sensitive Data encryption key (less then 1 GB) 
 
 SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with Sensitive Data services public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
 
@@ -164,7 +164,7 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-## Data Encryption and upload with Sensitive Data encryption key (100 Gb) 
+## Data Encryption and upload with Sensitive Data encryption key (100 GB) 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
