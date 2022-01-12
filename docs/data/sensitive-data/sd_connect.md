@@ -39,14 +39,13 @@ The interface is compatible with all modern web browsers.
 
 
 
-## User Interface
+## User Interface pages
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
 
 
 Once you log in to SD Connect you access the default front-page: **Browser**.
@@ -120,7 +119,7 @@ In the **Shared** page:
 
 
 
-## Data encryption and upload (files < 1Gb) - User Interface
+## Data encryption and upload with Sensitive Data encryption key (files < 1Gb) 
 
 SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow and choosing the default encryption options, the files will be automatically encrypted with SDS public encryption key. As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
 
@@ -178,7 +177,7 @@ Once the process is completed, you can return to the SD Connect **browser** wind
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-## Data Encryption and upload with CSC encryption key (files <100 Gb) - User Interface
+## Data Encryption and upload with Sensitive Data encryption key (files <100 Gb) 
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -246,7 +245,7 @@ To upload the encrypted file (or a folder containing encrypted data) to SD Conne
 
 
 
-## Data encryption and upload with CSC encryption key- Command Line Interface
+## Data encryption and upload with Sensitive Data encryption key - Command Line Interface
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -338,7 +337,7 @@ Note that if you use these tools, you must encrypt your sensitive data, before y
 
 
 
-## Data Sharing with SD Connect user interface
+## Data Sharing 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
