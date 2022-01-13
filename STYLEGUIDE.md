@@ -17,7 +17,7 @@
  - [General guidelines](https://www.saavutettavuusvaatimukset.fi/)
  - Make accessible content! In short:
  - **Links:** Link text needs to be descriptive
-   - `[Read more here](link-to-some-page)` is not accessible. `[Read more about free use cases](link-to-some-page)` is better.
+   - `[Read more here](link-to-some-page.md)` is not accessible. `[Read more about free use cases](link-to-some-page.md)` is better.
    - Pure URL is NOT an option! Imagine reading it: h-t-t-p-s colon slash slash...
    - If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>` This label is read by the screen readers but is not visible to others.
 - **Images:** 
@@ -42,6 +42,19 @@
 ## Embedded Videos
  - Iframes to youtube need to use the `srcdoc` attribute instead of `src`, this is due to a workaround
  we use to avoid cookies if consent has not been granted. 
+ 
+ ## Links
+ - For internal links, include `.md` in the target:
+     - `[cool page](page.md)`
+     - `[stuff in page](page.md#anchor)`
+     - `[stuff in other section](../other_section/page.md)`
+     - `[stuff elsewhere in page](../other_section/page.md#anchor)` 
+     - **Do not make** _internal_ links with `https://...`
+ - Common issues:
+     - Incorrect number of parent directories (`../../accounts/how-to-create-new-user-account.md` vs `../accounts/how-to-create-new-user-account.md`)
+     - including `/` between page and anchor
+         - **Correct**: `../../accounts/how-to-create-new-user-account.md#getting-student-accounts-for-courses` 
+         - **Incorrect**: ` ../../accounts/how-to-create-new-user-account.md/#getting-student-accounts-for-courses`
 
 ## Images, linked documents
  - Put all images in `/img` folder in docs root
@@ -54,16 +67,33 @@
  - All examples should use minimum viable reserved resources. I.e don't write examples 
    with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. 
    Users tend to use these as default values.
- - Internal links as `[cool page](page.md)`, `[stuff in
-   page](page.md#anchor)`, `[stuff in other section](../other_section/page.md)`,
-   `[stuff elsewhere](../other_section/page.md#anchor)` (no _internal_ links with https://...)
  - For code sections (marked with three backticks,\`\`\`) Mkdocs will by default try to auto-guess the 
    language for syntax highlighting. It's probably best to specify the language explicitly, e.g.  \`\`\`bash or  \`\`\`python
+      - *Note!* Add a blank line _after_ the three-ticks-codeblock! (Also two whitespaces after ticks work, but that's unofficial dialect)
  - If you don't want any syntax highlighting, just use \`\`\`text
  - For a list of all supported languages see: http://pygments.org/docs/lexers/
  - Give commands, environment variables, command options, as well as partition 
    names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
- - Format email addresses using `mailto:` as in `[servicedesk@csc.fi](mailto:servicedesk@csc.fi)`  
+ - Refer to servicedesk via the docs contact page: as in `[contact ServiceDesk](/support/contact/)`  
+      - Page has email, service times, phone, support request how-to
+ 
+## Redirecting pages
+ - If there's an url that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made
+ - Create a file with the name-of-the-old-page`.html` (or index.html if it was done that way) and as the content:
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="1; url='new-page/#anchor-on-that-page'" />
+  </head>
+  <body>
+    <p><a href="new-page/#anchor-on-that-page">Dataset content reorganized!</a>.</p>
+  </body>
+</html>
+```
+
+ - edit `new-page` (and the anchor, if there, otherwise just remove) to match
+ - to pass the tests, add the page to `tests/python_link_tests/whitelist`, too
 
 ## Terminology
  - When referring collectively to compute servers, use term "CSC supercomputers". Puhti and Mahti should be used explicitly only

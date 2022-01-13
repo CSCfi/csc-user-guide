@@ -1,5 +1,24 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 5
+
+* Added new TensorBoard app for visualizing TensorFlow runs.
+* When launching apps, only partitions available for the selected project are visible now.
+* Rclone app has been removed.
+* Open onDemand version updated to 2.0.20.
+
+## Puhti web interface beta updated to release 4 30.11.2021 
+
+* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../../computing/webinterface/jupyter/).
+* Added new **Compute node shell** app that gives a persistent shell on a compute node for commands that should not be run on login nodes.
+* App cards show more information  about resource usage after job has finished (seff output)
+* Can reset interactive forms to default settings
+* Rclone app now alerts about missing Allas authentication
+* Added terminal outside container to Desktop app
+* Quota and BU warnings can now be hidden
+* Open onDemand version updated to 2.0.19
+
+
 ## Puhti web interface beta updated to release 3 9.11.2021
 
 * App cards show more information about resources and reason for shutting down the app to help troubleshoot issues.

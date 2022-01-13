@@ -23,11 +23,11 @@ livereload==2.6.3
 lunr==0.5.8
 Markdown==3.3.2
 MarkupSafe==1.1.1
-nltk==3.5
+nltk>=3.6.4
 Pygments==2.8.0
 pytoml==0.1.14
 PyYAML==5.4.1
-regex==2020.10.15
+regex>=2020.10.15
 singledispatch==3.4.0.3
 six==1.15.0
 tornado==6.0.4

@@ -15,11 +15,11 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 ## Available
 
 Version on CSC's Servers
-- Puhti: 2.21.4
+- Puhti:  2.26.8
 
 ## Usage
 
-To load Picard, laod biokit:
+To load Picard, load biokit:
 ```text
 module load biokit
 ```
