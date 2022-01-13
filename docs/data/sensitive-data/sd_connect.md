@@ -110,7 +110,7 @@ In the **Shared** page:
 
 
 
-## Sesntiive data encryption and upload (less than 1 GB) 
+## Sensitive data encryption and upload (less than 1 GB) 
 
 SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow ayou can automatically encrypt the data with Sensitive Data services public encryption key (**Encrypt files before uplaod: on**; **Ephimeral private key: on**).
 
@@ -168,7 +168,7 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-## Data Encryption and upload with Sensitive Data encryption key (less than 100 GB) 
+## Sensitive data encryption and upload (less than 100 GB) 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
