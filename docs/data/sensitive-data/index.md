@@ -24,9 +24,9 @@
  
  * **Encryption with CSC encryption key - User Interface**
    
- * **Data encryption and upload with Sensitive Data encryption key (1 GB)**
+ * **Sensitive data encryption and upload (less than 1 GB)**
  
- * **Data encryption and upload with Sensitive Data encryption key (100 GB)**
+ * **Sensitive data encryption and upload (less than 100 GB)**
  
  * **Data encryption and upload with Sensitive Data encryption key - Command Line Interface**
        
