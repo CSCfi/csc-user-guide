@@ -22,13 +22,14 @@
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
 
-To access SD Desktop you need to go to [MyCSC](https://my.csc.fi) and set up:
+To access SD Desktop you need to go to [MyCSC](https://my.csc.fi) and:
 
-* [**a CSC account**](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-* [**a CSC project**](https://docs.csc.fi/accounts/how-to-create-new-project/)
-* add [**service access to Allas**](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) (to import (or download) encrypted sensitive data)
-* add [**service access to SD Desktop**]
-* fill in the [**description of data processing activities**](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/) form 
+* set up [**a CSC account**](how-to-create-new-user-account.md);
+* set up [**a CSC project**](how-to-create-new-project.md) or [join a project](how-to-add-members-to-project.md);
+* add [**service access to Allas**](how-to-add-service-access-for-project.md)(CSC cloud storage solution);
+* fill in the [**description of data processing activities**]when-your-project-handles-personal-data.md)form;
+* apply for additional[Apply for billing units](how-to-apply-for-billing-units.md) or [disk quota](how-to-increase-disk-quotas.md), if needed.
+
 
 
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and [Elixir ID](https://elixir-europe.org/register) or with a CSC account at
