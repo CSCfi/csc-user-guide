@@ -114,7 +114,7 @@ In the **Shared** page:
 
 SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow ayou can automatically encrypt the data with Sensitive Data services public encryption key (**Encrypt files before uplaod: on**; **Ephimeral private key: on**).
 
- As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md)
+ As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md).
 
  
 1- To upload data to SD Connect it is sufficient to:
