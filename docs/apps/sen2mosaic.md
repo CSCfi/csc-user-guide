@@ -31,6 +31,8 @@ More information on the available arguments for each tool can be displayed with
 
 or from the [sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Note the `_` in tool names on Puhti!)
 
+For `s2m_preprocess` and `s2m_mosaic` you can use the argument `--n_processes` to set the number of available CPU cores to the number of CPU cores you applied for with your job.
+
 ## License and citing
 
 Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) license.
