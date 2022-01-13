@@ -29,7 +29,7 @@ More information on the available arguments for each tool can be displayed with
 
 `s2m_mosaic --help`
 
-or from [the sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Note the `_` in tool names on Puhti!)
+or from the [sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Note the `_` in tool names on Puhti!)
 
 ## License and citing
 
