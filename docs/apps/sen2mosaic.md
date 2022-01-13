@@ -33,7 +33,7 @@ or from the [sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest
 
 For `s2m_preprocess` and `s2m_mosaic` you can use the argument `--n_processes` to set the number of available CPU cores to the number of CPU cores you applied for with your job.
 
-## License and citing
+## License and citation
 
 Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) license.
 
