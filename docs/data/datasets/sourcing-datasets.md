@@ -32,7 +32,6 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 ### Biosciences
 
- - [ChEMBL](../../apps/chembl.md) Database of bioactive molecules
  - [Chipster_genomes](../../apps/chipster_genomes.md) Tool to download aligner indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti
 
 ### Chemistry
