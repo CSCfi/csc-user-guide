@@ -8,6 +8,9 @@ A graphical web interface to ChEMBL is available at the [ChEMBL home page](https
 
 *   ChEMBL 26
 
+## License
+The ChEMBL data is made available on a [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/)
+
 ## Usage
 CSC mirrors the ChEMBL SQL database in a locally installed MySQL server. The usage of this
 database is done with MySQL client programs only. No graphical interface is provided.
