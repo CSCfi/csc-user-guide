@@ -6,6 +6,14 @@ identify hotspots and reasons for poor parallel scaling and MPI performance.
 The tool is available only on Puhti and at the moment it supports only the applications 
 compiled with the Intel MPI library.
 
+## Available
+
+Puhti
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
 ## Collecting traces
 
 For simple MPI tracing, no recompilation is needed, and it is enough to add following 

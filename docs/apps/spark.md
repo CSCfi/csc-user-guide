@@ -2,6 +2,14 @@
 
 [Apache Spark](https://spark.apache.org/) is a popular, high-performance distributed computing framework. Spark is excellent tool for data analysis and machine learning tasks when dataset grows too big for single machine to handle. 
 
+## Available
+
+Rahti
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
 ## Deploying Spark into Rahti
 
 Spark template can be found from Rahti template catalog. Consult [Rahti user guide](../cloud/rahti/index.md) about how to get access and start new project. 
