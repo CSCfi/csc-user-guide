@@ -1,5 +1,19 @@
 # How to manage your projects
 
+CSC Project needs to be extend yearly.
+
+* Project members receive reminders about the project expiration.
+* The Project Manager can manage the project’s details and extend it in [MyCSC](http://my.csc.fi)
+* When granted new billing units (BU) project is extended automatically by a year.
+* Projects that use Fairdata IDA will be extended automatically.
+
+Project Manager’s CSC account inactivation closes the project for all project members.
+
+1. The Project Manager’s CSC account needs to be kept active by changing password yearly and keeping user information such as organisation email address up to date and delegate the project manager role to someone else as needed.
+
+Users are primarily responsible for [moving data](../data/moving/index.md) or deleting the project content themselves before the project is closed. 
+If you're unsure about your CSC Project's or Accounts status, please log in [MyCSC](http://my.csc.fi) to extend your project or change your account password.
+
 ## Project lifetime extension
 
 You can apply for an initial project lifetime extension of one year. 
