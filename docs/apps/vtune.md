@@ -1,6 +1,18 @@
 # Intel VTune Profiler
 
-Intel VTune Profiler is available only on Puhti and it is provided via the `intel-vtune` module. One sets up the environment by loading the module:
+Intel VTune Profiler is a performance analysis tool for single core and threading performance, i.e. for single node performance. For MPI analysis with multiple nodes, VTune produces a separate analysis for each node. More comprehensive MPI performance analysis is possible e.g. with [Intel Traceanalyzer](itac.md) or [Scalasca](scalasca.md).
+
+## Available
+
+Puhti
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
+## Usage
+
+Intel VTune Profiler is provided via the `intel-vtune` module. One sets up the environment by loading the module:
 
 ```
 module load intel-vtune
