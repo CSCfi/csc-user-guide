@@ -28,7 +28,8 @@ or from [the Sen2Cor user manual](http://step.esa.int/thirdparties/sen2cor/2.9.0
 ## Advanced usage
 
 Further configuration of `L2A_Process` can be done via the `L2A_GIPP.xml` file. 
-After running `L2A_Process` for the first time, you can find the default GIPP file your $HOME/sen2cor/2.9/cfg directory. Here you can adjust it to your needs using any editor and add it to the call: L2A_Process --GIP_L2A $HOME/sen2cor/2.9/cfg/L2A_GIPP.xml <other arguments>
+After running `L2A_Process` for the first time, you can find the default GIPP file in your `$HOME/sen2cor/2.9/cfg` directory. 
+Here you can adjust it to your needs using any editor and add it to the call: `L2A_Process --GIP_L2A $HOME/sen2cor/2.9/cfg/L2A_GIPP.xml <other arguments>` .
 
 ## License and citing
 
