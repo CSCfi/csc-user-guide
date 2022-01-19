@@ -13,9 +13,10 @@ for self study.
 *   [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 *   [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
  
-## CSC cloud resources, cPouta and ePouta:
+## CSC cloud resources, cPouta, ePouta and Rahti:
 *   [cPouta and ePouta related videos](../cloud/pouta/pouta-videos.md)
-*   [Pouta cloud course materials](https://www.csc.fi/documents/200270/357683/Pouta-Lecture-2019.pdf/3b597d7d-422e-4357-952e-e59842e14b80)
+*   [Pouta cloud course materials](https://pouta-course.a3s.fi/index.html)
+*   [Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html) (with Rahti OpenShift OKD)
  
 ## Learn R and Python:
 *   [R for Beginners](https://github.com/csc-training/R-for-beginners)
