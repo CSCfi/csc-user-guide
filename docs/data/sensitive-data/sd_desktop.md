@@ -38,7 +38,7 @@ To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
 
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and [Elixir ID](https://elixir-europe.org/register) or with a CSC account at
 
-[https:/sd-desktop.csc.fi](https:/sd-desktop.csc.fi)
+[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
 
 using any modern web browser.
 
