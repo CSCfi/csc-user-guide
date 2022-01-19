@@ -66,7 +66,6 @@
 
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
-* [ChEMBL](chembl.md) Database of bioactive molecules.
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [Gaussian](gaussian.md) Versatile computational chemistry package
@@ -127,7 +126,8 @@
 * [QGIS](qgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) R spataial analysis libraries
 * [SAGA GIS](saga-gis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
-* [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel2 images
+* [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
+* [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
 * [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) deep learning pipeline for geospatial imagery
