@@ -126,7 +126,8 @@
 * [QGIS](qgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) R spataial analysis libraries
 * [SAGA GIS](saga-gis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
-* [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel2 images
+* [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
+* [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
 * [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
 * [Solaris](solaris.md) deep learning pipeline for geospatial imagery

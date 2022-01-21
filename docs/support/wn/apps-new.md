@@ -1,5 +1,12 @@
 # Applications
 
+## Python Data 3.9-2, 20.1.2022
+
+A new version of [Python Data](../../apps/python-data.md) is now available with
+`module load python-data/3.9-2` on both Puhti and Mahti. It includes the most
+recent versions of Scikit-learn, SciPy, Pandas, JupyterLab and many other
+popular data analytics and machine learning packages for Python 3.9.
+
 ## Python Data default module now uses Singularity, 26.11.2021
 
 The default version of the `python-data` module has been changed to `3.9-1`.
