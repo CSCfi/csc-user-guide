@@ -15,6 +15,7 @@ CSC Project needs to be extended yearly.
 
 Users are primarily responsible for [moving data](../data/moving/index.md) or deleting the project content themselves before the project is closed. 
 If you're unsure about your CSC Project's or Account's status, please log in [MyCSC](https://my.csc.fi) to extend your project or change your account password.
+If you want to close your Project, change your account email address or change the Project Manager, kindly contact <mailto:servicedesk@csc.fi>
 
 ## Project lifetime extension
 
