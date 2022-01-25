@@ -4,7 +4,7 @@ Deep learning framework for Python.
 
 !!! News
 
-    All recent and upcoming TensorFlow installations are and will be based on
+    **25.1.2022:** All recent and upcoming TensorFlow installations are and will be based on
     Singularity. This is due to the performance issues of Conda-based
     environments on shared file systems, causing long start-up delays and
     system-wide slowdowns when using Python scripts on CSC's supercomputers.

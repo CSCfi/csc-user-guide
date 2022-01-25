@@ -4,10 +4,11 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 !!! News
 
-    All recent and upcoming RAPIDS installations are and will be based on
-    Singularity. This is mainly due to the performance issues of conda-based
-    environments on shared file systems, causing long start-up delays for Python
-    scripts on CSC's supercomputers. See below for more information.
+    **25.1.2022:** All recent and upcoming RAPIDS installations are and will be
+    based on Singularity. This is mainly due to the performance issues of
+    conda-based environments on shared file systems, causing long start-up
+    delays for Python scripts on CSC's supercomputers. See below for more
+    information.
 
 
 ## Available

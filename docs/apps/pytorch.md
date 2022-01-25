@@ -4,8 +4,8 @@ Machine learning framework for Python.
 
 !!! News
 
-    All recent and future PyTorch installations are and will be based on
-    Singularity. This is due to the performance issues of Conda-based
+    **25.1.2022:** All recent and future PyTorch installations are and will be based
+    on Singularity. This is due to the performance issues of Conda-based
     environments on shared file systems, causing long start-up delays and
     system-wide slowdowns when using Python scripts on CSC's supercomputers.
     **Conda-based installations are now deprecated** and may be removed in the
