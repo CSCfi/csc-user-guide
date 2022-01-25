@@ -15,26 +15,21 @@ metadata server.
 
 Instead we recommend:
 
-1. Use the existing non-Conda-based environments available through the module
-   environment
+1. **Use CSC's pre-installed environments available through the module system**
     
-    Check if any of the already installed environments for Python or R would
-    be suitable for your project. Regular users cannot install new packages
-    to the system directories, but they can install additional packages to
-    their own directories, for example for Python:
-    
-    ```
-    module load python-data
-    pip install --user your-missing-package
-    ```
+    Check if any of [CSC's pre-installed environments](../apps/index.md) would
+    be suitable for your project. If the existing environment is missing a few
+    critical packages, you can often install the missing packages on your own.
     
     Our
     [Python](../apps/python.md#installing-python-packages-to-existing-modules)
     and [R](../apps/r-env-singularity.md#r-package-installations) pages also
     contain further details on how to install your own packages to our modules.
+    You can also [contact CSC's servicedesk](contact.md) with requests for
+    missing packages.
     
 
-2. Use containers
+2. **Use your own containers**
     
     This is a great alternative for developing software locally on a
     workstation, and then deploying it on other workstation, cluster, or on
