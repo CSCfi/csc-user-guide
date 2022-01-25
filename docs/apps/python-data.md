@@ -2,6 +2,15 @@
 
 Collection of Python libraries for data analytics and machine learning.
 
+!!! News
+
+    All recent and future Python Data installations are and will be based on
+    Singularity. This is due to the performance issues of Conda-based
+    environments on shared file systems, causing long start-up delays and
+    system-wide slowdowns when using Python scripts on CSC's supercomputers.
+    **Conda-based installations are now deprecated** and may be removed in the
+    future. Please considering moving to a Singularity-based installation.
+
 ## Available
 
 Older versions of the `python-data` module are available on **Puhti only**.
@@ -19,9 +28,9 @@ are:
   loading times much faster. Thanks to wrapper scripts this change should be
   mostly invisible to users. If you still encounter any problems, don't hesitate
   to report them to [CSC's service desk](../support/contact.md).
-- `python-data/3.7.6-1` installed in June 2020, includes for example:
+- (deprecated) `python-data/3.7.6-1` installed in June 2020, includes for example:
   Scikit-learn 0.23.1, Pandas 1.0.4 and JupyterLab 2.1.4.
-- `python-data/3.7.3-1` installed in July 2019.
+- (deprecated) `python-data/3.7.3-1` installed in July 2019.
 
 Python-data tries to include a comprehensive selection of Python libraries for
 data analytics and machine learning, for example:
