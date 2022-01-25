@@ -29,8 +29,15 @@ As an alternative to Conda we recommend:
     You can also [contact CSC's servicedesk](contact.md) with requests for
     missing packages.
     
+2. **Wrap your Conda or pip environment using CSC's tool**
 
-2. **Use your own containers**
+    CSC is currently developing [a tool for wrapping existing Conda or pip
+    installations](https://github.com/CSCfi/hpc-container-wrapper) into a
+    smaller set of files using Singularity and squashfs technologies. The tool
+    is still being developed, but is already being used internally for CSC's own
+    installations.
+
+3. **Use your own custom containers**
     
     This is a great alternative for developing software locally on a
     workstation, and then deploying it on other workstation, cluster, or on
