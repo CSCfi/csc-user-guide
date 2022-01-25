@@ -3,8 +3,9 @@
 **CSC has deprecated the use of Conda installations** on our supercomputers
 Puhti and Mahti. This is due to the performance issues of Conda-based
 environments on shared parallel file systems, causing long start-up delays and
-system-wide slowdowns when using Python scripts. We also strongly recommend
-users moving away from their own Conda-based installations.
+system-wide slowdowns when using Python scripts. We strongly recommend users
+moving away from their own Conda-based installations and we are gradually
+deprecating CSC-installed modules that are based directly on Conda.
 
 Conda environments typically contain tens or even hundreds of thousands of
 files, and starting a Conda application requires reading a large number of them.
@@ -13,7 +14,7 @@ clients, have a poor single-client performance. You notice this as a longer
 initial start up time for Conda applications, and extra stress on the Lustre
 metadata server.
 
-Instead we recommend:
+As an alternative to Conda we recommend:
 
 1. **Use CSC's pre-installed environments available through the module system**
     
@@ -36,7 +37,9 @@ Instead we recommend:
     cloud platforms. CSC's supercomputers support Singularity containers, which
     are are just single big files for Lustre, thus avoiding much of the
     problems. Many software projects offer Docker-containers which can often
-    easily be converted to Singularity format.
+    easily be converted to Singularity format. Inside of the container you can
+    naturally use for example Conda to manage the packages without causing any
+    file system issues.
     
     Read our documentation on [how to create your own Singularity
     container](../computing/containers/creating.md)
