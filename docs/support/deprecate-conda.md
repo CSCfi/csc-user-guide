@@ -1,11 +1,14 @@
 # Deprecating Conda
 
-**CSC has deprecated the use of Conda installations** on our supercomputers
-Puhti and Mahti. This is due to the performance issues of Conda-based
-environments on shared parallel file systems, causing long start-up delays and
-system-wide slowdowns when using Python scripts. We strongly recommend users
-moving away from their own Conda-based installations and we are gradually
-deprecating CSC-installed modules that are based directly on Conda.
+**CSC has deprecated the direct usage of Conda installations on our
+supercomputers' (Puhti and Mahti) shared file systems**. This is due to the
+performance issues of Conda-based environments on parallel file systems, causing
+long start-up delays and system-wide slowdowns when using Python scripts. We
+strongly recommend users moving away from their own installations which use
+Conda directly on a shared drive (such as `/projappl`, `/scratch` on user's home
+directory). We are also gradually deprecating CSC-installed modules that are
+based directly on Conda. Conda can still be used indirectly, for example wrapped
+as a Singularity container.
 
 Conda environments typically contain tens or even hundreds of thousands of
 files, and starting a Conda application requires reading a large number of them.
@@ -14,7 +17,7 @@ clients, have a poor single-client performance. You notice this as a longer
 initial start up time for Conda applications, and extra stress on the Lustre
 metadata server.
 
-As an alternative to Conda we recommend:
+As an alternative to direct Conda usage we recommend:
 
 1. **Use CSC's pre-installed environments available through the module system**
     
