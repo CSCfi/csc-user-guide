@@ -56,7 +56,7 @@ allas-conf --mode s3cmd
 ```
 This command opens permanent S3 based connection to Allas. Rclone can now refer to this connection with remote name `s3allas:`.
 In the examples below the swift based `allas:` remote definition is used, but if you have S3 connection defined, you could replace it
-with `s3allas:`. Note that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use diffrent Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
+with `s3allas:`. Note that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
 
 ### Local configuration
 
