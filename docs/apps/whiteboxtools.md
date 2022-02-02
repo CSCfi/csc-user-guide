@@ -48,11 +48,12 @@ module load whiteboxtools
 singularity_wrapper exec whitebox_tools -r=Hillshade -v --wd="<INPUT-DATA-FOLDER>" -i=T4323D.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
 ```
 
-## License and citing
+## License and acknowledgement
 
 The WhiteboxTools project has been developed using a permissive MIT license, which allows for the tools to be readily incorporated into other GIS software. [Full license here](https://github.com/jblindsay/whitebox-tools/blob/master/LICENSE.txt)
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

@@ -24,11 +24,12 @@ Mapnik library is included in the __mapnik__ module and can be loaded with
 
 You can request additional libraries from __servicedesk@csc.fi__
 
-## License and citing
+## License and acknowledgement
 
 Mapnik is a free software and is released under LGPL (GNU Lesser General Public Licence v2.1). Read the full license [here](https://mapnik.org/pages/license.html).
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 
