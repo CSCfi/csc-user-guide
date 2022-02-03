@@ -65,7 +65,7 @@ srun singularity_wrapper exec \
 
 Zonation computational core (zig4) is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/cbig/zonation-core/blob/master/LICENSE)
 
-Please acknowlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
