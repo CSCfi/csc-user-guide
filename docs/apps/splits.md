@@ -38,7 +38,7 @@ More detailed manual can be found from the following path
 
 SPLITS is licensed under [the GNU GPL License](https://www.gnu.org/licenses/gpl-3.0.de.html))
 
-Please acknowlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References

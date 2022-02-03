@@ -74,7 +74,7 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 
 Orfeo ToolBox is licensed under the Apache License, Version 2.0. The full licence can be found [here](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
 
-Please acknowlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References

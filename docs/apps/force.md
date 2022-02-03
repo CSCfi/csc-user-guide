@@ -32,7 +32,7 @@ We have an example of running L1 to L2 pipeline for Sentinel images in [our Gith
 
 FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE))
 
-Please acknowlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References

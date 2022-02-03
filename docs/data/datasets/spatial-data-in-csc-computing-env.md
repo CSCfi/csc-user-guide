@@ -71,5 +71,5 @@ Currently available:
 
 In general all datasets have an open license, but the exact terms vary a bit, mostly CC-BY-4.0 licenses are in use. Check the readme-files for further info.
 
-Please acknowlege the data producer according to license terms as well as CSC and Geoportti in your publications, it is important for project continuation and funding reports. If you use data provided in Allas, please also acknowledge the person sharing the data.
+Please acknowledge the data producer according to license terms as well as CSC and Geoportti in your publications, it is important for project continuation and funding reports. If you use data provided in Allas, please also acknowledge the person sharing the data.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for data provision".
