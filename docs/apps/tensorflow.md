@@ -4,12 +4,10 @@ Deep learning framework for Python.
 
 !!! News
 
-    **25.1.2022:** All recent and upcoming TensorFlow installations are and will be based on
-    Singularity. This is due to the performance issues of Conda-based
-    environments on shared file systems, causing long start-up delays and
-    system-wide slowdowns when using Python scripts on CSC's supercomputers.
-    **Conda-based installations are now deprecated** and may be removed in the
-    future. Please considering moving to a Singularity-based installation.
+    **4.2.2022** All old TensorFlow versions which were based on direct Conda
+    installations have been deprecated, and we encourage users to move to newer
+    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
+
 
 ## Available
 

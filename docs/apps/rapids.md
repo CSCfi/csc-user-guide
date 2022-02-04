@@ -4,11 +4,9 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 !!! News
 
-    **25.1.2022:** All recent and upcoming RAPIDS installations are and will be
-    based on Singularity. This is mainly due to the performance issues of
-    conda-based environments on shared file systems, causing long start-up
-    delays for Python scripts on CSC's supercomputers. See below for more
-    information.
+    **4.2.2022** All old RAPIDS versions which were based on direct Conda
+    installations have been deprecated, and we encourage users to move to newer
+    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
 
 
 ## Available
@@ -20,7 +18,7 @@ Puhti only. Currently supported RAPIDS versions:
 - 0.16 using Singularity: `0.16-sng` (Puhti only)
 - 0.15 using Singularity: `0.15-sng` (Puhti only)
 - 0.14 using Singularity: `0.14-sng` (Puhti only)
-- (deprecated) 0.11  (Puhti only)
+- _(deprecated)_ 0.11  (Puhti only)
 
 Contains the [RAPIDS](https://rapids.ai/) suite (including
 [cuDF](https://github.com/rapidsai/cudf),

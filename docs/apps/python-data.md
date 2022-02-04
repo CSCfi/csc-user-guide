@@ -4,12 +4,10 @@ Collection of Python libraries for data analytics and machine learning.
 
 !!! News
 
-    **25.1.2022:** All recent and future Python Data installations are and will be
-    based on Singularity. This is due to the performance issues of Conda-based
-    environments on shared file systems, causing long start-up delays and
-    system-wide slowdowns when using Python scripts on CSC's supercomputers.
-    **Conda-based installations are now deprecated** and may be removed in the
-    future. Please considering moving to a Singularity-based installation.
+    **4.2.2022** All old Python Data versions which were based on direct Conda
+    installations have been deprecated, and we encourage users to move to newer
+    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
+
 
 ## Available
 
@@ -28,9 +26,9 @@ are:
   loading times much faster. Thanks to wrapper scripts this change should be
   mostly invisible to users. If you still encounter any problems, don't hesitate
   to report them to [CSC's service desk](../support/contact.md).
-- (deprecated) `python-data/3.7.6-1` installed in June 2020, includes for example:
+- _(deprecated)_ `python-data/3.7.6-1` installed in June 2020, includes for example:
   Scikit-learn 0.23.1, Pandas 1.0.4 and JupyterLab 2.1.4.
-- (deprecated) `python-data/3.7.3-1` installed in July 2019.
+- _(deprecated)_ `python-data/3.7.3-1` installed in July 2019.
 
 Python-data tries to include a comprehensive selection of Python libraries for
 data analytics and machine learning, for example:
