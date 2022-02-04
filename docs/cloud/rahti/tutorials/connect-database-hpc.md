@@ -63,7 +63,7 @@ oc new-app --template=mongodb-persistent
 - Add WebSocat by launching the [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml). You can check the target port with `oc describe services <service name>`. The default parameters for the service name and target port are `mongodb` and 27017, respectively
 
 ```bash
-oc new-app --file=/path/to/websocat-template.yaml --param=DATABASE_SERVICE=<service name>.<project name>.svc --param=DATABASE_PORT=<target port>
+oc new-app --file=/path/to/websocat-template.yaml --param=DATABASE_SERVICE=<service name>.<project name>.svc --param=DATABASE_PORT=<port>
 ```
 
 - Take note of route hostname of the form `websocat-<project name>.rahtiapp.fi`. You can check this later with `oc get route websocat`.
@@ -90,7 +90,7 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
 !!! Note
-    If you want to access your database within a batch job, make sure to run `websocat` also within the batch script. Here, the obtained target port should be passed, `websocat -b tcp-l:127.0.0.1:<target port> wss://websocat-<project name>.rahtiapp.fi -E &`.
+    If you want to access your database within a batch job, make sure to run `websocat` also within your batch script. You can utilize the same target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`.
 
 - Now `websocat` is running in the interactive session and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python:
 
@@ -98,7 +98,7 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
-client = MongoClient('localhost', port=<target port>, password=<password>, username=<username>, authSource=<database name>)
+client = MongoClient('localhost', port=<port>, password=<password>, username=<username>, authSource=<database name>)
 try:
     client.admin.command('ping')
 except ConnectionFailure:
