@@ -1,5 +1,11 @@
 # Applications
 
+## Direct usage of Conda deprecated, 4.2.2022
+
+CSC has [deprecated the direct usage of Conda
+installations](../deprecate-conda.md) on our supercomputers' (Puhti and Mahti)
+shared file systems.
+
 ## Python Data 3.9-2, 20.1.2022
 
 A new version of [Python Data](../../apps/python-data.md) is now available with
