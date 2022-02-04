@@ -39,7 +39,7 @@ The requested disk space is given in GB.
 
 ## Performance considerations
 
-Here we give a brief example on what type of resources can affect the performance of Gaussian and how these should be taken into consideration. We are using [α-Tocopherol](https://en.wikipedia.org/wiki/%CE%91-Tocopherol)( a type of vitamin E) as input structure.
+Here we give a brief example on what type of resources can affect the performance of Gaussian and how these should be taken into consideration. We are using [α-Tocopherol](https://en.wikipedia.org/wiki/%CE%91-Tocopherol) (a type of vitamin E) as input structure.
 
 For a `b3lyp/cc-pVDZ, %mem=10GB` single-point calculation the results are:
 
@@ -82,7 +82,7 @@ use of local disk (nvme) significantly affects the performance:
 |  nvme, mem=80/40    | 00:09:23            |  7.72                |
 | Mahti/128           | 00:14:30            | 24.17                | 
 
-From these results we conclude that 80GB seems to be the optimal memory allocation and that the use of local disk clearly improves the performance. The speedup when going from 20 to 40 cores, and using local disk is 1.35, that is below the [recommended minimum of 1.5](../../accounts/how-to-access-mahti-large-partition/#scalability-testing). Hence the most efficient resource usage would correspond to 20 cores, 80GB of memory andlocal disk on Puhti. For this type of calculation Mahti isn't the optimal choise.    
+From these results we conclude that 80GB seems to be the optimal memory allocation and that the use of local disk clearly improves the performance. The speedup when going from 20 to 40 cores, and using local disk is 1.35, that is below the [recommended minimum of 1.5](../../accounts/how-to-access-mahti-large-partition/#scalability-testing). Hence the most efficient resource usage would correspond to 20 cores, 80GB of memory and local disk on Puhti. For this type of calculation Mahti isn't the optimal choice.    
 
 ## References
 
