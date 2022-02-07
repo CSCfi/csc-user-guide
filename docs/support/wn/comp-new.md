@@ -1,5 +1,11 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 6 2.2.2022
+
+* Possible to select slurm reservation for applications
+* New Jupyter app for courses.
+* Open onDemand version updated to 2.0.22.
+
 ## Puhti web interface beta updated to release 5
 
 * Added new TensorBoard app for visualizing TensorFlow runs.

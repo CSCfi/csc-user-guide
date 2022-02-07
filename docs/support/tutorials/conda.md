@@ -1,20 +1,14 @@
 # Conda best practices
 
+!!! warning "NOTE: Please do not use conda on CSC's supercomputers!"
 
-## Please do not use conda on Puhti and Mahti
+    **CSC has deprecated the use of Conda installations** as these perform poorly on
+    shared parallel file systems like those used in Puhti and Mahti. We also
+    strongly recommend users moving away from their own Conda-based installations.
+    Read more on our separate [Conda deprecation page](../deprecate-conda.md).
 
-Conda environments (with thousands of files) are a bad match with parallel file
-systems, and slow. Instead, use singularity packed environments, such as CSC's
-Python and R environments in Mahti, or more recent environments is Puhti. Install
-additional packages with pip. For example,
-
-```
-module load geoconda
-pip install --user ...package...
-```
-
-This should work nicely with most everyday use. If you need to use mpi4py, or
-the above does not work in your case, please contact servicedesk@csc.fi.
+<br/>
+<hr/>
 
 ## What is conda
 
@@ -70,36 +64,6 @@ There are package and management tools for building and installing HPC software
 from sources, such as [Spack]. Those are not as widely used as Conda, and often
 require some knowledge of the software build process, but they do compile and
 optimize the software for the particular architecture.
-
-### Conda on parallel file system, such as Lustre in Puhti
-
-Conda environments contain a lot of files, and starting a conda application
-requires reading a number of them. Unfortunately all parallel file systems,
-which are optimized for large number of clients, have a poor single client
-performance. You notice this as a longer initial start up time for conda
-applications, and extra stress on the Lustre metadata server. Therefore, we
-recommend two other methods to try before installing conda on parallel file
-system:
-
-1. Use the existing environments available through the module environment
-    
-    Check if any of the already installed environments for Python or R would
-    be suiteble for your project. Regular users cannot install new packages
-    to the system directories, but they can install additional packages to
-    their own directories, for example with
-    
-    ```
-    pip install --user ...
-    ```
-    
-    for python.
-
-2. Use containers
-    
-    This is a great alternative for developing software locally on a workstation,
-    and then deploying it on other workstation, cluster, or on cloud platforms.
-    Puhti supports singularity containers, which are are just single big
-    files for Lustre, thus avoiding much of the problems.
 
 ## Conda channels (package repositories)
 
