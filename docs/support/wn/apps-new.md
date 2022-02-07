@@ -1,9 +1,22 @@
 # Applications
 
-## Gromacs 2021 now default version
+## Gromacs 2021 now default version, 7.2.2022
 
-Gromacs 2021.5 has been installed on Puhti and Mahti and set as the default module
+[Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the default module
 (gromacs-env).
+
+## Direct usage of Conda deprecated, 4.2.2022
+
+CSC has [deprecated the direct usage of Conda
+installations](../deprecate-conda.md) on our supercomputers' (Puhti and Mahti)
+shared file systems.
+
+## Python Data 3.9-2, 20.1.2022
+
+A new version of [Python Data](../../apps/python-data.md) is now available with
+`module load python-data/3.9-2` on both Puhti and Mahti. It includes the most
+recent versions of Scikit-learn, SciPy, Pandas, JupyterLab and many other
+popular data analytics and machine learning packages for Python 3.9.
 
 ## Python Data default module now uses Singularity, 26.11.2021
 
