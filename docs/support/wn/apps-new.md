@@ -1,5 +1,10 @@
 # Applications
 
+## Gromacs 2021 now default version
+
+Gromacs 2021.5 has been installed on Puhti and Mahti and set as the default module
+(gromacs-env).
+
 ## Python Data default module now uses Singularity, 26.11.2021
 
 The default version of the `python-data` module has been changed to `3.9-1`.
