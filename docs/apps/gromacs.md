@@ -9,8 +9,8 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018-2020 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2019-2020 releases with regularly updated minor versions, several with plumed
+-   Puhti: 2018-2021 releases with regularly updated minor versions, several with plumed or cuda
+-   Mahti: 2019-2021 releases with regularly updated minor versions, several with plumed
 -   Check recommended version(s) with `module avail gromacs-env`
 -   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
 
@@ -146,7 +146,7 @@ Submit the script with `sbatch script_name.sh`
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
+module load gcc/10.3.0 openmpi/4.0.3 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
@@ -169,7 +169,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 # 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
+module load gcc/10.3.0 openmpi/4.0.3 gromacs/2021.5
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
