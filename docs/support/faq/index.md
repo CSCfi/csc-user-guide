@@ -86,8 +86,8 @@
 
 ### General characteristics of the services
 
-* Are these services suitable for non-expert users?  
-* What data formats can I process using the services?
+* Are these services suitable for users from any reserch field?  
+* What  type of data can I process using the services?
 * Do you provide a backup service?
 
 
