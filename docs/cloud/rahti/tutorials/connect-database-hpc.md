@@ -90,9 +90,9 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
 !!! Note
-    If you want to access your database within a batch job, make sure to run `websocat` also within your batch script. You can utilize the same target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`.
+    If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
 
-- Now `websocat` is running in the interactive session and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python:
+- Now `websocat` is running in the interactive session/batch job and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials.
 
 ```python
 from pymongo import MongoClient
