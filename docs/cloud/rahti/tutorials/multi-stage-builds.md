@@ -87,7 +87,7 @@ This same small image (`go-server:latest`) is of course also achievable by other
 
 ## Usage in Rahti
 
-In order to test this in Rahti, one only needs to login in Rahti, select the correct project and run:
+In order to test this in Rahti, one only needs to login in Rahti, select the correct project, and run:
 
 ```sh
 oc new-build https://github.com/lvarin/multi-stage-build.git
