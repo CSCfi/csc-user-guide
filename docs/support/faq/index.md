@@ -96,16 +96,16 @@
 
 **Encryption**
 
-* Why do I need to encrypt my data?
-* Do sensitive data always need to be encrypted during data transfer (e.g. using an  SHH connection)?
-* What methods can I use to encrypt the data? How can I use the CSC public encryption key?
-* What data formats can be encrypted using Crypt4GH?
-* What is the new extension that was added to my files after Crypt4GH encryption?
-* Do the Sensitive Data services allow the use of customers' own encryption keys?
-* Can I share my public encryption key?
-* Can I share my private encryption key?
-* Do I need to generate a new key pair every time I encrypt a new dataset?
-* Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?
+* [Why do I need to encrypt my data?](sensitive-data-encryption.md)
+* [Do sensitive data always need to be encrypted during data transfer (e.g. using an  SHH connection)?](sensitive-data-encryption.md)
+* [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md)
+* [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md)
+* [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md)
+* [Do the Sensitive Data services allow the use of customers' own encryption keys?](sensitive-data-encryption.md)
+* [Can I share my public encryption key?](sensitive-data-encryption.md)
+* [Can I share my private encryption key?](sensitive-data-encryption.md)
+* [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
+* [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md)
 
 
 
