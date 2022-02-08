@@ -43,11 +43,12 @@ module load r-env-singularity
 singularity_wrapper exec saga_gui
 ```
 
-## License and citing
+## License and acknowledgement
 
 SAGA GIS is published under the [GPL](http://www.gnu.org/licenses/gpl.html) license. 
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

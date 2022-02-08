@@ -186,12 +186,11 @@ nav:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md
-  - Support:
-     - Tutorials: support/tutorials/index.md
-     - FAQ: support/faq/index.md
-     - Training material: support/training-material.md
-     - Contact: support/contact.md
-     - What's new: support/whats-new.md
+  - FAQ: support/faq/index.md
+  - Tutorials: support/tutorials/index.md
+  - Training material: support/training-material.md
+  - Contact: support/contact.md
+  - What's new: support/whats-new.md
 
 theme:
   name: material

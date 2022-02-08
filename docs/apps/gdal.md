@@ -90,11 +90,12 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 
 With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
-## License and citing
+## License and acknowledgement
 
 GDAL is licensed under an [MIT/X style license](https://gdal.org/license.html)
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ## References
 
