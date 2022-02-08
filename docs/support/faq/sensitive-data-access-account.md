@@ -1,0 +1,2 @@
+To access SD Connect (store adn share) and SD Desktop (compute)  you need  to set up a CSC account and a CSC project. You can then access the services at any time. For more info check out the user guide or video tutorial. 
+SD Submit and Federated EGA, the services for submitting sensitive data to a national repository for re-use, are in the pilot phase. For more information contact us at servicedesk@csc.fi (subject: Sensitive Data).
