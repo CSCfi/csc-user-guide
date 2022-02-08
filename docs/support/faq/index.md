@@ -86,9 +86,12 @@
 
 **General characteristics of the services**
 
-* Are these services suitable for users from any reserch field?  
-* What  type of data can I process using the services?
-* Do you provide a backup service?
+* [Are CSC Sensitive Data services suitable for any type of reserch and user?](sensitive-data-general.md) 
+* [What type of data can I process using the services?](sensitive-data-general.md) 
+* [Do you provide a backup service?](sensitive-data-general.md) 
+* [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
+* [What do the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
+
 
 
 **Encryption**
@@ -105,10 +108,7 @@
 * Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?
 
 
-**Open Beta Versions**
 
-* Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?
-* What do the Open Beta versions status of Sensitive Data Services imply in practice?
 
 **SD Connect: storage and sharing**
 
