@@ -84,6 +84,8 @@
 * [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md)
 * [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md)
 
+
+
 **General characteristics of the services**
 
 * [Are CSC Sensitive Data Services suitable for any type of reserch and user?](sensitive-data-general.md) 
@@ -91,7 +93,7 @@
 * [Do you provide a backup service?](sensitive-data-general.md) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
-
+* [Are the Sensitive data service free of charge?](sensitive-data-general.md) 
 
 
 **Encryption**
