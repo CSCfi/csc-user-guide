@@ -73,7 +73,7 @@ REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
 go-server    latest    514583ab6fa1   17 hours ago   13MB
 ```
 
-it should give you approximately 13MB, which more than half (~7MB) is the compiled code.
+it should give you approximately 13MB, which is more than half (~7MB) is the compiled code.
 
 If you pull the image `golang:1.12.6-stretch` (the one we used for building the code) and check its size, you will see that it is approximately `774MB`.
 
