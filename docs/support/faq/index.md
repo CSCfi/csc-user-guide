@@ -77,21 +77,19 @@
 
 ## Sensitive Data Services for reaserch
 
-### Access and authentication
-
+* Access and authentication
 * [Are CSC Sensitive Data Services accessible through the public internet](sensitive-data-access.md)
 * [How can I access CSC Sensitive Data Services?](sensitive-data-access-account.md)
 * [Do SD Connect and SD Desktop  support federated authentication?](sensitive-data-federated.md)
 * Does CSC provide Multi Factor Authentication (MFA)?
 
-### General characteristics of the services
-
+* General characteristics of the services
 * Are these services suitable for users from any reserch field?  
 * What  type of data can I process using the services?
 * Do you provide a backup service?
 
 
-### Encryption
+* Encryption
 * Why do I need to encrypt my data?
 * Do sensitive data always need to be encrypted during data transfer (e.g. using an  SHH connection)?
 * What methods can I use to encrypt the data? How can I use the CSC public encryption key?
@@ -104,20 +102,18 @@
 * Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?
 
 
-### Open Beta Versions
-
+* Open Beta Versions
 * Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?
 * What do the Open Beta versions status of Sensitive Data Services imply in practice?
 
-### SD Connect: storage and sharing
+* SD Connect: storage and sharing
 * What are the technical specifications of the service?
 * How long can I store data in SD Connect? 
 * Do you provide a backup service?
 * How can I share sensitive data with my collaborators? 
 * What is the difference between SD Connect and Allas?
 
-### SD Desktop: computing and analysis
-
+* SD Desktop: computing and analysis
 * What are the technical specifications of the service?
 * What type of data can I analyze using SD Desktop?
 * What software is available on SD Desktop?
