@@ -90,6 +90,7 @@
 
 
 **Encryption**
+
 * Why do I need to encrypt my data?
 * Do sensitive data always need to be encrypted during data transfer (e.g. using an  SHH connection)?
 * What methods can I use to encrypt the data? How can I use the CSC public encryption key?
@@ -103,10 +104,12 @@
 
 
 **Open Beta Versions**
+
 * Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?
 * What do the Open Beta versions status of Sensitive Data Services imply in practice?
 
 **SD Connect: storage and sharing**
+
 * What are the technical specifications of the service?
 * How long can I store data in SD Connect? 
 * Do you provide a backup service?
@@ -114,6 +117,7 @@
 * What is the difference between SD Connect and Allas?
 
 **SD Desktop: computing and analysis**
+
 * What are the technical specifications of the service?
 * What type of data can I analyze using SD Desktop?
 * What software is available on SD Desktop?
