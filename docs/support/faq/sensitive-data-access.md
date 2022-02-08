@@ -19,4 +19,4 @@ ELIXIR Login (a service that provides authentication and authorization within th
 * SD Connect currently supports only Haka, and we are working on updating the authentication methods.
 
 ## Does CSC provide Multi-Factor Authentication (MFA)?
-Not yet. We are technically ready to integrate our service with a CSC-MFA and with academic organizations' MFA. For constant updates on the service, development see the roadmap on the [webpage](https://research.csc.fi/sensitive-data-services-future-development)
+Not yet. We are technically ready to integrate our service with a CSC-MFA and with academic organizations' MFA. For updates see the service developments [webpage](https://research.csc.fi/sensitive-data-services-future-development).
