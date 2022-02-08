@@ -1,6 +1,6 @@
 # Multistage builds
 
-The idea behind _multistage builds_ is to make easy to build smaller container images by facilitating excluding the intermediate build files from the final product.
+The idea behind _multistage builds_ is to make it easy to build smaller container images by facilitating the exclusion of intermediate build files from the final product.
 
 Smaller container images take less space in disk, this means they take less time to download and deploy. During the compilation of software, it is common to need, a compiler, several library dependencies, and intermediate objects that will not be needed during the execution of the program. Multistage builds allow you to define two or more docker build stages in the same `Dockerfile`. They will be executed in order one after the other, and each "stage" will be able to copy files from the previous ones. This way, we can easily and in the same build process, build the software and then use only the files that we actually need for the execution.
 
