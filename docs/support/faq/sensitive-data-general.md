@@ -19,3 +19,24 @@ However, SD Connect and SD Desktop have not yet been security audited. Because o
 ## What does the Open Beta versions status of Sensitive Data Services imply in practice?
 We constantly improve the user interface, add features, and resolve bugs during the Open Beta phase. This might lead to service interruptions. The Open Beta versions of the services also have limitations (e.g., some of the processes are still manual). Check the services [webpage](https://research.csc.fi/sensitive-data-services-future-development) for more information and constant updates. 
 
+
+## Are CSC Sensitive Data service free of charge?
+The Sensitive Data Services are free of charge for Finnish academics, according to CSC General Terms of use (https://research.csc.fi/general-terms-of-use). However, each service consumes resources  (billing units for their use and quota for allocation of storage space). 
+
+* Regarding billing units:
+
+When you create a new CSC project, you have about 10.000 billing units. 
+
+You can find out how many billing units SD Dekstop and Allas (forSD Connect) will use based on your needs with this calculator: https://research.csc.fi/pricing at the bottom of the page.  Here you can estimate the cost in billing units or in euros (for 100 TB/two years, you need about  1 594 320 billing units, or 50 TB  394 200 billing units /year).
+
+Once you have estimated how many billing units your project would need on a yearly basis, you can apply for more resources following these instructions:  https://docs.csc.fi/accounts/how-to-apply-for-billing-units/.  If you need a longer allocation, an extension needs to be applied several weeks before the allocation ends. However, CSC does support longer project times. For this a separate discussion and an agreement is needed. 
+
+* Regarding quotas:
+
+When you apply for a new CSC project and service access for Allas, you have  a default quota of about 10 TB of storage. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
+
+The costs for storage space in Allas/SD Connect (both quota and billing units) up to around 100–200 TB should be covered by the Ministry of Education for academic research use. 
+
+If you are planning to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement is needed.
+
+One important note is that, once you end your research and submit your manuscript you can then use specific services to store part of your data in our repositories (Federated EGA for genetic data and we are working on a  specific repository for images).  In this case the data is stored (under controlled access) for longer periods, CSC maintains two copies of it and you do not need to have a CSC project or consume billing units.
