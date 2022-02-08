@@ -1,5 +1,5 @@
 
-## Are CSC Sensitive Data Services accessible through the public internet
+## Are CSC Sensitive Data Services accessible through the public internet?
 
 
 Yes, SD Connect and SD Desktop are directly accessible through the public internet with any modern web browser. You don't need to install any software or use a VPN.
