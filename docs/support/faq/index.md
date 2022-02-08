@@ -84,11 +84,15 @@
 * [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md)
 * [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md)
 
+**Collaborative projects**
+* [How can I share sensitive data with my collaborators?]
 
 
 **General characteristics of the services**
 
-* [Are CSC Sensitive Data Services suitable for any type of reserch and user?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any reserch professional?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any reaserch project?]
+* [I am not an expert of cloud services and cloud computing, where should I start]?
 * [What type of data can I process using the services?](sensitive-data-general.md) 
 * [Do you provide a backup service?](sensitive-data-general.md) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
@@ -109,12 +113,21 @@
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
 * [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md)
 
+
+**GDPR and Sensitive data**
+
+* What is sensitive data?
+* What is the GDPR?
+* What are the roles of CSC and its service users under GDPR?  
+* I am not certain if the data I am working with is sensitive or not. Where can I find support?
+* What type of sensitive data can I process with CSC Sensitive Data Services?
+* What type of documentation do I need to provide to use CSC Sensitive Data Services?
+
+
 **Setting up a private workspace**
 
 * How long does it take to learn using SD Connect and SD Desktop?
-* How long doe sit take to set up a private workspace with SD Connect and SD Desktop?
-* I am not an expert of cloud services and cloud computing, where should I start?
-
+* How long does it take to set up a private workspace with SD Connect and SD Desktop?
 
 
 **SD Connect**
@@ -138,6 +151,7 @@
 
 
 
+You can share sensitive data with your collaborators in two different ways. 1) You can transfer encrypted sensitive data using SD Connect. This operation requires a few planning steps and you can learn more in our quick guide or user guide. 2) Another way to share sensitive data with collaborators is to give them access to your SD Desktop. They will then be able to analyze the sensitive data you previously downloaded to SD Desktop, but they will not be able to export it outside the Desktop or make copies of it.
 
 
 
