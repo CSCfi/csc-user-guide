@@ -16,6 +16,6 @@ There is no backup service available for SD Connect (storage and share) and SD D
 You can already store sensitive encrypted data in SD Connect and process them in SD Desktop. Security is not affected by the Open Beta versions status of the services.
 However, SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
-## What do the Open Beta versions status of Sensitive Data Services imply in practice?
+## What does the Open Beta versions status of Sensitive Data Services imply in practice?
 We constantly improve the user interface, add features, and resolve bugs during the Open Beta phase. This might lead to service interruptions. The Open Beta versions of the services also have limitations (e.g., some of the processes are still manual). Check the services [webpage](https://research.csc.fi/sensitive-data-services-future-development) for more information and constant updates. 
 
