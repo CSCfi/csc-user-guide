@@ -80,9 +80,9 @@
 **Access and authentication**
 
 * [Are CSC Sensitive Data Services accessible through the public internet?](sensitive-data-access.md)
-* [How can start using CSC Sensitive Data Services?](sensitive-data-access-account.md)
+* [How I can start using CSC Sensitive Data Services?](sensitive-data-access-account.md)
 * [Do SD Connect and SD Desktop  support federated authentication?](sensitive-data-federated.md)
-* [Does CSC provide Multi Factor Authentication (MFA)?](sensitive-data-mfa.md)
+* [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-mfa.md)
 
 **General characteristics of the services**
 
