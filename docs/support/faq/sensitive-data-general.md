@@ -20,8 +20,7 @@ However, SD Connect and SD Desktop have not yet been security audited. Because o
 During the Open Beta phase, we constantly improve the user interface, add features and resolve bugs. This might lead to service interruptions. The Open Beta versions of the services also have some limitations (e.g. some of the processes are still manual). Check the services [webpage](https://research.csc.fi/sensitive-data-services-future-development) for more infomation and constant updates. 
 
 
-## Are the Sensitive data service free of charge?
-Most use cases in SD services are free-of-charge for academic research, education and training in Finnish higher education institutions and research institutes. You can purchase most of the services when the conditions of free-of-charge use are not met.
+
 
 
 
