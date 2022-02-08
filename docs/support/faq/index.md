@@ -77,12 +77,75 @@
 
 ## Sensitive Data Services for reaserch
 
-### General characteristis of the services
+* Access and authentication
 
-### Encryption
+* Are CSC Sensitive Data Services accessible through  the public internet?
+* How can I access CSC Sensitive Data Services?
+* Do SD Connect and SD Desktop  support federated authentication?
+* Does CSC provide Multi Factor Authentication (MFA)?
+
+* General characteristics of the services
+
+* Are these services suitable for non-expert users?  
+* What data formats can I process using the services?
+* Do you provide a backup service?
+
+
+* Encryption
+* Why do I need to encrypt my data?
+* Do sensitive data always need to be encrypted during data transfer (e.g. using an  SHH connection)?
+* What methods can I use to encrypt the data? How can I use the CSC public encryption key?
+* What data formats can be encrypted using Crypt4GH?
+* What is the new extension that was added to my files after Crypt4GH encryption?
+* Do the Sensitive Data services allow the use of customers' own encryption keys?
+* Can I share my public encryption key?
+* Can I share my private encryption key?
+* Do I need to generate a new key pair every time I encrypt a new dataset?
+* Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?
+
+
+* Open Beta Versions
+
+* Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?
+* What do the Open Beta versions status of Sensitive Data Services imply in practice?
+
+* SD Connect: storage and sharing
+* What are the technical specifications of the service?
+* How long can I store data in SD Connect? 
+* Do you provide a backup service?
+* How can I share sensitive data with my collaborators? 
+* What is the difference between SD Connect and Allas?
+
+* SD Desktop and data analysis
+
+* What are the technical specifications of the service?
+
+* What type of data can I analize in SD Desktop?
+
+* What software is available on SD Desktop?
+
+* Who can access my private computing environment in SD Desktop?
+
+* What is the difference between SD Desktop and ePouta?
+
+*  Does CSC provide operating system, software and  security updates for SD Desktop?
+
+
+Open Beta Versions
+
+* Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?
+* What do the Open Beta versions status of Sensitive Data Services imply in practice?
 
 
 
-### Sensitive Data/ GDPR/ Legal agreements
+
+
+
+
+
+
+
+
+
 
 
