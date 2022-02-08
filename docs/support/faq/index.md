@@ -86,7 +86,7 @@
 
 **General characteristics of the services**
 
-* [Are CSC Sensitive Data services suitable for any type of reserch and user?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any type of reserch and user?](sensitive-data-general.md) 
 * [What type of data can I process using the services?](sensitive-data-general.md) 
 * [Do you provide a backup service?](sensitive-data-general.md) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
@@ -101,7 +101,7 @@
 * [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md)
 * [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md)
 * [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md)
-* [Do the Sensitive Data services allow the use of customers' own encryption keys?](sensitive-data-encryption.md)
+* [Do CSC Sensitive Data Services allow the use of customers' own encryption keys?](sensitive-data-encryption.md)
 * [Can I share my public encryption key?](sensitive-data-encryption.md)
 * [Can I share my private encryption key?](sensitive-data-encryption.md)
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
