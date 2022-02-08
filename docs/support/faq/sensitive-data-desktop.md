@@ -6,6 +6,9 @@ Yes. Encrypted data stored in SD Connect can be accessed via data streaming (in 
 ## Can I edit/annotate data using SD Desktop?
 Yes. You can edit or annotate data in SD Desktop. However, you need to make a full copy of it in the Desktop environment. If your data is larger than  280 GB, contact us at servicedesk@csc.fi. We can provide additional external disk pace (the standard space in SD Desktop is about 280 GB). 
 
+## Does CSC provide SD Desktop operating system, software, and security updates?
+Yes, every SD Desktop is built on a predefined virtual machine defined by our team. CSC provides the operating system, software (for a complete updated list check: XXXX ), and updates. CSC also takes care of the security of all the service components and network connections.
+
 ## What are the technical specifications of the service?
 
 Accessible directly from a modern web browser (e.g., Google Chrome, Firefox). from any computer /laptop (Windows, Mac, or Linux).
@@ -24,7 +27,6 @@ If you need help choosing the suitable Desktop type, don't esitate to contact us
 ## What type of file can I analyze using SD Desktop?
 Any type: text, video, audio, images, genetic data, questionnaires.
 
-
 ## What software is available on SD Desktop?
 We are currently providing only Linux Centos computing environments with a limited amount of open-source software installed, including Libre Office (with LibreOffice Calc, a spreadsheet program similar to Microsoft Excel, and LibreOffice Writer,  a word processor similar to Microsoft Word). We are not providing proprietary software, but we could help you install on your private Desktop an open-source version. Don't hesitate to get in touch with us at servicedesk@csc.fi.
 
@@ -37,5 +39,6 @@ ePouta is an infrastructure provided to research organizations, and the organiza
 
 ## Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?
 Yes, this is a very frequent question! Guacamole is a technical component (Open source)  of the services that allow you to access SD Desktop via a web browser. Especially if you are using a windows laptop, the term may appear in your URL while accessing the service as in this example: https://sd-desktop.csc.fi/guacamole/#/
-Does CSC provide SD Desktop operating system, software, and security updates?
+
+## Does CSC provide SD Desktop operating system, software, and security updates?
 Yes, every SD Desktop is built on a predefined virtual machine defined by our team. CSC provides the operating system, software (for a complete updated list check: XXXX ), and updates. CSC also takes care of the security of all the service components and network connections.
