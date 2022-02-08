@@ -1,6 +1,6 @@
 # General characteristics of the services
 
-## Are these services suitable for any type of reserch and user? 
+## Are CSC Sensitive Data services suitable for any type of reserch and user? 
 Yes. The services have been designed to support research professionals with different backgrounds (project manager, postdoc, Ph.D. student, master student, bioinformatician or data analyst,  single research group, or international collaborative project) and from any research field. 
 Each service is accessible via user interface and commmand line interface.
 If you think specific training material is needed, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). We are happy to know more about your needs and point of view and provide our best support. 
