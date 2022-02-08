@@ -120,12 +120,20 @@
 
 **SD Desktop: computing and analysis**
 
-* What are the technical specifications of the service?
-* What type of data can I analyze using SD Desktop?
-* What software is available on SD Desktop?
-* Who can access my private computing environment in SD Desktop?
-* What is the difference between SD Desktop and ePouta?
-* Does CSC provide operating system, software and  security updates for SD Desktop?
+
+
+* [Can I access/analyze encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md)
+* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md)
+* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md)
+* [What are the technical specifications of the service?](sensitive-data-desktop.md)
+* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md)
+* [What software is available on SD Desktop?](sensitive-data-desktop.md)
+* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md)
+* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md)
+* [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md)
+
+
+
 
 
 
