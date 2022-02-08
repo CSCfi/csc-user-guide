@@ -109,6 +109,12 @@
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
 * [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md)
 
+**Setting up a private workspace**
+
+* How long does it take to learn using SD Connect and SD Desktop?
+* How long doe sit take to set up a private workspace with SD Connect and SD Desktop?
+* I am not an expert of cloud services and cloud computing, where should I start?
+
 
 
 **SD Connect**
