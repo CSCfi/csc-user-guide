@@ -72,3 +72,17 @@
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why Rahti cannot find this docker image?](get-image-format.md)
+
+
+
+## Sensitive Data Services for reaserch
+
+### General characteristis of the services
+
+### Encryption
+
+
+
+### Sensitive Data/ GDPR/ Legal agreements
+
+
