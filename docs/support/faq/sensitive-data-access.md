@@ -10,11 +10,11 @@ To access SD Connect (store and share) and SD Desktop (compute), you need to set
  SD Submit and Federated EGA, the services for submitting sensitive data to a national repository for re-use, are in the pilot phase. Contact us at servicedesk@csc.fi (subject: Sensitive Data) for more information.
 
 
-## Do SD Connect and SD Desktop support federated authentication?
+## Do SD Connect and SD Desktop support federated authentication methods?
 
 * Yes, SD Desktop supports :
 Haka  (the identity federation of the Finnish universities, polytechnics, and research institutions)
-ELIXIR Login (a service that provides authentication and authorization within ELIXIR). To register: https://elixir-europe.org/register
+ELIXIR Login (a service that provides authentication and authorization within the ELIXIR infrastructure). To register: https://elixir-europe.org/register
 
 * SD Connect currently supports only Haka, and we are working on updating the authentication methods.
 
