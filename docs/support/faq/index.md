@@ -98,7 +98,8 @@
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md) 
-
+* How long does it take to learn using SD Connect and SD Desktop?
+* How long does it take to set up a private workspace with SD Connect and SD Desktop?
 
 **Encryption**
 
@@ -112,23 +113,6 @@
 * [Can I share my private encryption key?](sensitive-data-encryption.md)
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
 * [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md)
-
-
-**GDPR and Sensitive data**
-
-* What is sensitive data?
-* What is the GDPR?
-* What are the roles of CSC and its service users under GDPR?  
-* I am not certain if the data I am working with is sensitive or not. Where can I find support?
-* What type of sensitive data can I process with CSC Sensitive Data Services?
-* What type of documentation do I need to provide to use CSC Sensitive Data Services?
-
-
-**Setting up a private workspace**
-
-* How long does it take to learn using SD Connect and SD Desktop?
-* How long does it take to set up a private workspace with SD Connect and SD Desktop?
-
 
 **SD Connect**
 
