@@ -93,7 +93,7 @@
 * [Do you provide a backup service?](sensitive-data-general.md) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
-* [Are the Sensitive data service free of charge?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md) 
 
 
 **Encryption**
