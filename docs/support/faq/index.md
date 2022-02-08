@@ -109,18 +109,13 @@
 
 
 
+**SD Connect**
 
-**SD Connect: storage and sharing**
+* [What are the technical specifications of the service?](sensitive-data-connect-md)
+* [How long can I store data in SD Connect for?](sensitive-data-connect-md)
+* [What is the difference between SD Connect and Allas?](sensitive-data-connect-md)
 
-* What are the technical specifications of the service?
-* How long can I store data in SD Connect? 
-* Do you provide a backup service?
-* How can I share sensitive data with my collaborators? 
-* What is the difference between SD Connect and Allas?
-
-**SD Desktop: computing and analysis**
-
-
+**SD Desktop**
 
 * [Can I access/analyze encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md)
 * [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md)
