@@ -1,0 +1,13 @@
+#SD Connect
+
+# What are the technical specifications of the service?
+Storage space: 10 TiB
+All the sensitive data uploaded to SD Connect must be encrypted according to CSC General Terms of Use
+
+
+
+# How long can I store data in SD Connect? 
+
+
+# What is the difference between SD Connect and Allas?
+SD Connect is a web-user interface that facilitates sensitive data storage and sharing. In the future, SD Connect will also function as a hub from which you can manage your datasets at any stage of your research: collect data, share data or submit them to a specific repository. SD Connect is a specific user interface that facilitates the use of Allas during sensitive data management. In contrast, Allas is a general cloud storage solution for non-sensitive and encrypted sensitive data. It is accessible through various clients or user interfaces. 
