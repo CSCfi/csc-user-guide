@@ -38,6 +38,18 @@
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
 * [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md)
 
+
+**Sensitive Data and GDPR**
+
+* [What type of data is sensitive?](sensitive-data-legal.md)
+* [What is personal data?](sensitive-data-legal.md)
+* [What is the difference between sensitive personal data and personal data?](sensitive-data-legal.md)
+* [What is the GDPR?](sensitive-data-legal.md)
+* [What are the roles of CSC and its service users under GDPR?](sensitive-data-legal.md)
+* [I am not sure if the data I am working with is sensitive or not. Where can I find support?](sensitive-data-legal.md)
+* [What type of sensitive data can I process with CSC Sensitive Data Services?](sensitive-data-legal.md)
+* [What kind of documentation do I need to provide to use CSC Sensitive Data Services?](sensitive-data-legal.md)
+
 **SD Connect**
 
 * [What are the technical specifications of the service?](sensitive-data-connect.md)
