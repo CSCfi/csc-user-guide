@@ -22,7 +22,6 @@ The data can be stored in SD Connect, analyzed in SD Desktop, and published via 
 ## Do you provide a backup service?
 There is no backup service available for SD Connect (storage and share) and SD Desktop (compute). However, SD Connect uses an object storage system that is fails to tolerate disk breaks. SD Submit (publish) will always maintain a second copy of the stored data.
 
-
 ## Can I  store or process 'real data' using the current Open Beta versions of SD Connect and SD Desktop?
 You can already store sensitive encrypted data in SD Connect and process them in SD Desktop. Security is not affected by the Open Beta versions status of the services.
 However, SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
