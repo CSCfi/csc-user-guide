@@ -13,8 +13,8 @@ Don't hesitate to contact us to figure out how the platform can be customized to
 * SD Desktop: you can use this service to carry out statistical analysis, annotate video or audio files or complex machine learning. 
 * SD Submit: you can publish under control access any data up to 200 TB. If your project requires larger storage space, contact us at servicedesk@csc.fi.
 
-
-
+## I am not an expert on cloud services and computing, where should I start?
+Get in touch with us. We can point out the correct documentationand and discuss in details your needs. Write at servicedesk@csc.fi (email subject: Sensitive Data). 
 
 ## What type of data can I process using the services?
 The data can be stored in SD Connect, analyzed in SD Desktop, and published via SD Submit in any format: simple text or spreadsheet files, complex genetic datasets, video files, and images.
