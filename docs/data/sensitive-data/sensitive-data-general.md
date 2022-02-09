@@ -7,10 +7,10 @@ If you think specific training material is needed, don't hesitate to contact us 
 
 ## Are CSC Sensitive Data services suitable for any research project? 
 The services have been designed to support a wide range of use cases from any research field (social science and humanities, life sciences, engineering, etc.). 
-Don't hesitate to contact us to figure out how the platform can be customized to your support research project.
+Don't hesitate to contact us to figure out how the Sensitive Data services / platform can be customized to support research project.
 
 * SD Connect: you can store up to 200 TB of data for the active duration of your project. If your project requires larger storage space, contact us at servicedesk@csc.fi.
-* SD Desktop: you can use this service to carry out statistical analysis, annotate video or audio files or complex machine learning. 
+* SD Desktop: you can use this service from carry out statistical analysis to machine learning.
 * SD Submit: you can publish under control access any data up to 200 TB. If your project requires larger storage space, contact us at servicedesk@csc.fi.
 
 ## I am not an expert on cloud services and computing, where should I start?
