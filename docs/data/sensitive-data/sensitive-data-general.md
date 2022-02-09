@@ -3,11 +3,13 @@
 ## Are CSC Sensitive Data services suitable for any research professional? 
 Yes. The services have been designed to support research professionals with different backgrounds (project manager, postdoc, Ph.D. student, master student, bioinformatician or data analyst,  single research group, or international collaborative project) and from any research field. 
 Each service is accessible via a user interface and command-line interface.
+
 If you think specific training material is needed, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive Data). We are happy to know more about your needs and point of view and provide our best support. 
 
 ## Are CSC Sensitive Data services suitable for any research project? 
-The services have been designed to support a wide range of use cases from any research field (social science and humanities, life sciences, engineering, etc.). 
+The services have been designed to support a wide range of use cases from any research field (social science and humanities, life sciences, engineering, etc.).
 Don't hesitate to contact us to figure out how the Sensitive Data services/platform can be customized to support your research.
+
 Briefly, 
 
 * with SD Connect: you can store up to 200 TB of data for the active phases of your project. If your project requires larger storage space, contact us at servicedesk@csc.fi.
@@ -36,15 +38,15 @@ We constantly improve the user interface, add features, and resolve bugs during 
 
 
 ## Are CSC Sensitive Data service free of charge?
-The Sensitive Data Services are free of charge for Finnish academics, according to CSC General Terms of use (https://research.csc.fi/general-terms-of-use). However, each service consumes resources  (billing units for their use and quota for storage space allocation). 
+The Sensitive Data Services are free of charge for Finnish academics, according to CSC[ General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: billing units for their use and quota for storage space allocation. 
 
 **Billing units:**
 
 * When you create a new CSC project, you have about 10.000 billing units. 
 
-* You can find out how many billing units SD Dekstop and Allas (for SD Connect) will use based on your needs with this calculator: https://research.csc.fi/pricing at the bottom of the page. Here you can estimate the cost in billing units or in euros.
+* You can find out how many billing units SD Dekstop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/pricing). Here you can estimate the services usage cost in billing units or in euros.
 
-* Once you have estimated how many billing units your project would need every year, you can apply for more resources following these instructions:  https://docs.csc.fi/accounts/how-to-apply-for-billing-units/. If your projects last up to 5 years, a separate discussion and an agreement are needed. 
+* Once you have estimated how many billing units your project would need every year, you can apply for more resources following these [instructions](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/). If your projects last up to 5 years, a separate discussion and an agreement are needed. 
 
 **Quotas:**
 
@@ -64,7 +66,7 @@ No. You can set up your secure workspace following the user guide and video tuto
 
 ## How long does it take to set up a private workspace with SD Connect and SD Desktop?
 
-If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using [My CSC portal](https://my.csc.fi); next, login to SD Desktop and launch a new computing environment.
+* If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using [My CSC portal](https://my.csc.fi); next, login to SD Desktop and launch a new computing environment.
  
-If you have never used CSC services,  it might take several hours. You can find the necessary support in the user guide and step-by-step video tutorials (13 videos X 3 minutes). Please feel free to contact us at servicedesk@csc.fi if you need our help. 
+* If you have never used CSC services, it might take up to several hours. You can find the necessary support in the user guide and step-by-step video tutorials (13 videos X 3 minutes). Please feel free to contact us at servicedesk@csc.fi if you need our help. 
 
