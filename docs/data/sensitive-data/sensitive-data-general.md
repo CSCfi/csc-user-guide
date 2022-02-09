@@ -34,7 +34,7 @@ We constantly improve the user interface, add features, and resolve bugs during 
 ## Are CSC Sensitive Data service free of charge?
 The Sensitive Data Services are free of charge for Finnish academics, according to CSC General Terms of use (https://research.csc.fi/general-terms-of-use). However, each service consumes resources  (billing units for their use and quota for allocation of storage space). 
 
-* **Billing units:**
+**Billing units:**
 
 * When you create a new CSC project, you have about 10.000 billing units. 
 
@@ -42,9 +42,9 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 
 * Once you have estimated how many billing units your project would need every year, you can apply for more resources following these instructions:  https://docs.csc.fi/accounts/how-to-apply-for-billing-units/. If you need a longer allocation, an extension needs to be applied several weeks before the allocation ends. However, CSC does support longer project times. For this, a separate discussion and an agreement is needed. 
 
-* **Quotas:**
+**Quotas:**
 
-* When you apply for a new CSC project and service access for Allas, you have  a default quota of about 10 TB of storage. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
+* When you create a new CSC project and service access for Allas, you have  a default quota of about 10 TB of storage. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
 
 * The costs for storage space in Allas/SD Connect (both quota and billing units) up to around 100–200 TB should be covered by the Ministry of Education for academic research use. 
 
