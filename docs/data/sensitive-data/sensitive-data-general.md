@@ -61,6 +61,6 @@ No. You can set up your secure workspace follwing the intructions on user guide 
 
 If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using My CSC; next, login to SD Desktop and launch a new computing environment.
  
-If you are new to CSC,  it might take up to 1 hour. You can find the necessary support in the user guide and step-by-step video tutorials. Please feel free to contact us at servicedesk@csc.fi if you need our help. 
+If you are new to CSC,  it might take up to 1 day. You can find the necessary support in the user guide and step-by-step video tutorials. Please feel free to contact us at servicedesk@csc.fi if you need our help. 
 
 
