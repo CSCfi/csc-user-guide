@@ -51,3 +51,17 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 * If you plan to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement are needed.
 
 One important note is that once you end your research and submit your manuscript, you can then use specific services to store part of your data in our repositories (SD Submit or Federated EGA). In this case, the data is stored (under controlled access) for longer periods, and  CSC maintains two copies of it, and you do not need to have a CSC project or consume billing units.
+
+
+## Do I need any particular skill to set up a private workspace with SD Connect and SD Desktop?
+
+No. You can set up your secure workspace follwing the intructions on user guide and video tutorial.
+
+
+# How long will it take to set up a private workspace with SD Connect and SD Desktop?
+
+If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using My CSC; next, login to SD Desktop and launch a new computing environment.
+ 
+If you are new to CSC,  it might take up to 1 hour. You can find the necessary support in the user guide and step-by-step video tutorials. Please feel free to contact us at servicedesk@csc.fi if you need our help. 
+
+
