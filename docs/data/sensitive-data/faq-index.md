@@ -15,7 +15,7 @@
 
 * [Are CSC Sensitive Data Services suitable for any reserch professional?](sensitive-data-general.md) 
 * [Are CSC Sensitive Data Services suitable for any reaserch project?]
-* [I am not an expert of cloud services and cloud computing, where should I start]?
+* [I am not an expert on cloud services and computing, where should I start]?
 * [What type of data can I process using the services?](sensitive-data-general.md) 
 * [Do you provide a backup service?](sensitive-data-general.md) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
