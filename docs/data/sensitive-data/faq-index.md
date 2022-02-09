@@ -8,7 +8,7 @@
 * [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md)
 
 **Collaborative projects**
-* [How can I share sensitive data with my collaborators?]
+* [How can I share sensitive data with my collaborators?](sensitive-data-collaborative.md)
 
 
 **General characteristics of the services**
