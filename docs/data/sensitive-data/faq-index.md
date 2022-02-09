@@ -1,4 +1,4 @@
-## Sensitive Data Services for research
+# Sensitive Data Services for research FAQs.
 
 **Access and authentication** 
 
@@ -14,15 +14,15 @@
 
 **General characteristics of the services**
 
-* [Are CSC Sensitive Data Services suitable for any reserch professional?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data Services suitable for any reaserch project?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any research professional?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any research project?](sensitive-data-general.md) 
 * [I am not an expert on cloud services and computing, where should I start?](sensitive-data-general.md) 
 * [What type of data can I process using the services?](sensitive-data-general.md) 
 * [Do you provide a backup service?](sensitive-data-general.md) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md) 
-* [Do I need any particular skill to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md) 
+* [Do I need any particular skills to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md) 
 * [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md) 
 
 **Encryption**
@@ -55,11 +55,6 @@
 * [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md)
 * [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md)
-
-
-
-
-
 
 
 
