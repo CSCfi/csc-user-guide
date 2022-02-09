@@ -40,9 +40,9 @@
 
 **SD Connect**
 
-* [What are the technical specifications of the service?](sensitive-data-connect-md)
-* [How long can I store data in SD Connect for?](sensitive-data-connect-md)
-* [What is the difference between SD Connect and Allas?](sensitive-data-connect-md)
+* [What are the technical specifications of the service?](sensitive-data-connect.md)
+* [How long can I store data in SD Connect for?](sensitive-data-connect.md)
+* [What is the difference between SD Connect and Allas?](sensitive-data-connect.md)
 
 **SD Desktop**
 
