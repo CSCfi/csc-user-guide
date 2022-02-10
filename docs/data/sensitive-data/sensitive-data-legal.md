@@ -7,15 +7,15 @@ The main types of sensitive data are human, ecological (e.g. location of endange
 
 **Sensitive personal** data is any data that reveals:
 
-    * personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs;
+* personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs;
     
-    * trade-union membership;
+* trade-union membership;
     
-    * genetic data, biometric data processed solely to identify a human being;
+* genetic data, biometric data processed solely to identify a human being;
     
-    * health-related data;
+* health-related data;
     
-    * data concerning a person’s sex life or sexual orientation.
+* data concerning a person’s sex life or sexual orientation.
 
 Sensitive personal data is subject to specific processing conditions according to the GDPR.
 
@@ -27,19 +27,19 @@ Personal data is any information related to an identified or identifiable living
 
 Examples of personal data are:
 
-    * a name and surname;
+* a name and surname;
     
-    * a home address;
+* a home address;
     
-    * email address;
+* email address;
     
-    * social security number;
+* social security number;
     
-    * location data (for example, the location data function on a mobile phone);
+* location data (for example, the location data function on a mobile phone);
     
-    * (IP) address;
+* (IP) address;
     
-    * a cookie ID.
+* a cookie ID.
     
  
 
