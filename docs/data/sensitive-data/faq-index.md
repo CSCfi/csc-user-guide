@@ -52,9 +52,10 @@
 
 **SD Connect**
 
-* [What are the technical specifications of the service?](sensitive-data-connect.md)
-* [How long can I store data in SD Connect for?](sensitive-data-connect.md)
-* [What is the difference between SD Connect and Allas?](sensitive-data-connect.md)
+* [What are the technical specifications of the service?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect)
+* [How long can I store data in SD Connect for?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect)
+* [What is the difference between SD Connect and Allas?](sensitive-data-connect.md#what-is-the-difference-between-sd-connect-and-allas)
+* [Can I use SD connect from command line](sensitive-data-connect.md#can-i-use-sd-connect-from-command-line)
 
 **SD Desktop**
 
@@ -66,6 +67,7 @@
 * [What software is available on SD Desktop?](sensitive-data-desktop.md#what-software-is-available-on-sd-desktop)
 * [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md)
 * [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md)
+* [Can I have root or sudo access to a virtual machine running in SD Desktop](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md)
 
 
