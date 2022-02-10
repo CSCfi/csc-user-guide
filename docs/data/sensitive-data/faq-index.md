@@ -2,23 +2,23 @@
 
 **Access and authentication** 
 
-* [Are CSC Sensitive Data Services accessible through the public internet?](sensitive-data-access.md)
-* [How I can start using CSC Sensitive Data Services?](sensitive-data-access.md)
-* [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md)
-* [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md)
+* [Are CSC Sensitive Data Services accessible through the public internet?](sensitive-data-access.md#are-csc-sensitive-data-services-accessible-through-the-public-internet)
+* [How I can start using CSC Sensitive Data Services?](sensitive-data-access.md#how-can-i-start-using-csc-sensitive-data-services)
+* [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md#do-sd-connect-and-sd-desktop-support-federated-authentication-methods)
+* [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md#does-csc-provide-multi-factor-authentication-mfa)
 
 **Collaborative projects**
 
-* [How can I share sensitive data with my collaborators?](sensitive-data-collaborative.md)
+* [How can I share sensitive data with my collaborators?](sensitive-data-collaborative.md#how-can-i-share-sensitive-data-with-my-collaborators)
 
 
 **General characteristics of the services**
 
-* [Are CSC Sensitive Data Services suitable for any research professional?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data Services suitable for any research project?](sensitive-data-general.md) 
-* [I am not an expert on cloud services and computing, where should I start?](sensitive-data-general.md) 
-* [What type of data can I process using the services?](sensitive-data-general.md) 
-* [Do you provide a backup service?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any research professional?](sensitive-data-general.md#are-csc-sensitive-data-services-suitable-for-any-research-professional) 
+* [Are CSC Sensitive Data Services suitable for any research project?](sensitive-data-general.md#are-csc-sensitive-data-services-suitable-for-any-research-project) 
+* [I am not an expert on cloud services and computing, where should I start?](sensitive-data-general.md#i-am-not-an-expert-on-cloud-services-and-computing-where-should-i-start) 
+* [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
+* [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md) 
