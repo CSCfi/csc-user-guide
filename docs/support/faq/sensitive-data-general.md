@@ -30,9 +30,9 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 
 When you create a new CSC project, you have about 10.000 billing units. 
 
-You can find out how many billing units SD Dekstop and Allas (forSD Connect) will use based on your needs with this calculator: https://research.csc.fi/pricing at the bottom of the page.  Here you can estimate the cost in billing units or in euros (for 100 TB/two years, you need about  1 594 320 billing units, or 50 TB  394 200 billing units /year).
+You can find out how many billing units SD Desktop and Allas (forSD Connect) will use based on your needs with this calculator: https://research.csc.fi/pricing at the bottom of the page.  Here you can estimate the cost in billing units or in euros (for 100 TB/two years, you need about  1 594 320 billing units, or 50 TB  394 200 billing units /year).
 
-Once you have estimated how many billing units your project would need on a yearly basis, you can apply for more resources following these instructions:  https://docs.csc.fi/accounts/how-to-apply-for-billing-units/.  If you need a longer allocation, an extension needs to be applied several weeks before the allocation ends. However, CSC does support longer project times. For this a separate discussion and an agreement is needed. 
+Once you have estimated how many billing units your project would need on a yearly basis, you can apply for more resources following [these instructions](../accounts/how-to-apply-for-billing-units.md).  If you need a longer allocation, an extension needs to be applied several weeks before the allocation ends. However, CSC does support longer project times. For this a separate discussion and an agreement is needed. 
 
 * Regarding quotas:
 
