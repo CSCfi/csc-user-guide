@@ -127,7 +127,7 @@
 * [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md)
 * [What are the technical specifications of the service?](sensitive-data-desktop.md)
 * [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md)
-* [What software is available on SD Desktop?](sensitive-data-desktop.md)
+* [What software is available on SD Desktop?](sensitive-data-desktop.md#what-software-is-available-on-sd-desktop)
 * [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md)
 * [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md)
