@@ -7,13 +7,13 @@ The main types of sensitive data are human, ecological (e.g. location of endange
 
 **Sensitive personal** data is any data that reveals:
 
-* personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs;
+* personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs,
     
-* trade-union membership;
+* trade-union membership,
     
-* genetic data, biometric data processed solely to identify a human being;
+* genetic data, biometric data processed solely to identify a human being,
     
-* health-related data;
+* health-related data,
     
 * data concerning a person’s sex life or sexual orientation.
 
