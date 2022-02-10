@@ -27,19 +27,19 @@ Personal data is any information related to an identified or identifiable living
 
 Examples of personal data are:
 
-* a name and surname;
+- a name and surname;
     
-* a home address;
+- a home address;
     
-* email address;
+- email address;
     
-* social security number;
+- social security number;
     
-* location data (for example, the location data function on a mobile phone);
+- location data (for example, the location data function on a mobile phone);
     
-* (IP) address;
+- (IP) address;
     
-* a cookie ID.
+- a cookie ID.
     
  
 
@@ -52,13 +52,13 @@ The General Data Protection Regulation is a European Union (EU) data privacy and
 
 It defines:    
 
-* what is personal data
+- what is personal data
 
-* what is data processing
+- what is data processing
 
-* what are the roles of all the parties involved (Data Controller, Data Processor, Data Subject)
+- what are the roles of all the parties involved (Data Controller, Data Processor, Data Subject)
 
-* key principles that regulate EU data protection
+- key principles that regulate EU data protection
 
 Any organization that stores or processes personal information regarding EU citizens is obliged to comply with the GDPR. 
 
