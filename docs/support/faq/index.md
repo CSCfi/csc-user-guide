@@ -90,8 +90,8 @@
 
 **General characteristics of the services**
 
-* [Are CSC Sensitive Data Services suitable for any reserch professional?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data Services suitable for any reaserch project?]
+* [Are CSC Sensitive Data Services suitable for any research professional?](sensitive-data-general.md) 
+* [Are CSC Sensitive Data Services suitable for any research project?]
 * [I am not an expert of cloud services and cloud computing, where should I start]?
 * [What type of data can I process using the services?](sensitive-data-general.md) 
 * [Do you provide a backup service?](sensitive-data-general.md) 
