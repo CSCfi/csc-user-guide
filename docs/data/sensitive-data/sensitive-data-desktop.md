@@ -46,6 +46,9 @@ SD Desktop is suitable for collaborative projects across Finnish organizations a
 
 ePouta is an infrastructure provided to research organizations, and the organization's own IT unit manages its access and network. ePouta works on extending an academic organization infrastructure and provides all the flexibility and requirements decided by the organization. 
 
+## Can I have root or sudo access to a virtual machine running in SD Desktop?
+No. Your account has only normal user level priviledges. Providing sudo rights to a user would compromise the secutity of you SD Desktop environmenyt. 
+
 ## Why do I see the word guacamole in the URL next to sd-desktop.csc.fi?
 Yes, this is a very frequent question! Guacamole is a technical component (Open source)  of the services and allows you to access SD Desktop via a web browser. Especially if you are using a Windows laptop, the term may appear in your URL while accessing the service as in this example: https://sd-desktop.csc.fi/guacamole/#/
 
