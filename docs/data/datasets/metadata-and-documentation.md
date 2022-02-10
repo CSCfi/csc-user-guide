@@ -82,7 +82,7 @@ Also, think about your file naming conventions, directory structure and **versio
 !!! note "Links to controlled vocabularies, thesauri, and ontologies"
     - [Finnish Thesaurus and Ontology Service (Finto.fi)](https://finto.fi/en/)
     - [National checklist of Finnish species (Laji.fi)](https://laji.fi/en/taxon)
-    - [Basel Register of Thesauri, Ontologies & Classifications (BARTOC)](https://bartoc.org/)
+    - [Basic Register of Thesauri, Ontologies & Classifications (BARTOC)](https://bartoc.org/)
     - [CESSDA Vocabulary Service](https://vocabularies.cessda.eu/)
     - [Linked Open Vocabularies (LOV)](https://lov.linkeddata.es/dataset/lov)
     - [The Open Biological and Biomedical Ontology (OBO) Foundry](https://obofoundry.org/)
