@@ -59,16 +59,16 @@
 
 **SD Desktop**
 
-* [Can I access/analyze encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md)
-* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md)
-* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md)
-* [What are the technical specifications of the service?](sensitive-data-desktop.md)
-* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md)
+* [Can I access/analyze encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md#can-i-accessanalyze-encrypted-data-stored-in-sd-connect-using-sd-desktop)
+* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md#can-i-editannotate-data-using-sd-desktop)
+* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md#does-csc-provide-sd-desktop-operating-system-software-and-security-updates)
+* [What are the technical specifications of the service?](sensitive-data-desktop.md#what-are-the-technical-specifications-of-the-service)
+* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md#what-type-of-file-can-i-analyze-using-sd-desktop)
 * [What software is available on SD Desktop?](sensitive-data-desktop.md#what-software-is-available-on-sd-desktop)
-* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md)
-* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md)
-* [Can I have root or sudo access to a virtual machine running in SD Desktop](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
-* [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md)
+* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md#who-can-access-my-private-computing-environment-in-sd-desktop)
+* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md#what-is-the-difference-between-sd-desktop-and-epouta)
+* [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
+* [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
 
 
 
