@@ -44,7 +44,7 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 
 * When you create a new CSC project, you have about 10.000 billing units. 
 
-* You can find out how many billing units SD Dekstop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/pricing). Here you can estimate the services usage cost in billing units or in euros.
+* You can find out how many billing units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/pricing). Here you can estimate the services usage cost in billing units or in euros.
 
 * Once you have estimated how many billing units your project would need every year, you can apply for more resources following these [instructions](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/). If your projects last up to 5 years, a separate discussion and an agreement are needed. 
 
