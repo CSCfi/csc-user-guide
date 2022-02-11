@@ -55,7 +55,7 @@
 * [What are the technical specifications of the service?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect)
 * [How long can I store data in SD Connect for?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect)
 * [What is the difference between SD Connect and Allas?](sensitive-data-connect.md#what-is-the-difference-between-sd-connect-and-allas)
-* [Can I use SD connect from command line](sensitive-data-connect.md#can-i-use-sd-connect-from-command-line)
+* [Can I use SD connect from command line](sensitive-data-connect.md#can-i-use-sd-connect-from-command-line)?
 
 **SD Desktop**
 
