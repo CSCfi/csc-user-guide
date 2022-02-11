@@ -89,6 +89,7 @@ nav:
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
          - Annotations: cloud/rahti/tutorials/annotations.md
          - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
