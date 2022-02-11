@@ -39,11 +39,12 @@ Further configuration of `s2m_preprocess` can be done via the `L2A_GIPP.xml` fil
 You can find the default GIPP file in `/appl/soft/geo/sen2cor/2.9/Sen2Cor-02.09.00-Linux64/lib/python2.7/site-packages/sen2cor/cfg/L2A_GIPP.xml`. 
 Copy it to your `$HOME` directory, adjust it to your needs and add it to the call: `s2m_preprocess --gipp $HOME/L2A_GIPP.xml <other arguments>`
 
-## License and citation
+## License and acknowledgement
 
 Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) license.
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

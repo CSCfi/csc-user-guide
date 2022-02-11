@@ -56,11 +56,12 @@ According to our test a project with ~300 images is optimal to run with 10-12 CP
     Please note that OpenDroneMap can use only one computing node in processing which means maximum of 40 CPU cores and 192GB memory.
 
 
-## License and citing
+## License and acknowledgement
 
 OpenDroneMap is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/OpenDroneMap/ODM/blob/master/LICENSE)
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

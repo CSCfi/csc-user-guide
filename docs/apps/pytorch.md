@@ -3,32 +3,31 @@
 Machine learning framework for Python.
 
 !!! News
-    
-    All recent and upcoming PyTorch installations are and will be based on
-    Singularity. This is mainly due to the performance issues of conda-based
-    environments on shared file systems, causing long start-up delays for Python
-    scripts on CSC's supercomputers. See below for more information.
+
+    **4.2.2022** All old PyTorch versions which were based on direct Conda
+    installations have been deprecated, and we encourage users to move to newer
+    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
 
 
 ## Available
 
 Currently supported PyTorch versions:
 
-| Version | Module              | Puhti | Mahti | Environ. | Horovod | Notes             |
-|:-------:|---------------------|:-----:|:-----:|----------|:-------:|-------------------|
-| 1.10.0  | `pytorch/1.10`      | X     | X     | Sing.    | X       | (default version) |
-| 1.9.0   | `pytorch/1.9`       | X     | X     | Sing.    | X       |                   |
-| 1.8.1   | `pytorch/1.8`       | X     | X     | Sing.    | X       |                   |
-| 1.7.1   | `pytorch/1.7`       | X     | -     | Sing.    | X       |                   |
-| 1.6.0   | `pytorch/1.6`       | X     | -     | Conda    | -       |                   |
-| 1.4.0   | `pytorch/1.4`       | X     | -     | Conda    | -       |                   |
-| 1.3.1   | `pytorch/1.3.1`     | X     | -     | Conda    | -       |                   |
-| -"-     | `pytorch/1.3.1-hvd` | X     | -     | Conda    | X       |                   |
-| 1.3.0   | `pytorch/1.3.0`     | X     | -     | Conda    | -       |                   |
-| 1.2.0   | `pytorch/1.2.0`     | X     | -     | Conda    | -       |                   |
-| 1.1.0   | `pytorch/1.1.0`     | X     | -     | Conda    | -       |                   |
-| 1.0.1   | `pytorch/1.0.1`     | X     | -     | Conda    | -       |                   |
-| 0.4.1   | `pytorch/0.4.1`     | X     | -     | Conda    | -       |                   |
+| Version | Module              | Puhti | Mahti | Environ. | Horovod | Notes           |
+|:-------:|---------------------|:-----:|:-----:|----------|:-------:|-----------------|
+| 1.10.0  | `pytorch/1.10`      | X     | X     | Sing.    | X       | default version |
+| 1.9.0   | `pytorch/1.9`       | X     | X     | Sing.    | X       |                 |
+| 1.8.1   | `pytorch/1.8`       | X     | X     | Sing.    | X       |                 |
+| 1.7.1   | `pytorch/1.7`       | X     | -     | Sing.    | X       |                 |
+| 1.6.0   | `pytorch/1.6`       | X     | -     | Conda    | -       | *deprecated*    |
+| 1.4.0   | `pytorch/1.4`       | X     | -     | Conda    | -       | *deprecated*    |
+| 1.3.1   | `pytorch/1.3.1`     | X     | -     | Conda    | -       | *deprecated*    |
+| -"-     | `pytorch/1.3.1-hvd` | X     | -     | Conda    | X       | *deprecated*    |
+| 1.3.0   | `pytorch/1.3.0`     | X     | -     | Conda    | -       | *deprecated*    |
+| 1.2.0   | `pytorch/1.2.0`     | X     | -     | Conda    | -       | *deprecated*    |
+| 1.1.0   | `pytorch/1.1.0`     | X     | -     | Conda    | -       | *deprecated*    |
+| 1.0.1   | `pytorch/1.0.1`     | X     | -     | Conda    | -       | *deprecated*    |
+| 0.4.1   | `pytorch/0.4.1`     | X     | -     | Conda    | -       | *deprecated*    |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
