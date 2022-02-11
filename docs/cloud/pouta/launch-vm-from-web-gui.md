@@ -102,7 +102,7 @@ You can also just open up a port to a single IP. In this case, you take the IP a
 Direction   IP Protocol   From Port   To port   Source Group   CIDR
 Ingress     TCP           22          22        CIDR           88.44.55.77/32
 ```
-If you do not know your IP address, you can use [http://www.myipaddress.com](http://www.myipaddress.com) to find out what it is.
+If you do not know your IP address, you can use [https://apps.csc.fi/myip](https://apps.csc.fi/myip) to find out what it is.
 
 You can also open ports to all possible IP addresses. In that case, you would use "0.0.0.0/0" for the network:
 ```bash
