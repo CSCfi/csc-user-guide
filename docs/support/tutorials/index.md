@@ -38,12 +38,12 @@
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 * [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
-
 ## Data analysis and machine learning
 
 * [Data analysis guide](da-guide.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 * [Machine learning guide](ml-guide.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+* [Starting with parallel R](parallel-r.md)
 
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
