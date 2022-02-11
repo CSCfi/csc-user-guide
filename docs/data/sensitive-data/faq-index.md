@@ -44,7 +44,7 @@
 * [What type of data is sensitive?](sensitive-data-legal.md#what-type-of-data-is-sensitive)
 * [What is personal data?](sensitive-data-legal.md#what-is-personal-data)
 * [What is the difference between sensitive personal data and personal data?](sensitive-data-legal.md#what-is-the-difference-between-sensitive-personal-data-and-personal-datad)
-* [What is the GDPR?](sensitive-data/sensitive-data-legal.md#what-is-the-gdpr)
+* [What is the GDPR?](sensitive-data-legal.md#what-is-the-gdpr)
 * [What are the roles of CSC and its service users under GDPR?](sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr)
 * [I am not sure if the data I am working with is sensitive or not. Where can I find support?](sensitive-data-legal.md#i-am-not-sure-if-the-data-i-am-working-with-is-sensitive-or-not-where-can-i-find-support)
 * [What type of sensitive data can I process with CSC Sensitive Data Services?](sensitive-data-legal.md#what-type-of-sensitive-data-can-i-process-with-csc-sensitive-data-services)
