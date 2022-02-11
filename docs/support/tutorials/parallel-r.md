@@ -2,8 +2,6 @@
 
 Thinking about ways to make use of parallel R on the CSC Puhti cluster, but aren't quite sure where to start? This text aims to serve as a short introduction to this topic. We will start with some practical tips, followed by basic concepts and links to further resources.
 
----
-
 ## Practical tips to start with
 
 **1. Think about your parallelisation strategy.** The way in which your analysis can be parallelised will be case-specific - it depends on the R packages you are using and the kinds of analyses you are hoping to run. Some key questions include:
@@ -19,8 +17,6 @@ Multinode analyses will give you access to more resources than a single-node ana
 **3. Become close friends with batch job files and your R packages.** To help with this, make sure to consult existing tutorials and R package documentation. Useful CSC Docs pages include examples of [serial and parallel R batch jobs](../../apps/r-env-singularity.md#serial-batch-jobs), our [basic batch job documentation](../../computing/running/creating-job-scripts-puhti.md) and details on [available batch job partitions](../../computing/running/batch-job-partitions.md). The `r-env-singularity` user documentation provides many practical examples of parallel R jobs and how to launch them on Puhti.
 
 **4. Remember that reserving more resources does not necessarily mean faster analyses.** For example, an analysis using 40 cores instead of a single core may not be 40x faster than the original. Often there is a threshold after which only marginal benefits are obtained (in relation to the resources you reserve). Finding an optimal number of cores and/or threads is usually a case of trial and error. Also keep in mind that Puhti is a shared resource: the more resources one reserves, the longer the wait until they become available.
-
----
 
 ## Parallelisation methods
 
@@ -63,8 +59,6 @@ One topic of note is that setting up multicore x multithread jobs on multiple no
 ### 4. What if I want to run the same R script many times?
 
 For this purpose, the recommended way to proceed is to submit an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env-singularity` documentation](../../apps/r-env-singularity.md#parallel-batch-jobs). Array jobs could also work when you wish to execute the same code using different parameters.
-
----
 
 ## Very briefly on terminology (and links to further resources)
 
