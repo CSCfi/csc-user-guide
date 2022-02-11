@@ -1,6 +1,7 @@
 # This is what we actually install
-mkdocs==1.1.2
+mkdocs==1.2.3
 mkdocs-material==6.1.0
+mkdocs-material-extensions==1.0.3
 mdx-linkify==1.0
 mdx-environment==0.2.0
 yasha==4.1
@@ -16,7 +17,7 @@ certifi==2017.11.5
 click==7.1.2
 future==0.18.2
 html5lib==1.0.1
-importlib-metadata==2.0.0
+importlib-metadata==4.8.3
 Jinja2==2.11.3
 joblib==0.17.0
 livereload==2.6.3
