@@ -28,6 +28,7 @@
 
 When you are looking for a place where to store data during your research project, you should consider:
 
+- does the data contain personal information and/or sensitive data, see [definition of sensitive data](https://research.csc.fi/definition-of-sensitive-data)
 - how will the data be used (as a backup, ready for analysis, etc.)
 - who decides the data lifecycle
     - what happens to your data if you leave the university/research organization
