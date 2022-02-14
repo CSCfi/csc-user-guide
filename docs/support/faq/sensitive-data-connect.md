@@ -1,4 +1,4 @@
-#SD Connect
+# SD Connect
 
 ## What are the technical specifications of the service?
 
