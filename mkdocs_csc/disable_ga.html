@@ -1,4 +1,4 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ config.google_analytics[0] }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.property }}"></script>
     <script>
         function getCookie(cname) {
             var name = cname + "=";
@@ -17,7 +17,7 @@
         }
 var consent=getCookie("cookieconsent_status")
 if( consent != "allow" ){
-    window['ga-disable-{{ analytics[0] }}'] = true;
+    window['ga-disable-{{ config.extra.analytics.property }}'] = true;
 }
 function fix_youtube(){
 var frames = document.getElementsByTagName('iframe');
