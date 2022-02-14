@@ -43,3 +43,8 @@ The costs for storage space in Allas/SD Connect (both quota and billing units) u
 If you are planning to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement is needed.
 
 One important note is that, once you end your research and submit your manuscript you can then use specific services to store part of your data in our repositories (Federated EGA for genetic data and we are working on a  specific repository for images).  In this case the data is stored (under controlled access) for longer periods, CSC maintains two copies of it and you do not need to have a CSC project or consume billing units.
+
+## How can I share sensitive data with collaborators
+
+You can share sensitive data with your collaborators in two different ways. 1) You can transfer encrypted sensitive data using SD Connect. This operation requires a few planning steps and you can learn more in our quick guide or user guide. 2) Another way to share sensitive data with collaborators is to give them access to your SD Desktop. They will then be able to analyze the sensitive data you previously downloaded to SD Desktop, but they will not be able to export it outside the Desktop or make copies of it.
+
