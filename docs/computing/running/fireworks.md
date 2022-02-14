@@ -4,7 +4,7 @@
 
 ## Installing FireWorks
 
-FireWorks is easy to install. We recommend using `pip` to install FireWorks, either in a virtual environment or to your Python user install directory. For further instructions, see [how to install Python packages to existing modules](../../apps/python#installing-python-packages-to-existing-modules.md).
+FireWorks is easy to install. We recommend using `pip` to install FireWorks, either in a virtual environment or to your Python user install directory. For further instructions, see [how to install Python packages to existing modules](../../apps/python.md#installing-python-packages-to-existing-modules).
 
 ## Setting up MongoDB in Rahti
 
@@ -71,7 +71,7 @@ pre_rocket: |
 post_rocket: null
 ```
 
-In addition to queue parameters (resource requests, billing project), the QueueAdapter contains the `rocket_launch` key which specifies how the Fireworks should be launched within the batch job (this will be explained further in [Step 3](fireworks.md#step-3-executing-a-fireworks-workflow)). Additionally, the batch queue system (SLURM) is specified with the `_fw_q_type` key, and any commands to be run before and/or after the workflow are provided using the `pre_rocket` and `post_rocket` keys.
+In addition to queue parameters (resource requests, billing project), the QueueAdapter contains the `rocket_launch` key which specifies how the workflow should be launched within the batch job. This detail is discussed furtehr in [Step 3](fireworks.md#step-3-defining-and-executing-a-simple-fireworks-workflow). Additionally, the batch queue system (SLURM) is specified with the `_fw_q_type` key, and any commands to be run before and/or after the workflow are provided using the `pre_rocket` and `post_rocket` keys.
 
 !!! Note
     To open a TCP tunnel to your MongoDB in Rahti from the compute side, `websocat` should in addition to the interactive session also be launched in the `pre_rocket`. Here, the previously obtained target port can be used. See [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md#step-2-running-websocat-on-csc-supercomputers) for further details.
