@@ -92,7 +92,7 @@
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md#can-i-store-or-process-real-data-using-the-current-open-beta-versions-of-sd-connect-and-sd-desktop) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md#what-does-the-open-beta-versions-status-of-sensitive-data-services-imply-in-practice) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-
+* [How can I share sensitive data with my collaborators]
 
 **Encryption**
 
@@ -127,8 +127,8 @@
 
 
 
-
 You can share sensitive data with your collaborators in two different ways. 1) You can transfer encrypted sensitive data using SD Connect. This operation requires a few planning steps and you can learn more in our quick guide or user guide. 2) Another way to share sensitive data with collaborators is to give them access to your SD Desktop. They will then be able to analyze the sensitive data you previously downloaded to SD Desktop, but they will not be able to export it outside the Desktop or make copies of it.
+
 
 
 
