@@ -18,6 +18,7 @@ at CSC, but you can of course develop or install your own.
 * [DIY gnuparallel](../../support/tutorials/many.md) tutorial shows 
   how to efficiently run a very large number of serial jobs without 
   bloating the Slurm log
+* [FireWorks](fireworks.md) is a flexible tool for defining, managing and executing workflows with multiple steps and complex dependencies
 
 ## Science specific workflow tools
 
