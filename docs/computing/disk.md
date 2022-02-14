@@ -196,7 +196,7 @@ require temporary local storage.
 
 In Mahti, with most compute nodes without local nvme disks, it is possible to store
 a relatively small amount of temporary files
-in memory. In pratice the applications can use the directory `/dev/shm` for this, for example by
+in memory. In practice the applications can use the directory `/dev/shm` for this, for example by
 setting `export TMPDIR=/dev/shm`. Plese note that the use of `/dev/shm` consumes memory, so less is
 left available for the applications. This may lead in applications running out of memory sooner than
 expected and failing in the compute node, but this usually does no other harm. The plus side is that
