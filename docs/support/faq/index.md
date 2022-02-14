@@ -84,22 +84,15 @@
 * [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md#do-sd-connect-and-sd-desktop-support-federated-authentication-methods)
 * [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md#does-csc-provide-multi-factor-authentication-mfa)
 
-**Collaborative projects**
-* [How can I share sensitive data with my collaborators?]
-
-
 **General characteristics of the services**
 
-* [Are CSC Sensitive Data Services suitable for any research professional?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data Services suitable for any research project?]
-* [I am not an expert of cloud services and cloud computing, where should I start]?
-* [What type of data can I process using the services?](sensitive-data-general.md) 
-* [Do you provide a backup service?](sensitive-data-general.md) 
-* [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md) 
-* [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md) 
-* How long does it take to learn using SD Connect and SD Desktop?
-* How long does it take to set up a private workspace with SD Connect and SD Desktop?
+* [Are CSC Sensitive Data Services suitable for any research professional?](sensitive-data-general.md#are-csc-sensitive-data-services-suitable-for-any-research-professional) 
+* [What type of data can I process using the services?](sensitive-data-general.md#are-csc-sensitive-data-services-suitable-for-any-research-project) 
+* [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
+* [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md#can-i-store-or-process-real-data-using-the-current-open-beta-versions-of-sd-connect-and-sd-desktop) 
+* [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md#what-does-the-open-beta-versions-status-of-sensitive-data-services-imply-in-practice) 
+* [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
+
 
 **Encryption**
 
