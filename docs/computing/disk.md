@@ -164,7 +164,7 @@ The disk area that is suitable for the temporary files that are only visible wit
 the login or compute node depends on the type of the node. If the application depends
 on the use of temporary files, the suitability of the filesystem may have a large effect
 on the performance of the application, see section "Mind your I/O - it can make a big
-difference" in the [Performance Checklist](performance-checklist.md). Please note that
+difference" in the [Performance Checklist](running/performance-checklist.md). Please note that
 some applications use temporary files "behind the scenes." Usually these applications
 read some environment variable that points to a suitable disk area, such as `$TMPDIR`.
 
