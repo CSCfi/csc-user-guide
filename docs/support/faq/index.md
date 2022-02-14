@@ -96,12 +96,12 @@
 
 **Encryption**
 
-* [Why do I need to encrypt my data?](sensitive-data-encryption.md)
-* [Do sensitive data always need to be encrypted during data transfer (e.g. using an  SHH connection)?](sensitive-data-encryption.md)
-* [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md)
-* [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md)
-* [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md)
-* [Do CSC Sensitive Data Services allow the use of customers' own encryption keys?](sensitive-data-encryption.md)
+* [Why do I need to encrypt my data?](sensitive-data-encryption.md#why-do-i-need-to-encrypt-my-data)
+* [Do sensitive data always need to be encrypted during data transfer (e.g. using an SHH connection)?](sensitive-data-encryption.md#does-sensitive-data-always-need-to-be-encrypted-during-data-transfer-eg-using-an-shh-connection)
+* [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md#what-methods-can-i-use-to-encrypt-the-data-how-can-i-use-the-csc-public-encryption-key)
+* [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-crypt4gh)
+* [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-crypt4gh-encryption)
+* [Do CSC Sensitive Data Services allow the use of customers' own encryption keys?](sensitive-data-encryption.md#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys)
 * [Can I share my public encryption key?](sensitive-data-encryption.md)
 * [Can I share my private encryption key?](sensitive-data-encryption.md)
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
