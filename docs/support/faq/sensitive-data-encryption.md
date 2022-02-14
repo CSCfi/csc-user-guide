@@ -15,7 +15,7 @@ You can encrypt data in any format with Crypt4GH (e.g., video, images, text file
 # What is the new extension added to my files after Crypt4GH encryption?
 When encryption with Crypt4GH is successful, the file extension ends with .c4gh. The extension will be removed when once the file is decrypted. 
 
-# Do CSC  Sensitive Data services allow the use of customers' encryption keys?
+# Do CSC Sensitive Data services allow the use of customers' encryption keys?
 Yes. You can encrypt the data with your own permanent encryption key pair. In this case, however, the data will not be automatically decrypted if downloaded into your private computing environment in SD Desktop. We are working to support data multiple encryption keyfor data streaming from SD Connect to SD Desktop. 
 
 # Can I share my public encryption key with others?
