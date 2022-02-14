@@ -92,7 +92,7 @@
 * [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md#can-i-store-or-process-real-data-using-the-current-open-beta-versions-of-sd-connect-and-sd-desktop) 
 * [What does the Open Beta versions status of Sensitive Data Services imply in practice?](sensitive-data-general.md#what-does-the-open-beta-versions-status-of-sensitive-data-services-imply-in-practice) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-* [How can I share sensitive data with my collaborators]
+* [How can I share sensitive data with collaborators](sensitive-data-general.md#how-can-i-share-sensitive-data-with-collaborators)
 
 **Encryption**
 
@@ -102,32 +102,31 @@
 * [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-crypt4gh)
 * [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-crypt4gh-encryption)
 * [Do CSC Sensitive Data Services allow the use of customers' own encryption keys?](sensitive-data-encryption.md#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys)
-* [Can I share my public encryption key?](sensitive-data-encryption.md)
+* [Can I share my public encryption key?](sensitive-data-encryption.md#can-i-share-my-public-encryption-key-with-others)
 * [Can I share my private encryption key?](sensitive-data-encryption.md)
-* [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md)
-* [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md)
+* [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md#can-i-share-my-private-encryption-key-with-others)
+* [Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?](sensitive-data-encryption.md#do-i-need-to-generate-a-new-key-pair-every-time-i-encrypt-a-new-dataset)
 
 **SD Connect**
 
-* [What are the technical specifications of the service?](sensitive-data-connect-md)
-* [How long can I store data in SD Connect for?](sensitive-data-connect-md)
-* [What is the difference between SD Connect and Allas?](sensitive-data-connect-md)
+* [What are the technical specifications of the service?](sensitive-data-connect.md#what-are-the-technical-specifications-of-the-service)
+* [How long can I store data in SD Connect for?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect-for)
+* [What is the difference between SD Connect and Allas?](sensitive-data-connect.md#what-is-the-difference-between-sd-connect-and-allas)
 
 **SD Desktop**
 
-* [Can I access/analyze encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md)
-* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md)
-* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md)
-* [What are the technical specifications of the service?](sensitive-data-desktop.md)
-* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md)
+* [Can I access/analyze encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md#can-i-accessanalyze-encrypted-data-stored-in-sd-connect-using-sd-desktop)
+* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md#can-i-editannotate-data-using-sd-desktop)
+* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md#does-csc-provide-sd-desktop-operating-system-software-and-security-updates)
+* [What are the technical specifications of the service?](sensitive-data-desktop.md#what-are-the-technical-specifications-of-the-service)
+* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md#what-type-of-file-can-i-analyze-using-sd-desktop)
 * [What software is available on SD Desktop?](sensitive-data-desktop.md#what-software-is-available-on-sd-desktop)
-* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md)
-* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md)
-* [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md)
+* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md#who-can-access-my-private-computing-environment-in-sd-desktop)
+* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md#what-is-the-difference-between-sd-desktop-and-epouta)
+* [Why do I see the word guacamole in the URL next to sd-desktop.csc.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
 
 
 
-You can share sensitive data with your collaborators in two different ways. 1) You can transfer encrypted sensitive data using SD Connect. This operation requires a few planning steps and you can learn more in our quick guide or user guide. 2) Another way to share sensitive data with collaborators is to give them access to your SD Desktop. They will then be able to analyze the sensitive data you previously downloaded to SD Desktop, but they will not be able to export it outside the Desktop or make copies of it.
 
 
 
