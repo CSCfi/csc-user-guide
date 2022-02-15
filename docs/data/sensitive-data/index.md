@@ -21,8 +21,6 @@
  * **Login**
    
  * **User Interface Pages**
- 
- * **Encryption with CSC encryption key - User Interface**
    
  * **Sensitive data encryption and upload (less than 1 GB)**
  
