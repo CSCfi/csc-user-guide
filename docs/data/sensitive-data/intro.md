@@ -4,7 +4,8 @@
 
 ## Introduction
 
-Sensitive Data Services for Research provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about Sensitive Data services for Research and future developments check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data) or [FAQs](./faq-index.md).
+Sensitive Data Services for Research provide CSC customers a secure cloud computing environment that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use). The services are currently released in Open Beta. To learn more about Sensitive Data services for Research and future developments check the [Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data) or [FAQs](./sensitive-data/faq-index.md).
+
 
 Sensitive Data Services for Research (Open Beta) consists of two components:
 
