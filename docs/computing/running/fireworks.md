@@ -12,7 +12,7 @@ The process of setting up and connecting to a MongoDB database in Rahti is detai
 
 ## Defining and executing workflows with FireWorks
 
-The basic components of FireWorks are the 
+The basic components of FireWorks are the
 
 - LaunchPad (manages workflows and metadata)
 - FireTask (computing job to be performed)
@@ -28,7 +28,7 @@ A FireWorker (e.g. your laptop or in this case either of CSC's supercomputers) f
 
 Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using WebSocat as outlined in [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md). Note that `websocat` should be launched in an interactive session to avoid stressing the login nodes. With the obtained target port, database username and password, run `lpad init` to interactively configure the LaunchPad:
 
-```
+```console
 $ lpad init
 
 Please supply the following configuration values
@@ -80,7 +80,10 @@ For all possible SLURM flags that can be specified in the QueueAdapter, see the 
 
 ### Step 3. Defining and executing a simple FireWorks workflow
 
-A FireTask describes the computation to be performed and combining multiple FireTasks yields Fireworks and Workflows. Similar to the LaunchPad and QueueAdapter, these can be specified using YAML files. A simple `hello_wf.yaml` example is shown below.
+!!! Note
+    If not using the default names `my_launchpad.yaml` and `my_qadapter.yaml` for the LaunchPad and QueueAdapter files, you need to specify the filenames using the `-l` and `-q` flags of the `qlaunch` and `rlaunch` commands (only `-l` for `rlaunch`). If the files are neither in the current working directory, the full paths should be given or a configuration directory specified with the `-c` option. A good idea is also to leverage a `FW_config.yaml` configuration file in which several default parameters can be set. The official FireWorks documentation gives further instructions on [how to use the FW config file](https://materialsproject.github.io/fireworks/config_tutorial.html).
+
+A FireTask describes a subtask to be performed and combining multiple FireTasks yields Fireworks and Workflows. Similar to the LaunchPad and QueueAdapter, these can be specified using YAML files. A simple `hello_wf.yaml` example is shown below.
 
 ```yaml
 fws:
@@ -110,11 +113,11 @@ links:
 metadata: {}
 ```
 
-This toy workflow demonstrates the usage of the built-in `ScriptTask` FireTask to execute an [MPI parallelized `hello_mpi.x` program](https://a3s.fi/hello_mpi.x/hello_mpi.x) through the shell. After this, the output is moved to the user's home directory using a `FileTransferTask`. To illustrate dependencies, the workflow is composed of two identical Fireworks of which the second is launched only after the first one has completed. This connection is enforced using the `links` section. See the official FireWorks documentation for a more in depth description on [how to design FireWorks workflows](https://materialsproject.github.io/fireworks/workflow_tutorial.html).
+This toy workflow demonstrates the usage of the built-in `ScriptTask` FireTask to execute an MPI parallelized [`hello_mpi.x`](https://a3s.fi/hello_mpi.x/hello_mpi.x) program. Upon completion, the output is moved to the user's home directory using a `FileTransferTask`. To illustrate dependencies, the workflow is composed of two identical Fireworks of which the second is launched only after the first one has completed. This connection is enforced using the `links` section. See the official FireWorks documentation for a more in depth description on [how to design FireWorks workflows](https://materialsproject.github.io/fireworks/workflow_tutorial.html).
 
-The steps to execute this example workflow through the batch queue system consist of resetting the LaunchPad, adding the workflow YAML file to the database and, finally, launching the workflow.
+The steps to execute this example workflow through the batch queue system consist of resetting the LaunchPad, adding the workflow YAML file to the database and, finally, submitting the workflow using the `qlaunch` command.
 
-```bash
+```console
 $ lpad reset
 Are you sure? This will RESET 1 workflows and all data. (Y/N)
 2022-02-14 11:42:59,323 INFO Performing db tune-up
@@ -128,26 +131,21 @@ $ qlaunch singleshot
 2022-02-14 11:44:09,847 INFO submitting queue script
 ```
 
-The `qlaunch` command is used to launch the workflow through the queue instead of the basic `rlaunch` command that is normally used in absence of a batch queue system. However, `rlaunch` is still used inside the `my_qadapter.yaml` file where FireWorks is instructed how the workflow should be run *within* the batch job. In the above case, the `multi 1` option is used to run a single parallel job using all the requested resources. For further details on running parallel jobs using FireWorks, see the [official documentation on the multi job launcher](https://materialsproject.github.io/fireworks/multi_job.html).
-
-!!! Note
-    If not using the default names `my_launchpad.yaml` and `my_qadapter.yaml` for the LaunchPad and QueueAdapter files, you need to specify the filenames using the `-l` and `-q` flags of the `qlaunch` and `rlaunch` commands (only `-l` for `rlaunch`). If the files are neither in the current working directory, the full paths should be given or a configuration directory specified with the `-c` flag. A good idea is also to leverage a `FW_config.yaml` configuration file in which several default parameters can be set. The official FireWorks documentation gives further instructions on [how to use the FW config file](https://materialsproject.github.io/fireworks/config_tutorial.html).
-
-The `multi` launcher is designed to spawn a specified number of workers that run FireTasks with identical resources requirements in parallel. If more than one worker is specified, `srun` commands issued within any `ScriptTask` must be modified to use the appropriate amount of tasks/threads together with the `--exclusive` option so that the tasks are actually able to run concurrently within the same resource allocation. For example if one full Puhti node (40 cores) is requested for running two concurrent MPI jobs (`multi 2`), the FireTasks should read `srun -n 20 --exclusive <my program>`. However, beware of idling resources if the FireTasks complete asynchronously.
-
-!!! Note
-    Each time `srun` is issued a SLURM job step is created. If your workflow is composed of a large number of FireTasks in which `srun` is run, the SLURM log will get bloated, which risks degrading the performance of the batch queue system. If unavoidable, consider using `orterun` instead of `srun` to launch your parallel jobs through the queue, or use another workflow tool that packs your tasks within a single large job step. Note also that serial jobs do not require the usage of `srun`. Don't hesitate to [contact our Service Desk](../../support/contact.md) if you're unsure about the efficiency of your workflow.
-
-Based on the content of the `my_qadapter.yaml` file, FireWorks creates a submission script `FW_submit.script` and automatically submits it when `qlaunch` is run. The `singleshot` option was used above to launch a single batch job. If you have multiple workflows in your LaunchPad ready to be executed, you can use the `rapidfire` option to execute them all in separate batch jobs.
+Based on the content of the `my_qadapter.yaml` file, FireWorks creates a submission script `FW_submit.script` and automatically submits it when `qlaunch` is run. The `singleshot` option is used above to launch a single batch job. If you have multiple workflows in your LaunchPad ready to be executed, you can use the `rapidfire` option to execute them all as separate batch jobs.
 
 !!! Note
     The `rapidfire` mode is designed such that it will continuously pull jobs from the LaunchPad that are marked as `READY`. This state applies also for jobs that have already been submitted, but are still queueing. Consequently, too many workflows can accidentally be submitted to the queue! To avoid duplicates, the `-m` and `--nlaunches` options can be used to limit the number of simultaneous jobs in the queue and the total number of jobs to be submitted, respectively. See the official FireWorks documentation on [how to launch jobs through a queue](https://materialsproject.github.io/fireworks/queue_tutorial.html) for further details.
+
+Although `qlaunch` is run instead of the basic `rlaunch` command that is normally used in the absence of a batch queue system, `rlaunch` is still used inside the `my_qadapter.yaml` file to instruct FireWorks how the workflow should be run *within* the batch job. In the above case, the `multi 1` option is used to launch a single parallel job using all the requested resources. The `multi` launcher is designed to spawn a specified number of workers that run FireTasks with identical resources requirements in parallel. If more than one worker is specified, `srun` commands issued within any `ScriptTask` must be modified to use the appropriate amount of tasks/threads together with the `--exclusive` option so that the jobs are actually able to run concurrently within the same resource allocation. For example if one full Puhti node (40 cores) is requested for running two concurrent MPI jobs (`multi 2`), the FireTasks should read `srun -n 20 --exclusive <my program>`. However, beware of idling resources if the FireTasks complete asynchronously! For further details on running parallel jobs using FireWorks, see the [official documentation on the multi job launcher](https://materialsproject.github.io/fireworks/multi_job.html).
+
+!!! Note
+    Each time `srun` is issued, a SLURM job step is created. If your workflow is composed of a large number of FireTasks in which `srun` is used, the SLURM log will get bloated, risking degrading the performance of the batch queue system. If unavoidable, consider using `orterun` instead of `srun` to launch your parallel jobs through the queue, or use another workflow tool that packs your tasks within a single large job step. Note also that serial jobs do not require the usage of `srun`. Don't hesitate to [contact our Service Desk](../../support/contact.md) if you're unsure about the efficiency of your workflow.
 
 ### Step 4. Monitoring the state of your workflow
 
 After running `qlaunch` you'll see that your job has been submitted to the queue, and using the `lpad get_fws` command you're able to [query the current state of your workflow](https://materialsproject.github.io/fireworks/query_tutorial.html). Before the job starts running, the command will show that the first Firework is marked as `READY` to be run, while the second one is `WAITING` because we told FireWorks not to launch it before the first one has completed.
 
-```bash
+```console
 $ lpad get_fws
 [
     {
