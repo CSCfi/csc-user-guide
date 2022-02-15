@@ -172,6 +172,7 @@ nav:
         - SD Desktop: data/sensitive-data/sd_desktop.md
         - Pre-installed software: data/sensitive-data/pre-installed_software.md
         - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
+#       - FAQ: data/sensitive-data/faq-index.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
