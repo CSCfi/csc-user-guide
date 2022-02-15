@@ -1,6 +1,6 @@
 # Training & tutorials
 
-## FireWorks workflow tool 15.2.2022
+## FireWorks workflow tool, 15.2.2022
 
 A [guide on using FireWorks](../../computing/running/fireworks.md) in CSC's computing environment has been released. The guide explains how to use an external MongoDB on Rahti as a backend database for FireWorks and how to launch workflows running parallel jobs through the batch queue system.
 
