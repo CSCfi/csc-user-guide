@@ -32,6 +32,8 @@
  
  * **Troubleshooting**
  
+ 
+ [FAQ](faq_index.md)
 
   
 
