@@ -31,9 +31,6 @@
  * **Data Sharing**
  
  * **Troubleshooting**
- 
- 
- [FAQ](faq_index.md)
 
   
 
