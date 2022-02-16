@@ -1,14 +1,14 @@
 {#-
   This file was automatically generated - do not edit
 -#}
-{% set analytics = config.google_analytics %}
+
 <script>
   window.ga = window.ga || function() {
     (ga.q = ga.q || []).push(arguments)
   }
   ga.l = +new Date
   /* Setup integration and send page view */
-  ga("create", "{{ analytics[0] }}", "{{ analytics[1] }}")
+  ga("create", "{{ config.extra.analytics.property }}", "auto")
   ga("set", "anonymizeIp", true)
   ga("send", "pageview")
   /* Register handler to log search on blur */
