@@ -43,16 +43,18 @@ drive](#fast-local-drive).
 The training data for machine learning models often consists of a huge number of
 files. A typical example is training a neural network with tens of thousands of
 relatively small JPEG image files. Unfortunately the Lustre file system used in
-`/scratch`, `/projappl` and users' home directories does not perform well when
-opening a lot of files or when performing many small reads. In addition to
-slowing down the computation it may also in extreme cases **cause noticeable
-slowdowns for all users of the supercomputer, sometimes making the entire
-supercomputer unusable for hours**.
+`/scratch`, `/projappl` and users' home directories does not perform
+well with random access of a lot of files or when performing many
+small reads. In addition to slowing down the computation it may also
+in extreme cases **cause noticeable slowdowns for all users of the
+supercomputer, sometimes making the entire supercomputer unusable for
+hours**.
 
 !!! note
 
     Please **do not read a huge number of files from the shared file system**.
-    Use the fast local drives or package your data into larger files instead!
+    Use the fast local drives or package your data into larger files
+    for sequential access instead!
 
 For further reading, see CSC's [technical description of the Lustre
 filesystem](../../computing/lustre.md) and our general tutorial on [how to
@@ -61,18 +63,23 @@ achieve better I/O performance on Lustre](lustre_performance.md).
 
 ### More efficient data format
 
-Many machine learning frameworks support formats for packaging your data more
-efficiently. For example [TensorFlow's
-TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) format. Other
-examples include using
+Many machine learning frameworks support formats for packaging your
+data more efficiently. Common formats include [TensorFlow's
+TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) and
+[WebDataset](https://github.com/webdataset/webdataset) for PyTorch.
+Other examples include using
 [HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
-or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/) formats, or
-even humble ZIP-files, e.g., via Python's
-[zipfile](https://docs.python.org/3/library/zipfile.html) library. The main
-point with all of these is that instead of many thousands of small files you
-have one or a few bigger files, which are much more efficient to access and read
-linearly. Don't hesitate to [contact our service desk](../contact.md) if you
-need advice about how to access your data more efficiently.
+or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/)
+formats, or even humble ZIP-files, e.g., via Python's
+[zipfile](https://docs.python.org/3/library/zipfile.html) library.
+See also [an example of creating TFRecord files from an image
+dataset](https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb).
+
+The main point with all of these formats is that instead of many
+thousands of small files you have one or a few bigger files, which are
+much more efficient to access and read sequentially. Don't hesitate to
+[contact our service desk](../contact.md) if you need advice about how
+to access your data more efficiently.
 
 
 ### Fast local drive
