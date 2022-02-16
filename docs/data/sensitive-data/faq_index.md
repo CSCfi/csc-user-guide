@@ -1,3 +1,4 @@
+
 # Sensitive Data Services for research FAQs.
 
 **Access and authentication** 
@@ -69,7 +70,6 @@
 * [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md#what-is-the-difference-between-sd-desktop-and-epouta)
 * [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
-
 
 
 
