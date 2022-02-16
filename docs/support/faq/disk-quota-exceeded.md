@@ -27,8 +27,6 @@ new files in this file area, delete or re-arrange files or apply for more
 quota.
 
 !!!  "Important note!" 
-      if you exceed disk quota in HOME/PROJAPPL directory upon conda-based installations of your software on Puhti/Mahti, we recommend using containerised 
-      applications instead. The conda-based installations unfortunately result in the creation of excessive number of files which can cause extra overhead on Lustre       parallel file system in HPC environment. In some cases, you can clearly see the inordinate delays in the activation time of conda environment. When possible,       adapt container-based installation as the choice of installation method for better performance. We support HPC-compliant singularity containers on       
-      Puhti/Mahti. If you are new to the concept of containers, you can consult the following relevant sections of tutorials which are collected as part of previous       CSC courses:
-           - [Using CSC HPC Environment Efficiently course](https://csc-training.github.io/csc-env-eff/)
-           - [Containers and Workflows in Bioinformatics course](https://yetulaxman.github.io/containers-workflows/)
+if you exceed disk quota in HOME/PROJAPPL directory upon conda-based installations of your software on Puhti/Mahti, we recommend using containerised applications instead. The conda-based installations unfortunately result in the creation of excessive number of files which can cause extra overhead on Lustre parallel file system in HPC environment. In some cases, you can clearly see the inordinate delays in the activation time of conda environment. When possible, adapt container-based installation as the choice of installation method for better performance. We support HPC-compliant singularity containers on Puhti/Mahti. If you are new to the concept of containers, you can consult the following relevant sections of tutorials which are collected as part of previous CSC courses:
+    - [Using CSC HPC Environment Efficiently course](https://csc-training.github.io/csc-env-eff/)
+    - [Containers and Workflows in Bioinformatics course](https://yetulaxman.github.io/containers-workflows/)
