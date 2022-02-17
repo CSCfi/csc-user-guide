@@ -8,13 +8,19 @@ permission is also enabled so that any new files and folders are owned
 by project group by default. Note that also the set gid permissions is
 inherited to all new folders.
 
-If the set gid permission of any subdirectory is removed on purpose or
-by accident, all new files and folders within that subdirectory will
-be owned by the user's default personal group and other group members
-can't access them. If the access is needed then the owner of those
-files and folders should change the group and fix the permissions.
-Note that many tools and installation scripts do modify the default
-permissions.
+You can check the permissions using `ls -l` command. Correct default
+permissions for a subfolder are `drwxrws---`. Note the small `s`
+letter instead of `x` in the group permissions. If you see capital `S`
+instead, the directory doesn't have execute permissions which are
+needed for group-level access.
+
+If the set gid permission of any subdirectory
+is removed on purpose or by accident, all new files and folders within
+that subdirectory will be owned by the user's default personal group
+and other group members can't access them. If the access is needed
+then the owner of those files and folders should change the group and
+fix the permissions. Note that many tools and installation scripts do
+modify the default permissions.
 
 Example of missing SGID permission:
 ```bash
