@@ -173,7 +173,7 @@ class Internal_link:
         self.is_absolute= self.link_file_target[0]=='/'         
         self.ends_with_md=self.link_file_target[-3:]==".md"
         self.source_is_index=self.source_file.is_index_file
-        self.target_is_index= self.link_file_target[-8:]=="index.md"
+        self.target_is_index= self.link_file_target.split('/')[-1]=="index.md"
         self.has_file_ending=re.search("\.[A-Z,a-z,0-9]*$",ft) !=None
         self.has_other_ending=(self.has_file_ending and not self.ends_with_md)
         source=""
