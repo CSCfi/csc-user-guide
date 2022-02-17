@@ -4,7 +4,10 @@
 
 ## Installing FireWorks
 
-FireWorks is easy to install. We recommend using `pip` to install FireWorks, either in a virtual environment or to your Python user install directory. For further instructions, see [how to install Python packages to existing modules](../../apps/python.md#installing-python-packages-to-existing-modules).
+FireWorks is easy to install. We recommend using `pip` to install FireWorks alongside CSC's pre-installed Python environments. For further instructions, see [how to install Python packages to existing modules](../../apps/python.md#installing-python-packages-to-existing-modules).
+
+!!! Note
+    Do not use Conda to install FireWorks. [CSC has deprecated the direct usage of Conda](../../support/deprecate-conda.md) installations on our supercomputers to avoid performance issues on the Lustre parallel file system due to the large number of files brought by Conda. As a comparison, a Conda installation of FireWorks contains more than 24000 files, while an installation using `pip install --user fireworks` alongside the `python-data` module only adds about 800.
 
 ## Setting up MongoDB in Rahti
 
