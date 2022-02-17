@@ -22,7 +22,7 @@ Configuring MongoDB and WebSocat on Rahti can be done either through the web int
 
 - Log in to the [Rahti web interface](https://rahti.csc.fi:8443). See [Getting access](../access.md) for instructions
 - Select MongoDB from the front page catalog
-- Configure the database. You need to at least select or create a project to which you want to add the database. If creating a new project, make sure to include your CSC project number in the description (e.g. 2001234)
+- Configure the database. You need to at least select or create a Rahti project to which you want to add the database. If creating a new project, make sure to include your CSC project number in the description, e.g. `csc_project: 2001234`
 - Create the database and take note of:
     - Username
     - Password
@@ -32,8 +32,8 @@ Configuring MongoDB and WebSocat on Rahti can be done either through the web int
     - Target port (27017 by default)
     - Hostname address (of the form `<service name>.<project name>.svc`)
 - An [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml) is needed to configure WebSocat on Rahti. Download or copy this YAML file to your clipboard. Note that this is an unsupported beta template
-- On the Rahti web interface front page, select Import YAML/JSON and add the WebSocat template to the same project as the MongoDB (upload by dragging & dropping, selecting it, or pasting from the clipboard)
-- Process the template and input the above hostname and target port in the requested database service name and database port fields
+- On the Rahti web interface front page, select Import YAML/JSON and add the WebSocat template to the same project as the MongoDB (upload by dragging & dropping, selecting it, or pasting from the clipboard). Do not edit the template!
+- Select Create, process the template and input the above hostname and target port in the requested database service name and database port fields
 - Select the created project, navigate to `Applications > Services` and select the WebSocat service. Take note of:
     - Route hostname (of the form `websocat-<project name>.rahtiapp.fi`)
 
@@ -46,7 +46,7 @@ Configuring MongoDB and WebSocat on Rahti can be done either through the web int
 oc login https://rahti.csc.fi:8443 -u <username> -p <password>
 ```
 
-- Create a new project (namespace) or switch to existing one. If creating a new project, make sure to include your CSC project number in the description (e.g. 2001234)
+- Create a new project (namespace) or switch to existing one. If creating a new project, make sure to include your CSC project number in the description, e.g. `csc_project: 2001234`
 
 ```bash
 oc new-project <project name> --display-name='My new project' --description='csc_project: <project number>'
@@ -66,7 +66,7 @@ oc new-app --template=mongodb-persistent
 oc new-app --file=/path/to/websocat-template.yaml --param=DATABASE_SERVICE=<service name>.<project name>.svc --param=DATABASE_PORT=<port>
 ```
 
-- Take note of route hostname of the form `websocat-<project name>.rahtiapp.fi`. You can check this later with `oc get route websocat`.
+- Take note of route hostname of the form `websocat-<project name>.rahtiapp.fi`. You can check this later with `oc get route websocat`
 
 ## Step 2: Running WebSocat on CSC supercomputers
 
@@ -76,10 +76,10 @@ MongoDB and WebSocat have now been set up on Rahti and you should have the follo
 
 ```bash
 wget -O websocat https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static
-export PATH=$PATH:/path/to/websocat
+export PATH=$PATH:$PWD
 ```
 
-- We do not want to run WebSocat on the login node, so open an interactive session with `sinteractive -i` and launch `websocat`. By passing 0 as the target port, WebSocat gets handed an available port which we can extract using `lsof` (the below commands are conveniently put into a script)
+- We do not want to run WebSocat on the login node, so open an interactive session with `sinteractive -i` and launch `websocat`. By passing 0 as the target port, WebSocat gets handed an available port which we can extract using `lsof` (the below commands are conveniently put into a script). Recall that the `<project name>` placeholder in the route hostname provided to `websocat` refers to the name of your Rahti project
 
 ```bash
 websocat -b tcp-l:127.0.0.1:0 wss://websocat-<project name>.rahtiapp.fi -E &
@@ -92,15 +92,17 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 !!! Note
     If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
 
-- Now `websocat` is running in the interactive session/batch job and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials.
+- Now `websocat` is running in the interactive session/batch job and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
 
 ```python
+# module load python-data
+
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
-client = MongoClient('localhost', port=<port>, password=<password>, username=<username>, authSource=<database name>)
+client = MongoClient('localhost', port=<port>, password='<password>', username='<username>', authSource='<database name>')
 try:
-    client.admin.command('ping')
+    print(client.admin.command('ping'))
 except ConnectionFailure:
     print('Server not available')
 ```
