@@ -169,3 +169,10 @@ oc new-build -D $'FROM centos:7'
 ```
 
 In this example, we will build an image that is a copy of `CentOS 7`.
+
+It is also possible to create a build from a given `Dockerfile`:
+
+```bash
+cat Dockerfile | oc new-build -D -
+```
+
