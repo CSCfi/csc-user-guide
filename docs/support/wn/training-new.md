@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## Tutorial on accessing databases on Rahti from CSC supercomputers, 8.2.2022
+
+A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
+
 ## New machine learning guide released, 20.12.2021
 
 Our [Machine learning guide](../tutorials/ml-guide.md) has been updated and
