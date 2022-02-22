@@ -27,7 +27,7 @@ password reset link ordered to your email.
    address associated with your CSC user account.
    
 <figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/watch?v=2QH86rtI4FI&list=PLD5XtevzF3yGwh0M_UiZxNf0bFAXQuEN0&index=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/2QH86rtI4FI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>   
 
 ## Password requirements
