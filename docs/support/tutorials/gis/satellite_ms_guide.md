@@ -46,10 +46,40 @@ What to consider:
     * Command Line Interface (CLI)
     * Application Programming interface (API)
 
-[Global satellite data providers](https://research.csc.fi/open-gis-data#intdata3)
-
 ### Where do I find the data?
 
+The best place to get the data from depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data?
+
+Below is a (uncomplete) list of services, that provide download or download and processing (marked with *) capabilities:
+
+* SciHub and national mirrors
+   * ESA provided Sentinel data
+   * multiple national mirrors (eg FinHub for Finland and Baltics) exist
+* EarthExplorer
+   * Landsat data archive
+   * some Sentinel data 
+* Paikkatietoalusta
+   * pre-processed EO products 
+* CSC *
+* Amazon Web Services *
+* DIAS (Data and Information Access Services) *
+* Terramonitor
+* Sentinelhub
+* Google Earth Engine *
+
+You can find more information about each service from the tabs below:
+
+=== "SciHub"
+
+    [SciHub](https://scihub.copernicus.eu/dhus/#/home)
+
+    * needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
+
+    * Sentinel L1C and L2A products
+    * worldwide
+    * GUI and API
+    * Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
+    
 === "FinHub"
 
     [FinHub](https://finhub.nsdc.fmi.fi/#/home)
@@ -59,26 +89,14 @@ What to consider:
     * only Finland (and Baltics)
     * same GUI and API (older version?) as SciHub
 
-=== "SciHub"
-
-    [SciHub](https://scihub.copernicus.eu/dhus/#/home)
-
-    * needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
-
-    * L1C and L2A
-    * worldwide
-    * GUI and API
-    * Long term archive
-
 === "EarthExplorer"
 
     [Earthexplorer](https://earthexplorer.usgs.gov/)
 
     * needs [registration](https://ers.cr.usgs.gov/register)
 
-    * worldwide
     * lots of different US related datasets 
-    * main: Landsat
+    * main: Landsat worldwide
     * GUI in web interface and bulk download
     * Landsat download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
 
@@ -87,7 +105,7 @@ What to consider:
     Puhti
     * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
         * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
-        * every CSC user has read access
+        * every CSC user has **read** access
     Allas
     * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
         * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
@@ -97,24 +115,32 @@ What to consider:
     * [Sentinel-2 mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
     * instructions on how to use - link to example script
 
-=== AWS
+=== "AWS"
 
 
-=== DIAS - Data and Information Access Services
+=== "DIAS" 
 
-    * [ONDA](https://www.onda-dias.eu/cms/)
-    * [sobloo](https://sobloo.eu/)
-    * [CREODIAS](https://creodias.eu/)
-    * [MUNDI](https://mundiwebservices.com/)
+    * Data and Information Access Services
+    * multiple sites exits:
+
+      * [ONDA](https://www.onda-dias.eu/cms/)
+      * [sobloo](https://sobloo.eu/)
+      * [CREODIAS](https://creodias.eu/)
+      * [MUNDI](https://mundiwebservices.com/)
+    * costs
+    * processing platform with the data, no download needed
+    * data from DIAS objectstorage can easily be transferred to Allas (link to instructions here)
   
-=== [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
-    
+=== "Terramonitor"
+
+    * [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
     * Pre-prosessed, analysis ready Sentinel-2 data
     * Data from Finland available between 2018-2020
     * [Pricing] (https://store.terramonitor.com/category/analysis-ready?6f8e8f38_page=1) 
 
-=== [Sentinelhub](https://www.sentinel-hub.com/explore/)
+=== "Sentinelhub" 
 
+    * [Sentinelhub](https://www.sentinel-hub.com/explore/)
     * Wordlwide
     * Lots of different EO data sets:
       * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
@@ -122,7 +148,7 @@ What to consider:
     * Requires [subscription](https://www.sentinel-hub.com/pricing/)
 
 
-=== Google Earth Engine
+=== "Google Earth Engine"
 
     * Great coverage of analysis ready data worldwide
       * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
@@ -131,9 +157,7 @@ What to consider:
     * [Web-Client](https://code.earthengine.google.com/)
  
 
-  
-
-See also examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
+See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3) and examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
 
 ### Where can I store the data?
 
