@@ -46,8 +46,6 @@ What to consider:
     * Command Line Interface (CLI)
     * Application Programming interface (API)
 
-[Global satellite data providers](https://research.csc.fi/open-gis-data#intdata3)
-
 ### Where do I find the data?
 
 The best place to get the data from depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data?
@@ -136,7 +134,7 @@ You can find more information about each service from the tabs below:
     * [Sentinelhub](https://www.sentinel-hub.com/explore/)
     * [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
 
-See also examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
+See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3) and examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
 
 ### Where can I store the data?
 
