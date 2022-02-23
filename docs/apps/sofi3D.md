@@ -211,11 +211,12 @@ Where the input file is sofi3D.json defined as:
 
 * The output from different workers have to be accessible to each other, as one worker will merge the results from the other workers otherwise it will fail.
 
-## License
+## License and acknowledgement
 
 SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only.
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### Reference
 * [Sofi3D homepage](https://git.scc.kit.edu/GPIAG-Software/SOFI3D)

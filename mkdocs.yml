@@ -89,6 +89,8 @@ nav:
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
          - Annotations: cloud/rahti/tutorials/annotations.md
          - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+         - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -172,6 +174,7 @@ nav:
         - SD Desktop: data/sensitive-data/sd_desktop.md
         - Pre-installed software: data/sensitive-data/pre-installed_software.md
         - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
+#        - FAQ: data/sensitive-data/faq_index.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
@@ -224,6 +227,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
 
-google_analytics:
-  - 'UA-5406715-9'
-  - 'auto'
+extra:
+  analytics:
+    provider: google
+    property: UA-5406715-9
