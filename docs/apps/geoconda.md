@@ -63,7 +63,8 @@ Python has multiple packages for parallel computing, for example
 
 The `geoconda` module is available in Puhti:
 
-* 3.8.8 (Singularity installation with wrappers, the usage of singularity container should not be visible in normal use-cases.)
+* 3.9.10 (Singularity installation, for normal use-case, this should not have an influence on usage)
+* 3.8.8 (Singularity installation with wrappers, for normal use-case, this should not have an influence on usage)
 * 3.8-deprecated 
 * 3.7-deprecated 
 
