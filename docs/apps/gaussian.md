@@ -56,7 +56,7 @@ the memory reservation from 10GB to 20GB, doesn't speed up the calculation but o
 cost. The job is slightly faster on Mahti using 128 cores compared to 40 cores on Puhti but the
 cost is significantly higher.   
 
-If we do the same calculation but increase the size of the basis set to `b3lyp/cc-pVDZ` the results are:
+If we do the same calculation but increase the size of the basis set to `b3lyp/cc-pVTZ` the results are:
 
 | platform/cores      | wall time(hh:mm:ss) |  billing units       |
 | ------------------: | ------------------: |  ------------------: |
