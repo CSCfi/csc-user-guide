@@ -97,17 +97,41 @@ What to consider:
     * [Sentinel-2 mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
     * instructions on how to use - link to example script
 
-=== "others"
+=== AWS
 
-    * [AWS](https://registry.opendata.aws/sentinel-2/)
-    * DIAS - Data and Information Access Services
-        * [ONDA](https://www.onda-dias.eu/cms/)
-        * [sobloo](https://sobloo.eu/)
-        * [CREODIAS](https://creodias.eu/)
-        * [MUNDI](https://mundiwebservices.com/)
-    * [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
-    * [Sentinelhub](https://www.sentinel-hub.com/explore/)
-    * [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+
+=== DIAS - Data and Information Access Services
+
+    * [ONDA](https://www.onda-dias.eu/cms/)
+    * [sobloo](https://sobloo.eu/)
+    * [CREODIAS](https://creodias.eu/)
+    * [MUNDI](https://mundiwebservices.com/)
+  
+=== [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
+    
+    * Pre-prosessed, analysis ready Sentinel-2 data
+    * Data from Finland available between 2018-2020
+    * [Pricing] (https://store.terramonitor.com/category/analysis-ready?6f8e8f38_page=1) 
+
+=== [Sentinelhub](https://www.sentinel-hub.com/explore/)
+
+    * Wordlwide
+    * Lots of different EO data sets:
+      * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
+      * [Sentinel-1] (https://collections.sentinel-hub.com/sentinel-1-grd/)
+    * Requires [subscription](https://www.sentinel-hub.com/pricing/)
+
+
+=== Google Earth Engine
+
+    * Great coverage of analysis ready data worldwide
+      * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+      * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
+    * [Registration](https://signup.earthengine.google.com/)
+    * [Web-Client](https://code.earthengine.google.com/)
+ 
+
+  
 
 See also examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
 
@@ -192,7 +216,32 @@ What to consider:
 
     Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox.org/CookBook/CliInterface.html), [Graphical User Interface](https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html), Python API and as plugin to other applications.
     
-    * GUI (https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html) 
+    * GUI (https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html)
+
+    ###### Google Earth Engine
+     
+    A platform for planetary-scale Earth observation data and analysis
+    * Usage:
+        * [registration](https://signup.earthengine.google.com/)
+        * From the browser: https://code.earthengine.google.com/
+        * Python: 
+            * https://developers.google.com/earth-engine/guides/python_install
+            * https://geemap.org/
+        * R: https://github.com/r-spatial/rgee
+    * Pros:
+        * great coverage of analysis ready data
+        * rather easy to use, nice tool to test new ideas
+        * lots of case studies and tutorials:
+          * https://developers.google.com/earth-engine/tutorials
+          * https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine
+           
+    * Cons:
+        * Google Cloud Storage might be needed to export large datasets
+        * Not always suitable for small-scale analysis
+        * some errors might occur due pre-processing
+
+
+
 
 === "CLI"
 
