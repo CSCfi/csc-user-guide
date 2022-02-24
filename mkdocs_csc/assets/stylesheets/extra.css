@@ -192,7 +192,7 @@ body {
     text-decoration: underline;
 }
 
-.md-nav__item .md-nav__link--active {
+.md-nav__item--nested .md-nav__link--active {
     color:rgb(64, 64, 64);
 }
 
