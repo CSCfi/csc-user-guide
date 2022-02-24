@@ -219,7 +219,7 @@ module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
-# Create a list for the directories, convenient if there are many
+# Create a list of the directories, convenient if there are many
 list=()
 for i in `seq 8`
 do
