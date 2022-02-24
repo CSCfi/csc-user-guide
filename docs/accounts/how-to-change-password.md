@@ -25,6 +25,10 @@ password reset link ordered to your email.
 1. Click _Forgot your password?_
 1. Enter your CSC username and click _Next_. Instructions are sent to the email
    address associated with your CSC user account.
+   
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/2QH86rtI4FI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>   
 
 ## Password requirements
 
