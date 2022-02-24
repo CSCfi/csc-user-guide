@@ -231,7 +231,7 @@ srun gmx_mpi mdrun -multidir ${list[@]} -deffnm md_0_1 -dlb yes
 
 By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
 
-![Root-mean-squared-deviations of the simulated lysozyme replicas](../img/multidir-rmsd.svg)
+![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
 
 For further details on running Gromacs multi-simulations, see the [official Gromacs documentation](https://manual.gromacs.org/documentation/current/user-guide/mdrun-features.html#running-multi-simulations).
 
