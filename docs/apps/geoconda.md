@@ -122,6 +122,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 -   [Automating GIS processes course materials], where most of the exercises are done using Python (University of Helsinki)
 -   [Geohack Week materials]
 -   [Multiprocessing Basics]
+-   [Geographic Data Science with Python]
+-   [Aalto Spatial Analytics course material]
 
 ------------------------------------------------------------------------
 
@@ -161,3 +163,6 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
   [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
   [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
   [CSC Python parallelisation examples]: https://github.com/csc-training/geocomputing/tree/master/python/puhti
+  [Geographic Data Science with Python] : https://geographicdata.science/book/intro.html
+  [Aalto Spatial Analytics course material] : https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html
+
