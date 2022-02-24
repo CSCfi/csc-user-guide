@@ -16,7 +16,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti: 2.4.1, 2.3.5.1
+-   Puhti: 2.4.4, 2.4.1, 2.3.5.1
 -   Chipster graphical user interface
 
 
