@@ -23,4 +23,4 @@ at CSC, but you can of course develop or install your own.
 
 * [Nextflow](../../support/tutorials/nextflow-puhti.md) singularity 
   container based bioinformatics pipelines on Puhti
-* TBC
+* [`multidir` option of Gromacs] allows running multiple concurrent simulations within one Slurm allocation
