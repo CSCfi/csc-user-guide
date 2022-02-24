@@ -35,6 +35,7 @@ includes following python packages:
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
 -   [xarray](http://xarray.pydata.org) - for multidimensional raster data. 
+-   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
     
