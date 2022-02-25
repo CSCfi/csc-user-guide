@@ -88,6 +88,73 @@ Nodes|d1|d2|d4|d8
 * There are additional 7.1 versions available at `/appl/soft/chem/cp2k/7.1_extra`, please
   see corresponding `README.txt`, but `cp2k/7.1-elpa` and `cp2k/8.2-omp` are the fastest found so far.
 
+## High-throughput computing with CP2K
+
+High-throughput computations can be run conveniently with CP2K using the built-in `FARMING` program. This is an excellent option for use cases where the aim is to run a large amount of independent computations, such as when generating data for AI/ML pipelines. All subjobs are run in parallel within a single Slurm allocation, thus avoiding excess calls of `srun` or `sbatch` which decreases the load on the batch queue system.
+
+Running `FARMING` jobs requires an additional input file in which the parameters of the workflow are specified. Example `farming.inp` input and `farming.sh` batch script files are provided below. Note that `RUN_TYPE` is set to `NONE`.
+
+```
+&GLOBAL
+  PROJECT my-farming-job
+  PROGRAM FARMING
+  RUN_TYPE NONE
+&END GLOBAL
+&FARMING
+  NGROUPS 8
+  &JOB
+    DIRECTORY run1
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run2
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run3
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run4
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run5
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run6
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run7
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+  &JOB
+    DIRECTORY run8
+    INPUT_FILE_NAME nacl.inp
+  &END JOB
+&END FARMING
+```
+
+```bash
+#!/bin/bash -l
+#SBATCH --time=00:30:00
+#SBATCH --partition=medium
+#SBATCH --ntasks-per-node=128
+#SBATCH --nodes=1
+#SBATCH --account=<project>
+
+module purge
+module load gcc/10.3.0 openmpi/4.1.0 cp2k/8.2-omp
+
+srun cp2k.psmp farming.inp >> farming.out
+```
+
+In this particular example, one full Mahti node is requested for running 8 single-point calculations of a NaCl crystal with different lattice constants. In addition to the `farming.inp` input, each subjob requires its own ordinary input file, which are here organized into separate subdirectories named `run*`. Issuing `sbatch farming.sh` in the parent directory launches all calculations in parallel, allocating 16 cores to each subjob.
+
+Note that dependencies can also be specified between subjobs using the `DEPENDENCIES` and `JOB_ID` keywords. This enables the definition of complex workflows. For further details, see the [CP2K manual](https://manual.cp2k.org/trunk/CP2K_INPUT/FARMING.html) and [regtest files for example inputs](https://github.com/cp2k/cp2k/tree/master/tests/FARMING).
+
 ## References
 
 CP2K prints out a list of relevant publications towards the end of the
