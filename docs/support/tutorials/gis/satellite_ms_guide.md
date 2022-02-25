@@ -1,50 +1,63 @@
-# Multispectral satellite remote sensing
+# Satellite remote sensing
 
 The purpose of this guide is to help you finding the right data and tools for satellite remote sensing tasks. The basis of this guide is a seminar about the topic held at CSC in 2018. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. The guide provides a shorter summary if you just want to know how to get your processing done quickly (link), and then a more detailed way with lots of information and considerations (link). If you encounter any problems or questions come up, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
-
-
 
 ## Summary
 
 Follow these steps if you 'just want to get the preprocessing done', rather than read the full guide, the TL;DR so to say.
 
-1. Find data
+1. Find data 
+    * ...
 2. Get data
+    * ...
 3. Process
+    * ...
 4. Store & Share
+    * ...
 
-## Multispectral Satellite remote sensing data == Raster data
+## Raster data
 
-* raster data
-    * usually one file per band
-    * grid of pixel values
-    * example of continuous data
-    * Georeference: coordinate for the top left pixel in the image, the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the image is rotated.
+* one file per band or multiband files
+* grid of pixel values
+* example of continuous data
+* Georeference: coordinate for the top left pixel in the image, the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the image is rotated.
+
+## Using satellite remote sensing data in your research
 
 ### What data do I need?
 
-What to consider:
-* resolution
-    * temporal: when and how often a certain area is visited
-    * spatial: the area on the ground that each pixel covers
-    * spectral: spectral width of each band provided
-* costs
-    * **free**
+Consider:
+* sensor
+    * multispectral
         * [Landsat](https://landsat.gsfc.nasa.gov/)
         * [MODIS](https://modis.gsfc.nasa.gov/)
         * [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
-    * others
         * [Pleiades](https://pleiades.cnes.fr/en/PLEIADES/index.htm)
         * [Spot](https://www.intelligence-airbusds.com/imagery/constellation/spot/)
         * [Planet](https://www.planet.com/products/planet-imagery/)
         * [WorldView](http://worldview3.digitalglobe.com/)
         * and many more...
+    * RADAR (Radio Detection and Ranging) -> SAR (Synthetic Aperture Radar)
+        * [Copernicus Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)
+        * [Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/default.asp)
+        * [TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html)
+        * [TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html)
+        * and many more...
+    * LiDAR (Light Detection and Ranging)
+        * [ICESat](https://icesat-2.gsfc.nasa.gov/)
+        * [GEDI](https://gedi.umd.edu/)
+* resolution
+    * temporal: when and how often a certain area is visited
+    * spatial: the area on the ground that each pixel covers
+    * spectral: the area of the electromagnetic spectrum that is observed and spectral width of each band provided
+* costs
+    * free: e.g. Landsat, MODIS, Sentinel, ...
+    * commercial: e.g. WorldView, Spot, Planet, ...
 * preprocessing needs
-    * top of atmosphere (data as collected by the instrument) vs bottom of atmosphere (or surface reflectance: atmospheric artifacts removed from data)
-* personal preferences for software
-    * Graphical User Interface (GUI)
-    * Command Line Interface (CLI)
-    * Application Programming interface (API)
+    * raw or pre-processed
+* user experience and knowledge
+    * RADAR/LiDAR require solid background knowledge for processing and interpretation
+    * Multispectral data is more easily interpreted and processed (and more pre-processed data is available)
 
 ### Where do I find the data?
 
@@ -52,24 +65,47 @@ The best place to get the data from depends on your needs: Do you want to downlo
 
 Below is a (uncomplete) list of services, that provide download or download and processing (marked with *) capabilities:
 
-* SciHub and national mirrors
+* Open Access Hub and national mirrors
    * ESA provided Sentinel data
-   * multiple national mirrors (eg FinHub for Finland and Baltics) exist
+   * multiple national mirrors (e.g. FinHub for Finland and Baltics) exist
 * EarthExplorer
    * Landsat data archive
    * some Sentinel data 
 * Paikkatietoalusta
    * pre-processed EO products 
 * CSC *
+    * few preprocessed datasets available on Puhti/Allas
 * Amazon Web Services *
 * DIAS (Data and Information Access Services) *
 * Terramonitor
+    * Analysis ready data over Finland
 * Sentinelhub
 * Google Earth Engine *
 
-You can find more information about each service from the tabs below:
 
-=== "SciHub"
+Below, all services are explained in more detail with links and hints. When looking at the list above one may ask 'how does CSC fit into all this?' so here a short explanation:
+
+Some datasets (covering Finland) are readily available:
+
+* Puhti
+    * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
+        * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
+        * every CSC user has **read** access
+* Allas
+    * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
+        * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
+
+You can process your data using supercomputer [Puhti](../../computing/systems_puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
+
+Puhti supercomputer has software ready installed (internal link to below ), you do not need to worry about it. In cPouta, you need to set up your own virtual machine including all security and software setup.
+
+Help from CSC specialists is available via servicedesk@csc.fi . We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
+
+All of the mentioned download services below can also be used from CSC Puhti and cPouta.
+
+You can find more information about each of the other services from the tabs below:
+
+=== Open Access Hubs
 
     [SciHub](https://scihub.copernicus.eu/dhus/#/home)
 
@@ -79,8 +115,6 @@ You can find more information about each service from the tabs below:
     * worldwide
     * GUI and API
     * Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
-    
-=== "FinHub"
 
     [FinHub](https://finhub.nsdc.fmi.fi/#/home)
 
@@ -88,6 +122,14 @@ You can find more information about each service from the tabs below:
     * only L1C 
     * only Finland (and Baltics)
     * same GUI and API (older version?) as SciHub
+
+    [ASF](https://search.asf.alaska.edu/#/)
+
+    * ...
+    * ...
+
+    Examples for downloading Sentinel data from FinHub/SciHub are provided on [csc-training github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
+
 
 === "EarthExplorer"
 
@@ -100,22 +142,18 @@ You can find more information about each service from the tabs below:
     * GUI in web interface and bulk download
     * Landsat download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
 
-=== "CSC environments"
-
-    Puhti
-    * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
-        * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
-        * every CSC user has **read** access
-    Allas
-    * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
-        * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
-
 === "Paikkatietoalusta"
 
     * [Sentinel-2 mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
     * instructions on how to use - link to example script
 
-=== "AWS"
+=== "Google Cloud Storage"
+
+    * [Google Cloud Storage](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
+    * Sentinel 2: L1C; Landsat: Collection 1
+    * [FORCE](https://docs.csc.fi/apps/force/) can download directly from here
+
+=== "Amazon Web Service"
 
 
 === "DIAS" 
@@ -157,7 +195,7 @@ You can find more information about each service from the tabs below:
     * [Web-Client](https://code.earthengine.google.com/)
  
 
-See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3) and examples for downloading Sentinel data from FinHub/SciHub on [github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
+See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
 
 ### Where can I store the data?
 
