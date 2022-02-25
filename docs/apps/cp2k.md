@@ -92,7 +92,7 @@ Nodes|d1|d2|d4|d8
 
 High-throughput computations can be run conveniently with CP2K using the built-in `FARMING` program. This is an excellent option for use cases where the aim is to run a large amount of independent computations, such as when generating data for AI/ML pipelines. All subjobs are run in parallel within a single Slurm allocation, thus avoiding excess calls of `srun` or `sbatch` which decreases the load on the batch queue system.
 
-Running `FARMING` jobs requires an additional input file in which the parameters of the workflow are specified. Example `farming.inp` input and `farming.sh` batch script files are provided below. Note that `RUN_TYPE` is set to `NONE`.
+Running `FARMING` jobs requires an additional input file in which the parameters of the workflow are specified. Example `farming.inp` and `farming.sh` input and batch script files are provided below. Note that `RUN_TYPE` is set to `NONE`.
 
 ```
 &GLOBAL
