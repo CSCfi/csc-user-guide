@@ -1,6 +1,6 @@
 # Applications
 
-## Schrödinger Maestro 2021.4, 25.2.2022
+## Schrödinger Maestro 2022.1, 25.2.2022
 
 Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
 
