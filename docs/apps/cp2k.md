@@ -88,7 +88,7 @@ Nodes|d1|d2|d4|d8
 * There are additional 7.1 versions available at `/appl/soft/chem/cp2k/7.1_extra`, please
   see corresponding `README.txt`, but `cp2k/7.1-elpa` and `cp2k/8.2-omp` are the fastest found so far.
 
-## High-throughput computing with CP2K
+### High-throughput computing with CP2K
 
 High-throughput computations can be run conveniently with CP2K using the built-in `FARMING` program. This is an excellent option for use cases where the aim is to run a large amount of independent computations, such as when generating data for AI/ML pipelines. All subjobs are run in parallel within a single Slurm allocation, thus avoiding excess calls of `srun` or `sbatch` which decreases the load on the batch queue system.
 
