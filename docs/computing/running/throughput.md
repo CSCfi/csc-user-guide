@@ -24,4 +24,4 @@ at CSC, but you can of course develop or install your own.
 * [Nextflow](../../support/tutorials/nextflow-puhti.md) singularity 
   container based bioinformatics pipelines on Puhti
 * [multidir option of Gromacs](../../apps/gromacs.md#high-throughput-computing-with-gromacs) allows running multiple concurrent simulations within one Slurm allocation
-* [FARMING mode of CP2K](../../apps/gromacs.md#high-throughput-computing-with-gromacs) enables running multiple concurrent simulations within one Slurm allocation with optional dependencies between subjobs
+* [FARMING mode of CP2K](../../apps/cp2k.md#high-throughput-computing-with-cp2k) enables running multiple concurrent simulations within one Slurm allocation with optional dependencies between subjobs
