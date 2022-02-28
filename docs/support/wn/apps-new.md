@@ -1,5 +1,9 @@
 # Applications
 
+## Schrödinger Maestro 2022.1, 25.2.2022
+
+Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
+
 ## Gromacs 2021 now default version, 7.2.2022
 
 [Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the default module
