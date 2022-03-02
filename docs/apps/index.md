@@ -130,7 +130,6 @@
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
 * [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
-* [Solaris](solaris.md) deep learning pipeline for geospatial imagery
 * [SPLITS](splits.md) for time series analysis of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 

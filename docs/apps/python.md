@@ -27,7 +27,6 @@ of scientific libraries:
    * [BioPython](biopython.md) - biopython and other bioinformatics related
      Python libraries
    * [geoconda](geoconda.md) - for spatial data anlysis 
-   * [Solaris](solaris.md) - deep learning pipeline for geospatial imagery
    * and several other modules may include Python...
 
 In Mahti:
