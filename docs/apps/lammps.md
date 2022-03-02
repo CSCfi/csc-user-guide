@@ -35,6 +35,28 @@ Consult these pages on how to create batch jobs
 
 If you have problems in compiling LAMMPS, please contact servicedesk@csc.fi.
 
+### High-throughput computing with LAMMPS
+
+LAMMPS offers comprehensive support for executing loops and multiple independent simulations. The `-partition` command-line switch enables running these concurrently within a single Slurm job step, thus accelerating the computations while keeping the load on the batch queue system minimal as excessive calls of `srun` or `sbatch` are avoided. An example LAMMPS batch script using the `-partition` option is provided below.
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=00:15:00
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=40
+#SBATCH --mem-per-cpu=100
+
+export PATH=$PATH:/path/to/lmp_puhti
+
+srun lmp_puhti -in loop.lammps -partition 24x5
+```
+
+The above example runs an umbrella sampling simulation of ethanol adsorption on a NaCl surface in accordance with [this LAMMPS tutorial](https://lammpstutorials.github.io/tutorials/tutorial06.html). The simulation consists of 24 iterations where the ethanol molecule is gradually pulled closer to the surface. These 24 iterations are all run concurrently using 5 MPI tasks each, which is specified in the batch script as `-partition 24x5`. The number of processors must add up to the amount requested, in this case 3 full Puhti nodes (120 cores). In general, the partitions do not have to be of equal size, but one could for example specify `-partition 3x30 20 10` for 3 partitions of 30 cores, one of 20 cores and one of 10 cores (3 Puhti nodes). This does of course not make sense for jobs where the subtasks are virtually identical such as here.
+
+If the `-partition` switch is used one needs to replace the usual `index` and `loop` variable styles used in the input of sequential simulations. The corresponding styles compatible with multi-partition jobs are `world`, `universe` and `uloop`. For further details, see the LAMMPS documentation on [running multiple simulations from one input script](https://docs.lammps.org/Howto_multiple.html), the [partition switch](https://docs.lammps.org/Run_options.html#partition) and [variable styles compatible with multi-partition jobs](https://docs.lammps.org/variable.html).
+
 ## References
 
 The following JCP paper is the canonical reference to use for citing LAMMPS.
