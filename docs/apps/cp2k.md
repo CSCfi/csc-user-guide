@@ -8,7 +8,7 @@ particular for AIMD.
 ## Available
 
 * Puhti: 6.1
-* Mahti: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2
+* Mahti: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2, 9.1
 
 ## License
 
@@ -16,7 +16,7 @@ CP2K is freely available under the GPL license.
 
 ## Usage
 
-Check which versions are recommended:
+Check which versions can be loaded directly:
 
     module avail cp2k
 
@@ -29,7 +29,7 @@ utilize all the cores you request in the batch script.
 
 ### Example batch script for Puhti using MPI-only parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --time=00:10:00
 #SBATCH --ntasks-per-node=40
@@ -45,7 +45,7 @@ srun cp2k.popt H2O-32.inp > H2O-32.out
 
 ### Example batch script for Mahti using mixed MPI-OpenMP parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --time=00:05:00
 #SBATCH --ntasks-per-node=32  # 2 - 128
@@ -55,7 +55,8 @@ srun cp2k.popt H2O-32.inp > H2O-32.out
 #SBATCH --account=<project>
 
 module purge
-module load cp2k/7.1-elpa
+module load gcc/10.3.0 openmpi/4.1.0
+module load cp2k/9.1-omp
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export OMP_PLACES=cores
@@ -72,8 +73,8 @@ in Mahti. The column headers show how many omp-threads were used per mpi-task.
 
 Nodes|d1|d2|d4|d8
 -|--|--|--|--
-1|1.048|1.03|*0.97*|1.088
-2|0.772|0.678|*0.578*|0.786
+1|1.048|1.03|**0.97**|1.088
+2|0.772|0.678|**0.578**|0.786
 4|0.72|0.494|0.504|0.534
 
 * For 64 water molecules, the best performance is obtained with 2 full nodes, 32 mpi-tasks,
@@ -82,17 +83,17 @@ Nodes|d1|d2|d4|d8
 * Mixed parallization is efficient: choose tasks and threads so that they add up to 128
   (physical) cores available per node (or up to 40 on Puhti).
 * Test for optimal run parameters for your model system and method.
-* Versions linked with ELPA (`cp2k/7.1-elpa` and `cp2k/8.2-omp`) are
+* Versions linked with ELPA (`cp2k/7.1-elpa`, `cp2k/8.2-omp`, `cp2k/9.1-omp`) are
   significantly faster with (metallic) systems that require large matrix diagonalizations
   for SCF.
 * There are additional 7.1 versions available at `/appl/soft/chem/cp2k/7.1_extra`, please
-  see corresponding `README.txt`, but `cp2k/7.1-elpa` and `cp2k/8.2-omp` are the fastest found so far.
+  see corresponding `README.txt`, but `cp2k/7.1-elpa` is the fastest found so far.
 
 ### High-throughput computing with CP2K
 
 High-throughput computations can be run conveniently with CP2K using the built-in `FARMING` program. This is an excellent option for use cases where the aim is to run a large amount of independent computations, such as when generating data for AI/ML pipelines. All subjobs are run in parallel within a single Slurm allocation, thus avoiding excess calls of `srun` or `sbatch` which decreases the load on the batch queue system.
 
-Running `FARMING` jobs requires an additional input file in which the parameters of the workflow are specified. Example `farming.inp` and `farming.sh` input and batch script files are provided below. Note that `RUN_TYPE` is set to `NONE`.
+Running `FARMING` jobs requires an additional input file in which the details of the workflow, such as the input directories and number of parallel task groups, are specified. Example `farming.inp` and `farming.sh` input and batch script files are provided below. Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
 
 ```
 &GLOBAL
@@ -153,7 +154,7 @@ srun cp2k.psmp farming.inp >> farming.out
 
 In this particular example, one full Mahti node is requested for running 8 single-point calculations of a NaCl crystal with different lattice constants. In addition to the `farming.inp` input, each subjob requires its own ordinary input file, which are here organized into separate subdirectories named `run*`. Issuing `sbatch farming.sh` in the parent directory launches all calculations in parallel, allocating 16 cores to each subjob.
 
-Note that dependencies can also be specified between subjobs using the `DEPENDENCIES` and `JOB_ID` keywords. This enables the definition of complex workflows. For further details, see the [CP2K manual](https://manual.cp2k.org/trunk/CP2K_INPUT/FARMING.html) and [regtest files for example inputs](https://github.com/cp2k/cp2k/tree/master/tests/FARMING).
+Note that dependencies can also be specified between subjobs using the `DEPENDENCIES` and `JOB_ID` keywords under the `&JOB` section. This enables the definition of complex workflows. For further details, see the [CP2K manual](https://manual.cp2k.org/trunk/CP2K_INPUT/FARMING.html) and [regtest files for example inputs](https://github.com/cp2k/cp2k/tree/master/tests/FARMING).
 
 ## References
 
