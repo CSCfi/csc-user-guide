@@ -73,8 +73,8 @@ in Mahti. The column headers show how many omp-threads were used per mpi-task.
 
 Nodes|d1|d2|d4|d8
 -|--|--|--|--
-1|1.048|1.03|**0.97**|1.088
-2|0.772|0.678|**0.578**|0.786
+1|1.048|1.03|*0.97*|1.088
+2|0.772|0.678|*0.578*|0.786
 4|0.72|0.494|0.504|0.534
 
 * For 64 water molecules, the best performance is obtained with 2 full nodes, 32 mpi-tasks,
