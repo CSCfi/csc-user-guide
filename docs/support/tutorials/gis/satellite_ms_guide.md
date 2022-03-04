@@ -28,7 +28,7 @@ Follow these steps if you 'just want to get the preprocessing done', rather than
 
 Consider:
 * sensor
-    * multispectral
+    * Optical
         * [Landsat](https://landsat.gsfc.nasa.gov/)
         * [MODIS](https://modis.gsfc.nasa.gov/)
         * [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
@@ -57,7 +57,7 @@ Consider:
     * raw or pre-processed
 * user experience and knowledge
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
-    * Multispectral data is more easily interpreted and processed (and more pre-processed data is available)
+    * Optical  data is more easily interpreted and processed (and more pre-processed data is available)
 
 ### Where do I find the data?
 
@@ -79,8 +79,10 @@ Below is a (uncomplete) list of services, that provide download or download and 
 * DIAS (Data and Information Access Services) *
 * Terramonitor
     * Analysis ready data over Finland
-* Sentinelhub
+* Sentinelhub *
 * Google Earth Engine *
+* Alaska Space Facility (ASF)
+ 
 
 
 Below, all services are explained in more detail with links and hints. When looking at the list above one may ask 'how does CSC fit into all this?' so here a short explanation:
@@ -111,24 +113,29 @@ You can find more information about each of the other services from the tabs bel
 
     * needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
 
-    * Sentinel L1C and L2A products
+    * Sentinel 2 L1C and L2A products
+    * Sentinel 1 SLC, GRD , RAW and OCN products
     * worldwide
     * GUI and API
     * Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
+    * Examples for downloading Sentinel data from FinHub/SciHub are provided on [csc-training github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 
     [FinHub](https://finhub.nsdc.fmi.fi/#/home)
 
     * needs [registration](https://nsdc.fmi.fi/services/service_finhub_registration)
-    * only L1C 
+    * Sentinel 2 L1C product
+    * Sentinel 1 SLC, GRD and OCN products
     * only Finland (and Baltics)
     * same GUI and API (older version?) as SciHub
 
-    [ASF](https://search.asf.alaska.edu/#/)
-
-    * ...
-    * ...
-
-    Examples for downloading Sentinel data from FinHub/SciHub are provided on [csc-training github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel).
+    [ASF](https://search.asf.alaska.edu/#/) place fir this?
+    
+    * needs [registration](https://urs.earthdata.nasa.gov/users/new?)
+    * Sentinel 1 SLC, GRD , RAW and OCN products
+    * Many SAR and SAR derived datasets from other sensors
+    * Worldwide
+    * GUI and API
+    * Sentinel 1 data available for immediate download
 
 
 === "EarthExplorer"
@@ -142,9 +149,15 @@ You can find more information about each of the other services from the tabs bel
     * GUI in web interface and bulk download
     * Landsat download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
 
-=== "Paikkatietoalusta"
+=== "Sentinel image mosaics"
 
-    * [Sentinel-2 mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
+    * Available in Puhti: /appl/data/geo/sentinel?
+    * Only Finland
+    * [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) 
+    * [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar)
+    * [WMS (Geoserver)] (https://data.nsdc.fmi.fi/geoserver/wms)
+    * [WCS (Geoserver)] (https://data.nsdc.fmi.fi/geoserver/wcs)
+    * provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
     * instructions on how to use - link to example script
 
 === "Google Cloud Storage"
@@ -154,6 +167,12 @@ You can find more information about each of the other services from the tabs bel
     * [FORCE](https://docs.csc.fi/apps/force/) can download directly from here
 
 === "Amazon Web Service"
+    
+    * Worldwide
+    * [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
+    * [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/)
+    * Requester pays the download costs
+    * Managed by [Sinergise](http://www.sinergise.com/) 
 
 
 === "DIAS" 
@@ -190,6 +209,7 @@ You can find more information about each of the other services from the tabs bel
 
     * Great coverage of analysis ready data worldwide
       * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+      * 
       * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
     * [Registration](https://signup.earthengine.google.com/)
     * [Web-Client](https://code.earthengine.google.com/)
