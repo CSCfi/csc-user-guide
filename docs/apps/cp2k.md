@@ -165,4 +165,4 @@ log file. Choose and cite the ones relevant to the methods you've used.
 
 * CP2K online manual: <http://manual.cp2k.org/>
 * CP2K home page: <http://www.cp2k.org/>
-  * Contains [tutorials](https://www.cp2k.org/howto) and links to useful [tools](https://www.cp2k.org/tools)
+    * Contains [tutorials](https://www.cp2k.org/howto) and links to useful [tools](https://www.cp2k.org/tools)
