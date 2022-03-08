@@ -46,7 +46,8 @@ Note that the data stored in Allas consume billing units of the project.
 ## A. Uploading data from Mahti to Allas
 
 The a-commands are Allas-specific tools that allow an easy start with Allas.  
-The a-commands pack, compress and move data automatically. This reduces the storage space needed but on
+The a-commands pack,and move data automatically. You can also apply compression for your data before storage.
+For e.g. text formatted data compression reduces the storage space needed but on
 the other hand makes the storage process bit slower. The a-commands are a good option for miscellaneous data 
 that compresses well and is mostly used in the CSC environment.
 
@@ -95,7 +96,7 @@ At the end of the upload process, the command reports:
 
 -------------------------------------------------------------------------------
 1 files from Danio_rerio.GRCz10.fa uploaded to bucket 2001659-mahti-SCRATCH in Allas as one compressed file: 
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 -----------------------------------------------------------------
 
 Upload summary:
@@ -118,8 +119,8 @@ a-put zebrafish/
 At the end of the upload process, the command reports:
 ```text
 -------------------------------------------------------------------------------
-8 files from zebrafish uploaded to bucket 2001659-mahti-SCRATCH in Allas as one compressed file: 
-2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst
+8 files from zebrafish uploaded to bucket 2001659-mahti-SCRATCH in Allas as one tar file: 
+2001659-mahti-SCRATCH/genomes/zebrafish.tar
 -----------------------------------------------------------------
 
 Upload summary:
@@ -132,13 +133,13 @@ OK
 After this, I have another object in the _2001659-mahti-SCRATCH_ bucket:
 
 <pre>[kkayttaj@mahti-login1 genomes]$ <b>a-list 2001659-mahti-SCRATCH</b>
-2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+2001659-mahti-SCRATCH/genomes/zebrafish.tar
+2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 </pre>
 
 Note that, in fact, the file _Danio_rerio.GRCz10.fa_ is now stored in Allas twice: 
-As an individual compressed object (genomes/zebrafish/Danio_rerio.GRCz10.fa.zst)
-and as part of the _genomes/zebrafish.tar.zst_ object.
+As an individual object (genomes/zebrafish/Danio_rerio.GRCz10.fa)
+and as part of the _genomes/zebrafish.tar_ object.
 
 ## B. Downloading to Puhti
 Next I download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
@@ -163,8 +164,8 @@ With the command `a-list`, I can now see the objects I just uploaded from Mahti 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list</b> 
 2001659-mahti-SCRATCH
 [kkayttaj@puhti-login2 kkayttaj]$ <b>a-list 2001659-mahti-SCRATCH</b>
-2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+2001659-mahti-SCRATCH/genomes/zebrafish.tar
+2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 </pre>
 
 Locating my data is easy as there are only two objects in the bucket, but as more data is added to Allas, 
@@ -175,9 +176,9 @@ an object contains the file Danio_rerio.GRCz10.fa:
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-find -a Danio_rerio.GRCz10.fa</b> 
 ----------------------------------------------
 Checking bucket: 2001659-mahti-SCRATCH
-Object: 2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst 
+Object: 2001659-mahti-SCRATCH/genomes/zebrafish.tar 
 includes 2 file names that that match query: Danio_rerio.GRCz10.fa
-Object: 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+Object: 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 includes 1 file names that that match query: Danio_rerio.GRCz10.fa
 ------------------------------------------------ 
 Query: Danio_rerio.GRCz10.fa
@@ -185,16 +186,16 @@ Total of 3 hits were found in 2 objects
 -------------------------------------------------
 </pre>
 
-The `a-find` report above tells that, for example, the object _2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst_ contains 
+The `a-find` report above tells that, for example, the object _2001659-mahti-SCRATCH/genomes/zebrafish.tar_ contains 
 two files whose names match Danio_rerio.GRCz10.fa (the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
 matches only among objects that were uploaded with `a-put`.
 
 Next I download the data to Puhti using the `a-get` command:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst</b>
+<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar</b>
 Starting to copy data from allas...
 Object:
-  2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst 
+  2001659-mahti-SCRATCH/genomes/zebrafish.tar
 copied and uncompressed from allas into:
   zebrafish</pre>
 
@@ -371,14 +372,10 @@ After opening the Allas connection, I move to the directory _my_data_ where I ha
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
-Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets store the data in a very dense format. 
-Thus, these files do not benefit from compressing the data. The same applies to files that have already been compressed. 
-For this kind of data, it is reasonable to use the `a-put` command with the `--nc` option that skips the compression and uploads 
-the file to Allas as it is.
 
 Next, I launch the upload process. In this case, I do not use the default bucket name but assign the name to be _2001659-uniref_
 ```text
-a-put -b  2001659-uniref --nc  */*.gz
+a-put -b  2001659-uniref  */*.gz
 ```
 This command uploads the files listed above to Allas.
 
@@ -408,7 +405,7 @@ _a-check_ needs to be executed with exactly the same options that  were used wit
 So in this case the command would be:
 
 ```text
-a-check -b 2001659-uniref --nc  */*.gz
+a-check -b 2001659-uniref  */*.gz
 ```
 
 The _a-check_ command compares the item names to be uploaded to the matching objects in Allas. 
@@ -478,12 +475,12 @@ at a higher level in the hierarchy.
 
 For example:
 ```text
-a-put --nc --skip-filelist road_cameras/site_*
+a-put --skip-filelist road_cameras/site_*
 ```
 This would produce ten objects, each containing all information from one camera site.
 Alternatively, you could do the compression so that data from each year from each camera is collected as one object:
 ```text
-a-put --nc --skip-filelist road_cameras/site_*/20*
+a-put --skip-filelist road_cameras/site_*/20*
 ```
 This last option would store the data as 50 objects. Day-based objects for each camera might be the most practical 
 option for using the data later on but, as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects 
@@ -496,7 +493,7 @@ Once the _a-put_ command is finished, you can run `a-check` command to check if 
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command could be:
 
 ```text
-a-check  --nc--skip-filelist road_cameras/site_*/20*
+a-check --skip-filelist road_cameras/site_*/20*
 ```
 
 The _a-check_ command compares the item names to be uploaded to the matching objects in Allas. 
