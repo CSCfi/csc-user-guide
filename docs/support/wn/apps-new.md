@@ -1,5 +1,9 @@
 # Applications
 
+## CP2K 9.1, 4.3.2022
+
+[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with `module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
+
 ## Schrödinger Maestro 2022.1, 25.2.2022
 
 Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
