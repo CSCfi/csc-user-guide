@@ -11,8 +11,8 @@ how to create yours.
 
 ## Available
 
--   Puhti: Instructions available for building
--   Mahti: Instructions available for building
+-   Puhti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
+-   Mahti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 
 ## License
 
@@ -20,24 +20,20 @@ LAMMPS is an open-source code, distributed freely under the terms of the GNU Pub
 
 ## Usage
 
-First [download](https://lammps.sandia.gov/download.html) the software. Please don't use the
-prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS 
-on Puhti or Mahti for optimal performance (and to include the packages you need) in here:
+Don't use prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS on Puhti or Mahti for optimal performance.
 
-```
-/appl/soft/chem/lammps/
-```
+* Navigate to `/appl/soft/chem/lammps/` on Puhti or Mahti
+* If you can't find a pre-downloaded source code (e.g. `lammps-stable.tar.gz`) or a suitable LAMMPS version, download it yourself from the [LAMMPS home page](https://lammps.sandia.gov/download.html).
+* Read the compilation instructions, e.g. `lammps-puhti-instruction.txt`
+* Configure the packages you want to include and compile the software
 
-Please compile in `$TMPDIR` and install in `/projappl/<project code>`. 
-Consult these pages on how to create batch jobs 
-[on Puhti](../computing/running/creating-job-scripts-puhti.md) and 
-[on Mahti](../computing/running/creating-job-scripts-mahti.md).
+Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently). Consult these pages on [how to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md) and [on Mahti](../computing/running/creating-job-scripts-mahti.md).
 
-If you have problems in compiling LAMMPS, please contact servicedesk@csc.fi.
+If you encounter problems compiling LAMMPS, don't hesitate to [contact CSC Service Desk](../support/contact.md).
 
 ### High-throughput computing with LAMMPS
 
-LAMMPS offers comprehensive support for executing loops and multiple independent simulations. The `-partition` command-line switch enables running these concurrently within a single Slurm job step, thus accelerating the computations while keeping the load on the batch queue system minimal as excessive calls of `srun` or `sbatch` are avoided. An example LAMMPS batch script using the `-partition` option is provided below.
+LAMMPS offers comprehensive support for executing loops and multiple independent simulations using a single input file. The `-partition` command-line switch enables running these concurrently within a single Slurm job step, thus accelerating the computations while keeping the load on the batch queue system minimal as excessive calls of `srun` or `sbatch` are avoided. An example LAMMPS batch script using the `-partition` option is provided below.
 
 ```bash
 #!/bin/bash
