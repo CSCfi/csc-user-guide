@@ -41,6 +41,7 @@ export SCM_TMPDIR=$PWD
 cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
 ```
+
 !!! note
     Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the [fast local storage (NVME)](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
