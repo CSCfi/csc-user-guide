@@ -52,6 +52,7 @@ nav:
      - Containers:
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
+        - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
        - Overview: computing/webinterface/index.md
        - Interactive apps:
