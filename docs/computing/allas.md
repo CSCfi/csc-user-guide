@@ -51,7 +51,7 @@ The allas module includes several tools that you can use to move data between Al
 You can cross-use the Allas clients as long as you access Allas with the same protocol (swift or S3).
 Below is a list of the Allas clients that are most commonly used in Puhti and Mahti:
 
-* **a-commands:** (Swift, optionally S3) [Easy and safe: a-commands](../data/allas/using_allas/a_commands.md)
+* **a-commands:** (Swift, optionally S3) [Easy and safe: a-commands](../../data/allas/using_allas/a_commands.md)
 * **rclone:** (Swift, optionally S3) [Advanced tool: rclone](../data/allas/using_allas/rclone.md)
 * **swift python client:** (Swift) [Native Swift client](../data/allas/using_allas/swift_client.md)
 * **s3cmd:** (S3) [S3 client](../data/allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
