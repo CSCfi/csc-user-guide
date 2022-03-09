@@ -2,11 +2,11 @@
 template: main-index.html
 ---
 
-<!-- <style>
+<style>
 #toc-title {
   display: none;
 }
-</style> -->
+</style>
 
 <h1 id="welcometext"> Welcome to Docs CSC! </h1>
 
@@ -19,14 +19,7 @@ template: main-index.html
     * Or use the search functionality
 
 
-## Quick links
-* [Puhti and Mahti Overview](computing/overview.md)
-* [Allas User Guide](data/Allas/index.md)
-* [Kvasi QLM Guide](computing/available-systems.md#kvasi)
-* [Getting started with Puhti](support/tutorials/puhti_quick.md)
-* [Getting started with Mahti](support/tutorials/mahti_quick.md)
-
-<!-- <h1 id="quicklinktitle"> Quick links </h1>
+<h1 id="quicklinktitle"> Quick links </h1>
 <span class="index-quicklinks">
 [Puhti and Mahti Overview](computing/overview.md) 
 </span><br>
@@ -41,9 +34,9 @@ template: main-index.html
 </span><br>
 <span class="index-quicklinks">
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
-</span> -->
+</span>
 
-## What's new
+# What's new
 
 <!-- Content will be generated here, do not EDIT manually -->  
 
