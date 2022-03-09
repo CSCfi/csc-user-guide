@@ -157,7 +157,7 @@ body {
     display: none;
 }
 
-.md-nav__item--nested>.md-nav__link:before {
+.md-nav__item--nested>.md-nav__link:after {
     font-family: Material Icons;
     font-size: 18px;
     content: "arrow_drop_down";
@@ -288,7 +288,7 @@ img[src*="#headerlogo"] {
 }
 
 a[title="Home"] {
-    padding-left: 1.3rem;
+    padding-left: 0.5rem;
     color:  #ffffff !important;
 }
 
