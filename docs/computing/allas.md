@@ -33,19 +33,16 @@ or
 ```text
 allas-conf project_name
 ```
-The _allas-conf_ command prompts for your CSC password (the same that you use to login to CSC servers). 
-It lists your Allas projects and asks you to define a project (if not already defined as an argument). 
-_allas-conf_ generates a configuration files for several Allas clients and authenticates connection to Allas for the
-selected project. 
+The _allas-conf_ command prompts for your CSC password. It lists your Allas projects and asks you to define a project (if not already defined as an argument). After that _allas-conf_ generates a configuration files for several Allas clients and authenticates connection to Allas for the selected project. 
 
 By default the authentication is done for using Allas with **swift protocol**. 
 You can alternatively use S3 proptocol too, however in this document we 
 discuss only swift based Allas usage. 
 
-You can only be connected to one Allas project at a time in one terminal session.  
-The project you are using in Allas does not need to match the project you are using in Puhti or Mahti.
-Authentication is session specific and valid for eight hours at a time. However, you can refresh the authentication 
-or change the the target project at any time my running _allas-conf_ again. 
+Authentication is session specific and valid for eight hours at a time.
+You can be connected to only one Allas project at a time in one terminal session. However, simutaneous terminal sessions
+can use different Allas projects. The project you are using in Allas does not need to match the project you are using in 
+Puhti or Mahti. You can refresh the authentication or change the the target project at any time my running _allas-conf_ again. 
 
 
 **Allas client software options for Puhti and Mahti and other linux servers**
@@ -61,7 +58,7 @@ You can cross-use the Allas clients as long as you access Allas with the same p
 More information about using Allas can be found from the Allas documetations
 * [Allas](../data/allas/overview.md)
 
-The Allas manual include two tutorials the give examples how you caun utilize Allas in Puhti and Mahti:
+The Allas manual includes two tutorials that are especially intended for Puhti and Mahti users:
 * [Examples for using Allas in CSC supercomputers](../data/allas/allas-examples.md)
 * [Using Allas in batch jobs](../data/allas/allas_batchjobs.md)
 
