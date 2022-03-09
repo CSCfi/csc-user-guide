@@ -57,6 +57,7 @@ nav:
        - Interactive apps:
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
+         - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
