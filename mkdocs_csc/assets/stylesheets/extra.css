@@ -159,7 +159,7 @@ body {
 
 .md-nav__item--nested>.md-nav__link:after {
     font-family: Material Icons;
-    font-size: 18px;
+    font-size: 20px;
     content: "arrow_drop_down";
     transform-style: preserve-3d;
     transition: transform .4s, -webkit-transform .4s;
