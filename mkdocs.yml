@@ -31,6 +31,7 @@ nav:
      - Supercomputer storage:
         - Disk areas: computing/disk.md
         - Lustre filesystem: computing/lustre.md
+        - Allas object storage: computing/allas.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
