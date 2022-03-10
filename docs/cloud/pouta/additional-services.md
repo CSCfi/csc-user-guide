@@ -38,10 +38,23 @@ the CSC Service Desk to coordinate this.
 
 cPouta does not currently offer integrated name service management.
 
-All our floating IPs are mapped to a default hostname, for example
+All our floating IPs are mapped to a default hostname, for example:
 
 ```
 vm0120.kaj.pouta.csc.fi
+```
+
+To find hostname of a floating IP, you could leverage `host` command:
+```sh
+host -a <floating IP address>
+```
+
+And the result is `vmXXXX.kaj.pouta.csc.fi` listed in output:
+
+```
+... omitted for brevity
+;; ANSWER SECTION:
+x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
 ```
 
 To use your own DNS name for your virtual machine, simply configure
