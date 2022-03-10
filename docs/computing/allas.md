@@ -1,7 +1,7 @@
 # Using Allas object storage service from CSC Supercomputing environment
 
 The disk environments of CSC supercomputers, Puhti and Mahti, are not intendet for storing research data that is 
-not actively used for computimng. The data that needs to be stored for a longer time than just few weeks, 
+not actively used for computing. The data that needs to be stored for a longer time than just few weeks, 
 should be copied to Allas object storage service. 
 
 Allas provides a platform that you can use to store your data as long as you CSC project is active. 
@@ -10,9 +10,9 @@ with other users.
 
 ## Getting access to Allas
 
-By default, CSC computing projects do not have access to Allas. Thus, the first thing is to add the Allas 
-service to your project. This is done in the [MyCSC interface](https://my.csc.fi). Note that only the project manager can 
-apply for access. Once access is granted, all project members must visit the MyCSC and accept the terms 
+By default, CSC computing projects do not have access to Allas. Thus, the first thing is to make sure that your project has access to Allas.
+This can be done in the [MyCSC interface](https://my.csc.fi). Note that only the project manager can 
+add new services for a project. Once Allas access is activated, all project members must visit the MyCSC and accept the terms 
 of use for Allas before they can use the Allas storage area.
 
 The default storage quota in Allas is 10 TB. As this space is shared with all project members, it is
@@ -25,7 +25,7 @@ In order to use Allas in Puhti or Mahti, first load the module _allas_:
 ```text
 module load allas
 ```
-Allas access for a specific project can then be enabled:
+Allas access for a specific project can then be enabled with command:
 ```text
 allas-conf
 ```
@@ -35,19 +35,19 @@ allas-conf project_name
 ```
 The _allas-conf_ command prompts for your CSC password. It lists your Allas projects and asks you to define a project (if not already defined as an argument). After that _allas-conf_ generates a configuration files for several Allas clients and authenticates connection to Allas for the selected project. 
 
-By default the authentication is done for using Allas with **swift protocol**. 
+By default the _allas-conf_ activates tools that use Allas with **swift protocol**. 
 You can alternatively use S3 proptocol too, however in this document we 
-discuss only swift based Allas usage. 
+discuss only _swift_ based Allas usage. 
 
 Authentication is session specific and valid for eight hours at a time.
 You can be connected to only one Allas project at a time in one terminal session. However, simutaneous terminal sessions
 can use different Allas projects. The project you are using in Allas does not need to match the project you are using in 
-Puhti or Mahti. You can refresh the authentication or change the the target project at any time my running _allas-conf_ again. 
+Puhti or Mahti. You can refresh the authentication or change the target project at any time my running _allas-conf_ again. 
 
 
 **Allas client software options for Puhti and Mahti and other linux servers**
 
-The allas module includes several tools that you can use to move data between Allas and the computing server.
+The _allas_ module provides several tools that you can use to move data between Allas and the computing server.
 You can cross-use the Allas clients as long as you access Allas with the same protocol (swift or S3).
 Below is a list of the Allas clients that are most commonly used in Puhti and Mahti:
 
@@ -56,7 +56,7 @@ Below is a list of the Allas clients that are most commonly used in Puhti and Ma
 * **swift python client:** (Swift) [Native Swift client](../data/Allas/using_allas/swift_client.md)
 * **s3cmd:** (S3) [S3 client](../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
 
-More information about using Allas can be found from the Allas documetation.
+More information about using Allas can be found from the Allas documentation.
 * [Allas](../data/Allas/overview.md)
 
 The Allas documentation includes two tutorials that are especially designed for Puhti and Mahti users:
