@@ -57,7 +57,7 @@ Below is a list of the Allas clients that are most commonly used in Puhti and Ma
 * **s3cmd:** (S3) [S3 client](../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
 
 More information about using Allas can be found from the Allas documentation.
-* [Allas](../data/Allas/overview.md)
+* [Allas](../data/Allas/index.md)
 
 The Allas documentation includes two tutorials that are especially designed for Puhti and Mahti users:
 * [Examples for using Allas in CSC supercomputers](../data/Allas/allas-examples.md)
