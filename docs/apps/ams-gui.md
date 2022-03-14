@@ -13,11 +13,11 @@ Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using 
 4. Start the input builder ```amsinput``` and construct your job.
 5. Save the job (```File-> Save As ...```).
 
-Short jobs can be started directly from the GUI (```File->Run```) but longer jobs should be submitted to the batch queue. 
+Short jobs can be started directly from the GUI (```File-> Run```) but longer jobs should be submitted to the batch queue. 
 All saved jobs, both calculated and uncalculated, can be found in the GUI under ```SCM-> Jobs```.
 Before you submit a job to the batch queue you have to define what resources it needs (time, memory, number of cores etc.)
 
-1. Select ```Queue -> New -> SLURM```
+1. Under ```SCM-> Jobs```, select ```Queue -> New -> SLURM```
 2. ```Queue Name: My_testqueue``` . You can save queues with different names corresponding to different resource requests  
 3. ```Remote host:```. Leave empty  
 4. ```Remote user:```. Leave empty  
