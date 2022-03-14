@@ -4,8 +4,8 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2021, ADF2021, BAND2021, DFTB2021, MOPAC2021, ReaxFF2021 , Version 2021.102
--   Mahti: AMS2021, ADF2021, BAND2021, DFTB2021, MOPAC2021, ReaxFF2021 , Version 2021.102
+-   Puhti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
+-   Mahti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -18,7 +18,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 Initialise AMS:
 
 ```bash
-module load ams/2021.102
+module load ams/2022.101
 ```
 
 
@@ -33,9 +33,10 @@ module load ams/2021.102
 #SBATCH --time=00:10:00           # time as hh:mm:ss
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 module purge
-module load ams/2021.102
+module load ams/2022.101
 export SCM_USE_LOCAL_IMPI=yes
-export SCM_TMPDIR=$PWD
+export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
+mkdir -p $SCM_TMPDIR
 
 # Copy an example input file
 cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
@@ -58,7 +59,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 #SBATCH --time=00:10:00           # time as hh:mm:ss
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 #SBATCH --gres=nvme:100           # requested local disk space in GB
-module load ams/2021.102
+module load ams/2022.101
 export SCM_USE_LOCAL_IMPI=yes
 export SCM_TMPDIR=$LOCAL_SCRATCH
 
@@ -77,41 +78,27 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 #SBATCH --account=yourproject # insert here the project to be billed
 #SBATCH --time=00:20:00       # time as hh:mm:ss
 module purge
-module load ams/2021.102
-export SCM_TMPDIR=$PWD
-
+module load ams/2022.101
+export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
+mkdir -p $SCM_TMPDIR
+§
 # Copy an example input file
 cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
 ```
 
-### The AMS-GUIs
+### [The AMS-GUI](../apps/ams-gui.md)
 
-The Graphical User Interfaces (GUIs) that are installed on Puhti can be used via [NoMachine](nomachine.md).
-Do a NoMachine login to Puhti and start an [interactive session](../computing/running/interactive-usage.md).
-Move to a suitable scratch directory and load the ams module ```module load ams/2021.102```.
-Start the input builder ```adfiput``` and construct your job. Once ready, submit the job to the batch queue (for settings, see the picture below).
-
- For an even better user experience it is also possible to install the GUIs on your own workstation. For details contact CSC [servicedesk@csc.fi](mailto:servicedesk@csc.fi) . In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti,see [Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
-For Windows users there is a [helpful video on how to do the setup](https://www.scm.com/wp-content/uploads/Videos/RemoteQueuesWithADFJobs.mp4).
-
-Either using NoMachine or the local installation for building the job, the actual calculation should be done as batch jobs. 
-Example queuing settings that can be used in the GUI:
-![Slurm settings](../img/amsgui_puhti_queue_settings.png)
-The prolog line is:
- 
-```
-source /appl/soft/chem/adf/ams2021.102/adf_csc.bash; export SCM_TMPDIR=$(mktemp -d /scratch/yourproject/$USER.XXXXXXXXX); export FORT_TMPDIR=$SCM_TMPDIR
-```
-!!! note
-    Please change the emphasized *yourusername* and *yourproject* to correspond to yours.
+AMS comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
+You can test the GUI via the Puhti web interface, but for more extensive use we recommend to install
+the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-GUI documentation.](../apps/ams-gui.md)
 
 ## References
 
-Depending on your usage, be careful to properly cite the AMS driver, used calculation engines as well as feature references. For details, see the [relevant documentation](https://www.scm.com/support/ ) 
+Depending on your usage, be careful to properly cite the AMS driver, used calculation engines as well as feature references. For details, see the [relevant AMS documentation](https://www.scm.com/doc/Documentation/ ) 
 
 ## More information
--   [AMS2021 Support pages](https://www.scm.com/support/)
+-   [AMS2022 Support pages](https://www.scm.com/support/)
 -   [Tutorials](https://www.scm.com/doc/Tutorials/index.html)
 -   [Teaching materials](https://www.scm.com/support/adf-teaching-materials/)
 -   [FAQ](https://www.scm.com/faq/)
