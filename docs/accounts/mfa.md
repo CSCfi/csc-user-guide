@@ -7,8 +7,8 @@ MFA uses the Time based one-time password (TOTP) protocol which can be used in s
 
 The activation of the MFA is needed once for the CSC services for research. CSC will take the MFA into use service-by-service, and you can check for example from this page which CSC research services use the MFA currently.
 
-* [Time based one time password] (https://en.wikipedia.org/wiki/Time-based_one-time_password)
-* [Multi-factor Authentication applications available] (https://www.protectimus.com/blog/10-most-popular-2fa-apps-on-google-play/)
+*   [Time based one time password](https://en.wikipedia.org/wiki/Time-based_one-time_password)
+*   [Multi-factor Authentication applications available](https://www.protectimus.com/blog/10-most-popular-2fa-apps-on-google-play/)
 
 ## Before using CSC MFA
 
