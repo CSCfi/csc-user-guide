@@ -20,6 +20,7 @@ nav:
      - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - FMI: accounts/fmi.md
+     - Multi-factor Authentication: accounts/mfa.md
   - Computing:
      - Overview: computing/overview.md
      - Systems:
