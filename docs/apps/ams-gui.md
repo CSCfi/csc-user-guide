@@ -41,11 +41,11 @@ valid for academic usage (not government or commercial research).
 
 ** 1. Request credentials**
 
-Request the credentials for downloading the AMS-GUI from [servicedesk@csc.fi](mailto:servicedesk@csc.fi). Please include the tag `AMS-GUI` in the subject field. Note that the license covers only academic usage at CSC (not government or commercial research). The credentials will be reset every 6 months.
+Request the credentials for downloading the AMS-GUI from [CSC Service Desk](../support/contact.md). Please include the tag `AMS-GUI` in the subject field. Note that the license covers only academic usage at CSC (not government or commercial research). The credentials will be reset every 6 months.
 
 ** 2. Download**
 
-Get the right binary for your machine from [www.scm.com/support/downloads/](https://www.scm.com/support/downloads/) using:  
+Get the right binary for your machine from [the SCM website](https://www.scm.com/support/downloads/) using:  
 **SCM User ID:** ` <the User ID you got from servicedesk@csc.fi>`  
 **password:**  `<the password you got from servicedesk@csc.fi>`   
 
