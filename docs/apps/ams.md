@@ -81,7 +81,7 @@ module purge
 module load ams/2022.101
 export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
 mkdir -p $SCM_TMPDIR
-§
+
 # Copy an example input file
 cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
