@@ -1,6 +1,6 @@
 # AMS-GUI
 
-AMS comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
+[AMS](../apps/ams.md) comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
 You can test the GUI via the Puhti web interface, [www.puhti.csc.fi](../computing/webinterface/index.md), but for more extensive use we recommend to install the GUI on your own laptop/workstation.
 
 ## Use via your browser
