@@ -157,9 +157,9 @@ body {
     display: none;
 }
 
-.md-nav__item--nested>.md-nav__link:before {
+.md-nav__item--nested>.md-nav__link:after {
     font-family: Material Icons;
-    font-size: 18px;
+    font-size: 20px;
     content: "arrow_drop_down";
     transform-style: preserve-3d;
     transition: transform .4s, -webkit-transform .4s;
@@ -192,7 +192,7 @@ body {
     text-decoration: underline;
 }
 
-.md-nav__item .md-nav__link--active {
+.md-nav__item--nested .md-nav__link--active {
     color:rgb(64, 64, 64);
 }
 
@@ -288,7 +288,7 @@ img[src*="#headerlogo"] {
 }
 
 a[title="Home"] {
-    padding-left: 1.3rem;
+    padding-left: 0.5rem;
     color:  #ffffff !important;
 }
 
