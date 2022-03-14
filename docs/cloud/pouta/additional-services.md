@@ -44,7 +44,7 @@ All our floating IPs are mapped to a default hostname, for example:
 vm0120.kaj.pouta.csc.fi
 ```
 
-To find hostname of a floating IP, you could leverage `host` command:
+To find the hostname of a floating IP, you can use `host` command:
 ```sh
 host -a <floating IP address>
 ```
@@ -52,7 +52,7 @@ host -a <floating IP address>
 And the result is `vmXXXX.kaj.pouta.csc.fi` listed in output:
 
 ```
-... omitted for brevity
+...
 ;; ANSWER SECTION:
 x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
 ```
