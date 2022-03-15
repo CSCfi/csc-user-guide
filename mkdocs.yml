@@ -19,6 +19,7 @@ nav:
      - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
      - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
+     - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
@@ -31,6 +32,7 @@ nav:
      - Supercomputer storage:
         - Disk areas: computing/disk.md
         - Lustre filesystem: computing/lustre.md
+        - Allas object storage: computing/allas.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
