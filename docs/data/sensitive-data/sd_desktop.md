@@ -182,24 +182,6 @@ Once you are logged into your Desktop, you can access encrypted data stored in C
 
 
 
-
-* The Projects folder is **available only when the SD Access Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
-
-![Untitled-2](https://user-images.githubusercontent.com/83574067/140091591-139401d5-512e-4301-a046-e68d8bbc4d40.png)
-
-
-
-**If you need to edit the files/data**:
-
- * access the files of interest in the Project folder **using SD Access Filesystem**
- *  make a **copy** and save it in your **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
- 
-For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts into your Desktop (for example from GitHub or other trusted repositories) you can use the same procedure described above.
-
-
-
-## Importing encrypted sensitive data to SD Desktop 
-
 ## Encrypted data access in your Desktop
 
 As the  virtual Desktop is completely isolated from the Internet, the only way to access data for analysis is utilizing a specific application called Data Gateway.
