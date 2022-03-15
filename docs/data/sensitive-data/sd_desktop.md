@@ -243,6 +243,7 @@ Once you are logged in to your Desktop, you can access encrypted data stored in 
 !!! Note
     The Projects folder is **available only when the Data Gateway application is open**. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
+
 ### Importing data inside the Desktop
 
 **If you need to edit the files/data**:
