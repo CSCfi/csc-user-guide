@@ -6,8 +6,8 @@
 
 ## Available
 
--   Puhti: 5.0.1
--   Mahti: 5.0.1
+-   Puhti: 5.0.3
+-   Mahti: 5.0.3
 
 Note that due to licensing issues every user has to install their own copy of the program 
 
@@ -18,10 +18,10 @@ The free version is available only for academic use at academic institutions.
 
 ## Usage
 
-- Download the ORCA 5.0.1, Linux, x86-64, shared-version, `orca_5_0_1_linux_x86-64_shared_openmpi411.tar.xz`
+- Download the ORCA 5.0.3, Linux, x86-64, shared-version, ` orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
 - Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti
-- Unpack the package, `tar xf orca_5_0_1_linux_x86-64_shared_openmpi411.tar.xz`
-- Example parallel batch script for Puhti
+- Unpack the package, `tar xf orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
+- Example batch script for Puhti
 
 ```
 #!/bin/bash
@@ -30,22 +30,55 @@ The free version is available only for academic use at academic institutions.
 #SBATCH --ntasks-per-node=40
 #SBATCH --account=<your billing project>
 #SBATCH --time=0:30:00 # time as hh:mm:ss
-#SBATCH --job-name=orca-5.0.1
-#SBATCH --error=jobfile.err%J
-#SBATCH --output=jobfile.out%J
 module purge
-module load gcc/8.3.0 openmpi/4.0.2 intel-mkl/2019.0.4
-export ORCADIR=<path to your ORCA directory>/orca_5_0_1_linux_x86-64_shared_openmpi411
+module load gcc/9.1.0 openmpi/4.1.1-cuda intel-mkl/2019.0.4
+export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
 ORTERUN=`which orterun`
 ln -sf ${ORTERUN}  ${SLURM_SUBMIT_DIR}/mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
 
-$ORCADIR/orca orca_5.0.1.inp > orca_5.0.1.out
+$ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
-- Example parallel batch script for Mahti
+
+- Example batch script for Puhti using local disk
+
+```
+#!/bin/bash
+#SBATCH --partition=small
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=40
+#SBATCH --account=<your billing project>
+#SBATCH --time=0:30:00 # time as hh:mm:ss
+#SBATCH --gres=nvme:100  # requested local disk space in GB
+module purge
+module load gcc/9.1.0 openmpi/4.1.1-cuda intel-mkl/2019.0.4
+export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
+export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
+
+ORTERUN=`which orterun`
+ln -sf ${ORTERUN}  ${SLURM_SUBMIT_DIR}/mpirun
+export PATH=${SLURM_SUBMIT_DIR}:${PATH}
+
+#Set $ORCA_TMPDIR to point to the local disk
+export ORCA_TMPDIR=$LOCAL_SCRATCH
+# Copy only the necessary files to $ORCA_TMPDIR
+# Add more here if needed.
+cp $SLURM_SUBMIT_DIR/*.inp $ORCA_TMPDIR/
+# Move to $ORCA_TMPDIR
+cd $ORCA_TMPDIR
+
+$ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
+rm -f  ${SLURM_SUBMIT_DIR}/mpirun
+
+# Copy all output to submit directory
+cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
+```
+
+- Example batch script for Mahti
+
 
 ```
 #!/bin/bash
@@ -54,24 +87,31 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 #SBATCH --ntasks-per-node=128
 #SBATCH --account=<your billing project>
 #SBATCH --time=0:30:00 # time as hh:mm:ss
-#SBATCH --job-name=orca-5.0.1
+#SBATCH --job-name=orca-5.0.3
 #SBATCH --error=jobfile.err%J
 #SBATCH --output=jobfile.out%J
 module purge
-module load gcc/10.3.0 openblas/0.3.14 openmpi/4.1.0
-export ORCADIR=<path to your ORCA directory>/orca_5_0_1_linux_x86-64_shared_openmpi411
+module load gcc/10.3.0 openmpi/4.1.0 openblas/0.3.14
+export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
 ORTERUN=`which orterun`
 ln -sf ${ORTERUN}  ${SLURM_SUBMIT_DIR}/mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
 
-$ORCADIR/orca orca_5.0.1.inp > orca_5.0.1.out
+$ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
 !!! note
     Please remember to adjust %pal nproc in your input file according to the total number of requested MPI tasks (nodes * ntasks-per-node) 
+
+
+- You can find a few additional example jobs in the directory:
+
+``` 
+/appl/soft/chem/orca
+```
 
 ## References
 
@@ -89,6 +129,6 @@ given in the manual.
 -   [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
 -   [ORCA Tutorials](https://www.orcasoftware.de/tutorials_orca/)
 -   [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home) 
--   [Release notes](https://orcaforum.kofo.mpg.de/viewtopic.php?f=51&t=7564)
+-   [Release notes](https://orcaforum.kofo.mpg.de/viewforum.php?f=56)
 
 
