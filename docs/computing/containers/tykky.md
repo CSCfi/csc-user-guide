@@ -3,7 +3,7 @@
 ## Intro
 
 Tykky is a set of tools which wrap installations inside 
-a Apptainer/Singularity container to improve startup times, 
+an Apptainer/Singularity container to improve startup times, 
 reduce IO load, and lessen the number of files on large parallel filesystems. 
 
 Additionally, Tykky will generate wrappers so that installed
@@ -63,9 +63,9 @@ the bin directory `<install_dir>/bin` to the path.
 ```bash
 export PATH="<install_dir>/bin:$PATH"
 ```
-The you can call python and any other executables conda has installed in the same way as you would have activated the environment. 
+Then you can call python and any other executables conda has installed in the same way as if you had activated the environment. 
 
-If you also need to install some additional pip packages you can do by supplying
+If you also need to install some additional pip packages you can do so by supplying
 the `-r <req_file>` argument e.g: 
 
 ```
@@ -113,7 +113,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 As Tykky installed software resides in a container, it can not be directly modified.
 Small python packages can be added normally using `pip`, but then the python packages are
-sitting on the parallel filesystem so not recommended for any larger installations.  
+sitting on the parallel filesystem so this is not recommended for any larger installations.  
 
 To actually modify the installation we can use the `update` keyword
 together with the `--post-install <file>` option which specifies a bash script
@@ -132,20 +132,20 @@ conda  remove -y pyyaml
 pip install requests
 ```
 
-In this mode the whole host system is available including all software and modules 
+In this mode the whole host system is available including all software and modules. 
 
 ## Plain pip installations
 
-Sometimes you don't need a full blown conda environment or then you prefer pip
+Sometimes you don't need a full blown conda environment or you might prefer pip
 to manage python installations. For this case we can use: 
 
 ```
 pip-containerize new --prefix <install_dir> req.txt
 ```
 Where `req.txt` is a standard pip requirements file. 
-The  notes and options for modifying a conda installation apply here as well.
+The notes and options for modifying a conda installation apply here as well.
 
-Note that the python version used by `pip-containerize` is the first python executable find in the path, so it's affected by loading modules. 
+Note that the python version used by `pip-containerize` is the first python executable found in the path, so it's affected by loading modules. 
 
 **Important:** This python can not be itself container-based as nesting is not possible.  
 
