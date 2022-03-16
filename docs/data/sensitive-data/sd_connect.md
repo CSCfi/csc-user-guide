@@ -215,6 +215,7 @@ As the workflow described above is still under development, files larger than 1 
 6- You will be then **redirected to a new page**. As you have already encrypted the data, you can **deselect the option: Encrypt file before upload**.
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 <img width="958" alt="SD Connect deselect " src="https://user-images.githubusercontent.com/83574067/158698579-2b6f806e-a110-421c-9151-26974e8aa48d.png">
 
 7- Next, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**. 
@@ -224,11 +225,6 @@ As the workflow described above is still under development, files larger than 1 
 9- Next, click on **Upload**. A progress bar will visualise the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4hg*.
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-![example upload 5](https://user-images.githubusercontent.com/83574067/149021515-32567945-c755-4f1d-a940-33dd23f42c46.png)
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
