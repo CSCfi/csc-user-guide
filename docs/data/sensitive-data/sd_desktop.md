@@ -130,7 +130,7 @@ Encrypted files will be **visible in read-only mode (similarly to opening a pdf 
 
 
 !!! Note
-    In SD Desktop, you access only files encrypted with the Sensitive Data Services encryption. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
+    In SD Desktop, you  can access only files encrypted with the Sensitive Data Services encryption key or using SD Connect. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
    
 ### Accessing encrypted data stored in SD Connect using Data Gateway
 
@@ -140,20 +140,18 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * select SD Connect;
 
-![data gateway 1](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
-
-* Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
-
-![data gateway 2](https://user-images.githubusercontent.com/83574067/158682252-2d329595-b8de-4997-be11-1aa61f5db3fc.png)
+* add your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
 
 * **Click on Login** and next clic on **Continue**;
 
+![data gateway 1](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
 
-![data gateway 3](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
+![data gateway 2](https://user-images.githubusercontent.com/83574067/158686613-e9889bc1-7865-4e74-966d-3cf65972ab52.png)
 
 
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
 
+![data gateway 3](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
 
 ![data gateway 4](https://user-images.githubusercontent.com/83574067/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
 
@@ -164,6 +162,7 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 ![data gateway 7](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
 
+
 !!! Note 
     The Projects folder is **available only when the Data Gateway application is open**. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
@@ -173,7 +172,7 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 **If you need to edit the files/data**:
 
- * access the files of interest in the Project folder **using Data Gateway**
+ * access the files of interest in the Project folder **using Data Gateway**;
  
  *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
 
