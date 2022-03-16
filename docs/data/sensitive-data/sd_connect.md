@@ -112,7 +112,7 @@ In the **Shared** page:
 
 ## Sensitive data encryption and upload (less than 1 GB) 
 
-SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow ayou can automatically encrypt the data with Sensitive Data services public encryption key (**Encrypt files before uplaod: on**; **Ephimeral private key: on**).
+SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow ayou can automatically encrypt the data with Sensitive Data services public encryption key (**Encrypt files before uplaod: on**).
 
  As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md).
 
@@ -130,6 +130,10 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 
 
 
+![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
+
+
+
 2- You will be **redirected to a new page displaying the default encryption options**. 
 
 3- Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
@@ -144,29 +148,21 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
 
-5- With the icon  **Click to add files that will be uploaded** you will open a browser window in which you can select and add more files. 
+5- With the icon  **Select Files for Upload** you will open a browser window in which you can select and add more files. 
 
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-![SD Connect final 1](https://user-images.githubusercontent.com/83574067/149011263-3225da97-b363-4c0f-9458-ccd1d09f293f.png)
+![SD Connect 1a](https://user-images.githubusercontent.com/83574067/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
 
 
 
 6-  Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-![3](https://user-images.githubusercontent.com/83574067/149011679-38799458-8e8d-4ddb-9a61-142a651b1fcb.png)
+![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
 
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be diplayed in the correct bucket, in a default folder called data and each encrypted file will have the extension *.c4gh*. 
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4gh*. 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-![6](https://user-images.githubusercontent.com/83574067/149012441-fc6ec48a-3d87-4cc2-bdd8-5e44e6c3cfd6.png)
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
+![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
 
 ## Sensitive data encryption and upload (less than 100 GB) 
 
