@@ -119,9 +119,9 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
  
 1- To upload data to SD Connect it is sufficient to:
 
-* use the **drag and drop function** 
- 
-* click on the **upload** icon in the SD Connect browser window. 
+* click on the **upload** icon in the SD Connect browser window;
+
+*  use the **drag and drop function**.
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -135,6 +135,9 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 
 
 2- You will be **redirected to a new page displaying the default encryption options**. 
+
+<img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
+
 
 3- Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
