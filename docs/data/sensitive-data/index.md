@@ -1,9 +1,11 @@
 
 
-This guide, in CSC Docs, introduces CSC Sensitive Data Services. 
+This is the user guide for CSC Sensitive Data Services and it is part of Docs CSC. In order to navigate across the CSC user guide, click on the topics on the left hand side of the navigation bar or use the search functionality.
 
+We are currently updating the documentation and video tutorials. 
 
-!!! Note We are currently updating the documentation and video tutorials. Do you have any questions? Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
+!!! Note
+    Do you have any questions? Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
 
 
 
