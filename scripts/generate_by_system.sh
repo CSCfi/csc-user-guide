@@ -6,11 +6,11 @@ generated_file="docs/apps/by_system.md"
 echo -e "# Applications by availability\n" > $generated_file
 
 # Case sensitive, the title for the system category
-system_name=("Mahti-rhel7" "Mahti-rhel8" "Puhti")
+system_name=("Mahti-rhel7" "Puhti")
 # Not case sensitive, the keyword to grep to determine if a software is available on a system
 # For exceptions add an entry to skip_system.txt
 # Format: SKIP_[system_key] [filename]
-system_key=("mahti-rhel7" "mahti-rhel8" "puhti")
+system_key=("mahti-rhel7" "puhti")
 
 system_desc=("CSC supercomputer for massively parallel jobs"\
     "CSC supercomputer for massively parallel jobs"\
