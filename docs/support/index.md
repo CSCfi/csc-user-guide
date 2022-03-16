@@ -4,4 +4,3 @@
 ## [FAQ](faq/index.md)
 ## [Training Materials](training-material.md)
 ## [Contact us](contact.md)
-## [Accessibility statement](accessibility.md)
