@@ -1,7 +1,7 @@
 
 # Accessibility statement for docs.csc.fi website
 
-This accessibility statement applies to the website docs.csc.fi.
+This accessibility statement applies to the [CSC Docs website](../../).
 
 CSC is committed to making its websites accessible, in accordance with [Act on the provision of digital services 306/2019](https://www.finlex.fi/en/laki/kaannokset/2019/en20190306).
 
