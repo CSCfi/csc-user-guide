@@ -61,15 +61,15 @@ Each Desktop is CSC project specific. Thus, if you add colleagues/collaborators 
 
 To launch your Desktop, in Homepage, click on **Go To Launching Page** :
 
-* **select your CSC project**
+* **select your CSC project**;
 
-* **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
+* **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7);
   
-* optionally, you can name the Desktop (**update: 1 September 2021**).
+* optionally, you can name the Desktop;
   
-* optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop (**update: 1 September 2021**).
+* optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop;
 
-* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
+* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**;
 
 The system will create a secure connection to your private computing environment. The process is completely automated and might take **up to 30 minutes**. 
 
@@ -141,14 +141,14 @@ Once you signed in to your virtual Desktop, you can access encrypted data stored
 
 * select SD Connect;
 
-![data gateway 1](https://user-images.githubusercontent.com/83574067/158361532-3cc06b71-1e17-482d-ab66-0b9c7362a4bf.png)
+![data gateway 1](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
 
 * Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus you need to type in your password);
 
 * **Click on Login** and next clic on **Continue**;
 
 
-![data gateway 2](https://user-images.githubusercontent.com/83574067/158361642-450de52e-b167-4492-baa3-6df63d19f7f9.png)
+
 
 
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next click on **Oper folder**.
