@@ -46,11 +46,12 @@ Note that the data stored in Allas consume billing units of the project.
 ## A. Uploading data from Mahti to Allas
 
 The a-commands are Allas-specific tools that allow an easy start with Allas.  
-The a-commands pack, compress and move data automatically. This reduces the storage space needed but on
+The a-commands pack,and move data automatically. You can also apply compression for your data before storage.
+For e.g. text formatted data compression reduces the storage space needed but on
 the other hand makes the storage process bit slower. The a-commands are a good option for miscellaneous data 
-that compresses well and is mostly used in the CSC environment.
+that is mostly used in the CSC environment.
 
-In this example, I have the sub directory _genomes/zebrafish_ in the _scratch_ directory of my project in Mahti (/scratch/project_2001659). 
+In this example, we have the sub directory _genomes/zebrafish_ in the _scratch_ directory of a project in Mahti (/scratch/project_2001659). 
 The zebrafish directory contains eight files listed below:
 
 <pre><b>ls genomes/zebrafish</b>
@@ -64,8 +65,8 @@ To copy the content of this directory to Allas, I first set up the Allas environ
 ```text
 module load allas
 ```
-Then I open a connection to Allas using the command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx) and 
-then lists the Allas projects that are accessible for me. In this case, I select _project_2001659_.
+Then I open a connection to Allas using the command `allas-conf`. The command asks for users' CSC password (xxxxxxxxxxx) and 
+then lists the Allas projects that are accessible. In this case, we select _project_2001659_.
 
 <pre>[kkayttaj@mahti-login1 ~]$ <b>allas-conf</b>
 Please enter CSC password for account kkayttaj: 
@@ -94,8 +95,8 @@ At the end of the upload process, the command reports:
 ```text
 
 -------------------------------------------------------------------------------
-1 files from Danio_rerio.GRCz10.fa uploaded to bucket 2001659-mahti-SCRATCH in Allas as one compressed file: 
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+1 files from Danio_rerio.GRCz10.fa uploaded to bucket 2001659-mahti-SCRATCH in Allas as one file: 
+2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 -----------------------------------------------------------------
 
 Upload summary:
@@ -107,7 +108,7 @@ OK
 
 Moving data to Allas file by file is slow and produces large amounts of objects. It is often more efficient to 
 upload data to Allas one directory at a time and store the data in bigger chunks. For example, to upload the 
-zebrafish directory, I first enter the _genomes_ directory
+zebrafish directory, we first enter the _genomes_ directory
 ```text
 cd /scratch/project_2001659/genomes/
 ```
@@ -118,8 +119,8 @@ a-put zebrafish/
 At the end of the upload process, the command reports:
 ```text
 -------------------------------------------------------------------------------
-8 files from zebrafish uploaded to bucket 2001659-mahti-SCRATCH in Allas as one compressed file: 
-2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst
+8 files from zebrafish uploaded to bucket 2001659-mahti-SCRATCH in Allas as one tar file: 
+2001659-mahti-SCRATCH/genomes/zebrafish.tar
 -----------------------------------------------------------------
 
 Upload summary:
@@ -129,45 +130,45 @@ Upload summary:
 OK
 ```
 
-After this, I have another object in the _2001659-mahti-SCRATCH_ bucket:
+After this, we have another object in the _2001659-mahti-SCRATCH_ bucket:
 
 <pre>[kkayttaj@mahti-login1 genomes]$ <b>a-list 2001659-mahti-SCRATCH</b>
-2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+2001659-mahti-SCRATCH/genomes/zebrafish.tar
+2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 </pre>
 
 Note that, in fact, the file _Danio_rerio.GRCz10.fa_ is now stored in Allas twice: 
-As an individual compressed object (genomes/zebrafish/Danio_rerio.GRCz10.fa.zst)
-and as part of the _genomes/zebrafish.tar.zst_ object.
+As an individual object (genomes/zebrafish/Danio_rerio.GRCz10.fa)
+and as part of the _genomes/zebrafish.tar_ object.
 
 ## B. Downloading to Puhti
-Next I download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
+Next we download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
 the project 2001659 and load the _allas_ module:
 ```text
 cd /scratch/project_2001659
 module load allas
 ```
-In this case, I know that I want to use Allas with the project *project_2001659*, so I give the project name as an 
+In this case, we want to use Allas with the project *project_2001659*, so we can give the project name as an 
 argument for the `allas-conf` command: 
 ```text
 allas-conf project_2001659
 ```
 Now the configuration process asks only for the CSC password and then sets up the connection to the Allas project project_2001659.
-As the Puhti scratch directory is shared by all project members, I create a my own subdirectory (kkayttaj):
+As the Puhti scratch directory is shared by all project members, we create a user specific subdirectory (kkayttaj):
 ```text
 mkdir kkayttaj
 cd kkayttaj/
 ```
-With the command `a-list`, I can now see the objects I just uploaded from Mahti to Allas:
+With the command `a-list`,we can now see the objects that were just uploaded from Mahti to Allas:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list</b> 
 2001659-mahti-SCRATCH
 [kkayttaj@puhti-login2 kkayttaj]$ <b>a-list 2001659-mahti-SCRATCH</b>
-2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+2001659-mahti-SCRATCH/genomes/zebrafish.tar
+2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 </pre>
 
-Locating my data is easy as there are only two objects in the bucket, but as more data is added to Allas, 
+Locating data is easy as there are only two objects in the bucket, but as more data is added to Allas, 
 locating a specific file among dozens of buckets containing hundreds of objects may be difficult. 
 In that case, you can search for a specific file with the command `a-find`. In this example, I can check if 
 an object contains the file Danio_rerio.GRCz10.fa:
@@ -175,9 +176,9 @@ an object contains the file Danio_rerio.GRCz10.fa:
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-find -a Danio_rerio.GRCz10.fa</b> 
 ----------------------------------------------
 Checking bucket: 2001659-mahti-SCRATCH
-Object: 2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst 
+Object: 2001659-mahti-SCRATCH/genomes/zebrafish.tar 
 includes 2 file names that that match query: Danio_rerio.GRCz10.fa
-Object: 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa.zst
+Object: 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 includes 1 file names that that match query: Danio_rerio.GRCz10.fa
 ------------------------------------------------ 
 Query: Danio_rerio.GRCz10.fa
@@ -185,16 +186,16 @@ Total of 3 hits were found in 2 objects
 -------------------------------------------------
 </pre>
 
-The `a-find` report above tells that, for example, the object _2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst_ contains 
+The `a-find` report above tells that, for example, the object _2001659-mahti-SCRATCH/genomes/zebrafish.tar_ contains 
 two files whose names match Danio_rerio.GRCz10.fa (the other file is _Danio_rerio.GRCz10.fa.fai_). Note that `a-find` finds 
 matches only among objects that were uploaded with `a-put`.
 
-Next I download the data to Puhti using the `a-get` command:
+Next we download the data to Puhti using the `a-get` command:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst</b>
+<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar</b>
 Starting to copy data from allas...
 Object:
-  2001659-mahti-SCRATCH/genomes/zebrafish.tar.zst 
+  2001659-mahti-SCRATCH/genomes/zebrafish.tar
 copied and uncompressed from allas into:
   zebrafish</pre>
 
@@ -212,8 +213,7 @@ Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 
 ## A. Uploading data with rclone
 
-Rclone is the power user tool for Allas. It is good in cases where the data does not compress much or 
-the data must be stored as each file being a separate object.
+Rclone is the power user tool for Allas. It is good in cases where the data must be stored as each file being a separate object.
 
 !!! warning
     Rclone provides a fast and effective way to use Allas, but you should use it carefully as rclone operations can _overwrite_ 
@@ -221,7 +221,7 @@ the data must be stored as each file being a separate object.
 
 *    [Using Allas with rclone from Puhti and Mahti](./using_allas/rclone.md)
 
-This example uses the same data as the previous case: in the _scratch_ directory of Mahti, I have a sub directory
+This example uses the same data as the previous case: in the _scratch_ directory of Mahti, we have a sub directory
 _genomes/zebrafish_  that contains the eight files listed below:
 
 <pre><b>ls /scratch/project_2001659/genomes/zebrafish</b>
@@ -231,12 +231,12 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.91.rev.2.bt2
 Danio_rerio.GRCz10.fa  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-To copy the content of this directory to Allas, I first login to *mahti.csc.fi* and set up the Allas environment:
+To copy the content of this directory to Allas, we first login to *mahti.csc.fi* and set up the Allas environment:
 ```text
 module load allas
 ```
-Then I open a connection to Allas with the command `allas-conf`. The command asks for my CSC password (xxxxxxxxxxx) and 
-then lists the Allas projects that are accessible for me. In this case, I select *project_2001659*.
+Then we open a connection to Allas with the command `allas-conf`. The command asks for the CSC password (xxxxxxxxxxx) and 
+then lists the Allas projects that are accessible for the user. In this case, we select *project_2001659*.
 
 <pre>[kkayttaj@mahti-login1 ~]$ <b>allas-conf</b>
 Please enter CSC password for account kkayttaj: 
@@ -256,8 +256,8 @@ Next, I go to the _zebrafish_ directory.
 cd /scratch/project_2001659/genomes/zebrafish
 ```
 
-Instead of `a-put` that was used in the previous example, I use command `rclone copyto` to copy all  
-files from the given directory to Allas. In the case of `rclone`, there is no default bucket. Instead, I have 
+Instead of `a-put` that was used in the previous example, we use command `rclone copyto` to copy all  
+files from the given directory to Allas. In the case of `rclone`, there is no default bucket. Instead, we have 
 to define a bucket. In this example, I use the bucket name _2001659-genomes_ and
 define each object name to have the prefix _zebrafish_.
 
@@ -280,32 +280,32 @@ After copying the files, I use `rclone ls` to see what has been uploaded to Alla
 
 ## B. Downloading the data to Puhti
 
-Next, I download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
+Next, we download the same data to Puhti. After connecting to _puhti.csc.fi_, we go to the scratch directory of 
 project_2001659 and load the allas module:
 ```text
 cd /scratch/project_2001659
 module load allas
 ```
-In this case, I know that I want to use Allas with the project project_2001659, so I give the project name as an argument for the `allas-conf` command: 
+In this case, we want to use Allas with the project project_2001659, so we can give the project name as an argument for the `allas-conf` command: 
 ```text
 allas-conf project_2001659
 ```
 Now the configuration process asks only for the CSC password and then sets up the connection to the Allas project *project_2001659*.
-As the Puhti scratch directory is shared by all project members, I create a my own subdirectory (kkayttaj), if it is not yet created, and go there:
+As the Puhti scratch directory is shared by all project members, we create a user specific subdirectory (kkayttaj), if it is not yet created, and go there:
 ```text
 mkdir kkayttaj
 cd kkayttaj/
 ```
-I can now use the command `rclone lsd` to check the available buckets in Allas:
+we can now use the command `rclone lsd` to check the available buckets in Allas:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone lsd allas:</b>
   3268222761 2020-10-03 10:01:42         8 2001659-genomes
   2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
 </pre>
 
-Now I see two buckets. _2001659-genomes_ is the one that was just created in this 
+Now we see two buckets. _2001659-genomes_ is the one that was just created in this 
 example, while _2001659-mahti-SCRATCH_ originates from the previous a-command example.  
-Next, I list the objects in the _2001659-genomes_ bucket:
+Next, we list the objects in the _2001659-genomes_ bucket:
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone ls allas:2001659-genomes</b>
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
@@ -318,7 +318,7 @@ Next, I list the objects in the _2001659-genomes_ bucket:
       715 zebrafish/Danio_rerio.GRCz10.fa.fa
 </pre>
 
-Finally, I use the `rclone copyto` command to copy the data from Allas to Puhti in a new directory _zebrafish2_. 
+Finally, we use the `rclone copyto` command to copy the data from Allas to Puhti in a new directory _zebrafish2_. 
 
 <pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
@@ -359,7 +359,7 @@ allas-conf -k
 Here, `allas-conf` is used with the option `-k` that saves the Allas password in an environment variable ($OS_PASSWORD), 
 so that the connection to Allas can later be automatically reconfigured without the need to define the password again.
 
-After opening the Allas connection, I move to the directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
+After opening the Allas connection, we move to the directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
 <pre>[kkayttaj@mahti-login1 ~] <b>cd /scratch/project_2001659/my_data</b>
 [kkayttaj@mahti-login my_data] <b>ls -lh */*.gz</b>
@@ -371,18 +371,14 @@ After opening the Allas connection, I move to the directory _my_data_ where I ha
 -rw-rwxr-x 1 kkayttaj csc  33G Jun  5 13:09 90/uniref90.xml.gz
 </pre>
 
-Most of the modern non-ascii file formats (i.e. binary data) that are used for large datasets store the data in a very dense format. 
-Thus, these files do not benefit from compressing the data. The same applies to files that have already been compressed. 
-For this kind of data, it is reasonable to use the `a-put` command with the `--nc` option that skips the compression and uploads 
-the file to Allas as it is.
 
 Next, I launch the upload process. In this case, I do not use the default bucket name but assign the name to be _2001659-uniref_
 ```text
-a-put -b  2001659-uniref --nc  */*.gz
+a-put -b 2001659-uniref  */*.gz
 ```
 This command uploads the files listed above to Allas.
 
-I could launch the same upload alternative with `rclone copy`:
+We could launch the same upload alternative with `rclone copy`:
 ```text
 for f in */*.gz
 do
@@ -390,25 +386,25 @@ rclone copy $f allas:2001659-uniref
 done
 ```
  
-I can leave the session running in the background by pressing `Ctrl-a d`.
+we can leave the session running in the background by pressing `Ctrl-a d`.
 
-Now, I can log out from Mahti, but the screen session remains active in the Mahti login node I use (in this case, _mahti-login1_).
+Now, we can log out from Mahti, but the screen session remains active in the Mahti login node I use (in this case, _mahti-login1_).
 
-To connect to this session, I first connect to the Mahti node where the screen session is running:
+To connect to this session, we first connect to the Mahti node where the screen session is running:
 ```text
 ssh csc-username@mahti-login1.csc.fi
 ```
-Then, I reattach the screen session:
+Then, we reattach the screen session:
 ```
 screen -r
 ``` 
 
-Once the _a-put_ command is finished, I will run `a-check` command to check if all the data objects have been created.
+Once the _a-put_ command is finished, we will run `a-check` command to check if all the data objects have been created.
 _a-check_ needs to be executed with exactly the same options that  were used with the _a-put_ command.  
 So in this case the command would be:
 
 ```text
-a-check -b 2001659-uniref --nc  */*.gz
+a-check -b 2001659-uniref  */*.gz
 ```
 
 The _a-check_ command compares the item names to be uploaded to the matching objects in Allas. 
@@ -441,8 +437,7 @@ allas-conf -k
 
 Suppose we have a directory structure that contains images of road condition cameras from ten locations with an interval of ten minutes 
 from the years 2014–2018. The data is located in the directory *road_cameras* where each location has its own subdirectory (ten directories). 
-Inside each subdirectory, there is another layer of subdirectories, one for each year (five subdirectories), each containing subdirectories 
-for every day of the year (further 365 subdirectories), each containing 144 small image files. 
+Inside each subdirectory, there is another layer of subdirectories, one for each year (five subdirectories), each containing subdirectories for every day of the year (further 365 subdirectories), each containing 144 small image files. 
 
 For example:
 ```text
@@ -450,8 +445,7 @@ road_cameras/site_7/2017/day211/image_654887.jpg
 ```
 Thus, the total number of files in the _road_cameras_ directory is 10 * 5 * 365 * 144 = 2 628 000.
 
-In principle, you could copy all 2,6 million files as separate objects to Allas, but in that case, you should split the data into multiple
-buckets as one bucket can have at most 0,5 million objects. You could, for example, run a separate `rclone` command for each _site_ directory 
+In principle, you could copy all 2,6 million files as separate objects to Allas, but in that case, you should split the data into multiple buckets as one bucket can have at most 0,5 million objects. You could, for example, run a separate `rclone` command for each _site_ directory 
 and put the data from each site to a site-specific bucket:
 
 ```text
@@ -465,38 +459,35 @@ As another extreme option, your could use `a-put` and collect all data into one 
 must add the option _--skip-filelist_ to the `a-put` command. By default, `a-put` collects detailed metadata of **each** file in a _ameta_ file. 
 However, if you have thousands of files, collecting this information takes a long time. If you need to know the file names, 
 you can use the _--simple-fileslist_ option to collect the names – but **no** other information – of the files in the metadata file. 
-This already speeds up the preprocessing significantly. However, as in this case the naming has been systematic, storing the file 
-names to the metadata files can be just ignored altogether (`--skip-filelist`), which is the fastest option.
+This already speeds up the preprocessing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored altogether (`--skip-filelist`), which is the fastest option.
 
 ```text
-a-put --nc --skip-filelist road_cameras/
+a-put --skip-filelist road_cameras/
 ```
 This approach would store all 2,6 million files as one object.
 
-In practice, the optimal way of storing the data is often between these two extremes. As a compromise, you could apply compression 
-at a higher level in the hierarchy.
+In practice, the optimal way of storing the data is often between these two extremes. As a compromise, you could apply packing at a higher level in the hierarchy.
 
 For example:
 ```text
-a-put --nc --skip-filelist road_cameras/site_*
+a-put --skip-filelist road_cameras/site_*
 ```
 This would produce ten objects, each containing all information from one camera site.
 Alternatively, you could do the compression so that data from each year from each camera is collected as one object:
 ```text
-a-put --nc --skip-filelist road_cameras/site_*/20*
+a-put --skip-filelist road_cameras/site_*/20*
 ```
 This last option would store the data as 50 objects. Day-based objects for each camera might be the most practical 
 option for using the data later on but, as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects 
 probably takes quite a long time.
 
-Copying millions of files to Allas takes a long time regardless of the method. If you have started the `a-put` command inside a `screen` session, 
-you can detach from the virtual session by pressing `Ctrl-a-d` to log out from Puhti and leave the upload process running for days. 
+Copying millions of files to Allas takes a long time regardless of the method. If you have started the `a-put` command inside a `screen` session, you can detach from the virtual session by pressing `Ctrl-a-d` to log out from Puhti and leave the upload process running for days. 
 
 Once the _a-put_ command is finished, you can run `a-check` command to check if all the data objects have been created. 
 You should run _a-check_ using exactly the same options that you used with _a-put_.  So in this case the command could be:
 
 ```text
-a-check  --nc--skip-filelist road_cameras/site_*/20*
+a-check --skip-filelist road_cameras/site_*/20*
 ```
 
 The _a-check_ command compares the item names to be uploaded to the matching objects in Allas. 
