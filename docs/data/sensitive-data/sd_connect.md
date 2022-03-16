@@ -211,6 +211,9 @@ As the workflow described above is still under development, files larger than 1 
 
 6- You will be then **redirected to a new page**. As you have already encrypted the data, you can **deselect the option: Encrypt file before upload**.
 
+
+<img width="958" alt="SD Connect deselect " src="https://user-images.githubusercontent.com/83574067/158698579-2b6f806e-a110-421c-9151-26974e8aa48d.png">
+
 7- Next, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**. 
 
 8- If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names.
