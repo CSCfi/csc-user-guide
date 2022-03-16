@@ -6,7 +6,7 @@ Gaussian is a versatile program package providing various capabilities for elect
 
 ## Available
 - Puhti: G16RevC.01 
-- Mahti-rhel7:: G16RevC.01
+- Mahti-rhel7: G16RevC.01
 
 ## License
 CSC has acquired a full commercial license for Gaussian. Gaussian is available for use by all approved account holders, subject to some license restrictions.To be able to use Gaussian at CSC **your user-id has to be added to Gaussian users group. Send a request to CSC Service Desk, servicedesk@csc.fi .**

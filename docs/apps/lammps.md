@@ -12,7 +12,7 @@ how to create yours.
 ## Available
 
 -   Puhti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
--   Mahti-rhel7:: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
+-   Mahti-rhel7: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 
 ## License
 

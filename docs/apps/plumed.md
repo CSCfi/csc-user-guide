@@ -9,7 +9,7 @@ in molecular dynamics. It can be used with several MD codes.
 ## Available
 
 -   Puhti: 2.5.8, 2.6.1
--   Mahti-rhel7:: 2.6.1
+-   Mahti-rhel7: 2.6.1
 
 
 ## License

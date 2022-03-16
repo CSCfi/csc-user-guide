@@ -5,7 +5,7 @@ NWChem provides many different methods to compute the properties of molecular an
 ## Available
 
 -   Puhti: 6.8.1
--   Mahti-rhel7:: 7.0.0
+-   Mahti-rhel7: 7.0.0
 
 ## License
  - The code is distributed as open-source under the terms of the [Educational Community License version 2.0 (ECL 2.0)](https://opensource.org/licenses/ecl2.php ). 

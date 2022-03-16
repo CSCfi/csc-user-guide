@@ -5,7 +5,7 @@ Puhti and Mahti-rhel7.
 ## Available
 
 * Puhti: various 2.x and 3.x versions
-* Mahti-rhel7:: various 2.x and 3.x versions
+* Mahti-rhel7: various 2.x and 3.x versions
  
 System Python is available by default both in Puhti and Mahti-rhel7 without loading
 any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) Python
@@ -29,7 +29,7 @@ of scientific libraries:
    * [geoconda](geoconda.md) - for spatial data anlysis 
    * and several other modules may include Python...
 
-In Mahti-rhel7::
+In Mahti-rhel7:
 
    * python-env - anaconda Python with conda tools
    * python-singularity - Singularity-based Python

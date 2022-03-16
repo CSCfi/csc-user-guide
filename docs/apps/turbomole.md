@@ -6,7 +6,7 @@ It includes most standard and state of the art methods for ground state calculat
 ## Available
 
 *   Puhti: 7.5.1
-*   Mahti-rhel7:: 7.5.1
+*   Mahti-rhel7: 7.5.1
 
 ## License
 

@@ -8,7 +8,7 @@ Beckman Institute of the University of Illinois.
 ## Available
 
 * Puhti: version 2.13, 2.14-cuda
-* Mahti-rhel7:: version 2.14
+* Mahti-rhel7: version 2.14
 
 ## License
 
@@ -30,7 +30,7 @@ one core for communication for each task is beneficial i.e. `namd_threads=$SLURM
 
 The data below shows the apoa1 benchmark on Mahti-rhel7 (ns/day as a function
 of allocated nodes, each line with a certain number of `namd_threads`
-as set in the [Mahti-rhel7 script below](#batch-script-example-for-mahti)).
+as set in the [Mahti-rhel7 script below](#batch-script-example-for-mahti-rhel7)).
 Apoa1 system has 92k atoms.
 
 ![NAMD Scaling on Mahti-rhel7](../img/namd_on_mahti_d.svg)

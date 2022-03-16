@@ -8,7 +8,7 @@ particular for AIMD.
 ## Available
 
 * Puhti: 6.1
-* Mahti-rhel7:: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2, 9.1
+* Mahti-rhel7: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2, 9.1
 
 ## License
 
@@ -66,7 +66,7 @@ srun cp2k.psmp H2O-32.inp > H2O-32.out
 
 ### Performance notes
 
-**Mahti-rhel7::**
+**Mahti-rhel7:**
 
 The following table shows average time [s] for one AIMD step for the [H2O-64 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-64.inp)
 in Mahti-rhel7. The column headers show how many omp-threads were used per mpi-task.
@@ -78,7 +78,7 @@ Nodes|d1|d2|d4|d8
 4|0.72|0.494|0.504|0.534
 
 * For 64 water molecules, the best performance is obtained with 2 full nodes, 32 mpi-tasks,
-  and 4 OMP-threads per task (like the [Mahti-rhel7 example](#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization))
+  and 4 OMP-threads per task (like the [Mahti-rhel7 example](#example-batch-script-for-mahti-rhel7-using-mixed-mpi-openmp-parallelization))
   For this system the performance does not scale beyond 2 nodes.
 * Mixed parallization is efficient: choose tasks and threads so that they add up to 128
   (physical) cores available per node (or up to 40 on Puhti).
