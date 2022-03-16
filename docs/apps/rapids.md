@@ -11,7 +11,7 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 ## Available
 
-Rapids is available on Puhti and Mahti. Some older versions are available on
+Rapids is available on Puhti and Mahti-rhel7. Some older versions are available on
 Puhti only. Currently supported RAPIDS versions:
 
 - 21.12 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `21.12`

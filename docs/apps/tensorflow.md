@@ -13,7 +13,7 @@ Deep learning framework for Python.
 
 Currently supported TensorFlow versions:
 
-| Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                           |
+| Version | Module                            | Puhti | Mahti-rhel7 | Environ. | Horovod | Notes                           |
 |:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|---------------------------------|
 | 2.7.0   | `tensorflow/2.7`                  | X     | X     | Sing.    | X       | default version                 |
 | 2.6.0   | `tensorflow/2.6`                  | X     | X     | Sing.    | X       |                                 |
@@ -71,7 +71,7 @@ TensorFlow is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use this software on Puhti or Mahti-rhel7, initialize it with:
 
 ```text
 module load tensorflow
@@ -127,7 +127,7 @@ a single node:
     srun python3 myprog.py <options>
     ```
     
-=== "Mahti"
+=== "Mahti-rhel7"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>

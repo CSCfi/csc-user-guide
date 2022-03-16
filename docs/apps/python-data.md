@@ -12,14 +12,14 @@ Collection of Python libraries for data analytics and machine learning.
 ## Available
 
 Older versions of the `python-data` module are available on **Puhti only**.
-Versions starting from `3.9-2` are available on Mahti as well. Versions are
+Versions starting from `3.9-2` are available on Mahti-rhel7 as well. Versions are
 numbered as `X.Y-N`, where `X.Y` is the version of the Python interpreter
 included, and `N` is a running version number starting from 1. Current versions
 are:
 
 - `python-data/3.9-2` installed in January 2022, includes for example
   Scikit-learn 1.0.2, SciPy 1.7.3, Pandas 1.3.5 and JupyterLab 3.2.6. This is
-  the first version that is available on **both Puhti and Mahti**.
+  the first version that is available on **both Puhti and Mahti-rhel7**.
 - `python-data/3.9-1` installed in June 2021, includes for example: Scikit-learn
   0.24.2, Pandas 1.2.4 and JupyterLab 3.0.16. This is the first version of
   Python Data that has been installed using Singularity which should make

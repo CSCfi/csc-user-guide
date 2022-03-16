@@ -10,7 +10,7 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2019-2022 releases with regularly updated minor versions, several with plumed
+-   Mahti-rhel7:: 2019-2022 releases with regularly updated minor versions, several with plumed
 -   Check recommended version(s) with `module avail gromacs-env`
 -   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
 
@@ -132,7 +132,7 @@ srun gmx_mpi mdrun -s verlet -dlb yes
 
 Submit the script with `sbatch script_name.sh`
 
-### Example mpi-only parallel batch script for Mahti
+### Example mpi-only parallel batch script for Mahti-rhel7
 
 ```bash
 #!/bin/bash
@@ -153,7 +153,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-### Example mixed parallel batch script for Mahti
+### Example mixed parallel batch script for Mahti-rhel7
 
 ```bash
 #!/bin/bash
@@ -229,7 +229,7 @@ done
 srun gmx_mpi mdrun -multidir ${list[@]} -deffnm md_0_1 -dlb yes
 ```
 
-By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
+By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti-rhel7 node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
 
 ![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
 

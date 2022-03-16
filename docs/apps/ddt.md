@@ -4,7 +4,7 @@ Arm DDT is a parallel debugger with a graphical user interface (GUI).
 
 ## Available
 
-Puhti, Mahti
+Puhti, Mahti-rhel7
 
 ## License
 

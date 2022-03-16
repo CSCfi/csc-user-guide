@@ -5,7 +5,7 @@ NWChem provides many different methods to compute the properties of molecular an
 ## Available
 
 -   Puhti: 6.8.1
--   Mahti: 7.0.0
+-   Mahti-rhel7:: 7.0.0
 
 ## License
  - The code is distributed as open-source under the terms of the [Educational Community License version 2.0 (ECL 2.0)](https://opensource.org/licenses/ecl2.php ). 
@@ -54,7 +54,7 @@ export SCRATCH_DIR=$NWCHEM_RUN
 srun $NWCHEM_EXE test.nw > test_$SLURM_NPROCS.out
 seff $SLURM_JOBID
 ```
-### Batch script example for Mahti
+### Batch script example for Mahti-rhel7
 
 ```
 #!/bin/bash -l
