@@ -1,4 +1,17 @@
 
+
+This guide, in CSC Docs, introduces CSC Sensitive Data Services. 
+
+
+!!! Note We are currently updating the documentation and video tutorials. Do you have any questions? Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
+
+
+
+
+
+
+
+
 ## [Introduction](./intro.md)
 
    
