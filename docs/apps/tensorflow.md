@@ -15,7 +15,8 @@ Currently supported TensorFlow versions:
 
 | Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                           |
 |:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|---------------------------------|
-| 2.7.0   | `tensorflow/2.7`                  | X     | X     | Sing.    | X       | default version                 |
+| 2.8.0   | `tensorflow/2.8`                  | X     | X     | Sing.    | X       | default version                 |
+| 2.7.0   | `tensorflow/2.7`                  | X     | X     | Sing.    | X       |                                 |
 | 2.6.0   | `tensorflow/2.6`                  | X     | X     | Sing.    | X       |                                 |
 | 2.5.0   | `tensorflow/2.5`                  | X     | X     | Sing.    | X       |                                 |
 | 2.4.1   | `tensorflow/2.4`                  | X     | X     | Sing.    | X       |                                 |
@@ -59,7 +60,8 @@ information, see [CSC's general instructions on how to run Singularity
 containers](../computing/containers/run-existing.md).
 
 Some modules support [Horovod](https://horovod.ai/), which is our recommended
-framework for multi-node jobs, i.e., jobs needing more than 4 GPUs. For more
+framework for multi-node jobs, i.e., jobs needing more than 4
+GPUs. Horovod can also be used with single-node jobs for 2-4 GPUs. For more
 information, read the [Multi-GPU section in our machine learning
 guide](../support/tutorials/ml-multi.md).
 
@@ -123,7 +125,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.4
+    module load tensorflow/2.8
     srun python3 myprog.py <options>
     ```
     
@@ -138,7 +140,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.4
+    module load tensorflow/2.8
     srun python3 myprog.py <options>
     ```
 
