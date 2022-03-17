@@ -2,6 +2,18 @@
 
 The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting contributing to Docs CSC through pull requests. This page highlights in more detail common questions and pitfalls you may encounter during the process.
 
+- [Frequently asked questions](#frequently-asked-questions)
+  - [How to include my new page in the navigation panel?](#how-to-include-my-new-page-in-the-navigation-panel)
+  - [How to add an image?](#how-to-add-an-image)
+  - [How to embed an external video?](#how-to-embed-an-external-video)
+  - [How to add links?](#how-to-add-links)
+  - [My PR did not pass the tests, what to do?](#my-pr-did-not-pass-the-tests-what-to-do)
+  - [How can I preview my edits?](#how-can-i-preview-my-edits)
+    - [Using the preview feature for active branches hosted on Rahti](#using-the-preview-feature-for-active-branches-hosted-on-rahti)
+    - [Locally using the MkDocs tool](#locally-using-the-mkdocs-tool)
+  - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
+
+
 ## How to include my new page in the navigation panel?
 
 If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the `mkdocs.yml` file in the root of the repository. Items appearing in the navigation panel are listed in this file as key/value pairs under the `nav:` key, for example:
@@ -81,11 +93,17 @@ The command "python3 tests/python_link_tests/link_check.py" exited with 1.
 
 ## How can I preview my edits?
 
-You can preview how the Docs CSC page would look like with your changes included in two ways:
+You can preview how the Docs CSC page would look like with your changes included in two main ways:
+
+### Using the preview feature for active branches hosted on Rahti
+
+* A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+* Select your branch from the list to get a preview of your version of Docs CSC
+* Note, currently absolute internal links formatted as e.g. `/support/accessibility/` don't work in the preview, but they will work on docs.csc.fi.
 
 ### Locally using the MkDocs tool
 
-* This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/getting-started/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
+* This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
 
 ```bash
 conda env create -f docs/support/tutorials/conda/conda-docs-env-1.0.yaml
@@ -101,11 +119,6 @@ mkdocs serve
 
 * This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) with your browser to get a preview of the documentation.
 * Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed
-
-### Using the preview feature for active branches hosted on Rahti
-   * A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
-   * Select your branch from the list to get a preview of your version of Docs CSC
-   * Note, currently absolute internal links formatted as e.g. `/support/accessibility/` don't work in the preview, but they will work on docs.csc.fi.
 
 ## How and who should I ask to review my PR?
 

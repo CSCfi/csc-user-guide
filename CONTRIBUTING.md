@@ -166,7 +166,7 @@ Pull requests can be created as follows:
 
 This user guide uses [MkDocs](http://www.mkdocs.org/) to generate documentation
 pages. You can install it on your computer by following the instructions given
-in [MkDocs documentation](http://www.mkdocs.org/#installation), or with
+in [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with
 [conda](https://docs.conda.io/en/latest/miniconda.html) by simply
 
 ```bash
