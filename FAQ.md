@@ -1,27 +1,60 @@
 # Frequently asked questions
 
-The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting contributing to the CSC user guide, making pull requests (PRs) and reviewing them. This page highlights in more detail common questions and pitfalls you may encounter during the process.
+The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting contributing to Docs CSC through pull requests. This page highlights in more detail common questions and pitfalls you may encounter during the process.
 
-## How to edit an existing page?
+## How to include my new page in the navigation panel?
 
-## How to create a new page?
+If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the `mkdocs.yml` file in the root of the repository. Items appearing in the navigation panel are listed in this file as key/value pairs under the `nav:` key, for example:
 
-## How to add an image or embed a video in a page?
+```yaml
+nav:
+  - Home: index.md
+  - Accounts:
+     - Overview: accounts/index.md
+     - How to create new user account: accounts/how-to-create-new-user-account.md
+     - How to change password: accounts/how-to-change-password.md
+     ...
+```
 
-To add an image:
+To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `mkdocs.yml` as this will break things.
+
+## How to add an image?
 
 * Add the image you want to include to the `/docs/img/` directory.
+  * If the image is really large, publish it in Allas in the `docs-files` bucket: `a-publish my-image.png -b docs-files` (write access with project 2001659)
 * Include the image in your page using the markdown syntax `![This is alt-text for screen readers](/path/to/docs/img/my-image.png 'This is mouse-over text')`
 * **Note the importance of alt-text and mouse-over (title) text! These are required to make the content accessible for all.**
 * Alt-txt should not be too long (8+ words). If the alt-text cannot explain the information contained in the image, mention that the text below contains it.
 * You can use the same text in alt-text and mouse-over text
 * Images should be of high contrast and large enough font within them.
 
-To embed a video from an external source:
+## How to embed an external video?
 
-* You need to use HTML syntax, for example, `<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/PrgMFna3DKw?rel=0" title="Intro to Geocomputing" width="560"></iframe>`
-* Use the `title` option to describe the content of the video. The use of `srcdoc` is also required (instead of plain `src`) to avoid cookies if consent not granted.
-* Use captions/subtitles (easy to add in Youtube).
+* You need to use the `<iframe>` HTML element, for example, `<iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/PrgMFna3DKw" title="Adding and removing project members" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
+* Note, a `www.youtube.com/embed/...` style URL is required to appropriately embed the video, the normal URL will not work. You can right-click the video in YouTube to copy the normal URL, then just add `/embed/`. It's also possible to right-click the video to copy the embed code directly, but it needs to be edited a bit before it can be used, see below.
+  * Edit `width` and `height` to match the example above.
+  * Edit the `title` to describe the content of the video.
+  * Use of `srcdoc` is also required instead of plain `src` to avoid cookies if consent has not been granted.
+
+## How to add links?
+
+Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For internal links use relative paths, for example:
+
+* Link pointing to file in same directory: `[Gromacs documentation](gromacs.md)`
+* Link pointing to a certain section (anchor) in a page: `[Gromacs usage](gromacs.md#usage)`
+* Link pointing to a file in another directory: `[Contact Service Desk](../support/contact.md)`, where the double dot `../` syntax means going up one level in the directory tree relative to the current directory. Then the path is followed to `support` and the contact page `contact.md`.
+* **For internal links you need to include the file extension `.md` in the target**
+* **Don't make internal links using a URL, `https://docs.csc.fi/...`**. Use URLs only in links pointing to an external target. 
+* **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
+  * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
+  * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
+
+Common issues:
+
+* Incorrect number of double dots, i.e. going up too many or too few parent directories: `[Service Desk](../../support/contact.md)` vs. `[Service Desk](../support/contact.md)`.
+* Including `/` between page and anchor
+  * Correct: `[Gromacs usage](gromacs.md#usage)`
+  * Incorrect: `[Gromacs usage](gromacs.md/#usage)`
 
 ## My PR did not pass the tests, what to do?
 
@@ -48,9 +81,29 @@ The command "python3 tests/python_link_tests/link_check.py" exited with 1.
 
 You can preview how the Docs CSC page would look like with your changes included in two ways:
 
-1. Locally using the MkDocs tool
-      * Install mkdocs 
-2. Using the  
+### Locally using the MkDocs tool
+
+* This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/getting-started/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
+
+```bash
+conda env create -f docs/support/tutorials/conda/conda-docs-env-1.0.yaml
+conda activate docs
+```
+
+* You can start a preview web server from the command line while in the root of the project directory:
+
+```bash
+mkdocs build
+mkdocs serve
+```
+
+* This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) with your browser to get a preview of the documentation.
+* Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed
+
+### Using the preview feature for active branches hosted on Rahti
+   * A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+   * Select your branch from the list to get a preview of your version of Docs CSC
+   * Note, currently absolute internal links formatted as e.g. `/support/accessibility/` don't work in the preview, but they will work on docs.csc.fi.
 
 ## How and who should I ask to review my PR?
 
