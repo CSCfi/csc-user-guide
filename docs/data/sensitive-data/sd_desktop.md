@@ -33,9 +33,6 @@ To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
 
 
 
-
-
-
 Login to SD Desktop is possible with user identity federation systems (Haka, Virtu and [Elixir ID](https://elixir-europe.org/register) or with a CSC account at
 
 [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
@@ -64,15 +61,15 @@ Each Desktop is CSC project specific. Thus, if you add colleagues/collaborators 
 
 To launch your Desktop, in Homepage, click on **Go To Launching Page** :
 
-* **select your CSC project**
+* **select your CSC project**;
 
-* **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7)
+* **choose the operating system** (for beta versions, only possible operating system is Linux CentOS 7);
   
-* optionally, you can name the Desktop (**update: 1 September 2021**).
+* optionally, you can name the Desktop;
   
-* optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop (**update: 1 September 2021**).
+* optionally, you can extend the disk space clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop;
 
-* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**
+* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**;
 
 The system will create a secure connection to your private computing environment. The process is completely automated and might take **up to 30 minutes**. 
 
@@ -124,94 +121,81 @@ As previously mentioned, you can **logout** from your computing environment at a
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-
 ## Accessing encrypted sensitive data within SD Desktop
 
-This workflow is available only on Desktops **launched after November 4th, 2021**.
 
-**SD Access Filesystem** is an application that allows you to access encrypted data stored in SD Connect from your Desktop. The encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without the need of storing any copy on your Desktop. If the files have been encrypted with CSC public encryption key, they will be automatically decrypted by the application.
-
-Once you are logged into your Desktop you can access encrypted data stored in SD Connect by following these steps:
-
-* Open **SD Access Filesystem** (you can find the link to the application on your Desktop)
-
-* Insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus you need to type in your password)
-
-* **Click on ok**. The application will create a **new folder called Projects** accessible **from your desktop or from the terminal**. **Do not close or log out from SD Access Filesystem.**
+As the virtual Desktop is isolated from the Internet, the only way to access data for analysis is utilizing a specific application called Data Gateway.
+This application will allow you to access encrypted data stored in SD Connect or a specific dataset for which you have been granted access via SD Apply for re-use.
+Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop. 
 
 
-![SD Connect Filesystem](https://user-images.githubusercontent.com/83574067/140088063-5c099842-de29-42f4-b6a7-178f5ba03d86.png)
+!!! Note
+    In SD Desktop, you  can access only files encrypted with the Sensitive Data Services encryption key or using SD Connect. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
+   
+### Accessing encrypted data stored in SD Connect using Data Gateway
+
+Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
+
+* Open **Data Gateway** (you can find the application on your Desktop);
+
+* select SD Connect;
+
+* add your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
+
+* **Click on Login** and next clic on **Continue**;
+
+![data gateway 1](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
+
+![data gateway 2](https://user-images.githubusercontent.com/83574067/158686613-e9889bc1-7865-4e74-966d-3cf65972ab52.png)
 
 
-* From the Projects folder you can access subfolders named with your CSC project ID, from which you can visualize all the encrypted files stored in a specific bucket. 
+* In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
 
-![FIlesystem 2](https://user-images.githubusercontent.com/83574067/140091946-33105054-5b65-4b53-9d29-6b7f0b6399fe.png)
+![data gateway 3](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
 
-
-* If the files are **encrypted with the CSC public encryption key** you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
-
-* The Projects folder is **available only when the SD Access Filesystem application is open**. If you log out from the application, you will not be able to access the data stored in SD Connect, unless you previously made a full copy of it. 
-
-![Untitled-2](https://user-images.githubusercontent.com/83574067/140091591-139401d5-512e-4301-a046-e68d8bbc4d40.png)
+![data gateway 4](https://user-images.githubusercontent.com/83574067/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
 
 
+*   If the files have been encrypted using SD Connect or the **sensitive data public encryption key**, you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
+
+![data gateway 6](https://user-images.githubusercontent.com/83574067/158682863-a82bdffa-0e3c-4888-a11e-15f32d4841dc.png)
+
+![data gateway 7](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
+
+
+!!! Note 
+    The Projects folder is **available only when the Data Gateway application is open**. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
+
+
+
+### Importing data inside the Desktop
 
 **If you need to edit the files/data**:
 
- * access the files of interest in the Project folder **using SD Access Filesystem**
- *  make a **copy** and save it in your **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the colleagues belonging to your CSC project). 
+ * access the files of interest in the Project folder **using Data Gateway**;
  
-For security reasons, your private workspace in SD Desktop is completely isolated from the Internet. If you need to visualize or import specific scripts into your Desktop (for example from GitHub or other trusted repositories) you can use the same procedure described above.
+ *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
 
-
-
-## Importing encrypted sensitive data to SD Desktop 
-
-The SD Connect Downloader application will be available only till December 2021.
-  
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/3UQLfYABP7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
-
-
-Once you are logged in into your SD Desktop **you can import encrypted sensitive data stored in SD Connect**.
-
+ 
 !!! Note
-    **If you use the CSC Sensitive Data Service public encryption key to encrypt the data, the files are  automatically decrypted**.  If you use your own key pair to encrypt the data, the application will make a copy and you need to manually decrypt them using Crypt4GH CLI. 
+    Your private workspace in SD Desktop is completely isolated from the Internet for security reasons. If you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories), you can use the procedure described above.
 
-To import the data:
 
-* **Open SD Connect Downloader client** (you can find the link to the application on your Desktop)
+###  Accessing published data under controlled access via SD Apply
 
-* insert your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons, thus you need to type in your password)
 
-* select your CSC project
+Data Gateway can also be used to access data published under controlled access via other CSC services for sensitive data. To access a specific dataset in your virtual Desktop, you need first to apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you will be able to access the dataset in SD Desktop for a limited time.
 
-* select the correct bucket 
+<img width="960" alt="Screenshot 2022-03-16 222235" src="https://user-images.githubusercontent.com/83574067/158684026-959e7b8d-d910-4a77-919a-414c8623b8ec.png">
 
-* select the files you want to import 
+If you did not yet apply for access to a specific dataset or if the access period has ended and you try to access the data using the Data gateway application, you will encounter an error message. 
 
-* click on **download objects** (the application will make a copy of the encrypted files in SD Desktop).
+<img width="960" alt="10" src="https://user-images.githubusercontent.com/83574067/158683211-3a390e9e-f576-4a2b-8638-07c399c1b4fe.png">
 
-* click on **open download location**
 
-The files are downloaded to a directory called SDCONNECTDATA which is in the user's home directory. The folder is automatically opened by Open Download Location.
+SD Apply is currently in the pilot phase. Please contact us at servidesk@csc.fi (subject: sensitive data) for more information.
 
-Note: **If you used CSC Sensitive Data Service public encryption key to encrypt the data, the files are automatically decrypted **. 
 
-If you used your own key pair to encrypt the data, the application will make a copy and you need to manuallay decrypt them using Crypt4GH CLI. 
-
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-<img width="960" alt="SD Desktop 5" src="https://user-images.githubusercontent.com/83574067/121872988-9223fb80-cd0e-11eb-8c5b-7e19a2111407.png">
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-
-For security reasons, your private workspace in SD Desktop is **completely isolated from the Internet**. If you need to import specific scripts in SD Desktop (for example from GitHub or other trusted repositories) you need to use the same procedure described before:
-
-* download your scripts from GitHub and save them in a specific bucket in SD Connect
-
-* access SD Desktop and use the SD Connect Downloader to make a copy of the scripts
- 
- 
  
 ## RStudio in SD Desktop
 
