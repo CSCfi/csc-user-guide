@@ -8,7 +8,7 @@ CSC staff: do these two things _first_:
 2. Then [join here the CSC employees team](https://github.com/orgs/CSCfi/teams/employees/members). Membership
 gives you permissions to edit source files that build the user guide. (Wait for a confirmation email.)
 
-The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions and [Frequently Asked Questions](FAQ.md) for more in depth explanations of common issues you might encounter when contributing.
+The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions and [Frequently Asked Questions](FAQ.md) for more in depth explanations of common issues you might encounter while contributing.
 
 ## For the impatient
 
@@ -27,22 +27,22 @@ Master branch is protected. You cannot make changes to it directly, but you
 must use pull requests.
 
 ### Overview
-**writer:**
+
+**Writer:**
 
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
- - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (=apps) for example)
+ - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or softwares (= apps) for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel)
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it
-        - **How?** Click on the "Details" link for the failing test. Then click the "The Build" Failed -link more or less at the center of the page. This will open detailed results of the tests and help you pinpoint the error.) 
-    - Assign one or more reviewers, try to choose someone who knows the _content_
-        - **Tip** Add a link to the rahtiapp-preview page (https://csc-guide-preview.rahtiapp.fi/origin/
-<your-branch-name>/rest-of-url/) in the Pull Request description to help reviewer) 
+        - **How?** Click on the "Details" link for the failing test. Then click the "The Build" Failed -link more or less at the center of the page. This will open detailed results of the tests and help you pinpoint the error. See also the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) 
+    - Assign one or more reviewers, try to choose someone who knows the _content_. See also the [FAQ](FAQ.md#how-and-who-should-i-ask-to-review-my-pr).
+        - **Tip** Add a link to the rahtiapp-preview page (https://csc-guide-preview.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/) in the Pull Request description to help reviewer 
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (=Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
- - Once PR has been accepted, remove the temporary branch (if not deleted at merge)
+ - Once PR has been accepted, remove the temporary branch (if not deleted by an admin at merge)
 
 **Reviewer:** If you get a request to review a pull request, please contribute to help publish the changes!
 
