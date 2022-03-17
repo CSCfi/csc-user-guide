@@ -24,4 +24,4 @@ have read and accepted the General Terms of Use for..._
 Project are usually valid for one year at a time, but they can be
 extended. Project are usually valid for one year at a time, but they can be extended. To extend a project, please see page 'How to manage your project'.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rHVaZD9zwnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/rHVaZD9zwnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
