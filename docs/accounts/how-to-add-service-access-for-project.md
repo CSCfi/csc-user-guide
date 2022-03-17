@@ -42,10 +42,12 @@ Click _Accept_.
 1. A message will be sent to the e-mail address associated with your CSC
 user account when the service access has been granted.
 
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/M4bNZJC6C0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 !!! Note
 
     Project manager is the only person who can add or remove services of
     a project. If you want to stop using the service, contact us at
     servicedesk@csc.fi.
     
-    <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/M4bNZJC6C0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
