@@ -24,7 +24,7 @@ Click _Apply for Access_.
 1. A message will be sent to the e-mail address associated with your CSC
 user account when the service access has been granted.
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/watch?v=MH8A-LBVTwU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/MH8A-LBVTwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Member
 
@@ -48,4 +48,4 @@ user account when the service access has been granted.
     a project. If you want to stop using the service, contact us at
     servicedesk@csc.fi.
     
-    <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/watch?v=M4bNZJC6C0o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/M4bNZJC6C0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
