@@ -8,7 +8,7 @@ CSC staff: do these two things _first_:
 2. Then [join here the CSC employees team](https://github.com/orgs/CSCfi/teams/employees/members). Membership
 gives you permissions to edit source files that build the user guide. (Wait for a confirmation email.)
 
-The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions.
+The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions and [Frequently Asked Questions](FAQ.md) for more in depth explanations of common issues and pitfalls in contributing.
 
 ## For the impatient
 
