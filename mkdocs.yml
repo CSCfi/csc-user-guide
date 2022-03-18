@@ -19,6 +19,7 @@ nav:
      - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
      - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
+     - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
@@ -31,6 +32,7 @@ nav:
      - Supercomputer storage:
         - Disk areas: computing/disk.md
         - Lustre filesystem: computing/lustre.md
+        - Allas object storage: computing/allas.md
      - Module environment: computing/modules.md
      - Running jobs:
         - Getting started: computing/running/getting-started.md
@@ -52,6 +54,7 @@ nav:
      - Containers:
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
+        - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
        - Overview: computing/webinterface/index.md
        - Interactive apps:
@@ -89,6 +92,8 @@ nav:
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
          - Annotations: cloud/rahti/tutorials/annotations.md
          - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+         - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -172,6 +177,7 @@ nav:
         - SD Desktop: data/sensitive-data/sd_desktop.md
         - Pre-installed software: data/sensitive-data/pre-installed_software.md
         - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
+#        - FAQ: data/sensitive-data/faq_index.md
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
@@ -185,12 +191,11 @@ nav:
      - In alphabetic order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md
-  - Support:
-     - Tutorials: support/tutorials/index.md
-     - FAQ: support/faq/index.md
-     - Training material: support/training-material.md
-     - Contact: support/contact.md
-     - What's new: support/whats-new.md
+  - FAQ: support/faq/index.md
+  - Tutorials: support/tutorials/index.md
+  - Training material: support/training-material.md
+  - Contact: support/contact.md
+  - What's new: support/whats-new.md
 
 theme:
   name: material
@@ -225,6 +230,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
 
-google_analytics:
-  - 'UA-5406715-9'
-  - 'auto'
+extra:
+  analytics:
+    provider: google
+    property: UA-5406715-9

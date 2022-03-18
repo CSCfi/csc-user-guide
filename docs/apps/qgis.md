@@ -16,7 +16,7 @@ __QGIS__ is available in Puhti with following versions:
 The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
+2. Start QGIS: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
 3. QGIS is started automatically when the Desktop is launched. 
 
 
@@ -40,11 +40,12 @@ It is also possible to access QGIS functionalities from Python without an graphi
 ### QGIS and Allas
 QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in on [GDAL](gdal.md) page.
 
-## License and citing
+## License and acknowledgement
 
 QGIS is licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo).
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

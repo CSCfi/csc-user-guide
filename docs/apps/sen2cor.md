@@ -25,11 +25,18 @@ More information on the available arguments can be displayed with
 
 or from [the Sen2Cor user manual](http://step.esa.int/thirdparties/sen2cor/2.9.0/docs/S2-PDGS-MPC-L2A-SUM-V2.9.0.pdf).
 
-## License and citing
+## Advanced usage
+
+Further configuration of `L2A_Process` can be done via the `L2A_GIPP.xml` file. 
+After running `L2A_Process` for the first time, you can find the default GIPP file in your `$HOME/sen2cor/2.9/cfg` directory. 
+Here you can adjust it to your needs using any editor and add it to the call: `L2A_Process --GIP_L2A $HOME/sen2cor/2.9/cfg/L2A_GIPP.xml <other arguments>` .
+
+## License and acknowledgement
 
 Sen2Cor is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

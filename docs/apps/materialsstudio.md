@@ -4,9 +4,9 @@ Materials Studio is a versatile modelling suite for building and
 quantum and classical simulation of molecules, materials and nanostructures.
 
 !!! Note
-    CSC has obtained a reduced Materials Studio license for 2021 (heavy usage is recommended
-    to be done with [Maestro](maestro.md)). Decision to continue beyond 2021
-    will be made by autumn 2021.
+    CSC has obtained a reduced Materials Studio license for 2022 (maximum 3 simultaneous users, heavy usage is recommended
+    to be done with [Maestro](maestro.md)). Decision to continue beyond 2023
+    will be made by autumn 2022.
 
 ## License
 

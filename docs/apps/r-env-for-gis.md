@@ -77,8 +77,9 @@ It is possible to use [RStudio with an interactive session](../support/tutorials
 
 You can use Allas from R with the package __aws.s3__. You can find CSC examples how to use it [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). It is possible to [use files directly](gdal.md#using-files-directly-from-allas) from Allas with libraries like __sf__ and __raster__. With large quantities of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here.](https://research.csc.fi/virtual_rasters)
 
-## Citation
+## License and acknowledgement
 
+All packages are licensed under various free and open source licenses (FOSS), see the linked pages above for exact details.
 For finding out the correct citations for R and different R packages, you can type:
 
 ```r
@@ -86,7 +87,8 @@ citation() # for citing R
 citation("package") # for citing R packages
 ```
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ## References
 

@@ -4,40 +4,40 @@ Deep learning framework for Python.
 
 !!! News
 
-    All recent and upcoming TensorFlow installations are and will be
-    based on Singularity. This is mainly due to the performance issues
-    of conda-based environments on shared file systems, causing long
-    start-up delays for Python scripts on CSC's supercomputers. See 
-    below for more information.
+    **4.2.2022** All old TensorFlow versions which were based on direct Conda
+    installations have been deprecated, and we encourage users to move to newer
+    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
+
 
 ## Available
 
 Currently supported TensorFlow versions:
 
-| Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                        |
-|:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|------------------------------|
-| 2.7.0   | `tensorflow/2.7`                  | X     | X     | Sing.    | X       | default version              |
-| 2.6.0   | `tensorflow/2.6`                  | X     | X     | Sing.    | X       |                              |
-| 2.5.0   | `tensorflow/2.5`                  | X     | X     | Sing.    | X       |                              |
-| 2.4.1   | `tensorflow/2.4`                  | X     | X     | Sing.    | X       |                              |
-| 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       |                              |
-| 2.4.0   | `tensorflow/2.4-sng`              | X     | -     | Sing.    | -       |                              |
-| 2.3.1   | `tensorflow/nvidia-20.12-tf2-py3` | X     | -     | Sing.    | -       |                              |
-| 2.3.0   | `tensorflow/2.3`                  | X     | -     | Sing.    | -       |                              |
-| 2.2.0   | `tensorflow/nvidia-20.07-tf2-py3` | X     | -     | Conda    | X       | experimental Horovod support |
-| 2.2.0   | `tensorflow/2.2-hvd`              | X     | -     | Conda    | X       |                              |
-| 2.2.0   | `tensorflow/2.2`                  | X     | -     | Sing.    | -       |                              |
-| 2.1.0   | `tensorflow/nvidia-20.03-tf2-py3` | X     | -     | Sing.    | -       |                              |
-| 2.1.0   | `tensorflow/nvidia-20.02-tf2-py3` | X     | -     | Sing.    | -       |                              |
-| 2.0.0   | `tensorflow/nvidia-19.11-tf2-py3` | X     | -     | Sing.    | -       |                              |
-| 2.0.0:  | `tensorflow/2.0.0`                | X     | -     | Conda    | -       |                              |
-| 2.0.0   | `tensorflow/2.0.0-hvd`            | X     | -     | Conda    | X       |                              |
-| 1.15.5  | `tensorflow/1.15`                 | X     | -     | Sing.    | X       |                              |
-| 1.15.0  | `tensorflow/1.15-hvd`             | X     | -     | Conda    | X       |                              |
-| 1.14.0: | `tensorflow/1.14.0`               | X     | -     | Conda    | -       |                              |
-| 1.14.0  | `tensorflow/1.14.0-cpu`           | X     | -     | Conda    | -       | Optimized for CPU            |
-| 1.13.1: | `tensorflow/1.13.1`               | X     | -     | Conda    | -       |                              |
-| 1.13.1  | `tensorflow/1.13.1-hvd`           | X     | -     | Conda    | X       |                              |
+| Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                           |
+|:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|---------------------------------|
+| 2.8.0   | `tensorflow/2.8`                  | X     | X     | Sing.    | X       | default version                 |
+| 2.7.0   | `tensorflow/2.7`                  | X     | X     | Sing.    | X       |                                 |
+| 2.6.0   | `tensorflow/2.6`                  | X     | X     | Sing.    | X       |                                 |
+| 2.5.0   | `tensorflow/2.5`                  | X     | X     | Sing.    | X       |                                 |
+| 2.4.1   | `tensorflow/2.4`                  | X     | X     | Sing.    | X       |                                 |
+| 2.4.0   | `tensorflow/2.4-hvd`              | X     | -     | Conda    | X       | *deprecated*                    |
+| 2.4.0   | `tensorflow/2.4-sng`              | X     | -     | Sing.    | -       |                                 |
+| 2.3.1   | `tensorflow/nvidia-20.12-tf2-py3` | X     | -     | Sing.    | -       |                                 |
+| 2.3.0   | `tensorflow/2.3`                  | X     | -     | Sing.    | -       |                                 |
+| 2.2.0   | `tensorflow/nvidia-20.07-tf2-py3` | X     | -     | Conda    | X       | experimental Horovod support    |
+| 2.2.0   | `tensorflow/2.2-hvd`              | X     | -     | Conda    | X       | *deprecated*                    |
+| 2.2.0   | `tensorflow/2.2`                  | X     | -     | Sing.    | -       |                                 |
+| 2.1.0   | `tensorflow/nvidia-20.03-tf2-py3` | X     | -     | Sing.    | -       |                                 |
+| 2.1.0   | `tensorflow/nvidia-20.02-tf2-py3` | X     | -     | Sing.    | -       |                                 |
+| 2.0.0   | `tensorflow/nvidia-19.11-tf2-py3` | X     | -     | Sing.    | -       |                                 |
+| 2.0.0:  | `tensorflow/2.0.0`                | X     | -     | Conda    | -       | *deprecated*                    |
+| 2.0.0   | `tensorflow/2.0.0-hvd`            | X     | -     | Conda    | X       | *deprecated*                    |
+| 1.15.5  | `tensorflow/1.15`                 | X     | -     | Sing.    | X       |                                 |
+| 1.15.0  | `tensorflow/1.15-hvd`             | X     | -     | Conda    | X       | *deprecated*                    |
+| 1.14.0: | `tensorflow/1.14.0`               | X     | -     | Conda    | -       | *deprecated*                    |
+| 1.14.0  | `tensorflow/1.14.0-cpu`           | X     | -     | Conda    | -       | *deprecated*,<br/> optimized for CPU |
+| 1.13.1: | `tensorflow/1.13.1`               | X     | -     | Conda    | -       | *deprecated*                    |
+| 1.13.1  | `tensorflow/1.13.1-hvd`           | X     | -     | Conda    | X       | *deprecated*                    |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and
 [Keras](https://keras.io/) with GPU support via CUDA.
@@ -60,7 +60,8 @@ information, see [CSC's general instructions on how to run Singularity
 containers](../computing/containers/run-existing.md).
 
 Some modules support [Horovod](https://horovod.ai/), which is our recommended
-framework for multi-node jobs, i.e., jobs needing more than 4 GPUs. For more
+framework for multi-node jobs, i.e., jobs needing more than 4
+GPUs. Horovod can also be used with single-node jobs for 2-4 GPUs. For more
 information, read the [Multi-GPU section in our machine learning
 guide](../support/tutorials/ml-multi.md).
 
@@ -124,7 +125,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.4
+    module load tensorflow/2.8
     srun python3 myprog.py <options>
     ```
     
@@ -139,7 +140,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.4
+    module load tensorflow/2.8
     srun python3 myprog.py <options>
     ```
 

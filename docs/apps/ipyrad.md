@@ -12,7 +12,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti:  0.9.57
+-   Puhti:  0.9.81
 
 
 ## Usage
@@ -35,8 +35,9 @@ module load bioconda
 conda env list
 ```
 Now you can activate iPyrad enroment:
+
 ```text
-source activate ipyrad-0.9.57
+source activate ipyrad-0.9.81
 ```
 !!! Note
     The actual _ipyrad_ command should always be executed in a batch job environment.
