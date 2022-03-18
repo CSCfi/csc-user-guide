@@ -23,7 +23,10 @@
         .md-nav__title {
             font-weight: bold !important;
         }
-        .md-footer {
-            display: none;
+        .footer_column {
+            float: left;
+            width: 100%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
         }
     }
