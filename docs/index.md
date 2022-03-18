@@ -37,7 +37,7 @@ template: main-index.html
 </span><br>
 <span class="index-quicklinks">
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
-</span>
+</span><br>
 <span class="index-quicklinks">
 [Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
 </span>
