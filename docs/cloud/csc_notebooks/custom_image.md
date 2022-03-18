@@ -1,6 +1,6 @@
 # Create custom notebooks image with Jupyter for Notebooks 
 
-These instructions guide you throught the process of creating Jupyter notebooks for a course with custom conda packages installed. 
+These instructions guide you through the process of creating Jupyter notebooks for a course with custom conda packages installed. 
 
 Requirements: 
 * own CSC user account with Rahti access
