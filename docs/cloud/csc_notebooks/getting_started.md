@@ -59,7 +59,7 @@ container images maintained by Notebooks team. Take a look at the
 
 **Container image** For advanced use cases. You can customize the container image the application uses by building 
 your own image, uploading it to a public image registry (such as docker-registry in Rahti, DockerHub or Quay.io)
-and pointing *Container image* to it.
+and pointing *Container image* to it. See [instructions for creating custom images](./custom_image.md).
 
 **Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
 the application is also selected based on assigned labels.
