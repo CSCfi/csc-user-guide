@@ -41,9 +41,9 @@ Note that the data stored in Allas consume billing units of the project.
 
 
 
-# Example 1: Using Allas with a-commands <a name="e1"></a>
+## Example 1: Using Allas with a-commands <a name="e1"></a>
 
-## A. Uploading data from Mahti to Allas
+### A. Uploading data from Mahti to Allas
 
 The a-commands are Allas-specific tools that allow an easy start with Allas.  
 The a-commands pack,and move data automatically. You can also apply compression for your data before storage.
@@ -141,7 +141,7 @@ Note that, in fact, the file _Danio_rerio.GRCz10.fa_ is now stored in Allas twic
 As an individual object (genomes/zebrafish/Danio_rerio.GRCz10.fa)
 and as part of the _genomes/zebrafish.tar_ object.
 
-## B. Downloading to Puhti
+### B. Downloading to Puhti
 Next we download the same data to Puhti. After connecting to _puhti.csc.fi_, I go to the scratch directory of 
 the project 2001659 and load the _allas_ module:
 ```text
@@ -209,9 +209,9 @@ Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai
 </pre>
 
-# Example 2: Using Allas with rclone <a name="e2"></a>
+## Example 2: Using Allas with rclone <a name="e2"></a>
 
-## A. Uploading data with rclone
+### A. Uploading data with rclone
 
 Rclone is the power user tool for Allas. It is good in cases where the data must be stored as each file being a separate object.
 
@@ -278,7 +278,7 @@ After copying the files, I use `rclone ls` to see what has been uploaded to Alla
       715 Danio_rerio.GRCz10.fa.fai
 </pre>
 
-## B. Downloading the data to Puhti
+### B. Downloading the data to Puhti
 
 Next, we download the same data to Puhti. After connecting to _puhti.csc.fi_, we go to the scratch directory of 
 project_2001659 and load the allas module:
@@ -333,7 +333,7 @@ Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
 Danio_rerio.GRCz10.91.rev.2.bt2  Danio_rerio.GRCz10.fa.fai</pre>
 
-# Example 3: Uploading large files to Allas <a name="e3"></a>
+## Example 3: Uploading large files to Allas <a name="e3"></a>
 
 In the previous two examples, the actual amount of data was rather moderate, only some gigabytes. If the size of an individual data file is 
 hundreds of gigabytes or more, the transport of only a few files may take longer than the duration 
@@ -421,7 +421,7 @@ It checks only the object names, which may originate from some other sources.
 
 
 
-#Example 4: Uploading complex directory structures to Allas <a name="e4"></a>
+## Example 4: Uploading complex directory structures to Allas <a name="e4"></a>
 
 Some workflows and software create complex directory structures to store and manage data. You might have directories that have 
 thousands or even millions of individual files. Copying these kinds of datasets to Allas takes time and is not
