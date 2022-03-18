@@ -48,6 +48,7 @@ nav:
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
+        - LUMI: computing/compiling-lumi.md
         - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
