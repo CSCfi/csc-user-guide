@@ -75,6 +75,7 @@ library(future)
 options(future.availableCores.methods = "Slurm")
 availableCores()
 ```
+**6. Remember that parallelisation support is limited in RStudio**. Forked processes are considered unstable when running R from RStudio. Because of this, certain options for parallelisation (e.g. `plan(multicore)` in the package `future`) are unavailable when using RStudio. If you wish to use multiprocessing while working with RStudio, socket clusters are a more stable option. However, heavier parallel scripts are best submitted as non-interactive batch jobs.
 
 ## Briefly about standards
 
