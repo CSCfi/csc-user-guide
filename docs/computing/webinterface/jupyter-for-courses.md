@@ -1,5 +1,6 @@
-# Jupyter for fourses
-The Jupyter for courses app is a version of the [Jupyter app](../jupyter) that makes using a custom Python environment simple when hosting or participating in courses.
+# Jupyter for courses
+The Jupyter for courses app is a version of the [Jupyter app](../jupyter) that makes using a custom
+Python environment simple when hosting or participating in courses.
 
 Python environments can be defined as modules in the project [ProjAppl directory](/computing/disk/#projappl-directory).
 Default resources for the course Python environment can also be defined in the same directory.
@@ -17,11 +18,13 @@ The files for course environments (modules) can be created in `/projappl/<projec
 The `www_puhti_modules` directory can be created if it does not exist.
 
 The course environment is only visible for the project that it was created for.
-Note that you may need to *Restart Web Server* in the *Help* menu in the web interface if the course environment is not visible in the form after creating the files and selecting the correct project.
+Note that you may need to *Restart Web Server* in the *Help* menu in the web interface if the course
+environment is not visible in the form after creating the files and selecting the correct project.
 
 Two files are needed for the course modules:
 
- - a `<course>.lua` file that defines the [module](/computing/modules) that sets up the Python environment. Only files containing the text `Jupyter` will be visible in the app.
+ - a `<course>.lua` file that defines the [module](/computing/modules) that sets up the Python
+    environment. Only files containing the text `Jupyter` will be visible in the app.
  - a `<course>-resources.yml` that defines the default resources used for Jupyter.
 
 ### Examples
