@@ -3,7 +3,10 @@
 ## Puhti web interface beta updated to release 7
 
 * [Jupyter for courses](../../../computing/webinterface/jupyter-for-courses/) app now supports creating course environments for projects.
+* Added Puhti usage graphs to dashboard.
+* Added cookie policy and accessibility statement pages.
 * Some UI fixes and small bug fixes.
+* Open onDemand version updated to 2.0.23.
 
 ## Puhti web interface beta updated to release 6 2.2.2022
 
