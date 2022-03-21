@@ -12,6 +12,8 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
     - [Using the preview feature for active branches hosted on Rahti](#using-the-preview-feature-for-active-branches-hosted-on-rahti)
     - [Locally using the MkDocs tool](#locally-using-the-mkdocs-tool)
   - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
+  - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
+  - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
 
 
 ## How to include my new page in the navigation panel?
@@ -47,7 +49,7 @@ If you intend to make substantial changes to the navigation menu, please communi
 * You need to use the `<iframe>` HTML element, for example, `<iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/PrgMFna3DKw" title="Adding and removing project members" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
 * Note, a `www.youtube.com/embed/...` style URL is required to appropriately embed the video, the normal URL will not work. You can right-click the video in YouTube to copy the normal URL, then just add `/embed/`. It's also possible to right-click the video to copy the embed code directly, but it needs to be edited a bit before it can be used, see below.
   * Edit `width` and `height` to match the example above.
-  * Edit the `title` to describe the content of the video.
+  * Use the `title` to describe the content of the video.
   * Use of `srcdoc` is also required instead of plain `src` to avoid cookies if consent has not been granted.
 
 ## How to add links?
@@ -125,3 +127,24 @@ mkdocs serve
 1. Ask someone (one or two persons) who knows the *content* of the work you have committed to review your pull request. This is done in your pull request view using the right-hand-side panel, under `Reviewers`. The panel will suggest a few names for you based on, for example, who has edited the same pages recently. To view more reviewer options, click the cogwheel in the upper right corner of the `Reviewers` panel. If you're still unsure who to pick, you can always drop a message in the Rocket Chat channel #docs.csc.fi. Always request someone to review your PR, otherwise there's a high chance that it will just linger around.
 2. To help the reviewer to get started with going through your PR, you should leave a comment in the PR with a link to the preview page `https://csc-guide-preview.rahtiapp.fi/origin/your-branch/path/to/page/` with your additions/changes (edit `/your-branch/path/to/page/` as needed). Any other comments are of course also helpful for the reviewer to understand what you have done.
 3. Once the reviewer has gone through your PR, they will request changes or approve the PR. Once approved, someone with merge permissions will merge your PR to the master branch. If the changes you have made are urgent, you can always ping the Rocket Chat channel #docs.csc.fi to expedite the merging of your PR.
+
+## I was asked to review a PR, what should I do?
+
+1. Read any comments left by the requestor. If you understand the content of the PR and have time, you're up for the task. Otherwise, communicate to the requestor that you're unable to review the PR so that they can request someone else.
+2. Ensure that all tests have passed. If the tests are failing, notify the requestor. [See also above](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do).
+3. Check which files have been modified under tab `Files changed`. The panel shows the _diff_, i.e. which lines have been deleted and which have been added. Focus on these changes, but also look that the content looks good and is correct overall. Are there typos, is the text clear and concise, is the content accessible (see [Style Guide](STYLEGUIDE.md#accessibility))?
+4. Go to the [Rahti preview page](https://csc-guide-preview.rahtiapp.fi/origin/) of the branch and check that the formatting of the page looks good. If the requestor has not left the preview link as a comment, select the branch from list. The name of the branch can be seen in the PR under the title (e.g. `username wants to merge N commits into master from name-of-branch`). It's important that you view the page in the preview because the preview feature of GitHub does not show all formatting correctly, e.g. indentation of bullet-point lists. Check that links work. Note that absolute internal links will not work in the preview, but work on docs.csc.fi.
+5. If there are small errors, for example typos, you can correct these directly in the PR: In the `Files changed` tab go the file you want to correct, select `Edit file` (behind the three dots in the top right corner). *Commit the corrections to the same branch so that they get added to the PR!*
+6. If there are substantial revisions that should be made, click the green `Review changes` button in the top right corner and select `Request changes`. You can also leave general feedback without explicit approval. It's a good idea to suggest changes so that they appear as a diff in the conversation tab, [see here](FAQ.md#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab).
+7. Once all corrections have been made, approve the changes (also behind the `Review changes` button). Someone with merge privileges will merge the PR into master.
+
+## When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?
+
+It's good practice to leave comments/suggest changes to a PR so that they appear as a `diff` in the conversation tab. To do this,
+
+1. In the `Files changed` tab, go to the line you want to edit and click the blue `+` sign. 
+2. In the pop-up, write you're comment, or if you wan't to suggest changes, click the stacked `+-` icon in the top bar.
+3. Write between the tics (including the word "suggestion") what you want to appear in the page.
+4. If you want to remove a line, delete the content (leave the tics and the word suggestion)
+5. If you want to edit multiple lines, click and drag the `+` sign to select all lines.
+6. Once done, click `Add single comment`.
