@@ -20,6 +20,8 @@ Only existing users can be added this way.
 
 A user can be removed from a project by clicking the _X_ button next to the username.
 
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/rldnkzmtzQA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 !!! Note
 
     Project manager is the only person who can add project members.

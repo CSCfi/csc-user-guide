@@ -1,5 +1,12 @@
 # Applications
 
+## TensorFlow 2.8, 17.3.2022
+
+TensorFlow 2.8.0 is now available in the `tensorflow/2.8` module on Puhti and
+Mahti, and has been set as the default module. See the [TensorFlow 2.8 release
+notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.8.0/)
+for more details.
+
 ## Gromacs 2022, 9.3.2022
 
 [Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the [Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series). gromacs-env/2021 is now the default.

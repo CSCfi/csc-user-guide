@@ -13,6 +13,10 @@ password reset link ordered to your email.
 1. Go to _My Profile_ and click _Change password_.
 1. Enter your current password and the new password twice. Click _Save_.
 
+<figure class="video_container">
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/i8Y98ANQh-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
 ## Using password reset link
 
 [![Landing page](images/small/landing-page.png)](images/large/landing-page.png)
