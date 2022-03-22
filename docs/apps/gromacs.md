@@ -10,9 +10,9 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti-rhel7: 2019-2022 releases with regularly updated minor versions, several with plumed
+-   Mahti-rhel8: 2020-2022 releases with regularly updated minor versions, one with plumed
 -   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
+-   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
 !!! note
     We only provide the parallel version `gmx_mpi`, but it can
@@ -132,7 +132,7 @@ srun gmx_mpi mdrun -s verlet -dlb yes
 
 Submit the script with `sbatch script_name.sh`
 
-### Example mpi-only parallel batch script for Mahti-rhel7
+### Example mpi-only parallel batch script for Mahti-rhel8
 
 ```bash
 #!/bin/bash
@@ -146,14 +146,14 @@ Submit the script with `sbatch script_name.sh`
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-### Example mixed parallel batch script for Mahti-rhel7
+### Example mixed parallel batch script for Mahti-rhel8
 
 ```bash
 #!/bin/bash
@@ -169,7 +169,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 # 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -215,7 +215,7 @@ $ tree
 # this script runs a 128 core gromacs multidir job (8 simulations, 16 cores per simulation)
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
@@ -229,7 +229,7 @@ done
 srun gmx_mpi mdrun -multidir ${list[@]} -deffnm md_0_1 -dlb yes
 ```
 
-By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti-rhel7 node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
+By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti-rhel8 node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
 
 ![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
 
