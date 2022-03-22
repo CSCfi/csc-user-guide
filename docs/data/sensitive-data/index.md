@@ -1,6 +1,8 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC Sensitive Data Services. 
+This guide, in CSC Docs, introduces CSC Sensitive Data Services. In order to navigate across the CSC user guide, click on the topics on the left hand side of the navigation bar or use the search functionality.
+
+We are currently updating the documentation and video tutorials. 
 
 Below you can:
 
