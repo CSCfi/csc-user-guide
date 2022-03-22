@@ -27,7 +27,7 @@ git clone https://github.com/CSCfi/allas-cli-utils
 cd allas-cli-utils
 ```
       
-Allas-cli-tuils has a list of software dependencies that needs to be be installed. We use here the 
+Allas-cli-utils has a list of software dependencies that needs to be be installed. We use here the 
 _lumi-container-wrapper_ tool to install most of them (s3cmd, Python OpenStack clinet, Python swift client,
 zstdmt and crypt4gh). The installation is done with commands:
 
