@@ -8,10 +8,10 @@ In the following user guide you can learn how to:
 * apply for service access;
 * set up your virtual Desktop;
 * analyze data stored in SD Connect;
-* re-use published data stored under controlled access.
+* re-use published data stored under controlled access,
+* export non sensitive results from the secure virtual Desktop.
 
 ## Key features
-
 
 * **Accessible from any operating system (Mac, Linux or Windows)** via web-browser (e.g., Google Chrome, Firefox) **from the public internet** (without the need of installing client or using a VPN);
 
@@ -23,14 +23,9 @@ In the following user guide you can learn how to:
 
 * process any type of data: text files, images, audio files, video, and genetic data;
 
-* secure and **isolated workspace**; managed data export;
+* secure and **isolated workspace**, accessible to all the members of the same CSC proejct;
 
-* **process a large amount of data** stored encrypted in SD Connect via data streaming;
-
-* **copy and edit files** imported to SD Desktop via SD Connect (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data).
-
-* **re-use** sensitive data published under managed access via SD Apply. 
-
+* **process a large amount of data** stored encrypted in SD Connect via data streaming (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data).
 
 
 
@@ -141,9 +136,9 @@ In the following paragraphs, we will discuss how to work with a Desktop, which s
 
 ## Working with your virtual Desktop
 
-Once the virtual computer (here called Desktop) is launched, each CSC project member can securely connect to it from SD Desktop  **Connection page**, at any time.
+Once your private virtual computer (Desktop) is launched, each CSC project member can securely connect to from their browser, at any time.
 
-When you return to log in to SD Desktop **Homepage**,  you will be able to access your new virtual Desktop in:
+When you log in to SD Desktop **Homepage**,  you will be able to access your private Desktop in:
 
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed the virtual Desktop)
 
