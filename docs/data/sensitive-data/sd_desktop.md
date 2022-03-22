@@ -159,7 +159,7 @@ These are the main working space features:
 * when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
 
 
-![SD-Desktop-1](<img width="960" alt="first time desktop" src="https://user-images.githubusercontent.com/83574067/159559250-c77e2237-efe0-4098-a430-29a3c88bf855.png">)
+![SD-Desktop-board](https://user-images.githubusercontent.com/83574067/159559250-c77e2237-efe0-4098-a430-29a3c88bf855.png">)
 
 
 * from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
