@@ -194,23 +194,23 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * **Click on Login** and next clic on **Continue**;
 
-![data gateway 1](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
+![Data-Gateway-login](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
 
-![data gateway 2](https://user-images.githubusercontent.com/83574067/158686613-e9889bc1-7865-4e74-966d-3cf65972ab52.png)
+![Data-Gateway-continue](https://user-images.githubusercontent.com/83574067/158686613-e9889bc1-7865-4e74-966d-3cf65972ab52.png)
 
 
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
 
-![data gateway 3](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
+![Data-Geteway-create](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
 
-![data gateway 4](https://user-images.githubusercontent.com/83574067/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
+![Data-Gateway-open-folder](https://user-images.githubusercontent.com/83574067/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
 
 
 *   If the files have been encrypted using SD Connect or the **sensitive data public encryption key**, you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
 
-![data gateway 6](https://user-images.githubusercontent.com/83574067/158682863-a82bdffa-0e3c-4888-a11e-15f32d4841dc.png)
+![Data-Gateway-read-only](https://user-images.githubusercontent.com/83574067/158682863-a82bdffa-0e3c-4888-a11e-15f32d4841dc.png)
 
-![data gateway 7](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
+![Data-Gateway-programmatically](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
 
 
 !!! Note 
