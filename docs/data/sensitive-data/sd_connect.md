@@ -298,6 +298,10 @@ You can also upload complete directories and define a specific target bucket. Fo
 ```
 a-put --sdx my_data -b 1234_SD_my_data
 ```
+You can use a-put to encrypt the data with several keys so that the uploaded data can be used not just in SD Desktop but with other evironments too.
+```
+a-put --sdx my_data -b 1234_SD_my_data --encrypt c4gh --public-key my-key.pub --public-key collaborator-key.pub
+ ```
 
 
 
