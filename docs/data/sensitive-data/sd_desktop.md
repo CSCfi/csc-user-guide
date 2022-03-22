@@ -13,7 +13,7 @@ In the following user guide you can learn how to:
 ## Key features
 
 
-* **Accessible from any operating system (Mac, Linux or Windows)** via web-browser (e.g., Google Chrome, Firefox) **from the public internet** (without the need of installing client or using a);
+* **Accessible from any operating system (Mac, Linux or Windows)** via web-browser (e.g., Google Chrome, Firefox) **from the public internet** (without the need of installing client or using a VPN);
 
 * service access requires a CSC account and a CSC project;
 
@@ -60,15 +60,12 @@ To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
 * [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
-* apply for additional [billing units](../../accounts/how-to-apply-for-billing-units.md) or [disk quota](../../accounts/how-to-increase-disk-quotas.md), if needed.
 * add [service access to SD Connect and SD Desktop](../../accounts/how-to-add-service-access-for-project.md);
-* enable the additional security verification scanning the QR code with a specific application (e.g. Google Authenticator);
+* activate [multi-factor authentication](../../accounts/mfa.md) on your account.
 
-For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+For specific guidance regarding these steps, appling for billing units or disk quota, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
 
-[![Service-access](images/desktop/service-access-small.png)](images/desktop/service-access.png) 
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
 ## Authentication
 
@@ -80,7 +77,7 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu an
 
 using any modern web browser (e.g. Google Chrome, Firefox). 
 
-After login, **verify your identity** by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+After login, **verify your identity** by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, check the [multi-factor authentication](../../accounts/mfa.md) paragraph at the beginning of CSC user guide.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
@@ -91,9 +88,9 @@ After login, **verify your identity** by entering the verification **code** prov
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you have access to the service, you can launch your virtual computer (here called Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical knowledge. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will  be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until the Desktop is deleted. 
+Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical knowledge. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until the Desktop is deleted. 
 
-Each Desktop is CSC project-specific and supports the luanch of **3 virtual Desktops**. Each Desktop supports the simutaneus connecion of **10 project memebers**.
+Each Desktop is CSC project-specific and supports the launch of **3 virtual Desktops**. In addition, each Desktop supports the simultaneous connection of **10 project members**.
 Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph: [Pre-installed list of software](./pre-installed_software.md).
 
  
@@ -101,38 +98,52 @@ To start your Desktop, in SD Desktop Connection page, click on **Go To SD Deskto
 
 * **select your CSC project**, 
 
-* **choose the operating system** (currently the only possible operating system  is Linux CentOS 7)
+* **choose the operating system** (currently the only possible operating system  is Linux CentOS 7);
   
-* optionally, you can  assign a specific name the Desktop 
+* optionally, you can  assign a specific name to the Desktop;
   
 * optionally, you can extend your Desktop's disk space (or storage capability) by clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop. Additional disk space can be required writing at servicedesk@csc.fi (subject: Sensitive data);
 
-* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**. The operation is compeltely authomated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
+* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**. The operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
 
 [![Launch-virtual-Desktop](images/desktop/start-virtual-desktop-small.png)](images/desktop/start-virtual-desktop.png) 
 
 
-
 In SD Desktop, you can choose between **four different pre-built options **:  
 
-*  **Light computation**: this option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect). You can compare this Desktop to a very simple laptop, which probably freezes when you open too many software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed.
+*  **Light computation**: this option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect). You can compare this Desktop to a  laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed.
+
 Techincal specifications: **Core:3; memory 4 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.medium; Billing Units: 1.3 units/h**.
 
-* **Small computation**: this option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your laptop.
+* **Small computation**: this option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop.
+
 Techincal specifications: **Core:6; memory 15 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**.
 
 * **Medium computation**: this option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit.
+
 Techincal specifications:**Core:8; memory 30 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**.
 
-* **Heavy computation**: this option is ideal for running non-interactive programmatic analysis (for example machine learning). Techincal specifications: **Core:8; memory 168 GiB; Root: 80 GB; Correspondent Pouta Flavour: hpc4.4core; Billing Units: 78 units/h**. Please do not choose the Heavy computation option for simple computing or analysis, as it consumes many resources. 
+* **Heavy computation**: this option is ideal for running non-interactive programmatic analysis (for example, machine learning).
+
+Technical specifications: **Core:8; memory 168 GiB; Root: 80 GB; Correspondent Pouta Flavour: hpc4.4core; Billing Units: 78 units/h**. Please do not choose the Heavy computation option for simple computing or analysis, as it consumes many resources. 
 
 !!! Note
-        If you don't know what is the best Desktop option for your needs, contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
+        If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
 
-If the launch is successful, when you return to SD Desktop **Homepage**,  you will be able to access your new virtual Desktop in:
+Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
+
+In the following paragraphs, we will discuss how to work with a Desktop, which software is available and how it is possible to customize your workspace. 
+
+
+
+## Working with your virtual Desktop
+
+Once the virtual computer (here called Desktop) is launched, each CSC project member can securely connect to it from SD Desktop  **Connection page**, at any time.
+
+When you return to log in to SD Desktop **Homepage**,  you will be able to access your new virtual Desktop in:
 
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed the virtual Desktop)
 
@@ -144,32 +155,26 @@ If the launch is successful, when you return to SD Desktop **Homepage**,  you wi
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595580-5b811480-d071-11eb-9b99-9dcad8b4ac17.png">
 
 
-Unfortunately, we are not yet providing GPUs or Windows, Ubuntu operating systems. However, you can find more information on the future developments of the services on our webpage. In the next paragraphs we will dicuss how to work with a Desktop, which software are available and how it is possible to customize your workspace. 
-
-
-
-## Working with your virtual Desktop
-
-Once teh virtual Desktop is launched, each CSC project member can  securely connect to it  from SD Desktop  **Connection page**. 
-
 These are the main working space features:
 
-* the computing envuroment is isolated from teh internet;
+* the computing environment (visible from your browser) is isolated from the internet;
 
-* the copy paste fucntion from your computer/laptop to the berowser visualizing your virtual Desktop is completely disabled for security reasons;
+* the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons;
 
-* when you access the virtual Desktop for the first time, you will be able to see the setting board. From here you can for example adjust the screen resolution;
+* when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
 
-* From the menu bar (top left corner) you can several pre-installed software: for example Open Office, audio, video, images,  Jupiter Notebook. Ru tudio.(Complete list below);
+* from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
 
-* If you are planning to work with other colleagues on the same files, save them in the **Shared-directory**. The file will be visible, accessible and editable by all the members of the same CSC project;
+* if you plan to work with other colleagues on the same files, save them in the **Shared-directory**. The files can be open, chaned, edited by all the members of the same CSC project;
 
-* You can import scripts or data using SD Connect and the Data gateway application;
+* you can access or import data in the vistual Desktop using the Data Gateway applciation (see below for more information);
 
-* As previously mentioned, you can **log out** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to access your Desktop again after logging in to the service. 
+* as previously mentioned, you can **log out** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to reaccess your Desktop after logging in to the SD Desktop service. 
 
 !!! Note
-    **Never use the lock or reboot buttons** in SD Desktop as after that you will not be able to connect to the Desktop again.
+    **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
+    
+    
 
 ## Accessing encrypted sensitive data within SD Desktop
 
