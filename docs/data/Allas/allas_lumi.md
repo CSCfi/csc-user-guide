@@ -9,11 +9,11 @@ to LUMI-C and how to configure connection to Allas object storage services.
 
 ## Installing Allas tools
 
-Login to lumi.csc.fi. In this example we do the installation to the _/project_ area of a project so that 
+In this example we do the installation to the _/project_ area of a project so that 
 all project members can utilize these tools. In this example we use example project _462000007_. 
 Please use your own project number when installing these tools for your own project.
 
-First we move to the _/project_ disk area of the project and make there a directory called _allas_.
+Once you have logged in to Lumi, move to the _/project_ disk area of the project and make there a directory called _allas_.
 
 ```text
 /project/project_462000007
