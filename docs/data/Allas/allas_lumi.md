@@ -82,3 +82,13 @@ source /project/project_462000007/allas/allas-cli-utils/allas_conf
 ```
 
 Now commands like _rclone_, _swift_ or _a-put_ should work in the same way as in Puhti and Mahti.
+
+To simplify the configuraation process you can write the two command above to one file and run
+_source_ command just for that.
+
+For example if you would have the two commans above in a file called: _open-allas_ in your
+home directory you could open the connection with command:
+
+```text
+source  $HOME/open_allas
+```
