@@ -168,7 +168,7 @@ These are the main working space features:
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
  
     
-iframe width="280" height="155"![Launch-virtual-Desktop](images/desktop/desktop-6.png)
+![Launch-virtual-Desktop](images/desktop/desktop-5.png)
      
 ![Launch-virtual-Desktop](images/desktop/desktop-6.png)
   
