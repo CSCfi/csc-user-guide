@@ -268,9 +268,13 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 
 
-## Available software provided on SD Desktop
+## Default programs available on SD Desktop
 
- Currently, each virtual Desktop (or virtual computer) is pre-built and contains a limited set of pre-installed open source software (listed below). 
+Currently, each virtual Desktop (or virtual computer) is pre-built and contains a limited set of pre-installed open source software (listed below). 
+
+!!! Note
+    If the list below is not clear of if you need a specific software for anlyzing your data, please don't esitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Morevere, we are working on the development of our services to provide also prorpietary software. Follow our future developments webpage for constant updates. 
+
 
 Users are allowed to install their own user level software to SD Desktop, but this requires techincal experties. As SD Desktop is isolated from internet you can't use istallation tools like _git_, _coda_, _cpan_ or _pip_ that are depended on internet connections to external repositories. Further, SD Desktop users can't do any opeartion that need superuser access.
 
@@ -280,10 +284,6 @@ Often the most covienient way to add new software to your SD Desktop is to build
    2. [Creating you own Singularity contaner and importing it to SD Desktop](./creating_containers.md)
 
 
-!!! Note
-    If the list below is not clear of if you need a specific software for anlyzing your data, please don't esitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Morevere, we are working on the development of our services to provide also prorpietary software. Follow our future developments webpage for constant updates. 
-    
-   
 
 **Pre-installed software**:
 
