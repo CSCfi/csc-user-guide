@@ -144,7 +144,8 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your pri
 
 
 
-![Launch-virtual-Desktop](images/desktop/desktop-4.png)
+![Access-virtual-Desktop](images/desktop/desktop-4.png)
+![Access-virtual-Desktop](images/desktop/desktop-5.png)
 
 These are the main working space features:
 
@@ -153,9 +154,6 @@ These are the main working space features:
 * the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons;
 
 * when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
-
-
-![Launch-virtual-Desktop](images/desktop/desktop-5.png)
 
 
 * from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
@@ -168,8 +166,12 @@ These are the main working space features:
 
 !!! Note
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
+ 
     
     
+  ![Launch-virtual-Desktop](images/desktop/desktop-6.png)
+  
+  
 
 ## Accessing encrypted sensitive data within SD Desktop
 
