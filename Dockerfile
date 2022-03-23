@@ -1,4 +1,4 @@
-FROM centos:8
+FROM rockylinux:8 
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
@@ -8,10 +8,12 @@ ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 ARG repo_branch=master
 
 RUN yum -y install epel-release &&\
+    dnf module enable -y nginx:mainline &&\
     yum -y install nginx &&\
     yum -y install python3 &&\
     yum -y install python3-pip &&\
     yum -y install git &&\
+    yum -y install findutils &&\
     yum clean all
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\

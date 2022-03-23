@@ -11,7 +11,7 @@ MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
 
 The OpenStack Horizon web interface provides easy-to-use basic functions for data management in Allas:
 
-[Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
+* [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
 
 ## Accessing Allas in the CSC computing environment and other Linux platforms
 
@@ -54,6 +54,7 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 2\. Navigate to the Cyberduck main menu and choose **Bookmark | New Bookmark** (_Ctrl-Shift-B_).
 
 !["New bookmark"](img/cyberduck_bookmark.jpg)
+
 **Figure** Creating a new bookmark
 
 3\. In the first dropdown menu, choose _OpenStack Swift (Keysone 3)_.
@@ -66,6 +67,7 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 6\. Type your CSC password in the **Password** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
 
 !["Entering information for a bookmark"](img/cyberduck_bookmark_info.jpg)
+
 **Figure** Entering information for a bookmark
 
 7\. Navigate to the top left corner to the icons under _Open Connection_ and choose the **Bookmarks icon** (second from the left).
@@ -73,6 +75,7 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 8\. Next, right-click the created bookmark and choose the option **Connect to server**.
 
 !["Connecting to the server"](img/cyberduck_connect.jpg)
+
 **Figure** Connecting to the server
 
 Now you should be able to see the content of your project (which might be empty).
@@ -96,4 +99,5 @@ The Cyberduck user interface is quite easy to use. The data management options c
 ## SD Connect service
 
 The SD Connect WWW interface can be used upload, download, manage and share data in Allas.
-  * [CSC SD services](../sensitive-data/index.md)
+
+* [CSC SD services](../sensitive-data/index.md)
