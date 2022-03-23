@@ -12,6 +12,7 @@ RUN yum -y install epel-release &&\
     yum -y install python3 &&\
     yum -y install python3-pip &&\
     yum -y install git &&\
+    yum -y install findutils &&\
     yum clean all
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
