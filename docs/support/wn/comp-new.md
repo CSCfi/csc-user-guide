@@ -1,6 +1,6 @@
 # Computing environment 
 
-## Puhti web interface beta updated to release 7
+## Puhti web interface beta updated to release 7 23.3.2022
 
 * [Jupyter for courses](../../../computing/webinterface/jupyter-for-courses/) app now supports creating course environments for projects.
 * Added Puhti usage graphs to dashboard.
