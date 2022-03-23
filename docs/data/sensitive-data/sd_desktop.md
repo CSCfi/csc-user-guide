@@ -134,14 +134,13 @@ In the following paragraphs, we will discuss how to work with a Desktop, which s
 
 ## Working with your virtual Desktop
 
-Once your private virtual computer (Desktop) is launched, each CSC project member can securely connect to from their browser, at any time.
+Once your private virtual computer (Desktop) is launched, each CSC project member can securely connect to from their browser at any time.
 
-When you log in to SD Desktop **Homepage**,  you will be able to access your private Desktop in:
+When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
 
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed the virtual Desktop)
 
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
-
 
 
 ![Access-virtual-Desktop](images/desktop/desktop-4.png)
@@ -153,14 +152,13 @@ These are the main working space features:
 
 * the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons;
 
-* when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
+* when you access the virtual Desktop for the first time, you will be able to see the settings board.From here, you can, for example, adjust the screen resolution;
 
+* from the applications menu bar (top left corner), you can access several pre-installed programs. For example, Open Office, picture/image/ viewing applications, video/audio player, Jupiter Notebook etc. To start using R-Studio please check the paragraph below.
 
-* from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
+* you can access or import data in the virtual Desktop using the Data Gateway application (see below for more information);
 
-* if you plan to work with other colleagues on the same files, save them in the **Shared-directory**. The files can be open, chaned, edited by all the members of the same CSC project;
-
-* you can access or import data in the vistual Desktop using the Data Gateway applciation (see below for more information);
+only  files saved in the **Shared-directory**  can be changed or edited simultaneously by all the members of the same CSC project;
 
 * as previously mentioned, you can **log out** from your computing environment at any moment (in the workspace view, top right corner of the browser, select your username and log out). Logging out will disconnect the work session. You will always be able to reaccess your Desktop after logging in to the SD Desktop service. 
 
@@ -171,16 +169,52 @@ These are the main working space features:
 ![Launch-virtual-Desktop](images/desktop/desktop-5.png)
      
 ![Launch-virtual-Desktop](images/desktop/desktop-6.png)
-  
-  
 
+### RStudio in SD Desktop
+
+To access RStudio in SD Desktop open the terminal in your virtual Desktop and launch RStudio with:
+
+```text
+start-rstudio-server
+```
+
+This will return a URL and a service specific password:
+
+```
+RStudio Server - Sensitive Data Desktop Edition
+---------------------------------------------------------------------------------------
+Copy/Paste this URL into Firefox:
+
+http://localhost:8787/
+
+-----------------------------------------------------------------------------------------
+Enter these at the RStudio Server sign-in screen
+----------------------------------------------------------------------------------------
+Username: accountname  Password: Example23241232
+----------------------------------------------------------------------------------------
+To stop RStudio Server: Ctrl+C
+```
+
+Next:
+
+* paste the URL in Firefox 
+* after a few seconds, you can input the username and password (service specific) and access the server.
+
+!!! Note
+    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
+
+
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+
+
+  
 ## Accessing encrypted sensitive data within SD Desktop
-
 
 As the virtual Desktop is isolated from the Internet, the only way to access data for analysis is utilizing a specific application called Data Gateway.
 This application will allow you to access encrypted data stored in SD Connect or a specific dataset for which you have been granted access via SD Apply for re-use.
 Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop. 
-
 
 !!! Note
     In SD Desktop, you  can access only files encrypted with the Sensitive Data Services encryption key or using SD Connect. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
@@ -304,51 +338,16 @@ Often the most covienient way to add new software to your SD Desktop is to build
    * TensorFlow (used with R TensorFlow back-end) 
 
 
- 
- 
-## RStudio in SD Desktop
+##  Data export from SD Desktop
 
-To access RStudio in SD Desktop open the terminal in your virtual Desktop and launch RStudio with:
+For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
 
-```text
-start-rstudio-server
-```
-
-This will return a URL and a service specific password:
-
-```
-RStudio Server - Sensitive Data Desktop Edition
----------------------------------------------------------------------------------------
-Copy/Paste this URL into Firefox:
-
-http://localhost:8787/
-
------------------------------------------------------------------------------------------
-Enter these at the RStudio Server sign-in screen
-----------------------------------------------------------------------------------------
-Username: accountname  Password: Example23241232
-----------------------------------------------------------------------------------------
-To stop RStudio Server: Ctrl+C
-```
-
-Next:
-
-* paste the URL in Firefox 
-* after a few seconds, you can input the username and password (service specific) and access the server.
-
-!!! Note
-    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
-
-
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-
+For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 ## Deleting your computing environment
   
-At the end of your research or your analysis, you can delete your Desktop and all the data in it. 
+At the end of your research or your analysis, you can delete your  Desktop (or virtual compputer) and all the data in it. 
 
 In SD Desktop Homepage click on **Go to the launching page**. Here, in **Available instances** click on **Delete Desktop**. 
 
@@ -363,11 +362,7 @@ In SD Desktop Homepage click on **Go to the launching page**. Here, in **Availab
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
-##  Data export from SD Desktop
 
-For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
-
-For more information write to servicedesk@csc.fi (email subject SD Desktop)
 
 ## Troubleshooting
 
