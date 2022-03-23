@@ -63,7 +63,7 @@ Analyse and compute.
 
   * [**Before you start**](sd_desktop.md#before-you-start)
   
-  * [**Overview**](sd_desktop.md#overview)  (needs to be finalized)
+  * [**Overview**](sd_desktop.md#overview)  (needs review)
  
   * [**Service access**](sd_desktop.md#service-access)  
   
@@ -71,19 +71,19 @@ Analyse and compute.
 
   * [**Setting up a virtual Desktop**](sd_desktop.md#setting-up-a-virtual-desktop) 
 
-  * **Working with Desktop**
+  * [**Working with Desktop**](sd_desktop.md#working-with-your-virtual-desktop)
 
-  * **Data access**
+  * [**Accessing encrypted sensitive data within SD Desktop**](sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop)
 
-  * [**Available software on SD Desktop**](./pre-installed_software.md)
+  * [**Default programs available on SD Desktop**](sd_desktop.md#default-programs-available-on-sd-desktop)
   
   * [**Software customization**](sd-desktop-singularity.md) Advanced
 
-  * **Data export** (dependent on download swapping available from 16 of March)
+  * [**Data export**](sd_desktop.md#data-export-from-sd-desktop)
 
-  * **Deleting a private Desktop** 
+  * [**Deleting your virtual Desktop**](sd_desktop.md#deleting-your-virtual-desktop)
   
-  * **Troubleshooting**
+  * [**Troubleshooting**](sd_desktop.md#troubleshooting)
   
   
 
@@ -92,48 +92,12 @@ Analyse and compute.
 ## [Finnish Federated EGA](./federatedega.md)
 Publish genetic data under controlled access. (Pilot pahse).
  
-*  **Data submission process: Overview**
-
-* **Application form**
-
-* **Legal agreements**
-
-* **Credentials**
-
-* **Data formats**
-
-* **Data encryption and uplaod to the Finnish Node**
-          
- * **Metadata submission using Central EGA submitter portal**
- 
- * **Data release**
-
-* **Data access**
-
-* **Data access for applicants**
-
-* **Data approval for DACS**
-  
   
   
 ## [Sensitive Data Apply](./sd-apply.md)
 Apply for re-use. (Pilot phase)
   
-  **Data access for applicants: Overview**
-  
-  * **Log in**
-  
-  * **Apply for access**
-  
-  * **Submit the application form**
-  
-  * **Wait for approval**
-  
-  * **Set up your Desktop**
-  
-  * **Export your results**
-  
-  **Data approval for data owners (DACs)**
+ 
 
 
 
