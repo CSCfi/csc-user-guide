@@ -159,7 +159,7 @@ These are the main working space features:
 * when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
 
 
-![SD-Desktop-board](https://user-images.githubusercontent.com/83574067/159559250-c77e2237-efe0-4098-a430-29a3c88bf855.png")
+![Service-access](images/desktopDesktop-first-login.png)
 
 
 * from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
@@ -198,9 +198,9 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * **Click on Login** and next clic on **Continue**;
 
-![Data-Gateway-1](https://user-images.githubusercontent.com/83574067/158681590-1754a9e5-881f-4dc6-9752-8aa81c7b69e6.png)
+![Data-Gateway-1](images/data-gateway-1.png)
 
-![Data-Gateway-2](https://user-images.githubusercontent.com/83574067/158686613-e9889bc1-7865-4e74-966d-3cf65972ab52.png)
+![Data-Gateway-2](images/data-gateway-2.png )
 
 
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
