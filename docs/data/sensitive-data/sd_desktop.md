@@ -121,6 +121,7 @@ In SD Desktop, you can choose between **four different pre-built options **:
 
 [![Launch-virtual-Desktop](desktop-3.png)]
 
+
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
@@ -153,7 +154,7 @@ These are the main working space features:
 * when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
 
 
-[![Service-access](images/desktop/Desktop-first-login.png)]
+
 
 
 * from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
