@@ -45,7 +45,7 @@ In the following user guide you can learn how to:
 
 ## Overview
 
-![SD Desktop](https://user-images.githubusercontent.com/83574067/155133488-ab99aa45-cff8-4531-9542-d34ae944fc58.png)
+![Desktop-overview](images/desktop/desktop-overview.png)
 
 
 ## Service access 
@@ -231,9 +231,9 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * **Click on Login** and next clic on **Continue**;
 
-[![Data-Gateway-1](images/desktop/data-gateway-1.png)]
+![Data-Gateway-1](images/desktop/data-gateway-1.png)
 
-[![Data-Gateway-2](images/desktop/data-gateway-2.png )]
+![Data-Gateway-2](images/desktop/data-gateway-2.png )
 
 
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
@@ -343,6 +343,8 @@ Often the most covienient way to add new software to your SD Desktop is to build
 For security reasons, your Desktop is isolated from the internet and it is not possible to export data from the virtual computing environment. 
 
 For more information write to servicedesk@csc.fi (email subject SD Desktop)
+
+![Data-export](images/desktop/airlock.png)
 
 
 ## Deleting your computing environment
