@@ -76,7 +76,7 @@ After login, **verify your identity** by entering the verification **code** prov
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595830-ab5fdb80-d071-11eb-8eee-d90db85aa7ad.png">
 
-[![Authentication](images/desktop/authentication-small.png)](images/desktop/authentication.png) 
+[![Authentication]
 
 
 ## Setting up a virtual Desktop
@@ -103,7 +103,7 @@ To start your Desktop, in SD Desktop Connection page, click on **Go To SD Deskto
 
 
 
-[![Launch-virtual-Desktop](images/desktop/start-virtual-desktop-small.png)](images/desktop/start-virtual-desktop.png) 
+[![Launch-virtual-Desktop]
 
 
 In SD Desktop, you can choose between **four different pre-built options **:  
@@ -159,7 +159,7 @@ These are the main working space features:
 * when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
 
 
-![Service-access](images/desktopDesktop-first-login.png)
+[![Service-access](images/desktop/Desktop-first-login.png)]
 
 
 * from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
@@ -198,9 +198,9 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * **Click on Login** and next clic on **Continue**;
 
-![Data-Gateway-1](images/data-gateway-1.png)
+[![Data-Gateway-1](images/desktop/data-gateway-1.png)]
 
-![Data-Gateway-2](images/data-gateway-2.png )
+[![Data-Gateway-2](images/desktop/data-gateway-2.png )]
 
 
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
