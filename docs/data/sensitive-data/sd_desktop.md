@@ -145,7 +145,7 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your pri
 
 
 ![Access-virtual-Desktop](images/desktop/desktop-4.png)
-![Access-virtual-Desktop](images/desktop/desktop-5.png)
+
 
 These are the main working space features:
 
