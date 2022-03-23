@@ -8,6 +8,7 @@ ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 ARG repo_branch=master
 
 RUN yum -y install epel-release &&\
+    dnf module enable -y nginx:mainline &&\
     yum -y install nginx &&\
     yum -y install python3 &&\
     yum -y install python3-pip &&\
