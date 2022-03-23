@@ -169,7 +169,7 @@ These are the main working space features:
  
     
     
-  ![Launch-virtual-Desktop](images/desktop/desktop-6.png)
+![Launch-virtual-Desktop](images/desktop/desktop-6.png)
   
   
 
