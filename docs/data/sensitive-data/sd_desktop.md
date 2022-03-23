@@ -76,7 +76,7 @@ After login, **verify your identity** by entering the verification **code** prov
 
 
 
-[![Authentication](images/desktop/desktop-login-1.png)]
+![Authentication](images/desktop/desktop-login-1.png)
 
 
 ## Setting up a virtual Desktop
@@ -103,7 +103,7 @@ To start your Desktop, in SD Desktop Connection page, click on **Go To SD Deskto
 
 
 
-[![Launch-virtual-Desktop](desktop-2.png)]
+![Launch-virtual-Desktop](desktop-2.png)
 
 
 
@@ -119,7 +119,7 @@ In SD Desktop, you can choose between **four different pre-built options **:
 
 
 
-[![Launch-virtual-Desktop](desktop-3.png)]
+![Launch-virtual-Desktop](desktop-3.png)
 
 
 !!! Note
@@ -144,6 +144,7 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your pri
 
 
 
+![Launch-virtual-Desktop](desktop-4.png)
 
 These are the main working space features:
 
@@ -154,7 +155,7 @@ These are the main working space features:
 * when you access the virtual Desktop for the first time, you will be able to see the setting board. From here, you can, for example, adjust the screen resolution;
 
 
-
+![Launch-virtual-Desktop](desktop-5.png)
 
 
 * from the menu bar (top left corner), you can use several pre-installed software: for example, Open Office, audio, video, images,  Jupiter Notebook. Ru studio.(Complete list below);
