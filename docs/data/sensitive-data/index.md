@@ -89,14 +89,16 @@ Analyse and compute.
 
   
   
+## Services in pilot phase:
+  
 ## [Finnish Federated EGA](./federatedega.md)
-Publish genetic data under controlled access. (Pilot pahse).
+Publish genetic data under controlled access. 
+Preliminary user guide.
  
   
-  
 ## [Sensitive Data Apply](./sd-apply.md)
-Apply for re-use. (Pilot phase)
-  
+Apply for re-use. 
+Preliminary user guide. 
  
 
 
