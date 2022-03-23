@@ -67,7 +67,7 @@ Analyse and compute.
  
   * [**Service access**](sd_desktop.md#service-access)  
   
-  * [**Authentication**](sd_desktop.md#login) (dependent on new MFA user interface)
+  * [**Authentication**](sd_desktop.md#authentication) (dependent on new MFA user interface)
 
   * [**Setting up a virtual Desktop**](sd_desktop.md#setting-up-a-virtual-desktop) 
 
