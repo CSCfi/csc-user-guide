@@ -8,7 +8,7 @@ particular for AIMD.
 ## Available
 
 * Puhti: 6.1
-* Mahti-rhel7: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2, 9.1
+* Mahti-rhel8: 8.2, 9.1
 
 ## License
 
@@ -43,7 +43,7 @@ module load cp2k
 srun cp2k.popt H2O-32.inp > H2O-32.out
 ```
 
-### Example batch script for Mahti-rhel7 using mixed MPI-OpenMP parallelization
+### Example batch script for Mahti-rhel8 using mixed MPI-OpenMP parallelization
 
 ```bash
 #!/bin/bash
@@ -55,39 +55,31 @@ srun cp2k.popt H2O-32.inp > H2O-32.out
 #SBATCH --account=<project>
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0
-module load cp2k/9.1-omp
+module load gcc/9.4.0 openmpi/4.1.2
+module load cp2k/9.1
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export OMP_PLACES=cores
 
-srun cp2k.psmp H2O-32.inp > H2O-32.out
+srun cp2k.psmp H2O-64.inp > H2O-64.out
 ```
 
 ### Performance notes
 
-**Mahti-rhel7:**
+**Mahti-rhel8:**
 
-The following table shows average time [s] for one AIMD step for the [H2O-64 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-64.inp)
-in Mahti-rhel7. The column headers show how many omp-threads were used per mpi-task.
+The following table shows the total execution time [s] for the [H2O-64 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-64.inp)
+in Mahti-rhel8 using cp2k/9.1. The column headers show how many omp-threads were used per mpi-task.
 
 Nodes|d1|d2|d4|d8
 -|--|--|--|--
-1|1.048|1.03|*0.97*|1.088
-2|0.772|0.678|*0.578*|0.786
-4|0.72|0.494|0.504|0.534
+1|25.77|18.88|20.58|22.95
+2|17.66|15.25|*13.34*|17.10
 
-* For 64 water molecules, the best performance is obtained with 2 full nodes, 32 mpi-tasks,
-  and 4 OMP-threads per task (like the [Mahti-rhel7 example](#example-batch-script-for-mahti-rhel7-using-mixed-mpi-openmp-parallelization))
-  For this system the performance does not scale beyond 2 nodes.
-* Mixed parallization is efficient: choose tasks and threads so that they add up to 128
-  (physical) cores available per node (or up to 40 on Puhti).
+* For 64 water molecules, the best performance is obtained with 2 full nodes, 32 mpi-tasks, and 4 OMP-threads per task (like the [Mahti-rhel8 example](#example-batch-script-for-mahti-rhel8-using-mixed-mpi-openmp-parallelization)). For this system the performance does not scale beyond 2 nodes.
+* Mixed parallization is efficient: choose tasks and threads so that they add up to 128 (physical) cores available per node (or up to 40 on Puhti).
 * Test for optimal run parameters for your model system and method.
-* Versions linked with ELPA (`cp2k/7.1-elpa`, `cp2k/8.2-omp`, `cp2k/9.1-omp`) are
-  significantly faster with (metallic) systems that require large matrix diagonalizations
-  for SCF.
-* There are additional 7.1 versions available at `/appl/soft/chem/cp2k/7.1_extra`, please
-  see corresponding `README.txt`, but `cp2k/7.1-elpa` is the fastest found so far.
+* Using the ELPA library may be faster with (metallic) systems that require large matrix diagonalizations for SCF, but there has recently been concerns about the reliability of ELPA, [see issue on GitHub](https://github.com/cp2k/cp2k/issues/1444). Also, recent versions (2021) of ELPA do not benefit from OpenMP.
 
 ### High-throughput computing with CP2K
 
@@ -147,12 +139,12 @@ Running `FARMING` jobs requires an additional input file in which the details of
 #SBATCH --account=<project>
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 cp2k/8.2-omp
+module load gcc/9.4.0 openmpi/4.1.2 cp2k/9.1
 
 srun cp2k.psmp farming.inp >> farming.out
 ```
 
-In this particular example, one full Mahti-rhel7 node is requested for running 8 single-point calculations of a NaCl crystal with different lattice constants. In addition to the `farming.inp` input, each subjob requires its own ordinary input file, which are here organized into separate subdirectories named `run*`. Issuing `sbatch farming.sh` in the parent directory launches all calculations in parallel, allocating 16 cores to each subjob.
+In this particular example, one full Mahti-rhel8 node is requested for running 8 single-point calculations of a NaCl crystal with different lattice constants. In addition to the `farming.inp` input, each subjob requires its own ordinary input file, which are here organized into separate subdirectories named `run*`. Issuing `sbatch farming.sh` in the parent directory launches all calculations in parallel, allocating 16 cores to each subjob.
 
 Note that dependencies can also be specified between subjobs using the `DEPENDENCIES` and `JOB_ID` keywords under the `&JOB` section. This enables the definition of complex workflows. For further details, see the [CP2K manual](https://manual.cp2k.org/trunk/CP2K_INPUT/FARMING.html) and [regtest files for example inputs](https://github.com/cp2k/cp2k/tree/master/tests/FARMING).
 
@@ -166,3 +158,4 @@ log file. Choose and cite the ones relevant to the methods you've used.
 * CP2K online manual: <http://manual.cp2k.org/>
 * CP2K home page: <http://www.cp2k.org/>
     * Contains [tutorials](https://www.cp2k.org/howto) and links to useful [tools](https://www.cp2k.org/tools)
+* [Regtest inputs](https://github.com/cp2k/cp2k/tree/master/tests) can be used as examples on how to use the different features in CP2K. Note that the convergence criteria can be quite loose and should be separately tested for production simulations.
