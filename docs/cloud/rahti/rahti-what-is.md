@@ -16,3 +16,21 @@ Here are some example use cases that Rahti is good for:
 * Pre-package a complex application like Apache Spark and make it easy for others to run their own instance of that application.
 * Deploy a web application written in common languages like Python, Javascript or Java to the web with just one command.
 * If you want to run a web application or host a web site, Rahti will likely be the platform for you. It comes with a lot of the most common features needed for web based applications.
+
+## OpenShift OKD v Kubernetes
+
+OpenShift [OKD](https://opencontainers.org/) is optimized for multi-tenant deployment. This means that different tenants will be sharing the same hardware. For this reason, **privileged mode** is not allowed, and containers **cannot be run as root**.
+
+OpenShift provides these extra services over a standard Kubernetes offering:
+
+* Web UI: <https://rahti.csc.fi:8443/>
+
+![Rahti WEB UI](/cloud/rahti/img/Rahti-landing.png)
+
+* Internal private image registry: <https://registry-console.rahti.csc.fi/registry>
+
+![Rahti Registry](/cloud/rahti/img/Rahti-registry.png)
+
+* HTTP(s) load balancer (HAProxy). Using [Routes](/cloud/rahti/networking/#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
+
+* Central file [storage volumes](/cloud/rahti/storage/)

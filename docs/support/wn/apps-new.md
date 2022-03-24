@@ -1,5 +1,24 @@
 # Applications
 
+## TensorFlow 2.8, 17.3.2022
+
+TensorFlow 2.8.0 is now available in the `tensorflow/2.8` module on Puhti and
+Mahti, and has been set as the default module. See the [TensorFlow 2.8 release
+notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.8.0/)
+for more details.
+
+## Gromacs 2022, 9.3.2022
+
+[Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the [Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series). gromacs-env/2021 is now the default.
+
+## CP2K 9.1, 4.3.2022
+
+[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with `module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
+
+## Schrödinger Maestro 2022.1, 25.2.2022
+
+Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
+
 ## Gromacs 2021 now default version, 7.2.2022
 
 [Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the default module

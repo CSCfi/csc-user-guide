@@ -23,3 +23,5 @@ email to inform how many billing units have been granted.
 Billing unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. Our email address is servicedesk@csc.fi.
+
+<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/AS27dYEgNA4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

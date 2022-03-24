@@ -1,4 +1,7 @@
-# Applications
+# Applications by discipline
+
+!!! Note
+    In addition to technical support, CSC also provides expert consulting in questions related to sciences and methods. For more details, see our [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences) or directly [contact our Service Desk](../support/contact.md).
 
 ## Biosciences
 
@@ -66,6 +69,7 @@
 
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
+* [AMS-GUI](ams-gui.md) AMS integrated GUI 
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [Gaussian](gaussian.md) Versatile computational chemistry package
@@ -130,7 +134,6 @@
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
 * [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
-* [Solaris](solaris.md) deep learning pipeline for geospatial imagery
 * [SPLITS](splits.md) for time series analysis of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
