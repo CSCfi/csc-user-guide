@@ -276,16 +276,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
     If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Morevere, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
 
 
-Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
-
-The most covienient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
-
-   1. [Importing ready-made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
-   2. [Creating you own Singularity container and importing it to SD Desktop](./creating_containers.md)
-
-
-
-**Pre-installed software**:
+### Pre-installed software:
 
 
 
@@ -316,10 +307,8 @@ The most covienient way to add new software to your SD Desktop is to build a Sin
 * golang
 
 
-
-
  
-## Scientific software 
+### Scientific software 
 
    * Python 3.7.9 including following packages:      
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
@@ -338,13 +327,35 @@ The most covienient way to add new software to your SD Desktop is to build a Sin
    * TensorFlow (used with R TensorFlow back-end) 
 
 
+### Software customisation
+
+Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+
+The most covienient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
+
+   1. [Importing ready-made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
+   2. [Creating you own Singularity container and importing it to SD Desktop](./creating_containers.md)
+
+
+!!! Note
+    Please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. 
+
 ##  Data export from SD Desktop
 
-Your Desktop is isolated from the internet for security reasons, and it is not possible to export data from the virtual computing environment. 
+Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export resutls or data from the secure workspace using the airlock application, currently available only via commandilne. 
+
+Below you can find step-by-step intructions to encryped and export data from SD Deskotp. 
 
 For more information, write to servicedesk@csc.fi (email subject SD Desktop)
 
 ![Data-export](images/desktop/airlock.png)
+
+
+
+
+
+
+
 
 
 ## Deleting your computing environment
