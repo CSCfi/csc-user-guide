@@ -19,12 +19,33 @@ getting access to Finland's most powerful GPU resource for researchers!
 ## Step 1: getting a CSC user account
 
 First of all, you need to get a CSC user account. If you work or study at a
-Finnish university just go to <https://my.csc.fi> and click "Get Started".
+Finnish university just **go to <https://my.csc.fi> and click "Get Started"**.
 Select Haka-Login and your university from the pull-down menu. After that you
-should be able to log in with your normal university credentials.
+should be able to log in with your normal university credentials. Fill in your
+information on the *Sign up*-page. Once you're done, you should get a confirmation
+email.
 
-For [more information, and special cases, check our separate "How to create new
+For more information, and special cases, check our separate ["How to create new
 user account" documentation](../../accounts/how-to-create-new-user-account.md).
+
+## Step 2: join an existing project, or create a new one
+
+Second, you need to belong to a computing project. This is because CSC needs to
+keep track of how our resources are used, and computing projects are the
+mechanism for that. 
+
+If you are part of a research group, **ask your professor or group leader if you
+already have a CSC project that you can join**. Otherwise, for example if you
+are working on your own doctoral thesis project, you can create your own
+project.
+
+**To create a new project, go to <https://my.csc.fi>** and log in as in Step 1
+above. Choose *My Projects* and click the *New project* button. Give your
+project a name, and describe briefly the research you are doing. "Academic" is
+probably the appropriate category in most cases.
+
+For more information, check our "[Creating a new project"
+documentation](../../accounts/how-to-create-new-project.md).
 
 <!-- ## Step xx -->
 
