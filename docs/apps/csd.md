@@ -70,10 +70,9 @@ Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using 
 
 1. From there [launch a Desktop](../../computing/webinterface/desktop/#launching ). 
 2. Open a ```Host Terminal``` and  move to a suitable working directory.
-3. Load the CSD module ```module load ccdc/2021.1```.
+3. Load the CSD module ```module load ccdc/2021``.
 
-Now you have access to programs ConQuest, Hermes, PreQuest, Vista,
-Superstar, GOLD, and Mercury.
+Now you have access to programs ConQuest, Hermes and Mercury.
 For example, to access ConQuest, you need to type
 
 `cq`
