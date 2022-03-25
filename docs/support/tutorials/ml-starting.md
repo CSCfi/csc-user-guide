@@ -37,17 +37,51 @@ mechanism for that.
 If you are part of a research group, **ask your professor or group leader if you
 already have a CSC project that you can join**. If that is the case the manager
 of the project (most likely the professor) can add you to the project via the
-[My CSC portal](https://my.csc.fi).
+[My CSC portal](https://my.csc.fi). Check our more [detailed documentation on
+how to add a new user to a
+project](../../accounts/how-to-add-members-to-project.md)
 
 Otherwise, for example if you are working on your own doctoral thesis project,
-you can create your own project. **To create a new project, go to
-[My CSC](https://my.csc.fi)** and log in as in Step 1 above. Choose *My Projects* and
-click the *New project* button. Give your project a name, and describe briefly
-the research you are doing. "Academic" is probably the appropriate category in
-most cases.
+you can create your own project. **To create a new project, go to [My
+CSC](https://my.csc.fi)** and log in as in Step 1 above. Choose *My Projects*
+and click the *New project* button. Give your project a name, and describe
+briefly the research you are doing. "Academic" is probably the appropriate
+category in most cases. For more information, check our "[Creating a new
+project" documentation](../../accounts/how-to-create-new-project.md).
 
-For more information, check our "[Creating a new project"
-documentation](../../accounts/how-to-create-new-project.md).
+## Step 3: logging in to Puhti
+
+There are many ways to access Puhti. The traditional way is via an SSH client
+giving you a purely text based command line access to the Linux system running
+on Puhti. However, here **we recommend the Puhti web interface accessible via a
+web browser at [puhti.csc.fi](https://www.puhti.csc.fi)**. Log in with the
+username and password created in Step 1 of this guide.
+
+!!! note
+
+    If you have just created your account minutes ago, it might be that it
+    hasn't yet been activated on Puhti. Just go get a coffee and try again in a
+    few minutes! ☕
+
+After logging in, you will see the Puhti web interface, which looks something
+like this:
+
+![Puhti web interface front page](../../img/ood_main.png)
+
+## Step 4: Copy your code to Puhti
+
+The main things to check for now are:
+
+- The *Files* menu, it should show several disk areas for your use:
+  - *Home Directory*, which is your personal area with quite limited storage
+  - `projappl` directory for each project, which is meant for your
+    project-specific code and important files
+  - `scratch` directory for each project, which is meant for temporary
+    project-specific files such as large datasets (*but don't keep your only
+    copy here!*)
+
+- The *Tools* → *Login node shell* to start a terminal session on Puhti. From
+  here you can launch jobs
 
 <!-- ## Step xx -->
 
