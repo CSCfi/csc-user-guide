@@ -2,8 +2,14 @@
 # SD Desktop (Sensitive Data Desktop)
 
 
-SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop) from your web browser. No previous knowledge of cloud computing is required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects. 
-In the following user guide, you can learn how to:
+SD Desktop service is a virtual computing environment that is designed for processing sensitive data. It provides a secure workspace for analysing sensitiuve data from any location.It can be used by individual users but is especially usefull for collaborative research projects. 
+
+SD Desktop is accessed through an easy to use graphical interface running in a web browser. Theinterface 
+allows you to launch new vitual machines, delete them and connect to active virtual machines without any previous knowledge of cloud computing.   
+
+SD Desktop is used together with other SD services (SD Connect and SD Apply), that provide a controlled way to import and export data to and from this service.
+
+In the this user guide, you can learn how to:
 
 * apply for service access;
 * set up your virtual Desktop;
@@ -13,17 +19,15 @@ In the following user guide, you can learn how to:
 
 ## Key features
 
-* **Accessible from any operating system (Mac, Linux or Windows)** via web-browser (e.g., Google Chrome, Firefox) **from the public internet** (without the need of installing client or using a VPN);
+* Accessible via web browser from any operating system (Mac, Linux or Windows) and from any location.
 
-* service access requires a CSC account and a CSC project;
+* Only project members can access the VMs.
 
-* after login to SD Desktop, the user can **start a pre-built computing environment (Linux OS)**, on-demand; available options offer the capability of doing **simple statistical analysis to machine learning**;
+* At the moment only VMs with Linux operating system (Centos7) are available.
 
-* **limited set of pre-installed software (open source)**. Additional **customization** possible writing at servicedesk@csc.fi (subject: Sensitive data);
+* VMs are not connected to internet: the only way to import and export data is SD Connect service.
 
-* process any type of data: text files, images, audio files, video, and genetic data;
-
-* secure and **isolated workspace**, accessible to all the members of the same CSC project;
+* VMs can be used to work with any type of data: text files, images, audio files, video, and genetic data. However the VMs include only a limited set of pre-installed software. Additional tools can be imported through SD Connect or by requesting from CSC.
 
 * **process a large amount of data** stored encrypted in SD Connect via data streaming (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data).
 
@@ -31,14 +35,21 @@ In the following user guide, you can learn how to:
 
 ## Before you start
 
-* Independently of the login method used, you need a **CSC username and password to access or import encrypted data* * into your virtual Desktop. If you don't remember it, check how to reset it at [Account: How to change password](../../accounts/how-to-change-password.md)
+Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project you need to:
 
+* set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
+* [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
+* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
+* add [service access to SD Connect and SD Desktop](../../accounts/how-to-add-service-access-for-project.md);
+* activate [multi-factor authentication](../../accounts/mfa.md) on your account.
 
-* **All the members belonging to a specific CSC project can access the same computing virtual Desktop.** Currently, it is possible to **launch 3 virtual Desktops (or computing environment) for each CSC project**. Each CSC project has its private Desktop, and **each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it**.
+Note that even though you may be able login SD Desktop using your local account (haka) you will need to use your CSC username and password when you import data from SD Connect to into your Virtual Machine. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
 
-* The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect.  Remove the project members who do not need access to the data when their contribution is no longer needed.  
+Make sure that your CSC project always includes only those persons who are allowed to work with all the data of the project. All the members belonging to a CSC project can access all the VMs that this propject has in SD Desktop. Project manager, not CSC, is reponsible for keeping the list of project members up to date.
 
-* SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
+Currently, it is possible to **launch 3 virtual Desktops (or computing environment) for each CSC project**. Each CSC project has its private Desktop, and **each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it**.
+
+SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
 
 
@@ -49,18 +60,6 @@ In the following user guide, you can learn how to:
 
 
 ## Service access 
-
-To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
-
-* set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
-* [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
-* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
-* add [service access to SD Connect and SD Desktop](../../accounts/how-to-add-service-access-for-project.md);
-* activate [multi-factor authentication](../../accounts/mfa.md) on your account.
-
-For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the [Accounts](../../accounts/index.md) paragraph at the beginning of CSC user guide.
-
-
 
 ## Authentication
 
@@ -74,56 +73,61 @@ using any modern web browser (e.g. Google Chrome, Firefox).
 
 After login, **verify your identity** by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, check the [multi-factor authentication](../../accounts/mfa.md) paragraph at the beginning of CSC user guide.
 
-
-
 ![Authentication](images/desktop/desktop-login-1.png)
 
+The SD Desktop interface is composed of two parts: After logging in you end up to the **Connections page** that allows you to see your active virtual machines and connect to these machines. From this page you can move to **SD Desktop Management page** were you can launch new virtual machines and delte old ones. The same SD Desktop interface is used to manage VMs of all your CSC projects that have access to SD Desktop. If you are member in several SD Desktop projects you must always make sure that you are using the right project when managing or using virtual machines.
 
-## Setting up a virtual Desktop
+
+## Setting up a Virtual Machine
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical knowledge. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted. 
+Once you have access to the SD Desktop service, you can launch virtual machines for your project. Each project can have 3 Virtual Machines running in the same time. These virtual machines can be used by all project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to the Virtual Machine and access the data stored in your project. However, note that there can be in maximum 10 simutaneous connections to one VM at a time.
+Once a Virtual Machine is launced it will run utill it is deleted. This maens that you can close open and close connetion to your VM without interfering the precesses running in the Virtual Machine. 
 
-Each Desktop is CSC project-specific and supports the launch of **3 virtual Desktops**. In addition, each Desktop supports the simultaneous connection of **10 project members**.
+---------------------------
+(Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical knowledge. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted. 
+
+Each Virtual Machine is CSC project-specific and supports the launch of **3 virtual Desktops**. In addition, each Desktop supports the simultaneous connection of **10 project members**.
 Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following [paragraph](sd_desktop.md#default-programs-available-on-sd-desktop).
+----------------------
 
- 
-To start your virtual Desktop, in SD Desktop Connection page, click on **Go To SD Desktop Management** page:
+To start a new virtual Machine, in SD Desktop Connection page, click on **Go To SD Desktop Management** page:
 
-* **select your CSC project**, 
+This opens an interface that is used to launch and delete Virtual machines. Before you can launch a virtual machine, you need to specity few parameters.
 
-* **choose the operating system** (currently the only possible operating system  is Linux CentOS 7);
+* **select your CSC project**. Only the members of the selected project are able to use the virtual machine. 
+
+* **choose the operating system**. Currently the only possible operating system is Linux CentOS 7 but in the future there will be other options too.
   
-* optionally, you can  assign a specific name to the Desktop;
-  
-* optionally, you can extend your Desktop's disk space (or storage capability) by clicking on **add an external disk**. You can add up to 200 GB. The default disk space is 80 GB. Note: you can extend the disk space only before launching the Desktop. Additional disk space can be required writing at servicedesk@csc.fi (subject: Sensitive data);
+* **assign a name for a Virtual Machine**. It is good practice to assign a descriptive name for a virtual machine so that all project members know the purpose of the virtual machine.
 
-* **select** the preferred computing environment (based on your needs) and click on **Launch Desktop**. The operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
+* Pick one of the available Virtual Machine flavours, (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk space for all flavours is 80 GB. You can extend your VM's disk space (or storage capability) by **add an external disk**. You can add up to 200 GB. Note: you can extend the disk space only before launching the Desktop. Additional disk space can be required writing at servicedesk@csc.fi (subject: Sensitive data);
+
+When all the settingsa are done, press the **Launch Desktop** button of the selected VM flavour. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
 
 ![Launch-virtual-Desktop](images/desktop/desktop-2.png)
 
 
-
-In SD Desktop, you can choose between **four different pre-built options **:  
+Virtual machine flavours in SD Desktop:  
 
 *  **Light computation**: 
 
-this option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect). You can compare this Desktop to a  laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. Techincal specifications: **Core:3; memory 4 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.medium; Billing Units: 1.3 units/h**.
+This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. Techincal specifications: **Core:3; memory 4 GiB; Root: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**.
 
 * **Small computation**:
 
-this option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. Techincal specifications: **Core:6; memory 15 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**.
+This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. Techincal specifications: **Core:6; memory 15 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**.
 
 * **Medium computation**:
 
-this option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. Techincal specifications:**Core:8; memory 30 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**.
+This option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. Techincal specifications:**Core:8; memory 30 GiB; Root: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**.
 
 * **Heavy computation**:
 
-this option is ideal for running non-interactive programmatic analysis (for example, machine learning). Technical specifications: **Core:8; memory 168 GiB; Root: 80 GB; Correspondent Pouta Flavour: hpc4.4core; Billing Units: 78 units/h**. Please do not choose the Heavy computation option for simple computing or analysis, as it consumes many resources. 
+This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy comTechnical specifications: **Core:40; memory 168 GiB; Root: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. Please do not choose the Heavy computation option for simple computing or analysis, as it consumes many resources. 
 
 
 
