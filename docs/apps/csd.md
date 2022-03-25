@@ -20,7 +20,7 @@ Using the CSD components requires adhering [to these conditions](../img/CSDLicen
 
 ## Available
 
-- Puhti: 2020
+- Puhti: 2021
 - Download and install locally
 
 ## Usage
@@ -52,7 +52,7 @@ Software to access and analyse CSD entries:
 There are three ways to access the CSD System:
 
 -   Local installation (Windows or Linux, takes up a lot of disk)
--   Using CSD System on Puhti (via [X11-tunneling](../../computing/connecting/#using-graphical-applications) `ssh -X username@puhti.csc.fi`)
+-   Using CSD System on Puhti via the web interface, [www.puhti.csc.fi](../computing/webinterface/index.md)
 -   WebCSD (limited functionality), point your browser in [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
 ### Using CSD as a local installation
@@ -66,13 +66,14 @@ recommended way for power users. The full installation requires ~18 GB of disk.
 
 ### Using CSD on Puhti
 
-Log in via [`ssh -X username@puhti.csc.fi`](../../computing/connecting/#using-graphical-applications), initialize CSD by:
+Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
 
-`module load ccdc`
+1. From there [launch a Desktop](../../computing/webinterface/desktop/#launching ). 
+2. Open a ```Host Terminal``` and  move to a suitable working directory.
+3. Load the CSD module ```module load csd/2021```.
 
-and you have access to programs ConQuest, Hermes, PreQuest, Vista,
+Now you have access to programs ConQuest, Hermes, PreQuest, Vista,
 Superstar, GOLD, and Mercury.
-
 For example, to access ConQuest, you need to type
 
 `cq`
