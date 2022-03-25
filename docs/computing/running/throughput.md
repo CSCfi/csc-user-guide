@@ -17,11 +17,11 @@ Another option is to use external tools such as [HyperQueue](https://github.com/
 
 ### Input/output efficiency
 
-Often when running many parallel jobs, the problem of input/output (IO) efficiency arises. If you're doing a lot of IO-operations (reading and writing files) in your high-throughput workflows, you should pay special attention to *where* these operations are performed. CSC supercomputers use [Lustre](../lustre.md) as the parallel distributed file system. It is designed for efficient parallel I/O of large files, but when dealing with many small files I/O quickly becomes a bottleneck. Importantly, intensive I/O operations risk degrading the file system performance for all users and should thus be moved away from Lustre.
+Often when running many parallel jobs, the problem of input/output (IO) efficiency arises. If you're doing a lot of IO-operations (reading and writing files) in your high-throughput workflows, you should pay special attention to *where* these operations are performed. CSC supercomputers use [Lustre](../lustre.md) as the parallel distributed file system. It is designed for efficient parallel IO of large files, but when dealing with many small files IO quickly becomes a bottleneck. Importantly, intensive IO operations risk degrading the file system performance for all users and should thus be moved away from Lustre.
 
 If you need to read and write a lot of files in your HTC workflow, please use:
 
-* [Fast local NVMe disk]([../disk.md#using-scratch-and-projappl-directories](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks)) on Puhti and Mahti GPU-nodes
+* [Fast local NVMe disk](../disk.md#compute-nodes-with-local-ssd-nvme-disks) on Puhti and Mahti GPU-nodes
 * [Ramdisk](../disk.md#compute-nodes-without-local-ssd-nvme-disks) (`/dev/shm`) on Mahti CPU-nodes
 * If your application can be run as a [Singularity container](../containers/run-existing.md), another good option is to [mount your datasets with SquashFS](../containers/run-existing.md#mounting-datasets-with-squashfs). Creating a SquashFS image from your dataset, possibly composed of thousands of files, reduces it to a single file from the point of view of Lustre. However, mounting the image to your Singularity execution makes it appear as an ordinary directory inside the container.
 
