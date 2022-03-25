@@ -35,9 +35,9 @@ CSC has developed a simple graphical user interface (GUI) which will allow you t
 
 Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
-- [Windows](https://kannu.csc.fi/s/iDiNR5HdwtFrXCY)
-- [Mac](https://kannu.csc.fi/s/88MFCb4wNRt2mwb)
-- [Linux](https://kannu.csc.fi/s/NAgiSeS8mFXKnC4)
+  - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
+   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
+   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
 
 Please check that the tool has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
 
