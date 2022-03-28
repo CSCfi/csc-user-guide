@@ -50,9 +50,6 @@ Make sure that your CSC project always includes only those persons who are allow
 !!! Note
    SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
-
-
-
 ## Overview
 
 ![Desktop-overview](images/desktop/desktop-overview.png)
@@ -79,15 +76,7 @@ The SD Desktop interface is composed of two parts:**Connections page** that all
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you have logged in to the SD Desktop service, you can launch virtual machines for your project. Each project can have 3 Virtual Machines running in the same time. These virtual machines can be used by all project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to the Virtual Machine and access the data stored in your project. However, note that there can be in maximum 10 simutaneous connections to one VM at a time.
-Once a Virtual Machine is launced it will run utill it is deleted. 
-
----------------------------
-(Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical knowledge. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted. 
-
-Each Virtual Machine is CSC project-specific and supports the launch of **3 virtual Desktops**. In addition, each Desktop supports the simultaneous connection of **10 project members**.
-Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following [paragraph](sd_desktop.md#default-programs-available-on-sd-desktop).
-----------------------
+Once you have logged in to the SD Desktop service, you can launch virtual machines for your project. Each project can have 3 Virtual Machines running in the same time. These virtual machines can be used by all project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to the Virtual Machine and access the data stored in your project. However, note that there can be in maximum 10 simultaneous connections to one VM at a time. Once a Virtual Machine is launced it will run utill it is deleted. 
 
 To start a new virtual Machine in SD Desktiop click first: **Go To SD Desktop Management page**
 
@@ -102,7 +91,6 @@ This opens an interface that is used to launch and delete Virtual machines. Befo
 * Choose one of the **Virtual Machine flavours**, (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk space for all flavours is 80 GB. You can extend your VM's disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have lauched the Virtual Machine. Additional disk space later on can be required writing at servicedesk@csc.fi (subject: Sensitive data);
 
 When all the settings are done, press the **Launch Desktop** button of the selected VM flavour. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
-
 
 
 ![Launch-virtual-Desktop](images/desktop/desktop-2.png)
