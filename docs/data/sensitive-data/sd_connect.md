@@ -153,18 +153,18 @@ We integrated the encryption **as an automated step in the SD Connect user inter
 
 Briefly, the services use an encryption method called  _asymmetric encryption_,  based on two interlinked encryption keys:
 
-   1) A **public key** is always **used for data encryption**, but it can not be used to decrypt the data. You can share your public key with others, e.g. your collaborators and they will then be able encrypt data with your public key. 
+   * A **public key** is always **used for data encryption**, but it can not be used to decrypt the data. You can share your public key with others, e.g. your collaborators and they will then be able encrypt data with your public key. 
 
-   2) A **secret key**, (also called a private key) is **used to decrypt** a file encrypted with the corresponding public key. This key is password protected and can not be shared with others. 
+   * A **secret key**, (also called a private key) is **used to decrypt** a file encrypted with the corresponding public key. This key is password protected and can not be shared with others. 
 
 
 When using SD Connect to upload your data to CSC, you have three possibilities for encryption:
 
-   1) You can simply upload the data using SD Connect, via your web browser, with the **default encryption options**. The files will be encrypted with the services encryption key and they will compatible with other services components. They will be decrypted in an automated manner when accessed using SD Desktop, but you will not be able to decrypt the files after download.  We are developing a new feature that will simplify the download option and will be soon available as part of the SD Connect user interface.
+* You can simply upload the data using SD Connect, via your web browser, with the **default encryption options**. The files will be encrypted with the services encryption key and they will compatible with other services components. They will be decrypted in an automated manner when accessed using SD Desktop, but you will not be able to decrypt the files after download.  We are developing a new feature that will simplify the download option and will be soon available as part of the SD Connect user interface.
    
-   2)  You can upload the data using SD Connect via web browser, and **add your public encryption key**. The files will be encrypted with your enycyption key and with the services encryption key by default, thus they will be compatible with other services components. Moreover, you will also be able to download and decrypt the data when necessary.
+*  You can upload the data using SD Connect via web browser, and **add your public encryption key**. The files will be encrypted with your enycyption key and with the services encryption key by default, thus they will be compatible with other services components. Moreover, you will also be able to download and decrypt the data when necessary.
    
-   3)  You can upload the data using SD Connect via your web-browser, and add **multiple encryption keys**. For example, your public encryption key and your collaborator's public encryption key. The files will be encrypted with the services encryption key by default; they will be compatible with other services components. Moreover, you and your collaborator will also be able to download and decrypt the data when necessary.
+*  You can upload the data using SD Connect via your web-browser, and add **multiple encryption keys**. For example, your public encryption key and your collaborator's public encryption key. The files will be encrypted with the services encryption key by default; they will be compatible with other services components. Moreover, you and your collaborator will also be able to download and decrypt the data when necessary.
 
    
 This encryption method is  based on Crypt4GH, a tool initially designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard. The encryption method can however be used to encrypt any type of file (images, audtio, video, tect files etc).
