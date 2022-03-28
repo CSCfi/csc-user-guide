@@ -283,12 +283,128 @@ The keys will be generated and saved to the same folder in which the application
 
 
 
-4- Next, you will be **redirected to a new window displaying the default encryption options**. Here, turn on the button: Add other's receivers public keys. A new window will then appear in the user inetrface, when you can paste your public key and optionally, your collaborators public key.
+4- Next, you will be **redirected to a new window displaying the default encryption options**.
+
+
+5- here you can turn on the button: *Add other's receivers public keys*. A new window will then appear in which you can add multple encryption keys:
+
+* First, even if the new window is empty, click on *Add receiver public key*. This will add the Sensitive Data servies public key, that will be listed in the right window.
+* Next, open your public key using Notepade or any other text files reader. Copy the public key, paste it in the approriate window and next click on *Add receiver public key*.
+* Now, on the right window, you will be able to see two public key listed.
+* If you are planning to share your data with a collaborator, you can add a tird public key. In this example, my collaborator shared their public key via email. I open the key with Nodepade and pasted it in the Receiver key window. Next I clicked on *Add receiver key* . Now I am able to see 3 keys listed in the righr window.
+
+
 
 <img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
 
 
-3- Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+6- You can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+
+6-  Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
+
+![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
+
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be diplayed in the correct bucket, in a default folder called data and each encrypted file will have the extension *.c4gh*. The files are now encrypted wiht three encryption keys and you will be able to:
+- access and analyze the data in SD Desktop (for mfurthe inromation check )
+- share the data wiht your collaborator using SD Connect (for futher information see the following paragprah).
+- dowload the data and decryt them (for furthe intormation see).
+
+
+## Data encryption and upload with Sensitive Data encryption key - Command Line Interface
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+!!! note
+        Files that have been encrypted with the _CSC Sensitive Data services public key_, can be accesed for data analysis in SD Desktop. If you wish to encrypt the data to transfer them to other services or to share then with your collaborators, you can add multiple encryption keys, for example you public key or your collaborator public key to the encryption.
+
+
+For general information about using Crypt4GH at CSC check: 
+   * [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git)
+ 
+  
+
+- 1: Install the latest version of Crypt4GH encryption tool
+
+**Python 3.6+ required** to use the crypt4gh encryption utility. 
+To install Python: https://www.python.org/downloads/release/python-3810/
+
+If you have a working python installation and you have permissions to add libraries to your python installation, you can install Crypt4GH with command:
+
+```text
+pip install crypt4gh
+```
+
+- 2: Download CSC Sensitive Data services Public key
+
+Download CSC Sensitive Data Services public key from the link [here](./csc-sd-services.pub), or copy/paste the three lines from the box below into a new file.
+The file should be saved in text-only format. Here we assume that the key file is named as _csc-sd-services.pub_.
+
+```text
+-----BEGIN CRYPT4GH PUBLIC KEY-----
+dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
+-----END CRYPT4GH PUBLIC KEY-----
+```
+
+- 3: Encrypt a file
+
+Crypt4GH is able to use several public keys for encryption. This can be very handy in cases were the encrypted data needs to be used by several users or services. Unfortunately SD Connect is not yet compatible with encryption with multiple keys. Because of that you must do the encryption using the CSC Sensitive Data Services public key only, if you plan to upload the data to SD Connect. In this case the syntax of the encryption command is:
+
+```text
+crypt4gh encrypt --recipient_pk public-key < input > output
+```
+For example
+
+```text
+crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
+```
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect and will be automatically decrypted when imported in your own private computing environment in SD Desktop.
+ 
+
+### Data encryption and upload with Allas help tool: a-put
+
+The [allas client utilities](https://github.com/CSCfi/allas-cli-utils/) is a set of command line tools that can be installed and used in Linux and MacOSX machines. If you have these tools, you can use data upload command _a-put_ with command line option _--sdx_ to upload data to Allas/SD Connect so that the uploaded files are automatically encrypted with the CSC Sensitive Data Services public key before the upload. The public key is included to the tool so that you don't need to download your own copy of the key.
+
+You can upload a single file with command like:
+
+```text
+a-put --sdx my_data1.csv
+```
+By default _a-put --sdx_ uploads the encrypted file into bucket that has name _project-number-SD_CONNECT_ . 
+
+You can also upload complete directories and define a specific target bucket. For example the command below will encrypt and upload all the files in directory _my_data_ to SD Connect into bucket _1234_SD_my_data_.
+```
+a-put --sdx my_data -b 1234_SD_my_data
+```
+You can use a-put to encrypt the data with several keys so that the uploaded data can be used not just in SD Desktop but with other evironments too.
+```
+a-put --sdx my_data -b 1234_SD_my_data --encrypt c4gh --public-key my-key.pub --public-key collaborator-key.pub
+ ```
+
+
+### Programmatic data upload and download with SD Connect
+
+To upload encrypted data to SD Connect programmatically, you need to use your CSC credentials (CSC username and password).
+
+SD Connect is a user interface for CSC Allas object storage. As SD Connect is based on Swift protocol, it is recommended that you use upload tools that are based on swift protocol. However, you can also use any of the Allas compatible clients to upload your data to SD-Connect programmatically.
+
+
+These include:
+
+   * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
+   * [swift command line client](../Allas/using_allas/swift_client.md)
+   * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
+   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
+
+Note that if you use these tools, you must encrypt your sensitive data, before you upload it to SD Connect.
+
+
+
+
+
+
 
 
 
