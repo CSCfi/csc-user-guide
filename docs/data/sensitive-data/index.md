@@ -39,7 +39,7 @@ Store and share.
 
   * [**Before you start**](./sd_connect.md#before-you-start)
   
-  * [**Overview**](./sd_connect.md#service-access)
+  * [**Overview**](./sd_connect.md#overview)
  
   * [**Service access**](./sd_connect.md#service-access)
   
@@ -53,9 +53,9 @@ Store and share.
  
  * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](sd_connect.md#sensitive-data-encryption-and-upload-multiple-encryption-keys-less-than-100-gb)
  
- *  **Data sharing**
+ * [**Data sharing**](./sd_connect.md#data-sharing)
  
- *  **Data download and decryption**
+ * [**Data download and decryption**](./sd_connect.md#data-dowload-and-decryption)
  
  * [**Data encryption and upload - Command Line Interface**](./sd_connect.md#data-encryption-and-upload---command-line-interface)(Advanced)
  
