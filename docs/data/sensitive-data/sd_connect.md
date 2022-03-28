@@ -205,12 +205,61 @@ The necessary steps are the following:
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Using SD Connect user interface, you can encrypt your files with multiple encryption keys simultaneusly. For example with:
 
-As the workflow described above is still under development, files larger than 1 Gb need to be encrypted and uploaded in two different steps. For this reason, we have developed a simple encryption tool (Crypt4ghsds GUI) that facilitates data encryption with Sensitive Data public encryption key. With this tool it is possible to encrypt only one file at the time. If you need to encrypt **large datasets**, check the instructions on how to programmatically encrypt files with Crypt4gh CLI below.
+- adding your public encryption key, in this way you will be able to download data stored in SD Connect and decrypt them when necessary;
+- adding your collaborator encryption key, if you are planning to share you files with a collaborator (e.g. data transfer);
+- with the default Senstive Data services encryption key, in this way you will be able to directly analyse encyrpted data using SD Desktop.
 
 
-!!! note
-    As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using the Sensitive Data services**. Using this workflow does not allow you to include your encryption keys. Thus, you will not be able to decrypt this copy of the data unless analysing it in SD Desktop. If you are interested in using your own encryption key pair check [the following paragraph](./crypt4gh_client.md)
+Below, we will illustrate how to generate your encryption key pair using a simple application. 
+    
+    
+    
+    
+## Crypt4GH graphical user interface
+
+CSC has developed a simple graphical user interface (GUI) which will allow you to generate your encryption keys, encrypt your data, and to decrypt data using Crypt4GH.
+
+### Step 1: Install the Crypt4GH encryption GUI tool
+
+Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
+
+  - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
+   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
+   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
+
+Please check that the tool has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
+
+![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
+
+When you open the application for the first time you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+
+![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
+
+### Step 2: Generate your encryption keys
+
+1. Open the application and click on _Generate Keys_ (on the top right corner).
+1. The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your private key. Please, use a strong password!
+1. When you click on _OK_, the tool will generate a key pair consisting of a private key (username_crypt4gh.key) and a public key (username_crypt4gh.pub).
+1. The keys/file names will be displayed in the Activity Log with the following message:
+
+```
+Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
+Private key: username_crypt4gh.key
+Public key: username_crypt4gh.pub
+All the fields must be filled before file encryption will be started
+```
+
+![Crypt4GH key generation](./images/SDEnScreenshot_4.png)
+
+The keys will be generated and saved to the same folder in which the application resides.
+
+!!! Note
+    If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
+
+!!! Note
+    You need to create your keys only once and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you wish.
 
 
 1- First, **download** the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
