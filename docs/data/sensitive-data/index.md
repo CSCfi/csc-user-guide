@@ -35,29 +35,30 @@ For general information, see:
 Store and share.
    
 
-  * [**Key features**]
+  * [**Key features**](./sd_connect.md#key-features)
 
-  * [**Before you start**]
+  * [**Before you start**](./sd_connect.md#before-you-start)
   
-  * [**Overview**]
+  * [**Overview**](./sd_connect.md#service-access)
  
-  * [**Service access**](
+  * [**Service access**](./sd_connect.md#service-access)
   
-  * [**Authentication**]
+  * [**Authentication**](./sd_connect.md#authentication)
 
-  * **User Interface**:
+  * [**User Interface**](./sensitive-data/sd_connect.md#user-interface)
+  * [**Introduction to data encryption compatible with sensitive data services](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * **SData encryption and upload (less than 100 GB)
+ * [**Data encryption and upload (less than 100 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-default-less-than-100-gb)
  
- * **Data encryption and upload: multiple keys (less than 100 GB)
+ * [**Data encryption and upload, multiple keys (less than 100 GB](sd_connect.md#sensitive-data-encryption-and-upload-multiple-encryption-keys-less-than-100-gb)
  
  *  **Data sharing**
  
  *  **Data download and decryption**
  
- * **Data encryption and upload - Command Line Interface** (Advanced)
+ * [**Data encryption and upload - Command Line Interface**](./sd_connect.md#data-encryption-and-upload---command-line-interface)(Advanced)
  
- * **Data encryption fro data sharing - Command Line Interface** (Advanced)
+ * [**Data encryption for data sharing - Command Line Interface**](./sd_connect.md#data-encryption-and-upload-with-multpile-encryption-keys-and-data-sharing---command-line-interface)(Advanced)
 
  * **Troubleshooting**
  
