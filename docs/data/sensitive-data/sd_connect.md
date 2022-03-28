@@ -124,6 +124,12 @@ In this view, you can:
 
 ![SD-Connect-2](https://user-images.githubusercontent.com/83574067/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
+
+
+![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
 
 ### Shared page
 
@@ -159,7 +165,7 @@ Briefly, the services use an encryption method called  _asymmetric encryption_, 
 
 **When using SD Connect to upload  data to CSC, you have three possibilities for encryption:**
 
-   1) You can simply upload the data using SD Connect, via your web browser, with the **default encryption options**. The files will be encrypted with the services encryption key and compatible with other services components. They will be decrypted in an automated manner when accessed using SD Desktop, but you will not be able to decrypt the files after download. 
+   1) You can simply upload the data using SD Connect, via your web browser, with the **default encryption options**. The files will be encrypted with the services encryption key and compatible with other services components. They will be decrypted in an automated manner when accessed using SD Desktop, but you will not be able to decrypt the files after download.  We are developing a new feature that will simplify the download option and will be soon available as part of the SD Connect user interface.
    
    2)  You can upload the data using SD Connect via web browser, and **add your public encryption key**. The files will be encrypted with the services encryption key by default, and they will be compatible with other services components. However, you will also be able to download and decrypt the data when necessary.
    
@@ -168,16 +174,17 @@ Briefly, the services use an encryption method called  _asymmetric encryption_, 
 
    
 This encryption method is  based on Crypt4GH. A tool initially designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard, which can be used to encrypt any type of data.
+CSC has developed a simple application which will allow you to generate your encryption keys. In the following paragraph we will illustrate all the necessary steps to encryt yoru files using SD Connect or programmatically. 
 
 
 ## Sensitive data encryption and upload (default, less than 100 GB) 
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser if they are smaller than 100 GB. With the following workflow, the file will be **encrypted by default** with the Sensitive Data encryption key. In this manner,  encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in your virtual Desktop). However, you will not be yet able to decrypt the files after downloading without extra steps, which might require our support. We are developing a new feature that will simplify the download option.
+SD Connect allows you to encrypt and upload files or folders directly from your web browser (file smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the Sensitive Data encryption key. In this manner,  encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in your virtual Desktop). However, you will not be yet able to decrypt the files after downloading without extra steps, which might require our support. We are developing a new feature that will simplify the download option.
 
 
 The necessary steps are the following: 
  
-1- To upload folders and files to SD Connect, use the **drag and drop function**, while click on the **upload** icon in the SD Connect browser window to select and upload files.
+1- To upload folders and files to SD Connect, use the **drag and drop function**.  The **upload** icon in the SD Connect browser window to select and upload files.
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
