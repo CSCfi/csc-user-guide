@@ -16,7 +16,7 @@ Below you can:
 
 
 For general information, see:
-[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../sensitive-data/faq_index.md), services descriptions in [CSC service catalog](https://research.csc.fi/service-catalog).
+[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../sensitive-data/faq_index.md), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
 
 
 !!! Note
@@ -57,11 +57,11 @@ Store and share.
  
  * [**Data download and decryption**](./sd_connect.md#data-dowload-and-decryption)
  
- * [**Data encryption and upload - Command Line Interface**](./sd_connect.md#data-encryption-and-upload---command-line-interface)(Advanced)
+ * [**Data encryption and upload - Command Line Interface**](./sd_connect.md#data-encryption-and-upload---command-line-interface) (Advanced)
  
- * [**Data encryption for data sharing - Command Line Interface**](./sd_connect.md#data-encryption-and-upload-with-multpile-encryption-keys-and-data-sharing---command-line-interface)(Advanced)
+ * [**Data encryption for data sharing - Command Line Interface**](./sd_connect.md#data-encryption-and-upload-with-multpile-encryption-keys-and-data-sharing---command-line-interface) (Advanced)
 
- * **Troubleshooting**
+ * [**Troubleshooting**](./sd_connect.md#troubleshooting) 
  
 
   
