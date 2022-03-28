@@ -310,6 +310,51 @@ The keys will be generated and saved to the same folder in which the application
 - dowload the data and decryt them (for furthe intormation see).
 
 
+
+
+## Data Sharing
+
+
+## Data dowload and decryption
+
+
+### Step 6: Data decryption
+
+After dowload you can decrypt the data using the Crypt4GH application and your secrete encryption key.
+
+
+1- Open Crypt4GH application and click on _load Your Private Key_.
+
+2- Click on _Select File_ and upload the file you want to decrypt.
+
+3- Click on _Open_.
+
+4- Next click on _Decrypt File_.
+
+5-The tool will ask you to write the password of the secrete key, press _ok_. The file will be decrypted in the same location as the original file.
+
+In the decryption process, the secrete key must match the public key that was used to encrypt the data.
+In case of decryption, the public key is not mandatory, but if you have the public key of person who has encrypted the file
+then you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+
+```
+Sender public key has not been set, authenticity will not be verified.
+```
+
+If your decryption runs successfully, the activity log will display the following:
+
+```
+Decrypting.....
+
+Decryption has finished
+
+Decrypted file: C:/users/samesurname/exampledirectory/examplefile
+```
+
+![SDEnScreenshot_8](./images/SDEnScreenshot_8.png)
+
+
+
 ## Data encryption and upload - Command Line Interface
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
