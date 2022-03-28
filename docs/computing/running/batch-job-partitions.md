@@ -1,5 +1,8 @@
 # Available batch job partitions
 
+!!! Note
+    The available LUMI batch job partitions are found in [the LUMI documentation](https://docs.lumi-supercomputer.eu/computing/jobs/partitions/).
+
 ## Puhti partitions
 
 The following partitions (aka queues) are currently available in **Puhti** for
