@@ -26,7 +26,7 @@ For general information, see:
 ## [Introduction](./intro.md)
 
   * [**Legal agreements**](intro.md#legal-agreements)
-  * [**How to start**](intro.md#getting-access)
+  * [**Getting access**](intro.md#getting-access)
   * [**Useful terminology**](intro.md#getting-access)
 
 
@@ -51,7 +51,7 @@ Store and share.
  
  * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-default-less-than-100-gb)
  
- * [**Data encryption and upload, multiple keys (less than 100 GB)**](sd_connect.md#sensitive-data-encryption-and-upload-multiple-encryption-keys-less-than-100-gb)
+ * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](sd_connect.md#sensitive-data-encryption-and-upload-multiple-encryption-keys-less-than-100-gb)
  
  *  **Data sharing**
  
