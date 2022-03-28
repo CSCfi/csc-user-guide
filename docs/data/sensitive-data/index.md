@@ -1,6 +1,6 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC Sensitive Data Services. In order to navigate across the CSC user guide, click on the topics on the left hand side of the navigation bar or use the search functionality.
+This guide, in CSC Docs, introduces CSC Sensitive Data Services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality.
 
 We are currently updating the documentation and video tutorials. 
 
@@ -20,30 +20,36 @@ For general information, see:
 
 
 !!! Note
-    **Do you have any question? Would you like to dicuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
+    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
+
+
+## [Introduction](./intro.md)
+
+  * [**Legal agreements**](intro.md#legal-agreements)
+  * [**Getting started**](intro.md#getting-access)
+  * [**Useful terminology**](intro.md#getting-access)
 
 
   
 ## [Sensitive Data Connect](./sd_connect.md)
 Store and share.
    
- * **Before you start**
- 
- * **Overview**
 
- * **Service access**
+  * [**Key features**]
+
+  * [**Before you start**]
+  
+  * [**Overview**]
  
- * **Login and authentication** 
-   
+  * [**Service access**](
+  
+  * [**Authentication**]
+
  * **Introduction to the User Interface** ( UI not available until 16 of March)
-   
- * **Sensitive data encryption and upload (less than 1 GB) - User Interface** ( UI not available until 16 of March)
  
- * **Sensitive data encryption and upload (less than 100 GB)- User Iinterface**
+ * **Sensitive data encryption and upload (less than 100 GB)- User Interface**
  
  * **Sensitive data encryption and upload - Command Line Interface** Advanced
-       
- * **Data encryption for data sharing (less than 1 GB) - User Interface** ( UI not available until 16 of March)
  
  * **Data encryption for data sharing (less then 100 GB) -  User Interface** Advanced
  
@@ -93,30 +99,10 @@ Analyse and compute.
   
 ## [Finnish Federated EGA](./federatedega.md)
 Publish genetic data under controlled access. 
-Preliminary user guide.
+Preliminary guide.
  
   
 ## [Sensitive Data Apply](./sd-apply.md)
 Apply for re-use. 
-Preliminary user guide. 
+Preliminary guide. 
  
-
-
-
-
-
-
-
-  
-
-  
-
-
-
-
-
-
-
-
-
-
