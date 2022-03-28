@@ -1,15 +1,9 @@
 
 # SD Desktop (Sensitive Data Desktop)
 
+SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, techincally defined as vitual machine) from your web browser. No previous knowledge of cloud computing or programming expertise are required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects.
 
-SD Desktop service is a virtual computing environment that is designed for processing sensitive data. It provides a secure workspace for analysing sensitive data from any location. It can be used by individual users but is especially usefull for collaborative research projects. 
-
-SD Desktop is accessed through an easy to use graphical interface running in a web browser. The interface 
-allows you to launch new vitual machines, delete them and connect to active virtual machines without any previous knowledge of cloud computing.   
-
-SD Desktop is used together with other SD services (SD Connect and SD Apply), that provide a controlled way to import and export data to and from this service.
-
-In the this user guide, you can learn how to:
+In the following user guide, you can learn how to:
 
 * apply for service access;
 * set up your virtual Desktop;
@@ -19,36 +13,27 @@ In the this user guide, you can learn how to:
 
 ## Key features
 
-* Accessible via web browser from any operating system (Mac, Linux or Windows) and from any location.
+* Accessible from any operating system (Mac, Linux or Windows) via web-browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
 
-* Only project members can access the VMs.
+* Only the memerbs of the same CSC project can access the same virtual Desktop.
 
-* At the moment only VMs with Linux operating system (Centos7) are available.
+* After login to SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
 
-* VMs are not connected to internet: the only way to import and export data is SD Connect service.
+* Virtual Desktops are not connected to internet: the only way to import and export data is SD Connect service;
 
-* VMs can be used to work with any type of data: text files, images, audio files, video, and genetic data. However the VMs include only a limited set of pre-installed software. Additional tools can be imported through SD Connect or by requesting from CSC.
+* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However the virtual Desktop include a limited set of pre-installed software (open source). Additional tools can be imported through SD Connect and additional customization is possible writing at servicedesk@csc.fi (subject: Sensitive data);
 
-* **process a large amount of data** stored encrypted in SD Connect via data streaming (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data).
+* **Process a large amount of data** stored encrypted in SD Connect via data streaming (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data) or via SD Apply (for data re-use).
 
 
 
 ## Before you start
 
-Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project you need to:
+* All the members belonging to a specific CSC project can access the same computing virtual Desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
 
-* set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
-* [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
-* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
-* add [service access to SD Connect and SD Desktop](../../accounts/how-to-add-service-access-for-project.md);
-* activate [multi-factor authentication](../../accounts/mfa.md) on your account.
+* The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
-Note that even though you may be able login SD Desktop using your local account (haka) you will need to use your CSC username and password when you import data from SD Connect to into your Virtual Machine. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
-
-Make sure that your CSC project always includes only those persons who are allowed to work with all the data of the project. All the members belonging to a CSC project can access all the VMs that this propject has in SD Desktop. Project manager, not CSC, is reponsible for keeping the list of project members up to date.
-
-!!! Note
-   SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
+* SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
 
 ## Overview
 
@@ -56,6 +41,15 @@ Make sure that your CSC project always includes only those persons who are allow
 
 
 ## Service access 
+
+Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project you need to:
+
+* set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
+* [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
+* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
+* add [service access to Allas and SD Desktop](../../accounts/how-to-add-service-access-for-project.md).
+
+For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the Accounts paragraph at the beginning of CSC user guide. Note that even though you may be able login SD Desktop using your local account (haka) you will need to use your CSC username and password when you import data from SD Connect to into your Virtual Machine. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
 
 ### Authentication
 
@@ -65,11 +59,6 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu an
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
-SD Desktop uses two factor authentication. In practice this means that after password login, you need to **verify your identity** by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, check the [multi-factor authentication](../../accounts/mfa.md) paragraph at the beginning of CSC user guide.
-
-![Authentication](images/desktop/desktop-login-1.png)
-
-The SD Desktop interface is composed of two parts:**Connections page** that allows you to see your active virtual machines and connect to these machines. From this page you can move to **SD Desktop Management page** were you can launch new virtual machines and delte old ones. The same SD Desktop interface is used to manage VMs of all your CSC projects that have access to SD Desktop. If you are member in several SD Desktop projects you must always make sure that you are using the right project when managing or using virtual machines.
 
 
 ### Setting up a Virtual Machine
@@ -77,6 +66,8 @@ The SD Desktop interface is composed of two parts:**Connections page** that all
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once you have logged in to the SD Desktop service, you can launch virtual machines for your project. Each project can have 3 Virtual Machines running in the same time. These virtual machines can be used by all project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to the Virtual Machine and access the data stored in your project. However, note that there can be in maximum 10 simultaneous connections to one VM at a time. Once a Virtual Machine is launced it will run utill it is deleted. 
+
+The SD Desktop interface is composed of two parts:**Connections page** that allows you to see your active virtual machines and connect to these machines. From this page you can move to **SD Desktop Management page** were you can launch new virtual machines and delte old ones. The same SD Desktop interface is used to manage VMs of all your CSC projects that have access to SD Desktop. If you are member in several SD Desktop projects you must always make sure that you are using the right project when managing or using virtual machines.
 
 To start a new virtual Machine in SD Desktiop click first: **Go To SD Desktop Management page**
 
@@ -129,13 +120,15 @@ Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, 
 
 ### Working with your virtual machine
 
-Once your private virtual machine is launched, each CSC project member can securely connect it from their browser at any time.
+Once your private virtual machine is launched, each CSC project member can securely connect it from their browser at any time. 
+
 
 When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
 
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed the virtual Desktop)
 
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
+
 
 
 ![Access-virtual-Desktop](images/desktop/desktop-4.png)
