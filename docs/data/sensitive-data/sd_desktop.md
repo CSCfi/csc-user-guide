@@ -57,7 +57,7 @@ Make sure that your CSC project always includes only those persons who are allow
 
 ## Service access 
 
-## Authentication
+### Authentication
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -72,7 +72,7 @@ SD Desktop uses two factor authentication. In practice this means that after pas
 The SD Desktop interface is composed of two parts:**Connections page** that allows you to see your active virtual machines and connect to these machines. From this page you can move to **SD Desktop Management page** were you can launch new virtual machines and delte old ones. The same SD Desktop interface is used to manage VMs of all your CSC projects that have access to SD Desktop. If you are member in several SD Desktop projects you must always make sure that you are using the right project when managing or using virtual machines.
 
 
-## Setting up a Virtual Machine
+### Setting up a Virtual Machine
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -127,7 +127,7 @@ Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, 
 
 
 
-## Working with your virtual machine
+### Working with your virtual machine
 
 Once your private virtual machine is launched, each CSC project member can securely connect it from their browser at any time.
 
@@ -282,7 +282,6 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 ### Pre-installed software:
 
 
-
 * CentOS7
 
 * Emacs
@@ -359,11 +358,11 @@ For more information, write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
-
-
 ## Deleting your computing environment
   
-At the end of your research or analysis, you can delete your  Desktop (or virtual computer) and all the data. 
+At the end of your research or analysis, you can delete your Virtual Macine and all the data that is stored in the local disks of the 
+Virtual Machine. Note that other project memebers may have data and processes in the virtual machine so check the situation with your
+collaborators before deleting the virtual machine.
 
 In SD Desktop Homepage, click on **Go to the launching page**. Here, in **Available instances** click on **Delete Desktop**. 
 
