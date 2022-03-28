@@ -18,8 +18,6 @@ Sensitive Data services for research consists of four components, all accessible
 * Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface. 
 
 
-Once you upload encrypted sensitive data to CSC via Sensitive Data services, they are accessible from each service component, while the original files are always encrypted: during data storage or analysis. **Data encryption does not require technical expertise**. We integrated the encryption as an automated step in the SD Connect user interface, specifically for files less than 100 GB. All the data uploaded using SD Connect are by default encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing (see SD Connect user guide).
-
 
 
 ## Legal agreements
@@ -31,6 +29,7 @@ To facilitate this process, when you create a new CSC project using the MyCSC po
 
 In case you need to draft a **Data Protection Impact Assessment (DPIA)**, you can find the technical and organizational security measures for the protection of
 sensitive data in CSC Sensitive Data service available for download [here](./technical-organisational-sec-measures.pdf).
+
 
 
 ## Getting access
