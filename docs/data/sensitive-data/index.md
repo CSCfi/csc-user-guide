@@ -35,7 +35,7 @@ For general information, see:
 Store and share.
    
 
-  * [**Key features**](./sd_connect.md#key-features)
+  * [**Key features**](./sd_connect.md)
 
   * [**Before you start**](./sd_connect.md#before-you-start)
   
