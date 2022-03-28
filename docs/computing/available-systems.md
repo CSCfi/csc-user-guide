@@ -7,7 +7,7 @@ workloads that can utilize both efficiently. At the same time their
 hardware is different, and this makes some worklods uniquely suitable
 for either Puhti or Mahti. 
 
-In addition to the national resources, CSC's data center in Kajaani hosts the pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has been available since early 2022, while the largest partition of the system consisting of GPU-accelerated nodes is projected to be available in September 2022.
+In addition to the national resources, CSC's data center in Kajaani hosts the pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has been available since early 2022, while the largest partition of the system consisting of GPU-accelerated nodes is projected to be available in autumn 2022.
 
 ## LUMI
 
