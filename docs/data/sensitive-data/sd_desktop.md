@@ -68,7 +68,7 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu an
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
-SD Desktop uses two factor authentication. In practice this means that after password login, you setill need to **verify your identity** by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, check the [multi-factor authentication](../../accounts/mfa.md) paragraph at the beginning of CSC user guide.
+SD Desktop uses two factor authentication. In practice this means that after password login, you need to **verify your identity** by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, check the [multi-factor authentication](../../accounts/mfa.md) paragraph at the beginning of CSC user guide.
 
 ![Authentication](images/desktop/desktop-login-1.png)
 
