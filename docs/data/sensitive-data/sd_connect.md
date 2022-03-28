@@ -44,7 +44,7 @@ Data (sensitive or non-sensitive, e.g. scripts) stored in SD Connect/ Allas must
 
 ## Overview
 
-![Connect-overview](images/connect/connect-overview.png)
+![Connect-overview](images/connect/connect_overview.png)
 
 
 ## Service access 
