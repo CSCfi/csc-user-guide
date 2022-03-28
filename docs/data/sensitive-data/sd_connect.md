@@ -1,8 +1,37 @@
 
 # SD Connect (Sensitive Data Connect)
 
-## Before you start
+SD Connect is a web-user interface that allows you to encrypt and upload sensitive data to CSC from your web browser. You can compare this services to a virtual hardrive, that you can use to securly store your reserch data in the cloud. No specific techincal experties are required to use the service. SD Connect is designed to store and easily share sensitive data, providing a secure workspace for collaborative research projects. All the data stored in SD Connect can be accessed via SD Desktop for data analysis, if encrypted with the Sensitive Data services public encryption key (defualt data upload in SD Connect).
 
+In the following user guide you can learn how to:
+
+* apply for service access;
+* encrypted and upload sensitive data using SD Connect using the sensitive data services encrption key (for analysis in SD Deskto)p;
+* encrypted and upload sensitive data using SD Connect for data sharing;
+* encrypted and upload sensitive data programmatically.
+
+
+## Key features
+
+* Accessible via web browser from your computer (Mac, Linux or Windows) and from any location (no need to install specific programs or use a VPN).
+
+* Only your colleagues (or CSC project members) can access encrypted files stored in the same CSC project. 
+
+* Data upload and authomated encryption via drag-drop using web-browser (less than 100 GB, larged datasets can be uploaded programamtically).
+
+* Can be used to store any type of data: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). Each files, folder or bucket can be defined with specific tags. By default a project can store up to 10 TiB of data.
+
+* Facilitates secure data sharing (via url) with other CSC projects.
+
+* Data stored in SD Connect can be accessed via SD Desktop for data analysis (if they are encrypted using also the Sensitive Data services public encryption key, defaultoption during data upload via SD Connect).
+
+
+* **Limitations**:
+
+Data (sensitive or non sensitive, e.g. scripts) stored in SD Connect/ Allas needs always to be encrypted. Files and folder are stored in bukects: this is the techincal name for the main folder in which all the files (also called objects) are stored. Files stored in SD Connect/Allas can be directly analysed in read-only mode from SD desktop, but they can not be directly edited, unless they are copied inside the virtual Desktop. 
+
+
+## Before you start
 
 * According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data always needs to be encrypted when uploaded or stored in CSC services for sensitive data. In this paragraph, we provide instructions on encrypting a copy of your data with CSC encryption key and Crypt4GH. For general information about Crypt4GH check the [Data encryption for data sharing](./crypt4gh_client.md) paragraph or  [crypt4gh GIT site](https://github.com/EGA-archive/crypt4gh.git).
     
@@ -13,20 +42,22 @@
     SD Connect and SD Desktop have not yet been security audited. Because of that users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
 
 
-## Login  
+## Service access 
+
+To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
+
+* set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
+* [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
+* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
+* add [service access to Allas](../../accounts/how-to-add-service-access-for-project.md);
 
 
-To access SD Connect go to [MyCSC](https://my.csc.fi) and:
-
-* set up [**a CSC account**](../../accounts/how-to-create-new-user-account.md);
-* set up [**a CSC project**](../../accounts/how-to-create-new-project.md) or [join a project](../../accounts/how-to-add-members-to-project.md);
-* add [**service access to Allas**](../../accounts/how-to-add-service-access-for-project.md) (CSC cloud storage solution);
-* fill in the [**description of data processing activities**](../../accounts/when-your-project-handles-personal-data.md) form;
-* apply for additional [billing units](../../accounts/how-to-apply-for-billing-units.md) or [disk quota](../../accounts/how-to-increase-disk-quotas.md), if needed.
+For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
 
+## Authentication
 
-Login to SD Connect is currently possible only with Haka (a user identity federation system) and CSC credentials at:
+Login to SD Connect is currently possible only with CSC credentialsand  Haka (a user identity federation system) at:
 
    * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
 
@@ -41,7 +72,6 @@ The interface is compatible with all modern web browsers.
 
 
 
-
 ## User Interface pages
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -49,11 +79,18 @@ The interface is compatible with all modern web browsers.
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-Once you log in to SD Connect you access the default front-page: **Browser**.
+Once you log in to SD Connect you can access three main pages: 
 
-In this page you can :
+* the default **Browser** page, where are listed the buckets (or main folders) in which your encrypted files are stored;
+* the **Shared** page, where you can managed shared buckets;
+* the **User information** page, where you can visualise the resournces consumed by yout CSC project and the Project Identifier.
 
-* view all **the  buckets available in your CSC project**, in which you can store encrypted sensitive data. The buckets can be created, downloaded, deleted or shared, using the appropriate icons. Note: SD Connect displays also all the data uploaded in Allas using CSC interfaces for non sensitive data management. 
+
+### Browser page
+
+In this view you can :
+
+* view all **the  buckets available in your CSC project**, in which you can store encrypted data. The buckets can be created, downloaded, deleted or shared, using the appropriate icons. Note: SD Connect displays also all the data uploaded in Allas using CSC interfaces for non sensitive data management. 
    
 *  **list and select your CSC project** from the drop down menu bar (top left corner) to visualize buckets belonging to a specific CSC project;
 
@@ -65,21 +102,18 @@ In this page you can :
 ![SD Connect Image 1](https://user-images.githubusercontent.com/83574067/149062070-7541673f-9fc1-445a-a790-80aa5f296e0c.png)
 
 
-
-
-* clicking on **edit** you can type in and add appropriate tags to describe buckets or files. 
+* clicking on **edit** you can type in and add **appropriate tags** to describe buckets or files. 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
 ![SD Connect image 2](https://user-images.githubusercontent.com/83574067/149062085-a149fe12-0d9a-4dd2-87d4-d2e82ca2bbc4.png)
 
 
+### User information page
 
-
-In the  **User information** page you can:
+In this view you can:
 
 * in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
-
 
 * in **Project usage** you can view the SD Connect **Project Identifier**, an ID associated to your CSC project. This ID is required when you want to share containers with other CSC projects using SD Connect user interface. It does not contain sensitive information, thus it can be shared with your colleagues or collaborators via email.
 
@@ -91,6 +125,7 @@ In the  **User information** page you can:
 ![SD-Connect-2](https://user-images.githubusercontent.com/83574067/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
 
 
+### Shared page
 
 
 In the **Shared** page:
@@ -110,18 +145,15 @@ In the **Shared** page:
 
 
 
-## Sensitive data encryption and upload (less than 1 GB) 
+## Sensitive data encryption and upload (default, less than 100 GB) 
 
-SD Connect allows you to encrypt and upload files directly from your web-browser. With the following workflow ayou can automatically encrypt the data with Sensitive Data services public encryption key (**Encrypt files before uplaod: on**).
+SD Connect allows you to encrypt and upload files or folders directly from your web-browser, if they are smaller than 100 GB.  With the following workflow the file will be **encrypted by default** with the Sensitive Data encryption key. In this manner,  encrypted files will be safely stored in SD Connect and can be directly analized using other Sensitive Data services components (for example in your virtual Desktop). However, you will not be yet able to decrypt the files after dowload without extra steps which might require our support. We are developing a new feature that will simplify the dowload option.
 
- As this is a simplified workflow, it is designed to allow **easy and safe encryption and automated decryption only using SD Desktop for data analysis or other SD services components**. If you are interested in using your own encryption key pair or sharing the data with a collaborator, check [the following paragraph](./crypt4gh_client.md).
+In the meantime, if you are interested to encrypt the data adding also your own encyrption key, in addittion to the defualt encyrption embedded in the user interface, or if you are interested to share the data with your collaborators, check the following paragraph. 
 
+The necessary steps are the following: 
  
-1- To upload data to SD Connect it is sufficient to:
-
-* click on the **upload** icon in the SD Connect browser window;
-
-*  use the **drag and drop function**.
+1- To upload folders to SD Connect it is sufficient to use the **drag and drop function**, while to upload files you can  click on the **upload** icon in the SD Connect browser window. 
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -129,15 +161,7 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 ![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
 
 
-
-![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
-
-
-
 2- You will be **redirected to a new page displaying the default encryption options**. 
-
-<img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
-
 
 3- Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
@@ -151,23 +175,31 @@ SD Connect allows you to encrypt and upload files directly from your web-browser
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
 
-5- With the icon  **Select Files for Upload** you will open a browser window in which you can select and add more files. 
+5- With the icon  **Click to add files that will be uploaded** you will open a browser window in which you can select and add more files. 
 
-![SD Connect 1a](https://user-images.githubusercontent.com/83574067/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+![SD Connect final 1](https://user-images.githubusercontent.com/83574067/149011263-3225da97-b363-4c0f-9458-ccd1d09f293f.png)
 
 
 
 6-  Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
-![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+![3](https://user-images.githubusercontent.com/83574067/149011679-38799458-8e8d-4ddb-9a61-142a651b1fcb.png)
 
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be diplayed in the correct bucket, in a default folder called data and each encrypted file will have the extension *.c4gh*. 
+
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4gh*. 
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+![6](https://user-images.githubusercontent.com/83574067/149012441-fc6ec48a-3d87-4cc2-bdd8-5e44e6c3cfd6.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
-![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
-
-## Sensitive data encryption and upload (less than 100 GB) 
+## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -214,10 +246,6 @@ As the workflow described above is still under development, files larger than 1 
 
 6- You will be then **redirected to a new page**. As you have already encrypted the data, you can **deselect the option: Encrypt file before upload**.
 
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-<img width="958" alt="SD Connect deselect " src="https://user-images.githubusercontent.com/83574067/158698579-2b6f806e-a110-421c-9151-26974e8aa48d.png">
-
 7- Next, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**. 
 
 8- If you create a new bucket use the following **suggestions to name it**. Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces. All bucket **names are public**, so please do not include any confidential information in the bucket names.
@@ -225,6 +253,11 @@ As the workflow described above is still under development, files larger than 1 
 9- Next, click on **Upload**. A progress bar will visualise the status of the upload. Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will show the extension *.c4hg*.
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+![example upload 5](https://user-images.githubusercontent.com/83574067/149021515-32567945-c755-4f1d-a940-33dd23f42c46.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 
@@ -298,10 +331,6 @@ You can also upload complete directories and define a specific target bucket. Fo
 ```
 a-put --sdx my_data -b 1234_SD_my_data
 ```
-You can use a-put to encrypt the data with several keys so that the uploaded data can be used not just in SD Desktop but with other evironments too.
-```
-a-put --sdx my_data -b 1234_SD_my_data --encrypt c4gh --public-key my-key.pub --public-key collaborator-key.pub
- ```
 
 
 
