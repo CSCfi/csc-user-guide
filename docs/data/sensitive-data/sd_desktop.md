@@ -49,7 +49,7 @@ Access to SD Desktop is based on CSC user accounts and projects. If you don't ha
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
 * add [service access to Allas and SD Desktop](../../accounts/how-to-add-service-access-for-project.md).
 
-For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the Accounts paragraph at the beginning of CSC user guide. Note that even though you may be able login SD Desktop using your local account (haka) you will need to use your CSC username and password when you import data from SD Connect to into your Virtual Machine. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
+For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data stored in SD Connect from yoru virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
 
 ### Authentication
 
@@ -59,52 +59,46 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu an
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
+from any modern web-browser.
 
 
-### Setting up a Virtual Machine
+### Setting up a virtual Desktop
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you have logged in to the SD Desktop service, you can launch virtual machines for your project. Each project can have 3 Virtual Machines running in the same time. These virtual machines can be used by all project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to the Virtual Machine and access the data stored in your project. However, note that there can be in maximum 10 simultaneous connections to one VM at a time. Once a Virtual Machine is launced it will run utill it is deleted. 
+Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
-The SD Desktop interface is composed of two parts:**Connections page** that allows you to see your active virtual machines and connect to these machines. From this page you can move to **SD Desktop Management page** were you can launch new virtual machines and delte old ones. The same SD Desktop interface is used to manage VMs of all your CSC projects that have access to SD Desktop. If you are member in several SD Desktop projects you must always make sure that you are using the right project when managing or using virtual machines.
+Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
-To start a new virtual Machine in SD Desktiop click first: **Go To SD Desktop Management page**
 
-This opens an interface that is used to launch and delete Virtual machines. Before you can launch a virtual machine, you need to specify following parameters: 
+To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go To SD Desktop Management page**. 
 
-* **select your CSC project**. Only the members of the selected project are able to use the virtual machine. 
+Here you can specify several parametes:
 
-* **choose the operating system**. Currently the only possible operating system is Linux CentOS 7 but in the future there will be other options too.
-  
-* **assign a name for a Virtual Machine**. It is good practice to assign a descriptive name for a virtual machine so that all project members can easily identify it later on.
+* **Select your CSC project**.
 
-* Choose one of the **Virtual Machine flavours**, (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk space for all flavours is 80 GB. You can extend your VM's disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have lauched the Virtual Machine. Additional disk space later on can be required writing at servicedesk@csc.fi (subject: Sensitive data);
+* **Choose the operating system**. Currently the only possible operating system is Linux CentOS 7 but in the future there will be other options too.
 
-When all the settings are done, press the **Launch Desktop** button of the selected VM flavour. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
+* **Assign a name for your virtual Desktop**. It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
+
+* Choose one of the **virtual Desktop** pre-built options (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktop is 80 GB. You can extend your Desktop disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have lauched the virtual Desktop. Additional disk space later on can be required writing at servicedesk@csc.fi (subject: Sensitive data);
+
+When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
 ![Launch-virtual-Desktop](images/desktop/desktop-2.png)
 
 
-Virtual machine flavours in SD Desktop:  
+You can choose between **four different pre-built virtual Desktop options **:
 
-*  **Light computation**: 
 
-This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. Techincal specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**.
+*  **Light computation**. Techincal specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect, delete the Desktop). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
 
-* **Small computation**:
+* **Small computation**. Techincal specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
 
-This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. Techincal specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**.
+* **Medium computation**. Techincal specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
-* **Medium computation**:
-
-This option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. Techincal specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**.
-
-* **Heavy computation**:
-
-This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy comTechnical specifications: **Core:40; memory 168 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. Please do not choose the Heavy computation option for simple computing or analysis, as it consumes much resources. 
-
+* **Heavy computation**: Technical specifications: **Core:40; memory 168 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
 
 
 ![Launch-virtual-Desktop](images/desktop/desktop-3.png)
@@ -114,24 +108,27 @@ This option is ideal for running non-interactive programmatic analysis (for exam
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
 
-Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage.  
+Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
+
+In the following paragraphs, we will discuss how to work with a virtual Desktop, which software is available and how it is possible to customise your workspace.
 
 
 
-### Working with your virtual machine
 
-Once your private virtual machine is launched, each CSC project member can securely connect it from their browser at any time. 
+### Working with your virtual Desktop
 
+Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
 
 When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
 
-* **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed the virtual Desktop)
+* **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed it)
 
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
 
 
 
 ![Access-virtual-Desktop](images/desktop/desktop-4.png)
+
 
 When you open connection to your Virtual Machine, a graphical Liunx Desktop opens to your browser. When you access the virtual Desktop for the first time, you will be able to see the getting started pane, from which you can, for example, adjust the screen resolution.
 
@@ -205,7 +202,6 @@ Next:
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
-  
 ## Accessing encrypted sensitive data within SD Desktop
 
 As the virtual Desktop is isolated from the internet, the only way to access data for analysis is utilizing a specific application called _Data Gateway_.
@@ -337,27 +333,91 @@ The most covienient way to add new software to your SD Desktop is to build a Sin
 
 ##  Data export from SD Desktop
 
-Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export resutls or data from the secure workspace using the airlock application, currently available only via commandilne. 
+Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export resutls or data from the secure workspace using the airlock application, currently available only programmatically. Note: all the files exported from the virtual Desktop need to be encrypte. 
 
-Below you can find step-by-step intructions to encryped and export data from SD Deskotp. 
-
-For more information, write to servicedesk@csc.fi (email subject SD Desktop)
+Below you can find step-by-step intructions to encryped and export data from SD Deskotp to Sd Connect, when you will be able to dowload them and decrypt it. 
 
 ![Data-export](images/desktop/airlock.png)
 
+1- Import your public encryption key to SD Connect (https://sd-connect.csc.fi)
+
+If you don't yet have an encryption key paire, we will illustrate how to generate your encryption key pair using a simple application called Crypt4GH below.
+
+* Install the Crypt4GH application:
+
+CSC has developed a simple application which will allow you to generate your encryption keys and to decrypt data using when necessary. 
+Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
+
+  - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
+   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
+   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
+
+Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
+
+![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
+
+* When you open the application for the first time you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+
+![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
+
+* Generate your encryption keys:
+
+- Open the Crypt4GH application and click on _Generate Keys_ (on the top right corner).
+- The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secrete key. Please, use a strong password.
+- When you click on _OK_, the tool will generate a key pair consisting of a secrate key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
+- The keys/file names will be displayed in the Activity Log with the following message:
+
+```
+Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
+Private key: username_crypt4gh.key
+Public key: username_crypt4gh.pub
+All the fields must be filled before file encryption will be started
+```
+
+The keys will be generated and saved to the same folder in which the application resides.
+
+!!! Note
+    * If you lose or forget your secrete key, or the password to it, you will be unable to decrypt the files.
+    * Do not share your secrete key or your password.
+    * You need to **create your keys only once** and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you  wish.
+
+
+2- If you already have your own key pair, generated with the Crypt4GH applcation, you can simply import your public encryption key in SD Connect browser page (for example vie drag and drop). Next, you will be **redirected to a new window displaying the default encryption options**. You can specify the name of the bucket in which the public encryption key should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+
+2-  Next click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encyrpted files are visible and accessible via SD Desktop, thus even your public encryption key needs to be encrypted during upload.
+
+3- Once upload process is completed, you can access your virtual Desktop. Here, using the Data Gateway application you can import a copy of your public key inside the virtual Desktop. 
+
+4- Next, open the  terminal and encrypt the files you want to export with your public key. The syntax of the encryption command is:
+
+```text
+crypt4gh encrypt --recipient_pk public-key < input > output
+```
+For example
+
+```text
+crypt4gh encrypt --recipient_pk your-username.pub < my_data1.csv > my_data1.csv.c4gh
+```
+
+5-Now, the CSC porject manager can export the encrypted files. From the terminal type the following syntax:
+
+/home/<<username>>/SDCONNECTDATA/<<project>>/airlock-client-vX.X <<project>> <<username>> <<filename>>
+
+Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with  Sensitive Data public key for security reasons.
+
+
+6- The exported file is now available in SD Connect /Allas. After downloading the file in your local environment you can decrypt it using your private encryption key. For specific guidance check the following paragraph.
+
+
+For more information and support write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
-
-
-
-## Deleting your computing environment
+## Deleting your virtual Desktop
   
-At the end of your research or analysis, you can delete your Virtual Macine and all the data that is stored in the local disks of the 
-Virtual Machine. Note that other project memebers may have data and processes in the virtual machine so check the situation with your
-collaborators before deleting the virtual machine.
+At the end of your research or analysis, you can delete your virtual Desktop and all the data that is stored in it. Note that this action can not be undone, and no other project member will be able to access the same workspace. Thus, before deleting a virtual Desktop, please contact all the project members and export all the restuls of your analysis from the virtual workspace. 
 
-In SD Desktop Homepage, click on **Go to the launching page**. Here, in **Available instances** click on **Delete Desktop**. 
+In SD Desktop Homepage, click on **Go To SD Desktop Management page**. Here, in **Available instances** click on **Delete Desktop**. 
 
 
 !!! note
