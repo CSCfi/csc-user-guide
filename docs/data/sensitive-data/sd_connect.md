@@ -144,6 +144,30 @@ In the **Shared** page:
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
 
 
+## Introduction to data encryption compatible with Sensitive Data servies
+
+Files uploaded to Sensitive Sensiitve data services always needs to be encrypted. Once uploaded, encrypted data are accessible from each service component, while the original files are always encrypted: during data storage or analysis. **Data encryption does not require technical expertise**. 
+
+We integrated the encryption as an automated step in the SD Connect user interface, specifically for files less than 100 GB. All the data uploaded using SD Connect are by default encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing. 
+
+Breafly, the services use the so called  _asymmetric encryption_, an encryption method that is based on two interlinked encryption keys:
+
+   1) A **public key**, which is always used for data encryption, but it can not be used to decript the encrypted data. You can share your public key with others, e.g. your collaborators and they will then be able encrypt data with your public key. 
+
+   2) A **secret key**, (also called a private key) which is used for decrypting a file that has been encrypted with the corresponding public key. This key is password protected and can not be shared wiht others. 
+
+
+**When using SD Connect to upload  data to CSC you have three possibilities for encryption:**
+
+   1) You can simply upload the data using SD Connect, via your web-browser, with the **defoualt encryption options**. The files will be encrypted with the services encryption key and they will be compatible with other services components. In this manner, they will be decrypted in an automated manner when you  access the data using SD Desktop, but you will not be able to decrypt the data after dowload. 
+   
+   2)  You can upload the data using SD Connect, via your web-browser, and **add your public encryption key**. The files will be encrypted with the services encryption key by default and they will be compatible with other services components. However, you will also be able to dowload and decrypt the data when necessary.
+   
+   4)  You can  upload the data using SD Connect, via your web-browser, and add **multiple encryption keys**. For example, adding your public encryption key and your collaborator public encryption key. The files will be encrypted with the services encryption key by default, they will be compatible with other services components. However, you and your collabrator will also be able to dowload and decrypt the data when necessary.
+   
+SD Connect and the Services Data services use the so called anymatric encryption, based on Crypt4GH. A tool originally designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard, but it can be used to encrypt any type of data.
+
+
 
 ## Sensitive data encryption and upload (default, less than 100 GB) 
 
@@ -205,17 +229,12 @@ The necessary steps are the following:
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/T4LRJw7HTro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Using SD Connect user interface, you can encrypt your files with multiple encryption keys simultaneusly. For example with:
+Using SD Connect user interface, you can encrypt your files with multiple encryption keys simultaneusly. 
 
-- adding your public encryption key, in this way you will be able to download data stored in SD Connect and decrypt them when necessary;
-- adding your collaborator encryption key, if you are planning to share you files with a collaborator (e.g. data transfer);
-- with the default Senstive Data services encryption key, in this way you will be able to directly analyse encyrpted data using SD Desktop.
-
-
-Below, we will illustrate how to generate your encryption key pair using a simple application. 
+Below, we will illustrate how to generate your encryption key pair using a simple application, called Crypt4GH and how the public encryption key can be used to encrypt files via your web-browser, using SD Connect. 
     
     
-    
+
     
 ## Crypt4GH graphical user interface
 
