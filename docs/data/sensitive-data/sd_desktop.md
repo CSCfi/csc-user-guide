@@ -2,7 +2,7 @@
 # SD Desktop (Sensitive Data Desktop)
 
 
-SD Desktop service is a virtual computing environment that is designed for processing sensitive data. It provides a secure workspace for analysing sensitiuve data from any location.It can be used by individual users but is especially usefull for collaborative research projects. 
+SD Desktop service is a virtual computing environment that is designed for processing sensitive data. It provides a secure workspace for analysing sensitive data from any location. It can be used by individual users but is especially usefull for collaborative research projects. 
 
 SD Desktop is accessed through an easy to use graphical interface running in a web browser. Theinterface 
 allows you to launch new vitual machines, delete them and connect to active virtual machines without any previous knowledge of cloud computing.   
