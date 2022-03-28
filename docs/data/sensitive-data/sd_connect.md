@@ -315,18 +315,51 @@ The keys will be generated and saved to the same folder in which the application
 - dowload the data and decryt them (for furthe intormation see).
 
 
+## Data Sharing 
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+SD Connect user interface provides a simple way of sharing containers between different projects.
+
+To share a container with another CSC project (and thus one of your colleagues or collaborators) you need to:
+
+* **know in advance the project indetifier you want to share a container with** (see above in *User Interface* paragraph, where this can be found);
+
+* in the browser page click on the **share** button on the row of the container in the bucket listing;
+
+Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the container is going to be shared to, and what rights to give: 
+
+* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and download them
+
+* select also **Grant write permissions** if you want your colleague to be able to add files and folder to the  shared container select. If you select only this option, your colleague or collaborator will be only able to add files to the container, but not be able to see its content.
+
+* in **Project Indetifiers to share with** add the SD Connect Project Identifier of the project you want to share the container with 
+
+* Next click on **Share**
+
+At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**. 
 
 
-## Data Sharing
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+
+![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+
+![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
+
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+
+![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 ## Data dowload and decryption
 
+You can easely dowload entire bukects or single encrypted files from the SD Connect Browser page, clicking on dowload. 
 
-### Step 6: Data decryption
-
-After dowload you can decrypt the data using the Crypt4GH application and your secrete encryption key.
-
+After dowload you can decrypt the data using the Crypt4GH application and your secrete encryption key. Currently, it is not possible not decrypt more then one file at the time. However, we are working to add this option and integrate in the SD Connect user interface.
 
 1- Open Crypt4GH application and click on _load Your Private Key_.
 
