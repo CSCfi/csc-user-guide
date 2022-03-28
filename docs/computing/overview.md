@@ -13,7 +13,7 @@ CSC supercomputers use the Linux operating system and we recommend that you are 
 
 ## Accessing Puhti and Mahti
 
-To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed in [my.csc.fi](https://my.csc.fi) portal. Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
+To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed in [MyCSC portal](https://my.csc.fi). Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
 
 !!! Note
     To access the LUMI supercomputer, you need to [create a LUMI-specific project](../accounts/how-to-create-new-project.md#creating-a-lumi-project-and-applying-for-resources). For more details on getting started with LUMI, see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
