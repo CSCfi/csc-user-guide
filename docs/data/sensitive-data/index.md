@@ -87,7 +87,7 @@ Analyse and compute.
 
   * [**Default programs available on SD Desktop**](sd_desktop.md#default-programs-available-on-sd-desktop)
   
-  * [**Software customization**](sd-desktop-singularity.md) (Advanced)
+  * [**Software customization**](sd_desktop.md#software-customisation) (Advanced)
 
   * [**Data export**](sd_desktop.md#data-export-from-sd-desktop)
 
