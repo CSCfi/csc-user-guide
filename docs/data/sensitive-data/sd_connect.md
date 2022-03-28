@@ -566,7 +566,52 @@ The command will ask you to enter the password (passphrase) of your private key.
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
     
  
+    # Troubleshooting
+
+
+
+| Problem           |                                                                                       | Possible Solution                                                                                                                                                                                                                                                                                                                                                            |
+|-------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Decryption        | I cannot decrypt the data I downloaded from CSC services.                             | You can decrypt the data only if you have also used  your own public key for the encryption. If you used only a the Sensitive Data Services public for the encryption, the data can be decrypted only in SD Desktop. In that case, the decryption is automatic. If you used your collaborator’s public key to encrypt the data, only they can decrypt the data with their private key.  |
+| Encryption        | Encryption takes a long time.                                                         | For large files and datasets, the encryption can take up to a few minutes.                                                                                                                                                                                                                                                                                                   |
+| Folder encryption | I can not select the folder I want to encrypt with Crypt4GH application. | It is not possible to encrypt/decrypt an entire folder, just single files                                                                                                                                                                                                                                                                                                            |
+
+
+
+| Problem       |                                                                                          | Possible solution                                                                                                                                                                                                                               |
+|---------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data upload   | I am trying to upload a big file/folder with the user interface and the upload is stuck. | To upload files or folders that are larger than 100 GB, the data should be uploaded programmatically.                                                                                                                                           |
+|               | Low upload speed (programmatically)                                                      | Average upload speed can go from 100 to 200 MiB/s. Specific scripts can be used to optimize the upload of large files.                                                                                                                          |
+| Bucket        | I am not able to create a new bucket.                                                    | 1)      Check in MyCSC portal that your current project has service access for Allas 2)      Try to use a bucket name that is unique and doesn’t contain special characters. 3)  Select the correct project in SD Connect user interface        |
+|               | I cannot find my bucket.                                                                 | Check if the bucket is stored under a different project. If someone has shared the bucket with you, you can find it under the ‘Shared to’ section and copy it. If someone has shared the bucket with you, they could have revoked the sharing.  |
+|               | I cannot upload data into my bucket                                                      | Check that your project still has storage space left.                                                                                                                                                                                           |
+| Shared bucket | I cannot upload data into a shared bucket.                                               | Your colleague didn’t add editing rights when they shared the bucket.                                                                                                                                                                           |
+|               | I cannot see the content of a shared bucker.                                             | Your colleague didn’t add reading rights when they shared the bucket.                                                                                                                                                                           |
+
+
+
     
+
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
 
