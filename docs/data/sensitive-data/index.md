@@ -26,7 +26,7 @@ For general information, see:
 ## [Introduction](./intro.md)
 
   * [**Legal agreements**](intro.md#legal-agreements)
-  * [**Getting started**](intro.md#getting-access)
+  * [**How to start**](intro.md#getting-access)
   * [**Useful terminology**](intro.md#getting-access)
 
 
@@ -45,17 +45,19 @@ Store and share.
   
   * [**Authentication**]
 
- * **Introduction to the User Interface** ( UI not available until 16 of March)
+  * **User Interface**:
  
- * **Sensitive data encryption and upload (less than 100 GB)- User Interface**
+ * **SData encryption and upload (less than 100 GB)
  
- * **Sensitive data encryption and upload - Command Line Interface** Advanced
+ * **Data encryption and upload: multiple keys (less than 100 GB)
  
- * **Data encryption for data sharing (less then 100 GB) -  User Interface** Advanced
+ *  **Data sharing**
  
- * [**Data encryption for data sharing - Commanf Line Interface**](./crypt4gh_client.md ) Advanced
+ *  **Data download and decryption**
  
- * **Download**
+ * **Data encryption and upload - Command Line Interface** (Advanced)
+ 
+ * **Data encryption fro data sharing - Command Line Interface** (Advanced)
 
  * **Troubleshooting**
  
