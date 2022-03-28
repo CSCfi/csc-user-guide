@@ -23,7 +23,7 @@ have read and accepted the General Terms of Use for..._
     opened only by employees of Finnish higher education institutions,
     state research institutes, and CSC.
 
-Project are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
+Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/rHVaZD9zwnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
