@@ -227,12 +227,10 @@ The necessary steps are the following:
 
 ![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
 
-
-
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
 
 
-Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys, in addition to the default services encryption key. Below, we will illustrate how to generate your encryption key pair using an application called Crypt4GH and how your public encryption key (or your collabrator's public key) can then be used to encrypt files via web browser, using SD Connect. 
+Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys and the default services encryption key. Below, we will present how to generate your encryption key pair using an application called Crypt4GH and how your public encryption key (or your collabrator's public key) can then be used to encrypt files via web browser using SD Connect. 
 
 1-**Install the Crypt4GH application**:
 
@@ -247,7 +245,7 @@ Please check that the tool for Windows has been digitally signed by CSC - IT Cen
 
 ![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
 
-When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 
 ![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
 
@@ -268,7 +266,7 @@ All the fields must be filled before file encryption will be started
 The keys will be generated and saved to the **same folder in which the application resides**.
 
 !!! Note
-    * If you lose or forget your secret key or the password to it, you will be unable to decrypt the files.
+    * If you lose or forget your secret key or the password, you will be unable to decrypt the files.
     * Do not share your secret key or your password.
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
@@ -289,12 +287,12 @@ The keys will be generated and saved to the **same folder in which the applicati
 4- Next, you will be **redirected to a new window displaying the default encryption options**.
 
 
-5- Here, you can **turn on the button**: *Add other's receivers' public keys*. A new window, called *Receivers public keys* will then appear on the left side fo the page. Herein which you can add multiple public encryption keys:
+5- Here, you can **turn on the button**: *Add other's receivers' public keys*. A new window called *Receiver public keys* will then appear on the page's left side. Here you can add multiple public encryption keys:
 
 * Open your public key using Notepad or another text files reader. Copy the public key, **paste it** into the appropriate window, and click on *Add receiver public key*.
-* Now, on the right side of the page, under *Public key* , you will see the public key listed.
+* Now, you will see the public key listed on the right side of the page.
 
-* If, for example, you plan to share your data with a collaborator, you can add a second public key. Let's assume that your collaborator shared their public key with you via email. First, your should copy the public key and pasted it in the *Receiver key window*. Next, we clicked on *Add receiver key*. Now you can see two keys listed in the right window.
+* If, for example, you plan to share your data with a collaborator, you can add a second public key. Let's assume that your collaborator shared their public key with you via email. First, your should copy the public key and paste it into the *Receiver keys public window*. Next, we clicked on *Add receiver key*. Now you can see two keys listed in the right window.
 
 
 
@@ -303,7 +301,7 @@ The keys will be generated and saved to the **same folder in which the applicati
 
 6- You can specify the bucket's name in which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
-7-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the sepcificed bucket in SD Connect. 
+7-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the specified bucket in SD Connect. 
 
 ![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
@@ -311,13 +309,13 @@ The keys will be generated and saved to the **same folder in which the applicati
 
 The files are now encrypted with three encryption keys:
 
-- With the **default Sensitive Data services encyrption key**. Thus, you will be able to **access and analyse** the data stored in SD Connect via SD Desktop (for further information, see SD Desktop user guide).
+- With the **default Sensitive Data services encryption key**. Thus, you will be able to **access and analyse** the data stored in SD Connect via SD Desktop (for further information, see SD Desktop user guide).
 
-- With **your public ke**y. This allows you to dowload the data stored from SD Connect to, for example, a different services and **decrypt** them using the correspondent secrete key. 
+- With **your public ke**y. This allows you to download the data stored from SD Connect to, for example, different services and **decrypt** them using the correspondent secrete key. 
 
- - With **your collaborator's  public key**. This allows to share (or transfer) the data with your collaborator using SD Connect. Next, they will be able to download and decrypt the files in their own secure enviroment, using the corrispodent secrete key. 
+ - With **your collaborator's public key**. This allows sharing (or transferring) the data with your collaborator using SD Connect. Next, they will be able to download and decrypt the files in their secure computing environment, using the correspondent secrete key. 
 
-Using this workflow allows to securly manage only one copy of the data for different purposes.
+Using this workflow allows to securely manage only one copy of the data for different purposes.
 
 
 ## Data Sharing 
@@ -330,7 +328,7 @@ SD Connect user interface provides a simple way of sharing containers between di
 
 To share a container with another CSC project (and thus one of your colleagues or collaborators), you need to:
 
-* **know in advance the project identifier you want to share a container with** (see above in *User Interface* paragraph, where this can be found);
+* **know in advance the project identifier you want to share a container with** (see above in *User Interface* paragraph);
 
 * in the browser page, click on the **share** button on the row of the container in the bucket listing;
 
@@ -344,7 +342,7 @@ Clicking the button takes you to **Share the container**  view, in which the use
 
 * Next click on **Share**
 
-At this point, the user interface will redirect you to the **Shared** page, and the bucket will be listed under **Shared from project**. Here you will be able to interrupt the sharing by clicking on **Revoke container access**. 
+At this point, the user interface will redirect you to the **Shared** page, and the bucket will be listed under **Shared from project**. Here you will be able to interrupt the sharing by clicking on **Revoke bucket access**. 
 
 
 
@@ -353,6 +351,8 @@ At this point, the user interface will redirect you to the **Shared** page, and 
 ![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+
+
 
 ![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
 
@@ -364,9 +364,9 @@ At this point, the user interface will redirect you to the **Shared** page, and 
 
 You can easily download entire buckets or single encrypted files from the SD Connect Browser page by clicking on download. 
 
-After download, you can decrypt the data using the Crypt4GH application and your secret encryption key. It is currently impossible not to decrypt more than one file at a time. However, we are working on adding this option and integrating with the SD Connect user interface.
+After download, you can decrypt the data using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently not possible not to decrypt more than one file at a time. However, we are working on adding this option and integrating it with the SD Connect user interface.
 
-1- Open Crypt4GH application and click on _load Your Private Key_.
+1- Open the Crypt4GH application and click on _load Your Private Key_.
 
 2- Click on _Select File_ and upload the file you want to decrypt.
 
@@ -374,10 +374,10 @@ After download, you can decrypt the data using the Crypt4GH application and your
 
 4- Next, click on _Decrypt File_.
 
-5-The tool will ask you to write the password of the secret key, press _ok_. The file will be decrypted in the same location as the original file.
+5-The tool will ask you to write the secret key's password, press _ok_. Then, the file will be decrypted in the same location as the original file.
 
-In the decryption process, the secret key must match the public key used to encrypt the data.
-In the case of decryption, the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+The secret key must match the public key used to encrypt the data in the decryption process.
+In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
 ```
 Sender public key has not been set, authenticity will not be verified.
