@@ -157,8 +157,6 @@ You can close your connection to your virtual Desktop in two ways:
     
 ![Launch-virtual-Desktop](images/desktop/desktop-5.png)
      
-![Launch-virtual-Desktop](images/desktop/desktop-6.png)
-
 
 ### RStudio in SD Desktop
 
