@@ -61,7 +61,7 @@ For specific guidance regarding these steps, check the [Accounts](../../accounts
 
 Login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
 
-   * [https://sd-connect.csc.fi/](https://sd-connect.csc.fi) 
+   * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
 The interface is compatible with all modern web browsers. 
 
