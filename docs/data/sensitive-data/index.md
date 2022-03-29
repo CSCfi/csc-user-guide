@@ -25,9 +25,9 @@ For general information, see:
 
 ## [Introduction](./intro.md)
 
-  * [**Legal agreements**](intro.md#legal-agreements)
-  * [**Getting access**](intro.md#getting-access)
-  * [**Useful terminology**](intro.md#getting-access)
+  * [**Legal agreements**](./intro.md#legal-agreements)
+  * [**Getting access**](./intro.md#getting-access)
+  * [**Useful terminology**](./intro.md#getting-access)
 
 
   
@@ -49,9 +49,9 @@ Store and share.
   
   * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-default-less-than-100-gb)
+ * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb)
  
- * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](sd_connect.md#sensitive-data-encryption-and-upload-multiple-encryption-keys-less-than-100-gb)
+ * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
  
  * [**Data sharing**](./sd_connect.md#data-sharing)
  
@@ -71,29 +71,29 @@ Analyse and compute.
 
   * [**Key features**](./sd_desktop.md)
 
-  * [**Before you start**](sd_desktop.md#before-you-start)
+  * [**Before you start**](./sd_desktop.md#before-you-start)
   
-  * [**Overview**](sd_desktop.md#overview) 
+  * [**Overview**](./sd_desktop.md#overview) 
  
-  * [**Service access**](sd_desktop.md#service-access)  
+  * [**Service access**](./sd_desktop.md#service-access)  
   
-  * [**Authentication**](sd_desktop.md#authentication) 
+  * [**Authentication**](./sd_desktop.md#authentication) 
 
-  * [**Setting up a virtual Desktop**](sd_desktop.md#setting-up-a-virtual-desktop) 
+  * [**Setting up a virtual Desktop**](./sd_desktop.md#setting-up-a-virtual-desktop) 
 
-  * [**Working with Desktop**](sd_desktop.md#working-with-your-virtual-desktop)
+  * [**Working with Desktop**](./sd_desktop.md#working-with-your-virtual-desktop)
 
-  * [**Accessing encrypted sensitive data within SD Desktop**](sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop)
+  * [**Accessing encrypted sensitive data within SD Desktop**](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop)
 
-  * [**Default programs available on SD Desktop**](sd_desktop.md#default-programs-available-on-sd-desktop)
+  * [**Default programs available on SD Desktop**](./sd_desktop.md#default-programs-available-on-sd-desktop)
   
-  * [**Software customization**](sd_desktop.md#software-customisation) (Advanced)
+  * [**Software customization**](./sd_desktop.md#software-customisation) (Advanced)
 
-  * [**Data export**](sd_desktop.md#data-export-from-sd-desktop)
+  * [**Data export**](./sd_desktop.md#data-export-from-sd-desktop)
 
-  * [**Deleting your virtual Desktop**](sd_desktop.md#deleting-your-virtual-desktop)
+  * [**Deleting your virtual Desktop**](./sd_desktop.md#deleting-your-virtual-desktop)
   
-  * [**Troubleshooting**](sd_desktop.md#troubleshooting)
+  * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
 
