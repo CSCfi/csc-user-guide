@@ -178,12 +178,12 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 ## Sensitive data encryption and upload (default, less than 100 GB) 
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser (for file smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive data public key). In this manner,  encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after downloading without extra steps, which might require our support. We are developing a new feature that will simplify the download option.
+SD Connect allows you to encrypt and upload files or folders directly from your web browser (for files smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive data public key). In this manner,  encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after downloading without extra steps, which might require our support. We are developing a new feature to simplify the download option.
 
 
 The necessary steps are the following: 
  
-1- To upload folders and files to SD Connect, use the **drag and drop function**.  You can also use the **upload** icon in the SD Connect browser window to select and upload files.
+1- To upload folders and files to SD Connect, use the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -200,29 +200,29 @@ The necessary steps are the following:
 <img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
 
 
-3- Here, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+3- Here, you can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 
 4- If you create a new bucket use the following **suggestions to name it**:
 
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this kind of situation it is good practice to include some project specific identifiers (e.g. project ID number or acronym) in the bucket names.  
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this situation, it is good practice to include some project-specific identifiers (e.g., project ID number or acronym) in the bucket names.  
     
-* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and  dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
+* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
 
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
 
-5- With the icon  **Select Files for Upload** you will open a browser window in which you can select and add more files. 
+5- With the icon  **Select Files for Upload**, you will open a browser window in which you can select and add more files. 
 
 ![SD Connect 1a](https://user-images.githubusercontent.com/83574067/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
 
 
-6-  Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
+6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
 ![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be diplayed in the correct bucket, in a default folder called data and each encrypted file will have the extension *.c4gh*. 
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
 
 
 ![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
@@ -232,11 +232,11 @@ The necessary steps are the following:
 ## Sensitive data encryption and upload: multiple encryption keys (less than 100 GB) 
 
 
-Using SD Connect user interface, you can encrypt your files with multiple encryption keys simultaneously. Below, we will illustrate how to generate your encryption key pair using a simple application called Crypt4GH and how the public encryption key can then be used to encrypt files via your web-browser, using SD Connect. 
+Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys. Below, we will illustrate how to generate your encryption key pair using an application called Crypt4GH and how the public encryption key can then be used to encrypt files via your web browser, using SD Connect. 
 
 1-Install the Crypt4GH application:
 
-CSC has developed a simple application which will allow you to generate your encryption keys and to decrypt data using when necessary. 
+CSC has developed a simple application that will allow you to generate your encryption keys and decrypt files when necessary. 
 Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
@@ -247,15 +247,15 @@ Please check that the tool for Windows has been digitally signed by CSC - IT Cen
 
 ![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
 
-When you open the application for the first time you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 
 ![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
 
 2-Generate your encryption keys:
 
 * Open the Crypt4GH application and click on _Generate Keys_ (on the top right corner).
-* The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secrete key. Please, use a strong password.
-* When you click on _OK_, the tool will generate a key pair consisting of a secrate key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
+* The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
+* When you click on _OK_, the tool will generate a key pair consisting of a secret key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
 * The keys/file names will be displayed in the Activity Log with the following message:
 
 ```
@@ -268,14 +268,14 @@ All the fields must be filled before file encryption will be started
 The keys will be generated and saved to the same folder in which the application resides.
 
 !!! Note
-    * If you lose or forget your secrete key, or the password to it, you will be unable to decrypt the files.
-    * Do not share your secrete key or your password.
-    * You need to **create your keys only once** and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you       wish.
+    * If you lose or forget your secret key or the password to it, you will be unable to decrypt the files.
+    * Do not share your secret key or your password.
+    * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 ![Crypt4GH key generation](./images/SDEnScreenshot_4.png)
 
 
-3-Upload upload folders and files to SD Connect, using the **drag and drop function**.  You can also use the **upload** icon in the SD Connect browser window to select and upload files.
+3-Upload upload folders and files to SD Connect using the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
 
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
@@ -289,28 +289,28 @@ The keys will be generated and saved to the same folder in which the application
 4- Next, you will be **redirected to a new window displaying the default encryption options**.
 
 
-5- here you can turn on the button: *Add other's receivers public keys*. A new window will then appear in which you can add multple encryption keys:
+5- Here, you can turn on the button: *Add other's receivers' public keys*. A new window will then appear in which you can add multiple encryption keys:
 
-* First, even if the new window is empty, click on *Add receiver public key*. This will add the Sensitive Data servies public key, that will be listed in the right window.
-* Next, open your public key using Notepade or any other text files reader. Copy the public key, paste it in the approriate window and next click on *Add receiver public key*.
-* Now, on the right window, you will be able to see two public key listed.
-* If you are planning to share your data with a collaborator, you can add a tird public key. In this example, my collaborator shared their public key via email. I open the key with Nodepade and pasted it in the Receiver key window. Next I clicked on *Add receiver key* . Now I am able to see 3 keys listed in the righr window.
+* First, click on *Add receiver public key*even if the new window is empty. This will add the Sensitive Data services public key, which will be listed in the right window.
+* Next, open your public key using Notepad or another text files reader. Copy the public key, paste it into the appropriate window, and click on *Add receiver public key*.
+* Now, on the right window, you will see two public keys listed.
+* If you plan to share your data with a collaborator, you can add a third public key. Let's assume that my collaborator shared their public key via email in this example. First, I opened the key with Notepad and pasted it in the Receiver key window. Next, I clicked on *Add receiver key*. Now I can see three keys listed in the right window.
 
 
 
 <img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
 
 
-6- You can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+6- You can specify the bucket's name in which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
-6-  Next click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
+6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
 ![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be diplayed in the correct bucket, in a default folder called data and each encrypted file will have the extension *.c4gh*. The files are now encrypted wiht three encryption keys and you will be able to:
-- access and analyze the data in SD Desktop (for mfurthe inromation check )
-- share the data wiht your collaborator using SD Connect (for futher information see the following paragprah).
-- dowload the data and decryt them (for furthe intormation see).
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a default folder called **DATA**, and each encrypted file will have the extension *.c4gh*. The files are now encrypted with three encryption keys, and you will be able to:
+- access and analyse the data in SD Desktop (for further information, see SD Desktop user guide);
+- Share the data with your collaborator using SD Connect (see:).
+- download the data and decrypt them (see: ).
 
 
 ## Data Sharing 
@@ -321,23 +321,23 @@ The keys will be generated and saved to the same folder in which the application
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
 
-To share a container with another CSC project (and thus one of your colleagues or collaborators) you need to:
+To share a container with another CSC project (and thus one of your colleagues or collaborators), you need to:
 
-* **know in advance the project indetifier you want to share a container with** (see above in *User Interface* paragraph, where this can be found);
+* **know in advance the project identifier you want to share a container with** (see above in *User Interface* paragraph, where this can be found);
 
-* in the browser page click on the **share** button on the row of the container in the bucket listing;
+* in the browser page, click on the **share** button on the row of the container in the bucket listing;
 
-Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the container is going to be shared to, and what rights to give: 
+Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the bucket is going to be shared with and what rights to give: 
 
-* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the container and download them
+* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the bucket and download them
 
-* select also **Grant write permissions** if you want your colleague to be able to add files and folder to the  shared container select. If you select only this option, your colleague or collaborator will be only able to add files to the container, but not be able to see its content.
+* select also **Grant write permissions** if you want your colleague to be able to add files and folders to the shared bucket. If you select only this option, your colleague or collaborator will be only able to add files to the bucket but not be able to see its content.
 
-* in **Project Indetifiers to share with** add the SD Connect Project Identifier of the project you want to share the container with 
+* in **Project Identifiers to share with** add the SD Connect Project Identifier of the project you want to share the bucket with 
 
 * Next click on **Share**
 
-At this point the user interface will redirect you to the **Shared** page and the container will be listed under **Shared from project**. Here you will be able to interrupt the sharing clicking on **Revoke container access**. 
+At this point, the user interface will redirect you to the **Shared** page, and the bucket will be listed under **Shared from project**. Here you will be able to interrupt the sharing by clicking on **Revoke container access**. 
 
 
 
@@ -353,11 +353,11 @@ At this point the user interface will redirect you to the **Shared** page and th
 
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
-## Data dowload and decryption
+## Data download and decryption
 
-You can easely dowload entire bukects or single encrypted files from the SD Connect Browser page, clicking on dowload. 
+You can easily download entire buckets or single encrypted files from the SD Connect Browser page by clicking on download. 
 
-After dowload you can decrypt the data using the Crypt4GH application and your secrete encryption key. Currently, it is not possible not decrypt more then one file at the time. However, we are working to add this option and integrate in the SD Connect user interface.
+After download, you can decrypt the data using the Crypt4GH application and your secret encryption key. It is currently impossible not to decrypt more than one file at a time. However, we are working on adding this option and integrating with the SD Connect user interface.
 
 1- Open Crypt4GH application and click on _load Your Private Key_.
 
@@ -365,13 +365,12 @@ After dowload you can decrypt the data using the Crypt4GH application and your s
 
 3- Click on _Open_.
 
-4- Next click on _Decrypt File_.
+4- Next, click on _Decrypt File_.
 
-5-The tool will ask you to write the password of the secrete key, press _ok_. The file will be decrypted in the same location as the original file.
+5-The tool will ask you to write the password of the secret key, press _ok_. The file will be decrypted in the same location as the original file.
 
-In the decryption process, the secrete key must match the public key that was used to encrypt the data.
-In case of decryption, the public key is not mandatory, but if you have the public key of person who has encrypted the file
-then you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+In the decryption process, the secret key must match the public key used to encrypt the data.
+In the case of decryption, the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
 ```
 Sender public key has not been set, authenticity will not be verified.
@@ -399,7 +398,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
 !!! note
-        Files that have been encrypted with the _CSC Sensitive Data services public key_, can be accesed for data analysis in SD Desktop. If you wish to encrypt the data to transfer them to other services or to share then with your collaborators, you can add multiple encryption keys, for example you public key or your collaborator public key to the encryption.
+        Files encrypted with the _Sensitive Data services public key_, can be accessed for data analysis in SD Desktop. If you wish to encrypt the data to transfer them to other services or share them with your collaborators, you can add multiple encryption keys, such as your public key or your collaborator's public key to the encryption.
 
 
 For general information about using Crypt4GH at CSC check: 
@@ -412,7 +411,7 @@ For general information about using Crypt4GH at CSC check:
 **Python 3.6+ required** to use the crypt4gh encryption utility. 
 To install Python: https://www.python.org/downloads/release/python-3810/
 
-If you have a working python installation and you have permissions to add libraries to your python installation, you can install Crypt4GH with command:
+If you have a working python installation and you have permissions to add libraries to your python installation, you can install Crypt4GH with the command:
 
 ```text
 pip install crypt4gh
@@ -431,35 +430,35 @@ dmku3fKA/wrOpWntUTkkoQvknjZDisdmSwU4oFk/on0=
 
 3- Encrypt a file
 
-Crypt4GH is able to use several public keys for encryption. This can be very handy in cases were the encrypted data needs to be used by several users or services. Unfortunately SD Connect is not yet compatible with encryption with multiple keys. Because of that you must do the encryption using the CSC Sensitive Data Services public key only, if you plan to upload the data to SD Connect. In this case the syntax of the encryption command is:
+Crypt4GH can use several public keys for encryption. This can be very handy in cases where the encrypted data needs to be used by several users or services. In this case, the syntax of the encryption command two encrypt the fikes with the Sensitive Data services public key, and your public key is:
 
 ```text
-crypt4gh encrypt --recipient_pk public-key < input > output
+crypt4gh encrypt --recipient_pk public-key --recipient_pk public-key < input > output
 ```
 For example
 
 ```text
-crypt4gh encrypt --recipient_pk csc-sd-services.pub < my_data1.csv > my_data1.csv.c4gh
+crypt4gh encrypt --recipient_pk services.pub --recipient_pk username.pub < my_data1.csv > my_data1.csv.c4gh
 ```
-The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect and will be automatically decrypted when imported in your own private computing environment in SD Desktop.
+The encrypted file (_my_data1.csv.c4gh_) can now be uploaded to SD Connect and will be automatically decrypted when imported into your private computing environment in SD Desktop. Moreover, you will also be able to download and decrypt the data. 
  
 
 ### Data encryption and upload with Allas help tool: a-put
 
-The [allas client utilities](https://github.com/CSCfi/allas-cli-utils/) is a set of command line tools that can be installed and used in Linux and MacOSX machines. If you have these tools, you can use data upload command _a-put_ with command line option _--sdx_ to upload data to Allas/SD Connect so that the uploaded files are automatically encrypted with the CSC Sensitive Data Services public key before the upload. The public key is included to the tool so that you don't need to download your own copy of the key.
+The [allas client utilities](https://github.com/CSCfi/allas-cli-utils/) is a set of command-line tools that can be installed and used in Linux and MacOSX machines. If you have these tools, you can use data upload command _a-put_ with command-line option _--sdx_ to upload data to Allas/SD Connect so that the uploaded files are automatically encrypted with the CSC Sensitive Data Services public key before the upload. The public key is included in the tool so that you don't need to download your copy of the key.
 
-You can upload a single file with command like:
+You can upload a single file with a command like:
 
 ```text
 a-put --sdx my_data1.csv
 ```
-By default _a-put --sdx_ uploads the encrypted file into bucket that has name _project-number-SD_CONNECT_ . 
+By default _a-put --sdx_ uploads the encrypted file into the bucket named _project-number-SD_CONNECT_ . 
 
-You can also upload complete directories and define a specific target bucket. For example the command below will encrypt and upload all the files in directory _my_data_ to SD Connect into bucket _1234_SD_my_data_.
+You can also upload complete directories and define a specific target bucket. For example, the command below will encrypt and upload all the files in directory _my_data_ to SD Connect into bucket _1234_SD_my_data_.
 ```
 a-put --sdx my_data -b 1234_SD_my_data
 ```
-You can use a-put to encrypt the data with several keys so that the uploaded data can be used not just in SD Desktop but with other evironments too.
+You can use a-put to encrypt the data with several keys so that the uploaded data can be used in SD Desktop and other environments.
 ```
 a-put --sdx my_data -b 1234_SD_my_data --encrypt c4gh --public-key my-key.pub --public-key collaborator-key.pub
  ```
@@ -479,15 +478,15 @@ These include:
    * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
    * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
 
-Note that if you use these tools, you must encrypt your sensitive data, before you upload it to SD Connect.
+Note that if you use these tools, you must encrypt your sensitive data before uploading it to SD Connect.
 
 
 
-## Data encryption and upload with multpile encryption keys and data sharing - Command Line Interface
+## Data encryption and upload with multiple encryption keys and data sharing - Command Line Interface
 
-For documentation and more information you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
+For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
-In this example, we first generate your key pair (a password protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (research group A and research group B).
+In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (research group A and research group B).
 
 **Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
 
@@ -541,7 +540,7 @@ Environment variables:
    C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
 ```
 
-You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently crypt4gh uses term _secure key_ for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
+You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term _secure key_ for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
 
 2- Generate your public-private keypair
 
@@ -556,13 +555,13 @@ Your private key has been saved in mykey.sec
 Your public key has been saved in mykey.pub
 ```
 
-where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is your public key (pk). The tool will ask you to enter a password (passphrase) for your private key. For security reasons the password is not shown when you type it so the tool will ask you to enter it a second time to make sure you made no typing errors (or, you make the same errors twice…). Please, use a strong password!
+where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is your public key (pk). The tool will ask you to enter a password (passphrase) for your private key. For security reasons, the password is not shown when you type it so the tool will ask you to enter it a second time to make sure you made no typing errors (or, you make the same errors twice…). Please, use a strong password!
 
 !!! Note
     If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
 
 !!! Note
-    You need to create your keys only once and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you wish.
+    You need to create your keys only once and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 3- Encrypt a file
 
@@ -575,7 +574,7 @@ Passphrase for mykey.sec:
 
 where `--sk mykey.sec` is your private key, `--recipient_pk groupA.pub` is the research group A's public key, and `--recipient_pk groupB.pub` is the research group B's public key. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called _dog.jpg_ and `>dog.jpg.c4gh` writes out an encrypted file named _dog.jpg.c4gh`.
 
-The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
+The command will ask you to enter the password (passphrase) of your private key. For security reasons, the password is not displayed when you type it.
 
 !!! Note
     If you want to be able to decrypt the file yourself you must add your own public key also as a recipient.
@@ -603,7 +602,7 @@ The command will ask you to enter the password (passphrase) of your private key.
 
 | Problem           |                                                                                       | Possible Solution                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Decryption        | I cannot decrypt the data I downloaded from CSC services.                             | You can decrypt the data only if you have also used  your own public key for the encryption. If you used only a the Sensitive Data Services public for the encryption, the data can be decrypted only in SD Desktop. In that case, the decryption is automatic. If you used your collaborator’s public key to encrypt the data, only they can decrypt the data with their private key.  |
+| Decryption        | I cannot decrypt the data I downloaded from CSC services.                             | You can decrypt the data only if you have also used your public key for the encryption. If you used only the Sensitive Data Services public for the encryption, the data can be decrypted only in SD Desktop. In that case, the decryption is automatic. If you used your collaborator’s public key to encrypt the data, only they can decrypt the data with their private key.  |
 | Encryption        | Encryption takes a long time.                                                         | For large files and datasets, the encryption can take up to a few minutes.                                                                                                                                                                                                                                                                                                   |
 | Folder encryption | I can not select the folder I want to encrypt with Crypt4GH application. | It is not possible to encrypt/decrypt an entire folder, just single files                                                                                                                                                                                                                                                                                                            |
 
@@ -617,37 +616,7 @@ The command will ask you to enter the password (passphrase) of your private key.
 |               | I cannot find my bucket.                                                                 | Check if the bucket is stored under a different project. If someone has shared the bucket with you, you can find it under the ‘Shared to’ section and copy it. If someone has shared the bucket with you, they could have revoked the sharing.  |
 |               | I cannot upload data into my bucket                                                      | Check that your project still has storage space left.                                                                                                                                                                                           |
 | Shared bucket | I cannot upload data into a shared bucket.                                               | Your colleague didn’t add editing rights when they shared the bucket.                                                                                                                                                                           |
-|               | I cannot see the content of a shared bucker.                                             | Your colleague didn’t add reading rights when they shared the bucket.                                                                                                                                                                           |
-
-
-
-    
-
-    
-    
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-
-
-
+|               | I cannot see the content of a shared bucker.                                             | Your colleague didn’t add reading rights when they shared the bucket.  
 
 
 
