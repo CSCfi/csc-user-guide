@@ -20,7 +20,6 @@
 * [I am not an expert on cloud services and computing, where should I start?](sensitive-data-general.md#i-am-not-an-expert-on-cloud-services-and-computing-where-should-i-start) 
 * [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
 * [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
-* [Can I  store or process ‘real data ‘ using  the current version of SD Connect and SD Desktop?](sensitive-data-general.md#can-i-store-or-process-real-data-using-the-current-open-beta-versions-of-sd-connect-and-sd-desktop) 
 * [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
 * [Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-skills-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
 * [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
