@@ -1,8 +1,6 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality.
-
-Below you can:
+This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can:
 
 * find an overview and **key features** of each service;
 
@@ -55,9 +53,9 @@ Store and share.
  
  * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption)
  
- * [**Command Line Interface: data encryption and upload**](./sd_connect.md#command-line-interface-data-encryption-and-upload)
+ * [**Command Line Interface: data encryption and upload**](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
   
- * [**Command Line Interface: encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing)
+ * [**Command Line Interface: encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
  
  * [**Troubleshooting**](./sd_connect.md#troubleshooting)
 
