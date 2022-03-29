@@ -227,6 +227,15 @@ body {
     padding-left: 1rem !important;
 }
 
+div.mermaid {
+    overflow: auto;
+}
+
+svg[id*="mermaid"] {
+    width: auto;
+    height: auto;
+}
+
 .admonition-title:before {
     display: none;
 }

@@ -218,8 +218,8 @@ extra_javascript:
   - 'assets/javascripts/extra.js'
   - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
   - 'assets/javascripts/cookie_consent.js'
+  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
     
-
 
 markdown_extensions:
   - toc:
@@ -228,8 +228,12 @@ markdown_extensions:
   - attr_list
   - pymdownx.details
   - pymdownx.tabbed
-  - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
 
 extra:
   analytics:
