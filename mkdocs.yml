@@ -170,14 +170,15 @@ nav:
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
      - Sensitive data:
-        - Overview: data/sensitive-data/index.md
+        - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-#        - Quickguide: data/sensitive-data/quickguide.md
         - SD Connect: data/sensitive-data/sd_connect.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
-        - Pre-installed software: data/sensitive-data/pre-installed_software.md
-        - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
-#        - FAQ: data/sensitive-data/faq_index.md
+#       - FAQ: data/sensitive-data/faq_index.md
+#       - FederatedEGA: data/sensitive-data/federatedega.md
+#       - SD Apply: data/sensitive-data/sd-apply.md
+#       - Containers: data/sensitive-data/creating_containers.md
+
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
