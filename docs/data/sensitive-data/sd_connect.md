@@ -457,11 +457,13 @@ a-put --sdx my_data1.csv
 By default _a-put --sdx_ uploads the encrypted file into the bucket named _project-number-SD_CONNECT_ . 
 
 You can also upload complete directories and define a specific target bucket. For example, the command below will encrypt and upload all the files in directory _my_data_ to SD Connect into bucket _1234_SD_my_data_.
-```
+
+```text
 a-put --sdx my_data -b 1234_SD_my_data
 ```
 You can use a-put to encrypt the data with several keys so that the uploaded data can be used in SD Desktop and other environments.
-```
+
+```text
 a-put --sdx my_data -b 1234_SD_my_data --encrypt c4gh --public-key my-key.pub --public-key collaborator-key.pub
  ```
 
@@ -483,7 +485,6 @@ These include:
 Note that if you use these tools, you must encrypt your sensitive data before uploading it to SD Connect.
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 ## Command Line Interface: encryption for data sharing
