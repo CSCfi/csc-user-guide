@@ -484,7 +484,7 @@ Note that if you use these tools, you must encrypt your sensitive data before up
 
 
 
-## Data encryption and upload with multiple encryption keys and data sharing - Command Line Interface
+## Data encryption for data sharing - Command Line Interface
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
