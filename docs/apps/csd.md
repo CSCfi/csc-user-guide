@@ -51,7 +51,7 @@ Software to access and analyse CSD entries:
 
 There are three ways to access the CSD System:
 
--   Local installation (Windows or Linux, takes up a lot of disk)
+-   Local installation (Windows or Linux, takes up a lot of disk space)
 -   Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
 -   WebCSD (limited functionality), point your browser to [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
@@ -62,7 +62,7 @@ needs the site number and confirmation code of your university. After
 installation you need to activate the product. To obtain the required
 codes, contact either [CSC Service Desk](../support/contact.md)
 or the local CSD administrator at your university. This is the
-recommended way for power users. The full installation requires ~18 GB of disk.
+recommended way for power users. The full installation requires ~18 GB of disk space.
 
 ### Using CSD on Puhti
 
@@ -72,23 +72,16 @@ recommended way for power users. The full installation requires ~18 GB of disk.
 2. Open a `Host Terminal` and  move to a suitable working directory.
 3. Load the CSD module with `module load ccdc/2021`.
 
-Now you have access to the programs ConQuest, Hermes, Mercury and Mogul.
-For example, to access ConQuest, you need to type
+Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. 
 
-`cq`
-
-or to start Mercury, type
-
-`mercury`
-
-[GOLD](gold.md) has its own entry.
+[GOLD](gold.md) has its own entry in Docs CSC.
 
 ### Using WebCSD directly with a browser
 
 The [WebCSD service](https://www.ccdc.cam.ac.uk/structures) 
 provides most of the search capabilities directly via a browser from
 the computers within the licensed university's IP range. Access does not need
-further authentication. If there are problems, [contact
+further authentication. If there are problems, [contact CSC
 Service Desk](../support/contact.md).
 
 ## References
