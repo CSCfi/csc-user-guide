@@ -26,6 +26,7 @@ A secondary point is presenting the result in a fairly understandable way,
 instead of the user themselves having to script something based on raw `du` output.  
 
 The  sources of inaccuracy are:
+
 1. Old files which have not been accessed are missing size data
 	- There is a specific date (2020-11-18) before which data is not available
 	- Files created/accessed after this are OK 	
@@ -133,6 +134,7 @@ this only needs to be done once, after which the size should be reported correct
 	- Shown size should be fairly accurate
 
 **If there are still `NOSIZE` labels reported**
+
 1. Some files could not be updated due to insufficient permissions
 	- The number of affected files was reported when running with `--sync-size` 
 		- If the number matches the number of `NOSIZE`, there is no need for steps 2. and 3.  
@@ -160,6 +162,6 @@ the results. Other options to limit the runtime are:
 	- Stop the search after going through a set amount of files.
 - `--size-limit <n>` 
 	- Stop the search after reaching a set total size. Supported units are K,M,G,T if no suffix is used G is assumed.
-- `--search-depth <n> 
+- `--search-depth <n>`
      - Limit search depth to.  Default is no limit
 
