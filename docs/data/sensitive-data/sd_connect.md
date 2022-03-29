@@ -483,6 +483,8 @@ These include:
 Note that if you use these tools, you must encrypt your sensitive data before uploading it to SD Connect.
 
 
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
 
 ## Command Line Interface: encryption for data sharing
 
@@ -596,6 +598,11 @@ The command will ask you to enter the password (passphrase) of your private key.
 
 !!! Note
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
+    
+    
+    
+<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
     
  
 ## Troubleshooting
