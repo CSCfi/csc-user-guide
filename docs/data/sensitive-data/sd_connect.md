@@ -268,39 +268,35 @@ The keys will be generated and saved to the **same folder in which the applicati
     * Do not share your secret key or your password.
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
-
+![Generation-keys](images/connect/key-generation.png)
 
 3-Upload upload folders and files to SD Connect using the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
-
-![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
-
-
-
 4- Next, you will be **redirected to a new window displaying the default encryption options**.
 
+![Upload folder](images/connect/upload-folder.png)
 
 5- Here, you can **turn on the button**: *Add other's receivers' public keys*. A new window called *Receiver public keys* will then appear on the page's left side. Here you can add multiple public encryption keys:
 
 * Open your public key using Notepad or another text files reader. Copy the public key, **paste it** into the appropriate window, and click on *Add receiver public key*.
+
+![Add-own-public-key](images/connect/add-own-key.png)
+
 * Now, you will see the public key listed on the right side of the page.
+
+![First-key](images/connect/first-key.png)
 
 * If, for example, you plan to share your data with a collaborator, you can add a second public key. Let's assume that your collaborator shared their public key with you via email. First, your should copy the public key and paste it into the *Receiver keys public window*. Next, we clicked on *Add receiver key*. Now you can see two keys listed in the right window.
 
-
-
-<img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
-
+![collaborator-key](images/connect/collaborator-key.png)
 
 6- You can specify the bucket's name in which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
+
 7-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the specified bucket in SD Connect. 
 
-![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
+![Encryption](images/connect/encryption.png)
 
 8- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a default folder called **DATA**, and each encrypted file will have the extension *.c4gh*. 
 
