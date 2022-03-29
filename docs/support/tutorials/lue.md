@@ -3,7 +3,7 @@
 **Note:**
 While we try our hardest to make tools really easy to use,
 parallel filesystems with a huge amount of files and data are complicated. 
-Read the instructions before using the tool!
+Read the full instructions before using the tool!
 
 Keeping track of how much data/files one has on the disk and removing/moving it in a timely manner
 ensure a more performing filesystem for all users. 
@@ -14,13 +14,14 @@ Don't run tool on the whole project folder (e.g `/scratch/project_12345`) but ch
 smaller subfolders where you think you might have a lot of files or data which could possibly
 be moved/compressed/removed. By default the tool will only fetch size data for 30mins before quitting.
 
+
 ## Short prelude
 
 Lue is a tool to which show the amount of data and number of files
 for a given folder on the parallel filesystem.   
 
 The main point is being significantly faster that standard tools
-like `stat` or `du` (these being slow to the point of unfeasibility on a bad day) while being nicer to the file system. This however comes with a loss in accuracy: 
+like `stat` or `du` (these being slow to the point of unfeasibility on a bad day) while being nicer to the file system. This however comes with a possible loss in accuracy: 
 
 A secondary point is presenting the result in a fairly understandable way,
 instead of the user themselves having to script something based on raw `du` output.  
@@ -30,13 +31,21 @@ The  sources of inaccuracy are:
 1. Old files which have not been accessed are missing size data
 	- There is a specific date (2020-11-18) before which data is not available
 	- Files created/accessed after this are OK 	
+    - It's not always possible to fully accurately determine affected files in a sufficiently efficient manner.
 2. We can't get the actual layout of the files on the disk, so we might slightly overestimate the actual disk usage.  
 	- So a file which is 95MB large might only consume 68MB of disk space if it contains large parts of only zeros. 
 3. Files which are currently in use might not be reported correctly
 
 
 ## Basic usage
-Start by running 
+
+Load the module with:
+
+```
+module load lue
+```
+
+and start by running 
 
 ```
 lue <target_dir>
@@ -151,6 +160,7 @@ that the files are actually not zero in size. If the files seem to be no-zero in
 
 
 ## Limiting the runtime
+
 It's a good idea to limit the runtime of the tool, and often we get useful information
 even though we did not go through the folder structure exhaustively.  If you press `Ctrl-C` to interrupt 
 the tool,  the processed information will be saved, and you can rerun without `--refresh` to view
