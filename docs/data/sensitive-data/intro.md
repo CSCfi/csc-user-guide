@@ -55,7 +55,7 @@ For specific guidance regarding these steps, check the [Accounts](../../accounts
 
 **Billing units**: billing units are used to monitor the resource when CSC services can are free-of-charge or when the user pays the use of the services.
 
-**Bucket/Container**: these two terms refer to the main folder (techincally called root folder) where data are stored in SD Connect/Allas. The bucket/container name is visible to the internet. You can have multiple buckets in the same project (up to 500), but each bucket must have a unique name throughout the whole storage system (including other projects). By default, the data in a bucket is accessible just to the project members. However, you can share and grant access to other CSC projects or users with SD Connect.
+**Bucket/Container**: these two terms refer to the main folder (technically called root folder) where data are stored in SD Connect/Allas. The bucket/container name is visible to the internet. You can have multiple buckets in the same project (up to 500), but each bucket must have a unique name throughout the whole storage system (including other projects). By default, the data in a bucket is accessible just to the project members. However, you can share and grant access to other CSC projects or users with SD Connect.
 
 **CSC Project**: using CSC services is based on projects: all your data in CSC belong inside a project. You can be a project member in one or multiple projects. Each project has a main user, called the CCS project manager, who can add members and services to the project. A project manager is responsible for the activities of the project. They, for example, need to describe which type of sensitive data the project is processing.
 
