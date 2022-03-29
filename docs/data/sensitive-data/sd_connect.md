@@ -243,11 +243,8 @@ Download the version specific to your operating system from the [GitHub reposito
 
 Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
 
-![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
-
 When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 
-![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
 
 2-**Generate your encryption keys**:
 
@@ -270,7 +267,6 @@ The keys will be generated and saved to the **same folder in which the applicati
     * Do not share your secret key or your password.
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
-![Crypt4GH key generation](./images/SDEnScreenshot_4.png)
 
 
 3-Upload upload folders and files to SD Connect using the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
@@ -392,8 +388,6 @@ Decryption has finished
 
 Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 ```
-
-![SDEnScreenshot_8](./images/SDEnScreenshot_8.png)
 
 
 
