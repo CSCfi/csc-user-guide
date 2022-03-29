@@ -410,9 +410,7 @@ crypt4gh encrypt --recipient_pk your-username.pub < my_data1.csv > my_data1.csv.
 
 Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
 
-6- The exported file is now available in SD Connect /Allas. After downloading the file in your local environment, you can decrypt it using your private encryption key. For specific guidance check the following [paragraph]() using the Crypt4GH application or programmatically.
-
-
+6- The exported file is now available in SD Connect /Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-dowload-and-decryption).
 For more information and support, write to servicedesk@csc.fi (email subject SD Desktop)
 
 
