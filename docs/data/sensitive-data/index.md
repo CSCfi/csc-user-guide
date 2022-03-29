@@ -57,7 +57,7 @@ Store and share.
  
  * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption)
  
- * [**Data encryption and upload - Command Line Interface**](./sd_connect.md#data-encryption-and-upload---command-line-interface) (Advanced)
+ * [**Data encryption and upload - Command Line Interface**](./sd_connect.md#data-encryption-and-upload-command-line-interface) (Advanced)
  
  * [**Data encryption for data sharing - Command Line Interface**](./sd_connect.md#data-encryption-and-upload-with-multpile-encryption-keys-and-data-sharing---command-line-interface) (Advanced)
 
