@@ -72,7 +72,7 @@ recommended way for power users. The full installation requires ~18 GB of disk s
 2. Open a `Host Terminal` and  move to a suitable working directory.
 3. Load the CSD module with `module load ccdc/2021`.
 
-Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. 
+Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
 
 [GOLD](gold.md) has its own entry in Docs CSC.
 
