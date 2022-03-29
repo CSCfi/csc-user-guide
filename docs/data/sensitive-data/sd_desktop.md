@@ -347,9 +347,7 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 
 ![Data-export](images/desktop/airlock.png)
 
-1- Import your public encryption key to SD Connect (https://sd-connect.csc.fi)
-
-If you don't yet have an encryption key pair, we will illustrate how to generate your encryption key pair using a simple application called Crypt4GH below.
+1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application:
 
 * Install the Crypt4GH application:
 
@@ -363,7 +361,6 @@ Download the version specific to your operating system from the [GitHub reposito
 Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
 
 * When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
-
 
 * Generate your encryption keys:
 
@@ -387,27 +384,45 @@ The keys will be generated and saved to the same folder in which the application
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-2- If you already have your key pair generated with the Crypt4GH application, you can import your public encryption key to SD Connect browser page (for example, via drag and drop). Next, you will be **redirected to a new window displaying the default encryption options**. You can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+2- Next, you can import your public encryption key to SD Connect browser page (for example, via drag and drop). You will be **redirected to a new window displaying the default encryption options**. You can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
 
-2-  Next, click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
+3-  Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
-3- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
+4- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
 
-4- Next, open the terminal and encrypt the files you want to export with your public key. The syntax of the encryption command is:
+5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop.
+
+The syntax of the encryption command is:
 
 ```text
 crypt4gh encrypt --recipient_pk public-key < input > output
 ```
-For example
+
+Where public-key is your public key (username.pub), input is the file you want to export (my_results.csv), and output is the encrypted file (my_results.csv.c4gh)
+
+For example:
 
 ```text
-crypt4gh encrypt --recipient_pk your-username.pub < my_data1.csv > my_data1.csv.c4gh
+crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
 ```
 
-5-Now, the CSC porject manager can export the encrypted files. From the terminal type the following syntax:
+5-Now, the CSC project manager can export the encrypted files.
 
-/home/<<username>>/SDCONNECTDATA/<<project>>/airlock-client-vX.X <<project>> <<username>> <<filename>>
+From the terminal type the following syntax:
 
+```text
+airlock-client-vX.X  <<username>> <<data_output_bucket>> <<filename>>
+```
+
+Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically, in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted files that you want to export.
+
+For example:
+
+```text
+airlock-client-vX.X  cscuser results-projectname my_results.csv.c4gh
+```
+
+When you press enter, you will be asked to enter your CSC account password.
 Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
 
 6- The exported file is now available in SD Connect /Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
@@ -417,14 +432,16 @@ For more information and support, write to servicedesk@csc.fi (email subject SD 
 
 ## Deleting your virtual Desktop
   
-At the end of your research or analysis, you can delete your virtual Desktop and all the data. You can not undo this action.
- If you delete the virtual Desktop, you will delete the entire virtual workspace, and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
+At the end of your analysis, you can delete your virtual Desktop and all the files in it.
 
-On SD Desktop Homepage, click on **Go To SD Desktop Management page**. Here, in **Available instances** click on **Delete Desktop**. 
+You can not undo this action:
+  
+* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
+* Here, under **Available instances** click on **Delete Desktop**. 
 
 
 !!! note
-    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them.
+    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
