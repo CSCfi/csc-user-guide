@@ -383,10 +383,12 @@ Decrypting.....
 
 Decryption has finished
 
-Decrypted file: C:/users/samesurname/exampledirectory/examplefile
+Decrypted file: C:/users/username/exampledirectory/examplefile
 ```
 
+![Download](images/connect/download.png)
 
+![Decryption](images/connect/decryption.png)
 
 ## Command Line Interface: data encryption and upload
 
