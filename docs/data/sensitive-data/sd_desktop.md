@@ -130,29 +130,25 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your vir
 ![Access-virtual-Desktop](images/desktop/desktop-4.png)
 
 
-When you open connection to your Virtual Machine, a graphical Liunx Desktop opens to your browser. When you access the virtual Desktop for the first time, you will be able to see the getting started pane, from which you can, for example, adjust the screen resolution.
+When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
-After that you can work in this Desktop much like in a normal linux linux desktop: From the applications menu bar (top left corner), you can access several pre-installed programs. For example, Open Office, image viewing applications, video player, Jupiter Notebook etc. You can also open a terminal and use linux from command line.
-
-To start using R-Studio please check the paragraph below.
-
-Each user, connecting the virtual machine will have their personal account and Desktop in the virtual machine. Each user has also a private home directory but all users are able to access files that are moved to the **Shared-directory** in the desktop ( _/shared-directory_ in command line use).
+You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check the paragraph below.
 
 
-There are several security related features in the Virtual Machine running in SD Desktop that makes it bit different from as standard Linux based Virtual Machinnes. These include:
+Security-related features SD Desktop include:
 
-* the computing environment (visible from your browser) is isolated from the internet. You can for example open a Firefox web browser, but you are not able to access any site in internet. This same applies to all tools that ned to use services over the internet: they don't work.
+* the computing environment (visible from your browser) is isolated from the internet. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. At this moment, you will also not be able to access any repositories directly.
 
-* you can access or import data in the virtual Desktop only using the Data Gateway application (see below for more information);
+* you can access or import data only data stored in SD Connect using the Data Gateway application (see below for more information);
 
-* the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow copy-paste data inside your Desktop.
+* the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside your browser.
 
-* from the applications menu bar (top left corner), you can access several pre-installed programs. For example, Open Office, picture/image/ viewing applications, video/audio player, Jupiter Notebook etc. To start using R-Studio please check the paragraph below.
 
-You can close connection to your virtual machine in two ways:
+You can close your connection to your virtual Desktop in two ways:
 
-1. Often the best way is just to close the browser window. This doesn't interfere the processes running in the desktop of your Virtual Machine. Thus when you reconnect to your own virtual machine specific Desktop, you have all you tools and interafces still open and you can just continue working. 
-2. Other option is to _log out_ from your Desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This  will close all applications in your desktop and disconnect the work session. A new Destop will be opened when you reconnect your Virtual machine again.
+1.  _Log out_ from your Desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to access the virtual Desktop at any time after logging in to the services.
+
+2. If you started a data analysis programmatically (you are running a script) you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your Desktop, you have all your tools and interfaces still open and can continue working. However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
 
 
 !!! Note
@@ -163,15 +159,16 @@ You can close connection to your virtual machine in two ways:
      
 ![Launch-virtual-Desktop](images/desktop/desktop-6.png)
 
+
 ### RStudio in SD Desktop
 
-To access RStudio in SD Desktop open the terminal in your virtual Desktop and launch RStudio with:
+To access RStudio in SD Desktop, open the terminal in your virtual Desktop and launch RStudio with:
 
 ```text
 start-rstudio-server
 ```
 
-This will return a URL and a service specific password:
+This will return a URL and a service-specific password:
 
 ```
 RStudio Server - Sensitive Data Desktop Edition
@@ -204,7 +201,7 @@ Next:
 
 ## Accessing encrypted sensitive data within SD Desktop
 
-As the virtual Desktop is isolated from the internet, the only way to access data for analysis is utilizing a specific application called _Data Gateway_.
+As the virtual Desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_.
 This application will allow you to access encrypted data stored in SD Connect or a specific dataset for which you have been granted access via SD Apply for re-use.
 Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop. 
 
@@ -221,7 +218,7 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * add your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
 
-* **Click on Login** and next clic on **Continue**;
+* **Click on Login** and next click on **Continue**;
 
 ![Data-Gateway-1](images/desktop/data-gateway-1.png)
 
@@ -256,7 +253,7 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
  
 !!! Note
-    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. If you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories), you can use the procedure described above.
+    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
 
 ###  Accessing published data for re-use via SD Apply
 
@@ -275,10 +272,10 @@ SD Apply is currently in the pilot phase. Please contact us at servidesk@csc.fi 
 
 ## Default programs available on SD Desktop
 
-Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open source software (listed below). 
+Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software (listed below). 
 
 !!! Note
-    If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Morevere, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
+    If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
 
 
 ### Pre-installed software:
@@ -335,7 +332,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
 Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
 
-The most covienient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity ilmage through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
+The most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
    1. [Importing ready-made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating you own Singularity container and importing it to SD Desktop](./creating_containers.md)
@@ -346,19 +343,19 @@ The most covienient way to add new software to your SD Desktop is to build a Sin
 
 ##  Data export from SD Desktop
 
-Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export resutls or data from the secure workspace using the airlock application, currently available only programmatically. Note: all the files exported from the virtual Desktop need to be encrypte. 
+Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the airlock application, currently available only programmatically. Note: all the files exported from the virtual Desktop need to be encrypted. 
 
-Below you can find step-by-step intructions to encryped and export data from SD Deskotp to Sd Connect, when you will be able to dowload them and decrypt it. 
+Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download them and decrypt it. 
 
 ![Data-export](images/desktop/airlock.png)
 
 1- Import your public encryption key to SD Connect (https://sd-connect.csc.fi)
 
-If you don't yet have an encryption key paire, we will illustrate how to generate your encryption key pair using a simple application called Crypt4GH below.
+If you don't yet have an encryption key pair, we will illustrate how to generate your encryption key pair using a simple application called Crypt4GH below.
 
 * Install the Crypt4GH application:
 
-CSC has developed a simple application which will allow you to generate your encryption keys and to decrypt data using when necessary. 
+CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. 
 Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
@@ -369,15 +366,15 @@ Please check that the tool for Windows has been digitally signed by CSC - IT Cen
 
 ![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
 
-* When you open the application for the first time you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+* When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 
 ![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
 
 * Generate your encryption keys:
 
 - Open the Crypt4GH application and click on _Generate Keys_ (on the top right corner).
-- The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secrete key. Please, use a strong password.
-- When you click on _OK_, the tool will generate a key pair consisting of a secrate key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
+- The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
+- When you click on _OK_, the tool will generate a key pair consisting of a secret key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
 - The keys/file names will be displayed in the Activity Log with the following message:
 
 ```
@@ -390,18 +387,18 @@ All the fields must be filled before file encryption will be started
 The keys will be generated and saved to the same folder in which the application resides.
 
 !!! Note
-    * If you lose or forget your secrete key, or the password to it, you will be unable to decrypt the files.
-    * Do not share your secrete key or your password.
-    * You need to **create your keys only once** and use them for all your encryption needs but you can of course choose to generate separate keys for encryption as you  wish.
+    * If you lose or forget your secret key, or the password, you will be unable to decrypt the files.
+    * Do not share your secret key or your password.
+    * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-2- If you already have your own key pair, generated with the Crypt4GH applcation, you can simply import your public encryption key in SD Connect browser page (for example vie drag and drop). Next, you will be **redirected to a new window displaying the default encryption options**. You can specify the name of the bucket in which the public encryption key should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+2- If you already have your key pair generated with the Crypt4GH application, you can import your public encryption key to SD Connect browser page (for example, via drag and drop). Next, you will be **redirected to a new window displaying the default encryption options**. You can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
 
-2-  Next click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encyrpted files are visible and accessible via SD Desktop, thus even your public encryption key needs to be encrypted during upload.
+2-  Next, click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
-3- Once upload process is completed, you can access your virtual Desktop. Here, using the Data Gateway application you can import a copy of your public key inside the virtual Desktop. 
+3- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
 
-4- Next, open the  terminal and encrypt the files you want to export with your public key. The syntax of the encryption command is:
+4- Next, open the terminal and encrypt the files you want to export with your public key. The syntax of the encryption command is:
 
 ```text
 crypt4gh encrypt --recipient_pk public-key < input > output
@@ -416,21 +413,21 @@ crypt4gh encrypt --recipient_pk your-username.pub < my_data1.csv > my_data1.csv.
 
 /home/<<username>>/SDCONNECTDATA/<<project>>/airlock-client-vX.X <<project>> <<username>> <<filename>>
 
-Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with  Sensitive Data public key for security reasons.
+Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
+
+6- The exported file is now available in SD Connect /Allas. After downloading the file in your local environment, you can decrypt it using your private encryption key. For specific guidance check the following [paragraph](./sd_connect.md#data-dowload-and-decryption) using the Crypt4GH application or programmatically.
 
 
-6- The exported file is now available in SD Connect /Allas. After downloading the file in your local environment you can decrypt it using your private encryption key. For specific guidance check the following [paragraph](./sd_connect.md#data-dowload-and-decryption) using the Crypt4GH application or programmatically.
-
-
-For more information and support write to servicedesk@csc.fi (email subject SD Desktop)
+For more information and support, write to servicedesk@csc.fi (email subject SD Desktop)
 
 
 
 ## Deleting your virtual Desktop
   
-At the end of your research or analysis, you can delete your virtual Desktop and all the data that is stored in it. Note that this action can not be undone, and no other project member will be able to access the same workspace. Thus, before deleting a virtual Desktop, please contact all the project members and export all the restuls of your analysis from the virtual workspace. 
+At the end of your research or analysis, you can delete your virtual Desktop and all the data. You can not undo this action.
+ If you delete the virtual Desktop, you will delete the entire virtual workspace, and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
-In SD Desktop Homepage, click on **Go To SD Desktop Management page**. Here, in **Available instances** click on **Delete Desktop**. 
+On SD Desktop Homepage, click on **Go To SD Desktop Management page**. Here, in **Available instances** click on **Delete Desktop**. 
 
 
 !!! note
@@ -439,7 +436,7 @@ In SD Desktop Homepage, click on **Go To SD Desktop Management page**. Here, in 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 ![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
-
+s
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
@@ -461,13 +458,9 @@ In SD Desktop Homepage, click on **Go To SD Desktop Management page**. Here, in 
 |                       | I imported data from SD Connect with the Data gateway application but the data isn't decrypted.                                           | If you want the data to be automatically decrypted in SD Desktop, you need to encrypt the files using also the CSC Sensitive Data Services public key.                                                                                                                                                                                   |
 |                       | Need to import more than 80 GB of data. I already have an extra volume.                                                            | You can link the added volume from your terminal: `ls -s /path_to_volume_mount_point ~/SDCONNECTDATA`                                                                                           |
 | Disk space/ Volume    | Cannot add disk space to my Desktop.                                                                                               | It’s possible to add disk space only when launching a new Desktop.                                                                                                                                                                                                                                                       |
-|                       | Cannot make a copy of a big dataset.                                                                                               | Check that you have enough disk space on your Desktop. The maximum disk space of each Desktop is 280 GB, but it can be exteded conacting servicedesk@csc.fi                                                                                                                                                                                                                        |
+|                       | Cannot make a copy of a big dataset.                                                                                               | Check that you have enough disk space on your Desktop. The maximum disk space of each Desktop is 280 GB, but it can be extended contacting servicedesk@csc.fi                                                                                                                                                                                                                        |
 | Mac OS                | Mac keyboard is not recognized e.g. command+C is not translated to CTRL+C.                                                         | You need to change the keyboard settings.                                                                                                                                                                                                                                                                                        |
 | Software              | Cannot open RStudio on my Desktop.                                                                                                 | To access RStudio in SD Desktop, you need to open the terminal in your virtual Desktop and launch RStudio with start-rstudio-server.Check for more instructions above in the user guide.                                                                                                                                          |
 |                       | Need software not provided in Desktop                                                                                            | Contact us at servicedesk@csc.fi (subject SD Desktop)                                                                                                                                                                                                                                                                            |
-
-
-
-
 
 
