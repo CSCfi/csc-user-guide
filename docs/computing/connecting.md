@@ -1,5 +1,8 @@
 # Connecting to CSC supercomputers
 
+!!! Note
+    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/computing/connecting/)
+
 Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
 ```
@@ -25,8 +28,6 @@ By default, SSH access to Puhti is authenticated with the password of your CSC u
 	compute nodes using the [batch job system](running/getting-started.md). 
 	Programs not adhering to these rules will be terminated without warning. 
 	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
-
-
 
 ## Using graphical applications
 
