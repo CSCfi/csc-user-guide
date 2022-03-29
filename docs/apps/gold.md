@@ -28,7 +28,7 @@ the GOLD interactive environment, open a `Host Terminal` and run:
 
 `module load ccdc`
 
-This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly.
+This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
 
 Longer (non-interactive) jobs are best run as batch jobs:
 
