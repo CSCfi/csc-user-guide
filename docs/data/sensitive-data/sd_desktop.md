@@ -343,7 +343,7 @@ The most convenient way to add new software to your SD Desktop is to build a Sin
 
 Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the airlock application, currently available only programmatically. Note: all the files exported from the virtual Desktop need to be encrypted. 
 
-Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download them and decrypt it. 
+Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
 
 ![Data-export](images/desktop/airlock.png)
 
@@ -385,6 +385,8 @@ The keys will be generated and saved to the same folder in which the application
 
 
 2- Next, you can import your public encryption key to SD Connect browser page (for example, via drag and drop). You will be **redirected to a new window displaying the default encryption options**. You can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+
+<img width="960" alt="export" src="https://user-images.githubusercontent.com/83574067/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
 
 3-  Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
