@@ -45,13 +45,13 @@ Store and share.
   
   * [**Authentication**](./sd_connect.md#authentication)
 
-  * [**User Interface**](./sensitive-data/sd_connect.md#user-interface)
+  * [**User Interface**](./sd_connect.md#user-interface)
   
   * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
  * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb)
  
- * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
+ * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
  
  * [**Data sharing**](./sd_connect.md#data-sharing)
  
