@@ -392,7 +392,7 @@ Decrypted file: C:/users/samesurname/exampledirectory/examplefile
 
 
 
-## Data encryption and upload - Command Line Interface
+## Command Line Interface: data encryption and upload
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -484,7 +484,7 @@ Note that if you use these tools, you must encrypt your sensitive data before up
 
 
 
-## Data encryption for data sharing - Command Line Interface
+## Command Line Interface: encryption for data sharing
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
@@ -598,7 +598,7 @@ The command will ask you to enter the password (passphrase) of your private key.
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
     
  
-# Troubleshooting
+## Troubleshooting
 
 
 
