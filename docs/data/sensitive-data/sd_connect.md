@@ -1,14 +1,15 @@
 
 # SD Connect (Sensitive Data Connect)
 
-SD Connect is a web-user interface that allows you to encrypt and upload sensitive data to CSC from your web browser. You can compare these services to a virtual hard drive that you can use to store your research data in the cloud securely. No specific technical expertise is required to use the service. SD Connect is designed to store and easily share sensitive data, providing a secure workspace for collaborative research projects. All the data stored in SD Connect can be accessed via SD Desktop for data analysis if encrypted with the Sensitive Data services public encryption key (default data upload in SD Connect).
+SD Connect is an interface that allows you to encrypt and upload sensitive data to Allas (CSC cloud storage solution) from your web browser. No specific expertise is required to use the service. SD Connect is designed to store and easily share sensitive data, providing a secure workspace for collaborative research projects. All the data stored in SD Connect/Allas and encrypted using the default user interface options can be directly analysed via SD Desktop.
 
 In the following user guide, you can learn how to:
 
 * Apply for service access;
 * Encrypt and upload sensitive data via a web browser using SD Connect;
 * Encrypt and upload sensitive data programmatically;
-* Download and decrypt data using the Crypt4gh application.
+* Download and decrypt data using the Crypt4gh application;
+* Encrypt, upload and download sensitive data programmatically.
 
 ## Key features
 
@@ -24,11 +25,11 @@ In the following user guide, you can learn how to:
 
 * Data stored in SD Connect can be accessed via SD Desktop for data analysis (if they are encrypted using the Sensitive Data services public encryption key, the default option for data upload via SD Connect).
 
-* **Limitations**:
+**Limitations**:
 
-* Data (sensitive or non-sensitive, e.g. scripts) stored in SD Connect/ Allas must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders uploaded to SD Connect (also called objects) are located in SD Connect. 
+* Data (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders uploaded to SD Connect (also called objects) are located. 
 
-* Files stored in SD Connect/Allas can be directly analysed in read-only mode from SD desktop, but they can not be directly edited unless they are copied inside the virtual Desktop. 
+* Files stored in SD Connect/Allas (CSC cloud storage solution) can be directly analysed in read-only mode from SD desktop, but they can not be directly edited unless they are copied inside the virtual Desktop. 
 
 ## Before you start
 
@@ -597,7 +598,7 @@ The command will ask you to enter the password (passphrase) of your private key.
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
     
  
-    # Troubleshooting
+# Troubleshooting
 
 
 
