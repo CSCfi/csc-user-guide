@@ -302,7 +302,7 @@ The keys will be generated and saved to the **same folder in which the applicati
 
 ![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a default folder called **DATA**, and each encrypted file will have the extension *.c4gh*. 
+8- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a default folder called **DATA**, and each encrypted file will have the extension *.c4gh*. 
 
 The files are now encrypted with three encryption keys:
 
