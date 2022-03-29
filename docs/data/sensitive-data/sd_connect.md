@@ -150,7 +150,7 @@ On the **Shared** page:
 
 ## Introduction to data encryption compatible with Sensitive Data services
 
-Files uploaded to Sensitive Sensitive data services need to be encrypted. Once uploaded to CSC, encrypted data are accessible from each service component. At the same time, the original files are always encrypted during data storage or analysis. **Data encryption does not require technical expertise**. 
+Files uploaded to Sensitive Sensitive data services via SD Connect need to be encrypted. Once uploaded to CSC, encrypted data are accessible from each service component. At the same time, the original files are always encrypted during data storage or analysis. **Data encryption does not require technical expertise**. 
 
 We integrated the encryption **as an automated step in the SD Connect user interface**, specifically for files less than 100 GB. All the data uploaded using SD Connect are automatically encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing. 
 
@@ -176,9 +176,9 @@ CSC has developed a simple application that will allow you to **generate your en
 The following paragraphs illustrate all the necessary steps to generate encryption keys, upload and encrypt your data using SD Connect, and decrypt the files once downloaded back to your computer. Of course, you can also execute each of these steps programmatically.
 
 
-## Sensitive data encryption and upload (default, less than 100 GB) 
+## Sensitive data encryption and upload (less than 100 GB) 
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser (for files smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive data public key). In this manner,  encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after downloading without extra steps, which might require our support. We are developing a new feature to simplify the download option.
+SD Connect allows you to encrypt and upload files or folders directly from your web browser (for files smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
 
 
 The necessary steps are the following: 
@@ -229,12 +229,12 @@ The necessary steps are the following:
 
 
 
-## Sensitive data encryption and upload: multiple encryption keys (less than 100 GB) 
+## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
 
 
-Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys. Below, we will illustrate how to generate your encryption key pair using an application called Crypt4GH and how the public encryption key can then be used to encrypt files via your web browser, using SD Connect. 
+Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys, in addition to the default services encryption key. Below, we will illustrate how to generate your encryption key pair using an application called Crypt4GH and how your public encryption key (or your collabrator's public key) can then be used to encrypt files via web browser, using SD Connect. 
 
-1-Install the Crypt4GH application:
+1-**Install the Crypt4GH application**:
 
 CSC has developed a simple application that will allow you to generate your encryption keys and decrypt files when necessary. 
 Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
@@ -251,10 +251,10 @@ When you open the application for the first time, you might encounter an error m
 
 ![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
 
-2-Generate your encryption keys:
+2-**Generate your encryption keys**:
 
 * Open the Crypt4GH application and click on _Generate Keys_ (on the top right corner).
-* The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
+* The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. **Please, use a strong password**.
 * When you click on _OK_, the tool will generate a key pair consisting of a secret key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
 * The keys/file names will be displayed in the Activity Log with the following message:
 
@@ -265,7 +265,7 @@ Public key: username_crypt4gh.pub
 All the fields must be filled before file encryption will be started
 ```
 
-The keys will be generated and saved to the same folder in which the application resides.
+The keys will be generated and saved to the **same folder in which the application resides**.
 
 !!! Note
     * If you lose or forget your secret key or the password to it, you will be unable to decrypt the files.
@@ -289,12 +289,12 @@ The keys will be generated and saved to the same folder in which the application
 4- Next, you will be **redirected to a new window displaying the default encryption options**.
 
 
-5- Here, you can turn on the button: *Add other's receivers' public keys*. A new window will then appear in which you can add multiple encryption keys:
+5- Here, you can **turn on the button**: *Add other's receivers' public keys*. A new window, called *Receivers public keys* will then appear on the left side fo the page. Herein which you can add multiple public encryption keys:
 
-* First, click on *Add receiver public key*even if the new window is empty. This will add the Sensitive Data services public key, which will be listed in the right window.
-* Next, open your public key using Notepad or another text files reader. Copy the public key, paste it into the appropriate window, and click on *Add receiver public key*.
-* Now, on the right window, you will see two public keys listed.
-* If you plan to share your data with a collaborator, you can add a third public key. Let's assume that my collaborator shared their public key via email in this example. First, I opened the key with Notepad and pasted it in the Receiver key window. Next, I clicked on *Add receiver key*. Now I can see three keys listed in the right window.
+* Open your public key using Notepad or another text files reader. Copy the public key, **paste it** into the appropriate window, and click on *Add receiver public key*.
+* Now, on the right side of the page, under *Public key* , you will see the public key listed.
+
+* If, for example, you plan to share your data with a collaborator, you can add a second public key. Let's assume that your collaborator shared their public key with you via email. First, your should copy the public key and pasted it in the *Receiver key window*. Next, we clicked on *Add receiver key*. Now you can see two keys listed in the right window.
 
 
 
@@ -303,14 +303,21 @@ The keys will be generated and saved to the same folder in which the application
 
 6- You can specify the bucket's name in which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
-6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
+7-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the sepcificed bucket in SD Connect. 
 
 ![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a default folder called **DATA**, and each encrypted file will have the extension *.c4gh*. The files are now encrypted with three encryption keys, and you will be able to:
-- access and analyse the data in SD Desktop (for further information, see SD Desktop user guide);
-- Share the data with your collaborator using SD Connect (see:).
-- download the data and decrypt them (see: ).
+7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a default folder called **DATA**, and each encrypted file will have the extension *.c4gh*. 
+
+The files are now encrypted with three encryption keys:
+
+- With the **default Sensitive Data services encyrption key**. Thus, you will be able to **access and analyse** the data stored in SD Connect via SD Desktop (for further information, see SD Desktop user guide).
+
+- With **your public ke**y. This allows you to dowload the data stored from SD Connect to, for example, a different services and **decrypt** them using the correspondent secrete key. 
+
+ - With **your collaborator's  public key**. This allows to share (or transfer) the data with your collaborator using SD Connect. Next, they will be able to download and decrypt the files in their own secure enviroment, using the corrispodent secrete key. 
+
+Using this workflow allows to securly manage only one copy of the data for different purposes.
 
 
 ## Data Sharing 
