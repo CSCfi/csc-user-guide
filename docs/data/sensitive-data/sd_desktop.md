@@ -362,11 +362,8 @@ Download the version specific to your operating system from the [GitHub reposito
 
 Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
 
-![Crypt4GH in downloads folder](./images/SDEnScreenShot_1.png).
-
 * When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 
-![Crypt4GH security warning](./images/SDEnScreenShot_2.png)
 
 * Generate your encryption keys:
 
