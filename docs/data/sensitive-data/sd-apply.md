@@ -20,7 +20,7 @@ Once the application has been reviewed and approved, the applicant can directly 
 
 ### Login
 
-Login to SD Apply is possible with user identity federation systems (Haka, Virtu and [Elixir Login](https://elixir-europe.org/register)) or with  [CSC login](./accounts/how-to-create-new-user-account/) at
+Login to SD Apply is possible with user identity federation systems (Haka, Virtu and [Elixir Login](https://elixir-europe.org/register)) or with [CSC Login](../../accounts/how-to-create-new-user-account.md); at
 
 [https://sd-apply.csc.fi](https://sd-apply.csc.fi)
 
