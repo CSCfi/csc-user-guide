@@ -36,7 +36,7 @@
 * [Can I share my public encryption key?](sensitive-data-encryption.md#can-i-share-my-public-encryption-key-with-others)
 * [Can I share my private encryption key?](sensitive-data-encryption.md#can-i-share-my-private-encryption-key-with-others)
 * [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md#do-i-need-to-generate-a-new-key-pair-every-time-i-encrypt-a-new-dataset)
-* [Can I (or my collaborators) decrypt data encrypted with teh Sensitive Data public encryption key outside SD Desktop?](sensitive-data-encryption.md#can-i-or-my-collaborators-decrypt-data-encrypted-with-csc-public-encryption-key-outside-sd-desktop)
+* [Can I (or my collaborators) decrypt data encrypted only with the Sensitive Data public encryption key outside SD Desktop?](sensitive-data-encryption.md#can-i-or-my-collaborators-decrypt-data-encrypted-with-csc-public-encryption-key-outside-sd-desktop)
 
 
 **Sensitive Data and GDPR**
