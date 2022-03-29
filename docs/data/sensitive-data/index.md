@@ -61,7 +61,8 @@ Store and share.
  
  * [**Data encryption for data sharing - Command Line Interface**](./sd_connect.md#data-encryption-for-data-sharing---command-line-interface) (Advanced)
 
- * [**Troubleshooting**](./sd_connect.md#troubleshooting) 
+ * [**Troubleshooting**](./sd_connect.md#troubleshooting)
+  
  
 
   
