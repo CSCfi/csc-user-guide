@@ -37,6 +37,7 @@
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
 * [What directory I should use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
 * [How can I install my own software?](how-to-install-own-software.md)
+* [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 
 ## Allas
 
