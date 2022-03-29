@@ -16,7 +16,7 @@ Please use your own project number when installing these tools for your own proj
 Once you have logged in to Lumi, move to the _/project_ disk area of the project and make there a directory called _allas_.
 
 ```text
-/project/project_462000007
+cd /project/project_462000007
 mkdir allas
 cd allas
 ```
@@ -39,17 +39,7 @@ The command above will install the dependencies to a singularity container and m
 execution scripts to a _bin_ directory that locates in the directory defined with the _--prefix_ option.
 (in this case /project/project_462000007/allas/bin).
 
-In addition we need to install _rclone_. Following commands add _rclone_ command to the same 
-directory where other dependencies locate.
-
-```text
-cd /project/project_462000007/allas
-wget https://downloads.rclone.org/rclone-current-linux-amd64.zip
-unzip rclone-current-linux-amd64.zip
-mv rclone-v1.58.0-linux-amd64/rclone bin/
-```
-
-Finally we need to modify _a_env_conf_ file a bit so that _a-tools_ work smoothly.
+Finally we need to modify _a_env_conf_ file a bit so that _a-tools_ works smoothly.
 Open the file
 ```text
 nano allas-cli-utils/a_env_conf
