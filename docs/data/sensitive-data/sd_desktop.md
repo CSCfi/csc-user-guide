@@ -1,7 +1,7 @@
 
 # SD Desktop (Sensitive Data Desktop)
 
-SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, techincally defined as vitual machine) from your web browser. No previous knowledge of cloud computing or programming expertise are required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects.
+SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as vitual machine) from your web browser. No previous knowledge of cloud computing or programming expertise are required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects.
 
 In the following user guide, you can learn how to:
 
