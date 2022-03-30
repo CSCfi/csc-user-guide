@@ -12,7 +12,7 @@ We kindly ask all users to help to keep disk usage manageble, and peformance rea
 * **Remove files** that are not needed anymore in your projects scratch folder. Note that we cannot bring back files that you delete by mistake so do these operations carefully!
 * **Move files** files not in active use now, but that needs to be available later during the project. The typical model is to move the files to Allas 
 [Allas](../../data/Allas/index.md). We recommend to use a-tools [a-tools](../../data/Allas/using_allas/a_commands.md) for small to medium sized data transfers, in particular when you have a large amount of small files.  These tools make the usage of Allas safer, and can make your data management easier. For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md). A tutorial for data transfers is available at  [allas-examples](../../data/Allas/allas-examples.md).
-* **Archive files** that should be available longer than the life time of compute projects. Options for Ttis can be for example your organizations own storage systems, or IDA safe storage for research data [www.fairdate.fi](https://www.fairdata.fi/en/).
+* **Archive files** that should be available longer than the life time of compute projects. Options for this can be for example your organizations own storage systems, or IDA safe storage for research data [www.fairdate.fi](https://www.fairdata.fi/en/).
 
 
 ## Identifying where you have data
@@ -23,7 +23,7 @@ If you have a large amount of files then analyzing how much data you have in dif
 * Avoid using `du`
 * Do use `lue` or `lfs find --lazy`
 
-CSC has developed an approximate tool called Lue (Lustre usage explorer) for reporting amount of data in folders. Read the documentation at [lue](../../support/tutorials/lue.md)  before using it. `lfs find --lazy` has some edge-case where it can be as bad as `du` or silently fail to get correct size information. See `man lfs-find"`for further instructions and information on its limitations.
+CSC has developed an approximate tool called Lue (Lustre usage explorer) for reporting amount of data in folders. Read the documentation at [lue](../../support/tutorials/lue.md)  before using it. `lfs find --lazy` has some edge-case where it can be as bad as `du` or silently fail to get correct size information. See `man lfs-find`for further instructions and information on its limitations.
 
 No matter what tool you use you should never try to list or process all files in your project or scratch folder with a single command. Instead you should run commands on specific subdirectories with limited amount of files and data. The total amount of used data is available from the `csc-workspaces` command.
 
