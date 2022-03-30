@@ -6,7 +6,7 @@ Open Babel is a chemical toolbox designed to speak the many languages of chemica
 ## Available
 
 -   Puhti: 3.1.1
--   Mahti-rhel7: 3.1.1
+-   Mahti-rhel8: 3.1.1
 
 ## License
 
@@ -31,5 +31,3 @@ For a comprehensive list of options and supported file formats, do  `obabel -H`,
 ## More information
 -   [Open Babel wiki](http://openbabel.org/wiki/Main_Page)
 -   [Open Babel on GitHub](https://github.com/openbabel )
-
-
