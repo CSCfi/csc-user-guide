@@ -3,6 +3,7 @@
 An important task for all users on Puhti and Mahti is to manage what data resides in project folders in scratch. These are only intended as temporary storage space for data that is in active use. All other data should be removed, or stored in other more suitable storage systems. Users are not expected to use all of their quota, the maximum quota is only meant for short term bursts. 
 
 Also note that:
+
  * A Lustre parallel file system starts to lose performance when more than approximately 70% of disk space is used, and the more the disks fill up, the slower the performance will get. CSC has allocated more quota than there is space, hence it is not even possible for all users to use their scratch folders for longer term storage. 
  *  There are no backups of scratch disk area. Do not trust it to store all of your research data.
  *  Decrease the BU consumption of your project, since you are billed for disk usage and not quota as before 2022. 
