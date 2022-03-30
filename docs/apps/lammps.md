@@ -12,7 +12,7 @@ how to create yours.
 ## Available
 
 -   Puhti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
--   Mahti-rhel7: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
+-   Mahti-rhel8: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 
 ## License
 
@@ -20,14 +20,14 @@ LAMMPS is an open-source code, distributed freely under the terms of the GNU Pub
 
 ## Usage
 
-Don't use prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS on Puhti or Mahti-rhel7 for optimal performance.
+Don't use prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS on Puhti or Mahti-rhel8 for optimal performance.
 
-* Navigate to `/appl/soft/chem/lammps/` on Puhti or Mahti-rhel7
+* Navigate to `/appl/soft/chem/lammps/` on Puhti or Mahti-rhel8
 * If you can't find a pre-downloaded source code (e.g. `lammps-stable.tar.gz`) or a suitable LAMMPS version, download it yourself from the [LAMMPS home page](https://lammps.sandia.gov/download.html).
 * Read the compilation instructions, e.g. `lammps-puhti-instruction.txt`
 * Configure the packages you want to include and compile the software
 
-Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently). Consult these pages on [how to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md) and [on Mahti-rhel7](../computing/running/creating-job-scripts-mahti.md).
+Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently). Consult these pages on [how to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md) and [on Mahti-rhel8](../computing/running/creating-job-scripts-mahti.md).
 
 If you encounter problems compiling LAMMPS, don't hesitate to [contact CSC Service Desk](../support/contact.md).
 
