@@ -12,7 +12,7 @@ We kindly ask all users to help to keep disk usage manageble, and peformance rea
 * **Remove files** that are not needed anymore in your projects scratch folder. Note that we cannot bring back files that you delete by mistake so do these operations carefully!
 * **Move files** files not in active use now, but that needs to be available later during the project. The typical model is to move the files to Allas 
 [Allas](../../data/Allas/index.md). We recommend to use a-tools [a-tools](../../data/Allas/using_allas/a_commands.md) for small to medium sized data transfers, in particular when you have a large amount of small files.  These tools make the usage of Allas safer, and can make your data management easier. For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md). A tutorial for data transfers is available at  [allas-examples](../../data/Allas/allas-examples.md).
-* **Archive files** that should be available longer than the life time of compute projects. Options for Ttis can be for example your organizations own storage systems, or IDA safe storage for research data [www.faidate.fi](https://www.fairdata.fi/en/).
+* **Archive files** that should be available longer than the life time of compute projects. Options for Ttis can be for example your organizations own storage systems, or IDA safe storage for research data [www.fairdate.fi](https://www.fairdata.fi/en/).
 
 
 ## Identifying where you have data
