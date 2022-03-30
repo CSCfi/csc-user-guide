@@ -29,13 +29,6 @@ The data can be stored in SD Connect, analyzed in SD Desktop, and published via 
 ## Do you provide a backup service?
 There is no backup service available for SD Connect (storage and share) and SD Desktop (compute). However, SD Connect uses an object storage system that is fails to tolerate disk breaks. SD Submit (publish) will always maintain a second copy of the stored data.
 
-## Can I  store or process 'real data' using the current Open Beta versions of SD Connect and SD Desktop?
-You can already store sensitive encrypted data in SD Connect and process them in SD Desktop. Security is not affected by the Open Beta versions status of the services.
-However, SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
-
-## What does the Open Beta versions status of Sensitive Data Services imply in practice?
-We constantly improve the user interface, add features, and resolve bugs during the Open Beta phase. This might lead to service interruptions. The Open Beta versions of the services also have limitations (e.g., some of the processes are still manual). Check the services [webpage](https://research.csc.fi/sensitive-data-services-future-development) for more information and constant updates. 
-
 
 ## Are CSC Sensitive Data service free of charge?
 The Sensitive Data Services are free of charge for Finnish academics, according to CSC[ General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: billing units for their use and quota for storage space allocation. 
@@ -59,7 +52,7 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 One important note is that once you end your research and submit your manuscript, you can then use specific services to store part of your data in our repositories (SD Submit or Federated EGA). In this case, the data is stored (under controlled access) for longer periods, and  CSC maintains two copies of it, and you do not need to have a CSC project or consume billing units.
 
 
-## Do I need any particular skills to set up a private workspace with SD Connect and SD Desktop?
+## Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?
 
 No. You can set up your secure workspace following the user guide and video tutorial instructions.
 

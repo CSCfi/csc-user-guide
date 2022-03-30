@@ -29,5 +29,5 @@ No. The private encryption key can be used to decrypt the data. Therefore, you s
 ## Do I need to generate a new key pair every time I encrypt a new dataset?
 No. You can generate just one encryption key pair for each use case (e.g., to be research group-specific or project-specific) and always use the same key pair. If the private key is password protected (with a strong password) and kept in a secure and secrete place, using the same encryption key multiple times does not bring any additional risk. 
 
-## Can I (or my collaborators) decrypt data encrypted with CSC public encryption key outside SD Desktop?
-No. Data encrypted with CSC public encryption key is only decrypted in an automated manner when accessed via data streaming or copied in your secure computing environment in SD Desktop. If you encrypt the data with the CSC public encryption key, you will not decrypt them in any other computing environment. If you need support, contact us at servicedesk@csc.fi
+## Can I (or my collaborators) decrypt data encrypted only with the CSC public encryption key outside SD Desktop?
+No. Data encrypted only with the CSC public encryption key is only decrypted in an automated manner when accessed via data streaming in SD Desktop. You can however encrypt your files with multiple encryption keys, using SD Connect or programmatically. If you need support, contact us at servicedesk@csc.fi
