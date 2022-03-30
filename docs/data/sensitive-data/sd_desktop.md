@@ -421,7 +421,7 @@ Where *username* is your CSC account username, *data_output_bukcet* is the name 
 For example:
 
 ```text
-airlock-client-vX.X  cscuser results-projectname my_results.csv.c4gh
+airlock-client-vX.X  cscuser analysis-032022  my_results.csv.c4gh
 ```
 
 Press enter and add your CSC account password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
