@@ -160,7 +160,7 @@ Tykky also provides a tool to generate wrappers for existing containers, so that
 transparently (no need to prepend `singularity exec ...`, or modify scripts if switching between containerized versions of tools).
 
 ```
-wrap-install -w </path/inside/container> <container> --prefix <install_dir> 
+wrap-container -w </path/inside/container> <container> --prefix <install_dir> 
 ```
 where `<container>` can be a filepath or any url accepted by singularity (e.g `docker//:` `oras//:` or any other singularity accepted format)
 `-w` needs to be an absolute path (or comma separated list) inside the container. Wrappers will then be automatically
