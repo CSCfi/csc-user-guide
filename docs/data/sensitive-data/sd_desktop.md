@@ -439,7 +439,9 @@ airlock-client-vX.X  cscuser  analysis-2022  results-03.csv.c4gh
 
 Press enter and add your CSC account password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
 
-7- The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
+**6- Download and decrypt the files**.
+
+The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
 For more information and support, write to servicedesk@csc.fi (email subject SD Desktop)
 
 
