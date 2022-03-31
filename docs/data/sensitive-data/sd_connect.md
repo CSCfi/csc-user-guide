@@ -390,7 +390,7 @@ Decrypted file: C:/users/username/exampledirectory/examplefile
 
 ![Decryption](images/connect/decryption.png)
 
-## Command Line Interface: data encryption and upload
+## Data encryption and upload - Command Line Interface
 
 <img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
@@ -485,7 +485,7 @@ Note that if you use these tools, you must encrypt your sensitive data before up
 
 
 
-## Command Line Interface: encryption for data sharing
+## Encryption for data sharing - Command Line Interface
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
