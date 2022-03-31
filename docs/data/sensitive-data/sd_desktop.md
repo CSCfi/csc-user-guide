@@ -421,9 +421,9 @@ crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.
 
 **5- Exporting the results from the private Deskotp**.
 
-Once the file is encrypted, only the CSC project manager can export the encrypted files.
+Once the results encrypted, only the CSC project manager can export the files with the Airlock client. 
 
-From the terminal type the following syntax:
+Open the terminal (right click) and  type the following syntax:
 
 ```text
 airlock-client-vX.X  <<username>> <<data_output_bucket>> <<filename>>
