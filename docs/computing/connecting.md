@@ -1,5 +1,8 @@
 # Connecting to CSC supercomputers
 
+!!! Note
+    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/computing/connecting/)
+
 Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
 ```
@@ -25,8 +28,6 @@ By default, SSH access to Puhti is authenticated with the password of your CSC u
 	compute nodes using the [batch job system](running/getting-started.md). 
 	Programs not adhering to these rules will be terminated without warning. 
 	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
-
-
 
 ## Using graphical applications
 
@@ -115,6 +116,21 @@ rm ~/.ssh/mypubkey.pub
     * In Puhti/Mahti open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save it.
     * If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that everything is on one row only and does not include any spaces in the key itself.
 
+### Setting up your SSH keys in MyCSC portal
+
+!!! warning "Note"
+    Setting up your SSH keys in [MyCSC](https://my.csc.fi) portal is currently available only for [LUMI environment](https://www.lumi-supercomputer.eu/).
+    
+You can set up your SSH keys in MyCSC portal by following these steps
+
+1. Login to [MyCSC](https://my.csc.fi) portal with your CSC or HAKA/VIRTU credentials
+2. Proceed to 'My profile' section (top right)
+3. Scroll down to end of the page where you find the section 'SSH PUBLIC KEYS'
+4. Click 'Modify' and select 'Add new...' to add your SSH key
+5. Paste your **public** SSH key to the text field. Supported keys are: RSA 2048, ECDSA 521, ED25519 256
+6. Click 'Add' and then 'Confirm' which will trigger reauthentication to the portal
+7. Now you can see your SSH key stored to your profile
+   
 ### SSH keys with MobaXterm
 At least with Windows operating system, before generating the SSH key, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
 

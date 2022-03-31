@@ -1,6 +1,6 @@
 # Disk areas
 
-CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**. Please familiarize yourself with the areas and their specific purposes.
+CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**. In addition to these disk areas visible to all compute and login nodes, each node has a **local temporary disk area** that is visible to the particular compute node during a batch job or shell session, only. Please familiarize yourself with the areas and their specific purposes.
 The disk areas for different supercomputers are separate, *i.e.*
 **home**, **projappl** and **scratch** in Puhti cannot be directly
 accessed from Mahti. Also [a more technical description of the Lustre 
@@ -158,7 +158,15 @@ Especially in the case of number of files, you should reconsider your
 data work flow, if it requires that tens of millions
 of files are stored to the _scratch_ area.
 
-## Additional disk areas
+## Temporary local disk areas
+    
+The disk area that is suitable for the temporary files that are only visible within
+the login or compute node depends on the type of the node. If the application depends
+on the use of temporary files, the suitability of the filesystem may have a large effect
+on the performance of the application, see section "Mind your I/O - it can make a big
+difference" in the [Performance Checklist](running/performance-checklist.md). Please note that
+some applications use temporary files "behind the scenes." Usually these applications
+read some environment variable that points to a suitable disk area, such as `$TMPDIR`.
 
 ### Login nodes
 
@@ -173,7 +181,7 @@ archive files.
     The local storage is meant for **temporary** storage and is cleaned frequently.
     Remember to move your data to a shared disk area after completing your task. 
 
-### Compute nodes 
+### Compute nodes with local SSD (nvme) disks
 
 Interactive batch jobs as well as jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
 
@@ -181,3 +189,17 @@ These local disk areas are designed to support I/O intensive computing tasks and
 
 For more information see: [creating job scripts](running/creating-job-scripts-puhti.md#local-storage). 
 
+### Compute nodes without local SSD (nvme) disks
+
+In Puhti we simply recommend using compute nodes with nvme disks (`$LOCAL_SCRATCH`) for the applications that
+require temporary local storage.
+
+In Mahti, with most compute nodes without local nvme disks, it is possible to store
+a relatively small amount of temporary files
+in memory. In practice the applications can use the directory `/dev/shm` for this, for example by
+setting `export TMPDIR=/dev/shm`. Plese note that the use of `/dev/shm` consumes memory, so less is
+left available for the applications. This may lead in applications running out of memory sooner than
+expected and failing in the compute node, but this usually does no other harm. The plus side is that
+if it works, it should be fast. In Puhti however, where applications from
+multiple users can share the same node, running out of memory by filling up `/dev/shm` will crash
+other users applications, too. It is recommended not to use `/dev/shm` in Puhti at all.

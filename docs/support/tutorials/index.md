@@ -38,12 +38,12 @@
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 * [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
-
 ## Data analysis and machine learning
 
 * [Data analysis guide](da-guide.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
+* [Machine learning guide](ml-guide.md)
 * [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+* [Starting with parallel R](parallel-r.md)
 
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
@@ -65,6 +65,7 @@
 * [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
 * [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
 * [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
+* [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)

@@ -14,13 +14,27 @@
         .md-nav__item--nested>.md-nav {
             color: #ffffff !important;
         }
+        .md-nav__link--active {
+            color:#ffffff !important;
+        }
         .md-nav--primary .md-nav__title--site {
             background-color: #2980b9 !important;
         }
         .md-nav__title {
             font-weight: bold !important;
         }
-        .md-footer {
-            display: none;
+        .footer_column {
+            float: left;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .footer_wrapper {
+            height: 100%;
+            width: 66%;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: space-around;
+            white-space: nowrap;
         }
     }

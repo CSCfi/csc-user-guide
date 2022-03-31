@@ -1,5 +1,46 @@
 # Applications
 
+## Tykky 0.2.2, 31.3.2022
+
+[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments inside a Singularity container, has been released. Containerization will considerably improve startup times and decrease IO load with less files on the shared parallel filesystem. We recommend wrapping all existing Conda environments within containers using Tykky as the [direct usage of Conda on CSC supercomputers has been deprecated](../deprecate-conda.md).
+
+## TensorFlow 2.8, 17.3.2022
+
+TensorFlow 2.8.0 is now available in the `tensorflow/2.8` module on Puhti and
+Mahti, and has been set as the default module. See the [TensorFlow 2.8 release
+notes on GitHub](https://github.com/tensorflow/tensorflow/releases/tag/v2.8.0/)
+for more details.
+
+## Gromacs 2022, 9.3.2022
+
+[Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the [Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series). gromacs-env/2021 is now the default.
+
+## CP2K 9.1, 4.3.2022
+
+[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with `module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
+
+## Schrödinger Maestro 2022.1, 25.2.2022
+
+Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
+
+## Gromacs 2021 now default version, 7.2.2022
+
+[Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the default module
+(gromacs-env).
+
+## Direct usage of Conda deprecated, 4.2.2022
+
+CSC has [deprecated the direct usage of Conda
+installations](../deprecate-conda.md) on our supercomputers' (Puhti and Mahti)
+shared file systems.
+
+## Python Data 3.9-2, 20.1.2022
+
+A new version of [Python Data](../../apps/python-data.md) is now available with
+`module load python-data/3.9-2` on both Puhti and Mahti. It includes the most
+recent versions of Scikit-learn, SciPy, Pandas, JupyterLab and many other
+popular data analytics and machine learning packages for Python 3.9.
+
 ## Python Data default module now uses Singularity, 26.11.2021
 
 The default version of the `python-data` module has been changed to `3.9-1`.

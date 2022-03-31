@@ -1,7 +1,9 @@
 # Overview
 
-Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since
-2 September 2019 and Mahti has been available since 26 August 2020.
+!!! Note
+    For an overview of the LUMI supercomputer, see [the LUMI documentation](https://docs.lumi-supercomputer.eu/computing/).
+
+Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is the one of the pan-European pre-exascale supercomputers, located in CSC's data center in Kajaani. The CPU-partition of LUMI (LUMI-C) has been available since early 2022, and general availability of the GPU-partition (LUMI-G) is projected for September 2022.
 
 Puhti contains CPU nodes with a range a memory sizes as well as a large GPU partition (Puhti AI), while
 Mahti contains homogeneous CPU nodes and is meant for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition from 2021 (Mahti AI) with latest generation Nvidia GPUs.
@@ -11,10 +13,10 @@ CSC supercomputers use the Linux operating system and we recommend that you are 
 
 ## Accessing Puhti and Mahti
 
-To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to
-a computing project that has access to the respective supercomputer. CSC user
-accounts and projects are managed in [my.csc.fi](https://my.csc.fi) portal. 
-Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
+To be able to use CSC's supercomputers, you need to have a CSC user account that belongs to a computing project that has access to the respective supercomputer. CSC user accounts and projects are managed in [MyCSC portal](https://my.csc.fi). Further instructions are provided in the [Accounts section](../accounts/index.md) of this user guide.
+
+!!! Note
+    To access the LUMI supercomputer, you need to [create a LUMI-specific project](../accounts/how-to-create-new-project.md#creating-a-lumi-project-and-applying-for-resources). For more details on getting started with LUMI, see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
 
 ## Connecting to the supercomputers
 
@@ -59,7 +61,7 @@ The login nodes should be used only for:
  * moving data
  * **light** pre- and postprocessing
 
-Here **light** means **one-core-jobs** that finish in **minutes** and require **a few GiB** of memory at maximum.
+Here **light** means **one-core-jobs** that finish in **minutes** and require **a less than 1 GiB** of memory at maximum.
 All the other tasks are to be done in compute nodes either as normal [batch jobs](running/getting-started.md)
 or as [interactive batch jobs](running/interactive-usage.md).
 Programs not adhering to these rules will be terminated without warning.
