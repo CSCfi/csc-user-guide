@@ -116,6 +116,7 @@
 ## Geosciences
 
 * [ArcGIS](arcgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [CloudCompare](cloudcompare.md) for visualizing, editing and processing poing clouds
 * [FORCE](force.md) for mass-processing of medium-resolution satellite images
 * [GDAL](gdal.md) for geospatial data formats
 * [Geoconda](geoconda.md) - Python spatial analysis libraries
