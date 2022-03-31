@@ -4,8 +4,7 @@ CSC uses a batch job system to execute computing tasks on our supercomputers.
 
 Typically, a batch job first loads a software environment using the
 [module system](../modules.md) and then executes a program to do some
-computing. A batch job is also required to specify the resources needed for the
-execution of the job.
+computing. A batch job is also required to specify the resources needed for the execution of the job.
 
 This chapter introduces the basics of creating and submitting batch jobs
 using the SLURM (Simple Linux Utility for Resource Management) batch job
@@ -13,7 +12,7 @@ system.
 
 Note that also [interactive tasks](interactive-usage.md) (other than
 compiling, moving data and light  pre- and postprocessing) are to be
-done via batch job system. 
+done via batch job system.
 
 !!! note "Key concepts of the CSC batch job system"
 
@@ -36,3 +35,6 @@ To get started with running your application on Puhti:
 If you are already familiar with SLURM, check out our
 [example batch job scripts for Puhti](example-job-scripts-puhti.md) or
 [example batch job scripts for Mahti](example-job-scripts-mahti.md).
+
+!!! Note
+    Please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/computing/jobs/slurm-quickstart/) for how to get started with running jobs on the LUMI supercomputer. LUMI uses also the SLURM batch queue system, so the differences between running on CSC supercomputers and LUMI are minor.

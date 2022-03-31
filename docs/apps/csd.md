@@ -14,13 +14,13 @@ Eastern-Finland, Jyväskylä, Turku, Åbo Akademi, Lappeenranta University
 of Technology, Finnish Defence Forces University. If you want your
 university or research institute added, fill in the 
 [License agreement](../img/CSDLicenseAgreementTemplateNAC.pdf) 
-and contact us via [Service Desk](mailto:servicedesk@csc.fi)
+and [contact us via Service Desk](../support/contact.md)
 
 Using the CSD components requires adhering [to these conditions](../img/CSDLicenseAgreementTemplateNAC.pdf).
 
 ## Available
 
-- Puhti: 2020
+- Puhti: 2021
 - Download and install locally
 
 ## Usage
@@ -51,45 +51,38 @@ Software to access and analyse CSD entries:
 
 There are three ways to access the CSD System:
 
--   Local installation (Windows or Linux, takes up a lot of disk)
--   Using CSD System on Puhti (via [X11-tunneling](../../computing/connecting/#using-graphical-applications) `ssh -X username@puhti.csc.fi`)
--   WebCSD (limited functionality), point your browser in [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
+-   Local installation (Windows or Linux, takes up a lot of disk space)
+-   Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
+-   WebCSD (limited functionality), point your browser to [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
 ### Using CSD as a local installation
 
 The installation media can be downloaded from the CCDC website, but
 needs the site number and confirmation code of your university. After
 installation you need to activate the product. To obtain the required
-codes, contact either CSC [Service Desk](mailto:servicedesk@csc.fi)
+codes, contact either [CSC Service Desk](../support/contact.md)
 or the local CSD administrator at your university. This is the
-recommended way for power users. The full installation requires ~18 GB of disk.
+recommended way for power users. The full installation requires ~18 GB of disk space.
 
 ### Using CSD on Puhti
 
-Log in via [`ssh -X username@puhti.csc.fi`](../../computing/connecting/#using-graphical-applications), initialize CSD by:
+[Open the Puhti web interface](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
 
-`module load ccdc`
+1. From there, [launch a Desktop](../computing/webinterface/desktop.md#launching).
+2. Open a `Host Terminal` and  move to a suitable working directory.
+3. Load the CSD module with `module load ccdc/2021`.
 
-and you have access to programs ConQuest, Hermes, PreQuest, Vista,
-Superstar, GOLD, and Mercury.
+Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
 
-For example, to access ConQuest, you need to type
-
-`cq`
-
-or to start Mercury, type
-
-`mercury`
-
-[GOLD](gold.md) has it's own entry.
+[GOLD](gold.md) has its own entry in Docs CSC.
 
 ### Using WebCSD directly with a browser
 
 The [WebCSD service](https://www.ccdc.cam.ac.uk/structures) 
 provides most of the search capabilities directly via a browser from
 the computers within the licensed university's IP range. Access does not need
-further authentication. If there are problems, contact
-[Service Desk](mailto:servicedesk@csc.fi).
+further authentication. If there are problems, [contact CSC
+Service Desk](../support/contact.md).
 
 ## References
 
@@ -105,11 +98,7 @@ Program specific references can be found in each of the
 ## More information
 
 
-FAQs and useful tutorials can be found at the CSD website:
-
-[https://www.ccdc.cam.ac.uk/support-and-resources](https://www.ccdc.cam.ac.uk/support-and-resources/)
-
-and e.g. in the [FAQ](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference)
+FAQs and useful tutorials can be found at [the CSD website](https://www.ccdc.cam.ac.uk/support-and-resources) and e.g. in the [FAQ](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference).
 
   [CSD]: http://www.ccdc.cam.ac.uk/products/csd_system
   [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361

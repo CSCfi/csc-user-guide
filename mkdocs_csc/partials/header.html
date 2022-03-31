@@ -20,6 +20,21 @@
                 </div>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://www.csc.fi/en/home/" class="md-header-nav__button md-logo">
+                <img alt="CSC Company Site" src="{{ config.theme.cscfi_logo | url }}" >
+            </a>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://my.csc.fi/welcome/" class="md-header-nav__button md-logo">
+                <img alt="CSC Customer Portal" src="{{ config.theme.mycsc_logo | url }}" >
+            </a>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <a href="https://research.csc.fi/" class="md-header-nav__button md-logo">
+                <img alt="CSC Services for Research" src="{{ config.theme.research_logo | url }}" >
+            </a>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
                 {% if "search" in config["plugins"] %}
                 <label class="md-icon md-icon--search md-header-nav__button" for="__search" aria-label="search"></label> {% include "partials/search.html" %} {% endif %}
             </div>
