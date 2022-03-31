@@ -12,7 +12,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
 
 
 For general information, see:
-[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](./support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
 
 
 !!! Note
