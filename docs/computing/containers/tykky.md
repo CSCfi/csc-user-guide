@@ -79,9 +79,9 @@ for installing packages. Enable this feature by adding the `--mamba` flag.
 Make sure that you have read and understood the license terms for miniconda and any used channels
 before using the command. 
 
-- https://www.anaconda.com/end-user-license-agreement-miniconda
-- https://www.anaconda.com/terms-of-service
-- https://www.anaconda.com/blog/anaconda-commercial-edition-faq
+- [Miniconda end user license agreement](https://www.anaconda.com/end-user-license-agreement-miniconda)
+- [Anaconda terms of service](https://www.anaconda.com/terms-of-service)
+- [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq)
 
 ### End-to-end example 
 
