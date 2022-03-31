@@ -154,7 +154,7 @@ It's good practice to leave comments/suggest changes to a PR so that they appear
 
 A good way to highlight a new update is to add an entry to the What's new -section. Follow these steps:
 
-1. **Do not** edit the `index.md` landing page file. Instead go to `docs/support/wn/` and edit the file which applies best for your update
+1. **Do not** edit the `index.md` landing page or `whats-new.md` files. Instead go to `docs/support/wn/` and edit the file which applies best for your update
     * `apps-new.md` = New installed software or updated version
     * `comp-new.md` = Updates to the computing environment, e.g. SLURM updates, new/deprecated libraries, web interface..
     * `training-new.md` = New/updated tutorials or training materials published
