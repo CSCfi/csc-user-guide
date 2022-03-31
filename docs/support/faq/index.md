@@ -104,7 +104,7 @@
 ### Encryption
 
 * [Why do I need to encrypt my data?](sensitive-data-encryption.md)
-* [Do sensitive data always need to be encrypted during data transfer (e.g. using an  SSH connection)?](sensitive-data-encryption.md#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an-ssh-connection)
+* [Do sensitive data always need to be encrypted during data transfer (e.g. using an  SSH connection)?](sensitive-data-encryption.md#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an--ssh-connection)
 * [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md#what-methods-can-i-use-to-encrypt-the-data-how-can-i-use-the-csc-public-encryption-key)
 * [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-crypt4gh)
 * [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-crypt4gh-encryption)
