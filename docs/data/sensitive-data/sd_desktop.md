@@ -384,13 +384,19 @@ The keys will be generated and saved to the same folder in which the application
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-2- Next, you can import your public encryption key to SD Connect browser page (for example, via drag and drop). You will be **redirected to a new window displaying the default encryption options**. You can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+**2- Upload the public key to SD Connect**. 
+
+* You can easely upload the public key to SD Connect via drag and drop. You will be **redirected to a new window displaying the default encryption options**. 
+
+* Next, you can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+
+* Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
 <img width="960" alt="export" src="https://user-images.githubusercontent.com/83574067/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
 
-3-  Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
-4- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
+
+**3- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
 
 5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
