@@ -396,7 +396,11 @@ The keys will be generated and saved to the same folder in which the application
 
 
 
-**3- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
+**3- Import the public key inside the Desktop**.
+
+Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, access the bucket with the public key. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
+
+
 
 5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
