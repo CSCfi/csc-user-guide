@@ -17,7 +17,7 @@ During the last service break, we also added new features to the services:
 
 * [**automated encryption**](../../data/sensitive-data/sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) during data upload via SD Connect (user interface, less than 100 GB);
 
-* [**authorized data export**](../../docs/data/sensitive-data/sd_desktop.md#data-export-from-sd-desktop) from SD Desktop using the airlock client.
+* [**authorised data export**](../../docs/data/sensitive-data/sd_desktop.md#data-export-from-sd-desktop) from SD Desktop using the airlock client.
 
 
 
