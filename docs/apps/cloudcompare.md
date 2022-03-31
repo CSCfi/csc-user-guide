@@ -8,11 +8,11 @@ The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing 
 
 The following versions of CloudCompare are available in **Puhti**:
 
-- Cloudcompare 2.11.3
+- Cloudcompare 2.10.3
 
 ## Usage
 
-### [Puhti web interface](https://www.puhti.csc.fi)
+### Puhti web interface
 
 Start an xfce or mate **Desktop** session of the Puhti web interface:
 
@@ -32,13 +32,17 @@ CloudCompare is published under the [GNU General Public License](https://github.
 
 You are free to use CloudCompare for any purpose, including commercially or for education. 
 
+
+
 ## Citation
 
 ```
-CloudCompare (version 2.11.3) [GPL software]. (2021). Retrieved from <a href="http://www.cloudcompare.org/" aria-label="CloudCompare homepage">CloudCompare</a>
+CloudCompare (version 2.10.3) [GPL software]. (2021). Retrieved from <a href="http://www.cloudcompare.org/" aria-label="CloudCompare homepage">CloudCompare</a>
 ```
 
 Also cite the plugin authors, if you used a [plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plugins).
+
+In your publications please acknowledge also Geoportti and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
 
 
 ## References
