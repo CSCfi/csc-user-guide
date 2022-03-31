@@ -347,7 +347,7 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 
 ![Data-export](images/desktop/airlock.png)
 
-1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
+**1- Generate your encryption key pair** (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
 * Install the Crypt4GH application:
 
