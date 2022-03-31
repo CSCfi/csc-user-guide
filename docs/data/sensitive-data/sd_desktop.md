@@ -347,7 +347,7 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 
 ![Data-export](images/desktop/airlock.png)
 
-1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application:
+1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
 * Install the Crypt4GH application:
 
@@ -392,7 +392,7 @@ The keys will be generated and saved to the same folder in which the application
 
 4- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
 
-5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop.
+5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
 The syntax of the encryption command is:
 
@@ -408,7 +408,7 @@ For example:
 crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
 ```
 
-5-Now, the CSC project manager can export the encrypted files.
+6-Once the file is encrypted, only the CSC project manager can export the encrypted files.
 
 From the terminal type the following syntax:
 
@@ -424,9 +424,9 @@ For example:
 airlock-client-vX.X  cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
-Press enter and add your CSC account password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
+Press enter and add your CSC account password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
 
-6- The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
+7- The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
 For more information and support, write to servicedesk@csc.fi (email subject SD Desktop)
 
 
