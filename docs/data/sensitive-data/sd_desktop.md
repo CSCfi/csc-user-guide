@@ -401,8 +401,9 @@ The keys will be generated and saved to the same folder in which the application
 Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, access the bucket with the public key. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
 
 
+**4- Encrypt the restuls**.
 
-5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop and accessible programmatically. 
+Open the terminal (right click) and encrypt with your public key the files you want to export. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
 The syntax of the encryption command is:
 
@@ -418,7 +419,9 @@ For example:
 crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
 ```
 
-6-Once the file is encrypted, only the CSC project manager can export the encrypted files.
+**5- Exporting the results from the private Deskotp**.
+
+Once the file is encrypted, only the CSC project manager can export the encrypted files.
 
 From the terminal type the following syntax:
 
