@@ -158,6 +158,7 @@ A good way to highlight a new update is to add an entry to the What's new -secti
     * `apps-new.md` = New installed software or updated version
     * `comp-new.md` = Updates to the computing environment, e.g. SLURM updates, new/deprecated libraries, web interface..
     * `training-new.md` = New/updated tutorials or training materials published
+    * If these categories do not match your update, you can add a new file with similar structure as the above ones. It is also a good idea to consult #docs.csc.fi RC channel first.
 2. At the top of the file, add a new level 2 heading (##) for your update including a descriptive title followed by the current date.
    * For example, `## SoftwareX v1.2.3 installed on Puhti, 31.3.2022`
 3. Under this heading, describe the update with a few sentences. Include links to appropriate pages elsewhere in docs, as well as external links to e.g. release notes/changelog if applicable.
