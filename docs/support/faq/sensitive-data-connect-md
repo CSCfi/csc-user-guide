@@ -2,7 +2,7 @@
 
 ## What are the technical specifications of the service?
 
-* Storage space: default 10 TiB. Additional quota can be required at:
+* Storage space: default 10 TiB. Additional quota can be required at: servicedesk@csc.fi.
 
 * Sensitive data uploaded to SD Connect must be encrypted according to [CSC General Terms of Use](https://research.csc.fi/general-terms-of-use).
 
