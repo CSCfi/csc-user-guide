@@ -1,13 +1,23 @@
-## How do I add an entry to the "What's new" section
 
-A good way to highlight a new update is to add an entry to the What's new -section. Follow these steps:
+# Data Management
 
-1. **Do not** edit the `index.md` landing page or `whats-new.md` files. Instead go to `docs/support/wn/` and edit the file which applies best for your update
-    * `apps-new.md` = New installed software or updated version
-    * `comp-new.md` = Updates to the computing environment, e.g. SLURM updates, new/deprecated libraries, web interface..
-    * `training-new.md` = New/updated tutorials or training materials published
-    * If these categories do not match your update, you can add a new file with similar structure as the above ones. It is also a good idea to consult #docs.csc.fi RC channel first.
-2. At the top of the file, add a new level 2 heading (##) for your update including a descriptive title followed by the current date.
-   * For example, `## SoftwareX v1.2.3 installed on Puhti, 31.3.2022`
-3. Under this heading, describe the update with a few sentences. Include links to appropriate pages elsewhere in docs, as well as external links to e.g. release notes/changelog if applicable.
-4. Commit your changes and when the PR gets merged a script will automatically add your updates to the docs landing page.
+## Sensitive Data services for research 30.3.2022
+
+Our Sensitive Data services guide has been updated and reorganised into the following sections:
+
+* [Introduction to the services and legal agreements](../../data/sensitive-data/intro.md#introduction);
+
+* [Sensitive Data Connect](../../data/sensitive-data/sd_connect.md#sd-connect-sensitive-data-connect), with a specific paragraph describing [data encryption compatible with Sensitive Data services](../../data/sensitive-data/sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services);
+
+* [Sensitive Data Desktop](../../data/sensitive-data/sd_desktop.md#sd-desktop-sensitive-data-desktop), with a specific section dedicated to [software customisation with singularity containers](../../data/sensitive-data/sd_desktop.md#software-customisation);
+
+* [general FAQs about the services](../../docs/support/faq/index.md#sensitive-data-services-for-research).
+
+During the last service break, we also added new features to the services:
+
+* [**automated encryption**](../../data/sensitive-data/sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) during data upload via SD Connect (user interface, less than 100 GB);
+
+* [**authorized data export**](../../docs/data/sensitive-data/sd_desktop.md#data-export-from-sd-desktop) from SD Desktop using the airlock client.
+
+
+
