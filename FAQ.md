@@ -14,6 +14,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
   - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
   - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
+  - [How do I add an entry to the "What's new" section](#how-do-i-add-an-entry-to-the-whats-new-section)
 
 
 ## How to include my new page in the navigation panel?
@@ -148,3 +149,17 @@ It's good practice to leave comments/suggest changes to a PR so that they appear
 4. If you want to remove a line, delete the content (leave the tics and the word suggestion)
 5. If you want to edit multiple lines, click and drag the `+` sign to select all lines.
 6. Once done, click `Add single comment`.
+
+## How do I add an entry to the "What's new" section
+
+A good way to highlight a new update is to add an entry to the What's new -section. Follow these steps:
+
+1. **Do not** edit the `index.md` landing page or `whats-new.md` files. Instead go to `docs/support/wn/` and edit the file which applies best for your update
+    * `apps-new.md` = New installed software or updated version
+    * `comp-new.md` = Updates to the computing environment, e.g. SLURM updates, new/deprecated libraries, web interface..
+    * `training-new.md` = New/updated tutorials or training materials published
+    * If these categories do not match your update, you can add a new file with similar structure as the above ones. It is also a good idea to consult #docs.csc.fi RC channel first.
+2. At the top of the file, add a new level 2 heading (##) for your update including a descriptive title followed by the current date.
+   * For example, `## SoftwareX v1.2.3 installed on Puhti, 31.3.2022`
+3. Under this heading, describe the update with a few sentences. Include links to appropriate pages elsewhere in docs, as well as external links to e.g. release notes/changelog if applicable.
+4. Commit your changes and when the PR gets merged a script will automatically add your updates to the docs landing page.
