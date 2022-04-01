@@ -27,12 +27,15 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [NoMachine](nomachine.md) client for the sessions. After logging in to Puhti, MATLAB can be launched as follows:
+There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for the sessions. After logging in to the web interface, MATLAB can be launched as follows:
+
+* Select "Desktop" from the "Apps"-view and specify your resource requirements
+* To only run the MATLAB app, select the `Desktop > single application` and `App > MATLAB` settings. 
+* To launch the full desktop, select either `mate` or `xfce` and run MATLAB from the host terminal or by clicking the desktop icon. If using the host terminal, open MATLAB with:
 
 ```bash
-$ sinteractive -i
-$ module load matlab/r2020a
-$ matlab
+module load matlab/r2021b
+matlab
 ```
 
 ### Getting Started with MATLAB Parallel Server on Puhti

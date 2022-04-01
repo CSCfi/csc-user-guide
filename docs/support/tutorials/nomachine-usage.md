@@ -1,6 +1,9 @@
 # How to configure and use the NoMachine remote desktop to access CSC servers
 
-This document will briefly highlight benefits of using NoMachine, how to configure
+!!! Note
+    To run remote graphics on CSC servers, we now recommend you to primarily use the [Puhti web interface remote desktop](../../computing/webinterface/desktop.md). Usage of NoMachine to connect to CSC supercomputers will be deprecated in the near future.
+
+This document will briefly highlight features of NoMachine, how to configure
 connection to CSC and how to further tailor the settings.
 
 [TOC]

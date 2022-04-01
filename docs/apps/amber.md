@@ -14,7 +14,7 @@ structure refinement.
 
 Amber can be used on CSC servers by all not-for-profit institute and
 university researchers irrespective of nationality or location. Look for
-the [academic license text here].
+the [academic license text here](http://ambermd.org/LicenseAmber20.pdf).
 
 ## Usage
 
@@ -61,7 +61,7 @@ srun --gres=gpu:v100:1 pmemd.cuda -O -i mdin -r restrt -x mdcrd -o mdout
     If you want to use more than one GPGPU, perform scaling tests to verify that
     the jobs really become faster. The rule of thumb is that when you double the resources,
     the job duration should shrink at least 1.5 fold.
-    For overall performance info, consult [Amber benchmark scaling info].
+    For overall performance info, consult [Amber benchmark scaling info](http://ambermd.org/GPUPerformance.php).
 
 You can find example inputs from the amber tests directory:
 
@@ -145,9 +145,5 @@ University of California, San Francisco.
 
 ## More Information
 
-The Amber home page: [http://ambermd.org/](http://ambermd.org/) has an extensive manual
+[The Amber home page](http://ambermd.org/) has an extensive manual
 and useful tutorials.
-
-  [academic license text here]: http://ambermd.org/LicenseAmber20.pdf
-  [Amber benchmark scaling info]: http://ambermd.org/GPUPerformance.php
-  [NoMachine remote desktop]: nomachine.md

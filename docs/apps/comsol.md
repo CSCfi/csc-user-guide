@@ -1,7 +1,7 @@
 # COMSOL Multiphysics
 
 The COMSOL Multiphysics simulation environment facilitates
-all steps in the modeling process — defining your geometry, specifying
+all steps in the modeling process; defining your geometry, specifying
 your physics, meshing, solving and then post-processing your results.
 
 Setting up the model up is quick, thanks to a number of predefined modeling
@@ -12,7 +12,7 @@ the dependent variables.
 
 ## Available
  
-- Puhti: 5.6, 5.5, 5.4
+- Puhti: 5.4, 5.5, 5.6, 6.0
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff and students) of Finnish higher education institutions.
@@ -29,32 +29,20 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-The preferred method to use COMSOL interactively is via [NoMachine](nomachine.md) client. With the client, log in to Puhti and allocate computing resources.
+The preferred method to use COMSOL interactively is via [the Puhti web interface desktop application](../computing/webinterface/desktop.md). In the web interface, select "Desktop" from the "Apps"-view and specify the required resources (cores, execution time and memory). Remember to add your billing project, too. 
 
-```bash
-$ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
-  --account=<project> --partition=small --mail-type=BEGIN \
-   bash
-```
-
-You have to specify the execution time and memory requirement corresponding your needs. Remember to add your billing project, too. You will get an email notification, when requested computing resources are available. After that you can start COMSOL.
-
-```bash
-$ module load comsol 
-```
-
-and
-```bash
-$ comsol
-```
+To run the COMSOL GUI only, launch the session with the `Desktop > single application` and `App > COMSOL` settings. For the full desktop, select `mate` or `xfce`. Wait for a while as your interactive job sits in the queue and after that you can start COMSOL (tick the box if you want to receive an email when your session starts).
 
 Sometimes, you may encounter errors relating to OpenGL rendering during
 the launch. The solution is to force COMSOL to start with software
-rendering using the command
+rendering from the command-line using
 
 ```bash
-$ comsol -3drend sw
+module load comsol
+comsol -3drend sw
 ```
+
+For this purpose, you need to launch a full desktop session without the "single application" setting and launch COMSOL through a host terminal.
 
 ## More information
 
