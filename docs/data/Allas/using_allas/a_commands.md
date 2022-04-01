@@ -7,7 +7,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 
 | a-command | help text | Function |
 | :--- | :--- | :--- |
-| [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas as one object |
+| [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas |
 | [a-check](#a-check) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Check if all the objects, that a-put should have created, are found in Allas |
 | [a-list](#a-list) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| List buckets and objects in Allas |
 | [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)|Upload a file to Allas into a bucket that allows public access over the internet |
