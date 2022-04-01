@@ -18,6 +18,9 @@ This tutorial outlines the steps to achieve this using MongoDB as an example dat
 
 Configuring MongoDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../../accounts/how-to-add-service-access-for-project.md).
 
+!!! Note
+    Mind the difference between [persistent](../storage/index.md#persistent-storage) and [ephemeral storage](../storage/index.md#ephemeral-storage) when creating a new database in Rahti. Ephemeral databases are meant for temporary storage and should not be considered reliable. If the [Pod](../networking.md#pods) in which your database is running is deleted or restarted you will lose all your data! To avoid this, create a persistent database and make sure to also perform regular backups to for example [Allas](../../../data/Allas/index.md).
+
 ### Option 1: Using the Rahti web interface
 
 - Log in to the [Rahti web interface](https://rahti.csc.fi:8443). See [Getting access](../access.md) for instructions
