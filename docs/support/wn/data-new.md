@@ -7,9 +7,9 @@ Our Sensitive Data services guide has been updated and reorganised into the foll
 
 * [Introduction to the services and legal agreements](../../data/sensitive-data/intro.md#introduction);
 
-* [Sensitive Data Connect](../../data/sensitive-data/sd_connect.md#sd-connect-sensitive-data-connect), with a specific paragraph describing [data encryption compatible with Sensitive Data services](../../data/sensitive-data/sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services);
+* [Sensitive Data Connect](../../data/sensitive-data/sd_connect.md#), with a specific paragraph describing [data encryption compatible with Sensitive Data services](../../data/sensitive-data/sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services);
 
-* [Sensitive Data Desktop](../../data/sensitive-data/sd_desktop.md#sd-desktop-sensitive-data-desktop), with a specific section dedicated to [software customisation with singularity containers](../../data/sensitive-data/sd_desktop.md#software-customisation);
+* [Sensitive Data Desktop](../../data/sensitive-data/sd_desktop.md#), with a specific section dedicated to [software customisation with singularity containers](../../data/sensitive-data/sd_desktop.md#software-customisation);
 
 * [general FAQs about the services](../../support/faq/index.md#sensitive-data-services-for-research).
 
