@@ -1,7 +1,7 @@
 
 # SD Desktop (Sensitive Data Desktop)
 
-SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as vitual machine) from your web browser. No previous knowledge of cloud computing or programming expertise are required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects.
+SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computers (here called Desktop, technically defined as vitual machine) from your web browser. No previous knowledge of cloud computing or programming expertise are required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects.
 
 In the following user guide, you can learn how to:
 
@@ -29,7 +29,7 @@ In the following user guide, you can learn how to:
 
 ## Before you start
 
-* All the members belonging to a specific CSC project can access the same computing virtual Desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
+* All the members belonging to a specific CSC project can access the same computing virtual Desktops. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
@@ -42,14 +42,14 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project you need to:
+Access to SD Desktop is based on CSC user accounts and projects. If you don't have a CSC account and project you need to:
 
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
 * [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
 * add [service access to Allas and SD Desktop](../../accounts/how-to-add-service-access-for-project.md).
 
-For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data stored in SD Connect from yoru virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
+For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data stored in SD Connect from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
 
 ### Authentication
 
@@ -68,7 +68,7 @@ from any modern web-browser.
 
 Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
-Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
+Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktops are provided with the same application software selection (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
 
 To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go To SD Desktop Management page**. 
@@ -108,7 +108,7 @@ You can choose between **four different pre-built virtual Desktop options **:
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
 
-Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
+Unfortunately, we are not yet providing a virtual Desktop with GPUs, Windows or Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
 In the following paragraphs, we will discuss how to work with a virtual Desktop, which software is available and how it is possible to customise your workspace.
 
@@ -118,6 +118,7 @@ In the following paragraphs, we will discuss how to work with a virtual Desktop,
 ### Working with your virtual Desktop
 
 Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
+Note that you have only one active connection to a spceific desktop.
 
 When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
 
@@ -132,8 +133,7 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your vir
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
-You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check the paragraph below.
-
+You can work with this virtual Desktop like in a standard Linux environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check the paragraph below.
 
 Security-related features SD Desktop include:
 
@@ -141,14 +141,14 @@ Security-related features SD Desktop include:
 
 * you can access or import data only data stored in SD Connect using the Data Gateway application (see below for more information);
 
-* the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside your browser.
+* the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside your virtual desktop.
 
 
 You can close your connection to your virtual Desktop in two ways:
 
 1.  _Log out_ from your Desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to access the virtual Desktop at any time after logging in to the services.
 
-2. If you started a data analysis programmatically (you are running a script) you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your Desktop, you have all your tools and interfaces still open and can continue working. However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
+2. If you close the browser window with out logging out, the desktop stays active. However you can reconnect this destop  only by using the very same browser that you used to open the connections.  However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
 
 
 !!! Note
@@ -203,8 +203,11 @@ As the virtual Desktop is isolated from the internet, the only way to access dat
 This application will allow you to access encrypted data stored in SD Connect or a specific dataset for which you have been granted access via SD Apply for re-use.
 Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop. 
 
+In SD Desktop, you can access only files encrypted with the Sensitive Data Services encryption key or using SD Connect. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. As Data Gateway does decryption automatically, the _.c4gh_ is dropped from the file name in SD Desktop. Thus if you have an encyptred file called _my_data.csv.c4gh_ in SD Connect, in SD Desktop its' name is _my_data.csv_. It is a good practice to organize your data in SD Connect so that you can easily check the SD Desktop compatibility from the name or location of your file.
+
+
 !!! Note
-    In SD Desktop, you can access only files encrypted with the Sensitive Data Services encryption key or using SD Connect. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
+    If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
    
 ### Accessing encrypted data stored in SD Connect using Data Gateway
 
@@ -237,6 +240,7 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 ![Data-Gateway-6](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
 
 
+
 !!! Note 
     The Projects folder is **available only when the Data Gateway application is open**. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
@@ -247,14 +251,13 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
  * access the files of interest in the Project folder **using Data Gateway**;
  
- *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+ * Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
 
  
 !!! Note
     Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
 
 ###  Accessing published data for re-use via SD Apply
-
 
 Data Gateway can also be used to access data published under controlled access via other CSC services for sensitive data. To access a specific dataset in your virtual Desktop, you need first to apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you will be able to access the dataset in SD Desktop for a limited time.
 
@@ -319,8 +322,6 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
       * GIS software (PROJ, GDAL, SAGA)
       * CUDA drivers 
       * TensorFlow (used with R TensorFlow back-end)
-
-      * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
    * GIS software (PROJ, GDAL, SAGA) 
    * CUDA drivers 
    * TensorFlow (used with R TensorFlow back-end) 
@@ -328,7 +329,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
 ### Software customisation
 
-Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ that dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
 
 The most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
@@ -341,7 +342,7 @@ The most convenient way to add new software to your SD Desktop is to build a Sin
 
 ##  Data export from SD Desktop
 
-Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the airlock application, currently available only programmatically. Note: all the files exported from the virtual Desktop need to be encrypted. 
+Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the airlock application, currently available only as a command line client. Note: all the files exported from the virtual Desktop need to be encrypted. 
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
 
@@ -421,7 +422,7 @@ Where *username* is your CSC account username, *data_output_bukcet* is the name 
 For example:
 
 ```text
-airlock-client-vX.X  cscuser  analysis-2022  results-03.csv.c4gh
+airlock-client  cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
 Press enter and add your CSC account password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
