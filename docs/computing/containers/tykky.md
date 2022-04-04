@@ -79,9 +79,9 @@ for installing packages. Enable this feature by adding the `--mamba` flag.
 Make sure that you have read and understood the license terms for miniconda and any used channels
 before using the command. 
 
-- https://www.anaconda.com/end-user-license-agreement-miniconda
-- https://www.anaconda.com/terms-of-service
-- https://www.anaconda.com/blog/anaconda-commercial-edition-faq
+- [Miniconda end user license agreement](https://www.anaconda.com/end-user-license-agreement-miniconda)
+- [Anaconda terms of service](https://www.anaconda.com/terms-of-service)
+- [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq)
 
 ### End-to-end example 
 
@@ -160,7 +160,7 @@ Tykky also provides a tool to generate wrappers for existing containers, so that
 transparently (no need to prepend `singularity exec ...`, or modify scripts if switching between containerized versions of tools).
 
 ```
-wrap-install -w </path/inside/container> <container> --prefix <install_dir> 
+wrap-container -w </path/inside/container> <container> --prefix <install_dir> 
 ```
 where `<container>` can be a filepath or any url accepted by singularity (e.g `docker//:` `oras//:` or any other singularity accepted format)
 `-w` needs to be an absolute path (or comma separated list) inside the container. Wrappers will then be automatically
