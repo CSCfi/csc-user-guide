@@ -16,7 +16,7 @@ supercomputer. So **be prepared to take a step back and relearn some things
 about how computing is done**. We consider this a reasonable price to pay for
 getting access to Finland's most powerful GPU resource for researchers!
 
-## Step 1: getting a CSC user account
+## Step 1: Get a CSC user account
 
 First of all, you need to get a CSC user account. If you work or study at a
 Finnish university just **go to the My CSC portal at
@@ -28,7 +28,7 @@ up*-page. Once you're done, you should get a confirmation email.
 For more information, and special cases, check our separate ["How to create new
 user account" documentation](../../accounts/how-to-create-new-user-account.md).
 
-## Step 2: join an existing project, or create a new one
+## Step 2: Join an existing project, or create a new one
 
 Second, you need to belong to a computing project. This is because CSC needs to
 keep track of how our resources are used, and computing projects are the
@@ -49,7 +49,18 @@ briefly the research you are doing. "Academic" is probably the appropriate
 category in most cases. For more information, check our "[Creating a new
 project" documentation](../../accounts/how-to-create-new-project.md).
 
-## Step 3: logging in to Puhti
+Once your project is created you also need to **add Puhti access to your
+project**. See [Adding service access for a
+project](../../accounts/how-to-add-service-access-for-project.md) for more
+information on that.
+
+**Make a note of the unix group of the project**, which is typically something
+like `project_2001234`. In the remainder of this document we will use
+`project_2001234` as a placeholder whenever we are referring to the unix group
+of the project, but **remember to always replace that with your actual project
+number**.
+
+## Step 3: Log in to Puhti
 
 There are many ways to access Puhti. The traditional way is via an SSH client
 giving you a purely text based command line access to the Linux system running
@@ -68,20 +79,60 @@ like this:
 
 ![Puhti web interface front page](../../img/ood_main.png)
 
-## Step 4: Copy your code to Puhti
+If you are unfamiliar with Puhti's web interface (based on [Open
+OnDemand][OOD]), take some time to familiarize yourself with its functions.
 
-The main things to check for now are:
+For now, the main things to check are:
 
-- The *Files* menu, it should show several disk areas for your use:
-  - *Home Directory*, which is your personal area with quite limited storage
-  - `projappl` directory for each project, which is meant for your
-    project-specific code and important files
-  - `scratch` directory for each project, which is meant for temporary
-    project-specific files such as large datasets (*but don't keep your only
-    copy here!*)
+- The *Files* menu, it should show several disk areas for your use: your
+  personal *Home directory* and `projappl` and `scratch` directories for each of
+  your projects.
 
 - The *Tools* → *Login node shell* to start a terminal session on Puhti. From
   here you can launch jobs
+
+## Step 4: Copy your code to Puhti
+
+It is recommended to keep your code in the `projappl` directory of the project
+to which your code belongs, i.e. `/projappl/project_2001234/`. You can navigate
+to this location in the *Files* browser in the Puhti web interface.
+
+Here you can upload your code using FIXME: check this. In our case we will clone
+the [code from a GitHub repository][GHExample]. When you are in the correct location in the
+*Files* browser, click "Open Terminal Here" (FIXME: check actual txt) and once
+the terminal is open, type the following command (and press ENTER):
+
+```bash
+git clone https://github.com/mvsjober/pytorch-cifar10-example
+```
+
+This should create a copy of the code from the given GitHub repository to the
+Puhti drive. You can now enter the newly created directory, either from the
+terminal, or via the *Files* browser.
+
+TODO: mention editing files via browser
+
+
+## Step 5: Copy you data to Puhti
+
+It is recommended to keep your training data in the `scratch` directory of the
+project, i.e. `/scratch/project_2001234/`. Remember that the scratch maybe
+regularly cleaned, so don't keep anything precious there. Datasets should
+typically have another more permanent location, such as
+[Allas](../../data/Allas/index.md), for storing during the project life-time.
+
+You can navigate to `/scratch/project_2001234/` in the *Files* browser in the
+Puhti web interface. Here we will fetch the dataset from a public Allas bucket
+with `wget`. The `wget` command can be used to download any files which has a
+URL address.
+
+Type the commands to download and extract the dataset:
+
+```bash
+wget https://a3s.fi/mldata/cifar-10-python.tar.gz
+tar xf cifar-10-python.tar.gz
+```
+
 
 <!-- ## Step xx -->
 
@@ -102,3 +153,6 @@ The main things to check for now are:
 <!-- ## Step last: check results -->
 
 <!-- Check slurm*out etc etc. -->
+
+[OOD]: http://openondemand.org/
+[GHExample]: https://github.com/mvsjober/pytorch-cifar10-example
