@@ -3,7 +3,7 @@
 When you login to CSC supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [Usage policy](../overview.md#usage-policy) for details.
 If you need to do heavy computing interactively, you should use interactive batch jobs.
 
-In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) remote desktop.
+In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks users can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case you need to have enabled X11 forwarding. An even better option for remote graphics is to use the [Puhti web interface](../webinterface/index.md).
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` and `$LOCAL_SCRATCH` areas will be removed. 
