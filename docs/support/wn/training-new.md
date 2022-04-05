@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## Tutorial on managing data on scratch disks, 5.4.2022
+
+A [best practice guide on managing data on Puhti and Mahti `scratch` disks](../tutorials/clean-up-data.md) has been published. The tutorial explains why it's important to keep your project's `scratch` disk free from inactive data and gives recommendations on what you should do with data that is not currently in active use. Tips on how to identify where you have large amounts of data are also provided, along with a note on the future automatic removal of files.
+
 ## FireWorks workflow tool, 15.2.2022
 
 A [guide on using FireWorks](../../computing/running/fireworks.md) in CSC's computing environment has been released. The guide explains how to use an external MongoDB on Rahti as a backend database for FireWorks and how to launch workflows running parallel jobs through the batch queue system.
