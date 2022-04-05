@@ -46,4 +46,4 @@ For this purpose, you need to launch a full desktop session without the "single 
 
 ## More information
 
-- COMSOL Multiphysics home page: [https://www.comsol.com](https://www.comsol.com)
+- [COMSOL Multiphysics home page](https://www.comsol.com)
