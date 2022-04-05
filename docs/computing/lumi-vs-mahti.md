@@ -1,10 +1,16 @@
 # How does LUMI-C differ from Mahti?
 
-[LUMI-C](https://docs.lumi-supercomputer.eu/computing/systems/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a performance of 5.6 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a performance of 7.5 Petaflops. Although the systems are very alike based on hardware, core count and performance, there are important differences related to access and use which are highlighted on this page.
+[LUMI-C](https://docs.lumi-supercomputer.eu/computing/systems/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a theoretical performance of 7.7 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a theoretical performance of 7.5 Petaflops. Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
+
+## GPUs and memory
+
+Mahti has only a few (24) GPU-nodes available, while LUMI-C will be flanked by LUMI-G and LUMI-D with a massive GPU capacity. Also, Mahti has 256 GB memory in all CPU nodes, while LUMI-C has also 512 GB and 1024 GB memory nodes (similar to Puhti).
 
 ## Accessing and SSH keys
 
-To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting.md#setting-up-ssh-keys) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
+To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
+
+Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting.md#setting-up-ssh-keys) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
 
 ## Finite time projects
 
@@ -21,7 +27,7 @@ For more details on the access modes, see the [LUMI access page on the Services 
 
 ## Software installation policy
 
-While Mahti offers frequently used applications as pre-installed modules, users are expected to compile and install the applications they intend to run on LUMI themselves. This is due to the fact that LUMI is a pan-European system with significantly more users than the national systems. Maintaining a pre-installed collection of software and licenses that would meet all users' needs on a European level would thus require excessive administration efforts. Moreover, neither the local organizations such as CSC nor the LUMI user support team (LUST) have root access to the system.
+While Mahti offers frequently used applications as pre-installed modules, LUMI users are currently expected to compile and install the applications they intend to run on LUMI themselves.
 
 To facilitate installing software on LUMI, the [EasyBuild tool](https://docs.lumi-supercomputer.eu/software/installing/easybuild/) is provided along with [installation recipes](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib) (EasyConfig files) using which you can install additional applications to your home or project directories. Additionally, a [container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container_wrapper/) identical to the [Tykky tool](containers/tykky.md) is provided as a means to wrap installations inside an Apptainer/Singularity container. This is recommended especially for Conda and pip environments to alleviate the load on the parallel filesystem.
 
@@ -36,7 +42,7 @@ The programming environment of LUMI-C is quite different compared to CSC superco
 
 ## Disk areas
 
-Similar to CSC supercomputers, LUMI uses the Lustre parallel filesystem. However, there's currently no fast local disk such as on Puhti and Mahti-AI. The fast flash-based scratch space (LUMI-F) will be made available once the installation of LUMI-G is completed. Also, the object storage (LUMI-O) is not available yet. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
+Similar to CSC supercomputers, LUMI uses a Lustre parallel filesystem. However, there's currently no fast storage space similar to the local scratch on Puhti and Mahti AI available. A fast flash-based scratch space (LUMI-F) will be made available on LUMI once the installation of LUMI-G is completed. Also, the LUMI-O object storage is not available yet. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
 
 ## Available partitions
 
@@ -44,7 +50,7 @@ LUMI-C has two types of partitions (queues): two that are allocatable by node (o
 
 ## Billing
 
-Billing on LUMI-C differs from Mahti, as well as depending on which partition you are using. Notably, the standard partition (allocatable by node) on LUMI-C is billed based on reserved CPU-core hours (128 billing units per node hour), while on Mahti reserving one node consumes 100 BUs per hour. The small partition on LUMI-C (allocatable by core) is on the other hand billed either 1) per reserved CPU-core (1 BU per CPUh), or 2) per allocated chunk of 2 GB of memory _if_ your are using more than 2 GB of memory per core. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/computing/jobs/billing/).
+Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/computing/jobs/billing/).
 
 ## Sensitive data
 
