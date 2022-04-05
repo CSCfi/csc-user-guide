@@ -42,7 +42,7 @@ The programming environment of LUMI-C is quite different compared to CSC superco
 
 ## Disk areas
 
-Similar to CSC supercomputers, LUMI uses a Lustre parallel filesystem. However, there's currently no fast storage space similar to the local scratch on Puhti and Mahti AI available. A fast flash-based scratch space (LUMI-F) will be made available on LUMI once the installation of LUMI-G is completed. Also, the LUMI-O object storage is not available yet. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
+Similar to CSC supercomputers, LUMI uses a Lustre parallel filesystem. However, there's no fast local disk on LUMI similar to the local scratch on Puhti and Mahti-AI. Instead, a fast flash-based Lustre scratch space (LUMI-F) will be made available once the installation of LUMI-G is completed. Also, the LUMI-O object storage is not available yet. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
 
 ## Available partitions
 
