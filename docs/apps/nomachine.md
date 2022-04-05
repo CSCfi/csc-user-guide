@@ -1,7 +1,7 @@
 ## NoMachine
 
 !!! Note
-    CSC does not anymore recommend the usage of NoMachine for running remote graphics on CSC supercomputers. Instead, please use [the Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+    CSC does not anymore recommend the usage of NoMachine for running remote graphics on CSC supercomputers. Instead, please use [the Puhti web interface](../computing/webinterface/index.md).
 
 The NoMachine Client enables remote graphical work on CSC supercomputers
 from your local computer. The speedup vs.
