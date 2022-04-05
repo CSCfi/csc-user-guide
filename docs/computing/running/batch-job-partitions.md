@@ -17,7 +17,7 @@ normal (CPU) nodes:
 | large           | 3 days        | 1040         |   26                     |  M, L, IO                    | 382 Gib  | 3600 GiB | 
 | longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
 | hugemem         | 3 days        | 160          |   4                      |  XL, BM                      | 1534 GiB |         |
-| hugemem_longrun | 7 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
+| hugemem_longrun | 14 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
 
 The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 10 cores/task.
 
