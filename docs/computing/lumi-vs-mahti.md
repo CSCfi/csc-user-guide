@@ -8,7 +8,7 @@ To access LUMI, you need to first [create a LUMI-specific project](../accounts/h
 
 ## Finite time projects
 
-LUMI projects have a finite duration ranging from 3 months to max. 3 years depending on the access mode:
+Finnish LUMI projects have a finite duration ranging from 3 months to max. 3 years depending on the access mode:
 
 |Access mode  |Length  |Can be extended?               |
 |-------------|--------|-------------------------------|
@@ -17,7 +17,7 @@ LUMI projects have a finite duration ranging from 3 months to max. 3 years depen
 |Extreme scale|1 year  |No                             |
 |Development  |1 year  |Yes, twice = max. 3 years total|
 
-For more details on the access modes, see the [LUMI access page on the Services for Research website](https://research.csc.fi/lumi-access).
+For more details on the access modes, see the [LUMI access page on the Services for Research website](https://research.csc.fi/lumi-access). Note that LUMI users from Finland are also eligible to apply for EuroHPC Joint Undertaking (JU) resources. [See more details on European access modes here](https://www.lumi-supercomputer.eu/get-started-2021/users-in-europe/).
 
 ## Software installation policy
 
