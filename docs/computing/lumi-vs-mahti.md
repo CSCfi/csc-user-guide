@@ -44,7 +44,7 @@ LUMI-C has two types of partitions (queues): two that are allocatable by node (o
 
 ## Billing
 
-Billing on LUMI-C differs from Mahti, as well as depending on which partition you are using. Notably, the standard partition (allocatable by node) on LUMI-C is billed based on reserved CPU-core hours (128 billing units per node hour), while on Mahti reserving one node consumes 100 BUs per hour. The small partition on LUMI-C is on the other hand billed per allocated core, or if you are above a certain threshold, per chunk of 2 GB of memory. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/computing/jobs/billing/).
+Billing on LUMI-C differs from Mahti, as well as depending on which partition you are using. Notably, the standard partition (allocatable by node) on LUMI-C is billed based on reserved CPU-core hours (128 billing units per node hour), while on Mahti reserving one node consumes 100 BUs per hour. The small partition on LUMI-C (allocatable by core) is on the other hand billed either 1) per reserved CPU-core (1 BU per CPUh), or 2) per allocated chunk of 2 GB of memory _if_ your are using more than 2 GB of memory per core. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/computing/jobs/billing/).
 
 ## Sensitive data
 
