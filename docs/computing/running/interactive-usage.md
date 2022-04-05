@@ -57,7 +57,7 @@ Available options for `sinteractive` in Puhti are:
 
 ### sinteractive in Mahti
 
-In Mahti, users can have several interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores shared with all user sessions cannot exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
+In Mahti, users can have up to 8 interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-32 cores, but the total number of reserved cores shared with all user sessions cannot exceed 32. Thus a user can have for example 4 interactive sessions with 8 cores or one 32 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 32 cores, is 60 GB.
 
 For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project _project_2001234_
 can be launched with command:
