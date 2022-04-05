@@ -207,3 +207,21 @@ also possible that you are using the shared file system inefficiently. A common
 error is to read a huge number of small files. You can read more about [how to
 store and load data in the most efficient way for machine learning in our
 separate tutorial](ml-data.md).
+
+### Profilers
+
+[TensorFlow Profiler](https://www.tensorflow.org/guide/profiler) and
+[PyTorch
+Profiler](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
+are available as TensorBoard plugins. The profilers can be found at
+the *PROFILE* and *PYTORCH_PROFILER* tabs in TensorBoard,
+respectively. Note that the tabs may not be visible by default but can
+be found at the pull-down menu on the right-hand side of the
+interface.  The profilers can be used to identify resource consumption
+and to resolve performance bottlenecks, in particular the data input
+pipeline.
+
+See also [how to launch TensorBoard using the Puhti web
+interface](https://docs.csc.fi/computing/webinterface/apps/). The
+TensorFlow module `tensorflow/2.8` or later is required to use the
+profilers.
