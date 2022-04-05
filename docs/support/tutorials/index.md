@@ -14,6 +14,7 @@
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [Building Singularity containers from scratch](singularity-scratch.md)
+* [Mahti RHEL8 test system instructions](mahti-rhel8-test.md)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)
