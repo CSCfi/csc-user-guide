@@ -307,8 +307,7 @@ which will release you from typing your password every time.
 This is **not recommended**. Running the GUI remotely is slow and prone
 to glitches. Please run the GUI locally, and only submit the jobs
 (run the script) on Puhti. If this is not possible, and you _have_ _to_ run the GUI on
-Puhti, use the [interactive partition](../../computing/running/interactive-usage.md)
-and [NoMachine](../../apps/nomachine.md).
+Puhti, use the [Puhti web interface remote desktop](../../computing/webinterface/desktop.md)
 
 ```bash
 module load maestro

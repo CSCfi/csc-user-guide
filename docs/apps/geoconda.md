@@ -149,7 +149,6 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
   [SNAP]: snap.md
   [spyder]: https://docs.spyder-ide.org/
-  [-X connection or NoMachine for Windows users]: ../tutorials/nomachine-usage.md
   [Conda environments]: https://conda.io/docs/user-guide/tasks/manage-environments.html#
   [Bioconda]: bioconda.md
   [Python spatial]: https://github.com/SpatialPython/spatial_python/blob/master/packages.md

@@ -19,7 +19,7 @@ Initialize with:
 module load molden/5.9 
 ```
 
-Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding, or preferably use it through [NoMachine](nomachine.md).
+Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Puhti web interface desktop](../computing/webinterface/desktop.md).
 
 ## References
 The correct reference for molden is:
