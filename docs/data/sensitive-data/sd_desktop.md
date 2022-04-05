@@ -66,7 +66,7 @@ from any modern web-browser.
   
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
+Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical expertiece. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktops are provided with the same application software selection (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
@@ -117,8 +117,7 @@ In the following paragraphs, we will discuss how to work with a virtual Desktop,
 
 ### Working with your virtual Desktop
 
-Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
-Note that you have only one active connection to a spceific desktop.
+Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time. Note that you have only one active connection to a spceific desktop.
 
 When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
 
@@ -148,7 +147,7 @@ You can close your connection to your virtual Desktop in two ways:
 
 1.  _Log out_ from your Desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to access the virtual Desktop at any time after logging in to the services.
 
-2. If you close the browser window with out logging out, the desktop stays active. However you can reconnect this destop  only by using the very same browser that you used to open the connections.  However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
+2. If you close the browser window with out logging out, the desktop stays active. However you can reconnect this destop  only by using the very same browser that you used to open the connection.  Remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
 
 
 !!! Note
@@ -342,7 +341,7 @@ The most convenient way to add new software to your SD Desktop is to build a Sin
 
 ##  Data export from SD Desktop
 
-Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the airlock application, currently available only as a command line client. Note: all the files exported from the virtual Desktop need to be encrypted. 
+Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _airlock_ application, currently available only as a command line client. Note: all the files exported from the virtual Desktop need to be encrypted. 
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
 
@@ -414,11 +413,10 @@ crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.
 From the terminal type the following syntax:
 
 ```text
-airlock-client-vX.X  <<username>> <<data_output_bucket>> <<filename>>
+airlock-client  <<username>> <<data_output_bucket>> <<filename>>
 ```
 
-Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically, in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted files that you want to export.
-
+Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically, in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted file that you want to export. 
 For example:
 
 ```text
@@ -443,7 +441,7 @@ You can not undo this action:
 
 
 !!! note
-    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
+    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,      and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
