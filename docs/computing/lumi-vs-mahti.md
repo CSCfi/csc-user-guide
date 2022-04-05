@@ -4,7 +4,7 @@
 
 ## Accessing and SSH keys
 
-To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#creating-a-lumi-project-and-applying-for-resources). Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting#setting-up-ssh-keys) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
+To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting.md#setting-up-ssh-keys) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
 
 ## Finite time projects
 
