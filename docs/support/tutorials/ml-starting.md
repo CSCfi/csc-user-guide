@@ -171,7 +171,7 @@ actual command to run in the job. You can read more about defining [batch job
 scripts in our separate documentation
 page](../../computing/running/creating-job-scripts-puhti.md).
 
-In the file `run-test.sh` in our code directory, you can find an example:
+In the file `run.sh` in our code directory, you can find an example:
 
 ```bash
 #!/bin/bash
@@ -184,13 +184,15 @@ In the file `run-test.sh` in our code directory, you can find an example:
 #SBATCH --time=15
 #SBATCH --gres=gpu:v100:1
 
+module purge
 module load pytorch
-srun python3 cifar10_cnn.py --data_path=/scratch/project_2001234/mvsjober/cifar-10-batches-py $*
+
+srun python3 cifar10_cnn.py --data_path=/scratch/project_2001234/cifar-10-batches-py
 ```
 
-This will run a job in the `gputest` queue, with 10 CPU cores, 32GB memory and
-one NVIDIA V100 GPU. The job's maximum run time is 15 minutes, in fact 15
-minutes is the maximum run time in the `gputest` queue as it is meant for
+This will run a job in the `gputest` partition, with 10 CPU cores, 32GB memory
+and one NVIDIA V100 GPU. The job's maximum run time is 15 minutes, in fact 15
+minutes is the maximum run time in the `gputest` partition as it is meant for
 testing only.
 
 Below the `#SBATCH` options, you can see the actual commands. First it loads the
@@ -203,7 +205,7 @@ to set the correct path for your case.
 To run the script, that is pass it to the Slurm queue, run the command:
 
 ```bash
-sbatch run-test.sh
+sbatch run.sh
 ```
 
 If submission was successful it should report something like:
@@ -231,7 +233,10 @@ like `slurm-12345678.out`, with the number being the batch job ID of your jobs
 (printed at submission time).
 
 Once you're satisfied that the job runs as it should, you can run in the real
-`gpu` queue that allows for jobs longer than 15 minutes.
+`gpu` partition that allows for jobs longer than 15 minutes. Just edit the
+`run.sh` file to change the partition to `gpu`.
+
+
 
 
 [OOD]: http://openondemand.org/
