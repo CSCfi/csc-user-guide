@@ -67,7 +67,7 @@ The following partition is available for allocation by resources in **Mahti** on
 
 | Partition | Cores       | Time<br>limit | Max<br>memory    | Access           |
 |-----------|-------------|---------------|------------------|------------------|
-| interactive |  1-32      |  7 days      | 60 GiB           | all              |
+| [interactive](interactive-usage.md#sinteractive-in-mahti)  |  1-32      |  7 days      | 60 GiB           | all              |
 
 The following partitions are available on GPU nodes. Note that for each GPU, you can reserve at most 32 cores/task and for each GPU the job is allocated 122.5 GiB of memory.
 
