@@ -1,5 +1,9 @@
 # Applications
 
+## LUE released on Puhti, 5.4.2022
+
+An approximate tool called [LUE](../tutorials/lue.md) (Lustre Usage Explorer) for reporting amount of data in folders has been released on Puhti. LUE is significantly faster than standard tools like `stat` or `du` while being nicer on the file system. Please use LUE to keep track of how much data/files you have on the disk and perform clean-ups in a timely manner to ensure a more performant filesystem for all users.
+
 ## Tykky 0.2.2, 31.3.2022
 
 [Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments inside a Singularity container, has been released. Containerization will considerably improve startup times and decrease IO load with less files on the shared parallel filesystem. We recommend wrapping all existing Conda environments within containers using Tykky as the [direct usage of Conda on CSC supercomputers has been deprecated](../deprecate-conda.md).

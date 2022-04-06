@@ -6,7 +6,7 @@ applications as well. However, please always consult the [application specific
 page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
 
 ## Get the exercise files
-### a) Log in to Puhti either from a terminal or using NoMachine client
+### a) Log in to Puhti from a terminal
 
 `ssh your-username@puhti.csc.fi`
 
@@ -304,8 +304,7 @@ You should get the fit coefficients in separate files in the
 ### e) Collect the results and plot them.
 
 Note, plotting will work only if you have 
-[remote X11 forwarding](../../../computing/connecting/#using-graphical-applications) or you've
-connected to Puhti via [NoMachine](../../apps/nomachine.md).
+[remote X11 forwarding](../../../computing/connecting/#using-graphical-applications).
 Actually, for R, there is even a tailored remote setup using 
 [RStudio Server](../../apps/r-env-singularity.md),
 and you're welcome to use that, but in this tutorial, the key point is to 

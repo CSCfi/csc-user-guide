@@ -12,7 +12,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
 
 
 For general information, see:
-[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../sensitive-data/faq_index.md), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
 
 
 !!! Note
@@ -53,9 +53,9 @@ Store and share.
  
  * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption)
  
- * [**Command Line Interface: data encryption and upload**](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
+ * [**Command Line Interface: data encryption and upload:**](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
   
- * [**Command Line Interface: encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
+ * [**Command Line Interface: data encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
  
  * [**Troubleshooting**](./sd_connect.md#troubleshooting)
 

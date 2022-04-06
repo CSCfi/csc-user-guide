@@ -177,7 +177,6 @@ nav:
         - Introduction: data/sensitive-data/intro.md
         - SD Connect: data/sensitive-data/sd_connect.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
-#       - FAQ: data/sensitive-data/faq_index.md
 #       - FederatedEGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
@@ -232,6 +231,7 @@ markdown_extensions:
       toc_depth: 2-6
   - admonition
   - attr_list
+  - def_list
   - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.superfences
