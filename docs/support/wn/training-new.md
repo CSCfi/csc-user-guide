@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## How does LUMI-C differ from Mahti? 6.4.2022
+
+[A brief overview of key differences between LUMI-C and CSC supercomputers](../../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
+
 ## Tutorial on managing data on scratch disks, 5.4.2022
 
 A [best practice guide on managing data on Puhti and Mahti `scratch` disks](../tutorials/clean-up-data.md) has been published. The tutorial explains why it's important to keep your project's `scratch` disk free from inactive data and gives recommendations on what you should do with data that is not currently in active use. Tips on how to identify where you have large amounts of data are also provided, along with a note on the future automatic removal of files.
