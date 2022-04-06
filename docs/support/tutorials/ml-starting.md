@@ -114,12 +114,17 @@ This should create a copy of the code from the given GitHub repository to the
 Puhti drive. You can now enter the newly created directory, either from the
 terminal, or via the Files browser.
 
+!!! note
+
+    Here we have provided some example code for training a simple neural network on
+    CIFAR10 data. You can of course replace that with your own code, for example
+    from your laptop.
+
 In the Files browser you can view a file by simply clicking on it. You can edit
 a file by clicking on the file-specific menu (three dots) and selecting *Edit*,
 as shown below.
 
 ![How to edit a file in Puhti web](../../img/ood-edit-example.png)
-
 
 
 ## Step 5: Copy your data to Puhti
@@ -144,6 +149,13 @@ wget https://a3s.fi/mldata/cifar-10-python.tar.gz
 tar xf cifar-10-python.tar.gz
 ```
 
+## Step 6: Run you first test job in Slurm
+
+Puhti is a supercomputer cluster, which means that it's a collection of hundreds
+of computers. Instead of running programs directly, they are put in a queue and
+a scheduling system (called "Slurm") decides when and where the program will
+run.
+
 
 <!-- ## Step xx -->
 
@@ -153,10 +165,6 @@ tar xf cifar-10-python.tar.gz
 
 <!-- ## Step nn: slurm -->
 
-<!-- Puhti is a supercomputer cluster, which means that it's a collection of hundreds -->
-<!-- of computers. Instead of running programs directly, they are put in a queue and -->
-<!-- a scheduling system (called "Slurm") decides when and where the program will -->
-<!-- run. -->
 
 <!-- - gputest -->
 
