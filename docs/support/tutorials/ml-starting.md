@@ -89,46 +89,57 @@ For now, the main things to check are:
   your projects.
 
 - The *Tools* → *Login node shell* to start a terminal session on Puhti. From
-  here you can launch jobs
+  here you can run Linux commands.
 
 ## Step 4: Copy your code to Puhti
 
 It is recommended to keep your code in the `projappl` directory of the project
-to which your code belongs, i.e. `/projappl/project_2001234/`. You can navigate
-to this location in the *Files* browser in the Puhti web interface.
+to which your code belongs, for example `/projappl/project_2001234/`. You can navigate
+to this location in the Files browser in the Puhti web interface.
 
-Here you can upload your code using FIXME: check this. In our case we will clone
-the [code from a GitHub repository][GHExample]. When you are in the correct location in the
-*Files* browser, click "Open Terminal Here" (FIXME: check actual txt) and once
-the terminal is open, type the following command (and press ENTER):
+If you have code on your own computer, one option is to use the "Upload" button,
+in the upper right corner in the Files browser. 
+
+In our case we will clone the [code from a GitHub repository][GHExample], and
+for that we need to open a terminal session. Click "Open in Terminal" in the
+Files browser or start the *Login node shell* from the *Tools* menu. Then type
+the following commands (and press ENTER):
 
 ```bash
+cd /projappl/project_2001234  # needed only if your didn't navigate to correct directory
 git clone https://github.com/mvsjober/pytorch-cifar10-example
 ```
 
 This should create a copy of the code from the given GitHub repository to the
 Puhti drive. You can now enter the newly created directory, either from the
-terminal, or via the *Files* browser.
+terminal, or via the Files browser.
 
-TODO: mention editing files via browser
+In the Files browser you can view a file by simply clicking on it. You can edit
+a file by clicking on the file-specific menu (three dots) and selecting *Edit*,
+as shown below.
+
+![How to edit a file in Puhti web](../../img/ood-edit-example.png)
 
 
-## Step 5: Copy you data to Puhti
+
+## Step 5: Copy your data to Puhti
 
 It is recommended to keep your training data in the `scratch` directory of the
-project, i.e. `/scratch/project_2001234/`. Remember that the scratch maybe
-regularly cleaned, so don't keep anything precious there. Datasets should
-typically have another more permanent location, such as
-[Allas](../../data/Allas/index.md), for storing during the project life-time.
+project, for example `/scratch/project_2001234/`. Remember that the scratch may
+be regularly cleaned, so don't keep anything important there. Datasets should
+typically have another more permanent location, such as in
+[Allas](../../data/Allas/index.md) for storing during the project's life-time.
 
 You can navigate to `/scratch/project_2001234/` in the *Files* browser in the
 Puhti web interface. Here we will fetch the dataset from a public Allas bucket
 with `wget`. The `wget` command can be used to download any files which has a
 URL address.
 
-Type the commands to download and extract the dataset:
+Type the commands to download and extract the dataset (launching the terminal as
+in Step 4 if you haven't already done that):
 
 ```bash
+cd /scratch/project_2001234  # needed only if your didn't navigate to correct directory
 wget https://a3s.fi/mldata/cifar-10-python.tar.gz
 tar xf cifar-10-python.tar.gz
 ```
