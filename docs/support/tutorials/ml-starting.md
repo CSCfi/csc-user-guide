@@ -120,9 +120,13 @@ terminal, or via the Files browser.
     CIFAR10 data. You can of course replace that with your own code, for example
     from your laptop.
 
-In the Files browser you can view a file by simply clicking on it. You can edit
-a file by clicking on the file-specific menu (three dots) and selecting *Edit*,
-as shown below.
+In the Files browser you can view a file by simply clicking on it. In particular
+check the main source code in `cifar10_cnn.py`. Towards the end of the file you
+can see the command line options. Notice that `--data_path` is a required
+option, it is the path to where the dataset is stored.
+
+You can edit a file by clicking on the file-specific menu (three dots) and
+selecting *Edit*, as shown below.
 
 ![How to edit a file in Puhti web](../../img/ood-edit-example.png)
 
@@ -149,29 +153,87 @@ wget https://a3s.fi/mldata/cifar-10-python.tar.gz
 tar xf cifar-10-python.tar.gz
 ```
 
-## Step 6: Run you first test job in Slurm
+This will create a directory called `cifar-10-batches-py` with the CIFAR10
+dataset in a Python-friendly format. The full path to the data is thus something
+like `/scratch/project_2001234/cifar-10-batches-py`.
+
+
+## Step 6: Create your first batch job script
 
 Puhti is a supercomputer cluster, which means that it's a collection of hundreds
 of computers. Instead of running programs directly, they are put in a queue and
 a scheduling system (called "Slurm") decides when and where the program will
 run.
 
+To run a Slurm job, we need to defined a batch script. This is just a text file
+with a set of Slurm options defining the resources we need for our job and the
+actual command to run in the job. You can read more about defining [batch job
+scripts in our separate documentation
+page](../../computing/running/creating-job-scripts-puhti.md).
 
-<!-- ## Step xx -->
+In the file `run-test.sh` in our code directory, you can find an example:
 
-<!-- PyTorch code from github, CIFAR data? Own code, or from recent paper? -->
-<!-- `pip install --user`? -->
+```bash
+#!/bin/bash
+#SBATCH --account=project_2001234
+#SBATCH --partition=gputest
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=32G
+#SBATCH --time=15
+#SBATCH --gres=gpu:v100:1
 
+module load pytorch
+srun python3 cifar10_cnn.py --data_path=/scratch/project_2001234/mvsjober/cifar-10-batches-py $*
+```
 
-<!-- ## Step nn: slurm -->
+This will run a job in the `gputest` queue, with 10 CPU cores, 32GB memory and
+one NVIDIA V100 GPU. The job's maximum run time is 15 minutes, in fact 15
+minutes is the maximum run time in the `gputest` queue as it is meant for
+testing only.
 
+Below the `#SBATCH` options, you can see the actual commands. First it loads the
+pytorch module, and then runs the Python script with the path to where the data
+is stored given in the `--data_path` argument. You might need to edit the script
+to set the correct path for your case.
 
-<!-- - gputest -->
+## Step 7: Run your first test job
 
+To run the script, that is pass it to the Slurm queue, run the command:
 
-<!-- ## Step last: check results -->
+```bash
+sbatch run-test.sh
+```
 
-<!-- Check slurm*out etc etc. -->
+If submission was successful it should report something like:
+
+```
+Submitted batch job 12345678
+```
+
+If you're instead seeing some error message, take a look at our [page of common
+batch job errors](../faq/why-does-my-batch-job-fail.md). If you cannot find a
+solution there, don't hesitate to [contact our service desk][servicedesk].
+
+You can check you running job, either from the terminal:
+
+```bash
+squeue -l -u $USER
+```
+
+or via the *Jobs* → *Active Jobs* menu in the Puhti web interface.
+
+## Step 8: Check the output of the job
+
+Once the job has finished, its output should appear in a file called something
+like `slurm-12345678.out`, with the number being the batch job ID of your jobs
+(printed at submission time).
+
+Once you're satisfied that the job runs as it should, you can run in the real
+`gpu` queue that allows for jobs longer than 15 minutes.
+
 
 [OOD]: http://openondemand.org/
 [GHExample]: https://github.com/mvsjober/pytorch-cifar10-example
+[servicedesk]: ../support/contact.md
