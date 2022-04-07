@@ -24,7 +24,7 @@ NAMD can be run either with CPUs or with a GPU + CPUs.
 
 Tests show that leaving one core for communication for each task is beneficial, i.e. `namd_threads=$SLURM_CPUS_PER_TASK-1`. This is also recommended by NAMD developers. Please test with your input.
 
-Make sure `--ntasks-per-node` times "--cpus-per-task" equals 40 (Puhti) or 128 (Mahti-rhel8), i.e. all cores in a node. Try different ratios and select the optimal one.
+Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti) or 128 (Mahti-rhel8), i.e. all cores in a node. Try different ratios and select the optimal one.
 
 The data below shows the ApoA1 benchmark (92k atoms) on Mahti-rhel8 (ns/day as a function of allocated nodes, each line with a certain number of `namd_threads` as set in the [Mahti-rhel8 script below](#batch-script-example-for-mahti-rhel8)).
 
@@ -111,7 +111,7 @@ sbatch namd_job.bash
 ```
 
 !!! Note
-    Following the RHEL8 update on Mahti, you need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD.
+    Following the RHEL8 update on Mahti, you need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
 
 ## References
 
