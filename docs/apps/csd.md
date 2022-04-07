@@ -113,5 +113,4 @@ FAQs and useful tutorials can be found at [the CSD website](https://www.ccdc.cam
   [SolidFormModule]: http://www.ccdc.cam.ac.uk/Solutions/CSDSolidFormSuite/Pages/SolidFormModule.aspx
   [CrossMiner]: https://www.ccdc.cam.ac.uk/solutions/csd-discovery/components/CSD-CrossMiner/
   [DASH]: http://www.ccdc.cam.ac.uk/Solutions/PowderDiffraction/Pages/DASH.aspx
-  [NoMachine]: nomachine.md
 

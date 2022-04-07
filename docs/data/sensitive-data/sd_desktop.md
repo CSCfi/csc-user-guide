@@ -341,13 +341,14 @@ The most convenient way to add new software to your SD Desktop is to build a Sin
 
 ##  Data export from SD Desktop
 
-Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the airlock application, currently available only programmatically. Note: all the files exported from the virtual Desktop need to be encrypted. 
+Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the Airlock application, currently available only programmatically. The results are exported to SD Connect, where they will be available for download to your computer. 
+
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
 
 ![Data-export](images/desktop/airlock.png)
 
-1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application:
+**1- Generate your encryption key pair** (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
 * Install the Crypt4GH application:
 
@@ -355,8 +356,8 @@ CSC has developed a simple application that will allow you to generate your encr
 Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
-   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
-   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
+  - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
+  - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
 
 Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
 
@@ -384,15 +385,26 @@ The keys will be generated and saved to the same folder in which the application
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-2- Next, you can import your public encryption key to SD Connect browser page (for example, via drag and drop). You will be **redirected to a new window displaying the default encryption options**. You can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+**2- Upload the public key to SD Connect**. 
+
+* You can easily upload the public key to SD Connect via drag and drop. You will be **redirected to a new window displaying the default encryption options**. 
+
+* Next, you can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
+
+* Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
 <img width="960" alt="export" src="https://user-images.githubusercontent.com/83574067/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
 
-3-  Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
-4- Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, you can import a copy of your public key inside the virtual Desktop. 
 
-5- Next, open the terminal (right click) and encrypt the files you want to export with your public key. Crypt4GH is already installed on each Desktop.
+**3- Import the public key inside the Desktop**.
+
+Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, access the bucket with the public key. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
+
+
+**4- Encrypt the results**.
+
+Open the terminal (right-click) and encrypt with your public key the files you want to export. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
 The syntax of the encryption command is:
 
@@ -408,15 +420,17 @@ For example:
 crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
 ```
 
-5-Now, the CSC project manager can export the encrypted files.
+**5- Exporting the results from the private Desktop**.
 
-From the terminal type the following syntax:
+Once the results are encrypted, only the CSC project manager can export the files with the Airlock client. 
+
+Open the terminal (right click) and  type the following syntax:
 
 ```text
 airlock-client-vX.X  <<username>> <<data_output_bucket>> <<filename>>
 ```
 
-Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically, in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted files that you want to export.
+Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted files that you want to export.
 
 For example:
 
@@ -424,10 +438,33 @@ For example:
 airlock-client-vX.X  cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
-Press enter and add your CSC account password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons.
+Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
 
-6- The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
-For more information and support, write to servicedesk@csc.fi (email subject SD Desktop)
+**6- Download and decrypt the files**.
+
+The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
+For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data)
+
+
+
+## Deleting your virtual Desktop
+  
+At the end of your analysis, you can delete your virtual Desktop and all the files in it.
+
+You can not undo this action:
+  
+* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
+* Here, under **Available instances** click on **Delete Desktop**. 
+
+
+!!! note
+    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
+
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+
+![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+s
+<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
 

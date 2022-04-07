@@ -31,9 +31,7 @@ By default, SSH access to Puhti is authenticated with the password of your CSC u
 
 ## Using graphical applications
 
-[NoMachine](../apps/nomachine.md) virtual desktop is a good way to use most graphical applications in Puhti. Note that in certain applications (e.g. RStudio Server provided as part of the [`r-env-singularity`](../apps/r-env-singularity.md) module), graphical applications are instead accessed through a local web browser via SSH tunneling.
-
-In addition to fast remote graphics, NoMachine enables you to keep your Puhti remote terminals active, even if you closed your local computer. Therefore, NoMachine is also well-suited for long interactive processes also without graphics. More details can be found in the [NoMachine tutorial](../support/tutorials/nomachine-usage.md).
+The [Puhti web interface](webinterface/index.md) is a good platform to use most graphical applications, such as Jupyter notebooks and RStudio, in Puhti. Additionally, you can launch a [remote desktop](webinterface/desktop.md) for running various graphical user interfaces. The Puhti web interface allows you also to open a persistent shell on a compute node which will keep running even if you would close your browser or lose internet connection.
 
 If you for some reason want to use a slower, X11 based graphical connection, your local computer must have an X server program installed and running. In Linux and macOS an X server is normally installed automatically, while for Windows it needs to be installed separately. A free X server for Windows is provided, for example, by [MobaXterm](https://mobaxterm.mobatek.net/) or [Xming](http://www.straightrunning.com/XmingNotes/).
 
