@@ -29,7 +29,9 @@ If you cannot use any of the [provided images](https://github.com/CSCfi/notebook
 
 For Jupyter Lab with some conda packages use the following as minimal example:
 
-```text xxcourse.dockerfile
+xxcourse.dockerfile:
+
+```text 
 # use jupyter minimal notebook as base for your image
 # it has eg conda already installed
 FROM jupyter/minimal-notebook
