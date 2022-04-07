@@ -3,6 +3,7 @@
 These instructions guide you through the process of creating Jupyter notebooks for a course with custom conda packages installed. 
 
 Requirements: 
+
 * own CSC user account with Rahti access
 * docker installed (own computer or Pouta instance)
 
