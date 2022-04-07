@@ -1,90 +1,112 @@
+# Sensitive Data Services for research: user guide
+
+This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can:
+
+* find an overview and **key features** of each service;
+
+* follow **simplified, step-by-step** instructions on how to access and set up the services;  previous knowledge is not required. Specific paragraphs are marked as *advanced* if technical and coding skills are necessary. 
+
+* watch **1 to 3 minutes video** tutorials that will support you through each step;
+
+* find quick technical suggestions in the **troubleshooting table**.
 
 
-This is the user guide for CSC Sensitive Data Services and it is part of Docs CSC. In order to navigate across the CSC user guide, click on the topics on the left hand side of the navigation bar or use the search functionality.
+For general information, see:
+[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
 
-We are currently updating the documentation and video tutorials. 
 
 !!! Note
-    Do you have any questions? Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
-
-
-
-
-
-
+    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
 
 
 ## [Introduction](./intro.md)
 
-   
-   * **Summary**
-   
-   * **Getting access**
-   
-   * **Quickstart:Processing sensitive data using SD Desktop**
-   
-   * **Quickstart:Sharing sensitive data with SD Connect**
-   
-   * **Useful terminology**
+  * [**Legal agreements**](./intro.md#legal-agreements)
+  * [**Getting access**](./intro.md#getting-access)
+  * [**Useful terminology**](./intro.md#getting-access)
 
 
   
-## [Sensitive Data Connect (SD Connect)](./sd_connect.md)
+## [Sensitive Data Connect](./sd_connect.md)
+Store and share.
    
- * **Before you start**
 
- * **Login**
-   
- * **User Interface Pages**
-   
- * **Sensitive data encryption and upload (less than 1 GB)**
+  * [**Key features**](./sd_connect.md)
+
+  * [**Before you start**](./sd_connect.md#before-you-start)
+  
+  * [**Overview**](./sd_connect.md#overview)
  
- * **Sensitive data encryption and upload (less than 100 GB)**
+  * [**Service access**](./sd_connect.md#service-access)
+  
+  * [**Authentication**](./sd_connect.md#authentication)
+
+  * [**User Interface**](./sd_connect.md#user-interface)
+  
+  * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * **Data encryption and upload with Sensitive Data encryption key - Command Line Interface**
-       
- * **Data Sharing**
+ * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb)
  
- * **Troubleshooting**
+ * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
+ 
+ * [**Data sharing**](./sd_connect.md#data-sharing)
+ 
+ * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption)
+ 
+ * [**Command Line Interface: data encryption and upload:**](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
+  
+ * [**Command Line Interface: data encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
+ 
+ * [**Troubleshooting**](./sd_connect.md#troubleshooting)
+
+
+  
+ 
 
   
 
-## [Sensitive Data Desktop (SD Desktop)](./sd_desktop.md)
+## [Sensitive Data Desktop](./sd_desktop.md)
+Analyse and compute.
 
-  * **Before you start**
+  * [**Key features**](./sd_desktop.md)
 
-  * **Login**
-
-  * **Launching your Desktop (or your private computing environment)**
-
-  * **Importing encrypted sensitive data to SD Desktop**
-
-  * **RStudio in SD Desktop**
-
-  * **Deleting your computing environment**
-
-  * **Data export from SD Desktop**
+  * [**Before you start**](./sd_desktop.md#before-you-start)
   
-   * **Troubleshooting**
+  * [**Overview**](./sd_desktop.md#overview) 
+ 
+  * [**Service access**](./sd_desktop.md#service-access)  
   
+  * [**Authentication**](./sd_desktop.md#authentication) 
 
+  * [**Setting up a virtual Desktop**](./sd_desktop.md#setting-up-a-virtual-desktop) 
 
+  * [**Working with Desktop**](./sd_desktop.md#working-with-your-virtual-desktop)
 
-## [Pre-installed software in SD Desktop](./pre-installed_software.md)
+  * [**Accessing encrypted sensitive data within SD Desktop**](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop)
 
-
-## [Utilizing singularity containers in SD Desktop](sd-desktop-singularity.md)
-
-
-## [Data encryption for data sharing](./crypt4gh_client.md )
+  * [**Default programs available on SD Desktop**](./sd_desktop.md#default-programs-available-on-sd-desktop)
   
-  * **Before you start**
+  * [**Software customization**](./sd_desktop.md#software-customisation) (Advanced)
 
-  * **Crypt4GH Graphical User Interface (GUI)**
+  * [**Data export**](./sd_desktop.md#data-export-from-sd-desktop)
 
-  * **Crypt4GH Command Line Interface (CLI)**
-
- * **Troubleshooting**
-
+  * [**Deleting your virtual Desktop**](./sd_desktop.md#deleting-your-virtual-desktop)
+  
+  * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
+  
   
 
+  
+  
+## **Services in the pilot phase:**
+
+  
+### [Finnish Federated EGA](./federatedega.md)
+Publish genetic data under controlled access. 
+Preliminary guide.
+ 
+  
+### [Sensitive Data Apply](./sd-apply.md)
+Apply for re-use. 
+Preliminary guide. 
+ 

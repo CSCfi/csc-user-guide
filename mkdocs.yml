@@ -27,6 +27,7 @@ nav:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
+        - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
         - Kvasi: computing/kvasi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
@@ -48,6 +49,7 @@ nav:
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
+        - LUMI: computing/compiling-lumi.md
         - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
@@ -60,6 +62,7 @@ nav:
        - Interactive apps:
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
+         - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
@@ -170,14 +173,14 @@ nav:
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
      - Sensitive data:
-        - Overview: data/sensitive-data/index.md
+        - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-#        - Quickguide: data/sensitive-data/quickguide.md
         - SD Connect: data/sensitive-data/sd_connect.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
-        - Pre-installed software: data/sensitive-data/pre-installed_software.md
-        - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
-#        - FAQ: data/sensitive-data/faq_index.md
+#       - FederatedEGA: data/sensitive-data/federatedega.md
+#       - SD Apply: data/sensitive-data/sd-apply.md
+#       - Containers: data/sensitive-data/creating_containers.md
+
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
@@ -206,6 +209,9 @@ theme:
     code: 'Source Code Pro'
 
   logo: 'img/Docs_CSC_logo.svg#headerlogo"'
+  cscfi_logo: 'img/CSCfi_text.png#headerlogo'
+  mycsc_logo: 'img/MyCSC_text.png#headerlogo'
+  research_logo: 'img/Research_text.png#headerlogo'
 
 extra_css:
   - 'assets/stylesheets/tabbed.css'
@@ -225,6 +231,7 @@ markdown_extensions:
       toc_depth: 2-6
   - admonition
   - attr_list
+  - def_list
   - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.superfences

@@ -20,10 +20,9 @@ module load grace
 
 And start with `xmgrace` or show a plot directly with `xmgrace input.xvg`.
 
-Note, that you need remote graphics to work with Grace. An easy way is through [NoMachine](nomachine.md).
+Note, that you need remote graphics to work with Grace. An easy way is through the [Puhti web interface remote desktop](../computing/webinterface/desktop.md).
 
 
 ## More information
 -   [Grace home page](https://plasma-gate.weizmann.ac.il/Grace/)
 -   [Grace user guide](https://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html)
-
