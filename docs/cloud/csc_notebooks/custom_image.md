@@ -9,7 +9,7 @@ Requirements:
 
 ## Step-by-step
 
-### 1. Workspace owner
+### 1. Become a workspace owner
 
 1. Become a workspace owner
 Send your CSC user account name to `notebooks@csc.fi` to request Notebooks workspace owner rights.
