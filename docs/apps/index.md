@@ -116,6 +116,7 @@
 ## Geosciences
 
 * [ArcGIS](arcgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [CloudCompare](cloudcompare.md) for visualizing, editing and processing poing clouds
 * [FORCE](force.md) for mass-processing of medium-resolution satellite images
 * [GDAL](gdal.md) for geospatial data formats
 * [Geoconda](geoconda.md) - Python spatial analysis libraries
@@ -156,7 +157,6 @@
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [Python](python.md) programming language and its modules at CSC.
-* [R](r-env.md) Open-source language and environment for statistical analysis and graphics
 * [r-env-singularity](r-env-singularity.md) R, RStudio Server, SAGA and TensorFlow (Singularity container)
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
@@ -168,7 +168,6 @@
 ## Miscellaneous
 
 * [DDT](ddt.md) Parallel debugger 
-* [NoMachine](nomachine.md) Remote Desktop enabling fast graphics without X-emulators
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application

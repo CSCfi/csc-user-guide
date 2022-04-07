@@ -130,8 +130,7 @@ for using Jupyter in CSC environment.
 [Spyder](https://www.spyder-ide.org/) is scientific Python development
 environment. Modules python-env, [python-data](python-data.md) and
 [geoconda](geoconda.md) have Spyder included. The best option for using it is
-during an [interactive session](../computing/running/interactive-usage.md) with
-[NoMachine](../support/tutorials/nomachine-usage.md).
+through the [Puhti web interface remote desktop](../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 Python has several different packages for parallel processing:

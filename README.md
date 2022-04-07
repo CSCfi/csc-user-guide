@@ -15,10 +15,11 @@ create an issue about, and click 'File a bug report for this
 article'. More general issues can be submitted through GitHubs [Issues tab](https://github.com/CSCfi/csc-user-guide/issues)
 Creating an Issue requires a GitHub account.
 
-
 [Contributing](CONTRIBUTING.md)
 
 [Style guide](STYLEGUIDE.md)
+
+[Frequently asked questions](FAQ.md)
 
 [Changelog](CHANGELOG.md)
 

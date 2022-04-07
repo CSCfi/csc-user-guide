@@ -3,6 +3,7 @@
 ## General
 * [Getting started with Puhti](puhti_quick.md)
 * [Getting started with Mahti](mahti_quick.md)
+* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
@@ -14,6 +15,7 @@
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [Building Singularity containers from scratch](singularity-scratch.md)
+* [Getting disk usage using Lue](lue.md)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)
@@ -38,12 +40,12 @@
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 * [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
-
 ## Data analysis and machine learning
 
 * [Data analysis guide](da-guide.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 * [Machine learning guide](ml-guide.md)
+* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+* [Starting with parallel R](parallel-r.md)
 
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)

@@ -4,19 +4,21 @@ The Allas object storage system can be used in multiple ways and for many purpos
 
 For users who simply want to use Allas for storing data that is in the CSC computing environment, CSC provides a set of commands for managing and moving data between the CSC computing environment and Allas:
 
-| a-command | Function |
-| :--- | :--- |
-| [a-put](#a-put) | Upload a file or directory to Allas as one object |
-| [a-check](#a-check) | Check if all the objects, that a-put should have created, are found in Allas |
-| [a-list](#a-list) | List buckets and objects in Allas |
-| [a-publish](#a-publish) | Upload a file to Allas into a bucket that allows public access over the internet |
-| [a-flip](#a-flip) | Upload a file temporarily to Allas into a bucket that allows public access over the internet |
-| [a-get](#a-get) | Download a stored dataset (object) from Allas |
-| [a-find](#a-find) | Search and locate data uploaded with *a-put* |
-| [a-delete](#a-delete) | Delete an object in Allas |
-| [a-info](#a-info) | Display information about an object in Allas |
-| [a-access](#a-access) | Control access permissions of a bucket in Allas |
-| a-stream | Stream the content of an object to standard output |
+
+| a-command | help text | Function |
+| :--- | :--- | :--- |
+| [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas |
+| [a-check](#a-check) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Check if all the objects, that a-put should have created, are found in Allas |
+| [a-list](#a-list) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| List buckets and objects in Allas |
+| [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)|Upload a file to Allas into a bucket that allows public access over the internet |
+| [a-flip](#a-flip) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md)|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
+| [a-get](#a-get) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Download a stored dataset (object) from Allas |
+| [a-find](#a-find)|[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md)|Search and locate data uploaded with *a-put* |
+| [a-delete](#a-delete) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-delete.md)| Delete an object in Allas |
+| [a-info](#a-info) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-info.md)| Display information about an object in Allas |
+| [a-access](#a-access) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-access.md)| Control access permissions of a bucket in Allas |
+| a-stream |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-stream.md)|Stream the content of an object to standard output |
+| a-encrypt |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-encrypt.md)|Make an encrypted copy of an object uploaded in Allas |
 
 In addition to the above commands, there are separate tools for other purposes:
 
