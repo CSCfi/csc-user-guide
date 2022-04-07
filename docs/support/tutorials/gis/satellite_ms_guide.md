@@ -27,6 +27,7 @@ Follow these steps if you 'just want to get the preprocessing done', rather than
 ### What data do I need?
 
 Consider:
+
 * sensor
     * Optical
         * [Landsat](https://landsat.gsfc.nasa.gov/)
@@ -42,6 +43,7 @@ Consider:
         * [Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/default.asp)
         * [TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html)
         * [TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html)
+        * [ICEYE](https://www.iceye.com/)
         * and many more...
     * LiDAR (Light Detection and Ranging)
         * [ICESat](https://icesat-2.gsfc.nasa.gov/)
@@ -63,51 +65,22 @@ Consider:
 
 The best place to get the data from depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data?
 
-Below is a (uncomplete) list of services, that provide download or download and processing (marked with *) capabilities:
+Below is a (uncomplete) set of services, that provide download or download and processing (marked with *) capabilities:
 
-* Open Access Hub and national mirrors
-   * ESA provided Sentinel data
-   * multiple national mirrors (e.g. FinHub for Finland and Baltics) exist
-* EarthExplorer
-   * Landsat data archive
-   * some Sentinel data 
-* Paikkatietoalusta
-   * pre-processed EO products 
-* CSC *
-    * few preprocessed datasets available on Puhti/Allas
-* Amazon Web Services *
-* DIAS (Data and Information Access Services) *
-* Terramonitor
-    * Analysis ready data over Finland
-* Sentinelhub *
-* Google Earth Engine *
-* Alaska Space Facility (ASF)
- 
+See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
 
+=== "CSC * "
 
-Below, all services are explained in more detail with links and hints. When looking at the list above one may ask 'how does CSC fit into all this?' so here a short explanation:
-
-Some datasets (covering Finland) are readily available:
-
-* Puhti
-    * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
+    * Puhti
+        * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
         * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
         * every CSC user has **read** access
-* Allas
-    * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
+    * Allas
+        * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
         * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
-
-You can process your data using supercomputer [Puhti](../../computing/systems_puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
-
-Puhti supercomputer has software ready installed (internal link to below ), you do not need to worry about it. In cPouta, you need to set up your own virtual machine including all security and software setup.
-
-Help from CSC specialists is available via servicedesk@csc.fi . We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
-
-All of the mentioned download services below can also be used from CSC Puhti and cPouta.
-
-You can find more information about each of the other services from the tabs below:
-
-=== Open Access Hubs
+  
+    
+=== "Open Access Hubs"
 
     [SciHub](https://scihub.copernicus.eu/dhus/#/home)
 
@@ -128,7 +101,7 @@ You can find more information about each of the other services from the tabs bel
     * only Finland (and Baltics)
     * same GUI and API (older version?) as SciHub
 
-    [ASF](https://search.asf.alaska.edu/#/) place fir this?
+    [ASF](https://search.asf.alaska.edu/#/)
     
     * needs [registration](https://urs.earthdata.nasa.gov/users/new?)
     * Sentinel 1 SLC, GRD , RAW and OCN products
@@ -136,7 +109,6 @@ You can find more information about each of the other services from the tabs bel
     * Worldwide
     * GUI and API
     * Sentinel 1 data available for immediate download
-
 
 === "EarthExplorer"
 
@@ -155,8 +127,8 @@ You can find more information about each of the other services from the tabs bel
     * Only Finland
     * [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) 
     * [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar)
-    * [WMS (Geoserver)] (https://data.nsdc.fmi.fi/geoserver/wms)
-    * [WCS (Geoserver)] (https://data.nsdc.fmi.fi/geoserver/wcs)
+    * [WMS (Geoserver)](https://data.nsdc.fmi.fi/geoserver/wms)
+    * [WCS (Geoserver)](https://data.nsdc.fmi.fi/geoserver/wcs)
     * provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
     * instructions on how to use - link to example script
 
@@ -166,7 +138,7 @@ You can find more information about each of the other services from the tabs bel
     * Sentinel 2: L1C; Landsat: Collection 1
     * [FORCE](https://docs.csc.fi/apps/force/) can download directly from here
 
-=== "Amazon Web Service"
+=== "Amazon Web Service *"
     
     * Worldwide
     * [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
@@ -174,48 +146,46 @@ You can find more information about each of the other services from the tabs bel
     * Requester pays the download costs
     * Managed by [Sinergise](http://www.sinergise.com/) 
 
-
-=== "DIAS" 
+=== "DIAS *" 
 
     * Data and Information Access Services
     * multiple sites exits:
-
-      * [ONDA](https://www.onda-dias.eu/cms/)
-      * [sobloo](https://sobloo.eu/)
-      * [CREODIAS](https://creodias.eu/)
-      * [MUNDI](https://mundiwebservices.com/)
+        * [ONDA](https://www.onda-dias.eu/cms/)
+        * [sobloo](https://sobloo.eu/)
+        * [CREODIAS](https://creodias.eu/)
+        * [MUNDI](https://mundiwebservices.com/)
     * costs
     * processing platform with the data, no download needed
     * data from DIAS objectstorage can easily be transferred to Allas (link to instructions here)
   
 === "Terramonitor"
 
-    * [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
+    [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
+
     * Pre-prosessed, analysis ready Sentinel-2 data
     * Data from Finland available between 2018-2020
-    * [Pricing] (https://store.terramonitor.com/category/analysis-ready?6f8e8f38_page=1) 
+    * [Pricing](https://store.terramonitor.com/category/analysis-ready?6f8e8f38_page=1) 
 
-=== "Sentinelhub" 
+=== "Sentinelhub *" 
 
-    * [Sentinelhub](https://www.sentinel-hub.com/explore/)
+    [Sentinelhub](https://www.sentinel-hub.com/explore/)
+
     * Wordlwide
     * Lots of different EO data sets:
       * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
-      * [Sentinel-1] (https://collections.sentinel-hub.com/sentinel-1-grd/)
+      * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
     * Requires [subscription](https://www.sentinel-hub.com/pricing/)
 
+=== "Google Earth Engine * "
 
-=== "Google Earth Engine"
+    [Google Earh Engine](https://earthengine.google.com/)
 
     * Great coverage of analysis ready data worldwide
-      * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
-      * 
-      * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
+        * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+        * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
     * [Registration](https://signup.earthengine.google.com/)
     * [Web-Client](https://code.earthengine.google.com/)
  
-
-See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
 
 ### Where can I store the data?
 
@@ -251,9 +221,16 @@ See also CSCs general [guide on working with data](../../data/datasets/index.htm
 
 ### How can I process the data?
 
+You can process your data using supercomputer [Puhti](../../computing/systems_puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
+
+Puhti supercomputer has software ready installed (internal link to below ), you do not need to worry about it. In cPouta, you need to set up your own virtual machine including all security and software setup.
+
+Help from CSC specialists is available via servicedesk@csc.fi . We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
+
 #### Software
 
 What to consider:
+
 * user skills and preferences
     * Graphical User Interface (GUI)
     * Command Line Interface (CLI)
@@ -303,13 +280,14 @@ What to consider:
     ###### Google Earth Engine
      
     A platform for planetary-scale Earth observation data and analysis
+
     * Usage:
         * [registration](https://signup.earthengine.google.com/)
-        * From the browser: https://code.earthengine.google.com/
+        * [From the browser](https://code.earthengine.google.com/)
         * Python: 
-            * https://developers.google.com/earth-engine/guides/python_install
-            * https://geemap.org/
-        * R: https://github.com/r-spatial/rgee
+            * [API](https://developers.google.com/earth-engine/guides/python_install)
+            * [geemap-library](https://geemap.org/)
+        * [R-package](https://github.com/r-spatial/rgee)
     * Pros:
         * great coverage of analysis ready data
         * rather easy to use, nice tool to test new ideas
@@ -368,9 +346,9 @@ What to consider:
 
     ##### R
 
-    [Geospatial R on Puhti](https://docs.csc.fi/apps/r-env-for-gis/)
-    [Geospatial R course material]()
-    [Examples geospatial R](https://github.com/csc-training/geocomputing/tree/master/R)
+    * [Geospatial R on Puhti](https://docs.csc.fi/apps/r-env-for-gis/)
+    * [Geospatial R course material]()
+    * [Examples geospatial R](https://github.com/csc-training/geocomputing/tree/master/R)
 
     ##### Julia
 
