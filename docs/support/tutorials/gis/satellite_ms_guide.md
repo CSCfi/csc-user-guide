@@ -376,44 +376,7 @@ What to consider:
 
     [Julia on Puhti](https://docs.csc.fi/apps/julia/)
     [JuliaGeo](https://github.com/JuliaGeo)
-
-#### Preprocessing
-
-(can be skipped if your data is preprocessed)
-How to know what preprocessing has been done? 
--> check filename and naming conventions of your platform
-Look out for words like Bottom of atmosphere / Surface Reflectance that indicate that atmospheric correction has been done to the product. 
-
-#### Common usecases
-
-##### Cloudmasking
-##### Mosaicing
-
-* mention challenges 
-    * data does not match between years
-    * visible borders
-    * 
-
-##### Pansharpening/Fusion
-##### NDVI/Band Math
-##### Subsetting
-##### Aggregating
-
-##### Addon: Georeferencing (historical images)
-
-### Sharing processes
-
-* github/lab
-* also GUI processes can be sharable
-* consider also the environment
-    * container
-* 
-
-### Sharing data
-
-* depends on above
-* FAIR!
-* think about long-term
+ 
 
 
 ## Resources
