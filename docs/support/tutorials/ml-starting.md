@@ -199,9 +199,9 @@ script:
 module purge
 module load pytorch
 
-tar xf /scratch/project_2001234/cifar-10-batches-py/cifar-10-python.tar.gz -C $LOCAL_SCRATCH
+tar xf /scratch/project_2001234/cifar-10-python.tar.gz -C $LOCAL_SCRATCH
 
-srun python3 cifar10_cnn.py --data_path=$LOCAL_SCRATCH
+srun python3 cifar10_cnn.py --data_path=$LOCAL_SCRATCH/cifar-10-batches-py
 ```
 
 This will run a job in the `gputest` partition, with 10 CPU cores, 32GB memory
@@ -251,7 +251,7 @@ Submitted batch job 12345678
 
 If you're instead seeing some error message, take a look at our [page of common
 batch job errors](../faq/why-does-my-batch-job-fail.md). If you cannot find a
-solution there, don't hesitate to [contact our service desk][servicedesk].
+solution there, don't hesitate to [contact our service desk](../contact.md).
 
 You can check your running job, either from the terminal:
 
@@ -265,7 +265,9 @@ or via the *Jobs* → *Active Jobs* menu in the Puhti web interface.
 
 Once the job has finished, its output should appear in a file called something
 like `slurm-12345678.out`, with the number being the batch job ID of your jobs
-(printed at submission time).
+(printed at submission time). You can view this file by clicking on it in the
+Files browser or using for example `less` in the command line (press 'q' to quit
+`less`).
 
 Once you're satisfied that the job runs as it should, you can run in the real
 `gpu` partition that allows for jobs longer than 15 minutes. Just edit the
@@ -286,9 +288,8 @@ rest of our documentation. For example:
 
 In case you have any questions about this guide or any other problems getting
 started with using machine learning on CSC's services, don't hesitate to [contact
-our service desk][servicedesk].
+our service desk](../contact.md).
 
 
 [OOD]: http://openondemand.org/
 [GHExample]: https://github.com/mvsjober/pytorch-cifar10-example
-[servicedesk]: ../support/contact.md
