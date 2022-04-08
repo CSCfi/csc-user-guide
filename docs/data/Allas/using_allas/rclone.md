@@ -39,7 +39,7 @@ The first step is to authenticate to a project in Allas. Rclone can use both Swi
 
 In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use rclone also in your local computer. Intructions of configuring locally installed Rclone are here
 
-   * [Configuring Rclone in local machine for Allas](./rclone_local.md)
+   * [Local Rclone configuration for Allas](./rclone_local.md)
 
 
 ### Rclone with swift
