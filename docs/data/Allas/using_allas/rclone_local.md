@@ -10,7 +10,7 @@ Once you have Rclone installed you still need configure the connection to Allas.
 command line application so both configurarion and actual usage is normally done in a command 
 line: _Terminal_ in Mac and Linux, _Command prompt_ or _Powershell_ in Windows.
 
-### Configuring Allas connection in Mac and Linux
+### Configuring Allas connection in Mac and Linux (SWIFT and S3)
 
 If you are using rclone in a local **Linux** or **Mac machine**, you can download 
 the `allas_conf` script to set up the connection to your Allas project.
@@ -59,7 +59,7 @@ The command above launches a configration process that you can use to define new
 connetion. In Rclone thes connectytion definitions are called as _remotes_. 
 Below we describe how to create SWIFT and S3 connections to Allas.
 
-#### Configuring SWIFT connection
+#### Configuring SWIFT connection in Windows
 
 Start the process by executing command:
 
