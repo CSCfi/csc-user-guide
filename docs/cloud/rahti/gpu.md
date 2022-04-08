@@ -100,4 +100,4 @@ oc delete all -l app=rahti-ml-examples
 ```
 
 ## Limitations 
-At the moment, It is not possible to request a fraction of GPU. At least, a single or more GPU has to be requested. Also, keep in mind that the GPU resources are scares and at times your GPU request might stay in a pending state until resources become available system-wide.
+At the moment, It is not possible to request a fraction of GPU. At least, a single or more GPU has to be requested. Also, keep in mind that the GPU resources are scarce and at times your GPU request might stay in a pending state until resources become available system-wide.
