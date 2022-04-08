@@ -94,7 +94,7 @@ oc process -f https://raw.githubusercontent.com/tdeneke/rahti-ml-examples/tf2-im
 
 You can then follow the deployment of the application and its components from the Rahti console or using `oc status`, and interact with the application using the UI at <your-application-route>/docs. The route your application has been deployed to can be found from the Rahti console or using `oc get routes`.
 
-After exploring and testing the example deployment it can be cleaned up as:
+After exploring and testing the example deployment it should be cleaned up as:
 ```bash
 oc delete all -l app=rahti-ml-examples
 ```
