@@ -192,6 +192,12 @@ And do following selections:
    13. Remote config: **y** Yes, this is ok.
    14. **q**, quit config
  
-After this you can access your Allas project using Rclone remote _s3allas_. This connection stays active in your laptop until you delete it.
+After this you can access your Allas project using Rclone remote _s3allas_. For example:
+
+```text
+rclone lsd s3allas:
+```
+
+This connection stays active in your laptop until you delete it.
 
  
