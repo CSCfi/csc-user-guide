@@ -135,12 +135,15 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 
 === "Google Cloud Storage"
 
-    * [Google Cloud Storage](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
-    * Sentinel 2: L1C; Landsat: Collection 1
+    [Google Cloud Storage](https://cloud.google.com)
+
+    * [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
+    * [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat)
     * [FORCE](https://docs.csc.fi/apps/force/) can download directly from here
 
-=== "Amazon Web Service *"
-    
+=== "Amazon Web Service (AWS) *"
+
+
     * Worldwide
     * [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
     * [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/)
@@ -173,19 +176,34 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 
     * Wordlwide
     * Lots of different EO data sets:
-      * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
-      * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
+        * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
+        * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
     * Requires [subscription](https://www.sentinel-hub.com/pricing/)
 
 === "Google Earth Engine * "
 
-    [Google Earh Engine](https://earthengine.google.com/)
+    [Google Earh Engine](https://earthengine.google.com/) is a platform for planetary-scale Earth observation data and analysis
 
-    * Great coverage of analysis ready data worldwide
-        * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
-        * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
-    * [Registration](https://signup.earthengine.google.com/)
-    * [Web-Client](https://code.earthengine.google.com/)
+    * Usage:
+        * [Registration](https://signup.earthengine.google.com/)
+        * [From a browser](https://code.earthengine.google.com/)
+        * Python: 
+            * [API](https://developers.google.com/earth-engine/guides/python_install)
+            * [geemap-library](https://geemap.org/)
+        * [R-package](https://github.com/r-spatial/rgee)
+    * Pros:
+        * Great coverage of analysis ready data worldwide
+            * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+            * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
+        * rather easy to use, nice tool to test new ideas
+        * lots of case studies and tutorials:
+            * https://developers.google.com/earth-engine/tutorials
+            * https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine
+    
+    * Cons:
+        * Google Cloud Storage might be needed to export large datasets
+        * Not always suitable for small-scale analysis
+        * some errors might occur due pre-processing
 
 
 ### Where can I store the data?
@@ -209,7 +227,7 @@ What to consider:
 === "Short term storage"
 
     * [Allas overview](https://research.csc.fi/-/allas)
-    * [Allas guide](../../data/Allas/index.md)
+    * [Allas guide](../../../data/Allas/index.md)
 
 === "Long term storage"
 
@@ -217,11 +235,11 @@ What to consider:
     * [IDA overview](https://www.fairdata.fi/en/user-guide/) and [IDA guide](https://www.fairdata.fi/en/user-guide/)
     * [EUDat overview](https://research.csc.fi/-/eudat-services)
 
-See also CSCs general [guide on working with data](../../data/datasets/index.html).
+See also CSCs general [guide on working with data](../../../data/datasets/dataset-sources.md).
 
 ### How can I process the data?
 
-At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../computing/systems_puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
+At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
 
 Puhti has software ready installed (internal link to below ), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../computing/containers/tykky/). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../cloud/pouta/launch-vm-from-web-gui/).
 
@@ -326,30 +344,7 @@ What to consider:
     ##### Julia
 
     [Julia on Puhti](https://docs.csc.fi/apps/julia/)
-    [JuliaGeo](https://github.com/JuliaGeo)
- 
-For completeness, a note on Google Earth Engine, which is not available at CSC:
-     
-GEE is a platform for planetary-scale Earth observation data and analysis
-
-* Usage:
-  * [registration](https://signup.earthengine.google.com/)
-  * [From the browser](https://code.earthengine.google.com/)
-  * Python: 
-      * [API](https://developers.google.com/earth-engine/guides/python_install)
-      * [geemap-library](https://geemap.org/)
-  * [R-package](https://github.com/r-spatial/rgee)
-* Pros:
-  * great coverage of analysis ready data
-  * rather easy to use, nice tool to test new ideas
-  * lots of case studies and tutorials:
-    * https://developers.google.com/earth-engine/tutorials
-    * https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine
-
-* Cons:
-  * Google Cloud Storage might be needed to export large datasets
-  * Not always suitable for small-scale analysis
-  * some errors might occur due pre-processing
+    [JuliaGeo](https://github.com/JuliaGeo)    
  
 ## Help
 
