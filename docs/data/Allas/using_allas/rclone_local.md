@@ -175,6 +175,7 @@ Then switch to you Windows _Command Prompt_ and start the rclone configuration p
 rclone config
 ```
 And do following selections:
+
    1. Select **n** to create a _New remote_
    2. Name the remote as: **s3allas**
    3. From the list of storage protocols, select the number that defines: _Amazon S3 Compliant Storage Providers including AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, and Tencent COS_
