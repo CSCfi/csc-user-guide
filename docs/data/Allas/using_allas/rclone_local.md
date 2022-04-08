@@ -1,7 +1,7 @@
 # Local Rclone configuration for Allas
 
 Rclone can be installed in any operating system and thus it provides an effective way 
-to use Allas from any computer. You can download a copy of rclone to your own computer 
+to use Allas from any computer. You can download a copy of Rclone to your own computer 
 form the link below.
 
    * [Rclone download site](https://rclone.org/downloads/)
