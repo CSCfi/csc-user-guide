@@ -35,8 +35,7 @@ If you want to use S3 protocol in setad of SWIFT, add option _- S3_ to the confi
 ```text
 source allas_conf -u kkayttaj -p project_2001234 -m S3
 ```
-Note that in order to run the command above you must have _OpenStack_ client installed in your local machgine. After configuring S3 commection to Allas, you can use it through Rclone remote 
-called _s3allas:_ . For example:
+Note that in order to run the command above you must have _OpenStack_ client installed in your local machgine. After configuring S3 connection to Allas, you can use it through Rclone remote called _s3allas:_ . For example:
 
 ```text
 rclone lsd s3allas:
