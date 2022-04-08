@@ -4,8 +4,8 @@
 
 PyTorch 1.11.0 is now available in the `pytorch/1.11` module on Puhti and Mahti,
 and has been set as the default module. See the [official PyTorch 1.11 release
-notes](https://pytorch.org/blog/pytorch-1.11-released/), and [CSC' PyTorch
-module is documentation](../../apps/pytorch.md).
+notes](https://pytorch.org/blog/pytorch-1.11-released/), and [CSC's PyTorch
+module documentation](../../apps/pytorch.md).
 
 ## LUE released on Puhti, 5.4.2022
 
