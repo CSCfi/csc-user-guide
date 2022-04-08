@@ -5,9 +5,9 @@
 Even experienced machine learning users might have a hard time taking the leap
 into the supercomputer environment as things work a bit differently than in the
 personal computing environment. We have now created [a guide to help people get
-started with doing machine learning on the CSC's
-supercomputers](../tutorials/ml-starting.md). The guide shows, step by step, how
-to get your codes and data to Puhti and running on GPUs.
+started with doing machine learning on Puhti](../tutorials/ml-starting.md). The
+guide shows, step by step, how to get your codes and data to Puhti and running
+on GPUs.
 
 ## PyTorch 1.11, 8.4.2022
 
