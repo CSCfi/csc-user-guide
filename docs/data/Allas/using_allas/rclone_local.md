@@ -46,6 +46,8 @@ S3 connection is active untill you explicitly delete it with command:
 source allas_conf -u csc-user-name -p csc-project-name --s3remove
 ```
 
+Remember that you need to be careful and security aware, when configuring S3 connection to Allas. The S3 keys are stored in a readble format in you home directory and anyone how can read your keys can access Allas until the keys are expilisitly revoked from Allas. Removing the keys from your own computer is not enough to deactivate them.
+
 ## Configuring Allas connection in Windows 
 
 In cases where you can't use _allas_conf_ script you can configure the Allas connetion with 
