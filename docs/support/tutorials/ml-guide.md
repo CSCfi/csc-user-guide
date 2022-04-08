@@ -5,6 +5,7 @@ computing resources.
 
 In addition to this page, this guide contains the following subsections:
 
+* [Getting started with machine learning on Puhti](ml-starting.md)
 * [GPU-accelerated machine learning](gpu-ml.md)
 * [Data storage for machine learning](ml-data.md)
 * [Multi-GPU and multi-node machine learning](ml-multi.md)
