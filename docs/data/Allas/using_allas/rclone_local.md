@@ -50,12 +50,12 @@ Remember that you need to be careful and security aware, when configuring S3 con
 
 ## Configuring Allas connection in Windows 
 
-In cases where you can't use _allas_conf_ script you can configure the Allas connetion with 
-command:
+In Windos machine you can't use _allas_conf_ script. In stead you can configure the Allas connetion with command:
 
 ```text
 rclone config
 ```
+You can use this command also in other machines where _allas_conf_ is not available.
 The command above launches a configration process that you can use to define new Rclone 
 connetion. In Rclone these defined connections are called as _remotes_. 
 Below we describe how to create SWIFT and S3 connections to Allas.
