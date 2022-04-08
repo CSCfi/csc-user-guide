@@ -6,11 +6,11 @@ The device plugin used in Rahti handles Nvidia GPU with the resource name `nvidi
 
 Currently, Rahti has a very limited amount of A100/P100 GPUs. For this reason, your Rahti projects will not have access to GPU by default. This means you will need to request a GPU quota by sending a request to servicedesk@csc.fi stating the Rahti project/namespace you need the quota for.
 
-The Rathi GPU comes with an Nvidia driver which includes the low-level shared libraries and headers needed to access/program the GPU device as well as the Nvidia device monitoring tools such as Nvidia-smi which are useful for gathering information on the usage of GPUs. These libraries and tools will be mounted and be made available to the pod automatically by the system during its creation.
+The Rahti GPU comes with an Nvidia driver which includes the low-level shared libraries and headers needed to access/program the GPU device as well as the Nvidia device monitoring tools such as Nvidia-smi which are useful for gathering information on the usage of GPUs. These libraries and tools will be mounted and be made available to the pod automatically by the system during its creation.
 
 ## Running GPU-enabled pods
 
-As a first example let's create a pod which runs `nvidia-smi` command line utility that is designed to be used for managing and monitoring NVIDIA GPU devices. This is the simples example that can be used to demonstrate the avilabilty GPU in your Rahti project. 
+As a first example let's create a pod which runs `nvidia-smi` command line utility that is designed to be used for managing and monitoring NVIDIA GPU devices. This is the simplest example that can be used to demonstrate the availability of GPU in your Rahti project.
 
 To run the example you need to login to Rahti and switch to the project that you have an approved GPU qouta as: 
 
@@ -52,7 +52,7 @@ oc logs gpu-example-1
 oc delete pod gpu-example-1
 ```
 
-As second example you can create a pod running Cuda based vector additon to demonstrate access to GPU through a lower-level programming model/interface. 
+As second example you can create a pod running Cuda based vector addition to demonstrate access to GPU through a lower-level programming model/interface.
 
 To run the second example create a pod definition file as:
 
@@ -92,7 +92,7 @@ To run the example use the following command:
 oc process -f https://raw.githubusercontent.com/tdeneke/rahti-ml-examples/tf2-imdb-cuda/rahti-ml-example-cuda-template.yaml | oc create -f -
 ```
 
-You can then follow the deployment of the application and its components from the Rathi console or using `oc status`, and interact with the application using the UI at <your-application-route>/docs. The route your application has been deployed to can be found from the Rahti console or using `oc get routes`.  
+You can then follow the deployment of the application and its components from the Rahti console or using `oc status`, and interact with the application using the UI at <your-application-route>/docs. The route your application has been deployed to can be found from the Rahti console or using `oc get routes`.
 
 After exploring and testing the example deployment it can be cleaned up as:
 ```bash
