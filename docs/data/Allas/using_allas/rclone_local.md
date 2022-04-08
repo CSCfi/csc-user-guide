@@ -88,7 +88,7 @@ In the file we define the variables using syntax:
 set VARIABLE=value
 ```
 One way to check the values of the variables needed is to open terminal connection to 
-[https://puhti.csc.fi](puhti.csc.fi) and activate there connection to the Allas project you 
+[Puhti](puhti.csc.fi) and activate there connection to the Allas project you 
 wish to use. This is done in Puhti with commands:
 
 ```text
