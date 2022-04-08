@@ -37,6 +37,11 @@ A more extensive list can be found on the [Rclone manual pages](https://rclone.o
 
 The first step is to authenticate to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
 
+In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use rclone also in your local computer. Intructions of configuring locally installed Rclone are here
+
+   * [Configuring Rclone in local machine for Allas](./rclone_local.md)
+
+
 ### Rclone with swift
 
 The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas connection is activated  with commands:
