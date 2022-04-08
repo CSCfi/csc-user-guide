@@ -61,9 +61,10 @@ Consider:
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
     * Optical  data is more easily interpreted and processed (and more pre-processed data is available)
 
+
 ### Where do I find the data?
 
-The best place to get the data from depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data?
+The best place to get the data from depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? The answer depends on what you want to do with the data and where it is located.
 
 Below is a (uncomplete) set of services, that provide download or download and processing (marked with *) capabilities:
 
@@ -74,10 +75,12 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Puhti
         * [list of all available datasets in Puhti](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
         * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
-        * every CSC user has **read** access
+        * every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
     * Allas
         * [list of all available geospatial datasets in Allas](../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
         * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
+        * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](https://docs.csc.fi/apps/gdal/#using-files-directly-from-allas) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
+
   
     
 === "Open Access Hubs"
@@ -89,9 +92,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Sentinel 2 L1C and L2A products
     * Sentinel 1 SLC, GRD , RAW and OCN products
     * worldwide
-    * GUI and API
     * Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
-    * Examples for downloading Sentinel data from FinHub/SciHub are provided on [csc-training github](https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 
     [FinHub](https://finhub.nsdc.fmi.fi/#/home)
 
@@ -99,7 +100,6 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Sentinel 2 L1C product
     * Sentinel 1 SLC, GRD and OCN products
     * only Finland (and Baltics)
-    * same GUI and API (older version?) as SciHub
 
     [ASF](https://search.asf.alaska.edu/#/)
     
@@ -107,15 +107,16 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Sentinel 1 SLC, GRD , RAW and OCN products
     * Many SAR and SAR derived datasets from other sensors
     * Worldwide
-    * GUI and API
     * Sentinel 1 data available for immediate download
+    
+    **All of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data.
+    Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
 
 === "EarthExplorer"
 
     [Earthexplorer](https://earthexplorer.usgs.gov/)
 
     * needs [registration](https://ers.cr.usgs.gov/register)
-
     * lots of different US related datasets 
     * main: Landsat worldwide
     * GUI in web interface and bulk download
@@ -185,7 +186,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
         * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
     * [Registration](https://signup.earthengine.google.com/)
     * [Web-Client](https://code.earthengine.google.com/)
- 
+
 
 ### Where can I store the data?
 
@@ -218,14 +219,11 @@ What to consider:
 
 See also CSCs general [guide on working with data](../../data/datasets/index.html).
 
-
 ### How can I process the data?
 
-You can process your data using supercomputer [Puhti](../../computing/systems_puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
+At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../computing/systems_puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../cloud/pouta/pouta-what-is/).
 
-Puhti supercomputer has software ready installed (internal link to below ), you do not need to worry about it. In cPouta, you need to set up your own virtual machine including all security and software setup.
-
-Help from CSC specialists is available via servicedesk@csc.fi . We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
+Puhti has software ready installed (internal link to below ), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../computing/containers/tykky/). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../cloud/pouta/launch-vm-from-web-gui/).
 
 #### Software
 
@@ -251,7 +249,7 @@ What to consider:
 
 === "GUI"
 
-    Graphical User Interfaces of software available on Puhti can be accessed via the [Puhti web interface](https://puhti.csc.fi) or [NoMachine or X11 connection](../../computing/connecting/#using-graphical-applications). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should not happen here.
+    Graphical User Interfaces of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [NoMachine or X11 connection](../../computing/connecting/#using-graphical-applications). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should not be done within interactive jobs.
 
     ###### [SNAP](https://step.esa.int/main/toolboxes/snap/)
 
@@ -276,31 +274,6 @@ What to consider:
     Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox.org/CookBook/CliInterface.html), [Graphical User Interface](https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html), Python API and as plugin to other applications.
     
     * GUI (https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html)
-
-    ###### Google Earth Engine
-     
-    A platform for planetary-scale Earth observation data and analysis
-
-    * Usage:
-        * [registration](https://signup.earthengine.google.com/)
-        * [From the browser](https://code.earthengine.google.com/)
-        * Python: 
-            * [API](https://developers.google.com/earth-engine/guides/python_install)
-            * [geemap-library](https://geemap.org/)
-        * [R-package](https://github.com/r-spatial/rgee)
-    * Pros:
-        * great coverage of analysis ready data
-        * rather easy to use, nice tool to test new ideas
-        * lots of case studies and tutorials:
-          * https://developers.google.com/earth-engine/tutorials
-          * https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine
-           
-    * Cons:
-        * Google Cloud Storage might be needed to export large datasets
-        * Not always suitable for small-scale analysis
-        * some errors might occur due pre-processing
-
-
 
 
 === "CLI"
@@ -355,9 +328,35 @@ What to consider:
     [Julia on Puhti](https://docs.csc.fi/apps/julia/)
     [JuliaGeo](https://github.com/JuliaGeo)
  
+For completeness, a note on Google Earth Engine, which is not available at CSC:
+     
+GEE is a platform for planetary-scale Earth observation data and analysis
 
+* Usage:
+  * [registration](https://signup.earthengine.google.com/)
+  * [From the browser](https://code.earthengine.google.com/)
+  * Python: 
+      * [API](https://developers.google.com/earth-engine/guides/python_install)
+      * [geemap-library](https://geemap.org/)
+  * [R-package](https://github.com/r-spatial/rgee)
+* Pros:
+  * great coverage of analysis ready data
+  * rather easy to use, nice tool to test new ideas
+  * lots of case studies and tutorials:
+    * https://developers.google.com/earth-engine/tutorials
+    * https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine
+
+* Cons:
+  * Google Cloud Storage might be needed to export large datasets
+  * Not always suitable for small-scale analysis
+  * some errors might occur due pre-processing
+ 
+## Help
+
+Help from CSC specialists is available via servicedesk@csc.fi. We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
 
 ## Resources
 
 https://step.esa.int/main/doc/tutorials/
 https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/ 
+https://github.com/sacridini/Awesome-Geospatial
