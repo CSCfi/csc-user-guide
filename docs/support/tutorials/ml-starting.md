@@ -4,10 +4,10 @@
 really slow. You've learned that moving to GPUs and CSC's Puhti supercomputer
 might be the answer but the documentation seems a bit daunting.*
 
-CSC's computing environment is well-documented at
-[docs.csc.fi](https://docs.csc.fi), but for a newcomer it might be a bit
-difficult to know how to get started. **This guide will show you, step by step,
-how to get your codes and data to Puhti and running on GPUs**.
+CSC's computing environment is well-documented at [docs.csc.fi](../../index.md),
+but for a newcomer it might be a bit difficult to know how to get started.
+**This guide will show you, step by step, how to get your codes and data to
+Puhti and running on GPUs**.
 
 When you are moving your code from your laptop to the Puhti supercomputer, it's
 important to acknowledge that Puhti isn't just a "faster laptop". Because of the
