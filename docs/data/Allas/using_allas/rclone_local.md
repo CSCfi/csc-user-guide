@@ -19,7 +19,7 @@ the `allas_conf` script to set up the connection to your Allas project.
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf -u your-csc-username -p your-csc-project-name
 ```
-Note that you should use the `-u` option to define your CSC username and -p to 
+Note that you should use the `-u` option to define your CSC username and `-p` to 
 define the CSC project you want to use. For example:
 
 ```text
