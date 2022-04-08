@@ -135,7 +135,7 @@ set OS_STORAGE_URL=https://a3s.fi:443/swift/v1/AUTH_5d68719ga0fh46deb5581a2625ee
 ```
 In addition to the variables below you need to define OS_AUTH_TOKEN variable that contains
 the actual authentication token. This token is valid only for 8 hours so you typically need 
-to check and define it each time you start using rclone in your computer.
+to generate and check it each time you start using Rclone in your computer.
 
 At the moment we don't have a tool for generating this value in Windows so you need to 
 use Puhti (or some other machine that can run allas_conf tool) to generate this project 
