@@ -80,7 +80,7 @@ _OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)_
 In the case of SWIFT you need to do this configuration only once. In the configuration 
 it is now defined that in case of _allas_, all data for the connection is red from environment variables.
 
-Next we need create a text file that sets these variables. Open a new file in a text-only 
+Next we need to create a text file that sets these variables. Open a new file in a text-only 
 editor like _notepad_ . In this example we name the settings file as _allas_env.cmd_ . 
 In the file we define the variables using syntax:
 
