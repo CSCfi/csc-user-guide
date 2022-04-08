@@ -3,6 +3,7 @@
 ## General
 * [Getting started with Puhti](puhti_quick.md)
 * [Getting started with Mahti](mahti_quick.md)
+* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
@@ -14,6 +15,7 @@
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [Building Singularity containers from scratch](singularity-scratch.md)
+* [Getting disk usage using Lue](lue.md)
 
 ## Performance
 * [Optimising parallel I/O](lustre_performance.md)

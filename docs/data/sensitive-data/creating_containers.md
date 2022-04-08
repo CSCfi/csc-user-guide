@@ -171,7 +171,7 @@ singularity exec sd_tools_1.sif bamtools -h
 
 ## 4. Uploading container to Allas/SD Connect
 
-In order to use the singularity container in SD desktop, we need to upload it to Allas. As the container does not include any sensitive data, there is no need to encrypt it. Further from Allas the container can be downloaded to locations too. You can use a copy of the same container in other locations too. For example in Puhti and Mahti.
+In order to use the singularity container in SD desktop, we need to encrypt it with CSC public key and upload it to Allas. If you want to use the same singularity contrainer in other locations too, for example in Puhti and Mahti, you will need to upload another, not encrypted version to Allas.
 
 For the upload process we use the Allas tools we installed in step 2, were we installed Allas tools to directory _$HOME/allas-cli-utils_.
 First we add this directory to command path:
@@ -191,18 +191,18 @@ Now we can access Allas with [a-tools](../Allas/using_allas/a_commands.md) or [r
 Next we upload the container image we just created to Allas with command:
 
 ```text
-a-put --nc sd_tools_1.sif -b 2000123_singularity -m "Contains bamtools, samtools and vcftools"
+a-put --sdx sd_tools_1.sif -b 2000123_singularity_sd -m "SD Compatible. Contains bamtools, samtools and vcftools."
 ```
-We don't want the compress the container, so we skip the compression with option _--nc_.  We store the container image to a bucket that contains the project number (2000123) to ensure uniqueness. Option _-m_ is used to add a small description to the metadata object that a-put creates.
+In the command above option _--sdx_ is used to encrypty the contained with CSC public key. The encrypted container will be stored to bucket _2000123_singularity_sd_. Here the bucket name contains the project number (2000123) to ensure uniqueness and _sd_ is used tyo indicate that this bucket contains SD Desktop compatible dara. Option _-m_ is used to add a small description to the metadata object that a-put creates.
 
 
 ## 5. Using singularity containers in SD Desktop
 
-In order to use the singularity container you have created you need first download a copy of the container to the SD Desktop. At the moment this is done with the _SD Connect downloader_ tool. First login to [SD Desktop](https://sd-desktop.csc.fi) and connect to the Virtual Desktop that you want to use. Open SD Connect downloader, navigate the to the right project (project_2000123) and bucket (2000123_singularity), and download the singularity image file (sd_tools_1.sif) to the SD Desktop.
+In order to use the singularity container you have created you need first download a copy of the container to the SD Desktop with _Data Gateway_ tool. First login to [SD Desktop](https://sd-desktop.csc.fi) and connect to the Virtual Desktop that you want to use. Open Data Gateway, navigate the to the right project (project_2000123) and bucket (2000123_singularity_sd), and download the singularity image file (sd_tools_1.sif) to the SD Desktop.
 
 After that, open a Linux terminal in the SD Desktop. In the terminal, move the singularity file to the location you want to use it. In this example that could be done with command:
 ```text
-mv /home/kkayttaj/SDCONNECTDATA/project_2000123/2000123_sigularity/sd_tools_1.sif ./
+cp /home/kkayttaj/Projects/SD\ connect/project_2000123/2000123_sigularity_sd/sd_tools_1.sif ./
 ```
 Now we could execute for example the samtools command that is installed in the container.
 

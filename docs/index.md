@@ -24,6 +24,9 @@ template: main-index.html
 [Puhti and Mahti Overview](computing/overview.md) 
 </span><br>
 <span class="index-quicklinks">
+[LUMI User Guide](https://docs.lumi-supercomputer.eu/) 
+</span><br>
+<span class="index-quicklinks">
 [Allas User Guide](data/Allas/index.md)
 </span><br>
 <span class="index-quicklinks">
@@ -34,9 +37,14 @@ template: main-index.html
 </span><br>
 <span class="index-quicklinks">
 [Getting started with Mahti](support/tutorials/mahti_quick.md)
+</span><br>
+<span class="index-quicklinks">
+[Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
+</span><br>
+<span class="index-quicklinks">
+[Sensitive Data services User Guide](data/sensitive-data/index.md) 
 </span>
 
 # What's new
 
 <!-- Content will be generated here, do not EDIT manually -->  
-
