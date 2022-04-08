@@ -40,7 +40,7 @@ Note that in order to run the command above you must have _OpenStack_ client ins
 ```text
 rclone lsd s3allas:
 ```
-S3 connection is active untill you explicitly delete it with command:
+S3 connection is active until you explicitly delete it with command:
 
 ```text
 source allas_conf -u csc-user-name -p csc-project-name --s3remove
@@ -88,7 +88,7 @@ In the file we define the variables using syntax:
 set VARIABLE=value
 ```
 One way to check the values of the variables needed is to open terminal connection to 
-[Puhti](puhti.csc.fi) and activate there connection to the Allas project you 
+[Puhti](https://puhti.csc.fi) and activate there connection to the Allas project you 
 wish to use. This is done in Puhti with commands:
 
 ```text
