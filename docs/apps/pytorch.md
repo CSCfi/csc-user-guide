@@ -13,21 +13,22 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module              | Puhti | Mahti | Environ. | Horovod | Notes           |
-|:-------:|---------------------|:-----:|:-----:|----------|:-------:|-----------------|
-| 1.10.0  | `pytorch/1.10`      | X     | X     | Sing.    | X       | default version |
-| 1.9.0   | `pytorch/1.9`       | X     | X     | Sing.    | X       |                 |
-| 1.8.1   | `pytorch/1.8`       | X     | X     | Sing.    | X       |                 |
-| 1.7.1   | `pytorch/1.7`       | X     | -     | Sing.    | X       |                 |
-| 1.6.0   | `pytorch/1.6`       | X     | -     | Conda    | -       | *deprecated*    |
-| 1.4.0   | `pytorch/1.4`       | X     | -     | Conda    | -       | *deprecated*    |
-| 1.3.1   | `pytorch/1.3.1`     | X     | -     | Conda    | -       | *deprecated*    |
-| -"-     | `pytorch/1.3.1-hvd` | X     | -     | Conda    | X       | *deprecated*    |
-| 1.3.0   | `pytorch/1.3.0`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.2.0   | `pytorch/1.2.0`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.1.0   | `pytorch/1.1.0`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.0.1   | `pytorch/1.0.1`     | X     | -     | Conda    | -       | *deprecated*    |
-| 0.4.1   | `pytorch/0.4.1`     | X     | -     | Conda    | -       | *deprecated*    |
+| Version | Module          | Puhti | Mahti | Environ. | Horovod | Notes           |
+|:-------:|-----------------|:-----:|:-----:|----------|:-------:|-----------------|
+| 1.11.0  | `pytorch/1.11`  | X     | X     | Sing.    | X       | default version |
+| 1.10.0  | `pytorch/1.10`  | X     | X     | Sing.    | X       |                 |
+| 1.9.0   | `pytorch/1.9`   | X     | X     | Sing.    | X       |                 |
+| 1.8.1   | `pytorch/1.8`   | X     | X     | Sing.    | X       |                 |
+| 1.7.1   | `pytorch/1.7`   | X     | -     | Sing.    | X       |                 |
+| 1.6.0   | `pytorch/1.6`   | X     | -     | Conda    | -       | *deprecated*    |
+| 1.4.0   | `pytorch/1.4`   | X     | -     | Conda    | -       | *deprecated*    |
+| 1.3.1   | `pytorch/1.3.1` | X     | -     | Conda    | -       | *deprecated*    |
+|:-------:|-----------------|:-----:|:-----:|----------|:-------:|-----------------|
+| 1.3.0   | `pytorch/1.3.0` | X     | -     | Conda    | -       | *deprecated*    |
+| 1.2.0   | `pytorch/1.2.0` | X     | -     | Conda    | -       | *deprecated*    |
+| 1.1.0   | `pytorch/1.1.0` | X     | -     | Conda    | -       | *deprecated*    |
+| 1.0.1   | `pytorch/1.0.1` | X     | -     | Conda    | -       | *deprecated*    |
+| 0.4.1   | `pytorch/0.4.1` | X     | -     | Conda    | -       | *deprecated*    |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
