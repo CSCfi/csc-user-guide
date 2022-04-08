@@ -23,7 +23,6 @@ Currently supported PyTorch versions:
 | 1.6.0   | `pytorch/1.6`   | X     | -     | Conda    | -       | *deprecated*    |
 | 1.4.0   | `pytorch/1.4`   | X     | -     | Conda    | -       | *deprecated*    |
 | 1.3.1   | `pytorch/1.3.1` | X     | -     | Conda    | -       | *deprecated*    |
-|:-------:|-----------------|:-----:|:-----:|----------|:-------:|-----------------|
 | 1.3.0   | `pytorch/1.3.0` | X     | -     | Conda    | -       | *deprecated*    |
 | 1.2.0   | `pytorch/1.2.0` | X     | -     | Conda    | -       | *deprecated*    |
 | 1.1.0   | `pytorch/1.1.0` | X     | -     | Conda    | -       | *deprecated*    |
