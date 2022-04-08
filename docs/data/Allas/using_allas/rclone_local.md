@@ -50,7 +50,7 @@ Remember that you need to be careful and security aware, when configuring S3 con
 
 ## Configuring Allas connection in Windows 
 
-In Windos machine you can't use _allas_conf_ script. In stead you can configure the Allas connetion with command:
+In Windos machines you can't use _allas_conf_ script. In stead you can configure the Allas connetion with command:
 
 ```text
 rclone config
