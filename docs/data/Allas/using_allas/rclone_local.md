@@ -139,14 +139,18 @@ to generate and check it each time you start using Rclone in your computer.
 
 At the moment we don't have a tool for generating this value in Windows so you need to 
 use Puhti (or some other machine that can run allas_conf tool) to generate this project 
-specific temporary token. Then check the value in Puhti with command _echo $OS_AUTH_TOKEN_
-and set the variable accordingly in your local machine. 
-
-With these settings done you could open Allas connection for rclone with commands:
+specific temporary token.  In Puhti you can generate and check a new token with commands:
+```text
+module load allas
+allas-conf
+echo $OS_AUTH_TOKEN
+```
+Then set the variable accordingly in your local machine. 
+With these settings done, you could open Allas connection for Rclone with commands:
 
 ```text
 allas_conf.cmd
-set OS_AUTH_TOKEN=string-copied-from-puhti
+set OS_AUTH_TOKEN=token-string-copied-from-puhti
 ```
 Now you should be able to check your buckets with command:
 ```text
