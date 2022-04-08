@@ -80,13 +80,6 @@ _OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)_
 In the case of SWIFT you need to do this configuration only once. In the configuration 
 it is now defined that in case of _allas_, all data for the connection is red from environment variables.
 
-Next we need to create a text file that sets these variables. Open a new file in a text-only 
-editor like _notepad_ . In this example we name the settings file as _allas_env.cmd_ . 
-In the file we define the variables using syntax:
-
-```text
-set VARIABLE=value
-```
 One way to check the values of the variables needed is to open terminal connection to 
 [Puhti](https://puhti.csc.fi) and activate there connection to the Allas project you 
 wish to use. This is done in Puhti with commands:
@@ -100,59 +93,20 @@ After that you can check the variable values with commands:
 ```text
 echo $variable_name
 ```
-Part of the variable settings are always the same for Allas.
-These static settings are listed below and you can copy them directly to
-your settings file:
+The variables required for the Allas SWIFT access are:
 
-```text
-set OS_USER_DOMAIN_NAME=Default
-set OS_REGION_NAME=regionOne
-set OS_INTERFACE=public
-set OS_IDENTITY_API_VERSION=3
-set OS_AUTH_URL=https://pouta.csc.fi:5001/v3
-set OS_INTERFACE=public
-```
-Then there are some variables that are project or user specific so you need 
-to change them only when you want to change the Allas project you are using.
-
-The project spesific variables are:
-
-   * **OS_PROJECT_NAME**, name of the CSC project 
-   * **OS_USERNAME**, your CSC usernane.
    * **OS_STORAGE_URL**, Check this value in Puhti with commad  _echo $OS_STORAGE_URL_ .
+   * **OS_AUTH_TOKEN**, Check this value in Puhti with commad  _echo $OS_AUTH_TOKEN_ .
 
-In the end you should have a text file (allas_conf.cmd) that looks something like below:
-```text
-set OS_USER_DOMAIN_NAME=Default
-set OS_REGION_NAME=regionOne
-set OS_INTERFACE=public
-set OS_IDENTITY_API_VERSION=3
-set OS_AUTH_URL=https://pouta.csc.fi:5001/v3
-set OS_INTERFACE=public
-set OS_PROJECT_NAME=project_2001234
-set OS_USERNAME=kkayttaj
-set OS_STORAGE_URL=https://a3s.fi:443/swift/v1/AUTH_5d68719ga0fh46deb5581a2625ee1a9d
-```
-In addition to the variables below you need to define OS_AUTH_TOKEN variable that contains
-the actual authentication token. This token is valid only for 8 hours so you typically need 
+The value in the variable OS_STORAGE_URL stays the same as long as you are accessing the same project.
+OS_AUTH_TOKEN variable contains the actual authentication token. This token is valid only for 8 hours so you typically need 
 to generate and check it each time you start using Rclone in your computer.
 
 At the moment we don't have a tool for generating this value in Windows so you need to 
 use Puhti (or some other machine that can run allas_conf tool) to generate this project 
-specific temporary token.  In Puhti you can generate and check a new token with commands:
-```text
-module load allas
-allas-conf
-echo $OS_AUTH_TOKEN
-```
-Then set the variable accordingly in your local machine. 
-With these settings done, you could open Allas connection for Rclone with commands:
+specific temporary token.
 
-```text
-allas_conf.cmd
-set OS_AUTH_TOKEN=token-string-copied-from-puhti
-```
-Now you should be able to check your buckets with command:
+With these settings done, you should be able to check your buckets with command:
 ```text
 rclone lsd allas:
 ```
