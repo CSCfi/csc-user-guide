@@ -12,7 +12,7 @@ line: _Terminal_ in Mac and Linux, _Command prompt_ or _Powershell_ in Windows.
 
 ## Configuring Allas connection in Mac and Linux (SWIFT and S3)
 
-If you are using rclone in a local **Linux** or **Mac machine**, you can download 
+If you are using Rclone in a local **Linux** or **Mac machine**, you can download 
 the `allas_conf` script to set up the connection to your Allas project.
 
 ```text
