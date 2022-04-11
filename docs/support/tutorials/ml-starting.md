@@ -1,13 +1,20 @@
-# Getting started with machine learning on Puhti
+# Getting started with machine learning at CSC
 
 *You have some machine learning code in Python running on your laptop, but it's
-really slow. You've learned that moving to GPUs and CSC's Puhti supercomputer
-might be the answer but the documentation seems a bit daunting.*
+really slow. You've learned that moving to GPUs and CSC's supercomputers might
+be the answer but the documentation seems a bit daunting.*
 
 CSC's computing environment is well-documented at [docs.csc.fi](../../index.md),
 but for a newcomer it might be a bit difficult to know how to get started.
-**This guide will show you, step by step, how to get your codes and data to
-Puhti and running on GPUs**.
+**This guide will show you, step by step, how to get your codes and data to the
+Puhti supercomputer and running on GPUs**. It is part of our [Machine learning
+guide](ml-guide.md).
+
+CSC has several supercomputers: [Puhti](../../computing/systems-puhti.md),
+[Mahti](../../computing/systems-mahti.md) and
+[LUMI](https://docs.lumi-supercomputer.eu/generic/overview/). In this guide we
+will focus on using Puhti as it has the widest selection of software, and has a
+web user interface, making it very easy to access.
 
 When you are moving your code from your laptop to the Puhti supercomputer, it's
 important to acknowledge that Puhti isn't just a "faster laptop". Because of the
@@ -182,8 +189,8 @@ program and the actual commands needed to run it. You can read more about
 defining [batch job scripts in our separate documentation
 page](../../computing/running/creating-job-scripts-puhti.md).
 
-In the file `run.sh` in our code directory, you can find an example batch job
-script:
+In the file `run-cifar10.sh` in our code directory, you can find an example
+batch job script:
 
 ```bash
 #!/bin/bash
@@ -240,7 +247,7 @@ To run the script, that is pass it to the Slurm queue, run the command (from the
 code directory):
 
 ```bash
-sbatch run.sh
+sbatch run-cifar10.sh
 ```
 
 If submission was successful it should report something like:
@@ -271,7 +278,7 @@ Files browser or using for example `less` in the command line (press 'q' to quit
 
 Once you're satisfied that the job runs as it should, you can run in the real
 `gpu` partition that allows for jobs longer than 15 minutes. Just edit the
-`run.sh` file to change the partition to `gpu` and submit the job again.
+`run-cifar10.sh` file to change the partition to `gpu` and submit the job again.
 
 Note that you can submit many jobs at the same time, for example with different
 parameters. But please don't submit hundreds of jobs at the same time.
