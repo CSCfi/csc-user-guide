@@ -99,17 +99,43 @@ The variables required for the Allas SWIFT access are:
    * **OS_AUTH_TOKEN**, Check this value in Puhti with commad  _echo $OS_AUTH_TOKEN_ .
 
 The value in the variable OS_STORAGE_URL stays the same as long as you are accessing the same project.
-OS_AUTH_TOKEN variable contains the actual authentication token. This token is valid only for 8 hours so you typically need 
-to generate and check it each time you start using Rclone in your computer.
+OS_AUTH_TOKEN variable contains the actual authentication token. This token is valid only for 8 hours so you typically need to generate and check it each time you start using Rclone in your computer.
 
 At the moment we don't have a tool for generating this value in Windows so you need to 
 use Puhti (or some other machine that can run allas_conf tool) to generate this project 
 specific temporary token.
 
+For example, if in Puhti running the confiration wo produce following values:
+
+<pre>
+<b>module load allas</b>
+<b>allas-cond</b>
+<b>echo $OS_STORAGE_URL</b>
+https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d
+<b>echo $OS_AUTH_TOKEN</b>
+gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ
+</pre>
+
+Then in **Windows PowerShell** you couls set up Allas connection with commands:
+
+```text
+$Env:OS_STORAGE_URL = "https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d"
+$Env:OS_AUTH_TOKEN = "gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ"
+```
+
+In the **Windows Command Prompt** the corresponding set up commands would be:
+```text
+set OS_STORAGE_URL=https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d
+set OS_AUTH_TOKEN=gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ
+```
+
+
 With these settings done, you should be able to check your buckets with command:
 ```text
-rclone lsd allas:
+rclone.exe lsd allas:
 ```
+
+
 
 #### Configuring S3 connection in Windows
 
@@ -150,7 +176,7 @@ And do following selections:
 After this you can access your Allas project using Rclone remote _s3allas_. For example:
 
 ```text
-rclone lsd s3allas:
+rclone.exe lsd s3allas:
 ```
 
 This connection stays active in your laptop until you delete it.
