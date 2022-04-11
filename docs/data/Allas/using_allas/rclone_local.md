@@ -105,18 +105,18 @@ At the moment we don't have a tool for generating this value in Windows so you n
 use Puhti (or some other machine that can run allas_conf tool) to generate this project 
 specific temporary token.
 
-For example, if in Puhti running the confiration wo produce following values:
+For example, if in Puhti running the allas-conf would produce following values:
 
 <pre>
 <b>module load allas</b>
-<b>allas-cond</b>
+<b>allas-conf</b>
 <b>echo $OS_STORAGE_URL</b>
 https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d
 <b>echo $OS_AUTH_TOKEN</b>
 gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ
 </pre>
 
-Then in **Windows PowerShell** you couls set up Allas connection with commands:
+Then in **Windows PowerShell** you could set up Allas connection with commands:
 
 ```text
 $Env:OS_STORAGE_URL = "https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d"
