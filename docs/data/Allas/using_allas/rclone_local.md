@@ -6,7 +6,7 @@ form the link below.
 
    * [Rclone download site](https://rclone.org/downloads/)
 
-Once you have Rclone installed you still need configure the connection to Allas. Rclone is a 
+Once you have Rclone installed you still need to configure the connection to Allas. Rclone is a 
 command line application so both configurarion and actual usage is normally done in a command 
 line: _Terminal_ in Mac and Linux, _Command prompt_ or _Powershell_ in Windows.
 
