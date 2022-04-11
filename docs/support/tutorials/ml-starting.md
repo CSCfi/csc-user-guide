@@ -10,11 +10,11 @@ but for a newcomer it might be a bit difficult to know how to get started.
 Puhti supercomputer and running on GPUs**. It is part of our [Machine learning
 guide](ml-guide.md).
 
-CSC has several supercomputers, [Puhti](../../computing/systems-puhti.md),
-[Mahti](../../computing/systems-mahti.md) and [LUMI
-supercomputer](https://docs.lumi-supercomputer.eu/generic/overview/). In this
-guide we will focus on using Puhti as it has the widest selection of software,
-and has a web user interface, making it very easy to access.
+CSC has several supercomputers: [Puhti](../../computing/systems-puhti.md),
+[Mahti](../../computing/systems-mahti.md) and
+[LUMI](https://docs.lumi-supercomputer.eu/generic/overview/). In this guide we
+will focus on using Puhti as it has the widest selection of software, and has a
+web user interface, making it very easy to access.
 
 When you are moving your code from your laptop to the Puhti supercomputer, it's
 important to acknowledge that Puhti isn't just a "faster laptop". Because of the
