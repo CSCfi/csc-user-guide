@@ -9,7 +9,7 @@ options to come in the future. The intended workflow is that you create one work
 exercises in one or more applications in that workspace.
 Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course notebooks environment and is described below.
 
-### Becoming a workspace owner and creating a workspace
+### 1. Becoming a workspace owner and creating a workspace
 
 1. Login to CSC Notebooks using your CSC account. Make note of your user account on the bottom of the left navigation
    bar. If you don't have a CSC account yet, 
@@ -19,7 +19,7 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
 3. Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace ower rights:
 It worked, if you see 'Manage workspaces' tab in the left panel. You can now use the *Create workspace* button to create a new workspace.
  
-### Custom images
+### 2. Custom images
 
 Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks:
 
@@ -81,7 +81,7 @@ RUN conda install --yes -c conda-forge \
 
 `sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>`
 
-### Creating an application in the workspace
+### 3. Creating an application in the workspace
 
 Open *Manage workspaces* in the left navigation and select the workspace you want to work on. Create a new application 
 through *Application wizard* or *Application form* -buttons.
@@ -119,14 +119,14 @@ This is enabled by default.
 
 **Publication** Choose *save as draft* if you still need to test/change things in your application. Only after *publication*, which can be done here by choosing *publish immediately* or from the application menu (Manage workspaces > your workspace > your Application > 3 bars on right end of application > *publish*) later. Publication means that people with the join code can find the application. Your application will never appear for everyone. Only CSC Notebooks team can add self-learning and public-for-all notebooks.
 
-### Invite users
+### 4. Invite users
 
 Once the content is ready, you can invite course participants / collaborators by sharing a workspace specific join code. The code can be found in
 *Manage workspaces* view, in workspace list or on the Info tab of each workspace.
 The users can enter the code by clicking *Join workspace* button located in the top bar. They can then see all published 
 applications on top of the application list on the *Applications* page, and under *My workspaces* page as well.
 
-### Promote users
+### 5. Promote users
 
 Once the co-instructors/co-organizers/collaborators have signed in, you can find their name in the *members* tab (under *manage workspaces*), to give them rights to change things and see other participants sessions, *promote to co-owner* from the Menu column next to the members name.
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
