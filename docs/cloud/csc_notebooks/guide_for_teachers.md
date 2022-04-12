@@ -25,9 +25,10 @@ Check the [image sources in notebook-images repository.](https://github.com/CSCf
 
 Requirements: 
 
-* own CSC user account with [Rahti](../rahti/rahti-what-is.md) access
+* own CSC user account with [Rahti](../rahti/rahti-what-is.md) access, or another way to publish your image
 * Docker installed (on own computer or [Pouta](../pouta/pouta-what-is/) instance)
 
+Steps to create your own custom image using Docker and host it on Rahti:
 
 1. Create Docker file
 
@@ -64,6 +65,8 @@ Requirements:
     && conda clean -afy
 
     ```
+
+    For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in jupyter/minimal-notebook or install it yourself (same way as ssh-client and less are installed in above example).
 
 2. Build the image from dockerfile to current directory (.)
 `docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .`
