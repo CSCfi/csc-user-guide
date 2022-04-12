@@ -1,6 +1,6 @@
 # Guide for students
 
-Instructions on using the CSC Notebooks environment as a student.
+Instructions on using the CSC Notebooks environment as a student. If you have received a join code from your course organizer, you can follow below instructions on [joining a course](guide_for_students.md/#joining-a-course). If you would like to use the Notebooks environment for self-learning, follow the instructions on [self-learning](guide_for_students.md/#self-learning).
 
 ## Joining a course
 
