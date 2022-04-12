@@ -14,10 +14,9 @@ Check if your institution belongs to _Haka_ or _Virtu_ here :
 ## Joining a course
 
 If you are a student in a course that uses the CSC Notebooks environment, you will be provided a _join code_ by the course organizer.
-Once you have the code, you can visit [the Notebooks application](https://notebooks-beta.rahtiapp.fi), login with any of the [supported login methods](getting_started.md/#how-to-login-to-csc-notebooks) , then find the `Join workspace` button on the top right corner of the Notebooks home page. Enter the join code in the popup and click the `+` button. If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whiltespaces. 
+Once you have the code, you can visit [the Notebooks application](https://notebooks-beta.rahtiapp.fi), login with any of the [supported login methods](getting_started.md/#how-to-login-to-csc-notebooks), then find the `Join workspace` button on the top right corner of the Notebooks home page. Enter the join code in the popup and click the `+` button. If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whiltespaces.
 
 You can then start the application by using the power control button on the right of the application. A new tab will open with your application.
-
 
 ## Self-learning
 
@@ -34,13 +33,12 @@ You can then start the application by using the power control button on the righ
     Public applications do not support saving your session or data. If you want to keep your content, please download it
     locally before your session ends.
 
-## How to host a course
+## How to host a course or use notebooks for collaboration
 
 CSC Notebooks is built for hosting online courses. We support currently Jupyter and RStudio based content, with more
 options to come in the future. The intended workflow is that you create one workspace per course, and arrange your 
 exercises in one or more applications in that workspace.
-
-Here is a step-by-step guide for hosting a course on CSC Notebooks.
+Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course notebooks environment and is described below.
 
 ### Becoming a workspace owner and creating a workspace
 
@@ -54,7 +52,7 @@ It worked, if you see 'Manage workspaces' tab in the left panel. You can now use
  
 ### Custom images
 
-Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks. 
+Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks:
 
 Requirements: 
 
@@ -100,7 +98,7 @@ RUN conda install --yes -c conda-forge \
 2. Build the image from dockerfile to current directory (.)
 `docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .`
 
-3. Login to [Rahti registry](https://registry-console.rahti.csc.fi/)
+3. For publishing your image to Rahti, login to [Rahti registry](https://registry-console.rahti.csc.fi/)
 
 4. Find the `login commands` on the `Overview` page and use one of them to login to Rahti registry from command line
 
@@ -154,25 +152,15 @@ This is enabled by default.
 
 ### Invite users
 
-Once the content is ready, you can invite users by sharing a workspace specific join code. The code can be found in
+Once the content is ready, you can invite course participants / collaborators by sharing a workspace specific join code. The code can be found in
 *Manage workspaces* view, in workspace list or on the Info tab of each workspace.
 The users can enter the code by clicking *Join workspace* button located in the top bar. They can then see all published 
 applications on top of the application list on the *Applications* page, and under *My workspaces* page as well.
 
 ### Promote users
 
-Once the co-instructors/co-organizers have signed in, you can find their name in the 'members' tab (under 'manage workspaces'), to give them rights to change things and see other participants sessions, 'promote to co-owner' from the Menu column next to the members name.
-Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. 
-
-## Using CSC Notebooks for collaboration
-
-A simple setup for collaboration can be achieved by following the 'How to host a course' instructions above and 
-promoting the collaborators as co-owners. The process is:
-
-1. Obtain workspace owner rights.
-2. Create a workspace.
-3. Invite the collaborators using the join code.
-4. Make collaborators co-owners, so they can also write to the shared folder in the workspace.
+Once the co-instructors/co-organizers/collaborators have signed in, you can find their name in the *members* tab (under *manage workspaces*), to give them rights to change things and see other participants sessions, *promote to co-owner* from the Menu column next to the members name.
+Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
 
 
 ## Security guidelines for Workspace owners
