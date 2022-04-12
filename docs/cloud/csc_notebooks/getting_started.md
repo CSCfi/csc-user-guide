@@ -52,6 +52,67 @@ Here is a step-by-step guide for hosting a course on CSC Notebooks.
 3. Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace ower rights:
 It worked, if you see 'Manage workspaces' tab in the left panel. You can now use the *Create workspace* button to create a new workspace.
  
+### Custom images
+
+Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks. 
+
+Requirements: 
+
+* own CSC user account with [Rahti](../rahti/rahti-what-is.md) access
+* Docker installed (on own computer or [Pouta](../pouta/pouta-what-is/) instance)
+
+1. Create Docker file
+
+For Jupyter Lab with some conda packages use the following as minimal example:
+
+xxcourse.dockerfile:
+
+```text 
+# use jupyter minimal notebook as base for your image
+# it has eg conda already installed
+FROM jupyter/minimal-notebook
+
+# add your name as maintainer, with your email address for future questions
+LABEL maintainer="your-name-here"
+
+#some first setup steps need to be run as root user
+USER root
+
+# set home environment variable to point to user directory
+ENV HOME /home/$NB_USER
+
+# install needed extra tools, eg ssh-client and less
+RUN apt-get update \
+    && apt-get install -y ssh-client less \
+    && apt-get clean
+
+# the user set here will be the user that students will use 
+USER $NB_USER
+
+### Installing the needed conda packages and jupyter lab extensions. 
+# Run conda clean afterwards in same layer to keep image size lower
+RUN conda install --yes -c conda-forge \
+  your-packages-here \
+  && conda clean -afy
+
+```
+
+2. Build the image from dockerfile to current directory (.)
+`docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .`
+
+3. Login to [Rahti registry](https://registry-console.rahti.csc.fi/)
+
+4. Find the `login commands` on the `Overview` page and use one of them to login to Rahti registry from command line
+
+5. Create a new project on Rahti webpage (or re-use one that you already have)
+
+6. Tag your docker image, eg based on versions (here: v0.1):
+
+`sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1`
+
+7. Push your docker image to Rahti registry:
+
+`sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>`
 
 ### Creating an application in the workspace
 
@@ -60,16 +121,15 @@ through *Application wizard* or *Application form* -buttons.
 
 **Application template** Template provides the base features for your application. Most of the templates are based on
 container images maintained by Notebooks team. Take a look at the 
-[image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds){target="_blank"}
+[image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds){target="_blank"}. If you intend to use your own custom image, you can choose any of the templates which then determines only the _memory_ and _lifetime_ of your application.
 
 **Application name** Give a valid meaningful name. This is the name under which participants will see the notebook in the list of notebooks.
 
 **Application description** Fill a detailed description to helps users to understand more about the application.
 
 **Container image** Pre-filled based on chosen Application template.
-Advanced usage: If you need different setup from what is provided in [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds), you can also build 
-your own image, upload it to a public image registry (such as docker-registry in Rahti, DockerHub or Quay.io)
-and pointing *Container image* to it. 
+Advanced usage: If you need different setup from what is provided in [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds), you can also [build 
+your own image](getting_started.md/#custom-images), upload it to a public image registry (such as docker-registry in Rahti, DockerHub or Quay.io) and pointing *Container image* to it. If you followd the custom image instructions above, you can find the link from Rahti web interface > projectname > imagename > Pulling repository, e.g. `docker-registry.rahti.csc.fi/<yourprojectname>/<yourimagename>:<tagyouwanttouse>` .
 
 **Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
 the application is also selected based on assigned labels.
