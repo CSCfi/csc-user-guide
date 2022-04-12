@@ -150,6 +150,8 @@ shared folder in advance. The folder is visible for everyone, but is read-only f
 **Work folder per user** Whether persistent user-based `my-work` folder is available for users in this application. 
 This is enabled by default.
 
+**Publication** Choose *save as draft* if you still need to test/change things in your application. Only after *publication*, which can be done here by choosing *publish immediately* or from the application menu (Manage workspaces > your workspace > your Application > 3 bars on right end of application > *publish*) later. Publication means that people with the join code can find the application. Your application will never appear for everyone. Only CSC Notebooks team can add self-learning and public-for-all notebooks.
+
 ### Invite users
 
 Once the content is ready, you can invite users by sharing a workspace specific join code. The code can be found in
