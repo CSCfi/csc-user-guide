@@ -10,15 +10,15 @@ come in the future.
     This documentation describes the upcoming new release that is currently available as **public beta** at
     [notebooks-beta.rahtiapp.fi](https://notebooks-beta.rahtiapp.fi){target="_blank"}
 
-## What can you use CSC Notebooks for?
+## Who and how can CSC notebooks be used?
 
-1. [Self-learning](getting_started.md#self-learning)
-2. [Hosting courses](getting_started.md#how-to-host-a-course)
-3. [Collaboration among teams and researchers](getting_started.md#using-csc-notebooks-for-collaboration)
+1. As student: [self-learnining](getting_started.md#self-learning) or [joining a course]()
+2. As teacher: [Hosting a course](getting_started.md#how-to-host-a-course)
+3. As researcher: [self-learnining](getting_started.md#self-learning) or [use CSC Notebooks as collaboration platform](getting_started.md#using-csc-notebooks-for-collaboration)
 
 ## Getting started
 
-Continue to [Getting started guide](getting_started.md) for step-by-step instructions on using CSC Notebooks.  
+Read the full [getting started guide](getting_started.md) for step-by-step instructions on using CSC Notebooks for any occasion.  
 
 ## Concepts
 
