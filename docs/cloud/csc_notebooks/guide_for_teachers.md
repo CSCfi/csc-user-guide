@@ -28,41 +28,42 @@ Requirements:
 * own CSC user account with [Rahti](../rahti/rahti-what-is.md) access
 * Docker installed (on own computer or [Pouta](../pouta/pouta-what-is/) instance)
 
+
 1. Create Docker file
 
-For Jupyter Lab with some conda packages use the following as minimal example:
+    For Jupyter Lab with some conda packages use the following as minimal example:
 
-xxcourse.dockerfile:
+    xxcourse.dockerfile:
 
-```text 
-# use jupyter minimal notebook as base for your image
-# it has eg conda already installed
-FROM jupyter/minimal-notebook
+    ```text 
+    # use jupyter minimal notebook as base for your image
+    # it has eg conda already installed
+    FROM jupyter/minimal-notebook
 
-# add your name as maintainer, with your email address for future questions
-LABEL maintainer="your-name-here"
+    # add your name as maintainer, with your email address for future questions
+    LABEL maintainer="your-name-here"
 
-#some first setup steps need to be run as root user
-USER root
+    #some first setup steps need to be run as root user
+    USER root
 
-# set home environment variable to point to user directory
-ENV HOME /home/$NB_USER
+    # set home environment variable to point to user directory
+    ENV HOME /home/$NB_USER
 
-# install needed extra tools, eg ssh-client and less
-RUN apt-get update \
-    && apt-get install -y ssh-client less \
-    && apt-get clean
+    # install needed extra tools, eg ssh-client and less
+    RUN apt-get update \
+        && apt-get install -y ssh-client less \
+        && apt-get clean
 
-# the user set here will be the user that students will use 
-USER $NB_USER
+    # the user set here will be the user that students will use 
+    USER $NB_USER
 
-### Installing the needed conda packages and jupyter lab extensions. 
-# Run conda clean afterwards in same layer to keep image size lower
-RUN conda install --yes -c conda-forge \
-  your-packages-here \
-  && conda clean -afy
+    ### Installing the needed conda packages and jupyter lab extensions. 
+    # Run conda clean afterwards in same layer to keep image size lower
+    RUN conda install --yes -c conda-forge \
+    your-packages-here \
+    && conda clean -afy
 
-```
+    ```
 
 2. Build the image from dockerfile to current directory (.)
 `docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .`
