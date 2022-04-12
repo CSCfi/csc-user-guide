@@ -49,25 +49,27 @@ Here is a step-by-step guide for hosting a course on CSC Notebooks.
    [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
 2. Send email to <notebooks@csc.fi> to request workspace owner rights. Please include your CSC user account in the mail. 
    We will add the capability to create your own workspaces to your account.
-3. Once the access is given, a new entry *Manage workspaces* in the left navigation bar will appear. Use *Create
-   workspace* button to create a workspace.
+3. Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace ower rights:
+It worked, if you see 'Manage workspaces' tab in the left panel. You can now use the *Create workspace* button to create a new workspace.
+ 
 
 ### Creating an application in the workspace
 
 Open *Manage workspaces* in the left navigation and select the workspace you want to work on. Create a new application 
-through *Application creation wizard* or *Use simple editor* -buttons.
+through *Application wizard* or *Application form* -buttons.
 
 **Application template** Template provides the base features for your application. Most of the templates are based on
 container images maintained by Notebooks team. Take a look at the 
 [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds){target="_blank"}
 
-**Application name** Give a valid meaningful name.
+**Application name** Give a valid meaningful name. This is the name under which participants will see the notebook in the list of notebooks.
 
 **Application description** Fill a detailed description to helps users to understand more about the application.
 
-**Container image** For advanced use cases. You can customize the container image the application uses by building 
-your own image, uploading it to a public image registry (such as docker-registry in Rahti, DockerHub or Quay.io)
-and pointing *Container image* to it. See [instructions for creating custom images](./custom_image.md).
+**Container image** Pre-filled based on chosen Application template.
+Advanced usage: If you need different setup from what is provided in [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds), you can also build 
+your own image, upload it to a public image registry (such as docker-registry in Rahti, DockerHub or Quay.io)
+and pointing *Container image* to it. 
 
 **Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
 the application is also selected based on assigned labels.
@@ -75,18 +77,17 @@ the application is also selected based on assigned labels.
 **Interface** JupyterLab or old Jupyter notebooks. Applicable only for Jupyter based applications.
 
 **Download Method** The location to download the course contents from. Choose *git clone* if you wish to clone a git
-repository. Choose *Download from url* if you have contents hosted in Allas or other HTTP accessible location and 
-provide the url.
+repository. Choose *Download from url* if you have contents hosted in Allas or other HTTP accessible location and provide the url. Content is downloaded to $HOME folder of any instance by default.
 
 !!!Note
 
-    The external location should be publicly accessible. For example git repositories should be public.
+    The external location needs to be publicly accessible. For example git repositories should be public.
 
-As an alternative, the course material can be provided through `shared` folder. Workspace owner can prepare the
-shared folder in advance. The folder is visible but read-only for normal workspace members.
+As an alternative, the course material can be provided through `shared` folder. The workspace owner can prepare the
+shared folder in advance. The folder is visible for everyone, but is read-only for course participants.
 [See data persistence document for more information](data_persistence.md).
 
-**Work folder per user** Whether `my-work` folder is available for users in this application. 
+**Work folder per user** Whether persistent user-based `my-work` folder is available for users in this application. 
 This is enabled by default.
 
 ### Invite users
@@ -98,7 +99,7 @@ applications on top of the application list on the *Applications* page, and unde
 
 ### Promote users
 
-As workspace owner or co-owner, you can promote members of the workspace to be co-owners or demote co-owners to members.
+Once the co-instructors/co-organizers have signed in, you can find their name in the 'members' tab (under 'manage workspaces'), to give them rights to change things and see other participants sessions, 'promote to co-owner' from the Menu column next to the members name.
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. 
 
 ## Using CSC Notebooks for collaboration
@@ -110,6 +111,7 @@ promoting the collaborators as co-owners. The process is:
 2. Create a workspace.
 3. Invite the collaborators using the join code.
 4. Make collaborators co-owners, so they can also write to the shared folder in the workspace.
+
 
 ## Security guidelines for Workspace owners
 
