@@ -26,7 +26,7 @@ Check the [image sources in notebook-images repository.](https://github.com/CSCf
 Requirements: 
 
 * own CSC user account with [Rahti](../rahti/rahti-what-is.md) access, or another way to publish your image
-* Docker installed (on own computer or [Pouta](../pouta/pouta-what-is/) instance)
+* Docker installed (on own computer or [Pouta](../pouta/pouta-what-is.md) instance)
 
 Steps to create your own custom image using Docker and host it on Rahti:
 

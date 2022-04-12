@@ -1,11 +1,11 @@
 # Guide for students
 
-Instructions on using the CSC Notebooks environment as a student. If you have received a join code from your course organizer, you can follow below instructions on [joining a course](guide_for_students.md/#joining-a-course). If you would like to use the Notebooks environment for self-learning, follow the instructions on [self-learning](guide_for_students.md/#self-learning).
+Instructions on using the CSC Notebooks environment as a student. If you have received a join code from your course organizer, you can follow below instructions on *joining a course*. If you would like to use the Notebooks environment for self-learning, follow the instructions on *self-learning* below.
 
 ## Joining a course
 
 If you are a student in a course that uses the CSC Notebooks environment, you will be provided a _join code_ by the course organizer.
-Once you have the code, you can visit [the Notebooks application](https://notebooks-beta.rahtiapp.fi), login with any of the [supported login methods](getting_started.md/#how-to-login-to-csc-notebooks), then find the `Join workspace` button on the top right corner of the Notebooks home page. Enter the join code in the popup and click the `+` button. If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whiltespaces.
+Once you have the code, you can visit [the Notebooks application](https://notebooks-beta.rahtiapp.fi), login with any of the [supported login methods](index.md/#how-to-login-to-csc-notebooks), then find the `Join workspace` button on the top right corner of the Notebooks home page. Enter the join code in the popup and click the `+` button. If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whiltespaces.
 
 You can then start the application by using the power control button on the right of the application. A new tab will open with your application.
 
