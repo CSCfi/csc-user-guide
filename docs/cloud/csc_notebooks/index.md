@@ -12,7 +12,7 @@ come in the future.
 
 ## Who and how can CSC notebooks be used?
 
-1. As student: [self-learnining](getting_started.md#self-learning) or [joining a course]()
+1. As student: [self-learnining](getting_started.md#self-learning) or [joining a course](getting_started.md#joining-a-course)
 2. As teacher: [Hosting a course](getting_started.md#how-to-host-a-course)
 3. As researcher: [self-learnining](getting_started.md#self-learning) or [use CSC Notebooks as collaboration platform](getting_started.md#using-csc-notebooks-for-collaboration)
 
