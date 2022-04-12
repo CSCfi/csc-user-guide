@@ -69,7 +69,7 @@ Steps to create your own custom image using Docker and host it on Rahti:
     For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in jupyter/minimal-notebook or install it yourself (same way as ssh-client and less are installed in above example).
 
 2. Build the image from dockerfile to current directory (.)
-`docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .`
+    `docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .`
 
 3. For publishing your image to Rahti, login to [Rahti registry](https://registry-console.rahti.csc.fi/)
 
@@ -79,11 +79,11 @@ Steps to create your own custom image using Docker and host it on Rahti:
 
 6. Tag your docker image, eg based on versions (here: v0.1):
 
-`sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1`
+    `sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1`
 
 7. Push your docker image to Rahti registry:
 
-`sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>`
+    `sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>`
 
 ### 3. Creating an application in the workspace
 
