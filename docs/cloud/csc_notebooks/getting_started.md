@@ -2,14 +2,7 @@
 
 Step-by-step instructions on using the CSC Notebooks environment. 
 
-## How to login to CSC Notebooks?
 
-CSC Notebooks can be accessed by anyone that has _Haka_, _Virtu_ or _CSC_ account.
-
-Check if your institution belongs to _Haka_ or _Virtu_ here :
-
-* [Haka institutions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=27297776){target="_blank"}
-* [Virtu institutions](https://wiki.eduuni.fi/display/CSCVIRTU/Organisaatiot){target="_blank"}
 
 ## Joining a course
 

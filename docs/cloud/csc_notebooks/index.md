@@ -12,21 +12,26 @@ come in the future.
 
 ## Who and how can CSC notebooks be used?
 
-1. As student: [self-learnining](getting_started.md#self-learning) or [joining a course](getting_started.md#joining-a-course)
+1. As student: [self-learning](getting_started.md#self-learning) or [joining a course](getting_started.md#joining-a-course)
 2. As teacher: [Hosting a course](getting_started.md#how-to-host-a-course-or-use-notebooks-for-collaboration)
 3. As researcher: [self-learnining](getting_started.md#self-learning) or [use CSC Notebooks as collaboration platform](getting_started.md#how-to-host-a-course-or-use-notebooks-for-collaboration)
 
-## Getting started
+## How to login to CSC Notebooks?
 
-Read the full [getting started guide](getting_started.md) for step-by-step instructions on using CSC Notebooks for any occasion.  
+CSC Notebooks can be accessed by anyone who has _Haka_, _Virtu_ or _CSC_ account.
+
+Check if your institution belongs to _Haka_ or _Virtu_ here :
+
+* [Haka institutions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=27297776){target="_blank"}
+* [Virtu institutions](https://wiki.eduuni.fi/display/CSCVIRTU/Organisaatiot){target="_blank"}
 
 ## Concepts
 
-See the separate [concepts](concepts.md) document.
+To better understand the CSC Notebooks environment, we have collected all terms and concepts in a separate [concepts](concepts.md) document.
 
 ## Data persistence
 
-See the separate [data persistence](data_persistence.md) document.
+CSC Notebooks provides different ways of sharing (e.g. course contents) and storing (e.g. students own progress) data. For an explanation of the different possibilities, see the separate document on [data persistence](data_persistence.md).
 
 ## References
 
