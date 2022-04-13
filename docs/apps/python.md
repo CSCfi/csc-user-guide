@@ -65,6 +65,10 @@ export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
 pip install --user pyarrow
 ```
 
+In the example, the package is now installed inside the `my-python-env`
+directory in the project's projappl directory. Run `unset PYTHONUSERBASE` if you
+wish to later install into your home directory again.
+
 When later using those libraries you need to remember to add the `site-packages`
 path to `PYTHONPATH` (or use the same `PYTHONUSERBASE` definition as above).
 Naturally, this also applies to slurm job scripts. For example:
