@@ -90,12 +90,13 @@ by CSC, you can send an email to <servicedesk@csc.fi>.
 
 ## Creating your own Python environments
 
-It is also possible to create your own Python environments. The main options are
-conda and Singularity. Singularity should be preferred at least when you know of
-a suitable ready-made Singularity or Docker container. Conda is easy to use and
-flexible, but it might create a huge number of files which is inefficient with
-shared file systems. This can cause very slow library imports and in the worst
-case slowdowns in the whole file system.
+It is also possible to create your own Python environments. 
+
+### Tykky
+The easiest option is to use [Tykky](../computing/containers/tykky/) for conda or pip installations.
+
+### Custom Singularity container
+In some cases, for example if you know of a suitable ready-made Singularity or Docker container, also using custom Singularity container is an option. 
 
 Please, see our Singularity documentation:
 
@@ -103,11 +104,13 @@ Please, see our Singularity documentation:
    * [Creating Singularity containers](../computing/containers/creating.md),
      including how to convert Docker container to Singularity container.
 
-For Conda:
+### Conda
+Conda is easy to use and flexible, but it might create a huge number of files which is inefficient with
+shared file systems. This can cause very slow library imports and in the worst
+case slowdowns in the whole file system. **Therefore CSC has deprecated the use of Conda installations at CSC supercomputers.**
 
    * [CSC conda tutorial](../support/tutorials/conda.md) describes in detail
-     what conda is and how to use it.
-   * [Bioconda](bioconda.md) provides conda tools preinstalled.
+     what conda is and how to use it. (Some parts of this tutorial may be helful also for Tykky installations.)
 
 
 ## Python development environments
