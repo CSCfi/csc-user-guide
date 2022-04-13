@@ -13,6 +13,11 @@ The OpenStack Horizon web interface provides easy-to-use basic functions for dat
 
 * [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
 
+SD Connect provides sensitive data oriented web interface for Allas. By default this interface encrypts the uploaded data 
+so that it can be only used in SD Desktop service. You can use it for non senstive data too if you switch of the encryption.
+
+* [SD Connect](https://sd-connect.csc.fi) ([instructions](../sensitive-data/sd_connect.md)
+
 ## Accessing Allas in the CSC computing environment and other Linux platforms
 
 In order to use Allas in Puhti or Mahti, first load the module _allas_:
