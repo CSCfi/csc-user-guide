@@ -87,7 +87,7 @@ Allas is accessed via a client software that takes care of moving data to and fr
 | Client | Notes |
 | :-------- | :------- |
 | [web client](./using_allas/web_client.md) | Use via [https://pouta.csc.fi](https://pouta.csc.fi). Provides basic functions. |
-| [SD Connect](../sensitive-data/sd_connnect.md) | Sensitive data orinented [Web interface for Allas](https://sd-connect.csc.fi). |
+| [SD Connect](../sensitive-data/sd_connect.md) | Sensitive data orinented [Web interface for Allas](https://sd-connect.csc.fi). |
 | [a-commands](./using_allas/a_commands.md) | Provides easy-to-use tools for basic use. Requires Rclone, Swift and OpenStack. |
 | [swift python-swiftclient](./using_allas/swift_client.md)| The versatile Swift client. |
 | [s3cmd](./using_allas/s3_client.md) | The versatile S3 client (version 2.0.2 or later). |
