@@ -1,5 +1,21 @@
 # Applications
 
+## New guide for getting started with machine learning at CSC, 8.4.2022
+
+Even experienced machine learning users might have a hard time taking the leap
+into the supercomputer environment as things work a bit differently than in the
+personal computing environment. We have now created [a guide to help people get
+started with doing machine learning at CSC](../tutorials/ml-starting.md). The
+guide shows, step by step, how to get your codes and data to Puhti and running
+on GPUs.
+
+## PyTorch 1.11, 8.4.2022
+
+PyTorch 1.11.0 is now available in the `pytorch/1.11` module on Puhti and Mahti,
+and has been set as the default module. See the [official PyTorch 1.11 release
+notes](https://pytorch.org/blog/pytorch-1.11-released/), and [CSC's PyTorch
+module documentation](../../apps/pytorch.md).
+
 ## LUE released on Puhti, 5.4.2022
 
 An approximate tool called [LUE](../tutorials/lue.md) (Lustre Usage Explorer) for reporting amount of data in folders has been released on Puhti. LUE is significantly faster than standard tools like `stat` or `du` while being nicer on the file system. Please use LUE to keep track of how much data/files you have on the disk and perform clean-ups in a timely manner to ensure a more performant filesystem for all users.
