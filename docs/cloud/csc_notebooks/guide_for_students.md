@@ -4,7 +4,7 @@ Instructions for using CSC Notebooks as:
 
 * Student, who wants to take a self-learning course.
 * Student, who wants to participate to a tutored course.
-* Researcher in collaborator project, where your the enviroment has been already set up by a co-worker. 
+* Researcher in collaborator project, where your the environment has been already set up by a co-worker. 
 
 ## 1. Login to CSC Notebooks
 
