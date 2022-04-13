@@ -1,26 +1,39 @@
 # Guide for students
 
-Instructions on using the CSC Notebooks environment as a student. If you have received a join code from your course organizer, you can follow below instructions on *joining a course*. If you would like to use the Notebooks environment for self-learning, follow the instructions on *self-learning* below.
+Instructions for using CSC Notebooks as:
 
-## Joining a course
+* Student, who wants to take a self-learning course.
+* Student, who wants to participate to a tutored course.
+* Researcher in collaborator project, where your the enviroment has been already set up by a co-worker. 
 
-If you are a student in a course that uses the CSC Notebooks environment, you will be provided a _join code_ by the course organizer.
-Once you have the code, you can visit [the Notebooks application](https://notebooks-beta.rahtiapp.fi), login and find the `Join workspace` button on the top right corner of the Notebooks home page. Enter the join code in the popup and click the `+` button. If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whiltespaces.
+## 1. Login to CSC Notebooks
 
-You can then start the application by using the power control button on the right of the application. A new tab will open with your application.
+* Open [CSC Notebooks](https://notebooks-beta.rahtiapp.fi)
+* Log in using [HAKA](https://wiki.eduuni.fi/pages/viewpage.action?pageId=27297776){target="_blank"}, [Virtu](https://wiki.eduuni.fi/display/CSCVIRTU/Organisaatiot){target="_blank"} or _CSC_ account.
 
-## Self-learning
 
-1. After logging in, you will be presented with a list of publicly accessible *applications*. The applications that 
-   have self-learning material included are marked with `self-learning` label.
-2. Start a session of any application by using the power control button on the right. A new tab is opened for
-   your session. If your browser blocks this pop-up, you can click on the power control again to enter the session.
-3. When you are finished, delete the application session using the power control button.
-4. The running application session will be deleted automatically if the session exceeds its lifetime. Lifetime is 
-   shown next to the power control button. The remaining time is visible in the power control button itself.
+## 2. Join a course, optional 
+For tutored courses or collaborator projects, you should have received a join code from your course organizer or co-worker. 
+
+* Click the `Join workspace` button on the top right corner of the Notebooks home page. 
+* Enter the join code in the popup and click the `+` button. 
+* If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. 
+* If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whiltespaces.
+
+
+## 3. Start a session
+
+* In Notebooks home page, find the application for your course or collaboration project. You will be presented with a list of publicly accessible *applications* and application of your workspace.  The applications that have self-learning material included are marked with `self-learning` label.
+* Start the application by using the power control button on the right of the application. A new tab will open with your application. If your browser blocks this pop-up, you can click on the power control again to enter the session.
+
+## 4. End a session
+*  When you are finished, delete the application session using the power control button.
+*  The running application session will be deleted automatically if the session exceeds its lifetime. Lifetime is shown next to the power control button. The remaining time is visible in the power control button itself.
+*  Application can have different CSC Notebooks provides different ways for storing data. For an explanation of the different possibilities, see the separate document on [data persistence](data_persistence.md).
+ 
 
 !!!Note
 
-    Public applications do not support saving your session or data. If you want to keep your content, please download it
+    Self-learning applications do not support saving your session or data. If you want to keep your content, please download it
     locally before your session ends.
 
