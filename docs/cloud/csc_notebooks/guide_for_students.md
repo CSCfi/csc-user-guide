@@ -9,7 +9,7 @@ Instructions for using CSC Notebooks as:
 ## 1. Login to CSC Notebooks
 
 * Open [CSC Notebooks](https://notebooks-beta.rahtiapp.fi)
-* Log in using [HAKA](https://wiki.eduuni.fi/pages/viewpage.action?pageId=27297776){target="_blank"}, [Virtu](https://wiki.eduuni.fi/display/CSCVIRTU/Organisaatiot){target="_blank"} or _CSC_ account.
+* Log in using [HAKA](https://wiki.eduuni.fi/pages/viewpage.action?pageId=27297776), [Virtu](https://wiki.eduuni.fi/display/CSCVIRTU/Organisaatiot) or CSC account.
 
 
 ## 2. Join a course, optional 
