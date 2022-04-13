@@ -16,7 +16,7 @@ The OpenStack Horizon web interface provides easy-to-use basic functions for dat
 SD Connect provides sensitive data oriented web interface for Allas. By default this interface encrypts the uploaded data 
 so that it can be only used in SD Desktop service. You can use it for non senstive data too if you switch of the encryption.
 
-* [SD Connect](https://sd-connect.csc.fi) ([instructions](../sensitive-data/sd_connect.md)
+* [SD Connect](https://sd-connect.csc.fi) ([instructions](../sensitive-data/sd_connect.md))
 
 ## Accessing Allas in the CSC computing environment and other Linux platforms
 
