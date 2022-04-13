@@ -76,7 +76,7 @@ Naturally, this also applies to slurm job scripts. For example:
 ```
 module load python-data
 export PYTHONPATH=/projappl/<your_project>/my-python-env/lib/python3.9/site-packages/
-python3 -c "import pyarrow"
+python3 -c "import pyarrow"  # this should now work!
 ```
 
 Alternatively you can create a separate virtual environment with
