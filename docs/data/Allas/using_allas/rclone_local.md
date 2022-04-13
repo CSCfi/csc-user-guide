@@ -46,11 +46,15 @@ S3 connection is active until you explicitly delete it with command:
 source allas_conf -u csc-user-name -p csc-project-name --s3remove
 ```
 
-Remember that you need to be careful and security aware, when configuring S3 connection to Allas. The S3 keys are stored in a readble format in you home directory and anyone how can read your keys can access Allas until the keys are expilisitly revoked from Allas. Removing the keys from your own computer is not enough to deactivate them.
+!!!Note
+
+  Remember to be careful and security aware, when configuring S3 connection to Allas. The S3 keys are stored in a readble format in you home directory and anyone how can read your keys can access Allas until the keys are expilisitly revoked from Allas. Removing the keys from your own computer is not enough to deactivate them.
 
 ## Configuring Allas connection in Windows 
 
-In Windos machines you can't use _allas_conf_ script. In stead you can configure the Allas connetion with command:
+In Windows machines you can't use _allas_conf_ script. So for Windows some connection specific variables need to be checked up in parallel from a Linux/Mac supporting  _allas_conf_ script. Easiest could be Puhti, if you use it otherwise. One option is also to use Windows Linux Subsystem and then the instructions above can be followed.
+
+Configure the Allas connetion with command:
 
 ```text
 rclone config
@@ -58,6 +62,7 @@ rclone config
 You can use this command also in other machines where _allas_conf_ is not available.
 The command above launches a configration process that you can use to define new Rclone 
 connetion. In Rclone these defined connections are called as _remotes_. 
+
 Below we describe how to create SWIFT and S3 connections to Allas.
 
 #### Configuring SWIFT connection in Windows
