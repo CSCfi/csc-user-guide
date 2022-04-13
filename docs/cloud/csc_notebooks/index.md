@@ -16,15 +16,6 @@ come in the future.
 2. As teacher: [Hosting a course](guide_for_teachers.md#how-to-host-a-course-or-use-notebooks-for-collaboration)
 3. As researcher: [self-learnining](guide_for_students.md#self-learning) or [use CSC Notebooks as collaboration platform](guide_for_teachers.md#how-to-host-a-course-or-use-notebooks-for-collaboration)
 
-## How to login to CSC Notebooks?
-
-CSC Notebooks can be accessed by anyone who has _Haka_, _Virtu_ or _CSC_ account.
-
-Check if your institution belongs to _Haka_ or _Virtu_ here :
-
-* [Haka institutions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=27297776){target="_blank"}
-* [Virtu institutions](https://wiki.eduuni.fi/display/CSCVIRTU/Organisaatiot){target="_blank"}
-
 ## Concepts
 
 To better understand the CSC Notebooks environment, we have collected all terms and concepts in a separate [concepts](concepts.md) document.
