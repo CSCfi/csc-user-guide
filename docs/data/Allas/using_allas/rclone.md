@@ -1,4 +1,4 @@
-# Using Allas with Rclone on CSC supercomputers 
+# Using Allas with Rclone 
 
 This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others), but in the case of Allas, the Swift protocol is preferred. It is also the default option on the CSC servers. 
 
@@ -42,7 +42,7 @@ In this document we describe how Rclone is used in CSC computing environment (Pu
    * [Local Rclone configuration for Allas](./rclone_local.md)
 
 
-### Rclone with swift
+### Rclone with swift on CSC supercomputers
 
 The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas connection is activated  with commands:
 ```text
@@ -52,7 +52,7 @@ allas-conf
 The `allas-conf` command asks for your CSC password (the same you use to login to CSC servers). It lists
 your projects in Allas and asks you to define the project that will be used. Then _allas-conf_ generates a Rclone configuration file for the Allas service and authenticates the connection to the selected project. In Rclone command this swift based connection is referred with remote name `allas:`. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
 
-### Rclone with S3
+### Rclone with S3 on CSC supercomputers
 
 If you want to use Allas with S3 protocol in stead run the allas-conf command with option --mode s3cmd.
 ```text
