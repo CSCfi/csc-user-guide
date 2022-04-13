@@ -93,7 +93,7 @@ by CSC, you can send an email to <servicedesk@csc.fi>.
 It is also possible to create your own Python environments. 
 
 ### Tykky
-The easiest option is to use [Tykky](../computing/containers/tykky/) for conda or pip installations.
+The easiest option is to use [Tykky](../computing/containers/tykky.md) for conda or pip installations.
 
 ### Custom Singularity container
 In some cases, for example if you know of a suitable ready-made Singularity or Docker container, also using custom Singularity container is an option. 
