@@ -57,6 +57,7 @@ After which Allas tools can be installed with:
 sudo apt install python3-pip python3-dev
 sudo apt-get install python3-setuptools
 sudo pip3 install python-openstackclient
+sudo pip3 install crypt4gh
 sudo apt install python3-swiftclient
 curl https://rclone.org/install.sh | sudo bash
 git clone https://github.com/CSCfi/allas-cli-utils
