@@ -57,32 +57,35 @@ The packages are by default installed to your home directory under
 used). If you would like to change the installation folder, for example to make
 a project-wide installation instead of a personal one, you need to define the
 `PYTHONUSERBASE` environment variable with the new installation local. For
-example:
-
-`export PYTHONUSERBASE=/projappl/<your_project>/python3.7_pip`
-
-When later using those libraries you need to remember to add that path to
-`PYTHONPATH` or use the same `PYTHONUSERBASE` definition as above. Naturally,
-this also applies to slurm job scripts.
-
-Alternatively you can create a separate virtual environment with
-[venv](https://docs.python.org/3/library/venv.html), for example:
+example to add the package `pyarrow` to the `python-data` module:
 
 ```
 module load python-data
-python -m venv --system-site-packages my-venv
-source my-venv/bin/activate
-pip install my_package_to_install
+export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
+pip install --user pyarrow
 ```
 
-With `venv`, you can keep separate environments for each program. The next time
-you wish to activate the environment you only need to run `source
-my-venv/bin/activate`. `venv` does not work with Python modules installed with Singularity.
+When later using those libraries you need to remember to add the `site-packages`
+path to `PYTHONPATH` (or use the same `PYTHONUSERBASE` definition as above).
+Naturally, this also applies to slurm job scripts. For example:
+
+```
+module load python-data
+export PYTHONPATH=/projappl/<your_project>/my-python-env/lib/python3.9/site-packages/
+python3 -c "import pyarrow"
+```
+
+Alternatively you can create a separate virtual environment with
+[venv](https://docs.python.org/3/library/venv.html), however this approach
+doesn't work with modules installed with Singularity, which is now the default
+approach at CSC.
 
 If you think that some important package should be included in a module provided
 by CSC, you can send an email to <servicedesk@csc.fi>.
 
+
 ## Creating your own Python environments
+
 It is also possible to create your own Python environments. The main options are
 conda and Singularity. Singularity should be preferred at least when you know of
 a suitable ready-made Singularity or Docker container. Conda is easy to use and
