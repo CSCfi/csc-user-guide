@@ -75,7 +75,7 @@ In addition to the Web interfaces listed above, you can access Allas from you Wi
 For example following tools can be used:
 
 * [Cyberduck](./using_allas/cyberduck.md) provides easy to use graphical interface for moving data between local computer and Allas.
-* [Rclone](./using_allas/rclone_local) is an command line tool that provides very effective way to use Allas.
+* [Rclone](./using_allas/rclone_local.md) is an command line tool that provides very effective way to use Allas.
 * [a-tools](./using_allas/a_commands.md) these Allas specific commands can be installed in Mac OSX machines but not to Windows
 
 The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
