@@ -478,7 +478,7 @@ These include:
    * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
    * [swift command line client](../Allas/using_allas/swift_client.md)
    * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
-   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
+   * [CyberDuck](../Allas/using_allas/cyberduck.md) Graphical data transport tool for Windows and Mac.
 
 Note that if you use these tools, you must encrypt your sensitive data before uploading it to SD Connect.
 
