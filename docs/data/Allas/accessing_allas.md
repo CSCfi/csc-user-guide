@@ -67,4 +67,11 @@ For example following tools can be used:
 
 The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
 
+## Other ways of accessing Allas
+
+* [Python](using_allas/python_library.md) Programmatic access to Allas.
+* [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
+
+
+
 
