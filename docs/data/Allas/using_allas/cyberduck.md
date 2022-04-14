@@ -26,7 +26,7 @@ Please use [Cyberduck web site](https://cyberduck.io/) for more detailed informa
 
 6\. Type your CSC password in the **Password** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
 
-!["Entering information for a bookmark"](.../img/cyberduck_bookmark_info.jpg)
+!["Entering information for a bookmark"](../img/cyberduck_bookmark_info.jpg)
 
 **Figure** Entering information for a bookmark
 
