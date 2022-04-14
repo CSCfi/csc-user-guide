@@ -56,6 +56,18 @@ Authentication information is stored in the shell variables *OS_AUTH_TOKEN* and 
 
 You can start using Allas with the tools listed above. 
 
+Basic Allas operations with different tools.
+
+| Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
+|-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
+| [a-commands](using_allas/a_commands.md) |`a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
+| [rclone](using_allas/rclone.md) |`rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`| 
+| [Swift](using_allas/swift_client.md) |`swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
+| [s3cmd](using_allas/s3_client.md)\*	 |`s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
+
+\*For s3cmd, open Allas connection with command`allas-conf -m s3cmd`
+
+
 
 ## Accessing Allas with Windows or Mac
 
