@@ -82,7 +82,9 @@ The list above is not complete or exclusive. Any tool that supports Swift or S3 
 ## Other ways of accessing Allas
 
 * [Python](using_allas/python_library.md) Programmatic access to Allas.
+   * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
 * [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
+* [R](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) (Geoscience related example how Allas can be used in R scripts)
 
 
 
