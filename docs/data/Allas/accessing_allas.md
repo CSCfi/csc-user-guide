@@ -7,7 +7,7 @@ a CSC project that has the permission to use Allas. If you do not have a CSC acc
 and join or start a computing project for which Allas has been enabled. This can be done in the
 MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
 
-Once you have Allas enabled you can access it for any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
+Once you have Allas enabled you can access it from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
 
 
 ## Accessing Allas from the web
