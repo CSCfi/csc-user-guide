@@ -28,10 +28,10 @@ so that it can be used in [SD Desktop](../sensitive-data/sd_desktop.md) service.
 
 Puhti and Mahti servers at CSC support many different tools for using Allas, These include
 
-* **a-tools for basic use:** (Swift, optionally S3) [Quick and safe: a-commands](./using_allas/a_commands.md)
-* **Advanced functions with rclone:** (Swift, optionally S3) [Advanced tool: rclone](./using_allas/rclone.md)
-* **A wide range of functionalities:** (Swift) [Swift client](./using_allas/swift_client.md)
-* **S3 client and persistent Allas connections:** (S3) [S3 client](./using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
+* **a-tools** for basic use: (Swift, optionally S3) [Quick and safe: a-commands](./using_allas/a_commands.md)
+* **rclone** providing some advanced functions:** (Swift, optionally S3) [Advanced tool: rclone](./using_allas/rclone.md)
+* **swift** python client that provides wide range of functionalities:** (Swift) [Swift client](./using_allas/swift_client.md)
+* **s3cmd** an S3 client and persistent Allas connections:** (S3) [S3 client](./using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
 
 Note that the tools listed above utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary compatible with another protocol. 
 
@@ -65,6 +65,6 @@ For example following tools can be used:
 * [Rclone](./unsing_allas/rclone_local) is an command line tool that provides very effective way to use Allas.
 * [a-tools](./using_allas/a_commands.md) these Allas specific commands can be installed in Mac OSX machines but not to Windows
 
-The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in in principle use Allas.
+The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
 
 
