@@ -54,7 +54,7 @@ The _allas-conf_ command prompts for your CSC password (the same that you use to
 
 Authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* and is valid for up to eight hours. However, you can refresh the authentication at any time my running _allas-conf_ again. The environment variables are available only for that login session, so if you start another shell session, you need to authenticate again in there to access Allas.
 
-You can start using Allas with one of the following options. 
+You can start using Allas with the tools listed above. 
 
 
 ## Accessing Allas with Windows or Mac
