@@ -23,10 +23,7 @@ This Allas object storage service user guide consists of following parts:
    * [Error messages](./using_allas/error_messages.md)
    * [Directory errors](./using_allas/directory_object_error.md )
    
-## [Allas and cPouta object storage, what has changed?](./allas_cpouta_change.md) 
-CSC has previously provided the Pouta object storage service that is now merged to the Allas service. This chapter explains the changes that this merging causes to existing Pouta object storage users.
-
-## Tutorials 
+## Tutorials and other documents
 
 * [Using Allas interactively in Puhti and Mahti](./allas-examples.md) 
 * [Using Allas in batch jobs](./allas_batchjobs.md)
@@ -34,4 +31,6 @@ CSC has previously provided the Pouta object storage service that is now merged 
 * [Tools for client side encryption for Allas](./allas_encryption.md)
 * [Using Allas from LUMI supercomputer](./allas_lumi.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)
+* [What changed when Allas replaced cPouta object storage in 2019 ?](./allas_cpouta_change.md) 
+
 
