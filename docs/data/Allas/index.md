@@ -10,7 +10,7 @@ This Allas object storage service user guide consists of following parts:
 
 ## Accessing Allas
 
-    * [Accessing Allas](./accessing_allas.md). A summary of the most commonly used Allas tools. Inculing:
+    * [Accessing Allas](./accessing_allas.md). A summary of the most commonly used Allas tools. Incuding:
        * [Accessing Allas from a web browser](./accessing_allas.md#accessing-allas-from-the-web-browser)
        * [Accessing Allas in the CSC computing environment and other linux-platforms](./accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms)
        * [Accessing Allas with Windows or Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac)
