@@ -3,7 +3,7 @@
 For Windows and Mac, [Cyberduck](https://cyberduck.io/) provides a graphical user interface to Allas.
 
 The instructions below describe how to open a _Swift_-protocol-based Cyberduck connection to Allas. 
-With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a-tools_. Cyberduck can be configured to use S3
+With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a-tools_. Cyberduck can be configured to use
 _S3_ protocol too, but that option is not discussed here.
 
 In the end fo this page there is a [list of functions](#cyberduck-functions) that Cyberduck offers for data management.
