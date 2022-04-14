@@ -71,7 +71,7 @@ Basic Allas operations with different tools.
 
 ## Accessing Allas with Windows or Mac
 
-In addition to the Web interfaces listed above, you can access Allas from you Windows or Mac coputer with locally installed client software. 
+In addition to the Web interfaces listed above, you can access Allas from you Windows or Mac computer with locally installed client software. 
 For example following tools can be used:
 
 * [Cyberduck](./using_allas/cyberduck.md) provides easy to use graphical interface for moving data between local computer and Allas.
