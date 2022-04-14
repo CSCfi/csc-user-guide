@@ -113,19 +113,19 @@ A _web client_ is suitable for using the basic functions. *a-commands* offer eas
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>  |
 | **Download** | | | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font>&#8226; |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | |<font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | | |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Remove** | | | | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>&#8226;&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; |
 | **Managing access rights** | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project |<font color="green">&#x2714;</font> | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>| | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project |<font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Set lifecycle policies** | | | | | <font color="green">&#x2714;</font> |
-| **Move objects** | | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Edit metadata** | | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Move objects** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Edit metadata** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Download whole project** | | | | <font color="green">&#x2714;</font> | |
-| **Remove whole project** | | | | <font color="green">&#x2714;</font> | |
+| **Remove whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
 
 
 <div align="right">&#8226; Only one object at a time</div>
