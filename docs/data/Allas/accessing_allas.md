@@ -28,10 +28,10 @@ so that it can be used in [SD Desktop](../sensitive-data/sd_desktop.md) service.
 
 Puhti and Mahti servers at CSC support many different tools for using Allas, These include
 
-* **a-tools** for basic use: (Swift, optionally S3) [Quick and safe: a-commands](./using_allas/a_commands.md)
-* **rclone** providing some advanced functions:** (Swift, optionally S3) [Advanced tool: rclone](./using_allas/rclone.md)
-* **swift** python client that provides wide range of functionalities:** (Swift) [Swift client](./using_allas/swift_client.md)
-* **s3cmd** an S3 client and persistent Allas connections:** (S3) [S3 client](./using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
+* [**a-tools**](./using_allas/a_commands.md) for basic use: (Swift, optionally S3)
+* [**rclone**](./using_allas/rclone.md) providing some advanced functions:** (Swift, optionally S3) 
+* [**swift**](./using_allas/swift_client.md) python client that provides wide range of functionalities (Swift)
+* [**s3cmd**](./using_allas/s3_client.md) an S3 client and persistent Allas connections:** (S3)
 
 Note that the tools listed above utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary compatible with another protocol. 
 
