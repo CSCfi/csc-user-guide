@@ -10,9 +10,9 @@ MyCSC user portal: [https://my.csc.fi]( https://my.csc.fi).
 Once you have Allas enabled you can access it from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
 
 
-## Accessing Allas from the web
+## Accessing Allas from the web browser
 
-At the moment CSC provides two web interfaces for Allas:
+At the moment CSC provides two web browser interfaces for Allas:
 
 The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas:
 
