@@ -41,7 +41,7 @@ includes following python packages:
 -   **[scikit-learn]** - machine learning for Python.
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
--   **[xarray]**(http://xarray.pydata.org) - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
+-   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
     
@@ -87,6 +87,7 @@ To check the exact packages and versions included in the loaded module:
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
 You can edit your Python code in Puhti with:
+
 * [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
 * [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
 * [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
