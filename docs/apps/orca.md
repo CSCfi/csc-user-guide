@@ -77,7 +77,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 ```
 
-- Example batch script for Mahti-rhel7
+- Example batch script for Mahti-rhel8
 
 
 ```
@@ -91,7 +91,7 @@ cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 #SBATCH --error=jobfile.err%J
 #SBATCH --output=jobfile.out%J
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 openblas/0.3.14
+module load gcc/11.2.0 openmpi/4.1.2 openblas/0.3.18-omp
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
