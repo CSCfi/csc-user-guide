@@ -13,7 +13,7 @@ Singularity containers. In this document we show, how to import a ready-made Sin
 
 In the example below we import [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) software to SD Desktop.
 This tool is available as a ready made Singularity container in [Biocontainers](https://biocontainers.pro/registry) repository. You can find the tool
-by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ cintainer, 
+by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ container, 
 you can see that the sigularity module can be downloaded from url: "https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4" 
 
 As we don't need to build the container from scratch, we can use [puhti.csc.fi](../../computing/overview.md) server to download the container 
@@ -44,30 +44,28 @@ we download also a test data set for confirming that the container works.
 wget http://cistrome.org/BETA/src/BETA_test_data.zip
 ```
 
-Then we upload these two files to Allas. In this examople we use project _2012345_.
+Then we upload these two files to Allas. In this example we use project _2012345_.
 
 ```text
 module load allas
+module load biokit
+module load biopythontools
 allas-conf project_2012345
-a-put --nc beta.sif -b 2012345_beta
-a-put --nc BETA_test_data.zip -b 2012345_beta
+a-put --sdx beta.sif -b 2012345_beta
+a-put --sdx BETA_test_data.zip -b 2012345_beta
 ```
 
-The commands above store the files into bucket _2012345_beta_ in Allas. _a-put_ is used with option _--nc_ 
-as we don't want to compress the data. 
+The commands above store the files into bucket _2012345_beta_ in Allas. _a-put_ is used with option _--sdx_ in order to encrypt the uploaded data with SD Desktop compatible encryption. 
 
 ## Using a container in SD desktop
 
 Once the sif formatted singularity container file and the sample data has been uploaded to Allas, we can copy 
-them to SD Desktop. Open _SD Connect downloader_, navigate the to the right project (_project_2012345_) and bucket (_2012345_beta_), 
-and download the sif file (_beta.sif_) and the test data set (_BETA_test_data.zip_).
-
-After that open a Linux terminal in the SD-Desktop. In the terminal, move the singularity file and test data to 
-your current locations:
+them to SD Desktop. To do this open _Data Gateway_, in your session SD Desktop. After that copy the data to local disk in SD Desktop.
+You can do that using the graphical tools on the Desktop, or by using Linux command line: Open a Linux terminal in the SD-Desktop. In the terminal, move the singularity file and test data to your current locations:
 
 ```text
-mv SDCONNECTDATA/project_201234/2012345_beta/beta.sif ./
-mv SDCONNECTDATA/project_201234/2012345_beta/BETA_test_data.zip ./
+cp Projects/SD\ connect/project_201234/2012345_beta/beta.sif ./
+cp Projects/SD\ connect/project_201234/2012345_beta/BETA_test_data.zip ./
 ```
 Unzip the test dataset:
 ```text 
