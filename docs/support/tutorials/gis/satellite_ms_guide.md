@@ -161,6 +161,11 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * costs
     * processing platform with the data, no download needed
     * data from DIAS objectstorage can easily be transferred to Allas (link to instructions here)
+    
+=== "Microsoft planetary computer *"
+
+    * [Data](https://planetarycomputer.microsoft.com/catalog) and processing platform ([Hub](https://planetarycomputer.microsoft.com/compute))
+    * Currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request)
   
 === "Terramonitor"
 
