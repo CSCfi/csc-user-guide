@@ -9,15 +9,18 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018-2021 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2019-2021 releases with regularly updated minor versions, several with plumed
+-   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
+-   Mahti: 2019-2022 releases with regularly updated minor versions, several with plumed, one with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
+-   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
-!!! note
+!!! Note
     We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
     Instead of `gmx grompp` ... give `gmx_mpi grompp`
+
+!!! Note
+    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
@@ -79,7 +82,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-!!! note
+!!! Note
     To avoid multi node parallel jobs to spread over more nodes
     than necessary, don't use the --ntasks flag, but specify --nodes and
     --ntasks-per-node=40 to get full nodes. This minimizes communication
@@ -240,8 +243,8 @@ For further details on running Gromacs multi-simulations, see the [official Grom
 In addition to `view` (not available at CSC, though) tool of Gromacs,
 trajectory files can be visualized with the following programs:
 
--   [PyMOL] molecular modeling system.
--   [VMD](vmd.md) visualizing program for large biomolecular systems.
+-   [PyMOL] molecular modeling system (not available at CSC)
+-   [VMD](vmd.md) visualizing program for large biomolecular systems
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
 
 !!! note

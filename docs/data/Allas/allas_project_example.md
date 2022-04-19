@@ -45,7 +45,7 @@ allas-conf project_2000444
 Then he creates a new bucket in Allas. There are many ways to do this but this time, Pekka does this by importing a new file to Allas with _a-put_:
 ```text
 echo “This bucket is used to host the original data of HiaNo project sample1” > README.txt
-a-put --nc -b hiano-project-sample001 README.txt
+a-put -b hiano-project-sample001 README.txt
 a-list hiano-project-sample001 
 ```
 Pekka included the project name in the bucket name (_hiano-project-sample001_) to make sure that the bucket name is unique in the whole Allas service. The _a-list_ command shows that the bucket was successfully created.

@@ -4,19 +4,21 @@ The Allas object storage system can be used in multiple ways and for many purpos
 
 For users who simply want to use Allas for storing data that is in the CSC computing environment, CSC provides a set of commands for managing and moving data between the CSC computing environment and Allas:
 
-| a-command | Function |
-| :--- | :--- |
-| [a-put](#a-put) | Upload a file or directory to Allas as one object |
-| [a-check](#a-check) | Check if all the objects, that a-put should have created, are found in Allas |
-| [a-list](#a-list) | List buckets and objects in Allas |
-| [a-publish](#a-publish) | Upload a file to Allas into a bucket that allows public access over the internet |
-| [a-flip](#a-flip) | Upload a file temporarily to Allas into a bucket that allows public access over the internet |
-| [a-get](#a-get) | Download a stored dataset (object) from Allas |
-| [a-find](#a-find) | Search and locate data uploaded with *a-put* |
-| [a-delete](#a-delete) | Delete an object in Allas |
-| [a-info](#a-info) | Display information about an object in Allas |
-| [a-access](#a-access) | Control access permissions of a bucket in Allas |
-| a-stream | Stream the content of an object to standard output |
+
+| a-command | help text | Function |
+| :--- | :--- | :--- |
+| [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas |
+| [a-check](#a-check) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Check if all the objects, that a-put should have created, are found in Allas |
+| [a-list](#a-list) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| List buckets and objects in Allas |
+| [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)|Upload a file to Allas into a bucket that allows public access over the internet |
+| [a-flip](#a-flip) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md)|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
+| [a-get](#a-get) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Download a stored dataset (object) from Allas |
+| [a-find](#a-find)|[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md)|Search and locate data uploaded with *a-put* |
+| [a-delete](#a-delete) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-delete.md)| Delete an object in Allas |
+| [a-info](#a-info) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-info.md)| Display information about an object in Allas |
+| [a-access](#a-access) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-access.md)| Control access permissions of a bucket in Allas |
+| a-stream |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-stream.md)|Stream the content of an object to standard output |
+| a-encrypt |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-encrypt.md)|Make an encrypted copy of an object uploaded in Allas |
 
 In addition to the above commands, there are separate tools for other purposes:
 
@@ -24,7 +26,7 @@ In addition to the above commands, there are separate tools for other purposes:
  * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
- * __allas-dir-to-bucket__ : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
+ * [__allas-dir-to-bucket__](https://github.com/CSCfi/allas-cli-utils/blob/master/help/allas-dir-to-bucket.md) : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 
@@ -71,7 +73,7 @@ Copying data from directory _/scratch/project_201234/dataset_3_ to Allas:
 cd /scratch/project_201234
 a-put dataset_3
 ```
-The data in directory _dataset_3_ is stored to the default bucket _201234-puhti-SCRATCH_ as object: _dataset_3.tar.zst_.
+The data in directory _dataset_3_ is stored to the default bucket _201234-puhti-SCRATCH_ as object: _dataset_3.tar_.
 Available data buckets in Allas can be listed with command:
 
 ```text
@@ -85,7 +87,7 @@ a-list 201234-puhti-SCRATCH
 The directory that was stored to Allas can be retrieved back to Puhti with command:
 
 ```text
-a-get 201234-puhti-SCRATCH/dataset_3.tar.zst
+a-get 201234-puhti-SCRATCH/dataset_3.tar
 ```
 
 
@@ -107,12 +109,8 @@ define the project that will be used to store the data.
 2.    In the case of a directory, the content of the directory is collected as a single file
 using the `tar` command.
 
-3.    By default, the option `--compress` (`-c`) is used and the data is compressed using the _zstdmt_ command.
-This is the recommended way if you intend to use the data only on CSC's computing servers. If you plan to use the 
-uploaded data on other servers where the _zstdmt_ compression may not be available, you can disable the compression using the option `--nc` (`-n`).
-Also, in the case of data that does not compress well, like compressed files, images or other binary data, you should normally skip compression.
+3.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 
-4.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
 
 By default, a-put uses the standard bucket and object names that depend on the username, project and location
 of the data uploaded:
@@ -130,14 +128,14 @@ is uploaded to the bucket _kkayttaj-12345-MISC_.
 If you wish to use other than the standard bucket, you can define a bucket name with the option _-b_ or  
 _--bucket_.
 
-The compressed dataset is stored as one object. By default, the object name depends on the file name and location. The possible subdirectory path in Puhti or Mahti is included in the object name, e.g. a file called _test_1.txt_ in /scratch/project_2012345 in Puhti can be stored using the commands
+The compressed dataset is stored as one object. By default, the object name depends on the file name and location. The possible subdirectory path in Puhti or Mahti is included in the object name, e.g. a file called _test_1.txt_ in /scratch/project_2012345 in Puhti can be stored using the commands:
 ```text
 cd /scratch/project_2012345
 a-put test_1.txt
 ```
 
 In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_.
-as the object _test_1.txt.zst_
+as the object _test_1.txt_
 
 If you have another file called _test_1.txt_ located in _/scratch/project_2012345/kkayttaj/project2/_,
 you can store it using the commands
@@ -151,7 +149,7 @@ cd /scratch/project_2012345/kkayttaj
 a-put project2/test_1.txt
 ```
 In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_ 
-as the object _kkayttaj/project2/test_1.txt.zst_.
+as the object _kkayttaj/project2/test_1.txt_.
 
 In addition to the actual data object, another object containing metadata is created. This metadata object has the 
 same name as the main object with the extension *_ameta*. This metadata file is used by the 
@@ -162,12 +160,11 @@ If you wish to use a name differing from the default object name, you can define
 _--object_:
 ```text
 cd /scratch/project_2012345
-a-put project2/test_1.txt -b newbucket1 - o case1.txt -n
+a-put project2/test_1.txt -b newbucket1 - o case1.txt -c
 ```
 
-The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt_.
-
-As the option _-n_ is used, the data is stored in an uncompressed format. 
+The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt.zst_.
+As the option _-c_ is used, the data is stored in zstd compressed format. 
 
 You can give several file or directory names for _a-put_ and use * as a wildcard character when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
 
@@ -175,17 +172,15 @@ Command:
 ```text
 a-put job123/output_dir_1 jobs123/input1.txt
 ```
-uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and _input1.txt_ to _job123/input1.txt.zst_.
+uploads content of _output_dir_1_ to object _job123/output_dir_1.tar_ and _input1.txt_ to _job123/input1.txt_.
 
 Similarly command
 ```text
 a-put job123/output_dir*
 ```
-uploads content of _output_dir_1_ to object _job123/output_dir_1.tar.zst_ and content of _output_dir_2_ to object _job123/output_dir_2.tar.zst_. 
+uploads content of _output_dir_1_ to object _job123/output_dir_1.tar_ and content of _output_dir_2_ to object _job123/output_dir_2.tar_. 
 
 During upload datasets that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  bucket  _kkayttaj-12345-MISC_ the actual data would be stored as several pieces into bucket _kkayttaj-12345-MISC_segments_. The target bucket (_kkayttaj-12345-MISC_) would contain just a front object that contains information what segments make the stored dataset. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
-
-
 
 
 ## a-check<a name="a-check"></a>
@@ -250,8 +245,7 @@ uploaded data object can read and download the data with a web browser or tools 
 a-publish works similarly to a-put with some differences: 
 
 1) a-publish can upload only files, not directories. 
-2) The files are not compressed but uploaded as they are. 
-3) The access control of the target bucket is set so that it is available for any user in read-only mode.
+2) The access control of the target bucket is set so that it is available for any user in read-only mode.
 
 The basic syntax:
 ```text
@@ -457,21 +451,20 @@ it will print out the current settings of the bucket.
 
 A users can modify the default settings of a-commands by making a configuration file named as **.a_tools_conf** to their **home directory**.  In this file you can set default values for many of the functions that are defined with a-put command options.
 
-For example, if you are working with files that do not benefit from compression, you could skip the compression.
-You can do this by using the _--nc_ option with a-put, but if you want this to be default setting you could create .a_tools_conf file
+For example, if you are working mostly with files that would benefit from compression, you might like to use the _--compress_ option with a-put. If you want this to be default setting you could create .a_tools_conf file
 that contains setting:
 
 ```text
-compression=0 
+compression=1
 ```
 Now command:
 ```text
 a-put my_data.b
 ```
-will not compress the data during the upload process (that would normally be the case). However, you can still use compression with option _--compress_.
+will compress the data during the upload process (that would normally not be the case). However, you can still skip compression with option _--nc_.
 
 ```text
-a-put --compress my_data.b
+a-put --nc my_data.b
 ```
  
 You can check most commonly used settings from this sample [.a_tools_conf](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf) file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.

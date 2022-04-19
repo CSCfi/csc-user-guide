@@ -16,7 +16,7 @@ __QGIS__ is available in Puhti with following versions:
 The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
+2. Start QGIS: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
 3. QGIS is started automatically when the Desktop is launched. 
 
 

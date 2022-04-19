@@ -32,6 +32,7 @@ mkdir -p $MOLPRO_TMP
 $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD ./test.com
 rm -rf $MOLPRO_TMP
 ```
+
 !!! note
     Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the [fast local storage](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
@@ -53,6 +54,7 @@ mkdir -p $MOLPRO_TMP
 $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD ./test.com
 rm -rf $MOLPRO_TMP
 ```
+
 **Example of scalability** 
 
 The performance of Molpro depends a lot on the system size and which computational model is used. The following table shows the wall time used (in seconds) for a single-point energy calculation on benzene (C<sub>6</sub>H<sub>6</sub>) at CCSD(T)/aug-cc-pVTZ level, as function of the number of cores. The table shows also the corresponding timings when the local disk (nvme) is used. Note that the parallel runs allocate one core per node for a helper process, hence there is one core less per node used for the actual calculation. 
