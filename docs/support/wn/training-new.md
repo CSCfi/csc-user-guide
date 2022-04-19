@@ -1,5 +1,14 @@
 # Training & tutorials
 
+## New guide for getting started with machine learning at CSC, 8.4.2022
+
+Even experienced machine learning users might have a hard time taking the leap
+into the supercomputer environment as things work a bit differently than in the
+personal computing environment. We have now created [a guide to help people get
+started with doing machine learning at CSC](../tutorials/ml-starting.md). The
+guide shows, step by step, how to get your codes and data to Puhti and running
+on GPUs.
+
 ## How does LUMI-C differ from Mahti? 6.4.2022
 
 [A brief overview of key differences between LUMI-C and CSC supercomputers](../../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!

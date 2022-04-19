@@ -8,7 +8,7 @@ particular for AIMD.
 ## Available
 
 * Puhti: 6.1
-* Mahti: 5.1, 6.1, 7.1, 8.1 (linked to Gromacs for QM/MM), 8.2, 9.1
+* Mahti: 5.1, 6.1, 7.1, 8.2, 9.1
 
 ## License
 
