@@ -10,9 +10,9 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2019-2022 releases with regularly updated minor versions, several with plumed, 2022 with CP2K
+-   Mahti: 2019-2022 releases with regularly updated minor versions, several with plumed, one with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
+-   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
 !!! Note
     We only provide the parallel version `gmx_mpi`, but it can
@@ -20,7 +20,7 @@ systems. It also comes with plenty of analysis scripts.
     Instead of `gmx grompp` ... give `gmx_mpi grompp`
 
 !!! Note
-    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on.
+    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
