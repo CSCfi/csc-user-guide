@@ -26,7 +26,7 @@ In addition to the above commands, there are separate tools for other purposes:
  * [__allas-backup__](./a_backup.md) : Create a backup copy of a local dataset in a backup repository in Allas.
  * __allas-mount__ : Mount a bucket in allas to be used as a read-only directory in the local environment.
  * __allas-health-check__ : Check the integrity of over 5 GB objects in Allas.
- * __allas-dir-to-bucket__ : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
+ * [__allas-dir-to-bucket__](https://github.com/CSCfi/allas-cli-utils/blob/master/help/allas-dir-to-bucket.md) : copy a local file or directory to Allas. Parallel upload processes are used for over 5GB files.
  
 If you use the a-commands outside the supercomputers, check the [allas-cli-utils documentation](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md) for how to install these tools.
 

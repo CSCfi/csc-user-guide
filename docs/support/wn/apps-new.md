@@ -1,5 +1,16 @@
 # Applications
 
+## CP2K 9.1 linked to Gromacs 2022, 19.4.2022
+
+[CP2K](../../apps/cp2k.md) 9.1 has been linked to [Gromacs](../../apps/gromacs.md) 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on.
+
+## PyTorch 1.11, 8.4.2022
+
+PyTorch 1.11.0 is now available in the `pytorch/1.11` module on Puhti and Mahti,
+and has been set as the default module. See the [official PyTorch 1.11 release
+notes](https://pytorch.org/blog/pytorch-1.11-released/), and [CSC's PyTorch
+module documentation](../../apps/pytorch.md).
+
 ## LUE released on Puhti, 5.4.2022
 
 An approximate tool called [LUE](../tutorials/lue.md) (Lustre Usage Explorer) for reporting amount of data in folders has been released on Puhti. LUE is significantly faster than standard tools like `stat` or `du` while being nicer on the file system. Please use LUE to keep track of how much data/files you have on the disk and perform clean-ups in a timely manner to ensure a more performant filesystem for all users.
