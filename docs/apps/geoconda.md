@@ -21,7 +21,6 @@ includes following python packages:
 -   [movingpandas](http://movingpandas.org) - for trajectory data
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
 -   [pyproj] - performs cartographic transformations and geodetic computations.
--   [open3d](http://www.open3d.org/) - for 3D Data Processing
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs.
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
