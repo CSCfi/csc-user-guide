@@ -87,7 +87,7 @@ Steps to create your own custom Docker image and host it on Rahti registry:
 
    # Add/modify these scripts for working with custom notebooks. Explore more about these scripts on [rocker github](https://github.com/rocker-org/rocker-versioned2/tree/master/scripts); 
    # These scripts usually contain system dependencies and required packages for your needs. 
-   # if necessary one can modify the packages and package mannagers locally in the script and copy the script to docker file system before image building.
+   # if necessary one can modify the packages and package managers locally in the script and copy the script to docker file system before image building.
 
    COPY userconf.sh /rocker_scripts/
    COPY install_custom.sh /rocker_scripts/
