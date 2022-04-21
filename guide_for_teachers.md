@@ -32,7 +32,9 @@ Steps to create your own custom Docker image and host it on Rahti registry:
 
 1. First create a Dockerfile  
    
-   *Jupyte notebook example*:
+   A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. The `CMD` directive executes any initial scripts every time you launch the docker container.
+   
+   *Jupyter notebook example*
 
     For JupyterLab with some conda packages use the following as minimal example:
 
@@ -69,13 +71,13 @@ Steps to create your own custom Docker image and host it on Rahti registry:
 
     For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in `jupyter/minimal-notebook` base image or install it yourself (same way as ssh-client and less are installed in above example).
     
-    *RStudio example*: 
+    *RStudio example*
     
-    Dockerfile contains set of instructions to build an image of your interest. Fortunately, you don't need to start from the scratch to build custom R images.  Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) provides a large set of container images with various configurations in [DockerHub](https://hub.docker.com/u/rocker/). Youe can therefore start with pre-existing image to extend or further customise for your needs.
+    To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images and extend it or further customise it for your needs.
 
-   Below is an example Dockerfile to create an RStudio image:
+    For RStudio with some packages, use the following Dockerfile as minimum example:
 
-   ```bash
+   ```text
    # Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
    # e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) and extend as needed with rest of the layers of docker image
    # image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
@@ -88,30 +90,24 @@ Steps to create your own custom Docker image and host it on Rahti registry:
    # if necessary one can modify the packages and package mannagers locally in the script and copy the script to docker file system before image building.
 
    COPY userconf.sh /rocker_scripts/
-   COPY install_geospatial.sh /rocker_scripts/
+   COPY install_custom.sh /rocker_scripts/
 
    # install the custom packages and system dependencies
-   RUN /rocker_scripts/install_geospatial.sh
+   RUN /rocker_scripts/install_custom.sh
    RUN /rocker_scripts/install_pandoc.sh
-
-   # create volumes for storing data if any
-   VOLUME /data
-   COPY DataFiles /data/
 
    # Rtsudio is exposed on port 8787
    EXPOSE 8787
 
    CMD ["/init"]
    ```
-   
-   Briefly, the dockerfile uses `FROM` directive to pull a base image which in this case is Rstudio 4.1.1. This image already includes some system dependecies and R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. The `CMD` directive executes any initial scripts  every time you launch the docker container.
-
-   Please note that the installation of R packages normally innvloves using `install.packages()` command. However, R package managers (Devtools,BiocManager) can also be used to install packages. Below are few example scenarios for installing R packages on commandline and useful when editing scripts (e.g.,install_geospatial.sh or similar ones):
+  
+   Please note that the installation of R packages normally innvloves using `install.packages()` command. However, R package managers (Devtools,BiocManager) can also be used to install packages. Below are few example scenarios for installing R packages on commandline and useful when editing scripts (e.g.,install_custom.sh or similar ones):
 
 ```bash
   install2.r --error --deps TRUE packagename  # installing a package with innstall2.r script
   R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" # Installing R packages from CRAN
-  R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package mannagers like devtools and BiocManager. 
+  R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package managers like devtools and BiocManager. 
   R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")' # Installing R packages while specifying a specific version
   R -e "source('/path/of/myscript.R')" # script execution 
   ```
