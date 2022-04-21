@@ -81,20 +81,18 @@ Steps to create your own custom Docker image and host it on Rahti registry:
    # Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
    # e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) and extend as needed with rest of the layers of docker image
    # image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
-   FROM FROM rocker/rstudio:4.1.1
+   FROM rocker/rstudio:4.1.1
 
    ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
-   # Add/modify these scripts for working with custom notebooks. Explore more about these scripts on [rocker github](https://github.com/rocker-org/rocker-versioned2/tree/master/scripts); 
-   # These scripts usually contain system dependencies and required packages for your needs. 
-   # if necessary one can modify the packages and package managers locally in the script and copy the script to docker file system before image building.
+   # For adding packages or configurations you can either use scripts provided by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system
+   # These scripts usually contain system dependencies and required packages for your needs
 
-   COPY userconf.sh /rocker_scripts/
-   COPY install_custom.sh /rocker_scripts/
+   # copy the desired installation script into docker file system, make sure that you have execute rights to the script
+   COPY install_xx.sh /rocker_scripts/
 
-   # install the custom packages and system dependencies
-   RUN /rocker_scripts/install_custom.sh
-   RUN /rocker_scripts/install_pandoc.sh
+   # install the custom packages and system dependencies by running the script
+   RUN /rocker_scripts/install_xx.sh
 
    # Rtsudio is exposed on port 8787
    EXPOSE 8787
@@ -102,15 +100,16 @@ Steps to create your own custom Docker image and host it on Rahti registry:
    CMD ["/init"]
    ```
   
-   Please note that the installation of R packages normally innvloves using `install.packages()` command. However, R package managers (Devtools,BiocManager) can also be used to install packages. Below are few example scenarios for installing R packages on commandline and useful when editing scripts (e.g.,install_custom.sh or similar ones):
+  Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
 
-```bash
+  ```bash
   install2.r --error --deps TRUE packagename  # installing a package with innstall2.r script
   R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" # Installing R packages from CRAN
   R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package managers like devtools and BiocManager. 
   R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")' # Installing R packages while specifying a specific version
   R -e "source('/path/of/myscript.R')" # script execution 
   ```
+  
 2. Build the image from dockerfile to current directory `.`
 
    ```
