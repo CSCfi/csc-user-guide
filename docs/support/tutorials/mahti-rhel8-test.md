@@ -1,5 +1,9 @@
 # Mahti RHEL8 test system documentation
 
+In preparation for Mahti's Redhat Enterprise Linux upgrade during 
+May 3 to May 4, a small test system has been set up on Mahti. This
+test system can be used to compile applications, and test if they work. 
+
 ## RHEL8 login nodes
 
 There are two login nodes available for RHEL8 testing,
@@ -24,4 +28,4 @@ production setup, so you can test your current installations easily.
 ## CPU and GPU nodes with RHEL8
 
 New OS can be tested on two partitions, `rhel8-cpu` and `rhel8-gpu`,
-which have 16 and 2 respectively.
+which have 16 CPU nodes and 2 GPU nodes respectively. 
