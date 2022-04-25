@@ -4,9 +4,9 @@ Machine learning framework for Python.
 
 !!! News
 
-    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8, the number
-    of supported PyTorch version has been reduced to the most recent version. Please [contact our
-    servicedesk](../support/contact.md) if you really need an older version.
+    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
+    the number of fully supported PyTorch versions has been reduced. Please [contact our
+    servicedesk](../support/contact.md) if you really need access to other versions.
 
     **4.2.2022** All old PyTorch versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
@@ -34,17 +34,19 @@ Currently supported PyTorch versions:
 | 1.0.1   | `pytorch/1.0.1`     | X     | -     | Conda    | -       | *deprecated*    |
 | 0.4.1   | `pytorch/0.4.1`     | X     | -     | Conda    | -       | *deprecated*    |
 
-Versions marked with "(X)" on Mahti are based on old Red Hat Enterprise Linux
-(RHEL) 7 images, and are no longer fully supported. In particular MPI and
-Horovod do not work on Mahti. If you still wish to access these versions, you
-need to enable old modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
+Versions marked with "(X)" on Mahti are based on old Red Hat Enterprise Linux 7
+(RHEL7) images, and are no longer fully supported. In particular MPI and Horovod
+do not work anymore on Mahti with these modules. If you still wish to access
+these versions, you need to enable old RHEL7 modules by `module use
+/appl/soft/ai/rhel7/modulefiles/`.
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
 
 If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See [our Python documentation](python.md) for more
-information on how to install packages yourself. If you think that some
+`pip install --user`. See [our Python
+documentation](python.md#installing-python-packages-to-existing-modules) for
+more information on how to install packages yourself. If you think that some
 important PyTorch-related package should be included in the module provided by
 CSC, please [contact our servicedesk](../support/contact.md).
 
