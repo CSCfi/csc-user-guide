@@ -7,8 +7,9 @@ test system can be used to compile applications, and test if they work.
 ## RHEL8 login nodes
 
 There are two login nodes available for RHEL8 testing,
-`mahti-rhel8-test1` and `mahti-rhel8-test3`. These new test nodes have
-same `/users`, `/scratch` and `/projappl` folders as current
+`mahti-rhel8-test1.csc.fi` and `mahti-rhel8-test3.csc.fi`. Note that you can log 
+into these only from the regular login nodes on Mahti, they are not accessible directly over the internet.
+These new test nodes have same `/users`, `/scratch` and `/projappl` folders as current
 production setup, so you can test your current installations easily.
 
 !!! Note
