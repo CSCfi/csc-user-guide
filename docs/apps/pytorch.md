@@ -34,14 +34,14 @@ Currently supported PyTorch versions:
 | 1.0.1   | `pytorch/1.0.1`     | X     | -     | Conda    | -       | *deprecated*    |
 | 0.4.1   | `pytorch/0.4.1`     | X     | -     | Conda    | -       | *deprecated*    |
 
+All modules include [PyTorch](https://pytorch.org/) and related libraries with
+GPU support via CUDA.
+
 Versions marked with "(X)" on Mahti are based on old Red Hat Enterprise Linux 7
 (RHEL7) images, and are no longer fully supported. In particular MPI and Horovod
 do not work anymore on Mahti with these modules. If you still wish to access
 these versions, you need to enable old RHEL7 modules by `module use
 /appl/soft/ai/rhel7/modulefiles/`.
-
-All modules include [PyTorch](https://pytorch.org/) and related libraries with
-GPU support via CUDA.
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See [our Python
