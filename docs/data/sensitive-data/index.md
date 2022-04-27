@@ -1,19 +1,9 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can:
-
-* find an overview and **key features** of each service;
-
-* follow **simplified, step-by-step** instructions on how to access and set up the services;  previous knowledge is not required. Specific paragraphs are marked as *advanced* if technical and coding skills are necessary. 
-
-* watch **1 to 3 minutes video** tutorials that will support you through each step;
-
-* find quick technical suggestions in the **troubleshooting table**.
-
+This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can: find an overview and **key features** of each service; follow **simplified, step-by-step** instructions on how to access and set up the services;  previous knowledge is not required. Specific paragraphs are marked as *advanced* if technical and coding skills are necessary; watch **1 to 3 minutes video** tutorials that will support you through each step; find quick technical suggestions in the **troubleshooting table**.
 
 For general information, see:
 [Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
-
 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
