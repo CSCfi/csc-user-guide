@@ -49,8 +49,7 @@ To facilitate this process, when you create a new CSC project using the MyCSC po
 In case you need to draft a **Data Protection Impact Assessment (DPIA)**, you can find the technical and organizational security measures for the protection of
 sensitive data in CSC Sensitive Data service available for download [here](./technical-organisational-sec-measures.pdf).
 
-<iframe width="280" height="155"srcdoc="https://youtu.be/1LHpDiap5Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/1LHpDiap5Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Getting access
 
