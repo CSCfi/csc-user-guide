@@ -7,8 +7,8 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
 
 
 ## [Introduction](./intro.md)
-
-  * [**Sensitive Data services: a summary**](./intro.md)
+  * [**Introduction to the user guide**](./intro.md#introduction-to-the-user-guide)
+  * [**Introduction to the services**](./intro.md#introduction-to-the-services)
   * [**Legal agreements**](./intro.md#legal-agreements)
   * [**Getting access**](./intro.md#getting-access)
   * [**Useful terminology**](./intro.md#getting-access)
