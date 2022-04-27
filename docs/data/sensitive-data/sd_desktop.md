@@ -64,9 +64,11 @@ from any modern web-browser.
 
 After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, see the (MFA paragraph)[../../accounts/mfa.md#multi-factor-authentication], under the Account section on the CSC user guide.
 
+![Authentication](images/desktop/authentication.png)
+
+
 !!! Note:
     Login via Elixir or Life Science is currently not available. We are working to re-enable it as soon as possible. 
-
 
 
 
