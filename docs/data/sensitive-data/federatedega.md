@@ -14,7 +14,7 @@ The following is a step-by-step guide to Federated EGA Finland that illustrates:
 ## Submission process overview
 
 
-![Artboard 1](https://user-images.githubusercontent.com/83574067/148032149-1d58b8f2-6bc7-4f82-805b-a2840cb6dbd1.png)
+![Artboard 1](/img/148032149-1d58b8f2-6bc7-4f82-805b-a2840cb6dbd1.png)
 
 
 ## Application form
@@ -241,23 +241,23 @@ Step1:
 
 EGA webpage
 
-![final EGA page](https://user-images.githubusercontent.com/83574067/149823106-67a1cfe0-a639-45c4-9875-b5391a933853.png)
+![final EGA page](/img/149823106-67a1cfe0-a639-45c4-9875-b5391a933853.png)
 
 Step2:
 
 Application form
 
-![SD Apply applicant view](https://user-images.githubusercontent.com/83574067/149817377-4d223858-3b3d-4e51-b978-92eaf5a562b3.jpg)
+![SD Apply applicant view](/img/149817377-4d223858-3b3d-4e51-b978-92eaf5a562b3.jpg)
 
 Step 4:
 
 Login and authentication
-![MFA FEGA demo](https://user-images.githubusercontent.com/83574067/149823080-723ad1b1-8523-4262-abc6-e228a55325b3.png)
+![MFA FEGA demo](/img/149823080-723ad1b1-8523-4262-abc6-e228a55325b3.png)
 
 Step 6:
 
 Project access
-![SD SUbmit fuse](https://user-images.githubusercontent.com/83574067/149823223-957d5bcf-95a4-49c0-8b22-30f485ef67e4.png)
+![SD SUbmit fuse](/img/149823223-957d5bcf-95a4-49c0-8b22-30f485ef67e4.png)
 
 
 

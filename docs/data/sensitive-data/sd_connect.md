@@ -77,7 +77,7 @@ The interface is compatible with all modern web browsers.
 
 ## User Interface 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -103,14 +103,14 @@ In this page, you can :
 
 <img width="570" alt="space in user guide" src="/img/123925795-ed532080-d993-11eb-8763-f11c975016e6.png">
 
-![SD Connect Image 1](https://user-images.githubusercontent.com/83574067/149062070-7541673f-9fc1-445a-a790-80aa5f296e0c.png)
+![SD Connect Image 1](/img/149062070-7541673f-9fc1-445a-a790-80aa5f296e0c.png)
 
 
 * clicking on **edit**, you can type in and add **appropriate tags** to describe buckets or files. 
 
 <img width="570" alt="space in user guide" src="/img/123925806-efb57a80-d993-11eb-8f63-622833e958ef.png">
 
-![SD Connect image 2](https://user-images.githubusercontent.com/83574067/149062085-a149fe12-0d9a-4dd2-87d4-d2e82ca2bbc4.png)
+![SD Connect image 2](/img/149062085-a149fe12-0d9a-4dd2-87d4-d2e82ca2bbc4.png)
 
 
 ### User information page
@@ -146,9 +146,9 @@ On the **Shared** page:
 
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926120-415e0500-d994-11eb-8455-9b8762c7a58b.png">
-![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
+<img width="570" alt="space in user guide" src="/img/123926120-415e0500-d994-11eb-8455-9b8762c7a58b.png">
+![sd-connect-4](/img/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
+<img width="570" alt="space in user guide" src="/img/123926131-4327c880-d994-11eb-81dd-c7b14d8e5f15.png">
 
 
 
@@ -192,16 +192,16 @@ The necessary steps are the following:
 
 <img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
-![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
+![1](/img/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
 
 
-![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
+![SD Connect 0](/img/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
 
 
 
 2-  Next, you will be **redirected to a new page displaying the default encryption options**. 
 
-<img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
+<img width="922" alt="df" src="/img/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
 
 
 3- Here, you can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
@@ -220,12 +220,12 @@ The necessary steps are the following:
 
 5- With the icon  **Select Files for Upload**, you will open a browser window in which you can select and add more files. 
 
-![SD Connect 1a](https://user-images.githubusercontent.com/83574067/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
+![SD Connect 1a](/img/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
 
 
 6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
-![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
+![SD Connect 2](/img/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
 
 
 
@@ -233,7 +233,7 @@ The necessary steps are the following:
 
 
 
-![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
+![SD Connect 4](/img/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
 
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
 
@@ -320,7 +320,7 @@ Using this workflow allows to securely manage only one copy of the data for diff
 
 ## Data Sharing 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -348,19 +348,19 @@ At this point, the user interface will redirect you to the **Shared** page, and 
 
 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+<img width="570" alt="space in user guide" src="/img/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
+![sd-connect-6](/img/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+<img width="570" alt="space in user guide" src="/img/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
 
 
-![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
+![SD-Connec-7](/img/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
+<img width="570" alt="space in user guide" src="/img/123926373-7b2f0b80-d994-11eb-8efa-903209dd505e.png">
 
-![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
+![sd-connect-8](/img/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 ## Data download and decryption
 
@@ -612,7 +612,7 @@ The command will ask you to enter the password (passphrase) of your private key.
     
     
     
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+<img width="570" alt="space in user guide" src="/img/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
 
     
  

@@ -197,9 +197,9 @@ Next:
 
 
 
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+<img width="574" alt="space" src="/img/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+![RStudio Final](/img/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
+<img width="574" alt="space" src="/img/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
 ## Accessing encrypted sensitive data within SD Desktop
@@ -231,19 +231,19 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
 
 
-![Data-Getewa-3y](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
+![Data-Getewa-3y](/img/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
 
 
-![Data-Gateway-4](https://user-images.githubusercontent.com/83574067/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
+![Data-Gateway-4](/img/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
 
 
 
 *   If the files have been encrypted using SD Connect or the **sensitive data public encryption key**, you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
 
 
-![Data-Gateway-5](https://user-images.githubusercontent.com/83574067/158682863-a82bdffa-0e3c-4888-a11e-15f32d4841dc.png)
+![Data-Gateway-5](/img/158682863-a82bdffa-0e3c-4888-a11e-15f32d4841dc.png)
 
-![Data-Gateway-6](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
+![Data-Gateway-6](/img/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
 
 
 
@@ -270,12 +270,12 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 Data Gateway can also be used to access data published under controlled access via other CSC services for sensitive data. To access a specific dataset in your virtual Desktop, you need first to apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you will be able to access the dataset in SD Desktop for a limited time.
 
 
-<img width="960" alt="Screenshot 2022-03-16 222235" src="https://user-images.githubusercontent.com/83574067/158684026-959e7b8d-d910-4a77-919a-414c8623b8ec.png">
+<img width="960" alt="Screenshot 2022-03-16 222235" src="/img/158684026-959e7b8d-d910-4a77-919a-414c8623b8ec.png">
 
 
 If you did not yet apply for access to a specific dataset or if the access period has ended and you try to access the data using the Data gateway application, you will encounter an error message. 
 
-<img width="960" alt="10" src="https://user-images.githubusercontent.com/83574067/158683211-3a390e9e-f576-4a2b-8638-07c399c1b4fe.png">
+<img width="960" alt="10" src="/img/158683211-3a390e9e-f576-4a2b-8638-07c399c1b4fe.png">
 
 
 SD Apply is currently in the pilot phase. Please contact us at servidesk@csc.fi (subject: sensitive data) for more information.
@@ -407,7 +407,7 @@ The keys will be generated and saved to the same folder in which the application
 
 * Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
-<img width="960" alt="export" src="https://user-images.githubusercontent.com/83574067/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
+<img width="960" alt="export" src="/img/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
 
 
 
@@ -478,9 +478,9 @@ You can not undo this action:
 
 <img width="574" alt="space" src="/img/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+![Screeshot_SDDesktop_0109_deletingvm](/img/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
 s
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+<img width="574" alt="space" src="/img/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
 
@@ -498,11 +498,11 @@ You can not undo this action:
 !!! note
     All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+<img width="574" alt="space" src="/img/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+![Screeshot_SDDesktop_0109_deletingvm](/img/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
 s
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+<img width="574" alt="space" src="/img/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
 

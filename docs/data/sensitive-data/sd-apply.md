@@ -15,7 +15,7 @@ Once the application has been reviewed and approved, the applicant can directly 
 
 ## Data access for applicants: overview
 
-![SD Applyv1](https://user-images.githubusercontent.com/83574067/148039341-24feb45e-06b4-4f48-bc04-c3816041ee7b.png)
+![SD Applyv1](/img/148039341-24feb45e-06b4-4f48-bc04-c3816041ee7b.png)
 
 
 ### Login
