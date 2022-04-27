@@ -8,16 +8,23 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.16 in a singularity container: qgis module
+* 3.22 in a singularity container: qgis(/3.22 = default) module
+* 3.16 in a singularity container: qgis/3.16 module
 
 ## Usage
 
-Using QGIS in [Puhti web interface with Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start QGIS with Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'.
+2. Start QGIS: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
+3. QGIS is started automatically when the Desktop is launched. 
 
-Alternatively, especially if you want to use QGIS and some other GUI tool together or want to use data from Allas, QGIS can be started in Puhti web interface desktop App (mate or xfce) from Desktop shortcut or with terminal commands:
+
+Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti web interface with remote desktop:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start QGIS:
 
 ```
 module load qgis
@@ -33,11 +40,12 @@ It is also possible to access QGIS functionalities from Python without an graphi
 ### QGIS and Allas
 QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in on [GDAL](gdal.md) page.
 
-## License and citing
+## License and acknowledgement
 
 QGIS is licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo).
 
-In your publications please acknowledge also oGIIR and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 

@@ -102,7 +102,6 @@ allows user to submit new commands, while the background command gets
 executed. However, note that in the computing clusters of CSC, the heavy
 computing tasks should not be executed as background processes, but they
 should be submitted to the batch queue system.
-
   
 In normal interactive usage you can launch the command to be executed in
 the background by adding **&** character to the end of the command. For
@@ -110,8 +109,7 @@ example command:
 
     eog image1.jpg &
 
-would open the *Eye of GNOME* image viewing program (requires X-term or
-[NoMachine](../../../apps/nomachine.md) connection) to the background so that the command shell could
+would open the *Eye of GNOME* image viewing program (requires X-term connection) to the background so that the command shell could
 still be used even though the eog program is still running. A background
 process can be changed to normal, foreground process with command 
 **fg**. When a command and program is running interactively, i.e. the

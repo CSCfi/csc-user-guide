@@ -12,6 +12,10 @@ OpenMP, POSIX threads, or MPI+OpenMP/Pthreads parallelization.
 
 Puhti, Mahti
 
+## License
+
+Usage is possible for both academic and commercial purposes.
+
 ## Usage
 
 Using Scalasca involves three steps:

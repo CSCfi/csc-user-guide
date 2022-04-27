@@ -6,6 +6,14 @@ identify hotspots and reasons for poor parallel scaling and MPI performance.
 The tool is available only on Puhti and at the moment it supports only the applications 
 compiled with the Intel MPI library.
 
+## Available
+
+Puhti
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
 ## Collecting traces
 
 For simple MPI tracing, no recompilation is needed, and it is enough to add following 
@@ -37,8 +45,8 @@ The collected data are saved in a series of `<executable>.stf` files in the runn
 ## Analyzing the traces
 
 In order to improve the performance of the graphical user interface, 
-we recommend to use [NoMachine](../support/tutorials/nomachine-usage.md) remote desktop when carrying out the analysis. 
-The analyzer is started with the command (note that the `intel-itac` module needs to be loaded):
+we recommend to use the [Puhti web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
+The analyzer is started in the host terminal with the command (note that the `intel-itac` module needs to be loaded):
 
 ```
 traceanalyzer <executable>.stf

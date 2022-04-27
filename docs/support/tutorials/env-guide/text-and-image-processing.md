@@ -50,9 +50,8 @@ Nano editor.
 **Emacs** is a versatile editor that contains large amount of
 commands, functions and extensions. *Emacs* can be used in two ways: as
 character based editor like *nano* or through a graphical interface.
-Using the graphical interface requires that you have 
-[NoMachine](../../../apps/nomachine.md) or X-term
-connection to CSC. In the character based mode emacs commands are given
+Using the graphical interface requires that you have X-term
+connection to CSC or are using the [Puhti web interface remote desktop](../../../computing/webinterface/desktop.md). In the character based mode emacs commands are given
 using *Ctrl* and *Esc* keys much like in the case of nano commands. In
 the graphical interface you can use also mouse based command menus which
 makes working much more feasible for a new emacs user. To start emacs in
@@ -60,10 +59,9 @@ CSC environment type:
 
     emacs file_name
 
-If a graphics enabling connection between CSC and your local computer
-exists, the command will launch the graphical *emacs* interface.
-Otherwise the character based mode is used. In the graphical user
-interface the ***File*** menu is used to read in and save files.
+If using the Puhti web interface remote desktop, you can open the
+graphical *emacs* interface from `Application > Accessories > Emacs`.
+In the graphical user interface the ***File*** menu is used to read in and save files.
 ***Edit*** menu include commands to copy, cut and paste text. This menu
 also contains tools to search and replace strings. With the commands in
 the *Options* menu you can control many properties of *emacs.* You can
@@ -73,8 +71,7 @@ emacs session. The ***Buffers*** menu allows you to choose the buffer to
 be edited. The ***Tools*** menu contains miscellaneous commands and
 tools.
 
-If you don't have remote graphics enabled, you can start Emacs in ascii
-mode with `emacs -nw`, but then you need you to know the [command short cuts](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf), like to exit is **ctrl-x ctrl-c**
+If you don't have remote graphics enabled you need to know the [command shortcuts](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). For example, the shortcut to exit is **ctrl-x ctrl-c**.
 
 ![Graphical interface of emacs editor](../../../img/emacs.jpg "Graphical interface of emacs editor.")
 
@@ -135,8 +132,7 @@ Graphical interface of vim editor with welcome screen.
 ## Image and PostScript viewers
 
 In some cases application programs, executed at CSC, produce image files
-instead of text files. If you have a working NoMachine or X-term connection
-between your local computer and CSC you can use **eog** (Eye of GNOME)
+instead of text files. If you have a working X-term connection you can use **eog** (Eye of GNOME)
 and **evince** programs to view image files. *Eog* is a simple image
 viewing program that can display common image formats like *png*, *bmp*,
 *jpg* and *tiff*. However *eog* is not able to show *PostScript* (ps) or
@@ -161,3 +157,6 @@ Produces a pdf-formatted file *file1.pdf*
 ![Eog image viewing program](../../../img/eog.jpg  "Eog image viewing program.")
 
 Eog image viewing program.
+
+If you're using the Puhti web interface, specifically the mate desktop, the available software
+corresponding to eog and evince are **eom** (Eye of MATE) and **atril**.

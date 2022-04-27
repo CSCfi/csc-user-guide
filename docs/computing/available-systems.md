@@ -5,7 +5,17 @@ Mahti, and the quantum learning machine Kvasi. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
 workloads that can utilize both efficiently. At the same time their
 hardware is different, and this makes some worklods uniquely suitable
-for either Puhti or Mahti. 
+for either Puhti or Mahti.
+
+In addition to the national resources, CSC's data center in Kajaani hosts the pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has been available since early 2022, while the largest partition of the system consisting of GPU-accelerated nodes is projected to be available in autumn 2022.
+
+## LUMI
+
+LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray EX supercomputer consisting of several partitions targeted for different use cases. The largest partition of the system is the "LUMI-G" partition consisting of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In addition to this, there is a smaller CPU-only partition, "LUMI-C" that features AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large memory nodes and some GPUs for data visualization. Besides partitions dedicated to computation, LUMI also offers several storage partitions for a total of 117 PB of storage space.
+
+[A more technical description about LUMI](https://docs.lumi-supercomputer.eu/generic/overview/).
+
+[How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)
 
 ## Puhti 
 

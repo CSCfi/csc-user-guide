@@ -1,5 +1,8 @@
 # Connecting to CSC supercomputers
 
+!!! Note
+    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/computing/connecting/)
+
 Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
 ```
@@ -26,13 +29,9 @@ By default, SSH access to Puhti is authenticated with the password of your CSC u
 	Programs not adhering to these rules will be terminated without warning. 
 	Note that compute nodes can be used also [interactively](running/interactive-usage.md)
 
-
-
 ## Using graphical applications
 
-[NoMachine](../apps/nomachine.md) virtual desktop is a good way to use most graphical applications in Puhti. Note that in certain applications (e.g. RStudio Server provided as part of the [`r-env-singularity`](../apps/r-env-singularity.md) module), graphical applications are instead accessed through a local web browser via SSH tunneling.
-
-In addition to fast remote graphics, NoMachine enables you to keep your Puhti remote terminals active, even if you closed your local computer. Therefore, NoMachine is also well-suited for long interactive processes also without graphics. More details can be found in the [NoMachine tutorial](../support/tutorials/nomachine-usage.md).
+The [Puhti web interface](webinterface/index.md) is a good platform to use most graphical applications, such as Jupyter notebooks and RStudio, in Puhti. Additionally, you can launch a [remote desktop](webinterface/desktop.md) for running various graphical user interfaces. The Puhti web interface allows you also to open a persistent shell on a compute node which will keep running even if you would close your browser or lose internet connection.
 
 If you for some reason want to use a slower, X11 based graphical connection, your local computer must have an X server program installed and running. In Linux and macOS an X server is normally installed automatically, while for Windows it needs to be installed separately. A free X server for Windows is provided, for example, by [MobaXterm](https://mobaxterm.mobatek.net/) or [Xming](http://www.straightrunning.com/XmingNotes/).
 
@@ -115,6 +114,21 @@ rm ~/.ssh/mypubkey.pub
     * In Puhti/Mahti open the file `~/.ssh/authorized_keys` with your favourite editor (e.g. `nano`). Paste the public key from the clipboard to the end of the file and save it.
     * If you want to copy the public key from public key file created by PuTTygen, then edit the file first so, that everything is on one row only and does not include any spaces in the key itself.
 
+### Setting up your SSH keys in MyCSC portal
+
+!!! warning "Note"
+    Setting up your SSH keys in [MyCSC](https://my.csc.fi) portal is currently available only for [LUMI environment](https://www.lumi-supercomputer.eu/).
+    
+You can set up your SSH keys in MyCSC portal by following these steps
+
+1. Login to [MyCSC](https://my.csc.fi) portal with your CSC or HAKA/VIRTU credentials
+2. Proceed to 'My profile' section (top right)
+3. Scroll down to end of the page where you find the section 'SSH PUBLIC KEYS'
+4. Click 'Modify' and select 'Add new...' to add your SSH key
+5. Paste your **public** SSH key to the text field. Supported keys are: RSA 2048, ECDSA 521, ED25519 256
+6. Click 'Add' and then 'Confirm' which will trigger reauthentication to the portal
+7. Now you can see your SSH key stored to your profile
+   
 ### SSH keys with MobaXterm
 At least with Windows operating system, before generating the SSH key, set permanent home directory where to store the SSH key and other settings, so that they are available after closing MobaXterm: `Settings -> Configuration -> General`
 

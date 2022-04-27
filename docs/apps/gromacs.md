@@ -9,15 +9,18 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018-2020 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2019-2020 releases with regularly updated minor versions, several with plumed
+-   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
+-   Mahti: 2019-2022 releases with regularly updated minor versions, several with plumed, one with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
+-   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
-!!! note
+!!! Note
     We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
     Instead of `gmx grompp` ... give `gmx_mpi grompp`
+
+!!! Note
+    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
@@ -79,7 +82,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-!!! note
+!!! Note
     To avoid multi node parallel jobs to spread over more nodes
     than necessary, don't use the --ntasks flag, but specify --nodes and
     --ntasks-per-node=40 to get full nodes. This minimizes communication
@@ -146,7 +149,7 @@ Submit the script with `sbatch script_name.sh`
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
+module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
@@ -169,20 +172,79 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 # 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/9.3.0 openmpi/4.0.3 gromacs/2020.5
+module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
+### High-throughput computing with Gromacs
+
+Gromacs comes with a built-in `multidir` functionality, which allows users to run multiple concurrent simulations within one Slurm allocation. This is an excellent option for high-throughput use cases, where the aim is to run several similar, but independent, jobs. Notably, multiple calls of `sbatch` or `srun` are not needed, which decreases the load on the batch queue system. Please consider this option if you're running high-throughput workflows or jobs such as replica exchange, umbrella sampling or adaptive weight histogram (AWH) free energy simulations using Gromacs.
+
+An example `multidir.sh` batch script for running a `multidir` Gromacs job is provided below. This example adapts the production part of the [lysozyme tutorial](http://www.mdtutorials.com/gmx/lysozyme/) by considering 8 similar copies of the system that have been equilibrated with different velocity initializations. Inputs corresponding to each copy are named identically `md_0_1.tpr` and placed in subdirectories `run*` as illustrated below by the output of the `tree` command.
+
+```console
+$ tree
+.
+├── multidir.sh
+├── run1
+│   └── md_0_1.tpr
+├── run2
+│   └── md_0_1.tpr
+├── run3
+│   └── md_0_1.tpr
+├── run4
+│   └── md_0_1.tpr
+├── run5
+│   └── md_0_1.tpr
+├── run6
+│   └── md_0_1.tpr
+├── run7
+│   └── md_0_1.tpr
+└── run8
+    └── md_0_1.tpr
+```
+
+```bash
+#!/bin/bash
+#SBATCH --time=00:30:00
+#SBATCH --partition=medium
+#SBATCH --ntasks-per-node=128
+#SBATCH --nodes=1
+#SBATCH --account=<project>
+
+# this script runs a 128 core gromacs multidir job (8 simulations, 16 cores per simulation)
+
+module purge
+module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+
+export OMP_NUM_THREADS=1
+
+# Create a list of the directories, convenient if there are many
+list=()
+for i in `seq 8`
+do
+    list+=(run${i})
+done
+
+srun gmx_mpi mdrun -multidir ${list[@]} -deffnm md_0_1 -dlb yes
+```
+
+By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
+
+![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
+
+For further details on running Gromacs multi-simulations, see the [official Gromacs documentation](https://manual.gromacs.org/documentation/current/user-guide/mdrun-features.html#running-multi-simulations).
+
 ### Visualizing trajectories and graphs
 
 In addition to `view` (not available at CSC, though) tool of Gromacs,
 trajectory files can be visualized with the following programs:
 
--   [PyMOL] molecular modeling system.
--   [VMD](vmd.md) visualizing program for large biomolecular systems.
+-   [PyMOL] molecular modeling system (not available at CSC)
+-   [VMD](vmd.md) visualizing program for large biomolecular systems
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
 
 !!! note

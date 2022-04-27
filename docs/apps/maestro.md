@@ -10,8 +10,7 @@ for *drug design* and *Materials Science*. It can be used to build, edit, run an
 
 ## Available
 
-Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4
-
+Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4, 2022.1
 
 ## License
 
@@ -20,7 +19,7 @@ for academic purposes. Please consult the [EULA](https://www.schrodinger.com/mae
 for the exact definition. 
 Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens.
-If licenses run out, contact Atte via [ServiceDesk](mailto:servicedesk@csc.fi).
+If licenses run out, contact Atte via [ServiceDesk](/support/contact/)
 
 ## Usage
 
@@ -99,10 +98,9 @@ The following video tutorial walks you through it:
 
 !!! note
     We do _not_ recommend running the Maestro GUI remotely on Puhti.
-    It _can_ be done via [NoMachine](nomachine.md), but there are some known glitches
-    and the performance is not very good. Also, **no long/heavy tasks** should be
+    It _can_ be done via [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but the performance may be somewhat slow due to lack of accelerated graphics. Also, **no long/heavy tasks** should be
     done on the login nodes. Please consult the
-    [policy](../../computing/overview/#usage-policy) on the computing overview.
+    [policy](../../computing/overview/#usage-policy) on the computing overview page.
     If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
 
 !!! note
@@ -134,5 +132,5 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
    * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
    * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions 
-* Issues on how to run Maestro on CSC environment: [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
+* Issues on how to run Maestro on CSC environment: [contact ServiceDesk](/support/contact/)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)
