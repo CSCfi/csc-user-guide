@@ -56,13 +56,16 @@ For specific guidance regarding these steps or applying for resources for your C
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu or with CSC Login at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu or with CSC Login) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
 After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via the mobile application. For specific guidance regarding the verification step, see the (MFA paragraph)[../../accounts/mfa.md#multi-factor-authentication], under the Account section on the CSC user guide.
+
+!!! Note:
+    Login via Elixir or Life Science is currently not available. We are working to re-enable it as soon as possible. 
 
 
 
