@@ -1,11 +1,11 @@
 
 # Data Management
 
-## Sensitive Data services for research 30.3.2022
+## Sensitive Data services for research 28.04.2022
 
 Our Sensitive Data services guide has been updated and reorganised into the following sections:
 
-* [Introduction to the services and legal agreements](../../data/sensitive-data/intro.md#introduction);
+* [Introduction to the services and legal agreements](../../data/sensitive-data/intro.md);
 
 * [Sensitive Data Connect](../../data/sensitive-data/sd_connect.md#), with a specific paragraph describing [data encryption compatible with Sensitive Data services](../../data/sensitive-data/sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services);
 
