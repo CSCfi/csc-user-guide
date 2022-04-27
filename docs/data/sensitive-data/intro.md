@@ -63,8 +63,10 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
    4. Fill in the **Description of processing activities form** and agree with CSC **Data Processing Agreement**.
     
    5. **Each project member** needs to **add service access to SD Desktop and to Allas** (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas).
+   
+   6. Activate Multi-factor Authentication.
 
-   6. Apply for billing units or disk quota.
+   7. Apply for billing units or disk quota.
 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
