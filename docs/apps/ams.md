@@ -68,7 +68,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
 ```
 
-**Example batch script for Mahti-rhel7**
+**Example batch script for Mahti-rhel8**
 
 ```
 #!/bin/bash

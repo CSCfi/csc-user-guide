@@ -69,7 +69,7 @@ The license should be automatically fetched from the net.
 
 ** 5. Control batch jobs**
 
-In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti (Mahti-rhel7),see [Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
+In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti (Mahti-rhel8), see [Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
 
 All saved jobs, both calculated and uncalculated, can be found in the GUI under ```SCM-> Jobs```.
 Before you submit a job to the batch queue you have to define what resources it needs (time, memory, number of cores etc.)
@@ -82,6 +82,4 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. ```Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" ```  
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.  
 7. ```Use Local Batch: no```
-8. ```Prolog command: source /appl/soft/chem/adf/ams2022.101/ams_csc.bash;export SCM_TMPDIR=/scratch/project_2001199; export FORT_TMPDIR=$SCM_TMPDIR``   
-
-
+8. ```Prolog command: source /appl/soft/chem/adf/ams2022.101/ams_csc.bash;export SCM_TMPDIR=/scratch/project_2001199; export FORT_TMPDIR=$SCM_TMPDIR```
