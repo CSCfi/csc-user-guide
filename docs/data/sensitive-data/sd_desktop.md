@@ -42,12 +42,13 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project you need to:
+Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project, using the (My CSC portal)[https://my.csc.fi] you need to:
 
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
 * [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
-* add [service access to Allas and SD Desktop](../../accounts/how-to-add-service-access-for-project.md).
+* add [service access to Allas and SD Desktop](../../accounts/how-to-add-service-access-for-project.md);
+* **activate the additional security verification (or Multi-factor Authentication) on your account scanning the QR code with a specific application** (e.g. Google Authenticator). For further intruction see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide.
 
 For specific guidance regarding these steps or applying for resources for your CSC project (e.g, billing units or disk quota), check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data stored in SD Connect from yoru virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).  
 
@@ -55,11 +56,20 @@ For specific guidance regarding these steps or applying for resources for your C
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu and [Elixir Login](https://elixir-europe.org/register) or with CSC Login at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu or with CSC Login) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
+
+After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+
+![Authentication](images/desktop/authentication.png)
+
+
+!!! Note:
+    Login via Elixir or Life Science is currently not available. We are working to re-enable it as soon as possible. 
+
 
 
 ### Setting up a virtual Desktop
