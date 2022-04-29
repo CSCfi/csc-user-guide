@@ -18,6 +18,7 @@ OpenDroneMap is available in Puhti as a [Singularity](../computing/containers/ru
 * `--project-path` - the place where images are stored, without the `code/images` part.
 * `--max-concurrency` - the number of threads used in several steps of ODM processing, here set to same number as reserved cores. 
 * It is possible to add [additional arguments](https://docs.opendronemap.org/arguments/) to the end of the command. 
+* If your images cover a very large area, see [ODM Splitting Large Datasets documentation](https://docs.opendronemap.org/large/)
 
 ```
 #!/bin/bash
