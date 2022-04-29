@@ -54,7 +54,7 @@ Remember to record and report how your research data is analysed and processed. 
 
 ### Reproducibility
 
-Tähän tekstiä!
+Reproducibility is an important part of providing evidence of the correctness of research results. Other researchers should be able to inspect the workflow and evaluate all of the steps that have been taken during the analysis and repeat them. Reproducibility is defined as the possibility to obtain consistent results using the same data and code as the original study (computational reproducibility). Replicability means obtaining consistent results across studies aimed at answering the same scientific question using new data or other new computational methods. In this case new data is collected or created. Documenting and sharing research software and workflows are crucial elements of reproducibility. Research infrastructures and services should not only enable but also support reproducibility.
 
 ### Provide metadata
 
