@@ -39,7 +39,7 @@ spec:
           nvidia.com/gpu: 1
 ```
 
-And run the follwing command to start the pod: 
+And run the following command to start the pod: 
 ```bash
 oc apply -f gpu-example-1.yaml
 ```
