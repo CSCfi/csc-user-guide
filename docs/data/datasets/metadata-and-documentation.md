@@ -100,9 +100,14 @@ It is good practice to make a clear **file naming system** from the start of you
 
 Your research field might also have instructions and guidelines for organizing data. Brain Imaging Data Structure (BIDS), for example, has been created by the scientific community of brain researchers, and it defines the file formats, file naming rules and rules to organize the data in directories.
 
+### Versioning
+
 To keep data well-organized you should have a **version control system** in use. This can either be done manually, where you incorporate a running number to the end of a file name _(_v03)_, or automatically, which is the preferred way. Automatic version control can be done with software such as [Git](https://git-scm.com/), [GitHub](https://github.com/) or [GitLab](https://gitlab.com/gitlab-org/gitlab) (your institution might offer an integrated solution) or use cloud storing solutions, which usually provide automatic file versioning. More tips on data organization can be found in [the ELIXIR Research Data Management Kit (RDMkit)](https://rdmkit.elixir-europe.org/).
 
 When making new versions of data files, it is important to **keep a copy of the original raw data**. Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources and re-purposing the data use. Also, when sharing the data it might be worthwhile to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter. In some cases it is even possible to publish the data with the processing and analyses code as an executable paper in order to prove that the scientific process is reproducible. In other words, executable papers are dynamic pieces of software that combine text, raw data, and the code used for the analysis, and that a reader can interact with. 
+
+!!! note "Additional readings"
+    - [Title](linkki)
 
 ### Files and file formats
 
