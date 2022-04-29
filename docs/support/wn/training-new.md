@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## CSC Summer School in High-Performance Computing, 26.6.2022-5.7.2022
+
+The CSC Summer School in High-Performance Computing is back! [See here for more information and register now](https://ssl.eventilla.com/summerschool)!
+
 ## New guide for getting started with machine learning at CSC, 8.4.2022
 
 Even experienced machine learning users might have a hard time taking the leap
