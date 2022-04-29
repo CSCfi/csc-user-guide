@@ -168,7 +168,6 @@ nav:
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-        - Allas Clients: data/Allas/clients.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
