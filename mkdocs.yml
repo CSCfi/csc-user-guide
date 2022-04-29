@@ -27,6 +27,7 @@ nav:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
+        - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
         - Kvasi: computing/kvasi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
@@ -48,6 +49,7 @@ nav:
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
+        - LUMI: computing/compiling-lumi.md
         - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
@@ -104,6 +106,7 @@ nav:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
+       - GPU in Rahti: cloud/rahti/gpu.md
        - Rahti Templates: cloud/rahti/template-docs.md
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
@@ -165,20 +168,19 @@ nav:
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-        - Allas Clients: data/Allas/clients.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
      - Sensitive data:
-        - Overview: data/sensitive-data/index.md
+        - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-#        - Quickguide: data/sensitive-data/quickguide.md
         - SD Connect: data/sensitive-data/sd_connect.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
-        - Pre-installed software: data/sensitive-data/pre-installed_software.md
-        - Data encryption for data sharing: data/sensitive-data/crypt4gh_client.md
-#        - FAQ: data/sensitive-data/faq_index.md
+#       - FederatedEGA: data/sensitive-data/federatedega.md
+#       - SD Apply: data/sensitive-data/sd-apply.md
+#       - Containers: data/sensitive-data/creating_containers.md
+
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
@@ -207,6 +209,9 @@ theme:
     code: 'Source Code Pro'
 
   logo: 'img/Docs_CSC_logo.svg#headerlogo"'
+  cscfi_logo: 'img/CSCfi_text.png#headerlogo'
+  mycsc_logo: 'img/MyCSC_text.png#headerlogo'
+  research_logo: 'img/Research_text.png#headerlogo'
 
 extra_css:
   - 'assets/stylesheets/tabbed.css'
@@ -226,6 +231,7 @@ markdown_extensions:
       toc_depth: 2-6
   - admonition
   - attr_list
+  - def_list
   - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.snippets

@@ -269,8 +269,11 @@ svg[id*="mermaid"] {
 
 .footer_wrapper {
     height: 100%;
-    width: 90%;
+    width: 66%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    white-space: nowrap;
 }
 
 img[src*="#frontpagelogo"] {

@@ -3,7 +3,7 @@
 When you login to CSC supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [Usage policy](../overview.md#usage-policy) for details.
 If you need to do heavy computing interactively, you should use interactive batch jobs.
 
-In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks user can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case it is recommended that you do the initial connection to a login node of the supercomputer with [NoMachine](../../support/tutorials/nomachine-usage.md) remote desktop.
+In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks users can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case you need to have enabled X11 forwarding. An even better option for remote graphics is to use the [Puhti web interface](../webinterface/index.md).
 
 Please notice that the interactive batch jobs run in the computing nodes, where the environment differs 
 slightly from the login nodes. For example, not all the same text editors are available. Furthermore, when you log out from an interactive batch job, the session with all the processes will be terminated, and data in the job specific `$TMPDIR` and `$LOCAL_SCRATCH` areas will be removed. 
@@ -57,7 +57,7 @@ Available options for `sinteractive` in Puhti are:
 
 ### sinteractive in Mahti
 
-In Mahti, users can have several interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-8 cores, but the total number of reserved cores shared with all user sessions cannot exceed 8. Thus a user can have for example 4 interactive sessions with 2 cores or one 8 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 8 cores, is 15 GB.
+In Mahti, users can have up to 8 interactive batch job sessions in the `interactive` partition. Other partitions don't support interactive batch jobs. Each interactive session can reserve 1-32 cores, but the total number of reserved cores shared with all user sessions cannot exceed 32. Thus a user can have for example 4 interactive sessions with 8 cores or one 32 core session. Each core reserved will provide 1.875 GB of memory and the only way to increase the memory reservation is to increase the number of cores reserved. The maximum memory, provided by 32 cores, is 60 GB.
 
 For example, an interactive session with 6 cores, 11,25 GiB of memory and 48 h running time using project _project_2001234_
 can be launched with command:
