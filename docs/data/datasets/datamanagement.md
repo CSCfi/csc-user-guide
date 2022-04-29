@@ -52,6 +52,10 @@ Be consistent when naming variables and record enough information in order to ma
 
 Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata) often leads to data loss. To keep [data and documentation well-organized](metadata-and-documentation.md#data-organization) you should also have a version control (manual or automatic) system in use. 
 
+### Reproducibility
+
+Tähän tekstiä!
+
 ### Provide metadata
 
 [Metadata](metadata-and-documentation.md#metadata-types) is contextual information about the data and its provenance, necessary for interpreting the data. Providing metadata enables you, and others interested in extending your work, to return to it later. Providing comprehensive metadata according to your discipline's conventions makes your data discoverable and reusable.
