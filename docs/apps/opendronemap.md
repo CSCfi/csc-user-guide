@@ -6,6 +6,7 @@
 
 __OpenDroneMap__ is available in Puhti with following versions:
 
+* 2.8.3
 * 2.5.7
 
 ## Usage
