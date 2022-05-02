@@ -7,7 +7,7 @@ AAESS products are proprietary software. CSC - IT Center for Science Ltd. has th
 
 ## Available
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti-rhel7](../computing/available-systems.md) for analysis runs only. Additionally, on Mahti-rhel7 only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
+CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti-rhel8](../computing/available-systems.md) for analysis runs only. Additionally, on Mahti-rhel8 only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
 
 ## Usage
 
@@ -17,11 +17,11 @@ For to find out which versions of ANSYS are installed on the server, give comman
 
     module available
 
-and check lines *ansys/(version number)*. For example to load Ansys version 19.2., give command
+and check lines *ansys/(version number)*. For example to load Ansys version 2022R1, give command
 
-    module load ansys/19.2
+    module load ansys/2022R1
 
-There are examples of **batch job files** available on Puhti and Mahti-rhel7 servers:
+There are examples of **batch job files** available on Puhti and Mahti-rhel8 servers.  On Mahti-rhel8, only for CFD computations:
 
     Ansys CFX:        /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_cfx
 
