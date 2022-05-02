@@ -53,7 +53,7 @@ OpenDroneMap reads and writes a lot to disk, so running it is slightly (~15%) fa
 odm_dir=/scratch/project_2000599/odm/
 
 echo "Copying input images from Puhti scratch to compute node local disk"
-rsync -r $odm_dir/* $LOCAL_SCRATCH
+rsync -r $odm_dir/code $LOCAL_SCRATCH
 
 module load opendronemap
 singularity_wrapper run --project-path $LOCAL_SCRATCH --max-concurrency $SLURM_CPUS_PER_TASK
