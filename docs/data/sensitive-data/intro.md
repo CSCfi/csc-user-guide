@@ -2,9 +2,28 @@
 # Sensitive Data services for research
 
 
-## Introduction
+## Introduction to the user guide
 
-Introduction 
+In this userguide you can:
+
+* find an overview and **key features** of each service;
+
+* follow **simplified, step-by-step** instructions on how to access and set up the services;  previous knowledge is not required. Specific paragraphs are marked as *advanced* if technical and coding skills are necessary. 
+
+* watch **1 to 3 minutes video** tutorials that will support you through each step;
+
+* find quick technical suggestions in the **troubleshooting table**.
+
+
+For general information, see:
+[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+
+
+
+
+## Introduction to the services
+
+
 Sensitive Data services for research provide CSC customers a secure workspace, accessible via web browser, that can be used for processing sensitive data according to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use).
 
 Sensitive Data services for research consists of four components, all accessible from your browser:
@@ -30,7 +49,7 @@ To facilitate this process, when you create a new CSC project using the MyCSC po
 In case you need to draft a **Data Protection Impact Assessment (DPIA)**, you can find the technical and organizational security measures for the protection of
 sensitive data in CSC Sensitive Data service available for download [here](./technical-organisational-sec-measures.pdf).
 
-
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/1LHpDiap5Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Getting access
 
@@ -43,8 +62,10 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
    4. Fill in the **Description of processing activities form** and agree with CSC **Data Processing Agreement**.
     
    5. **Each project member** needs to **add service access to SD Desktop and to Allas** (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas).
+   
+   6. Activate Multi-factor Authentication.
 
-   6. Apply for billing units or disk quota.
+   7. Apply for billing units or disk quota.
 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
@@ -62,6 +83,8 @@ For specific guidance regarding these steps, check the [Accounts](../../accounts
 **Disk quota**: this is a limited set to control the storage space available to CSC services users. SD Connect has a default quota of 10 TB. You can apply for more writing at servicedesk@csc.fi. 
 
 **Data Processing Agreement (DPA)**: a data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the relationship between the controller and the processor: [CSC General terms of use](https://research.csc.fi/general-terms-of-use) and [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement).
+
+**Multi-factor Authentication**: When you log in to the SD Desktop service, next to authenticating by providing a username and password, you need to go through an extra verification step. In this way, your account is more secure. The extra verification step is called:"Two-Step Verification" or "Multifactor Authentication", because you are proving your identity via a different method. In this case, you need to type in a one time code (6-digits) obtaned by opening a mobile app on your phone. The code is unique and valid for a limited amount of time. 
 
 **Object**: is the technical name for a file stored in a cloud object storage like Allas (or uploaded to CSC via SD Connect). This definition underlines that files stored in SD Connect /  Allas can not be directly modified unless transferred or copied into a computing environment. Still, they can be accessed in read-only mode from a cloud computing environment (e.g. SD Desktop). 
 
