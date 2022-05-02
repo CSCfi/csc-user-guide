@@ -49,7 +49,7 @@ In test runs on CSC's servers with the collated IO method, significant differenc
 
 #### An example 
 
-Mahti-rhel7 server one node contains 128  cores.  If the total subdomain number in the model is 256, user may allocate two full nodes for the solver run.  Decomposition batch job will then done using command
+Mahti-rhel8 server one node contains 128  cores.  If the total subdomain number in the model is 256, user may allocate two full nodes for the solver run.  Decomposition batch job will then done using command
 
     decomposePar -fileHandler collated -ioRanks '(0 128 256)'
 
