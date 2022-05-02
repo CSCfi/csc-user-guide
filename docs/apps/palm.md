@@ -9,7 +9,7 @@ The PALM model system has been mainly developed and is maintained by the ​PALM
 The PALM model system is free software. It can be redistributed and/or modified under the terms of the GNU General Public License (v3). 
 ## Available
 
-At CSC - IT Center for Science PALM is installed on [Puhti and Mahti-rhel7](../computing/available-systems.md) servers.  Versions available are listed when running the installation script, see below.
+At CSC - IT Center for Science PALM is installed on [Puhti and Mahti-rhel8](../computing/available-systems.md) servers.  Versions available are listed when running the installation script, see below.
 
 ## Usage
 
