@@ -4,14 +4,14 @@
 
 ## Installing FireWorks
 
-FireWorks is easy to install. We recommend using `pip` to install FireWorks alongside CSC's pre-installed Python environments. For further instructions, see [how to install Python packages to existing modules](../../apps/python.md#installing-python-packages-to-existing-modules).
+FireWorks is easy to install. We recommend using [Tykky](../containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough. For further instructions, see [the Tykky documentation](../containers/tykky.md#plain-pip-installations).
 
 !!! Note
-    Do not use Conda to install FireWorks. [CSC has deprecated the direct usage of Conda](../../support/deprecate-conda.md) installations on our supercomputers. This has been done to avoid performance issues on the Lustre parallel file system due to the large number of files brought by Conda. As a comparison, a Conda installation of FireWorks contains more than 24000 files, while an installation using `pip install --user fireworks` alongside the `python-data` module only adds about 800 files.
+    Do not use Conda to install FireWorks. [CSC has deprecated the direct usage of Conda](../../support/deprecate-conda.md) installations on our supercomputers. This has been done to avoid performance issues on the Lustre parallel file system due to the large number of files brought by Conda. For reference, a Conda installation of FireWorks contains more than 24000 files, most of which are read each time the application is run. This causes startup delays and degrades the performance of Lustre for all users.
 
 ## Setting up MongoDB in Rahti
 
-The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md).
+The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12.
 
 ## Defining and executing workflows with FireWorks
 
