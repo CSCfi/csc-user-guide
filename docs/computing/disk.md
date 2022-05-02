@@ -6,7 +6,7 @@ The disk areas for different supercomputers are separate, *i.e.*
 accessed from Mahti. Also [a more technical description of the Lustre 
 filesystem](lustre.md) used in these directories is available.
 
-|              |  Owner    | Environment variable | Path                                            | Cleaning                  | Backed up?    |
+|              |  Owner    | Environment variable | Path                                            | Cleaning                  | Automatic backup?    |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------------------- | ------------- |
 | **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No                        | No            |
 | **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No                        | No            |
