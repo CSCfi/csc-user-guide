@@ -8,7 +8,7 @@ filesystem](lustre.md) used in these directories is available.
 
 |              |  Owner    | Environment variable | Path                                            | Cleaning                  | Automatic backup?    |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------------------- | ------------- |
-| **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No                        | No            |
+| **home**     |  Personal | `${HOME}`            | <small>`/users/<user-name>`</small>             | No                        | No            |
 | **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No                        | No            |
 | **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Not yet - will be 90 days | No            |
 
