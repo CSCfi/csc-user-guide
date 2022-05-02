@@ -7,22 +7,28 @@ includes following python packages:
 -   [ArcGIS Python API](https://developers.arcgis.com/python/) - provides simple and efficient tools for sophisticated vector and raster analysis, geocoding, map making, routing and directions. 
 -   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
--   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension)
+-   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
+-   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension)
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
 -   [fiona] - reads and writes spatial data files.
 -   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [igraph](https://igraph.org/python/) - for fast routing.
--   [jupyter](https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti
--   [laspy](https://pythonhosted.org/laspy/tut_part_1.html)
--   [laxpy](https://github.com/brycefrank/laxpy)
+-   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti
+-   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
+-   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
+-   [movingpandas](http://movingpandas.org) - for trajectory data
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
 -   [pyproj] - performs cartographic transformations and geodetic computations.
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs.
+-   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data
+-   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds.
+-   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs.
+-   [python-cdo](https://pypi.org/project/cdo/) - scripting interface to CDO (Climate Data Operators).
 -   **[rasterio]** - access to geospatial raster data.
 -   [rasterstats] - for summarizing geospatial raster datasets based on
     vector geometries. It includes functions for zonal statistics and
@@ -31,28 +37,23 @@ includes following python packages:
 -   [sentinelsat] - downloading Sentinel images
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scipy](https://www.scipy.org/) - inc pandas, numpy, matplotlib etc
--   [scikit-learn] - machine learning for Python.
+-   **[scikit-learn]** - machine learning for Python.
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
--   [xarray](http://xarray.pydata.org) - for multidimensional raster data. 
+-   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
     
 Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   [GDAL/OGR](../apps/gdal.md) commandline tools 3.2.1 in geoconda-3.8.8, 3.0.4 in geoconda-3.8 and 3.0.2 in geoconda-3.7
--   [GMT] The Generic Mapping Tools in geoconda 3.8 and 3.8.8.
--   [PDAL] 2.2.0 in geoconda-3.8.8, 2.1.0 in geoconda-3.8 and 2.0.1 in geoconda-3.7
--   [QGIS](../apps/qgis.md) only in geoconda 3.8 and 3.7, latest version in own qgis module.
--   [LasTools](../apps/lastools.md) only in geoconda 3.8 and 3.7, latest version in own lastools module.
+-   [GDAL/OGR](../apps/gdal.md) commandline tools 
+-   [GMT] The Generic Mapping Tools 
+-   [PDAL] Point Data Abstraction Library
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
 -   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.x/bin` or `/appl/soft/geo/conda/singularity/geoconda/2021/bin` for full
     list.
-    
-
-    
-
+   
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
@@ -63,9 +64,8 @@ Python has multiple packages for parallel computing, for example
 
 The `geoconda` module is available in Puhti:
 
-* 3.8.8 (Singularity installation with wrappers, the usage of singularity container should not be visible in normal use-cases.)
-* 3.8-deprecated 
-* 3.7-deprecated 
+* 3.9.12
+* 3.8.8 
 
 Version number is the same as Python version.
 
@@ -86,8 +86,10 @@ To check the exact packages and versions included in the loaded module:
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
 You can edit your Python code in Puhti with:
+
 * [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
-* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md) or 
+* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
+* [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
 * Spyder in [Puhti web interface with remote desktop](../computing/webinterface/desktop.md).
 
 To open Spyder in Puhti web interface with remote desktop:
@@ -121,6 +123,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 -   [Automating GIS processes course materials], where most of the exercises are done using Python (University of Helsinki)
 -   [Geohack Week materials]
 -   [Multiprocessing Basics]
+-   [Geographic Data Science with Python]
+-   [Aalto Spatial Analytics course material]
 
 ------------------------------------------------------------------------
 
@@ -159,3 +163,6 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
   [Multiprocessing Basics]: https://pymotw.com/2/multiprocessing/basics.html
   [sentinelsat]: https://sentinelsat.readthedocs.io/en/stable/index.html
   [CSC Python parallelisation examples]: https://github.com/csc-training/geocomputing/tree/master/python/puhti
+  [Geographic Data Science with Python]: https://geographicdata.science/book/intro.html
+  [Aalto Spatial Analytics course material]: https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html
+
