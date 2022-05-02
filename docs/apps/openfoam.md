@@ -1,6 +1,6 @@
 ## OpenFOAM
 
-OpenFOAM (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD), ([OpenFOAM in Wikipedia](https://en.wikipedia.org/wiki/OpenFOAM)). OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics ([by OpenCFD Ltd](https://www.esi-group.com/engineering-services/consulting-services/openfoam/what-openfoam)).
+OpenFOAM (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD), ([OpenFOAM in Wikipedia](https://en.wikipedia.org/wiki/OpenFOAM)). OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics ([by OpenCFD Ltd](https://www.openfoam.com/)).
 
 There are three different variants of OpenFOAM, of which at CSC - IT Center for Science computer platforms are  currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com). 
 
@@ -10,7 +10,7 @@ OpenFOAM is freely available and open source, and is licensed under the [GNU Gen
 
 ## Available
 
-Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti and Mahti-rhel7](../computing/available-systems.md) servers.
+Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti and Mahti-rhel8](../computing/available-systems.md) servers.
 
 ## Usage
 
@@ -20,15 +20,15 @@ After login on to the server, give the command
 
 The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example about OpenFOAM Foundation's version 7, use the command
 
-    module spider openfoam/7
+    module spider openfoam/9
 
-To launch a specific version, here version 7, give the command
+To launch a specific version, here version 9, give the command
 
-    module load openfoam/7
+    module load openfoam/9
 
-OpenCFD's versions are recognized by a version string starting with letter _v_, ie, to launch version v1906, give the command
+OpenCFD's versions are recognized by a version string starting with letter _v_, ie, to launch version openfoam/v2106_intelmpi, give the command
 
-    module load openfoam/v1906
+    module load openfoam/v2106_intelmpi
 	
 Example files for a batch job script are available on the servers.  After giving the launch command (_module load_, see above), the example script is the file
 
@@ -65,13 +65,13 @@ In this example, the pressure results of domains 0 to 127 per time step are writ
 
 IO operations in the collated method are based on threaded sub-processes, and therefore do not cause any time overhead for the simulation compared to non-collated method.
 
-#### Example batch job scipts for collated method usage on Mahti-rhel7
+#### Example batch job scipts for collated method usage on Mahti-rhel8
 
 The example scripts for separate batch runs for decomposition, solver and reconstruction are in folder
 
     /appl/soft/eng/OpenFOAM/batch_script_examples
 
-Notice that on Mahti-rhel7 decomposition and reconstruction must be done in `interactive` queue,
+Notice that on Mahti-rhel8 decomposition and reconstruction must be done in `interactive` queue,
 [more info on using the interactive queue](../../computing/running/creating-job-scripts-mahti/#using-interactive-partition-for-non-parallel-pre-or-post-processing).
 
 ## Support
