@@ -217,9 +217,16 @@ What to consider:
 
 * raw vs intermediate vs final result data
     * what needs to be stored?
+    * storage space?
 * accessibility
+    * sensitive data?
     * who needs to have access?
     * how needs the data to be accessed?
+    * intended usage?
+* maintenance needs?
+* metadata needs?
+
+see also: https://docs.csc.fi/data/datasets/hosting-datasets-at-CSC/#what-to-consider-when-choosing-a-suitable-storage-solution
 
 #### What storage solutions are available at CSC?
 
@@ -237,8 +244,12 @@ What to consider:
 === "Long term storage"
 
     * [Paituli](https://research.csc.fi/-/paituli-1)
-    * [IDA overview](https://www.fairdata.fi/en/user-guide/) and [IDA guide](https://www.fairdata.fi/en/user-guide/)
+    * [Fairdata overview](https://www.fairdata.fi/en/user-guide/)
     * [EUDat overview](https://research.csc.fi/-/eudat-services)
+
+=== "Digital preservation"
+
+    * [Fairdata PAS](https://research.csc.fi/-/digital-preservation-service)
 
 See also CSCs general [guide on working with data](../../../data/datasets/dataset-sources.md).
 
@@ -330,7 +341,6 @@ What to consider:
 
     The geoconda module provides many useful Python packages for multispectral raster data processing and analysis:
 
-    * geopandas:
     * rasterio: access to geospatial raster data.
     * rasterstats: summarizing geospatial raster datasets based on vector geometries.
     * sentinelsat: downloading Sentinel images
