@@ -38,11 +38,11 @@ Academic CSC Projects will automatically close when they reach their end date. B
 
 Project Manager is able to close the Project earlier in [MyCSC](https://my.csc.fi) portal if needed. Project can be closed in 'My projects' section by clicking the 'Close project' button. Project members will receive notification when this is done and they are able to retrieve their Project content / data during 90 days grace period. 
 
-### When the Project is closed
+#### When the Project is closed
 
-1. Users are not able to use the services which have been applied for/to (?) the project
-1. Users are not able to submit jobs in CSC's HPC environment
-1. Project content can't be retrieved after 90 days of Project closure
-1. Something something ?
+* Users are not able to use the services which have been applied for/to (?) the project
+* Users are not able to submit jobs in CSC's HPC environment
+* Project content can't be retrieved after 90 days of Project closure
+* Something something ?
 
 
