@@ -4,7 +4,7 @@ Arm DDT is a parallel debugger with a graphical user interface (GUI).
 
 ## Available
 
-Puhti, Mahti-rhel7
+Puhti
 
 ## License
 
@@ -41,5 +41,5 @@ export ALLINEA_HOLD_MPI_INIT=1
 
 ## Documentation
 
-* **On CSC supercomputers**: /appl/opt/ddt/20.1.1/doc/userguide-forge.pdf
+* **On CSC supercomputers**: `/appl/opt/ddt/20.1.1/doc/userguide-forge.pdf`
 * [On-line documentation](https://developer.arm.com/docs/101136/latest/ddt)
