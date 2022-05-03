@@ -7,7 +7,7 @@
 ## Available
 
 -   Puhti: 5.0.3
--   Mahti-rhel8: 5.0.3
+-   Mahti: 5.0.3
 
 Note that due to licensing issues every user has to install their own copy of the program 
 
@@ -77,7 +77,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 ```
 
-- Example batch script for Mahti-rhel8
+- Example batch script for Mahti
 
 
 ```

@@ -5,7 +5,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 ## Available
 
 -   Puhti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
--   Mahti-rhel8: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
+-   Mahti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -68,7 +68,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
 ```
 
-**Example batch script for Mahti-rhel8**
+**Example batch script for Mahti**
 
 ```
 #!/bin/bash

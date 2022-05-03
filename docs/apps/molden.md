@@ -5,7 +5,7 @@ Molden is a general molecular and electronic structure processing program. It ca
 ## Available
 
 - Puhti: 5.9
-- Mahti-rhel8: 6.7
+- Mahti: 6.7
 
 ## License
 

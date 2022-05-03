@@ -6,7 +6,7 @@ It includes most standard and state of the art methods for ground state calculat
 ## Available
 
 *   Puhti: 7.5.1
-*   Mahti-rhel8: 7.5.1
+*   Mahti: 7.5.1
 
 ## License
 
@@ -101,7 +101,7 @@ dscf > dscf.out
 ccsdf12 > ccsdt.out
 ```
 
-### Batch script example for Mahti-rhel8 using MPI parallelization
+### Batch script example for Mahti using MPI parallelization
 
 ```
 #!/bin/bash

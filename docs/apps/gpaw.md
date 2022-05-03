@@ -20,7 +20,7 @@ Some features of the software:
 ## Available
 
 -   Puhti: 20.1.0, 20.10.0, 21.1.0
--   Mahti-rhel8: 20.10.0, 21.1.0, 21.6.0, 22.1.0
+-   Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
 -   Modules ending with `-omp` have the optional OpenMP parallelization enabled,
@@ -75,7 +75,7 @@ module load gpaw/21.1.0
 srun gpaw-python input.py
 ```
 
-**Example batch script for Mahti-rhel8 with hybrid MPI/OpenMP parallelization**
+**Example batch script for Mahti with hybrid MPI/OpenMP parallelization**
 
 ```
 #!/bin/bash -l
@@ -94,7 +94,7 @@ srun gpaw-python input.py
 # your particular input
 
 # Note: only the modules with "-omp" ending supports OpenMP
-# (default version in Mahti-rhel8 is OpenMP enabled)
+# (default version in Mahti is OpenMP enabled)
 module load gpaw/21.1.0-omp
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -102,7 +102,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun gpaw-python input.py
 ```
 
-**Example batch script for Mahti-rhel8 with pure MPI parallelization**
+**Example batch script for Mahti with pure MPI parallelization**
 
 ```
 #!/bin/bash -l

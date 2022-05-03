@@ -10,7 +10,7 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti-rhel8: 2020-2022 releases with regularly updated minor versions, one with plumed, one with CP2K
+-   Mahti: 2020-2022 releases with regularly updated minor versions, one with plumed, one with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
 -   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
@@ -20,7 +20,7 @@ systems. It also comes with plenty of analysis scripts.
     Instead of `gmx grompp` ... give `gmx_mpi grompp`
 
 !!! Note
-    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti-rhel8. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
+    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
@@ -135,7 +135,7 @@ srun gmx_mpi mdrun -s verlet -dlb yes
 
 Submit the script with `sbatch script_name.sh`
 
-### Example mpi-only parallel batch script for Mahti-rhel8
+### Example mpi-only parallel batch script for Mahti
 
 ```bash
 #!/bin/bash
@@ -156,7 +156,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-### Example mixed parallel batch script for Mahti-rhel8
+### Example mixed parallel batch script for Mahti
 
 ```bash
 #!/bin/bash
@@ -232,7 +232,7 @@ done
 srun gmx_mpi mdrun -multidir ${list[@]} -deffnm md_0_1 -dlb yes
 ```
 
-By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti-rhel8 node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
+By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
 
 ![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
 

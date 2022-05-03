@@ -10,7 +10,7 @@ OpenMP, POSIX threads, or MPI+OpenMP/Pthreads parallelization.
 
 ## Available
 
-Puhti, Mahti-rhel7
+Puhti
 
 ## License
 

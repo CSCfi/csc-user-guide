@@ -13,7 +13,7 @@ directives implemented.
 ## Available
 
 -  Puhti: 9.0
--  Mahti-rhel8: 9.0
+-  Mahti: 9.0
 
 ## License
 Elmer is licensed under GPL and (as for the elmersolver.lib) LGPL, hence free to use for everyone.
@@ -63,7 +63,7 @@ echo "done"
 
 Instructions on how to submit and monitor jobs can be found [here](../computing/running/submitting-jobs.md).
 
-**Example parallel batch script for Mahti-rhel8**
+**Example parallel batch script for Mahti**
 
 The main difference on mahti is, that only complete nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6 hour job using 4 nodes and all 128 cores per node (hence in total 512).
 
