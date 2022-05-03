@@ -13,7 +13,8 @@ __OpenDroneMap__ is available in Puhti with following versions:
 OpenDroneMap is available in Puhti as a [Singularity](../computing/containers/run-existing.md) container
 
 1) Copy your images first to Puhti. The folder name needs to ènd with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
-2) Submit your OpenDroneMap batch job. 
+2) Write a batch job script (see below)
+3) Submit your OpenDroneMap batch job. 
 
 * According to our tests a project with ~300 images is optimal to run with 8-12 CPU cores, adjust the number of CPUs on the `--cpus-per-task` line. OpenDroneMap can use only one computing node in processing which means maximum of 40 CPU cores.
 * `--project-path` - the place where images are stored, without the `code/images` part.
