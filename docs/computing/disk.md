@@ -6,6 +6,9 @@ The disk areas for different supercomputers are separate, *i.e.*
 accessed from Mahti. Also [a more technical description of the Lustre 
 filesystem](lustre.md) used in these directories is available.
 
+!!! Note
+    None of the disk areas are automatically backed up by CSC! This means that data accidentally deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the [allas-backup tool](../data/Allas/using_allas/a_backup.md).
+
 |              |  Owner    | Environment variable | Path                                            | Cleaning                  | Automatic backup?    |
 | ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------------------- | ------------- |
 | **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No                        | No            |
@@ -23,9 +26,6 @@ These disk areas have quotas for both the amount of data and total number of fil
 | **scratch**  | 1 TiB    |  1 000 000 files     |
 
 See [Increasing Quotas](#increasing-quotas) for instructions on how to apply for increased quota.
-
-!!! Note
-    None of the disk areas are automatically backed up by CSC! This means that data accidentally deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the [allas-backup tool](../data/Allas/using_allas/a_backup.md).
 
 ## Home directory
 
