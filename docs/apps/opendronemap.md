@@ -17,7 +17,7 @@ To run OpenDroneMap:
 2) Write a batch job script (see below)
 3) Submit your OpenDroneMap batch job. 
 
-* According to our tests a project with ~300 images is optimal to run with 8-12 CPU cores, adjust the number of CPUs on the `--cpus-per-task` line. OpenDroneMap can use only one computing node in processing which means maximum of 40 CPU cores.
+* According to our tests, a project with ~300 images is optimal to run with 8-12 CPU cores; adjust the number of CPUs on the `--cpus-per-task` line. OpenDroneMap can use only one computing node in processing which means that it is limited to a maximum of 40 CPU cores per job.
 * `--project-path` - the place where images are stored, without the `code/images` part.
 * `--max-concurrency` - the number of threads used in several steps of ODM processing, here set to same number as reserved cores. 
 * It is possible to add [additional arguments](https://docs.opendronemap.org/arguments/) to the end of the command. 
