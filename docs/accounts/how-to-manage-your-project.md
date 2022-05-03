@@ -32,3 +32,8 @@ You can apply for an initial project lifetime extension of one year.
 
 ![Extend your project lifetime by pressing apply](images/small/project_extension1.png 'Extend your project lifetime by pressing apply') 
 
+## Project closure
+
+Academic CSC Projects will automatically close when they reach their end date. Before the Project ends all project members receive multiple email messages regarding the closure. Project Manager is able to extend the Project before the Project is closed.  
+
+
