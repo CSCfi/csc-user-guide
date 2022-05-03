@@ -2,7 +2,7 @@
 
 ## Mahti operating system updated to RHEL8, 4.5.2022
 
-The operating system of Mahti has been updated from RHEL7 to RHEL8. Pre-installed software and libraries including the documentation have been updated. Users should also recompile their own codes for the new OS. Note that some older versions of applications are not available anymore. If you encounter any problems, don't hesitate to [contact CSC Service Desk](../contact.md).
+The operating system of Mahti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL8. Pre-installed software and libraries including the documentation have been updated. Users should also recompile their own codes for the new OS. Note that some older versions of applications are not available anymore. If you encounter any problems, don't hesitate to [contact CSC Service Desk](../contact.md).
 
 ## Puhti web interface beta updated to release 7 23.3.2022
 
