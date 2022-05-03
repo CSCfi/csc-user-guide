@@ -22,7 +22,7 @@ To run OpenDroneMap:
 * `--max-concurrency` - the number of threads used in several steps of ODM processing, here set to same number as reserved cores. 
 * It is possible to add [additional arguments](https://docs.opendronemap.org/arguments/) to the end of the command. 
 * If your images cover a very large area, see [ODM Splitting Large Datasets documentation](https://docs.opendronemap.org/large/)
-
+Below you can find an example batch job script. Adjust `--account`, `--cpus-per-task`, `--time` and `--mem-per-cpu` to your needs.
 ```
 #!/bin/bash
 #SBATCH --account=<YOUR-CSC-PROJECT>
