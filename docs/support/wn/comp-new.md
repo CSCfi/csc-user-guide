@@ -7,11 +7,8 @@ The operating system of Mahti has been updated from Red Hat Enterprise Linux (RH
 * Pre-installed software and libraries including the documentation have been updated.
 * Users should also recompile their own codes for the new OS.
 * Some older versions of applications are not available anymore.
-* Login nodes have been renamed as `mahti-login11` and `mahti-login12`.
 
-If you encounter any problems, don't hesitate to [contact CSC Service Desk](../contact.md).
-
-Please note that old login nodes (mahti-login1 and mahti-login2) are not available and new login nodes have also new names. Also the ssh keys of login nodes have changed and check sums of new keys are: 
+Please note that old login nodes (mahti-login1 and mahti-login2) are not available and new login nodes have also new names, mahti-login11 and mahti-login12. Also the ssh keys of login nodes have changed and check sums of new keys are:
 
 | SHA256 checksum                             | Key                                |
 |---------------------------------------------|------------------------------------|
