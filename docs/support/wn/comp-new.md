@@ -4,6 +4,14 @@
 
 The operating system of Mahti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL8. Pre-installed software and libraries including the documentation have been updated. Users should also recompile their own codes for the new OS. Note that some older versions of applications are not available anymore. If you encounter any problems, don't hesitate to [contact CSC Service Desk](../contact.md).
 
+Please note that old login nodes (mahti-login1 and mahti-login2) are not available and new login nodes have also new names. Also the ssh keys of login nodes have changed and check sums of new keys are: 
+
+| SHA256 checksum                             | Key                                |
+|---------------------------------------------|------------------------------------|
+| WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
+| tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
+| 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
+
 ## Puhti web interface beta updated to release 7 23.3.2022
 
 * [Jupyter for courses](../../../computing/webinterface/jupyter-for-courses/) app now supports creating course environments for projects.
