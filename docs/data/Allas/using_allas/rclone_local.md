@@ -85,7 +85,7 @@ _OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)_
 In the case of SWIFT you need to do this configuration only once. In the configuration 
 it is now defined that in case of _allas_, all data for the connection is red from environment variables.
 
-If you have access to [Puhti](https://puhti.csc.fi), then the easiest way to check the values of the variables needed is to open terminal connection to it and activate there connection to the Allas project you wish to use. Another option is to use a utility program [allas-get-swift-token-win.zip][https://github.com/CSCfi/allas-get-swift-token/releases/download/v1.0.0/allas-get-swift-token-win.zip). If you choose to use the utility program, you (or your local it-support) may have to configure your anti-virus etc software to allow running it.
+If you have access to [Puhti](https://puhti.csc.fi), then the easiest way to check the values of the variables needed is to open terminal connection to it and activate there connection to the Allas project you wish to use. Another option is to use a utility program [allas-get-swift-token-win.zip](https://github.com/CSCfi/allas-get-swift-token/releases/download/v1.0.0/allas-get-swift-token-win.zip). If you choose to use the utility program, you (or your local it-support) may have to configure your anti-virus etc software to allow running it.
 
 This SWIFT access is done in Puhti with commands:
 
