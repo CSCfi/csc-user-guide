@@ -175,28 +175,40 @@ Next you could extract the archive, but in this example we have opted not to do
 so. We will instead extract the files to the fast local drive at the start of
 each job. More on this in the next section.
 
-## Step 6: Check what Python frameworks and libraries you need
+## Step 6: Check what Python libraries you need
 
 Before running your code, you should check what Python frameworks or libraries
 you need. If you are using code that you have downloaded from the Internet,
 there will usually be some installation instructions or a `requirements.txt`
-file which tells what Python libraries are needed.
+file which tells what Python libraries are needed. Keep in mind, that **often
+you should not follow the installation instructions exactly as they often assume
+that you are installing on a personal computer**.
 
-Keep in mind that CSC provides many pre-installed Python environments for
-popular frameworks and libraries. It's usually a good idea to use these, at
-least as a starting point, even if they don't contain all the packages you need.
+**CSC provides many pre-installed Python environments for popular frameworks and
+libraries**. It's usually a good idea to use these as a starting point, even if
+they don't contain all the packages you need. 
 
 Check the list of [data analytics and machine learning modules provided on CSC's
-supercomputers](../../apps/index.md#data-analytics-and-machine-learning).
-PyTorch and TensorFlow have their own modules, and Python Data is a general
-module containing many data analytics libraries such as numpy, SciPy,
-Scikit-learn, Dask, JupyterLab and many others. 
+supercomputers](../../apps/index.md#data-analytics-and-machine-learning). For
+example [PyTorch](../../apps/pytorch.md) and
+[TensorFlow](../../apps/tensorflow.md) have their own dedicated modules, while
+[Python Data](../../apps/python-data.md) is a general module containing many
+data analytics libraries such as numpy, SciPy, Scikit-learn, Dask, JupyterLab
+and many others. These software environments can be activate with the `module
+load` command. See the specific documentation pages listed above for more
+details.
 
 If you find a module that has most of what you need, but a few packages are
 missing, you can easily install them yourself (to your home directory) with the
 `pip install --user` command. See our [Python documentation for more information
 on how to install packages
 yourself](../../apps/python.md#installing-python-packages-to-existing-modules).
+
+If you have more complex software needs which are not easily covered by our
+existing modules, it is always possible to [create your own Python
+environments](../../apps/python.md#creating-your-own-python-environments). If
+you are unsure what to do, you can always [contact our service
+desk](../contact.md).
 
 
 ## Step 7: Create your first batch job script
