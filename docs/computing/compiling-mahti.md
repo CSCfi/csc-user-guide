@@ -20,7 +20,7 @@ module load aocc
 ```
 
 !!! Note 
-  After the RHEL8 update Intel is momentarely unavailable but will be installed shortly
+  After the RHEL8 update Intel is  momentarily unavailable but will be installed shortly
     ```
     module load .unsupported 
     module load intel
