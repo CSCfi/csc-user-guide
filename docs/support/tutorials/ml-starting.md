@@ -186,15 +186,15 @@ that you are installing on a personal computer**.
 
 **CSC provides many pre-installed Python environments for popular frameworks and
 libraries**. It's usually a good idea to use these as a starting point, even if
-they don't contain all the packages you need. 
+they don't contain all the packages you need. Check the list of [data analytics
+and machine learning modules provided on CSC's
+supercomputers](../../apps/index.md#data-analytics-and-machine-learning). 
 
-Check the list of [data analytics and machine learning modules provided on CSC's
-supercomputers](../../apps/index.md#data-analytics-and-machine-learning). For
-example [PyTorch](../../apps/pytorch.md) and
+For example [PyTorch](../../apps/pytorch.md) and
 [TensorFlow](../../apps/tensorflow.md) have their own dedicated modules, while
 [Python Data](../../apps/python-data.md) is a general module containing many
 data analytics libraries such as numpy, SciPy, Scikit-learn, Dask, JupyterLab
-and many others. These software environments can be activate with the `module
+and many others. These software environments can be activated with the `module
 load` command. See the specific documentation pages listed above for more
 details.
 
