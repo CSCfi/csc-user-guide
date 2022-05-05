@@ -16,12 +16,15 @@ or [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get
 compiler suites. The GNU compilers are loaded by default. AMD compilers can be
 loaded using the [Modules](modules.md) system with the command:
 ```
-module load clang
+module load aocc
 ```
 and Intel compilers with the command:
 ```
 module load intel
 ```
+
+!!!Note 
+  After the RHEL8 update Intel is momentarely unavailable but will be installed shortly
 
 Different applications function better with different suites, so the selection
 needs to be done on a case-by-case basis.
