@@ -18,13 +18,14 @@ loaded using the [Modules](modules.md) system with the command:
 ```
 module load aocc
 ```
-and Intel compilers with the command:
-```
-module load intel
-```
 
-!!!Note 
+!!! Note 
   After the RHEL8 update Intel is momentarely unavailable but will be installed shortly
+    ```
+    module load .unsupported 
+    module load intel
+    ```  
+  Note however that the intel compiler is not supported. I.e CSC will not install software using the intel compiler on Mahti.  
 
 Different applications function better with different suites, so the selection
 needs to be done on a case-by-case basis.
@@ -55,8 +56,7 @@ environment is loaded, or in the compiler manuals (see the links above).
 List all available versions of the compiler suites:
 ```
 module spider gcc
-module spider clang
-module spider intel
+module spider aocc
 ```
 
 ## Building OpenMP and hybrid applications
@@ -67,7 +67,6 @@ MPI/OpenMP hybrid applications:
 | Compiler suite | OpenMP flag |
 | :------------- | :---------- |
 | GNU and AMD    | -fopenmp    |
-| Intel          | -qopenmp    |
 
 
 ## Building serial applications
@@ -79,7 +78,6 @@ specific compiler command:
 | :------------- | :- | :-- | :------ |
 | GNU            | gcc | g++ | gfortran |
 | AMD            | clang | clang++ | flang |
-| Intel          | icc | icpc | ifort |
 
 ## Building GPU applications
 
@@ -87,9 +85,10 @@ The CUDA, OpenACC and OpenMP Offloading (for C++ codes) programming
 models are supported on Mahti. Specific modules have to be loaded 
 in order to use them.
 
-For example, to load the NVIDIA HPC SDK 21.2 environment:
+For example, to load the NVIDIA HPC SDK 22.3 environment:
 ```bash
-module load nvhpc/21.2
+module load .unsupported
+module load nvhpc/22.3
 ```
 
 For more detailed information about the available modules, please see `module
