@@ -1,4 +1,4 @@
-# Using Allas storage service to receive sensitive research data.
+# Using Allas storage service to receive sensitive research data
 
 
 Allas storage service is a general purpose data storage service maintained by CSC. 
@@ -56,7 +56,7 @@ MyCSC and approve the the terms of use for the service before getting access to 
 After these steps, you have 10 TB storage space available in Allas. 
 Please contact CSC Service Desk (servicedesk@csc.fi) if you need more storage space. 
 The data in Allas can be downloaded to your local environment or to CSC computers. 
-More information about different ways to access data in Allas can be found from [Allas user guide](../allas/intro.md).
+More information about different ways to access data in Allas can be found from [Allas user guide](../Allas/index.md).
 
 
 ## 2. Generating keys for encrypting sensitive data
