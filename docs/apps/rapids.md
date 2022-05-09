@@ -4,6 +4,10 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 !!! News
 
+    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
+    older versions of RAPIDS are no longer fully supported. Please [contact our
+    servicedesk](../support/contact.md) if you really need access to older versions.
+
     **4.2.2022** All old RAPIDS versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
     versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
@@ -14,7 +18,8 @@ Suite of libraries for data analytics and machine learning on GPUs.
 Rapids is available on Puhti and Mahti. Some older versions are available on
 Puhti only. Currently supported RAPIDS versions:
 
-- 21.12 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `21.12`
+- 22.04 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
+- 21.12 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `21.12` (Puhti only)
 - 0.16 using Singularity: `0.16-sng` (Puhti only)
 - 0.15 using Singularity: `0.15-sng` (Puhti only)
 - 0.14 using Singularity: `0.14-sng` (Puhti only)
@@ -30,9 +35,11 @@ Modules ending with `-sng` are based on NVIDIA's optimized container images from
 [NGC](https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai).
 
 If you find that some package is missing, you can often install it yourself with
-`pip install --user`. If you think that some important RAPIDS-related package
-should be included in the module provided by CSC, you can send an email to
-<servicedesk@csc.fi>.
+`pip install --user`. See [our Python
+documentation](python.md#installing-python-packages-to-existing-modules) for
+more information on how to install packages yourself. If you think that some
+important RAPIDS-related package should be included in the module provided by
+CSC, please [contact our servicedesk](../support/contact.md).
 
 Some modules are Singularity-based. Wrapper scripts have been provided so that
 common commands such as `python`, `python3`, `pip` and `pip3` should work as

@@ -5,10 +5,10 @@ Puhti and Mahti.
 ## Available
 
 * Puhti: various 2.x and 3.x versions
-* Mahti: various 2.x and 3.x versions
+* Mahti: 3.x versions
  
 System Python is available by default both in Puhti and Mahti without loading
-any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) Python
+any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) (only Puhti), Python
 3 (= 3.6.8) as `python3`. The default system Python does not include any optional Python
 packages. However, you can [install simple packages for yourself by the methods
 explained below](python.md#installing-python-packages-to-existing-modules).
@@ -31,8 +31,7 @@ of scientific libraries:
 
 In Mahti:
 
-   * python-env - anaconda Python with conda tools
-   * python-singularity - Singularity-based Python
+   * [python-data](python-data.md) - for data analytics and machine learning
 
 To use any of the above mentioned modules, just load the appropriate module, for
 example:
