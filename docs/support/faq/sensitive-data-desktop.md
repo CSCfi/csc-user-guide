@@ -34,9 +34,9 @@ Any type: text, video, audio, images, genetic data, questionnaires.
 
 ## What software is available on SD Desktop?
 
-We currently provide only Linux Centos computing environments with a limited amount of open-source software installed, including Libre Office (with LibreOffice Calc, a spreadsheet program similar to Microsoft Excel, and LibreOffice Writer,  a word processor similar to Microsoft Word), R Stutio and Python. We are not providing proprietary software, but we could help you install on your private Desktop an open-source version. 
+We currently provide only Linux Centos computing environments with a limited amount of open-source software installed, including Libre Office (with LibreOffice Calc, a spreadsheet program similar to Microsoft Excel, and LibreOffice Writer,  a word processor similar to Microsoft Word), R Studio and Python. We are not providing proprietary software, but we could help you install on your private Desktop an open-source version. 
 For further information see: [Default programs available on SD Desktop](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) and [Software customisation](../../data/sensitive-data/sd_desktop.md#software-customisation).
-Don't hesitate to get in touch with us at servicedesk@csc.fi for specific techincal support.
+Don't hesitate to get in touch with us at servicedesk@csc.fi for specific technical support.
 
 ## Who can access my private computing environment in SD Desktop?
 Only your CSC project members can directly access the private Desktop. Furthermore, as the computing environment is isolated from the Internet, no one can export files from SD Desktop without CSC project manager approval. 
