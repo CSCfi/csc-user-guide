@@ -6,11 +6,14 @@ The disk areas for different supercomputers are separate, *i.e.*
 accessed from Mahti. Also [a more technical description of the Lustre 
 filesystem](lustre.md) used in these directories is available.
 
-|              |  Owner    | Environment variable | Path                                            | Cleaning                  |
-| ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------------------- |
-| **home**     |  Personal | `$(HOME)`            | <small>`/users/<user-name>`</small>             | No                        |
-| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No                        |
-| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Not yet - will be 90 days |
+!!! Note
+    None of the disk areas are automatically backed up by CSC! This means that data accidentally deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the [allas-backup tool](../data/Allas/using_allas/a_backup.md).
+
+|              |  Owner    | Environment variable | Path                                            | Cleaning                  | Automatic backup?    |
+| ------------ |  -------- | -------------------- | ----------------------------------------------- | ------------------------- | ------------- |
+| **home**     |  Personal | `${HOME}`            | <small>`/users/<user-name>`</small>             | No                        | No            |
+| **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No                        | No            |
+| **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Not yet - will be 90 days | No            |
 
 
 
@@ -40,12 +43,6 @@ problems.
 The home directory is the only user-specific directory in supercomputers. All other directories
 are project-specific. If you are a member of several projects, you also have access
 to several _scratch_ or _projappl_ directories, but still have only one home directory.
-
-!!! note
-    The home directory is not automatically backed up by CSC (the same applies to
-    all directories), which means that data accidentally deleted by the
-    user cannot be recovered.
-
 
 ## Scratch directory
 

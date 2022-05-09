@@ -20,7 +20,7 @@ Some features of the software:
 ## Available
 
 -   Puhti: 20.1.0, 20.10.0, 21.1.0
--   Mahti: 20.1.0, 20.10.0, 21.1.0
+-   Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
 -   Modules ending with `-omp` have the optional OpenMP parallelization enabled,
@@ -46,6 +46,14 @@ module load gpaw/version
 
 !!! warning "Note:"
     In CSC environment GPAW calculations are run with the **gpaw-python** command.
+
+### Enabling ELPA
+
+In Mahti, GPAW can use the ELPA library to speed up the diagonalization step. Especially with LCAO calculations ELPA can improve
+the performance. In order to use ELPA, the `'use_elpa'` : True` setting needs to be included in the parallelization options in GPAW input,
+see [GPAW documentation](https://wiki.fysik.dtu.dk/gpaw/documentation/lcao/lcao.html#notes-on-performance) for more information.
+
+### Batch script examples
 
 **Example parallel batch script for Puhti**
 

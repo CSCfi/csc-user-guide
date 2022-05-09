@@ -8,7 +8,7 @@ LS-DYNA is proprietary software. The licenses available at CSC are only for acad
 
 ## Available
 
-CSC's LS-DYNA licenses are available on CSC's computing platforms [Puhti and Mahti](../computing/available-systems.md).  Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+CSC's LS-DYNA licenses are available on CSC's computing platform [Puhti](../computing/available-systems.md).  Latest products will be available on the server, and earlier versions installation is also possible.  All installed versions are maintained on the server.
 
 ## Usage
 
@@ -20,7 +20,7 @@ and check lines *lsdyna/(version number)*. For example to load LS-DYNA version 1
 
     module load lsdyna/11.1.0
 
-There is available an example of **batch job file** on Puhti and Mahti servers:
+There is available an example of **batch job file** on Puhti server:
 
     /appl/soft/eng/lsdyna/example_batch_job_files/parjob_lsdyna
 

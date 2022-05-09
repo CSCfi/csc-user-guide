@@ -21,10 +21,13 @@ Elmer is licensed under GPL and (as for the elmersolver.lib) LGPL, hence free to
 ## Usage
 
 Elmer version available can be listed using the command
-```
+
+```bash
 $ module avail elmer
-````
+```
+
 The default version of Elmer is taken into use by 
+
 ```bash
 $ module load elmer/latest
 ```

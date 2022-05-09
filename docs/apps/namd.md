@@ -22,34 +22,27 @@ NAMD can be run either with CPUs or with a GPU + CPUs.
 
 ### Performance considerations
 
-NAMD developers recommend to use one core per task for communication for CPU.
-Please test with your input. Make sure the "number tasks per node" times 
-"cpus per task" equals 40 (Puhti) or 128 (Mahti), i.e. all cores in a node.
-Try different ratios and select the optimal one. Tests show that leaving
-one core for communication for each task is beneficial i.e. `namd_threads=$SLURM_CPUS_PER_TASK-1`
+Tests show that leaving one core for communication for each task is beneficial, i.e. `namd_threads=$SLURM_CPUS_PER_TASK-1`. This is also recommended by NAMD developers. Please test with your input.
 
-The data below shows the apoa1 benchmark on Mahti (ns/day as a function
-of allocated nodes, each line with a certain number of `namd_threads`
-as set in the [Mahti script below](#batch-script-example-for-mahti)).
-Apoa1 system has 92k atoms.
+Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti) or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the optimal one.
 
-![NAMD Scaling on Mahti](../img/namd_on_mahti_d.svg)
+The data below shows the ApoA1 benchmark (92k atoms) on Mahti (ns/day as a function of allocated nodes, each line with a certain number of `namd_threads` as set in the [Mahti script below](#batch-script-example-for-mahti)).
+
+![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
 
 The data also shows the following things:
 
-* optimal settings depend on the amount of resources in addition to system and run parameters
-* for this system, upto 6 nodes, it's best to use 15 threads per task, but beyond that 3 threads scales better
-* 1GPU+10 CPUs (on Puhti) gives 25.6 ns/day vs. 27.4 ns/day for 2 full nodes on Mahti,
-  or 92.2 ns/day with 10 nodes. The corresponding costs (via BUs) are 1.4, 4.2, and 
-  6.2 EUR, respectively, i.e. getting the results more quickly is also more expensive.
-* to test your own system, run e.g. 500 steps of dynamics and look at the Benchmark line on the output
+* Optimal settings depend on the amount of resources in addition to system and run parameters
+* For this system it's best to use 7 threads per task
+* 1GPU+10 CPUs (on Puhti) gives 25.6 ns/day vs. 27.8 ns/day for 2 full nodes on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results faster is also more expensive in terms of consumed billing units. To avoid wasting resources, ensure that your job actually benefits from increasing the number of cores. Doubling the number of cores should speed up the job by at least x1.5
+* To test your own system, run e.g. 500 steps of dynamics and search for the `Benchmark time:` line in the output
 
 ### Batch script example for Puhti
 
 This script would use 2 tasks per node, 20 cores per task,
 and one of them for communication, using two full nodes, i.e. 80 cores.
 
-```
+```bash
 #!/bin/bash 
 #SBATCH --partition=test
 #SBATCH --nodes=2             
@@ -63,18 +56,20 @@ module load namd
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
 # one core per task for communication
-srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > apo1.out
+srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > apoa1.out
 
 # While NAMD suggests using 1 thread per task for communication (as above)
 # all cores for computing can be tested by
-#srun -n ${SLURM_NTASKS} namd2 +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd  > apo1.out
+#srun -n ${SLURM_NTASKS} namd2 +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd > apoa1.out
 ```
+
 ### Batch script example for Puhti using GPU
 
 Note, namd runs most efficiently with one GPU, and at least for small systems
 is much more cost efficient than running with multiple CPU-only nodes.
 
-```
+```bash
+#!/bin/bash 
 #SBATCH --partition=gputest
 #SBATCH --ntasks=1         
 #SBATCH --cpus-per-task=10  
@@ -87,12 +82,12 @@ export SLURM_CPU_BIND=none
 
 module load namd/2.14-cuda
 
-namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd  > apoa1.out
+namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
 ```
 
 ### Batch script example for Mahti
 
-```
+```bash
 #!/bin/bash -l
 #SBATCH --partition=test
 #SBATCH --ntasks-per-node=8  # test to find the optimum number, 2-64
@@ -101,12 +96,12 @@ namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} ap
 #SBATCH --time=0:10:00        # time as hh:mm:ss
 #SBATCH --account=<project>
 
-module load gcc/9.3.0 openmpi/4.0.3 namd/2.14
+module load gcc/11.2.0 openmpi/4.1.2 namd/2.14
 
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
 # one core per task for communication
-srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > apo1.out
+orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity ignore +ppn $namd_threads +isomalloc_sync apoa1.namd > apoa1.out
 ```
 
 Submit the batch job with:
@@ -114,6 +109,9 @@ Submit the batch job with:
 ```
 sbatch namd_job.bash
 ```
+
+!!! Note
+    Following the RHEL8 update on Mahti, you need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
 
 ## References
 
@@ -131,17 +129,14 @@ Laxmikant Kale, and Klaus Schulten. Scalable molecular dynamics with
 NAMD. *Journal of Computational Chemistry*, 26:1781-1802, 2005.
 [abstract], [journal]  
   
-In addition, electronic documents should include the following link:
-<http://www.ks.uiuc.edu/Research/namd/>
+In addition, electronic documents should include [this link](http://www.ks.uiuc.edu/Research/namd/).
 
 ## More information
 
-[NAMD manual]
-
-[NAMD home page.]
-
+* [NAMD manual]
+* [NAMD home page]
 
   [abstract]: http://www.ks.uiuc.edu/Publications/Papers/abstract.cgi?tbcode=PHIL2005
   [journal]: http://www3.interscience.wiley.com/cgi-bin/abstract/112102010/ABSTRACT
   [NAMD manual]: http://www.ks.uiuc.edu/Research/namd/current/ug/
-  [NAMD home page.]: http://www.ks.uiuc.edu/Research/namd/
+  [NAMD home page]: http://www.ks.uiuc.edu/Research/namd/

@@ -8,8 +8,8 @@ in molecular dynamics. It can be used with several MD codes.
 
 ## Available
 
--   Puhti: 2.5.8, 2.6.1
--   Mahti: 2.6.1
+-   Puhti: 2.5.2, 2.6.1, 2.7.2
+-   Mahti: 2.6.3
 
 
 ## License
