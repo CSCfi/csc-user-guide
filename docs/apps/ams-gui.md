@@ -82,4 +82,4 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. ```Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" ```  
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.  
 7. ```Use Local Batch: no```
-8. ```Prolog command: source /appl/soft/chem/adf/ams2022.101/ams_csc.bash;export SCM_TMPDIR=/scratch/project_2001199; export FORT_TMPDIR=$SCM_TMPDIR```
+8. ```Prolog command: source /appl/soft/chem/adf/ams2022.101/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR```
