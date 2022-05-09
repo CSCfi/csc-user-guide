@@ -20,7 +20,7 @@ need to prepare a new shared bucket.
 
 ## 1. Obtaining a storage space in Allas
 
-If you are already using Allas service, you can skip this chapter and start from [chapter 2](./sequencing_center_tutorial.md#2. -generating-keys-for-encrypting-sensitive-data).
+If you are already using Allas service, you can skip this chapter and start from [chapter 2](./sequencing_center_tutorial.md#2-generating-keys-for-encrypting-sensitive-data).
 Otherwise do following steps to get access to Allas.
 
 
