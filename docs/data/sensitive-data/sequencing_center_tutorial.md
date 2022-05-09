@@ -104,8 +104,8 @@ sensitive data services of CSC.
 
 ### 2.2.1 Generating keys
 
-Researcher _Tiina Tutkija_ wants to use Allas to receive and store human sequence 
-data that she will use in her new research project called _AniMINE_. The project 
+In the example below, researcher _Tiina Tutkija_ wants to use Allas to receive and store human sequence 
+data that she will use in her new research project. The project is called _AniMINE_. It
 will last several years and it will include several researchers and data sources. 
 Tiina Tutkija already has a customer project with Allas access at CSC.   
 
