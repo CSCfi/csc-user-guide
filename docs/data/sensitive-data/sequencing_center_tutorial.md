@@ -241,7 +241,7 @@ The data is encrypted with both CSC public key and resreach groups own public ke
 through [SD Desktop](https://sd-desktop.csc.fi) the decryption of data is done automatically by the _Data Gateway_ 
 tool when data is used in the working environment.
 
-If the data is used in other environments that decryption must be done by the user.
+If the data is used in other environments, decryption must be done by the user.
 
 In the example above researcher _Tiina Tutkija_ shared a data bucket _animine_data_import_1_ in Allas service 
 to receive data from sequencing center. The sequencing center uploaded file _run_12_R1.fastq.c4gh_ to the bucket. 
