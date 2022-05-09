@@ -249,7 +249,7 @@ Tiina can now use [SD Connect](https://sd-connect.csc.fi) to download this file 
 after download the file  is still in ecrypted format. To decrypt the file Tiina opens the  _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create 
 the encryption keys. 
 
-Now she uses this tool to decrypt the data. In crypt4gh interfave she first clicks _Load My Private Key_ and the selects the _animine_crypt4gh.key_ that is the secret key used by her research project. Then se uses _Select File_ to select the file _run_12_R1.fastq.c4gh_ she just downloaded to her computer. Next she clicks _Decryp_ boutton. _crypt4gh-gui_ will now
+Now she uses this tool to decrypt the data. In crypt4gh interfave she first clicks _Load My Private Key_ and the selects the _animine_crypt4gh.key_ that is the secret key used by her research project. Then se uses _Select File_ to select the file _run_12_R1.fastq.c4gh_ she just downloaded to her computer. Next she clicks _Decrypt File_ boutton. _crypt4gh-gui_ will now
 ask the password of the secret key (H8koGN3lzkke in this case) after which a decryted version of the file, _run_12_R1.fastq_, is created next to the encryprted file. Tiina can now remove _run_12_R1.fastq.c4gh_ from her local computer and start working with the 
 _run_12_R1.fastq_ file.
 
