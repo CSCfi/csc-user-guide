@@ -92,7 +92,7 @@ The interface encrypts this data with CSC public key, after which the project me
 and only them, can use SD Desktop service to check, what were the keys and 
 passwords the project uses. 
 
-CSC Sensitive Data environment uses _Crypt4GH_ encryption tool allows 
+CSC Sensitive Data environment uses _Crypt4GH_ encryption tool, that allows 
 encryption with several public keys.  Data encrypted with this way can be 
 opened with several secure keys.  If you will utilize sensitive data services of 
 CSC it is handy to use both  projects' public key and CSC public key in encryption. 
