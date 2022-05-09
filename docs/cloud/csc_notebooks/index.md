@@ -28,6 +28,10 @@ See the separate [concepts](concepts.md) document.
 
 See the separate [data persistence](data_persistence.md) document.
 
+## Summary of changes and improvements in beta
+
+See the separate [migration to beta](migration_to_beta.md) document.
+
 ## References
 
 * [Project Jupyter homepage](https://jupyter.org/){target="_blank"}
