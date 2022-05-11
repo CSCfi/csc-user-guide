@@ -6,6 +6,7 @@ without Haka or Virtu), student accounts for courses, and machine-to-machine rob
 !!! Note
 
     Haka is the identity federation of the Finnish universities, polytechnics and research institutions. Users are able to access federation services using a single user account and password. User identities are provided by the users home organizations
+    
     Virtu is a convenient and fast single sign-on for browser-enabled systems across organisational boundaries. Virtu is used by Finnish government agencies.
 
 ## Getting an account with Haka or Virtu
