@@ -30,11 +30,12 @@ Instructions to get user account and a project to access CSC's services:
    [disk quota](how-to-increase-disk-quotas.md), if needed
 1. [Renew your password](how-to-change-password.md) annually
 
-Please see a separate set of intructions for [LUMI](https://https://docs.lumi-supercomputer.eu/firststeps/getstarted/) super computer.
+Please see a separate set of intructions for [LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) super computer.
 
 All these tasks can be performed in the
 [self-service portal MyCSC](https://my.csc.fi).
 
+*   **FMI user accounts**
 The Puhti supercomputer has a separate partition for the Finnish Meteorological
 Institute. FMI users are also allowed to use the general partition of Puhti for normal
 projects.
