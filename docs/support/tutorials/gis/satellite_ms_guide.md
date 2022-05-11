@@ -179,7 +179,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 
     [Sentinelhub](https://www.sentinel-hub.com/explore/)
 
-    * Wordlwide
+    * Worldwide
     * Lots of different EO data sets:
         * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
         * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
