@@ -73,13 +73,13 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 === "CSC * "
 
     * Puhti
-        * [list of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md/#spatial-data-in-puhti)
+        * [list of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md)
         * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
         * every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
     * Allas
-        * [list of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md/#spatial-data-in-allas)
+        * [list of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md)
         * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
-        * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md/#using-files-directly-from-allas) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
+        * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
 
   
     
@@ -257,7 +257,7 @@ See also CSCs general [guide on working with data](../../../data/datasets/datase
 
 At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../../cloud/pouta/pouta-what-is.md).
 
-Puhti has software ready installed (internal link to below ), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui.d).
+Puhti has software ready installed (internal link to below ), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
 
 #### Software
 
@@ -275,7 +275,7 @@ What to consider:
     * automation
     * reproducibility
 * open source vs commercial
-    * this guide focusses on [software available on CSC supercomputer Puhti](../../../apps.md/#geosciences) 
+    * this guide focusses on [software available on CSC supercomputer Puhti](../../../apps.md) 
 
 ##### What software is available at CSC?
 
@@ -283,7 +283,7 @@ What to consider:
 
 === "GUI"
 
-    Graphical User Interfaces of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [NoMachine or X11 connection](../../../computing/connecting.md/#using-graphical-applications). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should not be done within interactive jobs.
+    Graphical User Interfaces of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [NoMachine or X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should not be done within interactive jobs.
 
     ###### [SNAP](https://step.esa.int/main/toolboxes/snap/)
 
@@ -352,7 +352,7 @@ What to consider:
 
     ##### R
 
-    * [Geospatial R on Puhti](../../../apps/r-env-for-gis,md)
+    * [Geospatial R on Puhti](../../../apps/r-env-for-gis.md)
     * [Geospatial R course material](https://github.com/csc-training/r-spatial-course)
     * [Examples geospatial R](https://github.com/csc-training/geocomputing/tree/master/R)
 
