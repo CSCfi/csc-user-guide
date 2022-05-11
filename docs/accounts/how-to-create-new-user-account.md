@@ -28,7 +28,7 @@ allowed.
 ## Getting an account without Haka or Virtu
 
 The preferred registration method is to log in using Haka or
-Virtu. If they are not available, an alternative method is to contact servicedesk@csc.fi.
+Virtu. If you are not eligible, an alternative method is to contact servicedesk@csc.fi.
 
 This mostly applies to foreign collaborators of Finland-based research
 groups, but basically anybody who has a project to join can register
@@ -65,7 +65,7 @@ You will receive the accounts' information via email and SMS.
 
 If you are a registered CSC user and need another account for managing
 services that you run in the CSC services, we can create a
-machine-to-machine robot account for you. Send the following
+machine-to-machine robot account for you. Please note that each service requires it's own unique robot account. Send the following
 information to servicedesk@csc.fi.
 
 * Project identifier (e.g. 2001679, uef4713) of the project your
@@ -81,7 +81,4 @@ All accounts are immediately terminated if their owner is not reachable, i.e. em
 
 !!! Note
 
-    If you want to terminate your account, simply skip the annual password
-    change. The account will be terminated one month after the password
-    has expired. If you want to terminate your account more quickly,
-    contact servicedesk@csc.fi
+    If you want to terminate your account please contact servicedesk@csc.fi
