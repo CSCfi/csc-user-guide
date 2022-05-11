@@ -4,6 +4,7 @@ There are three different types of CSC user accounts: ordinary accounts for gene
 without Haka or Virtu), student accounts for courses, and machine-to-machine robot accounts for managing services.
 
 !!! Note
+
 Haka is the identity federation of the Finnish universities, polytechnics and research institutions. Users are able to access federation services using a single user account and password. User identities are provided by the users home organizations
 Virtu is a convenient and fast single sign-on for browser-enabled systems across organisational boundaries. Virtu is used by Finnish government agencies.
 
