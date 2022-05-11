@@ -275,7 +275,7 @@ What to consider:
     * automation
     * reproducibility
 * open source vs commercial
-    * this guide focusses on [software available on CSC supercomputer Puhti](../../../apps.md) 
+    * this guide focusses on [software available on CSC supercomputer Puhti](../../../apps/index.md) 
 
 ##### What software is available at CSC?
 
