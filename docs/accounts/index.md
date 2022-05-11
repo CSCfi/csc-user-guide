@@ -11,7 +11,7 @@ is granted to CSC projects. The same applies to the billing units that are consu
 A CSC project can include one or several CSC user accounts and one user account can be a member in several projects. Each CSC project must have a Project Manager, who creates the project, manages the user accounts and services that belong to the project and is responsible of the resource usage.
 The Project Manager is typically a leader of a research team or other senior researcher. See more detailed [project manager prerequisites](https://www.csc.fi/en/prerequisites-for-a-project-manager){:target="_blank"}.
 
-*   **Billing Units** (BUs) are used to allocate resources to users' projects. You can apply for Billing Units in My.csc.fi portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
+*   **Billing Units** (BUs) are used to allocate resources to users' projects. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
 However, the amount of billing units must always remain positive.
 
 
@@ -29,6 +29,8 @@ Instructions to get user account and a project to access CSC's services:
 1. [Apply for billing units](how-to-apply-for-billing-units.md) or
    [disk quota](how-to-increase-disk-quotas.md), if needed
 1. [Renew your password](how-to-change-password.md) annually
+
+Please see a separate set of intructions for [LUMI](https://https://docs.lumi-supercomputer.eu/firststeps/getstarted/) super computer.
 
 All these tasks can be performed in the
 [self-service portal MyCSC](https://my.csc.fi).
