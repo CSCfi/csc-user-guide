@@ -5,10 +5,10 @@ Puhti and Mahti.
 ## Available
 
 * Puhti: various 2.x and 3.x versions
-* Mahti: various 2.x and 3.x versions
+* Mahti: 3.x versions
  
 System Python is available by default both in Puhti and Mahti without loading
-any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) Python
+any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) (only Puhti), Python
 3 (= 3.6.8) as `python3`. The default system Python does not include any optional Python
 packages. However, you can [install simple packages for yourself by the methods
 explained below](python.md#installing-python-packages-to-existing-modules).
@@ -31,8 +31,7 @@ of scientific libraries:
 
 In Mahti:
 
-   * python-env - anaconda Python with conda tools
-   * python-singularity - Singularity-based Python
+   * [python-data](python-data.md) - for data analytics and machine learning
 
 To use any of the above mentioned modules, just load the appropriate module, for
 example:
@@ -57,12 +56,12 @@ The packages are by default installed to your home directory under
 used). If you would like to change the installation folder, for example to make
 a project-wide installation instead of a personal one, you need to define the
 `PYTHONUSERBASE` environment variable with the new installation local. For
-example to add the package `pyarrow` to the `python-data` module:
+example to add the package `whatshap` to the `python-data` module:
 
 ```
 module load python-data
 export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
-pip install --user pyarrow
+pip install --user whatshap
 ```
 
 In the example, the package is now installed inside the `my-python-env`
@@ -76,8 +75,26 @@ Naturally, this also applies to slurm job scripts. For example:
 ```
 module load python-data
 export PYTHONPATH=/projappl/<your_project>/my-python-env/lib/python3.9/site-packages/
-python3 -c "import pyarrow"  # this should now work!
+python3 -c "import whatshap"  # this should now work!
 ```
+
+Note that if the package you installed also contains executable files these may
+not work as they refer to the Python path internal to the container (and most of
+our Python modules are installed with containers):
+
+```
+$ whatshap --help
+whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
+```
+
+You can fix this by either editing the first line of the executable to point to
+the real python interpreter (check with `which python3`) or by running it via
+the Python interpreter, for example:
+
+```
+$ python3 -m whatshap --help
+```
+
 
 Alternatively you can create a separate virtual environment with
 [venv](https://docs.python.org/3/library/venv.html), however this approach

@@ -16,11 +16,11 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 
 ## Available
 
-In Puhti, Biopythoin libraries, as well as many outher bioinformatics related Python libraries are available
-in the Pyhtion installations that are used by the [bioconda](./bioconda.md) environments. These environment also include 
-python virtual environments that allow users to create theiy own project specific Python environment with `pip` installation tool.
+In Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available
+in the Python installations that are used by the [bioconda](./bioconda.md) environments. These environment also include 
+python virtual environments that allow users to create their own project specific Python environment with `pip` installation tool.
 
-These virtual environments use the PROJAPPL directory for installing the user specific libraties.
+These virtual environments use the PROJAPPL directory for installing the user specific libraries.
 Because of that, you must first set PROJAPPL environment variable to point to the PROJAPPL directory of the
 project you want to use.
 ```text
@@ -39,7 +39,7 @@ biopython-env
 ```
 However, we strongly recommend using Python 3 versions in stead of Python 2.
 
-When the virtual enviroinment is activated, you can launch a biopython program with command:
+When the virtual environment is activated, you can launch a biopython program with command:
 ```text
 python my_biopython_code.py
 ```
@@ -53,7 +53,7 @@ and execute the python program
 ./my_biopython_code.pm
 ```
 
-New python libraries can be installed with `pip install` commad.
+New python libraries can be installed with `pip install` command.
 For example, Python library called OBITools3 could be installed with command:
 
 ```text
