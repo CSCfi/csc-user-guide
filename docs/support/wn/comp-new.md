@@ -1,5 +1,9 @@
 # Computing environment 
 
+## Puhti has been updated with additional local disks
+
+There are now 48 M nodes with 192 GiB memory that have 1490 GiB NVMe disks. Additionally there are 12  XL nodes with 768 GiB memory that also have 1490 GiB disks. Later in 2022 all the big memory nodes with 1492 GiB memory will be upgraded with 6 TiB disks, further improving the support for jobs requiring fast IO. 
+
 ## Mahti operating system updated to RHEL8, 4.5.2022
 
 The operating system of Mahti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL8.
