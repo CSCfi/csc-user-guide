@@ -2,7 +2,7 @@
 
 ## Puhti has been updated with additional local disks
 
-Fast local NVMe disks can be used for single node workloads that do a lot of read and write operations on data  that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on these than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1492 GiB memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes.
+Fast local NVMe disks can be used for single node workloads that do a lot of read and write operations on data  that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on these than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes.
 
 
 
