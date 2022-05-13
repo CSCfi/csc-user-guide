@@ -20,7 +20,3 @@ Creating an Issue requires a GitHub account.
 [Style guide](STYLEGUIDE.md)
 
 [Frequently asked questions](FAQ.md)
-
-[Changelog](CHANGELOG.md)
-
-[Todo](TODO.md)
