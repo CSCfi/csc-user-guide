@@ -1,9 +1,8 @@
 # Using Allas with Python
 
-CSC's instructions for installing Python and which libraries are required:  
-[https://docs.csc.fi/cloud/pouta/install-client/](https://docs.csc.fi/cloud/pouta/install-client/).
+CSC's instructions for [Installing OpenStack and other required Python libraries](/docs/cloud/pouta/install-client.md).
 
-Download the **OpenStack RC File v3** as instructed in the last chapter [*Configure your terminal environment for OpenStack*](https://docs.csc.fi/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack).
+Download the **OpenStack RC File v3** as instructed in the last section [*Configure your terminal environment for OpenStack*](/docs/cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack).
 
 The **Python pip libraries** required in the examples:  
  *python-keystoneclient* and *python-swiftclient*.
