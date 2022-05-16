@@ -18,6 +18,7 @@ password reset link ordered to your email.
 </figure>
 
 -----
+*****
 
 ## Using password reset link
 
