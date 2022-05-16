@@ -81,4 +81,4 @@ All accounts are immediately terminated if their owner is not reachable, i.e. em
 
 !!! Note
 
-    If you want to terminate your account please contact servicedesk@csc.fi
+    If you want to terminate your account please contact <mailto:servicedesk@csc.fi>
