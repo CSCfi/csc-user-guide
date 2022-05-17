@@ -56,7 +56,7 @@ For specific guidance regarding these steps or applying for resources for your C
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu or with CSC Login) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
@@ -68,7 +68,7 @@ After entering your username and passworod, you need to  **verify your identity*
 
 
 !!! Note:
-    Login via Elixir or Life Science is currently not available. We are working to re-enable it as soon as possible. 
+    LSLogin (LifeScience login, also known ELIXIR login) is available only after linking your CSC account to your LifeSience account. For further information please check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
 
 
