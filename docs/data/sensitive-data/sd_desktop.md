@@ -437,7 +437,7 @@ Once the results are encrypted, only the CSC project manager can export the file
 Open the terminal (right click) and  type the following syntax:
 
 ```text
-airlock-client-vX.X  <<username>> <<data_output_bucket>> <<filename>>
+airlock-client  <<username>> <<data_output_bucket>> <<filename>>
 ```
 
 Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted files that you want to export.
@@ -445,7 +445,7 @@ Where *username* is your CSC account username, *data_output_bukcet* is the name 
 For example:
 
 ```text
-airlock-client-vX.X  cscuser  analysis-2022  results-03.csv.c4gh
+airlock-client cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
 Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
