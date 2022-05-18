@@ -229,7 +229,7 @@ extra_javascript:
 
 markdown_extensions:
   - toc:
-      toc_depth: 2-6
+      toc_depth: 1-6
   - admonition
   - attr_list
   - def_list
