@@ -40,9 +40,9 @@ Project Manager can close the Project earlier by contacting Service Desk. Projec
 
 #### When the Project is closed
 
-* Users are not able to use the services which have been applied for/to (?) the project
-* Users are not able to submit jobs in CSC's HPC environment
-* Project content can't be retrieved after 90 days of Project closure
-* If you need a confirmation after all Content has been deleted from Services, please contact Service Desk.
+* All Content in Services will be deleted.
+* Users are not able to use the services which have been applied for/to (?) the project.
+
+If you need a confirmation after all Content has been deleted from Services, please contact Service Desk.
 
 
