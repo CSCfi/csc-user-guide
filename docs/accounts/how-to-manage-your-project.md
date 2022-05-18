@@ -34,14 +34,14 @@ You can apply for an initial project lifetime extension of one year.
 
 ## Project closure
 
-CSC Projects will automatically close when they reach their end date. Before the Project ends all project members receive multiple email messages regarding the closure. Project Manager is able to extend the Project before the Project is closed.  
+CSC Projects will automatically close when they reach their end date. Before the Project ends all Project members receive multiple email messages regarding the closure. Project Manager is able to extend the Project before the Project is closed.  
 
-Project Manager can close the Project earlier by contacting Service Desk. Project members will receive notification when the CSC project is closed. Please note that content in services will be deleted after Project closure. If you want to preserve any content (i.e. data, software, servers, systems or processes), please export and delete them from CSC services before the Project end date. Content can't be retrieved after 90 days of Project closure.
+Project Manager can close the Project earlier by contacting Service Desk. Project members will receive notification when the CSC Project is closed. Please note that content in services will be deleted after Project closure. If you want to preserve any content (i.e. data, software, servers, systems or processes), please export and delete them from CSC services before the Project end date. Content can't be retrieved after 90 days of Project closure.
 
 #### When the Project is closed
 
 * All content in services will be deleted.
-* Users are not able to use the services which have been applied to the Project.
+* Users are not able to use the services which have been applied for the Project.
 
 If you need a confirmation after all content has been deleted from services, please contact Service Desk.
 
