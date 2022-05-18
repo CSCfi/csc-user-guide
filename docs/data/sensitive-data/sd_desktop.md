@@ -42,7 +42,7 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project, using the (My CSC portal)[https://my.csc.fi] you need to:
+Access to SD Desktop is based on CSC user accounts and projects. If you don't have CSC account and project, using the [My CSC portal](https://my.csc.fi) you need to:
 
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
 * [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);

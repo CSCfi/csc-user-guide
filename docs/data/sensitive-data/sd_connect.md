@@ -47,7 +47,7 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
+To access SD Connect go to [MyCSC](https://my.csc.fi) and:
 
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
 * [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
