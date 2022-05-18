@@ -41,8 +41,8 @@ Project Manager can close the Project earlier by contacting Service Desk. Projec
 #### When the Project is closed
 
 * All content in services will be deleted.
-* Users are not able to use the services which have been applied for/to (?) the Project.
+* Users are not able to use the services which have been applied to the Project.
 
-If you need a confirmation after all Content has been deleted from Services, please contact Service Desk.
+If you need a confirmation after all content has been deleted from services, please contact Service Desk.
 
 
