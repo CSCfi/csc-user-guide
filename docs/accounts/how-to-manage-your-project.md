@@ -36,13 +36,13 @@ You can apply for an initial project lifetime extension of one year.
 
 Academic CSC Projects will automatically close when they reach their end date. Before the Project ends all project members receive multiple email messages regarding the closure. Project Manager is able to extend the Project before the Project is closed.  
 
-Project Manager is able to close the Project earlier in [MyCSC](https://my.csc.fi) portal if needed. Project can be closed in 'My projects' section by clicking the 'Close project' button. Project members will receive notification when this is done and they are able to retrieve their Project content / data during 90 days grace period. 
+Project Manager is able to close the Project earlier in [MyCSC](https://my.csc.fi) portal if needed. Project can be closed in 'My projects' section by clicking the 'Close project' button. Project members will receive notification when the CSC project is closed. Please note that content in services will be deleted after project closure. Content can't be retrieved after 90 days of Project closure.
 
 #### When the Project is closed
 
 * Users are not able to use the services which have been applied for/to (?) the project
 * Users are not able to submit jobs in CSC's HPC environment
 * Project content can't be retrieved after 90 days of Project closure
-* Something something ?
+* If you need a confirmation after all Content has been deleted from Services, please contact Service Desk.
 
 
