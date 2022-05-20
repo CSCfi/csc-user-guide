@@ -62,13 +62,18 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+
+After entering the temporaty code, **please press the Continue button**. Pressing Enter on your keybord is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
+
+
+For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 ![Authentication](images/desktop/authentication.png)
 
 
 !!! Note:
-    LSLogin (LifeScience login, also known ELIXIR login) is available only after linking your CSC account to your LifeSience account. For further information please check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+    LSLogin (LifeScience login, before known ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
 
 
 
