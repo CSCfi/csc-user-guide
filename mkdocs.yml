@@ -60,6 +60,7 @@ nav:
      - Web interface:
        - Overview: computing/webinterface/index.md
        - Interactive apps:
+         - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
