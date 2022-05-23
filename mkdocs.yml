@@ -192,7 +192,7 @@ nav:
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
   - Applications:
-     - In alphabetic order: apps/alpha.md
+     - In alphabetical order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md
   - FAQ: support/faq/index.md
