@@ -17,8 +17,8 @@ below.
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
-| projappl  |   50 GiB     |  200 GiB     | 100 000                   | 2 000 000                 |
-| scratch   |   1 TiB      |  100 TiB     | 1 000 000                 | 10 000 000                |
+| projappl  |   50 GiB     |  200 GiB (100 GiB)    | 100 000                   | 2 000 000 (500 000)                 |
+| scratch   |   1 TiB      |  100 TiB (<20 TiB)    | 1 000 000                 | 10 000 000 (< 5 000 000)               |
 
 Note that the extended quota consumes your CSC billing units regardless of how
 much data you actually have in the directory. [See billing](billing.md) for
