@@ -12,12 +12,11 @@ You can use MyCSC to manage these quotas.
 1. In the Services list, click edit configuration (gearwheel symbol) for **Puhti** or **Mahti** service as needed. This
    opens a page where the project manager can modify the quotas.
 
-You can check the default limits of scratch and projappl areas from the table
-below.
+You can check the default limits of scratch and projappl areas from the table below. Values in brackets indicate automatically approved limits. Applications with higher values will be determined in the next resource allocation meeting.
   
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
-| projappl  |   50 GiB     |  200 GiB (100 GiB)    | 100 000                   | 2 000 000 (500 000)                 |
+| projappl  |   50 GiB     |  200 GiB (<100 GiB)    | 100 000                   | 2 000 000 (<500 000)                 |
 | scratch   |   1 TiB      |  100 TiB (<20 TiB)    | 1 000 000                 | 10 000 000 (< 5 000 000)               |
 
 Note that the extended quota consumes your CSC billing units regardless of how
