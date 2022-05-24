@@ -91,6 +91,7 @@ Also, think about your file naming conventions, directory structure and **versio
     - [Research Vocabulary Australia](https://vocabs.ardc.edu.au/)
     - [Marine Metadata Interoperability Ontology Registry and Repository (MMI ORR)](https://mmisw.org/)
     - [Industrial Ontologies Foundry (IOF)](https://www.industrialontologies.org/)
+    - [Elements of FAIR - Interoperability] (https://youtu.be/f9m4montnF0)
 
 ## Data organization
 
