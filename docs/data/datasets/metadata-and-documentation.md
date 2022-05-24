@@ -109,7 +109,7 @@ To keep data well-organized you should have a **version control system** in use.
 
 When making new versions of data files, it is important to **keep a copy of the original raw data**. Data should be kept in its raw form whenever possible to enable transparency and facilitate reanalysis. It also assists in combining multiple data sources and re-purposing the data use. Also, when sharing the data it might be worthwhile to provide both unprocessed and processed versions of your data, with either code or explanations for deriving the latter. In some cases it is even possible to publish the data with the processing and analyses code as an executable paper in order to prove that the scientific process is reproducible. In other words, executable papers are dynamic pieces of software that combine text, raw data, and the code used for the analysis, and that a reader can interact with. 
 
-!!! note "Additional readings"
+!!! note "Learn more about reproducibility and executable research articles:"
     - [What is an executable paper?](https://sozmethode.hypotheses.org/1045)
 
 ### Files and file formats
