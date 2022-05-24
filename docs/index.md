@@ -1,5 +1,6 @@
 ---
 template: main-index.html
+toc_depth: 0
 ---
 
 <style>
