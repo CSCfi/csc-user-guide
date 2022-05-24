@@ -153,7 +153,7 @@ for it from CSC.
 | Karelia AMK             | Antti Lajunen                        |
 | Lapin AMK               | lisenssit at lapinamk.fi             |
 | Laurea AMK              | servicedesk at laurea.fi             |
-| Kaakkois-Suomen AMK     | Esa Hannus                           |
+| Kaakkois-Suomen AMK     | Pertti Kilpelainen                   |
 | Novia AMK               | Stefan Heinänen         |
 | University of Oulu      | Lauri Aho                            |
 | TUT, Tampere AMK        | it-helpdesk at tuni.fi               |
