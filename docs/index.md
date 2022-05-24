@@ -1,9 +1,11 @@
 ---
 template: main-index.html
-toc_depth: 1
 ---
 
 <style>
+.md-sidebar--secondary .md-content {
+  display: none;
+}
 #toc-title {
   display: none;
 }
