@@ -14,18 +14,24 @@ The following versions of CloudCompare are available in **Puhti**:
 
 ### Puhti web interface
 
-Start an xfce or mate **Desktop** session of the Puhti web interface:
+The easiest option for using CloudCompare is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti web interface](https://www.puhti.csc.fi)
-2. Start a 'mate' or 'xfce' Desktop : Apps -> Desktop, choose Desktop: 'mate' or 'xfce'.
-3. Using the 'host terminal', load the CloudCompare module and start the graphical user interface, using:
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+2. Start CloudCompare: Apps -> Desktop, choose Desktop: 'single application' and App: 'CloudCompare'
+3. CloudCompare is started automatically when the Desktop is launched. 
 
-```bash
 
-module load cloudcompare
-CloudCompare
+Alternatively, especially if you want to use CloudCompare together with some other Graphical User Interface (GUI) tool or want to use data from Allas, CloudCompare can be started in Puhti web interface with remote desktop:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start CloudCompare:
 
 ```
+module load cloudcompare
+CloudCompare
+```
+
 ## License 
 
 CloudCompare is published under the [GNU General Public License](https://github.com/CloudCompare/CloudCompare/blob/master/license.txt).
