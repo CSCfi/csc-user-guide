@@ -2,12 +2,6 @@
 template: main-index.html
 ---
 
-<style>
-#toc-title {
-  display: none;
-}
-</style>
-
 <h1 id="welcometext"> Welcome to Docs CSC! </h1>
 
 [![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
