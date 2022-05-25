@@ -10,14 +10,17 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2019-2022 releases with regularly updated minor versions, several with plumed
+-   Mahti: 2020-2022 releases with regularly updated minor versions, one with plumed, one with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use commandline [plumed tools](plumed.md), load the plumed module.
+-   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
-!!! note
+!!! Note
     We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
     Instead of `gmx grompp` ... give `gmx_mpi grompp`
+
+!!! Note
+    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
 Gromacs is free software available under LGPL, version 2.1.
@@ -79,7 +82,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-!!! note
+!!! Note
     To avoid multi node parallel jobs to spread over more nodes
     than necessary, don't use the --ntasks flag, but specify --nodes and
     --ntasks-per-node=40 to get full nodes. This minimizes communication
@@ -125,7 +128,7 @@ srun gmx_mpi mdrun -s verlet -dlb yes
     -nstlist 200 -s verlet -pin on -dlb yes
 
 ```
-!!! note
+!!! Note
     Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
     as using one full node of CPU cores according to the [usage policy](../../computing/overview/#gpu-nodes).
     Otherwise, don't use GPUs.
@@ -146,7 +149,7 @@ Submit the script with `sbatch script_name.sh`
 # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
@@ -169,7 +172,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 # 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -215,7 +218,7 @@ $ tree
 # this script runs a 128 core gromacs multidir job (8 simulations, 16 cores per simulation)
 
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 gromacs/2021.5
+module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
@@ -240,11 +243,11 @@ For further details on running Gromacs multi-simulations, see the [official Grom
 In addition to `view` (not available at CSC, though) tool of Gromacs,
 trajectory files can be visualized with the following programs:
 
--   [PyMOL] molecular modeling system.
--   [VMD](vmd.md) visualizing program for large biomolecular systems.
+-   [PyMOL] molecular modeling system (not available at CSC)
+-   [VMD](vmd.md) visualizing program for large biomolecular systems
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
 
-!!! note
+!!! Note
     Please don't run visualization or heavy Gromacs tool scripts in
     the login node (see [usage policy for details](../../computing/overview/#usage-policy)).
     You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)

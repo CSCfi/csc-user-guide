@@ -31,5 +31,3 @@ For a comprehensive list of options and supported file formats, do  `obabel -H`,
 ## More information
 -   [Open Babel wiki](http://openbabel.org/wiki/Main_Page)
 -   [Open Babel on GitHub](https://github.com/openbabel )
-
-

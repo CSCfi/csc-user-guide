@@ -45,3 +45,6 @@ script:
   - bash tests/check_fixme.sh
   # Test that no files are masked by folder/index.md
   - bash tests/check_masked.sh
+  # Test that all apps have an entry for license
+  - bash tests/check_licenses.sh
+

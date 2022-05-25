@@ -3,12 +3,10 @@
 ## cPouta tutorial video series
 
 - [Launching a virtual machine] and connecting to it on a local macOS laptop
-- [Launching a virtual machine](https://www.youtube.com/watch?v=9Zqx3Q4T_-E) and connecting to it from Taito
 - [Installing applications] on a virtual machine (in this example, we use [Conda], but it is only one
 of many options)
 - [Attaching a data volume] to a virtual machine to work with larger datasets
 - [Saving a virtual machine] as a snapshot and re-stating it  
-- [Mounting remote directories] (e.g. Taito $WRKDIR) to your virtual machine
 
 ## cPouta webinar recordings
 - [Creating a virtual machine in cPouta]

@@ -5,10 +5,10 @@ Puhti and Mahti.
 ## Available
 
 * Puhti: various 2.x and 3.x versions
-* Mahti: various 2.x and 3.x versions
+* Mahti: 3.x versions
  
 System Python is available by default both in Puhti and Mahti without loading
-any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) Python
+any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) (only Puhti), Python
 3 (= 3.6.8) as `python3`. The default system Python does not include any optional Python
 packages. However, you can [install simple packages for yourself by the methods
 explained below](python.md#installing-python-packages-to-existing-modules).
@@ -31,8 +31,7 @@ of scientific libraries:
 
 In Mahti:
 
-   * python-env - anaconda Python with conda tools
-   * python-singularity - Singularity-based Python
+   * [python-data](python-data.md) - for data analytics and machine learning
 
 To use any of the above mentioned modules, just load the appropriate module, for
 example:
@@ -57,38 +56,64 @@ The packages are by default installed to your home directory under
 used). If you would like to change the installation folder, for example to make
 a project-wide installation instead of a personal one, you need to define the
 `PYTHONUSERBASE` environment variable with the new installation local. For
-example:
-
-`export PYTHONUSERBASE=/projappl/<your_project>/python3.7_pip`
-
-When later using those libraries you need to remember to add that path to
-`PYTHONPATH` or use the same `PYTHONUSERBASE` definition as above. Naturally,
-this also applies to slurm job scripts.
-
-Alternatively you can create a separate virtual environment with
-[venv](https://docs.python.org/3/library/venv.html), for example:
+example to add the package `whatshap` to the `python-data` module:
 
 ```
 module load python-data
-python -m venv --system-site-packages my-venv
-source my-venv/bin/activate
-pip install my_package_to_install
+export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
+pip install --user whatshap
 ```
 
-With `venv`, you can keep separate environments for each program. The next time
-you wish to activate the environment you only need to run `source
-my-venv/bin/activate`. `venv` does not work with Python modules installed with Singularity.
+In the example, the package is now installed inside the `my-python-env`
+directory in the project's projappl directory. Run `unset PYTHONUSERBASE` if you
+wish to later install into your home directory again.
+
+When later using those libraries you need to remember to add the `site-packages`
+path to `PYTHONPATH` (or use the same `PYTHONUSERBASE` definition as above).
+Naturally, this also applies to slurm job scripts. For example:
+
+```
+module load python-data
+export PYTHONPATH=/projappl/<your_project>/my-python-env/lib/python3.9/site-packages/
+python3 -c "import whatshap"  # this should now work!
+```
+
+Note that if the package you installed also contains executable files these may
+not work as they refer to the Python path internal to the container (and most of
+our Python modules are installed with containers):
+
+```
+$ whatshap --help
+whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
+```
+
+You can fix this by either editing the first line of the executable to point to
+the real python interpreter (check with `which python3`) or by running it via
+the Python interpreter, for example:
+
+```
+$ python3 -m whatshap --help
+```
+
+
+Alternatively you can create a separate virtual environment with
+[venv](https://docs.python.org/3/library/venv.html), however this approach
+doesn't work with modules installed with Singularity, which is now the default
+approach at CSC.
 
 If you think that some important package should be included in a module provided
 by CSC, you can send an email to <servicedesk@csc.fi>.
 
+
 ## Creating your own Python environments
-It is also possible to create your own Python environments. The main options are
-conda and Singularity. Singularity should be preferred at least when you know of
-a suitable ready-made Singularity or Docker container. Conda is easy to use and
-flexible, but it might create a huge number of files which is inefficient with
-shared file systems. This can cause very slow library imports and in the worst
-case slowdowns in the whole file system.
+
+It is also possible to create your own Python environments. 
+
+### Tykky
+The easiest option is to use [Tykky](../computing/containers/tykky.md) for conda or pip installations.
+
+### Custom Singularity container
+In some cases, for example if you know of a suitable ready-made Singularity or Docker container, also using custom Singularity container is an option. 
 
 Please, see our Singularity documentation:
 
@@ -96,11 +121,13 @@ Please, see our Singularity documentation:
    * [Creating Singularity containers](../computing/containers/creating.md),
      including how to convert Docker container to Singularity container.
 
-For Conda:
+### Conda
+Conda is easy to use and flexible, but it might create a huge number of files which is inefficient with
+shared file systems. This can cause very slow library imports and in the worst
+case slowdowns in the whole file system. **Therefore CSC has deprecated the use of Conda installations at CSC supercomputers.**
 
    * [CSC conda tutorial](../support/tutorials/conda.md) describes in detail
-     what conda is and how to use it.
-   * [Bioconda](bioconda.md) provides conda tools preinstalled.
+     what conda is and how to use it. (Some parts of this tutorial may be helful also for Tykky installations.)
 
 
 ## Python development environments

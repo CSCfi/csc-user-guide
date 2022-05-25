@@ -47,7 +47,7 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-To access SD Desktop go to [MyCSC](https://my.csc.fi) and:
+To access SD Connect go to [MyCSC](https://my.csc.fi) and:
 
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
 * [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
@@ -478,7 +478,7 @@ These include:
    * [rclone](../Allas/using_allas/rclone.md) (with normal Allas configuration)
    * [swift command line client](../Allas/using_allas/swift_client.md)
    * [Horizon web interface](../Allas/using_allas/web_client.md) in [https://pouta.csc.fi](https://pouta.csc.fi)
-   * [CyberDuck](../Allas/accessing_allas.md#cyberduck-functions) Graphical data transport tool for Windows and Mac.
+   * [CyberDuck](../Allas/using_allas/cyberduck.md) Graphical data transport tool for Windows and Mac.
 
 Note that if you use these tools, you must encrypt your sensitive data before uploading it to SD Connect.
 

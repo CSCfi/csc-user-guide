@@ -1,13 +1,14 @@
 # Applications
 
-## New guide for getting started with machine learning at CSC, 8.4.2022
+## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
 
-Even experienced machine learning users might have a hard time taking the leap
-into the supercomputer environment as things work a bit differently than in the
-personal computing environment. We have now created [a guide to help people get
-started with doing machine learning at CSC](../tutorials/ml-starting.md). The
-guide shows, step by step, how to get your codes and data to Puhti and running
-on GPUs.
+New versions of [Python Data](../../apps/python-data.md) and
+[RAPIDS](../../apps/rapids.md) are now available on both Puhti and Mahti. The
+default versions have been changed to these new versions.
+
+## CP2K 9.1 linked to Gromacs 2022, 19.4.2022
+
+[CP2K](../../apps/cp2k.md) 9.1 has been linked to [Gromacs](../../apps/gromacs.md) 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on.
 
 ## PyTorch 1.11, 8.4.2022
 

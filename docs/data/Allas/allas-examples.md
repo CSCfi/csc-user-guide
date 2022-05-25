@@ -68,7 +68,7 @@ module load allas
 Then I open a connection to Allas using the command `allas-conf`. The command asks for users' CSC password (xxxxxxxxxxx) and 
 then lists the Allas projects that are accessible. In this case, we select _project_2001659_.
 
-<pre>[kkayttaj@mahti-login1 ~]$ <b>allas-conf</b>
+<pre>[kkayttaj@mahti-login11 ~]$ <b>allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 <b>xxxxxxxxxx</b>
 Checking projects available for your account.
@@ -132,7 +132,7 @@ OK
 
 After this, we have another object in the _2001659-mahti-SCRATCH_ bucket:
 
-<pre>[kkayttaj@mahti-login1 genomes]$ <b>a-list 2001659-mahti-SCRATCH</b>
+<pre>[kkayttaj@mahti-login11 genomes]$ <b>a-list 2001659-mahti-SCRATCH</b>
 2001659-mahti-SCRATCH/genomes/zebrafish.tar
 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 </pre>
@@ -238,7 +238,7 @@ module load allas
 Then we open a connection to Allas with the command `allas-conf`. The command asks for the CSC password (xxxxxxxxxxx) and 
 then lists the Allas projects that are accessible for the user. In this case, we select *project_2001659*.
 
-<pre>[kkayttaj@mahti-login1 ~]$ <b>allas-conf</b>
+<pre>[kkayttaj@mahti-login11 ~]$ <b>allas-conf</b>
 Please enter CSC password for account kkayttaj: 
 <b>xxxxxxxxxx</b>
 Checking projects available for your account.
@@ -267,7 +267,7 @@ rclone copyto zebrafish/ allas:2001659-genomes/zebrafish
 
 After copying the files, I use `rclone ls` to see what has been uploaded to Allas. 
 
-<pre>[kkayttaj@mahti-login1 genomes] <b>rclone ls allas:2001659-genomes/zebrafish</b>
+<pre>[kkayttaj@mahti-login11 genomes] <b>rclone ls allas:2001659-genomes/zebrafish</b>
 450646234 Danio_rerio.GRCz10.91.1.bt2
 334651392 Danio_rerio.GRCz10.91.2.bt2
    187325 Danio_rerio.GRCz10.91.3.bt2
@@ -348,7 +348,7 @@ ssh csc-username@mahti.csc.fi
 screen
 ```
 The `screen` command starts a virtual session in the login node of Mahti. You can leave this virtual screen session
-running in the background and log out from Mahti but you should check which login node (mahti-login1 or mahti-login2) 
+running in the background and log out from Mahti but you should check which login node (mahti-login11, mahti-login12, mahti-login13 or mahti-login14) 
 your session is running on because you need to log in to the same node to reconnect to your `screen` session later on.
 
 In the screen session, I first load the _allas module_ and use `allas-conf` to establish a connection to Allas.
@@ -361,7 +361,7 @@ so that the connection to Allas can later be automatically reconfigured without 
 
 After opening the Allas connection, we move to the directory _my_data_ where I have a set of subdirectories (50, 90, 100). I list the gzip-compressed files in these directories: 
 
-<pre>[kkayttaj@mahti-login1 ~] <b>cd /scratch/project_2001659/my_data</b>
+<pre>[kkayttaj@mahti-login11 ~] <b>cd /scratch/project_2001659/my_data</b>
 [kkayttaj@mahti-login my_data] <b>ls -lh */*.gz</b>
 -rw-rwxr-x 1 kkayttaj csc  45G May  8 12:57 100/uniref100.fasta.gz
 -rw-rwxr-x 1 kkayttaj csc  61G Jun  5 13:09 100/uniref100.xml.gz
@@ -388,11 +388,11 @@ done
  
 we can leave the session running in the background by pressing `Ctrl-a d`.
 
-Now, we can log out from Mahti, but the screen session remains active in the Mahti login node I use (in this case, _mahti-login1_).
+Now, we can log out from Mahti, but the screen session remains active in the Mahti login node I use (in this case, _mahti-login11_).
 
 To connect to this session, we first connect to the Mahti node where the screen session is running:
 ```text
-ssh csc-username@mahti-login1.csc.fi
+ssh csc-username@mahti-login11.csc.fi
 ```
 Then, we reattach the screen session:
 ```

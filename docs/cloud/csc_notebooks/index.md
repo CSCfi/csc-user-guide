@@ -24,6 +24,10 @@ To better understand the CSC Notebooks environment, we have collected all terms 
 
 CSC Notebooks provides different ways of sharing (e.g. course contents) and storing (e.g. students own progress) data. For an explanation of the different possibilities, see the separate document on [data persistence](data_persistence.md).
 
+## Summary of changes and improvements in beta
+
+See the separate [migration to beta](migration_to_beta.md) document.
+
 ## References
 
 * [Project Jupyter homepage](https://jupyter.org/){target="_blank"}

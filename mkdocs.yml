@@ -6,18 +6,18 @@ nav:
   - Home: index.md
   - Accounts:
      - Overview: accounts/index.md
-     - How to create new user account: accounts/how-to-create-new-user-account.md
-     - How to change password: accounts/how-to-change-password.md
-     - How to manage user information: accounts/how-to-manage-user-information.md
-     - How to create new project: accounts/how-to-create-new-project.md
+     - Creating a new user account: accounts/how-to-create-new-user-account.md
+     - Changing your password: accounts/how-to-change-password.md
+     - Managing user information: accounts/how-to-manage-user-information.md
+     - Creating a new project: accounts/how-to-create-new-project.md
      - When your project handles personal data: accounts/when-your-project-handles-personal-data.md
-     - How to add members to project: accounts/how-to-add-members-to-project.md
-     - How to add service access for project: accounts/how-to-add-service-access-for-project.md
-     - How to manage your project: accounts/how-to-manage-your-project.md
-     - How to apply for billing units: accounts/how-to-apply-for-billing-units.md
-     - How to increase disk quotas: accounts/how-to-increase-disk-quotas.md
-     - How to access Mahti large partition: accounts/how-to-access-mahti-large-partition.md
-     - How to view billing unit usage: accounts/how-to-view-billing-unit-usage.md
+     - Adding members to your project: accounts/how-to-add-members-to-project.md
+     - Adding service access for your project: accounts/how-to-add-service-access-for-project.md
+     - Managing your project: accounts/how-to-manage-your-project.md
+     - Applying for billing units: accounts/how-to-apply-for-billing-units.md
+     - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
+     - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
+     - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
@@ -60,6 +60,7 @@ nav:
      - Web interface:
        - Overview: computing/webinterface/index.md
        - Interactive apps:
+         - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
@@ -106,6 +107,7 @@ nav:
          - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
+       - GPU in Rahti: cloud/rahti/gpu.md
        - Rahti Templates: cloud/rahti/template-docs.md
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
@@ -145,6 +147,7 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
+       - Migration to beta: cloud/csc_notebooks/migration_to_beta.md
   - Data:
 #    - Datasets: data/datasets.md
      - Working with data:
@@ -168,7 +171,6 @@ nav:
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-        - Allas Clients: data/Allas/clients.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Further information: data/Allas/further_info.md
         - cPouta object storage and Allas: data/Allas/allas_cpouta_change.md
@@ -192,7 +194,7 @@ nav:
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
   - Applications:
-     - In alphabetic order: apps/alpha.md
+     - In alphabetical order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md
   - FAQ: support/faq/index.md
@@ -229,7 +231,7 @@ extra_javascript:
 
 markdown_extensions:
   - toc:
-      toc_depth: 2-6
+      toc_depth: 1-6
   - admonition
   - attr_list
   - def_list
