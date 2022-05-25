@@ -10,7 +10,8 @@ OpenMP, POSIX threads, or MPI+OpenMP/Pthreads parallelization.
 
 ## Available
 
-Puhti
+* Puhti: 2.5
+* Mahti: 2.6
 
 ## License
 
