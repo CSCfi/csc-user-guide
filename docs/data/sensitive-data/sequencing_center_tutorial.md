@@ -166,12 +166,12 @@ She uploads this text file to the _animine_keys_ bucket with
 the default encryption option on and then deletes the file from her local computer.
 
 Now the bucket _animine_keys_ contain objects:
-   * animine_crypt4gh.pub.c4gh
-   * animine_crypt4gh.key.c4gh
-   * animine_key_instructions.txt.c4gh
+   * data/animine_crypt4gh.pub.c4gh
+   * data/animine_crypt4gh.key.c4gh
+   * data/animine_key_instructions.txt.c4gh
 
 And bucket _animine_pub_ contains object:
-   * animine_crypt4gh.pub
+   * data/animine_crypt4gh.pub
 
 
 ## 3. Opening a storage bucket for importing data from data producer.
@@ -210,7 +210,7 @@ allas-conf
 Then she downloads the public key to Puhti:
 
 ```text
-a-get animine_pub/animine_crypt4gh.pub
+a-get animine_pub/data/animine_crypt4gh.pub
 ```
 
 And upload the key to a new bucket:
