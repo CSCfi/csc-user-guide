@@ -36,7 +36,7 @@ This loads the newest available version. You can load an older version with:
 The easiest option for using SNAP is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'SNAP'
+2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SNAP'
 3. The SNAP GUI is started automatically when the Desktop is launched. 
  
 
