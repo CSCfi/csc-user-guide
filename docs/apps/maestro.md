@@ -45,7 +45,7 @@ or connected to it via VPN from home.
      We mainly recommend using Puhti to run your Maestro jobs. If running on
      Mahti, you must ensure that your jobs are able to utilize full nodes
      (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
-     because most other jobs do not scale. If in doubt, [contact us](/support/contact.md).
+     because most other jobs do not scale. If in doubt, [contact us](/support/contact/).
 
 It is possible to run the heavy computations on Puhti. To do that you need to
 [get a CSC accountCSC](../accounts/how-to-create-new-user-account.md) and 
