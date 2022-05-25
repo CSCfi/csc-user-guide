@@ -11,6 +11,7 @@ for *drug design* and *Materials Science*. It can be used to build, edit, run an
 ## Available
 
 Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4, 2022.1
+Mahti: 2021.4, 2022.1
 
 ## License
 
@@ -39,6 +40,12 @@ your computer is in FUNET network, e.g. you're on the university
 or connected to it via VPN from home.
 
 ### Standalone usage on Puhti
+
+!!! Note
+     We mainly recommend using Puhti to run your Maestro jobs. If running on
+     Mahti, you must ensure that your jobs are able to utilize full nodes
+     (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
+     because most other jobs do not scale.
 
 It is possible to run the heavy computations on Puhti. To do that you need to
 [get a CSC accountCSC](../accounts/how-to-create-new-user-account.md) and 
