@@ -7,9 +7,6 @@ site_description: Instructions and user guides for the CSC supercomputers, cloud
 extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
-  breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
-  matomo_url: "docs-design-matomo.rahtiapp.fi"
-  matomo_site_id: "1"
 
 plugins:
   - tags:
@@ -62,7 +59,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: !!python/name:pymdownx.superfences.fence_div_format
 
 theme:
   name: material
@@ -75,13 +72,12 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
-#  features:
-#    - announce.dismiss
+  features:
+    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
-  - assets/stylesheets/landing.css
   - assets/stylesheets/admonition.css
   - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css
@@ -105,7 +101,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - Accounts:
-     - accounts/index.md
+     - Overview: accounts/index.md
      - Creating a new user account: accounts/how-to-create-new-user-account.md
      - Changing your password: accounts/how-to-change-password.md
      - Managing user information: accounts/how-to-manage-user-information.md
@@ -125,18 +121,19 @@ nav:
      - computing/index.md
      - Usage policy: computing/usage-policy.md
      - Systems:
-        - computing/available-systems.md
+        - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
-        - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
+        - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
+        - Kvasi: computing/kvasi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
-        - computing/disk.md
+        - Disk areas: computing/disk.md
         - Lustre filesystem: computing/lustre.md
         - Allas object storage: computing/allas.md
      - Module environment: computing/modules.md
      - Running jobs:
-        - computing/running/getting-started.md
+        - Getting started: computing/running/getting-started.md
         - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
         - Puhti example scripts: computing/running/example-job-scripts-puhti.md
         - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
@@ -146,21 +143,20 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Installing software:
-        - computing/installing.md
-        - Compiling on Puhti: computing/compiling-puhti.md
-        - Compiling on Mahti: computing/compiling-mahti.md
-        - Compiling on LUMI: computing/compiling-lumi.md
+     - Compiling:
+        - Puhti: computing/compiling-puhti.md
+        - Mahti: computing/compiling-mahti.md
+        - LUMI: computing/compiling-lumi.md
         - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
-        - computing/containers/overview.md
+        - Overview: computing/containers/overview.md
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
         - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
-       - computing/webinterface/index.md
+       - Overview: computing/webinterface/index.md
        - Interactive apps:
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
@@ -170,18 +166,6 @@ nav:
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
-     - Quantum computing:
-       - computing/quantum-computing/overview.md
-       - Kvasi QLM:
-           - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
-           - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
-       - Helmi:
-           - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
-           - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
-           - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
-           - Technical details: computing/quantum-computing/helmi/helmi-specs.md
-           - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
-           - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
      - cloud/index.md
      - Rahti3:
@@ -195,7 +179,7 @@ nav:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-       - RahtiV2 migration: cloud/rahti/rahtiv2-migration.md
+       - Rahti4 migration: cloud/rahti/rahti4-migration.md
        - Rahti Tutorials:
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
@@ -207,7 +191,6 @@ nav:
          - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
-         - How to package a Kubernetes application with Helm?: cloud/rahti/tutorials/helm.md
          - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
@@ -216,12 +199,12 @@ nav:
          - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
          - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
-         - cloud/rahti/storage/index.md
+         - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
          - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
-         - cloud/rahti/images/overview.md
+         - Overview: cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - GPU in Rahti: cloud/rahti/gpu.md
@@ -229,70 +212,26 @@ nav:
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
        - External documentation: cloud/rahti/ext_docs.md
-     - Rahti4:
-       - Contents: cloud/rahti4/index.md
-       - What is Rahti: cloud/rahti4/rahti-what-is.md
-       - Containers & their Orchestration: cloud/rahti4/containers.md
-       - Kubernetes and OpenShift concepts: cloud/rahti4/concepts.md
-       - Networking: cloud/rahti4/networking.md
-       - Security guide: cloud/rahti4/security-guide.md
-       - Getting Started:
-         - Getting access: cloud/rahti4/access.md
-         - Using the web interface: cloud/rahti4/usage/getting_started.md
-         - Command line tool installation and usage: cloud/rahti4/usage/cli.md
-       - RahtiV2 migration: cloud/rahti4/rahtiv2-migration.md
-       - Rahti Tutorials:
-         - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
-         - Deploying a static web server using the command line: cloud/rahti4/tutorials/elemental_tutorial.md
-         - Custom domain names and secure transport: cloud/rahti4/tutorials/custom-domain.md
-         - Configuration, ConfigMaps and Secrets: cloud/rahti4/tutorials/configuration.md
-         - Webhooks: cloud/rahti4/tutorials/webhooks.md
-         - Reverse proxy authentication using a sidecar container: cloud/rahti4/tutorials/sidecar_proxy_authentication.md
-         - Short introduction to YAML: cloud/rahti4/tutorials/yaml_introduction.md
-         - How to transfer data to Rahti?: cloud/rahti4/tutorials/transfer_data_rahti.md
-         - How to add docker hub credentials to a project: cloud/rahti4/tutorials/docker_hub_login.md
-         - How to manually cache images in Rahti's registry: cloud/rahti4/tutorials/docker_hub_manual_caching.md
-         - CI/CD on Rahti: cloud/rahti4/tutorials/ci_cd_introduction.md
-         - How to run an ad-hoc interactive container: cloud/rahti4/tutorials/oc-run.md
-         - How backup a Postgres DB into Allas: cloud/rahti4/tutorials/backup-postgres-allas.md
-         - Annotations: cloud/rahti4/tutorials/annotations.md
-         - Sending e-mail from Rahti: cloud/rahti4/tutorials/email.md
-         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti4/tutorials/connect-database-hpc.md
-         - Multi stage builds: cloud/rahti4/tutorials/multi-stage-builds.md
-       - Storage in Rahti:
-         - Available storage options: cloud/rahti4/storage/index.md
-         - Persistent volumes: cloud/rahti4/storage/persistent.md
-         - Ephemeral storage: cloud/rahti4/storage/ephemeral.md
-         - Expand a volume: cloud/rahti4/storage/expand-volumes.md
-       - Images:
-         - Overview: cloud/rahti4/images/overview.md
-         - Creating an image: cloud/rahti4/images/creating.md
-         - Keeping docker images small: cloud/rahti4/images/keeping_docker_images_small.md
-       - GPU in Rahti: cloud/rahti4/gpu.md
-       - Rahti Templates: cloud/rahti4/template-docs.md
-       - Projects and quota: cloud/rahti4/usage/projects_and_quota.md
-       - Billing: cloud/rahti4/billing.md
-       - External documentation: cloud/rahti4/ext_docs.md
      - Pouta:
-        - cloud/pouta/index.md
+        - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
         - Getting started with Pouta:
-            - Creating a virtual machine in Pouta: cloud/pouta/launch-vm-from-web-gui.md
+            - Launching a virtual machine with the cPouta web interface: cloud/pouta/launch-vm-from-web-gui.md
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
             - API Access to Pouta: cloud/pouta/api-access.md  
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
-            - cloud/pouta/storage.md
+            - Available storage options: cloud/pouta/storage.md
             - Ephemeral storage: cloud/pouta/ephemeral-storage.md
             - Persistent volumes: cloud/pouta/persistent-volumes.md
             - Snapshots: cloud/pouta/snapshots.md
         - Images:
-            - cloud/pouta/images.md
+            - Basic information about images: cloud/pouta/images.md
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
@@ -303,26 +242,23 @@ nav:
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
-       - cloud/csc_notebooks/index.md
+       - Overview: cloud/csc_notebooks/index.md
        - Guide for students: cloud/csc_notebooks/guide_for_students.md
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
        - What is new: cloud/csc_notebooks/what_is_new.md
   - Data:
-     - data/index.md
 #    - Datasets: data/datasets.md
      - Working with data:
-        - data/datasets/dataset-sources.md
+        - Contents: data/datasets/dataset-sources.md
         - Tips for data management: data/datasets/datamanagement.md
         - Metadata and data documentation: data/datasets/metadata-and-documentation.md
         - Dataset sources: data/datasets/sourcing-datasets.md
         - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
         - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
-        - data/moving/index.md
         - Copying files using scp: data/moving/scp.md
-        - Moving files using the Puhti web interface: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
@@ -331,37 +267,24 @@ nav:
         - Remote disk mounts: data/moving/disk_mount.md
         - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
      - Allas object storage:
-        - data/Allas/index.md
+        - Overview: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
-        - Allas clients:
-          - a-command: data/Allas/using_allas/a_commands.md
-          - a-backup: data/Allas/using_allas/a_backup.md
-          - Cyberduck: data/Allas/using_allas/cyberduck.md
-          - Python Library: data/Allas/using_allas/python_library.md
-          - Rclone from Computing environment: data/Allas/using_allas/rclone.md
-          - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
-          - Swift: data/Allas/using_allas/swift_client.md
-          - S3cmd: data/Allas/using_allas/s3_client.md
-          - Web GUI: data/Allas/using_allas/web_client.md
-# data/Allas/using_allas/directory_object_error.md is not linked in this structure
      - Sensitive data:
-        - data/sensitive-data/index.md
+        - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-        - Accessing SD Services: data/sensitive-data/sd-access.md
         - Store with SD Connect: data/sensitive-data/sd_connect.md
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
-#       - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #       - Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
 
      - Kaivos database service:
-        - data/kaivos/overview.md
+        - Kaivos overview: data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
         - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
         - Data import and export: data/kaivos/kaivos_import.md
