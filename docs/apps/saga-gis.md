@@ -36,7 +36,7 @@ Alternatively, especially if you want to use SAGA GIS together with some other G
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start SAGA GIS:
+3. After launcing the remote desktop, double-click SAGA GIS icon OR open `Host Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
 module load r-env-singularity 
