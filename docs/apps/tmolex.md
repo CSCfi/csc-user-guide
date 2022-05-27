@@ -9,6 +9,10 @@ Import or build/modify structures on your local desktop. Run TURBOMOLE jobs on e
 - Can be freely downloaded from
  [http://www.cosmologic.de/support-download/downloads/tmolex-client.html](http://www.cosmologic.de/support-download/downloads/tmolex-client.html)   
 
+## License
+
+TBD
+
 
 ## Usage
 

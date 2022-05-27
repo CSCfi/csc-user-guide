@@ -2,12 +2,6 @@
 template: main-index.html
 ---
 
-<style>
-#toc-title {
-  display: none;
-}
-</style>
-
 <h1 id="welcometext"> Welcome to Docs CSC! </h1>
 
 
