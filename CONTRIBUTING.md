@@ -29,7 +29,7 @@ The rest of this document describes the workflow in Github as well as instructio
 ## For the impatient
 
 Once you've completed the steps above:
-* In [docs.csc.fi](https://docs.csc.fi) go the the page you want to edit and click the pen icon at top right
+* In [docs.csc.fi](https://docs.csc.fi) go the page you want to edit and click the pen icon at top right
 * (sign in GitHub) and edit then content
 * Scroll down to commit changes (create a new branch) -> make a pull request
 * Assign a reviewer
