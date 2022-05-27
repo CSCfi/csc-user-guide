@@ -24,7 +24,7 @@ Alternatively, especially if you want to use QGIS together with some other Graph
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start QGIS:
+3. After launcing the remote desktop, double-click QGIS icon OR open `Host Terminal` (Desktop icon) and start QGIS:
 
 ```
 module load qgis
