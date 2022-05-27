@@ -44,7 +44,7 @@ Alternatively, especially if you want to use SNAP together with some other GUI t
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start SNAP:
+3. After launcing the remote desktop, double-click SNAP icon OR open `Host Terminal` (Desktop icon) and start SNAP:
 
 ```
 module load snap
