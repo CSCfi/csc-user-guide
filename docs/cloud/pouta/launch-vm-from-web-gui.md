@@ -52,7 +52,7 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
 Finalize the key installation in the **Linux** and **Mac OS X** environments:
 If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem.
-The following procedure will be same.
+The following procedure will remain same.
 
 ```bash
 cd ~
