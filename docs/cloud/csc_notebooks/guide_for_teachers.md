@@ -32,7 +32,7 @@ Steps to create your own custom Docker image and host it on Rahti registry:
 
 1. First create a Dockerfile  
    
-A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. The `CMD` directive executes any initial scripts every time you launch the docker container.
+A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. 
    
 #### Jupyter notebook example
 For JupyterLab with some conda packages use the following as minimal example:
@@ -114,7 +114,7 @@ docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 
 4. Find the `login commands` on the `Overview` page and use one of them to login to Rahti registry from command line
 
-5. Create a new project on Rahti webpage (or re-use one that you already have)
+5. Create a new project on [Rahti webpage](https://rahti.csc.fi:8443/) (or re-use the project that you already have)
 
 6. Tag your docker image, eg based on versions (here: v0.1):
 
@@ -124,7 +124,7 @@ docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 
 7. Push your docker image to Rahti registry:
 ```
-sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>
+sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
 ```
 
 ### 3. Create an application in the workspace
