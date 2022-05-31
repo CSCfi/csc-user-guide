@@ -72,34 +72,21 @@ For other package management systems, adjust the last `RUN` command accordingly.
     
 #### RStudio example
     
-To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images and extend it or further customise it for your needs.
+To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images. 
+
+For adding packages or configurations you can use [scripts provided by Rocker on their github page](https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system. These scripts usually contain system dependencies and required packages for your needs.
 
 For RStudio with some packages, use the following Dockerfile as minimum example:
 
-```
-# Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
-# e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) 
-# and extend as needed with rest of the layers of docker image
-# image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
-FROM rocker/rstudio:4.1.1
-
-ENV PATH=/usr/lib/rstudio-server/bin:$PATH
-
-# For adding packages or configurations you can either use scripts provided 
-# by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), 
-# edit them or write your own from scratch and copy them into the docker file system
-# These scripts usually contain system dependencies and required packages for your needs
+```bash
+# Use Rocker RStudio as base for your image
+FROM rocker/rstudio
 
 # copy the desired installation script into docker file system, make sure that you have execute rights to the script
 COPY install_xx.sh /rocker_scripts/
 
 # install the custom packages and system dependencies by running the script
 RUN /rocker_scripts/install_xx.sh
-
-# Rtsudio is exposed on port 8787
-EXPOSE 8787
-
-CMD ["/init"]
 ```
   
 Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
