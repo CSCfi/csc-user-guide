@@ -21,8 +21,8 @@ It worked, if you see `Manage workspaces` tab in the left panel. You can now use
 ### 2. Find or create custom images
 
 * The easiest is to use existing Docker image, look these repositories for suitable images:
-  * [Docker image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds)
-  * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
+    * [Docker image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds)
+    * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
 * To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
 
 ### 3. Create an application in the workspace
@@ -79,7 +79,7 @@ If you cannot find a suitable image for your intended application, you will need
 Requirements: 
 * A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In Windows likely admin rights are needed.
 * A place to upload the Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io. In these instruction below CSC Rahti is used, then [oc tools](../rahti/usage/cli.md) are needed on the local/cPouta machine.
-  * If using Rahti, you need to have a project in Rahti. If needed, create a new project on [Rahti webpage](https://rahti.csc.fi:8443/).
+    * If using Rahti, you need to have a project in Rahti. If needed, create a new project on [Rahti webpage](https://rahti.csc.fi:8443/).
 
 Steps to create your own custom Docker image and host it on Rahti registry:
 
@@ -160,9 +160,9 @@ docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 ```
    
 * Login to Rahti registry: 
-  * In a web browser, open to [Rahti registry](https://registry-console.rahti.csc.fi/) and log in with your CSC username
-  * On the `Overview` page, find the `login commands` section and the `Log into the registry` command. 
-  * In terminal, use the command to log in to Rahti registry 
+    * In a web browser, open to [Rahti registry](https://registry-console.rahti.csc.fi/) and log in with your CSC username
+    * On the `Overview` page, find the `login commands` section and the `Log into the registry` command. 
+    * In terminal, use the command to log in to Rahti registry 
 
 * Tag your docker image, eg based on versions (here: v0.1):
  ```
