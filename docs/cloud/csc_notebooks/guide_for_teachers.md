@@ -21,31 +21,27 @@ It worked, if you see `Manage workspaces` tab in the left panel. You can now use
  
 ### 2. Create custom images, optional
 
-Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks. Image can be created on your own computer if you have Docker installed or for example [cPouta](../pouta/pouta-what-is.md) instance.
+Check the [Docker image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. 
+
+If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta/pouta-what-is.md) instance.
 
 Requirements: 
-
-* A place to upload your Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io.
-* Docker installed 
+* A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In Windows likely admin rights are needed.
+* A place to upload the Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io. In these instruction below CSC Rahti is used, then [oc tools](../rahti/usage/cli.md) are needed on the local/cPouta machine.
 
 Steps to create your own custom Docker image and host it on Rahti registry:
 
-1. First create a Dockerfile  
+1. Create a Dockerfile  
    
-A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. 
+Dockerfile contains a set of instructions to build a docker image. If unfamiliar with Dockerfile, see for example [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) and [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
    
 #### Jupyter notebook example
 For JupyterLab with some conda packages use the following as minimal example:
-
-xxcourse.dockerfile:
 
  ``` 
  # use jupyter minimal notebook as base for your image
  # it has eg conda already installed
  FROM jupyter/minimal-notebook
-
- # add your name as maintainer, with your email address for future questions
- LABEL maintainer="your-name-here"
 
  #some first setup steps need to be run as root user
  USER root
