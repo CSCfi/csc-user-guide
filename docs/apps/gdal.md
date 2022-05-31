@@ -6,7 +6,7 @@
 
 GDAL is available in Puhti with following versions:
 
-* 3.4.2 - [geoconda-3.9.12](geoconda.md)
+* 3.4.3 - [geoconda-3.9.13](geoconda.md)
 * 3.2.1 - [geoconda-3.8.8](geoconda.md)
 * 3.0.1 stand-alone: gdal module,
 * 2.4.3 - [snap](snap.md)
