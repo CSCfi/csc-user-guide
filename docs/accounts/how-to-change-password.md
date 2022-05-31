@@ -5,13 +5,16 @@ password reset link ordered to your email.
 
 ## Using current password
 
-[![Landing page](images/small/landing-page.png)](images/large/landing-page.png)
-[![My profile](images/small/my-profile.png)](images/large/my-profile.png)
-[![Change password](images/small/change-password.png)](images/large/change-password.png)
 
 1. Login to [MyCSC](http://my.csc.fi).
-1. Go to _My Profile_ and click _Change password_.
-1. Enter your current password and the new password twice. Click _Save_.
+[![Landing page](images/small/landing-page.png)](images/large/landing-page.png)
+
+2. Go to _My Profile_ and click _Change password_.
+[![My profile](images/small/my-profile.png)](images/large/my-profile.png)
+
+3. Enter your current password and the new password twice. Click _Save_.
+[![Change password](images/small/change-password.png)](images/large/change-password.png)
+
 
 <figure class="video_container">
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/i8Y98ANQh-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
