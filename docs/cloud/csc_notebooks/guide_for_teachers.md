@@ -28,9 +28,13 @@ Requirements:
 * A place to upload your Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io.
 * Docker installed 
 
-Steps to create your own custom image using Docker and host it on Rahti:
+Steps to create your own custom Docker image and host it on Rahti registry:
 
-1. Create Docker file
+1. First create a Dockerfile  
+   
+   A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. The `CMD` directive executes any initial scripts every time you launch the docker container.
+   
+#### Jupyter notebook example
 
     For JupyterLab with some conda packages use the following as minimal example:
 
@@ -66,12 +70,52 @@ Steps to create your own custom image using Docker and host it on Rahti:
     ```
 
     For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in `jupyter/minimal-notebook` base image or install it yourself (same way as ssh-client and less are installed in above example).
+    
+#### RStudio example
+    
+    To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images and extend it or further customise it for your needs.
 
+    For RStudio with some packages, use the following Dockerfile as minimum example:
+
+   ```text
+   # Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
+   # e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) and extend as needed with rest of the layers of docker image
+   # image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
+   FROM rocker/rstudio:4.1.1
+
+   ENV PATH=/usr/lib/rstudio-server/bin:$PATH
+
+   # For adding packages or configurations you can either use scripts provided by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system
+   # These scripts usually contain system dependencies and required packages for your needs
+
+   # copy the desired installation script into docker file system, make sure that you have execute rights to the script
+   COPY install_xx.sh /rocker_scripts/
+
+   # install the custom packages and system dependencies by running the script
+   RUN /rocker_scripts/install_xx.sh
+
+   # Rtsudio is exposed on port 8787
+   EXPOSE 8787
+
+   CMD ["/init"]
+   ```
+  
+  Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
+
+  ```bash
+  install2.r --error --deps TRUE packagename  # installing a package with innstall2.r script
+  R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" # Installing R packages from CRAN
+  R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package managers like devtools and BiocManager. 
+  R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")' # Installing R packages while specifying a specific version
+  R -e "source('/path/of/myscript.R')" # script execution 
+  ```
+  
 2. Build the image from dockerfile to current directory `.`
+
    ```
    docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
    ```
-
+   
 3. For publishing your image to Rahti, login to [Rahti registry](https://registry-console.rahti.csc.fi/)
 
 4. Find the `login commands` on the `Overview` page and use one of them to login to Rahti registry from command line
