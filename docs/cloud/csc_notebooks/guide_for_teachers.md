@@ -21,7 +21,7 @@ It worked, if you see `Manage workspaces` tab in the left panel. You can now use
  
 ### 2. Create custom images, optional
 
-Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks. Image can be created on your own computer or for example [cPouta](../pouta/pouta-what-is.md) instance.
+Check the [image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you can find a suitable image for your application in the list, you can skip this step. If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for notebooks. Image can be created on your own computer if you have Docker installed or for example [cPouta](../pouta/pouta-what-is.md) instance.
 
 Requirements: 
 
@@ -32,89 +32,88 @@ Steps to create your own custom Docker image and host it on Rahti registry:
 
 1. First create a Dockerfile  
    
-   A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. The `CMD` directive executes any initial scripts every time you launch the docker container.
+A Dockerfile contains a set of instructions to build a docker image of your interest. The `FROM` directive is used to pull a base image from a repository. This image already includes some system dependecies and possibly Conda, R and/or some Python/R packages. `FROM` command must always be the first one in Dockerfile. Then, the commands beginning with `RUN` are the commands you would normally execute on your terminal and add additional layers on the top of base image. The `CMD` directive executes any initial scripts every time you launch the docker container.
    
 #### Jupyter notebook example
+For JupyterLab with some conda packages use the following as minimal example:
 
-    For JupyterLab with some conda packages use the following as minimal example:
+xxcourse.dockerfile:
 
-    xxcourse.dockerfile:
+ ``` 
+ # use jupyter minimal notebook as base for your image
+ # it has eg conda already installed
+ FROM jupyter/minimal-notebook
 
-    ```text 
-    # use jupyter minimal notebook as base for your image
-    # it has eg conda already installed
-    FROM jupyter/minimal-notebook
+ # add your name as maintainer, with your email address for future questions
+ LABEL maintainer="your-name-here"
 
-    # add your name as maintainer, with your email address for future questions
-    LABEL maintainer="your-name-here"
+ #some first setup steps need to be run as root user
+ USER root
 
-    #some first setup steps need to be run as root user
-    USER root
+ # set home environment variable to point to user directory
+ ENV HOME /home/$NB_USER
 
-    # set home environment variable to point to user directory
-    ENV HOME /home/$NB_USER
+ # install needed extra tools, eg ssh-client and less
+ RUN apt-get update \
+     && apt-get install -y ssh-client less \
+     && apt-get clean
 
-    # install needed extra tools, eg ssh-client and less
-    RUN apt-get update \
-        && apt-get install -y ssh-client less \
-        && apt-get clean
+ # the user set here will be the user that students will use 
+ USER $NB_USER
 
-    # the user set here will be the user that students will use 
-    USER $NB_USER
+ ### Installing the needed conda packages and jupyter lab extensions. 
+ # Run conda clean afterwards in same layer to keep image size lower
+ RUN conda install --yes -c conda-forge your-packages-here \
+   && conda clean -afy
 
-    ### Installing the needed conda packages and jupyter lab extensions. 
-    # Run conda clean afterwards in same layer to keep image size lower
-    RUN conda install --yes -c conda-forge your-packages-here \
-      && conda clean -afy
+ ```
 
-    ```
-
-    For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in `jupyter/minimal-notebook` base image or install it yourself (same way as ssh-client and less are installed in above example).
+For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in `jupyter/minimal-notebook` base image or install it yourself (same way as ssh-client and less are installed in above example).
     
 #### RStudio example
     
-    To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images and extend it or further customise it for your needs.
+To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images and extend it or further customise it for your needs.
 
-    For RStudio with some packages, use the following Dockerfile as minimum example:
+For RStudio with some packages, use the following Dockerfile as minimum example:
 
-   ```text
-   # Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
-   # e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) and extend as needed with rest of the layers of docker image
-   # image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
-   FROM rocker/rstudio:4.1.1
+```
+# Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
+# e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) and extend as needed with rest of the layers of docker image
+# image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
+FROM rocker/rstudio:4.1.1
 
-   ENV PATH=/usr/lib/rstudio-server/bin:$PATH
+ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
-   # For adding packages or configurations you can either use scripts provided by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system
-   # These scripts usually contain system dependencies and required packages for your needs
+# For adding packages or configurations you can either use scripts provided by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system
+# These scripts usually contain system dependencies and required packages for your needs
 
-   # copy the desired installation script into docker file system, make sure that you have execute rights to the script
-   COPY install_xx.sh /rocker_scripts/
+# copy the desired installation script into docker file system, make sure that you have execute rights to the script
+COPY install_xx.sh /rocker_scripts/
 
-   # install the custom packages and system dependencies by running the script
-   RUN /rocker_scripts/install_xx.sh
+# install the custom packages and system dependencies by running the script
+RUN /rocker_scripts/install_xx.sh
 
-   # Rtsudio is exposed on port 8787
-   EXPOSE 8787
+# Rtsudio is exposed on port 8787
+EXPOSE 8787
 
-   CMD ["/init"]
-   ```
+CMD ["/init"]
+```
   
-  Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
+Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
 
-  ```bash
-  install2.r --error --deps TRUE packagename  # installing a package with innstall2.r script
-  R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" # Installing R packages from CRAN
-  R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package managers like devtools and BiocManager. 
-  R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")' # Installing R packages while specifying a specific version
-  R -e "source('/path/of/myscript.R')" # script execution 
-  ```
+```bash
+install2.r --error --deps TRUE packagename  # installing a package with innstall2.r script
+R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" # Installing R packages from CRAN
+R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package managers like devtools and BiocManager. 
+R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")' # Installing R packages while specifying a specific version
+R -e "source('/path/of/myscript.R')" # script execution 
+```
   
 2. Build the image from dockerfile to current directory `.`
 
-   ```
-   docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
-   ```
+```
+docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
+```
    
 3. For publishing your image to Rahti, login to [Rahti registry](https://registry-console.rahti.csc.fi/)
 
@@ -124,14 +123,14 @@ Steps to create your own custom Docker image and host it on Rahti registry:
 
 6. Tag your docker image, eg based on versions (here: v0.1):
 
-    ```
-    sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
-    ```
+ ```
+ sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
+ ```
 
 7. Push your docker image to Rahti registry:
-   ```
-   sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>
-   ```
+```
+sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>
+```
 
 ### 3. Create an application in the workspace
 
