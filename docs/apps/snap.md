@@ -36,7 +36,7 @@ This loads the newest available version. You can load an older version with:
 The easiest option for using SNAP is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'None' and App: 'SNAP'
+2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SNAP'
 3. The SNAP GUI is started automatically when the Desktop is launched. 
  
 
@@ -44,7 +44,7 @@ Alternatively, especially if you want to use SNAP together with some other GUI t
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start SNAP:
+3. After launcing the remote desktop, double-click SNAP icon OR open `Host Terminal` (Desktop icon) and start SNAP:
 
 ```
 module load snap
@@ -130,12 +130,6 @@ Installing new packages to your HOME directory, see [Python](python.md#installin
 ```
 singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
-
-__SNAP 7.0__
-
-The SNAP 7.0 has a conda environment that includes pandas, geopandas, rasterio, rasterstats, sentinelsat, spyder
-
-for retrieving the full list in Puhti use: `list-packages`
 
 ## License and acknowledgement
 
