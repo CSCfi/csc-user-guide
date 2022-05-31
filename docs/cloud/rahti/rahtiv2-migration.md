@@ -6,11 +6,11 @@ RahtiV1 is the current deployed and used version of OpenShift OKD running in CSC
 
 RahtiV2 is the next version of OpenShift OKD running in CSC. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for RahtiV1 to become RahtiV2. So in other words, this means that every single application running in RahtiV1 needs to be migrated to RahtiV2 manually. The two versions will run in parallel for a while, till all applications running in v1 are migrated to v2.
 
-## How to log in RahtiV2?
+## How to log in Rahti4?
 
-Go to [RahtiV2](RAHTI4_URL) and choose the `oidcidp` option, it stands for OpenID Connect identity provider:
+Go to [Rahti4](RAHTI4_URL) and choose the `oidcidp` option, it stands for OpenID Connect identity provider:
 
-![RahtiV2 login](img/rahti_login.png){: style="width:400px"}
+![Rahti4 login](img/rahti_login.png){: style="width:400px"}
 
 You will be then served with a page with all the authentication options that Rahti accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti account.
 
