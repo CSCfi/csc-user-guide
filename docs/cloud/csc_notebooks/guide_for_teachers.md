@@ -10,13 +10,12 @@ exercises in one or more applications in that workspace.
 Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course notebooks environment and is described below.
 
 ### 1. Become a workspace owner and creating a workspace
-
-1. Login to CSC Notebooks using your CSC account. Make note of your user account on the bottom of the left navigation
+* Login to CSC Notebooks using your CSC account. Make note of your user account on the bottom of the left navigation
    bar. If you don't have a CSC account yet, 
    [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
-2. Send email to <notebooks@csc.fi> to request workspace owner rights. Please include your CSC user account in the mail. 
+* Send email to <notebooks@csc.fi> to request workspace owner rights. Please include your CSC user account in the mail. 
    We will add the capability to create your own workspaces to your account.
-3. Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace ower rights:
+* Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace owner rights. 
 It worked, if you see `Manage workspaces` tab in the left panel. You can now use the `Create workspace` button to create a new workspace.
  
 ### 2. Create custom images, optional
@@ -28,10 +27,11 @@ If you cannot find a suitable image for your intended application, you will need
 Requirements: 
 * A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In Windows likely admin rights are needed.
 * A place to upload the Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io. In these instruction below CSC Rahti is used, then [oc tools](../rahti/usage/cli.md) are needed on the local/cPouta machine.
+   * If using Rahti, you need to have a project in Rahti. If needed, create a new project on [Rahti webpage](https://rahti.csc.fi:8443/).
 
 Steps to create your own custom Docker image and host it on Rahti registry:
 
-1. Create a Dockerfile  
+#### Create a Dockerfile  
    
 Dockerfile contains a set of instructions to build a docker image. If unfamiliar with Dockerfile, see for example [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) and [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
    
@@ -99,26 +99,25 @@ R --no-restore --no-save -e 'packagemanager::install_version("packagename", vers
 # Script execution
 R -e "source('/path/of/myscript.R')"  
 ```
-  
-2. Build the image from dockerfile to current directory `.`
+
+#### Build the image and add it to Rahti registry
+* Build the image from dockerfile to current directory `.`
 
 ```
 docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 ```
    
-3. For publishing your image to Rahti, login to [Rahti registry](https://registry-console.rahti.csc.fi/)
+* Login to Rahti registry 
+   *  In a web browser, open to [Rahti registry](https://registry-console.rahti.csc.fi/) and log in with your CSC username
+   *  On the `Overview` page, find the `login commands` section and the `Log into the registry` command. 
+   *  In terminal, use the command to log in to Rahti registry 
 
-4. Find the `login commands` on the `Overview` page and use one of them to login to Rahti registry from command line
-
-5. Create a new project on [Rahti webpage](https://rahti.csc.fi:8443/) (or re-use the project that you already have)
-
-6. Tag your docker image, eg based on versions (here: v0.1):
-
+* Tag your docker image, eg based on versions (here: v0.1):
  ```
  sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
  ```
 
-7. Push your docker image to Rahti registry:
+* Push your docker image to Rahti registry:
 ```
 sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
 ```
