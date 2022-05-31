@@ -1,4 +1,4 @@
-# How to change password
+# How to change passwordd
 
 You can change your password in two ways: Using the current password or with a
 password reset link ordered to your email.
