@@ -78,13 +78,16 @@ For RStudio with some packages, use the following Dockerfile as minimum example:
 
 ```
 # Check the full list of available base images [DockerHub](https://hub.docker.com/u/rocker/)
-# e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) and extend as needed with rest of the layers of docker image
+# e.g., here start with rocker/rstudio:4.1.1 as base image (the first layer image) 
+# and extend as needed with rest of the layers of docker image
 # image tag/version (here: 4.1.1) must be used for reproducibility; avoid using "latest" tag
 FROM rocker/rstudio:4.1.1
 
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 
-# For adding packages or configurations you can either use scripts provided by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system
+# For adding packages or configurations you can either use scripts provided 
+# by rocker on their github page: https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), 
+# edit them or write your own from scratch and copy them into the docker file system
 # These scripts usually contain system dependencies and required packages for your needs
 
 # copy the desired installation script into docker file system, make sure that you have execute rights to the script
@@ -102,11 +105,16 @@ CMD ["/init"]
 Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
 
 ```bash
-install2.r --error --deps TRUE packagename  # installing a package with innstall2.r script
-R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" # Installing R packages from CRAN
-R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)' # Installing R packages from github using package managers like devtools and BiocManager. 
-R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")' # Installing R packages while specifying a specific version
-R -e "source('/path/of/myscript.R')" # script execution 
+# install a package with innstall2.r script
+install2.r --error --deps TRUE packagename  
+# Install R packages from CRAN
+R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" 
+# Install R packages from Github using package managers like devtools and BiocManager. 
+R --no-restore --no-save -e 'packagemanager::install_github("packagename",dependencies=TRUE)'
+# Install R packages while specifying a specific version
+R --no-restore --no-save -e 'packagemanager::install_version("packagename", version="version")'
+# Script execution
+R -e "source('/path/of/myscript.R')"  
 ```
   
 2. Build the image from dockerfile to current directory `.`
