@@ -35,7 +35,7 @@ Steps to create your own custom Docker image and host it on Rahti registry:
    
 Dockerfile contains a set of instructions to build a docker image. If unfamiliar with Dockerfile, see for example [Docker 101](https://www.paigeniedringhaus.com/blog/docker-101-fundamentals-the-dockerfile) and [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
    
-#### Jupyter notebook example
+*Jupyter notebook example*
 For JupyterLab with some conda packages use the following as minimal example:
 
  ``` 
@@ -66,7 +66,7 @@ For JupyterLab with some conda packages use the following as minimal example:
 
 For other package management systems, adjust the last `RUN` command accordingly. Make sure the package management system is available in `jupyter/minimal-notebook` base image or install it yourself (same way as ssh-client and less are installed in above example).
     
-#### RStudio example
+*RStudio example*
     
 To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images. 
 
