@@ -131,12 +131,6 @@ Installing new packages to your HOME directory, see [Python](python.md#installin
 singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
 
-__SNAP 7.0__
-
-The SNAP 7.0 has a conda environment that includes pandas, geopandas, rasterio, rasterstats, sentinelsat, spyder
-
-for retrieving the full list in Puhti use: `list-packages`
-
 ## License and acknowledgement
 
 All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license and its sources are available on [GitHub](https://github.com/senbox-org/).
