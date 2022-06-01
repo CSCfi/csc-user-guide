@@ -166,7 +166,7 @@ docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 * Test your image. 
     * `-p 8888:8787` means bind Docker port 8787 to host port 8888.
     * If using cPouta, you need to open the host port also from Security groups. 
-    * Open Jupyter/RStudio with web-brouser: `localhost:8888` or `<cPouta-IP>:8888`
+    * Open Jupyter/RStudio with web-browser: `localhost:8888` or `<cPouta-IP>:8888`
 
 ```
 docker run -p 8888:8787 <yourimagename>
@@ -180,13 +180,15 @@ docker run -p 8888:8787 <yourimagename>
 
 * Tag your docker image, eg based on versions (here: v0.1):
  ```
- sudo docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
+ docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
  ```
 
 * Push your docker image to Rahti registry:
 ```
-sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
+docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
 ```
+
+* The new image should become visible in Rahti registry, see the ´Images´ tab. Now everything should be ready continuing from step 3 above.
 
 ## Security guidelines for Workspace owners
 
