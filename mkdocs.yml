@@ -143,7 +143,8 @@ nav:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
        - Overview: cloud/csc_notebooks/index.md
-       - Getting started: cloud/csc_notebooks/getting_started.md
+       - Guide for students: cloud/csc_notebooks/guide_for_students.md
+       - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
        - Migration to beta: cloud/csc_notebooks/migration_to_beta.md

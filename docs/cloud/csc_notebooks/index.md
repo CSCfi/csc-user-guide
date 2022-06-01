@@ -10,23 +10,19 @@ come in the future.
     This documentation describes the upcoming new release that is currently available as **public beta** at
     [notebooks-beta.rahtiapp.fi](https://notebooks-beta.rahtiapp.fi){target="_blank"}
 
-## What can you use CSC Notebooks for?
+## Who and how can CSC notebooks be used?
 
-1. [Self-learning](getting_started.md#self-learning)
-2. [Hosting courses](getting_started.md#how-to-host-a-course)
-3. [Collaboration among teams and researchers](getting_started.md#using-csc-notebooks-for-collaboration)
-
-## Getting started
-
-Continue to [Getting started guide](getting_started.md) for step-by-step instructions on using CSC Notebooks.  
+1. [As student](guide_for_students.md): participating to a self-learning or a tutored course.
+2. [As teacher](guide_for_teachers.md): hosting a course
+3. As researcher: [participating to a course or collaboration project](guide_for_students.md) or [setting up CSC Notebooks as collaboration platform](guide_for_teachers.md)
 
 ## Concepts
 
-See the separate [concepts](concepts.md) document.
+To better understand the CSC Notebooks environment, we have collected all terms and concepts in a separate [concepts](concepts.md) document.
 
 ## Data persistence
 
-See the separate [data persistence](data_persistence.md) document.
+CSC Notebooks provides different ways of sharing (e.g. course contents) and storing (e.g. students own progress) data. For an explanation of the different possibilities, see the separate document on [data persistence](data_persistence.md).
 
 ## Summary of changes and improvements in beta
 
