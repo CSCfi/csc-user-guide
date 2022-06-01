@@ -39,7 +39,7 @@ password reset link ordered to your email.
 
 * Choose _CSC login_.
 
-![virtu, Haka or CSC](images/small/virtu-haka-or-csc-mid.png)
+![virtu, Haka or CSC](images/small/authentication-method-mid.png)
 
 * Click _Forgot your password?_
 
