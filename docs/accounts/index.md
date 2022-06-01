@@ -2,7 +2,7 @@
 
 ## Overview
 
-The usage of the computing and storage services of CSC is based on _user accounts_ and _projects_:
+The use of the computing and storage services of CSC is based on _user accounts_ and _projects_:
 
 *   **User accounts** are used to authenticate and manage users. Each user should have just one user account at CSC.  User accounts are always personal. It is forbidden to share the credentials of an account with other persons or allow other persons to use the account.
 
