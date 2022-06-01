@@ -18,7 +18,7 @@ have read and accepted the General Terms of Use for..._
 
 !!! Note
     If your work belongs to any of the [free-of-charge use
-    cases](https://research.csc.fi/free-of-charge-use-cases), select Academic as the project type. Otherwise,
+    cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"}, select Academic as the project type. Otherwise,
     select Commercial. Academic projects can be
     opened only by employees of Finnish higher education institutions,
     state research institutes, and CSC.
