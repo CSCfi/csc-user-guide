@@ -1,6 +1,6 @@
 # Creating a new project
 
-!!! Note to LUMI users
+!!! Note
     Access to LUMI requires creating a separate LUMI-specific project. [How to create Finnish LUMI projects](how-to-create-new-project.md#how-to-create-finnish-lumi-projects) is detailed below.
 
 A CSC user account is required for creating new projects.
