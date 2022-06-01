@@ -16,13 +16,15 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
 * Send email to <notebooks@csc.fi> to request workspace owner rights. Please include your CSC user account in the mail. 
    We will add the capability to create your own workspaces to your account.
 * Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace owner rights. 
-It worked, if you see `Manage workspaces` tab in the left panel. You can now use the `Create workspace` button to create a new workspace.
+It worked, if you see `Manage workspaces` tab in the left panel. 
+* Create a new workspace.
  
 ### 2. Find or create custom images
 
-* The easiest is to use existing Docker image, look these repositories for suitable images:
+* The easiest is to use an existing Docker image, look these repositories for suitable images:
     * [Docker image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds)
     * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
+    * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
 * To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
 
 ### 3. Create an application in the workspace
@@ -40,7 +42,7 @@ container images maintained by Notebooks team. Take a look at the
 
 **Container image** 
 * If using existing image, then pre-filled based on chosen Application template.
-* If using own custom image, then path to the Docker image. If you followd the custom image instructions above, you can find the link from Rahti web interface > projectname > imagename > Pulling repository, e.g. `docker-registry.rahti.csc.fi/<yourprojectname>/<yourimagename>:<tagyouwanttouse>` .
+* If using own custom image, then path to the Docker image. If using Rahti, then: `docker-registry.rahti.csc.fi/<yourprojectname>/<yourimagename>:<tag>` .
 
 **Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
 the application is also selected based on assigned labels.
@@ -77,9 +79,10 @@ Co-owners can do everything the owner can, except demoting the owner or deleting
 If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta/pouta-what-is.md) instance.
 
 Requirements: 
-* A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In Windows likely admin rights are needed.
-* A place to upload the Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io. In these instruction below CSC Rahti is used, then [oc tools](../rahti/usage/cli.md) are needed on the local/cPouta machine.
-    * If using Rahti, you need to have a project in Rahti. If needed, create a new project on [Rahti webpage](https://rahti.csc.fi:8443/).
+
+* A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In general Linux/Mac computer is recommended. In Windows likely admin rights are needed and using Docker might be challenging.
+* A place to upload the Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io. In these instruction below CSC Rahti is used
+    * If using Rahti, you need to have a project in Rahti. If needed, create a new project on [Rahti webpage](https://rahti.csc.fi:8443/). For Rahti also [oc tools](../rahti/usage/cli.md) are needed on the local/cPouta machine.
 
 Steps to create your own custom Docker image and host it on Rahti registry:
 
@@ -111,7 +114,7 @@ For JupyterLab with some conda packages use the following as minimal example:
 
  ### Installing the needed conda packages and jupyter lab extensions. 
  # Run conda clean afterwards in same layer to keep image size lower
- RUN conda install --yes -c conda-forge your-packages-here \
+ RUN conda install --yes -c conda-forge <your-packages-here> \
    && conda clean -afy
 
  ```
@@ -152,13 +155,24 @@ R --no-restore --no-save -e 'packagemanager::install_version("packagename", vers
 R -e "source('/path/of/myscript.R')"  
 ```
 
-### Build the image and add it to Rahti registry
+### Build the image and test it 
+
 * Build the image from dockerfile to current directory `.`
 
 ```
 docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 ```
-   
+
+* Test your image. 
+    * `-p 8888:8787` means bind Docker port 8787 to host port 8888.
+    * If using cPouta, you need to open the host port also from Security groups. 
+    * Open Jupyter/RStudio with web-brouser: `localhost:8888` or `<cPouta-IP>:8888`
+
+```
+docker run -p 8888:8787 <yourimagename>
+```
+
+### Add the image to Rahti registry
 * Login to Rahti registry: 
     * In a web browser, open to [Rahti registry](https://registry-console.rahti.csc.fi/) and log in with your CSC username
     * On the `Overview` page, find the `login commands` section and the `Log into the registry` command. 
