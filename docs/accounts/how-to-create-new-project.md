@@ -17,10 +17,7 @@ have read and accepted the General Terms of Use for..._
 8. Click _Create project_.
 
 !!! Note
-    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Otherwise,
-    select Commercial. Academic projects can be
-    opened only by employees of Finnish higher education institutions,
-    state research institutes, and CSC.
+    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be opened only by members of Finnish higher education institutions, state research institutes and CSC.
 
 Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
 
