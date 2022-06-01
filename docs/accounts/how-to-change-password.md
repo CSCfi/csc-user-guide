@@ -10,11 +10,11 @@ password reset link ordered to your email.
 
 ![Landing page](images/small/landing-page.png)
 
-2. Go to _My Profile_ and click _Change password_.
+1. Go to _My Profile_ and click _Change password_.
 
 ![My profile](images/small/my-profile.png)
 
-3. Enter your current password and the new password twice. Click _Save_.
+1. Enter your current password and the new password twice. Click _Save_.
 
 ![Change password](images/small/change-password.png)
 
