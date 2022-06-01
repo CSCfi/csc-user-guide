@@ -16,7 +16,7 @@ However, the amount of billing units must always remain positive.
 
 *   **LUMI projects** used to manage access to LUMI and the resources provided by it. LUMI projects are restricted to LUMI environment only (LUMI-C, LUMI-G etc.). Finnish LUMI projects are fixed in time and resources, and the total resources must be defined already in the project application.
 
-*   **MyCSC.csc.fi portal** MyCSC is the self-service CSC customer portal for research and education customers and end-users. MyCSC is also available for any other CSC customer or end-user, if they have CSC user accounts according to the CSCID policies.
+*   **My.csc.fi portal** MyCSC is the self-service CSC customer portal for research and education customers and end-users. MyCSC is also available for any other CSC customer or end-user, if they have CSC user accounts according to the CSCID policies.
 MyCSC portal offers users the functionality for registering CSC user accounts, creating computing or data projects, adding members to projects, and applying resources for projects. Users can also manage their projects and project lifecycles through MyCSC, and they can see the resources consumption and amount of stored data there.
 
 *   **FMI user accounts** The Puhti supercomputer has a separate partition for the Finnish Meteorological Institute. FMI users are also allowed to use the general partition of Puhti for normal projects. [See the specific instructions for FMI users](fmi.md).
