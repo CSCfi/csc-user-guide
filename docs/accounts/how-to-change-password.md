@@ -28,17 +28,29 @@ password reset link ordered to your email.
 
 ## Using password reset link
 
-[![Landing page](images/small/landing-page.png)](images/large/landing-page.png)
-[![virtu, Haka or CSC](images/small/virtu-haka-or-csc.png)](images/large/virtu-haka-or-csc.png)
-[![CSC login](images/small/csc-login.png)](images/large/csc-login.png)
-[![Forgot password](images/small/forgot-password.png)](images/large/forgot-password.png)
 
-1. Go to [MyCSC](http://my.csc.fi). Click _Log in_.
-1. Choose _CSC login_.
-1. Click _Forgot your password?_
-1. Enter your CSC username and click _Next_. Instructions are sent to the email
+
+
+
+* Go to [MyCSC](http://my.csc.fi). Click _Log in_.
+
+![Landing page](images/small/landing-page-mid.png)
+
+
+* Choose _CSC login_.
+
+![virtu, Haka or CSC](images/small/virtu-haka-or-csc-mid.png)
+
+* Click _Forgot your password?_
+
+![CSC login](images/small/csc-login-mid.png)
+
+
+* Enter your CSC username and click _Next_. Instructions are sent to the email
    address associated with your CSC user account.
-   
+
+![Forgot password](images/small/forgot-password-mid.png)
+ 
 <figure class="video_container">
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/2QH86rtI4FI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>   
