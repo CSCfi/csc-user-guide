@@ -1,7 +1,7 @@
 # How to change password
 
 You can change your password in two ways: Using the current password or with a
-password reset link ordered to your email.
+password reset link ordered to your email. You can follow the instructions below or watch the guided video.
 
 ## Using current password
 
