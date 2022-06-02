@@ -126,7 +126,6 @@
 * [Orfeo ToolBox](otb.md) for remote sensing applications
 * [PCL](pcl.md) for 2D/3D image and point cloud processing
 * [PDAL](pdal.md) for point cloud translations and processing
-* [pktools](pktools.md) for remote sensing applications
 * [QGIS](qgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) R spataial analysis libraries
 * [SAGA GIS](saga-gis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
