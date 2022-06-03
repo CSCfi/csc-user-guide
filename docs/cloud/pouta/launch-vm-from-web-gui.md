@@ -51,6 +51,8 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 **Figure** The _Access & Security_ subpage in the cPouta web interface
 
 Finalize the key installation in the **Linux** and **Mac OS X** environments:
+If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem.
+The following procedure will remain same.
 
 ```bash
 cd ~
@@ -66,7 +68,7 @@ ssh-keygen -p -f .ssh/keyname.pem
 chmod 400 .ssh/keyname.pem
 ```
 
-_keyname.pem_ is the file you downloaded.
+_keyname.pem_ or keyname.cer is the file you downloaded.
 
 In **Windows** environments, the downloaded private key can be loaded, for example, in the Putty SSH client. This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use. Putty and puttygen are available at [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html). Using these programs does not require administrator privileges. As with Linux, in Windows it is also important to store the keyfile in a secure location with limited permissions.
 

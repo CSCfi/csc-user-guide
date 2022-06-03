@@ -1,5 +1,14 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 8 25.5.2022
+
+* A new [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization/) has been added for running applications with GPU acceleration.
+* Improved the main dashboard page layout.
+* Improved login page layout.
+* Added more visible warnings about home directory quota.
+* Added CSC User guides links to all apps.
+* Open onDemand version updated to 2.0.24.
+
 ## Puhti has been updated with additional local disks
 
 Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes.

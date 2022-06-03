@@ -56,19 +56,24 @@ For specific guidance regarding these steps or applying for resources for your C
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu or with CSC Login) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+
+After entering the temporaty code, **please press the Continue button**. Pressing Enter on your keybord is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
+
+
+For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 ![Authentication](images/desktop/authentication.png)
 
 
 !!! Note:
-    Login via Elixir or Life Science is currently not available. We are working to re-enable it as soon as possible. 
+    LSLogin (LifeScience login, before known ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
 
 
 
@@ -437,7 +442,7 @@ Once the results are encrypted, only the CSC project manager can export the file
 Open the terminal (right click) and  type the following syntax:
 
 ```text
-airlock-client-vX.X  <<username>> <<data_output_bucket>> <<filename>>
+airlock-client  <<username>> <<data_output_bucket>> <<filename>>
 ```
 
 Where *username* is your CSC account username, *data_output_bukcet* is the name that you want to give to the bucket into which the results are exported. The airlock client will generate the bucket automatically in the same CSC project in which your Desktop is. *Filename* is the name of the encrypted files that you want to export.
@@ -445,7 +450,7 @@ Where *username* is your CSC account username, *data_output_bukcet* is the name 
 For example:
 
 ```text
-airlock-client-vX.X  cscuser  analysis-2022  results-03.csv.c4gh
+airlock-client cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
 Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
