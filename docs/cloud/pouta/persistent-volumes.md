@@ -64,7 +64,7 @@ Then you can mount it:
 
     sudo mount /dev/vdb /media/volume
 
-you can also check the status of the enlarged volume of the instance's new size  in a mounted XFS filesystem using the following command:
+You can also check the status of the volume in a mounted XFS filesystem using the following command:
 
     sudo xfs_growfs /dev/vdb
 
