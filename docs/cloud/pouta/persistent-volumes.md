@@ -179,3 +179,33 @@ colleague to whom you want to transfer the volume.
 Your colleague can accept the transfer request of this volume:
 
     openstack volume transfer request accept <transferID> <authKey>
+
+## Expanding size to the attached volumes in the Pouta web interface
+
+Previuosly you have created and attached a volume. In this section you are going to enlarge the size of the volume attached to the instance. Before you attempt for volume exapansion you have to detach the volume from the instance, please remember to unmount the volume before detaching it!
+
+    sudo umount /dev/vdb
+
+To expand the volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** buttonn for the volume you want to enlarge and select **Extend Volume**. Input the the volume amount you want to enlarge in (GiB) in the field **New Size (GiB)**. Finally, click the **Extend Volume** button.
+To attach an expanded volume similar to the previous attach persisitent volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you expanded and select **Manage attachments**. Select the instance (i.e. virtual machine) you want to attach the volume to in the **Attach to Instance** selector.
+
+![Expand persistent volume](/img/volume-expand-horizon1.png)
+
+Once you have logged in to your virtual machine, you can list the
+volumes:
+
+    sudo parted -l
+
+Similar to the previous persisitent volume creation you can identify the volume based on its size. First mount the path:
+
+    sudo mount /dev/vdb /media/volume
+
+Now you can check the status of the volume in a mounted XFS filesystem using the following command:
+
+    sudo xfs_growfs /dev/vdb
+
+Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
+
+    sudo umount /dev/vdb
+
+
