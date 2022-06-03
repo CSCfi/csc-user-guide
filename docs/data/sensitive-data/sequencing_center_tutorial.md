@@ -243,10 +243,25 @@ tool when data is used in the working environment.
 
 If the data is used in other environments, decryption must be done by the user.
 
+In SD Connect service the shared bucket, in this example animine_data_import_1, needs some preparations befor the uploaded data 
+can  be downloaded. 
+
+First user must share the bucket to her own project too. After that the uploaded data can be accessed, not through the normal data _Browser_ view but  through the _Shared_ view of SD Connect. 
+
 In the example above researcher _Tiina Tutkija_ shared a data bucket _animine_data_import_1_ in Allas service 
 to receive data from sequencing center. The sequencing center uploaded file _run_12_R1.fastq.c4gh_ to the bucket. 
-Tiina can now use [SD Connect](https://sd-connect.csc.fi) to download this file to her local computer. However, 
-after download the file  is still in ecrypted format. To decrypt the file Tiina opens the  _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create 
+Tiina can now use [SD Connect](https://sd-connect.csc.fi) to download this file to her local computer. 
+
+   * First Tiina checks the _Project Identifier_ string of her project and copies it to the clip board. 
+
+   * Then on the _Browser_ view of SD Connect she presses the _Share_ buttonm of the bucket (animine_data_import_1). This opens the Bucket sharing page. Here Tiina turns on _read_ and _write_ permissions and adds her Project Identifier to the field:
+_Project Identifiers to share with_. The sharing is activated by cliking the _Share_ button.
+
+   * Next Tiina moves to the _Shared to the project_ view which now includes bucket _animine_data_import_1_. 
+She can now open the bucket and start downloading the data.
+
+
+However, after download the file  is still in ecrypted format. To decrypt the file Tiina opens the  _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create 
 the encryption keys. 
 
 Now she uses this tool to decrypt the data. In crypt4gh interfave she first clicks _Load My Private Key_ and the selects the _animine_crypt4gh.key_ that is the secret key used by her research project. Then se uses _Select File_ to select the file _run_12_R1.fastq.c4gh_ she just downloaded to her computer. Next she clicks _Decrypt File_ boutton. _crypt4gh-gui_ will now
