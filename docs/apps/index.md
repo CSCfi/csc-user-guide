@@ -122,7 +122,6 @@
 * [Geoconda](geoconda.md) - Python spatial analysis libraries
 * [GRASS GIS](grass.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [LAStools](lastools.md) for LiDAR datasets
-* [Mapnik](mapnik.md) for rendering maps
 * [OpenDroneMap](opendronemap.md) for processing aerial drone imagery
 * [Orfeo ToolBox](otb.md) for remote sensing applications
 * [PCL](pcl.md) for 2D/3D image and point cloud processing
@@ -134,7 +133,6 @@
 * [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
-* [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
 * [SPLITS](splits.md) for time series analysis of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 

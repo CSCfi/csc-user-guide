@@ -7,7 +7,7 @@ Beckman Institute of the University of Illinois.
 
 ## Available
 
-* Puhti: version 2.13, 2.14-cuda
+* Puhti: version 2.13, 2.14-cuda, 3.0alpha11-cuda
 * Mahti: version 2.14
 
 ## License
@@ -111,7 +111,7 @@ sbatch namd_job.bash
 ```
 
 !!! Note
-    Following the RHEL8 update on Mahti, you need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
+    Following the RHEL8 update on Mahti, you may need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
 
 ## References
 
