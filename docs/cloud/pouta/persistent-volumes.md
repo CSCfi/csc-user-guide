@@ -200,7 +200,7 @@ volumes:
 
     sudo parted -l
 
-Similar to the previous persisitent volume creation you can identify the volume based on its size. First mount the path:
+Similar to the previous persistent volume creation you can identify the volume based on its size. First mount the path:
 
     sudo mount /dev/vdb /media/volume
 
