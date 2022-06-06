@@ -181,7 +181,7 @@ workflows.
 
 ### General tools and tutorials for efficient IO
 
-* [Fast disk areas in CSC computing environment](https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html)
+* [Fast disk areas in CSC computing environment]
 
 [built-in option for farming-type workloads]: throughput.md#workflow-tools-integrated-into-common-simulation-software
 [gmx]: ../../apps/gromacs.md#high-throughput-computing-with-gromacs
@@ -209,3 +209,4 @@ workflows.
 [Using GREASY to run multiple Gaussian jobs on Puhti]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../overview.md#gpu-nodes
+[Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
