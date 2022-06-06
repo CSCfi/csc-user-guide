@@ -58,7 +58,7 @@ graph TD
     G -->|No| I(<a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
     H -->|Single| J(Number of subtasks)
     H -->|Multi| K(Number of subtasks)
-    J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a><br><a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a>)
+    J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a><br><a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
     K -->|<100| O(<a href='/computing/running/fireworks/'>FireWorks</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
     J -->|>100| L(<a href='http://flux-framework.org/'>Flux</a>)
     K -->|>100| L
