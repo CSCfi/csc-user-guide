@@ -191,7 +191,7 @@ Previuosly you have created and attached a volume. In this section you are going
     sudo umount /dev/vdb
 
 To expand the volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** buttonn for the volume you want to enlarge and select **Extend Volume**. Input the the volume amount you want to enlarge in (GiB) in the field **New Size (GiB)**. Finally, click the **Extend Volume** button.
-To attach an expanded volume similar to the previous attach persisitent volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you expanded and select **Manage attachments**. Select the instance (i.e. virtual machine) you want to attach the volume to in the **Attach to Instance** selector.
+To attach an expanded volume similar to the previous attach persistent volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you expanded and select **Manage attachments**. Select the instance (i.e. virtual machine) you want to attach the volume to in the **Attach to Instance** selector.
 
 ![Expand persistent volume](/img/volume-expand-horizon1.png)
 
