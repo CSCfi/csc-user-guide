@@ -104,6 +104,10 @@ body {
     vertical-align: middle !important;
 }
 
+.md-typeset table th a {
+    color: #ffffff !important;
+}
+
 .md-typeset__scrollwrap {
     text-align: center;
     margin: 2em -.8rem;
@@ -225,6 +229,15 @@ body {
     background-color: #c9e2ae !important;
     border-radius: 5px 5px 0px 0px;
     padding-left: 1rem !important;
+}
+
+div.mermaid {
+    overflow: auto;
+}
+
+svg[id*="mermaid"] {
+    width: auto;
+    height: auto;
 }
 
 .admonition-title:before {
@@ -356,4 +369,8 @@ a[title="Home"] {
 
 .md-typeset ul {
     margin: 0;
+}
+
+.md-typeset .twemoji svg {
+    max-width: 24px !important;
 }

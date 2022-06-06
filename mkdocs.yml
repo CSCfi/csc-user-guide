@@ -226,19 +226,27 @@ extra_javascript:
   - 'assets/javascripts/extra.js'
   - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
   - 'assets/javascripts/cookie_consent.js'
+  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
     
-
 
 markdown_extensions:
   - toc:
       toc_depth: 1-6
   - admonition
+  - abbr
   - attr_list
   - def_list
   - pymdownx.details
   - pymdownx.tabbed
-  - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
 
 extra:
   analytics:
