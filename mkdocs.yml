@@ -211,7 +211,7 @@ theme:
     text: 'Raleway'
     code: 'Source Code Pro'
 
-  logo: 'img/Docs_CSC_logo.svg#headerlogo"'
+  logo: 'img/Docs_CSC_logo.svg#headerlogo'
   cscfi_logo: 'img/CSCfi_text.png#headerlogo'
   mycsc_logo: 'img/MyCSC_text.png#headerlogo'
   research_logo: 'img/Research_text.png#headerlogo'
