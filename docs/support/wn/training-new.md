@@ -8,8 +8,8 @@ guidelines on how to run workflows and tasks with heavy IO patterns in CSC's
 computing environment. By carefully selecting the most appropriate technology
 stack, your jobs will idle less in the queue, IO-operations will be more
 efficient and the performance of the whole HPC system will remain stable and
-fast for all users. To this end, the page presents flow charts and tables that
-will help you narrow down the most appropriate tools for your use case.
+fast for all users. To this end, the page presents flow charts that will help
+you narrow down the most appropriate tools for your use case.
 
 ## New guide for getting started with machine learning at CSC, 8.4.2022
 
