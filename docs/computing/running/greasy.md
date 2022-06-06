@@ -18,9 +18,22 @@ For detailed documentation please check:
 
    * [GREASY manual (at BSC)](https://github.com/BSC-Support-Team/GREASY/raw/master/doc/greasy_userguide.pdf)
    * [GREASY instructions (at CSCS) ](https://user.cscs.ch/tools/high_throughput/)
- 
+
+## Strengths of Greasy
+
+* Easy to use
+* Integrates well with Slurm
+* OpenMP threading support
+
+## Disadvantages of Greasy
+
+* Only simple dependencies can be handled
+* No error recovery strategies
+* Creates job steps
+
 !!! Note
     You should not use GREASY to run MPI parallel tasks. GREASY is not able to manage MPI jobs effectively.
+
 ## GREASY Task lists
 
 Job scheduling with GREASY is based on task lists that have one task (command) in one row. In the simplest approach,

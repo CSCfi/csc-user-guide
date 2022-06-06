@@ -2,6 +2,20 @@
 
 [FireWorks](https://materialsproject.github.io/fireworks/) is a free, open-source tool for defining, managing and executing workflows with multiple steps and potentially complex dependencies. Workflows are flexibly defined using YAML, JSON or through a Python API and stored in a MongoDB database. This page describes how to define and execute FireWorks workflows in CSC's computing environment using a MongoDB running in the Rahti container cloud.
 
+## Strengths of FireWorks
+
+* Easy installation
+* Can handle parallel (MPI/OpenMP) subtasks
+* Supports complicated workflows with several dependent steps
+
+## Disadvantages of FireWorks
+
+* Requires setting up a MongoDB database
+* Steep learning curve
+* May produce a lot of log files
+* May create a lot of job steps
+* Integrates with Slurm, but all subtasks must use identical resources
+
 ## Installing FireWorks and setting up MongoDB in Rahti
 
 FireWorks is easy to install. We recommend using [Tykky](../containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../containers/tykky.md#plain-pip-installations). 
