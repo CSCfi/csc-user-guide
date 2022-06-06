@@ -17,10 +17,7 @@ If integrated support for farming-type workloads is unavailable in your software
 !!! Note
     You do not need to issue `srun` if you intend to run *serial* jobs as a part of your HTC workflow. A lot of job steps can be avoided just by dropping unnecessary calls of `srun`.
 
-You can use the flowchart below to narrow down the most appropriate technologies for your high-throughput computing workflow.
-
-!!! Note
-    This is not a complete list and other tools might also work for your use case. In case you're uncertain how to implement your workflow, please [contact CSC Service Desk](../../support/contact.md)
+You can use the flowchart below to narrow down the most appropriate technologies for your high-throughput computing workflow. Please note that this is not a complete list and other tools might also work for your use case. In case you're uncertain how to implement your workflow, please [contact CSC Service Desk](../../support/contact.md)
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'Raleway'}}}%%
