@@ -22,7 +22,6 @@ For detailed documentation please check:
 ## Strengths of Greasy
 
 * Easy to use
-* Integrates well with Slurm
 * OpenMP threading support
 
 ## Disadvantages of Greasy
@@ -30,6 +29,7 @@ For detailed documentation please check:
 * Only simple dependencies can be handled
 * No error recovery strategies
 * Creates job steps
+* Integrates with Slurm, but subtasks must use identical resources
 
 !!! Note
     You should not use GREASY to run MPI parallel tasks. GREASY is not able to manage MPI jobs effectively.
