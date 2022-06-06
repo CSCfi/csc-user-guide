@@ -59,7 +59,7 @@ graph TD
     H -->|Single| J(Number of subtasks)
     H -->|Multi| K(Number of subtasks)
     J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a><br><a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
-    K -->|<100| O(<a href='/computing/running/fireworks/'>FireWorks</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
+    K -->|<100| O(<a href='/computing/running/fireworks/'>FireWorks</a>)
     J -->|>100| L(<a href='http://flux-framework.org/'>Flux</a>)
     K -->|>100| L
 ```

@@ -1,8 +1,15 @@
 # Training & tutorials
 
-## CSC Summer School in High-Performance Computing, 26.6.2022-5.7.2022
+## Documentation on High-throughput computing and workflows updated, 6.6.2022
 
-The CSC Summer School in High-Performance Computing is back! [See here for more information and register now](https://ssl.eventilla.com/summerschool)!
+Our documentation on [high-throughput computing and workflows](../../computing/running/throughput.md)
+has been updated and extended. The page contains important instructions and
+guidelines on how to run workflows and tasks with heavy IO patterns in CSC's
+computing environment. By carefully selecting the most appropriate technology
+stack, your jobs will idle less in the queue, IO-operations will be more
+efficient and the performance of the whole HPC system will remain stable and
+fast for all users. To this end, the page presents flow charts and tables that
+will help you narrow down the most appropriate tools for your use case.
 
 ## New guide for getting started with machine learning at CSC, 8.4.2022
 
