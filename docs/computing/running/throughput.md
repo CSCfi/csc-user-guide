@@ -17,7 +17,10 @@ If integrated support for farming-type workloads is unavailable in your software
 !!! Note
     You do not need to issue `srun` if you intend to run *serial* jobs as a part of your HTC workflow. A lot of job steps can be avoided just by dropping unnecessary calls of `srun`.
 
-You can use the flowchart below to narrow down the most appropriate technologies for your high-throughput computing workflow. Note that this is not a complete list and other tools may also work for your specific use case.
+You can use the flowchart below to narrow down the most appropriate technologies for your high-throughput computing workflow.
+
+!!! Note
+    This is not a complete list and other tools might also work for your use case. In case you're uncertain how to implement your workflow, please [contact CSC Service Desk](../../support/contact.md)
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'Raleway'}}}%%
@@ -36,7 +39,7 @@ graph TD
     K -->|>100| L
 ```
 
-Please see the table below for an overview of the features and capabilities of some of the workflow tools recommended by CSC.
+A qualitative overview of the features and capabilities of some of the workflow tools recommended by CSC is presented below.
 
 ||[Nextflow](../../support/tutorials/nextflow-puhti.md)|[Snakemake](https://snakemake.readthedocs.io/en/stable/)|[Flux](http://flux-framework.org/)|[GREASY](greasy.md)|[HyperQueue](https://it4innovations.github.io/hyperqueue/stable/)|[FireWorks](fireworks.md)|[Array jobs](array-jobs.md)|[GNU Parallel](../../support/tutorials/many.md)|
 ||:------:|:-------:|:--:|:----:|:--------:|:-------:|:--------:|:----------:|
@@ -57,7 +60,6 @@ Please see the table below for an overview of the features and capabilities of s
 *[Error recovery]: The workflow tool supports detection/logging of errors and restarting of failed subtasks
 *[Parallelization support]: The workflow tool supports parallel subtasks
 *[Slurm integration]: The workflow tool integrates well with Slurm
-
 
 ### Input/output efficiency
 
