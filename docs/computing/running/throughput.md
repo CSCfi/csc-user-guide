@@ -12,7 +12,7 @@ Does your workflow involve running a substantial amount of (short) batch jobs? T
 
 To enable high-throughput computing while avoiding the above issues, jobs and job steps should be packed so that they can be executed with minimal invocations of `sbatch` and `srun`. The first and best option is to check whether the software you're using comes with a [built-in option for farming-type workloads](throughput.md#workflow-tools-integrated-into-common-simulation-software). This is true for applications such as [Gromacs](../../apps/gromacs.md#high-throughput-computing-with-gromacs), [CP2K](../../apps/cp2k.md#high-throughput-computing-with-cp2k) and [LAMMPS](../../apps/lammps.md#high-throughput-computing-with-lammps).
 
-If integrated support for farming-type workloads is unavailable in your software, another option is to use external tools such as [HyperQueue](https://github.com/It4innovations/hyperqueue) or [GNU Parallel](../../support/tutorials/many.md). Be aware that some tools, for example [GREASY](greasy.md) and [FireWorks](fireworks.md), still create a lot of job steps although they may allow you to conveniently pack your, potentially interdependent, subtasks to be executed as a single batch job.
+If integrated support for farming-type workloads is unavailable in your software, another option is to use external tools such as [HyperQueue](https://it4innovations.github.io/hyperqueue/stable/) or [GNU Parallel](../../support/tutorials/many.md). Be aware that some tools, for example [GREASY](greasy.md) and [FireWorks](fireworks.md), still create a lot of job steps although they may allow you to conveniently pack your, potentially interdependent, subtasks to be executed as a single batch job.
 
 !!! Note
     You do not need to issue `srun` if you intend to run *serial* jobs as a part of your HTC workflow. A lot of job steps can be avoided just by dropping unnecessary calls of `srun`.
@@ -27,7 +27,7 @@ graph TD
     E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a>)
     E -->|Parallel| G(Dependencies between subtasks?)
     G -->|Yes| H(Single- or multinode subtasks?)
-    G -->|No| I(<a href='https://github.com/It4innovations/hyperqueue'>HyperQueue</a>)
+    G -->|No| I(<a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
     H -->|Single| J(Number of subtasks)
     H -->|Multi| K(Number of subtasks)
     J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a><br><a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a>)
@@ -38,7 +38,7 @@ graph TD
 
 Please see the table below for an overview of the features and capabilities of some of the workflow tools recommended by CSC.
 
-||[Nextflow](../../support/tutorials/nextflow-puhti.md)|[Snakemake](https://snakemake.readthedocs.io/en/stable/)|[Flux](http://flux-framework.org/)|[GREASY](greasy.md)|[HyperQueue](https://github.com/It4innovations/hyperqueue)|[FireWorks](fireworks.md)|[Array jobs](array-jobs.md)|[GNU Parallel](../../support/tutorials/many.md)|
+||[Nextflow](../../support/tutorials/nextflow-puhti.md)|[Snakemake](https://snakemake.readthedocs.io/en/stable/)|[Flux](http://flux-framework.org/)|[GREASY](greasy.md)|[HyperQueue](https://it4innovations.github.io/hyperqueue/stable/)|[FireWorks](fireworks.md)|[Array jobs](array-jobs.md)|[GNU Parallel](../../support/tutorials/many.md)|
 ||:------:|:-------:|:--:|:----:|:--------:|:-------:|:--------:|:----------:|
 |No excessive IO|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="yes" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:{ title="Yes" }|
 |Packs jobs/job steps|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|
