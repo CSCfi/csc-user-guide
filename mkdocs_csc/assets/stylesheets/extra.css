@@ -104,6 +104,10 @@ body {
     vertical-align: middle !important;
 }
 
+.md-typeset table th a {
+    color: #ffffff !important;
+}
+
 .md-typeset__scrollwrap {
     text-align: center;
     margin: 2em -.8rem;
@@ -365,4 +369,8 @@ a[title="Home"] {
 
 .md-typeset ul {
     margin: 0;
+}
+
+.md-typeset .twemoji svg {
+    max-width: 24px !important;
 }

@@ -232,11 +232,15 @@ markdown_extensions:
   - toc:
       toc_depth: 1-6
   - admonition
+  - abbr
   - attr_list
   - def_list
   - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

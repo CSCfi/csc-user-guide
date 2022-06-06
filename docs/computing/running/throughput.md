@@ -24,17 +24,40 @@ You can use the flowchart below to narrow down the most appropriate technologies
 graph TD
     C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>")
     C -->|No| E(Serial or parallel subtasks?)
-    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br>xargs)
+    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a>)
     E -->|Parallel| G(Dependencies between subtasks?)
     G -->|Yes| H(Single- or multinode subtasks?)
     G -->|No| I(<a href='https://github.com/It4innovations/hyperqueue'>HyperQueue</a>)
     H -->|Single| J(Number of subtasks)
     H -->|Multi| K(Number of subtasks)
-    J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a>)
+    J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a><br><a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a>)
     K -->|<100| O(<a href='/computing/running/fireworks/'>FireWorks</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
-    J -->|>100| L(Flux)
+    J -->|>100| L(<a href='http://flux-framework.org/'>Flux</a>)
     K -->|>100| L
 ```
+
+Please see the table below for an overview of the features and capabilities of some of the workflow tools recommended by CSC.
+
+||[Nextflow](../../support/tutorials/nextflow-puhti.md)|[Snakemake](https://snakemake.readthedocs.io/en/stable/)|[Flux](http://flux-framework.org/)|[GREASY](greasy.md)|[HyperQueue](https://github.com/It4innovations/hyperqueue)|[FireWorks](fireworks.md)|[Array jobs](array-jobs.md)|[GNU Parallel](../../support/tutorials/many.md)|
+||:------:|:-------:|:--:|:----:|:--------:|:-------:|:--------:|:----------:|
+|No excessive IO|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:{ title="Yes" }|
+|Packs jobs/job steps|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-x-circle-24:{ title="No" }|
+|Easy to setup|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:|:octicons-check-circle-24:{ title="Yes" }|
+|Dependency support|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-x-circle-24:{ title="No" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-x-circle-24:{ title="No" }|:octicons-x-circle-24:{ title="No" }|
+|Container support|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-check-circle-24:|
+|Error recovery|:octicons-check-circle-24:{ title="Yes" }|:octicons-x-circle-24:{ title="No" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-x-circle-24:{ title="No" }|:octicons-x-circle-24:{ title="No" }|:octicons-check-circle-24:|:octicons-x-circle-24:{ title="No" }|:octicons-x-circle-24:{ title="No" }|
+|Parallelization support|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-check-circle-24:{ title="Yes" }|:octicons-x-circle-24:{ title="No" }|
+|Slurm integration |:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-check-circle-24:|:octicons-check-circle-24:|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|:octicons-check-circle-24:{ title="Yes" }|:octicons-alert-24:{ title="Partial/caveats/uncertain" }|
+
+*[No excessive IO]: The workflow tool does not produce a lot of extra files/directories
+*[Packs jobs/job steps]: The workflow tool is able to pack multiple jobs (job steps) to be executed as a single job (job step)
+*[Easy to setup]: The workflow tool is easy to install and setup
+*[Dependency support]: The workflow tool supports dependencies between subtasks
+*[Container support]: The workflow tool supports execution with containers
+*[Error recovery]: The workflow tool supports detection/logging of errors and restarting of failed subtasks
+*[Parallelization support]: The workflow tool supports parallel subtasks
+*[Slurm integration]: The workflow tool integrates well with Slurm
+
 
 ### Input/output efficiency
 
@@ -70,7 +93,7 @@ graph TD
     H -->|No, I have to use Lustre| J
 ```
 
-## Tools and tutorials related to workflows and HTC
+## More information on workflows and efficient IO
 
 ### General tools that run multiple jobs with one script
 
