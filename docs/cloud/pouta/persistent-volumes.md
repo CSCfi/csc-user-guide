@@ -182,7 +182,7 @@ Your colleague can accept the transfer request of this volume:
 
 ## Expanding size to the attached volumes in the Pouta web interface
 
-Previuosly you have created and attached a volume. In this section you are going to enlarge the size of the volume attached to the instance. Before you attempt for volume exapansion you have to detach the volume from the instance, please remember to unmount the volume before detaching it!
+Previuosly you have created and attached a volume. In this section you are going to enlarge the size of the volume attached to the instance. Before you attempt for volume expansion you have to detach the volume from the instance, please remember to unmount the volume before detaching it!
 
     sudo umount /dev/vdb
 
