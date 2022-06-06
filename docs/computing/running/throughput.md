@@ -43,8 +43,9 @@ interdependent, subtasks to be executed as a single batch job.
 
 You can use the flowchart below to narrow down the most appropriate technologies
 for your high-throughput computing workflow. Please note that this is not a complete
-list and other tools might also work for your use case. In case you're uncertain how
-to implement your workflow, please [contact CSC Service Desk]
+list and other tools might also work for your use case. The limit of 100 subtasks
+is a guideline. In case you're uncertain how to implement your workflow, please
+[contact CSC Service Desk]
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'Raleway'}}}%%
