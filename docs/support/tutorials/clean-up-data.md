@@ -11,11 +11,10 @@ Also note that:
 We kindly ask all users to help to keep disk usage manageable, and performance reasonable. Please do the following tasks:
 
 * **Remove files** that are not needed anymore in your project's `scratch` folder. Note that we cannot bring back files that you delete by mistake so do these operations carefully!
-* **Compress files** if it reduces file size. Ascii text files usually compress very well. Test with one file first. If the file size drops by 50%, go ahead and compress all similar files.
+* **Compress files** if it reduces file size. Ascii text files usually compress very well. Test with one file first. If the file size drops by 50%, go ahead and compress all similar files. [See here for available compression tools](env-guide/packing-and-compression-tools.md).
 * **Move files** not in active use now, but that need to be available later during the project. The typical model is to move the files to 
 [Allas](../../data/Allas/index.md). We recommend to use [a-tools](../../data/Allas/using_allas/a_commands.md) for small to medium sized data transfers, in particular when you have a large amount of small files.  These tools make the usage of Allas safer, and can make your data management easier. For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md). A tutorial for data transfer is available at [allas-examples](../../data/Allas/allas-examples.md).
 * **Archive files** that should be available longer than the lifetime of compute projects. Options for this can be for example your organizations own storage systems, or [IDA safe storage for research data](https://www.fairdata.fi/en/).
-
 
 ## Identifying where you have data
 
@@ -33,6 +32,3 @@ CSC has developed an approximate tool called LUE (Lustre usage explorer) for rep
 ## Future automatic removal of files
 
 There is a policy of removing files older than 90 days from `scratch` (not `projappl`) to ensure that only actively used data resides on the disk. **This policy has not yet been implemented, but we plan to take this cleaning procedure in use later in 2022**. Before we take it in use we will warn you and give instructions for how to manage what files are affected.
-
-
-
