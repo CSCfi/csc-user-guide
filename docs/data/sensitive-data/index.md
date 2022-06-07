@@ -83,9 +83,36 @@ Analyse and compute.
   * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
+## [Sensitive Data Desktop Limited Edition](./sd-desktop-le.md)
+Analyse and compute secondary use data (access to this services requires a Findata permit).
+  
+  * [**Key features**](./sd-desktop-le.md#key-features)
 
+  * [**Before you start**](./sd_desktop-le.md#before-you-start) 
   
+  * [**Overview**](./sd_desktop-le.md#overview) 
+ 
+  * [**Service access**](./sd_desktop-le.md#service-access)  
   
+  * [**Authentication**](./sd_desktop.md-le#authentication) 
+
+  * [**Setting up a virtual Desktop**](./sd_desktop.md-le#setting-up-a-virtual-desktop) 
+
+  * [**Working with your virtual Desktop**](sd-desktop-le.md#working-with-your-virtual-desktop)
+
+  * [**Accessing sensitive registry data within SD Desktop Limited Edition**](.sd-desktop-le.md#accessing-sensitive-registry-data-within-sd-desktop-limited-edition)
+
+  * [**Default programs available on SD Desktop Limited Edition and software customisation**](./sd-desktop-le.md#default-programs-available-on-sd-desktop-limited-edition-and-software-customisation)
+
+  * [**Data export from SD Desktop Limited Edition**](./sd_desktop.md-le#data-export-from-sd-desktop)
+  
+  * [**Deleting your virtual Desktop**](./sd-desktop-le.md#deleting-your-virtual-desktop)
+
+  * [**End of data access**](./sd-desktop-le.md#end-of-data-access)
+  
+  * [**Troubleshooting**](./sd_desktop.md-le#troubleshooting)
+  
+
 ## **Services in the pilot phase:**
 
   
