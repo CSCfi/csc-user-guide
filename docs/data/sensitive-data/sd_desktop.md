@@ -54,8 +54,6 @@ For specific guidance regarding these steps or applying for resources for your C
 
 ### Authentication
 
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
@@ -79,7 +77,6 @@ For specific guidance regarding the MFA activation on your CSC account, see the 
 
 ### Setting up a virtual Desktop
   
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
