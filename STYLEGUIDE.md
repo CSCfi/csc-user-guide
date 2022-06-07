@@ -24,6 +24,11 @@
    - Lengthier tutorials can be written under Support->Tutorials.
  - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
  - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
+ - If possible, try to keep your markdown lines shorter than 100 columns to improve readability
+   and reviewability of the source material
+   - Note that, for example, tables and preformatted code blocks cannot be split,
+     but ordinary paragraphs and bulleted lists will render perfectly fine when there
+     are line breaks in the source material
 
 ## Accessibility
  - [General guidelines](https://www.saavutettavuusvaatimukset.fi/)
