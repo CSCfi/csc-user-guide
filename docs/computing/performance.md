@@ -53,6 +53,7 @@ bottlenecks. At CSC, several profiling tools are available:
   OpenMP and hybrid MPI+OpenMP programs
 * [Intel Trace Analyzer and Collector](../apps/itac.md) is a MPI profiling and
   tracing tool for parallel programs
+* [AMD uProf](../apps/uprof.md) is a performance analysis tool for applications running on Windows and Linux operating systems.
 * [cProfile](cProfile.md) is the recommended, in-built profiling tool
   for Python programs
 * [nvprof](nvprof.md) is a command-line CUDA profiler and tracing tool
