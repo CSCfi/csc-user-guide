@@ -104,11 +104,11 @@ Analyse and compute secondary use data (access to this services requires a Finda
 
   * [**Default programs available on SD Desktop Limited Edition and software customisation**](./sd-desktop-le.md#default-programs-available-on-sd-desktop-limited-edition-and-software-customisation)
 
-  * [**Data export from SD Desktop Limited Edition**](./sd-desktop-le.md#data-export-from-sd-desktop)
+  * [**Data export from SD Desktop Limited Edition**](./sd-desktop-le.md#data-export-from-sd-desktop-limited-edition)
   
   * [**Deleting your virtual Desktop**](./sd-desktop-le.md#deleting-your-virtual-desktop)
 
-  * [**End of data access**](./sd-desktop-le.md#end-of-data-access)
+  * [**End of data access and data deletion policies**](./sd-desktop-le.md#end-of-data-access-and-data-deletion-policies)
   
   * [**Troubleshooting**](./sd-desktop-le.md#troubleshooting)
   
