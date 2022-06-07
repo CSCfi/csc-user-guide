@@ -98,7 +98,7 @@ namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} ap
 #SBATCH --ntasks-per-node=8  # test to find the optimum number, 2-64
 #SBATCH --cpus-per-task=16   # 128/(ntasks-per-node)
 #SBATCH --nodes=2
-#SBATCH --time=0:10:00        # time as hh:mm:ss
+#SBATCH --time=0:10:00        # time as `hh:mm:ss`
 #SBATCH --account=<project>
 
 module load gcc/9.3.0 openmpi/4.0.3 namd/2.14

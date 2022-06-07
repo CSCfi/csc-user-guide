@@ -23,7 +23,7 @@ Where the complete script to be inserted in  the field "Script before job execut
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00      # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as `hh:mm:ss`
 
 ulimit -s unlimited
 export PARA_ARCH=MPI         # use MPI 

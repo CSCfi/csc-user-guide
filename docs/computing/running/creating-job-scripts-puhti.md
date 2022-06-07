@@ -56,7 +56,7 @@ The time reservation is set with option `--time`
 #SBATCH --time=10:00:00
 ```
 
-Time is provided using the format __hh:mm:ss__ (optionally __d-hh:mm:ss__, where
+Time is provided using the format __`hh:mm:ss`__ (optionally __`d-hh:mm:ss`__, where
 __d__ is _days_). The maximum time depends on the selected queue. When the time
 reservation ends, the job is terminated regardless of whether it is finished or not, so the time
 reservations should be sufficiently long. A job consumes billing units according to

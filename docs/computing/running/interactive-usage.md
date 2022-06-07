@@ -47,7 +47,7 @@ Available options for `sinteractive` in Puhti are:
 | Option        | Function                                                 | Default              | Max |
 | ------------- | -------------------------------------------------------- | -------------------- |-----|
 | -i, --interactive | Set resource requests for the job interactively.      |                      | |
-| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             | 7-00:00:00 |
+| -t, --time    | Run time reservation in minutes or in format `d-hh:mm:ss`. | 24:00:00             | 7-00:00:00 |
 | -m, --mem     | Memory reservation in MB.                                | 2000                 | 76000|
 | -j, --jobname | Job name.                                                | interactive          | |
 | -c, --cores   | Number of cores.                                         | 1                    | 8 |
@@ -71,7 +71,7 @@ Available options for `sinteractive` in Mahti are:
 | Option        | Function                                                 | Default              |
 | ------------- | -------------------------------------------------------- | -------------------- |
 | -i, --interactive | Set resource requests for the job interactively       |                      |
-| -t, --time    | Run time reservation in minutes or in format d-hh:mm:ss. | 24:00:00             |
+| -t, --time    | Run time reservation in minutes or in format `d-hh:mm:ss`. | 24:00:00             |
 | -j, --jobname | Job name.                                                | interactive          |
 | -c, --cores   | Number of cores ( + 1.875 GB of memory/core)             | 2                    |
 | -A, --account | Accounting project.                                      |                      |
