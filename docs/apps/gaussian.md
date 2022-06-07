@@ -43,7 +43,7 @@ Here we give a brief example on what type of resources can affect the performanc
 
 For a `b3lyp/cc-pVDZ, %mem=10GB` single-point calculation the results are:
 
-| platform/cores      | wall time(hh:mm:ss) |  billing units       |
+| platform/cores      | wall time(`hh:mm:ss`) |  billing units       |
 | ------------------: | ------------------: |  ------------------: |
 | Puhti/10            | 00:04:19            |  0.73                |
 | mem=20/10           | 00:04:11            |  0.85                |
@@ -58,7 +58,7 @@ cost is significantly higher.
 
 If we do the same calculation but increase the size of the basis set to `b3lyp/cc-pVTZ` the results are:
 
-| platform/cores      | wall time(hh:mm:ss) |  billing units       |
+| platform/cores      | wall time(`hh:mm:ss`) |  billing units       |
 | ------------------: | ------------------: |  ------------------: |
 | Puhti/40            | 00:12:48            |  10.27               |
 | Mahti/128           | 00:06:30            |  10.83               |
@@ -69,7 +69,7 @@ Here we notice that the calculation on Mahti is twice as fast as on Puhti but th
 For a  wave function-based method like `MP2/cc-pVDZ`, the reserved memory (mem=), as well as
 use of local disk (nvme) significantly affects the performance:
 
-| platform/cores      | wall time(hh:mm:ss) |  billing units       |
+| platform/cores      | wall time(`hh:mm:ss`) |  billing units       |
 | ------------------: | ------------------: |  ------------------: |
 | Puhti, mem=40/10    | 00:37:55            |  8.94                |
 |        mem=80/10    | 00:19:32            |  5.91                |
