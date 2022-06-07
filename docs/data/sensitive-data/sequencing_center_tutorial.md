@@ -100,9 +100,9 @@ This way the data can be used both in users local environment and in the
 sensitive data services of CSC.
 
 
-## 2.2 Project key generation example:
+## 3. Project key generation example:
 
-### 2.2.1 Generating keys
+### 3.1 Generating keys
 
 In the example below, researcher _Tiina Tutkija_ wants to use Allas to receive and store human sequence 
 data that she will use in her new research project. The project is called _AniMINE_. It
@@ -117,7 +117,7 @@ The key files generated are named based on the user account of the creator
 As the keys will be used by several members of the project, Tiina renames the key 
 files accordingly: _animine_crypt4gh.key_ and _animine_crypt4gh.pub_.
 
-### 2.2.2 Storing keys with SD Connect
+### 3.2 Storing keys with SD Connect
 
 Next Tiina Tutkija logs in [SD Connect service](https://sd-connect.csc.fi). 
 After connecting she checks that **Current project** setting refers to the CSC project 
@@ -174,7 +174,7 @@ And bucket _animine_pub_ contains object:
    * data/animine_crypt4gh.pub
 
 
-## 3. Opening a storage bucket for importing data from data producer.
+## 4. Opening a storage bucket for importing data from data producer.
 
 Once you have access to Allas, you can create a new data bucket there and share this bucket with the data producer. 
 This approach requires that the data producer too has a project at CSC. Usually the Finnish academic data producers, 
@@ -185,7 +185,7 @@ We recommend that you ask the data producer to encrypt your data with _CSC publi
 with the _key of your project_. This way you can use the data both in your local secure environment 
 and in CSC Sensitive Data Services.
 
-### 3.1 Using Puhti to create a shared bucket
+### 4.1 Using Puhti to create a shared bucket
 
 If you know the project number of the data producer, you can easily create a shared Allas 
 bucket using _a-tools_ commands in _Puhti_. First open terminal connection to _puhti.csc.fi_ 
@@ -234,7 +234,7 @@ Once all data has been imported, Tiina can close remove the external access righ
 a-access -rw project_2000111 animine_data_import_1
 ```
 
-## 4. Using encrypted data 
+## 5. Using encrypted data 
 
 The data stored to CSC using the procedure above is accessible only to the members of the research group.
 The data is encrypted with both CSC public key and resreach groups own public key. If the data is accessed 
@@ -260,11 +260,9 @@ _Project Identifiers to share with_. The sharing is activated by cliking the _Sh
    * Next Tiina moves to the _Shared to the project_ view which now includes bucket _animine_data_import_1_. 
 She can now open the bucket and start downloading the data.
 
-
 However, after download the file  is still in ecrypted format. To decrypt the file Tiina opens the  _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create 
 the encryption keys. 
 
 Now she uses this tool to decrypt the data. In crypt4gh interfave she first clicks _Load My Private Key_ and the selects the _animine_crypt4gh.key_ that is the secret key used by her research project. Then se uses _Select File_ to select the file _run_12_R1.fastq.c4gh_ she just downloaded to her computer. Next she clicks _Decrypt File_ boutton. _crypt4gh-gui_ will now
 ask the password of the secret key (H8koGN3lzkke in this case) after which a decryted version of the file, _run_12_R1.fastq_, is created next to the encryprted file. Tiina can now remove _run_12_R1.fastq.c4gh_ from her local computer and start working with the 
 _run_12_R1.fastq_ file.
-
