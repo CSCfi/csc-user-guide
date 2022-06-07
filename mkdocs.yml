@@ -208,10 +208,10 @@ theme:
   custom_dir: mkdocs_csc/
 
   font:
-    text: 'Raleway'
+    text: 'museo-sans'
     code: 'Source Code Pro'
 
-  logo: 'img/Docs_CSC_logo.svg#headerlogo"'
+  logo: 'img/Docs_CSC_logo.svg#headerlogo'
   cscfi_logo: 'img/CSCfi_text.png#headerlogo'
   mycsc_logo: 'img/MyCSC_text.png#headerlogo'
   research_logo: 'img/Research_text.png#headerlogo'
@@ -221,24 +221,33 @@ extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/extra_mobile.css'
   - 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css'
+  - 'https://use.typekit.net/csv4mjm.css'
 
 extra_javascript:
   - 'assets/javascripts/extra.js'
   - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
   - 'assets/javascripts/cookie_consent.js'
+  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
     
-
 
 markdown_extensions:
   - toc:
       toc_depth: 1-6
   - admonition
+  - abbr
   - attr_list
   - def_list
   - pymdownx.details
   - pymdownx.tabbed
-  - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
 
 extra:
   analytics:

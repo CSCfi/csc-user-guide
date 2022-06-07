@@ -8,6 +8,20 @@ with HPC environment. Although Nextflow pipelines allow us to choose Docker
 engine as an executor for running pipelines, please note that Docker 
 containers can't be used in Puhti due to the lack of administrative privileges for researchers.
 
+## Strengths of Nextflow
+
+* Easy installation
+* No database needed
+* Implicit parallelism supported
+* Can handle complex dependencies and conditional execution
+* Supports error recovery
+
+## Disadvantages of Nextflow
+
+* Limited MPI support
+* May create a lot of job steps and excess IO
+* Does not integrate well with Slurm
+
 ## How Singularity works with Nextflow
 The integration of Singularity containers with Nextflow follows the same 
 execution model as with Docker containers. So it does not require additional 

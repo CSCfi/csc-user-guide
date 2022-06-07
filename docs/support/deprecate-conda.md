@@ -8,7 +8,8 @@ strongly recommend users moving away from their own installations which use
 Conda directly on a shared drive (such as `/projappl`, `/scratch` on user's home
 directory). We are also gradually deprecating CSC-installed modules that are
 based directly on Conda. Conda can still be used indirectly, for example wrapped
-as a Singularity container.
+as a Singularity container. This can be easily accomplished using the [Tykky
+container wrapper](../computing/containers/tykky.md).
 
 Conda environments typically contain tens or even hundreds of thousands of
 files, and starting a Conda application requires reading a large number of them.
@@ -32,12 +33,12 @@ As an alternative to direct Conda usage we recommend:
     You can also [contact CSC's servicedesk](contact.md) with requests for
     missing packages.
     
-2. **Wrap your Conda or pip environment using CSC's tool**
+2. **Wrap your Conda or pip environment using CSC's Tykky tool**
 
-    CSC is currently developing [a tool for wrapping existing Conda or pip
-    installations](https://github.com/CSCfi/hpc-container-wrapper) into a
+    CSC has developed [a tool for wrapping existing Conda or pip
+    installations](../computing/containers/tykky.md) into a
     smaller set of files using Singularity and squashfs technologies. The tool
-    is still being developed, but is already being used internally for CSC's own
+    is available as a pre-installed module and is also used for CSC's own
     installations.
 
 3. **Use your own custom containers**
