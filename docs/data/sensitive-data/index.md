@@ -94,23 +94,23 @@ Analyse and compute secondary use data (access to this services requires a Finda
  
   * [**Service access**](./sd-desktop-le.md#service-access)  
   
-  * [**Authentication**](./sd-desktop.md-le#authentication) 
+  * [**Authentication**](./sd-desktop-le.md#authentication) 
 
-  * [**Setting up a virtual Desktop**](./sd-desktop.md-le#setting-up-a-virtual-desktop) 
+  * [**Setting up a virtual Desktop**](./sd-desktop-le.md#setting-up-a-virtual-desktop) 
 
-  * [**Working with your virtual Desktop**](sd-desktop-le.md#working-with-your-virtual-desktop)
+  * [**Working with your virtual Desktop**](./sd-desktop-le.md#working-with-your-virtual-desktop)
 
-  * [**Accessing sensitive registry data within SD Desktop Limited Edition**](.sd-desktop-le.md#accessing-sensitive-registry-data-within-sd-desktop-limited-edition)
+  * [**Accessing sensitive registry data within SD Desktop Limited Edition**](./sd-desktop-le.md#accessing-sensitive-registry-data-within-sd-desktop-limited-edition)
 
   * [**Default programs available on SD Desktop Limited Edition and software customisation**](./sd-desktop-le.md#default-programs-available-on-sd-desktop-limited-edition-and-software-customisation)
 
-  * [**Data export from SD Desktop Limited Edition**](./sd-desktop.md-le#data-export-from-sd-desktop)
+  * [**Data export from SD Desktop Limited Edition**](./sd-desktop-le.md#data-export-from-sd-desktop)
   
   * [**Deleting your virtual Desktop**](./sd-desktop-le.md#deleting-your-virtual-desktop)
 
   * [**End of data access**](./sd-desktop-le.md#end-of-data-access)
   
-  * [**Troubleshooting**](./sd-desktop.md-le#troubleshooting)
+  * [**Troubleshooting**](./sd-desktop-le.md#troubleshooting)
   
 
 ## **Services in the pilot phase:**
