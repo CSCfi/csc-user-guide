@@ -49,7 +49,7 @@ must use pull requests.
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
- - When creating new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or software (= apps) for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel).
+ - When creating a new article, add it also to the mkdocs.yml navigation OR in the index.md file in that folder (in case of FAQs or software (= apps) for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel).
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it. See the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) for instructions.
     - Assign one or more reviewers, try to choose someone who knows the _content_. See also the [FAQ](FAQ.md#how-and-who-should-i-ask-to-review-my-pr).
