@@ -32,7 +32,7 @@ module load turbomole/7.5.1
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00           # time as `hh:mm:ss`
 export PARA_ARCH=MPI         # use MPI 
 module load turbomole/7.5.1
 export SLURM_CPU_BIND=none
@@ -53,7 +53,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --nodes=1            # for SMP only 1 is possible
 #SBATCH --cpus-per-task=40   # SMP threads
 #SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as `hh:mm:ss`
 export PARA_ARCH=SMP         # use SMP threads   
 module load turbomole/7.5.1
 # This setting of TURBOTMPDIR assumes that the job is 
@@ -87,7 +87,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk in GB
 export PARA_ARCH=MPI         # use MPI
 module load turbomole/7.5.1
@@ -109,7 +109,7 @@ ccsdf12 > ccsdt.out
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=128 # MPI tasks per node
 #SBATCH --account=<project>   # insert here the project to be billed
-#SBATCH --time=00:60:00       # time as hh:mm:ss
+#SBATCH --time=00:60:00       # time as `hh:mm:ss`
 export PARA_ARCH=MPI          # use MPI
 module load turbomole/7.5.1
 export SLURM_CPU_BIND=none
