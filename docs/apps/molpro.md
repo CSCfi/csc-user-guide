@@ -25,7 +25,7 @@ Molpro has been built with the Global Arrays toolkit (`--with-mpi-pr`) that allo
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00           # time as `hh:mm:ss`
 module load molpro/2021.2
 export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
 mkdir -p $MOLPRO_TMP
@@ -46,7 +46,7 @@ rm -rf $MOLPRO_TMP
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00      # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk space in GB 
 module load molpro/2021.2
 export MOLPRO_TMP=$LOCAL_SCRATCH/$SLURM_JOB_ID
