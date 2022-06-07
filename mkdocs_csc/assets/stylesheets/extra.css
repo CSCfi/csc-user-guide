@@ -23,6 +23,14 @@ body {
     color: #0070a2 !important;
 }
 
+.md-typeset table th a {
+    color: #ffffff !important;
+}
+
+.md-typeset .twemoji svg {
+    max-width: 24px !important;
+}
+
 .md-sidebar {
     background-color: #4f4f4f;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, .24), 0 3px 8px rgba(0, 0, 0, .05);
@@ -233,6 +241,15 @@ body {
     background-color: #c9e2ae !important;
     border-radius: 5px 5px 0px 0px;
     padding-left: 1rem !important;
+}
+
+div.mermaid {
+    overflow: auto;
+}
+
+svg[id*="mermaid"] {
+    width: auto;
+    height: auto;
 }
 
 .admonition-title:before {
