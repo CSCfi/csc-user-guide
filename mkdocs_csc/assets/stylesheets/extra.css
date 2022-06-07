@@ -2,6 +2,14 @@ body {
     background-color: #f8f8f8
 }
 
+.md-typeset p {
+    font-weight: 300;
+}
+
+.md-typeset p strong {
+    font-weight: 700;
+}
+
 .md-typeset a:link {
     color: #0070a2 ;
     font-weight: bold;

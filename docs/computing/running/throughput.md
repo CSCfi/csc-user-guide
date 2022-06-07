@@ -48,7 +48,7 @@ is a guideline. In case you're uncertain how to implement your workflow, please
 [contact CSC Service Desk]
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'Raleway'}}}%%
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'museo-sans'}}}%%
 graph TD
     C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>")
     C -->|No| E(Serial or parallel subtasks?)
@@ -123,7 +123,7 @@ Please also consider the flowchart below as a guideline for selecting the most
 appropriate technologies for your IO-intensive workflows.
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'Raleway'}}}%%
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'museo-sans'}}}%%
 graph TD
     A(Is your application containerized?) -->|Yes| B(<a href='/computing/containers/run-existing/#mounting-datasets-with-squashfs'>Mount your dataset with SquashFS</a>)
     A -->|No| C(Are you running a Conda/pip environment?)
