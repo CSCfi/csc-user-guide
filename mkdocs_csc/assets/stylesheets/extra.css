@@ -27,10 +27,6 @@ body {
     color: #ffffff !important;
 }
 
-.md-typeset .twemoji svg {
-    max-width: 24px !important;
-}
-
 .md-sidebar {
     background-color: #4f4f4f;
     box-shadow: 0 1.5px 3px rgba(0, 0, 0, .24), 0 3px 8px rgba(0, 0, 0, .05);
