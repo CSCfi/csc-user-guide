@@ -40,7 +40,7 @@ your volume.
 
 The following is a simple usage example for creating a filesystem
 on a volume and mounting the filesystem automatically after a
-reboot. Note that this is a simple example and there are many 
+reboot. Note that this is a simple example and there are many
 cooler ways to manage your file systems.
 
 Once you have logged in to your virtual machine, you can list the
@@ -63,6 +63,10 @@ Now you can start using it. For example, to mount it under
 Then you can mount it:
 
     sudo mount /dev/vdb /media/volume
+
+You can also check the status of the volume in a mounted XFS filesystem using the following command:
+
+    sudo xfs_growfs /dev/vdb
 
 Finally, you need to change the ownership to be able to read and write data in it.
 In the following command, we are assuming the username is cloud-user.

@@ -2,6 +2,14 @@ body {
     background-color: #f8f8f8
 }
 
+.md-typeset p {
+    font-weight: 300;
+}
+
+.md-typeset p strong {
+    font-weight: 700;
+}
+
 .md-typeset a:link {
     color: #0070a2 ;
     font-weight: bold;
@@ -13,6 +21,14 @@ body {
 
 .md-typeset table a {
     color: #0070a2 !important;
+}
+
+.md-typeset table th a {
+    color: #ffffff !important;
+}
+
+.md-typeset .twemoji svg {
+    max-width: 24px !important;
 }
 
 .md-sidebar {
@@ -225,6 +241,15 @@ body {
     background-color: #c9e2ae !important;
     border-radius: 5px 5px 0px 0px;
     padding-left: 1rem !important;
+}
+
+div.mermaid {
+    overflow: auto;
+}
+
+svg[id*="mermaid"] {
+    width: auto;
+    height: auto;
 }
 
 .admonition-title:before {

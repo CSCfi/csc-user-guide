@@ -77,11 +77,6 @@ The interface is compatible with all modern web browsers.
 
 ## User Interface 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/CMMwzl82dBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 Once you log in to SD Connect, you can access three main pages: 
 
 * the default **Browser** page, where are listed the buckets (or main folders) in which your encrypted files are stored;
@@ -313,10 +308,6 @@ Using this workflow allows to securely manage only one copy of the data for diff
 
 ## Data Sharing 
 
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/fj-KADK1ykY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 SD Connect user interface provides a simple way of sharing containers between different projects.
 
 To share a container with another CSC project (and thus one of your colleagues or collaborators), you need to:
@@ -391,10 +382,6 @@ Decrypted file: C:/users/username/exampledirectory/examplefile
 ![Decryption](images/connect/decryption.png)
 
 ## Command Line Interface: data encryption and upload 
-
-<img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/l9BjVuUJ4zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 !!! note
