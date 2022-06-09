@@ -150,7 +150,7 @@
 
 * [What is SD Desktop Limited Edition for?](sensitive-data-desktop-le.md#what-is-sd-desktop-limited-edition-for)
 * [What is the difference between standard SD Desktop and SD Desktop Limited Edition?](sensitive-data-desktop-le.md#what-is-the-difference-between-standard-sd-desktop-and-sd-desktop-limited-edition)
-* [How can I access SD Desktop Limited Edition and upload my dataset?](sensitive-data-desktop-le.md#how-can-i-access-sd-desktop-limited-edition-and-upload-my-dataset)
+* [How can I access my dataset on SD Desktop Limited Edition?](sensitive-data-desktop-le.md#how-can-i-access-my-dataset-on-sd-desktop-limited-edition)
 * [Can I combine my own data with registry data in SD Desktop Limited Edition?](sensitive-data-desktop-le.md#can-i-combine-my-own-data-with-registry-data-in-sd-desktop-limited-edition)
 * [Is it possible to install software to SD Desktop Limited Edition?](sensitive-data-desktop-le.md#is-it-possible-to-install-software-to-sd-desktop-limited-edition)
 * [How can I export my results from the Desktop?](sensitive-data-desktop-le.md#how-can-i-export-my-results-from-the-desktop)
