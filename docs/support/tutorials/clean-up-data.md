@@ -146,14 +146,14 @@ to take place. If you are happy with purging all of the files that were listed i
 `path_summary.txt` file, you can run the following command:
 
 !!! Note
-    The commands below will delete your files! Be sure that you have reviewed the list of
-    files to remove, and that you have backed up the files you wish to save outside of the cluster
-    prior to running them. This operation is irreversible.
+    **The commands in this section will delete your files!** Be sure that you have reviewed the
+    list of files to remove, and that you have backed up the files you wish to save outside of the
+    cluster prior to running them. This operation is irreversible.
 
 !!! Note
-    The deletion process may take a considerable amount of time, so it is best to start it within
-    a `screen` or `tmux` session, so that you can disconnect from your SSH session while the
-    deletion keeps running.
+    The deletion process may take a considerable amount of time (several hours, depending on the
+    amount of files), so it is best to start it within a `screen` or `tmux` session, so that you
+    can disconnect from your SSH session while the deletion keeps running.
 
 ```bash
 # Start a screen session
