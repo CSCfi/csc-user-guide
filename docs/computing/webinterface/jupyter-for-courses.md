@@ -50,3 +50,5 @@ partition: "interactive"
 local_disk: 32
 mem: "16GB"
 ```
+### Tutorials
+[Please check a tutorial example on Github](https://github.com/CSCfi/Puhti_gui_tutorial)
