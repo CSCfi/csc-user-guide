@@ -24,6 +24,6 @@ The programs available on the Desktop are listed [here](../../data/sensitive-dat
 
 You need to make a request to our service desk (servicedesk@csc.fi) to export your results. The results will be exported directly to Findata and you will receive them after the authority’s scrutiny.
 
-### What will happen to my data after the data permit expires?
+## What will happen to my data after the data permit expires?
 
 You will not be able to access your virtual Desktop after the validity period of your data permit ends. If you do not send an amendment application to Findata and request us to extend the duration of your project, you will be removed from the CSC project and the project will be considered inactive. The project and all the data will be deleted after 90 days, according to CSC’s data retention policy. You need to have all your results exported from the Desktop before the data permit expires – you cannot access them when the permit is no longer valid.
