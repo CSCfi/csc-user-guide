@@ -249,7 +249,7 @@ why the command examples above are architected the way they are.
 
 - Sometimes `lcleaner` prints errors about lines it wasn't able to parse.
   If there are errors, a warning will be printed at the end, indicating that there was at least
-  one error. The warnings will say something like: "We detected N errors during the exection.
+  one error. The warnings will say something like: "We detected N errors during the execution.
   Please check the logs, for more information!"
   The errors indicate which line number the problematic text was on, so you can go
   and check it manually.
