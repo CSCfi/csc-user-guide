@@ -18,7 +18,7 @@ All the data processed in SD Desktop Limited Edition must come from Findata. If 
 
 ## Is it possible to install software to SD Desktop Limited Edition?
 
-The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd_desktop/#default-programs-available-on-sd-desktop). Only Findata can provide the necessary files to CSC where you can access them on your Desktop. If the software you need is not pre-installed on the Desktop, you need to 1) contact our service desk (servicedesk@csc.fi) to check if the program is compatible with the Desktop, and 2) request Findata to import the files to your Desktop. Read more on [Findata website](https://findata.fi/en/permits/#selecting-and-completing-an-application-form).
+The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop). Only Findata can provide the necessary files to CSC where you can access them on your Desktop. If the software you need is not pre-installed on the Desktop, you need to 1) contact our service desk (servicedesk@csc.fi) to check if the program is compatible with the Desktop, and 2) request Findata to import the files to your Desktop. Read more on [Findata website](https://findata.fi/en/permits/#selecting-and-completing-an-application-form).
 
 ## How can I export my results from the Desktop?
 
