@@ -1,4 +1,4 @@
-# Sensitive Data Desktop Limited Edition
+# SD Desktop Limited Edition
 
 ## What is SD Desktop Limited Edition for?
 
