@@ -8,7 +8,7 @@ SD Desktop Limited Edition is for analyzing secondary use health and social data
 
 In SD Desktop Limited edition, there are some restrictions to the service compared to the standard SD Desktop because of the data authority’s requirements for a secondary use environment. Most important limitations include: the CSC project will be managed by CSC instead of the user and other services are not available. Read more in SD Desktop service description.
 
-## How can I access my dataset on SD Desktop Limited Edition?
+## How can I access my dataset with SD Desktop Limited Edition?
 
 First, you need to have a data permit from Findata. Then you need to request for a CSC project from our service desk (servicedesk@csc.fi) with the data permit and create a CSC account if you do not have one already. The data will be transported directly to the service from Findata and available only for verified project members on the virtual Desktop. You can log in to SD Desktop Limited Edition on [the same page](https://sd-desktop.csc.fi/) as to the standard SD Desktop.
 
