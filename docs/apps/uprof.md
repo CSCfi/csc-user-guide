@@ -31,7 +31,7 @@ module load vnc
 start-vnc
 module load amduprof
 AMDuProf
-````
+```
 
 Scalasca uses [the Score-P measurement
 infrastructure](https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-7.1/html/)
