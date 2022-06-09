@@ -112,7 +112,7 @@ somewhere, using the commands above, you can use that file.
 
 ```bash
 # Search for directories to check if they are included in the purge list
-my_project="project_2001659" # SReplace with your own project name!
+my_project="project_2001659" # Replace with your own project name!
 grep "/scratch/$my_project/important-dir" /scratch/purge_lists/$my_project/path_summary.txt
 # Or search the purge_list if you saved it:
 grep "/scratch/$my_project/important-dir" ~/purge_list
