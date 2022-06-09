@@ -160,7 +160,7 @@ to take place. If you are happy with purging all of the files that were listed i
 screen
 # Delete all of the files on your purge list:
 # Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
-lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf
+lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
 # Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
 # the deletion running in the background.
 # Run "screen -r" to reattach your screen.
@@ -172,7 +172,7 @@ example use a command like this:
 
 ```bash
 # Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
-screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/$my_project/delete-this-dir/" | xargs -0 -n 50 rm -vf
+screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/$my_project/delete-this-dir/" | xargs -0 -n 50 rm -vf --
 # Ctrl + a, d to detach from the screen.
 ```
 
