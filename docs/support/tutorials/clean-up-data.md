@@ -62,3 +62,184 @@ There is a policy of removing files older than 90 days from `scratch` (not `proj
 that only actively used data resides on the disk. **This policy has not yet been implemented,**
 **but we plan to take this cleaning procedure in use later in 2022**. Before we take it in use we
 will warn you and give instructions for how to manage what files are affected.
+
+## Using LCleaner to check which files will be automatically removed
+
+LCleaner is a tool developed by CSC, which is intended to help you to discover what files your
+project has that have been targeted for automatic removal.
+The file system tools which CSC uses to generate the list of files to remove will output files
+which are quite verbose and difficult to read. By using LCleaner, users can get the relevant
+information in a more user-friendly format.
+
+The so-called "purge lists" are split up by project, and can be found on Lustre at the
+locations below. Only members of the project groups can access the project directories.
+
+* `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
+* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti)
+
+Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
+
+### LCleaner examples
+
+#### List your files
+
+To get a simple list of all file paths in your purge list, simply give the `path_summary.txt` file
+path as an argument:
+
+```bash
+# List all files in your purge list:
+my_project="project_2001659" # Replace with your own project name
+lcleaner /scratch/purge_lists/${my_project}/path_summary.txt
+```
+
+If your `path_summary.txt` is big (over 100 MB in size), it may take some time to execute the tool.
+You can save time and resources by saving the result into an output file:
+
+```bash
+# List all files in your purge list into an output file in your home folder:
+lcleaner --out-file ~/purge_list /scratch/purge_lists/${my_project}/path_summary.txt
+
+# Alternatively, you can redirect the standard output with the bash shell:
+lcleaner /scratch/purge_lists/${my_project}/path_summary.txt > ~/purge_list
+
+# Check the output with less, or your preferred text editor
+less ~/purge_list
+```
+
+If you want to search for a specific file or directory, you can use `grep` to achieve that.
+You can either search the `path_summary.txt` file directly, or if you saved the output of `lcleaner`
+somewhere, using the commands above, you can use that file.
+
+```bash
+# Search for directories to check if they are included in the purge list
+my_project="project_2001659" # SReplace with your own project name!
+grep "/scratch/$my_project/important-dir" /scratch/purge_lists/$my_project/path_summary.txt
+# Or search the purge_list if you saved it:
+grep "/scratch/$my_project/important-dir" ~/purge_list
+
+# If there are no matches, grep will not print anything.
+```
+
+#### Find the biggest files on the list
+
+LCleaner has an option to sort the files by size. This option is called `--sort-by-size` and always
+sorts in a decending order (i.e., biggest files first). If you want to see the size of the files
+when they are printed, use the `--csv` option. By default, only the file paths are printed.
+You can also limit the output to include a given number of files with the `--limit N` parameter,
+where `N` is the number of lines you want to see.
+
+```bash
+# Print the file paths to be purged in size order:
+lcleaner --sort-by-size /scratch/purge_lists/${my_project}/path_summary.txt
+
+# Print the 10 biggest files:
+lcleaner --sort-by-size --limit 10 /scratch/purge_lists/${my_project}/path_summary.txt
+
+# Print the 10 biggest files, and their sizes in bytes:
+lcleaner --sort-by-size --limit 10 --csv /scratch/purge_lists/${my_project}/path_summary.txt
+```
+
+#### Delete your purge list files
+
+We encourage you to delete the files you do not need, instead of waiting for the automatic cleaning
+to take place. If you are happy with purging all of the files that were listed in the
+`path_summary.txt` file, you can run the following command:
+
+!!! Note
+    The commands below will delete your files! Be sure that you have reviewed the list of
+    files to remove, and that you have backed up the files you wish to save outside of the cluster
+    prior to running them. This operation is irreversible.
+
+!!! Note
+    The deletion process may take a considerable amount of time, so it is best to start it within
+    a `screen` or `tmux` session, so that you can disconnect from your SSH session while the
+    deletion keeps running.
+
+```bash
+# Start a screen session
+screen
+# Delete all of the files on your purge list:
+# Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
+lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf
+# Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
+# the deletion running in the background.
+# Run "screen -r" to reattach your screen.
+# Close the screen session by typing "exit" in the shell.
+```
+
+If you want to delete only a part of the files, e.g., inside a certain directory, you can for
+example use a command like this:
+
+```bash
+# Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
+screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/$my_project/delete-this-dir/" | xargs -0 -n 50 rm -vf
+# Ctrl + a, d to detach from the screen.
+```
+
+### Advanced LCleaner usage
+
+If you want to see the size of the files that are about to be purged, you can use either the JSON
+or the CSV formats. Be aware that if you want to run multiple output formats at the same time,
+you need to specify an output file path as well.
+
+```bash
+# Print your purge list as CSV output with file paths and sizes.
+# Note that the CSV format also prints a header row.
+lcleaner --csv /scratch/purge_lists/${my_project}/path_summary.txt
+
+# Print your purge list as JSON output with file paths and sizes:
+lcleaner --json /scratch/purge_lists/${my_project}/path_summary.txt
+# TIP: You can pipe the output into the jq program to prettify the output.
+# The dot at the end is a mandatory argument to jq.
+lcleaner --json /scratch/purge_lists/${my_project}/path_summary.txt | jq .
+
+# Output both JSON and CSV into purge_list.json and purge_list.csv:
+lcleaner --json --csv --out-file purge_list /scratch/purge_lists/${my_project}/path_summary.txt
+```
+
+Output examples:
+
+```
+# Plain text:
+[westersu@puhti-login1 ~]$ lcleaner path_summary.txt | head -3
+/scratch/westersu/my-old-files/file1
+/scratch/westersu/my-old-files/file2
+/scratch/westersu/my-old-files/file3
+
+# CSV:
+[westersu@puhti-login1 ~]$ lcleaner --csv path_summary.txt | head -4
+"path","size"
+"/scratch/westersu/my-old-files/file1","1704"
+"/scratch/westersu/my-old-files/file2","452"
+"/scratch/westersu/my-old-files/file3","4951"
+
+# JSON, piped into jq:
+[westersu@puhti-login1 ~]$ lcleaner --json path_summary.txt | jq .
+{
+  "lustre_files": [
+    {
+      "size": 1704,
+      "path": "/scratch/westersu/my-old-files/file1"
+    },
+    ...
+  ]
+}
+```
+
+### Notes on LCleaner usage
+
+This section details some things that may be good to know about how LCleaner behaves, or
+why the command examples above are architected the way they are.
+
+- Sometimes `lcleaner` prints errors about lines it wasn't able to parse.
+  If there are errors, a warning will be printed at the end, indicating that there was at least
+  one error. The warnings will say something like: "We detected N errors during the exection.
+  Please check the logs, for more information!"
+  The errors indicate which line number the problematic text was on, so you can go
+  and check it manually.
+    - Tip: To print only a specific line, e.g., line 123 of the `path_summary.txt`, you can use
+      this command: `sed -n 123p /path/to/path_summary.txt`
+- To capture the logging of `lcleaner`, you can redirect the standard error output stream into
+  a file. This may be useful if you experience problems, and would like help to troubleshoot
+  the situation.
+    - `lcleaner --log-level debug path_summary.txt 2> ~/lcleaner-debug-$(date +%s).log`
