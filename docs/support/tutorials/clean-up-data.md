@@ -176,11 +176,13 @@ screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/$my_project
 # Ctrl + a, d to detach from the screen.
 ```
 
-### Advanced LCleaner usage
+#### LCleaner output formats
 
 If you want to see the size of the files that are about to be purged, you can use either the JSON
 or the CSV formats. Be aware that if you want to run multiple output formats at the same time,
 you need to specify an output file path as well.
+Using the `-0` or `--nullbyte` parameters will output the file paths separated by a null byte,
+which may be useful to avoid problems with whitespace in the file paths.
 
 ```bash
 # Print your purge list as CSV output with file paths and sizes.
@@ -195,6 +197,13 @@ lcleaner --json /scratch/purge_lists/${my_project}/path_summary.txt | jq .
 
 # Output both JSON and CSV into purge_list.json and purge_list.csv:
 lcleaner --json --csv --out-file purge_list /scratch/purge_lists/${my_project}/path_summary.txt
+
+# Output file paths separated by null bytes:
+lcleaner -0 /scratch/purge_lists/${my_project}/path_summary.txt
+# Usually you will want to pipe null-byte-separated output into "xargs -0" and do some
+# further processing with it. For example like this:
+lcleaner -0 --limit 3 /scratch/purge_lists/${my_project}/path_summary.txt \
+  | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
 ```
 
 Output examples:
@@ -224,6 +233,13 @@ Output examples:
     ...
   ]
 }
+
+# Null byte xargs:
+[westersu@puhti-login1 ~]$ lcleaner -0 --limit 3 path_summary.txt \
+>   | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
+I should run: rm -vf '/scratch/westersu/my-old-files/file1'
+I should run: rm -vf '/scratch/westersu/my-old-files/file2'
+I should run: rm -vf '/scratch/westersu/my-old-files/file3'
 ```
 
 ### Notes on LCleaner usage
@@ -243,3 +259,5 @@ why the command examples above are architected the way they are.
   a file. This may be useful if you experience problems, and would like help to troubleshoot
   the situation.
     - `lcleaner --log-level debug path_summary.txt 2> ~/lcleaner-debug-$(date +%s).log`
+- The use of `-0` both with `lcleaner` and `xargs` in the example commands on this page is
+  recommended in order to avoid problems with file names that include whitespace.
