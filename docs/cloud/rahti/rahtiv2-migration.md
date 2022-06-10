@@ -8,9 +8,9 @@ RahtiV2 is the next version of OpenShift OKD running in CSC. Due to the fact tha
 
 ## How to log in RahtiV2?
 
-Go to [Rahti4](RAHTI4_URL) and choose the `oidcidp` option, it stands for OpenID Connect identity provider:
+Go to [RahtiV2](RAHTI4_URL) and choose the `oidcidp` option, it stands for OpenID Connect identity provider:
 
-![Rahti4 login](img/rahti_login.png){: style="width:400px"}
+![RahtiV2 login](img/rahti_login.png){: style="width:400px"}
 
 You will be then served with a page with all the authentication options that Rahti accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti account.
 
