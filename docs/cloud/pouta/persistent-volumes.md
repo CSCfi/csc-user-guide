@@ -200,16 +200,11 @@ volumes:
 
     sudo parted -l
 
-Similar to the previous persistent volume creation you can identify the volume based on its size. First mount the path:
+Similar to the previous persistent volume creation you can identify the volume based on its size. First mount the path othewise it will through an error:
 
     sudo mount /dev/vdb /media/volume
 
 Now you can check the status of the volume in a mounted XFS filesystem using the following command:
 
     sudo xfs_growfs /dev/vdb
-
-Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
-
-    sudo umount /dev/vdb
-
-
+    
