@@ -19,7 +19,7 @@ Free to use and open source under [Broad Institute License]https://github.com/ge
 ## Available
 Version on CSC's Servers
 
-Puhti: 2.13.2, 2.11.0, 2.8.5
+Puhti: 2.14.0, 2.13.2, 2.11.0, 2.8.5
 
 
 ## Using Trinity 
@@ -102,6 +102,7 @@ You can launch autoTrinotate with command:
 ```bash
 $TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite $TRINOTATE_HOME/databases/Trinotate.sqlite --transcripts Trinity.fasta --gene_to_trans_map  Trinity.fasta.gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU  $SLURM_CPUS_PER_TASK
 ```
+
 !!! Note
     autoTrinotate analysis can require much resources so you should execute the command in
     with [sinteractive](../computing/running/interactive-usage.md) or as a batch job.
