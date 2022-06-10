@@ -1,5 +1,12 @@
 # Computing environment 
 
+## How to clean up data - automatic removal, new tools and instructions 10.6.2022
+
+Puhti's parallel file system is filling up degrading performance. We will start
+to enforce a policy to remove old files. To help managing files without causing
+exessive load on the system, we've updated our [tutorial on how to move, delete or archive
+your data](../../tutorials/clean-up-data/)
+
 ## Puhti web interface beta updated to release 8 25.5.2022
 
 * A new [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization/) has been added for running applications with GPU acceleration.
