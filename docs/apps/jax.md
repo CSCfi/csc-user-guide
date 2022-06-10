@@ -33,7 +33,7 @@ containers](../computing/containers/run-existing.md).
 ## License
 
 JAX is licensed under [Apache License
-2.0](https://github.com/google/jax/blob/main/LICENSE)
+2.0](https://github.com/google/jax/blob/main/LICENSE).
 
 ## Usage
 
