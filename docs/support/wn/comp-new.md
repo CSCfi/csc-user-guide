@@ -5,7 +5,7 @@
 Puhti's parallel file system is filling up and hence degrading performance. We will start
 to enforce a policy to remove old files. To help managing files without causing
 excessive load on the system, we've updated our [tutorial on how to move, delete or archive
-your data](../../tutorials/clean-up-data/)
+your data](../../tutorials/clean-up-data/).
 
 ## Puhti web interface beta updated to release 8 25.5.2022
 
