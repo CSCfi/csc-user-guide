@@ -5,8 +5,7 @@ learning research.
 
 ## Available
 
-The `jax` module is available on Puhti only.  Currently supported JAX
-versions: 
+Currently supported JAX versions:
 
 | Version | Module                        | Puhti | Mahti |
 |:-------:|-------------------------------|:-----:|:-----:|
@@ -37,7 +36,7 @@ JAX is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti, initialize it with:
+To use this software on Puhti or Mahti, initialize it with:
 
 ```text
 module load jax
