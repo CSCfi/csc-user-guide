@@ -212,6 +212,50 @@ nav:
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
        - External documentation: cloud/rahti/ext_docs.md
+     - Rahti4:
+       - Contents: cloud/rahti4/index.md
+       - What is Rahti: cloud/rahti4/rahti-what-is.md
+       - Containers & their Orchestration: cloud/rahti4/containers.md
+       - Kubernetes and OpenShift concepts: cloud/rahti4/concepts.md
+       - Networking: cloud/rahti4/networking.md
+       - Security guide: cloud/rahti4/security-guide.md
+       - Getting Started:
+         - Getting access: cloud/rahti4/access.md
+         - Using the web interface: cloud/rahti4/usage/getting_started.md
+         - Command line tool installation and usage: cloud/rahti4/usage/cli.md
+       - RahtiV2 migration: cloud/rahti4/rahtiv2-migration.md
+       - Rahti Tutorials:
+         - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
+         - Deploying a static web server using the command line: cloud/rahti4/tutorials/elemental_tutorial.md
+         - Custom domain names and secure transport: cloud/rahti4/tutorials/custom-domain.md
+         - Configuration, ConfigMaps and Secrets: cloud/rahti4/tutorials/configuration.md
+         - Webhooks: cloud/rahti4/tutorials/webhooks.md
+         - Reverse proxy authentication using a sidecar container: cloud/rahti4/tutorials/sidecar_proxy_authentication.md
+         - Short introduction to YAML: cloud/rahti4/tutorials/yaml_introduction.md
+         - How to transfer data to Rahti?: cloud/rahti4/tutorials/transfer_data_rahti.md
+         - How to add docker hub credentials to a project: cloud/rahti4/tutorials/docker_hub_login.md
+         - How to manually cache images in Rahti's registry: cloud/rahti4/tutorials/docker_hub_manual_caching.md
+         - CI/CD on Rahti: cloud/rahti4/tutorials/ci_cd_introduction.md
+         - How to run an ad-hoc interactive container: cloud/rahti4/tutorials/oc-run.md
+         - How backup a Postgres DB into Allas: cloud/rahti4/tutorials/backup-postgres-allas.md
+         - Annotations: cloud/rahti4/tutorials/annotations.md
+         - Sending e-mail from Rahti: cloud/rahti4/tutorials/email.md
+         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti4/tutorials/connect-database-hpc.md
+         - Multi stage builds: cloud/rahti4/tutorials/multi-stage-builds.md
+       - Storage in Rahti:
+         - Available storage options: cloud/rahti4/storage/index.md
+         - Persistent volumes: cloud/rahti4/storage/persistent.md
+         - Ephemeral storage: cloud/rahti4/storage/ephemeral.md
+         - Expand a volume: cloud/rahti4/storage/expand-volumes.md
+       - Images:
+         - Overview: cloud/rahti4/images/overview.md
+         - Creating an image: cloud/rahti4/images/creating.md
+         - Keeping docker images small: cloud/rahti4/images/keeping_docker_images_small.md
+       - GPU in Rahti: cloud/rahti4/gpu.md
+       - Rahti Templates: cloud/rahti4/template-docs.md
+       - Projects and quota: cloud/rahti4/usage/projects_and_quota.md
+       - Billing: cloud/rahti4/billing.md
+       - External documentation: cloud/rahti4/ext_docs.md
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
