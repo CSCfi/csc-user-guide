@@ -56,26 +56,29 @@ size information. Run `man lfs-find` for further instructions and information on
     subdirectories with limited amount of files and data. The total amount of used data is
     available from the `csc-workspaces` command.
 
-## Future automatic removal of files
+## Automatic removal of files
 
 There is a policy of removing files older than 90 days from `scratch` (not `projappl`) to ensure
-that only actively used data resides on the disk. **This policy has not yet been implemented,**
-**but we plan to take this cleaning procedure in use later in 2022**. Before we take it in use we
-will warn you and give instructions for how to manage what files are affected.
+that only actively used data resides on the disk. **This policy has not yet been fully implemented,**
+**but we plan to take this cleaning procedure fully in use later in 2022**.  In June 2022 the first stage 
+of automatic removal is implemented in Puhti. All files that have not been accessed since 2019 and 2020 
+will be deleted on July 1, 2022. 
+
+Files that will be deleted in the next clean up are listed in so called "purge lists" files.
+These are split up by project, and can be found on Lustre at the locations below. Only members 
+of the project groups can access the project directories.
+
+* `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
+* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti)
+
+The file system tools which CSC uses to generate the list of files to remove will output files
+which are quite verbose and difficult to read. By using the LCleaner tool described in the next section, 
+users can get the relevant information in a more user-friendly format.
 
 ## Using LCleaner to check which files will be automatically removed
 
 LCleaner is a tool developed by CSC, which is intended to help you to discover what files your
 project has that have been targeted for automatic removal.
-The file system tools which CSC uses to generate the list of files to remove will output files
-which are quite verbose and difficult to read. By using LCleaner, users can get the relevant
-information in a more user-friendly format.
-
-The so-called "purge lists" are split up by project, and can be found on Lustre at the
-locations below. Only members of the project groups can access the project directories.
-
-* `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
-* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti)
 
 Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
 
