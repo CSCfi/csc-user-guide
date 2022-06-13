@@ -8,7 +8,8 @@ structure refinement.
 
 ## Available
 
-* Puhti: 18, 18-cuda, 20, 20-cuda
+* Puhti: 18, 18-cuda, 20, 20-cuda, 20-quick-cuda (for QM/MM with QUICK)
+* Mahti: 20, 20-cuda
 
 ## License
 

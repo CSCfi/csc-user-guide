@@ -7,7 +7,6 @@
 Orfeo ToolBox is available in the following versions:
 
 * 7.2.0
-* 6.6 
 
 ## Usage
 

@@ -146,9 +146,15 @@
 * [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
 
+### SD Desktop Limited Edition
 
-
-
+* [What is SD Desktop Limited Edition for?](sensitive-data-desktop-le.md#what-is-sd-desktop-limited-edition-for)
+* [What is the difference between standard SD Desktop and SD Desktop Limited Edition?](sensitive-data-desktop-le.md#what-is-the-difference-between-standard-sd-desktop-and-sd-desktop-limited-edition)
+* [How can I access my dataset with SD Desktop Limited Edition?](sensitive-data-desktop-le.md#how-can-i-access-my-dataset-with-sd-desktop-limited-edition)
+* [Can I combine my own data with registry data in SD Desktop Limited Edition?](sensitive-data-desktop-le.md#can-i-combine-my-own-data-with-registry-data-in-sd-desktop-limited-edition)
+* [Is it possible to install software to SD Desktop Limited Edition?](sensitive-data-desktop-le.md#is-it-possible-to-install-software-to-sd-desktop-limited-edition)
+* [How can I export my results from the Desktop?](sensitive-data-desktop-le.md#how-can-i-export-my-results-from-the-desktop)
+* [What will happen to my data after the data permit expires?](sensitive-data-desktop-le.md#what-will-happen-to-my-data-after-the-data-permit-expires)
 
 
 

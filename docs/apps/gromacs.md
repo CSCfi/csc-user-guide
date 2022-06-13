@@ -10,7 +10,7 @@ systems. It also comes with plenty of analysis scripts.
 ## Available
 
 -   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
--   Mahti: 2020-2022 releases with regularly updated minor versions, one with plumed, one with CP2K
+-   Mahti: 2020-2022 releases with regularly updated minor versions, two with plumed, two with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
 -   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
