@@ -1,12 +1,28 @@
 {%- if page %}
+    {% set separator = "&ensp;&raquo;&ensp;" %}
+    {% set sections = {
+        "apps": "Applications",
+        "tutorials": "Tutorials",
+        "faq": "FAQ",
+        "training-material": "Training material",
+        "contact": "Contact",
+        "whats-new": "What's new"
+    } %}
+    {% set url_string = page.url.split("/")[0] %}
+    {% if page.url.startswith("support/") %}
+        {% set url_string = page.url.split("/")[1] %}
+    {% endif %}
     <div class="breadcrumbs" aria-label="breadcrumbs navigation">
-        {% if page.url.startswith("apps/") and not page.ancestors %}
-            Applications&ensp;&raquo;&ensp;
+        {% if not page.is_homepage %}
+            <a href="{{ base_url }}">Docs CSC</a>{{ separator }}
+        {% endif %}
+        {% if url_string in sections and not page.ancestors and page.title not in sections.values() %}
+            {{ sections[url_string] }}{{ separator }}
         {% endif %}
         {%- for document in page.ancestors[::-1] -%}
-            {{ document.title }}&ensp;&raquo;&ensp;
+            {{ document.title }}{{ separator }}
         {%- endfor -%}
-        {% if page.ancestors or page.url.startswith("apps/") %}
+        {% if not page.is_homepage %}
             {{ page.title }}
         {% endif %}
     </div>
