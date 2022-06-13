@@ -9,7 +9,7 @@ new one is created dynamically and given to the pod to use.
 
 There are two storage classes available in Rahti:
 
- * *glusterfs-storage*. This kind of volume is a "Read Write Many" (RWX) type storage, this means multiple nodes can mount it in read nad write mode. This is the default class. It is the most flexible class, as allows any pod anywhere in the cluster to read and write files. The downside is a lower performance than the next class.
+ * *glusterfs-storage*. This kind of volume is a "Read Write Many" (RWX) type storage, this means multiple nodes can mount it in read and write mode. This is the default class. It is the most flexible class, as allows any pod anywhere in the cluster to read and write files. The downside is a lower performance than the next class.
  * *standard-rwo*. This kind is a "Read Write Once" (RWO), meaning that only one node can mount the volume (in read-write mode). It is faster than glusterfs, but it is limited to a single node.
 
 ![PersistentVolumeClaim](/cloud/rahti/img/pods-and-storage-pvc.drawio.svg)
