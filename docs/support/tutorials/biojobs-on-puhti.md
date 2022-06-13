@@ -261,7 +261,7 @@ to request memory per core with `--mem-per-cpu`.
 #SBATCH --mem=16G
 ```
 
-The time reservation is given as hours:minutes:seconds *i.e.* hh:mm:ss. in
+The time reservation is given as hours:minutes:seconds *i.e.* `hh:mm:ss`. in
 this case we reserve four hours:
 
 ```text

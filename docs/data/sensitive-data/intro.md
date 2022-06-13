@@ -10,14 +10,12 @@ In this userguide you can:
 
 * follow **simplified, step-by-step** instructions on how to access and set up the services;  previous knowledge is not required. Specific paragraphs are marked as *advanced* if technical and coding skills are necessary. 
 
-* watch **1 to 3 minutes video** tutorials that will support you through each step;
-
 * find quick technical suggestions in the **troubleshooting table**.
 
+The video tutotials are currently unavailable. 
 
 For general information, see:
 [Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
-
 
 
 
