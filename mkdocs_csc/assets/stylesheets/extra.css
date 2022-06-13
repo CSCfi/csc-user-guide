@@ -2,6 +2,12 @@ body {
     background-color: #f8f8f8
 }
 
+.breadcrumbs {
+    font-size: smaller;
+    color: #606060;
+    padding-bottom: 1em;
+}
+
 .md-typeset p {
     font-weight: 300;
 }

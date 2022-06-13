@@ -22,6 +22,7 @@ of scientific libraries:
    * [PyTorch](pytorch.md) - PyTorch deep learning framework
    * [RAPIDS](rapids.md) - for data analytics and machine learning on GPUs
    * [TensorFlow](tensorflow.md) - TensorFlow deep learning framework
+   * [JAX](jax.md) - Autograd and XLA for high-performance machine learning
    * [Bioconda](bioconda.md) - conda package manger for installing
      bioinformatics software
    * [BioPython](biopython.md) - biopython and other bioinformatics related

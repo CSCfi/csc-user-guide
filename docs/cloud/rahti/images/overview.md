@@ -16,7 +16,7 @@ First, in order to run a docker image one can use the docker client on the host 
 docker run -it centos
 ```
 
-This will, if the image is not cached localy, first pull (or download) the latest centos image, then look for the predefined entry point, and finally a container is run with an interactive session. The output will be something like:
+This will, if the image is not cached locally, first pull (or download) the latest centos image, then look for the predefined entry point, and finally a container is run with an interactive session. The output will be something like:
 
 ```sh
 Unable to find image 'centos:latest' locally

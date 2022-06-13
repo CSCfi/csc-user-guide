@@ -11,6 +11,6 @@ bash-4.2$
 * `pod-name` can be any given name that does not exist already in the namespace.
 * `-it` tells  `oc` to create an interactive session.
 * `--rm` will make the Pod to be deleted after the session is over.
-* `--image=bash` is the name of the image, in this case [library/bash](https://hub.docker.com/_/bash). It can be any given image, either public library image like `bash`, or a pourpose build private image.
+* `--image=bash` is the name of the image, in this case [library/bash](https://hub.docker.com/_/bash). It can be any given image, either public library image like `bash`, or a purpose build private image.
 * `--restart=Never` will tell OpenShift to not restart the Pod when the session is over.
 * If you would like to start a Pod with a different command than its default, you can do so by adding `-- [COMMAND] [args...] [flags]` at the end (e.g. `oc run pod-name  -it --rm --image=python --restart=Never -- bash`). 
