@@ -121,7 +121,7 @@ For better understanding of Dask computing exists [Dask JupyterLab Extension](ht
 To use Dask JupyterLab Extension:
 
 
-* [Start JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface. Select `geoconda` as module. Reserve computing resources for you Local cluster, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40.
+* [Start JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface. Select `geoconda` as module. Reserve computing resources for you Local cluster, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
 * Open Dask panel from the Left menu
 * Create new cluster from Dask panel, by default all job's cores are used.
 * It should be possible to use .yml files for more specific set-ups, see `Configuration of Dask cluster management` in [Dask JupyterLab Extension documentation](https://github.com/dask/dask-labextension).
