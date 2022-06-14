@@ -206,11 +206,14 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 * **Click on Continue**;
 
 
-![Data-Gateway-LE-1](images/desktop/data-gateway-le-1.png )
+![Data-Gateway-LE-1](images/desktop/data-gateway-le-1.png)
 
 
 * In the new window, under the second step, click on **Create**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
 
+![Data-Gateway-LE-2](images/desktop/data-gateway-le-2.png)
+
+![Data-Gateway-LE-3](images/desktop/data-gateway-le-3.png)
 
 *   The files have been encrypted using the **sensitive data public encryption key**, and you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s.
 
