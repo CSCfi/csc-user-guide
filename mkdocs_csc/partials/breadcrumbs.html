@@ -1,5 +1,6 @@
 {%- if page %}
     {% set separator = "&ensp;&raquo;&ensp;" %}
+<!-- Some pages don't have ancestor sections in nav... -->
     {% set sections = {
         "apps": "Applications",
         "tutorials": "Tutorials",
@@ -17,7 +18,12 @@
         {% if not page.is_homepage %}
             <a href="{{ base_url }}">Docs CSC</a>{{ separator }}
         {% endif %}
-        {% if url_string in sections and not page.ancestors and page.title not in sections.values() %}
+<!-- ...so breadcrumbs must be defined literally: -->
+        {% if (
+            not page.ancestors
+            and url_string in sections
+            and page.title != sections[url_string]
+            ) %}
             {{ sections[url_string] }}{{ separator }}
         {% endif %}
         {%- for document in page.ancestors[::-1] -%}
