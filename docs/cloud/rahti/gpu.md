@@ -12,7 +12,7 @@ The Rahti GPU comes with an Nvidia driver which includes the low-level shared li
 
 As a first example let's create a pod which runs `nvidia-smi` command line utility that is designed to be used for managing and monitoring NVIDIA GPU devices. This is the simplest example that can be used to demonstrate the availability of GPU in your Rahti project.
 
-To run the example you need to login to Rahti and switch to the project that you have an approved GPU qouta as: 
+To run the example you need to login to Rahti and switch to the project that you have an approved GPU quota as: 
 
 ```bash
 oc login https://rahti.csc.fi:8443 --token=<your-token>

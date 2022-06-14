@@ -120,7 +120,7 @@ DATA_PROP_A=hello
 
 ## Secret
 
-Secrets behave much like ConfigMaps, with the differnce that once created they are stored in _base64_ encoded form, and their contents are not displayed by default in the command line or in the web interface.
+Secrets behave much like ConfigMaps, with the difference that once created they are stored in _base64_ encoded form, and their contents are not displayed by default in the command line or in the web interface.
 
 *`secret.yml`*:
 
