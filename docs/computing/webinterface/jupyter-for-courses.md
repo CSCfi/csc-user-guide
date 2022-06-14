@@ -51,5 +51,5 @@ local_disk: 32
 mem: "16GB"
 ```
 ### Tutorials
-[Tutorial example for course trainers](https://github.com/CSCfi/Jupyter_www_puhti): This tutorial is useful for course trainer
+[Tutorial example for course organizers](https://github.com/CSCfi/Jupyter_www_puhti): This tutorial is useful for course organizers
 who wants to provide custom Jupyter notebooks *via* Puhti web interface. 
