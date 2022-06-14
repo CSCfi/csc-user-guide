@@ -16,14 +16,16 @@
     } %}
     <div class="breadcrumbs" aria-label="breadcrumbs navigation">
         {% if not page.is_homepage %}
-        <a href="{{ base_url }}">Docs CSC</a>{{ separator }}
+            <a href="{{ base_url }}">Docs CSC</a>{{ separator }}
         {% endif %}
         <!-- ...so breadcrumbs must be defined literally: -->
         {% if not page.ancestors and parent_url in sections %}
             <a href="{{ parent_url }}">{{ sections[parent_url] }}</a>{{ separator }}
         {% endif %}
+        {% set depth = page.ancestors|length+2 %}
         {%- for document in page.ancestors[::-1] -%}
-            {{ document.title }}{{ separator }}
+            {% set document_url = "/" + "/".join(page.url.split("/")[:(-depth)+loop.index:]) + "/" %}
+            <a href="{{ document_url }}">{{ document.title }}</a>{{ separator }}
         {%- endfor -%}
         {% if not page.is_homepage %}
             {{ page.title }}
