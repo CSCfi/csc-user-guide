@@ -13,7 +13,7 @@ In the following user guide, you can learn how to:
 
 ## Key features
 
-* Audited against Findata requirements.
+* Audited against Findata regulation.
 
 * Accessible from any operating system (Mac, Linux or Windows) via web-browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
 
@@ -51,7 +51,7 @@ Access to SD Desktop Limited Edition is managed by CSC. When you are processing 
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity ;
-* **activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). For further intruction see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;
+* **activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;
 * join a CSC project via an invitation link and wait for an approval from the service desk;
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
 * approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);
@@ -61,7 +61,13 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 
 ### Requesting a project for registry data
 
-To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please **1)** attach a copy of your data permit to the request, **2)** describe shortly your research project (name and research field are enough) and **3)** add all the project members as a cc to the email (please use the organizational email addresses). We will respond to your request as soon as possible.
+To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please
+
+* attach a copy of your data permit to the request,
+* escribe shortly your research project (name and research field are enough) and
+* add all the project members as a cc to the email (please use the organizational email addresses).
+
+We will respond to your request as soon as possible.
 
 
 ### Authentication
@@ -117,11 +123,11 @@ When all the settings are done, press the **Launch Desktop** button. The launch 
 You can choose between **four different pre-built virtual Desktop options**:
 
 
-*  **Light computation**. Techincal specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
+*  **Light computation**. Technical specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
 
-* **Small computation**. Techincal specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
+* **Small computation**. Technical specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
 
-* **Medium computation**. Techincal specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
+* **Medium computation**. Technical specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
 * **Heavy computation**: Technical specifications: **Core:40; memory 168 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
 
