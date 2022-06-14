@@ -71,7 +71,7 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
-For applying access to audited SD Desktop Limited Edition, see instructions in [the user guide](./sd-desktop-le.md#service-access).
+Applying access to the audited SD Desktop Limited Edition differs from the process presented above, see instructions in [the user guide](./sd-desktop-le.md#service-access).
 
 
 ## Useful terminology
