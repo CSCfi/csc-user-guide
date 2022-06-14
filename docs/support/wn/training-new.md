@@ -3,9 +3,10 @@
 ## Documentation on custom Jupyter notebooks for your courses, 13.6.2022
 
 Our documentation on [custom Jupyter notebooks for your courses](https://github.com/CSCfi/Jupyter_www_puhti)
-has been extended. Trainers or course organisers who wish to leverage the power
-of supercomputers for their courses in easy-to-use Jupyter notebooks can be done.
-Using these notebooks is very user-friendly and scalable for remote or onsite courses.
+has been extended. Trainers or course organisers can leverage the power
+of supercomputers for their courses in easy-to-use Jupyter notebooks at CSC.
+Using custom notebooks in courses is very user-friendly and scalable for remote
+or onsite courses.
 
 ## Documentation on High-throughput computing and workflows updated, 6.6.2022
 
