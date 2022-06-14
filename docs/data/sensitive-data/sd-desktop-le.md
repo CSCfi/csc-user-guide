@@ -252,6 +252,8 @@ In order to export the result at the end of your analysis, you need to:
 
 * send a request to servicedesk@csc.fi to export your results.
 
+![Data-Export-LE-1](images/desktop/data-export-le-1.png )
+
 All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing.
 
 
