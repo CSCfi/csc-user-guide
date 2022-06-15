@@ -1,7 +1,7 @@
 
 # SD Desktop Limited Edition (Sensitive Data Desktop Limited Edition)
 
-SD Desktop Limited Edition has been audited against the Findata requirements and is a registered secondary use environment. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop Limited Edition is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
+SD Desktop Limited Edition has been audited against the Findata regulation and is a registered secondary use environment. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop Limited Edition is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
 
 In the following user guide, you can learn how to:
 
