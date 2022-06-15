@@ -31,17 +31,18 @@ performance issues.
 The use of containers in HPC environment is increasing with advances in HPC-friendly containers such as singularity which 
 can be launched from [Lustre parallel file system](https://docs.csc.fi/computing/lustre/) without privileged root access. 
 Here are a few benefits that one can get by using containerised applications:
-- Lesser startup times: As containers have less overhead (no need to load OS !) containerised applications have faster 
-      start-up times. You can easily the differences in start-up time between a containerised application and modularised 
-      application based on conda. 
-- File I/O Throughput:  This is one of the biggest issues for Lustre file systems when I/O intensive jobs are deployed. 
-    Containers may not solve this issue, but at least when containerised application starts from a single image file, the 
-    number requests for Lustre server node (OSS and MDS) are less as compared to conda-based installation where an excessive
-    number of files needs to be loaded.
+
+- Lesser startup times: As containers have less overhead (no need to load OS !) the containerised applications have faster 
+  start-up times. You can easily see the differences in start-up time between a containerised application and modularised 
+  application which installed based on conda approach. 
+- File I/O Throughput:  This is one of the biggest issues for Lustre file systems when I/O intensive jobs are deployed in 
+  HPC systems. Containers may not solve this issue, but at least when containerised application starts from a single image file, the 
+  number requests for Lustre server node (OSS and MDS) are less as compared to conda-based installation where an excessive
+  number of files needs to be loaded.
 - Ease of portability: containerised applications can be deployed easily in different computing environments.
-- Reproducibility: DevOps teams know applications in containers will run the same, regardless of where they are deployed.
+- Reproducibility: Containerised applications run the same way regardless of where they are deployed.
 - Greater efficiency: As containers are lightweight in nature, CPU and Memory Utilization is not an issue. Thus, containerised
-     applications facilitate  faster scale-up across the cluster
+  applications are easy to scale-up across the cluster
 
 ## Usage of containers in CSC HPC systems
 
