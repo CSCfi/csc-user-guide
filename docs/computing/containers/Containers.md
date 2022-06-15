@@ -26,7 +26,7 @@ machine with suitable kernel and virtualisation support. In cloud environments, 
 transparent irrespective of the Linux distribution.  In HPC environments this can also avoid some parallel file system
 performance issues.
 
-## Advantages of containers in HPC systems
+## Advantages of using containers in HPC systems
 
 The use of containers in HPC environment is increasing with advances in HPC-friendly containers such as singularity which 
 can be launched from [Lustre parallel file system](https://docs.csc.fi/computing/lustre/) without privileged root access. 
@@ -48,5 +48,5 @@ Here are a few benefits that one can get by using containerised applications:
 - [Creating HPC-friendly container](https://docs.csc.fi/computing/containers/creating/)
 - [Running existing containers](https://docs.csc.fi/computing/containers/run-existing/)
 - [Container wrapper tool at CSC](https://docs.csc.fi/computing/containers/tykky)
-- [Container Orchestration in Rahti](https://docs.csc.fi/cloud/rahti/containers/)
+
 
