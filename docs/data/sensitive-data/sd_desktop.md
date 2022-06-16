@@ -457,8 +457,6 @@ Press enter and add your password. Note: if you try to upload an unencrypted fil
 The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
 For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data)
 
-
-
 ## Deleting your virtual Desktop
   
 At the end of your analysis, you can delete your virtual Desktop and all the files in it.
@@ -475,28 +473,7 @@ You can not undo this action:
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 ![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
-s
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
-
-
-## Deleting your virtual Desktop
-  
-At the end of your analysis, you can delete your virtual Desktop and all the files in it.
-
-You can not undo this action:
-  
-* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
-* Here, under **Available instances** click on **Delete Desktop**. 
-
-
-!!! note
-    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
-
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
-s
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 
