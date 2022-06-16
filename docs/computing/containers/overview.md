@@ -4,7 +4,7 @@
 
 As a beginner-friendly introduction of containers to non-IT professionals, let's use the analogy of packaging a pet 
 in a cage before traveling. A pet essentially needs a living environment (food, water, etc) and a cage to contain the
-living environment. Once pet is packaged, traveler can take it(e.g, by car, train, flight, etc...) wherever he/she goes 
+living environment. Once pet is packaged, traveler can take it (e.g, by car, train, flight, etc...) wherever he/she goes 
 without affecting the function of the pet by the external environment. Similarly, imagine how a developer (like a 
 traveler) would ensure the same functionality of an application (pet) independent of the host environment. One 
 solution is to run the application in an isolated environment (just like caging).  In other words, packaging 
@@ -32,13 +32,13 @@ The use of containers in HPC environment is increasing with advances in HPC-frie
 can be launched from [Lustre parallel file system](https://docs.csc.fi/computing/lustre/) without privileged root access. 
 Here are a few benefits that one can get by using containerised applications:
 
-- Shorter startup times: As containers have less overhead (no need to load OS !) the containerised applications have faster 
-  start-up times. You can easily see the differences in start-up time for example between a containerised application and the application 
-  installed directly from conda-based approach especially when run at scale. 
+- Shorter startup times: As containers have less overhead (no need to load OS !), they can be launched quite quckly. 
+  You can easily see the differences in start-up times between a containerised application and the application installed 
+  directly from conda especially when run at scale. 
 - File I/O throughput:  This is one of the biggest issues for Lustre file systems when I/O intensive jobs are deployed in 
   HPC systems. Containers may not solve this issue, but at least when containerised application starts from a single image file, 
-  the number of requests for Lustre server node (OSS and MDS) are lesser as compared to conda-based installations where an excessive
-  number of files needs to be loaded when application is launched.
+  the number of requests for Lustre server node (OSS and MDS) are lesser as compared to conda-based installations where an 
+  excessive number of files needs to be loaded when application is launched.
 - Ease of portability: containerised applications can be deployed easily in different computing environments.
 - Reproducibility: Containerised applications run the same way regardless of where they are deployed.
 - Greater efficiency: As containers are lightweight in nature, CPU and Memory Utilization is not an issue. Thus, containerised
