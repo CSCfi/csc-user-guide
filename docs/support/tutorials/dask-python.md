@@ -132,7 +132,7 @@ To use Dask Dashboard:
 * Create new cluster from Python code.
 * Open Dask Dashboard in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
 
-[geoconda](../../apps/geoconda.md) module includes also [Dask JupyterLab Extension](https://github.com/dask/dask-labextension), but that does not seem to work with Puhti web interface. 
+[geoconda](../../apps/geoconda.md) module includes also [Dask JupyterLab Extension](https://github.com/dask/dask-labextension). It does not seem to work with Puhti web interface. It can be used when [Jupyter is opened the SSH tunnelling way](rstudio-or-jupyter-notebooks.md) and an extra tunnel is opened for the Jupyter Dashboard port.
 
 ## References 
 
