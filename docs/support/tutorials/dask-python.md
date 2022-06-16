@@ -84,7 +84,12 @@ from dask import compute
 project_name = sys.argv[1]
 num_of_worker_jobs = sys.argv[2]
 
-### Create the SLURMCluster and define what resources to ask for each of the worker job. Notice the local_directory
+### Create the SLURMCluster and define what resources to ask for each of the worker job. 
+### Notice the local_directory and python, python path must be adjusted to used module.
+### To find out Python path, run: 
+### module load xx
+### which python
+
 cluster = SLURMCluster(
     queue = "small",
     project = project_name,
@@ -92,7 +97,8 @@ cluster = SLURMCluster(
     memory = "8GB",
     walltime = "00:10:00",
     interface = 'ib0',
-    local_directory = "/scratch/<YOUR-PROJECT>/temp"
+    local_directory = "/scratch/<YOUR-PROJECT>/temp",
+    python = "/appl/soft/ai/cont_conda/python-data-2022-04-ubi8.5/bin/python"
 )
 
 ### This launches the cluster (submits the worker jobs)
@@ -114,23 +120,19 @@ for dataset in datasets:
 compute(list_of_delayed_functions)
 ```
 
-## Dask with Jupyter
+## Dask with Jupyter and Dask Dashboard
 
-For better understanding of Dask computing exists [Dask JupyterLab Extension](https://github.com/dask/dask-labextension). In Puhti it is currently available only in [geoconda](../../apps/geoconda.md) module, if you need it together with other Python modules, ask from Servicedesk.
+For better understanding of Dask computing the computing can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html). Both `LocalCluster` and `SLURMCluster` type clusters work.
 
-To use Dask JupyterLab Extension:
+To use Dask Dashboard:
 
+* [Start JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface. 
+    * If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
+    * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
+* Create new cluster from Python code.
+* Open Dask Dashboard in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
 
-* [Start JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface. Select `geoconda` as module. Reserve computing resources for your Local cluster, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
-* Open Dask panel from the Left menu
-* Create new cluster from Dask panel, by default all job's cores are used.
-* It should be possible to use .yml files for more specific set-ups, see `Configuration of Dask cluster management` in [Dask JupyterLab Extension documentation](https://github.com/dask/dask-labextension).
-
-Dask JupyterLab Extension has some limitations in Puhti:
-
-* Only `LocalCluster` type clusters work in Jupyter, not for example `SLURMCluster`.
-* Clusters created in Python code can not be connected to JupyterLab Dask panel as usual, see the above work-around. The second option is to open Dask Dashboard in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
-    
+[geoconda](../../apps/geoconda.md) module includes also [Dask JupyterLab Extension](https://github.com/dask/dask-labextension), but that does not seem to work with Puhti web interface. 
 
 ## References 
 
