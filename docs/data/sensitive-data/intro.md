@@ -32,7 +32,11 @@ Sensitive Data services for research consists of four components, all accessible
 
 * Sensitive Data Submit (pilot phase): allows publishing sensitive data under controlled access.
 
-* Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface. 
+* Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
+
+In addition, there is an audited computing environment for secondary use data:
+
+* Sensitive Data Desktop Limited Edition: a restricted version of the standard SD Desktop designed for processing sensitive social and health care data from public registries. SD Desktop Limited Edition is audited against Findata regulation and registered as a secondary use environment in Valvira’s Toini database. In the Limited Edition, CSC projects are managed by CSC, other services are unavailable, and users cannot transport any data directly to or from the Desktop, which also limits the possibilities to customise the workspace.
 
 
 
@@ -66,6 +70,8 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
    7. Apply for billing units or disk quota.
 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+
+Applying access to the audited SD Desktop Limited Edition differs from the process presented above, see instructions in [the user guide](./sd-desktop-le.md#service-access).
 
 
 ## Useful terminology
