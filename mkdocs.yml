@@ -210,7 +210,7 @@ theme:
 
   font:
     text: 'museo-sans'
-    code: 'Source Code Pro'
+    code: 'ibm-plex-mono'
 
   logo: 'img/Docs_CSC_logo.svg#headerlogo'
   cscfi_logo: 'img/CSCfi_text.png#headerlogo'
