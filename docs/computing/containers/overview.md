@@ -48,7 +48,7 @@ Here are a few benefits that one can get by using containerised applications:
 
 ## Usage of containers in CSC HPC systems
 
-- [Creating HPC-friendly container](https://docs.csc.fi/computing/containers/creating/)
+- [Creating HPC-friendly container](creating.md)
 - [Running existing containers](https://docs.csc.fi/computing/containers/run-existing/)
 - [Container wrapper tool at CSC](https://docs.csc.fi/computing/containers/tykky)
 
