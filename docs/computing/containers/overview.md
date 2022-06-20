@@ -2,7 +2,7 @@
 
 ## Containers: A non-technical description 
 
-As a beginner-friendly introduction of containers to non-IT professionals, let's use the analogy of packaging a pet 
+As a beginner-friendly introduction of containers to non-IT professionals, container is like packaging a pet 
 in a cage before traveling. A pet essentially needs a living environment (food, water, etc) and a cage to contain the
 living environment. Once pet is packaged, traveler can take it (e.g, by car, train, flight, etc...) wherever he/she goes 
 without affecting the function of the pet by the external environment. Similarly, imagine how a developer (like a 
