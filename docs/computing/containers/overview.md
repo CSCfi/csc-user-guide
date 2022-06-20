@@ -44,7 +44,7 @@ Here are a few benefits that one can get by using containerised applications:
 - Greater efficiency: As containers are lightweight in nature, CPU and Memory Utilization is not an issue. Thus, containerised
   applications are easy to scale-up across the cluster.
 - Ease of installation: Once you have singularity image, launching a container from the image is very easy. No real installation
-  is needed once we have Singularity client installed.
+  is needed for it.
 
 ## Usage of containers in CSC HPC systems
 
