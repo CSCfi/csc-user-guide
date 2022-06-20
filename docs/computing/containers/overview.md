@@ -50,6 +50,6 @@ Here are a few benefits that one can get by using containerised applications:
 
 - [Creating HPC-friendly container](creating.md)
 - [Running existing containers](run-existing.md)
-- [Container wrapper tool at CSC](https://docs.csc.fi/computing/containers/tykky)
+- [Container wrapper tool at CSC](tykky.md)
 
 
