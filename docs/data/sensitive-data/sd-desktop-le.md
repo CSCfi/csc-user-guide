@@ -1,7 +1,7 @@
 
-# SD Desktop Limited Edition (Sensitive Data Desktop Limited Edition)
+# Audited SD Desktop for registry data (Audited Sensitive Data Desktop for registry data)
 
-SD Desktop Limited Edition has been audited against the Findata regulation and is a registered secondary use environment. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop Limited Edition is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
+SD Desktop has been audited against the Findata regulation and is a registered secondary use environment. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
 
 In the following user guide, you can learn how to:
 
@@ -21,7 +21,7 @@ In the following user guide, you can learn how to:
 
 * After login to SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
 
-* Limited Edition virtual Desktops are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
+* To comply with the regulation, virtual Desktops for registry data are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
 * SD Desktop Limited Edition can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
 
