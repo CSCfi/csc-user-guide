@@ -1,7 +1,7 @@
 
 # Audited SD Desktop for registry data (Audited Sensitive Data Desktop for registry data)
 
-SD Desktop has been audited against the Findata regulation and is a registered secondary use environment. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
+SD Desktop has been audited against the Findata regulation and is a registered secondary use environment for health and social data. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
 
 In the following user guide, you can learn how to:
 
@@ -23,7 +23,7 @@ In the following user guide, you can learn how to:
 
 * To comply with the regulation, virtual Desktops for registry data are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
-* SD Desktop Limited Edition can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
+* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
 
 
 ## Before you start
@@ -32,12 +32,12 @@ In the following user guide, you can learn how to:
 
 * All the members belonging to a specific CSC project can access the same computing virtual Desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts.
 
-* SD Desktop Limited Edition has few important limitations: the CSC project will be managed by the service desk and the data transfer will be restricted (including user’s own script and programs).
+* Audited SD Desktop has few important limitations: the CSC project will be managed by the service desk and the data transfer will be restricted (including user’s own script and programs).
 
 * After your data permit expires, you will no longer have access to your virtual Desktop. To continue working with the same project, you need to send an amendment application to Findata. Otherwise, make sure to request to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
 
 !!! Note
-    When you are planning to use SD Desktop Limited Edition, we recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
+    When you are planning to use SD Desktop for registry data, we recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
 
 
 ## Overview
@@ -47,7 +47,7 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-Access to SD Desktop Limited Edition is managed by CSC. When you are processing registry data (secondary use) in SD services you need to:
+When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using audited SD Desktop service, you need to:
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity ;
