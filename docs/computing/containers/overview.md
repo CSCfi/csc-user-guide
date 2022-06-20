@@ -29,7 +29,7 @@ performance issues.
 ## Why to use containers in HPC systems?
 
 The use of containers in HPC environment is increasing with advances in HPC-friendly containers such as singularity which 
-can be launched from [Lustre parallel file system](https://docs.csc.fi/computing/lustre/) without privileged root access. 
+can be launched from [Lustre parallel file system](../lustre.md) without privileged root access. 
 Here are a few benefits that one can get by using containerised applications:
 
 - Shorter startup times: As containers have less overhead (no need to load OS !), they can be launched quite quickly. 
