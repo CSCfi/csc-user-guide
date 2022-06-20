@@ -61,10 +61,10 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 
 ### Requesting a project for registry data
 
-To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please
+To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please,
 
 * attach a copy of your data permit to the request,
-* escribe shortly your research project (name and research field are enough) and
+* describe shortly your research project (name and research field are enough) and
 * add all the project members as a cc to the email (please use the organizational email addresses).
 
 We will respond to your request as soon as possible.
