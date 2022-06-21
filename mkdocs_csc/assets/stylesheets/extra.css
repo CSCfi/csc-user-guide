@@ -116,6 +116,10 @@ body {
     font-weight: bold;
 }
 
+.md-header[data-md-state="shadow"] {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .md-header img {
     -webkit-filter: invert(1);
     filter: invert(1);
