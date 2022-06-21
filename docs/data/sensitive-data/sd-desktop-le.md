@@ -50,7 +50,7 @@ In the following user guide, you can learn how to:
 When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using audited SD Desktop service, you need to:
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
-* set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity ;
+* set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity;
 * **activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;
 * join a CSC project via an invitation link and wait for an approval from the service desk;
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
@@ -81,7 +81,7 @@ from any modern web-browser.
 !!! Note
     In order to access the CSC project created for processing registry data, it is **necessary for project members to use Haka credentials** when creating a CSC account. If someone in the project doesn’t have Haka account, we need to verify their identity manually before they will be able to access the project in SD Desktop. For identity verification without Haka credentials, please contact our service desk (servicedesk@csc.fi).
 
-After entering your username and password, you need to  **verify your identity** (or use Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+After entering your username and password, you need to **verify your identity** (or use Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
 
 After entering the temporary code, **please press the Continue button**. Pressing Enter on your keyboard is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
 
@@ -102,7 +102,7 @@ Once you have access to the service, you can launch your virtual computer (Deskt
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you have colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data authorised for your project. Furthermore, all the Desktops are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in [the user guide](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) under SD Desktop.
 
 
-To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go To SD Desktop Management page**. 
+To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go to SD Desktop Management page**. 
 
 Here you can specify several parameters:
 
@@ -123,13 +123,13 @@ When all the settings are done, press the **Launch Desktop** button. The launch 
 You can choose between **four different pre-built virtual Desktop options**:
 
 
-*  **Light computation**. Technical specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
+*  **Light computation**. Technical specifications: **Core:3; memory 4 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
 
-* **Small computation**. Technical specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
+* **Small computation**. Technical specifications: **Core:6; memory 15 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
 
-* **Medium computation**. Technical specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
+* **Medium computation**. Technical specifications: **Core:8; memory 30 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
-* **Heavy computation**: Technical specifications: **Core:40; memory 168 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
+* **Heavy computation**: Technical specifications: **Core:40; memory 168 GB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
 
 
 ![Launch-virtual-Desktop](images/desktop/desktop-3.png)
@@ -150,7 +150,7 @@ In the following paragraphs, we will discuss how to work with a virtual Desktop,
 
 Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
 
-When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
+When you log in to SD Desktop **Homepage**, you will be able to access your virtual Desktop in:
 
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed it)
 
@@ -238,7 +238,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot install software to SD Desktop directly when working with secondary use data. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi even before applying for the data permit to figure out if it is possible to install the program to the Desktop. If the program is compatible with the computing environment, then you need to send a request to Findata and ask them to import the program to your Desktop.
 
 
-##  Data export from the Desktop
+## Data export from the Desktop
 
 Your virtual Desktop is completely isolated from the internet and other services for security reasons. Only CSC service desk can export non-sensitive results from the secure workspace.
 
@@ -261,9 +261,9 @@ All the content in the “Results” folder will be exported to the data permit 
   
 At the end of your analysis, you can delete your virtual Desktop and all the files in it.
 
-You can not undo this action:
+You cannot undo this action:
   
-* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
+* On SD Desktop Homepage, click on **Go to SD Desktop Management page**. 
 * Here, under **Available instances** click on **Delete Desktop**. 
 
 
