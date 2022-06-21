@@ -11,7 +11,7 @@ In the following user guide, you can learn how to:
 * request to export non-sensitive results from the secure virtual Desktop.
 
 !!! Note
-    We apologize for any confusion caused by the earlier name of the service. From now on, the secondary use environment will be referred to as audited SD Desktop, and the official service name is SD Desktop. You can apply to use SD Desktop for processing secondary use registry data by sending an application to Findata. The same SD Desktop service provides an environment for all sensitive data, but when processing secondary use registry data, there are some restrictions to the service and the access process is different.
+    We apologize for any confusion caused by the earlier name of the service. From now on, the secondary use environment will be referred to as audited SD Desktop, and the official service name is SD Desktop. You can apply to use SD Desktop for secondary use social and health data from public registries by sending an application to Findata. The same SD Desktop service provides a computing environment for all sensitive data, but when processing registry data, there are some restrictions to the service and the access process is different.
 
 ## Key features
 
