@@ -4,7 +4,7 @@
 
 The audited SD Desktop is for analyzing secondary use health and social data, more specifically Findata controlled registry data. SD Desktop has been audited against the Findata regulation.
 
-## How does processing secondary use data on SD Desktop differ from standard use of the Sensitive Data services?
+## How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?
 
 With registry data, there are some restrictions to the service compared to the standard use of SD Desktop because of the data authority’s requirements for a secondary use environment. Most important limitations include: the CSC project will be managed by CSC instead of the user and other services are not available. Read more in SD Desktop service description.
 
