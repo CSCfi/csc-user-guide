@@ -14,7 +14,7 @@ First, you need to have a data permit from Findata. Then you need to request for
 
 ## Can I combine my own data with secondary use registry data on SD Desktop?
 
-In a project using secondary use registry data, all the data processed in SD Desktop must come from Findata. If you want to combine your own data with registry data, you need to ask Findata to do that for you.
+In a project using secondary use registry data, all the data processed on SD Desktop must come from Findata. If you want to combine your own data with registry data, you need to ask Findata to do that for you.
 
 ## Is it possible to install software to SD Desktop when processing secondary use data?
 
