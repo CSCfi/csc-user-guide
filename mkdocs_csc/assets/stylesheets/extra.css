@@ -34,8 +34,15 @@ body {
 }
 
 #edit-pencil {
+    opacity: unset;
+    font-size: 32px;
     color: var(--csc-light-grey);
     text-decoration: none;
+}
+
+#edit-pencil:hover {
+    background-color: inherit;
+    color: var(--csc-primary)
 }
 
 .md-typeset {
