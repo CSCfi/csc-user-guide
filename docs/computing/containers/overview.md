@@ -1,10 +1,10 @@
-# Woking with containers at CSC 
+# Working with containers at CSC 
 
 ## Containers: A non-technical description 
 
-As a beginner-friendly introduction of containers to non-IT professionals, let's use the analogy of packaging a pet 
-in a cage before traveling. A pet essentially needs a living environment (food, water, etc) and a cage to contain the
-living environment. Once a pet is packaged, a traveler can take it (e.g, by car, train, flight, etc...) wherever he/she goes 
+As a beginner-friendly container introduction to non-IT professionals, let's use the analogy of packaging a pet 
+in a cage before traveling. A pet essentially needs a living environment (food, water, etc.) and a cage to contain the
+living environment. Once a pet is packaged, a traveler can take it (e.g. by car, train, flight, etc...) wherever he/she goes 
 without affecting the function of the pet by the external environment. Similarly, imagine how a developer (like a 
 traveler) would ensure the same functionality of an application (pet) independent of the host environment. One 
 solution is to run the application in an isolated environment (just like caging).  In other words, packaging 
