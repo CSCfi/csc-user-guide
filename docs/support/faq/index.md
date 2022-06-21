@@ -146,7 +146,7 @@
 * [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
 
-### SD Desktop Limited Edition
+### Audited SD Desktop for registry data
 
 * [What is SD Desktop Limited Edition for?](sensitive-data-desktop-le.md#what-is-sd-desktop-limited-edition-for)
 * [What is the difference between standard SD Desktop and SD Desktop Limited Edition?](sensitive-data-desktop-le.md#what-is-the-difference-between-standard-sd-desktop-and-sd-desktop-limited-edition)
