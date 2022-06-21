@@ -72,14 +72,14 @@ We will respond to your request as soon as possible.
 
 ### Authentication
 
-Login to SD Desktop Limited Edition is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
 !!! Note
-    In order to access the CSC project created for processing registry data, it is **necessary for project members to use Haka credentials** when creating a CSC account. If someone in the project doesn’t have Haka account, we need to verify their identity manually before they will be able to access the SD Desktop Limited Edition. For identity verification without Haka credentials, please contact our service desk (servicedesk@csc.fi).
+    In order to access the CSC project created for processing registry data, it is **necessary for project members to use Haka credentials** when creating a CSC account. If someone in the project doesn’t have Haka account, we need to verify their identity manually before they will be able to access the project in SD Desktop. For identity verification without Haka credentials, please contact our service desk (servicedesk@csc.fi).
 
 After entering your username and password, you need to  **verify your identity** (or use Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
 
@@ -166,7 +166,7 @@ When you open the connection, a virtual computing environment (Linux Centos oper
 You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the paragraph](../../data/sensitive-data/sd_desktop.md#rstudio-in-sd-desktop) under SD Desktop.
 
 
-Security-related features SD Desktop Limited Edition include:
+Security-related features of the audited SD Desktop include:
 
 * the computing environment (visible from your browser) is isolated from the internet. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. You will also not be able to access any repositories directly.
 
@@ -189,11 +189,11 @@ You can close your connection to your virtual Desktop in two ways:
 ![Launch-virtual-Desktop](images/desktop/desktop-5.png)
 
 
-## Accessing sensitive registry data within SD Desktop Limited Edition
+## Accessing sensitive registry data within SD Desktop
 
 As the virtual Desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_. This application will allow you to access the dataset for which you have received a permit from Findata. Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop.
 
-The data authorised by Findata can be accessed in your virtual Desktop via SD Apply in Data Gateway. After the CSC project has been set up for you, the data will be accessible in SD Desktop Limited Edition for the time period determined in the data permit. SD Connect (for storing data) is not available in SD Desktop Limited Edition, so the only way to import any data, script or software to the Desktop is through Findata.
+The data authorised by Findata can be accessed in your virtual Desktop via SD Apply in Data Gateway. After the CSC project has been set up for you, the data will be accessible in SD Desktop for the time period determined in the data permit. SD Connect (for storing data) is not available in SD Desktop when processing registry data, so the only way to import any data, script or software to the Desktop is through Findata.
 
 ### Accessing data using Data Gateway
 
@@ -231,14 +231,14 @@ Once you sign in to your virtual Desktop, you can access the data by following t
  *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members).
 
 
-## Default programs available on SD Desktop Limited Edition and software customisation
+## Default programs available on the Desktop and software customisation
 
 Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software ([listed](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) under SD Desktop).
 
-The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot install software to SD Desktop Limited Edition directly. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi even before applying for the data permit to figure out if it is possible to install the program to the Desktop. If the program is compatible with the computing environment, then you need to send a request to Findata and ask them to import the program to your Desktop.
+The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot install software to SD Desktop directly when working with secondary use data. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi even before applying for the data permit to figure out if it is possible to install the program to the Desktop. If the program is compatible with the computing environment, then you need to send a request to Findata and ask them to import the program to your Desktop.
 
 
-##  Data export from SD Desktop Limited Edition
+##  Data export from the Desktop
 
 Your virtual Desktop is completely isolated from the internet and other services for security reasons. Only CSC service desk can export non-sensitive results from the secure workspace.
 
