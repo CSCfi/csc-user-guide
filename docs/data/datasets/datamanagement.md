@@ -42,7 +42,7 @@ Data, just like other research outputs, should undergo some level of quality con
 
 ### Use standard, open data formats
 
-Every researcher has their own favorite tools for storing and analysing data. To make your data easy to use it is best to store it in a standard and open file format which can be used by various software and remains accessible over time (e.g. CSV, XML). These types of data formats are also good candidates for the digital preservation of data.
+Every researcher has their own favorite tools for storing and analysing data. To make your data easy to use it is best to store it in a standard and open [file format](metadata-and-documentation#files-and-file-formats) which can be used by various software and remains accessible over time (e.g. CSV, XML). These types of data formats are also good candidates for the digital preservation of data.
 
 ### Use good variable names and null values
 
