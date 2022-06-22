@@ -93,7 +93,7 @@ Also, think about your file naming conventions, directory structure and **versio
     - [Industrial Ontologies Foundry (IOF)](https://www.industrialontologies.org/)
     
     
-<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="[https://www.youtube.com/embed/f9m4montnF0]" title="Elements of FAIR - Interoperability" width="560"></iframe>
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/f9m4montnF0" title="Elements of FAIR - Interoperability" width="560"></iframe>
 
 ## Data organization
 
