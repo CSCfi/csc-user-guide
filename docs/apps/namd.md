@@ -7,7 +7,7 @@ Beckman Institute of the University of Illinois.
 
 ## Available
 
-* Puhti: version 2.13, 2.14-cuda
+* Puhti: version 2.13, 2.14-cuda, 3.0alpha11-cuda
 * Mahti: version 2.14
 
 ## License
@@ -93,7 +93,7 @@ namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} ap
 #SBATCH --ntasks-per-node=8  # test to find the optimum number, 2-64
 #SBATCH --cpus-per-task=16   # 128/(ntasks-per-node)
 #SBATCH --nodes=2
-#SBATCH --time=0:10:00        # time as hh:mm:ss
+#SBATCH --time=0:10:00        # time as `hh:mm:ss`
 #SBATCH --account=<project>
 
 module load gcc/11.2.0 openmpi/4.1.2 namd/2.14
@@ -111,7 +111,7 @@ sbatch namd_job.bash
 ```
 
 !!! Note
-    Following the RHEL8 update on Mahti, you need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
+    Following the RHEL8 update on Mahti, you may need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
 
 ## References
 

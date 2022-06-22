@@ -1,4 +1,4 @@
-# Workflow for many small, independent runs
+# GNU Parallel workflow for many small, independent runs
 
 The goal is to have a workflow that is
 
@@ -12,6 +12,19 @@ the box. Some amount of programming is needed in most cases. A very much related
 discussion is in [Array jobs](../../computing/running/array-jobs.md)
 chapter of <https://docs.csc.fi>.
 
+## Strengths of GNU Parallel
+
+* Does not require a database or persistent manager process
+* Easily scales to a large number of tasks/nodes
+* Efficient use of scheduler resources
+
+## Disadvantages of GNU Parallel
+
+* User is required to do careful organization of input and output files
+* Scaling up requires consideration of system I/O performance
+* Modest familiarity with bash scripting recommended
+* Only serial subtasks
+* No support for dependencies or error recovery
 
 ## System limits outline
 

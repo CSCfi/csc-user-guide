@@ -54,8 +54,8 @@ more information on how to install packages yourself. If you think that some
 important package should be included in the module provided by CSC, please
 [contact our servicedesk](../support/contact.md). Note that some machine
 learning frameworks have their own specific modules, for example:
-[PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [MXNet](mxnet.md) and
-[RAPIDS](rapids.md).
+[PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [JAX](jax.md),
+[MXNet](mxnet.md) and [RAPIDS](rapids.md).
 
 ## License
 

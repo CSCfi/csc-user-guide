@@ -64,7 +64,7 @@ Python has multiple packages for parallel computing, for example
 
 The `geoconda` module is available in Puhti:
 
-* 3.9.12
+* 3.9.13
 * 3.8.8 
 
 Version number is the same as Python version.

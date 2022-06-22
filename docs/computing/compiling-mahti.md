@@ -19,14 +19,6 @@ loaded using the [Modules](modules.md) system with the command:
 module load aocc
 ```
 
-!!! Note 
-  After the RHEL8 update Intel is  momentarily unavailable but will be installed shortly
-    ```
-    module load .unsupported 
-    module load intel
-    ```  
-  Note however that the intel compiler is not supported. I.e CSC will not install software using the intel compiler on Mahti.  
-
 Different applications function better with different suites, so the selection
 needs to be done on a case-by-case basis.
 

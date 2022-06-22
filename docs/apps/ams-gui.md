@@ -3,7 +3,13 @@
 [AMS](../apps/ams.md) comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
 You can test the GUI via the Puhti web interface, [www.puhti.csc.fi](../computing/webinterface/index.md), but for more extensive use we recommend to install the GUI on your own laptop/workstation.
 
-## Use via your browser
+## License
+
+See [the License section of AMS](ams.md#license).
+
+## Usage
+
+### Use via your browser
 
 Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
 
@@ -30,7 +36,7 @@ Please replace `<yourproject>` with a proper project name. You can use the same 
 
 Select the job you want to submit (`SCM-> Jobs`), the queue you want to use (`Queue`) and submit the job `Job-> Run`.  
 
-## Install your own GUI
+### Install your own GUI
 
 The AMS license acquired by CSC allows CSC's academic customers to install
 the AMS-GUI on their local computer.  In this way the user can conveniently build and setup a

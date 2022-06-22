@@ -16,7 +16,7 @@ __QGIS__ is available in Puhti with following versions:
 The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start QGIS: Apps -> Desktop, choose Desktop: 'None' and App: 'QGIS'
+2. Start QGIS: Apps -> Desktop, choose Desktop: 'single application' and App: 'QGIS'
 3. QGIS is started automatically when the Desktop is launched. 
 
 
@@ -24,7 +24,7 @@ Alternatively, especially if you want to use QGIS together with some other Graph
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start QGIS:
+3. After launcing the remote desktop, double-click QGIS icon OR open `Host Terminal` (Desktop icon) and start QGIS:
 
 ```
 module load qgis

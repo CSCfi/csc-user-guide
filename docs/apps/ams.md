@@ -30,7 +30,7 @@ module load ams/2022.101
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40      # MPI tasks per node
 #SBATCH --account=yourproject     # insert here the project to be billed 
-#SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00           # time as `hh:mm:ss`
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 module purge
 module load ams/2022.101
@@ -56,7 +56,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40      # MPI tasks per node
 #SBATCH --account=yourproject     # insert here the project to be billed
-#SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00           # time as `hh:mm:ss`
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 #SBATCH --gres=nvme:100           # requested local disk space in GB
 module load ams/2022.101
@@ -76,7 +76,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=128 # MPI tasks per node
 #SBATCH --account=yourproject # insert here the project to be billed
-#SBATCH --time=00:20:00       # time as hh:mm:ss
+#SBATCH --time=00:20:00       # time as `hh:mm:ss`
 module purge
 module load ams/2022.101
 export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
