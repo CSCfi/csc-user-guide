@@ -115,7 +115,10 @@ body {
 
 .md-typeset h1,
 .md-typeset h2,
-.md-typeset h3 {
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
     font-weight: var(--csc-font-weight-heading);
 }
 
@@ -149,6 +152,7 @@ body {
     color: var(--csc-primary);
 }    
 
+.md-typeset code,
 .md-typeset .highlight {
     background-color: var(--csc-code-background);
 }    
@@ -218,11 +222,6 @@ body {
 
 .md-nav__link[data-md-state=blur] {
     font-weight: 700;
-}
-
-.md-typeset__scrollwrap {
-    text-align: center;
-    margin: 2em -.8rem;
 }
 
 .md-main__inner {
