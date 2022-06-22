@@ -204,6 +204,7 @@ nav:
   - Training material: support/training-material.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
+  - TESTING PAGE: dev.md
 
 theme:
   name: material
