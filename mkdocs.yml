@@ -21,6 +21,7 @@ nav:
      - Billing: accounts/billing.md
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
+     - Helmi: accounts/helmi.md
   - Computing:
      - Overview: computing/overview.md
      - Systems:
@@ -29,6 +30,7 @@ nav:
         - Mahti: computing/systems-mahti.md
         - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
         - Kvasi: computing/kvasi.md
+        - Helmi: computing/helmi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
         - Disk areas: computing/disk.md
@@ -46,6 +48,7 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
+        - Running on Helmi: computing/running/running-on-helmi.md
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
