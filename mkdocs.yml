@@ -214,10 +214,10 @@ theme:
     text: 'museo-sans'
     code: 'ibm-plex-mono'
 
-  logo: 'img/Docs_CSC_logo.svg#headerlogo'
-  cscfi_logo: 'img/CSCfi_text.png#headerlogo'
-  mycsc_logo: 'img/MyCSC_text.png#headerlogo'
-  research_logo: 'img/Research_text.png#headerlogo'
+  logo: 'img/CSC_logo.png#headerlogo'
+  cscfi_logo: 'img/CSCfi_text.png#headerlink'
+  mycsc_logo: 'img/MyCSC_text.png#headerlink'
+  research_logo: 'img/Research_text.png#headerlink'
 
 extra_css:
   - 'assets/stylesheets/tabbed.css'

@@ -91,11 +91,17 @@ body {
 }
 
 .md-header[data-md-state="shadow"] {
+    height: 60px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+img[src*="#headerlogo"] {
+    width: 60px;
+}
+
 /* temporary header links */
-.md-header img {
+img[src*="#headerlink"] {
+    width: 160px;
     -webkit-filter: invert(1);
     filter: invert(1);
 }
@@ -381,10 +387,6 @@ img[src*="#frontpagelogo"] {
 
 .md-typeset .md-content__icon {
     opacity: 80%;
-}
-
-img[src*="#headerlogo"] {
-    width: 160px;
 }
 
 .md-header-nav__button {
