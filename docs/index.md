@@ -33,6 +33,9 @@ template: main-index.html
 [Kvasi QLM Guide](computing/available-systems.md#kvasi)
 </span><br>
 <span class="index-quicklinks">
+[Helmi User Guide](computing/available-systems.md#helmi)
+</span><br>
+<span class="index-quicklinks">
 [Getting started with Puhti](support/tutorials/puhti_quick.md)
 </span><br>
 <span class="index-quicklinks">
@@ -40,6 +43,9 @@ template: main-index.html
 </span><br>
 <span class="index-quicklinks">
 [Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
+</span><br>
+<span class="index-quicklinks">
+[Getting started with Helmi](support/tutorials/helmi_quick.md)
 </span><br>
 <span class="index-quicklinks">
 [Sensitive Data services User Guide](data/sensitive-data/index.md) 

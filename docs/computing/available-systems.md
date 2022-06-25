@@ -77,3 +77,14 @@ the Atos Quantum Assembler (AQASM) language, or using a higher level, Python bas
 language and ready-made libraries. The QLM comes with several ready-made examples.
 You can also download and run locally [myQLM](./kvasi.md#myqlm) - a light-weight version of the 
 QLM ecosystem.
+
+## Helmi
+
+**5 Qubit Quantum Computer**
+
+Helmi, the first Finnish quantum computer, build by IQM and operated by VTT. Presently, Helmi provides 5 qubits, and will be upgraded to 20, then 50 qubits in the near future. With Helmi users can run quantum programmes and algorithms on a platform with real noise and decoherence.
+
+Access to Helmi is provided through LUMI which acts as a portal for Quantum Computing resources. Users will need to apply for a project through LUMI and submit jobs to Helmi through LUMI. Read about [applying for LUMI resources as a Finnish user](https://lumi-supercomputer.eu/get-started-2021/users-in-finland/). 
+
+
+[A more technical description about Helmi](helmi.md).
