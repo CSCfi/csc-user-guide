@@ -8,7 +8,7 @@ structure refinement.
 
 ## Available
 
-* Puhti-rhel8: 18, 18-cuda, 20, 20-cuda, 20-quick-cuda (for QM/MM with QUICK)
+* Puhti-rhel7: 18, 18-cuda, 20, 20-cuda, 20-quick-cuda (for QM/MM with QUICK)
 * Mahti: 20, 20-cuda
 
 ## License
