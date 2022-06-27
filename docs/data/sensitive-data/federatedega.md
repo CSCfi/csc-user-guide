@@ -16,7 +16,7 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 ## Useful terminology
 
-- **Central EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
+- **Central** **EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
 - **Data Access Committee (DAC)**. Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
 - **Data Requester**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
 - **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. 
