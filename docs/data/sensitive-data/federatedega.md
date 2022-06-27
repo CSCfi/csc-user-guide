@@ -98,6 +98,7 @@ or
 
 #### Command line interface
 **Data encryption** with crypt4gh CLI:
+
 1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help installing Python, please follow these instructions.
 2.	Open a terminal and install Crypt4GH directly with pip tool:
 ```bash 
