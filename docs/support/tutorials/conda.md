@@ -1,8 +1,8 @@
 # Conda best practices
 
-!!! Note
+!!! warning "NOTE: Do not install Conda environments directly on the shared file system"
     **CSC has deprecated the use of Conda environments that are installed directly
-    on the shared file system on Puhti/Mahti due to performance issues. We
+    on the shared file system** on Puhti/Mahti due to performance issues. We
     strongly recommend users to either containerize their Conda-based installations
     or consider alternative means of installation. Read more on our separate [Conda deprecation page](../deprecate-conda.md). See also the [Tykky container wrapper
     tool](../../computing/containers/tykky.md) to easily containerize your
