@@ -54,7 +54,7 @@ Once the legal agreements between the data controller and CSC are finalised, you
 Before uploading the data to FEGA, you must prepare the datasets and verify the data formats. Some examples of the accepted formats are listed below.
 
 !!! note
-    A dataset is usually defined as a set of files belonging to the same experiment and data type. One study can be linked to multiple datasets. Your study may include both sensitive (e.g., human genetic or phenotypic information) and non-sensitive data (e.g., viral sequences, metabolites). Only the sensitive data can be submitted to FEGA. The non-sensitive data can be published openly in appropriate repositories. In this case, the sample accessions generated at the repository should be referenced in the FEGA submission.
+    A dataset is usually defined as a set of files belonging to the same experiment and data type. One study can be linked to multiple datasets. Your study may include both sensitive (e.g. human genetic or phenotypic information) and non-sensitive data (e.g. viral sequences, metabolites). Only the sensitive data can be submitted to FEGA. The non-sensitive data can be published openly in appropriate repositories. In this case, the sample accessions generated at the repository should be referenced in the FEGA submission.
     
 **Sensitive Data**:
 
@@ -71,6 +71,35 @@ Non-sensitive data (or open data) needs to be submitted in appropriate archives.
 !!! note
     For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at servicedesk@csc.fi (subject Federated EGA).
 
+### Step 5: Data encryption and upload 
+Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted. 
 
+!!! note
+    The data is encrypted with a FEGA public encryption key using crypt4gh, a tool designed to encrypt and share human genetic data according to the Global Alliance for Genomics and Health (GA4GH) standard.
+    
+You can carry out the encryption and upload steps using:
+
+- **Fi-FEGA upload tool**. The Fi-FEGA upload tool (graphical user interface) can be used to encrypt and upload files or folders automatically to Finnish FEGA.
+
+or
+
+- **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
+
+**Fi-FEGA upload tool
+
+1. You can download the application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the SDA application in your download folder. When you open the application, you might encounter an error message. In this case, click on More info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on Run anyway. 
+2. Next, download the Finnish FEGA public encryption key. 
+3. Open the FEGA submission tool and click on Load Recipient Public Key. This opens a file browser that you can use to select the Finnish FEGA public encryption key (example_ega.key). Next, click on Open.
+4. Click on Select file to Upload or Select Directory to upload to upload a single file or an entire folder. 
+5. Next, you need to fill in the SFTP (or secure connection) credentials, which correspond to your Central EGA account username:
+   - in SFTP Username write your EGA username (ega-box-NNN)
+   - in SFTP Server write the following: test.sd.csc.fi:9002. 
+
+!!! note
+Loading an SFPT key is not required for data uploads to FEGA.
+
+6. Click on Encrypt and upload files. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
+7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
+8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
 
