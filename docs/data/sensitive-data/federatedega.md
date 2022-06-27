@@ -8,6 +8,7 @@ You can use FEGA either to submit or apply access to biomedical datasets. The se
     For more information, check Federated EGA service description in CSC service catalog and CSC sensitive Data Services for research webpage.
 
 The following is a step-by-step guide to Finnish FEGA that illustrates:
+
 - Data submission
 - Data access application
   - For Data Requesters
@@ -15,11 +16,11 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 ## Useful terminology
 
-- **Central EGA.** Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
-- **Data Access Committee (DAC).** Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
-- **Data Requester.** Individual who applies access to sensitive data or metadata that has been stored at FEGA.
-- **Data Submitter.** Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. 
-- **Finnish FEGA.** A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
+- **Central EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
+- **Data Access Committee (DAC)**. Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
+- **Data Requester**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
+- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. 
+- **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
 ## Data submission
 ### Step 1: Application form
