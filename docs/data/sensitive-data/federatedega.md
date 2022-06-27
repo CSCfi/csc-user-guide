@@ -2,7 +2,7 @@
 
 The Federated European Genome-phenome Archive (FEGA) is a European network of local repositories that facilitates storing and sharing human -omics data. CSC hosts the Finnish Federated EGA. After completing the submission process, your sensitive research data is stored under controlled access in Finland. At the same time, the public information is available for discovery internationally through the [European Genome-phenome Archive](https://ega-archive.org/studies). Each dataset is associated with a Data Access Committee, which manages it, evaluating external requests and granting or denying data access for re-use. Using CSC Sensitive Data Services for research, the requestor can then directly analyze (via data streaming) the sensitive data stored in Federated EGA using a private and secure cloud workspace.
 
-For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
+
 
 The following is a step-by-step guide to Federated EGA Finland that illustrates:
 
