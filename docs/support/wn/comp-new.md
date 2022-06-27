@@ -1,5 +1,9 @@
 # Computing environment 
 
+## Puhti has been updated with additional local disks in Big Mem nodes, 27.6.2022
+
+Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now also the 6 nodes with 1.5 TiB of memory have been upgraded with 5960 GiB local disks. See [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes.
+
 ## How to clean up data - automatic removal, new tools and instructions 10.6.2022
 
 Puhti's parallel file system is filling up and hence degrading performance. We will start
