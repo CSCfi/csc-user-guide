@@ -1,5 +1,5 @@
 ---
-description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
+description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti-rhel7
 ---
 # Maestro
 
@@ -10,7 +10,7 @@ for *drug design* and *Materials Science*. It can be used to build, edit, run an
 
 ## Available
 
-Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4, 2022.1
+Puhti-rhel7: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4, 2022.1
 Mahti: 2021.4, 2022.1
 
 ## License
@@ -39,38 +39,38 @@ require Haka authentication. Access to the license requires that
 your computer is in FUNET network, e.g. you're on the university
 or connected to it via VPN from home.
 
-### Standalone usage on Puhti
+### Standalone usage on Puhti-rhel7
 
 !!! Note
-     We mainly recommend using Puhti to run your Maestro jobs. If running on
+     We mainly recommend using Puhti-rhel7 to run your Maestro jobs. If running on
      Mahti, you must ensure that your jobs are able to utilize full nodes
      (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
      because most other jobs do not scale. If in doubt, [contact us](/support/contact/).
 
-It is possible to run the heavy computations on Puhti. To do that you need to
+It is possible to run the heavy computations on Puhti-rhel7. To do that you need to
 [get a CSC accountCSC](../accounts/how-to-create-new-user-account.md) and 
-apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md). Before you start
-the actual workflow below, you need to set up your Maestro environment on Puhti.
+apply for [access to Puhti-rhel7](../accounts/how-to-add-service-access-for-project.md). Before you start
+the actual workflow below, you need to set up your Maestro environment on Puhti-rhel7.
 
 These first four steps you only need to do once
 
-1. ssh to Puhti
+1. ssh to Puhti-rhel7
      * `ssh your-username@puhti.csc.fi`
 1. `module load maestro`
      * Make sure you use the same version as on your local computer
 1. An error may appear on your screen. If it asks you to run a script to generate the hosts file, run it (copy paste it to the command line)
      * Now you have your own `schrodinger.hosts` file in your `$HOME` directory
-1. Copy the HOST descriptions from the `schrodinger.hosts` file on Puhti to your local hosts file on your computer
+1. Copy the HOST descriptions from the `schrodinger.hosts` file on Puhti-rhel7 to your local hosts file on your computer
      * Copy everything starting from `name:    test` and paste it at the end of your local `schrodinger.hosts` file
      * This step may need administrator privileges
 
-For actual simulations we recommend using Puhti as follows:
+For actual simulations we recommend using Puhti-rhel7 as follows:
 
 1. Set up your simulations on your local computer
 1. Write the GUI generated input files on disk
-1. Copy them to Puhti 
+1. Copy them to Puhti-rhel7 
 1. Edit the script (`your-jobname.sh`) if needed
-1. Run the script on the Puhti command line to submit the jobs to the queuing system
+1. Run the script on the Puhti-rhel7 command line to submit the jobs to the queuing system
 1. Copy the results back for analysis
 
 The overall process is shown in the video below, and additional details and some diagnostics tips
@@ -93,7 +93,7 @@ For example, a Desmond workflow could be run with:
 This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
 Please also have a look at the [additional flags we recommend to use](../support/tutorials/power-maestro.md).
 
-To run such a script in Puhti you first need to initialize Maestro (possibly edit it a bit) and run the script:
+To run such a script in Puhti-rhel7 you first need to initialize Maestro (possibly edit it a bit) and run the script:
 ```bash
 module load maestro
 bash your_script_name.sh
@@ -104,11 +104,11 @@ The following video tutorial walks you through it:
 [![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
 
 !!! note
-    We do _not_ recommend running the Maestro GUI remotely on Puhti.
-    It _can_ be done via [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but the performance may be somewhat slow due to lack of accelerated graphics. Also, **no long/heavy tasks** should be
+    We do _not_ recommend running the Maestro GUI remotely on Puhti-rhel7.
+    It _can_ be done via [the Puhti-rhel7 web interface remote desktop](../computing/webinterface/desktop.md), but the performance may be somewhat slow due to lack of accelerated graphics. Also, **no long/heavy tasks** should be
     done on the login nodes. Please consult the
     [policy](../../computing/overview/#usage-policy) on the computing overview page.
-    If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
+    If you need to run the GUI on Puhti-rhel7, use the [sinteractive command](../computing/running/interactive-usage.md).
 
 !!! note
     **Windows** users, may need to edit the script created by GUI a little.
@@ -131,7 +131,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 ## More information
 
-* [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
+* [Tutorial and tips for power usage on Puhti-rhel7](../support/tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI.
 * The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of videos, tutorials, online courses, etc.
    * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)

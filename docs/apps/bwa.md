@@ -12,19 +12,19 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti: 0.7.17
+-   Puhti-rhel7: 0.7.17
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 
 ## Usage
 
-In Puhti, BWA can be taken in use as part ofth the _biokit_ module collection:
+In Puhti-rhel7, BWA can be taken in use as part ofth the _biokit_ module collection:
 
 ```text
 module load biokit
 ```
 
-The biokit modules sets up a set of commonly used bioinformatics tools, including  BWA. (Note however that there are bioinformatics tools in Puhti, that have a separate setup commands.)
+The biokit modules sets up a set of commonly used bioinformatics tools, including  BWA. (Note however that there are bioinformatics tools in Puhti-rhel7, that have a separate setup commands.)
 
 The basic syntax of BWA commands is:
 
@@ -34,15 +34,15 @@ bwa <command> [options]
 
 ### BWA indexes
 
-CSC does not maintain pre-compiled BWA indexes for reference genomes in Puhti, but you can check if genomes used in Chipster can provide you a ready made index for a genome you want use. This can be done with command:
+CSC does not maintain pre-compiled BWA indexes for reference genomes in Puhti-rhel7, but you can check if genomes used in Chipster can provide you a ready made index for a genome you want use. This can be done with command:
 
 ```
 chipster_genomes bwa
 ``` 
 
-If suitable genome index is not found the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your $HOME directory is often too small for working with complete genomes. In stead you should do the analysis in scratch directory of your Puhti project ($SCRATCH).
+If suitable genome index is not found the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your $HOME directory is often too small for working with complete genomes. In stead you should do the analysis in scratch directory of your Puhti-rhel7 project ($SCRATCH).
 
-You can use for example command `ensemblfetch` or `wget` to download a reference genome to Puhti. For example
+You can use for example command `ensemblfetch` or `wget` to download a reference genome to Puhti-rhel7. For example
 
 ```text
 ensemblfetch homo_sapiens
@@ -87,10 +87,10 @@ The two sai alignment files are combined with command bwa sampe:
 ```text
 bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2.fq > aln.sam
 ```
-### Running BWA batch jobs in Puhti
+### Running BWA batch jobs in Puhti-rhel7
 
 
-In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job in Puhti:
+In Puhti-rhel7, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job in Puhti-rhel7:
 ```text
 #!/bin/bash
 #SBATCH --job-name=bwa
@@ -116,13 +116,13 @@ bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq re
  
 
 In the batch job example above one BWA task (--ntasks 1) is executed. The BWA job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000). The maximum duration of the job is twelve hours (--time 12:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing
-the _your_project_name_ with the name of your project. (You can use command `csc-workspaces` to see what projects you have in Puhti).
+the _your_project_name_ with the name of your project. (You can use command `csc-workspaces` to see what projects you have in Puhti-rhel7).
 
 You can submit the batch job file to the batch job system with command:
 ```text
 sbatch batch_job_file.bash
 ```
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti-rhel7 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## Manual

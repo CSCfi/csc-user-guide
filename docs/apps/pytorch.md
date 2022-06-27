@@ -17,7 +17,7 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module              | Puhti | Mahti | Environ. | Horovod | Notes           |
+| Version | Module              | Puhti-rhel7 | Mahti | Environ. | Horovod | Notes           |
 |:-------:|---------------------|:-----:|:-----:|----------|:-------:|-----------------|
 | 1.11.0  | `pytorch/1.11`      | X     | X     | Sing.    | X       | default version |
 | 1.10.0  | `pytorch/1.10`      | X     | (X)   | Sing.    | X       |                 |
@@ -71,7 +71,7 @@ typically not the release versions, but the newest git commit at the time of
 creation. See [NVIDIA's PyTorch container release
 notes](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/index.html)
 for more information on provided software versions. Currently, these are
-available on **Puhti only**.
+available on **Puhti-rhel7 only**.
 
 - 1.8.0a0 using Singularity: `pytorch/nvidia-20.11-py3`
 - 1.7.0a0 with *experimental* [Horovod](../support/tutorials/ml-multi.md) support using Singularity: `pytorch/nvidia-20.08-py3`
@@ -88,7 +88,7 @@ file](https://github.com/pytorch/pytorch/blob/master/LICENSE).
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use this software on Puhti-rhel7 or Mahti, initialize it with:
 
 ```text
 module load pytorch
@@ -129,7 +129,7 @@ list-packages
 Example batch script for reserving one GPU and 1/4 of the available CPU cores in
 a single node:
 
-=== "Puhti"
+=== "Puhti-rhel7"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>

@@ -12,13 +12,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti:  0.9.81
+-   Puhti-rhel7:  0.9.81
 
 
 ## Usage
 
-In Puhti, iPyrad can be taken in use as a _bioconda_ environment.
-To use software environments that are installed to Puhti using Conda (either by CSC or yourself), 
+In Puhti-rhel7, iPyrad can be taken in use as a _bioconda_ environment.
+To use software environments that are installed to Puhti-rhel7 using Conda (either by CSC or yourself), 
 first define environment variable PROJAPPL to point to a directory of the project that 
 you wish to use for your own conda environments.
 
@@ -74,7 +74,7 @@ definition `-c 1` to the ipyrad command:
 ipyrad -p params-run1.txt -s 1234567 -c 1
 ```
 
-## Running heavy ipyrad jobs in Puhti
+## Running heavy ipyrad jobs in Puhti-rhel7
 
 If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing you could run these analysis steps as normal batch jobs.
 
@@ -144,11 +144,11 @@ source activate ipyrad
 ipyrad -p ipyrad-run1.txt -s 4567 -c 8 -t 1 
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti-rhel7 user guide](../computing/running/getting-started.md).
 
 ## Using cPouta for very long ipyrad jobs
 
-The maximum run time in Puhti is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check [using-cpouta-for-biosciences](https://research.csc.fi/using-cpouta-for-biosciences) for more details.
+The maximum run time in Puhti-rhel7 is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check [using-cpouta-for-biosciences](https://research.csc.fi/using-cpouta-for-biosciences) for more details.
 
 
 

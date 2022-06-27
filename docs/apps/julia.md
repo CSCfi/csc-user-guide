@@ -13,7 +13,7 @@ For a quick introduction and tutorial, see https://github.com/csc-training/julia
 
 ## Available
 
-### Puhti
+### Puhti-rhel7
 -   1.3.1, 1.1.1 compiled with Intel Math Kernel Library (MKL)
 -   1.3.1, 1.1.1 from pre-compiled binaries
 
@@ -46,7 +46,7 @@ $ julia
 ```
 
 If more resources are required, one can request an interactive node
-directly on Puhti with
+directly on Puhti-rhel7 with
 
 ```bash
 $ srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=small julia
@@ -80,7 +80,7 @@ More information about Julia's package manager you can found from its [documenta
 
 ### Serial batch job
 
-Sample single-processor Julia batch job on Puhti
+Sample single-processor Julia batch job on Puhti-rhel7
 
 ```bash
 #!/bin/bash 
@@ -95,7 +95,7 @@ module load julia
 srun julia my_script.jl
 ```
 
-This runs the script <var>my\_script.jl</var> one time using one cpu-core. You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
+This runs the script <var>my\_script.jl</var> one time using one cpu-core. You can find more information about batch jobs on Puhti-rhel7 from the [user guide](../computing/running/getting-started.md).
 
 ## More information
 

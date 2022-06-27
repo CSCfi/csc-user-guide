@@ -13,18 +13,18 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-*   Roary 3.13.0 is available in Puhti
+*   Roary 3.13.0 is available in Puhti-rhel7
 
 ## Usage
 
-In Puhti, Roary should be executed as a batch job. An interactive batch job for running Roary can be started
+In Puhti-rhel7, Roary should be executed as a batch job. An interactive batch job for running Roary can be started
 with command:
 
 ```text
 sinteractive -i 
 ```
 
-Roaray is installed to Puhti as a part of bioconda environment of Prokka. 
+Roaray is installed to Puhti-rhel7 as a part of bioconda environment of Prokka. 
 To use it, you should activate Prokka environment with commands:
 
 ```text

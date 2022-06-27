@@ -24,7 +24,7 @@ Software is free to use and open source, but no license specified.
 
 ## Version
 
-*   xhmm 1.0 is available in Puhti
+*   xhmm 1.0 is available in Puhti-rhel7
 
 ## Usage
 

@@ -4,7 +4,7 @@ VMD (Visual Molecular Dynamics) is a molecular visualization program for display
 
 ## Available
 
--   Puhti: 1.9.3
+-   Puhti-rhel7: 1.9.3
 -   Mahti: 1.9.3
 
 ## License
@@ -19,7 +19,7 @@ Initialize with:
 module load vmd/1.9.3 
 ```
 
-Note, that you need remote graphics to work with VMD. Due to the heavy graphics required by VMD we recommend to use it through [the Puhti web interface remote desktop](../computing/webinterface/desktop.md). If you intend to run VMD interactively on Mahti you can use [NoMachine](nomachine.md) as a fallback option. Please don't run VMD on the login nodes.
+Note, that you need remote graphics to work with VMD. Due to the heavy graphics required by VMD we recommend to use it through [the Puhti-rhel7 web interface remote desktop](../computing/webinterface/desktop.md). If you intend to run VMD interactively on Mahti you can use [NoMachine](nomachine.md) as a fallback option. Please don't run VMD on the login nodes.
 
 ## References
 

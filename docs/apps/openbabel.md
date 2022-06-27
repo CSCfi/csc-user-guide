@@ -5,7 +5,7 @@ Open Babel is a chemical toolbox designed to speak the many languages of chemica
 
 ## Available
 
--   Puhti: 3.1.1
+-   Puhti-rhel7: 3.1.1
 -   Mahti: 3.1.1
 
 ## License
@@ -14,7 +14,7 @@ Open Babel is free software available under  GNU GPL .
 
 ## Usage
 
-Initialise Open Babel on Puhti like this:
+Initialise Open Babel on Puhti-rhel7 like this:
 
 ```bash
 module load openbabel/3.1.1

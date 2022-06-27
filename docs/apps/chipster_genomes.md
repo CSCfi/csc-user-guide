@@ -2,14 +2,14 @@
 
 ## Description
 
-Chipster_genomes is a help tool to download genome indexes used in [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti.
-CSC is maintaining several short read aligners (e.g. BWA, Bowtie2, STAR) in Puhti, but not the pre-calculated 
+Chipster_genomes is a help tool to download genome indexes used in [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti-rhel7.
+CSC is maintaining several short read aligners (e.g. BWA, Bowtie2, STAR) in Puhti-rhel7, but not the pre-calculated 
 indexes for reference genomes. By default, users need to import and index themselves the reference genomes they are using.
 
 The Chipster server however contains indexes for a set of commonly used reference organisms for several aligners.
 
-The _chipster_genomes_ tool allows Puhti users to download the reference genome index files from the Chipster server to 
-Puhti so that they can be used in Puhti too.
+The _chipster_genomes_ tool allows Puhti-rhel7 users to download the reference genome index files from the Chipster server to 
+Puhti-rhel7 so that they can be used in Puhti-rhel7 too.
 
 The genome data and indexes used in Chipster are based on the data available in Ensembl and Ensembl genomes databases. 
 However, in Chipster only those sequences (chromosomes) that have been assigned to a karyotype, are included. 
@@ -25,7 +25,7 @@ Free to use and open source.
  
 ## Available
 
-Available in Puhti
+Available in Puhti-rhel7
 
 ## Usage
 

@@ -14,7 +14,7 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-*   Puhti: MIRA 4.9.6
+*   Puhti-rhel7: MIRA 4.9.6
 
 ## Usage
 

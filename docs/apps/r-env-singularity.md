@@ -50,17 +50,17 @@ Licensing information within the `r-env-singularity` container is available in t
 
 ## Usage
 
-There are several ways to use the `r-env-singularity` module on Puhti:
+There are several ways to use the `r-env-singularity` module on Puhti-rhel7:
 
-* Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
+* Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti-rhel7 in general). Use this option for analyses that take longer or require a lot of memory.
 * [Interactive jobs on a compute node](../../computing/running/interactive-usage/), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
-* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
+* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti-rhel7 login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
 
 #### Interactive use on a compute node
 
 ***Starting a shell session on the interactive partition***
 
-To use R interactively on Puhti compute nodes, open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local scratch space. 
+To use R interactively on Puhti-rhel7 compute nodes, open a shell session on the `interactive` partition using the `sinteractive` command. As an example, the command below would launch a session with 4 GB of memory and 10 GB of local scratch space. 
 
 ```bash
 sinteractive --account <project> --mem 4000 --tmp 10
@@ -81,7 +81,7 @@ start-r
 
 The`r-env-singularity` module can be used to remotely launch RStudio Server on your web browser. For this, you have two options.
 
-**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
+**Option 1. Using the Puhti-rhel7 web interface**. This is by far the easiest way to launch RStudio on Puhti-rhel7. For details, [see the Puhti-rhel7 web interface documentation](../computing/webinterface/index.md).
 
 **Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
 
@@ -108,7 +108,7 @@ sbatch batch_job_file.sh
 
 #### Serial batch jobs
 
-Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. For memory-intensive non-interactive jobs, we should also list a project-specific temporary directory in `/scratch/<project>`. We also execute the job using the `singularity_wrapper` command.
+Below is an example for submitting a single-processor R batch job on Puhti-rhel7. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. For memory-intensive non-interactive jobs, we should also list a project-specific temporary directory in `/scratch/<project>`. We also execute the job using the `singularity_wrapper` command.
 
 ```bash
 #!/bin/bash -l
@@ -275,7 +275,7 @@ arrays <- commandArgs(trailingOnly = TRUE)
 
 *Jobs using `doMPI` (with `foreach`)*
 
-The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
+The `foreach` package implements a for-loop that uses iterators and allows for parallel execution using the `%dopar%` operator. It is possible to execute parallel `foreach` loops on Puhti-rhel7 using the `doMPI` package. While otherwise the batch job file looks similar to that used for a multi-processor job, we could modify the `srun` command at the end of the batch job file:
 
 ```bash
 srun singularity_wrapper exec Rscript --no-save --slave myscript.R
@@ -504,7 +504,7 @@ Further to [executing multi-threaded R jobs on a single node](#improving-perform
 
 - OpenMP threads used for each MPI process (`--cpus-per-task`)
 
-When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti). For large multinode jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
+When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to 40 (the maximum number of cores available on a single node on Puhti-rhel7). For large multinode jobs, aim to use full nodes, i.e. use all 40 cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
 
 As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
 
@@ -585,7 +585,7 @@ Sys.getenv("LOCAL_SCRATCH")
 
 #### R interface to TensorFlow
 
-R modules from `r-env-singularity/4.0.4` onward support GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+R modules from `r-env-singularity/4.0.4` onward support GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti-rhel7](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env-singularity` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
 
 To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
 
@@ -625,7 +625,7 @@ It is possible to configure `r-env-singularity` to use NVIDIA NVBLAS, a drop-in 
 
 Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
 
-Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
+Prior to running a NVBLAS job, consider the [Puhti-rhel7 GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
 
 - Are BLAS3 routines the main bottleneck in your workflow? 
 - Are speed-ups possible through other means (e.g. rewriting your code)?

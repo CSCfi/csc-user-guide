@@ -15,11 +15,11 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 ## Available
 Version on CSC's Servers
 
-Puhti: 4.8.1 
+Puhti-rhel7: 4.8.1 
 
 ## Usage
 
-The setup command for CD-HIT in Puhti cluster is:
+The setup command for CD-HIT in Puhti-rhel7 cluster is:
 ```text
 module load biokit
 ```

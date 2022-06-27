@@ -7,7 +7,7 @@ learning research.
 
 Currently supported JAX versions:
 
-| Version | Module                        | Puhti | Mahti |
+| Version | Module                        | Puhti-rhel7 | Mahti |
 |:-------:|-------------------------------|:-----:|:-----:|
 | 0.3.13  | `jax/0.3.13`                  | X     | X     |
 | 0.2.26  | `jax/0.2.26`                  | X     |       |
@@ -36,7 +36,7 @@ JAX is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use this software on Puhti-rhel7 or Mahti, initialize it with:
 
 ```text
 module load jax

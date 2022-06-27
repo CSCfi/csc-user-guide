@@ -16,7 +16,7 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 
 ## Available
 
-In Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available
+In Puhti-rhel7, Biopython libraries, as well as many other bioinformatics related Python libraries are available
 in the Python installations that are used by the [bioconda](./bioconda.md) environments. These environment also include 
 python virtual environments that allow users to create their own project specific Python environment with `pip` installation tool.
 

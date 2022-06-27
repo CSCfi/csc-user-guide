@@ -13,7 +13,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Version
 
-*   Bayescan 2.1 is available in Puhti
+*   Bayescan 2.1 is available in Puhti-rhel7
 
 ## Usage
 
@@ -30,7 +30,7 @@ With bayescan_2.1 it is important to define the number of threads
 always explisitely. This is because by default BayeScan tries
 to use all available cores.
 
-In Puhti, BayeScan tasks should be executed as batch jobs.
+In Puhti-rhel7, BayeScan tasks should be executed as batch jobs.
 Below is a sample batch job file for BayeScan:
 
 ```text

@@ -8,7 +8,7 @@ CFDEM®coupling-PUBLIC in open source, under Gnu General Public Licensing ([GPL]
 
 ## Available
 
-The software is available on Puhti [computing servers](../computing/available-systems.md).
+The software is available on Puhti-rhel7 [computing servers](../computing/available-systems.md).
 
 
 ## Usage

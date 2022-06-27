@@ -12,7 +12,7 @@ the dependent variables.
 
 ## Available
  
-- Puhti: 5.4, 5.5, 5.6, 6.0
+- Puhti-rhel7: 5.4, 5.5, 5.6, 6.0
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff and students) of Finnish higher education institutions.
@@ -29,7 +29,7 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-The preferred method to use COMSOL interactively is via [the Puhti web interface desktop application](../computing/webinterface/desktop.md). In the web interface, select "Desktop" from the "Apps"-view and specify the required resources (cores, execution time and memory). Remember to add your billing project, too. 
+The preferred method to use COMSOL interactively is via [the Puhti-rhel7 web interface desktop application](../computing/webinterface/desktop.md). In the web interface, select "Desktop" from the "Apps"-view and specify the required resources (cores, execution time and memory). Remember to add your billing project, too. 
 
 To run the COMSOL GUI only, launch the session with the `Desktop > single application` and `App > COMSOL` settings. For the full desktop, select `mate` or `xfce`. Wait for a while as your interactive job sits in the queue and after that you can start COMSOL (tick the box if you want to receive an email when your session starts).
 

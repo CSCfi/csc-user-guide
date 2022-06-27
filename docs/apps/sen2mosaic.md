@@ -4,7 +4,7 @@
 
 ## Availability
 
-__Sen2mosaic__ is available in Puhti with following versions:
+__Sen2mosaic__ is available in Puhti-rhel7 with following versions:
 
 * 0.2
 
@@ -18,7 +18,7 @@ Sen2mosaic is included in the __sen2mosaic__ module and can be loaded with
 
 `module load sen2mosaic`
 
-On Puhti, you run the tools with
+On Puhti-rhel7, you run the tools with
 ```
 s2m_download <arguments>
 s2m_preprocess <arguments>
@@ -29,7 +29,7 @@ More information on the available arguments for each tool can be displayed with
 
 `s2m_mosaic --help`
 
-or from the [sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Note the `_` in tool names on Puhti!)
+or from the [sen2mosaic user manual](https://sen2mosaic.readthedocs.io/en/latest/command_line.html). (Note the `_` in tool names on Puhti-rhel7!)
 
 For `s2m_preprocess` and `s2m_mosaic` you can use the argument `--n_processes` to set the number of available CPU cores to the number of computing cores of your job.
 

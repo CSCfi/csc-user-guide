@@ -4,7 +4,7 @@ SPLITS (Spline Analysis of Time Series) is a software package to analyze time se
 
 ## Available
 
-__SPLITS__ is available in Puhti with the following versions:
+__SPLITS__ is available in Puhti-rhel7 with the following versions:
 
 * 1.11
 * 1.10

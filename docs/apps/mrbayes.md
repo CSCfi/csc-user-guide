@@ -14,7 +14,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
--   Puhti: 3.2.7a
+-   Puhti-rhel7: 3.2.7a
 
 ## Usage
 
@@ -38,7 +38,7 @@ When using the parallel version, you should note that MrBayes assigns one chain 
 
 ## Batch jobs
 
-Running MrBayes analysis might take considerable amount of CPU time and memory. It is recommended to run it through the batch job system in Puhti. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
+Running MrBayes analysis might take considerable amount of CPU time and memory. It is recommended to run it through the batch job system in Puhti-rhel7. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
 
 To run a batch job you need to:
 
@@ -61,7 +61,7 @@ begin mrbayes;
 end;
 ```
 
-Example batch job script for Puhti using 8 cores. (We are using 8 cores since our example uses nchains=4, nruns=2, so 4*2=8.)
+Example batch job script for Puhti-rhel7 using 8 cores. (We are using 8 cores since our example uses nchains=4, nruns=2, so 4*2=8.)
 
 ```text
 #!/bin/bash
@@ -77,7 +77,7 @@ Example batch job script for Puhti using 8 cores. (We are using 8 cores since ou
 
 srun mb-mpi mb_com.nex >log.txt
 ```
-To submit the job in Puhti:
+To submit the job in Puhti-rhel7:
 ```text
 sbatch mb_batch 
 ```

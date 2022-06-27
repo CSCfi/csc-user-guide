@@ -15,13 +15,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ###Version on CSC's Servers
 
--   Puhti: 0:11.8 
+-   Puhti-rhel7: 0:11.8 
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ##Usage
 
 
-To initialize in Puhti use:
+To initialize in Puhti-rhel7 use:
 ```text
 module load biokit
 ```
@@ -30,7 +30,7 @@ You can then start FastQC:
 fastqc
 ```
 
-FastQC is a graphical software so if you use it in Puhti you will need a working X-term connection (FreeNX remote desktop is not yet available in Puhti). 
+FastQC is a graphical software so if you use it in Puhti-rhel7 you will need a working X-term connection (FreeNX remote desktop is not yet available in Puhti-rhel7). 
 
 
 ## Manual

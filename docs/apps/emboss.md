@@ -29,17 +29,17 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 Version on CSC's Servers
 
--   Puhti: 6.5.7
+-   Puhti-rhel7: 6.5.7
 -   [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSSS tools.
 ## Usage
 
-To make EMBOSS programs available in Puhti super-cluster, give command:
+To make EMBOSS programs available in Puhti-rhel7 super-cluster, give command:
 
 ```text
 module load biokit
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including EMBOSS. Note however that there are bioinformatics tools in Puhti, that have a separate setup commands.
+The biokit module sets up a set of commonly used bioinformatics tools, including EMBOSS. Note however that there are bioinformatics tools in Puhti-rhel7, that have a separate setup commands.
 
 After loading biokit, you can start any of the EMBOSS programs by typing its name. For example:
 ```text

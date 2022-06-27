@@ -15,7 +15,7 @@ includes following python packages:
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [igraph](https://igraph.org/python/) - for fast routing.
--   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti
+-   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti-rhel7
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
 -   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
 -   [movingpandas](http://movingpandas.org) - for trajectory data
@@ -41,7 +41,7 @@ includes following python packages:
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
--   And many more, for retrieving the full list in Puhti use:
+-   And many more, for retrieving the full list in Puhti-rhel7 use:
     `list-packages`
     
 Additionally geoconda includes:
@@ -55,14 +55,14 @@ Additionally geoconda includes:
     list.
    
 Python has multiple packages for parallel computing, for example
-**multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
+**multiprocessing**, **joblib** and **dask**. In our [Puhti-rhel7 Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
 (If you think that some important GIS package for Python is missing from here, you can ask for installation from servicedesk@csc.fi.)
 
 
 ## Available
 
-The `geoconda` module is available in Puhti:
+The `geoconda` module is available in Puhti-rhel7:
 
 * 3.9.13
 * 3.8.8 
@@ -85,16 +85,16 @@ To check the exact packages and versions included in the loaded module:
  
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
-You can edit your Python code in Puhti with:
+You can edit your Python code in Puhti-rhel7 with:
 
-* [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
+* [Visual Studio Code in Puhti-rhel7 web interface](../computing/webinterface/vscode.md), 
 * [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
-* [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
-* Spyder in [Puhti web interface with remote desktop](../computing/webinterface/desktop.md).
+* [Jupyter Notebook or Lab in Puhti-rhel7 web interface](../computing/webinterface/jupyter.md) or 
+* Spyder in [Puhti-rhel7 web interface with remote desktop](../computing/webinterface/desktop.md).
 
-To open Spyder in Puhti web interface with remote desktop:
+To open Spyder in Puhti-rhel7 web interface with remote desktop:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start Spyder:
 

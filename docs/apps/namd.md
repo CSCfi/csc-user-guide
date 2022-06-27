@@ -7,7 +7,7 @@ Beckman Institute of the University of Illinois.
 
 ## Available
 
-* Puhti: version 2.13, 2.14-cuda, 3.0alpha11-cuda
+* Puhti-rhel7: version 2.13, 2.14-cuda, 3.0alpha11-cuda
 * Mahti: version 2.14
 
 ## License
@@ -24,7 +24,7 @@ NAMD can be run either with CPUs or with a GPU + CPUs.
 
 Tests show that leaving one core for communication for each task is beneficial, i.e. `namd_threads=$SLURM_CPUS_PER_TASK-1`. This is also recommended by NAMD developers. Please test with your input.
 
-Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti) or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the optimal one.
+Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti-rhel7) or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the optimal one.
 
 The data below shows the ApoA1 benchmark (92k atoms) on Mahti (ns/day as a function of allocated nodes, each line with a certain number of `namd_threads` as set in the [Mahti script below](#batch-script-example-for-mahti)).
 
@@ -34,10 +34,10 @@ The data also shows the following things:
 
 * Optimal settings depend on the amount of resources in addition to system and run parameters
 * For this system it's best to use 7 threads per task
-* 1GPU+10 CPUs (on Puhti) gives 25.6 ns/day vs. 27.8 ns/day for 2 full nodes on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results faster is also more expensive in terms of consumed billing units. To avoid wasting resources, ensure that your job actually benefits from increasing the number of cores. Doubling the number of cores should speed up the job by at least x1.5
+* 1GPU+10 CPUs (on Puhti-rhel7) gives 25.6 ns/day vs. 27.8 ns/day for 2 full nodes on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results faster is also more expensive in terms of consumed billing units. To avoid wasting resources, ensure that your job actually benefits from increasing the number of cores. Doubling the number of cores should speed up the job by at least x1.5
 * To test your own system, run e.g. 500 steps of dynamics and search for the `Benchmark time:` line in the output
 
-### Batch script example for Puhti
+### Batch script example for Puhti-rhel7
 
 This script would use 2 tasks per node, 20 cores per task,
 and one of them for communication, using two full nodes, i.e. 80 cores.
@@ -63,7 +63,7 @@ srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > a
 #srun -n ${SLURM_NTASKS} namd2 +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd > apoa1.out
 ```
 
-### Batch script example for Puhti using GPU
+### Batch script example for Puhti-rhel7 using GPU
 
 Note, namd runs most efficiently with one GPU, and at least for small systems
 is much more cost efficient than running with multiple CPU-only nodes.

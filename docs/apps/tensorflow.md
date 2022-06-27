@@ -17,7 +17,7 @@ Deep learning framework for Python.
 
 Currently supported TensorFlow versions:
 
-| Version | Module                            | Puhti | Mahti | Environ. | Horovod | Notes                                |
+| Version | Module                            | Puhti-rhel7 | Mahti | Environ. | Horovod | Notes                                |
 |:-------:|-----------------------------------|:-----:|:-----:|----------|:-------:|--------------------------------------|
 | 2.8.0   | `tensorflow/2.8`                  | X     | X     | Sing.    | X       | default version                      |
 | 2.7.0   | `tensorflow/2.7`                  | X     | (X)   | Sing.    | X       |                                      |
@@ -85,7 +85,7 @@ TensorFlow is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use this software on Puhti-rhel7 or Mahti, initialize it with:
 
 ```text
 module load tensorflow
@@ -116,7 +116,7 @@ list-packages
 
 !!! note 
 
-    Note that Puhti login nodes are not intended for heavy computing, please use
+    Note that Puhti-rhel7 login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
     system](../computing/running/getting-started.md).
 
@@ -125,7 +125,7 @@ list-packages
 Example batch script for reserving one GPU and 1/4 of the available CPU cores in
 a single node:
 
-=== "Puhti"
+=== "Puhti-rhel7"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>

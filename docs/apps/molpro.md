@@ -2,7 +2,7 @@
 
 MOLPRO is a software package geared towards accurate ab initio quantum chemistry calculations. The emphasis in the program is on highly accurate computations, with extensive treatment of the electron correlation problem through the multireference configuration interaction, coupled cluster and associated methods.
 
--   Puhti: 2021.2
+-   Puhti-rhel7: 2021.2
 
 ## License
 
@@ -10,14 +10,14 @@ MOLPRO is a software package geared towards accurate ab initio quantum chemistry
 
 ## Usage
 
-Initialise MOLPRO on Puhti:
+Initialise MOLPRO on Puhti-rhel7:
 
 ```bash
 module load molpro/2021.2
 ```
 Molpro has been built with the Global Arrays toolkit (`--with-mpi-pr`) that allocates one helper process per node for parallel MPI runs.
 
-**Example batch script for Puhti using MPI parallelization**
+**Example batch script for Puhti-rhel7 using MPI parallelization**
 
 ```
 #!/bin/bash
@@ -34,11 +34,11 @@ rm -rf $MOLPRO_TMP
 ```
 
 !!! note
-    Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the [fast local storage](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the [fast local storage](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti-rhel7. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
    
-**Example batch script for Puhti using MPI parallelization and local disk (nvme) **
+**Example batch script for Puhti-rhel7 using MPI parallelization and local disk (nvme) **
 
 ```
 #!/bin/bash
@@ -70,7 +70,7 @@ The performance of Molpro depends a lot on the system size and which computation
 | 2x20                |   786               |     729            |
 | 2x40                |   716               |     701            |    
 
-The details of the inputs and outputs can be found on Puhti at:
+The details of the inputs and outputs can be found on Puhti-rhel7 at:
 
 `/appl/soft/chem/molpro/molpro2021.2_mkl_gcc83/molpro_2021.2/c6h6_ccsdt/avtz/` 
 

@@ -11,7 +11,7 @@ how to create yours.
 
 ## Available
 
--   Puhti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
+-   Puhti-rhel7: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 -   Mahti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 
 ## License
@@ -20,14 +20,14 @@ LAMMPS is an open-source code, distributed freely under the terms of the GNU Pub
 
 ## Usage
 
-Don't use prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS on Puhti or Mahti for optimal performance.
+Don't use prebuilt binaries, but take a look at the instructions for configuring and compiling LAMMPS on Puhti-rhel7 or Mahti for optimal performance.
 
-* Navigate to `/appl/soft/chem/lammps/` on Puhti or Mahti
+* Navigate to `/appl/soft/chem/lammps/` on Puhti-rhel7 or Mahti
 * If you can't find a pre-downloaded source code (e.g. `lammps-stable.tar.gz`) or a suitable LAMMPS version, download it yourself from the [LAMMPS home page](https://lammps.sandia.gov/download.html).
 * Read the compilation instructions, e.g. `lammps-puhti-instruction.txt`
 * Configure the packages you want to include and compile the software
 
-Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently). Consult these pages on [how to create batch jobs on Puhti](../computing/running/creating-job-scripts-puhti.md) and [on Mahti](../computing/running/creating-job-scripts-mahti.md).
+Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently). Consult these pages on [how to create batch jobs on Puhti-rhel7](../computing/running/creating-job-scripts-puhti.md) and [on Mahti](../computing/running/creating-job-scripts-mahti.md).
 
 If you encounter problems compiling LAMMPS, don't hesitate to [contact CSC Service Desk](../support/contact.md).
 
@@ -49,7 +49,7 @@ export PATH=$PATH:/path/to/lmp_puhti
 srun lmp_puhti -in loop.lammps -partition 24x5
 ```
 
-The above example runs an umbrella sampling simulation of ethanol adsorption on a NaCl surface in accordance with [this LAMMPS tutorial](https://lammpstutorials.github.io/tutorials/tutorial06.html). The simulation consists of 24 iterations where the ethanol molecule is gradually pulled closer to the surface. These 24 iterations are all run concurrently using 5 MPI tasks each, which is specified in the batch script as `-partition 24x5`. The number of processors must add up to the amount requested, in this case 3 full Puhti nodes (120 cores). In general, the partitions do not have to be of equal size, but one could for example specify `-partition 3x30 20 10` for 3 partitions of 30 cores, one of 20 cores and one of 10 cores (3 Puhti nodes). This does of course not make sense for jobs where the subtasks are virtually identical such as here.
+The above example runs an umbrella sampling simulation of ethanol adsorption on a NaCl surface in accordance with [this LAMMPS tutorial](https://lammpstutorials.github.io/tutorials/tutorial06.html). The simulation consists of 24 iterations where the ethanol molecule is gradually pulled closer to the surface. These 24 iterations are all run concurrently using 5 MPI tasks each, which is specified in the batch script as `-partition 24x5`. The number of processors must add up to the amount requested, in this case 3 full Puhti-rhel7 nodes (120 cores). In general, the partitions do not have to be of equal size, but one could for example specify `-partition 3x30 20 10` for 3 partitions of 30 cores, one of 20 cores and one of 10 cores (3 Puhti-rhel7 nodes). This does of course not make sense for jobs where the subtasks are virtually identical such as here.
 
 If the `-partition` switch is used one needs to replace the usual `index` and `loop` variable styles used in the input of sequential simulations. The corresponding styles compatible with multi-partition jobs are `world`, `universe` and `uloop`. For further details, see the LAMMPS documentation on [running multiple simulations from one input script](https://docs.lammps.org/Howto_multiple.html), the [partition switch](https://docs.lammps.org/Run_options.html#partition) and [variable styles compatible with multi-partition jobs](https://docs.lammps.org/variable.html).
 

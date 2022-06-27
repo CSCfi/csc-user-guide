@@ -4,7 +4,7 @@ RStudio is an integrated development environment (IDE) for R. More information o
 
 ## Available
 
-For running R and RStudio on Puhti, please see the user documentation for [`r-env-singularity`](r-env-singularity.md).
+For running R and RStudio on Puhti-rhel7, please see the user documentation for [`r-env-singularity`](r-env-singularity.md).
 
 ## License
 

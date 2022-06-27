@@ -1,6 +1,6 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md). Spatial libraries are included in all R versions in Puhti.
+This page is for the spatial R libraries and tools installed in the R environment in Puhti-rhel7. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md). Spatial libraries are included in all R versions in Puhti-rhel7.
 
 ## Usage
 
@@ -95,7 +95,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## References
 
-* [Examples for using R spatial packages for GIS in Puhti](https://github.com/csc-training/geocomputing/tree/master/R), CSC
+* [Examples for using R spatial packages for GIS in Puhti-rhel7](https://github.com/csc-training/geocomputing/tree/master/R), CSC
 * [List of spatial R packages in CRAN](https://cran.r-project.org/web/views/Spatial.html)
 * [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/), Edzer Pebesma, Roger Bivand
 * [Geocomputation with R](https://geocompr.robinlovelace.net/), Robin Lovelace, Jakub Nowosad, Jannes Muenchow

@@ -4,7 +4,7 @@
 
 ## Available
 
-__Sen2Cor__ is available in Puhti with following versions:
+__Sen2Cor__ is available in Puhti-rhel7 with following versions:
 
 * 2.9
 * 2.8

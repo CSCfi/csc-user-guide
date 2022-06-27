@@ -21,7 +21,7 @@ Free to use and open source under [BSD 3-Clause License](https://raw.githubuserc
 
 Version on CSC's Servers
 
-Puhti: 2.2.6
+Puhti-rhel7: 2.2.6
 Chipster graphical user interface
 
 ## Usage
@@ -37,7 +37,7 @@ After that you can start MACS2 with command:
 macs2 -h
 ```
 
-Larger MACS jobs should be executed as a batch job in Puhti. Puhti User Guide for more information on running batch jobs.
+Larger MACS jobs should be executed as a batch job in Puhti-rhel7. Puhti-rhel7 User Guide for more information on running batch jobs.
 
 ## More information
 

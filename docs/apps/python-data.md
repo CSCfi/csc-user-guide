@@ -15,14 +15,14 @@ Collection of Python libraries for data analytics and machine learning.
 
 ## Available
 
-Older versions of the `python-data` module are available on **Puhti only**.
+Older versions of the `python-data` module are available on **Puhti-rhel7 only**.
 Versions are numbered as `X.Y-N`, where `X.Y` is the version of the Python
 interpreter included, and `N` is a running version number starting from 1.
 Current versions are:
 
 - `python-data/3.9-3` installed in April 2022, includes for example Scikit-learn
   1.0.2, SciPy 1.8.0, Pandas 1.4.2 and JupyterLab 3.3.4. Available on **both
-  Puhti and Mahti**.
+  Puhti-rhel7 and Mahti**.
 - `python-data/3.9-2` installed in January 2022, includes for example
   Scikit-learn 1.0.2, SciPy 1.7.3, Pandas 1.3.5 and JupyterLab 3.2.6.
 - `python-data/3.9-1` installed in June 2021, includes for example: Scikit-learn
@@ -63,7 +63,7 @@ All packages are licensed under various free and open source licenses (FOSS).
 
 ## Usage
 
-To use this software on Puhti, initialize it with:
+To use this software on Puhti-rhel7, initialize it with:
 
 ```text
 module load python-data
@@ -85,7 +85,7 @@ list-packages
 
 !!! note 
 
-    Note that Puhti login nodes are not intended for heavy computing, please use
+    Note that Puhti-rhel7 login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
     system](../computing/running/getting-started.md).
 
@@ -93,7 +93,7 @@ Please also check [CSC's general Python documentation](python.md).
 
 ### Local storage
 
-Some nodes in Puhti have fast local storage which is useful for IO-intensive
+Some nodes in Puhti-rhel7 have fast local storage which is useful for IO-intensive
 applications. See our [general instructions on how to take the fast local
 storage into
 use](../computing/running/creating-job-scripts-puhti.md#local-storage).

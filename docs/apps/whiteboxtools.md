@@ -4,7 +4,7 @@
 
 ## Available
 
-WhiteboxTools is available in Puhti with following versions:
+WhiteboxTools is available in Puhti-rhel7 with following versions:
 
 * 0.15.0
 
@@ -14,7 +14,7 @@ WhiteboxTools is available in the __WhiteboxTools__ module and can be loaded wit
 
 `module load whiteboxtools`
 
-WhiteboxTools usage in Puhti happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. CSC provides a [__singularity_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
+WhiteboxTools usage in Puhti-rhel7 happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. CSC provides a [__singularity_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
 
 After loading the WhiteboxTools module you can run normal WhiteboxTools commands on the computing nodes with the following way:
 
@@ -23,7 +23,7 @@ srun singularity_wrapper exec <whiteboxtools command>
 ```
 
 !!! note
-    For now, the Graphical user interface (Whitebox GAT) and the Python interface are not available on Puhti
+    For now, the Graphical user interface (Whitebox GAT) and the Python interface are not available on Puhti-rhel7
 
 Here is an example of calculating Hillshade for a 2m DEM. 
 

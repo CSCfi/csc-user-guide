@@ -16,7 +16,7 @@ TBD
 
 ## Usage
 
-Install the TmoleX client on your local workstation. For details, see, [http://www.cosmologic.de/turbomole/tmolex.html](http://www.cosmologic.de/turbomole/tmolex.html). You can build your actual job locally and then submit the job to Puhti. With the client you can monitor how the job proceeds. When the job has completed you can retrieve the output and use your local client to analyze the results.
+Install the TmoleX client on your local workstation. For details, see, [http://www.cosmologic.de/turbomole/tmolex.html](http://www.cosmologic.de/turbomole/tmolex.html). You can build your actual job locally and then submit the job to Puhti-rhel7. With the client you can monitor how the job proceeds. When the job has completed you can retrieve the output and use your local client to analyze the results.
 
  Below some example queue settings that can be used in TmoleX:
 ![Slurm settings](/img/tmolex_submit.png)

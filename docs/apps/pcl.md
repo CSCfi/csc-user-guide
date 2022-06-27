@@ -6,7 +6,7 @@
 
 ## Available
 
-__PCL__ is available in Puhti with following versions:
+__PCL__ is available in Puhti-rhel7 with following versions:
 
 * 1.9.1 
 

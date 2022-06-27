@@ -10,7 +10,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-__Zonation__ is available in Puhti with following versions:
+__Zonation__ is available in Puhti-rhel7 with following versions:
 
 * 4.0.0
 
@@ -20,7 +20,7 @@ Zonation is available in the __zonation__ module and can be loaded with
 
 `module load zonation`
 
-Zonation usage in Puhti happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. CSC provides a [__singularity_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
+Zonation usage in Puhti-rhel7 happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. CSC provides a [__singularity_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
 
 After loading the Zonation module you can run normal zonation commands in the following way:
 
@@ -37,7 +37,7 @@ srun singularity_wrapper exec \
 ```
 
 !!! note
-    The installation of Zonation in Puhti does not include the graphical user interface
+    The installation of Zonation in Puhti-rhel7 does not include the graphical user interface
 
 ## Example batch job script
 

@@ -15,7 +15,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Availability
 
-Versions available in Puhti
+Versions available in Puhti-rhel7
 *   HUMAnN 2.8.8
 *   MetaPhlAn 3.0.7
 *   PhyloPhlAn 3.0.60
@@ -23,7 +23,7 @@ Versions available in Puhti
 
 ## Usage
 
-In Puhti, HUMAnN2 is installed as part of gcc 9.1.0 compatible _biopythontools_ module. To activate it, run commands:
+In Puhti-rhel7, HUMAnN2 is installed as part of gcc 9.1.0 compatible _biopythontools_ module. To activate it, run commands:
 ```text
 module load biokit
 module load biopythontools/3.9.1-gcc_9.1.0

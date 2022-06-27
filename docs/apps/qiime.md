@@ -10,7 +10,7 @@ phylogenetic trees from representative sequences of OTUs, and through downstream
 and production of publication-quality graphics.
 
 On 2017 a totally rewritten version of Qiime: Qiime2 was released. The development of the original Qiime version has stopped. 
-At the moment only Qiime2 is available in Puhti.
+At the moment only Qiime2 is available in Puhti-rhel7.
 
 [TOC]
 
@@ -20,12 +20,12 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
--   Puhti: qiime2-2022.2, qiime2-2021.2, qiime2-2020.8, qiime2-2020.6, qiime2-2020.2, qiime2-2019.10  
+-   Puhti-rhel7: qiime2-2022.2, qiime2-2021.2, qiime2-2020.8, qiime2-2020.6, qiime2-2020.2, qiime2-2019.10  
 
 
 ## Usage
 
-In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
+In Puhti-rhel7, QIIME2 can be taken in use as a _bioconda_ environment:
 
 ```text
 export PROJAPPL=/projappl/<project>  #replace <project> with your project name (typically project_some-number)
@@ -44,7 +44,7 @@ Please check Qiime2 home page for more instructions.
 
 Note that many Qiime tasks involve heavy computing. Thus, these tasks should be executed as
 batch jobs. Qiime needs to have access to a local node specific file system for handling temporary data.
-This kind of directory is available on the NVME nodes of Puhti. Therefore, you must include a request for NVME space
+This kind of directory is available on the NVME nodes of Puhti-rhel7. Therefore, you must include a request for NVME space
 in your batch job file.
 
 The easiest way to start using Qiime is to use command `sinteractive` to launch an interactive batch job:
@@ -109,7 +109,7 @@ qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
 
-In the example above `<project>` must be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
+In the example above `<project>` must be replaced with your project name. You can use `csc-workspaces` to check your Puhti-rhel7 projects.
 Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization,
 the job is requested to use one task (`--ntasks=1`)  where all cores need to be in the same node (`--nodes=1`).
 This one task will use eight cores as parallel threads `--cpus-per-task=8` that 
@@ -123,7 +123,7 @@ file is named as _qiime_job.sh_ then the submission command is:
 ```text
 sbatch qiime_job.sh 
 ```
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Puhti-rhel7 user guide](../computing/running/getting-started.md).
 
 
 ## Manual

@@ -6,7 +6,7 @@
 
 ## Available
 
--   Puhti: 5.0.3
+-   Puhti-rhel7: 5.0.3
 -   Mahti: 5.0.3
 
 Note that due to licensing issues every user has to install their own copy of the program 
@@ -19,9 +19,9 @@ The free version is available only for academic use at academic institutions.
 ## Usage
 
 - Download the ORCA 5.0.3, Linux, x86-64, shared-version, ` orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
-- Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti
+- Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti-rhel7
 - Unpack the package, `tar xf orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
-- Example batch script for Puhti
+- Example batch script for Puhti-rhel7
 
 ```
 #!/bin/bash
@@ -43,7 +43,7 @@ $ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
-- Example batch script for Puhti using local disk
+- Example batch script for Puhti-rhel7 using local disk
 
 ```
 #!/bin/bash

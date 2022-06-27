@@ -12,7 +12,7 @@ directives implemented.
 
 ## Available
 
--  Puhti: 9.0
+-  Puhti-rhel7: 9.0
 -  Mahti: 9.0
 
 ## License
@@ -36,7 +36,7 @@ We recommend to use this version (except for special reasons) on both platforms.
 
 Be aware that this version is frequently updated. If you have User Functions as compiled code added to your case, make sure to recompile upon such an update (the date is displayed upon loading the module).
 
-**Example parallel batch script for Puhti**
+**Example parallel batch script for Puhti-rhel7**
 
 This is a basic script for a 30 minute single full node job using all 40 cores and reserving 2 GB memory for each core. 
 

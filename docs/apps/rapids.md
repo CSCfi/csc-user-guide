@@ -15,15 +15,15 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 ## Available
 
-Rapids is available on Puhti and Mahti. Some older versions are available on
-Puhti only. Currently supported RAPIDS versions:
+Rapids is available on Puhti-rhel7 and Mahti. Some older versions are available on
+Puhti-rhel7 only. Currently supported RAPIDS versions:
 
 - 22.04 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
-- 21.12 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `21.12` (Puhti only)
-- 0.16 using Singularity: `0.16-sng` (Puhti only)
-- 0.15 using Singularity: `0.15-sng` (Puhti only)
-- 0.14 using Singularity: `0.14-sng` (Puhti only)
-- _(deprecated)_ 0.11  (Puhti only)
+- 21.12 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `21.12` (Puhti-rhel7 only)
+- 0.16 using Singularity: `0.16-sng` (Puhti-rhel7 only)
+- 0.15 using Singularity: `0.15-sng` (Puhti-rhel7 only)
+- 0.14 using Singularity: `0.14-sng` (Puhti-rhel7 only)
+- _(deprecated)_ 0.11  (Puhti-rhel7 only)
 
 Contains the [RAPIDS](https://rapids.ai/) suite (including
 [cuDF](https://github.com/rapidsai/cudf),

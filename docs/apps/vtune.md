@@ -4,7 +4,7 @@ Intel VTune Profiler is a performance analysis tool for single core and threadin
 
 ## Available
 
-Puhti
+Puhti-rhel7
 
 ## License
 
@@ -93,7 +93,7 @@ For more details about the issue, please see the official
 
 Results can be viewed using the `amplxe-gui` application. Unfortunately it
 does not work well with SSH and X11 forwarding, so we recommend running the
-graphical analysis tool using the [Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+graphical analysis tool using the [Puhti-rhel7 web interface remote desktop](../computing/webinterface/desktop.md).
 
 You can inspect the results of a profile run by giving the name of the results
 directory as an argument to `amplxe-gui`. For example, the results of the

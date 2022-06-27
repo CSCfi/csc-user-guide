@@ -21,7 +21,7 @@ You can test LAStools loaded successfully with
 
 ### LAStools commands
 
-Puhti installation includes only the open source tools of LAStools.
+Puhti-rhel7 installation includes only the open source tools of LAStools.
 
 * las2las - extracts last returns, clips, subsamples, translates, etc ...
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII
@@ -54,9 +54,9 @@ module load wine
 wine64 lasinfo64.exe -i <LAS file>
 ```
 
-### Finnish National Land Survey's lidar data in Puhti
+### Finnish National Land Survey's lidar data in Puhti-rhel7
 
-The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_csc_computing_env).
+The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti-rhel7. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_csc_computing_env).
 
 ### LAStools and array jobs
 

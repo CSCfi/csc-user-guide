@@ -14,19 +14,19 @@ Free to use and open source under [Boost Software License 1.0]https://github.com
 
 ### Version on CSC's Servers
 
--   Puhti: 2.1.1
+-   Puhti-rhel7: 2.1.1
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 -   FGCI: 1.3.2, 2.0.0
 
 ## Usage
 
-In Puhti tophat is initialized with command:
+In Puhti-rhel7 tophat is initialized with command:
 ```text
 module load biokit
 ```
 The biokit module sets up a set of commonly used bioinformatics tools, including Bowtie2, TopHat2 and Cufflinks.
 
-Tophat jobs should be run as batch jobs. Below is a sample batch job file, for running a TopHat job in Puhti:
+Tophat jobs should be run as batch jobs. Below is a sample batch job file, for running a TopHat job in Puhti-rhel7:
 
 ```text
 !/bin/bash
@@ -50,7 +50,7 @@ Change **--account** to match your own project name.
 
 Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat this is done with the **-p** command line argument. We can use system variable **$SLURM_CPUS_PER_TASK** to automatically match the reservation made with **--cpus-per-task**. This way we don't need to change the command line if we change the reservation.
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti-rhel7 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## Support

@@ -17,7 +17,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-*    FreeBayes version 1.3.1 is available in Puhti
+*    FreeBayes version 1.3.1 is available in Puhti-rhel7
 
 ## Usage
 First load the bioconda module and activate FreeBayes environment
@@ -34,9 +34,9 @@ Note that freebayes requires that bam file is indexed. Un-indexed bam file can b
 ```text
 samtools index input.bam
 ```
-FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs in Puhti.
+FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs in Puhti-rhel7.
 
-In Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
+In Puhti-rhel7, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
 This tool also speeds up the analysis by running the ananlysis as several simultaneous tasks in parallel.
 To be able to use `freebayes-puhti`  you first need to define a regions file for you reference fasta file.
 This can be done with command:

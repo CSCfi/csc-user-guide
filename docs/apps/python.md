@@ -1,19 +1,19 @@
 # Python
 [Python](https://www.python.org/) programming language in CSC's Supercomputers
-Puhti and Mahti.
+Puhti-rhel7 and Mahti.
 
 ## Available
 
-* Puhti: various 2.x and 3.x versions
+* Puhti-rhel7: various 2.x and 3.x versions
 * Mahti: 3.x versions
  
-System Python is available by default both in Puhti and Mahti without loading
-any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) (only Puhti), Python
+System Python is available by default both in Puhti-rhel7 and Mahti without loading
+any module. Python 2 (= 2.7.5) is available as `python` (= 2.7.5) (only Puhti-rhel7), Python
 3 (= 3.6.8) as `python3`. The default system Python does not include any optional Python
 packages. However, you can [install simple packages for yourself by the methods
 explained below](python.md#installing-python-packages-to-existing-modules).
 
-In Puhti there are several Python modules available that include different sets
+In Puhti-rhel7 there are several Python modules available that include different sets
 of scientific libraries:
 
    * python-env - Anaconda Python with conda tools
@@ -138,7 +138,7 @@ supercomputer](../support/tutorials/env-guide/text-and-image-processing.md).
 Codes can also be edited on your local machine and copied to the supercomputer
 with [scp](../data/moving/scp.md) or [graphical file transfer
 tools](../data/moving/graphical_transfer.md).
-You can also [edit Python scripts in Puhti from your local
+You can also [edit Python scripts in Puhti-rhel7 from your local
 PC](../support/tutorials/remote-dev.md) with some code editors like Visual
 Studio Code.
 
@@ -158,7 +158,7 @@ for using Jupyter in CSC environment.
 [Spyder](https://www.spyder-ide.org/) is scientific Python development
 environment. Modules python-env, [python-data](python-data.md) and
 [geoconda](geoconda.md) have Spyder included. The best option for using it is
-through the [Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+through the [Puhti-rhel7 web interface remote desktop](../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 Python has several different packages for parallel processing:
@@ -177,7 +177,7 @@ which includes both single-node (max 40 cores) and multi-node examples.
 
 See our GitHub repository for some [examples for using the different
 parallelization options with
-Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti).
+Puhti-rhel7](https://github.com/csc-training/geocomputing/tree/master/python/puhti).
 
 The `mpi4py` is not included in the current Python environments in CSC supercomputers, 
 however, for multinode jobs with non-trivial parallelization it is generally the most 

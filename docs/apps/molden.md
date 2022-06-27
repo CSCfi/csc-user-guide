@@ -4,7 +4,7 @@ Molden is a general molecular and electronic structure processing program. It ca
 
 ## Available
 
-- Puhti: 5.9
+- Puhti-rhel7: 5.9
 - Mahti: 6.7
 
 ## License
@@ -20,7 +20,7 @@ Initialize with:
 module load molden/6.7
 ```
 
-Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Puhti web interface desktop](../computing/webinterface/desktop.md) (recommended). If you intend to run Molden on Mahti you can use [NoMachine](nomachine.md) as a fallback option.
+Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Puhti-rhel7 web interface desktop](../computing/webinterface/desktop.md) (recommended). If you intend to run Molden on Mahti you can use [NoMachine](nomachine.md) as a fallback option.
 
 ## References
 

@@ -15,7 +15,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Version
 
-Kraken 2.0.8 is available in Puhti
+Kraken 2.0.8 is available in Puhti-rhel7
 
 ## Usage
 
@@ -27,12 +27,12 @@ Now you Kraken2 starts with commad `kraken2`. For example:
 ```text
 kraken2 --help
 ```
-There are several Kraken2 reference databases available in Puhti. By default Kraken2 uses the
+There are several Kraken2 reference databases available in Puhti-rhel7. By default Kraken2 uses the
 _standard_ database  that is based on taxonomic information and complete genomes in RefSeq 
 for the bacterial, archaeal, and viral domains, along with the human genome and a 
 collection of known vectors (UniVec_Core).
 
-Available databases in Puhti are:
+Available databases in Puhti-rhel7 are:
 
 |name  | Mem. request | description    | 
 |------|--------------|-----------------|
@@ -68,7 +68,7 @@ You can submit the batch job file to the batch job system with command:
 ```
 sbatch batch_job_file.bash
 ```
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti-rhel7 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## More information

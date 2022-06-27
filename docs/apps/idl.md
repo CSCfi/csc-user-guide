@@ -4,7 +4,7 @@ Programming Language, Numeric Analysis, Manipulation and Visualization of Scient
 
 ## Available
 
-Puhti
+Puhti-rhel7
 
 ## License
 CSC has an Academic license that means it is for Academic research only.
@@ -20,7 +20,7 @@ module load idl
 
 ## Documentation
 
-* **Manuals on Puhti (pdf)**
+* **Manuals on Puhti-rhel7 (pdf)**
  ```
  /appl/soft/math/idl/idl85/help/pdf
  /appl/soft/math/idl/idl87/help/pdf

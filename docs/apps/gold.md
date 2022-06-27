@@ -6,7 +6,7 @@ protein-ligand docking and allows full ligand and partial protein
 flexibility.
 
 ## Available
--  Puhti: 2021
+-  Puhti-rhel7: 2021
 -  Discovery Studio 2019 server
 -  Download and install locally
 
@@ -23,12 +23,12 @@ See our [CSD page](csd.md) for installation and activation instructions.
 
 GOLD can be used either from the command-line or via a graphical user
 interface (GUI) called Hermes. The best way to run a GUI remotely
-on Puhti is to use the [Puhti web interface desktop](../computing/webinterface/desktop.md). To set up
+on Puhti-rhel7 is to use the [Puhti-rhel7 web interface desktop](../computing/webinterface/desktop.md). To set up
 the GOLD interactive environment, open a `Host Terminal` and run:
 
 `module load ccdc`
 
-This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
+This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti-rhel7 web interface does not yet provide accelerated graphics.
 
 Longer (non-interactive) jobs are best run as batch jobs:
 

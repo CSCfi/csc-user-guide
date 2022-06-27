@@ -4,7 +4,7 @@
 
 ## Available
 
-__SNAP__ is available in Puhti with following versions:
+__SNAP__ is available in Puhti-rhel7 with following versions:
 
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
 * 7.0 (with snappy 6.0 and python 2.7.5)
@@ -31,18 +31,18 @@ This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
-### Using SNAP with Graphical User Interface (GUI) in Puhti web interface
+### Using SNAP with Graphical User Interface (GUI) in Puhti-rhel7 web interface
 
-The easiest option for using SNAP is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using SNAP is to open it in [Puhti-rhel7 web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
+1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi). [Puhti-rhel7 web interface documentation](../computing/webinterface/desktop.md).
 2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SNAP'
 3. The SNAP GUI is started automatically when the Desktop is launched. 
  
 
-Alternatively, especially if you want to use SNAP together with some other GUI tool, want to user older version of SNAP or want to increase the default Java memory allocaiton, SNAP can be started in Puhti web interface with remote desktop:
+Alternatively, especially if you want to use SNAP together with some other GUI tool, want to user older version of SNAP or want to increase the default Java memory allocaiton, SNAP can be started in Puhti-rhel7 web interface with remote desktop:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop, double-click SNAP icon OR open `Host Terminal` (Desktop icon) and start SNAP:
 
@@ -54,7 +54,7 @@ snap -J-xmx10G
 
 #### SNAP userdir and Java temp dir configuration 
 
-SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti or want to change the used folders. 
+SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti-rhel7 or want to change the used folders. 
 
 After loading the snap module run
 
@@ -73,11 +73,11 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
         The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
 
 #### Java memory settings
-__By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
+__By default SNAP/8.0 in Puhti-rhel7 uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti partition](../computing/running/batch-job-partitions.md).
+The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti-rhel7 partition](../computing/running/batch-job-partitions.md).
 
 GPT command looks often something like this:
 
@@ -104,9 +104,9 @@ gpt <snap-operator> -h
 
 `gpt --diag -J-Xmx60G -c 40G` can be used to see which memory and cache settings are used by `gpt`.
 
-#### GPT examples for Puhti
+#### GPT examples for Puhti-rhel7
 
-* [Full examples how to run GPT in Puhti in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
+* [Full examples how to run GPT in Puhti-rhel7 in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
 
 
 ### Using SNAP with the Python library snappy

@@ -4,7 +4,7 @@ Deep learning framework for Python.
 
 ## Available
 
-The `mxnet` module is available on Puhti only.  Currently supported MXNet versions:
+The `mxnet` module is available on Puhti-rhel7 only.  Currently supported MXNet versions:
 
 - 1.5.0
 
@@ -20,7 +20,7 @@ MXNet is licensed under [Apache License 2.0](https://github.com/apache/incubator
 
 ## Usage
 
-To use this software on Puhti, initialize it with:
+To use this software on Puhti-rhel7, initialize it with:
 
 ```text
 module load mxnet
@@ -42,11 +42,11 @@ list-packages
 
 !!! note 
 
-    Note that Puhti login nodes are not intended for heavy computing, please use slurm batch jobs instead. See our [instructions on how to use the batch job system](../computing/running/getting-started.md).
+    Note that Puhti-rhel7 login nodes are not intended for heavy computing, please use slurm batch jobs instead. See our [instructions on how to use the batch job system](../computing/running/getting-started.md).
 
 ### Local storage
 
-The GPU nodes in Puhti have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts-puhti.md#local-storage).
+The GPU nodes in Puhti-rhel7 have fast local storage which is useful for IO-intensive applications.  See our [general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 ## More information
 

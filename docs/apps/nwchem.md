@@ -4,7 +4,7 @@ NWChem provides many different methods to compute the properties of molecular an
 
 ## Available
 
--   Puhti: 6.8.1
+-   Puhti-rhel7: 6.8.1
 -   Mahti: 7.0.0
 
 ## License
@@ -17,7 +17,7 @@ Check which versions are recommended:
 
     module avail nwchem
 
-### Batch script example for Puhti
+### Batch script example for Puhti-rhel7
 
 ```bash
 #!/bin/bash
@@ -36,9 +36,9 @@ seff $SLURM_JOBID
 ```
 
 !!! note
-    Particularly some of the more advanced electron correlation calculations  can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some of the more advanced electron correlation calculations  can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti-rhel7. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
 
-### Batch script example for Puhti using local disk
+### Batch script example for Puhti-rhel7 using local disk
 
 ```bash
 #!/bin/bash

@@ -13,11 +13,11 @@ Free to use and open source under [MIT License](https://github.com/biobakery/Met
 
 ## Availability
 
-*   MetaPhlAn 3.0 is available in Puhti
+*   MetaPhlAn 3.0 is available in Puhti-rhel7
 
 ## Usage
 
-In Puhti, MetaPhlAn is installed as part of gcc 9.1.0 compatible _biopythontools_ module.
+In Puhti-rhel7, MetaPhlAn is installed as part of gcc 9.1.0 compatible _biopythontools_ module.
 To activate it, run commands:
 
 ```text
@@ -26,7 +26,7 @@ module load biopythontools
 metaphlan
 ```
 MetaPhlAn can automatically retrieve the MetaPhlAn database and create the Bowtie2 indexes it needs on-the-fly 
-when it the command is executed. By default MetaPhlAn saves these index files to the MetaPhlAn installation directory, but in Puhti,
+when it the command is executed. By default MetaPhlAn saves these index files to the MetaPhlAn installation directory, but in Puhti-rhel7,
 this is not possible. Because of that, the users should use option `--bowtie2db` 
 to define a directory that will be used to store the database and index files. 
  

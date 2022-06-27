@@ -15,18 +15,18 @@ Free to use and open source under [MIT/Expat License](https://github.com/samtool
 
 Version on CSC's Servers
 
-Puhti: 1.9, 1.14
+Puhti-rhel7: 1.9, 1.14
 
 
 ## Usage
 
-To use SAMtools in Puhti you can use initialization command:
+To use SAMtools in Puhti-rhel7 you can use initialization command:
 ```text
 module load biokit
 ```
 
 The biokit module sets up a set of commonly used bioinformatics tools, including SAMtools and Picard 
-(Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.)
+(Note however that there are also bioinformatics tools in Puhti-rhel7, that have a separate setup commands.)
 
 After this you can launch samtools
 ```
@@ -45,7 +45,7 @@ module load samtools/1.14
 
 
 Heavier SAMtool jobs should be executed as batch jobs. Below is a sample batch job file, 
-for running a SAMtools job in Puhti:
+for running a SAMtools job in Puhti-rhel7:
 
 ```text
 #!/bin/bash -l
@@ -74,7 +74,7 @@ You can submit the batch job file to the batch job system with command:
 ```text
 sbatch batch_job_file.bash
 ```
-Check the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Check the [Puhti-rhel7 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## Manual

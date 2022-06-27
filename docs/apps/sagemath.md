@@ -10,7 +10,7 @@ directly via interfaces or wrappers.
 
 ## Available
 
-- Puhti: 8.8
+- Puhti-rhel7: 8.8
 
 ## License
 
@@ -18,7 +18,7 @@ GNU General Public License (GPL)
 
 ## Usage
 
-On Puhti, load the SageMath module
+On Puhti-rhel7, load the SageMath module
 
 ```bash
 $ module load sagemath

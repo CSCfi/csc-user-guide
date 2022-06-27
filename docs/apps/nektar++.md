@@ -21,7 +21,7 @@ Nektar++ is licensed under the [MIT license](https://opensource.org/licenses/MIT
 
 ## Available
 
-Nektar++ is installed on [Puhti](../computing/available-systems.md) server.
+Nektar++ is installed on [Puhti-rhel7](../computing/available-systems.md) server.
 
 ## Usage
 
@@ -29,7 +29,7 @@ After login on the server, give command
 
     module load nektar++
 
-There is an example of **batch job file** available on Puhti server:
+There is an example of **batch job file** available on Puhti-rhel7 server:
 
     /appl/soft/eng/nektar++/parjob_nektar
 
