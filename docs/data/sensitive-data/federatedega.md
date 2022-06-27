@@ -85,7 +85,7 @@ or
 
 - **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
 
-**Fi-FEGA upload tool
+**Fi-FEGA upload tool**
 
 1. You can download the application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the SDA application in your download folder. When you open the application, you might encounter an error message. In this case, click on More info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on Run anyway. 
 2. Next, download the Finnish FEGA public encryption key. 
@@ -96,7 +96,7 @@ or
    - in SFTP Server write the following: test.sd.csc.fi:9002. 
 
 !!! note
-Loading an SFPT key is not required for data uploads to FEGA.
+    Loading an SFPT key is not required for data uploads to FEGA.
 
 6. Click on Encrypt and upload files. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
 7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
