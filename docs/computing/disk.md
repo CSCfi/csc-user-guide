@@ -156,14 +156,16 @@ data work flow, if it requires that tens of millions
 of files are stored to the _scratch_ area.
 
 ## Temporary local disk areas
-    
-The disk area that is suitable for the temporary files that are only visible within
-the login or compute node depends on the type of the node. If the application depends
+
+If the application depends
 on the use of temporary files, the suitability of the filesystem may have a large effect
 on the performance of the application, see section "Mind your I/O - it can make a big
 difference" in the [Performance Checklist](running/performance-checklist.md). Please note that
 some applications use temporary files "behind the scenes." Usually these applications
 read some environment variable that points to a suitable disk area, such as `$TMPDIR`.
+
+Some nodes have local disks that can be used to speed up your work when the temporary files 
+are only needed within a single login or compute node.
 
 ### Login nodes
 
@@ -180,7 +182,8 @@ archive files.
 
 ### Compute nodes with local SSD (nvme) disks
 
-Interactive batch jobs as well as jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
+Interactive batch jobs as well as jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request. Different nodes have different amounts of disks. On normal compute nodes, as well as GPU nodes you can reserve at most 3600 GiB of local disk space. To save resources and to fit your jobs also to nodes with smaller disks it is a good idea to only reserve what you actually need. On the nodes with large amounts of memory there are 1490 GiB or 5960 GiB disks. Please see [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes including the size of the local disk.
+
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas. 
 
