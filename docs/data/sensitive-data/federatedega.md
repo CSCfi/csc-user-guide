@@ -98,8 +98,8 @@ or
 !!! note
     Loading an SFPT key is not required for data uploads to FEGA.
 
-6. Click on Encrypt and upload files. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
-7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
-8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
+11. Click on Encrypt and upload files. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
+12. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
+13. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
 
