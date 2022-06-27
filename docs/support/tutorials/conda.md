@@ -30,12 +30,11 @@ familiar with those. Conda
 - is primarily designed for single user usage
 
 Note, the term "Conda environment" relates to two somewhat separate concepts. It
-can refer either or both of
+can refer to either or both of
 
 1. one of the user's conda software install root directories, and
 2. the user's shell environment that has been modified with
    `conda activate ...` command.
-
 
 ## When to use Conda and what kind of software you should install with it?
 
@@ -208,16 +207,20 @@ the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project and
 preferably containerize the environment (see [Tykky](../../computing/containers/tykky.md)).
 
 To get an overview of your directories in Puhti, run command:
+
 ```text
 csc-workspaces 
 ```
+
 You can pick the path of your ProjAppl directory from the output of the command above or if you 
 are mostly using just one project in Puhti, you can set the environment variables 
 $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. 
 This setting can be done with command:
+
 ```text
 csc-workspaces set <project>
 ```
+
 Below we assume that $PROJAPPL has been defined. After that the actual installation 
 can be done with commands:
 
@@ -286,7 +289,7 @@ conda env create -f <envname>.yaml
 
 to create the whole environment.
 
-Updating the packages, or adding new packages to the an existing environment is
+Updating the packages, or adding new packages to an existing environment is
 done by modifying the environment.yaml file, and then running
 
 ```bash
@@ -363,11 +366,11 @@ dependencies:
 ```
 
 The first listed channel is in a local directory. In this case it is used as a
-repository for a self created package, here [GNU Global], which does not(?) have
+repository for a self created package, here [GNU Global], which does not have
 an existing Conda package in Anaconda or Conda-forge repositories. Naturally
 this environment can only be created in machine puhti.csc.fi, if package
-`global` is included. TODO: Move the local channel to CSC's Allas object
-storage!
+`global` is included.
+<!-- TODO: Move the local channel to CSC's Allas object storage! -->
 
 Adding the environment.yaml file to the source repository of your project is
 probably an excellent idea. This allows an easy way to replicate the same
@@ -394,7 +397,7 @@ remove unused packages from the local package cache `pkgs`, respectively.
 
 ## Creating environments so that other user's can access them
 
-Giving other users an access to your Conda environment is as easy as giving them
+Giving other users access to your Conda environment is as easy as giving them
 read access to the directory containing the environment, in principle. If you use $PROJAPPL in 
 Puhti this is the default setting.
 
