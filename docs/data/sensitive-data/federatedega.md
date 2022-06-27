@@ -97,7 +97,7 @@ or
 8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
 #### Command line interface
-**Data encryption** with crypt4gh CLI:
+**Data encryption with crypt4gh CLI**:
 
 1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help installing Python, please follow these instructions.
 2.	Open a terminal and install Crypt4GH directly with pip tool:
@@ -112,7 +112,7 @@ $ crypt4gh encrypt  --recipient_pk finnishfega.pub < example_file.txt > example_
 
 Where the syntax: --recipient_pk defines the public key used to encrypt the data. In this case, Finnish FEGA public key - example_file.txt.c4gh defines the input file and output encrypted file. 
 
-**Data upload** with sfpt CLI (default in Linux and Mac OS):
+**Data upload with sfpt CLI (default in Linux and Mac OS)**:
 
 Open a terminal and transfer the encrypted files or directory with the following syntax, where ega_user is the EGA credentials username ega-box-8903:
 
