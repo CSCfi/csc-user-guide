@@ -57,6 +57,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
     A dataset is usually defined as a set of files belonging to the same experiment and data type. One study can be linked to multiple datasets. Your study may include both sensitive (e.g., human genetic or phenotypic information) and non-sensitive data (e.g., viral sequences, metabolites). Only the sensitive data can be submitted to FEGA. The non-sensitive data can be published openly in appropriate repositories. In this case, the sample accessions generated at the repository should be referenced in the FEGA submission.
     
 **Sensitive Data**:
+
 - **sequence data**: CRAM, BAM, FASTq, VCF formats
 - **array data**: Data from all types of array-based technologies, such as genotypes, gene expression, methylations, etc. is accepted. Central EGA also recommends submitting raw data (IDATs, CELs, final reports) and any analysis files.
 - **metagenomics**: EGA has adopted the suite of [Minimum Information about any (x) Sequence (MIxS)](https://press3.mcs.anl.gov/gensc/projects/mixs-gsc-project/) standards to describe data of this type.
