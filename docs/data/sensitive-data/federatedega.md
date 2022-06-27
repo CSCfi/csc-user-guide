@@ -85,7 +85,7 @@ or
 
 - **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
 
-**Fi-FEGA upload tool**
+#### Fi-FEGA upload tool
 
 1. You can download the application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the SDA application in your download folder. When you open the application, you might encounter an error message. In this case, click on More info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on Run anyway. 
 2. Next, download the Finnish FEGA public encryption key. 
@@ -96,4 +96,20 @@ or
 7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
 8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
+#### Command line interface
+**Data encryption** with crypt4gh CLI:
+1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help installing Python, please follow these instructions.
+2.	Open a terminal and install Crypt4GH directly with pip tool:
+```bash pip install crypt4gh 
+
+3.	To encrypt a file with the Finnish FEGA public encryption key use `crypt4gh encrypt` command:
+ 
+```bash
+$ crypt4gh encrypt  --recipient_pk finnishfega.pub < example_file.txt > example_file.txt.c4gh
+Where the syntax: --recipient_pk defines the public key used to encrypt the data. In this case, Finnish FEGA public key - example_file.txt.c4gh defines the input file and output encrypted file. 
+Data upload with sfpt CLI (default in Linux and Mac OS):
+Open a terminal and transfer the encrypted files or directory with the following syntax, where ega_user is the EGA credentials username: ega-box-8903:
+sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 9002 <ega_user>@test.sd.csc.fi
+
+Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
