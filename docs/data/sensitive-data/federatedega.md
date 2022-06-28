@@ -10,12 +10,9 @@ You can use FEGA either to submit or apply access to biomedical datasets. The se
 The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-submission)**
-
 - **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-access-application)**
-
-  - [For Data Applicants](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-applicants)
-  
-  - [For Data Access Committee](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-access-committee-dac)
+    - [For Data Applicants](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-applicants)
+    - [For Data Access Committee](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-access-committee-dac)
 
 ## Useful terminology
 
@@ -51,7 +48,7 @@ Here’s a list of the required documents:
 
 - **[Description of the data processing activities](https://docs.csc.fi/data/sensitive-data/data-processing-form.docx)**.
 
-- **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download here <br/>
+- **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download here <br/><br/>
 
 - **Data Access Agreement (DAA)**. In addition to the legal documents concerning the data controller, you should provide a DAA which is a contract between the Data Access Committee ([DAC](https://ega-archive.org/submission/data_access_committee)) and an applicant. The DAA includes all the policies regulating data re-use (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset in the central EGA submitter portal. Your academic organisation might provide a template for the DAA or give you information and assistance. In specific cases, the document needs to be drafted by a legal representative. For more info and examples, check [DAC and policy documentation](https://ega-archive.org/submission/dac/documentation) and [Data Use Conditions](https://ega-archive.org/data-use-conditions) on EGA webpage. 
 
