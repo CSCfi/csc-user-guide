@@ -32,6 +32,7 @@ To begin the submission process, please fill in the [application form](https://d
 
 !!! note
     - Data submission might take up to a month or more. Therefore, please get in touch with us well in advance (before submitting your manuscript to a scientific journal). In this way, we can offer proper support and guide you during the entire process.
+    
     - Please use the same email thread throughout the whole submission process.
     
 ### Step 2: Legal agreements 
@@ -173,6 +174,7 @@ After data release, each of these objects will be assigned with a permanent iden
 
 !!! note
     - Study, samples, DAC, and Policy metadata can all be registered before uploading files, while run and analysis objects cannot be registered until at least 24 hours after the files have been uploaded to the Finnish FEGA.
+    
     - If you are performing Array-based submission(s), the Submitter Portal should only be used to register the Study, Samples, Data Access Committee (DAC), and Policy metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
 
 #### Dataset application link
