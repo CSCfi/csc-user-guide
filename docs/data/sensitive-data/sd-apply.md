@@ -6,7 +6,7 @@ Each sensitive dataset that is published under controlled access is associated w
 The following is a step-by-step guide to SD Apply that illustrates: 
 
 - **[Data access for Data Applicant](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/sd-apply.md#data-access-for-data-applicant)**
-- **Data approval for Data Access Committee (DAC)**
+- **[Data approval for Data Access Committee (DAC)](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/sd-apply.md#data-approval-for-data-access-committee-dac)**
 
 ## Data access for Data Applicant
 ### Step 1: Login
@@ -58,4 +58,28 @@ Once your Application has been approved, you will receive a notification and fur
 
 ### Step 6: Export your results
 Once your analysis is completed, you can export the results from the computing environment. After that, data access will be revoked. To get access to the same dataset, you need to start a new application process.
+
+## Data approval for Data Access Committee (DAC)
+Data Access Committee (DAC) is responsible for processing the data access applications and managing access rights to different datasets. In practice, DAC can approve or reject applications and revoke access rights in case of misuse.
+
+Data Access Committee (DAC) has been established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process.
+
+### Step 1: Login
+As a DAC member, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
+
+To start processing applications, follow the link in your email or log in directly to SD Apply at https://sd-apply.csc.fi/. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and Elixir login) or with CSC login. Use the identity provider your organisation/institution recommends.
+
+!!! note
+    Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
+
+### Step 2: Process applications
+In SD Apply, navigate to Actions tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
+
+#### Approving or rejecting an application
+You can approve or reject the application right away if the applicant has provided all the needed information. Select *Approve or reject application* under Actions. If you reject an application, we recommend telling the applicant why the application was rejected by writing a comment.
+
+The applicant will receive an email notification about the decision. Once you approve or reject the application, the decision is final. You cannot edit it later. If the applicant has added members to their application, the members will get access rights too when the application is approved, if they have accepted the terms of use. Any member not having accepted the terms of use by that time will get access rights after they log in to SD Apply and accept the terms of use.
+
+!!! note
+    If the owner of the dataset has removed the dataset that applicant is applying for access, SD Apply will give a warning, but you can still process the application. However, if the dataset has been removed, you cannot approve or reject the application.
 
