@@ -95,9 +95,11 @@ You can carry out the encryption and upload steps using:
 
 - **Fi-FEGA upload application**. The Fi-FEGA upload application (graphical user interface) can be used to encrypt and upload files or folders automatically to Finnish FEGA.
 
+
 or
 
 - **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
+
 
 #### Fi-FEGA upload application
 
