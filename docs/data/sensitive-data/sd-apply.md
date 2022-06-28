@@ -10,10 +10,10 @@ The following is a step-by-step guide to SD Apply that illustrates:
 
 ## Data access for Data Applicant
 ### Step 1: Login
-Login to SD Apply is possible with user identity federation systems (Haka, Virtu and Elixir login) or with CSC login at https://sd-apply.csc.fi. The interface is compatible with all modern web browsers.
+Login to SD Apply is possible with user identity federation systems (Haka, Virtu and Elixir login) or with CSC login at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
 
 !!! note
-    If you own several user accounts, please always use the same login method to access SD Apply from multiple identities provided.
+    Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
 ### Step 2: Apply for access
 After login, you will access the SD Apply Catalogue page. On this page, you can search for a specific dataset and start the application process. Start a new application by clicking on *Add to cart* button next to the name of the dataset. You can select multiple datasets, and they will all appear in your cart under the Catalogue title. By clicking on *Apply*, you will be redirected to the application form.
@@ -22,9 +22,13 @@ After login, you will access the SD Apply Catalogue page. On this page, you can 
 Follow the instructions on the application form and fill in the required fields:
 
 - **State**. Contains basic details like title and state of your application.
+
 - **Applicants**. Everyone who processes or has direct or indirect access to the data is considered as a research group member and must be named in the Applicants field. Members can be added, changed, or removed without re-applying. You can invite other people to join the data access application by selecting Invite member and providing their names and email addresses. They will then get an invitation email. By following the invitation link, they can log in to SD Apply and accept the terms of use and Data Access Agreement. When the application is approved, all the applicants will be granted access to the same dataset(s).
+
 - **Resources**. Shows all the datasets you are applying for
+
 - **Terms of use**. Lists all the licenses defining the terms and conditions for data access and re-use (e.g. Data Access Agreement). To access, click on Accept terms of use.
+
 - **Application**. Access to a dataset is granted for a single, designated purpose only. Add the necessary information about your research: research/study name, research plan abstract, Data access start date and Data access end date.
 
 To submit your Application, select *Send application* under Actions. Unfortunately, editing or deleting the application is no more possible after sending the application. However, removing members is still possible. If you want to use the application as a template for a new application, select *Copy as new application*. Note that the attachments (e.g. research plan) of your old application will also be copied.
@@ -35,17 +39,25 @@ After you have sent the Application, it will be forwarded to the Data Access Com
 During the approval process, the Data Access Committee can:
 
 - approve or reject your application.
+
 - return the application asking for additional information.
+
 - close your application and cancel the application process.
+
 - add comments to your application.
 
 You can follow the approval process and read the possible comments from the Application events section. In addition, you can find all your applications and see their state from the Applications tab:
 
 - **Draft**. Your application is still a draft and cannot be seen by the Data Access Committee. You can continue working on your application or delete it entirely from the system.
+
 - **Submitted**. The application has been sent to the Data Access Committee and cannot be edited anymore unless specifically requested.
+
 - **Approved**. The application has been approved, and you have been granted access rights.
+
 - **Rejected**. To see why your application was rejected, navigate the application and select View. Data Access Committee comments will be shown in the Events section.
+
 - **Returned**. If the data owner needs additional information regarding your application, they can return your application to you. To edit the application, follow the link in the email or log in to SD Apply, navigate to the application, and select View. You can see the comments of the Data Access Committee in the Events section. Then, make the changes and select Send application.
+
 - **Revoked**. Your Application, and thus your access rights, have been revoked by the Data Access Committee.
 
 You will receive an email notification whenever the state of your application changes.
@@ -67,7 +79,7 @@ Data Access Committee (DAC) has been established during the data submission proc
 ### Step 1: Login
 As a DAC member, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
 
-To start processing applications, follow the link in your email or log in directly to SD Apply at https://sd-apply.csc.fi/. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and Elixir login) or with CSC login. Use the identity provider your organisation/institution recommends.
+To start processing applications, follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/>. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and Elixir login) or with CSC login. Use the identity provider your organisation/institution recommends.
 
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
