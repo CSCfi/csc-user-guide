@@ -41,7 +41,7 @@ Here’s a list of the required documents:
 - **[CSC General terms of use](https://research.csc.fi/general-terms-of-use)**.
 - **[Description of the data processing activities](https://docs.csc.fi/data/sensitive-data/data-processing-form.docx)**.
 - **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download here <br/><br/>
-- **Data Access Agreement (DAA)**. In addition to the legal documents concerning the data controller, you should provide a DAA which is a contract between the Data Access Committee ([DAC](https://ega-archive.org/submission/data_access_committee)) and an requester. The DAA includes all the policies regulating data re-use (e.g., data use, publication, download, or access) and it will be linked to each submitted dataset in the central EGA submitter portal. Your academic organisation might provide a template for the DAA or give you information and assistance. In specific cases, the document needs to be drafted by a legal representative. A copy of the agreement can be returned to servicedesk@csc.fi (subject Federated EGA). For more info and examples, check [DAC and policy documentation](https://ega-archive.org/submission/dac/documentation) and [Data Use Conditions](https://ega-archive.org/data-use-conditions) on EGA webpage. 
+- **Data Access Agreement (DAA)**. In addition to the legal documents concerning the data controller, you should provide a DAA which is a contract between the Data Access Committee ([DAC](https://ega-archive.org/submission/data_access_committee)) and a requester. The DAA includes all the policies regulating data re-use (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset in the central EGA submitter portal. Your academic organisation might provide a template for the DAA or give you information and assistance. In specific cases, the document needs to be drafted by a legal representative. For more info and examples, check [DAC and policy documentation](https://ega-archive.org/submission/dac/documentation) and [Data Use Conditions](https://ega-archive.org/data-use-conditions) on EGA webpage. 
 - **Names and contact information of the Data Access Committee**.
 
 ### Step 3: Credentials
@@ -61,7 +61,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 - **sequence data**: CRAM, BAM, FASTq, VCF formats
 - **array data**: Data from all types of array-based technologies, such as genotypes, gene expression, methylations, etc. is accepted. Central EGA also recommends submitting raw data (IDATs, CELs, final reports) and any analysis files.
 - **metagenomics**: EGA has adopted the suite of [Minimum Information about any (x) Sequence (MIxS)](https://press3.mcs.anl.gov/gensc/projects/mixs-gsc-project/) standards to describe data of this type.
-- **phenotypic information**: No specific format. Where possible, we recommend using the Experimental Factor Ontologies. To search for the correct ontology terms and describe your phenotypic data, check the [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols/ontologies/efo) developed by EMBL-EBI.
+- **phenotypic information**: No specific format. Where possible, we recommend using the Experimental Factor Ontologies. To search for the correct ontology terms and to describe your phenotypic data, check the [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols/ontologies/efo) developed by EMBL-EBI.
 - **linking files**: If non-sensitive datasets belonging to the same study have been submitted to a specific repository, the samples can be linked to sensitive information submitted to Federated EGA for the same sample. The datasets should have different anonymised sample IDs in each archive. The IDs obtained in the appropriate archive can then be referenced in the FEGA submission. For example, the sample ID can be linked in an additional .txt file that can be added to one of the sensitive datasets above.
 
 **Non-sensitive data**:
@@ -69,7 +69,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 Non-sensitive data (or open data) needs to be submitted in appropriate archives. For example, sequences to the ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variants to EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), array-based to [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), phenotypes to [Biosamples BioSamples](https://www.ebi.ac.uk/biosamples/) and GWAS summary statistics to the [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
 
 !!! note
-    For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at servicedesk@csc.fi (subject Federated EGA).
+    For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at servicedesk@csc.fi (subject: Federated EGA).
 
 ### Step 5: Data encryption and upload 
 Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted. 
@@ -79,20 +79,20 @@ Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEG
     
 You can carry out the encryption and upload steps using:
 
-- **Fi-FEGA upload tool**. The Fi-FEGA upload tool (graphical user interface) can be used to encrypt and upload files or folders automatically to Finnish FEGA.
+- **Fi-FEGA upload application**. The Fi-FEGA upload application (graphical user interface) can be used to encrypt and upload files or folders automatically to Finnish FEGA.
 
 or
 
 - **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
 
-#### Fi-FEGA upload tool
+#### Fi-FEGA upload application
 
-1. You can download the application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the SDA application in your download folder. When you open the application, you might encounter an error message. In this case, click on More info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on Run anyway. 
+1. You can download the Fi-FEGA upload application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the application in your download folder. When you open the application, you might encounter an error message. In this case, click on *More info* and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on *Run anyway*. 
 2. Next, download the Finnish FEGA public encryption key. 
-3. Open the FEGA submission tool and click on Load Recipient Public Key. This opens a file browser that you can use to select the Finnish FEGA public encryption key (example_ega.key). Next, click on Open.
-4. Click on Select file to Upload or Select Directory to upload to upload a single file or an entire folder. 
+3. Open the upload application and click on *Load recipient public key*. This opens a file browser that you can use to select the Finnish FEGA public encryption key (example_ega.key). Next, click on *Open*.
+4. Click on *Select file to upload* or *Select directory to upload* to upload a single file or an entire folder. 
 5. Next, you need to fill in the SFTP (or secure connection) credentials, which correspond to your Central EGA account username. In SFTP Username, write your EGA username (ega-box-NNN). In SFTP Server, write the following: test.sd.csc.fi:9002. Loading an SFPT key is not required for data uploads to FEGA.
-6. Click on Encrypt and upload files. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
+6. Click on *Encrypt and upload files*. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
 7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
 8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
