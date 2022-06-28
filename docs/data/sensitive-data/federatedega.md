@@ -174,7 +174,7 @@ go-fuse -enable SD-Submit
 6. Next, open the Project folder that will appear on the Desktop. Open the SD Connect folder: the dataset will be available in the subfolder called Project NNNN.
 
 ### For Data Access Committee (DAC)
-Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data requester is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process.
+Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data requester is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
 1. As a DAC member you receive a notification via SD Apply to your email, when a requester applies for data access. Log into SD Apply with your HAKA or ELIXIR account. 
 2. In SD Apply, under “Actions”, check the following information sent by the requestor: name, affiliation, role, summary of their research, duration of the research project etc. Check also was the Data Access Agreement (DAA) accepted. You can ask for more information from the requester if necessary.
