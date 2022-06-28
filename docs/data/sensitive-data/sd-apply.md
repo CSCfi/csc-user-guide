@@ -120,3 +120,14 @@ You can also edit applications by the following ways:
 !!! note
     You can comment on the application throughout the application process by selecting *Remark* and choosing if you want to show the comment to the applicant or not. Applicants will receive a notification about new public comments. Sometimes it is useful for the applicant to see the comments so that they know how the approval process is proceeding. Note that the applicant cannot respond to the comments.
 
+### Step 3: After processing the application
+You are able to manage the access rights of the applicant even after you have processed the application. You can find the processed applications from Actions tab under Processed applications. Processed applications view shows all the applications that have been approved, rejected, closed, or returned to the applicant. Select *View* to open a specific application.
+
+#### Close the application
+Closing the application cancels the access rights of the applicant and other application members. When the applicant and the application members do not need the access rights anymore, for example because their research period has ended, you can cancel their access rights by selecting *Close application*.
+
+#### Revoke access rights
+If the applicant has been granted access rights but they misuse them, you can revoke the rights by selecting *Revoke entitlement*.
+
+Revoking will add the applicant and all the application members to a blacklist. This means that if any of them tries to apply for access rights to the same dataset again, SD Apply will warn the application handlers. The owner of the dataset can edit the blacklist. You can find the blacklist from Administration tab. 
+
