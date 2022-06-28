@@ -95,27 +95,33 @@ You can carry out the encryption and upload steps using:
 
 - **Fi-FEGA upload application**. The Fi-FEGA upload application (graphical user interface) can be used to encrypt and upload files or folders automatically to Finnish FEGA.
 
-
 or
 
 - **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
 
-
 #### Fi-FEGA upload application
 
 1. You can download the Fi-FEGA upload application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the application in your download folder. When you open the application, you might encounter an error message. In this case, click on *More info* and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on *Run anyway*. 
+
 2. Next, download the Finnish FEGA public encryption key. 
+
 3. Open the upload application and click on *Load recipient public key*. This opens a file browser that you can use to select the Finnish FEGA public encryption key (example_ega.key). Next, click on *Open*.
+
 4. Click on *Select file to upload* or *Select directory to upload* to upload a single file or an entire folder. 
+
 5. Next, you need to fill in the SFTP (or secure connection) credentials, which correspond to your Central EGA account username. In SFTP Username, write your EGA username (ega-box-NNN). In SFTP Server, write the following: test.sd.csc.fi:9002. Loading an SFPT key is not required for data uploads to FEGA.
+
 6. Click on *Encrypt and upload files*. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the SDA toll will start the data encryption and upload. 
+
 7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the SDA tools visualises the following message: Disconnecting SFPT. SFPT has been disconnected.
+
 8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
 #### Command line interface
 **Data encryption with crypt4gh CLI**:
 
 1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help installing Python, please follow these instructions.
+
 2.	Open a terminal and install Crypt4GH directly with pip tool:
 ```
 pip install crypt4gh
@@ -188,9 +194,13 @@ CSC helpdesk and central EGA helpdesk will work together to complete the release
 ## Data access application
 ### For Data Applicants
 1. To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
+
 2. In the application form, you can accept the Data Access Agreement, specify the purpose of your request and add your research plan. The Data Access Committee will evaluate your application, accepting or denying data access.
+
 3. Once the application is approved, you will receive a confirmation email. You can access the data in SD Desktop, a private workspace part of CSC Sensitive Data Services. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). 
+
 4. Login to SD Desktop is possible using CSC login, HAKA or ELIXIR login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
+
 5. Once you have accessed the computing environment, you can open the terminal (right-click). As SD Desktop complies with high-security measures, it is not possible to use the copy-paste function. Input the following command:
 ```
 go-fuse -enable SD-Submit
@@ -201,7 +211,9 @@ go-fuse -enable SD-Submit
 Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
 1. As a DAC member you receive a notification via SD Apply to your email, when an applicant applies for data access. Log into SD Apply with your HAKA or ELIXIR account. 
+
 2. In SD Apply, under “Actions”, check the following information sent by the applicant: name, affiliation, role, summary of their research, duration of the research project etc. Check also was the Data Access Agreement (DAA) accepted. You can ask for more information from the applicant if necessary.
+
 3. Next, you can decide if the application is approved or rejected. Please give a motivation in the “Add comments” field in the “Approve or reject” field. The final decision is sent to the applicant with information on how the dataset can be accessed using SD Desktop.
 
 !!! note
