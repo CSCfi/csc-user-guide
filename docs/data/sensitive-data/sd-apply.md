@@ -84,7 +84,7 @@ To start processing applications, follow the link in your email or log in direct
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
-### Step 2: Process applications
+### Step 2: Process the application
 In SD Apply, navigate to Actions tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
 
 #### Approve or reject the application
@@ -127,7 +127,25 @@ You are able to manage the access rights of the applicant even after you have pr
 Closing the application cancels the access rights of the applicant and other application members. When the applicant and the application members do not need the access rights anymore, for example because their research period has ended, you can cancel their access rights by selecting *Close application*.
 
 #### Revoke access rights
-If the applicant has been granted access rights but they misuse them, you can revoke the rights by selecting *Revoke entitlement*.
+If the applicant has been granted access rights but they misuse them, you can revoke the rights by selecting *Revoke entitlement*. Revoking will add the applicant and all the application members to a blacklist. This means that if any of them tries to apply for access rights to the same dataset again, SD Apply will warn the application handlers. The owner of the dataset can edit the blacklist. You can find the blacklist from Administration tab. 
 
-Revoking will add the applicant and all the application members to a blacklist. This means that if any of them tries to apply for access rights to the same dataset again, SD Apply will warn the application handlers. The owner of the dataset can edit the blacklist. You can find the blacklist from Administration tab. 
+### Email notifications
+You will receive email notifications about the actions of other SD Apply users. A data Access Committee has often more than one member. Therefore, all the DAC members who have been assigned to a certain dataset, receive an email notification when one of the DAC members has processed an application.
 
+You can see and edit your email address from Settings tab in the top right corner of the page.
+
+You will be notified when another handler has:
+
+- commented an application.
+
+- returned the application to the applicant.
+
+- approved an application.
+
+- rejected an application.
+
+- closed an application.
+
+- revoked the access rights of the applicant.
+
+You will also receive notifications when an applicant has submitted or resubmitted an application.
