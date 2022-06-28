@@ -11,14 +11,14 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-submission)**
 - **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-access-application)**
-  - [For applicants](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-requester)
+  - [For Data Applicants](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-applicants)
   - [For Data Access Committee](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-access-committee-dac)
 
 ## Useful terminology
 
 - **Central EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
 - **Data Access Committee (DAC)**. Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
-- **Data Requester**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
+- **Data Applicant**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
 - **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. 
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
@@ -162,7 +162,7 @@ To finalise your submission, write to servicedesk@csc.fi to confirm that the sub
 CSC helpdesk and central EGA helpdesk will work together to complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
 ## Data access application
-### For applicants
+### For Data Applicants
 1. To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 2. In the application form, you can accept the Data Access Agreement, specify the purpose of your request and add your research plan. The Data Access Committee will evaluate your application, accepting or denying data access.
 3. Once the application is approved, you will receive a confirmation email. You can access the data in SD Desktop, a private workspace part of CSC Sensitive Data Services. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). 
