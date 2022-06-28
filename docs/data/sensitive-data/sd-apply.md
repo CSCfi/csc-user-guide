@@ -23,7 +23,7 @@ Follow the instructions on the application form and fill in the required fields:
 
 - **State**. Contains basic details like title and state of your application.
 
-- **Applicants**. Everyone who processes or has direct or indirect access to the data is considered as a research group member and must be named in the Applicants field. Members can be added, changed, or removed without re-applying. You can invite other people to join the data access application by selecting Invite member and providing their names and email addresses. They will then get an invitation email. By following the invitation link, they can log in to SD Apply and accept the terms of use and Data Access Agreement. When the application is approved, all the applicants will be granted access to the same dataset(s).
+- **Applicants**. Everyone who processes or has direct or indirect access to the data is considered as a research group member and must be named in the Applicants field. Members can be added, changed, or removed without re-applying. You can invite other people to join the data access application by selecting Invite member and providing their names and email addresses. They will then get an invitation email. By following the invitation link, they can log in to SD Apply and accept the terms of use and Data Access Agreement. When the application is approved, all members of the application will be granted access to the same dataset(s).
 
 - **Resources**. Shows all the datasets you are applying for
 
@@ -94,4 +94,29 @@ The applicant will receive an email notification about the decision. Once you ap
 
 !!! note
     If the owner of the dataset has removed the dataset that applicant is applying for access, SD Apply will give a warning, but you can still process the application. However, if the dataset has been removed, you cannot approve or reject the application.
+
+#### Returning the application to the applicant
+If the application is missing some information, you can return it to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select Return to applicant application under Actions to return the application.
+
+The applicant will receive an email notification about a returned application. They can resubmit the application after editing it. Resubmitted applications will show up in Actions tab. The changes the applicant has made will show as highlighted on the application form.
+
+#### Closing applications
+You can close an application at any stage of the process by selecting Close application. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
+
+We recommend closing the application, if it is somehow inappropriate. Deleting applications is not possible because we want to always provide a full history of the application process. You can find closed applications in Actions tab under Processed applications.
+
+#### Editing Applications
+
+You can also edit the applications by the following ways:
+
+- **Change the licenses**. The applicant will receive an email notification about the change in terms of use and has to accept the new licenses before they will be granted access rights.
+
+- **Add or remove members**. If you do not want to grant access to all the members in the application, you can remove additional members. Adding members is also possible.
+
+- **Change the applicant**. You can change the applicant to another member of the application. This can be useful if, for example, the original applicant has left the applying organisation.
+
+- **Change the resources of the application**. If the applicant is applying for access rights to multiple datasets and you do not want to grant access to all of them, you can remove some of the datasets. It is also possible to add new resources if they can be applied for using the same application form. These will show as available in the drop-down list.
+
+!!! note
+    You can comment on the application throughout the application process by selecting Remark and choosing if you want to show the comment to the applicant or not. Applicants will receive a notification about new public comments. Sometimes it is useful for the applicant to see the comments so that they know how the approval process is proceeding. Note that the applicant cannot respond to the comments.
 
