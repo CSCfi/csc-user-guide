@@ -87,7 +87,7 @@ To start processing applications, follow the link in your email or log in direct
 ### Step 2: Process applications
 In SD Apply, navigate to Actions tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
 
-#### Approving or rejecting an application
+#### Approve or reject the application
 You can approve or reject the application right away if the applicant has provided all the needed information. Select *Approve or reject application* under Actions. If you reject an application, we recommend telling the applicant why the application was rejected by writing a comment.
 
 The applicant will receive an email notification about the decision. Once you approve or reject the application, the decision is final. You cannot edit it later. If the applicant has added members to their application, the members will get access rights too when the application is approved, if they have accepted the terms of use. Any member not having accepted the terms of use by that time will get access rights after they log in to SD Apply and accept the terms of use.
@@ -95,17 +95,17 @@ The applicant will receive an email notification about the decision. Once you ap
 !!! note
     If the owner of the dataset has removed the dataset that applicant is applying for access, SD Apply will give a warning, but you can still process the application. However, if the dataset has been removed, you cannot approve or reject the application.
 
-#### Returning the application to the applicant
+#### Return he application to the applicant
 If the application is missing some information, you can return it to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select Return to applicant application under Actions to return the application.
 
 The applicant will receive an email notification about a returned application. They can resubmit the application after editing it. Resubmitted applications will show up in Actions tab. The changes the applicant has made will show as highlighted on the application form.
 
-#### Closing applications
+#### Close the application
 You can close an application at any stage of the process by selecting Close application. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
 
 We recommend closing the application, if it is somehow inappropriate. Deleting applications is not possible because we want to always provide a full history of the application process. You can find closed applications in Actions tab under Processed applications.
 
-#### Editing Applications
+#### Edit the application
 
 You can also edit the applications by the following ways:
 
