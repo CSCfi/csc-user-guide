@@ -10,8 +10,8 @@ You can use FEGA either to submit or apply access to biomedical datasets. The se
 The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-submission)**
-- Data access application
-  - For Data Requesters
+- **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-access-application)**
+  - [For Data Requesters](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-requester)
   - For Data Access Committee
 
 ## Useful terminology
