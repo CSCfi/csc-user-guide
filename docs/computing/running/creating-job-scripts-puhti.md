@@ -158,14 +158,16 @@ Some nodes in Puhti have a local fast storage available for jobs. The local stor
 
 The local storage is available on:
 
-* GPU nodes in the `gpu` and `gputest` partitions
-* I/O nodes shared by the `small`, `large` and `longrun` partitions
+* GPU nodes in the `gpu` and `gputest` partitions (Max 3600 GB per node)
+* I/O nodes shared by the `small`, `large`, `longrun` and `interactive` partitions (Max 1490/3600 GB per node)
+* Big Mem nodes in the `hugemem` and `hugemem_longrun` partitions (Max 5960 GB per node)
 
 Request local storage using the `--gres` flag in the job submission:
 ```
 --gres=nvme:<local_storage_space_per_node>
 ```
-The amount of space is given in GB (with a maximum of 3600 GB per node).  For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis.
+
+The amount of space is given in GB (Check maximum sizes from the list above). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis.
 
 Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
