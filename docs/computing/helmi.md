@@ -7,7 +7,7 @@ Helmi is a 5 qubit Quantum Computer manufactured by IQM. The qubits are laid out
 !["Helmi's node mapping"](../img/helmi_mapping.png)
 
 
-The Helmi software stack provides some useful tools in mapping programs to this specific topology. [For more details see "Running on Helmi"](running/running-on-helmi/).  
+The Helmi software stack provides some useful tools in mapping programs to this specific topology. [For more details see "Running on Helmi"](../running/running-on-helmi/).  
 
 
 
@@ -19,7 +19,7 @@ Helmi is accessed through the LUMI login nodes as a LUMI project, therefore you 
 
 * [How to create Finnish LUMI projects](../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 
-* [Specific instructions for the LUMI Helmi partition](../../accounts/helmi.md)
+* [Specific instructions for the LUMI Helmi partition](../../accounts/helmi)
 
 
 ### Setting up SSH key pair
