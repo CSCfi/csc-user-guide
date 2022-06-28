@@ -102,12 +102,12 @@ or
 
 1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help installing Python, please follow these instructions.
 2.	Open a terminal and install Crypt4GH directly with pip tool:
-```bash 
+```
 pip install crypt4gh
 ```
 3.	To encrypt a file with the Finnish FEGA public encryption key use ```crypt4gh encrypt``` command:
  
-```bash
+```
 $ crypt4gh encrypt  --recipient_pk finnishfega.pub < example_file.txt > example_file.txt.c4gh
 ```
 
@@ -117,7 +117,7 @@ Where the syntax: --recipient_pk defines the public key used to encrypt the data
 
 Open a terminal and transfer the encrypted files or directory with the following syntax, where ega_user is the EGA credentials username ega-box-8903:
 
-```bash
+```
 sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 9002 <ega_user>@test.sd.csc.fi
 ```
 
@@ -150,7 +150,7 @@ After data release, each of these objects will be assigned with a permanent iden
 After uploading the data to Finnish FEGA, you will receive a dataset application link for each dataset via email from the CSC helpdesk. The dataset application links must be added to each metadata submission in EGA submitter portal. In order to add the dataset application link to the submission, you must register a new Policy metadata object for each dataset. Create a policy and select the checkbox “The policy has an url.” under the Policy field. Write the dataset application link in the popping up “Policy URL” textbox.
 
 !!! note
-    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC.
+    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC.
     
 ### Step 7: Data release
 To finalise your submission, write to servicedesk@csc.fi to confirm that the submission can be released and add the following information from the submitter portal:
@@ -161,4 +161,15 @@ To finalise your submission, write to servicedesk@csc.fi to confirm that the sub
 
 CSC helpdesk and central EGA helpdesk will work together to complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
+## Data access application
+### For Data Requester
+1.	To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
+2.	In the application form, you can accept the Data Access Agreement, specify the purpose of your request and add your research plan. The Data Access Committee will evaluate your application, accepting or denying data access.
+3.	Once the application is approved, you will receive a confirmation email. You can access the data in SD Desktop, a private workspace part of CSC Sensitive Data Services. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). 
+4.	Login to SD Desktop is possible using CSC login, HAKA or ELIXIR login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
+5.	Once you have accessed the computing environment, you can open the terminal (right-click). As SD Desktop complies with high-security measures, it is not possible to use the copy-paste function. Input the following command:
+```
+go-fuse -enable SD-Submit
+```
+6.	Next, open the Project folder that will appear on the Desktop. Open the SD Connect folder: the dataset will be available in the subfolder called Project NNNN.
 
