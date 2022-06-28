@@ -10,16 +10,23 @@ You can use FEGA either to submit or apply access to biomedical datasets. The se
 The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-submission)**
+
 - **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-access-application)**
+
   - [For Data Applicants](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-applicants)
+  
   - [For Data Access Committee](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#for-data-access-committee-dac)
 
 ## Useful terminology
 
 - **Central EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
+
 - **Data Access Committee (DAC)**. Individual or group of individuals who are controllers for a dataset stored at FEGA and are responsible for approving and rejecting access requests to that dataset.
+
 - **Data Applicant**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
-- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. 
+
+- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access.
+
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
 ## Data submission
@@ -39,10 +46,15 @@ Each user must provide a series of legal agreements to confirm that they have th
 Here’s a list of the required documents:
 
 - **[Data Processing Agreement](https://research.csc.fi/data-processing-agreement)** (DPA). A data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the rights and duties between the controller and the processor. 
+
 - **[CSC General terms of use](https://research.csc.fi/general-terms-of-use)**.
+
 - **[Description of the data processing activities](https://docs.csc.fi/data/sensitive-data/data-processing-form.docx)**.
-- **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download here <br/><br/>
+
+- **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download here <br/>
+
 - **Data Access Agreement (DAA)**. In addition to the legal documents concerning the data controller, you should provide a DAA which is a contract between the Data Access Committee ([DAC](https://ega-archive.org/submission/data_access_committee)) and an applicant. The DAA includes all the policies regulating data re-use (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset in the central EGA submitter portal. Your academic organisation might provide a template for the DAA or give you information and assistance. In specific cases, the document needs to be drafted by a legal representative. For more info and examples, check [DAC and policy documentation](https://ega-archive.org/submission/dac/documentation) and [Data Use Conditions](https://ega-archive.org/data-use-conditions) on EGA webpage. 
+
 - **Names and contact information of the Data Access Committee**.
 
 ### Step 3: Credentials
@@ -60,9 +72,13 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 **Sensitive Data**:
 
 - **sequence data**: CRAM, BAM, FASTq, VCF formats
+
 - **array data**: Data from all types of array-based technologies, such as genotypes, gene expression, methylations, etc. is accepted. Central EGA also recommends submitting raw data (IDATs, CELs, final reports) and any analysis files.
+
 - **metagenomics**: EGA has adopted the suite of [Minimum Information about any (x) Sequence (MIxS)](https://press3.mcs.anl.gov/gensc/projects/mixs-gsc-project/) standards to describe data of this type.
+
 - **phenotypic information**: No specific format. Where possible, we recommend using the Experimental Factor Ontologies. To search for the correct ontology terms and to describe your phenotypic data, check the [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols/ontologies/efo) developed by EMBL-EBI.
+
 - **linking files**: If non-sensitive datasets belonging to the same study have been submitted to a specific repository, the samples can be linked to sensitive information submitted to Federated EGA for the same sample. The datasets should have different anonymised sample IDs in each archive. The IDs obtained in the appropriate archive can then be referenced in the FEGA submission. For example, the sample ID can be linked in an additional .txt file that can be added to one of the sensitive datasets above.
 
 **Non-sensitive data**:
@@ -132,12 +148,19 @@ Log in to the submitter portal using the EGA credentials (username: ega-box-NNN 
 Using the submitter portal, you can register the following metadata objects:
 
 - **Study**. Information about the sequencing study.
+
 - **Samples**. Information about the sequencing samples.
+
 - **Experiments**. Information about the sequencing methods, protocols, and machines.
+
 - **Runs**. Samples, experiments, and files are linked through runs. Appropriate objects for FASTQ and BAM/CRAM submissions.
+
 - **Analysis**. References the analysis (BAM) files. Associated with samples and study. Analysis should be only be used for BAM/BAI pair, VCF and phenotype linkage to samples. The analysis is an EGA specific metadata object that links Samples, to Files.
+
 - **DAC**. Contains information about the Data Access Committee (DAC).
+
 - **Policy**. Contains the Data Access Agreement (DAA). Associated with DAC.
+
 - **Dataset**. Contains the collection of runs/analysis data files to be subject to controlled access. Associated with Policy.
 
 After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
@@ -156,7 +179,9 @@ After uploading the data to Finnish FEGA, you will receive a dataset application
 To finalise your submission, write to servicedesk@csc.fi to confirm that the submission can be released and add the following information from the submitter portal:
 
 - Name of the submission (as on the submitter portal)
+
 - Dataset Accession number (EGAD)
+
 - Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on EGA webpage. 
 
 CSC helpdesk and central EGA helpdesk will work together to complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
