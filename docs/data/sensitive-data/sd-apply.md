@@ -32,7 +32,8 @@ To submit your Application, select *Send application* under Actions. Unfortunate
 ### Step 4: Wait for approval
 After you have sent the Application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights.
 
-During the approval process, a Data Access Committee can:
+During the approval process, the Data Access Committee can:
+
 - approve or reject your application.
 - return the application asking for additional information.
 - close your application and cancel the application process.
