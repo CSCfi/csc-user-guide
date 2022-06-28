@@ -126,6 +126,7 @@ or
 ```
 pip install crypt4gh
 ```
+
 3.	To encrypt a file with the Finnish FEGA public encryption key use ```crypt4gh encrypt``` command:
  
 ```
@@ -205,6 +206,7 @@ CSC helpdesk and central EGA helpdesk will work together to complete the release
 ```
 go-fuse -enable SD-Submit
 ```
+
 6. Next, open the Project folder that will appear on the Desktop. Open the SD Connect folder: the dataset will be available in the subfolder called Project NNNN.
 
 ### For Data Access Committee (DAC)
