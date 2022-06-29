@@ -54,6 +54,7 @@ nav:
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
+        - Overview: computing/containers/overview.md
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
         - Container wrapper (Tykky): computing/containers/tykky.md
@@ -180,7 +181,7 @@ nav:
         - Introduction: data/sensitive-data/intro.md
         - SD Connect: data/sensitive-data/sd_connect.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
-        - SD Desktop Limited Edition: data/sensitive-data/sd-desktop-le.md
+        - Audited SD Desktop for registry data: data/sensitive-data/sd-desktop-audited.md
 #       - FederatedEGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md

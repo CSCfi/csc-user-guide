@@ -1,11 +1,12 @@
 # Conda best practices
 
-!!! warning "NOTE: Please do not use conda on CSC's supercomputers!"
-
-    **CSC has deprecated the use of Conda installations** as these perform poorly on
-    shared parallel file systems like those used in Puhti and Mahti. We also
-    strongly recommend users moving away from their own Conda-based installations.
-    Read more on our separate [Conda deprecation page](../deprecate-conda.md).
+!!! warning "NOTE: Do not install Conda environments directly on the shared file system"
+    **CSC has deprecated the use of Conda environments that are installed directly
+    on the shared file system** on Puhti/Mahti due to performance issues. We
+    strongly recommend users to either containerize their Conda-based installations
+    or consider alternative means of installation. Read more on our separate [Conda deprecation page](../deprecate-conda.md). See also the [Tykky container wrapper
+    tool](../../computing/containers/tykky.md) to easily containerize your
+    installations.
 
 <br/>
 <hr/>
@@ -28,13 +29,12 @@ familiar with those. Conda
 - can install software into multiple install roots, Conda environments
 - is primarily designed for single user usage
 
-Note, the term "Conda environment" relates to two somewhat separate concept. It
-can refer either or both of
+Note, the term "Conda environment" relates to two somewhat separate concepts. It
+can refer to either or both of
 
 1. one of the user's conda software install root directories, and
 2. the user's shell environment that has been modified with
    `conda activate ...` command.
-
 
 ## When to use Conda and what kind of software you should install with it?
 
@@ -81,7 +81,7 @@ additional packages from different channels.
 ### Python versions in the install scripts
 
 You can use python 3 version to install environments with python 2 interpreter,
-and vice versa. I recommend downloading python 3 version, which by default
+and vice versa. We recommend downloading python 3 version, which by default
 installs python 3 in Conda's `base` environment.
 
 ### Miniconda or Anaconda
@@ -199,23 +199,28 @@ laptops, etc.
 
 If you are planning to install your own Conda, instead of using system
 applications that are installed with Conda by someone else, like bioconda or
-geoconda in puhti.csc.fi, I recommend installing a project specific copy of Miniconda3.
+geoconda in puhti.csc.fi, we recommend installing a project specific copy of Miniconda3.
 
 As Conda packages may take significant storage space it is not recommended to 
-to install Miniconda3 to your home directory. In stead you should install it to 
-the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project.
+to install Miniconda3 to your home directory. Instead you should install it to 
+the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project and
+preferably containerize the environment (see [Tykky](../../computing/containers/tykky.md)).
 
 To get an overview of your directories in Puhti, run command:
+
 ```text
 csc-workspaces 
 ```
+
 You can pick the path of your ProjAppl directory from the output of the command above or if you 
 are mostly using just one project in Puhti, you can set the environment variables 
 $SCRATCH and $PROJAPPL to point to the scratch and projappl directories of a CSC project. 
 This setting can be done with command:
+
 ```text
 csc-workspaces set <project>
 ```
+
 Below we assume that $PROJAPPL has been defined. After that the actual installation 
 can be done with commands:
 
@@ -266,7 +271,7 @@ to verify that the Conda configuration is ok.
 
 ### Installing packages, named environments, environment.yaml
 
-I recommend
+We recommend
 
 1. installing all conda packages into named environments, which go under the
    `envs` subdirectory, instead of installing them into the `base` environment
@@ -284,7 +289,7 @@ conda env create -f <envname>.yaml
 
 to create the whole environment.
 
-Updating the packages, or adding new packages to the an existing environment is
+Updating the packages, or adding new packages to an existing environment is
 done by modifying the environment.yaml file, and then running
 
 ```bash
@@ -361,11 +366,11 @@ dependencies:
 ```
 
 The first listed channel is in a local directory. In this case it is used as a
-repository for a self created package, here [GNU Global], which does not(?) have
+repository for a self created package, here [GNU Global], which does not have
 an existing Conda package in Anaconda or Conda-forge repositories. Naturally
 this environment can only be created in machine puhti.csc.fi, if package
-`global` is included. TODO: Move the local channel to CSC's Allas object
-storage!
+`global` is included.
+<!-- TODO: Move the local channel to CSC's Allas object storage! -->
 
 Adding the environment.yaml file to the source repository of your project is
 probably an excellent idea. This allows an easy way to replicate the same
@@ -392,11 +397,11 @@ remove unused packages from the local package cache `pkgs`, respectively.
 
 ## Creating environments so that other user's can access them
 
-Giving other users an access to your Conda environment is as easy as giving them
+Giving other users access to your Conda environment is as easy as giving them
 read access to the directory containing the environment, in principle. If you use $PROJAPPL in 
-Puhti this is the defult setting.
+Puhti this is the default setting.
 
-In other environmnets, like a local server or a Virtual Machine it is very easy to update packages, 
+In other environments, like a local server or a Virtual Machine it is very easy to update packages, 
 and then forget to give read access to the updated files. Also, some additional considerations need to be made, if
 multiple persons are maintaining the environment, and accidental overwrites
 and other mistakes are to be avoided.

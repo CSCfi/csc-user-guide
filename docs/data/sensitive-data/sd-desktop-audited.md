@@ -1,7 +1,7 @@
 
-# SD Desktop Limited Edition (Sensitive Data Desktop Limited Edition)
+# Audited SD Desktop (Sensitive Data Desktop) for registry data
 
-SD Desktop Limited Edition has been audited against the Findata regulation and is a registered secondary use environment. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop Limited Edition is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
+In this guide, we describe how to use SD Desktop for registry data provided by Findata. SD Desktop has been audited against the Findata regulation and is a registered secondary use environment for health and social data. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
 
 In the following user guide, you can learn how to:
 
@@ -10,6 +10,8 @@ In the following user guide, you can learn how to:
 * analyze data authorised by Findata;
 * request to export non-sensitive results from the secure virtual Desktop.
 
+!!! Note
+    We apologize for any confusion caused by the previous name of the service. From now on, the secondary use environment will be referred to as audited SD Desktop, and the official service name is SD Desktop. You can apply to use SD Desktop for secondary use social and health data from public registries by sending an application to Findata. The same SD Desktop service provides a computing environment for all sensitive data, but when processing registry data, there are some restrictions to the service and the access process is different.
 
 ## Key features
 
@@ -21,9 +23,9 @@ In the following user guide, you can learn how to:
 
 * After login to SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
 
-* Limited Edition virtual Desktops are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
+* To comply with the regulation, virtual Desktops for registry data are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
-* SD Desktop Limited Edition can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
+* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
 
 
 ## Before you start
@@ -32,12 +34,12 @@ In the following user guide, you can learn how to:
 
 * All the members belonging to a specific CSC project can access the same computing virtual Desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts.
 
-* SD Desktop Limited Edition has few important limitations: the CSC project will be managed by the service desk and the data transfer will be restricted (including user’s own script and programs).
+* Audited SD Desktop has few important limitations: the CSC project will be managed by the service desk and the data transfer will be restricted (including user’s own script and programs).
 
 * After your data permit expires, you will no longer have access to your virtual Desktop. To continue working with the same project, you need to send an amendment application to Findata. Otherwise, make sure to request to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
 
 !!! Note
-    When you are planning to use SD Desktop Limited Edition, we recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
+    When you are planning to use SD Desktop for registry data, we recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
 
 
 ## Overview
@@ -47,10 +49,10 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-Access to SD Desktop Limited Edition is managed by CSC. When you are processing registry data (secondary use) in SD services you need to:
+When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using audited SD Desktop service, you need to:
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
-* set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity ;
+* set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity;
 * **activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;
 * join a CSC project via an invitation link and wait for an approval from the service desk;
 * fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
@@ -61,10 +63,10 @@ For specific guidance regarding these steps check the [Accounts](../../accounts/
 
 ### Requesting a project for registry data
 
-To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please
+To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please,
 
 * attach a copy of your data permit to the request,
-* escribe shortly your research project (name and research field are enough) and
+* describe shortly your research project (name and research field are enough) and
 * add all the project members as a cc to the email (please use the organizational email addresses).
 
 We will respond to your request as soon as possible.
@@ -72,16 +74,16 @@ We will respond to your request as soon as possible.
 
 ### Authentication
 
-Login to SD Desktop Limited Edition is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
 !!! Note
-    In order to access the CSC project created for processing registry data, it is **necessary for project members to use Haka credentials** when creating a CSC account. If someone in the project doesn’t have Haka account, we need to verify their identity manually before they will be able to access the SD Desktop Limited Edition. For identity verification without Haka credentials, please contact our service desk (servicedesk@csc.fi).
+    In order to access the CSC project created for processing registry data, it is **necessary for project members to use Haka credentials** when creating a CSC account. If someone in the project doesn’t have Haka account, we need to verify their identity manually before they will be able to access the project in SD Desktop. For identity verification without Haka credentials, please contact our service desk (servicedesk@csc.fi).
 
-After entering your username and password, you need to  **verify your identity** (or use Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+After entering your username and password, you need to **verify your identity** (or use Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
 
 After entering the temporary code, **please press the Continue button**. Pressing Enter on your keyboard is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
 
@@ -102,7 +104,7 @@ Once you have access to the service, you can launch your virtual computer (Deskt
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you have colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data authorised for your project. Furthermore, all the Desktops are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in [the user guide](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) under SD Desktop.
 
 
-To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go To SD Desktop Management page**. 
+To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go to SD Desktop Management page**. 
 
 Here you can specify several parameters:
 
@@ -123,13 +125,13 @@ When all the settings are done, press the **Launch Desktop** button. The launch 
 You can choose between **four different pre-built virtual Desktop options**:
 
 
-*  **Light computation**. Technical specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
+*  **Light computation**. Technical specifications: **Core:3; memory 4 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
 
-* **Small computation**. Technical specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
+* **Small computation**. Technical specifications: **Core:6; memory 15 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
 
-* **Medium computation**. Technical specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
+* **Medium computation**. Technical specifications: **Core:8; memory 30 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
-* **Heavy computation**: Technical specifications: **Core:40; memory 168 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
+* **Heavy computation**: Technical specifications: **Core:40; memory 168 GB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
 
 
 ![Launch-virtual-Desktop](images/desktop/desktop-3.png)
@@ -150,7 +152,7 @@ In the following paragraphs, we will discuss how to work with a virtual Desktop,
 
 Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
 
-When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
+When you log in to SD Desktop **Homepage**, you will be able to access your virtual Desktop in:
 
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed it)
 
@@ -166,7 +168,7 @@ When you open the connection, a virtual computing environment (Linux Centos oper
 You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the paragraph](../../data/sensitive-data/sd_desktop.md#rstudio-in-sd-desktop) under SD Desktop.
 
 
-Security-related features SD Desktop Limited Edition include:
+Security-related features of the audited SD Desktop include:
 
 * the computing environment (visible from your browser) is isolated from the internet. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. You will also not be able to access any repositories directly.
 
@@ -189,11 +191,11 @@ You can close your connection to your virtual Desktop in two ways:
 ![Launch-virtual-Desktop](images/desktop/desktop-5.png)
 
 
-## Accessing sensitive registry data within SD Desktop Limited Edition
+## Accessing sensitive registry data within SD Desktop
 
 As the virtual Desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_. This application will allow you to access the dataset for which you have received a permit from Findata. Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop.
 
-The data authorised by Findata can be accessed in your virtual Desktop via SD Apply in Data Gateway. After the CSC project has been set up for you, the data will be accessible in SD Desktop Limited Edition for the time period determined in the data permit. SD Connect (for storing data) is not available in SD Desktop Limited Edition, so the only way to import any data, script or software to the Desktop is through Findata.
+The data authorised by Findata can be accessed in your virtual Desktop via SD Apply in Data Gateway. After the CSC project has been set up for you, the data will be accessible in SD Desktop for the time period determined in the data permit. SD Connect (for storing data) is not available in SD Desktop when processing registry data, so the only way to import any data, script or software to the Desktop is through Findata.
 
 ### Accessing data using Data Gateway
 
@@ -231,14 +233,14 @@ Once you sign in to your virtual Desktop, you can access the data by following t
  *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members).
 
 
-## Default programs available on SD Desktop Limited Edition and software customisation
+## Default programs available on the Desktop and software customisation
 
 Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software ([listed](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) under SD Desktop).
 
-The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot install software to SD Desktop Limited Edition directly. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi even before applying for the data permit to figure out if it is possible to install the program to the Desktop. If the program is compatible with the computing environment, then you need to send a request to Findata and ask them to import the program to your Desktop.
+The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot install software to SD Desktop directly when working with secondary use data. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi even before applying for the data permit to figure out if it is possible to install the program to the Desktop. If the program is compatible with the computing environment, then you need to send a request to Findata and ask them to import the program to your Desktop.
 
 
-##  Data export from SD Desktop Limited Edition
+## Data export from the Desktop
 
 Your virtual Desktop is completely isolated from the internet and other services for security reasons. Only CSC service desk can export non-sensitive results from the secure workspace.
 
@@ -261,9 +263,9 @@ All the content in the “Results” folder will be exported to the data permit 
   
 At the end of your analysis, you can delete your virtual Desktop and all the files in it.
 
-You can not undo this action:
+You cannot undo this action:
   
-* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
+* On SD Desktop Homepage, click on **Go to SD Desktop Management page**. 
 * Here, under **Available instances** click on **Delete Desktop**. 
 
 

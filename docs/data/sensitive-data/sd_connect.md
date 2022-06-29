@@ -157,13 +157,17 @@ Briefly, the services use an encryption method called  _asymmetric encryption_, 
    * A **secret key**, (also called a private key) is **used to decrypt** a file encrypted with the corresponding public key. This key is password protected and can not be shared with others. 
 
 
-When using SD Connect to upload your data to CSC, you have three possibilities for encryption:
+When using SD Connect to upload your data to CSC, you have several possibilities for encryption:
+
+1- Default option:
 
 * You can simply upload the data using SD Connect, via your web browser, with the **default encryption options**. The files will be encrypted with the services encryption key and they will become compatible with other services components. They will be decrypted in an automated manner when accessed using SD Desktop, but you will not be able to decrypt the files after download.  We are developing a new feature that will simplify the download option and it will soon be available as part of the SD Connect user interface.
+
+2- Adding multiple encryption keys:
    
 *  You can upload the data using SD Connect via web browser and **add your public encryption key**. The files will be encrypted with your enycyption key and with the services encryption key by default, thus, they will be compatible with other services components. Moreover, you will also be able to download and decrypt the data when necessary.
    
-*  You can upload the data using SD Connect via your web browser and add **multiple encryption keys**. For example, your public encryption key and your collaborator's public encryption key. In this case, the files will be encrypted with the services encryption key by default and they will be compatible with other services components. Moreover, you and your collaborator will also be able to download and decrypt the data when necessary.
+*  You can upload the data using SD Connect via your web browser and add **several encryption keys**. For example, your public encryption key and your collaborator's public encryption key. In this case, the files will be encrypted with the services encryption key by default and they will be compatible with other services components. Moreover, you and your collaborator will also be able to download and decrypt the data when necessary.
 
    
 This encryption method is based on Crypt4GH, a tool initially designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard. Crypt4GH can be used to encrypt any file (images, audio, video, text files, etc.).
