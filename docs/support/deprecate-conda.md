@@ -7,9 +7,9 @@ long start-up delays and system-wide slowdowns when using Python scripts. We
 strongly recommend users moving away from their own installations which use
 Conda directly on a shared drive (such as `/projappl`, `/scratch` on user's home
 directory). We are also gradually deprecating CSC-installed modules that are
-based directly on Conda. Conda can still be used indirectly, for example wrapped
+based directly on Conda. **Conda can still be used indirectly, for example wrapped
 as a Singularity container. This can be easily accomplished using the [Tykky
-container wrapper](../computing/containers/tykky.md).
+container wrapper](../computing/containers/tykky.md).**
 
 Conda environments typically contain tens or even hundreds of thousands of
 files, and starting a Conda application requires reading a large number of them.

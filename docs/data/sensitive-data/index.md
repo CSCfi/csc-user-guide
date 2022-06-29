@@ -83,34 +83,34 @@ Analyse and compute.
   * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
-## [Sensitive Data Desktop Limited Edition](./sd-desktop-le.md)
+## [Audited Sensitive Data Desktop for registry data](./sd-desktop-audited.md)
 Analyse and compute secondary use data (access to this services requires a Findata permit).
   
-  * [**Key features**](./sd-desktop-le.md#key-features)
+  * [**Key features**](./sd-desktop-audited.md#key-features)
 
-  * [**Before you start**](./sd-desktop-le.md#before-you-start) 
+  * [**Before you start**](./sd-desktop-audited.md#before-you-start) 
   
-  * [**Overview**](./sd-desktop-le.md#overview) 
+  * [**Overview**](./sd-desktop-audited.md#overview) 
  
-  * [**Service access**](./sd-desktop-le.md#service-access)  
+  * [**Service access**](./sd-desktop-audited.md#service-access)  
   
-  * [**Authentication**](./sd-desktop-le.md#authentication) 
+  * [**Authentication**](./sd-desktop-audited.md#authentication) 
 
-  * [**Setting up a virtual Desktop**](./sd-desktop-le.md#setting-up-a-virtual-desktop) 
+  * [**Setting up a virtual Desktop**](./sd-desktop-audited.md#setting-up-a-virtual-desktop) 
 
-  * [**Working with your virtual Desktop**](./sd-desktop-le.md#working-with-your-virtual-desktop)
+  * [**Working with your virtual Desktop**](./sd-desktop-audited.md#working-with-your-virtual-desktop)
 
-  * [**Accessing sensitive registry data within SD Desktop Limited Edition**](./sd-desktop-le.md#accessing-sensitive-registry-data-within-sd-desktop-limited-edition)
+  * [**Accessing sensitive registry data within SD Desktop**](./sd-desktop-audited.md#accessing-sensitive-registry-data-within-sd-desktop)
 
-  * [**Default programs available on SD Desktop Limited Edition and software customisation**](./sd-desktop-le.md#default-programs-available-on-sd-desktop-limited-edition-and-software-customisation)
+  * [**Default programs available on the Desktop and software customisation**](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
 
-  * [**Data export from SD Desktop Limited Edition**](./sd-desktop-le.md#data-export-from-sd-desktop-limited-edition)
+  * [**Data export from the Desktop**](./sd-desktop-audited.md#data-export-from-the-desktop)
   
-  * [**Deleting your virtual Desktop**](./sd-desktop-le.md#deleting-your-virtual-desktop)
+  * [**Deleting your virtual Desktop**](./sd-desktop-audited.md#deleting-your-virtual-desktop)
 
-  * [**End of data access and data deletion policies**](./sd-desktop-le.md#end-of-data-access-and-data-deletion-policies)
+  * [**End of data access and data deletion policies**](./sd-desktop-audited.md#end-of-data-access-and-data-deletion-policies)
   
-  * [**Troubleshooting**](./sd-desktop-le.md#troubleshooting)
+  * [**Troubleshooting**](./sd-desktop-audited.md#troubleshooting)
   
 
 ## **Services in the pilot phase:**
