@@ -49,13 +49,13 @@ Better to have all correct information in 1 place than have the user go back and
     MobaXterm terminal. It is important to create a long enough key length. For
     example, you can use the following command to generate a 4096 bits RSA key:
 
-    ```bash
+    ```
     ssh-keygen -t rsa -b 4096
     ```
 
     or for a ed25519 key:
 
-    ```bash
+    ```
     ssh-keygen -t ed25519
     ```
 
