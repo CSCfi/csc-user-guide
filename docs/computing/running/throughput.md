@@ -160,6 +160,8 @@ graph TD
   with `xargs`, see [xargsjob.sh] for example.
 * [FireWorks] is a flexible tool for defining, managing and
   executing workflows with multiple steps and complex dependencies
+* [Nextflow workflows using HyperQueue as an executor] can be leveraged to run
+  large workflows involving thousands of processes efficiently
 
 ### Science specific workflow tools and tutorials
 

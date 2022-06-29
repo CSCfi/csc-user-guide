@@ -1,12 +1,24 @@
-# High throughput nextflow workflow using hyperqueue
+# High-throughput Nextflow workflow using HyperQueue
 
+The [Slurm executor of Nextflow](https://www.nextflow.io/docs/latest/executor.html#slurm)
+is not suitable for large workflows involving tens of thousands of processes on HPC
+systems. This is due to the usage of individual jobs/job steps that bloat the Slurm log
+and degrade the performance of the batch job scheduler. To maximize throughput and
+performance, we recommend the Nextflow workflow tasks to be run using the
+[HyperQueue](https://it4innovations.github.io/hyperqueue/stable/) meta-scheduler as the
+executor. This page provides an example batch script for this purpose.
+
+!!! Note
+    Whenever you're unsure how to run your workflow efficiently, don't hesitate
+    to [contact CSC Service Desk](../contact.md).
 
 ## Example batch script
-```
+
+```bash
 #!/bin/bash
 #SBATCH --partition medium
 #SBATCH --account project_2001659 
-#SBATCH -N 3
+#SBATCH --nodes=3
 #SBATCH --exclusive
 #SBATCH --time=00:10:00
 
@@ -52,8 +64,16 @@ while true; do
 done
 
 
-
 cd WRKDIR-$SLURM_JOB_ID
 time nextflow -Dnxf.pool.maxThreads=5000 -Dnxf.pool.type=sync run main.nf
 hq server stop
 ```
+
+## More information
+
+* [General guidelines for high-throughput computing in CSC's HPC
+  environment](../../computing/running/throughput.md)
+* [Basic](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
+  and [advanced Nextflow tutorials for Puhti](nextflow-puhti.md)
+* [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
+* [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
