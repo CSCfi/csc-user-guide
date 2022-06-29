@@ -11,7 +11,7 @@ When applying for a new project in MyCSC for the Helmi partition, under "Select 
 
 
 * [Creating a new project in MyCSC](../how-to-create-new-project)
-* [How to create Finnish LUMI projects](../how-to-create-new-project#How-to-create-Finnish-LUMI-projects)
+* [How to create Finnish LUMI projects](../how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 
 
 <!-- ===
