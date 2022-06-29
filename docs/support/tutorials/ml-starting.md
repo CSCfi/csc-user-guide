@@ -175,8 +175,43 @@ Next you could extract the archive, but in this example we have opted not to do
 so. We will instead extract the files to the fast local drive at the start of
 each job. More on this in the next section.
 
+## Step 6: Check what Python libraries you need
 
-## Step 6: Create your first batch job script
+Before running your code, you should check what Python frameworks or libraries
+you need. If you are using code that you have downloaded from the Internet,
+there will usually be some installation instructions or a `requirements.txt`
+file which tells what Python libraries are needed. Keep in mind, that **often
+you should not follow the installation instructions exactly as they often assume
+that you are installing on a personal computer**.
+
+**CSC provides many pre-installed Python environments for popular frameworks and
+libraries**. It's usually a good idea to use these as a starting point, even if
+they don't contain all the packages you need. Check the list of [data analytics
+and machine learning modules provided on CSC's
+supercomputers](../../apps/index.md#data-analytics-and-machine-learning). 
+
+For example [PyTorch](../../apps/pytorch.md) and
+[TensorFlow](../../apps/tensorflow.md) have their own dedicated modules, while
+[Python Data](../../apps/python-data.md) is a general module containing many
+data analytics libraries such as numpy, SciPy, Scikit-learn, Dask, JupyterLab
+and many others. These software environments can be activated with the `module
+load` command. See the specific documentation pages listed above for more
+details.
+
+If you find a module that has most of what you need, but a few packages are
+missing, you can easily install them yourself (to your home directory) with the
+`pip install --user` command. See our [Python documentation for more information
+on how to install packages
+yourself](../../apps/python.md#installing-python-packages-to-existing-modules).
+
+If you have more complex software needs which are not easily covered by our
+existing modules, it is always possible to [create your own Python
+environments](../../apps/python.md#creating-your-own-python-environments). If
+you are unsure what to do, you can always [contact our service
+desk](../contact.md).
+
+
+## Step 7: Create your first batch job script
 
 Puhti is a supercomputer cluster, which means that it's a collection of hundreds
 of computers. Instead of running programs directly, they are put in a queue and
@@ -241,7 +276,7 @@ three things:
     [Read more about efficient file system usage in our Machine learning guide.](ml-data.md)
 
 
-## Step 7: Run your first test job
+## Step 8: Run your first test job
 
 To run the script, that is pass it to the Slurm queue, run the command (from the
 code directory):
@@ -268,7 +303,7 @@ squeue -l -u $USER
 
 or via the *Jobs* → *Active Jobs* menu in the Puhti web interface.
 
-## Step 8: Check the output of the job
+## Step 9: Check the output of the job
 
 Once the job has finished, its output should appear in a file called something
 like `slurm-12345678.out`, with the number being the batch job ID of your jobs
@@ -283,7 +318,7 @@ Once you're satisfied that the job runs as it should, you can run in the real
 Note that you can submit many jobs at the same time, for example with different
 parameters. But please don't submit hundreds of jobs at the same time.
 
-## Further reading
+## Step 10: Further reading and getting help
 
 Now, that you've gotten started, you might be interested in checking out the
 rest of our documentation. For example:

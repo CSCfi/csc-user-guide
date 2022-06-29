@@ -28,6 +28,7 @@ This Allas object storage service user guide consists of following parts:
 * [Using Allas interactively in Puhti and Mahti](./allas-examples.md) 
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
+* [Using Allas to transport sensitive data](../sensitive-data/sequencing_center_tutorial.md)
 * [Tools for client side encryption for Allas](./allas_encryption.md)
 * [Using Allas from LUMI supercomputer](./allas_lumi.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)

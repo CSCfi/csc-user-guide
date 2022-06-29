@@ -107,6 +107,7 @@
 ## Data Analytics and Machine Learning
 
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
+* [JAX](jax.md) Autograd and XLA, brought together for high-performance machine learning 
 * [MXNet](mxnet.md) Deep learning library for Python
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
@@ -122,19 +123,16 @@
 * [Geoconda](geoconda.md) - Python spatial analysis libraries
 * [GRASS GIS](grass.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [LAStools](lastools.md) for LiDAR datasets
-* [Mapnik](mapnik.md) for rendering maps
 * [OpenDroneMap](opendronemap.md) for processing aerial drone imagery
 * [Orfeo ToolBox](otb.md) for remote sensing applications
 * [PCL](pcl.md) for 2D/3D image and point cloud processing
 * [PDAL](pdal.md) for point cloud translations and processing
-* [pktools](pktools.md) for remote sensing applications
 * [QGIS](qgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) R spataial analysis libraries
 * [SAGA GIS](saga-gis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
-* [Sofi3d](sofi3D.md)  for 3D Finite-Difference Seismic Wave Simulation
 * [SPLITS](splits.md) for time series analysis of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 

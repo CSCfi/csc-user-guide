@@ -21,7 +21,7 @@ Nektar++ is licensed under the [MIT license](https://opensource.org/licenses/MIT
 
 ## Available
 
-Nektar++ is installed on [Puhti and Mahti](../computing/available-systems.md) servers.
+Nektar++ is installed on [Puhti](../computing/available-systems.md) server.
 
 ## Usage
 

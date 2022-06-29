@@ -16,11 +16,7 @@ or [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get
 compiler suites. The GNU compilers are loaded by default. AMD compilers can be
 loaded using the [Modules](modules.md) system with the command:
 ```
-module load clang
-```
-and Intel compilers with the command:
-```
-module load intel
+module load aocc
 ```
 
 Different applications function better with different suites, so the selection
@@ -52,8 +48,7 @@ environment is loaded, or in the compiler manuals (see the links above).
 List all available versions of the compiler suites:
 ```
 module spider gcc
-module spider clang
-module spider intel
+module spider aocc
 ```
 
 ## Building OpenMP and hybrid applications
@@ -64,7 +59,6 @@ MPI/OpenMP hybrid applications:
 | Compiler suite | OpenMP flag |
 | :------------- | :---------- |
 | GNU and AMD    | -fopenmp    |
-| Intel          | -qopenmp    |
 
 
 ## Building serial applications
@@ -76,7 +70,6 @@ specific compiler command:
 | :------------- | :- | :-- | :------ |
 | GNU            | gcc | g++ | gfortran |
 | AMD            | clang | clang++ | flang |
-| Intel          | icc | icpc | ifort |
 
 ## Building GPU applications
 
@@ -84,9 +77,10 @@ The CUDA, OpenACC and OpenMP Offloading (for C++ codes) programming
 models are supported on Mahti. Specific modules have to be loaded 
 in order to use them.
 
-For example, to load the NVIDIA HPC SDK 21.2 environment:
+For example, to load the NVIDIA HPC SDK 22.3 environment:
 ```bash
-module load nvhpc/21.2
+module load .unsupported
+module load nvhpc/22.3
 ```
 
 For more detailed information about the available modules, please see `module

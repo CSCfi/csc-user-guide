@@ -1,26 +1,14 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can:
-
-* find an overview and **key features** of each service;
-
-* follow **simplified, step-by-step** instructions on how to access and set up the services;  previous knowledge is not required. Specific paragraphs are marked as *advanced* if technical and coding skills are necessary. 
-
-* watch **1 to 3 minutes video** tutorials that will support you through each step;
-
-* find quick technical suggestions in the **troubleshooting table**.
-
-
-For general information, see:
-[Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), general [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
-
+This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find on overview of the contents related to the Sensitive Data Services.
 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
 
 
 ## [Introduction](./intro.md)
-
+  * [**Introduction to the user guide**](./intro.md#introduction-to-the-user-guide)
+  * [**Introduction to the services**](./intro.md#introduction-to-the-services)
   * [**Legal agreements**](./intro.md#legal-agreements)
   * [**Getting access**](./intro.md#getting-access)
   * [**Useful terminology**](./intro.md#getting-access)
@@ -95,9 +83,36 @@ Analyse and compute.
   * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
+## [Audited Sensitive Data Desktop for registry data](./sd-desktop-audited.md)
+Analyse and compute secondary use data (access to this services requires a Findata permit).
+  
+  * [**Key features**](./sd-desktop-audited.md#key-features)
 
+  * [**Before you start**](./sd-desktop-audited.md#before-you-start) 
   
+  * [**Overview**](./sd-desktop-audited.md#overview) 
+ 
+  * [**Service access**](./sd-desktop-audited.md#service-access)  
   
+  * [**Authentication**](./sd-desktop-audited.md#authentication) 
+
+  * [**Setting up a virtual Desktop**](./sd-desktop-audited.md#setting-up-a-virtual-desktop) 
+
+  * [**Working with your virtual Desktop**](./sd-desktop-audited.md#working-with-your-virtual-desktop)
+
+  * [**Accessing sensitive registry data within SD Desktop**](./sd-desktop-audited.md#accessing-sensitive-registry-data-within-sd-desktop)
+
+  * [**Default programs available on the Desktop and software customisation**](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
+
+  * [**Data export from the Desktop**](./sd-desktop-audited.md#data-export-from-the-desktop)
+  
+  * [**Deleting your virtual Desktop**](./sd-desktop-audited.md#deleting-your-virtual-desktop)
+
+  * [**End of data access and data deletion policies**](./sd-desktop-audited.md#end-of-data-access-and-data-deletion-policies)
+  
+  * [**Troubleshooting**](./sd-desktop-audited.md#troubleshooting)
+  
+
 ## **Services in the pilot phase:**
 
   

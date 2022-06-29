@@ -29,7 +29,7 @@ The free version is available only for academic use at academic institutions.
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40
 #SBATCH --account=<your billing project>
-#SBATCH --time=0:30:00 # time as hh:mm:ss
+#SBATCH --time=0:30:00 # time as `hh:mm:ss`
 module purge
 module load gcc/9.1.0 openmpi/4.1.1-cuda intel-mkl/2019.0.4
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
@@ -51,7 +51,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=40
 #SBATCH --account=<your billing project>
-#SBATCH --time=0:30:00 # time as hh:mm:ss
+#SBATCH --time=0:30:00 # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100  # requested local disk space in GB
 module purge
 module load gcc/9.1.0 openmpi/4.1.1-cuda intel-mkl/2019.0.4
@@ -86,12 +86,12 @@ cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=128
 #SBATCH --account=<your billing project>
-#SBATCH --time=0:30:00 # time as hh:mm:ss
+#SBATCH --time=0:30:00 # time as `hh:mm:ss`
 #SBATCH --job-name=orca-5.0.3
 #SBATCH --error=jobfile.err%J
 #SBATCH --output=jobfile.out%J
 module purge
-module load gcc/10.3.0 openmpi/4.1.0 openblas/0.3.14
+module load gcc/11.2.0 openmpi/4.1.2 openblas/0.3.18-omp
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 

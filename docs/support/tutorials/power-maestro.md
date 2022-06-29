@@ -352,7 +352,15 @@ $SCHRODINGER/utilities/jserver -cleanall
 $SCHRODINGER/utilities/jserver -shutdown
 ```
 
-Another reason is too many simultaneous jobs. Please have a look at the
+Sometimes the `jserver -cleanall` command will not work because the program thinks some jobs are still running. To force purge these jobs run
+
+```bash
+$SCHRODINGER/jobcontrol -delete -force <jobid>
+```
+
+before the above `jserver` commands. `<jobid>` should be replaced by the ID of your stranded job, for example `puhti-login1-0-626be035`.
+
+Another reason for jobs ending up fizzled is too many simultaneous jobs. Please have a look at the
 error files for suggestions, and if this is the case, ask for less subjobs.
 
 ## Run a test job to help problem diagnostics

@@ -4,6 +4,10 @@ Machine learning framework for Python.
 
 !!! News
 
+    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
+    the number of fully supported PyTorch versions has been reduced. Please [contact our
+    servicedesk](../support/contact.md) if you really need access to other versions.
+
     **4.2.2022** All old PyTorch versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
     versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
@@ -16,9 +20,9 @@ Currently supported PyTorch versions:
 | Version | Module              | Puhti | Mahti | Environ. | Horovod | Notes           |
 |:-------:|---------------------|:-----:|:-----:|----------|:-------:|-----------------|
 | 1.11.0  | `pytorch/1.11`      | X     | X     | Sing.    | X       | default version |
-| 1.10.0  | `pytorch/1.10`      | X     | X     | Sing.    | X       |                 |
-| 1.9.0   | `pytorch/1.9`       | X     | X     | Sing.    | X       |                 |
-| 1.8.1   | `pytorch/1.8`       | X     | X     | Sing.    | X       |                 |
+| 1.10.0  | `pytorch/1.10`      | X     | (X)   | Sing.    | X       |                 |
+| 1.9.0   | `pytorch/1.9`       | X     | (X)   | Sing.    | X       |                 |
+| 1.8.1   | `pytorch/1.8`       | X     | (X)   | Sing.    | X       |                 |
 | 1.7.1   | `pytorch/1.7`       | X     | -     | Sing.    | X       |                 |
 | 1.6.0   | `pytorch/1.6`       | X     | -     | Conda    | -       | *deprecated*    |
 | 1.4.0   | `pytorch/1.4`       | X     | -     | Conda    | -       | *deprecated*    |
@@ -33,10 +37,18 @@ Currently supported PyTorch versions:
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
 
+Versions marked with "(X)" on Mahti are based on old Red Hat Enterprise Linux 7
+(RHEL7) images, and are no longer fully supported. In particular MPI and Horovod
+do not work anymore on Mahti with these modules. If you still wish to access
+these versions, you need to enable old RHEL7 modules by `module use
+/appl/soft/ai/rhel7/modulefiles/`.
+
 If you find that some package is missing, you can often install it yourself with
-`pip install --user`. If you think that some important PyTorch-related package
-should be included in the module provided by CSC, you can send an email to
-[servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+`pip install --user`. See [our Python
+documentation](python.md#installing-python-packages-to-existing-modules) for
+more information on how to install packages yourself. If you think that some
+important PyTorch-related package should be included in the module provided by
+CSC, please [contact our servicedesk](../support/contact.md).
 
 Some modules are Singularity-based (indicated in the "Environ." column in the
 table above). Wrapper scripts have been provided so that common commands such as
@@ -86,7 +98,7 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load pytorch/1.10
+module load pytorch/1.11
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries, so
@@ -129,7 +141,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/1.10
+    module load pytorch/1.11
     srun python3 myprog.py <options>
     ```
 
@@ -144,7 +156,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/1.10
+    module load pytorch/1.11
     srun python3 myprog.py <options>
     ```
 

@@ -5,12 +5,12 @@ dependencies:
   - python==3.7.3
   - pip==19.1.1
   - pip:
-      - mkdocs==1.0.4
+      - mkdocs==1.2.4
       - mdx-linkify==1.0
       - mdx-environment==0.2.0
       - yasha==4.1
       - mkdocs-material==4.3.0
-      - pymdown-extensions==5.0
+      - pymdown-extensions==9.0
       - mkdocs-windmill==1.0.0
 #mkdocs-rtd-dropdown==1.0.2
 #

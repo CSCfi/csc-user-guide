@@ -2,6 +2,20 @@ body {
     background-color: #f8f8f8
 }
 
+.breadcrumbs {
+    font-size: smaller;
+    color: #606060;
+    padding-bottom: 1em;
+}
+
+.md-typeset p {
+    font-weight: 300;
+}
+
+.md-typeset p strong {
+    font-weight: 700;
+}
+
 .md-typeset a:link {
     color: #0070a2 ;
     font-weight: bold;
@@ -13,6 +27,10 @@ body {
 
 .md-typeset table a {
     color: #0070a2 !important;
+}
+
+.md-typeset table th a {
+    color: #ffffff !important;
 }
 
 .md-sidebar {
@@ -47,6 +65,7 @@ body {
 
 .md-typeset {
     font-size: .7rem;
+    font-weight: 300;
 }
 
 .md-typeset h1 {
@@ -225,6 +244,15 @@ body {
     background-color: #c9e2ae !important;
     border-radius: 5px 5px 0px 0px;
     padding-left: 1rem !important;
+}
+
+div.mermaid {
+    overflow: auto;
+}
+
+svg[id*="mermaid"] {
+    width: auto;
+    height: auto;
 }
 
 .admonition-title:before {
