@@ -54,8 +54,6 @@ For specific guidance regarding these steps or applying for resources for your C
 
 ### Authentication
 
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
@@ -79,7 +77,6 @@ For specific guidance regarding the MFA activation on your CSC account, see the 
 
 ### Setting up a virtual Desktop
   
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/VebHTUonOSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
@@ -460,8 +457,6 @@ Press enter and add your password. Note: if you try to upload an unencrypted fil
 The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
 For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data)
 
-
-
 ## Deleting your virtual Desktop
   
 At the end of your analysis, you can delete your virtual Desktop and all the files in it.
@@ -478,28 +473,7 @@ You can not undo this action:
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 ![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
-s
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
-
-
-## Deleting your virtual Desktop
-  
-At the end of your analysis, you can delete your virtual Desktop and all the files in it.
-
-You can not undo this action:
-  
-* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
-* Here, under **Available instances** click on **Delete Desktop**. 
-
-
-!!! note
-    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
-
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
-
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
-s
 <img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 

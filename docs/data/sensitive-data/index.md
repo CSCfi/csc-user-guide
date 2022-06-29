@@ -83,9 +83,36 @@ Analyse and compute.
   * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
+## [Audited Sensitive Data Desktop for registry data](./sd-desktop-audited.md)
+Analyse and compute secondary use data (access to this services requires a Findata permit).
+  
+  * [**Key features**](./sd-desktop-audited.md#key-features)
 
+  * [**Before you start**](./sd-desktop-audited.md#before-you-start) 
   
+  * [**Overview**](./sd-desktop-audited.md#overview) 
+ 
+  * [**Service access**](./sd-desktop-audited.md#service-access)  
   
+  * [**Authentication**](./sd-desktop-audited.md#authentication) 
+
+  * [**Setting up a virtual Desktop**](./sd-desktop-audited.md#setting-up-a-virtual-desktop) 
+
+  * [**Working with your virtual Desktop**](./sd-desktop-audited.md#working-with-your-virtual-desktop)
+
+  * [**Accessing sensitive registry data within SD Desktop**](./sd-desktop-audited.md#accessing-sensitive-registry-data-within-sd-desktop)
+
+  * [**Default programs available on the Desktop and software customisation**](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
+
+  * [**Data export from the Desktop**](./sd-desktop-audited.md#data-export-from-the-desktop)
+  
+  * [**Deleting your virtual Desktop**](./sd-desktop-audited.md#deleting-your-virtual-desktop)
+
+  * [**End of data access and data deletion policies**](./sd-desktop-audited.md#end-of-data-access-and-data-deletion-policies)
+  
+  * [**Troubleshooting**](./sd-desktop-audited.md#troubleshooting)
+  
+
 ## **Services in the pilot phase:**
 
   

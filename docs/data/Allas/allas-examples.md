@@ -251,9 +251,9 @@ Connection stays active for eight hours.
 </pre>
 
 The `allas-conf` procedure above defines an Allas connection that is valid for eight hours. 
-Next, I go to the _zebrafish_ directory.
+Next, I go to the _genomes_ directory.
 ```text
-cd /scratch/project_2001659/genomes/zebrafish
+cd /scratch/project_2001659/genomes
 ```
 
 Instead of `a-put` that was used in the previous example, we use command `rclone copyto` to copy all  

@@ -131,7 +131,7 @@ Pods can be deleted using the command `oc delete`:
 oc delete pod mypod
 ```
 
-Consequently, the pod should disapper from the OpenShift web console, but let us
+Consequently, the pod should disappear from the OpenShift web console, but let us
 keep this one running for now.
 
 ----
