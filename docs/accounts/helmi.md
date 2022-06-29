@@ -9,6 +9,10 @@ The LUMI Helmi partition is currently only available for FiQCI users in projects
 
 When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Quantum" option. 
 
+<!-- Maybe insert image here? -->
+
+!!! failure "Pilot Phase"
+	During the pilot phase, approved projects will **only** get 24 hours of access to the LUMI Partition. 
 
 * [Creating a new project in MyCSC](../how-to-create-new-project)
 * [How to create Finnish LUMI projects](../how-to-create-new-project/#how-to-create-finnish-lumi-projects)
@@ -23,11 +27,34 @@ When applying for a new project in MyCSC for the Helmi partition, under "Select 
 
 ## LUMI Helmi partition
 
-The LUMI Helmi partition consists of a single LUMI-C node with 256 GiB of memory that is directly connected to Helmi for submitting jobs through. [This is described in more detail on the LUMI-C page](https://docs.lumi-supercomputer.eu/computing/systems/lumic/). 
+The LUMI Helmi partition consists of a single LUMI-C node with 128 CPU cores and 256 GiB of memory that is directly connected to Helmi for submitting jobs through. [This is described in more detail on the LUMI-C page](https://docs.lumi-supercomputer.eu/computing/systems/lumic/). 
 <!-- 
 * Can this node make use of Classical HPC pre processing or just for submitting jobs to Helmi?  -->
 
-There are currently only two queues in the Helmi partition correspodning to FiQCI projects: `q_fiqci`, `q_fiqcitest`. The maximum job size for both queues is **1 node**. For `q_fiqci` the maximum runtime is **ENTER MAX RUNTIME** and for `q_fiqcitest` the maximum runtime is **ENTER MAX RUNTIME**. 
+There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. Currently the maximum job size for the queue is 1 node or 128 CPU cores with a maximum run time of 15 minutes. In addition LUMI Helmi users will have access to all the regular SLURM queues. 
+
+<!-- The debug, small and largemem partitions are available for allocation by resources. This means that you can request a sub-node allocation: you can request only part of the resources (cores and memory) available on the compute node. This also means that your job may share the node with other jobs. -->
+
+
+| Name     | Max walltime | Max jobs          | Max resources/job  |
+| -------- | ------------ | ----------------- | ------------------ |
+| _q_fiqci_| _15 mins_    |   _1_             | _1 node_           |
+| standard | 2 days       | 120 (100 running) | 512 nodes          |
+| small    | 3 days       | 220 (200 running) | 4 nodes            |
+| largemem | 1 day        | 30 (20 running)   | 1 nodes            |
+| debug    | 30 minutes   |  1 (1 running)    | 4 nodes            |
+
+
+!!! info "Large Memory Nodes"
+    Some of the large memory nodes (512GB and 1TB) are located in the `small` 
+    partition. Therefore, in order to use these nodes, you need to select the 
+    `small` partition (`--partion=small`). Then, the large memory nodes will be 
+    allocated if you request more memory than the standard compute nodes.
+
+    This queue is recommended for larger circuit simulations.
+
+LUMI Helmi users also have [access to Kvasi](../../computing/kvasi/) the Quantum Learning Machine as a simulation and testing environment. Currently this is accessible directly through direct connection to Kvasi, however, this will soon be integrated with LUMI. 
+
 
 <!-- * `q_fiqci` for submitting jobs to Helmi on the actual QC
 * `q_fiqcitest` for submitting jobs to simulator?
@@ -35,7 +62,18 @@ There are currently only two queues in the Helmi partition correspodning to FiQC
 
 ## Storage areas
 
-Helmi partition users can access the `/helmi/` folder in LUMI. This folder has a global quota of **XXX**. Project folders of Helmi project are located in `/helmi/projappl/<projectname>` and `/helmi/scratch/<projectname>`. 
+The Helmi partition uses the same storage policies as LUMI. There is no difference. 
+
+|                       | Quota | Max files | Expandable   | Backup | Retention        |
+|:---------------------:|-------|-----------|:------------:|--------|------------------|
+| User<br>Home          | 20 GB | 100k      | No           | Yes    | User lifetime    |
+| Project<br>Persistent | 50 GB | 100k      | Yes<br>500GB | No     | Project lifetime |
+| Project<br>Scratch    | 50 TB | 2000k     | Yes<br>500TB | No     | 90 days          |
+
+* Your home directory (`$HOME`) that can contain up to 20 GB of data. It is intended to store user configuration files and personal data. The user home directory is purged once the user account expire.
+* Your project persistent storage is used to share data amongst the members of a project and is located at `/project/project_<project-number>`. The project persistent directory is purged once the project expires.
+* Your project scratch is intended as temporary storage for input, output or checkpoint data of your application. 
+* Scratch automatic cleaning is not currently active. Please remove the files that are no longer needed by your project on a regular basis if you don't want to run out of TB-hours.
 
 <!-- * Is there going to be a global quota? Add here if yes
 * Cleaning of unsued files policy on LUMI? Add here relevant info
@@ -47,10 +85,34 @@ Helmi partition users can access the `/helmi/` folder in LUMI. This folder has a
 
 LUMI Helmi works similarly to the regular LUMI system, the main difference being that 
 
-1. FiQCI projects use the `q_fiqci` and `q_fiqcitest` partitions instead of the regular LUMI-C, LUMI-G partitions. 
+1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C, `--partition=standard` and `--partition=small`
 
 
-Helmi specific support can be reached either via the regular CSC user support [servicedesk@csc.fi](mailto:servicedesk@csc.fi) or through the very active Helmi RocketChat channel #helmi-computing (**WIP link to channel**) on [chat.csc.fi](https://chat.csc.fi). LUMI specific support such as connecting or storage is available from the [LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/account/).
+Helmi specific support can be reached either via the regular CSC user support [servicedesk@csc.fi](mailto:servicedesk@csc.fi). LUMI specific support such as connecting or storage is available from the [LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/account/).
 
-## Billing 
+## Billing
+
+On LUMI a project is allocated CPU-core-hours for computing and TB-hours for storage. This is different from Puhti and Mahti where Billing Units (BUs) are used and consist of CPU-core-hours and TB-hours as well as other factors. 
+
+In the standard partition the entire node will always be allocated. In practice, 128 core-hours are billed for every allocated node and per hour even if your job has requested less than 128 cores per node.
+
+For example, 16 nodes for 12 hours: 
+
+```
+16 nodes x 12 hours x 128 core-hour = 24576 core-hours
+```
+
+In the small partition you are billed per allocated core or if you are 
+above a certain threshold per chunk of 2GB of memory. Here is the formula that 
+is used for billing:
+
+```
+corehours = max(ncore, ceil(mem/2GB)) x time
+```
+
+Running through the `q_fiqci` queue will consume QPU seconds for the amount of seconds it takes to run the job on the Helmi QPU. This is in addition to the CPUh which will be billed to the project when the LUMI Helmi Node is reserved. 
+
+<!-- BU equation -->
+
+Storage is billed by volume as well as time. The billing units are TB-hours. For the regular scratch file system, 1TB that stays for 1 hour on the filesystem, consumes 1TB-hour.
 
