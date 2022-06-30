@@ -1,6 +1,10 @@
 
 # Data Management
 
+## Sensitive Data services have now an audited computing environment for secondary use of social and health data 8.6.2022
+
+Sensitive Data (SD) Desktop is audited against Findata regulation and can be used to process secondary use social and health care data. SD Desktop comes with some restrictions when processing secondary use data, and there is now a page in [the user guide](../../data/sensitive-data/sd-desktop-audited.md) explaining how to apply access to the audited SD Desktop service and describing the use and limitations of the audited environment.
+
 ## Sensitive Data services for research 28.04.2022
 
 Our Sensitive Data services guide has been updated and reorganised into the following sections:

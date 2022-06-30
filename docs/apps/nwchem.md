@@ -25,7 +25,7 @@ Check which versions are recommended:
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
-#SBATCH --time=00:10:00           # time as hh:mm:ss
+#SBATCH --time=00:10:00           # time as `hh:mm:ss`
 
 module load nwchem/6.8.1
 export NWCHEM_RUN=$PWD/NWCHEM_RUN_$SLURM_JOB_ID
@@ -46,7 +46,7 @@ seff $SLURM_JOBID
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk space in GB 
 
 module load nwchem/6.8.1
@@ -65,7 +65,7 @@ seff $SLURM_JOBID
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=128
 #SBATCH --account=<project>  # insert here the project to be billed
-#SBATCH --time=00:10:00      # time as hh:mm:ss
+#SBATCH --time=00:10:00      # time as `hh:mm:ss`
 
 module load nwchem/7.0.0
 export NWCHEM_RUN=$PWD/NWCHEM_RUN_$SLURM_JOB_ID

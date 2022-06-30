@@ -22,6 +22,7 @@ of scientific libraries:
    * [PyTorch](pytorch.md) - PyTorch deep learning framework
    * [RAPIDS](rapids.md) - for data analytics and machine learning on GPUs
    * [TensorFlow](tensorflow.md) - TensorFlow deep learning framework
+   * [JAX](jax.md) - Autograd and XLA for high-performance machine learning
    * [Bioconda](bioconda.md) - conda package manger for installing
      bioinformatics software
    * [BioPython](biopython.md) - biopython and other bioinformatics related
@@ -122,12 +123,17 @@ Please, see our Singularity documentation:
      including how to convert Docker container to Singularity container.
 
 ### Conda
-Conda is easy to use and flexible, but it might create a huge number of files which is inefficient with
-shared file systems. This can cause very slow library imports and in the worst
-case slowdowns in the whole file system. **Therefore CSC has deprecated the use of Conda installations at CSC supercomputers.**
 
-   * [CSC conda tutorial](../support/tutorials/conda.md) describes in detail
-     what conda is and how to use it. (Some parts of this tutorial may be helful also for Tykky installations.)
+Conda is easy to use and flexible, but it might create a huge number of files which 
+is inefficient with shared file systems. This can cause very slow library imports and
+in the worst case slowdowns in the whole file system. **Therefore, CSC has deprecated the
+direct use of Conda installations on CSC supercomputers.** You can however, still use
+Conda environments granted that they are containerized. To easily containerize your Conda
+(or pip) environments, please see the [Tykky container wrapper tool](../computing/containers/tykky.md).
+
+   * [CSC conda tutorial](../support/tutorials/conda.md) describes in more detail
+     what conda is and how to use it. Some parts of this tutorial may be helpful also for
+     Tykky installations.
 
 
 ## Python development environments

@@ -10,9 +10,9 @@ for filename in ./*; do
     topics=$(grep "^## " $filename | sed 's/#//g' | sed 's/ *$//g' | sed 's/^ *//g' )
     i=0
     while IFS= read -r topic; do
-        echo "- [$topic](wn/$(echo $filename | sed 's@^./@@g')#$(python ../../../scripts/convert.py "$topic") )" >> ../whats-new.md
+        echo "- [$topic](wn/$(echo $filename | sed 's@^./@@g')#$(python3 ../../../scripts/convert.py "$topic") )" >> ../whats-new.md
         if [[ "$i" -lt 5 ]]; then
-            echo "- [$topic](support/wn/$(echo $filename | sed 's@^./@@g')#$(python ../../../scripts/convert.py "$topic") )" >> ../../index.md
+            echo "- [$topic](support/wn/$(echo $filename | sed 's@^./@@g')#$(python3 ../../../scripts/convert.py "$topic") )" >> ../../index.md
             let i++
         fi
     done <<< "$topics"     

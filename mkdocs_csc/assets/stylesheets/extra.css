@@ -2,6 +2,12 @@ body {
     background-color: #f8f8f8
 }
 
+.breadcrumbs {
+    font-size: smaller;
+    color: #606060;
+    padding-bottom: 1em;
+}
+
 .md-typeset p {
     font-weight: 300;
 }
@@ -25,10 +31,6 @@ body {
 
 .md-typeset table th a {
     color: #ffffff !important;
-}
-
-.md-typeset .twemoji svg {
-    max-width: 24px !important;
 }
 
 .md-sidebar {
@@ -63,6 +65,7 @@ body {
 
 .md-typeset {
     font-size: .7rem;
+    font-weight: 300;
 }
 
 .md-typeset h1 {
