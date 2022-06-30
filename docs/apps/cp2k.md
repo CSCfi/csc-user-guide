@@ -76,10 +76,17 @@ Nodes|d1|d2|d4|d8
 1|25.77|18.88|20.58|22.95
 2|17.66|15.25|*13.34*|17.10
 
-* For 64 water molecules, the best performance is obtained with 2 full nodes, 32 mpi-tasks, and 4 OMP-threads per task (like the [Mahti example](#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization)). For this system the performance does not scale beyond 2 nodes.
-* Mixed parallization is efficient: choose tasks and threads so that they add up to 128 (physical) cores available per node (or up to 40 on Puhti).
-* Test for optimal run parameters for your model system and method.
-* Using the ELPA library may be faster with (metallic) systems that require large matrix diagonalizations for SCF, but there has recently been concerns about the reliability of ELPA, [see issue on GitHub](https://github.com/cp2k/cp2k/issues/1444). Also, recent versions (2021) of ELPA do not benefit from OpenMP.
+* For 64 water molecules, the best performance is obtained with 2 full
+  nodes, 32 mpi-tasks, and 4 OMP-threads per task (like the [Mahti
+  example](#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization)).
+  For this system the performance does not scale beyond 2 nodes.
+* Mixed parallization is efficient: choose tasks and threads so that they add up
+  to 128 (physical) cores available per node (or up to 40 on Puhti).
+* Test the optimal run parameters for your model system and method.
+* Selecting the ELPA diagonalization library instead of ScaLAPACK may significantly
+  accelerate calculations that require large matrix diagonalizations. A good example
+  are metallic systems that may converge poorly with the orbital transformation
+  method and thus demand a standard diagonalization of the Kohn-Sham matrix.
 
 ### High-throughput computing with CP2K
 
