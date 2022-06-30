@@ -16,25 +16,22 @@ executor. This page provides an example batch script for this purpose.
 
 ```bash
 #!/bin/bash
-#SBATCH --partition medium
-#SBATCH --account project_2001659 
+#SBATCH --partition=medium
+#SBATCH --account=project_2001659 
 #SBATCH --nodes=3
 #SBATCH --exclusive
 #SBATCH --time=00:10:00
-
 
 # Load the required modules
 module load hyperqueue
 module load nextflow
 
-
 # Create a per job directory
-mkdir WRKDIR-$SLURM_JOB_ID
-mkdir $PWD/WRKDIR-$SLURM_JOB_ID/.hq-server
+wrkdir=$PWD/WRKDIR-$SLURM_JOB_ID
+mkdir -p $wrkdir/.hq-server
 
 # Set the directory which hyperqueue will use 
-export HQ_SERVER_DIR=$PWD/WRKDIR-$SLURM_JOB_ID/.hq-server
-
+export HQ_SERVER_DIR=$wrkdir/.hq-server
 
 # Make sure nextflow uses the right executor and
 # knows how much it can submit.
@@ -42,14 +39,13 @@ echo "executor {
   queueSize = $(( 128*SLURM_NNODES ))
   name = 'hq'
   cpus = $(( 128*SLURM_NNODES )) 
-}" >  WRKDIR-$SLURM_JOB_ID/nextflow.config
+}" > $wrkdir/nextflow.config
 
-
-cp main.nf WRKDIR-$SLURM_JOB_ID
+cp main.nf $wrkdir
 hq server start &
-srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 128 hq  worker start --cpus=128 &
+srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 128 hq worker start --cpus=128 &
 
-num_up=$(hq  worker list | grep RUNNING | wc -l)
+num_up=$(hq worker list | grep RUNNING | wc -l)
 while true; do
 
     echo "Checking if workers have started"
@@ -63,8 +59,7 @@ while true; do
 
 done
 
-
-cd WRKDIR-$SLURM_JOB_ID
+cd $wrkdir
 time nextflow -Dnxf.pool.maxThreads=5000 -Dnxf.pool.type=sync run main.nf
 hq server stop
 ```
