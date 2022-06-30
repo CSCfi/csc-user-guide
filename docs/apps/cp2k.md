@@ -86,9 +86,10 @@ Nodes|d1|d2|d4|d8
   to 128 (physical) cores available per node (or up to 40 on Puhti).
 * Test the optimal run parameters for your model system and method.
 * Selecting the ELPA diagonalization library instead of ScaLAPACK may significantly
-  accelerate calculations that require large matrix diagonalizations. A good example
-  are metallic systems that may converge poorly with the orbital transformation
-  method and thus demand a standard diagonalization of the Kohn-Sham matrix.
+  accelerate calculations that require large matrix diagonalizations (even up to
+  50% depending on the system). A good example are metallic systems that may
+  converge poorly with the orbital transformation method and thus demand a standard
+  diagonalization of the Kohn-Sham matrix.
 
 ### High-throughput computing with CP2K
 
