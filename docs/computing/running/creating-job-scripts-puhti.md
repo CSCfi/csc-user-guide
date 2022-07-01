@@ -9,6 +9,7 @@ the job and the commands the user wants to run.
 ## A basic batch job script
 
 An example of a simple batch job script:
+
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
@@ -22,6 +23,7 @@ module load myprog/1.2.3
 
 srun myprog -i input -o output
 ```
+
 The first line `#!/bin/bash` tells that the file should be interpreted
 as a bash script.
 
@@ -30,20 +32,24 @@ These examples only use a small subset of the options. For a list of all possibl
 options, see the [Slurm documentation](https://slurm.schedmd.com/sbatch.html).
 
 The general syntax of a `#SBATCH` option:
+
 ```
 #SBATCH option_name argument
 ```
 
 In our example,
+
 ```
 #SBATCH --job-name=myTest
 ```
+
 sets the name of the job. It can be used to identify a job in the queue and
 other listings.
 
 ```
 #SBATCH --account=<project>
 ```
+
 sets the billing project for the job. **This argument is mandatory. Failing to
 set it will cause the job to be held with the reason _AssocMaxJobsLimit_**
 Please replace `<project>` with the Unix group of the project. You 
@@ -65,17 +71,18 @@ its actual runtime.
 ```
 #SBATCH --mem-per-cpu=2G
 ```
+
 sets the required memory per requested CPU core. If the requested
 memory is exceeded, the job is terminated.
 
 The partition needs to be set according to the job requirements.
+
 ```
 #SBATCH --partition=small
 ```
 
 !!! Note "Available partitions"
     [The available batch job partitions](batch-job-partitions.md).
-
 
 The user can be notified by email when the jobs starts by using the `--mail-type` option
 
@@ -96,6 +103,7 @@ module load myprog/1.2.3
 ```
 
 Finally, we launch our program using the `srun` command:
+
 ```
 srun myprog -i input -o output
 ```
@@ -121,6 +129,7 @@ Some other applications may try to use all cores in the node even if only some a
 In MPI jobs, each task has its own memory allocation. Thus, the tasks can be distributed between nodes.
  
 Set the number of MPI tasks:
+
 ``` 
  --ntasks=<number_of_mpi_tasks>
 ```
@@ -163,11 +172,12 @@ The local storage is available on:
 * Big Mem nodes in the `hugemem` and `hugemem_longrun` partitions (Max 5960 GB per node)
 
 Request local storage using the `--gres` flag in the job submission:
+
 ```
 --gres=nvme:<local_storage_space_per_node>
 ```
 
-The amount of space is given in GB (Check maximum sizes from the list above). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis.
+The amount of space is given in GB (check maximum sizes from the list above). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis.
 
 Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
@@ -179,14 +189,17 @@ Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to acces
 ### GPUs
 
 Puhti has 320 NVIDIA Tesla V100 GPUs. The GPUs are available on the `gpu` and `gputest` partitions using the option:
+
 ```
 --gres=gpu:v100:<number_of_gpus_per_node>
 ```
+
 The `--gres` reservation is on a per node basis. There are 4 GPUs per GPU node. 
 
 Multiple resources can be requested with a comma-separated list.
 
 Request both GPU and local storage:
+
 ```
 --gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
