@@ -1,8 +1,8 @@
 # Getting started with Helmi
 
-This is a quick start guide for LUMI Helmi users. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../computing/overview.md).
+This is a quick start guide for LUMI Helmi users. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/overview/).
 
-It is also assumed that you are at least familiar with some Quantum Computing software such as Qiskit, Cirq or OpenQASM. If not, you can start by looking at [Kvasi - The Quantum Learning Machine](../../computing/kvasi).
+It is also assumed that you are at least familiar with some Quantum Computing software such as Qiskit, Cirq or OpenQASM. If not, you can start by looking at [Kvasi - The Quantum Learning Machine](../../../computing/kvasi).
 
 [TOC]
 
@@ -24,7 +24,7 @@ Helmi is accessed through the LUMI login nodes as a LUMI project, therefore you 
 ### Setting up SSH key pair
 
 **You can only log in to LUMI using SSH keys**. There are no passwords. In order
-for this to work, [you need to add your ssh keys in MyCSC portal](../connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
+for this to work, [you need to add your ssh keys in MyCSC portal](../../../computing/connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
 
 #### Generate your SSH keys
 
@@ -229,7 +229,7 @@ When submitting jobs to Helmi using Cirq add the `activate-cirq` command in your
 
 ### OpenQASM
 
-Circuits can also be submitted via the OpenQASM format. Note that Qiskit and Cirq already have fucntions in place to automatically export your circuits in OpenQASM format.
+Circuits can also be submitted via the OpenQASM format. Note that Qiskit and Cirq already have functions in place to automatically export your circuits in OpenQASM format.
 
 * Qiskit circuits can be exported via `qc.qasm(formatted=False, filename=None, encoding=None)`. 
 
@@ -249,7 +249,7 @@ Circuits can also be submitted via the OpenQASM format. Note that Qiskit and Cir
 
 ## Support channels
 
-The main channel for support regarding Helmi is the [CSC Service Desk](../../support/contact/). 
+The main channel for support regarding Helmi is the [CSC Service Desk](../../contact/). 
 
 For support requests concerning connecting to LUMI please [contact the LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/).
 
