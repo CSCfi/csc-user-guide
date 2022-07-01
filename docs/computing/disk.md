@@ -182,9 +182,8 @@ archive files.
 
 ### Compute nodes with local SSD (nvme) disks
 
-Interactive batch jobs as well as jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request. Different nodes have different amounts of disks. On normal compute nodes, as well as GPU nodes you can reserve at most 3600 GiB of local disk space. To save resources and to fit your jobs also to nodes with smaller disks it is a good idea to only reserve what you actually need. On the nodes with large amounts of memory there are 1490 GiB or 5960 GiB disks. Please see [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes including the size of the local disk.
-
-
+Jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs launched with [sinteractive](running/interactive-usage/) this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request. Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti/) for a detailed list of all node types. In normal compute nodes there are 1490 GiB and 3600 GiB disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU nodes there are 3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too long it is a good idea to only reserve what you actually need. 
+    
 These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas. 
 
 For more information see: [creating job scripts](running/creating-job-scripts-puhti.md#local-storage). 
