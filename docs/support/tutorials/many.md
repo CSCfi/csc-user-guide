@@ -45,13 +45,13 @@ large scheduling overhead in the batch system.
 
 Parallel file systems work poorly when a single client (application program)
 tries to perform too many file operations. Such cases can be e.g. applications
-installed with the Conda package manager. One miniconda environment is easily over
-20000 files and Anaconda distribution is much worse. Many of these files need to
-be opened everytime a Conda application is launched. When running many,
-relatively short jobs, avoid running applications installed with Conda. Instead,
-if your application requires a complex environment, use applications packed into
-Singularity containers, which are single files from the perspective of the file
-system.
+installed with the Conda package manager directly on the shared file system. 
+One miniconda environment is easily over 20000 files and Anaconda distribution
+is much worse. Many of these files need to be opened every time a Conda application
+is launched. When running many, relatively short jobs, avoid running applications installed with Conda. However, if your application requires a complex environment,
+use applications packed into Singularity containers, which are single files from
+the perspective of the file system. To easily containerize a Conda environment,
+see the [Tykky container wrapper tool](../../computing/containers/tykky.md)
 
 "Too many files" issues are also often encountered with workflows consisting of
 thousands of small runs. As a general guide, keep the number of files in a
