@@ -14,6 +14,6 @@ If you wish to use Quantum Simulators or a test environment CSC currently offers
 
 * [Kvasi](../../computing/kvasi) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)
 
-* [Mahti](../../computing/mahti) through `module load qiskit` and loading of the IQM Qiskit environment. 
+* [Mahti](../../computing/systems-mahti) through `module load qiskit` and loading of the IQM Qiskit environment. 
 
 
