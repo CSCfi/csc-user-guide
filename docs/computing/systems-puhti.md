@@ -46,7 +46,7 @@ Puhti has a 4.8 PB Lustre parallel storage system providing space for
 [home](disk.md#home-directory), [project](disk.md#projappl-directory) and
 [scratch](disk.md#scratch-directory) storages.
 
-Currrnet Lustre configuration for Puhti is:
+Current Lustre configuration for Puhti is:
 
 | Storage area | # OSTs | # MDTs |
 |--------------|--------|--------|
