@@ -32,7 +32,14 @@ pymongo==3.10.0
 ```
 
 !!! Note
-    Do not use Conda to install FireWorks. [CSC has deprecated the direct usage of Conda](../../support/deprecate-conda.md) installations on our supercomputers. This has been done to avoid performance issues on the Lustre parallel file system due to the large number of files brought by Conda. For reference, a Conda installation of FireWorks contains more than 24000 files, most of which are read each time the application is run. This causes startup delays and degrades the performance of Lustre for all users. If you for some reason need a Conda environment (e.g. due to other required packages), make sure to containerize the environment with [Tykky](../containers/tykky.md).
+    Please do not install FireWorks in a Conda environment that is sitting directly on the shared
+    Lustre file system. [CSC has deprecated the direct usage of Conda](../../support/deprecate-conda.md)
+    installations on our supercomputers to avoid performance issues due to the large number of files
+    brought by Conda. For reference, a Conda installation of FireWorks contains more than 24000
+    files, most of which are read each time the application is run. This causes startup delays and
+    degrades the performance of Lustre for all users. With this said, you can still continue to use
+    Conda environments, but only in case they are containerized. To achieve this easily, please see
+    the [Tykky container wrapper tool](../containers/tykky.md).
 
 ## Defining and executing workflows with FireWorks
 

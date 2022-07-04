@@ -80,12 +80,12 @@ It is also worth noting that transferring large amounts of data takes time. For 
 
 **File size units from the smallest to the largest:**
 
-1 byte (B) = the basic unit of digital information
-1 kibibyte (KiB) = 1024 bytes
-1 mebibyte (MiB) = 1024 kibibytes
-1 gibibyte (GiB) = 1024 mebibytes
-1 tebibyte (TiB) = 1024 gibibytes
-1 pebibyte (PiB) = 1024 tebibytes 
+ -  1 byte (B) = the basic unit of digital information
+ -  1 kibibyte (KiB) = 1024 bytes
+ -  1 mebibyte (MiB) = 1024 kibibytes
+ -  1 gibibyte (GiB) = 1024 mebibytes
+ -  1 tebibyte (TiB) = 1024 gibibytes
+ -  1 pebibyte (PiB) = 1024 tebibytes 
 
 **Example file sizes for different types of data**
 
