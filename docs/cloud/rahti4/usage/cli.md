@@ -45,7 +45,7 @@ In order to use Rahti internal container registry, it is necessary to login sepa
 
 After login with `oc`, it is possible to use the command to generate a token (`oc whoami -t`):
 
-`docker login -p $(oc whoami -t ) -u unused image-registry.apps.rahti4-qa.csc.fi`
+`docker login -p $(oc whoami -t ) -u unused docker-registry.rahti.csc.fi`
 
 ### Using a service account token
 
@@ -54,7 +54,7 @@ Rahti also offers the opportunity of using an internal service account to intera
 ```sh
 oc create serviceaccount pusher
 oc policy add-role-to-user system:image-pusher pusher
-docker login -p $(oc sa get-token pusher) -u unused image-registry.apps.rahti4-qa.csc.fi
+docker login -p $(oc sa get-token pusher) -u unused docker-registry.rahti.csc.fi
 ```
 
 This service account token, the one you get with `oc sa get-token pusher` does not expire.
@@ -73,7 +73,7 @@ oc help <command>
 Authorize the CLI tool to the cluster:
 
 ```bash
-oc login RAHTI4_URL --token=<secret access token>
+oc login https://rahti.csc.fi:8443 --token=<secret access token>
 ```
 
 This command can be obtained by clicking your usename and "Copy Login Command"

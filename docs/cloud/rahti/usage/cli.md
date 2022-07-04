@@ -4,7 +4,7 @@
 </style>
 !!! Attention "⚠️ Rahti 3 is deprecated"
 
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/usage/cli/)
+    This page is about a deprected version of Rahti, please consult the [updated documentation article](../../../rahti4/usage/cli/)
 
 # Command line tool usage
 
