@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprected version of Rahti, please consult the [updated documentation article](../../../rahti4/usage/getting_started/)
+
 # Using the web interface
 
 All applications launched in OpenShift run within **projects** that can be
