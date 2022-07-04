@@ -1,3 +1,12 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](cloud/rahti4/)
+
+
 Welcome to the Rahti container cloud! If you are not yet
 familiar with container technology or container orchestration systems such as
 Kubernetes or OpenShift, you could start by reading a generic introduction to
