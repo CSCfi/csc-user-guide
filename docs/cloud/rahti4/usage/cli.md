@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprected version of Rahti, please consult the [updated documentation article](../../../rahti4/usage/cli/)
-
 # Command line tool usage
 
 Rahti can be used via the command line either with OpenShift's _oc_ tool
@@ -14,21 +6,7 @@ are only available when using the oc tool.
 
 ## How to install the `oc` tool
 
-The oc tool is a single binary that only needs to be included in your _path_. You may download it from the [latest release](https://github.com/openshift/origin/releases/latest) page in GitHub. The detailed instructions are:
-
-* Go to the aforementioned release page (<https://github.com/openshift/origin/releases/latest>). In the bottom you will see the list of clients. Download the "Openshift origin client" corresponding to your OS (Windows, Mac or Linux).
-* Once downloaded, extract the `oc` binary file.
-* Copy the file to a folder in your `$PATH` and make it executable. For Mac and Linux the steps are similar to the following:
-
-```
-$ echo $PATH
-/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:~/bin
-$ mkdir -p ~/bin
-$ cp oc ~/bin/
-$ chmod +x ~/bin/oc
-```
-
-In the example above, we are displaying the contents of the `$PATH` variable, choosing the bin folder in the home (~) folder, using `mkdir` just to be sure that the folder exist, copy the oc command (of course, we have to be in the folder `oc` was downloaded), and finally adding executable (`+x`) permissions to the `oc` binary. That is all.
+The oc tool is a single binary that only needs to be included in your _path_. You may download it from the [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.10/cli_reference/openshift_cli/getting-started-cli.html) page in OpenShift's documentation. Follow the detailed instructions in the link.
 
 In order to test that it was properly installed, open a new terminal, go to any folder, and run:
 
@@ -43,14 +21,14 @@ It should show the list of all available commands.
 Instructions for downloading the oc tool and logging in via the command line
 can be found in the "Command Line Tools" page in the web interface:
 
-![Command line tools](img/cli_help_menu_3.7.png)
+![Command line tools](img/cli_help_menu_4.png)
 
 ## How to login with `oc`?
 
 The oc login command to login can be found in one of the fields on the page. There is a
 button next to it for copying the command to the clipboard:
 
-![OpenShift Command Line Tools page](img/openshift_cli_dialog_3.7.png)
+![OpenShift Command Line Tools page](img/openshift_cli_dialog_4.png)
 
 Copy the command and paste it in a terminal to start using OpenShift via the
 command line.
@@ -101,7 +79,7 @@ oc login https://rahti.csc.fi:8443 --token=<secret access token>
 This command can be obtained by clicking your usename and "Copy Login Command"
 in the web console:
 
-![copy login](../tutorials/img/copy-login.png)
+![copy login](../../img/CopyLoginCommand.png)
 
 Show projects:
 
@@ -169,4 +147,4 @@ Object types have abbreviations that are recognized in the CLI:
 See the official documentation for more information about using the command line
 interface:
 
-* [OpenShift documentation: CLI reference](https://docs.okd.io/3.11/cli_reference/index.html)
+* [OpenShift documentation: CLI reference](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/cli_tools/index)
