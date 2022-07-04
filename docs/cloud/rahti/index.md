@@ -4,7 +4,7 @@
 </style>
 !!! Attention "⚠️ Rahti 3 is deprecated"
 
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../rahti4/)
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](cloud/rahti4/)
 
 
 Welcome to the Rahti container cloud! If you are not yet
