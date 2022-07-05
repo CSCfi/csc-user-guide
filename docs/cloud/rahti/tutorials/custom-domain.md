@@ -4,7 +4,7 @@
 </style>
 !!! Attention "⚠️ Rahti 3 is deprecated"
 
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/tutorials/custom-domain/)
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/custom-domain/)
 
 # Custom domain names and secure transport
 
