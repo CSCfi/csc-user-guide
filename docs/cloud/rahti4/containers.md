@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/containers/)
-
 # Containers & Container Orchestration
 
 ## Containers
@@ -25,22 +17,18 @@ kernels, while containers share the host system's kernel.
 While many operating systems have the container functionality, what we look at more
 specifically in this documentation is containers in the Linux operating system.
 Linux is the most popular operating system for running containers, and it is
-also the operating system used in the Rahti container cloud. Currently, the most
-popular method for using the container functionality in Linux is _Docker_. It provides
-a set of tools that makes it easier to use containers compared to using the
-kernel functionality directly:
+also the operating system used in the Rahti container cloud.
 
-  * A runtime (runC) for containers
-  * An image format for containers
-  * A command line interface for running and managing containers and images
-  * The Dockerfile format for building Docker images
+In order to use the container functionality, a _runtime_ is needed. Currently, the most popular runtime in Linux is _Docker_, but [podman](https://podman.io/), [cri-o](https://cri-o.io/), and many others are getting more relevance. All of these runtime follows the guidelines of the [Open Container Initiative](https://opencontainers.org/) (OCI). A runtime provides
+a set of tools that makes it easier to use containers compared to using the
+kernel functionality directly. Mainly the command line interface and backend libraries for running, building and managing containers and images
 
 Docker has popularized containers by making them easier to use. Instead of
 looking at kernel documentation and figuring out how to use the different
 interfaces of the kernel's container features and then having to figure out
 which features you want to use and how, Docker provides a simpler way to start
 containers with a single command line command. The specific kernel features and
-how to use them have been defined by Docker.
+how to use them are isolated to the user by Docker.
 
 As an example of how Docker is used, this is how you could start a container on
 your computer after installing Docker:
@@ -76,7 +64,7 @@ To understand why container orchestration platforms are important, let us
 describe how a typical web-based application that end users access via a web
 browser is built.
 
-![Container orchestration](/cloud/rahti/img/container-orch2.drawio.svg)
+![Container orchestration](../../rahti4/img/container-orch2.drawio.svg)
 
 The application comprises a frontend that is the part of the application
 visible to users and a backend that handles various tasks in the background such as
