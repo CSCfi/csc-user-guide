@@ -1,5 +1,17 @@
 # Applications
 
+## CP2K modules on Mahti recompiled, 5.7.2022
+
+Due to an issue related to OpenBLAS, the CP2K modules on Mahti have been
+recompiled and linked to another linear algebra library (AMD BLIS). The old
+versions were in some cases using up to seven times as much memory as before,
+while matrix diagonalizations were not benefiting from the ELPA library as
+expected.
+
+New versions of [Python Data](../../apps/python-data.md) and
+[RAPIDS](../../apps/rapids.md) are now available on both Puhti and Mahti. The
+default versions have been changed to these new versions.
+
 ## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
 
 New versions of [Python Data](../../apps/python-data.md) and
