@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprected version of Rahti, please consult the [updated documentation article](../../rahti4/rahti-what-is/)
-
 # What is Rahti
 
 ## What is Rahti?
@@ -31,14 +23,10 @@ OpenShift [OKD](https://opencontainers.org/) is optimized for multi-tenant deplo
 
 OpenShift provides these extra services over a standard Kubernetes offering:
 
-* Web UI: <https://rahti.csc.fi:8443/>
+* Web UI: <RAHTI4_URL>
 
-![Rahti WEB UI](/cloud/rahti/img/Rahti-landing.png)
+![Rahti WEB UI](../img/Rahti-landing.png)
 
-* Internal private image registry: <https://registry-console.rahti.csc.fi/registry>
+* HTTP(s) load balancer (HAProxy). Using [Routes](/cloud/rahti4/networking/#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
 
-![Rahti Registry](/cloud/rahti/img/Rahti-registry.png)
-
-* HTTP(s) load balancer (HAProxy). Using [Routes](/cloud/rahti/networking/#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
-
-* Central file [storage volumes](/cloud/rahti/storage/)
+* Central file [storage volumes](/cloud/rahti4/storage/)
