@@ -1,5 +1,14 @@
 # Computing environment 
 
+## Puhti web interface beta updated to release 9 5.7.2022
+
+* Added graphs showing Lustre usage metrics to dashboard.
+* Improved web interface performance, especially during heavy Lustre load.
+* Modules selected when launching apps are now shown on the active sessions page.
+* Local disk must now be used when running RStudio.
+* Updated VS Code to 1.66.2.
+* Open onDemand version updated to 2.0.27.
+
 ## How to clean up data - automatic removal, new tools and instructions 10.6.2022
 
 Puhti's parallel file system is filling up and hence degrading performance. We will start
