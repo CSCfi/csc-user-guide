@@ -49,6 +49,6 @@ Sample braker command in Puhti:
  braker-puhti --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=SLURM_CPUS_PER_TASK
  ```
  
-##More information
+## More information
 
    * [BRAKER home page](https://github.com/Gaius-Augustus/BRAKER)
