@@ -1,10 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprected version of Rahti, please consult the [updated documentation article](../../rahti4/billing/)
 
 # Rahti billing
 
@@ -16,12 +9,6 @@ services which are available for use.
 * OpenShift project: A Kubernetes namespace with additional annotations.
 
 ## Billing model
-
-------------------------------------------------------------------------------------------------------------------------
-
-**NOTE**: Starting from 1.02.2020, using Rahti consumes **CSC Billing Units**.
-
-------------------------------------------------------------------------------------------------------------------------
 
 Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user.
 These calculations are based on:
@@ -52,11 +39,4 @@ For example, let's say you create a pod with the following specs:
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
 
-![BU calculation](img/BU-calculation.drawio.svg)
-
-## Billing unit calculator
-
-For an estimate of the billing units the services you plan on using will consume, please refer to the
-billing unit calculator below. The [billing unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
-
-<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
+0.2*0.5 + (512/1024)*1 + (10/1024)*3 = 0,6293 BUs
