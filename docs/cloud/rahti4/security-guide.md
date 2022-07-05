@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprected version of Rahti, please consult the [updated documentation article](cloud/rahti4/security-guide/)
-
 # Security guide
 
 Rahti applications are exposed to the Internet, and
@@ -23,13 +15,13 @@ roughly divided in two categories.
 ## Securing routes
 
 Enable the **TLS encryption** of routes. If the DNS name of your service is under
-the subdomain `rahtiapp.fi` (e.g. `coolservice.rahtiapp.fi`), the default
+the subdomain `RAHTI4_URL` (e.g. `coolservice.RAHTI4_URL`), the default
 wildcard TLS certificate provided by Rahti can be used directly. Otherwise,
 you need to add your certificate data in the route object.
 
 Access to the services should be limited to selected networks with
 **whitelists** whenever applicable (See the chapter
-[Routes](../tutorials/elemental_tutorial#route)). This is relevant whenever 
+[Routes](../tutorials/elemental_tutorial#route)). This is relevant whenever
 access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target e.g. service passwords
@@ -60,7 +52,7 @@ Other things to keep in mind:
     builds](https://docs.docker.com/develop/develop-images/multistage-build/),
     and in OpenShift, directories of other images may be mounted during the build
     process by [chaining
-    builds](https://docs.okd.io/3.11/dev_guide/builds/advanced_build_operations.html#dev-guide-chaining-builds).
+    builds](https://cloud.redhat.com/blog/chaining-builds).
     This way, only essential pieces of the software are present in the
     final image.
   * If the application is written in an interpreted language, use language
@@ -69,6 +61,6 @@ Other things to keep in mind:
 
 ## IP addresses for firewall openings
 
-The IP for all outgoing customer traffic is `193.167.189.25`. By opening a firewall to this IP, you will let in all traffic coming from any Rahti project. It is advised to not solely rely in IP filtering for security, but use this a secondary measure, like for example an OAuth authentication system.
+The IP for all outgoing customer traffic is `RAHTI4_IP`. By opening a firewall to this IP, you will let in all traffic coming from any Rahti project. It is advised to not solely rely in IP filtering for security, but use this a secondary measure, like for example an OAuth authentication system.
 
 There is no plan to change this IP, but it is not possible to give a 100% assurance that an unforeseeable event will ever force us to change it. If this IP ever changes, it will be properly announced in advance.
