@@ -206,12 +206,12 @@ CSC helpdesk and central EGA helpdesk will work together to complete the release
 
 4. Login to SD Desktop is possible using CSC login, HAKA or ELIXIR login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
 
-5. Once you have accessed the computing environment, you can open the terminal (right-click). As SD Desktop complies with high-security measures, it is not possible to use the copy-paste function. Input the following command:
+5. Once you have accessed the computing environment, you can open the terminal (right-click). As SD Desktop complies with high-security measures, it is not possible to use the copy-paste function to bring commands to the computing environment. Input the following command:
 ```
 go-fuse -enable SD-Submit
 ```
 
-6. Next, open the Project folder that will appear on the Desktop. Open the SD Connect folder: the dataset will be available in the subfolder called Project NNNN.
+6. Next, open the Project folder that will appear on the Desktop. Open the SD Apply folder: the dataset will be available in the subfolder called Project NNNN.
 
 ### For Data Access Committee (DAC)
 Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
