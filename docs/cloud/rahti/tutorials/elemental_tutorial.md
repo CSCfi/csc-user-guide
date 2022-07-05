@@ -4,7 +4,7 @@
 </style>
 !!! Attention "⚠️ Rahti 3 is deprecated"
 
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/elemental_tutorial/)
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/tutorials/elemental_tutorial/)
 
 # Introduction
 

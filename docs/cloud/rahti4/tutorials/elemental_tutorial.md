@@ -19,7 +19,7 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kubernetes.
 
-![Network](/cloud/rahti4/img/routeServicePod.drawio.svg)
+![Network](../../rahti4/tutorials/img/routeServicePod.drawio.svg)
 
 ## Preparation
 
