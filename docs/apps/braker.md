@@ -43,7 +43,7 @@ of _braker.pl_. To see the options, run command:
 ```text
 braker-puhti --help
 ```
-Sample braker command in Puhti:
+Sample BRAKER command in Puhti:
 
 ```text
  braker-puhti --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=SLURM_CPUS_PER_TASK
