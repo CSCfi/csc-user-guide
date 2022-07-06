@@ -19,7 +19,7 @@ Puhti: 2.1.6
 
 ## Usage
 
-In Puhti Braker should be used only in batch jobs. Either in normal batch jobs or in interactive batch jobs.
+In Puhti BRAKER should be used only in batch jobs. Either in normal batch jobs or in interactive batch jobs.
 You can start interative batch job with command:
 
 ```text
