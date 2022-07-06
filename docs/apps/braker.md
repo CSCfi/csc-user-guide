@@ -25,7 +25,7 @@ You can start interative batch job with command:
 ```text
 sinteractive -i
 ```
-In batch job, you can initialize Braker environment with command
+In batch job, you can initialize BRAKER environment with command
 
 ```text
 module load braker
