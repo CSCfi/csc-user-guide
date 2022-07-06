@@ -53,12 +53,12 @@ Sample BRAKER command in Puhti:
 
 ```text
  braker-puhti --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
- ```
- ### Batch jobs
+```
+### Batch jobs
  
- Sanple batch job scrip for BRAKER:
- 
- ```text
+Sanple batch job scrip for BRAKER:
+
+```text
 #!/bin/bash
 #SBATCH --job-name=BRAKER_Job
 #SBATCH --account=project_2012345
@@ -75,8 +75,8 @@ module load braker
 # start the job
 braker-puhti --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa \
 --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
-
 ```
+
 In the batch job example above one task (--ntasks 1) is executed. The BRAKER job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000). 
 The maximum duration of the job is ten hours (--time 10:00:00 ). 
 All the cores are assigned from one computing node (--nodes=1 ). 
