@@ -36,7 +36,7 @@ After that you can launch a BRAKER job with command:
 braker-puhti
 ```
 
-This command should be used in stead of the original _braker.pl_ script as it automatically do 
+This command should be used in stead of the original _braker.pl_ script, as it automatically sets 
 some parameters that allow you to run BRAKER. _braker-puhti_ is able to use all the command line options
 of _braker.pl_. To see the options, run command:
 
