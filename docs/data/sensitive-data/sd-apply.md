@@ -74,7 +74,7 @@ Once your analysis is completed, you can export the results from the computing e
 ## Data approval for Data Access Committee (DAC)
 Data Access Committee (DAC) is responsible for processing the data access applications and managing access rights to different datasets. In practice, DAC can approve or reject applications and revoke access rights in case of misuse.
 
-Data Access Committee (DAC) has been established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process.
+Data Access Committee has been established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process.
 
 ### Step 1: Login
 As a DAC member, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
@@ -94,6 +94,11 @@ The applicant will receive an email notification about the decision. Once you ap
 
 !!! note
     If the owner of the dataset has removed the dataset that applicant is applying for access, SD Apply will give a warning, but you can still process the application. However, if the dataset has been removed, you cannot approve or reject the application.
+    
+#### Request for a decision or a review
+Depending on the practices of your organisation, it might be necessary to request a decision on the application or request someone to review the application. To request for a decision or a review, choose *Request review* or *Request decision* under Actions and locate the user in the drop-down list or use the search function. You can add one or more users. 
+
+The requested user will receive an email notification about a review or a decision request. You can still approve or reject the application even if the requested user has not reviewed the application. You will receive an email after a decision or a review has been made. See “Email notifications” if you want to know when you will receive notifications.
 
 #### Return the application to the applicant
 If the application is missing some information, you can return it to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select Return to applicant application under Actions to return the application.
@@ -130,7 +135,7 @@ Closing the application cancels the access rights of the applicant and other app
 If the applicant has been granted access rights but they misuse them, you can revoke the rights by selecting *Revoke entitlement*. Revoking will add the applicant and all the application members to a blacklist. This means that if any of them tries to apply for access rights to the same dataset again, SD Apply will warn the application handlers. The owner of the dataset can edit the blacklist. You can find the blacklist from Administration tab. 
 
 ### Email notifications
-You will receive email notifications about the actions of other SD Apply users. A data Access Committee has often more than one member. Therefore, all the DAC members who have been assigned to a certain dataset, receive an email notification when one of the DAC members has processed an application.
+You will receive email notifications about the actions of other SD Apply users. A Data Access Committee has often more than one member. Therefore, all the DAC members who have been assigned to a certain dataset, receive an email notification when one of the DAC members has processed an application.
 
 You can see and edit your email address from Settings tab in the top right corner of the page.
 
