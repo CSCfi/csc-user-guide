@@ -22,7 +22,7 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 - **Data Applicant**. Individual who applies access to sensitive data or metadata that has been stored at FEGA.
 
-- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access.
+- **Data Submitter**. Individual who uploads data, metadata, and other information to FEGA for re-use under controlled access. The data submitter represents data owner organisation during the submission process.
 
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
@@ -214,7 +214,7 @@ go-fuse -enable SD-Submit
 6. Next, open the Project folder that will appear on the Desktop. Open the SD Apply folder: the dataset will be available in the subfolder called Project NNNN.
 
 ### For Data Access Committee (DAC)
-Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
+Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. Each DAC member can process data access applications separately, thus the decision doesn't require confirmation from other DAC members. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
 1. As a DAC member you receive a notification via SD Apply to your email, when an applicant applies for data access. Log into SD Apply with your HAKA or ELIXIR account. 
 
