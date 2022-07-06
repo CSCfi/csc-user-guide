@@ -4,7 +4,7 @@
 
 BRAKER is a tool for eukaryotic genome annotation. 
 It uses genomic and RNA-Seq data to automatically generate full gene structure annotations in novel genome.
-Barker is based on GeneMark-ET R2 and AUGUSTUS pipelines.
+BRAKER is based on GeneMark-ET R2 and AUGUSTUS pipelines.
 
 ## License
 
