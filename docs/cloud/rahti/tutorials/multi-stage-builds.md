@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/multi-stage-builds/)
+
 # Multistage builds
 
 The idea behind _multistage builds_ is to make it easy to build smaller container images by facilitating the exclusion of intermediate build files from the final product.
@@ -9,6 +17,7 @@ Smaller container images take less space on disk, meaning they take less time to
 Take this `Dockerfile`:
 
 * `Dockerfile`:
+
 ```Dockerfile
 FROM golang:1.12.6-stretch as builder
 
@@ -30,6 +39,7 @@ CMD ["/app/server"]
 and this code (golang):
 
 * `server.go`:
+
 ```
 package main
 
