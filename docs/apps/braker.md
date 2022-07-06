@@ -28,7 +28,7 @@ You can start interative batch job with command:
 ```text
 sinteractive -i
 ```
-BRAKER can utilize several computing cores and can require signicant amount of memory so you sould reserve
+BRAKER can utilize several computing cores and can require signicant amount of memory so you should reserve
 more than the default resources for your interactive batch job. For example 4 cores and 32 GB of memory. 
 
 In batch job, you can initialize BRAKER environment with command
