@@ -19,7 +19,7 @@ template: main-index.html
     * Or use the search functionality
 
 
-<h1 id="quicklinktitle"> Quick links </h1>
+<h2 id="quicklinktitle"> Quick links </h2>
 <span class="index-quicklinks">
 [Puhti and Mahti Overview](computing/overview.md) 
 </span><br>
@@ -45,6 +45,6 @@ template: main-index.html
 [Sensitive Data services User Guide](data/sensitive-data/index.md) 
 </span>
 
-# What's new
+## What's new
 
 <!-- Content will be generated here, do not EDIT manually -->  
