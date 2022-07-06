@@ -1,18 +1,10 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/sidecar_proxy_authentication/)
-
 # Reverse proxy authentication using a sidecar container
 
 A container is called a sidecar when: it is located in the same Pod than other "main" container, and it provides a functionality to that other container. When containers are in the same `Pod`, they share the same network, always reside in the same node, and are created and destroyed at the same time.
 
 One of the uses for this design pattern is to have a reverse proxy that will handle authentication. The idea is that we will have a Flask application running in a container in a Pod. In the same Pod, we will create a nginx container. This nginx server will connect to the Flask application using the internal Pod network and will implement authentication. In this case it will be a default username and password.
 
-![Sidecar](/cloud/rahti/tutorials/img/sidecar.drawio.svg)
+![Sidecar](../../rahti4/tutorials/img/sidecar.drawio.svg)
 
 ## Deployment
 
