@@ -1,14 +1,6 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/transfer_data_rahti/)
-
 # How to transfer data to Rahti?
 
-As discussed in the [available storage options](/cloud/rahti/storage/) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](/data/Allas/).
+As discussed in the [available storage options](/cloud/rahti4/storage/) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](/data/Allas/).
 
 ## to a Persistent Volume
 
@@ -23,7 +15,7 @@ using the rsync command from your OS. To ensure optimum performance, install rsy
 systems, use your package manager. In Windows, install cwRsync from https://www.itefix.net/cwrsync.
 ```
 
-First of all, it is required to [install oc](/cloud/rahti/usage/cli/).
+First of all, it is required to [install oc](/cloud/rahti4/usage/cli/).
 
 Once `oc` is installed, the process is:
 
