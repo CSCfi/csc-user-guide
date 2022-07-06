@@ -56,7 +56,7 @@ Sample BRAKER command in Puhti:
 ```
 ### Batch jobs
  
-Sanple batch job scrip for BRAKER:
+Sample batch job scrip for BRAKER:
 
 ```text
 #!/bin/bash
