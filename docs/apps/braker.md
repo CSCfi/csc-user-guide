@@ -30,7 +30,7 @@ In batch job, you can initialize BRAKER environment with command
 ```text
 module load braker
 ```
-After that you can launch a Braker job with command:
+After that you can launch a BRAKER job with command:
 
 ```text
 braker-puhti
