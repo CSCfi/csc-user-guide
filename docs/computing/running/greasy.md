@@ -1,4 +1,4 @@
-# How to run run large number of small jobs in Mahti and Puhti
+# Using Greasy metascheduler in Puhti
 
 In many cases, a computational analysis job contains a number of similar independent sub-tasks. 
 A user may have several datasets that are analyzed in the same way, or the same simulation code 
@@ -6,12 +6,7 @@ is executed with a number of different parameters. These kind of tasks are often
 farming or embarrassingly parallel jobs as the work can in principle be distributed to as many processors 
 as there are subtasks to run. 
 
-**In Mahti** these kind of task sets can be executed with the *GREASY* metascheduler 
-and `sbatch-greasy` automatic submission command. GREASY enables Mahti to be effectively used for non-MPI tasks, too. 
-However, the task set to be executed should be large enough so that it can utilize the full capacity of at least one Mahti node (128 cores).
-
-**In Puhti** GREASY can be used as an alternative for [array jobs](./array-jobs.md). GREASY is the recommended option in cases where 
-individual tasks are very short. Further, GREASY allows you to define dependencies between tasks, whics is not possible in array jobs.
+**In Puhti** GREASY can be used as an alternative for [array jobs](./array-jobs.md) for running embarrasingly parallel tasks. Greasy is especiallally useful in cases where you need to define dependencies between the tasks to be executed.
 
 GREASY was originally developed at BSC. At CSC we use the GREASY version that includes the extensions developed at CSCS. 
 For detailed documentation please check:
@@ -80,7 +75,7 @@ is launched, but you can add task specific execution directories to the task lis
 
 ## Executing a task list
 
-To use GREASY in Mahti or Puhti, load the GREASY module:
+To use GREASY in Puhti, load the GREASY module:
 ```text
 module load greasy
 ```
@@ -95,15 +90,15 @@ The parameters include:
    2. estimated average duration for one task (`-t`)
    3. number of nodes used to execute the tasks (`-N`)
    4. accounting project (`-A`).
-   5. estimated memory usage for one task (`-m`) (This parameter is not in use in Mahti).
+   5. estimated memory usage for one task (`-m`).
 
 Alternatively you can define part or all of these parameters in command line:
 ```text
 sbatch-greasy tasklist -c 1 -t 15:00 -N 1 -A project_2012345
 ```
-If the command above would be used in Mahti to launch that list of 200 tasks, discussed earlier,
-then GREASY would run these tasks 128 simultaneously in one node of Mahti. In this case the average
-duration of one task is estimated to be 15 min. Thus, GREASY would process all these tasks in about 30 min.
+If the command above would be used in Puhti to launch that list of 200 tasks, discussed earlier,
+then GREASY would run these tasks so that 40 taskas would be simultaneously running in one node of Puhti. 
+In this case the average duration of one task is estimated to be 15 min. Thus, GREASY would process all these tasks in about 75 min.
 If the tasks would be executed sequentially, i.e. one at a time with just one core, the processing would take 50h.
 
 
