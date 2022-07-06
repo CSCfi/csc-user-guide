@@ -23,7 +23,7 @@ In Puhti BRAKER should be used only in batch jobs. Either in normal batch jobs o
 
 ### Interactive usage
 
-You can start interative batch job with command:
+You can start interactive batch job with command:
 
 ```text
 sinteractive -i
