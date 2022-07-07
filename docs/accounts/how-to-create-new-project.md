@@ -38,7 +38,7 @@ LUMI services are free of charge for academic research for members of Finnish hi
 3. Scroll down to the end of the page and choose **Create a new project**.
 4. Fill in the **project name** and **description.**
 5. Select LUMI as the **project type**.
-6. Select LUMI **access mode** (Regular, Benchmark, or Development)
+6. Select LUMI **access mode** (Regular, Benchmark, Development or Helmi)
 7. Fill in the **resources**: CPU core hours, GPU hours, Storage hours, and all the **text fields** carefully below. If the data is incomplete or insufficient, the application will be rejected. For Regular Access applications, a list of prior publications and a proper research plan are required. For Benchmark Access, a plan of how the resources will be used for the benchmarks is required, and for Development Access a description of program codes, methods and development objectives is required.
 8. Select the **Field of Science**, and fill in the **Keywords**.
 9. Does your project handle personal data? Please note: **LUMI projects are not allowed to handle personal data at present**.
