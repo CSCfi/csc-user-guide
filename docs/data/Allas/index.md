@@ -32,6 +32,3 @@ This Allas object storage service user guide consists of following parts:
 * [Tools for client side encryption for Allas](./allas_encryption.md)
 * [Using Allas from LUMI supercomputer](./allas_lumi.md)
 * [Accessing HPC-archive data in Allas](./hpc-archive.md)
-* [What changed when Allas replaced cPouta object storage in 2019 ?](./allas_cpouta_change.md) 
-
-

@@ -15,8 +15,6 @@ filesystem](lustre.md) used in these directories is available.
 | **projappl** |  Project  | Not available        | <small>`/projappl/<project>`</small>            | No                        | No            |
 | **scratch**  |  Project  | Not available        | <small>`/scratch/<project>`</small>             | Not yet - will be 90 days | No            |
 
-
-
 These disk areas have quotas for both the amount of data and total number of files:
 
 |              | Capacity | Number of files      |
@@ -67,13 +65,13 @@ It is not intended for running applications, so please run them in _scratch_ ins
 
 ## Using Scratch and ProjAppl directories
 
-
 An overview of your directories in a supercomputer you are currently
 logged on can be displayed with:
 
 ```text
 csc-workspaces 
 ```
+
 The above command displays all _scratch_ and _projappl_ directories you have access to.
 
 For example, if you are member in two projects, with unix groups _project_2012345_
@@ -98,9 +96,11 @@ Project scratch
 </pre>
 
 Moving to the scratch directory of project_2012345:
+
 ```text
 cd /scratch/project_2012345
 ```
+
 Please note that not all CSC projects have Puhti/Mahti access, so you may not
 necessarily find a _scratch_ or _projappl_ directory for all your CSC projects.
 
@@ -113,6 +113,7 @@ the _chmod_ command.
 
 Setting read-only permissions for your group members for the directory
 *my_directory*:
+
 ```text
 chmod -R g-w my_directory
 ```
@@ -134,14 +135,15 @@ _rsync_ command. For example, in order to copy *my_results* (which can be
 either file or directory) from
 Puhti to the directory */scratch/project_2002291* in Mahti, one can
 issue in Puhti the command: 
+
 ```bash
 rsync -azP my_results yourcscusername@mahti.csc.fi:/scratch/project_2002291
 ```
+
 See [Using rsync](../data/moving/rsync.md) for more detailed instructions
 for *rsync*.
 
 ## Increasing Quotas
-
 
 You can use **MyCSC portal** to [manage quotas of the _scratch_ and _projappl_ directories](../accounts/how-to-increase-disk-quotas.md).
 
@@ -156,14 +158,16 @@ data work flow, if it requires that tens of millions
 of files are stored to the _scratch_ area.
 
 ## Temporary local disk areas
-    
-The disk area that is suitable for the temporary files that are only visible within
-the login or compute node depends on the type of the node. If the application depends
+
+If the application depends
 on the use of temporary files, the suitability of the filesystem may have a large effect
 on the performance of the application, see section "Mind your I/O - it can make a big
 difference" in the [Performance Checklist](running/performance-checklist.md). Please note that
 some applications use temporary files "behind the scenes." Usually these applications
 read some environment variable that points to a suitable disk area, such as `$TMPDIR`.
+
+Some nodes have local disks that can be used to speed up your work when the temporary files 
+are only needed within a single login or compute node.
 
 ### Login nodes
 
@@ -180,9 +184,9 @@ archive files.
 
 ### Compute nodes with local SSD (nvme) disks
 
-Interactive batch jobs as well as jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request (max. 3600 GB).
+Jobs running in the IO- and gpu-nodes in Puhti and gpu-nodes in Mahti have local fast storage available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md) this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request. Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti.md) for a detailed list of all node types. In normal compute nodes there are 1490 GiB and 3600 GiB disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU nodes there are 3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too long it is a good idea to only reserve what you actually need.
 
-These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas. 
+These local disk areas are designed to support I/O intensive computing tasks and cases where you need to process large amounts (over 100 000 files) of small files. These directories are cleaned once the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want to preserve from these temporary disk areas to _scratch_ directory or to Allas.
 
 For more information see: [creating job scripts](running/creating-job-scripts-puhti.md#local-storage). 
 
