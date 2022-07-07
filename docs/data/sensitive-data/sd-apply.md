@@ -10,7 +10,7 @@ The following is a step-by-step guide to SD Apply that illustrates:
 
 ## Data access for Data Applicant
 ### Step 1: Login
-Login to SD Apply is possible with either user identity federation systems (Haka, Virtu and Elixir login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
+Login to SD Apply is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
 
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
@@ -56,7 +56,7 @@ You can follow the approval process and read the possible comments from the Appl
 
 - **Rejected**. To see why your application was rejected, navigate the application and select View. Data Access Committee comments will be shown in the Events section.
 
-- **Returned**. If the data owner needs additional information regarding your application, they can return your application to you. To edit the application, follow the link in the email or log in to SD Apply, navigate to the application, and select View. You can see the comments of the Data Access Committee in the Events section. Then, make the changes and select Send application.
+- **Returned**. If the data owner needs additional information regarding your application, they can return your application to you. To edit the application, follow the link in the email or log in to SD Apply, navigate to the application, and select *View*. You can see the comments of the Data Access Committee in the Events section. Then, make the changes and select *Send application*.
 
 - **Revoked**. Your Application, and thus your access rights, have been revoked by the Data Access Committee.
 
@@ -69,17 +69,17 @@ Once your Application has been approved, you will receive a notification and fur
     If you are a new CSC user, please check these instructions on CSC [accounts](https://docs.csc.fi/accounts/). Check also the [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
 
 ### Step 6: Export your results
-Once your analysis is completed, you can export the results from the computing environment. After that, data access will be revoked. To get access to the same dataset, you need to start a new application process.
+Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
 
 ## Data approval for Data Access Committee (DAC)
-Data Access Committee (DAC) is responsible for processing the data access applications and managing access rights to different datasets. In practice, DAC can approve or reject applications and revoke access rights in case of misuse.
+The Data Access Committee (DAC) is responsible for processing the data access applications and managing access rights to different datasets. In practice, the DAC can approve or reject applications and revoke access rights in case of misuse.
 
-Data Access Committee has been established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process.
+The Data Access Committee has been established during the data submission process and all the communication between the DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process.
 
 ### Step 1: Login
 As a DAC member, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
 
-To start processing applications, follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/>. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and Elixir login) or with CSC login. Use the identity provider your organisation/institution recommends.
+To start processing applications, follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/>. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Use the identity provider your organisation/institution recommends.
 
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
@@ -101,12 +101,12 @@ Depending on the practices of your organisation, it might be necessary to reques
 The requested user will receive an email notification about a review or a decision request. You can still approve or reject the application even if the requested user has not reviewed the application. You will receive an email after a decision or a review has been made. See “Email notifications” if you want to know when you will receive notifications.
 
 #### Return the application to the applicant
-If the application is missing some information, you can return it to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select Return to applicant application under Actions to return the application.
+If the application is missing some information, you can return it to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select *Return to applicant* under Actions to return the application.
 
 The applicant will receive an email notification about a returned application. They can resubmit the application after editing it. Resubmitted applications will show up in Actions tab. The changes the applicant has made will show as highlighted on the application form.
 
 #### Close the application
-You can close the application at any stage of the process by selecting Close application. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
+You can close the application at any stage of the process by selecting *Close application*. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
 
 We recommend closing the application, if it is somehow inappropriate. Deleting applications is not possible because we want to always provide a full history of the application process. You can find closed applications in Actions tab under Processed applications.
 
@@ -116,7 +116,7 @@ You can also edit applications by the following ways:
 
 - **Change the licenses**. The applicant will receive an email notification about the change in terms of use and has to accept the new licenses before they will be granted access rights.
 
-- **Add or remove members**. If you do not want to grant access to all the members in the application, you can remove additional members. Adding members is also possible.
+- **Add or remove members**. If you do not want to grant access to all members in the application, you can remove additional members. Adding members is also possible.
 
 - **Change the applicant**. You can change the applicant to another member of the application. This can be useful if, for example, the original applicant has left the applying organisation.
 
@@ -154,3 +154,17 @@ You will be notified when another handler has:
 - revoked the access rights of the applicant.
 
 You will also receive notifications when an applicant has submitted or resubmitted an application.
+
+### Best practices
+- Aim to respond to all initial requests within two weeks.
+
+- Check that the user will be using the data within terms of consent, by asking them to sign up to the terms within the DAA.
+
+- Check for an Institutional email address for the applicant.
+
+- Look for evidence of the applicant being “appropriately qualified/bona fide” for use of the data e.g. PubMed search, Research Gate, LinkedIn etc.
+
+- Check the affiliated organisation is real and that they are still working there.
+
+- In the event that a negative decision is made we would expect that this decision be promptly communicated to the applicant and supported by the terms of the Data Access Policy that the requestor has not or cannot meet
+
