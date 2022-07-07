@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/docker_hub_login/)
-
 # How to add docker hub credentials to a project
 
 Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a
@@ -23,20 +15,17 @@ The solution involves using both the Web UI and the client:
 * First, you need a docker hub account. It can be a free account. In this case you will still have rate limits, but only the pulls you have done using your credential will be taken into account for the rate limit. Paid accounts have no limit.
     * You will need a TOKEN, go to <https://hub.docker.com/settings/security> and create a token. You will be able to see when the token was last used. Also you can create several tokens, and use them in different projects, increasing security.
 
-* Secondly, navigate to the Web UI and open your project. On the left navigation, select **Resources -> Secrets**.
+* Secondly, navigate to the Web UI and select developer view. On the left navigation, select **Secrets**.
 
-* On upper right, select "Create Secret" button, and on the secret creation dialogue, set:
-    * Secret Type = "Image Secret"
-    * Secret Name = give it a clear name, this will be used later
-    * Authentication Type = "Image Registry Credentials"
-    * Image Registry Server Address = "docker.io"
+* On upper right, click "Create" menu, and select "Image pull secret". Set the following values:
+    * Secret name = give it a clear name, this will be used later
+    * Authentication type = "Image Registry Credentials"
+    * Registry server address = "docker.io"
     * Username = your docker user name
     * Password = your docker **token**
     * Email = your docker email
 
-**Note**: Leave "Link secret to a service account." empty, we'll do this on command line.
-
-![create secret](/cloud/rahti/img/create_docker_hub_secret.png)
+![create secret](/cloud/rahti4/img/create_docker_hub_secret.png)
 
 * Verify values are correct and select "Create".
 
