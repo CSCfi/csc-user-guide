@@ -192,7 +192,6 @@ Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit 
 	#SBATCH --ntasks=1              # One task (process)
 	#SBATCH --cpus-per-task=128     # Number of cores (threads)
 	#SBATCH --time=00:10:00         # Run time (hh:mm:ss)
-	#SBATCH --mail-type=all         # Send email at begin and end of job
 	#SBATCH --account=project_<id>  # Project for billing
 	 
 	activate-XXX # activate-qiskit, activate-cirq, activate-qasm
