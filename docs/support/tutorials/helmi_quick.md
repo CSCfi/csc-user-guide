@@ -50,7 +50,7 @@ you need to generate an SSH key pair.
     ```
 
     You will be prompted for a file name and location where to save the
-    key. Accept the defaults by pressing ++enter++. Alternatively, you can 
+    key. Accept the defaults by pressing **enter**. Alternatively, you can 
     choose a custom name and location. For example 
     `/home/username/.ssh/id_rsa_lumi`.
 
