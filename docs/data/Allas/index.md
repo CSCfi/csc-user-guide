@@ -31,4 +31,3 @@ This Allas object storage service user guide consists of following parts:
 * [Using Allas to transport sensitive data](../sensitive-data/sequencing_center_tutorial.md)
 * [Tools for client side encryption for Allas](./allas_encryption.md)
 * [Using Allas from LUMI supercomputer](./allas_lumi.md)
-* [Accessing HPC-archive data in Allas](./hpc-archive.md)
