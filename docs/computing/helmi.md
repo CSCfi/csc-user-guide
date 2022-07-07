@@ -7,7 +7,12 @@ Helmi is a 5 qubit Quantum Computer manufactured by IQM. The qubits are laid out
 !["Helmi's node mapping"](../img/helmi_mapping.png)
 
 
-## Acessing Helmi via LUMI
+## Further Reading
+
+* [Specific instructions for the LUMI Helmi partition](../../accounts/helmi/)
+* [Getting started with Helmi](../../support/tutorials/helmi_quick/)
+
+<!-- ## Acessing Helmi via LUMI
 
 
 
@@ -15,7 +20,7 @@ Helmi is a 5 qubit Quantum Computer manufactured by IQM. The qubits are laid out
 The Helmi software stack provides some useful tools in mapping programs to this specific topology. [For more details see "Running on Helmi"](../running/running-on-helmi/).  
 
 
-
+ -->
 
 
 

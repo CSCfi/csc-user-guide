@@ -13,10 +13,13 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from
 
 As access to Helmi during the Pilot Phase is limited it is recommended that you prepare the codes and algorithms you intend to run on Helmi before your project gains access to the LUMI-Helmi partition. To help with this process CSC currently offers Quantum Simulators and test environments through Kvasi and Mahti.
 
-* [Kvasi](../../computing/kvasi) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)
+* [Kvasi](../../computing/kvasi/) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)
 	* Kvasi runs myQLM which provides interoperability with Qiskit, OpenQASM and Cirq. 
 
-* [Mahti](../../computing/systems-mahti) through `module load qiskit` and loading of the IQM Qiskit environment.
+* [Mahti](../../computing/systems-mahti/) through `module load qiskit` and loading of the IQM Qiskit environment through creation of your own python environment.
+	* `python -m venv .python_envs/qiskit-iqm`
+	* `. /.python_envs/qiskit-iqm/bin/activate`
+	* `pip install qiskit-iqm`
 	* You will need a separate project with Mahti access. 
 
 

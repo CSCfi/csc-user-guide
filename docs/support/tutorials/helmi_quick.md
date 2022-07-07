@@ -16,7 +16,7 @@ Helmi is accessed through the LUMI login nodes as a LUMI project, therefore you 
 	* **Select "Helmi" from the LUMI access mode**
 
 
-* [Specific instructions for the LUMI Helmi partition](../../../accounts/helmi)
+* [Specific instructions for the LUMI Helmi partition](../../../accounts/helmi/)
 
 
 ## Connecting to LUMI
@@ -179,7 +179,7 @@ Once you added this line to your SSH configuration file, you can connect using t
 
 ## Running jobs
 
-Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in their batch scripts. 
+Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
 
 Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebook is **not** currently supported on LUMI.
 
@@ -190,13 +190,17 @@ Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit 
 	#SBATCH --error=helmijob.e%j  # Name of stderr error file
 	#SBATCH --partition=q_fiqci   # Partition (queue) name
 	#SBATCH --ntasks=1              # One task (process)
-	#SBATCH --cpus-per-task=128     # Number of cores (threads)
-	#SBATCH --time=00:10:00         # Run time (hh:mm:ss)
+	#SBATCH --cpus-per-task=1     # Number of cores (threads)
+	#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
 	#SBATCH --account=project_<id>  # Project for billing
 	 
 	activate-XXX # activate-qiskit, activate-cirq, activate-qasm
 	 
 	python your_python_script.py
+
+The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun` 
+
+    srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
 
 
 <!-- Each user will need to know:
@@ -205,6 +209,9 @@ Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit 
 	- Python backend preamble to set the backend as Helmi
 	- Basis gates and Qubit Mapping for Helmi
 	- Printing results such that results are returned to LUMI (TBD) -->
+
+
+In order to efficiently use Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../../../computing/helmi/) and the examples below show how this topology is utilised to improve results. 
 
 ### Qiskit
 
@@ -231,7 +238,9 @@ Circuits can also be submitted via the OpenQASM format. Note that Qiskit and Cir
 
 * Qiskit circuits can be exported via `qc.qasm(formatted=False, filename=None, encoding=None)`. 
 
+### Circuit Examples
 
+Examples of circuits can be found here [**Insert link**] showing the differences between simulators and Helmi and how to construct your circuits for optimum results. 
 
 ## Storage
 

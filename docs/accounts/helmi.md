@@ -13,9 +13,9 @@ When applying for a new project in MyCSC for the Helmi partition, under "Select 
 
 !!! failure "Pilot Phase"
 	During the pilot phase, approved projects will **only** get 24 hours of access to the LUMI Partition.
-	[More details about the Pilot Phase](../lumi-helmi-pilot-phase). 
+	[More details about the Pilot Phase](../lumi-helmi-pilot-phase/). 
 
-* [Creating a new project in MyCSC](../how-to-create-new-project)
+* [Creating a new project in MyCSC](../how-to-create-new-project/)
 * [How to create Finnish LUMI projects](../how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 
 
@@ -46,7 +46,7 @@ There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fi
 | largemem | 1 day        |  30 (20 running)  | 1 nodes            |
 
 
-LUMI Helmi users can also apply to have [access to Kvasi](../../computing/kvasi/) the Quantum Learning Machine and [access to Mahti](../../computing/systems-mahti) as a separate project to use as a simulation and testing environment. 
+LUMI Helmi users can also apply to have [access to Kvasi](../../computing/kvasi/) the Quantum Learning Machine and [access to Mahti](../../computing/systems-mahti/) as a separate project to use as a simulation and testing environment. 
 
 ## Storage areas
 
