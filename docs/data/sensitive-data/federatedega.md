@@ -5,7 +5,7 @@ Federated European Genome-phenome Archive (FEGA) is a service for storing and sh
 You can use FEGA either to submit or apply access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research. 
 
 !!! note
-    For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research).
+    For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
 
 The following is a step-by-step guide to Finnish FEGA that illustrates:
 
@@ -40,17 +40,17 @@ To begin the submission process, please fill in the [application form](https://d
 Each user must provide a series of legal agreements to confirm that they have the authority and permission to deposit data in FEGA. Download the necessary documentation below and share the agreements concerning the data controller with the legal service of your home organisation. Please note that your organisation may already have some required agreements in place with CSC. We will provide support if additional agreements are needed. Send the finalised documents via email to servicedesk@csc.fi by replying to the previous email of the CSC helpdesk. 
 
 !!! note
-    The required legal documents state the roles of a data processor and a data controller, which are defined in the General Data Protection Regulation (GDPR). CSC acts always as a data processor. In most research projects, the data controller is an academic organisation or other legal entity. 
+    The required legal documents state the roles of a data processor and a data controller, which are defined in the General Data Protection Regulation (GDPR). CSC acts always as a data processor. In most research projects, the data controller is an academic organisation or other legal entity. The ownership of the data does not change by using this service.
 
 Here’s a list of the required documents:
 
-- **[Data Processing Agreement](https://research.csc.fi/data-processing-agreement)** (DPA). A data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the rights and duties between the controller and the processor. 
+- **[Data Processing Agreement](https://research.csc.fi/data-processing-agreement)** (DPA). A data processing agreement (DPA) is a contract between the data controller and the data processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the rights and duties between the controller and the processor. 
 
 - **[CSC General terms of use](https://research.csc.fi/general-terms-of-use)**.
 
 - **[Description of the data processing activities](https://docs.csc.fi/data/sensitive-data/data-processing-form.docx)**.
 
-- **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download here <br/><br/>
+- **Data Protection Impact Assessment (DPIA)**. In case you need to draft a DPIA, you can find the technical and organisational security measures for the protection of sensitive data in CSC Sensitive Data Services available for download [here](https://docs.csc.fi/data/sensitive-data/technical-organisational-sec-measures.pdf).<br/><br/>
 
 - **Data Access Agreement (DAA)**. In addition to the legal documents concerning the data controller, you should provide a DAA which is a contract between the Data Access Committee ([DAC](https://ega-archive.org/submission/data_access_committee)) and an applicant. The DAA includes all the policies regulating data re-use (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset in the central EGA submitter portal and in SD Apply. Your academic organisation might provide a template for the DAA or give you information and assistance. In specific cases, the document needs to be drafted by a legal representative. For more info and examples, check [DAC and policy documentation](https://ega-archive.org/submission/dac/documentation) and [Data Use Conditions](https://ega-archive.org/data-use-conditions) on EGA webpage. 
 
@@ -70,7 +70,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
     
 **Sensitive Data**:
 
-- **sequence data**: CRAM, BAM, FASTq, VCF formats
+- **sequence data**: CRAM, BAM, FASTQ, VCF formats
 
 - **array data**: Data from all types of array-based technologies, such as genotypes, gene expression, methylations etc. is accepted. Central EGA also recommends submitting raw data (IDATs, CELs, final reports) and any analysis files.
 
@@ -78,11 +78,11 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 
 - **phenotypic information**: No specific format. Where possible, we recommend using the Experimental Factor Ontologies. To search for the correct ontology terms and to describe your phenotypic data, check the [Ontology Lookup Service (OLS)](https://www.ebi.ac.uk/ols/ontologies/efo) developed by EMBL-EBI.
 
-- **linking files**: If non-sensitive datasets belonging to the same study have been submitted to a specific repository, the samples can be linked to sensitive information submitted to Federated EGA for the same sample. The datasets should have different anonymised sample IDs in each archive. The IDs obtained in the appropriate archive can then be referenced in the FEGA submission. For example, the sample ID can be linked in an additional .txt file that can be added to one of the sensitive datasets above.
+- **linking files**: If non-sensitive datasets belonging to the same study have been submitted to a specific repository, the samples can be linked to sensitive information submitted to FEGA for the same sample. The datasets should have different anonymised sample IDs in each archive. The IDs obtained in the appropriate archive can then be referenced in the FEGA submission. For example, the sample ID can be linked in an additional .txt file that can be added to one of the sensitive datasets above.
 
 **Non-sensitive data**:
 
-Non-sensitive data (or open data) needs to be submitted in appropriate archives. For example, sequences to the ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variants to EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), array-based to [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), phenotypes to [Biosamples BioSamples](https://www.ebi.ac.uk/biosamples/) and GWAS summary statistics to the [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
+Non-sensitive data (or open data) needs to be submitted in appropriate archives. For example, sequences to the ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variants to EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), array-based to [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), phenotypes to [BioSamples](https://www.ebi.ac.uk/biosamples/) and GWAS summary statistics to the [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
 
 !!! note
     For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at servicedesk@csc.fi (subject: Federated EGA).
@@ -122,7 +122,7 @@ or
 #### Command line interface
 **Data encryption with crypt4gh CLI**:
 
-1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help installing Python, please follow these instructions.
+1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help with installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
 
 2.	Open a terminal and install Crypt4GH directly with pip tool:
 ```
@@ -135,7 +135,7 @@ pip install crypt4gh
 $ crypt4gh encrypt  --recipient_pk finnishfega.pub < example_file.txt > example_file.txt.c4gh
 ```
 
-Where the syntax: --recipient_pk defines the public key used to encrypt the data. In this case, Finnish FEGA public key - example_file.txt.c4gh defines the input file and output encrypted file. 
+Where the syntax *--recipient_pk* defines the public key used to encrypt the data. In this case, Finnish FEGA public key *example_file.txt.c4gh* defines the input file and output encrypted file. 
 
 **Data upload with sfpt CLI (default in Linux and Mac OS)**:
 
@@ -175,9 +175,9 @@ After data release, each of these objects will be assigned with a permanent iden
 
 !!! note
     
-    - Study, samples, DAC, and Policy metadata can all be registered before uploading files, while run and analysis objects cannot be registered until at least 24 hours after the files have been uploaded to the Finnish FEGA.
+    - Study, samples, DAC, and Policy metadata can all be registered before uploading files, while run and analysis objects cannot be registered until at least 24 hours after the files have been uploaded to Finnish FEGA.
     
-    - If you are performing Array-based submission(s), the Submitter Portal should only be used to register the Study, Samples, Data Access Committee (DAC), and Policy metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
+    - If you are performing array-based submission(s), the submitter portal should only be used to register the Study, Samples, Data Access Committee (DAC), and Policy metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
 
 #### Dataset application link
 After uploading the data to Finnish FEGA, you will receive a dataset application link for each dataset via email from the CSC helpdesk. The dataset application links must be added to each metadata submission in EGA submitter portal. In order to add the dataset application link to the submission, you must register a new Policy metadata object for each dataset. Create a policy and select the checkbox “The policy has an url.” under the Policy field. Write the dataset application link in the popping up “Policy URL” textbox.
@@ -190,7 +190,7 @@ To finalise your submission, write to servicedesk@csc.fi to confirm that the sub
 
 - Name of the submission (as on the submitter portal)
 
-- Dataset Accession number (EGAD)
+- Study Accession number (EGAS)
 
 - Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on EGA webpage. 
 
@@ -198,20 +198,20 @@ CSC helpdesk and central EGA helpdesk will work together to complete the release
 
 ## Data access application
 ### For Data Applicants
-1. To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
+1. To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply and the application process, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
 2. In the application form, you can accept the Data Access Agreement, specify the purpose of your request and add your research plan. The Data Access Committee will evaluate your application, accepting or denying data access.
 
-3. Once the application is approved, you will receive a confirmation email. You can access the data in SD Desktop, a private workspace part of CSC Sensitive Data Services. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). 
+3. Once the application is approved, you will receive a confirmation email. You can access the data in SD Desktop, a private workspace part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). 
 
-4. Login to SD Desktop is possible using CSC login, HAKA or ELIXIR login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
+4. Login to SD Desktop is possible using CSC account, HAKA or ELIXIR login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
 
 5. Once you have accessed the computing environment, you can open the terminal (right-click). As SD Desktop complies with high-security measures, it is not possible to use the copy-paste function to bring commands to the computing environment. Input the following command:
 ```
 go-fuse -enable SD-Submit
 ```
 
-6. Next, open the Project folder that will appear on the Desktop. Open the SD Apply folder: the dataset will be available in the subfolder called Project NNNN.
+6. Next, open the Project folder that will appear on the Desktop. Open the SD Apply folder. The dataset will be available in the subfolder called Project NNNN.
 
 ### For Data Access Committee (DAC)
 Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
