@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/networking/)
-
 # Networking
 
 ## Ipv4
@@ -14,7 +6,7 @@ All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs
 
 ## Namespaces
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](/cloud/rahti/concepts/#pod), [Services](/cloud/rahti/concepts/#service) and [Routes](/cloud/rahti/concepts/#route).
+Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](../concepts/#pod), [Services](../concepts/#service) and [Routes](../concepts/#route).
 
 ![Rahti Networking](img/rahti-network.drawio.svg)
 
@@ -36,7 +28,7 @@ Services are built to export one or more ports, and they also provide an interna
 
 In the same manner than Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Another feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
 
-Services are used to both internal and external connections. For example, if we have one or more MongoDB database replicas of the same pod running in the `fenic` namespace, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL <mongo:27017> to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
+Services can be used for internal connections. For example, if we have one or more MongoDB database replicas running in the `fenic` namespace, each in a different pod, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL `<mongo:27017` to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
 
 ![nginx and Mongo](img/mongo-nginx-app.drawio.svg)
 
@@ -50,33 +42,19 @@ Services are used to both internal and external connections. For example, if we 
 
 ![Route Options](img/route-modes.drawio.svg)
 
-A Route can also be configured to provide a HTTP/302 redirection from port `80` to `443`. It is also possible to serve the same content in both ports, or to not serve anything at all in the un secure `80` port.
+A Route can also be configured to (1) provide a HTTP/302 redirection from port `80` to `443`. It is also possible to (2) serve the same content in both ports, or to (3) not serve anything at all in the un secure `80` port.
 
 An important limitation for Rahti is that **only the HTTP/80 and HTTPS/443 ports are exposed for incoming traffic**, and they only can serve **HTTPD protocol requests**. Internally to a namespace, any port and protocol is supported, this means we can connect an application to a database with no issues, but we will never be able to expose that database to outside traffic. This is due to the fact that the same incoming virtual IP is shared with all the incoming traffic in Rahti's HAProxy load balancers. [Name-based virtual hosts](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) are used to redirect the traffic to the correct Route. Other protocols that are not HTTPD, do not have this feature and will need a dedicated IP/port pair to work.
 
-Rahti provides a range of pre-created domain names, `XXXX.rahtiapp.fi` where `XXXX` can be any combination of letters, numbers and dashes. These pre-created domain names also come with a valid TLS certificate.
+Rahti provides a range of pre-created domain names, `XXXX.2.rahtiapp.fi` where `XXXX` can be any combination of letters, numbers and dashes. These pre-created domain names also come with a valid TLS certificate.
 
-```bash
-$ dig hola.rahtiapp.fi CNAME | grep 'ANSWER SECTION' -A 1
-;; ANSWER SECTION:
-hola.rahtiapp.fi.	113	IN	CNAME	rahtiapp.fi.
+Every single pre-created domain name is configured to point to the HAProxy load balancers.
 
-$ dig moi.rahtiapp.fi CNAME | grep 'ANSWER SECTION' -A 1
-;; ANSWER SECTION:
-moi.rahtiapp.fi.	96	IN	CNAME	rahtiapp.fi.
+Any other domain name is possible, but the DNS and the certificates must be managed by the customer:
 
-$ dig rahtiapp.fi A |  grep 'ANSWER SECTION' -A 1
-;; ANSWER SECTION:
-rahtiapp.fi.		328	IN	A	193.167.189.101
-```
+* For the DNS, a `CNAME` pointing to `2.rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
 
-Every single pre-created domain name is configured as a `CNAME` that points to `rahtiapp..fi`, which itself points to one of the HAProxy load balancers.
-
-Any other domain name is possible, but the DNS and the certificates must be managed by the customer.
-
-* For the DNS, a `CNAME` pointing to `rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `rahtiapp.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
-
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](/cloud/rahti/tutorials/custom-domain/#lets-encrypt).
+* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain/#lets-encrypt).
 
 Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges.
 
@@ -100,4 +78,4 @@ oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166
 
 ## Egress IPs
 
-The IP for all outgoing customer traffic is `193.167.189.25`. Any pod that runs in Rahti will use by default this IP to reach anything located outside Rahti or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
+The IP for all outgoing customer traffic is `128.214.255.177`. Any pod that runs in Rahti will use by default this IP to reach anything located outside Rahti or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
