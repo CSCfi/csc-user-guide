@@ -9,6 +9,8 @@ The following is a step-by-step guide to SD Apply that illustrates:
 - **[Data approval for Data Access Committee (DAC)](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/sd-apply.md#data-approval-for-data-access-committee-dac)**
 
 ## Data access for Data Applicant
+### Application process overview
+
 ### Step 1: Login
 Login to SD Apply is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
 
