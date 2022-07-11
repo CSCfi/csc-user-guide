@@ -28,20 +28,19 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 ## Data access application
 ### For Data Applicants
+
 1. To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply and the application process, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
-2. In the application form, you can accept the Data Access Agreement, specify the purpose of your request and add your research plan. The Data Access Committee will evaluate your application, accepting or denying data access.
+2. Log in to SD Apply either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Follow the instructions on the application form and fill in the required fields (Sate, Applicants, Resources, Terms of use and Application). To submit your application, select *Send application* under Actions. 
 
-3. Once the application is approved, you will receive a confirmation email. You can access the data in SD Desktop, a private workspace part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). 
+3. After you have sent the application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights. You can follow the approval process and read the possible comments from the Application events section. In addition, you can find all your applications and see their state from the Applications tab.
 
-4. Login to SD Desktop is possible using CSC account, HAKA or ELIXIR login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
+5. Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/). Login to SD Desktop is possible using CSC account, HAKA or ELIXIR login. Use the same user account you have used for SD Apply login. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/). 
 
-5. Once you have accessed the computing environment, you can open the terminal (right-click). As SD Desktop complies with high-security measures, it is not possible to use the copy-paste function to bring commands to the computing environment. Input the following command:
-```
-go-fuse -enable SD-Submit
-```
+6. Once you sign in to your virtual Desktop, you can access the data using Data Gateway application. Open the application on your Desktop and select SD Apply. Add your CSC credentials. Click on *Login* and next click on *Continue*. In the new window, at the end of the page, click on *Create Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically. Next, click on *Open folder*.
 
-6. Next, open the Project folder that will appear on the Desktop. Open the SD Apply folder. The dataset will be available in the subfolder called Project NNNN.
+7. Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
+ 
 
 ### For Data Access Committee (DAC)
 Data Access Committee (DAC) has been established during the submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
