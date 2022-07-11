@@ -71,6 +71,24 @@ Once your application has been approved, you will receive a notification and fur
 !!! note
     If you are a new CSC user, please check these instructions on CSC [accounts](https://docs.csc.fi/accounts/). Check also the [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
 
+#### Access the data using Data Gateway
+
+Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
+
+- Open Data Gateway (you can find the application on your Desktop)
+
+- Select SD Apply
+
+- Add your CSC credentials 
+
+- Click on *Login* and next click on *Continue*
+
+- In the new window, at the end of the page, click on create *Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on Open folder.
+
+!!! note
+
+    The Projects folder is available only when the Data Gateway application is open. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
+
 ### Step 6: Export your results
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
 
