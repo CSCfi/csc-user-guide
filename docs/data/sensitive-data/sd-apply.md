@@ -13,7 +13,7 @@ The following is a step-by-step guide to SD Apply that illustrates:
 [![SD Apply application process overview](images/apply/apply_overview.png)](images/apply/apply_overview.png)
 
 ### Step 1: Login
-Login to SD Apply is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
+Log in to SD Apply is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
 
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
@@ -34,10 +34,10 @@ Follow the instructions on the application form and fill in the required fields:
 
 - **Application**. Access to a dataset is granted for a single, designated purpose only. Add the necessary information about your research: research/study name, research plan abstract, Data access start date and Data access end date.
 
-To submit your Application, select *Send application* under Actions. Unfortunately, editing or deleting the application is no more possible after sending the application. However, removing members is still possible. If you want to use the application as a template for a new application, select *Copy as new application*. Note that the attachments (e.g. research plan) of your old application will also be copied.
+To submit your application, select *Send application* under Actions. Unfortunately, editing or deleting the application is no more possible after sending the application. However, removing members is still possible. If you want to use the application as a template for a new application, select *Copy as new application*. Note that the attachments (e.g. research plan) of your old application will also be copied.
 
 ### Step 4: Wait for approval
-After you have sent the Application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights.
+After you have sent the application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights.
 
 During the approval process, the Data Access Committee can:
 
@@ -66,7 +66,7 @@ You can follow the approval process and read the possible comments from the Appl
 You will receive an email notification whenever the state of your application changes.
 
 ### Step 5: Set up your Desktop
-Once your Application has been approved, you will receive a notification and further instructions. You can now access the data in SD Desktop, a private cloud computing environment. When logging in to SD Desktop, use the same user account/identity provider (HAKA, VIRTU, CSC login, or ELXIR login) you have used for SD Apply log in. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. 
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. When logging in to SD Desktop, use the same user account/identity provider (HAKA, VIRTU, CSC login, or ELXIR login) you have used for SD Apply log in. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. 
 
 !!! note
     If you are a new CSC user, please check these instructions on CSC [accounts](https://docs.csc.fi/accounts/). Check also the [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
@@ -75,7 +75,7 @@ Once your Application has been approved, you will receive a notification and fur
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
 
 ## Data approval for Data Access Committee (DAC)
-The Data Access Committee (DAC) is responsible for processing the data access applications and managing access rights to different datasets. In practice, the DAC can approve or reject applications and revoke access rights in case of misuse.
+The Data Access Committee (DAC) is responsible for processing data access applications and managing access rights to different datasets. In practice, the DAC can approve or reject applications and revoke access rights in case of misuse.
 
 The Data Access Committee has been established during the data submission process and all the communication between the DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process.
 
