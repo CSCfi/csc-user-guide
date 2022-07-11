@@ -83,7 +83,7 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 4. Click on *Login* and next click on *Continue*
 
-5. In the new window, at the end of the page, click on create *Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on Open folder.
+5. In the new window, at the end of the page, click on *Create Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on Open folder.
 
 !!! note
 
