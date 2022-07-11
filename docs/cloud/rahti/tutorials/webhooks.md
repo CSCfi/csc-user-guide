@@ -1,8 +1,16 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/webhooks/)
+
 # Webhooks
 
 Webhooks are URLs that allow triggering actions in a system. Rahti supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered. There few types of formats supported: Generic, GitHub, GitLab and Bitbucket. This means that if the source code of the application is in Gitlab, the Gitlab URL type is the one that should be filled in in Gitlab's side.
 
-![Triggers](/cloud/rahti/img/trigger.drawio.svg)
+![Triggers](/cloud/rahti4/img/trigger.drawio.svg)
 
 First, it is necessary to find the secret, in the BuildConfig (in this case called `serveimg-generate`) look for the name of the secret reference:
 
