@@ -77,11 +77,11 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 1. Open Data Gateway. You can find the application on your Desktop.
 
-2. Select SD Apply
+2. Select SD Apply.
 
-3. Add your CSC credentials 
+3. Add your CSC credentials.
 
-4. Click on *Login* and next click on *Continue*
+4. Click on *Login* and next click on *Continue*.
 
 5. In the new window, at the end of the page, click on *Create Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on Open folder.
 
