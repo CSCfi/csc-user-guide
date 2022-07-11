@@ -75,15 +75,15 @@ Once your application has been approved, you will receive a notification and fur
 
 Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
 
-- Open Data Gateway (you can find the application on your Desktop)
+1. Open Data Gateway. You can find the application on your Desktop.
 
-- Select SD Apply
+2. Select SD Apply
 
-- Add your CSC credentials 
+3. Add your CSC credentials 
 
-- Click on *Login* and next click on *Continue*
+4. Click on *Login* and next click on *Continue*
 
-- In the new window, at the end of the page, click on create *Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on Open folder.
+5. In the new window, at the end of the page, click on create *Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on Open folder.
 
 !!! note
 
