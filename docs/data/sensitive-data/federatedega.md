@@ -28,6 +28,7 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 
 ## Data submission
 ### Submission process overview 
+[![FEGA submission process overview](images/fega/fega_overview.png)](images/fega/fega_overview.png)
 
 ### Step 1: Application form
 To begin the submission process, please fill in the [application form](https://docs.csc.fi/data/sensitive-data/fega-application.docx) with contact information, details about the type of data submission, and information about the data controller. Send the filled form via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
