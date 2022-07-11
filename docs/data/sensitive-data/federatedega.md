@@ -27,6 +27,8 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
 ## Data submission
+### Submission process overview 
+
 ### Step 1: Application form
 To begin the submission process, please fill in the [application form](https://docs.csc.fi/data/sensitive-data/fega-application.docx) with contact information, details about the type of data submission, and information about the data controller. Send the filled form via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
 
