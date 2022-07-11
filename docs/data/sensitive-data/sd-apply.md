@@ -73,7 +73,7 @@ Once your application has been approved, you will receive a notification and fur
 
 #### Access the data using Data Gateway
 
-Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
+Once you sign in to your virtual Desktop, you can access the data by following these steps:
 
 1. Open Data Gateway. You can find the application on your Desktop.
 
