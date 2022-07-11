@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/storage/ephemeral.md/)
-
 # Ephemeral Storage (EmptydDir)
 
 When local ephemeral (temporal) storage is needed, an `emptyDir` should be issued. It is local to the node, on Rahti this is RAID-0 SSD storage. It can be shared across several containers in the same Pod, and it the *fastest* filesystem available in Rahti, but it will be **lost when the Pod is killed or restarted**. It is declared directly in the Pod definition:

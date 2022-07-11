@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/images/creating.md/)
-
 # Creating images
 
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
@@ -100,10 +92,8 @@ Then you need a `Dockerfile`, you can use any of the previous `Dockerfile` in th
 oc start-build my-hello --from-dir=./ -F
 ```
 
-The image will appear in the Rahti registry console
-[registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
-and it will be visible to internet at
-`docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
+The image will be visible to internet at
+`image-registry.apps.rahti4-qa.csc.fi/<project-name>/my-hello-image` for docker
 compatible clients.
 
 For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
@@ -117,13 +107,13 @@ OpenShift allows to build and deploy code without writing a `Dockerfile`. This i
 
 ```bash
 $ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
---> Found image 4e4d991 (2 weeks old) in image stream "openshift/python" under tag "3.8" for "python"
+--> Found image c487d42 (2 weeks old) in image stream "openshift/python" under tag "3.9-ubi8" for "python"
 
-    Python 3.8 
+    Python 3.9 
     ---------- 
-    Python 3.8 available as container is a base platform for building and running various Python 3.8 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
+    Python 3.9 available as container is a base platform for building and running various Python 3.9 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
 
-    Tags: builder, python, python38, python-38, rh-python38
+    Tags: builder, python, python39, python-39, rh-python39
 
     * The source repository appears to match: python
     * A source build using source code from https://github.com/OpenShiftDemos/os-sample-python.git will be created

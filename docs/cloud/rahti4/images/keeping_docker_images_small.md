@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/images/keeping_docker_images_small.md/)
-
 # Keeping docker images small
 
 It is important to keep docker images small. The smaller the image is, the faster it will be pulled, speeding up deployments, both in production and development environments. In addition, bigger images get deleted from the nodes cache sooner. The maximum size for an image stored in Rahti's internal registry is 5GB. Images over 1GB are already considered very big images.
@@ -44,17 +36,18 @@ RUN apt update && \
 * Use multi stage builds (This feature was introduced in docker v17.05). The idea behind multi stage builds is to have several `FROM` commands in the same `Dockerfile`, each `FROM` starts a new stage in the build and does not carry the files from the previous stage, but allows copying files from the previous stages. The pattern used here is, to build the application in the first stage, and then in the second stage copy only the compiled application, leaving behind the sources and other compilation sub-products that we do not need to run the application. For example:
 
 ```Dockerfile
-FROM golang:1.7.3
+FROM golang:1.16 AS builder
 WORKDIR /go/src/github.com/alexellis/href-counter/
-RUN go get -d -v golang.org/x/net/html
-COPY app.go .
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go    ./
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
-FROM alpine:latest
+FROM alpine:latest  
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
-CMD ["./app"]
+COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./
+CMD ["./app"]  
+
 ```
 
 The example was taken from the [Use multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) article in Docker's documentation.
@@ -73,7 +66,7 @@ When creating an image, choosing the base image is an important task. There are 
 
 > Alpine Linux is a security-oriented, lightweight Linux distribution based on **musl libc** and **busybox**.
 
-Currently the base image for Alpine (`docker.io/alpine`) is only 5.61 MB. For comparison, the sizes of Ubuntu's and CentOS' base images are 72.9 MB and 209 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or CentOS.
+Currently the base image for Alpine (`docker.io/alpine`) is only 5.53 MB. For comparison, the sizes of Ubuntu's and CentOS' base images are 77.8 MB and 231 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or CentOS.
 
 ## Use `.dockerignore`
 

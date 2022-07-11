@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/template-docs.md/)
+
 # Rahti Templates
 
 Rahti supports templating service deployment code allowing its re-use. The
@@ -45,7 +53,7 @@ image. The application uses a persistent volume as a backend data storage. The
 volume size is provided as a template parameter for a newly created persistent
 volume. If an existing volume of the given name exists then a new one will not
 be created and Rahti will issue an error message but the Minio instance will
-still utilize the existing volume. Please follow 
+still utilize the existing volume. Please follow
 [Minio User Guide](https://docs.min.io/docs/minio-quickstart-guide.html)
 for usage of Minio object store. And for documentation about the template itself, please go to <https://github.com/CSCfi/Minio-OpenShift/>.
 
