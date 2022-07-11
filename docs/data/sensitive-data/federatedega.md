@@ -27,6 +27,8 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
 ## Data access application
+### Application process overview
+
 ### For Data Applicants
 
 1. To access a specific dataset hosted in Finnish FEGA, go to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC. For more information about SD Apply and the application process, check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
