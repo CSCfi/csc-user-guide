@@ -43,7 +43,8 @@ COMSOL (tick the box if you want to receive an email when your session starts).
 !!! Note
     You can now also enable [interactive visualization with GPU
     acceleration](../computing/webinterface/accelerated-visualization.md) for better
-    performance. In this case, select `Accelerated visualization` instead of `Desktop`.
+    performance. In this case, select `Accelerated visualization` instead of `Desktop`
+    in the Puhti web interface.
 
 Sometimes, you may encounter errors relating to OpenGL rendering during
 the launch. The solution is to force COMSOL to start with software
