@@ -23,6 +23,8 @@ Log in to SD Apply is possible with either user identity federation systems (Hak
 ### Step 2: Apply for access
 After login, you will access the SD Apply Catalogue page. On this page, you can search for a specific dataset and start the application process. Start a new application by clicking on *Add to cart* next to the name of the dataset. You can select multiple datasets, and they will all appear in your cart under the Catalogue title. By clicking on *Apply*, you will be redirected to the application form.
 
+[![SD Apply Catalogue page](images/apply/apply_catalogue.png)](images/apply/apply_catalogue.png)
+
 ### Step 3: Submit the application
 Follow the instructions on the application form and fill in the required fields:
 
