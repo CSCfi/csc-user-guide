@@ -1,5 +1,12 @@
 # Applications
 
+## PyTorch 1.12, 8.7.2022
+
+PyTorch 1.12.0 is now available in the `pytorch/1.12` module on Puhti
+and Mahti. See the [official PyTorch 1.12 release
+notes](https://pytorch.org/blog/pytorch-1.12-released/), and [CSC's
+PyTorch module documentation](../../apps/pytorch.md).
+
 ## CP2K modules on Mahti recompiled, 5.7.2022
 
 Due to an issue related to OpenBLAS, the CP2K modules on Mahti have been
