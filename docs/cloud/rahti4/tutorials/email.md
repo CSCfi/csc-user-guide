@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/email/)
-
 # Sending e-mail from Rahti
 
 The procedure is the same as for [sending an e-mail from cPouta](/cloud/pouta/additional-services/).
