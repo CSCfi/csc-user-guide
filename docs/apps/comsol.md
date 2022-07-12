@@ -15,7 +15,8 @@ the dependent variables.
 - Puhti: 5.4, 5.5, 5.6, 6.0
 
 ## License
-The terms of use of this software allow it to be used only by affiliates (staff and students) of Finnish higher education institutions.
+The terms of use of this software allow it to be used only by affiliates (staff
+and students) of Finnish higher education institutions.
 
 ## Usage
 
@@ -29,9 +30,20 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-The preferred method to use COMSOL interactively is via [the Puhti web interface desktop application](../computing/webinterface/desktop.md). In the web interface, select "Desktop" from the "Apps"-view and specify the required resources (cores, execution time and memory). Remember to add your billing project, too. 
+The preferred method to use COMSOL interactively is via [the Puhti web interface
+desktop application](../computing/webinterface/desktop.md). In the web interface,
+select `Desktop` from the `Apps` view and specify the required resources (cores,
+execution time and memory). Remember to add your billing project, too.
 
-To run the COMSOL GUI only, launch the session with the `Desktop > single application` and `App > COMSOL` settings. For the full desktop, select `mate` or `xfce`. Wait for a while as your interactive job sits in the queue and after that you can start COMSOL (tick the box if you want to receive an email when your session starts).
+To run the COMSOL GUI only, launch the session with the `Desktop > single application`
+and `App > COMSOL` settings. For the full desktop, select `mate` or `xfce`. Wait
+for a while as your interactive job sits in the queue and after that you can start
+COMSOL (tick the box if you want to receive an email when your session starts).
+
+!!! Note
+    You can now also enable [interactive visualization with GPU
+    acceleration](../computing/webinterface/accelerated-visualization.md) for better
+    performance. In this case, select `Accelerated visualization` instead of `Desktop`.
 
 Sometimes, you may encounter errors relating to OpenGL rendering during
 the launch. The solution is to force COMSOL to start with software
@@ -42,7 +54,8 @@ module load comsol
 comsol -3drend sw
 ```
 
-For this purpose, you need to launch a full desktop session without the "single application" setting and launch COMSOL through a host terminal.
+For this purpose, you need to launch a full desktop session without the `single
+application` setting and launch COMSOL through a host terminal.
 
 ## More information
 
