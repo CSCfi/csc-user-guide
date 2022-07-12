@@ -291,7 +291,7 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new [**ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
+* **DeploymentConfig** objects create new [**ReplicationControllers**](../tutorials/elemental_tutorial#replicationcontroller) based on the new images.
 * **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
