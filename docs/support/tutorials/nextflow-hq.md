@@ -66,8 +66,9 @@ nextflow run main.nf
 hq worker stop all
 hq server stop
 ```
-Where `main.nf` would be the nextflow script you want to run. 
-Note that scripts creates a per job directory and copies the nextflow script there before starting. 
+
+Where `main.nf` would be the nextflow script you want to run. Note that this batch script
+creates a per job directory and copies the nextflow script there before starting. 
 
 ```
 $ ls
@@ -79,8 +80,6 @@ example_jobscript.sh main.nf WRKDIR-137
 $ ls WRKDIR-137
 main.nf work
 ```
-
-
 
 ## More information
 
