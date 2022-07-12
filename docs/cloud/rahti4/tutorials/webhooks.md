@@ -20,7 +20,9 @@ Now you need to edit the build config (**Actions -> Edit BuildConfig**), and add
 
 ![Edit BuildConfig](img/editBuildConfig.png)
 
-When the `BuildConfig` is configured, you can get the URL via the webinterface. Using the `Developer` menu, go to the **Builds** page, and select the `BuildConfig`. In the `Webhooks` section, you will see "copy URL with Secret". Click on it, and the URL will be in your clipboard.
+When the `BuildConfig` is configured, you can get the URL via the webinterface. Using the `Developer` menu, go to the **Builds** page, and select the `BuildConfig`. In the `Webhooks` section, you will see "Copy URL with Secret". Click on it, and the URL will be in your clipboard.
+
+![Copy URL with Secret](img/webhooks.png)
 
 ## GitHub
 
