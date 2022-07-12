@@ -56,7 +56,7 @@ During the approval process, the Data Access Committee can:
 
 - add comments to your application.
 
-You can follow the approval process and read the possible comments from the Application events section. In addition, you can find all your applications and see their state from the Applications tab:
+You can follow the approval process and read the possible comments from the Events section of the application. In addition, you can find all your applications and see their state from the Applications tab:
 
 - **Draft**. Your application is still a draft and cannot be seen by the Data Access Committee. You can continue working on your application or delete it entirely from the system.
 
@@ -71,6 +71,8 @@ You can follow the approval process and read the possible comments from the Appl
 - **Revoked**. Your Application, and thus your access rights, have been revoked by the Data Access Committee.
 
 You will receive an email notification whenever the state of your application changes.
+
+[![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
 ### Step 5: Set up your Desktop
 Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. When logging in to SD Desktop, use the same user account/identity provider (HAKA, VIRTU, CSC login, or ELXIR login) you have used for SD Apply log in. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
