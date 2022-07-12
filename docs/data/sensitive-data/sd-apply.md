@@ -15,10 +15,10 @@ The following is a step-by-step guide to SD Apply that illustrates:
 ### Step 1: Login
 Log in to SD Apply is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
 
+[![SD Apply login](images/apply/apply_login.png)](images/apply/apply_login.png)
+
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
-
-[![SD Apply login](images/apply/apply_login.png)](images/apply/apply_login.png)
 
 ### Step 2: Apply for access
 After login, you will access the SD Apply Catalogue page. On this page, you can search for a specific dataset and start the application process. Start a new application by clicking on *Add to cart* next to the name of the dataset. You can select multiple datasets, and they will all appear in your cart under the Catalogue title. By clicking on *Apply*, you will be redirected to the application form.
