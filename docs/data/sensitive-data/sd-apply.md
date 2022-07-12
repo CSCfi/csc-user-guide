@@ -41,6 +41,8 @@ Follow the instructions on the application form and fill in the required fields:
 
 To submit your application, select *Send application* under Actions. Unfortunately, editing or deleting the application is no more possible after sending the application. However, removing members is still possible. If you want to use the application as a template for a new application, select *Copy as new application*. Note that the attachments (e.g. research plan) of your old application will also be copied.
 
+[![SD Apply application form](images/apply/apply_application.png)](images/apply/apply_application.png)
+
 ### Step 4: Wait for approval
 After you have sent the application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights.
 
