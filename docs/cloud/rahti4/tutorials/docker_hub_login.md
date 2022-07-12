@@ -25,7 +25,7 @@ The solution involves using both the Web UI and the client:
     * Password = your docker **token**
     * Email = your docker email
 
-![create secret](/cloud/rahti4/img/create_docker_hub_secret.png)
+![create secret](../../rahti4/img/create_docker_hub_secret.png)
 
 * Verify values are correct and select "Create".
 
