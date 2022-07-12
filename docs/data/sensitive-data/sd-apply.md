@@ -71,9 +71,9 @@ Once your application has been approved, you will receive a notification and fur
 !!! note
     If you are a new CSC user, please check these instructions on CSC [accounts](https://docs.csc.fi/accounts/). Check also the [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
 
-### Step 6: Access the data using Data Gateway
+### Step 6: Access the data 
 
-Once you sign in to your virtual Desktop, you can access the data by following these steps:
+Once you sign in to your virtual Desktop, you can access the data using Data Gateway application. Follow these steps:
 
 1. Open Data Gateway. You can find the application on your Desktop.
 
