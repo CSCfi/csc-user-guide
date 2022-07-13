@@ -119,6 +119,9 @@ To start processing applications, follow the link in your email or log in direct
 ### Step 2: Process the application
 In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
 
+[![SD Apply "Actions" tab](images/apply/apply_dac(1).png)](images/apply/apply_dac(1).png)
+[![SD Apply application form DAC](images/apply/apply_dac(2).png)](images/apply/apply_dac(2).png)
+
 #### Approve or reject the application
 You can approve or reject the application right away if the applicant has provided all the needed information. Select *Approve or reject application* under "Actions". If you reject an application, we recommend telling the applicant why the application was rejected by writing a comment.
 
