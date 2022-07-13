@@ -19,6 +19,11 @@
    - An example of a well-formatted page is the one on [disk areas](https://docs.csc.fi/computing/disk/)
     ([source file](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/disk.md)),
     including examples on how to format code blocks, tables and admonitions
+ - Note that pages under a certain category may have a unified formatting that should be followed
+   - For example, application pages should have **Available** (which versions and on which systems),
+    **License** (free or somehow restricted), **Usage** (how to load module, example batch scripts),
+    **References** (what should be cited) and **More information** (links to e.g official documentation)
+    headers, in that order.
 
 ## Organizing content
  - Try to make standalone articles with a good name (user knows to select it from the left menu)
