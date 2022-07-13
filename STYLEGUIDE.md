@@ -16,7 +16,9 @@
  - [Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/)
  - Also some special markup possible, e.g. admonitions (colored highlight boxes). Please look at Markdown source for examples, and use preview
  - When in doubt, check how other pages are formatted
-   - An example of a well-formatted page is the one on [disk areas](https://docs.csc.fi/computing/disk/) ([source file](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/disk.md)), including examples on code blocks, tables and admonitions
+   - An example of a well-formatted page is the one on [disk areas](https://docs.csc.fi/computing/disk/)
+    ([source file](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/disk.md)),
+    including examples on how to format code blocks, tables and admonitions
 
 ## Organizing content
  - Try to make standalone articles with a good name (user knows to select it from the left menu)

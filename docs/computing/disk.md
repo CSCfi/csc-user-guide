@@ -15,11 +15,11 @@ is available.
     to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the
     [allas-backup tool](../data/Allas/using_allas/a_backup.md).
 
-|            |Owner   |Environment variable|Path                 |Cleaning                 |Automatic backup?|
-|------------|--------|--------------------|---------------------|-------------------------|-----------------|
-|**home**    |Personal|`${HOME}`           |`/users/<user-name>` |No                       |No               |
-|**projappl**|Project |Not available       |`/projappl/<project>`|No                       |No               |
-|**scratch** |Project |Not available       |`/scratch/<project>` |Not yet - will be 90 days|No               |
+|            |Owner   |Environment variable|Path                 |Cleaning                 |Automatic backup|
+|------------|--------|--------------------|---------------------|-------------------------|----------------|
+|**home**    |Personal|`${HOME}`           |`/users/<user-name>` |No                       |No              |
+|**projappl**|Project |Not available       |`/projappl/<project>`|No                       |No              |
+|**scratch** |Project |Not available       |`/scratch/<project>` |Not yet - will be 90 days|No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
