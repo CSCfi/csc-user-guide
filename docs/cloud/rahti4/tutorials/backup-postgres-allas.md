@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/backup-postgres-allas/)
-
 # How to backup a Postgres DB into Allas
 
 In this tutorial we are going to show how to backup a PostgreSQL DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
@@ -25,7 +17,7 @@ This is a simple example, the backup SQL file is not compressed, the checksums a
 pip install python-openstackclient
 ```
 
-Then go to [OpenRC download](https://pouta.csc.fi/dashboard/project/api_access/openrc/), download the OpenStack RC File v2.0, source it, and input your password when prompted:
+Then go to [Access & Security](https://pouta.csc.fi/dashboard/project/api_access/), download the OpenStack RC File v3.0, source it, and input your password when prompted:
 
 ```bash
 $ source ~/Downloads/project_XXXXXXX-openrc.sh
