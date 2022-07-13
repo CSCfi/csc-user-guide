@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/storage/expand-volumes/)
-
 # Expand a volume
 
 ## Non dynamically
@@ -20,11 +12,11 @@ Then a more artisanal procedure must be followed:
 
 * Create a new volume with the desired size
 
-![Create a new volume](/cloud/rahti/img/Create-new-volume.png)
+![Create a new volume](img/Create-new-volume.png)
 
 * Scale down the deployment that mounts the volume that is being resized.
 
-![Scale down](/cloud/rahti/img/Scale-down.png)
+![Scale down](img/Scale-down.png)
 
 * Mount the old and new volume in another Pod. The best option is to create a new deployment, create a file called `two-volumes.yaml` and replace the names of both volumes:
 
@@ -32,50 +24,34 @@ Then a more artisanal procedure must be followed:
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  labels:
-    app: two-volumes
   name: two-volumes
 spec:
   replicas: 1
   selector:
     app: two-volumes
-    deploymentconfig: two-volumes
-  strategy:
-    activeDeadlineSeconds: 21600
-    type: Rolling
   template:
     metadata:
       labels:
         app: two-volumes
-        deploymentconfig: two-volumes
     spec:
-        containers:
-        - image: lvarin/nginx-okd:plus
-          imagePullPolicy: IfNotPresent
-          name: two-volumes
-          resources: {}
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-            - mountPath: /old
-              name: old
-            - mountPath: /new
-              name: new
-        dnsPolicy: ClusterFirst
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        securityContext: {}
-        terminationGracePeriodSeconds: 30
-        volumes:
-          - name: old
-            persistentVolumeClaim:
-              claimName: <name of old volume>
-          - name: new
-            persistentVolumeClaim:
-              claimName: <name of new volume>
-  test: false
-  triggers: {}
-status: {}
+      containers:
+      - image: lvarin/nginx-okd:plus
+        name: two-volumes
+        ports:
+        - containerPort: 8081
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /new
+          name: new-volume
+        - mountPath: /old
+          name: old-volume
+      volumes:
+      - name: new-volume
+        persistentVolumeClaim:
+          claimName: new-volume
+      - name: old-volume
+        persistentVolumeClaim:
+          claimName: old-volume
 ```
 
 ```sh
