@@ -155,6 +155,8 @@ or
 
 8. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
+[![Fi-FEGA upload application](images/fega/fega_upload.png)](images/fega/fega_upload.png)
+
 #### Command line interface
 **Data encryption with crypt4gh CLI**:
 
