@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/storage/)
-
 # Rahti storage
 
 This article introduces the storage options available in CSC's Rahti environment. Using the storage requires an account, a CSC project, a Rahti Namespace, and at least a Pod.
