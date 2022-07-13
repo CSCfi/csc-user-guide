@@ -213,7 +213,7 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 	- Printing results such that results are returned to LUMI (TBD) -->
 
 
-In order to efficiently use Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../../../computing/helmi/) and the examples below show how this topology is utilised to improve results. 
+In order to efficiently use Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../../../computing/helmi/) and the examples below show how this topology is utilised to improve results. Further details on [Running jobs on Helmi can be found here](../../../computing/running/running-on-helmi/).
 
 ### Qiskit
 

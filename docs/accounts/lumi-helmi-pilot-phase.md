@@ -29,3 +29,9 @@ As access to Helmi during the Pilot Phase is limited it is recommended that you 
 
 
 As Helmi is only a 5 qubit machine, you can also test and run algorithms on your own machines. For Qiskit the python environment can be installed via `pip install qiskit-iqm`, for Cirq `pip install cirq-iqm`. 
+
+For further reading:
+
+* [Description of Helmi's Topology](../../computing/helmi/).
+* [Specific instructions for the LUMI Helmi partition](../helmi/)
+* [Running jobs on Helmi](../../computing/running/running-on-helmi)
