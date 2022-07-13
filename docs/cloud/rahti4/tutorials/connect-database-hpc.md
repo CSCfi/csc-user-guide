@@ -1,20 +1,12 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/connect-database-hpc/)
-
 # Accessing databases on Rahti from CSC supercomputers
 
 Many HPC workflows require a database. Running these on the login node poses several issues and running on Pouta brings administration overhead. Rahti is a good candidate, but one obstacle is that Rahti does not support non-HTTP traffic from external sources.
 
 A workaround for this problem is to establish a TCP tunnel over an HTTP-compatible WebSocket connection. This can be achieved using a command-line client for connecting to and serving WebSockets called [WebSocat](https://github.com/vi/websocat). Here, a WebSocat instance running on Puhti/Mahti translates a database request coming from a workflow to an HTTP-compatible WebSocket protocol. Once the traffic enters Rahti we use another WebSocat instance running inside Rahti to translate back the WebSocket connection to a TCP connection over the original port the database is configured to receive traffic. A drawing of the process is shown below.
 
-![Image illustrating a WebSocket connection bridging CSC's HPC environment and a database service on Rahti](../../../img/websocat-diagram.drawio.png)
+![Image illustrating a WebSocket connection bridging CSC's HPC environment and a database service on Rahti](../../../img/websocat-diagram-4.drawio.png)
 
-This tutorial outlines the steps to achieve this using MongoDB as an example database.
+This tutorial outlines the steps to achieve this using MariaDB as an example database.
 
 !!! Note
     The OpenShift template used below to configure WebSocat on Rahti is an unsupported beta version!
@@ -22,31 +14,31 @@ This tutorial outlines the steps to achieve this using MongoDB as an example dat
 !!! Note
     This solution is suitable for computationally light use cases. Reasonable scaling can be expected for up to ~100 processes simultaneously accessing a database on Rahti. Exceeding this limit is not advised and may result in performance degradation.
 
-## Step 1: Setting up MongoDB and WebSocat on Rahti
+## Step 1: Setting up MariaDB and WebSocat on Rahti
 
-Configuring MongoDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../../accounts/how-to-add-service-access-for-project.md).
+Configuring MariaDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../../accounts/how-to-add-service-access-for-project.md).
 
 !!! Note
     Mind the difference between [persistent](../storage/index.md#persistent-storage) and [ephemeral storage](../storage/index.md#ephemeral-storage) when creating a new database in Rahti. Ephemeral databases are meant for temporary storage and should not be considered reliable. If the [Pod](../networking.md#pods) in which your database is running is deleted or restarted you will lose all your data! To avoid this, create a database with a persistent volume and make sure to also perform regular backups to for example [Allas](../../../data/Allas/index.md).
 
 ### Option 1: Using the Rahti web interface
 
-- Log in to the [Rahti web interface](https://rahti.csc.fi:8443). See [Getting access](../access.md) for instructions
-- Select MongoDB from the front page catalog
+- Log in to the [Rahti web interface](https://rahti.csc.fi:8443). See [Getting access](../../access/) for instructions.
+- Deploy MariaDB from the "Developer Catalog". You will find the developer catalog in the **+Add** section of the `Developer` menu.
 - Configure the database. You need to at least select or create a Rahti project to which you want to add the database. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
 - Create the database and remember the
-    - Username
-    - Password
+    - Connection Username
+    - Connection Password
+    - Root Password
     - Database name (`sampledb` by default)
-    - Database service name (`mongodb` by default)
-- Select the created project, navigate to `Applications > Services` and select the created database service. Remember the
-    - Target port (27017 by default)
+    - Database service name (`mariadb` by default)
+- After creation, double check the network parameters and remember them:
+    - Target port (3306 by default)
     - Hostname address (of the form `<service name>.<project name>.svc`)
-- An [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml) is needed to configure WebSocat on Rahti. Download or copy this YAML file to your clipboard. Note that this is an unsupported beta template
-- On the Rahti web interface front page, select Import YAML/JSON and add the WebSocat template to the same project as the MongoDB (upload by dragging & dropping, selecting it, or pasting from the clipboard). Do not edit the template!
-- Select Create, process the template and input the above hostname and target port in the requested database service name and database port fields
-- Select the created project, navigate to `Applications > Services` and select the WebSocat service. Remember the
-    - Route hostname (of the form `websocat-<project name>.rahtiapp.fi`)
+- An [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml) is needed to configure WebSocat on Rahti. Download or copy this YAML file to your clipboard. **Note:** that this is an _unsupported_ beta template
+- Click in the `+` sign in the upper right corner of the webinterface, and paste the template. Click create.
+- Come back to the "Developer Catalog" and deploy the Websocat template. You need to provide the "Database service name" (`mariadb` by default) and the "Database port" (`3306` by default).
+- In the `Developer` menu, go to **Project -> Route** and copy the Location URL. You will use this URL to connect from outside Rahti.
 
 ### Option 2: Using the `oc` command line tool
 
@@ -54,39 +46,47 @@ Configuring MongoDB and WebSocat on Rahti can be done either through the web int
 - Login using your CSC username and password
 
 ```bash
-oc login https://rahti.csc.fi:8443 -u <username> -p <password>
+oc login https://rahti2.csc.fi:8443 -u <username> -p <password>
 ```
 
 - Create a new project (namespace) or switch to existing one. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
 
 ```bash
-oc new-project <project name> --display-name='My new project' --description='csc_project: <project number>'
-# or
+oc new-project <project name> --display-name='My new project'\
+   --description='csc_project: <project number>'
+```
+
+or
+
+```bash
 oc project <project name>
 ```
 
-- Add MongoDB by launching the `mongodb-persistent` template. Remember the username, password, database name and the database service name. Use the `-p` flag to modify default parameters
+- Add MariaDB by launching the `mariadb-persistent` template. Remember the username, password, database name and the database service name. Use the `-p` flag to modify default parameters
 
 ```bash
-oc new-app --template=mongodb-persistent
+oc new-app --template=mariadb-persistent
 ```
 
-- Add WebSocat by launching the [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml). You can check the target port with `oc describe services <service name>`. The default parameters for the service name and target port are `mongodb` and 27017, respectively
+- Add WebSocat by launching the [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml). You can check the target port with `oc describe services <service name>`. The default parameters for the service name and target port are `mariadb` and 3306, respectively
 
 ```bash
-oc new-app --file=/path/to/websocat-template.yaml --param=DATABASE_SERVICE=<service name>.<project name>.svc --param=DATABASE_PORT=<port>
+oc new-app --file=/path/to/websocat-template.yaml\
+  --param=DATABASE_SERVICE=<service name>.<project name>.svc\
+  --param=DATABASE_PORT=<port>
 ```
 
 - Remember the route hostname of the form `websocat-<project name>.rahtiapp.fi`. You can check this later with `oc get route websocat`
 
 ## Step 2: Running WebSocat on CSC supercomputers
 
-MongoDB and WebSocat have now been set up on Rahti and you should have the following details: MongoDB username, password, database name and the WebSocat route hostname. These are needed when connecting to the database. However, first we need to run the `websocat` binary on Puhti/Mahti to open the required TCP tunnel.
+MariaDB and WebSocat have now been set up on Rahti and you should have the following details: MariaDB username, password, database name and the WebSocat route hostname. These are needed when connecting to the database. However, first we need to run the `websocat` binary on Puhti/Mahti to open the required TCP tunnel.
 
 - [Download `websocat` from GitHub](https://github.com/vi/websocat/releases) and add it to your `PATH`. For example:
 
 ```bash
-wget -O websocat https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static
+wget https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static \
+  -O websocat
 export PATH=$PATH:$PWD
 ```
 
@@ -96,24 +96,36 @@ export PATH=$PATH:$PWD
 websocat -b tcp-l:127.0.0.1:0 wss://websocat-<project name>.rahtiapp.fi -E &
 ws_pid=$!  # $! contains the process ID of the most recently executed background command
 mkdir -p /tmp/$USER
-lsof -i -p $ws_pid 2>/dev/null | grep TCP | grep -oE "localhost:[0-9]*" | cut -d ":" -f2 > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
+lsof -i -p $ws_pid 2>/dev/null | grep TCP | grep -oE "localhost:[0-9]*" | \
+  cut -d ":" -f2 > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
 echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
 !!! Note
     If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
 
-- Now `websocat` is running in the interactive session/batch job and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
+- Now `websocat` is running in the interactive session/batch job and you may connect to your MariaDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
 
 ```python
-# module load python-data
+# Module Imports
+import mariadb
+import sys
 
-from pymongo import MongoClient
-from pymongo.errors import ConnectionFailure
-
-client = MongoClient('localhost', port=<port>, password='<password>', username='<username>', authSource='<database name>')
+# Connect to MariaDB Platform
 try:
-    print(client.admin.command('ping'))
-except ConnectionFailure:
-    print('Server not available')
+    conn = mariadb.connect(
+        user="<username>",
+        password="<password>",
+        host="localhost",
+        port=<port>,
+        database="<database name>"
+
+    )
+except mariadb.Error as e:
+    print(f"Error connecting to MariaDB Platform: {e}")
+    sys.exit(1)
+
+# Get Cursor
+cur = conn.cursor()
 ```
+
