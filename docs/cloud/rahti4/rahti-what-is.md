@@ -19,7 +19,7 @@ Here are some example use cases that Rahti is good for:
 
 ## OpenShift OKD v Kubernetes
 
-OpenShift [OKD](https://opencontainers.org/) is optimized for multi-tenant deployment. This means that different tenants will be sharing the same hardware. For this reason, **privileged mode** is not allowed, and containers **cannot be run as root**.
+OpenShift [OKD](https://www.okd.io/) is optimized for multi-tenant deployment. This means that different tenants will be sharing the same hardware. For this reason, **privileged mode** is not allowed, and containers **cannot be run as root**.
 
 OpenShift provides these extra services over a standard Kubernetes offering:
 
@@ -27,6 +27,6 @@ OpenShift provides these extra services over a standard Kubernetes offering:
 
 ![Rahti WEB UI](../img/Rahti-landing.png)
 
-* HTTP(s) load balancer (HAProxy). Using [Routes](/cloud/rahti4/networking/#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
+* HTTP(s) load balancer (HAProxy). Using [Routes](../../rahti4/networking/#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
 
-* Central file [storage volumes](/cloud/rahti4/storage/)
+* Central file [storage volumes](../../rahti4/storage/)
