@@ -111,6 +111,8 @@ As a DAC member, you receive email notifications each time when an applicant app
 
 To start processing applications, follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/>. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Use the identity provider your organisation/institution recommends.
 
+[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
+
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
