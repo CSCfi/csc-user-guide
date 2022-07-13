@@ -11,6 +11,11 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from
 
 ## Prepararing for the Pilot Phase
 
+!!! failure "Getting Started"
+	To get started with Helmi see
+	[Getting started with Helmi](../../support/tutorials/helmi_quick/). 
+
+
 As access to Helmi during the Pilot Phase is limited it is recommended that you prepare the codes and algorithms you intend to run on Helmi before your project gains access to the LUMI-Helmi partition. To help with this process CSC currently offers Quantum Simulators and test environments through Kvasi and Mahti.
 
 * [Kvasi](../../computing/kvasi/) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)

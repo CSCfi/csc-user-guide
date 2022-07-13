@@ -87,7 +87,7 @@ QLM ecosystem.
 
 Helmi, the first Finnish quantum computer, built by IQM and operated by VTT. Presently, Helmi provides 5 qubits, and will be upgraded to 20, then 50 qubits in the near future. With Helmi, users can run quantum programmes and algorithms on a platform with real noise and decoherence.
 
-Access to Helmi is provided through LUMI which acts as a portal for Quantum Computing resources. Users will need to apply for a project through LUMI and submit jobs to Helmi through LUMI. Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project/) where the user will need to select "Helmi"" under LUMI's access modes. 
+Access to Helmi is provided through LUMI which acts as a portal for Quantum Computing resources. Users will need to apply for a project through LUMI and submit jobs to Helmi through LUMI. Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project/) where the user will need to select "Helmi"" under "Select LUMI **access mode**". 
 
 For further reading:
 

@@ -183,6 +183,8 @@ Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci`
 
 Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebook is **not** currently supported on LUMI.
 
+Before running jobs users will need to add to their `~/.bashrc` file `export MODULEPATH=$MODULEPATH:/project_462000055/` to ensure that the correct environments are setup.
+
 	#!/bin/bash -l
 	 
 	#SBATCH --job-name=helmijob   # Job name
@@ -215,7 +217,7 @@ In order to efficiently use Helmi, some knowledge of the underlying system archi
 
 ### Qiskit
 
-When submitting jobs to Helmi using Qiskit add the `activate-qiskit` command in your batch script before submitting your python script. In Qiskit python scripts you will need to include the following:
+When submitting jobs to Helmi using Qiskit add the `module load helmi-qiskit` command in your batch script before submitting your python script. In Qiskit python scripts you will need to include the following:
 
 	from qiskit_iqm import IQMprovider # Import IQM library
 	 # Set backend
@@ -230,7 +232,7 @@ When submitting jobs to Helmi using Qiskit add the `activate-qiskit` command in 
 
 ### Cirq
 
-When submitting jobs to Helmi using Cirq add the `activate-cirq` command in your batch script before submitting your python script.
+When submitting jobs to Helmi using Cirq add the `module load helmi-cirq` command in your batch script before submitting your python script.
 
 ### OpenQASM
 

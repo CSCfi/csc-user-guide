@@ -7,7 +7,7 @@ The LUMI Helmi partition is currently only available for FiQCI users in projects
 
 ## LUMI Helmi projects vs. regular LUMI projects
 
-When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Quantum" option. 
+When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Helmi" option. 
 
 <!-- Maybe insert image here? -->
 
