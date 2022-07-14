@@ -1,10 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/configuration/)
 
 In general, applications require some sort of contextual information as input.
 Such contexts are often provided in the form of configuration files, command-line
@@ -22,8 +15,8 @@ mounted under containers as files on startup.
 
 !!! Note
 
-    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](/cloud/rahti/concepts/) 
-    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](/cloud/rahti/tutorials/elemental_tutorial/) 
+    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](../../concepts/) 
+    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](../elemental_tutorial/) 
     to get some hands-on experience. 
 
 ## ConfigMap
@@ -64,7 +57,7 @@ data.prop.b
 data.prop.long
 ```
 
-You can then create a ConfigMap similar to the one difined in `configmap.yaml` as:
+You can then create a ConfigMap similar to the one defined in `configmap.yaml` as:
 
 ```sh
 oc create configmap my-config-map \
@@ -114,7 +107,7 @@ spec:
       mountPath: /etc/my-config
 ```
 
-The output log, provided with the command `oc logs confmap-cont` of this container,
+Deploy the pod using `oc create -f configmap-pod.yaml` command. The output log, provided with the command `oc logs my-config-map-pod` of this container,
 should be:
 
 ```
@@ -168,7 +161,7 @@ oc get secrets $SECRET_NAME -o json | jq ' .data | keys '
 
 ```sh
 oc get secrets $SECRET_NAME -o json >secret.json
-jq '.data.$KEY_NAME ' secret.json | base64 -d >$KEY_NAME.file
+jq ".data.$KEY_NAME " secret.json | base64 -d -i >$KEY_NAME.file (For Red Hat Enterprise Linux (RHEL) or CentOS)
 ```
 
 * Edit the file with any editor.
