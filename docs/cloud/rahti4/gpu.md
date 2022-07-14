@@ -1,10 +1,10 @@
 <style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition-title { background-color: rgba(255, 0, 0, 0.15) !important; }
 .admonition { background-color: white !important; }
 </style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
+!!! Attention "⚠️ This feature isn't supported in Rahti 4"
 
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/gpu/)
+    GPU usage is not currently supported in Rahti 4.
 
 # GPU usage in Rahti
 
@@ -93,7 +93,7 @@ oc logs gpu-example-2
 oc delete pod gpu-example-2
 ```
 
-As a final example, we show how a more complete system that uses GPU resources can be deployed on Rahti. The example provides an API for training and deploying a text sentiment classification model. To facilitate easier deployment, we use various Kubernetes resource definitions and their explanation can be found in the general [Kubernetes basics page](/cloud/rahti/concepts/).  One of the main things to notice in this example is the Dockerfile that packages the application. The Dockerfile uses an appropriate base image (`FROM tensorflow/tensorflow:2.7.0-gpu`) which contains the right runtime CUDA libraries for utilizing the GPU resource. This image can be built locally and be pushed to an image repository that can be used during the deployment of the system. A`BuildConfig` Openshift resource can also be used as is the case in this example.
+As a final example, we show how a more complete system that uses GPU resources can be deployed on Rahti. The example provides an API for training and deploying a text sentiment classification model. To facilitate easier deployment, we use various Kubernetes resource definitions and their explanation can be found in the general [Kubernetes basics page](../concepts/).  One of the main things to notice in this example is the Dockerfile that packages the application. The Dockerfile uses an appropriate base image (`FROM tensorflow/tensorflow:2.7.0-gpu`) which contains the right runtime CUDA libraries for utilizing the GPU resource. This image can be built locally and be pushed to an image repository that can be used during the deployment of the system. A`BuildConfig` Openshift resource can also be used as is the case in this example.
 
 To run the example use the following command:
 ```bash
