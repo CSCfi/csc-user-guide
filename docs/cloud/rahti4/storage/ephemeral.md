@@ -28,4 +28,4 @@ metadata:
         name: volume-a
 ```
 
-![emptyDir](/cloud/rahti/img/pods-and-storage-emptydir.drawio.svg)
+![emptyDir](/cloud/rahti4/img/pods-and-storage-emptydir.drawio.svg)
