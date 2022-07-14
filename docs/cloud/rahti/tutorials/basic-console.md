@@ -27,7 +27,7 @@ How to set up a static web server in Rahti.
 
 5. Now, the OpenShift dashboard should display information about the application.
     This application is available at
-    [httpd-example-http-test-project.rahtiapp.fi](<http://httpd-example-http-test-project>. rahtiapp.fi)
+    [httpd-example-http-test-project.rahtiapp.fi](http://httpd-example-http-test-project.rahtiapp.fi)
     ![new-app-info](img/new-app-info.png)
 
 OpenShift processed a template that provisioned
