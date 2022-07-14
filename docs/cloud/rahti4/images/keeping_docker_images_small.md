@@ -8,7 +8,8 @@ The first way to keep an image small is to by simply not adding unnecessary file
 
 ## Keep data out of the image
 
-Images should only contain the application's runtime. This means that the data needed to run the application should not be added to the image. This way not only the image is smaller, but we avoid a rebuild when the data changes. The data can be stored in a [external volume](/cloud/rahti/storage/persistent/) (PVC) that will be attached to the Pod upon startup, or it can be stored in [Allas](/data/Allas/) and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a pre-load script) that understands where the data is and how to retrieve it.
+Images should only contain the application's runtime. This means that the data needed to run the application should not be added to the image. This way not only the image is smaller, but we avoid a rebuild when the data changes. The data can be stored in an [external volume](../../../rahti4/storage/persistent/) (PVC) that will be attached to the Pod upon startup, or it can be stored in [Allas](/data/Allas/) and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a pre-load script) that understands where the data is and how to retrieve it.
+data can be stored in a external volume (PVC) that will be attached to the Pod upon startup, or it can be stored in
 
 ## Reduce the number of layers
 
@@ -36,18 +37,17 @@ RUN apt update && \
 * Use multi stage builds (This feature was introduced in docker v17.05). The idea behind multi stage builds is to have several `FROM` commands in the same `Dockerfile`, each `FROM` starts a new stage in the build and does not carry the files from the previous stage, but allows copying files from the previous stages. The pattern used here is, to build the application in the first stage, and then in the second stage copy only the compiled application, leaving behind the sources and other compilation sub-products that we do not need to run the application. For example:
 
 ```Dockerfile
-FROM golang:1.16 AS builder
+FROM golang:1.7.3
 WORKDIR /go/src/github.com/alexellis/href-counter/
-RUN go get -d -v golang.org/x/net/html  
-COPY app.go    ./
+RUN go get -d -v golang.org/x/net/html
+COPY app.go .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
-FROM alpine:latest  
+FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./
-CMD ["./app"]  
-
+COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
+CMD ["./app"]
 ```
 
 The example was taken from the [Use multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) article in Docker's documentation.
@@ -66,7 +66,7 @@ When creating an image, choosing the base image is an important task. There are 
 
 > Alpine Linux is a security-oriented, lightweight Linux distribution based on **musl libc** and **busybox**.
 
-Currently the base image for Alpine (`docker.io/alpine`) is only 5.53 MB. For comparison, the sizes of Ubuntu's and CentOS' base images are 77.8 MB and 231 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or CentOS.
+Currently the base image for Alpine (`docker.io/alpine`) is only 5.61 MB. For comparison, the sizes of Ubuntu's and CentOS' base images are 72.9 MB and 209 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or CentOS.
 
 ## Use `.dockerignore`
 
