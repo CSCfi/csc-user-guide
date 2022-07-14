@@ -98,9 +98,6 @@ compatible clients.
 
 For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
 
-The Docker CLI tool login instructions are also shown in the [Rahti registry
-console](https://registry-console.rahti.csc.fi).
-
 ## Using the Source to Image mechanism
 
 OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
@@ -156,7 +153,7 @@ A new build can be triggered in the command line:
 oc start-build os-sample-python
 ```
 
-Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
+Or using [webhooks](../../../rahti4/tutorials/webhooks/)
 
 ## Using the inline Dockerfile method
 
