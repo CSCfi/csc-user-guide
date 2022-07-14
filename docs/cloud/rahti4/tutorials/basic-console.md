@@ -4,7 +4,7 @@ How to set up a static web server in Rahti.
 
 1. Create a project. [Instructions](../../usage/projects_and_quota/)
 
-2. Select Helm -> Install a Helm Chart from the developer catalog -> Developer Catalog, search for _Apache HTTP Server_ and Click _Instantiate Template_ on the pop-up window on the right.
+2. Click _Add_ and under Developer Catalog list Click _All services_and then search for_Apache HTTP Server_and Click_Instantiate Template_ on the pop-up window on the right.
     ![Select-httpd](img/select-http.png)
     ![Instantiate-template](img/click-template.png)
 
@@ -13,18 +13,21 @@ How to set up a static web server in Rahti.
     is created in the project _http-test-project_.
     ![type-in-git](img/type-git.png)
 
-4. Click _Topology_. to Navigate to the newly created
-    project and Click name of the project _DeploymentConfigs_:
+4. Click _Topology_. to Navigate to the newly created project and Click name of the project from the _DeploymentConfigs_ list:
     ![new-project-deployment-config](img/click-deploymentConfig.png)
 
     Select _Details_ on the pop-up window on the right.
-    click-deploymentConfig
 
 5. Now, the OpenShift dashboard should display information about the application.
     ![new-project](img/click-project-details.png)
-    This application is available at Select _Resources_ on the pop-up window on the right.
-    [httpd-example-http-test-project.apps.rahti4-qa.csc.fi](http://httpd-example-http-test-project.apps.rahtiapp.fi)
+
+
+    This application will be available via Select _Resources_ on the pop-up window on the right.
+
     ![new-app-info](img/new-app-info.png)
+
+    
+The application will be reachable using the link provided from the _Routes_ section of the _Resources_ list [httpd-example-http-test-project.apps.rahti4-qa.csc.fi](http://httpd-example-http-test-project.apps.rahtiapp.fi)
 
 OpenShift processed a template that provisioned
 various objects, such as _Pods_, _Services_, _Routes_, _DeploymentConfigs_, and
