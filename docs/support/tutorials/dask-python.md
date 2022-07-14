@@ -132,21 +132,26 @@ To use Dask Dashboard:
 * Create new cluster from Python code.
 * Open Dask Dashboard in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
 
+
+### JupyterLab Dask extension
+
 [geoconda](../../apps/geoconda.md) module includes also [Dask JupyterLab Extension](https://github.com/dask/dask-labextension). 
 This currently only works when starting the cluster from the extension (not if the cluster is created within the notebook (e.g. together with the client)): 
 
-* click on Dask logo in left sidebar, 
-* click `+NEW`, which creates a new blue box `LocalCluster` where you can find and 
-* click `<>`, which will create a new cell at cursor position in currently open notebook with all information needed to connect your notebook to the running cluster.   
-* Adapt your Client as needed; but keep the address that is suggested by Dask extension; and run that cell to connect your notebook to the cluster.
-* Find all available dashboards from the Extension (orange boxes) and activate the ones you want with a click (you can have multiple dashboards in same wiondow, by grabbing them with a mouse and moving them e.g. next to each other in upper or right half of the Jupyter window).
+1. Click on Dask logo in left sidebar. 
+2. Click `+NEW`, which creates a new blue box `LocalCluster` where you can find all information about the newly created cluster.
+3. Click `<>`, which will create a new cell at cursor position in currently open notebook with all code needed to connect your notebook to the running cluster via a client.   
+4. Adapt your Client as needed, while keeping the address that is suggested by Dask extension.
+5. Run that cell to connect your notebook via the client to the running cluster.
+6. Find all available dashboards from the extension (orange boxes) and activate the ones you want with a click (draging allows you to dock multiple dashboard tabs side by side).
 
 Please note:
 
-* if you restart the kernel of your notebook, the cluster will stay active but you will need to re-connect it to the notebook
-* it may take some time for the dashboards to load and show you any information, be patient.
+* It may take some time for the dashboards to load and show you any information in the tabs, be patient.
+* If you restart the kernel of your notebook, the cluster will stay active but you will need to re-connect it to the notebook the same way as described above.
+
  
-Another option would be to use it with [Jupyter opened the SSH tunnelling way](rstudio-or-jupyter-notebooks.md) with an extra tunnel for the Jupyter Dashboard port.
+Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-or-jupyter-notebooks.md) with an extra tunnel for the Jupyter Dashboard port.
 
 ## References 
 
