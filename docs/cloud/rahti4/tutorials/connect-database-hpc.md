@@ -78,6 +78,12 @@ oc new-app --file=/path/to/websocat-template.yaml\
 
 - Remember the route hostname of the form `websocat-<project name>.rahtiapp.fi`. You can check this later with `oc get route websocat`
 
+If you visit the Route URL with you browser, you should see this message:
+
+```
+Only WebSocket connections are welcome here
+```
+
 ## Step 2: Running WebSocat on CSC supercomputers
 
 MariaDB and WebSocat have now been set up on Rahti and you should have the following details: MariaDB username, password, database name and the WebSocat route hostname. These are needed when connecting to the database. However, first we need to run the `websocat` binary on Puhti/Mahti to open the required TCP tunnel.
@@ -87,6 +93,7 @@ MariaDB and WebSocat have now been set up on Rahti and you should have the follo
 ```bash
 wget https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static \
   -O websocat
+chmod +x websocat
 export PATH=$PATH:$PWD
 ```
 
