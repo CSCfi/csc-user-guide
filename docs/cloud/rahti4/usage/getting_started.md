@@ -11,7 +11,7 @@ You can either select applications to run in the application catalog that is
 visible when first logging in or launch any applications using the
 primitives described in the [background](../../concepts/) chapter.
 
-Log in at <RAHTI4_URL> (see [Getting access](../../access)
+Log in at <RAHTI4_URL> (see [Getting access](../../access/)
 for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page_4.png)
