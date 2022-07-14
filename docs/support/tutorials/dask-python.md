@@ -120,11 +120,11 @@ for dataset in datasets:
 compute(list_of_delayed_functions)
 ```
 
-## Dask with Jupyter and Dask Dashboard
+## Dask Dashboard with Jupyter 
 
-For better understanding of Dask computing the computing can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html). Both `LocalCluster` and `SLURMCluster` type clusters work.
+For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html). Both `LocalCluster` and `SLURMCluster` type clusters work.
 
-To use Dask Dashboard:
+### Dask Dashboard on separate browser tab
 
 * [Start JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface. 
     * If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
