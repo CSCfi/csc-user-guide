@@ -21,7 +21,7 @@ you need to add your certificate data in the route object.
 
 Access to the services should be limited to selected networks with
 **whitelists** whenever applicable (See the chapter
-[Routes](../tutorials/elemental_tutorial#route)). This is relevant whenever
+[Routes](../tutorials/elemental_tutorial/#route)). This is relevant whenever
 access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target e.g. service passwords
