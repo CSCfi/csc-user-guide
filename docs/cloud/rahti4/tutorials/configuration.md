@@ -154,14 +154,14 @@ The process to edit a secret is not trivial. The idea is to retrieve the secret 
 * First you need to retrieve the different files/secrets inside the secret (the examples use jq to process the JSON files, but it can be done without it):
 
 ```sh
-oc get secrets $SECRET_NAME -o json | jq ' .data | keys '
+oc get secrets <SECRET_NAME> -o json | jq ' .data | keys '
 ```
 
 * Then choose one of the options and get the file/secret itself:
 
 ```sh
-oc get secrets $SECRET_NAME -o json >secret.json
-jq ".data.$KEY_NAME " secret.json | base64 -d -i >$KEY_NAME.file (For Red Hat Enterprise Linux (RHEL) or CentOS)
+oc get secrets <SECRET_NAME> -o json >secret.json
+jq '.data.<KEY_NAME>' -r secret.json | base64 -d > <KEY_NAME>.file
 ```
 
 * Edit the file with any editor.
@@ -169,8 +169,8 @@ jq ".data.$KEY_NAME " secret.json | base64 -d -i >$KEY_NAME.file (For Red Hat En
 * Encode the new file and replace the previous value in the JSON file:
 
 ```sh
-B64=$(base64 $KEY_NAME.file -w0)
-jq " .data.$KEY_NAME = \"$B64\" " secret.json
+B64=$(base64 <KEY_NAME>.file -w0)
+jq " .data.<KEY_NAME> = \"$B64\" " secret.json
 oc replace -f secret.json
 ```
 
