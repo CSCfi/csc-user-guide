@@ -36,4 +36,4 @@ metadata:
         name: volume-a
 ```
 
-![emptyDir](../../img/pods-and-storage-emptydir.drawio.svg)
+![emptyDir](../img/pods-and-storage-emptydir.drawio.svg)

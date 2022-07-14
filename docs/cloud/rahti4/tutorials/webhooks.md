@@ -28,8 +28,8 @@ When the `BuildConfig` is configured, you can get the URL via the webinterface. 
 
 Once you got the URL and the secret, go to <https://github.com>. There you should go to the repository where the code is, and in **Settings -> Webhooks**, click in "Add webhook".
 
-![GitHub Webhooks](../../tutorials/img/GitHubWebhook.png)
+![GitHub Webhooks](img/GitHubWebhook.png)
 
 You just need to fill up the "Payload URL" and the "Secret", and change the content type to `Application/json`.
 
-![Add webhook](../../tutorials/img/Addwebhook.png)
+![Add webhook](img/Addwebhook.png)

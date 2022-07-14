@@ -79,7 +79,7 @@ oc login RAHTI4_URL --token=<secret access token>
 This command can be obtained by clicking your usename and "Copy Login Command"
 in the web console:
 
-![copy login](../../img/CopyLoginCommand.png)
+![copy login](../img/CopyLoginCommand.png)
 
 Show projects:
 

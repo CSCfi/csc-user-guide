@@ -14,6 +14,6 @@ primitives described in the [background](/cloud/rahti4/concepts/) chapter.
 Log in at <RAHTI4_URL> (see [Getting access](/cloud/rahti4/access)
 for instructions). After logging in, you should see a page like this:
 
-![OpenShift main page](../img/openshift_main_page_4.png)
+![OpenShift main page](img/openshift_main_page_4.png)
 
 Proceed to [create a project](/cloud/rahti4/usage/projects_and_quota/) for running your applications.

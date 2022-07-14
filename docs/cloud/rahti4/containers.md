@@ -64,7 +64,7 @@ To understand why container orchestration platforms are important, let us
 describe how a typical web-based application that end users access via a web
 browser is built.
 
-![Container orchestration](../../rahti4/img/container-orch2.drawio.svg)
+![Container orchestration](img/container-orch2.drawio.svg)
 
 The application comprises a frontend that is the part of the application
 visible to users and a backend that handles various tasks in the background such as

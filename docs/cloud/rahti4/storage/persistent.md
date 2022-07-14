@@ -14,7 +14,7 @@ There is one storage classes available in Rahti:
 
 More storage classes are on the work.
 
-![PersistentVolumeClaim](../../img/pods-and-storage-pvc.drawio.svg)
+![PersistentVolumeClaim](../img/pods-and-storage-pvc.drawio.svg)
 
 Persistent storage is requested in the cluster using `PersistentVolumeClaim` objects:
 
