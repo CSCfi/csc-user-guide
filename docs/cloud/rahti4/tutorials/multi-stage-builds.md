@@ -17,7 +17,7 @@ RUN mkdir -p /go/src/server
 WORKDIR /go/src/server
 
 COPY go.mod go.sum ./
-RUN go mod download && go mod verify && go mod tidy
+RUN go mod download && go mod verify 
 
 COPY . .
 
@@ -67,6 +67,7 @@ In order to test this build process, put the two files in the same directory and
 
 ```sh
 go mod init example.com/go-server
+go mod tidy
 docker build . -t go-server
 ```
 
