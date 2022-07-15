@@ -125,6 +125,7 @@ compute(list_of_delayed_functions)
 For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [geoconda](../../apps/geoconda.md) module). 
 
 Both `LocalCluster` and `SLURMCluster` type clusters work. When [startin JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
+
     * If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
     * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
@@ -151,7 +152,7 @@ Please note:
 * It may take some time for the dashboards to load and show you any information in the tabs, be patient.
 * If you restart the kernel of your notebook, the cluster will stay active but you will need to re-connect it to the notebook the same way as described above.
 
- 
+***
 Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-or-jupyter-notebooks.md) with an extra tunnel for the Jupyter Dashboard port.
 
 ## References 
@@ -159,3 +160,4 @@ Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-o
 - [Dask homepage](https://dask.org/)
 - [Dask examples](https://examples.dask.org/)
 - [Full examples of Dask used in Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask)
+- [CECAM, High Throughput Computing with Dask course materials](https://www.cecam.org/workshop-details/1022)
