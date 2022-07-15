@@ -5,42 +5,45 @@ development of python scripts for geoinformatics applications. It
 includes following python packages:
 
 -   [ArcGIS Python API](https://developers.arcgis.com/python/) - provides simple and efficient tools for sophisticated vector and raster analysis, geocoding, map making, routing and directions. 
--   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
+-   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Allas S3 example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
 -   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
--   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension)
+-   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
+    -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
+    -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
 -   [fiona] - reads and writes spatial data files.
 -   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
--   [igraph](https://igraph.org/python/) - for fast routing.
--   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti
+-   [igraph](https://igraph.org/python/) - for fast routing. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
+-   **[jupyter]** - Jupyter Notebooks and JupyterLab, best to use with [Puhti web interface](../computing/webinterface.md) and [Jupyter](../computing/webinterface/jupyter.md)
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
 -   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
 -   [movingpandas](http://movingpandas.org) - for trajectory data
--   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
+-   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
 -   [pyproj] - performs cartographic transformations and geodetic computations.
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
-    OpenStreetMap's APIs.
+    OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
+-   [python-pdal](https://pdal.io/python.html) - PDAL Python extension for lidar data
 -   [pysal] - spatial analysis functions.    
--   [pdal](https://pdal.io/) - for lidar data
 -   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds.
--   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs.
+-   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs, [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [python-cdo](https://pypi.org/project/cdo/) - scripting interface to CDO (Climate Data Operators).
 -   **[rasterio]** - access to geospatial raster data.
 -   [rasterstats] - for summarizing geospatial raster datasets based on
     vector geometries. It includes functions for zonal statistics and
-    interpolated point queries.
+    interpolated point queries. [rasterstats example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
 -   [rtree] - spatial indexing and search.
--   [sentinelsat] - downloading Sentinel images
+-   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scipy](https://www.scipy.org/) - inc pandas, numpy, matplotlib etc
--   **[scikit-learn]** - machine learning for Python.
+-   **[scikit-learn]** - machine learning for Python. [Spatial machine learning scikit-learn (shallow learning) exercises](https://github.com/csc-training/geocomputing/tree/master/machineLearning)
 -   [skimage] -  algorithms for image processing.
--   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
--   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
+-   [stackstac](https://stackstac.readthedocs.io/) - STAC data to xarray, [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+-   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
+-   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
     
@@ -51,8 +54,6 @@ Additionally geoconda includes:
 -   [GMT] The Generic Mapping Tools 
 -   [PDAL] Point Data Abstraction Library
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
--   proj4, geos and many more, see `/appl/soft/geo/geoconda/miniconda3/envs/geoconda-3.x/bin` or `/appl/soft/geo/conda/singularity/geoconda/2021/bin` for full
-    list.
    
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
@@ -138,6 +139,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
   [GMT]: https://www.generic-mapping-tools.org/
   [SQLAlchemy]: http://sqlalchemy.org 
   [geopandas]: http://geopandas.org/
+  [jupyter]: https://jupyter.org/
   [pandas]: http://pandas.pydata.org 
   [networkx]: https://networkx.github.io/
   [pyproj]: https://pypi.python.org/pypi/pyproj?
