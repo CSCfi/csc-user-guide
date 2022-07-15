@@ -1,10 +1,10 @@
 <style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition-title { background-color: rgba(255, 0, 0, 0.15) !important; }
 .admonition { background-color: white !important; }
 </style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
+!!! Attention "⚠️ This feature isn't added yet in Rahti4"
 
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/template-docs/)
+    Rahti Templates is not currently added in Rahti4 yet.
 
 # Rahti Templates
 
