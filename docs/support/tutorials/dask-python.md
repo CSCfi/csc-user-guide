@@ -126,8 +126,8 @@ For better understanding of how Dask splits the computations internally, the com
 
 Both `LocalCluster` and `SLURMCluster` type clusters work. When [startin JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
 
-    * If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
-    * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
+* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
+* If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
 ### Dask Dashboard on separate browser tab
 
