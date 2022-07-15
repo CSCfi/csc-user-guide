@@ -8,7 +8,7 @@ The first way to keep an image small is to by simply not adding unnecessary file
 
 ## Keep data out of the image
 
-Images should only contain the application's runtime. This means that the data needed to run the application should not be added to the image. This way not only the image is smaller, but we avoid a rebuild when the data changes. The data can be stored in an [external volume](../../../rahti4/storage/persistent/) (PVC) that will be attached to the Pod upon startup, or it can be stored in [Allas](/data/Allas/) and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a pre-load script) that understands where the data is and how to retrieve it.
+Images should only contain the application's runtime. This means that the data needed to run the application should not be added to the image. This way not only the image is smaller, but we avoid a rebuild when the data changes. The data can be stored in an [external volume](../../../rahti4/storage/persistent/) (PVC) that will be attached to the Pod upon startup, or it can be stored in [Allas](../../../../data/Allas/) and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a pre-load script) that understands where the data is and how to retrieve it.
 data can be stored in a external volume (PVC) that will be attached to the Pod upon startup, or it can be stored in
 
 ## Reduce the number of layers
