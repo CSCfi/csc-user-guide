@@ -16,13 +16,13 @@ things:
 
 1. Create an image in the project's space.
 
-    ![Create Image](/cloud/rahti/img/create_image.png)
+    ![Create Image](../../img/create_image.png)
 
-    ![Create Image II](/cloud/rahti/img/create_image2.png)
+    ![Create Image II](../../img/create_image2.png)
 
 1. Find the login command and use it to login in the terminal.
 
-    ![Login command](/cloud/rahti/img/login_registry.png)
+    ![Login command](../../img/login_registry.png)
 
 ## Update the image
 
