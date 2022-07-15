@@ -52,7 +52,7 @@ Every single pre-created domain name is configured to point to the HAProxy load 
 
 Any other domain name is possible, but the DNS and the certificates must be managed by the customer:
 
-* For the DNS, a `CNAME` pointing to `2.rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
+* For the DNS, a `CNAME` pointing to `router.2.rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
 
 * Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain/#lets-encrypt).
 

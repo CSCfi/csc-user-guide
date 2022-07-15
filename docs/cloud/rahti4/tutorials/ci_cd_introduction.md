@@ -67,7 +67,7 @@ oc start-build dockerfile-example --from-dir=./ -F
 ```
 
 Once the pipeline finishes running you can visit your application deployment
-by following the route which should look like `http://dockerfile-example-<your_project_name>.rahtiapp.fi/`.
+by following the route which should look like `http://dockerfile-example-<your_project_name>.2.rahtiapp.fi/`.
 This pipeline can be triggered again after any update to your application (e.g. update on `index.html`) and
 the changes would reflect almost immediately. [Webhooks](../webhooks/) can also be setup
 to trigger the pipeline.

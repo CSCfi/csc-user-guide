@@ -11,7 +11,7 @@ server running:
 1. A pod that runs the container.
 1. A service that exposes the pod internally and gives it a predictable name.
 1. A route that will expose the service to the internet by redirecting
-   traffic from `<myservice>.rahtiapp.fi` to the service object.
+   traffic from `<myservice>.2.rahtiapp.fi` to the service object.
 
 !!! Note
 
@@ -235,7 +235,7 @@ metadata:
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 192.168.1.0/24 10.0.0.1
 spec:
-  host: <myservice>.rahtiapp.fi
+  host: <myservice>.2.rahtiapp.fi
   to:
     kind: Service
     name: serve
@@ -256,7 +256,7 @@ internet.
     and allow all traffic.
 
 By default, the hostname is `metadata.name` + `-` + project name
-+ `.rahtiapp.fi` unless otherwise specified in `spec.host`.
++ `.2.rahtiapp.fi` unless otherwise specified in `spec.host`.
 
 So far we have set up a pod, a service and a route. If the physical server
 where the pod lives gets shut down, you have to manually restart the pod using
