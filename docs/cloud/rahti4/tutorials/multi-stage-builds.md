@@ -6,6 +6,15 @@ Smaller container images take less space on disk, meaning they take less time to
 
 ## Usage
 
+First create a new go project or have an existing go initialize project.
+
+* To initialize a new go project as an example:
+
+```sh
+go mod init example.com/go-server
+go mod tidy
+```
+
 Take this `Dockerfile`:
 
 * `Dockerfile`:
@@ -66,8 +75,6 @@ The `dockerfile` can be divided into two parts (or stages), each starting by the
 In order to test this build process, put the two files in the same directory and name them `Dockerfile` and `server.go`. Then run the command:
 
 ```sh
-go mod init example.com/go-server
-go mod tidy
 docker build . -t go-server
 ```
 
