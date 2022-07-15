@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/docker_hub_manual_caching/)
-
 # How to manually cache images in Rahti's registry
 
 It is possible to manually cache images in Rahti's internal registry. This could be useful to remove
