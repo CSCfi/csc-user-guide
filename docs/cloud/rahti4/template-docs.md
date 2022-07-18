@@ -37,4 +37,4 @@ oc new-app --template=httpd-example \
 </style>
 !!! Attention "⚠️ Not all Rahti3 templates have been ported to Rahti4"
 
-    The process of adapting and testing the templates to Rahti4 is labor intensive and not in the top of our task list. I`f you have any special interest on the functionality provided by a Rahti3 template that is missing in Rahti4, please let us know (servicedesk@csc.fi).
+    The process of adapting and testing the templates to Rahti4 is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti3 template that is missing in Rahti4, please let us know (servicedesk@csc.fi).
