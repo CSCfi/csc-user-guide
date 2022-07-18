@@ -123,7 +123,7 @@ try:
     conn = mariadb.connect(
         user="<username>",
         password="<password>",
-        host="localhost",
+        host="127.0.0.1",
         port=<port>,
         database="<database name>"
 
@@ -135,4 +135,6 @@ except mariadb.Error as e:
 # Get Cursor
 cur = conn.cursor()
 ```
+
+**Note:** The websocat client will only listen on IPv4. On some systems it is then necessary to use `127.0.0.1` as host, otherwise IPv6 will be used and it will not connect.
 
