@@ -60,8 +60,25 @@ while true; do
 done
 
 cd $wrkdir
-time nextflow -Dnxf.pool.maxThreads=5000 -Dnxf.pool.type=sync run main.nf
+nextflow run main.nf
+
+# Make sure we exit cleanly once nextflow is done
+hq worker stop all
 hq server stop
+```
+
+Where `main.nf` would be the nextflow script you want to run. Note that this batch script
+creates a per job directory and copies the nextflow script there before starting. 
+
+```
+$ ls
+example_jobscript.sh main.nf 
+$ sbatch example_jobscript.sh
+Submitted batch job 137
+$ ls
+example_jobscript.sh main.nf WRKDIR-137
+$ ls WRKDIR-137
+main.nf work
 ```
 
 ## More information
