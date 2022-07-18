@@ -43,4 +43,4 @@ except SMTPException:
 
 * You should replace `sender@domain.com` with your email, or the email you want to receive replies to.
 * You should replace as well `destination@domain.com` with the destination email.
-* The relay SMTP server will only allow to send emails from clients from centain IPs, like from Rahti nodes. In other words, the script above will not work from your desktop/laptop.
+* The relay SMTP server will only allow to send emails from clients from certain IPs, like from Rahti nodes. In other words, the script above will not work from your desktop/laptop.
