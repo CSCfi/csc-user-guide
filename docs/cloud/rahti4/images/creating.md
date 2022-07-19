@@ -103,7 +103,7 @@ For command-line usage with docker compatible clients, the docker repository pas
 OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
 
 ```bash
-$ oc new-app https://github.com/rajanssi/nodejs-16-rahti-example.git
+$ oc new-app https://github.com/CSCfi/nodejs-16-rahti-example.git
 --> Found Docker image 9d200cd (7 weeks old) from Docker Hub for "node:16.15.0"
 
     * An image stream tag will be created as "node:16.15.0" that will track the source image
