@@ -103,46 +103,42 @@ For command-line usage with docker compatible clients, the docker repository pas
 OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
 
 ```bash
-$ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
---> Found image c487d42 (2 weeks old) in image stream "openshift/python" under tag "3.9-ubi8" for "python"
+$ oc new-app https://github.com/rajanssi/nodejs-16-rahti-example.git
+--> Found Docker image 9d200cd (7 weeks old) from Docker Hub for "node:16.15.0"
 
-    Python 3.9 
-    ---------- 
-    Python 3.9 available as container is a base platform for building and running various Python 3.9 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
-
-    Tags: builder, python, python39, python-39, rh-python39
-
-    * The source repository appears to match: python
-    * A source build using source code from https://github.com/OpenShiftDemos/os-sample-python.git will be created
-      * The resulting image will be pushed to image stream tag "os-sample-python:latest"
-      * Use 'start-build' to trigger a new build
-    * This image will be deployed in deployment config "os-sample-python"
-    * Port 8080/tcp will be load balanced by service "os-sample-python"
-      * Other containers can access this service through the hostname "os-sample-python"
+    * An image stream tag will be created as "node:16.15.0" that will track the source image
+    * A Docker build using source code from https://github.com/rajanssi/nodejs-16-rahti-example.git will be created
+      * The resulting image will be pushed to image stream tag "nodejs-16-rahti-example:latest"
+      * Every time "node:16.15.0" changes a new build will be triggered
+    * This image will be deployed in deployment config "nodejs-16-rahti-example"
+    * Port 8080/tcp will be load balanced by service "nodejs-16-rahti-example"
+      * Other containers can access this service through the hostname "nodejs-16-rahti-example"
+    * WARNING: Image "node:16.15.0" runs as the 'root' user which may not be permitted by your cluster administrator
 
 --> Creating resources ...
-    imagestream.image.openshift.io "os-sample-python" created
-    buildconfig.build.openshift.io "os-sample-python" created
-    deploymentconfig.apps.openshift.io "os-sample-python" created
-    service "os-sample-python" created
+    imagestream.image.openshift.io "node" created
+    imagestream.image.openshift.io "nodejs-16-rahti-example" created
+    buildconfig.build.openshift.io "nodejs-16-rahti-example" created
+    deploymentconfig.apps.openshift.io "nodejs-16-rahti-example" created
+    service "nodejs-16-rahti-example" created
 --> Success
-    Build scheduled, use 'oc logs -f bc/os-sample-python' to track its progress.
+    Build scheduled, use 'oc logs -f bc/nodejs-16-rahti-example' to track its progress.
     Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-     'oc expose svc/os-sample-python' 
+     'oc expose svc/nodejs-16-rahti-example' 
     Run 'oc status' to view your app.
 ```
 
-The image will be found in Rahti's registry. Then do as suggested and expose the new application to the outside world:
+Then do as suggested and expose the new application to the outside world:
 
 ```bash
-$ oc expose svc/os-sample-python
-route.route.openshift.io/os-sample-python exposed
+$ oc expose svc/nodejs-16-rahti-example
+route.route.openshift.io/nodejs-16-rahti-example exposed
 ```
 
 In order to get the new route hostname do:
 
 ```bash
-oc get route os-sample-python
+oc get route nodejs-16-rahti-example
 ```
 
 If you enter the hostname in a browser, you will see the "Hello World!" message.
@@ -150,7 +146,7 @@ If you enter the hostname in a browser, you will see the "Hello World!" message.
 A new build can be triggered in the command line:
 
 ```bash
-oc start-build os-sample-python
+oc start-build nodejs-16-rahti-example
 ```
 
 Or using [webhooks](../../../rahti4/tutorials/webhooks/)
