@@ -10,6 +10,6 @@ oc annotate <object_type> <object_name> <key>=<value>
 
 Here are some examples that use annotations:
 
-* [Protecting Against DDoS Attacks](/../../support/faq/DDos/)
+* [Protecting Against DDoS Attacks](../../../../support/faq/DDos/)
 * [Route annotations](../../concepts/#route)
 * [Custom domain names and secure transport](../custom-domain/)
