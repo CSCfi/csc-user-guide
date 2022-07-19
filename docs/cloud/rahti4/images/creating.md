@@ -107,7 +107,7 @@ $ oc new-app https://github.com/CSCfi/nodejs-16-rahti-example.git
 --> Found Docker image 9d200cd (7 weeks old) from Docker Hub for "node:16.15.0"
 
     * An image stream tag will be created as "node:16.15.0" that will track the source image
-    * A Docker build using source code from https://github.com/rajanssi/nodejs-16-rahti-example.git will be created
+    * A Docker build using source code from https://github.com/CSCfi/nodejs-16-rahti-example.git will be created
       * The resulting image will be pushed to image stream tag "nodejs-16-rahti-example:latest"
       * Every time "node:16.15.0" changes a new build will be triggered
     * This image will be deployed in deployment config "nodejs-16-rahti-example"
