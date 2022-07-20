@@ -16,13 +16,13 @@ things:
 
 1. Create an image in the project's space.
 
-    ![Create Image](../../img/create_image.png)
+    ![Create Image](../img/create_image.png)
 
-    ![Create Image II](../../img/create_image2.png)
+    ![Create Image II](../img/create_image2.png)
 
 1. Find the login command and use it to login in the terminal.
 
-    ![Login command](../../img/login_registry.png)
+    ![Login command](../img/login_registry.png)
 
 ## Update the image
 
@@ -41,9 +41,9 @@ This has to be repeated for every time the upstream changes.
 
 Go to your project's deployment, and edit it.
 
-![Edit deployment](../../img/edit_deployment.png)
+![Edit deployment](../img/edit_deployment.png)
 
 Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked.
 Finally select the new image.
 
-![Use cached image](../../img/use_cached_image.png)
+![Use cached image](../img/use_cached_image.png)
