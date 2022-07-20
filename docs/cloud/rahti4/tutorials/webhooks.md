@@ -2,7 +2,7 @@
 
 Webhooks are URLs that allow triggering actions in a system. Rahti supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered. There are few types of formats supported: Generic, GitHub, GitLab and Bitbucket. This means that if the source code of the application is in Gitlab, the Gitlab URL type must be selected.
 
-![Triggers](img/trigger.drawio.svg)
+![Triggers](../img/trigger.drawio.svg)
 
 In this example we will use the GitHub type.
 
