@@ -14,8 +14,16 @@
 
 ## General help
  - [Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/)
- - Also some special markup possible, e.g. coloured highlight boxes (please look at Markdown source for examples, and use preview)
+ - Also some special markup possible, e.g. admonitions (colored highlight boxes). Please look at Markdown source for examples, and use preview
  - When in doubt, check how other pages are formatted
+   - An example of a well-formatted page is the one on [disk areas](https://docs.csc.fi/computing/disk/)
+    ([source file](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/disk.md)),
+    including examples on how to format code blocks, tables and admonitions
+ - Note that pages under a certain category may have a unified formatting that should be followed
+   - For example, application pages should have **Available** (which versions and on which systems),
+    **License** (free or somehow restricted), **Usage** (how to load module, example batch scripts),
+    **References** (what should be cited) and **More information** (links to e.g official documentation)
+    headers, in that order.
 
 ## Organizing content
  - Try to make standalone articles with a good name (user knows to select it from the left menu)
@@ -63,7 +71,7 @@
 ## Images, linked documents
  - [See FAQ for details](FAQ.md#how-to-add-an-image).
  - Put all images in `/img` folder in docs root
- - Put large files in Allas bucket docs-files (write access with `project_2001659`), e.g.  [https://a3s.fi/docs-files/README.md]( https://a3s.fi/docs-files/README.md)
+ - Put large files in Allas bucket docs-files (write access with `project_2001659`), e.g.  [https://a3s.fi/docs-files/README.md](https://a3s.fi/docs-files/README.md)
     - New files easy to share with `a-publish your-file.tgz -b docs-files` 
 
 ## Syntax highlighting
