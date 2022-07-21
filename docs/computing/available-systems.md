@@ -94,3 +94,4 @@ For further reading:
 * [A more technical description about Helmi](helmi.md).
 * [Specific instructions for the LUMI Helmi partition](../../accounts/helmi/)
 * [Getting started with Helmi](../../support/tutorials/helmi_quick/)
+* [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)

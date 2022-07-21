@@ -72,14 +72,14 @@ you need to generate an SSH key pair.
     set the number of bits to 4096. The, press the *Generate* button.
 
     <figure>
-      <img src="../../img/win-keygen-step1.png" width="400" alt="Create SSH key pair with windows - step 1">
+      <img src="../../../img/win-keygen-step1.png" width="400" alt="Create SSH key pair with windows - step 1">
     </figure>
 
     You will be requested to move the mouse in the Key area to generate some 
     entropy; do so until the green bar is completely filled.
 
     <figure>
-      <img src="../../img/win-keygen-step2.png" width="400" alt="Create SSH key pair with windows - step 2">
+      <img src="../../../img/win-keygen-step2.png" width="400" alt="Create SSH key pair with windows - step 2">
     </figure>
 
     After that, enter a comment in the Key comment field and a strong
@@ -88,7 +88,7 @@ you need to generate an SSH key pair.
     **Do not leave the passphrase empty**.
 
     <figure>
-      <img src="../../img/win-keygen-step3.png" width="400" alt="Create SSH key pair with windows - step 3">
+      <img src="../../../img/win-keygen-step3.png" width="400" alt="Create SSH key pair with windows - step 3">
     </figure>
 
     The next step is to save your public and private key. Click on the *Save 
@@ -109,7 +109,7 @@ Now that you have generated your key pair, you need to set up your **public** ke
 To register your key with [MyCSC](https://my.csc.fi/), click on *My Profile* item of the menu on the left as shown in the figure below. Then scroll to the end and in the *SSH PUBLIC KEYS* panel click the *Modify* button. From here, click the *Add new* button and paste your new public key in the text area and click *Add*.
 
 <figure>
-	<img src="../../img/csc-profile.png" width="700" alt="Screenshot of user profile settings to setup ssh public key">
+	<img src="../../../img/csc-profile.png" width="700" alt="Screenshot of user profile settings to setup ssh public key">
 	<figcaption>MyCSC profile information to add ssh public key.</figcaption>
 </figure>
 
@@ -217,22 +217,39 @@ In order to efficiently use Helmi, some knowledge of the underlying system archi
 
 ### Qiskit
 
-When submitting jobs to Helmi using Qiskit add the `module load helmi-qiskit` command in your batch script before submitting your python script. In Qiskit python scripts you will need to include the following:
+When submitting jobs to Helmi using Qiskit add the `activate-qiskit` command in your batch script before submitting your python script. In Qiskit python scripts you will need to include the following:
 
-	from qiskit_iqm import IQMprovider # Import IQM library
-	 # Set backend
-	 # Helmi basis gates
-	 
-	qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomposed circuit into basis gates
-	 
-	virtual_qubits = qc_decomposed.qubits # Get the virtual qubits
-	qubit_mapping = {virtual_qubits[0]: 'QB'+str(qb+1)} # Set Helmi Qubit Mapping
-	job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
+    from qiskit_iqm import IQMprovider # Import IQM library
+     # Set backend
+     # Helmi basis gates
+     
+    qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomposed circuit into basis gates
+     
+    virtual_qubits = qc_decomposed.qubits # Get the virtual qubits
+    qubit_mapping = {virtual_qubits[0]: 'QB'+str(qb+1)} # Set Helmi Qubit Mapping
+    job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
+
+Alternatively you can create a container for the `qiskit-iqm` Python package via the [LUMI container wrapper](../../containers/tykky/). We recommend using the supplied [requirements_qiskit.txt](../../support/tutorials/helmi/requirements_qiskit.txt) file.
+
+    module load LUMI lumi-container-wrapper
+    mkdir qiskit-iqm
+    pip-containerize new --prefix qiskit-iqm/ requirements_qiskit.txt
+    export PATH="/users/username/qiskit-iqm/bin:$PATH"
+
 
 
 ### Cirq
 
-When submitting jobs to Helmi using Cirq add the `module load helmi-cirq` command in your batch script before submitting your python script.
+When submitting jobs to Helmi using Cirq add the `activate-cirq` command in your batch script before submitting your python script.
+
+
+The Cirq environment can also be created manually by downloading the supplied [requirements_cirq.txt](../../support/tutorials/helmi/requirements_cirq.txt) file. 
+
+
+    module load LUMI lumi-container-wrapper
+    mkdir cirq-iqm
+    pip-containerize new --prefix cirq-iqm/ requirements_cirq.txt
+    export PATH="/users/username/cirq-iqm/bin:$PATH"
 
 ### OpenQASM
 
@@ -257,6 +274,8 @@ Examples of circuits can be found here [**Insert link**] showing the differences
 <!-- ## Links -->
 
 ## Support channels
+
+Additional information can always be found in the [main LUMI documentation page](https://docs.lumi-supercomputer.eu/).
 
 The main channel for support regarding Helmi is the [CSC Service Desk](../../contact/). 
 

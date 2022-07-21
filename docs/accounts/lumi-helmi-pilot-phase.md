@@ -35,3 +35,4 @@ For further reading:
 * [Description of Helmi's Topology](../../computing/helmi/).
 * [Specific instructions for the LUMI Helmi partition](../helmi/)
 * [Running jobs on Helmi](../../computing/running/running-on-helmi)
+* [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
