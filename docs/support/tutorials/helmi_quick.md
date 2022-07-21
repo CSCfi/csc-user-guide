@@ -229,7 +229,7 @@ When submitting jobs to Helmi using Qiskit add the `activate-qiskit` command in 
     qubit_mapping = {virtual_qubits[0]: 'QB'+str(qb+1)} # Set Helmi Qubit Mapping
     job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
 
-Alternatively you can create a container for the `qiskit-iqm` Python package via the [LUMI container wrapper](../../containers/tykky/). We recommend using the supplied [requirements_qiskit.txt](../../support/tutorials/helmi/requirements_qiskit.txt) file.
+Alternatively you can create a container for the `qiskit-iqm` Python package via the [LUMI container wrapper](../../../computing/containers/tykky/). We recommend using the supplied [requirements_qiskit.txt](../../support/tutorials/helmi/requirements_qiskit.txt) file.
 
     module load LUMI lumi-container-wrapper
     mkdir qiskit-iqm
