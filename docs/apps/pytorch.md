@@ -19,6 +19,7 @@ Currently supported PyTorch versions:
 
 | Version | Module              | Puhti-rhel7 | Mahti | Environ. | Horovod | Notes           |
 |:-------:|---------------------|:-----:|:-----:|----------|:-------:|-----------------|
+| 1.12.0  | `pytorch/1.12`      | X     | X     | Sing.    | X       |                 |
 | 1.11.0  | `pytorch/1.11`      | X     | X     | Sing.    | X       | default version |
 | 1.10.0  | `pytorch/1.10`      | X     | (X)   | Sing.    | X       |                 |
 | 1.9.0   | `pytorch/1.9`       | X     | (X)   | Sing.    | X       |                 |
@@ -56,9 +57,9 @@ table above). Wrapper scripts have been provided so that common commands such as
 information, see [CSC's general instructions on how to run Singularity
 containers](../computing/containers/run-existing.md).
 
-Some modules support [Horovod](https://horovod.ai/), which is our recommended
-framework for multi-node jobs, i.e., jobs needing more than 4 GPUs. For more
-information, read the [Multi-GPU section in our machine learning
+Some modules support [Horovod](https://horovod.ai/) for multi-node
+jobs, i.e., jobs needing more than 4 GPUs. For more information, read
+the [Multi-GPU section in our machine learning
 guide](../support/tutorials/ml-multi.md).
 
 
