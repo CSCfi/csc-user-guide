@@ -9,7 +9,7 @@ It is also assumed that you are at least familiar with some Quantum Computing so
 
 ## Access to LUMI
 
-Helmi is accessed through the LUMI login nodes as a LUMI project, therefore you will first need to apply for access to LUMI under MyCSC. 
+Helmi is accessed through the LUMI login nodes as a LUMI project, therefore you will first need to apply for access to LUMI under MyCSC. To do so please review the two below links. The first will guide you through the process of creating a LUMI project via MyCSC, the second will guide you through the specific LUMI Helmi partition instructions.
 
 
 * [Creating a LUMI project and applying for resources](../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
@@ -185,20 +185,20 @@ Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit 
 
 Before running jobs users will need to add to their `~/.bashrc` file `export MODULEPATH=$MODULEPATH:/project_462000055/` to ensure that the correct environments are setup.
 
-	#!/bin/bash -l
-	 
-	#SBATCH --job-name=helmijob   # Job name
-	#SBATCH --output=helmijob.o%j # Name of stdout output file
-	#SBATCH --error=helmijob.e%j  # Name of stderr error file
-	#SBATCH --partition=q_fiqci   # Partition (queue) name
-	#SBATCH --ntasks=1              # One task (process)
-	#SBATCH --cpus-per-task=1     # Number of cores (threads)
-	#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
-	#SBATCH --account=project_<id>  # Project for billing
-	 
-	activate-XXX # activate-qiskit, activate-cirq, activate-qasm
-	 
-	python your_python_script.py
+    #!/bin/bash -l
+     
+    #SBATCH --job-name=helmijob   # Job name
+    #SBATCH --output=helmijob.o%j # Name of stdout output file
+    #SBATCH --error=helmijob.e%j  # Name of stderr error file
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:10:00         # Run time (hh:mm:ss)
+    #SBATCH --account=project_<id>  # Project for billing
+     
+    helmi-XXX # helmi-qiskit, helmi-cirq
+     
+    python your_python_script.py
 
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun` 
 
@@ -217,7 +217,7 @@ In order to efficiently use Helmi, some knowledge of the underlying system archi
 
 ### Qiskit
 
-When submitting jobs to Helmi using Qiskit add the `activate-qiskit` command in your batch script before submitting your python script. In Qiskit python scripts you will need to include the following:
+When submitting jobs to Helmi using Qiskit add the `helmi-qiskit` command in your batch script before submitting your python script. In Qiskit python scripts you will need to include the following:
 
     from qiskit_iqm import IQMprovider # Import IQM library
      # Set backend
@@ -240,7 +240,7 @@ Alternatively you can create a container for the `qiskit-iqm` Python package via
 
 ### Cirq
 
-When submitting jobs to Helmi using Cirq add the `activate-cirq` command in your batch script before submitting your python script.
+When submitting jobs to Helmi using Cirq add the `helmi-cirq` command in your batch script before submitting your python script.
 
 
 The Cirq environment can also be created manually by downloading the supplied [requirements_cirq.txt](../../support/tutorials/helmi/requirements_cirq.txt) file. 
@@ -251,11 +251,11 @@ The Cirq environment can also be created manually by downloading the supplied [r
     pip-containerize new --prefix cirq-iqm/ requirements_cirq.txt
     export PATH="/users/username/cirq-iqm/bin:$PATH"
 
-### OpenQASM
+<!-- ### OpenQASM
 
 Circuits can also be submitted via the OpenQASM format. Note that Qiskit and Cirq already have functions in place to automatically export your circuits in OpenQASM format.
 
-* Qiskit circuits can be exported via `qc.qasm(formatted=False, filename=None, encoding=None)`. 
+* Qiskit circuits can be exported via `qc.qasm(formatted=False, filename=None, encoding=None)`.  -->
 
 ### Circuit Examples
 
