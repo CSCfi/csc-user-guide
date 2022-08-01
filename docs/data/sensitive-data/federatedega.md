@@ -50,7 +50,7 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 ### For Data Access Committee (DAC)
 Data Access Committee (DAC) is established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply and the data approval process, please check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
-1. When a dataset you are associated with is uploaded to Finnish FEGA, you will receive an automated email via SD Apply asking you to confirm your availability to act as a Data Access Committee member. Log in to SD Apply and confirm your availability. 
+1. When a dataset you are associated with is uploaded to Finnish FEGA, you will receive an automated email via SD Apply asking you to confirm your availability to act as a Data Access Committee member. Follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/> and confirm your availability. 
  
 2. As a DAC member you receive an email notification via SD Apply, when an applicant applies for data access. Log into SD Apply with your Haka or ELIXIR account. 
 
@@ -103,7 +103,7 @@ Here’s a list of the required documents:
 
 
 ### Step 3: Credentials
-Once the legal agreements between the data controller and CSC are finalised, you can request the central EGA credentials by sending an email to central EGA helpdesk at helpdesk@ega-archive.org. You will receive the credentials via email. 
+Once the legal agreements between the data controller and CSC are finalised, you can request the central EGA credentials by sending an email to the central EGA helpdesk at helpdesk@ega-archive.org. You will receive the credentials via email. 
 
 !!! note
     Central EGA credentials, including a username (format: ega-box-NNN) and a password, are required for the encryption and data upload to Finnish FEGA and for the metadata submission to the submitter portal of central EGA.
@@ -223,7 +223,7 @@ After data release, each of these objects will be assigned with a permanent iden
 
 !!! note
     
-    - Study, samples, DAC, and Policy metadata can all be registered before uploading files, while run and analysis objects cannot be registered until at least 24 hours after the files have been uploaded to Finnish FEGA.
+    - Study, Samples, DAC, and Policy metadata can all be registered before uploading files, while run and analysis objects cannot be registered until at least 24 hours after the files have been uploaded to Finnish FEGA.
     
     - If you are performing array-based submission(s), the submitter portal should only be used to register the Study, Samples, Data Access Committee (DAC), and Policy metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
 
@@ -231,7 +231,7 @@ After data release, each of these objects will be assigned with a permanent iden
 After uploading the data to Finnish FEGA, you will receive a dataset application link for each dataset via email from the CSC helpdesk. The dataset application links must be added to each metadata submission in EGA submitter portal. In order to add the dataset application link to the submission, you must register a new Policy metadata object for each dataset. Create a policy and select the checkbox “The policy has an url.” under the Policy field. Write the dataset application link in the popping up “Policy URL” textbox.
 
 !!! note
-    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying to access to sensitive datasets stored at CSC.
+    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC.
     
 ### Step 7: Data release
 To finalise your submission, write to servicedesk@csc.fi to confirm that the submission can be released and add the following information from the submitter portal:
@@ -239,6 +239,8 @@ To finalise your submission, write to servicedesk@csc.fi to confirm that the sub
 - Name of the submission (as on the submitter portal)
 
 - Study Accession number (EGAS)
+
+- Dataset Accession number (EGAD)
 
 - Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on EGA webpage. 
 
