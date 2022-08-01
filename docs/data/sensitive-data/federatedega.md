@@ -27,10 +27,10 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 - **Finnish FEGA**. A national repository for biomedical data consented for research. CSC hosts Finnish FEGA. The research data uploaded to Finnish FEGA will remain under controlled access in Finland.
 
 ## Data access application
-### Application process overview
-[![FEGA application process overview](images/fega/fega_application_overview.png)](images/fega/fega_application_overview.png)
 
 ### For Data Applicants
+
+[![FEGA application process overview](images/fega/fega_application_overview.png)](images/fega/fega_application_overview.png)
 
 1. To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. For more information about SD Apply and the application process, please check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
@@ -50,6 +50,9 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
     If you are a new CSC user, please check these instructions on CSC [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/). Check also the [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information.  
 
 ### For Data Access Committee (DAC)
+
+[![FEGA approval process overview](images/fega/fega_dac_overview.png)](images/fega/fega_dac_overview.png)
+
 Data Access Committee (DAC) is established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply and the data approval process, please check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
 1. When a dataset you are associated with is uploaded to Finnish FEGA, you will receive an automated email via SD Apply asking you to confirm your availability to act as a Data Access Committee member. Follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/> and confirm your availability. 
