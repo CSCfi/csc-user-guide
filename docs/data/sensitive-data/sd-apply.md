@@ -105,6 +105,7 @@ Once your analysis is completed, you can export the results from the computing e
 The Data Access Committee (DAC) is responsible for processing data access applications and managing access rights to different datasets. In practice, the DAC can approve or reject applications and revoke access rights in case of misuse. All the communication between the DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process.
 
 ### DAC process overview
+[![SD Apply DAC process overview](images/apply/apply_dac_overview.png)](images/apply/apply_dac_overview.png)
 
 ### Step 1: Confirm availability
 
