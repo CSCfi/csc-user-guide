@@ -37,7 +37,7 @@ The following is a step-by-step guide to Finnish FEGA that illustrates:
 2.    Log in to SD Apply either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Remember to always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
 3.    Follow the instructions on the application form and fill in the required fields (State, Applicants, Resources, Terms of use and Application). To submit your application, select *Send application* under Actions.  
-[![SD Apply application form](images/fega/apply_application.png)](images/fega/apply_application.png)
+[![SD Apply application form](images/fega/fega_apply.png)](images/fega/fega_apply.png)
 
 4.    After you have sent the application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights. You can follow the approval process and read the possible comments from the "Events" section of the application. In addition, you can find all your applications and see their state from the "Applications" tab.
 
