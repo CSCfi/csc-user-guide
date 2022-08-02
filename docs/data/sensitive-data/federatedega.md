@@ -66,6 +66,8 @@ Data Access Committee (DAC) is established during the data submission process an
 
 4. Next, you can decide if the application is approved or rejected. Please give a motivation in the “Add comments” field in the “Approve or reject” section. The final decision is sent to the applicant with information on how the dataset can be accessed using SD Desktop.
 
+[![SD Apply processing applications](images/fega/fega_dac.png)](images/fega/fega_dac.png)
+
 !!! note
     Every action is recorded in SD Apply (e.g. previous applications from the same applicant are available).
 
