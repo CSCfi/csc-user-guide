@@ -104,9 +104,13 @@ Once your analysis is completed, you can export the results from the computing e
 ## Data approval for Data Access Committee (DAC)
 The Data Access Committee (DAC) is responsible for processing data access applications and managing access rights to different datasets. In practice, the DAC can approve or reject applications and revoke access rights in case of misuse. All the communication between the DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process.
 
-The Data Access Committee is established during the data submission process. When a dataset you are associated with is uploaded to Finnish FEGA, you will receive an automated email via SD Apply asking you to confirm your availability to act as a Data Access Committee member. Follow the link in your email or log in directly to SD Apply at https://sd-apply.csc.fi/ and confirm your availability. 
+### DAC process overview
 
-### Step 1: Login
+### Step 1: Confirm availability
+
+The Data Access Committee is established during the data submission process. When a dataset you are associated with is uploaded to CSC, you will receive an automated email via SD Apply asking you to confirm your availability to act as a Data Access Committee member. Follow the link in your email or log in directly to SD Apply at https://sd-apply.csc.fi/ and confirm your availability. 
+
+### Step 2: Login
 As a DAC member, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
 
 To start processing applications, follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/>. Login to SD Apply is possible either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Use the identity provider your organisation/institution recommends.
@@ -116,7 +120,7 @@ To start processing applications, follow the link in your email or log in direct
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
-### Step 2: Process the application
+### Step 3: Process the application
 In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
 
 [![SD Apply "Actions" tab](images/apply/apply_dac(1).png)](images/apply/apply_dac(1).png)
@@ -160,7 +164,7 @@ You can also edit applications by the following ways:
 !!! note
     You can comment on the application throughout the application process by selecting *Remark* and choosing if you want to show the comment to the applicant or not. Applicants will receive a notification about new public comments. Sometimes it is useful for the applicant to see the comments so that they know how the approval process is proceeding. Note that the applicant cannot respond to the comments.
 
-### Step 3: After processing the application
+### Step 4: After processing the application
 You are able to manage the access rights of the applicant even after you have processed the application. You can find the processed applications from the "Actions" tab under "Processed applications". "Processed applications" view shows all the applications that have been approved, rejected, closed, or returned to the applicant. Select *View* to open a specific application.
 
 #### Close the application
