@@ -15,7 +15,7 @@ roughly divided in two categories.
 ## Securing routes
 
 Enable the **TLS encryption** of routes. If the DNS name of your service is under
-the subdomain `*.apps.rahti4-qa.csc.fi` (e.g. `coolservice.apps.rahti4-qa.csc.fi`), the default
+the subdomain `*.2.rahtiapp.fi` (e.g. `coolservice.2.rahtiapp.fi`), the default
 wildcard TLS certificate provided by Rahti can be used directly. Otherwise,
 you need to add your certificate data in the route object.
 

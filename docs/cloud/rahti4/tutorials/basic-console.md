@@ -16,7 +16,7 @@ How to set up a static web server in Rahti4.
     ![new-project-deployment-config](img/click-deploymentConfig.png)
 
  This application is available at Select _Resources_ on the pop-up window on the right under the _Routes_ list.
- [httpd-example-http-test-project.apps.rahti4-qa.csc.fi](http://httpd-example-http-test-project.apps.rahtiapp.fi)
+ [httpd-example-http-test-project.2.rahtiapp.fi](http://httpd-example-http-test-project.2.rahtiapp.fi)
  ![new-app-info](img/new-app-info.png)
 
 OpenShift processed a template that provisioned
