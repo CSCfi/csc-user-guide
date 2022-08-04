@@ -1,4 +1,4 @@
-# Data Access Application
+# Data access application
 ## Application process overview
 [![FEGA application process overview](images/fega/fega_application_overview.png)](images/fega/fega_application_overview.png)
 
