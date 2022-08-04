@@ -1,4 +1,4 @@
-# Data access approval for Data Access Committee (DAC)
+# Data access approval for DAC
 Data Access Committee (DAC) is established during the data submission process and all the communication between DAC and the data applicant is managed using SD Apply. Each DAC is linked to a specific dataset present in the SD Apply catalogue. DAC members can process data access applications separately, thus only one DAC member needs to approve or reject the application. The SD Apply user interface guides you during the data access revision process. For more information about SD Apply and the data approval process, please check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/).
 
 ## Approval process overview
