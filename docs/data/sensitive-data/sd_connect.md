@@ -146,6 +146,12 @@ On the **Shared** page:
 
 ## Introduction to data encryption compatible with Sensitive Data services
 
+
+img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://youtu.be/dI1Py_1gA-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Files uploaded to Sensitive Sensitive data services via SD Connect need to be encrypted. Once uploaded to CSC, encrypted data are accessible from each service component. At the same time, the original files are always encrypted during data storage or analysis. **Data encryption does not require technical expertise**. 
 
 We integrated the encryption **as an automated step in the SD Connect user interface**, specifically for files less than 100 GB. All the data uploaded using SD Connect are automatically encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing. 
@@ -177,6 +183,12 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 
 ## Sensitive data encryption and upload (less than 100 GB) 
+
+
+img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://youtu.be/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 SD Connect allows you to encrypt and upload files or folders directly from your web browser (for files smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
 
@@ -230,6 +242,11 @@ The necessary steps are the following:
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
 
 
+img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://youtu.be/xpUF0ig-4MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys and the default services encryption key. Below, we will present how to generate your encryption key pair using an application called Crypt4GH and how your public encryption key (or your collabrator's public key) can then be used to encrypt files via web browser using SD Connect. 
 
 1-**Install the Crypt4GH application**:
@@ -268,6 +285,13 @@ The keys will be generated and saved to the **same folder in which the applicati
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 ![Generation-keys](images/connect/key-generation.png)
+
+
+
+img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://youtu.be/oQxz_0Mz5pU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 3-Upload upload folders and files to SD Connect using the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
 
@@ -349,6 +373,10 @@ At this point, the user interface will redirect you to the **Shared** page, and 
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
 
 ## Data download and decryption
+
+img width="570" alt="space in user guide" src="https://user-images.githubusercontent.com/83574067/123925776-e75d3f80-d993-11eb-8c1e-7f77341aa382.png">
+
+<iframe width="280" height="155" srcdoc="https://youtu.be/SQJ8QEKV7BE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 You can easily download entire buckets or single encrypted files from the SD Connect Browser page by clicking on download. 
 
