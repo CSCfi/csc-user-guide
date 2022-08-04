@@ -1,8 +1,8 @@
-## Data submission
-### Submission process overview 
+# Data submission
+## Submission process overview 
 [![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
 
-### Step 1: Application form
+## Step 1: Application form
 Submission to the FEGA service starts with authorization of a person(s) that will represent data owner organization during the submission process. The FEGA service will provide customer support only to the named person(s).
 
 To begin the submission process, please fill in the [application form](https://docs.csc.fi/data/sensitive-data/fega-application.docx) with contact information, details about the data submission type and information about the data controller. Send the filled form via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
@@ -13,7 +13,7 @@ To begin the submission process, please fill in the [application form](https://d
     
     - Please use the same email thread throughout the whole submission process.
     
-### Step 2: Legal agreements 
+## Step 2: Legal agreements 
 Each user must provide a series of legal agreements to confirm that they have the authority and permission to deposit data in FEGA. Download the necessary documentation below and share the agreements concerning the data controller with the legal service of your home organisation. Please note that your organisation may already have some required agreements in place with CSC. We will provide support if additional agreements are needed. Send the finalised documents via email to servicedesk@csc.fi by replying to the previous email of the CSC helpdesk. 
 
 !!! note
@@ -39,13 +39,13 @@ Here’s a list of the required documents:
 2. 
 
 
-### Step 3: Credentials
+## Step 3: Credentials
 Once the legal agreements between the data controller and CSC are finalised, you can request the central EGA credentials by sending an email to the central EGA helpdesk at helpdesk@ega-archive.org. You will receive the credentials via email. 
 
 !!! note
     Central EGA credentials, including a username (format: ega-box-NNN) and a password, are required for the encryption and data upload to Finnish FEGA and for the metadata submission to the submitter portal of central EGA.
     
-### Step 4: Data formats
+## Step 4: Data formats
 Before uploading the data to FEGA, you must prepare the datasets and verify the data formats. Some examples of the accepted formats are listed below.
 
 !!! note
@@ -70,7 +70,7 @@ Non-sensitive data (or open data) needs to be submitted in appropriate archives.
 !!! note
     For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at servicedesk@csc.fi (subject: Federated EGA).
 
-### Step 5: Data encryption and upload 
+## Step 5: Data encryption and upload 
 Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted. 
 
 !!! note
@@ -84,7 +84,7 @@ or
 
 - **Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
 
-#### Fi-FEGA upload application
+### Fi-FEGA upload application
 
 1. You can download the Fi-FEGA upload application specific to your operating system from the GitHub repository: Linux, Mac or Windows. After downloading and unzipping the file, you can find the application in your download folder. When you open the application, you might encounter an error message. In this case, click on *More info* and verify that the publisher is CSC-IT Center for Science (or in Finnish: CSC-Tieteen tietotekniikan keskus Oy) and click on *Run anyway*. 
 
@@ -104,7 +104,7 @@ or
 
 [![Fi-FEGA upload application](images/fega/fega_upload.png)](images/fega/fega_upload.png)
 
-#### Command line interface
+### Command line interface
 **Data encryption with crypt4gh CLI**:
 
 1.	Python 3.6+ is required to use the Crypt4GH encryption utility. If you need help with installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
@@ -132,7 +132,7 @@ sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 9002 <ega_us
 
 Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
-### Step 6: Metadata submission
+## Step 6: Metadata submission
 
 Next, you can describe all the information related to your study, i.e. metadata, using the central [EGA submitter portal](https://test.ega-archive.org/submitter-portal/) or [programmatically](https://ega-archive.org/submission/sequence/programmatic_submissions). The public metadata will be published on the EGA website to facilitate data discovery and re-use.
 
@@ -164,13 +164,13 @@ After data release, each of these objects will be assigned with a permanent iden
     
     - If you are performing array-based submission(s), the submitter portal should only be used to register the Study, Samples, Data Access Committee (DAC), and Policy metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
 
-#### Dataset application link
+### Dataset application link
 After uploading the data to Finnish FEGA, you will receive a dataset application link for each dataset via email from the CSC helpdesk. The dataset application links must be added to each metadata submission in EGA submitter portal. In order to add the dataset application link to the submission, you must register a new Policy metadata object for each dataset. Create a policy and select the checkbox “The policy has an url.” under the Policy field. Write the dataset application link in the popping up “Policy URL” textbox.
 
 !!! note
     If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC.
     
-### Step 7: Data release
+## Step 7: Data release
 To finalise your submission, write to servicedesk@csc.fi to confirm that the submission can be released and add the following information from the submitter portal:
 
 - Name of the submission (as on the submitter portal)
