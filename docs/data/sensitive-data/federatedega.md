@@ -6,9 +6,9 @@ You can use FEGA either to submit, apply or approve access to biomedical dataset
 
 Choose below the correct user guide:
 
-### [Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-access-application)
+### [Data access application]
 ### [Data access approval] 
-### [Data submission](https://github.com/CSCfi/csc-user-guide/edit/wip-at-fega/docs/data/sensitive-data/federatedega.md#data-submission)
+### [Data submission]
 
 !!! note
     For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
