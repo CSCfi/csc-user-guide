@@ -73,7 +73,7 @@ oc help <command>
 Authorize the CLI tool to the cluster:
 
 ```bash
-oc login https://landing.2.rahti.csc.fi/ --token=<secret access token>
+oc login https://api.2.rahti.csc.fi --token=<secret access token>
 ```
 
 This command can be obtained by clicking your usename and "Copy Login Command"

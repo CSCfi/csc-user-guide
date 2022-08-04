@@ -34,7 +34,7 @@ To run the example you need to login to Rahti and switch to the project that you
 quota as:
 
 ```bash
-oc login https://rahti.csc.fi:8443 --token=<your-token>
+oc login https://api.2.rahti.csc.fi --token=<your-token>
 oc project <your-project>
 oc describe limitranges core-resource-limits #to check your assigned GPU quota
 ```

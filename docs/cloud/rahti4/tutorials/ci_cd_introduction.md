@@ -38,7 +38,7 @@ cd rahti-bc-example/
 Login to Rahti if you haven't done so. You can copy your login command from the Rahti UI.
 
 ```
- oc login https://rahti.csc.fi:8443 --token=<your_token>
+ oc login https://api.2.rahti.csc.fi --token=<your_token>
 ```
 
 Make sure you are in the right project with `oc project` and if not you can create one
