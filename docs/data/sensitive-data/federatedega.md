@@ -8,7 +8,7 @@ Choose below the correct user guide:
 
 ### [Data access application]
 ### [Data access approval] 
-### [Data submission]
+### [Data submission](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_submission.md#data-submission)
 
 !!! note
     For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
