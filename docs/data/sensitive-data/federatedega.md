@@ -1,19 +1,20 @@
 # Federated European Genome-phenome Archive (FEGA)
-
-Federated European Genome-phenome Archive (FEGA) is a service for storing and sharing human genetic and phenotypic data consented for research. The service is based on a European network of local repositories. CSC hosts Finnish FEGA. 
-
-You can use FEGA either to submit, apply or approve access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public study information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research.
-
-[![FEGA submission and application processes](images/fega/fega.png)](images/fega/fega.png)
-
-!!! note
-    For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
-
 ## FEGA user guides for different user types
 
 - **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_application.md#data-access-application)**
 - **[Data access approval for DAC](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_dac.md#data-access-approval-for-dac)**
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_submission.md#data-submission)**
+
+[![FEGA submission and application processes](images/fega/fega.png)](images/fega/fega.png)
+
+Federated European Genome-phenome Archive (FEGA) is a service for storing and sharing human genetic and phenotypic data consented for research. The service is based on a European network of local repositories. CSC hosts Finnish FEGA. 
+
+You can use FEGA either to submit, apply or approve access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public study information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research.
+
+!!! note
+    For more information, check Federated EGA [service description](https://research.csc.fi/-/fega) in CSC service catalog and [CSC sensitive Data Services for research webpage](https://research.csc.fi/sensitive-data-services-for-research).
+
+
 
 ## Useful terminology
 
