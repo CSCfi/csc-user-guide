@@ -181,7 +181,7 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 
 ## Sensitive data encryption and upload (less than 100 GB) 
-
+Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -236,9 +236,13 @@ The necessary steps are the following:
 ![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
 
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
+Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and we apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/xpUF0ig-4MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/oQxz_0Mz5pU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 Using the SD Connect user interface, you can simultaneously encrypt your files with multiple encryption keys and the default services encryption key. Below, we will present how to generate your encryption key pair using an application called Crypt4GH and how your public encryption key (or your collabrator's public key) can then be used to encrypt files via web browser using SD Connect. 
@@ -279,9 +283,6 @@ The keys will be generated and saved to the **same folder in which the applicati
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 ![Generation-keys](images/connect/key-generation.png)
-
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/oQxz_0Mz5pU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 3-Upload upload folders and files to SD Connect using the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
