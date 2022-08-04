@@ -27,15 +27,15 @@ to Rahti's registry. For example to cache `centos:7`:
 
 ```
 docker pull centos:7
-docker tag centos:7 image-registry.apps.rahti4-qa.csc.fi/$PROJECT/centos:7
+docker tag centos:7 image-registry.apps.2.rahti.csc.fi/$PROJECT/centos:7
 ```
 
 Befor pushing the image to Rahti's internal registry, you need to give it a tag. This can be done with `oc tag` command. Remember to authenticate to the internal registry before pushing the image to an image stream.
 
 ```
 oc tag centos centos:7
-docker login -p $(oc whoami -t ) -u unused image-registry.apps.rahti4-qa.csc.fi
-docker push image-registry.apps.rahti4-qa.csc.fi/$PROJECT/centos:7
+docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+docker push image-registry.apps.2.rahti.csc.fi/$PROJECT/centos:7
 ```
 
 This has to be repeated for every time the upstream changes.

@@ -93,7 +93,7 @@ oc start-build my-hello --from-dir=./ -F
 ```
 
 The image will be visible to internet at
-`image-registry.apps.rahti4-qa.csc.fi/<project-name>/my-hello-image` for docker
+`image-registry.apps.2.rahti.csc.fi/<project-name>/my-hello-image` for docker
 compatible clients.
 
 For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.

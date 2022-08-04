@@ -151,7 +151,7 @@ spec:
       name: sharevol
   containers:
   - name: serve-cont
-    image: image-registry.apps.rahti4-qa.csc.fi/openshift/httpd
+    image: image-registry.apps.2.rahti.csc.fi/openshift/httpd
     volumeMounts:
     - mountPath: /var/www/html
       name: sharevol
