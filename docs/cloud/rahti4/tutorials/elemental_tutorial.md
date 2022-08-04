@@ -37,7 +37,7 @@ project <projectname>':
     someone-elses-public-project
   * my-project-with-unique-name
 
-Using project "my-project-with-unique-name" on server "(RAHTI4_URL)".
+Using project "my-project-with-unique-name" on server "(https://landing.2.rahti.csc.fi/)".
 ```
 
 !!! Note

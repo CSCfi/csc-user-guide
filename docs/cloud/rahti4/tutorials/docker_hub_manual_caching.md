@@ -3,7 +3,7 @@
 It is possible to manually cache images in Rahti. This could be useful to remove
 an external dependency or improve performance.
 
-The process is simple, go to RAHTI_URL, there you must take the follwowing
+The process is simple, go to <https://landing.2.rahti.csc.fi/>, there you must take the follwowing
 actions:
 
 1. In administrator role, open ImageStreams page under Builds. Click "Create ImageStream" button on
