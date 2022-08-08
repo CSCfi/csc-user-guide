@@ -76,4 +76,6 @@
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
 
-
+## CSC Resources for Courses
+* [Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
+* [CSC Notebooks environment for creating custom notebooks](../../cloud/guide_for_teachers.md#creating-custom-docker-images)
