@@ -3,11 +3,11 @@ Federated European Genome-phenome Archive (FEGA) is a service for storing and sh
 
 You can use FEGA either to submit, apply or approve access to biomedical datasets. The service allows you to store sensitive research data under controlled access in Finland. At the same time, the public study information (metadata) is made internationally available in central [European Genome-phenome Archive](https://ega-archive.org/studies) (EGA). Each dataset is associated with a Data Access Committee (DAC), which evaluates data access applications and can grant or deny data access for re-use. If the application is approved, the applicant can directly access and analyse the sensitive data in a secure and private cloud workspace using CSC Sensitive Data Services for research.
 
-## FEGA user guides
+## User guides
 - **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_application.md#data-access-application)**
 - **[Data access approval for DAC](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_dac.md#data-access-approval-for-dac)**
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_submission.md#data-submission)**
-<br/><br/>
+<br/><br/><br/>
 
 [![FEGA submission and application process](images/fega/fega.png)](images/fega/fega.png)
 
