@@ -9,6 +9,8 @@ You can use FEGA either to submit, apply or approve access to biomedical dataset
 - **[Data access approval for DAC](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_dac.md#data-access-approval-for-dac)**
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_submission.md#data-submission)**
 
+[![FEGA submission and application process](images/fega/fega.png)](images/fega/fega.png)
+
 ## Useful terminology
 
 - **Central EGA**. Central European Genome-phenome Archive. When submitting data to FEGA, the metadata is made internationally available in central EGA. 
