@@ -7,6 +7,7 @@ You can use FEGA either to submit, apply or approve access to biomedical dataset
 - **[Data access application](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_application.md#data-access-application)**
 - **[Data access approval for DAC](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_dac.md#data-access-approval-for-dac)**
 - **[Data submission](https://github.com/CSCfi/csc-user-guide/blob/wip-at-fega/docs/data/sensitive-data/fega_submission.md#data-submission)**
+<br/><br/>
 
 [![FEGA submission and application process](images/fega/fega.png)](images/fega/fega.png)
 
