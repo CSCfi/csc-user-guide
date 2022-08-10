@@ -16,7 +16,7 @@ After you have sent the application, it will be forwarded to the Data Access Com
 [![SD Apply application form](images/fega/fega_apply.png)](images/fega/fega_apply.png)
 
 ## Step 5: Set up your Desktop
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](./sd-desktop.md). Login to SD Desktop is possible using CSC account, Haka or ELIXIR login. Use the same user account you have used for SD Apply login. After entering your username and passworod, you need to verify your identity (or Multi factor Authentication, MFA) by entering the verification code provided via a mobile application.  
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](./sd_desktop.md). Login to SD Desktop is possible using CSC account, Haka or ELIXIR login. Use the same user account you have used for SD Apply login. After entering your username and passworod, you need to verify your identity (or Multi factor Authentication, MFA) by entering the verification code provided via a mobile application.  
 [![SD Desktop login](images/fega/desktop_login.png)](images/fega/desktop_login.png)
 
 ## Step 6: Access the data
@@ -27,5 +27,5 @@ Once you sign in to your virtual Desktop, you can access the data using Data Gat
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
 
 !!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa/). Check also the [SD Desktop user guide](./sd-desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information.  
+    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa.md). Check also the [SD Desktop user guide](./sd-desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information.  
 
