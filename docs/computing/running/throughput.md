@@ -181,12 +181,12 @@ workflows.
 * [FARMING mode of CP2K][cp2k] (supports dependencies between subjobs)
 * [LAMMPS multi-partition switch][lmp]
 * Python:
-   * [Python parallel jobs][../../apps/python.md#python-parallel-jobs] 
-   * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
-   * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+    * [Python parallel jobs](../../apps/python.md#python-parallel-jobs])
+    * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
+    * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
 * R:
-   * [Parallel jobs using R][../../support/tutorials/parallel-r.md]
-   * [R targets library](https://docs.ropensci.org/targets/)
+    * [Parallel jobs using R][../../support/tutorials/parallel-r.md]
+    * [R targets library](https://docs.ropensci.org/targets/)
 
 ### General tools and tutorials for efficient IO
 
