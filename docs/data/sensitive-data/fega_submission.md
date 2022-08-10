@@ -36,7 +36,7 @@ Here’s a list of the required documents:
 
 1. To provide the DAA, log in to SD Apply at <https://sd-apply.csc.fi/>. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. For more information about SD Apply, please check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/). Login is possible either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. 
 
-2. 
+...
 
 
 ## Step 3: Credentials
