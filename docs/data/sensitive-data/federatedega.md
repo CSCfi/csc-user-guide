@@ -1,6 +1,6 @@
 # Federated European Genome-phenome Archive (FEGA)
 
-[![FEGA submission and application process](images/fega/fega.png)](images/fega/fega.png)
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/zsZe4ZEld0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Federated European Genome-phenome Archive (FEGA) is a service for storing and sharing human genetic and phenotypic data consented for research. The service is based on a European network of local repositories. CSC hosts Finnish FEGA. 
 
@@ -11,7 +11,8 @@ You can use FEGA either to submit, apply or approve access to biomedical dataset
 ### [I have data to submit.](./fega_submission.md)
 <br/>
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/zsZe4ZEld0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![FEGA submission and application process](images/fega/fega.png)](images/fega/fega.png)
+
 
 ## Useful terminology
 
