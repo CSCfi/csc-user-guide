@@ -185,7 +185,7 @@ workflows.
     * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
     * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
 * R:
-    * [Parallel jobs using R][../../support/tutorials/parallel-r.md]
+    * [Parallel jobs using R](../../support/tutorials/parallel-r.md)
     * [R targets library](https://docs.ropensci.org/targets/)
 
 ### General tools and tutorials for efficient IO
