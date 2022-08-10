@@ -34,7 +34,9 @@ Here’s a list of the required documents:
 
 **Data Access Agreement (DAA)**. In addition to the legal documents listed above, you should provide a DAA via SD Apply. The DAA is a contract between the Data Access Committee ([DAC](https://ega-archive.org/submission/data_access_committee)) and an applicant. The DAA includes all the policies regulating data re-use (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset. For more info and examples, please check [DAC and policy documentation](https://ega-archive.org/submission/dac/documentation) and [Data Use Conditions](https://ega-archive.org/data-use-conditions) on EGA webpage. 
 
+
 1. To provide the DAA, log in to SD Apply at <https://sd-apply.csc.fi/>. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. For more information about SD Apply, please check [SD Apply user guide](https://docs.csc.fi/data/sensitive-data/sd-apply/). Login is possible either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. 
+
 
 ...
 
