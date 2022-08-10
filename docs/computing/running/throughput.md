@@ -180,7 +180,7 @@ workflows.
 * [Gromacs multidir option][gmx]
 * [FARMING mode of CP2K][cp2k] (supports dependencies between subjobs)
 * [LAMMPS multi-partition switch][lmp]
-* [Python parallelization][Python], see also [Dask](https://www.dask.org/) and [Prefect](https://docs-v1.prefect.io/)
+* [Python parallelization][Python], see also [Dask](https://www.dask.org/) and [Prefect](https://docs.prefect.io/)
 * [R parallelization][R]
 
 ### General tools and tutorials for efficient IO
