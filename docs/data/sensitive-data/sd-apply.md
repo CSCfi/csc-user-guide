@@ -13,6 +13,9 @@ The following is a step-by-step guide to SD Apply that illustrates:
 [![SD Apply application process overview](images/apply/apply_overview.png)](images/apply/apply_overview.png)
 
 ### Step 1: Login
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/LFkq2quFq_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Log in to SD Apply is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account at <https://sd-apply.csc.fi>. The interface is compatible with all modern web browsers.
 
 [![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
