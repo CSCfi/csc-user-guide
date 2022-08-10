@@ -28,7 +28,7 @@ To enable high-throughput computing while avoiding the above issues, jobs and jo
 steps should be packed so that they can be executed with minimal invocations of
 `sbatch` and `srun`. The first and best option is to check whether the software
 you're using comes with a [built-in option for farming-type workloads]. This
-applies for applications such as [CP2K][cp2k], [Gromacs][gmx],  [LAMMPS][lmp], [Python] and [R].
+applies for applications such as [CP2K][cp2k], [Gromacs][gmx],  [LAMMPS][lmp], Python and R.
 
 If integrated support for farming-type workloads is unavailable in your software,
 another option is to use external tools such as [HyperQueue] or [GNU Parallel].
@@ -50,7 +50,7 @@ is a guideline. In case you're uncertain how to implement your workflow, please
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>, <a href='apps/python#python-parallel-jobs'>Python</a>, <a href='apps/r-env-singularity/#parallel-batch-jobs'>R</a> ")
+    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>, Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
     E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a>)
     E -->|Parallel| G(Dependencies between subtasks?)
@@ -180,8 +180,13 @@ workflows.
 * [Gromacs multidir option][gmx]
 * [FARMING mode of CP2K][cp2k] (supports dependencies between subjobs)
 * [LAMMPS multi-partition switch][lmp]
-* [Python parallelization][Python], see also [Dask](https://www.dask.org/) and [Prefect](https://docs.prefect.io/)
-* [R parallelization][R]
+* Python:
+   * [Python parallel jobs][../../apps/python.md#python-parallel-jobs] 
+   * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
+   * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+* R:
+   * [Parallel jobs using R][../../support/tutorials/parallel-r.md]
+   * [R targets library](https://docs.ropensci.org/targets/)
 
 ### General tools and tutorials for efficient IO
 
@@ -191,8 +196,6 @@ workflows.
 [gmx]: ../../apps/gromacs.md#high-throughput-computing-with-gromacs
 [cp2k]: ../../apps/cp2k.md#high-throughput-computing-with-cp2k
 [lmp]: ../../apps/lammps.md#high-throughput-computing-with-lammps
-[Python]: ../../apps/python.md#python-parallel-jobs
-[R]: ../../apps/r-env-singularity.md#parallel-batch-jobs
 [HyperQueue]: https://it4innovations.github.io/hyperqueue/stable/
 [GNU Parallel]: ../../support/tutorials/many.md
 [GREASY]: greasy.md
