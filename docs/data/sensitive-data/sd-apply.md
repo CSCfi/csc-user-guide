@@ -5,7 +5,7 @@ Each sensitive dataset that is published under controlled access is associated w
 
 The following is a step-by-step guide to SD Apply that illustrates: 
 
-- **[Data access for Data Applicant](../../data/sensitive-data/sd-apply.md#data-access-for-data-applicant)**
+- **[Data access for Data Applicant](./data/sensitive-data/sd-apply.md#data-access-for-data-applicant)**
 - **[Data approval for Data Access Committee (DAC)](./sensitive-data/sd-apply.md#data-approval-for-data-access-committee-dac)**
 
 ## Data access for Data Applicant
@@ -74,12 +74,12 @@ You will receive an email notification whenever the state of your application ch
 [![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
 ### Step 5: Set up your Desktop
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. When logging in to SD Desktop, use the same user account/identity provider (CSC account, Haka, or ELXIR login) you have used for SD Apply log in. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](https://docs.csc.fi/accounts/) and [multi-factor authentication](https://docs.csc.fi/accounts/mfa/).
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. When logging in to SD Desktop, use the same user account/identity provider (CSC account, Haka, or ELXIR login) you have used for SD Apply log in. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa.md).
 
 [![SD Desktop login](images/apply/desktop_login.png)](images/apply/desktop_login.png)
 
 !!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](https://docs.csc.fi/accounts/). Check also the [SD Desktop user guide](https://docs.csc.fi/data/sensitive-data/sd_desktop/) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
+    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md). Check also the [SD Desktop user guide](./data/sensitive-data/sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
 
 ### Step 6: Access the data 
 
@@ -196,17 +196,3 @@ You will be notified when another handler has:
 - revoked the access rights of the applicant.
 
 You will also receive notifications when an applicant has submitted or resubmitted an application.
-
-### Best practices
-- Aim to respond to all initial requests within two weeks.
-
-- Check that the user will be using the data within terms of consent, by asking them to sign up to the terms within the DAA.
-
-- Check for an Institutional email address for the applicant.
-
-- Look for evidence of the applicant being “appropriately qualified/bona fide” for use of the data e.g. PubMed search, Research Gate, LinkedIn etc.
-
-- Check the affiliated organisation is real and that they are still working there.
-
-- In the event that a negative decision is made we would expect that this decision be promptly communicated to the applicant and supported by the terms of the Data Access Policy that the requestor has not or cannot meet
-
