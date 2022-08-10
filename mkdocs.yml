@@ -231,8 +231,6 @@ extra_javascript:
   - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
   - 'assets/javascripts/cookie_consent.js'
   - "https://unpkg.com/mermaid/dist/mermaid.min.js"
-  - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    
 
 markdown_extensions:
   - toc:
@@ -244,7 +242,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.snippets
-  - mdx_math
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
