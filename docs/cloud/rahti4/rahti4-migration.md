@@ -8,7 +8,7 @@ Rahti4 is the next version of OpenShift OKD running in CSC. Due to the fact that
 
 ## How to log in Rahti4?
 
-Go to [Rahti4](https://console-openshift-console.apps.2.rahti.csc.fi/) and choose the `oidcidp` option, it stands for OpenID Connect identity provider:
+Go to [Rahti4](https://landing.2.rahti.csc.fi/) and choose the `oidcidp` option, it stands for OpenID Connect identity provider:
 
 ![Rahti4 login](img/rahti_login.png){: style="width:400px"}
 
