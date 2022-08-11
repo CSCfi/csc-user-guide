@@ -113,6 +113,12 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 
 - Now `websocat` is running in the interactive session/batch job and you may connect to your MariaDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
 
+!!! Note
+    For this example to work, you need to install the mariadb python module. At the time of writing this the command to use is:
+    `pip3 install mariadb=1.0.11`
+    This is due to the fact that the current last version of the module is broken for the platforms we tested this with. See the upstream documentation for more information: <https://mariadb-corporation.github.io/mariadb-connector-python/install.html>
+
+
 ```python
 # Module Imports
 import mariadb
