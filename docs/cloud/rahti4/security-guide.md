@@ -61,6 +61,6 @@ Other things to keep in mind:
 
 ## IP addresses for firewall openings
 
-The IP for all outgoing customer traffic is `RAHTI4_IP`. By opening a firewall to this IP, you will let in all traffic coming from any Rahti project. It is advised to not solely rely in IP filtering for security, but use this a secondary measure, like for example an OAuth authentication system.
+The IP for all outgoing customer traffic is `86.50.228.32`. By opening a firewall to this IP, you will let in all traffic coming from any Rahti project. It is advised to not solely rely in IP filtering for security, but use this a secondary measure, like for example an OAuth authentication system.
 
 There is no plan to change this IP, but it is not possible to give a 100% assurance that an unforeseeable event will ever force us to change it. If this IP ever changes, it will be properly announced in advance.
