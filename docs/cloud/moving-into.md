@@ -1,6 +1,6 @@
-## When to migrate to K8s
+## When to migrate to Kubernetes
 
-When considering migrating your services from Pouta to k8s, it’s important to consider the relative
+When considering migrating your services from Pouta to Kubernetes (k8s), it’s important to consider the relative
 strengths of each platform. Both Pouta and Kubernetes-based platforms, such as Rahti, are Cloud
 Computing platforms, but there are some important differences. Virtual machine based services, like
 cPouta, are classified as Infrastructure-as-a-Service (IAAS) cloud services. Kubernetes on the other
