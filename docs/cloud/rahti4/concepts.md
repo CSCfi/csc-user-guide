@@ -43,7 +43,7 @@ metadata:
 spec:
   containers:
   - name: webserver
-    image: lvarin/nginx-okd
+    image: cscfi/nginx-okd
     ports:
     - containerPort: 8080
       protocol: TCP

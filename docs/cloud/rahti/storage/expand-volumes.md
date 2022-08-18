@@ -50,7 +50,7 @@ spec:
         deploymentconfig: two-volumes
     spec:
         containers:
-        - image: lvarin/nginx-okd:plus
+        - image: cscfi/nginx-okd:plus
           imagePullPolicy: IfNotPresent
           name: two-volumes
           resources: {}

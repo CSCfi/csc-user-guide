@@ -35,7 +35,7 @@ spec:
         app: two-volumes
     spec:
       containers:
-      - image: lvarin/nginx-okd:plus
+      - image: cscfi/nginx-okd:plus
         name: two-volumes
         ports:
         - containerPort: 8081
