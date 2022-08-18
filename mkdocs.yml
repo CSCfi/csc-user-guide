@@ -168,6 +168,8 @@ nav:
          - Visual Studio Code: computing/webinterface/vscode.md
   - Cloud:
      - cloud/index.md
+     - Concepts of cloud computing: cloud/concepts.md
+     - When to migrate to Kubernetes: cloud/moving-into.md
      - Rahti3:
        - Contents: cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
