@@ -23,14 +23,14 @@ COPY . /tmp
 WORKDIR /tmp
 
 
-RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder && \
+RUN git clone --no-checkout https://github.com/joonas-somero/docs-design-system git_folder && \
+    if [ -d ".git" ]; then rm -r .git; fi && \
     mv git_folder/.git . && \
     rm -r git_folder && \
     git reset HEAD --hard && \
-    git checkout -f $repo_branch 
+    git checkout -f $repo_branch
 
 RUN pip3 install --no-cache-dir -r requirements.txt && \
-    bash scripts/generate_stamps.sh && \
     bash scripts/generate_alpha.sh && \
     bash scripts/generate_by_system.sh && \
     bash scripts/generate_new.sh && \
