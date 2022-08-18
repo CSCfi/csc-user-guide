@@ -15,8 +15,8 @@ When applying for a new project in MyCSC for the Helmi partition, under "Select 
 	During the pilot phase, approved projects will **only** get 24 hours of access to the LUMI Partition.
 	[More details about the Pilot Phase](../lumi-helmi-pilot-phase/). 
 
-* [Creating a new project in MyCSC](../how-to-create-new-project/)
-* [How to create Finnish LUMI projects](../how-to-create-new-project/#how-to-create-finnish-lumi-projects)
+* [Creating a new project in MyCSC](/accounts/how-to-create-new-project/)
+* [How to create Finnish LUMI projects](/accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 
 
 <!-- ===
@@ -46,7 +46,7 @@ There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fi
 | largemem | 1 day        |  30 (20 running)  | 1 nodes            |
 
 
-LUMI Helmi users can also apply to have [access to Kvasi](../../computing/kvasi/) the Quantum Learning Machine and [access to Mahti](../../computing/systems-mahti/) as a separate project to use as a simulation and testing environment. 
+LUMI Helmi users can also apply to have [access to Kvasi](../../kvasi/kvasi/) the Quantum Learning Machine and [access to Mahti](/computing/systems-mahti/) as a separate project to use as a simulation and testing environment. 
 
 ## Storage areas
 
@@ -88,4 +88,4 @@ For example, 1 node for 1 hour :
 Storage is billed by volume as well as time. The billing units are TB-hours. For the regular scratch file system, 1TB that stays for 1 hour on the filesystem, consumes 1TB-hour.
 
 
-Helmi specific support can be reached either via the regular CSC user support [servicedesk@csc.fi](mailto:servicedesk@csc.fi). LUMI specific support such as connecting or storage is available from the [LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/account/).
+Helmi specific support can be reached via the [CSC Service Desk](/support/contact/). LUMI specific support such as connecting or storage is available from the [LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/account/).

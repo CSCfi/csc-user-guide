@@ -7,7 +7,7 @@ Helmi is a 5 qubit Quantum Computer manufactured by IQM. The qubits are laid out
 <!-- !["Helmi's node mapping"](../img/helmi_mapping.png) -->
 
 <p align="center">
-    <img src="../../img/helmi_mapping.png" alt="Helmi's node mapping">
+    <img src="../../../img/helmi_mapping.png" alt="Helmi's node mapping">
 </p>
 
 
@@ -26,8 +26,8 @@ Helmis basis gates are Control-Z and a Rotational gate around the x-y plane. In 
 
 ## Further Reading
 
-* [Specific instructions for the LUMI Helmi partition](../../accounts/helmi/)
-* [Getting started with Helmi](../../support/tutorials/helmi_quick/)
+* [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
+* [Getting started with Helmi](../helmi_quick/)
 
 <!-- ## Acessing Helmi via LUMI
 

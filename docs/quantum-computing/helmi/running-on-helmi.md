@@ -32,59 +32,36 @@ The `helmi` module sets up the correct python environment to use Qiskit and Cirq
 
 ### Qiskit
 
+To load the Qiskit module use `module load helmi_qiskit_iqm_2.0`.
+
 In Qiskit python scripts you will need to include the following:
 
-	from qiskit_iqm import IQMprovider # Import IQM library
-	provider = IQMProvider(iqm_server_url, iqm_settings_path)
-	backend = provider.get_backend() # Set backend
-	basis_gates=['r', 'cz'] # Set Helmi basis gates
+    from qiskit_iqm import IQMprovider # Import IQM library
+     # Set backend
+     # Helmi basis gates
+     
+    qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomposed circuit into basis gates
+     
+    virtual_qubits = qc_decomposed.qubits # Get the virtual qubits
+    qubit_mapping = {virtual_qubits[0]: 'QB1',
+                      virtual_qubits[1]: 'QB2',
+                      virtual_qubits[2]: 'QB3'
+                      virtual_qubits[3]: 'QB4',
+                      virtual_qubits[4]: 'QB5'  } # Set Helmi Qubit Mapping like this.
+    job = backend.run(qc_decomposed, shots=, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
 
-	# Create your circuit
-	 
-	qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomposed circuit into basis gates
-	 
-	virtual_qubits = qc_decomposed.qubits # Get the virtual qubits
-	qubit_mapping = {virtual_qubits[0]: 'QB'+str(qb+1)} # Set Helmi Qubit Mapping
-	job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
+Helmi currently uses `qiskit-iqm==2.0` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/).
 
-<!-- Details on using the [Qiskit IQM package can be found here](https://iqm-finland.github.io/qiskit-on-iqm/index.html). -->
-
-As an alternative to using `module load helmi` inside your batch scripts, you can create a container for the `qiskit-iqm` Python package yourself via the [LUMI container wrapper](../../containers/tykky/). We recommend using the supplied [requirements_qiskit.txt](../../support/tutorials/helmi/requirements_qiskit.txt) file. However it is recommended to use `module load helmi`.
-
-	module load LUMI lumi-container-wrapper
-	mkdir qiskit-iqm
-	pip-containerize new --prefix qiskit-iqm/ requirements_qiskit.txt
-	export PATH="/users/username/qiskit-iqm/bin:$PATH"
-
-A collection of Qiskit examples and scripts for running on LUMI-Helmi is discussed below.
-
+<!--     module load LUMI lumi-container-wrapper
+    mkdir qiskit-iqm
+    pip-containerize new --prefix qiskit-iqm/ requirements.txt
+    export PATH="/users/username/qiskit-iqm/bin:$PATH" -->
 
 ### Cirq
 
-In Cirq python scripts you will need to include the following:
+To load the Qiskit module use `module load helmi_cirq_iqm_4.1`.
 
-	from csc_qu_tools import Helmi
-	import cirq
-
-	helmi = Helmi()
-
-	# Create your circuit
-
-	decomposed_circuit = helmi.decompose_circuit(circuit)
-
-	routed_circuit = helmi.route_circuit(decomposed_circuit)
-	sampler = Helmi('settings.json').set_helmi()
-	result = sampler.run(routed_circuit, repetitions=10)
-	print(result)
-
-<!-- Details on using the [Cirq IQM package can be found here](https://iqm-finland.github.io/cirq-on-iqm/index.html). -->
-
-Unlike with Qiskit, Cirq requires `csc_qu_tools` to load the Helmi device, this can be accessed through `module load helmi`. The Cirq environment can also be created manually by downloading the supplied [requirements_cirq.txt](../../support/tutorials/helmi/requirements_cirq.txt) file, although this is not recommended. 
-
-	module load LUMI lumi-container-wrapper
-	mkdir cirq-iqm
-	pip-containerize new --prefix cirq-iqm/ requirements_cirq.txt
-	export PATH="/users/username/cirq-iqm/bin:$PATH"
+Unlike with Qiskit, Cirq requires `csc_qu_tools` to load the Helmi device, this can be accessed through `module load helmi_cirq_iqm_4.1`. Helmi currently uses `cirq-iqm==4.1` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/).
 
 ### OpenQASM
 
@@ -93,7 +70,7 @@ Submission of OpenQASM formatted files is also supported on Helmi, however addit
 
 ## Creating Circuits for Helmi
 
-In order to efficiently use Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../../../computing/helmi/) and the examples below show how this topology is utilised to improve results. 
+In order to efficiently use Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../helmi/) and the examples below show how this topology is utilised to improve results. 
 
 
 The full set of examples can be found here [**Insert link**] showing the differences between simulators and Helmi and how to construct your circuits for optimum results. This repository also contains some useful scripts for submitting jobs. As of the Pilot-Phase project only **Qiskit** examples and scripts will be available. Users can still submit jobs to Helmi in Cirq and support for Cirq will come soon. 

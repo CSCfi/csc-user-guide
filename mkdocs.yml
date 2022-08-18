@@ -21,7 +21,6 @@ nav:
      - Billing: accounts/billing.md
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
-     - Helmi: accounts/helmi.md
   - Computing:
      - Overview: computing/overview.md
      - Systems:
@@ -29,8 +28,6 @@ nav:
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
         - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
-        - Kvasi: computing/kvasi.md
-        - Helmi: computing/helmi.md
      - Connecting: computing/connecting.md
      - Supercomputer storage:
         - Disk areas: computing/disk.md
@@ -48,7 +45,6 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-        - Running on Helmi: computing/running/running-on-helmi.md
      - Compiling:
         - Puhti: computing/compiling-puhti.md
         - Mahti: computing/compiling-mahti.md
@@ -71,6 +67,17 @@ nav:
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
+  - Quantum Computing:
+    - Overview: quantum-computing/overview.md
+    - Kvasi QLM:
+        - Accessing Kvasi: quantum-computing/kvasi/kvasi.md
+        - Kvasi Billing: quantum-computing/kvasi/kvasi-billing.md
+    - Helmi:
+        - Technical details: quantum-computing/helmi/helmi.md
+        - Accessing Helmi: quantum-computing/helmi/helmi_accounts.md
+        - Running on Helmi: quantum-computing/helmi/running-on-helmi.md
+        - LUMI-Helmi Pilot Phase: quantum-computing/helmi/lumi-helmi-pilot-phase.md
+        - Getting started with Helmi: quantum-computing/helmi/helmi_quick.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
