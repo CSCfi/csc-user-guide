@@ -10,7 +10,7 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from
 * Pilot Phase users will only be allocated enough resources for 24hr of use on 1 LUMI-C node and Helmi, therefore using CPUh by submitting jobs to regular LUMI-C queues will be at your own expense!
 
 
-## Prepararing for the Pilot Phase
+## Preparing for the Pilot Phase
 
 !!! failure "Getting Started"
 	To get started with Helmi see
@@ -19,10 +19,10 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from
 
 As access to Helmi during the Pilot Phase is limited it is recommended that you prepare the codes and algorithms you intend to run on Helmi before your project gains access to the LUMI-Helmi partition. To help with this process CSC currently offers Quantum Simulators and test environments through Kvasi and Mahti.
 
-* [Kvasi](../../computing/kvasi/) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)
+* [Kvasi](../../kvasi/kvasi/) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)
 	* Kvasi runs [myQLM](https://myqlm.github.io/) which provides interoperability with Qiskit, OpenQASM and Cirq. 
 
-* [Mahti](../../computing/systems-mahti/) through `module load qiskit` and loading of the IQM Qiskit environment through creation of your own python environment.
+* [Mahti](/computing/systems-mahti/) through `module load qiskit` and loading of the IQM Qiskit environment through creation of your own python environment.
 	* `python -m venv .python_envs/qiskit-iqm`
 	* `. /.python_envs/qiskit-iqm/bin/activate`
 	* `pip install qiskit-iqm`
@@ -31,7 +31,7 @@ As access to Helmi during the Pilot Phase is limited it is recommended that you 
 
 As Helmi is only a 5 qubit machine, you can also test and run algorithms on your own machines. For Qiskit the python environment can be installed via `pip install qiskit-iqm`, for Cirq `pip install cirq-iqm`. 
 
-When you are ready to run your circuits on Helmi it is recommended that you ready the [Getting started guide](../../support/tutorials/helmi_quick/), which will cover everything you need before submitting your first job. 
+When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi_quick/), which will cover everything you need before submitting your first job. 
 
 
 ## Pilot Phase Software
@@ -42,7 +42,7 @@ CSC has developed a set of examples and scripts for guidance in using the LUMI-H
 
 ## For further reading:
 
-* [Description of Helmi's Topology](../../computing/helmi/).
-* [Specific instructions for the LUMI Helmi partition](../helmi/)
-* [Running jobs on Helmi](../../computing/running/running-on-helmi/)
+* [Description of Helmi's Topology](../helmi/).
+* [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
+* [Running jobs on Helmi](../running-on-helmi/)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)

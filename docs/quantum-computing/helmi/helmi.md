@@ -4,8 +4,6 @@
 
 Helmi is a 5 qubit Quantum Computer manufactured by IQM. The qubits are laid out in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. This means that any two qubit gate will work most efficiently between QB3 and any other qubit whereas 1 qubit gates can be mapped to any of the 4 surrounding qubits. 
 
-<!-- !["Helmi's node mapping"](../img/helmi_mapping.png) -->
-
 <p align="center">
     <img src="../../../img/helmi_mapping.png" alt="Helmi's node mapping">
 </p>
@@ -34,7 +32,7 @@ Helmis basis gates are Control-Z and a Rotational gate around the x-y plane. In 
 
 
 
-The Helmi software stack provides some useful tools in mapping programs to this specific topology. [For more details see "Running on Helmi"](../running/running-on-helmi/).  
+The Helmi software stack provides some useful tools in mapping programs to this specific topology. [For more details see "Running on Helmi"](../running-on-helmi/).  
 
 
  -->
