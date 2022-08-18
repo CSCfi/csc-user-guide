@@ -23,7 +23,7 @@ COPY . /tmp
 WORKDIR /tmp
 
 
-RUN git clone --no-checkout https://github.com/joonas-somero/docs-design-system git_folder && \
+RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder && \
     if [ -d ".git" ]; then rm -r .git; fi && \
     mv git_folder/.git . && \
     rm -r git_folder && \
