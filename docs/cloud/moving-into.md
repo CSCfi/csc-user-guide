@@ -11,7 +11,7 @@ OpenShift OKD, which are a Platform-as-a-Service (PAAS) systems.
 The primary difference between IAAS and PAAS services is that with IAAS the user is responsible
 for managing the operating system and potentially multiple applications whereas with PAAS, the
 user is only responsible for managing the application and the data. You can read more about cloud
-computing concepts [here](https://docs.csc.fi/cloud/concepts/).
+computing concepts [here](/cloud/concepts/).
 
 Containers have certain advantages over traditional Virtual machines. Container images are typically
 smaller and lighter in memory and CPU usage than Virtual machine images. Launching new containers is
@@ -44,7 +44,7 @@ of available resources.
 
 ### Additional information
 
-[What is Rahti?](https://docs.csc.fi/cloud/rahti/rahti-what-is/)
+[What is Rahti?](/cloud/rahti/rahti-what-is/)
 
 [Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html#1)
 
