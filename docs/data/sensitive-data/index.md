@@ -20,8 +20,6 @@ Store and share.
    
 
   * [**Key features**](./sd_connect.md)
-
-  * [**Before you start**](./sd_connect.md#before-you-start)
   
   * [**Overview**](./sd_connect.md#overview)
  
@@ -57,8 +55,6 @@ Store and share.
 Analyse and compute.
 
   * [**Key features**](./sd_desktop.md)
-
-  * [**Before you start**](./sd_desktop.md#before-you-start)
   
   * [**Overview**](./sd_desktop.md#overview) 
  
