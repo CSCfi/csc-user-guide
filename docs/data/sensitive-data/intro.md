@@ -40,10 +40,9 @@ The General Data Protection Regulation and Finnish national laws regulate sensit
  To comply with these regulations, specific data processing and framework agreements between the Data Controllers (academic organization) and CSC (as the Data Processor) must be in place.
 For further information see also: [CSC General terms of use](https://research.csc.fi/general-terms-of-use) and [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement) and [Definition of sensitive data](https://research.csc.fi/definition-of-sensitive-data).
 
-To facilitate this process, when you create a new CSC project using the MyCSC portal, you are guided to CSC's Data Processing Agreement (DPA) and describe the type of data you are processing in the "Description of processing activities" form. You can then download these documents and **share them with the legal services in your organisation** or the Data Controller's legal representative. If you have any questions or additional legal agreements are needed between your organisation and CSC, contact us at servicedesk@csc.fi (email subject: Sensitive Data).
+To facilitate this process, when you create a new CSC project using the MyCSC portal, you are guided to  CSC's Data Processing Agreement (DPA) and to d the "Description of processing activities" form, where you describe the type of data you are processing. You can then download these documents and **share them with the legal services in your organisation** or the Data Controller's legal representative. If you have any questions or additional legal agreements are needed between your organisation and CSC, contact us at servicedesk@csc.fi (email subject: Sensitive Data).
 
-In case you need to draft a **Data Protection Impact Assessment (DPIA)**, you can find the technical and organizational security measures for the protection of
-sensitive data in CSC Sensitive Data service available for download [here](./technical-organisational-sec-measures.pdf).
+In case you need to draft a **Data Protection Impact Assessment (DPIA)** (to identify and minimise the data protection risks of a projec) you can find the technical and organizational security measures for the protection of sensitive data in CSC Sensitive Data service available for download [here](./technical-organisational-sec-measures.pdf).
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/1LHpDiap5Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
