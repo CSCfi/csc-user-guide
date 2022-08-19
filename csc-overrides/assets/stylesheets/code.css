@@ -1,0 +1,13 @@
+.md-typeset code {
+    border-radius: var(--csc-border-radius);
+    font-size: var(--csc-font-size--small);
+    font-weight: var(--csc-font-weight--regular);
+}
+
+.md-clipboard {
+    color: var(--md-default-fg-color--lighter);
+}
+
+.md-clipboard:is(:focus, :hover) {
+    color: var(--md-typeset-a-color);
+}
