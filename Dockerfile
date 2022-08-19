@@ -5,7 +5,7 @@ LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 # These need to be owned and writable by the root group in OpenShift
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
-ARG repo_branch=design-system
+ARG repo_branch=master
 
 RUN yum -y install epel-release &&\
     dnf module enable -y nginx:mainline &&\
@@ -23,7 +23,7 @@ COPY . /tmp
 WORKDIR /tmp
 
 
-RUN git clone --no-checkout https://github.com/joonas-somero/docs-design-system git_folder && \
+RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder && \
     if [ -d ".git" ]; then rm -r .git; fi && \
     mv git_folder/.git . && \
     rm -r git_folder && \
