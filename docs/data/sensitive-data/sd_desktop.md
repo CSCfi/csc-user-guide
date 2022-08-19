@@ -80,7 +80,7 @@ For specific guidance regarding the MFA activation on your CSC account, see the 
 ### Setting up a virtual Desktop
 
 
-<iframe width="280" height="155" srcdoc="https://youtu.be/embed/o9YM6GLltR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://youtu.be/o9YM6GLltR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
