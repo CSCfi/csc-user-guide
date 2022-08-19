@@ -1,15 +1,20 @@
 
+
 # SD Connect (Sensitive Data Connect)
 
-SD Connect is an interface that allows you to encrypt and upload sensitive data to Allas (CSC cloud storage solution) from your web browser. No specific expertise is required to use the service. SD Connect is designed to store and easily share sensitive data, providing a secure workspace for collaborative research projects. All the data stored in SD Connect/Allas and encrypted using the default user interface options can be directly analysed via SD Desktop.
+SD Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
+
+- is designed to store or transfer sensitive data;
+- provides a secure workspace for collaborative research projects (e.g. facilitates data collection and data sharing);
+- provides a secure way to upload files to SD Desktop to analyse research data.
 
 In the following user guide, you can learn how to:
 
-* Apply for service access;
-* Encrypt and upload sensitive data via a web browser using SD Connect;
-* Encrypt and upload sensitive data programmatically;
-* Download and decrypt data using the Crypt4gh application;
-* Encrypt, upload and download sensitive data programmatically.
+* [Acces the service](./sd_connect.md#service-access);
+* Use SD Connect [default options](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) to encrypted and upload sensitive data for analysis with SD Desktop;
+* [Encrypt, upload](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) and [download](./sd_connect.md#data-download-and-decryption) sensitive data for [data transfer](./sd_connect.md#data-sharing) and storage;
+* Encrypt and upload sensitive data [programmatically](./sd_connect.md#command-line-interface-data-encryption-and-upload) (advanced). 
+
 
 ## Key features
 
@@ -27,17 +32,17 @@ In the following user guide, you can learn how to:
 
 **Limitations**:
 
-* Data (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders uploaded to SD Connect (also called objects) are located. 
+* All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders uploaded to SD Connect are located. 
 
-* Files stored in SD Connect/Allas (CSC cloud storage solution) can be directly analysed in read-only mode from SD desktop, but they can not be directly edited unless they are copied inside the virtual Desktop. 
+* Files stored in SD Connect/Allas can be directly analysed in read-only mode from SD Desktop, but they can not be directly edited unless they are copied inside the virtual Desktop. 
 
-## Before you start
+* By default, a project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md#how-to-increase-disk-quota) to apply for additional reasouce.  (../../accounts/how-to-add-service-access-for-project.md);how-to-increase-disk-quotas.md#how-to-increase-disk-quotasapplying for additional resources see . The storage space remains available as long as the CSC project is active, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
 
-* According to CSC policies and [general terms of use](https://research.csc.fi/general-terms-of-use), sensitive data must be encrypted when uploaded or stored in CSC services for sensitive data. 
-    
-* SD Connect facilitates working with sensitive data, and it is a user interface for Allas, CSC cloud storage solution. By default, a project can store up to 10 TiB of data. The storage space remains available as long as the CSC project is active. CSC does not make backups of the data in SD Connect. You need to **make your own backups** of important datasets.
-   
-* SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by ***Findata.***
+* CSC does not make backups of the data stored in SD Connect. Having **own backups** of important datasets is a good practice.
+
+!!! Note
+    SD Connect is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about the precise requirements.
+
 
 
 ## Overview
