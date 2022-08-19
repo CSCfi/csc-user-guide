@@ -31,7 +31,7 @@ There are four interactive MATLAB licenses with **two Parallel Computing Toolbox
 
 #### Using MATLAB via remote desktop
 * Select "Desktop" from the "Apps"-view and specify your resource requirements.
-* To only run just MATLAB select the `Desktop > single application` and `App > MATLAB` settings. Or just select 'Apps > MATLAB-vnc'from the main menu bar.
+* To only run just MATLAB select the `Desktop > single application` and `App > MATLAB` settings. Or just select `Apps > MATLAB-vnc` from the main menu bar.
 * To launch the full desktop, select either `mate` or `xfce` and run MATLAB from the host terminal or by clicking the desktop icon. If using the host terminal, open MATLAB with:
 
 ```bash
