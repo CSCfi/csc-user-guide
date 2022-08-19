@@ -5,11 +5,11 @@ SD Desktop is a web-user interface that allows you to manage (start, use, delete
 
 In the following user guide, you can learn how to:
 
-* apply for service access;
-* set up your virtual Desktop;
-* analyze data stored in SD Connect;
-* re-use published data stored under controlled access,
-* export non-sensitive results from the secure virtual Desktop.
+* [Access the service](./sd_desktop.md#service-access)  ;
+* [Set up](./sd_desktop.md#setting-up-a-virtual-desktop) your virtual Desktop;
+* [Analyse data stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
+* Reuse published reasearch data stored under controlled access (pilot phase),
+* [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
 
 ## Key features
 
@@ -25,15 +25,17 @@ In the following user guide, you can learn how to:
 
 * **Process a large amount of data** stored encrypted in SD Connect via data streaming (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data) or via SD Apply (for data re-use).
 
-
-
-## Before you start
-
 * All the members belonging to a specific CSC project can access the same computing virtual Desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
+
+
+**Limitations**:
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
-* SD Connect and SD Desktop have not yet been security audited. Because of that, users may not process any personal data granted for the purposes of the Act on the Secondary Use of Health and Social Data (552/2019) by Findata.
+
+!!! Note
+    The startdard SD Desktop service is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about precise requirements.
+
 
 ## Overview
 
@@ -207,9 +209,8 @@ Next:
     Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 ![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+
 
 
 ## Accessing encrypted sensitive data within SD Desktop
@@ -473,11 +474,10 @@ You can not undo this action:
 !!! note
     All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
 
 ![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
 
-<img width="574" alt="space" src="https://user-images.githubusercontent.com/83574067/122595541-4efcbc00-d071-11eb-9e34-ad96e414f506.png">
+
 
 
 
