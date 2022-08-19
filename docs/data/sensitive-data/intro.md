@@ -25,11 +25,11 @@ Sensitive Data services for research provide CSC customers a secure workspace, a
 
 Sensitive Data services for research consist of five components:
 
-* Sensitive Data Connect: a user interface for storing and sharing encrypted sensitive data during the active phases of research projects. [Service description](https://research.csc.fi/-/sd-connect).
+* Sensitive Data Connect ([service description](https://research.csc.fi/-/sd-connect)): a user interface for storing and sharing encrypted sensitive data during the active phases of research projects. 
 
-* Sensitive Data Desktop: a user interface that provides access to a secure virtual computer (or virtual Desktop). This enables secure computation and analysis of sensitive data. A restricted version of SD Desktop is provided for the processing registry data (secondary use of health and social data). The limitations are described in a separate user guide. [Service description](https://research.csc.fi/-/sd-desktop).
+* Sensitive Data Desktop ([service description](https://research.csc.fi/-/sd-desktop)): a user interface that provides access to a secure virtual computer (or virtual Desktop). This enables secure computation and analysis of sensitive data. A restricted version of SD Desktop is provided for the processing registry data (secondary use of health and social data). The limitations are described in a separate user guide (see: SD Desktop for registry data).
 
-* Sensitive Data Submit and Federated EGA (pilot phase): allow publishing of sensitive and biomedical data under controlled access. [FEGA Service description](https://research.csc.fi/-/fega).
+* Sensitive Data Submit and Federated EGA ([service description](https://research.csc.fi/-/fega)) (pilot phase): allow publishing of sensitive and biomedical data under controlled access. 
 
 * Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
