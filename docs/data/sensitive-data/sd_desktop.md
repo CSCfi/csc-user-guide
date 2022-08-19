@@ -83,6 +83,8 @@ For specific guidance regarding the MFA activation on your CSC account, see the 
 <iframe width="280" height="155" srcdoc="https://youtu.be/embed/o9YM6GLltR8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+
+
 Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
@@ -335,11 +337,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
       * GIS software (PROJ, GDAL, SAGA)
       * CUDA drivers 
       * TensorFlow (used with R TensorFlow back-end)
-
       * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
-   * GIS software (PROJ, GDAL, SAGA) 
-   * CUDA drivers 
-   * TensorFlow (used with R TensorFlow back-end) 
 
 
 ### Software customisation
