@@ -15,6 +15,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
   - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
   - [How do I add an entry to the "What's new" section](#how-do-i-add-an-entry-to-the-whats-new-section)
+  - [Which Markdown features/extensions are available?](#which-markdown-featuresextensions-are-available)
 
 
 ## How to include my new page in the navigation panel?
@@ -109,19 +110,23 @@ You can preview how the Docs CSC page would look like with your changes included
 * This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-1.0.yaml
-conda activate docs
+conda env create -f docs/support/tutorials/conda/conda-docs-env-1.1.yaml
+conda activate docs-env
 ```
 
 * You can start a preview web server from the command line while in the root of the project directory:
 
 ```bash
-mkdocs build
 mkdocs serve
 ```
 
-* This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) with your browser to get a preview of the documentation.
-* Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed
+* This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/) with your browser to get a preview of the documentation.
+* Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed.
+* To speed up the loading of a page you've changed, start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
+
+```bash
+mkdocs serve --dirtyreload
+```
 
 ## How and who should I ask to review my PR?
 
@@ -163,3 +168,7 @@ A good way to highlight a new update is to add an entry to the What's new -secti
    * For example, `## SoftwareX v1.2.3 installed on Puhti, 31.3.2022`
 3. Under this heading, describe the update with a few sentences. Include links to appropriate pages elsewhere in docs, as well as external links to e.g. release notes/changelog if applicable.
 4. Commit your changes and when the PR gets merged a script will automatically add your updates to the docs landing page.
+
+## Which Markdown features/extensions are available?
+
+Have a look at [the reference card](https://docs.csc.fi/ref).
