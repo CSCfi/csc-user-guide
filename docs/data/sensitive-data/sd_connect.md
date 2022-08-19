@@ -36,7 +36,7 @@ In the following user guide, you can learn how to:
 
 * Files stored in SD Connect/Allas can be directly analysed in read-only mode from SD Desktop, but they can not be directly edited unless they are copied inside the virtual Desktop. 
 
-* By default, a project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md#how-to-increase-disk-quota) to apply for additional reasouce.  (../../accounts/how-to-add-service-access-for-project.md);how-to-increase-disk-quotas.md#how-to-increase-disk-quotasapplying for additional resources see . The storage space remains available as long as the CSC project is active, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
+* By default, a project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md#how-to-increase-disk-quota) to apply for additional reasouce. The storage space remains available as long as the CSC project is active, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
 
 * CSC does not make backups of the data stored in SD Connect. Having **own backups** of important datasets is a good practice.
 
