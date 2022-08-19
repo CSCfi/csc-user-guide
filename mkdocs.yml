@@ -1,7 +1,76 @@
 site_name: Docs CSC
-edit_uri: "https://github.com/CSCfi/csc-user-guide/edit/master/docs"
+repo_url: "https://github.com/CSCfi/csc-user-guide/"
+repo_name: "CSCfi/csc-user-guide"
 site_url: "https://docs.csc.fi/"
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
+
+extra:
+  mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      locale: en
+      timezone: Europe/Helsinki
+      exclude:
+        - index.md
+        - support/whats-new.md
+        - apps/by_system.md
+        - apps/alpha.md
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      base_path: csc-overrides/assets/glossaries
+      auto_append:
+        - hpc.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+theme:
+  name: material
+  language: en
+  custom_dir: csc-overrides
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+  icon:
+    repo: material/github
+  palette:
+    scheme: csc
+  font: false # No loading fonts from G****e
+
+extra_css:
+  - assets/stylesheets/variables.css
+  - assets/stylesheets/scheme.css
+  - assets/stylesheets/admonition.css
+  - assets/stylesheets/breadcrumbs.css
+  - assets/stylesheets/code.css
+  - assets/stylesheets/content.css
+  - assets/stylesheets/dropdown.css
+  - assets/stylesheets/footer.css
+  - assets/stylesheets/header.css
+  - assets/stylesheets/sidebars.css
+  - assets/stylesheets/table.css
+  - assets/stylesheets/video.css
+  - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
+
+extra_javascript:
+  - assets/javascripts/constants.js # Constants need to be loaded first since the other scripts depend on them
+  - assets/javascripts/dropdown.js
+  - assets/javascripts/layout.js
+  - assets/javascripts/extra.js
+  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
+
 nav:
   - Home: index.md
   - Accounts:
@@ -202,51 +271,3 @@ nav:
   - Training material: support/training-material.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
-
-theme:
-  name: material
-  custom_dir: mkdocs_csc/
-
-  font:
-    text: 'museo-sans'
-    code: 'Source Code Pro'
-
-  logo: 'img/Docs_CSC_logo.svg#headerlogo'
-  cscfi_logo: 'img/CSCfi_text.png#headerlogo'
-  mycsc_logo: 'img/MyCSC_text.png#headerlogo'
-  research_logo: 'img/Research_text.png#headerlogo'
-
-extra_css:
-  - 'assets/stylesheets/tabbed.css'
-  - 'assets/stylesheets/extra.css'
-  - 'assets/stylesheets/extra_mobile.css'
-  - 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css'
-  - 'https://use.typekit.net/csv4mjm.css'
-
-extra_javascript:
-  - 'assets/javascripts/extra.js'
-  - "https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
-  - 'assets/javascripts/cookie_consent.js'
-  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
-    
-
-markdown_extensions:
-  - toc:
-      toc_depth: 1-6
-  - admonition
-  - abbr
-  - attr_list
-  - def_list
-  - pymdownx.details
-  - pymdownx.tabbed
-  - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
-
-extra:
-  analytics:
-    provider: google
-    property: UA-5406715-9

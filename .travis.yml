@@ -1,6 +1,6 @@
 ---
 sudo: false
-dist: focal
+dist: bionic
 addons:
   apt:
     packages:
