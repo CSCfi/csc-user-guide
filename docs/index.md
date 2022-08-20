@@ -1,23 +1,48 @@
----
-template: main-index.html
----
+<div style="margin-bottom: 2rem;">
+    <img
+      src="assets/images/logo.png"
+      style="
+        float: left;
+        height: 62px;
+        width: auto;
+        margin-right: 10px;
+      "
+    />
+    <h1
+      style="
+        margin: unset;
+        line-height: 1;
+        font-size: 42px;
+      "
+    >Docs CSC</h1>
+    <h2
+      style="
+        margin: unset;
+        line-height: 1;
+        font-size: 20px;
+        font-weight: var(--csc-font-weight--body);
+      "
+    >User guides and tutorials</h2>
+</div>
 
-<h1 id="welcometext"> Welcome to Docs CSC! </h1>
+!!! default "Overview"
 
-
-<!--- Placeholder for a possible banner in the future
-
-[![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
--->
-
-!!! Overview
-    
     Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
 
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar
     * Or use the search functionality
 
+!!! info "New look!"
+
+    The visual appearance of Docs CSC has been refreshed. 
+
+
+<!--- Placeholder for a possible banner in the future
+
+[![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
+
+-->
 
 <h2 id="quicklinktitle"> Quick links </h2>
 <span class="index-quicklinks">

@@ -1,0 +1,19 @@
+.md-typeset table:not([class]) {
+    font-size: var(--csc-font-size--small);
+}
+
+.md-typeset table:not([class]) thead {
+    font-size: var(--csc-font-size--body);
+    background-color: var(--csc-dark-green);
+    color: var(--csc-white);
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+    background-color: var(--csc-table-row--hover);
+}
+
+.md-typeset table:not([class]) :is(th, td) {
+    vertical-align: middle;
+    min-width: 3rem;
+    padding: .3rem .6rem;
+}
