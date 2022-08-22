@@ -9,7 +9,9 @@ You can use FEGA either to submit, apply or approve access to biomedical dataset
 ### [I want to submit data.](./fega_submission.md)
 <br/>
 
+<figure class="video_container">
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/zsZe4ZEld0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
 
 ## Useful terminology
 
