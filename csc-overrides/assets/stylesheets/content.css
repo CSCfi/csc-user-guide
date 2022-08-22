@@ -29,11 +29,7 @@
     font-weight: var(--csc-font-weight--regular);
 }
 
-.md-typeset h2,
-.md-typeset h3,
-.md-typeset h4,
-.md-typeset h5,
-.md-typeset h6 {
+.md-typeset :is(h2, h3, h4, h5, h6) {
     font-weight: var(--csc-font-weight--bold);
 }
 
