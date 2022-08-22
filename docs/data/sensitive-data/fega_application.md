@@ -10,7 +10,7 @@ To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpag
 [![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)
 
 !!! note
-    In the EGA webpage, you can also find datasets that are hosted outside Finland, in central EGA or other FEGA nodes. However, this workflow is specific for datasets that are hosted in Fnnish FEGA. 
+    In the EGA webpage, you can also find datasets that are hosted outside Finland, in central EGA or other FEGA nodes. However, this workflow is specific for datasets that are hosted in Finnish FEGA. 
 
 ## Step 2: Log in to SD Apply
 Log in to SD Apply either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Remember to always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
