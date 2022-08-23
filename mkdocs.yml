@@ -48,11 +48,14 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
+  features:
+    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
   - assets/stylesheets/admonition.css
+  - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
