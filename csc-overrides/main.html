@@ -6,7 +6,7 @@
     {% endif %}
 {% endblock extrahead %}
 {% block announce %}
-    {% if config.extra.announcement not defined %}
+    {% if config.extra.announcement is not defined %}
     <style>
     .md-banner {
         display: none;
