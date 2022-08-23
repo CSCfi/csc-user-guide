@@ -42,7 +42,7 @@ Here’s a list of the required documents:
 
 ## Step 3: Credentials
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/icsiTZnufqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/uraDjCssBP0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once the legal agreements between the data controller and CSC are finalised, you can request the central EGA credentials by sending an email to the central EGA helpdesk at helpdesk@ega-archive.org. You will receive the credentials via email. 
 
