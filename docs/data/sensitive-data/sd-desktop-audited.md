@@ -25,7 +25,7 @@ In the following user guide, you can learn how to:
 
 * To comply with the regulation, virtual Desktops for seconday use are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
-* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
+* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation) (open source). Only the Findata can import and approve the use of additional software/files/scripts in your virtual Desktop.
 
 
 ## Before you start
