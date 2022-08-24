@@ -25,7 +25,7 @@ In the following user guide, you can learn how to:
 
 * To comply with the regulation, virtual Desktops for seconday use are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
-* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation) (open source). Only the Findata can import and approve the use of additional software/files/scripts in your virtual Desktop.
+* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation) (open source). Only the permit authority can approve the use of additional software/files/scripts and import them into your virtual Desktop.
 
 
 ## Before you start
@@ -39,7 +39,7 @@ In the following user guide, you can learn how to:
 * After your data permit expires, you will no longer have access to your virtual Desktop. To continue working with the same project, you need to send an amendment application to Findata. Otherwise, make sure to request to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
 
 !!! Note
-    When you are planning to use SD Desktop for registry data, we recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
+    We recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
 
 
 ## Overview
