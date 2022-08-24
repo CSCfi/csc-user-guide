@@ -27,7 +27,10 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [the Puhti web interface](../computing/webinterface/index.md) for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view and specifying your resource requirements.
+There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
+available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
+for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
+and specifying your resource requirements.
 
 ### Getting Started with MATLAB Parallel Server on Puhti
 
