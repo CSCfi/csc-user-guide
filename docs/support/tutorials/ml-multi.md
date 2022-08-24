@@ -256,30 +256,201 @@ is 4 GPUs or 8 (LUMI).
 
 There are many frameworks for doing multi-GPU and multi-node
 computing. Some frameworks are tightly coupled to a specific machine
-learning framework, such as PyTorch DistributedDataParellel, DeepSpeed
-or TensorFlow's tf.distribute.Strategy, while others are more general
-like Horovod.
+learning framework, such as PyTorch `DistributedDataParallel`,
+DeepSpeed or TensorFlow's `tf.distribute.Strategy`, while others are
+more general like Horovod.
 
-Independent of which framework you pick, pay attention what approach
-is used to launch the jobs. For example Horovod always uses MPI, while
-DeepSpeed can be configured to use MPI or its own parallel launcher.
+Independent of which framework you pick, pay attention to what
+approach is used to launch the jobs. For example Horovod always uses
+MPI, while DeepSpeed can be configured to use MPI or its own parallel
+launcher.
 
 
 ### PyTorch DDP
 
 [PyTorch
 distributed](https://pytorch.org/tutorials/beginner/dist_overview.html),
-and in particular Distributed Data-Parallel (DDP), offers a nice way
-of running multi-GPU and multi-node PyTorch jobs. Unfortunately, here,
-the official PyTorch documentation and usage examples are sadly
-out-of-date with often conflicting and confusing advice given.
+and in particular `DistributedDataParallel` (DDP), offers a nice way
+of running multi-GPU and multi-node PyTorch jobs. Unfortunately, the
+PyTorch documentation has been a bit lacking in this area, and
+examples found online can often be out-of-date.
 
-To make usage of DDP on CSC's supercomputers easier, we have created a [set of
-examples on how to run simple DDP jobs in the
-cluster](https://github.com/CSCfi/pytorch-ddp-examples). That repository also
-contains some examples of DeepSpeed usage. Note that `pytorch/1.10` has
-experimental support for DeepSpeed, and it does not need to be installed
-manually anymore.
+To make usage of DDP on CSC's supercomputers easier, we have created a
+[set of examples on how to run simple DDP jobs in the
+cluster](https://github.com/CSCfi/pytorch-ddp-examples). In the
+examples we use the
+[rendezvous](https://pytorch.org/docs/stable/elastic/rendezvous.html)
+mechanism to communcate across nodes, not MPI.
+
+Example of running PyTorch DDP on a single full node:
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
+        myprog.py <options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
+        myprog.py <options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=eap
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=128
+    #SBATCH --gpus-per-task=8
+    #SBATCH --time=1:00:00
+    
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 \
+        myprog.py <options>
+    ```
+
+Example of running PyTorch DDP on 2 full nodes.
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
+    srun python3 -m torch.distributed.run \
+        --nnodes=$SLURM_JOB_NUM_NODES \
+        --nproc_per_node=4 \
+        --rdzv_id=$SLURM_JOB_ID \
+        --rdzv_backend=c10d \
+        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
+        myprog.py <options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
+    srun python3 -m torch.distributed.run \
+        --nnodes=$SLURM_JOB_NUM_NODES \
+        --nproc_per_node=4 \
+        --rdzv_id=$SLURM_JOB_ID \
+        --rdzv_backend=c10d \
+        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
+        myprog.py <options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=eap
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=128
+    #SBATCH --gpus-per-task=8
+    #SBATCH --time=1:00:00
+    
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
+    srun python3 -m torch.distributed.run \
+        --nnodes=$SLURM_JOB_NUM_NODES \
+        --nproc_per_node=4 \
+        --rdzv_id=$SLURM_JOB_ID \
+        --rdzv_backend=c10d \
+        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
+        myprog.py <options>
+    ```
+
+If you are converting an old PyTorch script there are a few steps that you need to do:
+
+1. Initialize with `dist.init_process_group()`, for example:
+
+    ```python
+    import torch.distributed as dist
+    import os
+
+    local_rank = int(os.environ['LOCAL_RANK'])
+
+    dist.init_process_group(backend='nccl')
+    world_size = dist.get_world_size()
+    torch.cuda.set_device(local_rank)
+    ```
+
+2. Wrap your model with `DistributedDataParallel`:
+
+    ```python
+    from torch.nn.parallel import DistributedDataParallel
+
+    model = DistributedDataParallel(model, device_ids=[local_rank])
+    ```
+
+3. Use `DistributedSampler` in your `DataLoader`:
+
+    ```python
+    from torch.utils.data.distributed import DistributedSampler
+
+    train_sampler = DistributedSampler(train_dataset)
+    train_loader = DataLoader(dataset=train_dataset, sampler=train_sampler, ...)
+    ```
+
+
+For a fully working example, see:
+
+- [run-gpu4-benchmark-ddp-puhti.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu4-benchmark-ddp-puhti.sh) shows a benchmark run (including copying of a training set to NVME) on
+Puhti with a full node of 4 GPUs
+- [run-gpu8-benchmark-ddp-puhti.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu8-benchmark-ddp-puhti.sh) shows the same for two full nodes
+- [benchmark_ddp.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/benchmark_ddp.py) shows the Python code for the actual benchmark run utilizing DDP
+
+
 
 
 ### DeepSpeed
