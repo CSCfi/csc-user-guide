@@ -13,7 +13,7 @@ a national academic license for Discovery Studio that allows non-profit
 usage in Finnish universities.
 
 !!! Note
-    The national Discovery Studio licence provided by CSC will end by the end of 2022.
+    The national Discovery Studio license provided by CSC will end by the end of 2022.
     On 2023 Discovery Studio will not be availale any more.
     Please consider using [Maestro](./maestro.md) as relplacement.
     
