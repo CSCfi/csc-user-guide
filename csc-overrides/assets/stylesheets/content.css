@@ -1,0 +1,124 @@
+.md-main__inner {
+    margin: unset;
+    max-width: unset;
+}
+
+.md-content {
+    margin: 1% 3%;
+}
+
+.md-typeset {
+    font-size: var(--csc-font-size--body);
+    font-weight: var(--csc-font-weight--regular);
+}
+
+/* The pencil icon for 'Edit this page' */
+.md-typeset .md-content__button {
+    color: var(--md-default-fg-color--light);
+}
+
+/* The pencil icon hovered */
+.md-typeset .md-content__button:is(:focus, :hover) {
+    color: var(--md-typeset-a-color);
+    background-color: unset;
+}
+
+.md-typeset h1 {
+    color: var(--md-primary-fg-color);
+    font-size: var(--csc-font-size--h1);
+    font-weight: var(--csc-font-weight--regular);
+}
+
+.md-typeset :is(h2, h3, h4, h5, h6) {
+    font-weight: var(--csc-font-weight--bold);
+}
+
+.md-typeset h2 {
+    font-size: var(--csc-font-size--h2);
+}
+
+.md-typeset h3 {
+    font-size: var(--csc-font-size--h3);
+}
+
+.md-typeset h4 {
+    font-size: var(--csc-font-size--h4);
+}
+
+.md-typeset h5 {
+    font-size: var(--csc-font-size--h5);
+    color: var(--md-default-fg-color);
+    text-transform: unset;
+}
+
+.md-typeset h6 {
+    color: var(--md-default-fg-color);
+    font-size: var(--csc-font-size--h6);
+}
+
+.md-typeset a {
+    text-decoration: underline;
+}
+
+.md-typeset a:hover {
+    color: var(--csc-link);
+    background-color: var(--md-typeset-a-bg-color);
+}
+
+.md-typeset strong {
+    font-weight: var(--csc-font-weight--bold);
+}
+
+.md-typeset small {
+    opacity: 100%;
+    font-size: var(--csc-font-size--small);
+}
+
+.md-typeset hr {
+    border: unset;
+    border-top: var(--csc-border);
+}
+
+[dir="ltr"] .md-typeset blockquote {
+    border-left: 4px solid var(--csc-dark-green);
+    border-radius: var(--csc-border-radius);
+    color: var(--csc-dark-green);
+}
+
+.md-typeset .tabbed-set .tabbed-labels label {
+    font-size: var(--csc-font-size-large) !important;
+    color: var(--md-primary-fg-color) !important;
+}
+
+.md-typeset .tabbed-set .tabbed-labels::before {
+    background: var(--md-primary-fg-color) !important;
+}
+
+.md-typeset .tabbed-set .tabbed-labels label:is(:focus, :hover) {
+    background-color: var(--csc-button--hover) !important;
+}
+
+.md-typeset .md-button {
+    border-radius: var(--csc-border-radius);
+    white-space: nowrap;
+    text-decoration: none;
+    min-width: 88px;
+    height: 44px;
+    padding: 10px 16px;
+    margin: 0;
+    line-height: 20px;
+    font-size: var(--csc-font-size--body);
+    font-weight: var(--csc-font-weight--bold);
+    text-align: center;
+}
+
+.md-typeset .md-button:not(.md-button--primary):is(:focus, :hover) {
+    background-color: var(--csc-button--hover);
+    color: var(--md-primary-fg-color);
+    border-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .md-source-file,
+.md-typeset .git-revision-date-localized-plugin {
+    color: var(--md-default-fg-color--light);
+}

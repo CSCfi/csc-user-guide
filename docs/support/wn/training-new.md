@@ -1,5 +1,11 @@
 # Training & tutorials
 
+
+## A new visual appearance for Docs CSC, 18.8.2022
+
+In an effort to maintain a coherent style across CSC websites, Docs CSC has gained a
+refreshed visual appearance.
+
 ## Documentation on custom Jupyter notebooks for your courses, 13.6.2022
 
 Our documentation on [custom Jupyter notebooks for your courses](https://github.com/CSCfi/Jupyter_www_puhti)
