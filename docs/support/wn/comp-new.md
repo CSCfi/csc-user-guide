@@ -1,7 +1,7 @@
 # Computing environment 
 
 
-## Puhti web interface beta updated to release 10
+## Puhti web interface beta updated to release 10 24.8.2022
 
 * A new [MATLAB app](../../../computing/webinterface/matlab/) has been added.
 * Blender has been added to the [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization).
@@ -9,7 +9,7 @@
 * Improved Jupyter app launch form.
 * pytorch module now launches correctly in Jupyter app.
 * Fixed Jupyter Lab not working in Jupyter for Courses.
-* Updated VS Code to 1.68.1.
+* Updated VS Code to 1.70.1.
 * Open onDemand version updated to 2.0.28.
 
 ## Puhti has been updated with additional local disks on Big Mem nodes, 6.7.2022
