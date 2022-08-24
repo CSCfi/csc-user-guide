@@ -1,0 +1,28 @@
+.md-header {
+    box-shadow: var(--csc-box-shadow--header);
+    color: var(--md-typeset-color);
+    background-color: var(--md-primary-bg-color);
+}
+
+.md-header__inner {
+    max-width: unset;
+    height: var(--csc-header-height);
+}
+
+.md-header__button.md-logo :is(img, svg) {
+    height: 3.5em;
+}
+
+.md-search__form,
+.md-search__form:hover {
+    background-color: var(--csc-search--background);
+}
+
+.md-search__icon.md-icon :is(img, svg) {
+    color: var(--md-typeset-color);
+}
+
+.md-search__input::placeholder {
+    opacity: 100%;
+    color: var(--md-typeset-color);
+}
