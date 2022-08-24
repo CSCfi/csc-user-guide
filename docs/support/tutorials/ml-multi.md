@@ -254,24 +254,25 @@ is 4 GPUs or 8 (LUMI).
 
 ## Available frameworks
 
-Independent of which framework you pick, pay attention what approach is used to
-launch the jobs. Typically one of the two following methods are used:
+There are many frameworks for doing multi-GPU and multi-node
+computing. Some frameworks are tightly coupled to a specific machine
+learning framework, such as PyTorch DistributedDataParellel, DeepSpeed
+or TensorFlow's tf.distribute.Strategy, while others are more general
+like Horovod.
 
-- Slurm launches a single job (or task in MPI terminology) per node, and that
-  job uses some other mechanism (such as launching additional Python processes)
-  for using the four available GPUs,
-
-- Slurm launches a separate job (task) *for each GPU*, i.e., four jobs per node.
+Independent of which framework you pick, pay attention what approach
+is used to launch the jobs. For example Horovod always uses MPI, while
+DeepSpeed can be configured to use MPI or its own parallel launcher.
 
 
-### Pytorch DDP
+### PyTorch DDP
 
-[PyTorch distributed](https://pytorch.org/tutorials/beginner/dist_overview.html)
-
-PyTorch Distributed, and in particular Distributed Data-Parallel (DDP), offers a
-nice way of running multi-GPU and multi-node PyTorch jobs. Unfortunately, here,
-the official PyTorch documentation and usage examples are sadly out-of-date with
-often conflicting and confusing advice given.
+[PyTorch
+distributed](https://pytorch.org/tutorials/beginner/dist_overview.html),
+and in particular Distributed Data-Parallel (DDP), offers a nice way
+of running multi-GPU and multi-node PyTorch jobs. Unfortunately, here,
+the official PyTorch documentation and usage examples are sadly
+out-of-date with often conflicting and confusing advice given.
 
 To make usage of DDP on CSC's supercomputers easier, we have created a [set of
 examples on how to run simple DDP jobs in the
