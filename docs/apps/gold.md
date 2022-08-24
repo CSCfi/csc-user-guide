@@ -7,7 +7,6 @@ flexibility.
 
 ## Available
 -  Puhti: 2021
--  Discovery Studio 2019 server
 -  Download and install locally
 
 ## License
