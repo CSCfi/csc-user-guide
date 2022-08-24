@@ -248,7 +248,7 @@ nav:
         - Introduction: data/sensitive-data/intro.md
         - SD Connect: data/sensitive-data/sd_connect.md
         - SD Desktop: data/sensitive-data/sd_desktop.md
-        - SD Desktop for registry data: data/sensitive-data/sd-desktop-audited.md
+        - SD Desktop for seconday use: data/sensitive-data/sd-desktop-audited.md
 #       - FederatedEGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
