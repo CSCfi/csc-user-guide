@@ -79,7 +79,7 @@ Analyse and compute.
   * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
-## [Sensitive Data Desktop for registry data](./sd-desktop-audited.md)
+## [Sensitive Data Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 Analyse and compute secondary use data (access to this services requires a Findata permit).
   
   * [**Key features**](./sd-desktop-audited.md#key-features)
