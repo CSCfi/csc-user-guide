@@ -8,7 +8,7 @@ page](../../apps/alpha.md) if it exists. It may have a tailored template for you
 ## Get the exercise files
 ### a) Log in to Puhti from a terminal
 
-`ssh your-username@puhti.csc.fi`
+`ssh your-username@puhti.csc.fi` or if you don't have an ssh client available, you can log in via the [Puhti web interface](../../computing/webinterface/index.md) using your web browser and open a terminal there.
 
 ### b) Go to scratch directory and download the exercises file
 
