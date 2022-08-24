@@ -1,8 +1,8 @@
 # Applications
 
-## Discovery Studio and Matreial Studio are not availabe on 2023, 24.8.2022
+## Discovery Studio and Matreial Studio are not available on 2023, 24.8.2022
 
-CSC has beed provinging a national acadmic license for [Discovery Studio](../../apps/discoverystudio.md) and [Materilas Studio](../../apps/materialstudio.md).
+CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discoverystudio.md) and [Materilas Studio](../../apps/materialstudio.md).
 Due to small usage, and the availability of overlapping tools ([Maestro](../../maestro.md)) the licence will be not continued after this year. 
 This means than on 2023 these molecular modeling tools can't be use any more at CSC nor in users own compuers. Please contact servicedesk@csc.fi if you need help in moving your moleclular modeling work to other modeling environments.
 
