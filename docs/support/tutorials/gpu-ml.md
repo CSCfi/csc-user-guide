@@ -33,7 +33,6 @@ The main GPU-related statistics are summarized in the table below.
     above shows the GPU die specific numbers, MI250x card specific numbers
     are shown in parenthesis.
 
-
 Please read our [usage policy for the GPU
 nodes](../../computing/overview.md#gpu-nodes). Also consider that the Slurm
 queuing situation may vary between Puhti and Mahti at different times. However,
