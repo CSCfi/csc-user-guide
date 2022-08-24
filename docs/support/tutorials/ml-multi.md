@@ -558,6 +558,43 @@ task for each GPU:
         <further options>
     ```
 
+If you are converting an old PyTorch script there are a few steps that you need to do:
+
+1. Initialize distributed environment, for example:
+
+    ```python
+    import deepspeed
+
+    deepspeed.init_distributed()
+    ```
+    
+2. Initialize DeepSpeed engine:
+
+    ```python
+    model_engine, optimizer, train_loader, __ = deepspeed.initialize(
+        args=args, model=model, model_parameters=model.parameters(),
+        training_data=train_dataset)
+    ```
+    
+3. Modify training loop to use the DeepSpeed engine:
+
+    ```python
+    data = data[0].to(model_engine.local_rank)
+    labels = data[1].to(model_engine.local_rank)
+
+    outputs = model_engine(data)
+    loss = criterion(outputs, labels)
+
+    model_engine.backward(loss)
+    model_engine.step()
+    ```
+    
+See the [DeepSpeed Getting started
+guide](https://www.deepspeed.ai/getting-started/) for the full
+details. In particular you also need to create a [DeepSpeed
+configuration
+file](https://www.deepspeed.ai/getting-started/#deepspeed-configuration).
+    
 A fully working example can be found in our
 [`pytorch-ddp-examples`
 repository](https://github.com/CSCfi/pytorch-ddp-examples):
