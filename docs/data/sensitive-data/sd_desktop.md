@@ -12,7 +12,7 @@ In the following user guide, you can learn how to:
 * [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
 
 !!! Note
-    For secondary use of social and health data check the specific guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by Findata. A restricted version of the service is provided for this compared to standard SD Desktop.
+    For secondary use of social and health data check the specific user guide [here](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority. A restricted version of the service is provided for secondary use of health and social data compared to standard SD Desktop.
 
 ## Key features
 
