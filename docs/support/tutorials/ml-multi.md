@@ -297,6 +297,8 @@ Example of running PyTorch DDP on a single full node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
+    module load pytorch
+    
     srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
         myprog.py <options>
     ```
@@ -313,6 +315,8 @@ Example of running PyTorch DDP on a single full node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
+    module load pytorch
+
     srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
         myprog.py <options>
     ```
@@ -328,13 +332,16 @@ Example of running PyTorch DDP on a single full node:
     #SBATCH --cpus-per-task=128
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
-    
+
+    module use /projappl/project_462000007/ai/modulefiles/
+    module load pytorch
+
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 \
         myprog.py <options>
     ```
 
-Example of running PyTorch DDP on 2 full nodes.
+Example of running PyTorch DDP on 2 full nodes:
 
 === "Puhti"
 
@@ -352,6 +359,8 @@ Example of running PyTorch DDP on 2 full nodes.
     export RDZV_HOST=$(hostname)
     export RDZV_PORT=29400
     
+    module load pytorch
+
     srun python3 -m torch.distributed.run \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
@@ -376,6 +385,8 @@ Example of running PyTorch DDP on 2 full nodes.
     export RDZV_HOST=$(hostname)
     export RDZV_PORT=29400
     
+    module load pytorch
+
     srun python3 -m torch.distributed.run \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
@@ -400,7 +411,10 @@ Example of running PyTorch DDP on 2 full nodes.
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     export RDZV_HOST=$(hostname)
     export RDZV_PORT=29400
-    
+
+    module use /projappl/project_462000007/ai/modulefiles/
+    module load pytorch
+ 
     srun python3 -m torch.distributed.run \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
@@ -448,14 +462,111 @@ For a fully working example, see:
 - [run-gpu4-benchmark-ddp-puhti.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu4-benchmark-ddp-puhti.sh) shows a benchmark run (including copying of a training set to NVME) on
 Puhti with a full node of 4 GPUs
 - [run-gpu8-benchmark-ddp-puhti.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu8-benchmark-ddp-puhti.sh) shows the same for two full nodes
-- [benchmark_ddp.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/benchmark_ddp.py) shows the Python code for the actual benchmark run utilizing DDP
+- [benchmark_ddp.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/benchmark_ddp.py) shows the Python code for the actual benchmark run utilizing DDP.
 
 
 
 
 ### DeepSpeed
 
-[DeepSpeed](https://www.deepspeed.ai/)
+[DeepSpeed](https://www.deepspeed.ai/) is an optimization software
+suite for PyTorch that helps with scaling training and inference for
+large deep learning models. DeepSpeed is supported in the newest
+`pytorch` modules in Puhti and Mahti.
+
+Example of running DeepSpeed on a single full node using the
+`deepspeed` launcher:
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    module load pytorch
+    
+    srun singularity_wrapper exec deepspeed myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+
+    module load pytorch
+
+    srun singularity_wrapper exec deepspeed myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
+Example of running DeepSpeed on 2 full nodes using MPI for launching a
+task for each GPU:
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    module load pytorch
+
+    srun python3 myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=10
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    module load pytorch
+
+    srun python3 myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
+A fully working example can be found in our
+[`pytorch-ddp-examples`
+repository](https://github.com/CSCfi/pytorch-ddp-examples):
+
+- [run-gpu4-benchmark-deepspeed.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu4-benchmark-deepspeed.sh) shows a benchmark run (including copying of a training set to NVME) on
+Mahti with a full node of 4 GPUs
+- [run-gpu8-benchmark-deepspeed.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu8-benchmark-deepspeed.sh) shows the same for two full nodes
+- [benchmark_deepspeed.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/benchmark_deepspeed.py) shows the Python code for the actual benchmark run utilizing DeepSpeed.
+
 
 ### Horovod
 
