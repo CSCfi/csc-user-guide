@@ -47,6 +47,7 @@ should now see statistics for more than one GPU.
 #### Single node run using 2 GPUs, no MPI
 
 === "Puhti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -62,6 +63,7 @@ should now see statistics for more than one GPU.
     ```
 
 === "Mahti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -80,6 +82,7 @@ should now see statistics for more than one GPU.
     partition.
 
 === "LUMI"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -102,6 +105,7 @@ is 4 GPUs or 8 (LUMI).
 #### Single node using all GPUs, using MPI
 
 === "Puhti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -117,6 +121,7 @@ is 4 GPUs or 8 (LUMI).
     ```
 
 === "Mahti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -131,6 +136,7 @@ is 4 GPUs or 8 (LUMI).
     ```
 
 === "LUMI"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -149,6 +155,7 @@ is 4 GPUs or 8 (LUMI).
 #### Multi-node with 2 full nodes, no MPI
 
 === "Puhti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -164,6 +171,7 @@ is 4 GPUs or 8 (LUMI).
     ```
 
 === "Mahti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -178,6 +186,7 @@ is 4 GPUs or 8 (LUMI).
     ```
 
 === "LUMI"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -196,6 +205,7 @@ is 4 GPUs or 8 (LUMI).
 #### Multi-node with 2 full nodes, using MPI
 
 === "Puhti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -211,6 +221,7 @@ is 4 GPUs or 8 (LUMI).
     ```
 
 === "Mahti"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -225,6 +236,7 @@ is 4 GPUs or 8 (LUMI).
     ```
 
 === "LUMI"
+
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
