@@ -11,6 +11,9 @@ In the following user guide, you can learn how to:
 * Reuse published research data stored under controlled access (pilot phase),
 * [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
 
+!!! Note
+    For secondary use of social and health data check the specific [SD Desktop for registry data documentation](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by Findata. A restricted version of SD Desktop is provided for this compared to standard SD Desktop.
+
 ## Key features
 
 * Accessible from any operating system (Mac, Linux or Windows) via web-browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
