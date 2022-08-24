@@ -47,11 +47,6 @@ gold_auto gold.conf
 !!! Note
     If you want to run GOLD in parallel, please contact [CSC Service Desk](../support/contact.md).
 
-## Usage via Discovery Studio
-
-GOLD is also available via the [Discovery Studio 2019 server](http://dstudio19.csc.fi:9944/DS/) at
-CSC. [See our DS2019 documentation for installation instructions](discovery-studio.md).
-
 ## More information
 
 -   [CSC CSD Page](csd.md)
