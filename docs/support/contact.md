@@ -2,10 +2,11 @@
 
 ## Technical service support requests
 
-* Contact us through email or phone
+* Contact us through email or phone or come to our weekly user support session on Zoom
 * Email: <mailto:servicedesk@csc.fi>
 * Phone: +358 9 457 2821
 * Open Monday to Friday from 8.30 a.m. to 4 p.m.
+* NEW! Weekly user support session Wednesdays at 14.00, more information and connection details can be found on the [event page](https://ssl.eventilla.com/event/PP4WB)
 
 !!! Note
     If your support request concerns the LUMI supercomputer, please [contact the LUMI User Support Team](https://docs.lumi-supercomputer.eu/generic/helpdesk/).
