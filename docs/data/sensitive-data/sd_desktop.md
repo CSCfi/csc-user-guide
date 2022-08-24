@@ -37,7 +37,7 @@ In the following user guide, you can learn how to:
 
 
 !!! Note
-    The startdard SD Desktop service is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about precise requirements.
+    The startdard SD Desktop service is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for seconday use](./sd-desktop-audited.md) to learn about precise requirements.
 
 
 ## Overview
