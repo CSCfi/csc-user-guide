@@ -6,30 +6,33 @@ of our [Machine learning guide](ml-guide.md).
 
 ## Puhti, Mahti or LUMI?
 
-Puhti and Mahti are CSC's two supercomputers. Puhti has the largest
-number of GPUs (V100) and offers the widest selection of installed
-software, while Mahti has a smaller number of faster newer generation
-A100 GPUs.
+Puhti and Mahti are CSC's two national supercomputers. Puhti has the
+largest number of GPUs (V100) and offers the widest selection of
+installed software, while Mahti has a smaller number of faster newer
+generation A100 GPUs.
 
 The CSC-hosted European supercomputer
 [LUMI](https://docs.lumi-supercomputer.eu/generic/overview/) will
 provide a massive GPU resource once it's up and running. Currently,
-only a [small early access test
+only a [small early access
 platform](https://docs.lumi-supercomputer.eu/eap/) is available for
 testing code compatibility.
 
 The main GPU-related statistics are summarized in the table below.
 
-|       | GPU type           | GPU memory | GPU nodes | GPUs/node | Total GPUs    |
-|-------|--------------------|------------|-----------|-----------|---------------|
-| Puhti | NVIDIA Volta V100  | 32 GB      | 80        | 4         | 320           |
-| Mahti | NVIDIA Ampere A100 | 40 GB      | 24        | 4         | 96            |
-| LUMI  | AMD MI250x         | 128 GB     | 2560      | 4 (8)     | 10240 (20480) |
+|       | GPU type           | GPU memory  | GPU nodes | GPUs/node | Total GPUs    |
+|-------|--------------------|-------------|-----------|-----------|---------------|
+| Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
+| Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
+| LUMI  | AMD MI250x         | 64 (128) GB | 2560      | 8 (4)     | 20480 (10240) |
 
-**Note:** Each MI250x GPU consists of two compute dies, and it shows
-up as two separate GPUs in software, each with 64GB memory. A single
-LUMI node has 4 GPUs, or 8 GPU dies (shown in parentesis in the table
-above).
+!!! info "Note"
+
+    Each LUMI node has 4 MI250x GPUs, however 8 GPUs will be available
+    through Slurm as the MI250x card features 2 GPU dies (GCDs). The table
+    above shows the GPU die specific numbers, MI250x card specific numbers
+    are shown in parenthesis.
+
 
 Please read our [usage policy for the GPU
 nodes](../../computing/overview.md#gpu-nodes). Also consider that the Slurm
