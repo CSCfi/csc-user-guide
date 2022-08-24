@@ -140,7 +140,7 @@ Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you 
 
 ## Step 6: Metadata submission
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/zg-padxgEhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/Xh3LpYPD9oo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Next, you can describe all the information related to your study, i.e. metadata, using the central [EGA submitter portal](https://test.ega-archive.org/submitter-portal/) or [programmatically](https://ega-archive.org/submission/sequence/programmatic_submissions). The public metadata will be published on the EGA website to facilitate data discovery and re-use.
 
