@@ -52,7 +52,7 @@ That one's a level 3. Here is some text under it.
 #### Now for a level 4 heading
 Some text _four_ it here.
 
-##### Level 5 heading
+##### Level 5 heading: `now with added monospace`
 No text this time.
 
 ###### Level 6
