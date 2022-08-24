@@ -1,18 +1,18 @@
 
-# SD Desktop (Sensitive Data Desktop) for registry data
+# SD Desktop (Sensitive Data Desktop) for seconday use of health and social data
 
-In this guide, we describe how to use SD Desktop for registry data provided by Findata. SD Desktop has been audited against the Findata regulation and is a registered secondary use environment for health and social data. It is designed to process sensitive secondary use data and provide a secure workspace for collaborative research projects using registry data. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With these virtual computers, you can access the dataset you have received a permit for from Findata. No previous knowledge of cloud computing or programming expertise are required to use the service.
+SD Desktop is a registered environment for seconday use of health and social data. Access to the service requires a permit from the Findata autority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. With the virtual Desktop, you can access the autorized datasets. No previous knowledge of cloud computing or programming expertise are required to use the service.
 
 In the following user guide, you can learn how to:
 
 * apply for service access;
 * set up your virtual Desktop;
 * analyze data authorised by Findata;
-* request to export non-sensitive results from the secure virtual Desktop.
+* request export of non-sensitive results from the secure virtual Desktop.
 
 !!! Note
-    We apologize for any confusion caused by the previous name of the service. From now on, the secondary use environment will be referred to as audited SD Desktop, and the official service name is SD Desktop. You can apply to use SD Desktop for secondary use social and health data from public registries by sending an application to Findata. The same SD Desktop service provides a computing environment for all sensitive data, but when processing registry data, there are some restrictions to the service and the access process is different.
-
+    We apologize for any confusion caused by the previous name of the service. You can apply to use SD Desktop by sending an application to Findata. This is a restricted version of the service compared to standard SD Desktop.
+    
 ## Key features
 
 * Audited against Findata regulation.
@@ -23,7 +23,7 @@ In the following user guide, you can learn how to:
 
 * After login to SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
 
-* To comply with the regulation, virtual Desktops for registry data are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
+* To comply with the regulation, virtual Desktops for seconday use are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
 * SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) (open source). Only Findata can import additional programs to the Desktop.
 
@@ -235,9 +235,60 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 ## Default programs available on the Desktop and software customisation
 
-Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software ([listed](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) under SD Desktop).
 
-The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot install software to SD Desktop directly when working with secondary use data. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi even before applying for the data permit to figure out if it is possible to install the program to the Desktop. If the program is compatible with the computing environment, then you need to send a request to Findata and ask them to import the program to your Desktop.
+Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software (listed below). If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). 
+
+!!! Note
+    The virtual Desktop is isolated from the internet and importing of software is restricted, as is required by the data permit authority. Thus, users cannot directly import software in thier virtual Desktop when working with secondary use data. If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi **before applying for the data permit**. In this way, we can figure out if it is possible to customise your vitual Desktop. If the program is compatible with the computing environment, you need to specify in your permit application the list of additional software, which will be provided directly by Findata. 
+
+    If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
+
+
+### Pre-installed software:
+
+
+* CentOS7
+
+* Emacs
+
+* htlib
+
+* LibreOffice
+
+* miniconda
+
+* minimap2
+
+* pigz
+
+* pyro.ai
+
+* Python
+
+* R + R studio
+
+* samtools
+
+* nextflow
+
+* golang
+
+
+ 
+### Scientific software 
+
+   * Python 3.7.9 including following packages:      
+        * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
+   * R / RStudio Server
+
+      * Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
+      * 1000+ pre-installed R packages (versions available on Apr 20 2021)
+      * Intel® oneAPI Math Kernel Library (oneMKL)
+      * GIS software (PROJ, GDAL, SAGA)
+      * CUDA drivers 
+      * TensorFlow (used with R TensorFlow back-end)
+      * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
+
 
 
 ## Data export from the Desktop
