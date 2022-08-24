@@ -8,7 +8,7 @@ In the following user guide, you can learn how to:
 * [Access the service](./sd_desktop.md#service-access)  ;
 * [Set up](./sd_desktop.md#setting-up-a-virtual-desktop) your virtual Desktop;
 * [Analyse data stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
-* Reuse published reasearch data stored under controlled access (pilot phase),
+* Reuse published research data stored under controlled access (pilot phase),
 * [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
 
 ## Key features
