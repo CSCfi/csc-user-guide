@@ -4,6 +4,7 @@
 ## Puhti web interface beta updated to release 10
 
 * A new [MATLAB app](../../../computing/webinterface/matlab/) has been added.
+* Blender has been added to the [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization).
 * Improved form validation messages.
 * Improved Jupyter app launch form.
 * pytorch module now launches correctly in Jupyter app.
