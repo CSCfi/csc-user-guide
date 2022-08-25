@@ -82,7 +82,7 @@ Once your application has been approved, you will receive a notification and fur
 [![SD Desktop login](images/apply/desktop_login.png)](images/apply/desktop_login.png)
 
 !!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md). Check also the [SD Desktop user guide](./data/sensitive-data/sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
+    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
 
 ### Step 6: Access the data 
 
