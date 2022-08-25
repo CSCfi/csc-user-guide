@@ -119,7 +119,7 @@ the case in this example.
 
 To run the example use the following command:
 ```bash
-oc process -f https://raw.githubusercontent.com/tdeneke/rahti-ml-examples/tf2-imdb-cuda/rahti-ml-example-cuda-template.yaml
+oc process -f https://raw.githubusercontent.com/cscfi/rahti-ml-examples/tf2-imdb-cuda/rahti-ml-example-cuda-template.yaml
 | oc create -f -
 ```
 
