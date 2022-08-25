@@ -14,7 +14,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2021b, R2021a, R2020b,R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
+- Puhti: R2021b, R2021a, R2020b, R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
 
 ## License
 
@@ -27,16 +27,10 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for the sessions. After logging in to the web interface, MATLAB can be launched as follows:
-
-* Select "Desktop" from the "Apps"-view and specify your resource requirements
-* To only run the MATLAB app, select the `Desktop > single application` and `App > MATLAB` settings. 
-* To launch the full desktop, select either `mate` or `xfce` and run MATLAB from the host terminal or by clicking the desktop icon. If using the host terminal, open MATLAB with:
-
-```bash
-module load matlab/r2021b
-matlab
-```
+There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
+available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
+for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
+and specifying your resource requirements.
 
 ### Getting Started with MATLAB Parallel Server on Puhti
 

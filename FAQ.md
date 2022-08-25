@@ -172,3 +172,7 @@ A good way to highlight a new update is to add an entry to the What's new -secti
 ## Which Markdown features/extensions are available?
 
 Have a look at [the reference card](https://docs.csc.fi/ref).
+
+## How do I add definitions to the glossary / display definitions as tooltips?
+
+There is a file that contains acronym-definition pairs at [csc-overrides/assets/glossaries/hpc.md](csc-overrides/assets/glossaries/hpc.md). The pairs are in the format `*[Acronym]: Definition`. New pairs may be added to the file, or a new file may be created within the same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is found in [the reference card](https://docs.csc.fi/ref#glossary).

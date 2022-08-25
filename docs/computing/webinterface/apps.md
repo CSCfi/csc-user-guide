@@ -13,6 +13,7 @@ To stop the app you can delete the session in the interactive sessions page.
 ## Available apps
  - [Desktop](./desktop.md)
  - [Jupyter](./jupyter.md)
+ - [MATLAB](./matlab.md)
  - [RStudio](./rstudio.md)
  - [TensorBoard](./tensorboard.md)
  - [Visual Studio Code](./vscode.md)
