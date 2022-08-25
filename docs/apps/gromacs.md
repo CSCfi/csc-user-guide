@@ -130,7 +130,7 @@ srun gmx_mpi mdrun -s verlet -dlb yes
 ```
 !!! Note
     Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
-    as using one full node of CPU cores according to the [usage policy](../../computing/overview/#gpu-nodes).
+    as using one full node of CPU cores according to the [usage policy](../../computing/usage-policy#gpu-nodes).
     Otherwise, don't use GPUs.
 
 Submit the script with `sbatch script_name.sh`
@@ -249,7 +249,7 @@ trajectory files can be visualized with the following programs:
 
 !!! Note
     Please don't run visualization or heavy Gromacs tool scripts in
-    the login node (see [usage policy for details](../../computing/overview/#usage-policy)).
+    the login node (see [usage policy for details](../../computing/usage-policy)).
     You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
     by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
 
