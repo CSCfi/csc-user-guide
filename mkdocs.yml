@@ -183,23 +183,23 @@ nav:
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
        - Rahti4 migration: cloud/rahti/rahtiv2-migration.md
        - Rahti Tutorials:
-         - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
-         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
-         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+         - Annotations: cloud/rahti/tutorials/annotations.md
+         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
-         - Webhooks: cloud/rahti/tutorials/webhooks.md
-         - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
-         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
-         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
+         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
+         - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
+         - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
-         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
-         - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
-         - Annotations: cloud/rahti/tutorials/annotations.md
-         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
-         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
          - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+         - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+         - Webhooks: cloud/rahti/tutorials/webhooks.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -227,23 +227,23 @@ nav:
          - Command line tool installation and usage: cloud/rahti4/usage/cli.md
        - Rahti4 migration: cloud/rahti4/rahtiv2-migration.md
        - Rahti Tutorials:
-         - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
-         - Deploying a static web server using the command line: cloud/rahti4/tutorials/elemental_tutorial.md
-         - Custom domain names and secure transport: cloud/rahti4/tutorials/custom-domain.md
+         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti4/tutorials/connect-database-hpc.md
+         - Annotations: cloud/rahti4/tutorials/annotations.md
+         - CI/CD on Rahti: cloud/rahti4/tutorials/ci_cd_introduction.md
          - Configuration, ConfigMaps and Secrets: cloud/rahti4/tutorials/configuration.md
-         - Webhooks: cloud/rahti4/tutorials/webhooks.md
-         - Reverse proxy authentication using a sidecar container: cloud/rahti4/tutorials/sidecar_proxy_authentication.md
-         - Short introduction to YAML: cloud/rahti4/tutorials/yaml_introduction.md
-         - How to transfer data to Rahti?: cloud/rahti4/tutorials/transfer_data_rahti.md
+         - Custom domain names and secure transport: cloud/rahti4/tutorials/custom-domain.md
+         - Deploying a static web server using the command line: cloud/rahti4/tutorials/elemental_tutorial.md
+         - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
+         - How backup a Postgres DB into Allas: cloud/rahti4/tutorials/backup-postgres-allas.md
          - How to add docker hub credentials to a project: cloud/rahti4/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti4/tutorials/docker_hub_manual_caching.md
-         - CI/CD on Rahti: cloud/rahti4/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti4/tutorials/oc-run.md
-         - How backup a Postgres DB into Allas: cloud/rahti4/tutorials/backup-postgres-allas.md
-         - Annotations: cloud/rahti4/tutorials/annotations.md
-         - Sending e-mail from Rahti: cloud/rahti4/tutorials/email.md
-         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti4/tutorials/connect-database-hpc.md
+         - How to transfer data to Rahti?: cloud/rahti4/tutorials/transfer_data_rahti.md
          - Multi stage builds: cloud/rahti4/tutorials/multi-stage-builds.md
+         - Reverse proxy authentication using a sidecar container: cloud/rahti4/tutorials/sidecar_proxy_authentication.md
+         - Sending e-mail from Rahti: cloud/rahti4/tutorials/email.md
+         - Short introduction to YAML: cloud/rahti4/tutorials/yaml_introduction.md
+         - Webhooks: cloud/rahti4/tutorials/webhooks.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti4/storage/index.md
          - Persistent volumes: cloud/rahti4/storage/persistent.md
