@@ -1,10 +1,15 @@
 # Applications
 
-## Discovery Studio and Matreial Studio are not available on 2023, 24.8.2022
+## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
-CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discovery-studio.md) and [Materilas Studio](../../apps/materialsstudio.md).
-Due to small usage, and the availability of overlapping tools ([Maestro](../../apps/maestro.md)) the licence will be not continued after this year. 
-This means than on 2023 these molecular modeling tools can't be use any more at CSC nor in users own compuers. Please contact servicedesk@csc.fi if you need help in moving your moleclular modeling work to other modeling environments.
+CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
+and [Materilas Studio](../../apps/materialsstudio.md).
+Due to small usage, and the availability of overlapping tools 
+([Maestro](../../apps/maestro.md)) the licence will be not 
+continued after this year. This means than in 2023 these molecular modeling tools 
+can't be use any more at CSC nor in users own computers. Please contact 
+servicedesk@csc.fi if you need help in moving your moleclular modeling work 
+to other modeling environments.
 
 
 ## PyTorch 1.12, 8.7.2022
