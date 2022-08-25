@@ -1,5 +1,35 @@
 # Computing environment 
 
+
+## Puhti web interface beta updated to release 10 24.8.2022
+
+* A new [MATLAB app](../../../computing/webinterface/matlab/) has been added.
+* Blender has been added to the [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization).
+* Improved form validation messages.
+* Improved Jupyter app launch form.
+* pytorch module now launches correctly in Jupyter app.
+* Fixed Jupyter Lab not working in Jupyter for Courses.
+* Updated VS Code to 1.70.1.
+* Open onDemand version updated to 2.0.28.
+
+## Puhti has been updated with additional local disks on Big Mem nodes, 6.7.2022
+
+Fast local NVMe disks can be used to speed up single node workloads that do a lot of
+read and write operations on data sets that fit on the disks. Especially small reads
+and writes, and operations on a large amount of files are much faster on the local disks
+than on the parallel file system. Now also the 6 nodes with 1.5 TiB of memory have been
+upgraded with 5960 GiB local disks. See [Puhti technical details](../../../computing/systems-puhti/)
+for a detailed list of all nodes.
+
+## Puhti web interface beta updated to release 9 5.7.2022
+
+* Added graphs showing Lustre usage metrics to dashboard.
+* Improved web interface performance, especially during heavy Lustre load.
+* Modules selected when launching apps are now shown on the active sessions page.
+* Local disk must now be used when running RStudio.
+* Updated VS Code to 1.66.2.
+* Open onDemand version updated to 2.0.27.
+
 ## How to clean up data - automatic removal, new tools and instructions 10.6.2022
 
 Puhti's parallel file system is filling up and hence degrading performance. We will start

@@ -33,7 +33,7 @@ bandwidth in a non-blocking fat-tree topology.
 | L         |  92              | Xeon Gold 6230 | 2 x 20 cores @ 2,1 GHz | 384 GiB |            |
 | L-IO      |  40              | Xeon Gold 6230 | 2 x 20 cores @ 2,1 GHz | 384 GiB |  3600 GiB  |
 | XL        |  12              | Xeon Gold 6230 | 2 x 20 cores @ 2,1 GHz | 768 GiB |  1490 GiB  |
-| BM        |  6               | Xeon Gold 6230 | 2 x 20 cores @ 2,1 GHz | 1,5 TiB |            |
+| BM-IO     |  6               | Xeon Gold 6230 | 2 x 20 cores @ 2,1 GHz | 1,5 TiB |  5960 GiB  |
 | GPU       |  80              | Xeon Gold 6230<br>Nvidia V100  | 2 x 20 cores @ 2,1 GHz<br> 4 GPUs connected with NVLink | 384 GiB<br>4 x 32 GB |  3600 GiB  |
 
 In addition to the compute nodes above, Puhti has two login nodes with 40 cores and 2900 GiB
@@ -46,7 +46,7 @@ Puhti has a 4.8 PB Lustre parallel storage system providing space for
 [home](disk.md#home-directory), [project](disk.md#projappl-directory) and
 [scratch](disk.md#scratch-directory) storages.
 
-Currrnet Lustre configuration for Puhti is:
+Current Lustre configuration for Puhti is:
 
 | Storage area | # OSTs | # MDTs |
 |--------------|--------|--------|

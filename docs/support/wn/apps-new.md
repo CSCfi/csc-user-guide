@@ -1,5 +1,32 @@
 # Applications
 
+## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
+
+CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
+and [Materilas Studio](../../apps/materialsstudio.md).
+Due to small usage, and the availability of overlapping tools 
+([Maestro](../../apps/maestro.md)) the licence will be not 
+continued after this year. This means than in 2023 these molecular modeling tools 
+can't be use any more at CSC nor in users own computers. Please contact 
+servicedesk@csc.fi if you need help in moving your moleclular modeling work 
+to other modeling environments.
+
+
+## PyTorch 1.12, 8.7.2022
+
+PyTorch 1.12.0 is now available in the `pytorch/1.12` module on Puhti
+and Mahti. See the [official PyTorch 1.12 release
+notes](https://pytorch.org/blog/pytorch-1.12-released/), and [CSC's
+PyTorch module documentation](../../apps/pytorch.md).
+
+## CP2K modules on Mahti recompiled, 5.7.2022
+
+Due to an issue related to OpenBLAS, the CP2K modules on Mahti have been
+recompiled and linked to another linear algebra library (AMD BLIS). The old
+versions were in some cases using up to seven times as much memory as before,
+while matrix diagonalizations were not benefiting from the ELPA library as
+expected.
+
 ## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
 
 New versions of [Python Data](../../apps/python-data.md) and

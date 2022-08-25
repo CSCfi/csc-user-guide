@@ -4,7 +4,6 @@
 * [Getting started with Puhti](puhti_quick.md)
 * [Getting started with Mahti](mahti_quick.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
-* [How to run many short calculations](many.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference.pdf)
@@ -17,9 +16,14 @@
 * [Building Singularity containers from scratch](singularity-scratch.md)
 * [Getting disk usage using Lue](lue.md)
 
-## Performance
+## Performance and high-throughput workflows
 * [Optimising parallel I/O](lustre_performance.md)
 * [Dask & parallel Python](dask-python.md)
+* [General high-throughput guidelines](../../computing/running/throughput.md)
+* [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
+* [FireWorks workflow manager](../../computing/running/fireworks.md)
+* [How to run many short jobs with GREASY](../../computing/running/greasy.md)
+* [How to run many short jobs with GNU Parallel](many.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
@@ -72,4 +76,6 @@
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
 
-
+## CSC Resources for Courses
+* [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
+* [CSC Notebooks environment for creating custom notebooks](../../cloud/csc_notebooks/guide_for_teachers/#creating-custom-docker-images)

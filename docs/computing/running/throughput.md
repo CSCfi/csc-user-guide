@@ -28,7 +28,7 @@ To enable high-throughput computing while avoiding the above issues, jobs and jo
 steps should be packed so that they can be executed with minimal invocations of
 `sbatch` and `srun`. The first and best option is to check whether the software
 you're using comes with a [built-in option for farming-type workloads]. This
-applies for applications such as [Gromacs][gmx], [CP2K][cp2k] and [LAMMPS][lmp].
+applies for applications such as [CP2K][cp2k], [Gromacs][gmx],  [LAMMPS][lmp], Python and R.
 
 If integrated support for farming-type workloads is unavailable in your software,
 another option is to use external tools such as [HyperQueue] or [GNU Parallel].
@@ -48,9 +48,9 @@ is a guideline. In case you're uncertain how to implement your workflow, please
 [contact CSC Service Desk]
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'museo-sans'}}}%%
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>")
+    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>, Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
     E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a>)
     E -->|Parallel| G(Dependencies between subtasks?)
@@ -74,7 +74,7 @@ tools recommended by CSC is presented below.
 |Easy to setup|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
 |Dependency support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
 |Container support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|
-|Error recovery|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
+|Error recovery|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|
 |Parallelization support|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
 |Slurm integration |![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
 
@@ -123,7 +123,7 @@ Please also consider the flowchart below as a guideline for selecting the most
 appropriate technologies for your IO-intensive workflows.
 
 ```mermaid
-%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem', 'fontFamily': 'museo-sans'}}}%%
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
     A(Is your application containerized?) -->|Yes| B(<a href='/computing/containers/run-existing/#mounting-datasets-with-squashfs'>Mount your dataset with SquashFS</a>)
     A -->|No| C(Are you running a Conda/pip environment?)
@@ -160,6 +160,8 @@ graph TD
   with `xargs`, see [xargsjob.sh] for example.
 * [FireWorks] is a flexible tool for defining, managing and
   executing workflows with multiple steps and complex dependencies
+* [Nextflow workflows using HyperQueue as an executor] can be leveraged to run
+  large workflows involving thousands of processes efficiently
 
 ### Science specific workflow tools and tutorials
 
@@ -178,6 +180,13 @@ workflows.
 * [Gromacs multidir option][gmx]
 * [FARMING mode of CP2K][cp2k] (supports dependencies between subjobs)
 * [LAMMPS multi-partition switch][lmp]
+* Python:
+    * [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+    * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
+    * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+* R:
+    * [Parallel jobs using R](../../support/tutorials/parallel-r.md)
+    * [R targets library](https://docs.ropensci.org/targets/)
 
 ### General tools and tutorials for efficient IO
 
@@ -210,3 +219,4 @@ workflows.
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../overview.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
+[Nextflow workflows using HyperQueue as an executor]: ../../support/tutorials/nextflow-hq.md
