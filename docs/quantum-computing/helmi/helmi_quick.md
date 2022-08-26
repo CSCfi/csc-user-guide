@@ -183,7 +183,7 @@ Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci`
 
 Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebooks are **not** currently supported on LUMI.
 
-Before running jobs users will need to use `module use /scratch/project_462000055/modules` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi_qiskit_iqm_2.0` or `module load helmi_cirq_iqm_4.1` for either Qiskit usage or Cirq usage, these can also be viewed via `module avail` after adding the path. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
+Before running jobs users will need to use `module use /scratch/project_462000055/modules` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi_qiskit` or `module load helmi_cirq` for either Qiskit usage or Cirq usage, these can also be viewed via `module avail` after adding the path. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
 
     #!/bin/bash
      
@@ -211,13 +211,14 @@ In order to efficiently use Helmi, some knowledge of the underlying system archi
 
 ### Qiskit
 
-To load the Qiskit module use `module load helmi_qiskit_iqm_2.0`.
+To load the Qiskit module use `module load helmi_qiskit`.
 
 In Qiskit python scripts you will need to include the following:
 
-    from qiskit_iqm import IQMprovider # Import IQM library
-     # Set backend
-     # Helmi basis gates
+    from csc_qu_tools.qiskit import Helmi as helmi
+    provider = helmi()
+    backend = provider.set_backend()
+    basis_gates = provider.basis_gates
      
     qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomposed circuit into basis gates
      
@@ -229,7 +230,7 @@ In Qiskit python scripts you will need to include the following:
                       virtual_qubits[4]: 'QB5'  } # Set Helmi Qubit Mapping like this.
     job = backend.run(qc_decomposed, shots=, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
 
-Helmi currently uses `qiskit-iqm==2.0` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/).
+Helmi currently uses `qiskit-iqm==2.0` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/). You will still need the `csc_qu_tools` python package to submit jobs to Helmi. 
 
 <!--     module load LUMI lumi-container-wrapper
     mkdir qiskit-iqm
@@ -238,13 +239,21 @@ Helmi currently uses `qiskit-iqm==2.0` from which you can make your own containe
 
 ### Cirq
 
-To load the Qiskit module use `module load helmi_cirq_iqm_4.1`.
+To load the Cirq module use `module load helmi_cirq`.
 
-Unlike with Qiskit, Cirq requires `csc_qu_tools` to load the Helmi device, this can be accessed through `module load helmi_cirq_iqm_4.1`. Helmi currently uses `cirq-iqm==4.1` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/).
+Cirq requires `csc_qu_tools` to load the Helmi device, this can be accessed through `module load helmi_cirq`. In Cirq decomposition 
+
+    from csc_qu_tools.cirq import Helmi
+    import cirq
+
+    backend = Helmi().set_helmi()
+
+
+Helmi currently uses `cirq-iqm==4.1` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/).
 
 ### OpenQASM
 
-Submission of OpenQASM formatted files is also supported on Helmi, however additional user support is currently not available.
+Submission of OpenQASM formatted files is not currently supported on Helmi. You can convert your OpenQASM circuits to Cirq or Qiskit and submit them. On Qiskit this can be done with `QuantumCircuit.from_qasm_file('my_circuit.qasm')` or on Cirq creating the circuit from a string using  `circuit_from_qasm(""" Qasm_string """)`. 
 
 ## Creating Circuits for Helmi
 

@@ -65,23 +65,23 @@ The Helmi partition uses the same storage policies as LUMI. There is no differen
 
 ## Usage and Billing
 
-<!-- * Will helmi users have specific LUMI login nodes? If yes add here -->
-
 LUMI Helmi works similarly to the regular LUMI system, the main difference being that 
 
 1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C, `--partition=standard` and `--partition=small`
 2. There is only 1 LUMI-C node and the maximum job walltime is **15 mins**
 3. Usage is billed in CPUh and QPUs in `q_fiqci`. 
+4. The LUMI-Helmi software stack is loaded through `module use /project_462000055/modules` and `module load helmi_` for Qiskit or Cirq. 
 
 Running through the `q_fiqci` queue will consume QPU seconds for the amount of seconds it takes to run the job on the Helmi QPU. This is in addition to the CPUh which will be billed to the project when the LUMI Helmi Node is reserved. 
 
 
-For example, 1 node for 1 hour : 
+For example, 1 node for 15 minutes : 
 
 ```
-1 node x 1 hour x 128 core-hour  = 128 core-hours + 3600 QPU-seconds
+1 node x 15 minutes x 128 core-hour  = 32 core-hours + 900 QPU-seconds
 ```
 
+<!-- Max QPU seconds a project can use is ~  -->
 
 <!-- BU equation -->
 

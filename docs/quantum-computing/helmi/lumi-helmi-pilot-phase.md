@@ -36,6 +36,8 @@ When you are ready to run your circuits on Helmi it is recommended that you read
 
 ## Pilot Phase Software
 
+To submit and run jobs on Helmi is it important that you use the correct environment on LUMI. Setting this up can be done with `module use /project_462000055/modules` and either `module load helmi_qiskit` or `module load helmi_cirq`. Currently only circuits submitted in Qiskit and Cirq are supported. 
+
 CSC has developed a set of examples and scripts for guidance in using the LUMI-Helmi partition. You can find these here [**Insert link**]. Currently only Qiskit versions are available however Cirq version will be made available in the future. 
 
 <!-- A python package has also been developed to help users in submitting jobs for the pilot phase.  -->
