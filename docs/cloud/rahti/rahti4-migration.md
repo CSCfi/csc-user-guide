@@ -14,7 +14,7 @@ Go to [Rahti4](https://landing.2.rahti.csc.fi/) and choose the `oidcidp` option,
 
 You will be then served with a page with all the authentication options that Rahti accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti account.
 
-### Command line login 
+### Command line login
 
 In order to get the "login command", once you have logged in the web interface, click on your name and then in "Copy Login Command". For security reasons, you will be required to login again, after that you will be served the page the login command you can copy to the clipboard and paste it in any terminal running on your system.
 
