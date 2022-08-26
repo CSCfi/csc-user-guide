@@ -2,9 +2,9 @@
 
 This guide is dedicated to answer te most frequent questions and provide procedures for the Rahti3 to Rahti4 migration.
 
-Rahti3 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. Rahti3 is in open beta, and will never react production status.
+Rahti3 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. The underlining Kubernetes version is v1.11. Rahti3 is in open beta, and will never react production status.
 
-Rahti4 is the next version of OpenShift OKD running in CSC. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti3 to become Rahti4. So in other words, this means that every single application running in Rahti3 needs to be migrated to Rahti4 manually. The two versions will run in parallel for a while, till all applications running in v1 are migrated to v2.
+Rahti4 is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.22. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti3 to become Rahti4. So in other words, this means that every single application running in Rahti3 needs to be migrated to Rahti4 manually. The two versions will run in parallel for a while, till all applications running in v1 are migrated to v2.
 
 ## How to log in Rahti4?
 
