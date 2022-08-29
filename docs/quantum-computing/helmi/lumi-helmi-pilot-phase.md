@@ -40,8 +40,6 @@ To submit and run jobs on Helmi is it important that you use the correct environ
 
 CSC has developed a set of examples and scripts for guidance in using the LUMI-Helmi partition. You can find these here [**Insert link**]. Currently only Qiskit versions are available however Cirq version will be made available in the future. 
 
-<!-- A python package has also been developed to help users in submitting jobs for the pilot phase.  -->
-
 ## FAQ
 
 * Can I use Qiskit pulse or have pulse level access to Helmi?

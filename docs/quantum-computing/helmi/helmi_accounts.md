@@ -9,21 +9,12 @@ The LUMI Helmi partition is currently only available for FiQCI users in projects
 
 When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Helmi" option. 
 
-<!-- Maybe insert image here? -->
-
 !!! failure "Pilot Phase"
 	During the pilot phase, approved projects will **only** get 24 hours of access to the LUMI Partition.
 	[More details about the Pilot Phase](../lumi-helmi-pilot-phase/). 
 
 * [Creating a new project in MyCSC](/accounts/how-to-create-new-project/)
 * [How to create Finnish LUMI projects](/accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
-
-
-<!-- ===
-* Can a Quantum project use the Helmi partition AND LUMI-C partition for example?
-* What about other LUMI Partitions? E.g they want to use Jupyter-notebook LUMI-D?
-* Integration with Kvasi or just mention Kvasi?  -->
-
 
 
 ## LUMI Helmi partition
@@ -80,10 +71,6 @@ For example, 1 node for 15 minutes :
 ```
 1 node x 15 minutes x 128 core-hour  = 32 core-hours + 900 QPU-seconds
 ```
-
-<!-- Max QPU seconds a project can use is ~  -->
-
-<!-- BU equation -->
 
 Storage is billed by volume as well as time. The billing units are TB-hours. For the regular scratch file system, 1TB that stays for 1 hour on the filesystem, consumes 1TB-hour.
 

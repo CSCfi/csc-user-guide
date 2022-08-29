@@ -27,15 +27,5 @@ Helmis basis gates are Control-Z and a Rotational gate around the x-y plane. Thi
 * [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
 * [Getting started with Helmi](../helmi_quick/)
 
-<!-- ## Acessing Helmi via LUMI
-
-
-
-
-The Helmi software stack provides some useful tools in mapping programs to this specific topology. [For more details see "Running on Helmi"](../running-on-helmi/).  
-
-
- -->
-
 
 
