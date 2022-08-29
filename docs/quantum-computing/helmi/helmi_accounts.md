@@ -9,7 +9,7 @@ The LUMI Helmi partition is currently only available for FiQCI users in projects
 
 When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Helmi" option. 
 
-!!! failure "Pilot Phase"
+!!! info "Pilot Phase"
 	During the pilot phase, approved projects will **only** get 24 hours of access to the LUMI Partition.
 	[More details about the Pilot Phase](../lumi-helmi-pilot-phase/). 
 

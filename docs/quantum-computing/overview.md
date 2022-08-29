@@ -25,7 +25,7 @@ QLM ecosystem.
 
 **5 Qubit Quantum Computer**
 
-!!! warning "FiQCI Pilot Phase is now open!"
+!!! success "FiQCI Pilot Phase is now open!"
     The FiQCI Pilot Phase is now open! [More details about the Pilot Phase](../helmi/lumi-helmi-pilot-phase/).
 
 Helmi, the first Finnish quantum computer, built by IQM and operated by VTT. Presently, Helmi provides 5 qubits, and will be upgraded to 20, then 50 qubits in the near future. With Helmi, users can run quantum programmes and algorithms on a platform with real noise and decoherence.
