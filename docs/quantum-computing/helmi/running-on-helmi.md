@@ -4,7 +4,7 @@
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
 
-Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebook is **not** currently supported on LUMI.
+Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebook is **not** currently supported on LUMI. Pulse level access to Helmi is not currently available. 
 
 Before running jobs users will need to use `module use /scratch/project_462000055/modules` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi`. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
 

@@ -42,9 +42,15 @@ CSC has developed a set of examples and scripts for guidance in using the LUMI-H
 
 <!-- A python package has also been developed to help users in submitting jobs for the pilot phase.  -->
 
+## FAQ
+
+* Can I use Qiskit pulse or have pulse level access to Helmi?
+	Pulse level access to Helmi is not currently available. 
+
 ## For further reading:
 
 * [Description of Helmi's Topology](../helmi/).
 * [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
 * [Running jobs on Helmi](../running-on-helmi/)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
+
