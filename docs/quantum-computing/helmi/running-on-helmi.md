@@ -55,11 +55,6 @@ In Qiskit python scripts you will need to include the following:
 
 Helmi currently uses `qiskit-iqm==2.0` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/). You will still need the `csc_qu_tools` python package to submit jobs to Helmi. 
 
-<!--     module load LUMI lumi-container-wrapper
-    mkdir qiskit-iqm
-    pip-containerize new --prefix qiskit-iqm/ requirements.txt
-    export PATH="/users/username/qiskit-iqm/bin:$PATH" -->
-
 ### Cirq
 
 To load the Cirq module use `module load helmi_cirq`.
