@@ -15,8 +15,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
 
 
   
-## [Sensitive Data Connect](./sd_connect.md)
-Store and share.
+## Store and share sensitive data with [Sensitive Data Connect](./sd_connect.md)
    
 
   * [**Key features**](./sd_connect.md)
@@ -53,8 +52,8 @@ Store and share.
 
   
 
-## [Sensitive Data Desktop](./sd_desktop.md)
-Analyse and compute.
+## Analyse and compute sensitive data with [Sensitive Data Desktop](./sd_desktop.md)
+
 
   * [**Key features**](./sd_desktop.md)
   
@@ -82,7 +81,7 @@ Analyse and compute.
   
   
 ## [Sensitive Data Desktop for secondary use of health and social data](./sd-desktop-audited.md)
-Analyse and compute secondary use data (access to this service requires a Findata permit).
+Access to this service requires a Findata permit.
   
   * [**Key features**](./sd-desktop-audited.md#key-features)
 
@@ -114,12 +113,10 @@ Analyse and compute secondary use data (access to this service requires a Findat
 ## **Services in the pilot phase:**
 
   
-### [Finnish Federated EGA](./federatedega.md)
-Publish genetic data under controlled access. 
+### Publish genetic data under controlled access with the [Finnish Federated EGA](./federatedega.md)
 Preliminary guide.
  
   
-### [Sensitive Data Apply](./sd-apply.md)
-Apply for re-use. 
+### Reuse published reaserch data with [Sensitive Data Apply](./sd-apply.md)
 Preliminary guide. 
  
