@@ -232,7 +232,7 @@ that they can find form the bucket and the CSC public key.
 
 Moving large datasets (several terabytes) of data to Allas can take a long time. 
 Aftwer few days data produces tells Tiina that all data has been imported to the shared _animine_data_import_i1_ bucket in Allas. 
-Tiina can now close remove the external access rights from the bucket with command:
+Tiina can now remove the external access rights from the bucket with command:
 
 ```text
 a-access -rw project_2000111 animine_data_import_1
