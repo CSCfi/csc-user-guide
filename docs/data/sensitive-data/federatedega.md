@@ -6,9 +6,9 @@ You can use FEGA either to submit, apply or approve access to biomedical dataset
 
 # I want to ....
 
-* [... access data.](./fega_application.md)
-* [... approve data access.](./fega_dac.md)
-* [... submit data.](./fega_submission.md)
+### [... access data.](./fega_application.md)
+### [... approve data access.](./fega_dac.md)
+### [... submit data.](./fega_submission.md)
 
 <br/>
 
