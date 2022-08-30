@@ -1,7 +1,7 @@
 
 # SD Desktop (Sensitive Data Desktop)
 
-SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as virtual machine) from your web browser. No previous knowledge of cloud computing or programming expertise are required to use the service. SD Desktop is designed to process sensitive data and provide a secure workspace for collaborative research projects.
+SD Desktop allows you to analyze sensitive data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
 
 In the following user guide, you can learn how to:
 
@@ -12,31 +12,25 @@ In the following user guide, you can learn how to:
 * [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
 
 !!! Note
-    For secondary use of health and social data via SD Desktop, check the detailed user guide [here](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
+    For secondary use of health and social data, please check the detailed user guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
 
 
 ## Key features
 
-* Accessible from any operating system (Mac, Linux or Windows) via web-browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
+* Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
 
-* Only the memerbs of the same CSC project can access the same virtual Desktop.
+* Only the same CSC project members can access the same virtual Desktop. Currently, it is possible to launch three virtual Desktops (or computing environments) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
 
-* After login to SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
+* After login into SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning and work with any data: text files, images, audio files, video, and genetic data. Further customization is possible by writing at servicedesk@csc.fi (subject: Sensitive data);
 
-* Virtual Desktops are not connected to internet: the only way to import and export data is SD Connect service;
-
-* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However the virtual Desktop include a limited set of pre-installed software (open source). Additional tools can be imported through SD Connect and additional customization is possible writing at servicedesk@csc.fi (subject: Sensitive data);
-
-* **Process a large amount of data** stored encrypted in SD Connect via data streaming (default disk space 280 GB, if additional space required contact servicedesk@csc.fi (subject: Sensitive data) or via SD Apply (for data re-use).
-
-* All the members belonging to a specific CSC project can access the same computing virtual Desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
+* Virtual Desktops are not connected to the internet: the only way to import and export data is SD Connect service;
 
 
 **Limitations**:
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
-* The standard SD Desktop service is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access the dataset approved by the Findata Authority. 
+* The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access the dataset approved by the Findata Authority.
 
 
 ## Overview
