@@ -33,16 +33,18 @@ Store and share.
  
  * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) 
  
+ 
  !!! success-label
 
-     Begginner: data analysis
+     Beginner data analysis
 
  
  * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
  
+ 
  !!! warning-label
 
-     Intermediate: data storage or transfer
+     Intermediate data storage or transfer
     
  
  * [**Data sharing**](./sd_connect.md#data-sharing)
