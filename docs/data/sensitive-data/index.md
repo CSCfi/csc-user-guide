@@ -1,6 +1,6 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find on overview of the contents related to the Sensitive Data Services.
+This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find an overview of the contents related to Sensitive Data Services.
 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
@@ -97,7 +97,7 @@ Analyse and compute.
   
   
 ## [Sensitive Data Desktop for secondary use of health and social data](./sd-desktop-audited.md)
-Analyse and compute secondary use data (access to this services requires a Findata permit).
+Analyse and compute secondary use data (access to this service requires a Findata permit).
   
   * [**Key features**](./sd-desktop-audited.md#key-features)
 
