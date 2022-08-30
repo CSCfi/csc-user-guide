@@ -33,31 +33,16 @@ Store and share.
  
  * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) 
  
- 
- !!! success-label
- 
-     Beginner data analysis
-     
-
- 
  * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
  
- 
- !!! warning-label
 
-     Intermediate data storage or transfer.
-    
- 
  * [**Data sharing**](./sd_connect.md#data-sharing)
  
  * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption)
  
  * [**Command Line Interface: data encryption and upload:**](./sd_connect.md#command-line-interface-data-encryption-and-upload) 
  
- !!! error-label
-
-     Advanced.
-  
+ 
  * [**Command Line Interface: data encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
  
  * [**Troubleshooting**](./sd_connect.md#troubleshooting)
