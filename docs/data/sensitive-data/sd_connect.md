@@ -4,9 +4,9 @@
 
 SD Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
 
-- is designed to store or transfer sensitive data;
+- is designed to store or transfer sensitive data via (via URL) with other CSC projects;
 - provides a secure workspace for collaborative research projects (e.g. facilitates data collection and data sharing);
-- provides a secure way to upload files to SD Desktop to analyse research data.
+- provides a secure way to upload files to SD Desktop for data analysis. 
 
 In the following user guide, you can learn how to:
 
@@ -26,19 +26,14 @@ In the following user guide, you can learn how to:
 
 * Can store any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). You can define or manage each file or bucket with specific tags. By default, a project can store up to 10 TiB of data.
 
-* Facilitates secure data sharing (via URL) with other CSC projects.
-
-* Data stored in SD Connect can be accessed via SD Desktop for data analysis (if they are encrypted using the Sensitive Data services public encryption key, the default option for data upload via SD Connect).
 
 **Limitations**:
 
-* All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders uploaded to SD Connect are located. 
+* All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders are uploaded.
 
-* Files stored in SD Connect/Allas can be directly analysed in read-only mode from SD Desktop, but they can not be directly edited unless they are copied inside the virtual Desktop. 
+* A project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md) to apply for additional resources. The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
-* By default, a project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md) to apply for additional reasouce. The storage space remains available as long as the CSC project is active, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
-
-* CSC does not make backups of the data stored in SD Connect. Having **own backups** of important datasets is a good practice.
+* CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
     SD Connect is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about the precise requirements.
@@ -82,9 +77,9 @@ The interface is compatible with all modern web browsers.
 
 Once you log in to SD Connect, you can access three main pages: 
 
-* the default **Browser** page, where are listed the buckets (or main folders) in which your encrypted files are stored;
-* the **Shared** page, where you can manage shared buckets;
-* the **User information** page, where you can visualise the resources consumed by your CSC project and the Project Identifier.
+* The default **Browser** page, where are listed the buckets (or main folders) in which your encrypted files are stored;
+* The **Shared** page, where you can manage shared buckets;
+* The **User information** page, where you can visualise the resources consumed by your CSC project and the Project Identifier.
 
 
 ### Browser page
@@ -630,7 +625,7 @@ The command will ask you to enter the password (passphrase) of your private key.
 |               | I cannot find my bucket.                                                                 | Check if the bucket is stored under a different project. If someone has shared the bucket with you, you can find it under the ‘Shared to’ section and copy it. If someone has shared the bucket with you, they could have revoked the sharing.  |
 |               | I cannot upload data into my bucket                                                      | Check that your project still has storage space left.                                                                                                                                                                                           |
 | Shared bucket | I cannot upload data into a shared bucket.                                               | Your colleague didn’t add editing rights when they shared the bucket.                                                                                                                                                                           |
-|               | I cannot see the content of a shared bucker.                                             | Your colleague didn’t add reading rights when they shared the bucket.  
+|               | I cannot see the content of a shared bucket.                                             | Your colleague didn’t add reading rights when they shared the bucket.  
 
 
 
