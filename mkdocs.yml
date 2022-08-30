@@ -247,11 +247,11 @@ nav:
      - Sensitive data:
         - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-        - SD Connect: data/sensitive-data/sd_connect.md
-        - SD Desktop: data/sensitive-data/sd_desktop.md
+        - SD Connect (store & share): data/sensitive-data/sd_connect.md
+        - SD Desktop (analyse): data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
-#       - FederatedEGA: data/sensitive-data/federatedega.md
-#       - SD Apply: data/sensitive-data/sd-apply.md
+        - Federated EGA (publish biomedical data) : data/sensitive-data/federatedega.md
+        - SD Apply (reuse): data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
 
      - Kaivos database service:
