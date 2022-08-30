@@ -35,14 +35,14 @@ Store and share.
  
  !!! success-label
 
-    Begginner: data analysis
+     Begginner: data analysis
 
  
  * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
  
  !!! warning-label
 
-    Intermediate: data storage or transfer
+     Intermediate: data storage or transfer
     
  
  * [**Data sharing**](./sd_connect.md#data-sharing)
@@ -53,7 +53,7 @@ Store and share.
  
  !!! error-label
 
-    Advanced
+     Advanced
   
  * [**Command Line Interface: data encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
  
