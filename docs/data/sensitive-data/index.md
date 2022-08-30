@@ -35,8 +35,9 @@ Store and share.
  
  
  !!! success-label
-
-     Beginner data analysis.
+ 
+     Beginner data analysis
+     
 
  
  * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
