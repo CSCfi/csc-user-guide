@@ -7,20 +7,30 @@ learning guide](ml-guide.md).
 First we will explain the general principles, such as single- and
 multi-node jobs and mechanisms for launching multiple processes. After
 that we discuss some common software frameworks how to use them on
-CSC's supercomputers.
+CSC's supercomputers: [PyTorch DDP](#pytorch-ddp),
+[DeepSpeed](#deepspeed) and briefly [Horovod](#horovod) and
+[TensorFlow's
+`tf.distribute.Strategy`](#tensorflows-tfdistributestrategy).
 
 ## Nodes and tasks
 
 ### GPU Nodes
 
 Each separate GPU computer, or GPU **node**, has a small number of
-GPUs. Puhti and Mahti have 4 GPUs per node, and LUMI has 8 GPUs. The
-supercomputer may have tens or even thousands of GPU nodes. See
-[GPU-accelerated machine learning](gpu-ml.md) for more details, in
-particular the table of GPUs in CSC's different supercomputers might
-be of interest.  If you need 1-4 GPUs (or 1-8 in LUMI) you should
-always reserve a **single node job**. If you need more than 4 GPUs (or
-8 in LUMI) you need to reserve a **multi-node job**.
+GPUs. Puhti and Mahti have 4 GPUs per node, and LUMI has 8 GPUs per
+node.  (Technically a LUMI node has 4 GPUs cards, but 8 GPU dies.) The
+entire supercomputer (or cluster) may have tens or even thousands of
+GPU nodes. See [GPU-accelerated machine learning](gpu-ml.md) for more
+details, in particular the table of GPUs in CSC's different
+supercomputers might be of interest.
+
+If you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
+**single node job**. If you need more than 4 GPUs (or 8 in LUMI) you
+need to reserve a **multi-node job**. It is technically possible to
+reserve, e.g., two GPUs in one node and two in another, but as the
+communication across nodes is always slower than inside a node, this
+isn't recommended except for testing purposes.
+
 
 ### MPI tasks
 
@@ -57,10 +67,9 @@ should now see statistics for more than one GPU.
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=20
-    #SBATCH --mem=64G
+    #SBATCH --mem=128G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:2
         
@@ -73,9 +82,8 @@ should now see statistics for more than one GPU.
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=10
+    #SBATCH --cpus-per-task=20
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:2
     
@@ -92,9 +100,8 @@ should now see statistics for more than one GPU.
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=eap
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=16
+    #SBATCH --cpus-per-task=20
     #SBATCH --gpus-per-task=2
     #SBATCH --time=1:00:00
     
@@ -148,13 +155,15 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --partition=eap
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=8
-    #SBATCH --cpus-per-task=8
+    #SBATCH --cpus-per-task=10
     #SBATCH --gpus-per-task=1
     #SBATCH --time=1:00:00
     
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 myprog.py <options>
     ```
+
+The option `--mem=0` means to reserve all memory in that node.
 
 
 #### Multi-node with 2 full nodes, no MPI
@@ -198,13 +207,18 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --partition=eap
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=64
+    #SBATCH --cpus-per-task=40
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
     
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 myprog.py <options>
     ```
+
+Note that the `--gres` option always specifies the number of GPUs of a
+*single-node*, even in the multi-node case. So if we are reserving 8
+GPUs across 2 nodes in Puhti, that's 4 GPUs each node, i.e,
+`--gres=gpu:v100:4`.
 
 
 #### Multi-node with 2 full nodes, using MPI
@@ -216,9 +230,9 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
     #SBATCH --nodes=2
-    #SBATCH --ntasks=8
+    #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=64G
+    #SBATCH --mem=0
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -232,7 +246,7 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
     #SBATCH --nodes=2
-    #SBATCH --ntasks=8
+    #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
@@ -268,11 +282,10 @@ more general like Horovod.
 Independent of which framework you pick, pay attention to what
 approach is used to launch the jobs. For example Horovod always uses
 MPI, while DeepSpeed can be configured to use MPI or its own parallel
-launcher.
+launcher. In some frameworks, the launching mechanism may also vary
+depending on if you are running a single- or multi-node job. 
 
-In many frameworks, the launching mechanism may also vary depending on
-if you are running a single- or multi-node job. All frameworks should
-use
+All frameworks should use
 [NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
 (or [RCCL](https://github.com/ROCmSoftwarePlatform/rccl) for AMD) for
 fast inter-GPU communication, even if MPI is used to set up the
@@ -286,16 +299,15 @@ distributed](https://pytorch.org/tutorials/beginner/dist_overview.html),
 and in particular `DistributedDataParallel` (DDP), offers a nice way
 of running multi-GPU and multi-node PyTorch jobs. Unfortunately, the
 PyTorch documentation has been a bit lacking in this area, and
-examples found online can often be out-of-date.
-
-To make usage of DDP on CSC's supercomputers easier, we have created a
-[set of examples on how to run simple DDP jobs in the
+examples found online can often be out-of-date. Hence, to make usage
+of DDP on CSC's supercomputers easier, we have created a [set of
+examples on how to run simple DDP jobs in the
 cluster](https://github.com/CSCfi/pytorch-ddp-examples). In the
 examples we use the
 [rendezvous](https://pytorch.org/docs/stable/elastic/rendezvous.html)
 mechanism to communcate across nodes, not MPI.
 
-Example of running PyTorch DDP on a single full node:
+Example Slurm batch job for running PyTorch DDP on a single full node:
 
 === "Puhti"
 
@@ -303,7 +315,6 @@ Example of running PyTorch DDP on a single full node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=40
     #SBATCH --mem=0
@@ -322,7 +333,6 @@ Example of running PyTorch DDP on a single full node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=40
     #SBATCH --time=1:00:00
@@ -340,9 +350,8 @@ Example of running PyTorch DDP on a single full node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=eap
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=128
+    #SBATCH --cpus-per-task=40
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
 
@@ -417,7 +426,7 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --partition=eap
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
+    #SBATCH --cpus-per-task=40
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
     
@@ -430,7 +439,7 @@ Example of running PyTorch DDP on 2 full nodes:
  
     srun python3 -m torch.distributed.run \
         --nnodes=$SLURM_JOB_NUM_NODES \
-        --nproc_per_node=4 \
+        --nproc_per_node=8 \
         --rdzv_id=$SLURM_JOB_ID \
         --rdzv_backend=c10d \
         --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
@@ -485,8 +494,10 @@ Puhti with a full node of 4 GPUs
 
 [DeepSpeed](https://www.deepspeed.ai/) is an optimization software
 suite for PyTorch that helps with scaling training and inference for
-large deep learning models. DeepSpeed is supported in the newest
-`pytorch` modules in Puhti and Mahti.
+large deep learning models. DeepSpeed is supported in the [PyTorch
+modules in Puhti and Mahti](../../apps/pytorch.md) since version
+1.10. DeepSpeed isn't yet fully supported on LUMI (although it might
+work to some extent).
 
 Example of running DeepSpeed on a single full node using the
 `deepspeed` launcher:
@@ -497,7 +508,6 @@ Example of running DeepSpeed on a single full node using the
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=40
     #SBATCH --mem=0
@@ -517,7 +527,6 @@ Example of running DeepSpeed on a single full node using the
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=40
     #SBATCH --time=1:00:00
@@ -529,6 +538,8 @@ Example of running DeepSpeed on a single full node using the
         --deepspeed --deepspeed_config my_ds_config.json \
         <further options>
     ```
+   
+<br/>
 
 Example of running DeepSpeed on 2 full nodes using MPI for launching a
 task for each GPU:
@@ -572,7 +583,8 @@ task for each GPU:
         <further options>
     ```
 
-If you are converting an old PyTorch script there are a few steps that you need to do:
+If you are converting an old PyTorch script there are a few steps that
+you need to do:
 
 1. Initialize distributed environment, for example:
 
@@ -616,7 +628,8 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
 - [run-gpu4-benchmark-deepspeed.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu4-benchmark-deepspeed.sh) shows a benchmark run (including copying of a training set to NVME) on
 Mahti with a full node of 4 GPUs
 - [run-gpu8-benchmark-deepspeed.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu8-benchmark-deepspeed.sh) shows the same for two full nodes
-- [benchmark_deepspeed.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/benchmark_deepspeed.py) shows the Python code for the actual benchmark run utilizing DeepSpeed.
+- [benchmark_deepspeed.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/benchmark_deepspeed.py) shows the Python code for the actual benchmark run utilizing DeepSpeed
+- [ds_config_benchmark.json](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/ds_config_benchmark.json) shows the DeepSpeed configuration file used for the example
 
 
 ### Horovod
