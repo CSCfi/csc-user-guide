@@ -14,8 +14,12 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
   * [**Useful terminology**](./intro.md#getting-access)
 
 
+
+ ## [Sevice access and authentiation**](./intro.md#getting-access)
+
+
   
-## Store and share with [Sensitive Data Connect](./sd_connect.md)
+## [Store and share with SD Connect](./sd_connect.md)
    
 
   * [**Key features**](./sd_connect.md)
@@ -52,7 +56,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
 
   
 
-## Analyse and compute with [Sensitive Data Desktop](./sd_desktop.md)
+## Analyse and compute with [SD Desktop](./sd_desktop.md)
 
 
   * [**Key features**](./sd_desktop.md)
@@ -117,6 +121,6 @@ Access to this service requires a Findata permit.
 Preliminary guide.
  
   
-### Reuse with [Sensitive Data Apply](./sd-apply.md)
+### Reuse with [SD Apply](./sd-apply.md)
 Preliminary guide. 
  
