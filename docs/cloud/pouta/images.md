@@ -61,10 +61,12 @@ While CentOS-7 is still actively supported, [CentOS-8 has been declared end-of-l
 The CentOS community is now actively maintaining CentOS-8-Stream instead. The
 key differences lay in the relationship between CentOS and RHEL, especially in
 how changes, i.e., new packages and updates, are deployed:
+
 * with CentOS-7 RHEL is the upstream branch for CentOS, i.e., changes are first
 deployed for RHEL and then for CentOS
 * with CentOS-8-Stream CentOS is the upstream branch for RHEL, i.e., changes
 are first deployed for CentOS and then for RHEL
+
 The resulting operating system is thus possibly less stable compared to its
 previous version. The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
 that the Stream version is nevertheless extremely close in terms of stability
