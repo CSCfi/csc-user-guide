@@ -107,5 +107,6 @@ Once you have completed these steps, you can log in to SD service with identity 
 
 with any modern web-browser.
 
-
+!!! Note:
+    LSLogin (LifeScience login, before known ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
   
