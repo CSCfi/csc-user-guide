@@ -4,6 +4,11 @@ This guide explains how to utilize multiple GPUs and multiple nodes for machine
 learning applications on CSC's supercomputers. It is part of our [Machine
 learning guide](ml-guide.md).
 
+First we will explain the general principles, such as single- and
+multi-node jobs and mechanisms for launching multiple processes. After
+that we discuss some common software frameworks how to use them on
+CSC's supercomputers.
+
 ## Nodes and tasks
 
 ### GPU Nodes
@@ -11,11 +16,11 @@ learning guide](ml-guide.md).
 Each separate GPU computer, or GPU **node**, has a small number of
 GPUs. Puhti and Mahti have 4 GPUs per node, and LUMI has 8 GPUs. The
 supercomputer may have tens or even thousands of GPU nodes. See
-[GPU-accelerated machine learning](gpu-ml.md) for more details.  If
-you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
-**single node job**. If you need more than 4 GPUs (or 8 in LUMI) you
-need to reserve a **multi-node job**. You can then only reserve full
-nodes, i.e., the number of GPUs will be a multiple of 4 (or 8).
+[GPU-accelerated machine learning](gpu-ml.md) for more details, in
+particular the table of GPUs in CSC's different supercomputers might
+be of interest.  If you need 1-4 GPUs (or 1-8 in LUMI) you should
+always reserve a **single node job**. If you need more than 4 GPUs (or
+8 in LUMI) you need to reserve a **multi-node job**.
 
 ### MPI tasks
 
@@ -265,6 +270,14 @@ approach is used to launch the jobs. For example Horovod always uses
 MPI, while DeepSpeed can be configured to use MPI or its own parallel
 launcher.
 
+In many frameworks, the launching mechanism may also vary depending on
+if you are running a single- or multi-node job. All frameworks should
+use
+[NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
+(or [RCCL](https://github.com/ROCmSoftwarePlatform/rccl) for AMD) for
+fast inter-GPU communication, even if MPI is used to set up the
+connections.
+
 
 ### PyTorch DDP
 
@@ -457,7 +470,8 @@ If you are converting an old PyTorch script there are a few steps that you need 
     ```
 
 
-For a fully working example, see:
+A fully working example can be found in our [`pytorch-ddp-examples`
+repository](https://github.com/CSCfi/pytorch-ddp-examples):
 
 - [run-gpu4-benchmark-ddp-puhti.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-gpu4-benchmark-ddp-puhti.sh) shows a benchmark run (including copying of a training set to NVME) on
 Puhti with a full node of 4 GPUs
@@ -607,22 +621,29 @@ Mahti with a full node of 4 GPUs
 
 ### Horovod
 
-[Horovod](https://github.com/horovod/horovod) uses MPI for launching jobs.
+[Horovod](https://horovod.ai/) is a general framework that supports
+PyTorch and TensorFlow among other frameworks. Horovod always uses MPI
+for launching jobs.  Horovod can be used both with single- and
+multi-node jobs.
 
-For large jobs requiring more than 4 GPUs we recommend using
-[Horovod](https://github.com/horovod/horovod), which at CSC is supported for
-TensorFlow and PyTorch. Horovod uses MPI and NCCL for interprocess
-communication. See also [MPI based batch
-jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs).
-Horovod can also be used with single-node jobs for 4 GPUs, and in some
-benchmarks this has proved to be faster than other multi-GPU implementations.
+In CSC's supercomputers Horovod is supported only for some specific
+versions of [TensorFlow](../../apps/tensorflow.md) and
+[PyTorch](../../apps/pytorch.md).  Please check the application pages
+for further information. To take Horovod into use, just load the
+appropriate module, and modify your program according to the
+instructions in [Horovod's
+documentation](https://horovod.readthedocs.io/), for example:
 
-Note that Horovod is supported only for some specific versions of
-[TensorFlow](../../apps/tensorflow.md) and [PyTorch](../../apps/pytorch.md).
-Please check the application pages for further information. To take Horovod into
-use, just load the appropriate module.
+* [Horovod with PyTorch](https://horovod.readthedocs.io/en/latest/pytorch.html)
+* [Horovod with TensorFlow](https://horovod.readthedocs.io/en/stable/tensorflow.html) and [Keras](https://horovod.readthedocs.io/en/stable/keras.html)
 
 
-### TF multistrategies
+### TensorFlow's `tf.distribute.Strategy`
 
-Some text here.
+TensorFlow also has its own [built-in mechanisms for distributed
+training](https://www.tensorflow.org/guide/distributed_training) in
+the [`tf.distribute.Strategy`
+API](https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy).
+
+
+
