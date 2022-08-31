@@ -5,7 +5,6 @@ SD Desktop allows you to analyze sensitive data from your web browser securely. 
 
 In the following user guide, you can learn how to:
 
-* [Access the service](./sd_desktop.md#service-access)  ;
 * [Set up](./sd_desktop.md#setting-up-a-virtual-desktop) your virtual Desktop;
 * [Analyse data stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
 * Reuse published research data stored under controlled access (pilot phase),
