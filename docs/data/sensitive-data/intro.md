@@ -100,7 +100,7 @@ For specific guidance regarding these steps, check the [Accounts](../../accounts
 !!! Note
     Applying access to the SD Desktop environment for secondary use differs from the abovementioned process. See instructions in [the specific user guide](./sd-desktop-audited.md#service-access).
 
-Once you have completed these steps, you can log in to SD service with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
+Once you have completed these steps, you can log in to SD services with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
 
    * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
    * [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
@@ -108,5 +108,5 @@ Once you have completed these steps, you can log in to SD service with identity 
 with any modern web-browser.
 
 !!! Note
-    LSLogin (LifeScience login, before known ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
+    LSLogin (LifeScience login, before known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
   
