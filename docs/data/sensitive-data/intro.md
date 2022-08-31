@@ -51,25 +51,6 @@ You can then download these documents and share them with the legal services in 
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/1LHpDiap5Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Getting access
-
-Sensitive Data Services are available for all CSC customers. To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
-
-   1. Create a **user account**.
-
-   3. Create or join a **CSC project** and add project members.
-
-   4. Fill in the **Description of processing activities form** and agree with CSC **Data Processing Agreement**.
-    
-   5. **Each project member** needs to **add service access to SD Desktop and  Allas** (to use SD Connect).
-   6. Activate Multi-factor Authentication.
-
-   7. Apply for billing units or disk quota.
-
-For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
-
-Applying access to the audited SD Desktop environment differs from the abovementioned process. See instructions in [the user guide](./sd-desktop-audited.md#service-access).
-
 
 ## Useful terminology
 
@@ -94,3 +75,28 @@ Applying access to the audited SD Desktop environment differs from the abovement
 **Virtual machine (VM)**: a virtual computing environment (or virtual computer) that works as an actual physical computer. It has a processor, memory, and operating system, but it exists only as a code or a partition of the host computer in CSC’s data center. The VMs used for the Sensitive Data services are entirely isolated from the internet for security reasons.
 
 **Virtual machine flavor (VM flavor)**: a flavor defines the resources and configurations of a cloud computing environment. It specifies the compute, memory, and storage capacity that can be assigned to the virtual machine.
+
+
+
+# Applying for SD services access
+
+Sensitive Data Services are available for all CSC customers. To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
+
+   1. Create a user account.
+
+   3. Create or join a CSC project and add project members.
+
+   4. Fill in the Description of processing activities form and agree with CSC Data Processing Agreement.
+    
+   5. Each project member needs to **add service access to Allas and  SD Desktop.
+
+   6. Activate the additional security verification (or Multi-factor Authentication) on your account by scanning the QR code with a specific application** (e.g. Google Authenticator).
+
+   7. Apply for billing units or disk quota.
+
+For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+
+
+!!! Note:
+    Applying access to the SD Desktop environment for secondary use differs from the abovementioned process. See instructions in [the specific user guide](./sd-desktop-audited.md#service-access).
+
