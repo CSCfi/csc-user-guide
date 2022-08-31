@@ -10,7 +10,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   * [**Introduction to the user guide**](./intro.md#introduction-to-the-user-guide)
   * [**Introduction to the services**](./intro.md#introduction-to-the-services)
   * [**Legal agreements**](./intro.md#legal-agreements)
-  * [**Useful terminology**](./intro.md#getting-access)
+  * [**Useful terminology**](./intro.md#useful-terminology)
 
 
 ## [Appling for SD services access](./intro.md#applying-for-sd-services-access)
