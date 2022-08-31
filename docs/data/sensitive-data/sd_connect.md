@@ -10,7 +10,6 @@ SD Connect is an interface that allows you to encrypt and upload sensitive data 
 
 In the following user guide, you can learn how to:
 
-* [Access the service](./sd_connect.md#service-access);
 * Use SD Connect [default options](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) to encrypt and upload sensitive data for analysis with SD Desktop;
 * [Encrypt, upload](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) and [download](./sd_connect.md#data-download-and-decryption) sensitive data for [data transfer](./sd_connect.md#data-sharing) and storage;
 * Encrypt and upload sensitive data [programmatically](./sd_connect.md#command-line-interface-data-encryption-and-upload) (advanced). 
