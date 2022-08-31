@@ -38,6 +38,7 @@ keep the additional packages at a minimum.
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
 |CentOS-8-Stream   |**centos** | no|
+|Ubuntu-22.04   |**ubuntu** | no |
 |Ubuntu-20.04   |**ubuntu** | no |
 |Ubuntu-18.04   |**ubuntu** | no |
 
