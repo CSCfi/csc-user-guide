@@ -45,18 +45,6 @@ In the following user guide, you can learn how to:
 ![Connect-overview](images/connect/connect_overview.png)
 
 
-## Service access 
-
-To access SD Connect go to [MyCSC](https://my.csc.fi) and:
-
-* set up [a CSC account](../../accounts/how-to-create-new-user-account.md);
-* [join](../../accounts/how-to-add-members-to-project.md) or set up [a CSC project](../../accounts/how-to-create-new-project.md);
-* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
-* add [service access to Allas](../../accounts/how-to-add-service-access-for-project.md);
-
-
-For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
-
 
 ## Authentication
 
@@ -68,8 +56,6 @@ The interface is compatible with all modern web browsers.
 
 
 <img width="960" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
-
-
 
 
 
