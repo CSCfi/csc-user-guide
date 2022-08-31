@@ -1,6 +1,6 @@
 # Sensitive Data Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find an overview of the contents related to Sensitive Data Services.
+This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find an overview of the contents related to Sensitive Data Services.
 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). Our team is here to help.
@@ -10,12 +10,11 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
   * [**Introduction to the user guide**](./intro.md#introduction-to-the-user-guide)
   * [**Introduction to the services**](./intro.md#introduction-to-the-services)
   * [**Legal agreements**](./intro.md#legal-agreements)
-  * [**Getting access**](./intro.md#getting-access)
   * [**Useful terminology**](./intro.md#getting-access)
 
 
 
- ## [Sevice access and authentiation**](./intro.md#getting-access)
+ ## [Appling for SD services access](./intro.md#getting-access)
 
 
   
@@ -25,8 +24,6 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
   * [**Key features**](./sd_connect.md)
   
   * [**Overview**](./sd_connect.md#overview)
- 
-  * [**Service access**](./sd_connect.md#service-access)
   
   * [**Authentication**](./sd_connect.md#authentication)
 
@@ -62,8 +59,6 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
   * [**Key features**](./sd_desktop.md)
   
   * [**Overview**](./sd_desktop.md#overview) 
- 
-  * [**Service access**](./sd_desktop.md#service-access)  
   
   * [**Authentication**](./sd_desktop.md#authentication) 
 
