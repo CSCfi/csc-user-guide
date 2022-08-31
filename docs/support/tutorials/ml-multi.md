@@ -83,7 +83,7 @@ should now see statistics for more than one GPU.
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=20
+    #SBATCH --cpus-per-task=64
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:2
     
@@ -101,11 +101,10 @@ should now see statistics for more than one GPU.
     #SBATCH --account=<project>
     #SBATCH --partition=eap
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=20
+    #SBATCH --cpus-per-task=16
     #SBATCH --gpus-per-task=2
     #SBATCH --time=1:00:00
     
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 myprog.py <options>
     ```
 
@@ -140,7 +139,7 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --partition=gpumedium
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
+    #SBATCH --cpus-per-task=32
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
@@ -155,7 +154,7 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --partition=eap
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=8
-    #SBATCH --cpus-per-task=10
+    #SBATCH --cpus-per-task=8
     #SBATCH --gpus-per-task=1
     #SBATCH --time=1:00:00
     
@@ -192,7 +191,7 @@ The option `--mem=0` means to reserve all memory in that node.
     #SBATCH --partition=gpumedium
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=128
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
@@ -207,7 +206,7 @@ The option `--mem=0` means to reserve all memory in that node.
     #SBATCH --partition=eap
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=64
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
     
@@ -247,7 +246,7 @@ GPUs across 2 nodes in Puhti, that's 4 GPUs each node, i.e,
     #SBATCH --partition=gpumedium
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
+    #SBATCH --cpus-per-task=32
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
@@ -334,7 +333,7 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=128
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
@@ -351,7 +350,7 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     #SBATCH --account=<project>
     #SBATCH --partition=eap
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=64
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
 
@@ -400,7 +399,7 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --partition=gpumedium
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=128
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
@@ -426,7 +425,7 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --partition=eap
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=64
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
     
@@ -528,7 +527,7 @@ Example of running DeepSpeed on a single full node using the
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=40
+    #SBATCH --cpus-per-task=128
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
 
@@ -572,7 +571,7 @@ task for each GPU:
     #SBATCH --partition=gpumedium
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
+    #SBATCH --cpus-per-task=32
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
