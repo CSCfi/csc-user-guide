@@ -97,7 +97,7 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
 
-!!! Note:
+!!! Note
     Applying access to the SD Desktop environment for secondary use differs from the abovementioned process. See instructions in [the specific user guide](./sd-desktop-audited.md#service-access).
 
 Once you have completed these steps, you can log in to SD service with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
@@ -107,6 +107,6 @@ Once you have completed these steps, you can log in to SD service with identity 
 
 with any modern web-browser.
 
-!!! Note:
+!!! Note
     LSLogin (LifeScience login, before known ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
   
