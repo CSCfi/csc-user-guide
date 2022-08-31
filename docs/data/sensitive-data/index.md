@@ -56,7 +56,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
 
   
 
-## Analyse and compute with [SD Desktop](./sd_desktop.md)
+## [Analyse and compute with SD Desktop](./sd_desktop.md)
 
 
   * [**Key features**](./sd_desktop.md)
@@ -84,7 +84,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data services. To navigate t
   * [**Troubleshooting**](./sd_desktop.md#troubleshooting)
   
   
-## [Sensitive Data Desktop for secondary use of health and social data](./sd-desktop-audited.md)
+## [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 Access to this service requires a Findata permit.
   
   * [**Key features**](./sd-desktop-audited.md#key-features)
