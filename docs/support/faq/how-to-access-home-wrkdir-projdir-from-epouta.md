@@ -24,7 +24,7 @@ mkdir puhti_scratch
 Next the mounting is done with command:
 
 ```
-sshfs kkayttaj@puhtí.csc.fi:/scratch/project_2012345 ./puhti_scratch
+sshfs kkayttaj@puhti.csc.fi:/scratch/project_2012345 ./puhti_scratch
 ```
 
 (Here, you should replace /scratch/project_2012345 with the scratch directory of your project).
