@@ -1,14 +1,15 @@
 # Grace
 
-Grace is foremost a plotting tool, and e.g. Gromacs produces tailored input for it, but Grace can also be used for some numerical analyses. 
+Grace is foremost a plotting tool, and e.g. Gromacs produces tailored input for
+it, but Grace can also be used for some numerical analyses.
 
 ## Available
 
--   Puhti-rhel7: 5.1.25
+* Puhti-rhel8: 5.1.25
 
 ## License
 
-* [GPL](https://plasma-gate.weizmann.ac.il/Grace/doc/GPL.html) 
+* [GPL](https://plasma-gate.weizmann.ac.il/Grace/doc/GPL.html)
 
 ## Usage
 
@@ -20,9 +21,10 @@ module load grace
 
 And start with `xmgrace` or show a plot directly with `xmgrace input.xvg`.
 
-Note, that you need remote graphics to work with Grace. An easy way is through the [Puhti-rhel7 web interface remote desktop](../computing/webinterface/desktop.md).
-
+Note, that you need remote graphics to work with Grace. An easy way is through the
+[Puhti-rhel8 web interface remote desktop](../computing/webinterface/desktop.md).
 
 ## More information
--   [Grace home page](https://plasma-gate.weizmann.ac.il/Grace/)
--   [Grace user guide](https://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html)
+
+* [Grace home page](https://plasma-gate.weizmann.ac.il/Grace/)
+* [Grace user guide](https://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html)
