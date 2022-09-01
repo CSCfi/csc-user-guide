@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # MOLPRO
 
 MOLPRO is a software package geared towards accurate ab initio quantum chemistry calculations. The emphasis in the program is on highly accurate computations, with extensive treatment of the electron correlation problem through the multireference configuration interaction, coupled cluster and associated methods.
