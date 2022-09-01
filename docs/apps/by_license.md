@@ -1,0 +1,3 @@
+# Applications by license
+
+[TAGS]
