@@ -6,10 +6,10 @@ Often dataset oriented work produces new datasets, either as primary outcomes or
 
 ## Where to host and publish datasets
 
-Services listed in the links below are Finnish or produced in collaboration with CSC. Services are free-of-charge for end users. In addition to the services listed here, there are multiple recommended repositories available. You can search for suitable options at Re3data, the Registry of Research Data Repositories . If possible, use discipline specific repositories for your data. We recommend contacting your home organisation's data support for more guidance in opening research data.
-
 !!! note "Note!"
     **The Registry of Research Data Repositories, [re3data.org](https://www.re3data.org/),** offers detailed descriptions of more than 2600 repositories in all scientific disciplines.
+
+Services listed in the links below are Finnish or produced in collaboration with CSC. Services are free-of-charge for end users. In addition to the services listed here, there are multiple recommended repositories available. You can search for suitable options at Re3data, the Registry of Research Data Repositories . If possible, use discipline specific repositories for your data. We recommend contacting your home organisation's data support for more guidance in opening research data.
 
 [CSC's tools for publishing datasets](https://research.csc.fi/en/service-catalog#open)
 
