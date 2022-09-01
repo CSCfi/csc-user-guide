@@ -228,7 +228,11 @@ Finally Tiina sends the name of the shared bucket to the data producer
 and ask them to encrypt the data to be uploaded with both the public key 
 that they can find form the bucket and the CSC public key.
 
-Once all data has been imported, Tiina can close remove the external access rights from the bucket with command:
+### 4.2 Revoke bucket sharing after data transport
+
+Moving large datasets (several terabytes) of data to Allas can take a long time. 
+Aftwer few days data produces tells Tiina that all data has been imported to the shared _animine_data_import_i1_ bucket in Allas. 
+Tiina can now remove the external access rights from the bucket with command:
 
 ```text
 a-access -rw project_2000111 animine_data_import_1
