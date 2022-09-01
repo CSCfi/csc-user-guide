@@ -158,7 +158,6 @@ is 4 GPUs or 8 (LUMI).
     #SBATCH --gpus-per-task=1
     #SBATCH --time=1:00:00
     
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 myprog.py <options>
     ```
 
@@ -210,7 +209,6 @@ The option `--mem=0` means to reserve all memory in that node.
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
     
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 myprog.py <options>
     ```
 
@@ -265,7 +263,6 @@ GPUs across 2 nodes in Puhti, that's 4 GPUs each node, i.e,
     #SBATCH --gpus-per-task=1
     #SBATCH --time=1:00:00
     
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 myprog.py <options>
     ```
 
@@ -357,7 +354,6 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     module use /projappl/project_462000007/ai/modulefiles/
     module load pytorch
 
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 \
         myprog.py <options>
     ```
@@ -429,7 +425,6 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --gpus-per-task=8
     #SBATCH --time=1:00:00
     
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     export RDZV_HOST=$(hostname)
     export RDZV_PORT=29400
 
