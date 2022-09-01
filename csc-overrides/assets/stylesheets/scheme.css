@@ -1,0 +1,54 @@
+[data-md-color-scheme="csc"] {
+    --md-text-font-family: var(--csc-font-family);
+
+    --md-primary-fg-color: var(--csc-primary);
+    --md-primary-bg-color: var(--csc-white);
+
+    --md-accent-fg-color: var(--csc-primary-hover);
+
+    --md-default-fg-color: var(--csc-dark-grey);
+    --md-default-fg-color--light: var(--csc-mid-grey);
+    --md-default-fg-color--lighter: var(--csc-light-grey);
+    --md-default-fg-color--lightest: var(--csc-lightest-grey);
+
+    --md-header-fg-color: var(--csc-dark-grey);
+    --md-header-bg-color: var(--csc-white);
+
+    --md-search-fg-color: var(--csc-dark-grey);
+    --md-search-bg-color: var(--csc-search--background);
+
+    --md-navigation-fg-color: var(--md-primary-bg-color);
+    --md-navigation-bg-color: var(--md-primary-fg-color);
+
+    --md-toc-bg-color: var(--csc-toc--background);
+
+    --md-typeset-color: var(--csc-dark-grey);
+    --md-typeset-a-color: var(--csc-primary);
+    --md-typeset-a-bg-color: var(--csc-light-grey-blue);
+
+    --md-code-fg-color: var(--csc-dark-grey);
+    --md-code-hl-color: var(--csc-toc--background);
+    --md-code-bg-color: var(--csc-code--background);
+
+    --md-admonition-fg-color: var(--csc-dark-grey);
+    --md-admonition-bg-color: var(--csc-white);
+
+    --md-footer-fg-color: var(--md-default-fg-color);
+    --md-footer-bg-color: var(--md-default-fg-color--lighter);
+
+    /* Code block syntax highlighting: */
+    --md-code-hl-number-color: var(--csc-orange);
+    --md-code-hl-special-color: var(--csc-red);
+    --md-code-hl-function-color: var(--csc-dark-orange);
+    --md-code-hl-constant-color: var(--csc-dark-green);
+    --md-code-hl-keyword-color: var(--csc-blue);
+    --md-code-hl-string-color: var(--csc-apple-green);
+    /* The rest are default values for now: 
+    --md-code-hl-name-color: var(--md-code-fg-color);
+    --md-code-hl-operator-color: var(--md-default-fg-color--light);
+    --md-code-hl-punctuation-color: var(--md-default-fg-color--light);
+    --md-code-hl-comment-color: var(--md-default-fg-color--light);
+    --md-code-hl-generic-color: var(--md-default-fg-color--light);
+    --md-code-hl-variable-color: var(--md-default-fg-color--light);
+    */
+}

@@ -35,23 +35,12 @@ keep the additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-8   |cloud-user | yes|
 |CentOS-7   |cloud-user | yes|
 |CentOS-7-cuda   |cloud-user |yes|
+|CentOS-8-Stream   |**centos** | no|
+|Ubuntu-22.04   |**ubuntu** | no |
 |Ubuntu-20.04   |**ubuntu** | no |
 |Ubuntu-18.04   |**ubuntu** | no |
-
-### CentOS-8
-Currently in a *tech preview* because we have found some
-[minor issues](https://bugs.centos.org/view.php?id=16948) with it.
-
-At the moment we are making these changes to it:
- - we change the username to "cloud-user" instead of centos
- - we have removed the 192.168.122.1 resolver in /etc/resolv.conf
-
-CentOS is the community version of Red Hat Enterprise Linux (RHEL).
-
-Another difference is that this image does not have automatic updates enabled.
 
 ### CentOS-7
 CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
@@ -66,17 +55,32 @@ drivers installed, but sometimes we are lagging a bit behind. These images
 are huge, so you should use the normal CentOS-7 image if you are not
 using a GPU-flavor VM.
 
-### Ubuntu-20.04 LTS
-Ubuntu-20.04 LTS image, included in Pouta, another one from Ubuntu image family for
-those who do not want to use CentOS. Note that like Ubuntu-18.04, Ubuntu 20.04 also 
-has `ubuntu` as the default username instead of `cloud-user`.
-This is the another image type we started to provide directly from the upstream after Ubuntu-18.04.
+### CentOS-8-Stream
 
-### Ubuntu-18.04 LTS
+While CentOS-7 is still actively supported, [CentOS-8 has been declared end-of-life in December 2021](https://www.centos.org/centos-linux-eol/).
+The CentOS community is now actively maintaining CentOS-8-Stream instead. The
+key differences lay in the relationship between CentOS and RHEL, especially in
+how changes, i.e., new packages and updates, are deployed:
+
+* with CentOS-7 RHEL is the upstream branch for CentOS, i.e., changes are first
+deployed for RHEL and then for CentOS
+* with CentOS-8-Stream CentOS is the upstream branch for RHEL, i.e., changes
+are first deployed for CentOS and then for RHEL
+
+The resulting operating system is thus possibly less stable compared to its
+previous version. The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
+that the Stream version is nevertheless extremely close in terms of stability
+to the corresponding RHEL version and thus recommends using it as a replacement
+for CentOS-8.
+
+Note that this is the upstream version of the image, i.e., we do not perform
+any change to the image before making it available on our services. The default
+username is `centos`.
+
+### Ubuntu-22.04, 20.04 and 18.04 LTS
 Some like chocolate, some like strawberry. This is the choice for those that
-do not want to use CentOS. Note that Ubuntu-18.04 has `ubuntu` as the default 
-username instead of `cloud-user`, since it was the first image type we started 
-to provide directly from the upstream.
+do not want to use CentOS. Note that these are the upstream versions of the
+Ubuntu images, and their default username is `ubuntu` instead of `cloud-user`.
 
 ## Snowflake images
 These images you should probably not use without a really good
