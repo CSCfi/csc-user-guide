@@ -4,9 +4,9 @@
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
 
-Helmi currently supports submitting jobs using Qiskit, Cirq or OpenQASM. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebook is **not** currently supported on LUMI. Pulse level access to Helmi is not currently available. 
+Helmi currently supports submitting jobs using Qiskit, Cirq. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebooks are **not** currently supported on LUMI. Pulse level access to Helmi is not currently available. 
 
-Before running jobs users will need to use `module use /scratch/project_462000055/modules` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi`. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
+Before running jobs users will need to use `module use /appl/local/quantum/modulefiles` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi`. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
 
 ```bash
 #!/bin/bash -l
@@ -17,7 +17,7 @@ Before running jobs users will need to use `module use /scratch/project_46200005
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
+#SBATCH --time=00:30:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_<id>  # Project for billing
 
 module use /scratch/project_462000055/modules
@@ -31,7 +31,7 @@ python your_python_script.py
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`. 
 
 ```bash
-srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
+srun --account=project_<id> -t 00:30:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
 ```
 
 The `helmi` module sets up the correct python environment to use Qiskit and Cirq in conjunction with Helmi as well as a set of CSC Quantum Tools via `import csc_qu_tools` which provide additional help in submitting jobs to Helmi. 

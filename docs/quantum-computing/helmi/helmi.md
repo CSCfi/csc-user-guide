@@ -2,7 +2,7 @@
 
 ## Architecture and Topology
 
-Helmi is a 5 qubit Quantum Computer manufactured by IQM using superconducting qubits. The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. This means that any two qubit gate will work most efficiently between QB3 and any other qubit whereas 1 qubit gates can be mapped to any of the 4 surrounding qubits. 
+Helmi is a 5 qubit Quantum Computer co-developed by VTT and IQM using superconducting qubits. The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. This means that any two qubit gate will work most efficiently between QB3 and any other qubit whereas 1 qubit gates can be mapped to any of the 4 surrounding qubits. 
 
 <p align="center">
     <img src="../../../img/helmi_mapping.png" alt="Helmi's node mapping">

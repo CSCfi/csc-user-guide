@@ -1,13 +1,15 @@
 # LUMI Helmi Pilot Phase 
 
 
-Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from XX.08.2022 - XX.XX.2022.  
+Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from 15.09.2022 - 15.12.2022.  
 
-* During the pilot phase, approved projects will **only** get 24 hours of access to the LUMI Partition.
+* During the pilot phase, approved projects will **only** get 48 hours of access to the LUMI Partition.
 
 * LUMI Helmi users will have access to the **q_fiqci** partition. In addition to `q_fiqci`, users can submit jobs to the regular LUMI-C queues, however this will consume additional CPUh. 
 
-* Pilot Phase users will only be allocated enough resources for **24hr** of use on 1 LUMI-C node and Helmi, therefore using CPUh by submitting jobs to regular LUMI-C queues will be at your own expense!
+* Pilot Phase users will only be allocated enough resources for **48hr** of use on 1 LUMI-C node and Helmi, therefore using CPUh by submitting jobs to regular LUMI-C queues will be at your own expense! 
+
+* Users will get 200,000 QPUs as the main billing unit for use on Helmi. 
 
 
 ## Preparing for the Pilot Phase
@@ -37,7 +39,7 @@ When you are ready to run your circuits on Helmi it is recommended that you read
 
 ## Pilot Phase Software
 
-To submit and run jobs on Helmi is it important that you use the correct environment on LUMI. Setting this up can be done with `module use /project_462000055/modules` and either `module load helmi_qiskit` or `module load helmi_cirq`. Currently only circuits submitted in Qiskit and Cirq are supported. 
+To submit and run jobs on Helmi is it important that you use the correct environment on LUMI. Setting this up can be done with `module use /appl/local/quantum/modulefiles` and either `module load helmi_qiskit` or `module load helmi_cirq`. Currently only circuits submitted in Qiskit and Cirq are supported. 
 
 CSC has developed a set of examples and scripts for guidance in using the LUMI-Helmi partition. You can find these here [**Insert link**]. Currently only Qiskit versions are available however Cirq version will be made available in the future. 
 
