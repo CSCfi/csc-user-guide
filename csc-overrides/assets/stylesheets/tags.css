@@ -1,0 +1,9 @@
+.md-tag {
+    border: 1px solid var(--csc-primary);
+    border-radius: 15px;
+    background: transparent;
+    color: var(--csc-primary);
+    font-size: var(--csc-font-size--small);
+    font-weight: 400;
+    line-height: 1.1;
+}

@@ -63,6 +63,7 @@ extra_css:
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
   - assets/stylesheets/table.css
+  - assets/stylesheets/tags.css
   - assets/stylesheets/video.css
   - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
 
