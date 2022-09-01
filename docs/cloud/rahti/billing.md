@@ -47,6 +47,9 @@ cost in BUs can be calculated as follows:
 
 ![BU calculation](img/BU-calculation.drawio.svg)
 
-[Billing Unit calculator](https://my.csc.fi/buc)
+## Billing unit calculator
+
+For an estimate of the billing units the services you plan on using will consume, please refer to the
+billing unit calculator below. The [billing unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
