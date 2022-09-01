@@ -289,5 +289,3 @@ Additional information can always be found in the [main LUMI documentation page]
 
 The main channel for support regarding Helmi is the [CSC Service Desk](/support/contact/). 
 
-For support requests concerning connecting to LUMI please [contact the LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/).
-

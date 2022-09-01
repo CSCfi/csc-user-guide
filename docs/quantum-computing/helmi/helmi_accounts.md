@@ -64,4 +64,4 @@ Running through the `q_fiqci` queue will consume QPU seconds for the amount of s
 Storage is billed by volume as well as time. The billing units are TB-hours. For the regular scratch file system, 1TB that stays for 1 hour on the filesystem, consumes 1TB-hour.
 
 
-Helmi specific support can be reached via the [CSC Service Desk](/support/contact/). LUMI specific support such as connecting or storage is available from the [LUMI user support team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/account/).
+Helmi specific support can be reached via the [CSC Service Desk](/support/contact/). 
