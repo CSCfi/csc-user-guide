@@ -7,7 +7,7 @@ The LUMI Helmi partition is currently only available for FiQCI users in projects
 
 ## LUMI Helmi projects vs. regular LUMI projects
 
-When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Development" option. 
+When applying for a new project in MyCSC for the Helmi partition, under "Select LUMI **access mode**", select the "Development" option. From here fill in the **resources**: 200,000 QPUs. You will need to mention "Helmi" in the description of program codes, methods and research objectives. 
 
 !!! info "Pilot Phase"
 	During the pilot phase, approved projects will **only** get 48 hours of access to the LUMI Partition.

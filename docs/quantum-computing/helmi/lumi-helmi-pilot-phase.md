@@ -3,6 +3,11 @@
 
 Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from 15.09.2022 - 15.12.2022.  
 
+
+!!! info "Apply for a project!"
+	Apply for access to Helmi through MyCSC, under LUMI select **Development** access mode.
+	[More details can be found here](../helmi_accounts/#access-to-lumi)
+
 * During the pilot phase, approved projects will **only** get 48 hours of access to the LUMI Partition.
 
 * LUMI Helmi users will have access to the **q_fiqci** partition. In addition to `q_fiqci`, users can submit jobs to the regular LUMI-C queues, however this will consume additional CPUh. 
