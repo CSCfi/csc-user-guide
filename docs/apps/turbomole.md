@@ -1,12 +1,13 @@
 # Turbomole
 
-TURBOMOLE is a modular program suite for ab initio quantum-chemical and condensed-matter simulations 
-It includes most standard and state of the art methods for ground state calculations. Properties both for ground and excited states can be obtained. TURBOMOLE has been designed for efficient study of large systems.
+TURBOMOLE is a modular program suite for *ab initio* quantum-chemical and condensed-matter simulations. 
+It includes most standard and state-of-the-art methods for ground-state calculations. Properties both for ground and excited states can be obtained. TURBOMOLE has been designed for efficient study of large systems. 
+The developers tend to recommend the SMP paralellization for most routine calculations. 
 
 ## Available
 
-*   Puhti: 7.5.1
-*   Mahti: 7.5.1
+*   Puhti: 7.6
+*   Mahti: 7.6
 
 ## License
 
@@ -20,7 +21,7 @@ It includes most standard and state of the art methods for ground state calculat
 Initialise Turbomole environment:
 
 ```bash
-module load turbomole/7.5.1
+module load turbomole/7.6
 ```
 
 
@@ -145,11 +146,14 @@ NumForce -ri -central -mfile $HOSTS_FILE > NumForce.out
 Please quote the usage of the program package under consideration of the version
 number:
 
--   TURBOMOLE V7.5.1 2021, a development of University of Karlsruhe andForschungszentrum Karlsruhe GmbH, 1989-2007,TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
+-   TURBOMOLE V7.6 2022, a development of University of Karlsruhe andForschungszentrum Karlsruhe GmbH, 1989-2007,TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
+-    A review article should be mentioned, as well: https://doi.org/10.1063/5.0004635
 -    Scientific publications require proper citation of methods and procedures employed.
 The output headers of TURBOMOLE modules include the relevant papers. 
 
 ## More information
 -   [TURBOMOLE GmbH](https://www.turbomole.org/turbomole/turbomole-documentation/) 
 -   [Read About TURBOMOLE](https://aip.scitation.org/doi/10.1063/5.0004635 ) 
+-   [TURBOMOLE tutorial](https://www.turbomole.org/wp-content/uploads/2019/10/Tutorial_7-4.pdf)
+
 

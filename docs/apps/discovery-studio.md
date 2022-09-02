@@ -13,10 +13,10 @@ a national academic license for Discovery Studio that allows non-profit
 usage in Finnish universities.
 
 !!! Note
-    CSC has obtained a reduced Discovery Studio license for 2022 (maximum 3 simultaneous users, heavy usage is recommended
-    to be done with [Maestro](maestro.md)). Decision to continue beyond 2023 
-    will be made by autumn 2022.
-
+    The national Discovery Studio license provided by CSC will end by the end of 2022.
+    On 2023 Discovery Studio will not be availale any more.
+    Please consider using [Maestro](./maestro.md) as a replacement.
+    
 ## Available
 
 The following server versions are available on CSC (in Pouta):

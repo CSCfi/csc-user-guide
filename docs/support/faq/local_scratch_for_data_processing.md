@@ -1,6 +1,7 @@
-# What directory I shouild use to analyse a large numbers of small files?
+# What directory I should use to analyse a large numbers of small files?
                    
 An interactive batch job Puhti allows you to have a Puhti session that can have up to:
+
 *   4 cores
 *   64 GB of memory
 *   7 days of run time
