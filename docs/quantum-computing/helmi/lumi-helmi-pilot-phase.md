@@ -6,7 +6,7 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from
 
 !!! info "Apply for a project!"
 	Apply for access to Helmi through MyCSC, under LUMI select **Development** access mode.
-	[More details can be found here](../helmi_accounts/#access-to-lumi)
+	[More details can be found here](../helmi_accounts/)
 
 * During the pilot phase, approved projects will **only** get 48 hours of access to the LUMI Partition.
 
