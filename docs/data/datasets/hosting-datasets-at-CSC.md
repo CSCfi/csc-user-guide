@@ -39,7 +39,6 @@ When you are looking for a place where to store data during your research projec
 - how big are the individual files (e.g. it is not sensible to store too small files or too big files)
 - should the file transfer be automated e.g. with a script
 - do you need to store metadata with your data and what type of metadata
-- does the data contain personal information and/or sensitive data
 - what level of security does your data require
 
 After you have decided which storage solution to use, you should think through how you [organize your data](metadata-and-documentation.md#data-organization).
