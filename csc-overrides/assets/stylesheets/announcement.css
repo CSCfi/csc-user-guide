@@ -13,4 +13,5 @@
     margin: unset;
     font-size: var(--csc-font-size--small);
     color: var(--csc-admonition--fg);
+    line-height: 2.0;
 }
