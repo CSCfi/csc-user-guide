@@ -134,6 +134,7 @@ nav:
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
+         - MATLAB: computing/webinterface/matlab.md
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
@@ -246,10 +247,10 @@ nav:
      - Sensitive data:
         - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-        - SD Connect: data/sensitive-data/sd_connect.md
-        - SD Desktop: data/sensitive-data/sd_desktop.md
-        - Audited SD Desktop for registry data: data/sensitive-data/sd-desktop-audited.md
-#       - FederatedEGA: data/sensitive-data/federatedega.md
+        - Store with SD Connect: data/sensitive-data/sd_connect.md
+        - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
+        - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
+#       - Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
 
