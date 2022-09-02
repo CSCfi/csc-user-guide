@@ -1,24 +1,13 @@
 # Hyperqueue
 
-Hyperqueue (HQ) is a tool for efficient sub-node task scheduling.
-So instead of submitting each one of your computational task using sbatch or srun
-you can instead allocate a large resource block and then use hyperqueue to submit your tasks. 
-
-!!!info MPI
-    Out of the box hyperqueue does not do mpi execution, but it's possible using a combination of the HQ feature "Multinode Tasks" and orterun/hydra/prrte.
-    This way one can schedule mpi task at a node-level granularity.
-
-!!!info Full nodes
-    These instructions assume that only full nodes are allocated, it's possible to run using partial nodes
-    but then one has to be more careful with resource specifications
-
 !!!warning Autoallocation
     The autoallocation feature available in HQ is still under development and buggy, don't use it as 
     it's very likely that the job queue will be filled with idling workers which just waste resources
 
-!!!info HQ server
-    The HQ server can run on the login node, but this is only recommended when you intend to run things which do not fit inside 
-    a single slurm resource allocation. Prefer starting jobspecific servers when a slurm job starts 
+Hyperqueue (HQ) is a tool for efficient sub-node task scheduling.
+So instead of submitting each one of your computational task using sbatch or srun
+you can instead allocate a large resource block and then use hyperqueue to submit your tasks. 
+
 
 ## Available
 
@@ -36,7 +25,7 @@ So kind of a slurm within slurm, but you have to start the server and workers yo
 
 ### Starting the server
 
-Note that the following instructions are assumed to be within a slurm job script, a full example
+Note that the following instructions are assumed to be within a slurm job script where only full nodes are allocated, a full example
 can be found at the bottom.
 
 Specify where the hyperqueue server should be placed. All `hq` commands respect this variable
@@ -225,5 +214,9 @@ how to use hyperqueue with nextflow
 
 
 ## More information
+
+!!!info MPI
+    Out of the box hyperqueue does not do mpi execution, but it's possible using a combination of the HQ feature "Multinode Tasks" and orterun/hydra/prrte.
+    This way one can schedule mpi task at a node-level granularity.
 
 [Full documentation for HQ](https://it4innovations.github.io/hyperqueue/v0.11.0/)
