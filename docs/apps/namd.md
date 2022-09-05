@@ -7,7 +7,7 @@ Beckman Institute of the University of Illinois.
 
 ## Available
 
-* Puhti-rhel7: version 2.13, 2.14-cuda, 3.0alpha11-cuda
+* Puhti-rhel8: version 2.14, 2.14-cuda, 3.0alpha11-cuda
 * Mahti: version 2.14
 
 ## License
@@ -22,22 +22,33 @@ NAMD can be run either with CPUs or with a GPU + CPUs.
 
 ### Performance considerations
 
-Tests show that leaving one core for communication for each task is beneficial, i.e. `namd_threads=$SLURM_CPUS_PER_TASK-1`. This is also recommended by NAMD developers. Please test with your input.
+Tests show that leaving one core for communication for each task is beneficial, i.e.
+`namd_threads=$SLURM_CPUS_PER_TASK-1`. This is also recommended by NAMD developers.
+Please test with your input.
 
-Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti-rhel7) or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the optimal one.
+Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti-rhel8) or 128
+(Mahti), i.e. all cores in a node. Try different ratios and select the optimal one.
 
-The data below shows the ApoA1 benchmark (92k atoms) on Mahti (ns/day as a function of allocated nodes, each line with a certain number of `namd_threads` as set in the [Mahti script below](#batch-script-example-for-mahti)).
+The data below shows the ApoA1 benchmark (92k atoms) on Mahti (ns/day as a function
+of allocated nodes, each line with a certain number of `namd_threads` as set in the
+[Mahti script below](#batch-script-example-for-mahti)).
 
 ![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
 
 The data also shows the following things:
 
-* Optimal settings depend on the amount of resources in addition to system and run parameters
+* Optimal settings depend on the amount of resources in addition to system and run
+  parameters
 * For this system it's best to use 7 threads per task
-* 1GPU+10 CPUs (on Puhti-rhel7) gives 25.6 ns/day vs. 27.8 ns/day for 2 full nodes on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results faster is also more expensive in terms of consumed billing units. To avoid wasting resources, ensure that your job actually benefits from increasing the number of cores. Doubling the number of cores should speed up the job by at least x1.5
-* To test your own system, run e.g. 500 steps of dynamics and search for the `Benchmark time:` line in the output
+* 1 GPU + 10 CPUs (on Puhti-rhel8) gives 25.6 ns/day vs. 27.8 ns/day for 2 full nodes
+  on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results
+  faster is also more expensive in terms of consumed billing units. To avoid wasting
+  resources, ensure that your job actually benefits from increasing the number of
+  cores. Doubling the number of cores should speed up the job by at least x1.5
+* To test your own system, run e.g. 500 steps of dynamics and search for the
+  `Benchmark time:` line in the output
 
-### Batch script example for Puhti-rhel7
+### Batch script example for Puhti-rhel8
 
 This script would use 2 tasks per node, 20 cores per task,
 and one of them for communication, using two full nodes, i.e. 80 cores.
@@ -51,19 +62,21 @@ and one of them for communication, using two full nodes, i.e. 80 cores.
 #SBATCH --ntasks-per-node=2  # test to find the optimum number, 2-20
 #SBATCH --cpus-per-task=20   # 40/(ntasks-per-node)
 
-module load namd
+module purge
+module load gcc/11.3.0 openmpi/4.1.4
+module load namd/2.14
 
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
 # one core per task for communication
-srun -n ${SLURM_NTASKS} namd2 +ppn $namd_threads +isomalloc_sync apoa1.namd  > apoa1.out
+orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn $namd_threads +isomalloc_sync apoa1.namd  > apoa1.out
 
 # While NAMD suggests using 1 thread per task for communication (as above)
 # all cores for computing can be tested by
-#srun -n ${SLURM_NTASKS} namd2 +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd > apoa1.out
+# orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd > apoa1.out
 ```
 
-### Batch script example for Puhti-rhel7 using GPU
+### Batch script example for Puhti-rhel8 using GPU
 
 Note, namd runs most efficiently with one GPU, and at least for small systems
 is much more cost efficient than running with multiple CPU-only nodes.
@@ -80,6 +93,8 @@ is much more cost efficient than running with multiple CPU-only nodes.
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export SLURM_CPU_BIND=none
 
+module purge
+module load gcc/11.3.0 openmpi/4.1.4
 module load namd/2.14-cuda
 
 namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
@@ -101,7 +116,7 @@ module load gcc/11.2.0 openmpi/4.1.2 namd/2.14
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
 # one core per task for communication
-orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity ignore +ppn $namd_threads +isomalloc_sync apoa1.namd > apoa1.out
+orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn $namd_threads +isomalloc_sync apoa1.namd > apoa1.out
 ```
 
 Submit the batch job with:
@@ -111,7 +126,8 @@ sbatch namd_job.bash
 ```
 
 !!! Note
-    Following the RHEL8 update on Mahti, you may need to use `orterun` (instead of `srun`) and the `+setcpuaffinity ignore` setting when running NAMD on Mahti.
+    Following the RHEL8 updates on Puhti and Mahti, you may need to use `orterun`
+    (instead of `srun`) and the `+setcpuaffinity` setting to avoid MPI-issues.
 
 ## References
 
