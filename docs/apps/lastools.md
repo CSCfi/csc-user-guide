@@ -8,10 +8,9 @@
 
 LAStools is included in following modules:
 
-* lastools: 2021
-* [geoconda](geoconda.md): 3.7 and 3.8
+* lastools: 2022
 
-Load one of these modules, for example:
+Load the module:
 
 `module load lastools` 
 
