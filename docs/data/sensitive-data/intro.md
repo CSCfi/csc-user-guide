@@ -106,7 +106,7 @@ For specific guidance regarding these steps, check the [Accounts](../../accounts
 
 
 !!! Note
-    Applying access to the SD Desktop environment for secondary use differs from the abovementioned process. See instructions in [the specific user guide](./sd-desktop-audited.md#service-access).
+    Applying access to the SD Desktop environment for secondary use differs from the abovementioned process. See instructions in [the specific user guide SD Desktop for secondary use](./sd-desktop-audited.md#service-access).
 
 Once you have completed these steps, you can log in to SD services with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
 
