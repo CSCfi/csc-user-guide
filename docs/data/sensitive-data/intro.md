@@ -96,9 +96,9 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
 
    4. Fill in the Description of processing activities form and agree with CSC Data Processing Agreement.
     
-   5. Each project member needs to **add service access to Allas and  SD Desktop.
+   5. Each project member needs to **add service access to Allas and  SD Desktop**.
 
-   6. Activate the additional security verification (or Multi-factor Authentication) on your account by scanning the QR code with a specific application** (e.g. Google Authenticator).
+   6. Activate the additional security verification (or Multi-factor Authentication) on your account by **scanning the QR code with a specific application** (e.g. Google Authenticator).
 
    7. Apply for billing units or disk quota.
 
