@@ -10,7 +10,26 @@ storage is based on RAID0 arrays optimized for performance, providing
 no redundancy whatsoever.
 
 The ephemeral storage is visible as an additional disk to the virtual
-machine (usually /dev/vdb). You need to format and mount it before you can use it:
+machine (usually /dev/vdb). Depending on the image and metadata choosen
+when creating the virtual machine, the disk might be already formated
+as `vfat` and mounted in `/mnt`. If this is case and this fits your use
+case, you can just start to use the disk.
+
+If you need to format the disk with a different filesystem (or it is not
+formatted nor mounted), you can follow this procedure:
+
+First make sure that the volume is not mounted:
+
+    sudo umount /dev/vdb
+
+and that there is no entry in `/etc/fstab` for this disk:
+
+    cat /etc/fstab
+
+Look for a line containing `/dev/vdb` or `LABEL=EPHEMERAL`,
+and coment it out (adding `#` at the beggining of the line).
+
+Now you can continue to format and mount it:
 
     sudo mkfs.ext4 /dev/vdb
     sudo mkdir /mnt/myephdisk
