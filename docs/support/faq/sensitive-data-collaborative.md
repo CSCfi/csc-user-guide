@@ -7,4 +7,4 @@ This operation requires a few planning steps. First, your collaborator needs a C
 
 2) **Data streaming via SD Desktop**:
 Another way to share sensitive data with collaborators is to give them access to your private computing environment in SD Desktop.
-They will then be able to access and analyse data in your virtual Desktop, but they will not be able to export it outside the computing enviroment, download it, or make copies of it.
+They will then be able to access and analyse data in your virtual Desktop, but they will not be able to export it outside the computing environment, download it, or make copies of it.
