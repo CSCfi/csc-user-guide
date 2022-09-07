@@ -12,7 +12,7 @@ With register data, there are some restrictions to the service compared to the s
 
 First, you need to have a data permit from Findata. Then you need to request for a CSC project from our service desk (servicedesk@csc.fi) with the data permit and create a CSC account if you do not have one already. The data will be transported directly to the service from Findata and available only for verified project members on the virtual Desktop. For more information see: [SD Desktop for seconday use](../data/sensitive-data/sd-desktop-audited.md).
 
-## Can I combine my own data with secondary use registry data on SD Desktop?
+## Can I combine my own data with register data on SD Desktop?
 
 In a project using secondary use health and social data, all the data processed on SD Desktop must be provided by Findata. If you want to combine your own findings with register data, you need to specify it in your application for a Findata permit. 
 
