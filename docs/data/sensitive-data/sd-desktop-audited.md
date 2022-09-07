@@ -1,5 +1,5 @@
 
-# SD Desktop (Sensitive Data Desktop) for secondary use of health and social data
+# Sensitive Data Desktop (SD Desktop) for secondary use of health and social data
 
 SD Desktop is a registered environment for secondary use of health and social data. Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine) from your web browser. With the virtual Desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
 In the following user guide, you can learn how to:
@@ -8,7 +8,7 @@ In the following user guide, you can learn how to:
 * set up your virtual Desktop;
 * analyze data authorised by Findata;
 * request export of non-sensitive results from the secure virtual Desktop.
-* 
+
 !!! Note 
     We apologise for any confusion caused by the previous name of the service. You can apply to use SD Desktop by sending an application to Findata. This is a restricted version of the service compared to standard SD Desktop.
 
@@ -49,7 +49,7 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using audited SD Desktop service, you need to:
+When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using SD Desktop for seconday use, you need to:
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity;
