@@ -150,8 +150,8 @@
 
 * [What is SD Desktop for seconday use?](sensitive-data-desktop-audited.md#what-is-the-sd-desktop-for-secondary-use)
 * [How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?](sensitive-data-desktop-audited.md#how-does-processing-secondary-use-data-on-sd-desktop-differ-from-standard-use-of-sensitive-data-services)
-* [How can I access register data with SD Desktop?](sensitive-data-desktop-audited.md#how-can-i-access-register-dataset-with-sd-desktop)
+* [How can I access register data with SD Desktop?](sensitive-data-desktop-audited.md#how-can-i-access-register-data-with-sd-desktop)
 * [Can I combine my own data with register data on SD Desktop?](sensitive-data-desktop-audited.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
 * [Is it possible to install software to SD Desktop when processing secondary use data?](sensitive-data-desktop-audited.md#is-it-possible-to-install-software-to-sd-desktop-when-processing-secondary-use-data)
-* [How can I export my results from the Desktop?](sensitive-data-desktop-audited.md#how-can-i-export-my-results-from-the-desktop)
+* [How can I export my results from the Desktop?](sensitive-data-desktop-audited.md#how-can-i-export-my-results-from-sd-desktop)
 * [What will happen to my data after the secondary use data permit expires?](sensitive-data-desktop-audited.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)
