@@ -14,7 +14,15 @@ In this user guide, you can find:
 
 * video tutorials helpful to get started. 
 
-For general information, see the [Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../support/faq/index.md#sensitive-data-services-for-research) and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+For general information, see the [Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+
+You can also learn more from example cases for:
+
+* [sensitive data analysis](https://research.csc.fi/example-case-5-sensitive-data-analysis);
+
+* [sensitive data storage, collection and transfer](https://research.csc.fi/example-case-6-sensitive-data-storage-and-transfer);
+
+* [sensitive data reuse](https://research.csc.fi/example-case-7-sensitive-data-reuse).
 
 
 ## Introduction to the services
@@ -44,7 +52,7 @@ For further information, see also:
 * [Definition of sensitive data](https://research.csc.fi/definition-of-sensitive-data);
 * [Technical and organizational security measures for the protection of sensitive data in CSC Sensitive Data service](./technical-organisational-sec-measures.pdf).
 
-Morever, when creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the type of data you are processing. 
+Moreover, when creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the type of data you are processing. 
 
 You can then download these documents and share them with the legal services in your organisation or the Data Controller's representative. If you have any questions or additional legal agreements are needed between your organisation and CSC, contact us at servicedesk@csc.fi (email subject: Sensitive Data).
 
