@@ -10,7 +10,7 @@ storage is based on RAID0 arrays optimized for performance, providing
 no redundancy whatsoever.
 
 The ephemeral storage is visible as an additional disk to the virtual
-machine (usually /dev/vdb). Depending on the image and metadata choosen
+machine (usually /dev/vdb). Depending on the image and metadata chosen
 when creating the virtual machine, the disk might be already formated
 as `vfat` and mounted in `/mnt`. If this is case and this fits your use
 case, you can just start to use the disk.
@@ -27,7 +27,7 @@ and that there is no entry in `/etc/fstab` for this disk:
     cat /etc/fstab
 
 Look for a line containing `/dev/vdb` or `LABEL=EPHEMERAL`,
-and coment it out (adding `#` at the beggining of the line).
+and comment it out (adding `#` at the beginning of the line).
 
 Now you can continue to format and mount it:
 
