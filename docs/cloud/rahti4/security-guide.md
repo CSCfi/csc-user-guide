@@ -14,7 +14,7 @@ roughly divided in two categories.
 
 ## Securing routes
 
-Enable the **TLS encryption** of routes. If the DNS name of your service is under
+Enable the **TLS encryption** of routes. The router supports modern and secure TLS versions, TLS v1.3 and TLS v1.2. TLS v1.3 is currently the latest version. TLS v1.1 and below are no longer considered secure. If the DNS name of your service is under
 the subdomain `*.2.rahtiapp.fi` (e.g. `coolservice.2.rahtiapp.fi`), the default
 wildcard TLS certificate provided by Rahti can be used directly. Otherwise,
 you need to add your certificate data in the route object.
