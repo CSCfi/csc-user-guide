@@ -596,7 +596,19 @@ task for each GPU:
 If you are converting an old PyTorch script there are a few steps that
 you need to do:
 
-1. Initialize distributed environment, for example:
+1. Make sure it handles DeepSpeed command line arguments, for example:
+
+    ```python
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    # handle any own command line arguments here
+    parser = deepspeed.add_config_arguments(parser)
+    
+    args = parser.parse_args()
+    ```
+
+2. Initialize distributed environment, for example:
 
     ```python
     import deepspeed
@@ -604,15 +616,18 @@ you need to do:
     deepspeed.init_distributed()
     ```
     
-2. Initialize DeepSpeed engine:
+3. Initialize DeepSpeed engine:
 
     ```python
+    model = # defined in normal way
+    train_dataset = # defined normally
+    
     model_engine, optimizer, train_loader, __ = deepspeed.initialize(
         args=args, model=model, model_parameters=model.parameters(),
         training_data=train_dataset)
     ```
     
-3. Modify training loop to use the DeepSpeed engine:
+4. Modify training loop to use the DeepSpeed engine:
 
     ```python
     for batch in train_loader:
@@ -625,7 +640,8 @@ you need to do:
         model_engine.backward(loss)
         model_engine.step()
     ```
-    
+
+
 See the [DeepSpeed Getting started
 guide](https://www.deepspeed.ai/getting-started/) for the full
 details. In particular you also need to create a [DeepSpeed
