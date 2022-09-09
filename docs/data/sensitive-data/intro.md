@@ -14,7 +14,7 @@ In this user guide, you can find:
 
 * video tutorials helpful to get started. 
 
-For general information, see the [Sensitive Data services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+For general information, see the [Sensitive Data (SD) services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
 
 You can also learn more from example cases for:
 
@@ -28,7 +28,7 @@ You can also learn more from example cases for:
 ## Introduction to the services
 
 
-Sensitive Data services for research provide CSC customers a secure workspace, accessible via a web browser, that can be used for processing sensitive data according to [CSC General terms of use ](https://research.csc.fi/general-terms-of-use).
+Sensitive Data (SD) services for research provide CSC customers a secure workspace, accessible via a web browser, that can be used for processing sensitive data according to [CSC General terms of use ](https://research.csc.fi/general-terms-of-use).
 
 Sensitive Data services for research consist of five components:
 
