@@ -232,7 +232,7 @@ qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomp
 virtual_qubits = qc_decomposed.qubits # Get the virtual qubits
 qubit_mapping = {virtual_qubits[0]: 'QB1',
                   virtual_qubits[1]: 'QB2',
-                  virtual_qubits[2]: 'QB3'
+                  virtual_qubits[2]: 'QB3',
                   virtual_qubits[3]: 'QB4',
                   virtual_qubits[4]: 'QB5'  } # Set Helmi Qubit Mapping like this.
 job = backend.run(qc_decomposed, shots=, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
