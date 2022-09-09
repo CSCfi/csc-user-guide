@@ -1,8 +1,8 @@
 
 
-# SD Connect (Sensitive Data Connect)
+# Store and share with Sensitive Data Connect
 
-SD Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
+Sensitive Data (SD) Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
 
 - is designed to store or transfer sensitive data (via URL) with other CSC projects;
 - provides a secure workspace for collaborative research projects (e.g. facilitates data collection and data sharing);
