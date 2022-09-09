@@ -1,7 +1,7 @@
 
-# SD Desktop (Sensitive Data Desktop)
+# Analyse and compute with Sensitive Data Desktop
 
-SD Desktop allows you to analyze sensitive data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
+Senstive Data (SD) Desktop allows you to analyze sensitive data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
 
 In the following user guide, you can learn how to:
 
@@ -11,7 +11,7 @@ In the following user guide, you can learn how to:
 * [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
 
 !!! Note
-    For secondary use of health and social data, please check the detailed user guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
+    For secondary use of health and social data (register data) please check the detailed user guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
 
 
 ## Key features
