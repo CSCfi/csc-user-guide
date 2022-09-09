@@ -8,6 +8,9 @@ Hyperqueue (HQ) is a tool for efficient sub-node task scheduling.
 So instead of submitting each one of your computational task using sbatch or srun
 you can instead allocate a large resource block and then use hyperqueue to submit your tasks. 
 
+## License
+
+Free to use and open source under [MIT License](https://github.com/It4innovations/hyperqueue/blob/main/LICENSE)
 
 ## Available
 
@@ -43,6 +46,7 @@ we recommend starting one server per job in some job specific directory.
 Start the server
 ```
 hq server start & 
+until hq jobs ; do sleep 1 ; done
 ```
 Here we place the server in the background so that we can continue
 
@@ -63,7 +67,7 @@ This is generally good practice as we can notice issues with the workers early.
 Loop until all worker are online (note no timeout)
 
 ```
-num_up=$(hq worker list | grep RUNNING | wc -l)
+num_up=$(hq worker list | grep -c RUNNING)
 while true; do
 
     echo "Checking if workers have started"
@@ -106,9 +110,8 @@ When we have submitted everything we want, we need to wait for the jobs to finis
 
 ```
 echo "WAITING FOR JOBS TO FINISH"
-sleep 30
-NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
 while true; do
+    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
     echo "WAITING FOR JOBS TO FINISH "
     if [[ -z "$NOT_DONE" ]];then
         break
@@ -129,6 +132,7 @@ hq server stop
 ### Full example
 
 ```
+#!/bin/bash
 #SBATCH --partition=medium
 #SBATCH --account=<project>
 #SBATCH --nodes=4
@@ -143,23 +147,23 @@ module load hyperqueue
 
 # Set the directory which hyperqueue will use 
 export HQ_SERVER_DIR=$PWD/hq-server-$SLURM_JOB_ID
-mkdir -p $HQ_SERVER_DIR
+mkdir -p "$HQ_SERVER_DIR"
 
 echo "STARTING HQ SERVER, log in $HQ_SERVER_DIR/HQ.log"
 echo "===================="
-hq server start &>> $HQ_SERVER_DIR/HQ.log &
+hq server start &>> "$HQ_SERVER_DIR/HQ.log" &
+until hq job list &>/dev/null ; do sleep 1 ; done
 echo "STARTING HQ WORKERS ON $SLURM_NNODES nodes"
 echo "===================="
-srun --cpu-bind=none --mpi=none hq worker start --cpus=$SLURM_CPUS_PER_TASK &>> $HQ_SERVER_DIR/HQ.log &
+srun --cpu-bind=none --mpi=none hq worker start --cpus=$SLURM_CPUS_PER_TASK &>> "$HQ_SERVER_DIR/HQ.log" &
 
-num_up=$(hq worker list 2>/dev/null | grep RUNNING | wc -l)
 while true; do
+    num_up=$(hq worker list 2>/dev/null | grep -c RUNNING )
     echo "WAITING FOR WORKERS TO START ( $num_up / $SLURM_NNODES )"
     if [[ $num_up -eq $SLURM_NNODES ]];then
         break
     fi
-    sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
+    sleep 2
 done
 
 
@@ -167,16 +171,15 @@ done
 
 
 
-echo "WAITING FOR JOBS TO FINISH"                                
-sleep 30                                                         
-NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")          
 while true; do                                                   
+    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")          
     echo "WAITING FOR JOBS TO FINISH "                           
     if [[ -z "$NOT_DONE" ]];then                                 
         break                                                    
     fi                                                           
+    # Adjust the timing here, now set to 30seconds, if you get to much output in the slurm
+    # log file
     sleep 30                                                     
-    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")      
 done                                                             
 
 echo "===================="
