@@ -1,7 +1,7 @@
 # LUMI Helmi Pilot Phase 
 
 
-Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running from 15.09.2022 - 15.12.2022.  
+Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for three months, starting 22 Sep 2022.  
 
 
 !!! info "Apply for a project!"
