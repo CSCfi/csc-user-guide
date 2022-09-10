@@ -34,7 +34,7 @@ As access to Helmi during the Pilot Phase is limited it is recommended that you 
 	* Installation with [Tykky](../../../computing/containers/tykky/) is recommended.
 -->
 
-Initially, Helmi provide 5 physical qubits. You can also test and run algorithms on your local computer(s). For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`. 
+Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s). For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`. 
 
 When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi_quick/), which covers the prerequisites for submitting your first job. 
 
