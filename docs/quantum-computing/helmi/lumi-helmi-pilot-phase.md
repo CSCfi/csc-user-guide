@@ -9,8 +9,7 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for 
 	[More details can be found here](../helmi_accounts/)
 
 * During the pilot phase, all approved projects will get 24 hours of access to the FiQCI Quantum Partition, `q_fiqci`.
-
-* Users will get 1440 QPUm (QPU minutes) as the main billing unit for use on Helmi.
+* The billing unit is QPU minutes (1440 QPUm), and is counted as the wall-clock time running in `q_fiqci`.
 
 
 ## Preparing for the Pilot Phase
