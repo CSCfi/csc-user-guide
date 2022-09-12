@@ -4,7 +4,7 @@
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
 
-Helmi currently supports submitting jobs using Qiskit, Cirq. Qiskit and Cirq scripts can only be submitted as ordinary python files. Jupyter-notebooks are **not** currently supported on LUMI. Pulse level access to Helmi is not currently available. 
+Helmi currently supports submitting jobs using Qiskit or Cirq. Qiskit and Cirq scripts can only be submitted as ordinary python files.
 
 Before running jobs users will need to use `module use /appl/local/quantum/modulefiles` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi`. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
 
@@ -21,9 +21,11 @@ Before running jobs users will need to use `module use /appl/local/quantum/modul
 #SBATCH --account=project_<id>  # Project for billing
 
 module use /scratch/project_462000055/modules
-module load helmi_qiskit
+
+# uncomment correct line:
+# module load helmi_qiskit
 # or
-module load helmi_cirq
+# module load helmi_cirq
  
 python your_python_script.py
 ```
@@ -34,7 +36,7 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 srun --account=project_<id> -t 00:30:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
 ```
 
-The `helmi` module sets up the correct python environment to use Qiskit and Cirq in conjunction with Helmi as well as a set of CSC Quantum Tools via `import csc_qu_tools` which provide additional help in submitting jobs to Helmi. 
+The `helmi_*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with Helmi. A set of Quantum Tools are also set up via `import csc_qu_tools`. The tools provide additional help in submitting jobs to Helmi. 
 
 ### Qiskit
 
@@ -48,25 +50,25 @@ provider = helmi()
 backend = provider.set_backend()
 basis_gates = provider.basis_gates
  
-qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decomposed circuit into basis gates
+qc_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decompose circuit into native basis gates
  
 virtual_qubits = qc_decomposed.qubits # Get the virtual qubits
 qubit_mapping = {virtual_qubits[0]: 'QB1',
-                  virtual_qubits[1]: 'QB2',
-                  virtual_qubits[2]: 'QB3'
-                  virtual_qubits[3]: 'QB4',
-                  virtual_qubits[4]: 'QB5'  } # Set Helmi Qubit Mapping like this.
+                 virtual_qubits[1]: 'QB2',
+                 virtual_qubits[2]: 'QB3'
+                 virtual_qubits[3]: 'QB4',
+                 virtual_qubits[4]: 'QB5'  } # Set Helmi qubit mapping
 job = backend.run(qc_decomposed, shots=, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
 ```
 
 
-Helmi currently uses `qiskit-iqm==2.0` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/). You will still need the `csc_qu_tools` python package to submit jobs to Helmi. 
+Helmi currently uses the `qiskit-iqm==2.0` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../computing/containers/tykky/) documentation.
 
 ### Cirq
 
 To load the Cirq module use `module load helmi_cirq`.
 
-Cirq requires `csc_qu_tools` to load the Helmi device, this can be accessed through `module load helmi_cirq`. In Cirq decomposition 
+Also Cirq requires `csc_qu_tools` to load the Helmi device. In Cirq decomposition 
 
 ```python
 from csc_qu_tools.cirq import Helmi
@@ -76,26 +78,27 @@ backend = Helmi().set_helmi()
 ```
 
 
-Helmi currently uses `cirq-iqm==4.1` from which you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found via the [LUMI container wrapper](../../../computing/containers/tykky/).
+Helmi currently uses `cirq-iqm==4.1` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../computing/containers/tykky/) documentation.
 
 ### OpenQASM
 
-Submission of OpenQASM formatted files is not currently supported on Helmi. You can convert your OpenQASM circuits to Cirq or Qiskit and submit them. On Qiskit this can be done with `QuantumCircuit.from_qasm_file('my_circuit.qasm')` or on Cirq creating the circuit from a string using  `circuit_from_qasm(""" Qasm_string """)`. 
+Submission of OpenQASM formatted files is not currently supported on Helmi. You can convert your OpenQASM circuits to Cirq or Qiskit and submit them.
+* On Qiskit this can be done with `QuantumCircuit.from_qasm_file('my_circuit.qasm')`.
+* On Cirq, create the circuit from a string using  `circuit_from_qasm(""" Qasm_string """)`. 
 
 
 ## Creating Circuits for Helmi
 
-In order to efficiently use Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../helmi/) and the examples below show how this topology is utilised to improve results. 
+To make the most efficient use of Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../helmi/) and the examples below show how this topology is utilised to improve results. 
 
+An additional set of examples can be found here [**Insert link**]. The examples emphasize the difference between running on a simulator and a real physical quantum computer, and how to construct your circuits for optimum results on Helmi. The repository also contains some useful scripts for submitting jobs. Currently, **Qiskit** examples are available.
 
-The full set of examples can be found here [**Insert link**] showing the differences between simulators and Helmi and how to construct your circuits for optimum results. This repository also contains some useful scripts for submitting jobs. As of the Pilot-Phase project only **Qiskit** examples and scripts will be available. Users can still submit jobs to Helmi in Cirq and support for Cirq will come soon. 
+The `csc_qu_tools` python file contains all the necessary functions and classes needed for using Helmi via LUMI. This tool is not required for Qiskit usage as it provide much of the same functionality as `qiskit-iqm`. The Cirq class is required for Helmi specific functionality, therefore we recommend users to use this for submitting jobs to Helmi. 
 
-The `csc_qu_tools` python file contains all the necessary functions and classes needed for using Helmi via LUMI. This tool is not required for Qiskit usage as it provide much of the same functionality as `qiskit-iqm`, the Cirq class is required for Helmi specific functionality, therefore we recommend users to use this for submitting jobs to Helmi. 
+### Quantum Tools
 
-### CSC Quantum Tools
+A python package to help interfacing with Helmi via LUMI is provided. The `csc_qu_tools` python package provides everything necessary to connect and submit jobs to Helmi via LUMI. Users can use the tool set for both Qiskit and Cirq. 
 
-CSC also provides a python package to help in interfacing with Helmi via LUMI. The `csc_qu_tools` python package provides everything necessary to connect and submit jobs to Helmi via LUMI without any of the additional steps for setting up your python files. Currently users can use this tools for both Qiskit and Cirq. 
-
-This package can be accessed if you have the `helmi` module loaded via `import csc_qu_tools`. Further documentation to follow...
+The package can be accessed after loading one of the `helmi` modules, by `import csc_qu_tools`.
 
 
