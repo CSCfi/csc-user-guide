@@ -14,7 +14,7 @@ Helmi's native gates are the two-qubit Control-Z and a the one-qubit rotational 
 
 ### Defining topology and gates in Qiskit and Cirq
 
-To define the features of Helmi in Qiskit and Circ, for example for transpiling, use the following definitions: 
+To define the features of Helmi in Qiskit and Circ, for example for transpiling, use the following definitions:
 
 
 |              |      Helmi      |                                                   Qiskit                                                   |                                 Cirq                                 |
@@ -23,6 +23,8 @@ To define the features of Helmi in Qiskit and Circ, for example for transpiling,
 | Connectivity | Star Shaped     |                                     `[[2, 0], [2, 1], [2, 3], [2, 4]]`                                     |                  `({1, 3}, {2, 3}, {4, 3}, {5, 3})`                  |
 | Mapping      |                 | `virtual_qubits=qc_decomposed.qubits`<br>`qubit_mapping={virtual_qubits[0]:'QB1',virtual_qubits[1]:'QB3'}` | Dictionary `qubit_mapping={'NamedQubit1':'QB1','NamedQubit2':'QB3'}` |
 
+
+(Note that in Qiskit language, native gates and basis gates are interchangeable.)
 
 
 ## Further Reading
