@@ -142,11 +142,11 @@ nav:
         - Accessing Kvasi: quantum-computing/kvasi/kvasi.md
         - Kvasi Billing: quantum-computing/kvasi/kvasi-billing.md
     - Helmi:
+        - LUMI-Helmi Pilot Phase: quantum-computing/helmi/lumi-helmi-pilot-phase.md
+        - Getting started with Helmi: quantum-computing/helmi/helmi_quick.md
         - Technical details: quantum-computing/helmi/helmi.md
         - Accessing Helmi: quantum-computing/helmi/helmi_accounts.md
         - Running on Helmi: quantum-computing/helmi/running-on-helmi.md
-        - LUMI-Helmi Pilot Phase: quantum-computing/helmi/lumi-helmi-pilot-phase.md
-        - Getting started with Helmi: quantum-computing/helmi/helmi_quick.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
