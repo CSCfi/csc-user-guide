@@ -24,8 +24,11 @@ This Python script creates a connection to the server:
 ```python
 from keystoneauth1 import session
 from keystoneauth1.identity import v3
-import swiftclient
 import os
+import swiftclient
+from swiftclient.multithreading import OutputManager
+from swiftclient.service import SwiftError, SwiftService, SwiftUploadObject
+
 
 _authurl = os.environ['OS_AUTH_URL']
 _auth_version = os.environ['OS_IDENTITY_API_VERSION']
@@ -94,7 +97,7 @@ conn.put_container(bucket_name)
 
 ## Upload an object
 
-Upload an object called `my_snake.txt` to the bucket `snakebucket`:
+Upload a small file called `my_snake.txt` to the bucket `snakebucket`:
 
 ```python
 object_name='my_snake.txt'
@@ -103,6 +106,33 @@ with open(object_name, 'r') as f:
                     contents=f.read(),
                     content_type='text/plain')
 ```
+The upload process above works only for files that are smaller than 5 GB. 
+In the case of larger files, you should use _SwiftService_.
+
+```python
+object_name='my_snake.txt'
+# limit upload threads to 4
+opts = {'object_uu_threads': 4}
+
+with SwiftService(options=opts) as swift:
+    try:
+        for r in swift.upload(bucket_name, object_name, { 'segment_size': 5000000000, }):
+            if r['success']:
+                if 'object' in r:
+                    print(r['object'])
+                elif 'for_object' in r:
+                    print(
+                        '%s segment %s' % (r['for_object'],
+                            r['segment_index'])
+                         )
+            else:
+                print(r)
+
+    except SwiftError as e:
+        print(e.value)
+```
+
+
 
 ## List buckets and objects
 
