@@ -439,6 +439,9 @@ Example of running PyTorch DDP on 2 full nodes:
     
     export RDZV_HOST=$(hostname)
     export RDZV_PORT=29400
+    
+    # Seems to solve issue: https://github.com/ROCmSoftwarePlatform/MIOpen/issues/114
+    export MIOPEN_USER_DB_PATH=~/.config/miopen_$SLURM_PROCID/
 
     module use /projappl/project_462000007/ai/modulefiles/
     module load pytorch
@@ -483,7 +486,7 @@ If you are converting an old PyTorch script there are a few steps that you need 
     ```
 
 
-A fully working example can be found in our [`pytorch-ddp-examples`
+A fully working example for Puhti can be found in our [`pytorch-ddp-examples`
 repository](https://github.com/CSCfi/pytorch-ddp-examples):
 
 - [mnist_ddp.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp.py)
