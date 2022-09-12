@@ -8,26 +8,29 @@ includes following python packages:
 -   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
 -   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
+-   [copc-lib](https://pypi.org/project/copclib/) - reader and writer interface for COPC point clouds. NEW 2022
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension)
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install). NEW 2022
 -   [fiona] - reads and writes spatial data files.
--   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [igraph](https://igraph.org/python/) - for fast routing.
--   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti-rhel7
+-   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti-rhel8
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
 -   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
+-   [metpy](https://unidata.github.io/MetPy/latest/index.html) - reading, visualizing, and performing calculations with weather data. NEW 2022
 -   [movingpandas](http://movingpandas.org) - for trajectory data
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
 -   [pyproj] - performs cartographic transformations and geodetic computations.
+-   [pyogrio](https://pyogrio.readthedocs.io/en/latest/index.html) - vectorized spatial vector file format I/O using GDAL/OGR. NEW 2022
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs.
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data
--   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds.
--   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs.
+-   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds. NEW 2022
+-   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs. NEW 2022
 -   [python-cdo](https://pypi.org/project/cdo/) - scripting interface to CDO (Climate Data Operators).
 -   **[rasterio]** - access to geospatial raster data.
 -   [rasterstats] - for summarizing geospatial raster datasets based on
@@ -41,7 +44,8 @@ includes following python packages:
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
--   And many more, for retrieving the full list in Puhti-rhel7 use:
+-   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray. NEW 2022
+-   And many more, for retrieving the full list in Puhti-rhel8 use:
     `list-packages`
     
 Additionally geoconda includes:
@@ -55,17 +59,16 @@ Additionally geoconda includes:
     list.
    
 Python has multiple packages for parallel computing, for example
-**multiprocessing**, **joblib** and **dask**. In our [Puhti-rhel7 Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
+**multiprocessing**, **joblib** and **dask**. In our [Puhti-rhel8 Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
 (If you think that some important GIS package for Python is missing from here, you can ask for installation from servicedesk@csc.fi.)
 
 
 ## Available
 
-The `geoconda` module is available in Puhti-rhel7:
+The `geoconda` module is available in Puhti-rhel8:
 
 * 3.9.13
-* 3.8.8 
 
 Version number is the same as Python version.
 
@@ -85,16 +88,16 @@ To check the exact packages and versions included in the loaded module:
  
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
-You can edit your Python code in Puhti-rhel7 with:
+You can edit your Python code in Puhti-rhel8 with:
 
-* [Visual Studio Code in Puhti-rhel7 web interface](../computing/webinterface/vscode.md), 
+* [Visual Studio Code in Puhti-rhel8 web interface](../computing/webinterface/vscode.md), 
 * [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
-* [Jupyter Notebook or Lab in Puhti-rhel7 web interface](../computing/webinterface/jupyter.md) or 
-* Spyder in [Puhti-rhel7 web interface with remote desktop](../computing/webinterface/desktop.md).
+* [Jupyter Notebook or Lab in Puhti-rhel8 web interface](../computing/webinterface/jupyter.md) or 
+* Spyder in [Puhti-rhel8 web interface with remote desktop](../computing/webinterface/desktop.md).
 
-To open Spyder in Puhti-rhel7 web interface with remote desktop:
+To open Spyder in Puhti-rhel8 web interface with remote desktop:
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start Spyder:
 
