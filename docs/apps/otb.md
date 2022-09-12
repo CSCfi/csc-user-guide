@@ -6,7 +6,7 @@
 
 Orfeo ToolBox is available in the following versions:
 
-* 7.2.0
+* 8.0.1
 
 ## Usage
 
@@ -14,7 +14,7 @@ Orfeo ToolBox is available in the following versions:
 
 Orfeo ToolBox can be loaded with
 
-`module load otb`
+`module load orfeotoolbox`
 
 ### Using the command line tools
 
@@ -44,6 +44,13 @@ app.SetParameterString("out", out)
 app.ExecuteAndWriteOutput()
 ```
 
+### Using the graphical tools
+
+Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook/Monteverdi.html):
+```
+monteverdi
+```
+Also other graphical tools available, see 'ls /appl/soft/geo/orfeotoolbox/8.0.1/bin/otbgui*' for full list. 
 
 ### Running OTB applications in parallel 
 
@@ -67,7 +74,7 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 ```
 
 !!! note
-    It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Puhti-rhel7
+    It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Puhti-rhel8
 
 ## License and acknowledgement
 
