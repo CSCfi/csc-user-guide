@@ -6,8 +6,7 @@
 
 PDAL is available in the following versions:
 
-* 2.4.1 in geoconda-3.9.13 module
-* 2.2.0 in geoconda-3.8.8 module
+* 2.4.1 in geoconda-3.10.6 module
 
 ## Usage
 
@@ -21,7 +20,7 @@ You can test if pdal loaded successfully with following
 
 `pdal --help`
 
-[Examples for using PDAL in Puhti-rhel7](https://github.com/csc-training/geocomputing/tree/master/pdal).
+[Examples for using PDAL in Puhti-rhel8](https://github.com/csc-training/geocomputing/tree/master/pdal).
 
 ## License and acknowledgement
 
