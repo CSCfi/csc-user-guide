@@ -2,16 +2,19 @@
 
 ## Architecture and Topology
 
-Helmi is a 5 qubit Quantum Computer co-developed by VTT and IQM using superconducting qubits. The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. This means that any two qubit gate will work most efficiently between QB3 and any other qubit whereas 1 qubit gates can be mapped to any of the 4 surrounding qubits. 
+Helmi is a 5 qubit Quantum Computer co-developed by VTT and IQM using superconducting qubits. The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. This means that any two-qubit gate will work most efficiently between QB3 and any other qubit whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
 
 <p align="center">
     <img src="../../../img/helmi_mapping.png" alt="Helmi's node mapping">
 </p>
 
-
 ### Native Gates
 
-Helmis basis gates are Control-Z and a Rotational gate around the x-y plane. This means that for the single qubits (QB1, QB2, QB4, QB5) have basis gates Rx, Ry and Rz and for the two qubit QB3 has controlled-Z as it's basis gate. In Qiskit this is implement via `basis_gates=['r', 'cz']` in the transpiler, whereas on Cirq the basis gates are implemented as `ops.PhasedXPowGate, ops.XPowGate, ops.YPowGate, ops.MeasurementGate` and `ops.CZPowGate()`. 
+Helmi's native gates are the two-qubit Control-Z and a the one-qubit rotational gate around the x-y plane. 
+
+### Defining topology and gates in Qiskit and Cirq
+
+To define the features of Helmi in Qiskti and Circ, use the following definitions: 
 
 
 |              |      Helmi      |                                                   Qiskit                                                   |                                 Cirq                                 |
