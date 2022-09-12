@@ -2,27 +2,26 @@
 
 [QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
 
-In Puhti-rhel7, QGIS could be used for example to visualize the resulting files from other sources (lastools, R, python)
+In Puhti-rhel8, QGIS could be used for example to visualize the resulting files from other sources (lastools, R, python)
 
 ## Available
 
-__QGIS__ is available in Puhti-rhel7 with following versions:
+__QGIS__ is available in Puhti-rhel8 with following versions:
 
-* 3.22 in a singularity container: qgis(/3.22 = default) module
-* 3.16 in a singularity container: qgis/3.16 module
+* 3.22
 
 ## Usage
 
-The easiest option for using QGIS is to open it in [Puhti-rhel7 web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using QGIS is to open it in [Puhti-rhel8 web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi). 
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi). 
 2. Start QGIS: Apps -> Desktop, choose Desktop: 'single application' and App: 'QGIS'
 3. QGIS is started automatically when the Desktop is launched. 
 
 
-Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti-rhel7 web interface with remote desktop:
+Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti-rhel8 web interface with remote desktop:
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop, double-click QGIS icon OR open `Host Terminal` (Desktop icon) and start QGIS:
 
