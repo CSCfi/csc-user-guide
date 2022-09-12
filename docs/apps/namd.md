@@ -13,7 +13,7 @@ Beckman Institute of the University of Illinois.
 ## License
 
 CSC has obtained a Computing Centre [license](https://www.ks.uiuc.edu/Research/namd/license.html),
-which allows usage for non-commercial research. For commercial use, contact 
+which allows usage for non-commercial research. For commercial use, contact
 (namd@ks.uiuc.edu) See also acknowledging usage below.
 
 ## Usage
@@ -40,7 +40,7 @@ The data also shows the following things:
 * Optimal settings depend on the amount of resources in addition to system and run
   parameters
 * For this system it's best to use 7 threads per task
-* 1 GPU + 10 CPUs (on Puhti-rhel8) gives 25.6 ns/day vs. 27.8 ns/day for 2 full nodes
+* 1 GPU + 10 CPUs (on Puhti-rhel8) gives 27.9 ns/day vs. 27.8 ns/day for 2 full nodes
   on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results
   faster is also more expensive in terms of consumed billing units. To avoid wasting
   resources, ensure that your job actually benefits from increasing the number of
@@ -93,8 +93,6 @@ is much more cost efficient than running with multiple CPU-only nodes.
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export SLURM_CPU_BIND=none
 
-module purge
-module load gcc/11.3.0 openmpi/4.1.4
 module load namd/2.14-cuda
 
 namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
@@ -111,7 +109,9 @@ namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} ap
 #SBATCH --time=0:10:00        # time as `hh:mm:ss`
 #SBATCH --account=<project>
 
-module load gcc/11.2.0 openmpi/4.1.2 namd/2.14
+module purge
+module load gcc/11.2.0 openmpi/4.1.2
+module load namd/2.14
 
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
@@ -121,7 +121,7 @@ orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn $namd_threads +isomalloc_
 
 Submit the batch job with:
 
-```
+```console
 sbatch namd_job.bash
 ```
 
