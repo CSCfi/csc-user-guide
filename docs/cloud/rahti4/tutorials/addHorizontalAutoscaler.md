@@ -98,7 +98,7 @@ At this moment, we should have only one single Pod with almost zero CPU usage an
     example   Deployment/example   9%/50%, 0%/50%   1         4         1          1h
     ```
 
-There is only need for a single Pod because only ~100MB is used out of 1Gi of total memory. This is less than the 50% of memory we configured. We will now artifically raise the memory usage. We will enter in a terminal of the single Pod that is running (Click in the Pod name and then in the "Terminal" tab), and run the following command:
+There is only need for a single Pod because only ~100MB is used out of 1Gi of total memory. This is less than the 50% of memory we configured. We will now artificially raise the memory usage. We will enter in a terminal of the single Pod that is running (Click in the Pod name and then in the "Terminal" tab), and run the following command:
 
 ```sh
 /app/app.py 5 100
