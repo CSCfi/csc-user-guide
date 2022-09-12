@@ -236,6 +236,7 @@ nav:
          - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
          - How backup a Postgres DB into Allas: cloud/rahti4/tutorials/backup-postgres-allas.md
          - How to add docker hub credentials to a project: cloud/rahti4/tutorials/docker_hub_login.md
+         - How to automatically scale up and down replicas: cloud/rahti4/tutorials/addHorizontalAutoscaler.md
          - How to manually cache images in Rahti's registry: cloud/rahti4/tutorials/docker_hub_manual_caching.md
          - How to run an ad-hoc interactive container: cloud/rahti4/tutorials/oc-run.md
          - How to transfer data to Rahti?: cloud/rahti4/tutorials/transfer_data_rahti.md
