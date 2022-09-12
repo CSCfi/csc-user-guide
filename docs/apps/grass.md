@@ -4,28 +4,28 @@
 
 ## Available
 
-__GRASS__ is available in Puhti-rhel7 with following versions:
+__GRASS__ is available in Puhti-rhel8 with following versions:
 
-* GRASS 7.8.5 with (default) qgis/3.22 module
-* GRASS 7.4 with older qgis/3.16 module
+* GRASS 7.8.5 with qgis/3.22 module
+
 
 ## Usage
 
 ### GRASS GIS Command Line Interface 
 
-In Puhti-rhel7, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). For using GRASS GIS, see [exmples for using GRASS GIS commands in Puhti-rhel7 with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
+In Puhti-rhel8, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). For using GRASS GIS, see [exmples for using GRASS GIS commands in Puhti-rhel8 with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
 
 ### GRASS GIS Graphical User Interface
 
-The easiest option for using GRASS GIS is to open it in [Puhti-rhel7 web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using GRASS GIS is to open it in [Puhti-rhel8 web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi). 
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi). 
 2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'GRASS GIS'
 3. GRASS GIS is started automatically when the Desktop is launched. 
 
-Alternatively, especially if you want to use GRASS GIS together with some other GUI tool or want to user older version, GRASS GIS can be started in Puhti-rhel7 web interface with remote desktop:
+Alternatively, especially if you want to use GRASS GIS together with some other GUI tool or want to user older version, GRASS GIS can be started in Puhti-rhel8 web interface with remote desktop:
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop, double-click GRASS GIS icon OR open `Host Terminal` (Desktop icon) and start GRASS GIS:
 
