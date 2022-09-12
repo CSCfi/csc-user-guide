@@ -14,7 +14,7 @@ Helmi's native gates are the two-qubit Control-Z and a the one-qubit rotational 
 
 ### Defining topology and gates in Qiskit and Cirq
 
-To define the features of Helmi in Qiskti and Circ, use the following definitions: 
+To define the features of Helmi in Qiskit and Circ, for example for transpiling, use the following definitions: 
 
 
 |              |      Helmi      |                                                   Qiskit                                                   |                                 Cirq                                 |
