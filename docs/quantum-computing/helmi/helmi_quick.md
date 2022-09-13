@@ -16,7 +16,7 @@ Detailed instructions on how to create a LUMI project can be found behind the fo
 After creation of a project, the PI/PM can invite additional standard users to the project:
 * [How to add members to project](../../accounts/how-to-add-members-to-project)
 
-**Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation.
+**Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is, for example, limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation. The project PI is responsible for ensuring that the Helmi Terms of Use are followed.
 
 
 ## Connecting to LUMI
@@ -28,45 +28,42 @@ for this to work, [you need to add your ssh keys in MyCSC portal](../../../compu
 
 #### Generate your SSH keys
 
-After registration, you need to register a **public** key (**Note! Key must be RSA
-4K bits or ed25519**). In order to do that
-you need to generate an SSH key pair.
-
+After registering for a LUMI user account, you need to register a **public** key (**Note! Key must be RSA
+4096 bits or ed25519**). For this, you need to generate an SSH key pair.
 
 === "From a terminal (all OS)"
 
-    An SSH key pair can be generated in the Linux, macOS, Windows PowerShell and 
-    MobaXterm terminal. It is important to create a long enough key length. For
-    example, you can use the following command to generate a 4096 bits RSA key:
+    An SSH key pair can be generated in a Linux, macOS, Windows PowerShell, or 
+    MobaXterm terminal. You can use the following command to generate a 4096 bits RSA key:
 
     ```
     ssh-keygen -t rsa -b 4096
     ```
 
-    or for a ed25519 key:
+    or alternatively, a ed25519 key:
 
     ```
     ssh-keygen -t ed25519
     ```
 
     You will be prompted for a file name and location where to save the
-    key. Accept the defaults by pressing **enter**. Alternatively, you can 
+    key. Accept the defaults by pressing **Enter**. Alternatively, you can 
     choose a custom name and location. For example 
     `/home/username/.ssh/id_rsa_lumi`.
 
     Next, you will be asked for a passphrase. Please choose a secure
-    passphrase. It should be at least 8 characters long and should contain
+    passphrase. It should be at least 16 characters long and should contain
     numbers, letters and special characters. **Do not leave the passphrase 
     empty**.
 
-    After that a SSH key pair is created. If you choose the name given as an
+    Now, your SSH key pair is created. If you chose the name given as an
     example, you should have files named `id_rsa_lumi` and `id_rsa_lumi.pub` in
-    your `.ssh` directory.
+    your `$HOME/.ssh` directory.
 
 === "With MobaXTerm or PuTTY (Windows)"
 
     An SSH key pair can be generated with the PuTTygen tool or with MobaXterm 
-    (**Tools --> MobaKeyGen**). Both tools are identical.
+    (**Tools --> MobaKeyGen**).
     
     In order to generate your key pairs for LUMI, choose the option RSA and
     set the number of bits to 4096. The, press the *Generate* button.
@@ -83,7 +80,7 @@ you need to generate an SSH key pair.
     </figure>
 
     After that, enter a comment in the Key comment field and a strong
-    passphrase. Please choose a secure passphrase. It should be at least 8 
+    passphrase. Please choose a secure passphrase. It should be at least 16 
     characters long and should contain numbers, letters and special characters.
     **Do not leave the passphrase empty**.
 
@@ -99,8 +96,8 @@ you need to generate an SSH key pair.
 
 !!! warning "Note"
     The private key should never be shared with anyone, not even with
-    LUMI staff. It should also be stored only in the local computer (public key
-    can be safely stored in cloud services). Protect it with a good password! Otherwise, anyone with access to the file system can steal your SSH key.
+    LUMI staff! It should also be stored only on your local computer (the public key
+    can be safely stored in cloud services).
 
 #### Upload your public key 
 
