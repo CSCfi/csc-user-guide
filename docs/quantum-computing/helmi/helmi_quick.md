@@ -120,7 +120,7 @@ created**.
 
 ### How to log in
 
-Connecting to LUMI via the command line is possible from all major OS. Once you have generated your key pair and uplaoded your public key to MyCSC, you can connect with
+Connecting to LUMI via the command line is possible from all major OS. Once you have generated your key pair and uploaded your public key to MyCSC, you can connect with
 
 ```bash
 ssh -i<path-to-private-key> <username>@lumi.csc.fi
@@ -144,7 +144,7 @@ login nodes are listed in the table below.
 
 #### Add your key to the SSH Agent
 
-It may be painful to enter the strong passphrase for every connection you make to LUMI. Therefore, to avoid the pain, you can use an SSH agent to remember the passphrase for you. 
+It may be cumbersome to enter the strong passphrase for every connection you make to LUMI. You can also use an SSH agent to remember the passphrase for you. 
 
 The first step in to ensure the SSH agent is running. For that run the command
 
@@ -158,13 +158,12 @@ The second step is to add your private key to your agent with the command
 ssh-add <path-to-private-key>
 ```
 
- you will then be asked for your passphrase and now, you should no longer have
- to enter your passphrase every time you connect to LUMI.
+You will then be asked for your passphrase and now, you should no longer have
+to enter your passphrase every time you connect to LUMI.
 
 #### Add LUMI to your SSH configuration
 
-In the previous section, we have discussed how to add your key to the agent and 
-thus avoid having to enter your password. You can also create an SSH 
+You can also create an SSH 
 configuration for LUMI on your machine that will act as a shortcut. This is 
 achieved by editing the `.ssh/config` file and by adding the following lines
 
@@ -174,7 +173,7 @@ achieved by editing the `.ssh/config` file and by adding the following lines
     	IdentityFile <path-to-private-key>
 
 
-Once you added this line to your SSH configuration file, you can connect using the following command `ssh lumi`.
+Once you added this line to your SSH configuration file, you can connect simply with `ssh lumi`.
 
 
 ## Running jobs
