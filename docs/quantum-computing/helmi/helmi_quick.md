@@ -1,4 +1,4 @@
-# Setting up a Helmi-enabled LUMI account
+# Setting up a LUMI project and accounts for accessing Helmi
 
 This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/overview/).
 
