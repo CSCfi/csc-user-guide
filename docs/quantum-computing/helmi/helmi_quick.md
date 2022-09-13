@@ -1,4 +1,4 @@
-# Setting up an Helmi-enabled LUMI account
+# Setting up a Helmi-enabled LUMI account
 
 This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/overview/).
 
@@ -101,9 +101,9 @@ After registering for a LUMI user account, you need to register a **public** key
 
 #### Upload your public key 
 
-Now that you have generated your key pair, you need to set up your **public** key in your [**user profile**](https://my.csc.fi/). From there, the public key will be copied to LUMI with some delay according to the synchronization schedule.
+Now that you have generated your key pair, you need to set up your **public** key in your **MyCSC user profile**. From there, the public key will be automatically copied to LUMI (with some delay).
 
-To register your key with [MyCSC](https://my.csc.fi/), click on *My Profile* item of the menu on the left as shown in the figure below. Then scroll to the end and in the *SSH PUBLIC KEYS* panel click the *Modify* button. From here, click the *Add new* button and paste your new public key in the text area and click *Add*.
+To register your key in [MyCSC](https://my.csc.fi/), click on the *My Profile* item of the menu on the left, as shown in the figure below. Then scroll to the end and in the *SSH PUBLIC KEYS* panel click the *Modify* button. From here, click the *Add new* button and paste your new public key in the text area and click *Add*.
 
 <figure>
 	<img src="../../../img/csc-profile.png" width="700" alt="Screenshot of user profile settings to setup ssh public key">
@@ -124,7 +124,7 @@ ssh -i<path-to-private-key> <username>@lumi.csc.fi
 ```
 
 where you have to replace `<path-to-private-key>` and `<username>` with the 
-appropriate values. You should have received your user name via email. There may be a 10-15 minute delay before your account is created on LUMI, be patient. If after this delay you cannot connect, please contact [LUMI support](https://lumi-supercomputer.eu/user-support/need-help/account/).
+appropriate values. You should have received your user name via email. There may be a 10-15 minute delay before your account is created on LUMI. If after this delay you cannot connect, please contact [LUMI support](https://lumi-supercomputer.eu/user-support/need-help/account/).
 
 
 You will be prompted for the passphrase of the SSH key 
