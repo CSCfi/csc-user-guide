@@ -110,17 +110,17 @@ provider = Helmi()
 backend = provider.set_backend()
 ```
 
-Before submitting the job there is one last thing we need to do: define the number of *shots*. The number of shots is the number of repetition of a quantum circuit. We do this because quantum computers are probabilistic machines and by repeating the result many times we can get close to a deterministic result to be able to draw conclusions from. A good number of shots for accurate results is `shots = 10000`, the qiskit default is 1024. 
+Before submitting the job there is one last thing we need to do: define the number of *shots*. The number of shots is the number of repetition of a quantum circuit. We do this because quantum computers are probabilistic machines and by repeating the result many times we can get close to a deterministic result to be able to draw conclusions from. A good number of shots for accurate results is `shots = 1000`. 
 
 Now we can run our quantum job!
 
 ```python
-job = backend.run(qc_decomposed, shots=1024, qubit_mapping=qubit_mapping)
+job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping)
 ```
 
 ### Results
 
-Before submitting we need to ensure we can get some results! The quantum job will return what are called **counts**. Counts are the accumulation of results from the 1024 times the circuit is submitting to the QPU. Each time the circuit is submitted a binary *state* is returned, this is then added to the tally.  In this case as we are submitting a 2 qubit circuit there are 4 possible resulting states: `00, 11, 01, 10`.  The expected results should be that approximately 50% of the counts should be in state `00` and 50% in state `11`.
+Before submitting we need to ensure we can get some results! The quantum job will return what are called **counts**. Counts are the accumulation of results from the 1000 times the circuit is submitted to the QPU. Each time the circuit is submitted a binary *state* is returned, this is then added to the tally.  In this case as we are submitting a 2 qubit circuit there are 4 possible resulting states: `00, 11, 01, 10`.  The expected results should be that approximately 50% of the counts should be in state `00` and 50% in state `11`. The states of the qubits are thus entangled: if one of the qubits is measured to be in state |0>, the other one will immediately also collapse to the same state, and vice versa. As real quantum computers are not perfect, you will most likely also see that some measurements find the states |01> and |10>.
 
 To print your results add:
 
@@ -172,30 +172,87 @@ This can be submitted with `sbatch batch_script.sh` in the same directory as you
 
 Congratulations! You have just run your first job on Helmi. 
 
-<!-- 
+The full python script can be found below. 
 
-ssh lumi
-module use /appl/local/quantum/modulefiles
-module load helmi_qiskit
+```python
+import qiskit
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit.compiler import transpile
+import numpy as np
+from csc_qu_tools.qiskit import Helmi
 
-create a simple qubit flipping circuit
+qreg = QuantumRegister(2, "qB")
+creg = ClassicalRegister(2, "c")
+circuit = QuantumCircuit(qreg, creg)
 
-	import the correct libs
-	create qreg, clreg, and circuit
+circuit.h(qreg[0])
+circuit.cx(qreg[1], qreg[0])
 
-	set the backend
-	transpile circuit
-	set qubit mapping
-	run the job
+# Uncomment if you wish to print the circuit
+# print(circuit.draw())
 
+basis_gates = ['r', 'cz']
+circuit_decomposed = transpile(circuit, basis_gates=basis_gates)
 
-create a batch script
+# Uncomment if you wish to print the circuit
+# print(circuit_decomposed.draw())
 
+virtual_qubits = circuit_decomposed.qubits
+qubit_mapping = {
+                virtual_qubits[0]: "QB1",
+                virtual_qubits[1]: "QB3",
+            }
 
+provider = Helmi()
+backend = provider.set_backend()
 
+job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping)
 
+counts = job.result().get_counts()
+print(counts)
+```
 
+<!-- === ""
 
+    ```markdown
+    ```
 
+=== "Click to reveal full python script"
 
- -->
+    ```python
+	import qiskit
+	from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+	from qiskit.compiler import transpile
+	import numpy as np
+	from csc_qu_tools.qiskit import Helmi
+
+	qreg = QuantumRegister(2, "qB")
+	creg = ClassicalRegister(2, "c")
+	circuit = QuantumCircuit(qreg, creg)
+
+	circuit.h(qreg[0])
+	circuit.cx(qreg[1], qreg[0])
+
+	# Uncomment if you wish to print the circuit
+	# print(circuit.draw())
+
+	basis_gates = ['r', 'cz']
+	circuit_decomposed = transpile(circuit, basis_gates=basis_gates)
+
+	# Uncomment if you wish to print the circuit
+	# print(circuit_decomposed.draw())
+
+	virtual_qubits = circuit_decomposed.qubits
+	qubit_mapping = {
+	                virtual_qubits[0]: "QB1",
+	                virtual_qubits[1]: "QB3",
+	            }
+
+	provider = Helmi()
+	backend = provider.set_backend()
+
+	job = backend.run(qc_decomposed, shots=1000, qubit_mapping=qubit_mapping)
+
+	counts = job.result().get_counts()
+	print(counts)
+    ``` -->
