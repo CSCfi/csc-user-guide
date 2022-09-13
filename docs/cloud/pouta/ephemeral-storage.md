@@ -40,7 +40,7 @@ machine to make sure the disk gets mounted after a reboot:
 
     sudo umount /mnt/myephdisk/
     sudo e2label /dev/vdb EPHEMERAL
-    sudo echo "LABEL=EPHEMERAL   /mnt/myephdisk   ext4  defaults,nofail 0 2 " >> /etc/fstab
+    sudo bash -c 'echo "LABEL=EPHEMERAL   /mnt/myephdisk   ext4  defaults,nofail 0 2 " >> /etc/fstab'
     sudo mount /mnt/myephdisk
 
 After the storage has been mounted, you need to change the ownership to be able to read and write data in it.
