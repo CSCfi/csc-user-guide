@@ -4,13 +4,13 @@ FORCE (Framework for Operational Radiometric Correction for Environmental monito
 
 ## Available
 
-__FORCE__ is available in Puhti-rhel7 with the following versions:
+__FORCE__ is available in Puhti-rhel8 with the following versions:
 
-* 3.6.5 (Singularity container)
+* 3.7.8
 
 ## Usage 
 
-FORCE is included in the __force__ module. You can load it with 
+FORCE is included in the __force__ module. You can load it with:
 
 `module load force`
 
