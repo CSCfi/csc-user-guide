@@ -4,7 +4,7 @@ If you've applied for a project, been accepted, setup your ssh keys and gained a
 
 If you've not yet done any of the above then here are some helpful links:
 
-- [Applying for a project](../helmi_accounts/#lumi-helmi-projects-vs.-regular-lumi-projects)
+- [Applying for a project](../helmi_accounts/)
 - [Setting up ssh keys](../helmi_quick/#connecting-to-lumi)
 
 
@@ -51,7 +51,7 @@ from csc_qu_tools.qiskit import Helmi
 
 ### Creating the circuit
 
-The quantum circuit is created by defining our `QuantumRegister` and our `ClassicalRegister` which hold our qubits and classical bits repectively. As this circuit only requires 2 qubits we only create a `QuantumRegister` of size 2. We will be measuring the outcome on each qubit and turning our quantum information into classical information, therefore we need a `ClassicalRegister` to hold this. 
+The quantum circuit is created by defining our `QuantumRegister` and our `ClassicalRegister` which hold our qubits and classical bits respectively. As this circuit only requires 2 qubits we only create a `QuantumRegister` of size 2. We will be measuring the outcome on each qubit and turning our quantum information into classical information, therefore we need a `ClassicalRegister` to hold this. 
 
 ```python
 qreg = QuantumRegister(2, "qB")
@@ -70,7 +70,7 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 ### Decomposing the circuit
 
-The next step is to decompose the quantum circuit you've jsut created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and Controlled-X gates into something that can be physically run on the quantum computer. Helmi's basis gates are the two-qubit Control-Z and a the one-qubit rotational gate around the x-y plane. In Qiskit these are defined by `basis_gates = ['r', 'cz']`. 
+The next step is to decompose the quantum circuit you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and Controlled-X gates into something that can be physically run on the quantum computer. Helmi's basis gates are the two-qubit Control-Z and a the one-qubit rotational gate around the x-y plane. In Qiskit these are defined by `basis_gates = ['r', 'cz']`. 
 
 ```python
 basis_gates = ['r', 'cz']
