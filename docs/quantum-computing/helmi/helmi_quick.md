@@ -14,7 +14,8 @@ Detailed instructions on how to create a LUMI project can be found behind the fo
 * [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
 
 After creation of a project, the PI/PM can invite additional standard users to the project:
-* [How to add members to project](../../accounts/how-to-add-members-to-project)
+
+* [How to add members to project](../../../accounts/how-to-add-members-to-project)
 
 **Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is, for example, limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation. The project PI is responsible for ensuring that the Helmi Terms of Use are followed.
 
