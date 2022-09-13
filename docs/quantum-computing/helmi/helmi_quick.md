@@ -1,22 +1,22 @@
-# Getting started with Helmi
+# Setting up an Helmi-enabled LUMI account
 
-This is a quick start guide for LUMI Helmi users. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/overview/).
-
-It is also assumed that you are at least familiar with some Quantum Computing software such as Qiskit, Cirq or OpenQASM. If not, you can start by looking at [Kvasi - The Quantum Learning Machine](../../kvasi/kvasi).
-
-[TOC]
-
+This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/overview/).
 
 ## Access to LUMI
 
-Helmi is accessed through the LUMI login nodes as a LUMI project, therefore you will first need to apply for access to LUMI under MyCSC. To do so please review the two below links. The first will guide you through the process of creating a LUMI project via MyCSC, the second will guide you through the specific LUMI Helmi partition instructions.
+Helmi is accessed through the LUMI environment. Users accessing Helmi need to be part of a LUMI project with allocated quantum computing resources. The first step is thus to create a LUMI project. All LUMI projects require a Principal Investigator serving as the Project Manager. A LUMI Project Manager is typically a leader of a research team or other senior researcher. 
 
+Detailed instructions on how to create a LUMI project can be found behind the following links. The first will guide you through the process of creating a LUMI project via MyCSC, the second will guide you through the specific LUMI Helmi partition instructions.
 
 * [Creating a LUMI project and applying for resources](../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 	* **Select "Development" from the LUMI access mode**
 
-
 * [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
+
+After creation of a project, the PI/PM can invite additional standard users to the project:
+* [How to add members to project}(../../accounts/how-to-add-members-to-project)
+
+**Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation.
 
 
 ## Connecting to LUMI
