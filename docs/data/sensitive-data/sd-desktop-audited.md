@@ -1,14 +1,14 @@
 
-# SD Desktop (Sensitive Data Desktop) for secondary use of health and social data
+# Sensitive Data Desktop for secondary use of health and social data 
 
-SD Desktop is a registered environment for secondary use of health and social data. Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine) from your web browser. With the virtual Desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
+Sensitive Data (SD) Desktop is a registered environment for secondary use of health and social data (register data). Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine) from your web browser. With the virtual Desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
 In the following user guide, you can learn how to:
 
 * apply for service access;
 * set up your virtual Desktop;
 * analyze data authorised by Findata;
 * request export of non-sensitive results from the secure virtual Desktop.
-* 
+
 !!! Note 
     We apologise for any confusion caused by the previous name of the service. You can apply to use SD Desktop by sending an application to Findata. This is a restricted version of the service compared to standard SD Desktop.
 
@@ -49,7 +49,7 @@ In the following user guide, you can learn how to:
 
 ## Service access 
 
-When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using audited SD Desktop service, you need to:
+When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using SD Desktop for seconday use, you need to:
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
 * set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity;
@@ -101,8 +101,7 @@ For specific guidance regarding the MFA activation on your CSC account, see the 
   
 Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical expertise. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
 
-Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you have colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data authorised for your project. Furthermore, all the Desktops are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in [the user guide](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop) under SD Desktop.
-
+Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you have colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data authorised for your project. Furthermore, all the Desktops are provided with the same software (pre-installed and managed by CSC), see below. 
 
 To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go to SD Desktop Management page**. 
 
