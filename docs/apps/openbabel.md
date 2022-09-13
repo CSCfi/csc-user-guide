@@ -31,6 +31,14 @@ obabel -ipdb molecule.pdb -otmol -O coord
 For a comprehensive list of options and supported file formats, do  `obabel -H`,
 or `obabel -L formats` or check the links below.
 
+## References
+
+Please use both of the following references to cite Open Babel:
+
+-   N M O'Boyle, M Banck, C A James, C Morley, T Vandermeersch, and G R Hutchison.
+    "Open Babel: An open chemical toolbox." J. Cheminf. (2011), 3, 33. DOI:10.1186/1758-2946-3-33
+-   The Open Babel Package, version 3.1.1 http://openbabel.org
+
 ## More information
 
 -   [Open Babel wiki](http://openbabel.org/wiki/Main_Page)
