@@ -173,18 +173,9 @@ achieved by editing the `.ssh/config` file and by adding the following lines
 Once you added this line to your SSH configuration file, you can connect simply with `ssh lumi`.
 
 
-## Storage
-
-* User home directories (`$HOME`) have a quota of 20 GB and are backed up. 
-
-* Scratch storage can be found under `/scratch/project_<project-number>`. The default quota is 50 TB.
-
-* Project storage can be found under `/project/project_<project-number>`. The default quota is 50 GB. 
-
-
 ## Support channels
 
 Additional information can be found in the [main LUMI documentation page](https://docs.lumi-supercomputer.eu/).
 
-The main channel for support regarding Helmi is the [CSC Service Desk](/support/contact/). 
+The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../support/contact/), reachable at servicedesk@csc.fi. 
 
