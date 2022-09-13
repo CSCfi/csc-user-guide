@@ -144,6 +144,7 @@ nav:
     - Helmi:
         - LUMI-Helmi Pilot Phase: quantum-computing/helmi/lumi-helmi-pilot-phase.md
         - Getting started with Helmi: quantum-computing/helmi/helmi_quick.md
+        - First Quantum job: quantum-computing/helmi/first-quantum-job.md
         - Technical details: quantum-computing/helmi/helmi.md
         - Accessing Helmi: quantum-computing/helmi/helmi_accounts.md
         - Running on Helmi: quantum-computing/helmi/running-on-helmi.md
