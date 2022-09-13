@@ -177,5 +177,5 @@ Once you added this line to your SSH configuration file, you can connect simply 
 
 Additional information can be found in the [main LUMI documentation page](https://docs.lumi-supercomputer.eu/).
 
-The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi. 
+The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../support/contact/), reachable at servicedesk@csc.fi. 
 
