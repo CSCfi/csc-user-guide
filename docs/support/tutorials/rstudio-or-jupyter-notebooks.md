@@ -72,7 +72,7 @@ This will start the RStudio, Jupyter Notebook or JupyterLab server on the comput
 Keep this terminal open as long as you are working, to keep the RStudio or Jupyter Notebook server running.
 
 ### 3. Create SSH tunnel from your PC to Puhti compute node
-* With Linux, MacOS ja MobaXterm, open a second SSH terminal on your local machine (do not connect to Puhti yet) and 
+* With Linux, MacOS and MobaXterm, open a second SSH terminal on your local machine (do not connect to Puhti yet) and 
 run the SSH tunnelling command printed out by the RStudio or Jupyter Notebook start-up script. 
 For example `ssh -N -L 8787:localhost:42896 -J john@puhti.csc.fi john@r07c49.bullx`
 * With PuTTy see the [SSH tunnelling with PuTTy](#ssh-tunnelling-with-putty) instructions.
