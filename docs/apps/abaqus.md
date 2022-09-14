@@ -9,7 +9,7 @@ SIMULIA Academic Research Suite products are proprietary software. The licenses 
 
 ## Available
 
-Licenses are available on CSC's computing platform [Puhti-rhel7](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+Licenses are available on CSC's computing platform [Puhti](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 ## Usage
 
@@ -19,11 +19,11 @@ To find out which versions of Abaqus are installed on the server, give command
 
     module available
 
-and check lines *abaqus/(version number)*. For example, to load Abaqus version 2019, give command
+and check lines *abaqus/(version number)*. For example, to load Abaqus version 2022, give command
 
-    module load abaqus/2019
+    module load abaqus/2022
 
-There is an example of **batch job file** available on Puhti-rhel7 server:
+There is an example of **batch job file** available on Puhti server:
 
     /appl/soft/eng/simulia/example_batch_job_files/parjob_puhti_abaqus
 
