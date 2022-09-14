@@ -20,6 +20,7 @@ plugins:
         - support/whats-new.md
         - apps/by_system.md
         - apps/alpha.md
+        - apps/by_license.md
 
 markdown_extensions:
   - admonition
