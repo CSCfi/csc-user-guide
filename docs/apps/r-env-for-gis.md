@@ -38,8 +38,10 @@ module load r-env
 * [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html) - bindings to GDAL and PROJ libraries, for basic data reading and writing
 * [rgeos](https://cran.r-project.org/web/packages/rgeos/index.html) - binding to GEOS library, for topology operations on geometries
 * [rlas](https://cran.r-project.org/web/packages/rlas/index.html) - read and write 'las' and 'laz' file formats
+* [rstac](https://cran.r-project.org/web/packages/rstac/index.html) - client library for Spatio-Temporal Asset Catalog (STAC)
 * [rTLS](https://cran.r-project.org/web/packages/rTLS/index.html) - process terrestrial laser scanning (TLS) point clouds 
 * [Rsagacmd](https://cran.r-project.org/web/packages/Rsagacmd/index.html) - for using SAGA GIS commands from R
+* [sen2r](https://sen2r.ranghetti.info/) - find, download and process Sentinel-2 data
 * [sf](https://cran.r-project.org/web/packages/sf/index.html) - main package for vector data, bindings to GDAL, GEOS and PROJ libraries. Works with tidyverse packages. Similar functionality, but newer and better than sp
 * [sp](https://cran.r-project.org/web/packages/sp/index.html) - older main package for vector data
 * [spacetime](https://cran.r-project.org/web/packages/spacetime/index.html) - for working with spatio-temporal data
