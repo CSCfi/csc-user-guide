@@ -10,7 +10,7 @@ OpenFOAM is freely available and open source, and is licensed under the [GNU Gen
 
 ## Available
 
-Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti-rhel7 and Mahti](../computing/available-systems.md) servers.
+Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti and Mahti](../computing/available-systems.md) servers.
 
 ## Usage
 
@@ -18,17 +18,17 @@ After login on to the server, give the command
 
     module spider openfoam
 
-The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example about OpenFOAM Foundation's version 9, use the command
+The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example about OpenFOAM Foundation's version 10, use the command
 
-    module spider openfoam/9
+    module spider openfoam/10
 
-To launch a specific version, here version 9, give the command
+To launch a specific version, here version 10, give the command
 
-    module load openfoam/9
+    module load openfoam/10
 
-OpenCFD's versions are recognized by a version string starting with letter _v_, ie, to launch version openfoam/v2106_intelmpi, give the command
+OpenCFD's versions are recognized by a version string starting with letter _v_, ie, to launch version openfoam/v2206, give the command
 
-    module load openfoam/v2106_intelmpi
+    module load openfoam/v2206
 	
 Example files for a batch job script are available on the servers.  After giving the launch command (_module load_, see above), the example script is the file
 
@@ -41,7 +41,7 @@ where \<server\> is either _puhti_ or _mahti_.  Copy that into your working dire
 -   on CSC's computing servers, use OpenFOAM's [collated IO method](https://openfoam.org/news/parallel-io/) when ever possible
 -   use of collated method absolutely necessary when the model size is large and lot of disk IO is necessary
 
-The file system used in CSC's computing platforms Puhti-rhel7 and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become heavily overloaded, and the whole computing platform can get jammed.
+The file system used in CSC's computing platforms Puhti and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become heavily overloaded, and the whole computing platform can get jammed.
 
 Above described, OpenFOAM's traditional parallel IO method can in the latest versions of OpenFOAM be replaced with collated parallel IO method, where the output data is written only in few files.  Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
 
@@ -72,7 +72,7 @@ The example scripts for separate batch runs for decomposition, solver and recons
     /appl/soft/eng/OpenFOAM/batch_script_examples
 
 Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue,
-[more info on using the interactive queue](../../computing/running/creating-job-scripts-mahti/#using-interactive-partition-for-non-parallel-pre-or-post-processing).
+[more info on using the interactive queue](../../computing/running/batch-job-partitions/).
 
 ## Support
 
