@@ -19,12 +19,15 @@ To define the features of Helmi in Qiskit and Circ, for example for transpiling,
 
 |              |      Helmi      |                                                   Qiskit                                                   |                                 Cirq                                 |
 |--------------|:---------------:|:----------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------:|
-| Basis Gates  | CZ + Rx, Ry, Rz |                                          `basis_gates=['r', 'cz']`                                         |   `ops.PhasedXPowGate, ops.XPowGate, ops.YPowGate, ops.CZPowGate()`  |
-| Connectivity | Star Shaped     |                                     `[[2, 0], [2, 1], [2, 3], [2, 4]]`                                     |                  `({1, 3}, {2, 3}, {4, 3}, {5, 3})`                  |
-| Mapping      |                 | `virtual_qubits=qc_decomposed.qubits`<br>`qubit_mapping={virtual_qubits[0]:'QB1',virtual_qubits[1]:'QB3'}` | Dictionary `qubit_mapping={'NamedQubit1':'QB1','NamedQubit2':'QB3'}` |
+| Basis Gates  | CZ + Rx, Ry, Rz |                                          `basis_gates=['r', 'cz']`                                         |   `NATIVE_GATES=ops.PhasedXPowGate, ops.XPowGate, ops.YPowGate, ops.CZPowGate()`  |
+| Connectivity | Star Shaped     |                                     `coupling_map=[[2, 0], [2, 1], [2, 3], [2, 4]]`                                     |                  `CONNECTIVITY=({1, 3}, {2, 3}, {4, 3}, {5, 3})`                  |
+| Mapping      |                 | `virtual_qubits=circuit_decomposed.qubits`<br>`qubit_mapping={virtual_qubits[0]:'QB1',virtual_qubits[1]:'QB3'}` | Dictionary `qubit_mapping={'NamedQubit1':'QB1','NamedQubit2':'QB3'}` |
 
 
-(Note that in Qiskit language, native gates and basis gates are interchangeable.)
+With Qiskit you will need to decompose your circuit with the basis gate and define your qubit mapping before running. With Cirq this is not necessary. 
+
+
+(Note that native gates and basis gates are interchangeable.)
 
 
 ## Further Reading
