@@ -1,6 +1,6 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti-rhel7. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md). Spatial libraries are included in all R versions in Puhti-rhel7.
+This page is for the spatial R libraries and tools installed in the R environment in Puhti-rhel8. Documentation for R in general is located on the [`r-env` page](r-env.md). Spatial libraries are included in all R versions in Puhti-rhel8.
 
 ## Usage
 
@@ -9,7 +9,7 @@ This page is for the spatial R libraries and tools installed in the R environmen
 Load the general R module with
 
 ```
-module load r-env-singularity
+module load r-env
 ```
 
 ### Installed spatial R libraries
@@ -50,27 +50,22 @@ module load r-env-singularity
 * [terra](https://cran.r-project.org/web/packages/terra/index.html) - diverse methods for spatial data analysis, particularly raster data
 * [viridis](https://cran.r-project.org/web/packages/viridis/index.html) - color maps for map plotting
 
-You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env-singularity.md).
+You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md).
 
 ### GDAL and SAGA GIS support
 
-The `r-env-singularity` module includes the following GDAL and SAGA GIS installations.
+The `r-env` module includes the following GDAL and SAGA GIS installations.
 
 | Module name (R version) | GDAL version | SAGA GIS version | 
-| ----------------------- | ------------------- | -------------------- | 
-| r-env-singularity/3.6.3 |2.4.2         | 7.3.0                 | 
-| r-env-singularity/4.0.2 | 3.2.0         | 7.9.0                 | 
-| r-env-singularity/4.0.3 | 3.2.0         | 7.9.0                 |   
-| r-env-singularity/4.0.4 | 3.2.0		| 7.10.0		       | 
-| r-env-singularity/4.0.5 | 3.2.0		| 7.9.0		       | 
-| r-env-singularity/4.1.1 | 3.2.2		| 7.9.0		       | 
+| ----------------------- | ------------ | ---------------- | 
+| r-env/4.2.1             | 3.5.1        | 8.2.2            | 
 
 
 ### Parallel computing
 
 Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
 
-Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env-singularity module](r-env-singularity.md)).
+Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env module](r-env.md)).
 
 ## Interactive usage
 
@@ -95,7 +90,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## References
 
-* [Examples for using R spatial packages for GIS in Puhti-rhel7](https://github.com/csc-training/geocomputing/tree/master/R), CSC
+* [Examples for using R spatial packages for GIS in Puhti-rhel8](https://github.com/csc-training/geocomputing/tree/master/R), CSC
 * [List of spatial R packages in CRAN](https://cran.r-project.org/web/views/Spatial.html)
 * [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/), Edzer Pebesma, Roger Bivand
 * [Geocomputation with R](https://geocompr.robinlovelace.net/), Robin Lovelace, Jakub Nowosad, Jannes Muenchow
