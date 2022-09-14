@@ -2,10 +2,10 @@
 
 ## RHEL8 login nodes
 
-There's one virtualized login node available for RHEL8 testing,
-`puhti-login12`. This new test node has same `/users`, `/scratch` and
-`/projappl` folders as current production setup, so you can test your
-current installations easily.
+There are two virtualized login nodes available for RHEL8 testing,
+`puhti-login11.csc.fi` and `puhti-login12.csc.fi`. These new test
+nodes have same `/users`, `/scratch` and `/projappl` folders as current
+production setup, so you can test your current installations easily.
 
 !!! Note
     These test system nodes share the same home folder with the
