@@ -187,7 +187,7 @@ creg = ClassicalRegister(2, "c")
 circuit = QuantumCircuit(qreg, creg)
 
 circuit.h(qreg[0])
-circuit.cx(qreg[1], qreg[0])
+circuit.cx(qreg[0], qreg[1])
 circuit.measure(range(2), range(2))
 
 # Uncomment if you wish to print the circuit
