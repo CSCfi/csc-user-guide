@@ -11,3 +11,9 @@
 .md-clipboard:is(:focus, :hover) {
     color: var(--md-typeset-a-color);
 }
+
+.md-typeset :is(h1, h2, h3, h4, h5, h6) code {
+    font-size: inherit;
+    background-color: inherit;
+    padding: unset;
+}
