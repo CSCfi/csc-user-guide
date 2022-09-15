@@ -68,7 +68,7 @@ Puhti HOST entries as something like:
 name:        test
 queue:       SLURM2.1
 qargs:       -p test -t 00:10:00 --mem-per-cpu=2000 --account=project_2042424
-host:        puhti-login1.csc.fi
+host:        puhti-login11.csc.fi
 processors:  4
 ```
 
@@ -358,7 +358,7 @@ Sometimes the `jserver -cleanall` command will not work because the program thin
 $SCHRODINGER/jobcontrol -delete -force <jobid>
 ```
 
-before the above `jserver` commands. `<jobid>` should be replaced by the ID of your stranded job, for example `puhti-login1-0-626be035`.
+before the above `jserver` commands. `<jobid>` should be replaced by the ID of your stranded job, for example `puhti-login11-0-626be035`.
 
 Another reason for jobs ending up fizzled is too many simultaneous jobs. Please have a look at the
 error files for suggestions, and if this is the case, ask for less subjobs.
@@ -387,7 +387,7 @@ your issue. On Puhti, first use
 jobcontrol -list 
 ```
 
-to find the right JobId (something like `puhti-login1-0-4d34ce08`).
+to find the right JobId (something like `puhti-login11-0-4d34ce08`).
 
 Then, check the right flags for `postmortem` with
 

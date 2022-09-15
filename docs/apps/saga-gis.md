@@ -4,43 +4,43 @@
 
 ## Available
 
-__SAGA GIS__ is available in Puhti-rhel7 in [r-env-singularity module  with different versions](r-env-for-gis.md).
+__SAGA GIS__ is available in Puhti-rhel8 in [r-env module  with different versions](r-env-for-gis.md).
 
 ## Usage 
 
 ### SAGA GIS command line interface
 
-`r-env-singularity` is a Singularity container, which means the commands are slightly different compared normal installations, basically all commands need to have `singularity_wrapper exec` before the usual command.
+`r-env` is an Apptainer container, which means the commands are slightly different compared normal installations, basically all commands need to have `apptainer_wrapper exec` before the usual command.
 
 SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md).
 
 You can test that SAGA GIS loaded successfully and print the command line tools help information with
 
 ```
-module load r-env-singularity 
-singularity_wrapper exec saga_cmd -h
+module load r-env
+apptainer_wrapper exec saga_cmd -h
 ```
 
-For more information on running R jobs on Puhti-rhel7, please see the [`r-env-singularity` documentation](r-env-singularity.md).
+For more information on running R jobs on Puhti-rhel8, please see the [`r-env` documentation](r-env.md).
 
 ### SAGA GIS Graphical User Interface
 
-The easiest option for using SAGA GIS is to open it in [Puhti-rhel7 web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using SAGA GIS is to open it in [Puhti-rhel8 web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi). 
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi). 
 2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SAGA GIS'
 3. The SNAP GUI is started automatically when the Desktop is launched. 
 
 
-Alternatively, especially if you want to use SAGA GIS together with some other GUI tool or want to user older version, SAGA GIS can be started in Puhti-rhel7 web interface with remote desktop:
+Alternatively, especially if you want to use SAGA GIS together with some other GUI tool or want to user older version, SAGA GIS can be started in Puhti-rhel8 web interface with remote desktop:
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop, double-click SAGA GIS icon OR open `Host Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
-module load r-env-singularity 
-singularity_wrapper exec saga_gui
+module load r-env
+apptainer_wrapper exec saga_gui
 ```
 
 ## License and acknowledgement

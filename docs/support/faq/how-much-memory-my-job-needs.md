@@ -21,7 +21,7 @@ but statistics are good once the job has ended.
 Seff will also show aggregate data on GPU usage efficiency.
 
 ```
-[someuser@puhti-login1 ~]$ seff 4807699
+[someuser@puhti-login11 ~]$ seff 4807699
 Job ID: 4807699
 Cluster: puhti
 User/Group: someuser/pepr_someuser
@@ -62,7 +62,7 @@ where `-o` flag specifies output as,
 So, for example, the same job as above:
 
 ```
-[someuser@puhti-login1 ~]$ sacct -j 4807699 -o jobid,reqmem,maxrss,averss,elapsed
+[someuser@puhti-login11 ~]$ sacct -j 4807699 -o jobid,reqmem,maxrss,averss,elapsed
        JobID     ReqMem     MaxRSS     AveRSS    Elapsed
 ------------ ---------- ---------- ---------- ----------
 4807699           100Mc                         00:06:06
