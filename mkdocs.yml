@@ -5,6 +5,7 @@ site_url: "https://docs.csc.fi/"
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 extra:
+  announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
 
 plugins:
@@ -51,11 +52,14 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
+  features:
+    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
   - assets/stylesheets/admonition.css
+  - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
