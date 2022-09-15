@@ -30,9 +30,9 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
   * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) 
+ * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) (Default data import)
  
- * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb)
+ * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) (Data storage and transfer)
  
 
  * [**Data sharing**](./sd_connect.md#data-sharing)
@@ -111,10 +111,10 @@ Access to this service requires a Findata permit.
 ## **Services in the pilot phase:**
 
   
-### Publish biomedical data with the [Finnish Federated EGA](./federatedega.md)
+### [Publish biomedical data with the Finnish Federated EGA](./federatedega.md)
 Preliminary guide.
  
   
-### Reuse with [SD Apply](./sd-apply.md)
+### [Reuse with SD Apply](./sd-apply.md)
 Preliminary guide. 
  

@@ -21,4 +21,5 @@ SD Submit and Federated EGA, the services for submitting sensitive data to a nat
 * SD Connect currently supports only Haka, and we are working on updating the authentication methods.
 
 ## Does CSC provide Multi-Factor Authentication (MFA)?
-Not yet. We are technically ready to integrate our service with a CSC-MFA and with academic organizations' MFA. For updates, see the service developments [webpage](https://research.csc.fi/sensitive-data-services-future-development).
+
+Yes, MFA is enabled on SD Desktop. For specific guidance regarding the MFA activation on your CSC account, see the [Multi-factor Authentication paragraph](../../accounts/mfa.md).
