@@ -36,6 +36,8 @@ Note, that PCL/1.9.1 includes less PCL modules.
 
 PCL is released under the terms of the BSD license, and thus free for commercial and research use.
 
+[PCL citation](https://pointclouds.org/about/)
+
 Please acknowdlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
