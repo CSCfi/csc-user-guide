@@ -41,7 +41,8 @@ When you are ready to run your circuits on Helmi it is recommended that you read
 
 ## Pilot Phase Software
 
-To submit and run jobs on Helmi you need to use the correct environment on LUMI. 
+To submit and run jobs on Helmi you need to use the correct environment on LUMI.
+
 * First, run `module use /appl/local/quantum/modulefiles`
 * Second, depending on if you want to use the Qiskit or Circ environment, run
 	* `module load helmi_qiskit` or 
