@@ -31,7 +31,7 @@ As access to Helmi during the Pilot Phase is limited it is recommended that you 
 	* `. /.python_envs/qiskit-iqm/bin/activate`
 	* `pip install qiskit-iqm==2.0` or `pip install cirq-iqm==4.1`
 	* You will need a separate project with Mahti access.
-	* Installation with [Tykky](../../../computing/containers/tykky/) is recommended.
+	* Installation with [Tykky](../../../containers/tykky/) is recommended.
 -->
 
 Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s). For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`. 

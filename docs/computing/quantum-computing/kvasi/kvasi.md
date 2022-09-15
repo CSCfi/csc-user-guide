@@ -1,7 +1,7 @@
 # Accessing Kvasi
 
 You first need a CSC userid for Puhti. If you do not have one, check out the
-[How to get started as a new user at CSC?](../../support/faq/how-to-get-started-at-CSC.md) FAQ.
+[How to get started as a new user at CSC?](../../../support/faq/how-to-get-started-at-CSC.md) FAQ.
 
 In order to access Kvasi, your CSC userid needs to part of the `kvasi-users` group. Send a mail to servicedesk@csc.fi and ask to be added to the **kvasi-users** group.
 

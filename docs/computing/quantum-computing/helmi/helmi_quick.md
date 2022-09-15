@@ -1,6 +1,6 @@
 # Setting up a LUMI project and accounts for accessing Helmi
 
-This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../computing/overview/).
+This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../overview/).
 
 ## Access to LUMI
 
@@ -8,14 +8,14 @@ Helmi is accessed through the LUMI environment. Users accessing Helmi need to be
 
 Detailed instructions on how to create a LUMI project can be found behind the following links. The first will guide you through the process of creating a LUMI project via MyCSC, the second will guide you through the specific LUMI Helmi partition instructions.
 
-* [Creating a LUMI project and applying for resources](../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
+* [Creating a LUMI project and applying for resources](../../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 	* **Select "Development" from the LUMI access mode**
 
 * [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
 
 After creation of a project, the PI/PM can invite additional standard users to the project:
 
-* [How to add members to project](../../../accounts/how-to-add-members-to-project)
+* [How to add members to project](../../../../accounts/how-to-add-members-to-project)
 
 **Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is, for example, limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation. The project PI is responsible for ensuring that the Helmi Terms of Use are followed.
 
@@ -25,7 +25,7 @@ After creation of a project, the PI/PM can invite additional standard users to t
 ### Setting up SSH key pair
 
 **You can only log in to LUMI using SSH keys**. There are no passwords. In order
-for this to work, [you need to add your ssh keys in MyCSC portal](../../../computing/connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
+for this to work, [you need to add your ssh keys in MyCSC portal](../../../connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
 
 #### Generate your SSH keys
 
@@ -70,14 +70,14 @@ After registering for a LUMI user account, you need to register a **public** key
     set the number of bits to 4096. The, press the *Generate* button.
 
     <figure>
-      <img src="../../../img/win-keygen-step1.png" width="400" alt="Create SSH key pair with windows - step 1">
+      <img src="../../../../img/win-keygen-step1.png" width="400" alt="Create SSH key pair with windows - step 1">
     </figure>
 
     You will be requested to move the mouse in the Key area to generate some 
     entropy; do so until the green bar is completely filled.
 
     <figure>
-      <img src="../../../img/win-keygen-step2.png" width="400" alt="Create SSH key pair with windows - step 2">
+      <img src="../../../../img/win-keygen-step2.png" width="400" alt="Create SSH key pair with windows - step 2">
     </figure>
 
     After that, enter a comment in the Key comment field and a strong
@@ -86,7 +86,7 @@ After registering for a LUMI user account, you need to register a **public** key
     **Do not leave the passphrase empty**.
 
     <figure>
-      <img src="../../../img/win-keygen-step3.png" width="400" alt="Create SSH key pair with windows - step 3">
+      <img src="../../../../img/win-keygen-step3.png" width="400" alt="Create SSH key pair with windows - step 3">
     </figure>
 
     The next step is to save your public and private key. Click on the *Save 
@@ -107,7 +107,7 @@ Now that you have generated your key pair, you need to set up your **public** ke
 To register your key in [MyCSC](https://my.csc.fi/), click on the *My Profile* item of the menu on the left, as shown in the figure below. Then scroll to the end and in the *SSH PUBLIC KEYS* panel click the *Modify* button. From here, click the *Add new* button and paste your new public key in the text area and click *Add*.
 
 <figure>
-	<img src="../../../img/csc-profile.png" width="700" alt="Screenshot of user profile settings to setup ssh public key">
+	<img src="../../../../img/csc-profile.png" width="700" alt="Screenshot of user profile settings to setup ssh public key">
 	<figcaption>MyCSC profile information to add ssh public key.</figcaption>
 </figure>
 
@@ -178,5 +178,5 @@ Once you added this line to your SSH configuration file, you can connect simply 
 
 Additional information can be found in the [main LUMI documentation page](https://docs.lumi-supercomputer.eu/).
 
-The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../support/contact/), reachable at servicedesk@csc.fi. 
+The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi. 
 

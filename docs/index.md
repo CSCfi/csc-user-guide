@@ -55,10 +55,10 @@
 [Allas User Guide](data/Allas/index.md)
 </span><br>
 <span class="index-quicklinks">
-[Kvasi QLM Guide](quantum-computing/overview.md#kvasi)
+[Kvasi QLM Guide](computing/quantum-computing/overview.md#kvasi)
 </span><br>
 <span class="index-quicklinks">
-[Helmi User Guide](quantum-computing/overview.md#helmi)
+[Helmi User Guide](computing/quantum-computing/overview.md#helmi)
 </span><br>
 <span class="index-quicklinks">
 [Getting started with Puhti](support/tutorials/puhti_quick.md)
@@ -70,7 +70,7 @@
 [Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
 </span><br>
 <span class="index-quicklinks">
-[Getting started with Helmi](quantum-computing/helmi/helmi_quick.md)
+[Getting started with Helmi](computing/quantum-computing/helmi/helmi_quick.md)
 </span><br>
 <span class="index-quicklinks">
 [Sensitive Data services User Guide](data/sensitive-data/index.md) 

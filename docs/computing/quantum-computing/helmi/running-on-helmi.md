@@ -62,7 +62,7 @@ job = backend.run(circuit_decomposed, shots=, qubit_mapping=qubit_mapping) # Run
 ```
 
 
-Helmi currently uses the `qiskit-iqm==2.0` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../computing/containers/tykky/) documentation.
+Helmi currently uses the `qiskit-iqm==2.0` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../containers/tykky/) documentation.
 
 ### Cirq
 
@@ -78,7 +78,7 @@ backend = Helmi().set_helmi()
 ```
 
 
-Helmi currently uses `cirq-iqm==4.1` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../computing/containers/tykky/) documentation.
+Helmi currently uses `cirq-iqm==4.1` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../containers/tykky/) documentation.
 
 ### OpenQASM
 

@@ -94,7 +94,7 @@ qubit_mapping = {
 The virtual qubits are obtained from our decomposed circuit. The qubit mapping is defined via a python dictionary. Here we are mapping the first virtual qubit to the first of Helmi's qubits, QB1. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. 
 
 <p align="center">
-    <img src="../../../img/helmi_mapping.png" alt="Helmi's node mapping">
+    <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
 </p>
 
 
