@@ -6,16 +6,13 @@
 
 ## Available
 
-__PCL__ is available in Puhti-rhel7 with following versions:
+__PCL__ is available in Puhti-rhel8 with following versions:
 
-* 1.9.1 
+* 1.12.1 without PCLpy
+* 1.9.1 with PCLpy version 0.12.0 with Python 3.8.
 
-This version includes __PCLpy__ version 0.12.0 with Python 3.8.
+ 
 All included Python packages can be seen by using the command `list-packages`.
-
-PCL has been compiled with Boost, Eigen, FLANN and Qhull
-
-If you have a need for an updated version, please contact us at servicedesk@csc.fi
 
 ## Usage
 
@@ -23,11 +20,17 @@ PCL is included in the __pcl__ module and can be loaded with
 
 `module load pcl`
 
-You can see all available binaries with the command
+You can see all available binaries with the command depending on the version:
 
-`ls /appl/soft/geo/pcl/1.9.1/bin`
+```
+ls /appl/soft/geo/pcl/1.12.1/bin
+``` 
+or 
+```
+ls /appl/soft/geo/pcl/1.9.1/bin
+```
 
-Note, that not all PCL modules are available in PCLpy.
+Note, that PCL/1.9.1 includes less PCL modules.
 
 ## License and acknowledgement
 
