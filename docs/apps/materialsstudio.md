@@ -1,45 +1,46 @@
 # Materials Studio
 
-Materials Studio is a versatile modelling suite for building and 
+Materials Studio is a versatile modelling suite for building and
 quantum and classical simulation of molecules, materials and nanostructures.
 
 !!! Note
     The national Materials Studio license provided by CSC will end by the end of 2022.
-    From 2023 on Materials Studio will not be availale any more.
+    From 2023 on Materials Studio will not be available any more.
     Please consider using e.g. [Maestro](./maestro.md) or [AMS](ams.md) as a replacement.
-
 
 ## License
 
 Materials Studio is a commercial program by [Biovia Inc.](https://3dsbiovia.com/)
-CSC has purchased a national academic license for the year 2020 that allows non-profit
-usage in Finnish institutes proviging higher education (for example
-universities). If you're new to Materials Studio, consider also [Maestro](maestro.md),
+CSC has purchased a national academic license for the year 2022 that allows non-profit
+usage in Finnish institutes providing higher education (for example
+universities). If you're new to Materials Studio, consider also [Maestro](maestro.md)
 and [AMS](ams.md).
 
 ## Available
 
-Puhti-rhel7: Version 2020
+Puhti-rhel8: Version 2020
 
-Materials Studio version 2020 can be downloaded and installed on your local 
+Materials Studio version 2020 can be downloaded and installed on your local
 computer. The graphical user interface runs only on Windows, but the
 back end server components can also be run on Linux.
 
-Look here for [installation files and instructions to configure licensing](https://wiki.eduuni.fi/display/cscjemma/Materials+Studio) (requires Haka authentication)
+Look here for [installation files and instructions to configure
+licensing](https://wiki.eduuni.fi/display/cscjemma/Materials+Studio) (requires
+Haka authentication)
 
 ## Usage
 
 The way to use Materials Studio is to install it locally and:
 
 1. Prepare jobs (build systems, set simulation parameters) locally
-1. Either run them locally or write the input files on disk
-1. Copy them to Puhti-rhel7, prepare a batch script to run the files
-1. Copy the results back for analysis
+2. Either run them locally or write the input files on disk
+3. Copy them to Puhti-rhel8, prepare a batch script to run the files
+4. Copy the results back for analysis
 
 See above for instructions for download, local installation and license configuration.
-Usage on Puhti-rhel7 does not require any installation steps.
+Usage on Puhti-rhel8 does not require any installation steps.
 
-### Detailed workflow and tips for running standalone jobs on Puhti-rhel7
+### Detailed workflow and tips for running standalone jobs on Puhti-rhel8
 
 * Once you've set up your simulation, instead of running it, click the "Files" button
 next to the "Run" button, and save the files on your local disk. You can find the
@@ -49,9 +50,9 @@ Note, that by default Windows file manager does not show all files, so you may n
 to edit the preferences.
 
 * Use some graphical file transfer tool to copy all files in the subdirectory created
-by the Materials Studio GUI to a subdirectory in Puhti-rhel7 in your /scratch area.
+by the Materials Studio GUI to a subdirectory in Puhti-rhel8 in your /scratch area.
 
-* Open an ssh-connection to Puhti-rhel7, and copy/paste the template batch script from
+* Open an ssh-connection to Puhti-rhel8, and copy/paste the template batch script from
 below to that directory.
 
 * Change the "seedname" to match yours (name of the local folder and preceded by `.param`
@@ -66,7 +67,7 @@ computer (you can overwrite all existing files).
 * Refresh the "project" view in the Materials Studio GUI.
 
 Different Materials Studio "modules" require a little bit different batch scripts to run
-as standalone jobs on Puhti-rhel7. A simple example for DMol3:
+as standalone jobs on Puhti-rhel8. A simple example for DMol3:
 
 ```bash
 #!/bin/bash
@@ -120,7 +121,7 @@ $RunMS -np $SLURM_NTASKS $seedname
 
 ```
 
-Some modules, like Forcite, require a different way (MaterialsScript) to run them on Puhti-rhel7.
+Some modules, like Forcite, require a different way (MaterialsScript) to run them on Puhti-rhel8.
 Instructions on using this will provided later. You can find the details
 from the Materials Studio help under "Running MaterialsScript in standalone mode".
 
@@ -132,4 +133,3 @@ Please see method descriptions and log files in Materials Studio for details.
 
 The [Biovia website](https://3dsbiovia.com/events/webinars/materials-science/)
 has useful material for self study, and the documentation which comes with the Suite has several very useful tutorials.
-
