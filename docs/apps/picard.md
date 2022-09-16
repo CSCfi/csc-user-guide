@@ -15,7 +15,7 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 ## Available
 
 Version on CSC's Servers
-- Puhti-rhel7:  2.26.8
+- Puhti-rhel8:  2.27.4
 
 ## Usage
 
@@ -30,7 +30,7 @@ picard
 ```
 
 Please note that in the Picard manual commands start with "java -jar
-picard.jar". In Puhti-rhel7 Picard needs to be run through a wrapper script,
+picard.jar". In Puhti-rhel8 Picard needs to be run through a wrapper script,
 so substitute that with just **picard**.
 
 Example:

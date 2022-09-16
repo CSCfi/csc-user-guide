@@ -13,7 +13,7 @@ Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blo
 
 ## Available
 
-*  Seqtk version 1.3-r106 is available in Puhti-rhel7
+*  Seqtk version 1.3-r106 is available in Puhti-rhel8
 
 ## Usage
 

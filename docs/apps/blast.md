@@ -31,7 +31,7 @@ Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/ol
 
 ## Available
 
--   Puhti-rhel7: 2.12.0
+-   Puhti-rhel8: 2.12.0
 -   FGCI: 2.6.0
 -   Chipster graphical user interface
 

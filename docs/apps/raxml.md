@@ -14,7 +14,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
--   Puhti-rhel7: 8.2.12
+-   Puhti-rhel8: 8.2.12
 
 ## Usage
 
@@ -55,7 +55,7 @@ For versions 8.2.12 and newer there are also AVX optimized binaries available (*
 
 For details, please refer to chapter "When to use which Version?" in the RAxML manual.
 
-**Example batch job script for the PThreads version for Puhti-rhel7**
+**Example batch job script for the PThreads version for Puhti-rhel8**
 ```text
 #!/bin/bash
 #SBATCH --account=project_1234567
@@ -70,7 +70,7 @@ module load raxml/8.2.12
 raxmlHPC-PTHREADS -T $SLURM_CPUS_PER_TASK ­-s alg -­m GTRGAMMA ­-p 12345 ­-n test1
 
 ```
-**Example batch job script for the MPI version for Puhti-rhel7**
+**Example batch job script for the MPI version for Puhti-rhel8**
 ```text
 #!/bin/bash
 #SBATCH --account=project_1234567

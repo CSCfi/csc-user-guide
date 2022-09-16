@@ -12,13 +12,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti-rhel7: 0.7.17
+-   Puhti-rhel8: 0.7.17
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 
 ## Usage
 
-In Puhti-rhel7, BWA can be taken in use as part ofth the _biokit_ module collection:
+In Puhti-rhel8, BWA can be taken in use as part ofth the _biokit_ module collection:
 
 ```text
 module load biokit

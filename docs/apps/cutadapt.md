@@ -11,11 +11,11 @@ Free to use and open source under [MIT License](https://github.com/marcelm/cutad
 
 ## Available
 
--   Puhti-rhel7: 3.2, 3.4, 3.5
+-   Puhti-rhel8: 3.2, 3.4, 3.5
 
 ## Usage
 
-In Puhti-rhel7, latest version of Cutadapt can be taken in use by loading a module:
+In Puhti-rhel8, latest version of Cutadapt can be taken in use by loading a module:
 
 ```bash
 module load cutadapt

@@ -16,14 +16,14 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti-rhel7: 2.4.4, 2.4.1, 2.3.5.1
+-   Puhti-rhel8: 2.4.1, 2.4.4, 2.3.5.1
 -   Chipster graphical user interface
 
 
 
 ## Usage
 
-In Puhti-rhel7, Bowtie2 can be taken in use as part of the _biokit_ module collection:
+In Puhti-rhel8, Bowtie2 can be taken in use as part of the _biokit_ module collection:
 
 ```bash
 module load biokit

@@ -29,7 +29,7 @@
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
-* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
+* [HUMAnN](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
