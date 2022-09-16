@@ -25,4 +25,4 @@ production setup, so you can test your current installations easily.
 ## CPU and GPU nodes with RHEL8
 
 New OS can be tested on two partitions, `rhel8-cpu` and `rhel8-gpu`,
-which have 10 and 2 respectively.
+which have 10 and 2 nodes respectively.
