@@ -26,16 +26,16 @@ Currently supported PyTorch versions:
 | Version | Module         | Puhti | Mahti | Notes           |
 |:--------|----------------|:-----:|:-----:|:----------------|
 | 1.12.0  | `pytorch/1.12` | X     | X     | default version |
-| 1.11.0  | `pytorch/1.11` | (X)   | X     |                 |
-| 1.10.0  | `pytorch/1.10` | (X)   | (X)   |                 |
-| 1.9.0   | `pytorch/1.9`  | (X)   | (X)   |                 |
-| 1.8.1   | `pytorch/1.8`  | (X)   | (X)   |                 |
-| 1.7.1   | `pytorch/1.7`  | (X)   | -     |                 |
+| 1.11.0  | `pytorch/1.11` | X     | X     |                 |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   |                 |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   |                 |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   |                 |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     |                 |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
 
-Versions marked with "(X)" are based on old Red Hat Enterprise Linux 7
+Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
 (RHEL7) images, and are no longer fully supported. In particular MPI
 and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
@@ -134,7 +134,6 @@ a single node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=32
     #SBATCH --time=1:00:00
