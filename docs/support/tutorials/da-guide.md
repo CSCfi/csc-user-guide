@@ -62,7 +62,7 @@ As Puhti is a shared computing environment, users are restricted in what they ca
 
 If you need to heavily parallelize your computing, or for example use GPU-accelerated processing, Puhti is the right answer (see instructions in the above section).
 
-For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md), [MXNET](../../apps/mxnet.md) and [RAPIDS](../../apps/rapids.md). 
+For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md) and [RAPIDS](../../apps/rapids.md). 
 
 For more information:
 
