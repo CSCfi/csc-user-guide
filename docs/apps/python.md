@@ -18,7 +18,6 @@ of scientific libraries:
 
    * python-env - Anaconda Python with conda tools
    * [python-data](python-data.md) - for data analytics and machine learning
-   * [MXNet](mxnet.md) - MXNet deep learning framework
    * [PyTorch](pytorch.md) - PyTorch deep learning framework
    * [RAPIDS](rapids.md) - for data analytics and machine learning on GPUs
    * [TensorFlow](tensorflow.md) - TensorFlow deep learning framework

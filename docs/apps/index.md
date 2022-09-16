@@ -108,7 +108,6 @@
 
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [JAX](jax.md) Autograd and XLA, brought together for high-performance machine learning 
-* [MXNet](mxnet.md) Deep learning library for Python
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [Spark](spark.md) High-performance distributed computing framework 
