@@ -5,6 +5,16 @@
         {% include "partials/matomo.html" %}
     {% endif %}
 {% endblock extrahead %}
+{% block announce %}
+    {% if config.extra.announcement_visible is not true %}
+    <style>
+    .md-banner {
+        display: none;
+    }
+    </style>
+    {% endif %}
+    {% include "partials/announcement.html" %}
+{% endblock announce %}
 {% block content %}
     {% include "partials/breadcrumbs.html" %}
     {{ super() }}
