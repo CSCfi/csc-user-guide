@@ -2,7 +2,7 @@
 
 Access can be granted to the following services: supercomputers **Puhti** and
 **Mahti**; cloud services **ePouta**, **cPouta** and **Rahti**; storage services **Allas**
-and **IDA**; and database service **Kaivos**.
+and **IDA**; Sensitive Data services **SD Services**; and database service **Kaivos**.
 
 Service access has a two-step approval: (1) The project manager approves
 the service for the project and (2) members approve it for themselves.
