@@ -1,7 +1,7 @@
 # LUMI Helmi Pilot Phase 
 
 
-Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for three months, starting 22 Sep 2022.  
+Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for three months, starting 28 September 2022.  
 
 
 !!! info "Apply for a project!"
@@ -22,17 +22,6 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for 
 
 As access to Helmi during the Pilot Phase is limited it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process CSC offers a `FakeHelmi()` backend.
 
-<!--
-* [Kvasi](../../kvasi/kvasi/) - the Quantum Learning Machine (Currently does not offer Qiskit support, Kvasi can be accessed through LUMI in the future)
-	* Kvasi runs [myQLM](https://myqlm.github.io/) which provides interoperability with Qiskit, OpenQASM and Cirq. 
-
-* [Mahti](/computing/systems-mahti/) through `module load qiskit` and loading of the IQM Qiskit environment through creation of your own python environment.
-	* `python -m venv .python_envs/qiskit-iqm`
-	* `. /.python_envs/qiskit-iqm/bin/activate`
-	* `pip install qiskit-iqm==2.0` or `pip install cirq-iqm==4.1`
-	* You will need a separate project with Mahti access.
-	* Installation with [Tykky](../../../containers/tykky/) is recommended.
--->
 
 Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s). For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`. 
 
