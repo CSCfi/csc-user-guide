@@ -92,7 +92,7 @@ Submission of OpenQASM formatted files is not currently supported on Helmi. You 
 
 To make the most efficient use of Helmi, some knowledge of the underlying system architecture and topology is needed. [Helmi's topology is described here](../helmi/) and the examples below show how this topology is utilised to improve results. 
 
-An additional set of examples can be found here [**Insert link**]. The examples emphasize the difference between running on a simulator and a real physical quantum computer, and how to construct your circuits for optimum results on Helmi. The repository also contains some useful scripts for submitting jobs. Currently, **Qiskit** examples are available.
+An additional [set of examples can be found here](https://github.com/FiQCI/helmi-examples). The examples emphasize the difference between running on a simulator and a real physical quantum computer, and how to construct your circuits for optimum results on Helmi. The repository also contains some useful scripts for submitting jobs. Currently, **Qiskit** examples are available.
 
 The `csc_qu_tools` python file contains all the necessary functions and classes needed for using Helmi via LUMI. This tool is not required for Qiskit usage as it provide much of the same functionality as `qiskit-iqm`. The Cirq class is required for Helmi specific functionality, therefore we recommend users to use this for submitting jobs to Helmi. 
 

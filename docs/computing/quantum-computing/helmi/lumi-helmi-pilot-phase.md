@@ -37,7 +37,7 @@ To submit and run jobs on Helmi you need to use the correct environment on LUMI.
 	* `module load helmi_qiskit` or 
 	* `module load helmi_cirq`
 
-A set of Qiskit examples and scripts for guidance in using the LUMI-Helmi partition are available. You can find these here [**Insert link**]. 
+A set of Qiskit examples and scripts for guidance in using the LUMI-Helmi partition are available. [You can find these here](https://github.com/FiQCI/helmi-examples). 
 
 <!--
 ## FAQ
