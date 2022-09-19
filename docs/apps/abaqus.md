@@ -23,7 +23,7 @@ and check lines *abaqus/(version number)*. For example, to load Abaqus version 2
 
     module load abaqus/2022
 
-There is an example of **batch job file** available on Puhti server:
+There is an example of **batch job file** available on Puhti-rhel8 server:
 
     /appl/soft/eng/simulia/example_batch_job_files/parjob_puhti_abaqus
 
