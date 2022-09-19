@@ -9,7 +9,7 @@ SIMULIA Academic Research Suite products are proprietary software. The licenses 
 
 ## Available
 
-Licenses are available on CSC's computing platform [Puhti](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+Licenses are available on CSC's computing platform [Puhti-rhel8](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 ## Usage
 
