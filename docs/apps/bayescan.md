@@ -30,7 +30,7 @@ With bayescan_2.1 it is important to define the number of threads
 always explisitely. This is because by default BayeScan tries
 to use all available cores.
 
-In Puhti-rhel7, BayeScan tasks should be executed as batch jobs.
+In Puhti-rhel8, BayeScan tasks should be executed as batch jobs.
 Below is a sample batch job file for BayeScan:
 
 ```text

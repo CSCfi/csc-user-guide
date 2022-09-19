@@ -22,7 +22,7 @@ In Puhti-rhel8, Bamtools can be taken in use as a part of biokit module collecti
 ```bash
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools in Puhti-rhel7,
+The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools in Puhti-rhel8,
  that have a separate setup commands.
 
 The syntax of bamtools is:
