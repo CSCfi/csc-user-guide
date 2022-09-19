@@ -7,7 +7,7 @@ flexibility.
 
 ## Available
 
--  Puhti-rhel7: 2021
+-  Puhti-rhel8: 2022
 -  Download and install locally
 
 ## License
@@ -23,12 +23,12 @@ See our [CSD page](csd.md) for installation and activation instructions.
 
 GOLD can be used either from the command-line or via a graphical user
 interface (GUI) called Hermes. The best way to run a GUI remotely
-on Puhti-rhel7 is to use the [Puhti-rhel7 web interface desktop](../computing/webinterface/desktop.md). To set up
+on Puhti-rhel8 is to use the [Puhti-rhel8 web interface desktop](../computing/webinterface/desktop.md). To set up
 the GOLD interactive environment, open a `Host Terminal` and run:
 
-`module load ccdc`
+`module load ccdc/2022`
 
-This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti-rhel7 web interface does not yet provide accelerated graphics.
+This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti-rhel8 web interface does not provide accelerated graphics for Hermes.
 
 Longer (non-interactive) jobs are best run as batch jobs:
 
