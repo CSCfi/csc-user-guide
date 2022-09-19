@@ -68,7 +68,7 @@ Usage up to 50 GiB is free of charge.
 
 The Allas object storage is charged:
 
-* 1 TiB consumes **1** BU per hour.
+* 1 TiB consumes **1** BU per hour. Only actual data stored in Allas is billed.
 
 ## cPouta and ePouta
 
