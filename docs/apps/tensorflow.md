@@ -27,10 +27,10 @@ Currently supported TensorFlow versions:
 |:--------|:---------------------|:-----:|:-----:|:-------:|-----------------|
 | 2.9.0   | `tensorflow/2.9`     | X     | X     | X       | default version |
 | 2.8.0   | `tensorflow/2.8`     | X     | X     | X       |                 |
-| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   |         |                 |
-| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   |         |                 |
-| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   |         |                 |
-| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   |         |                 |
+| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -       |                 |
+| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -       |                 |
+| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -       |                 |
+| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   | -       |                 |
 | 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -       |                 |
 | 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -       |                 |
 | 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -       |                 |
