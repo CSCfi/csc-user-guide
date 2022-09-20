@@ -5,7 +5,7 @@ The FiQCI partition of LUMI provides access to the Helmi quantum computer. Acces
 
 ## LUMI Helmi projects vs. regular LUMI projects
 
-When applying for a new project in MyCSC for accessing the FiQCI QPU partition, under "Select LUMI **access mode**", select the "Development" option. From here fill in the applied **resources**: 1440 QPUm (that is, 24 QPUh). You will need to mention "Helmi" in the description of program codes, methods and research objectives. 
+When applying for a new project in MyCSC for accessing the FiQCI QPU partition, under "Select LUMI **access mode**", select the "Development" option. From here fill in the applied **resources** QPUm. You will need to mention "Helmi" in the description of program codes, methods and research objectives. 
 
 !!! info "Pilot Phase"
 	During the pilot phase, approved projects will get 24 hours of access to the FiQCI Partition.
