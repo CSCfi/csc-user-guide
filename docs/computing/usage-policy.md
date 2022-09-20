@@ -19,6 +19,15 @@ Programs not adhering to these rules will be terminated without warning.
 !!! warning "Important"
     The login nodes are not meant for long or heavy processes.
 
+## Disk cleaning
+
+
+## Conda installations
+
+## IO load 
+
+
+
 ## GPU nodes
 Puhti-AI's V100 GPUs should only be used for the following workloads:
 
