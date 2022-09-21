@@ -12,7 +12,7 @@ the dependent variables.
 
 ## Available
  
-- Puhti-rhel7: 5.4, 5.5, 5.6, 6.0
+- Puhti-rhel8: 6.0
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff
