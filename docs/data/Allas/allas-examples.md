@@ -473,7 +473,7 @@ For example:
 a-put road_cameras/site_*
 ```
 This would produce ten objects, each containing all information from one camera site.
-Alternatively, you could do the archieving so that data from each year from each camera is collected as one object:
+Alternatively, you could do the archiving so that data from each year from each camera is collected as one object:
 ```text
 a-put road_cameras/site_*/20*
 ```
