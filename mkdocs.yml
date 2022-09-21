@@ -9,8 +9,6 @@ extra:
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
 
 plugins:
-  - tags:
-      tags_file: apps/by_license.md
   - search
   - git-revision-date-localized:
       type: date
@@ -88,7 +86,6 @@ extra_css:
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
   - assets/stylesheets/table.css
-  - assets/stylesheets/tags.css
   - assets/stylesheets/video.css
   - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
 
@@ -181,7 +178,7 @@ nav:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-       - Rahti4 migration: cloud/rahti/rahtiv2-migration.md
+       - Rahti4 migration: cloud/rahti/rahti4-migration.md
        - Rahti Tutorials:
          - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
          - Annotations: cloud/rahti/tutorials/annotations.md
@@ -225,7 +222,7 @@ nav:
          - Getting access: cloud/rahti4/access.md
          - Using the web interface: cloud/rahti4/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti4/usage/cli.md
-       - Rahti4 migration: cloud/rahti4/rahtiv2-migration.md
+       - Rahti4 migration: cloud/rahti4/rahti4-migration.md
        - Rahti Tutorials:
          - Accessing databases on Rahti from CSC supercomputers: cloud/rahti4/tutorials/connect-database-hpc.md
          - Annotations: cloud/rahti4/tutorials/annotations.md
@@ -270,7 +267,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
-            - API Access to Pouta: cloud/pouta/api-access.md  
+            - API Access to Pouta: cloud/pouta/api-access.md
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md
@@ -294,7 +291,7 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
-       - What is new: cloud/csc_notebooks/what_is_new.md
+       - Migration to beta: cloud/csc_notebooks/migration_to_beta.md
   - Data:
 #    - Datasets: data/datasets.md
      - Working with data:
@@ -343,7 +340,6 @@ nav:
      - apps/index.md
      - By discipline: apps/by_discipline.md
      - By availability: apps/by_system.md
-     - By license: apps/by_license.md
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material.md
