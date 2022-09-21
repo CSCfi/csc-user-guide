@@ -455,9 +455,9 @@ This way, you would end up creating ten buckets each containing 262 800 objects.
 This approach could be the most effective way for storing and reusing the data, if you know that you will need to
 access individual images randomly.
 
-As another extreme option, your could use `a-put` and collect all data into one compressed object. In order to do that, you
+As another extreme option, your could use `a-put` and collect all data into one archive object. In order to do that, you
 must add the option _--skip-filelist_ to the `a-put` command. By default, `a-put` collects detailed metadata of **each** file in a _ameta_ file. 
-However, if you have thousands of files, collecting this information takes a long time. If you need to know the file names, 
+However, if you have millions of files, collecting this information takes a long time. If you need to know the file names, 
 you can use the _--simple-fileslist_ option to collect the names – but **no** other information – of the files in the metadata file. 
 This already speeds up the preprocessing significantly. However, as in this case the naming has been systematic, storing the file names to the metadata files can be just ignored altogether (`--skip-filelist`), which is the fastest option.
 
@@ -470,12 +470,12 @@ In practice, the optimal way of storing the data is often between these two extr
 
 For example:
 ```text
-a-put --skip-filelist road_cameras/site_*
+a-put road_cameras/site_*
 ```
 This would produce ten objects, each containing all information from one camera site.
-Alternatively, you could do the compression so that data from each year from each camera is collected as one object:
+Alternatively, you could do the archieving so that data from each year from each camera is collected as one object:
 ```text
-a-put --skip-filelist road_cameras/site_*/20*
+a-put road_cameras/site_*/20*
 ```
 This last option would store the data as 50 objects. Day-based objects for each camera might be the most practical 
 option for using the data later on but, as a downside, preprocessing the data into 10 * 5 * 365 = 18250 objects 
