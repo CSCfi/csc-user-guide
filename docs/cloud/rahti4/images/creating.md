@@ -65,6 +65,12 @@ docker push docker.io/user/name:tag
 
 ## Using Rahti to build container images
 
+The methods below use Rahti to build the images.
+
+### Using a local folder for building
+
+This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti to clone a repository directly.
+
 This assumes that you have authorized a Rahti command line session and created
 a project in Rahti. Instructions for that are shown in Chapter [Command line
 tool usage](../usage/cli.md#cli-cheat-sheet).
@@ -98,9 +104,9 @@ compatible clients.
 
 For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
 
-## Using the Source to Image mechanism
+### Using the Source to Image mechanism
 
-OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
+OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. It is used by running `oc new-app URL#branch`, the `#branch` is optional. For example, use the official python sample code:
 
 ```bash
 $ oc new-app https://github.com/CSCfi/nodejs-16-rahti-example.git
@@ -151,7 +157,7 @@ oc start-build nodejs-16-rahti-example
 
 Or using [webhooks](../../../rahti4/tutorials/webhooks/)
 
-## Using the inline Dockerfile method
+### Using the inline Dockerfile method
 
 It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
 

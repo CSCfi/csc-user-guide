@@ -73,6 +73,12 @@ docker push docker.io/user/name:tag
 
 ## Using Rahti to build container images
 
+The methods below use Rahti to build the images.
+
+### Using a local folder for building
+
+This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti to clone a repository directly.
+
 This assumes that you have authorized a Rahti command line session and created
 a project in Rahti. Instructions for that are shown in Chapter [Command line
 tool usage](../usage/cli.md#cli-cheat-sheet).
@@ -111,9 +117,9 @@ For command-line usage with docker compatible clients, the docker repository pas
 The Docker CLI tool login instructions are also shown in the [Rahti registry
 console](https://registry-console.rahti.csc.fi).
 
-## Using the Source to Image mechanism
+### Using the Source to Image mechanism
 
-OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
+OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. It is used by running `oc new-app URL#branch`, the `#branch` is optional. For example, use the official python sample code:
 
 ```bash
 $ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
@@ -168,7 +174,41 @@ oc start-build os-sample-python
 
 Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
 
-## Using the inline Dockerfile method
+### Using the `Docker` strategy
+
+This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti will then detect that there is a Dockerfile in the repository and build the image automatically. This is usefull when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti3 does not support node16 by default.
+
+```sh
+$ oc new-app https://github.com/IBM/nodejs-express-app.git
+--> Found container image 0787341 (13 days old) from registry.access.redhat.com for "registry.access.redhat.com/ubi8/nodejs-16-minimal:1"
+
+    Node.js 16 Minimal 
+    ------------------ 
+    Node.js 16 available as container is a base platform for running various Node.js 16 applications and frameworks. Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+
+    Tags: builder, nodejs, nodejs16
+
+    * An image stream tag will be created as "nodejs-16-minimal:1" that will track the source image
+    * A Docker build using source code from https://github.com/IBM/nodejs-express-app.git will be created
+      * The resulting image will be pushed to image stream tag "nodejs-express-app:latest"
+      * Every time "nodejs-16-minimal:1" changes a new build will be triggered
+
+--> Creating resources ...
+    imagestream.image.openshift.io "nodejs-16-minimal" created
+    imagestream.image.openshift.io "nodejs-express-app" created
+    buildconfig.build.openshift.io "nodejs-express-app" created
+    deployment.apps "nodejs-express-app" created
+    service "nodejs-express-app" created
+--> Success
+    Build scheduled, use 'oc logs -f buildconfig/nodejs-express-app' to track its progress.
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose service/nodejs-express-app' 
+    Run 'oc status' to view your app.
+```
+
+Then one can continue following the steps in the Spource 2 Image procedure above (`oc expose svc/nodejs-express-app'` and `oc get route nodejs-express-app`).
+
+### Using the inline Dockerfile method
 
 It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
 
