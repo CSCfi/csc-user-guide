@@ -24,5 +24,12 @@ production setup, so you can test your current installations easily.
 
 ## CPU and GPU nodes with RHEL8
 
-New OS can be tested on two partitions, `rhel8-cpu` and `rhel8-gpu`,
-which have 10 and 2 respectively.
+There are three different test partitions that can be used to run
+short tests:
+
+| Name      | Nodes | Max jobs | Max run time | Max job size |
+|-----------|------:|---------:|-------------:|-------------:|
+| rhel8-cpu |    10 |        5 |       30 min |      8 nodes |
+| rhel8-gpu |     2 |        2 |       30 min |      2 nodes |
+| rhel8-fmi |    12 |        5 |       30 min |     12 nodes |
+

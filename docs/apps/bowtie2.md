@@ -16,19 +16,19 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti-rhel7: 2.4.4, 2.4.1, 2.3.5.1
+-   Puhti-rhel8: 2.4.1, 2.4.4, 2.3.5.1
 -   Chipster graphical user interface
 
 
 
 ## Usage
 
-In Puhti-rhel7, Bowtie2 can be taken in use as part of the _biokit_ module collection:
+In Puhti-rhel8, Bowtie2 can be taken in use as part of the _biokit_ module collection:
 
 ```bash
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools, including  Bowtie2. (Note however that there are bioinformatics tools in Puhti-rhel7,
+The biokit modules sets up a set of commonly used bioinformatics tools, including  Bowtie2. (Note however that there are bioinformatics tools in Puhti-rhel8,
  that have a separate setup commands.)
 
 In typical bowtie2 run you first need to index the reference genome with bowtie2-build command. You should do this in scratch directory in stead of your 
@@ -37,7 +37,7 @@ home directory. For example;
 ```bash
 bowtie2-build genome.fa genome
 ```
-Alternatively you can use chipster_genomes command to download pe-calclutaed bowtie2 indexes from the CSC Chiptser server to Puhti-rhel7:
+Alternatively you can use chipster_genomes command to download pe-calclutaed bowtie2 indexes from the CSC Chiptser server to Puhti-rhel8:
 
 ```
 chipster_genomes bowtie2
@@ -53,10 +53,10 @@ For paried end data the minimal bowtie2 syntax is:
 bowtie2 -x genome -1 first_read_set.fq -2 second_read_set.fq -S output.sam
 ``` 
 
-**Example batch script for Puhti-rhel7**
+**Example batch script for Puhti-rhel8**
 
-In Puhti-rhel7, bowtie and bowtie2 jobs should be run  as batch jobs. Below is a sample batch job file, 
-for running a Bowtie2 paired end alignment in Puhti-rhel7. The recent Bowtie2 versions scale well, so you can effecteively use up 
+In Puhti-rhel8, bowtie and bowtie2 jobs should be run  as batch jobs. Below is a sample batch job file, 
+for running a Bowtie2 paired end alignment in Puhti-rhel8. The recent Bowtie2 versions scale well, so you can effecteively use up 
 to 16 cores in your batch job.
 
 Note that the batch job file must definbe define the project that will be used.
@@ -105,7 +105,7 @@ You can submit the batch job file to the batch job system with command:
 ```
 sbatch batch_job_file.bash
 ```
-See the [Puhti-rhel7 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti-rhel8 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 ## References
 
 When you use Bowtie2, please cite:

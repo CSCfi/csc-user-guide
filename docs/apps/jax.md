@@ -3,14 +3,21 @@
 JAX is Autograd and XLA, brought together for high-performance machine
 learning research. 
 
+!!! News
+
+    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
+    (RHEL8), **the number of supported JAX versions has been reduced.**
+    Please [contact our servicedesk](../support/contact.md) if you really
+    need access to older versions.
+
+
 ## Available
 
 Currently supported JAX versions:
 
-| Version | Module                        | Puhti-rhel7 | Mahti |
-|:-------:|-------------------------------|:-----:|:-----:|
-| 0.3.13  | `jax/0.3.13`                  | X     | X     |
-| 0.2.26  | `jax/0.2.26`                  | X     |       |
+| Version | Module       | Puhti | Mahti |
+|:-------:|--------------|:-----:|:-----:|
+| 0.3.13  | `jax/0.3.13` | X     | X     |
 
 The modules contain [JAX](https://github.com/google/jax/) for Python
 with GPU support via CUDA. 
@@ -23,10 +30,10 @@ that some important JAX-related package should be included in
 the modules provided by CSC, please [contact our
 servicedesk](../support/contact.md).
 
-The JAX modules are Singularity-based but wrapper scripts have been
-provided so that common commands such as `python`, `python3`, `pip`
-and `pip3` should work as normal. For more information, see [CSC's
-general instructions on how to run Singularity
+The JAX modules are Apptainer (formerly Singularity)-based but wrapper
+scripts have been provided so that common commands such as `python`,
+`python3`, `pip` and `pip3` should work as normal. For more
+information, see [CSC's general instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md).
 
 ## License
@@ -36,7 +43,7 @@ JAX is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti-rhel7 or Mahti, initialize it with:
+To use this software on Puhti or Mahti, initialize it with:
 
 ```text
 module load jax
