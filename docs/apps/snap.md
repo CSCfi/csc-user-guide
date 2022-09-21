@@ -1,25 +1,22 @@
 # SNAP
 
-[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common remote sensing satellites.
+[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common satellite platforms.
 
 ## Available
 
-__SNAP__ is available in Puhti-rhel7 with following versions:
+__SNAP__ is available in Puhti-rhel8 with following versions:
 
+* 9.0 (without Python interfaces)
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
-* 7.0 (with snappy 6.0 and python 2.7.5)
 
-### Installed plugins 
+### Installed toolboxes
 
 * Sentinel toolboxes (1,2,3) 
-* All Idepix processors (only in 7.0)
 * SMOS toolbox 
-* SNAPHU (only in 7.0)
 * Radarsat toolbox 
 * PROBA-V toolbox
-* [Sen2Cor](sen2cor.md) (external tool) (only in 7.0)
 
-You can install more plugins to your user directory from the SNAP Graphical user interface
+You can install more plugins to your own user directory from the SNAP Graphical user interface.
 
 ## Usage
 
@@ -54,7 +51,7 @@ snap -J-xmx10G
 
 #### SNAP userdir and Java temp dir configuration 
 
-SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti-rhel7 or want to change the used folders. 
+SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Puhti-rhel8 or want to change the used folders. 
 
 After loading the snap module run
 
@@ -73,11 +70,11 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
         The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
 
 #### Java memory settings
-__By default SNAP/8.0 in Puhti-rhel7 uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
+__By default SNAP/8.0 in Puhti-rhel8 uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti-rhel7 partition](../computing/running/batch-job-partitions.md).
+The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti-rhel8 partition](../computing/running/batch-job-partitions.md).
 
 GPT command looks often something like this:
 
@@ -104,9 +101,9 @@ gpt <snap-operator> -h
 
 `gpt --diag -J-Xmx60G -c 40G` can be used to see which memory and cache settings are used by `gpt`.
 
-#### GPT examples for Puhti-rhel7
+#### GPT examples for Puhti-rhel8
 
-* [Full examples how to run GPT in Puhti-rhel7 in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
+* [Full examples how to run GPT in Puhti-rhel8 in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
 
 
 ### Using SNAP with the Python library snappy
