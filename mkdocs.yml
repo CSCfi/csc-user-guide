@@ -5,6 +5,7 @@ site_url: "https://docs.csc.fi/"
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 extra:
+  announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
 
 plugins:
@@ -48,11 +49,14 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
+  features:
+    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
   - assets/stylesheets/admonition.css
+  - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
@@ -248,10 +252,10 @@ nav:
      - Sensitive data:
         - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-        - SD Connect: data/sensitive-data/sd_connect.md
-        - SD Desktop: data/sensitive-data/sd_desktop.md
-        - Audited SD Desktop for registry data: data/sensitive-data/sd-desktop-audited.md
-#       - FederatedEGA: data/sensitive-data/federatedega.md
+        - Store with SD Connect: data/sensitive-data/sd_connect.md
+        - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
+        - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
+#       - Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
 

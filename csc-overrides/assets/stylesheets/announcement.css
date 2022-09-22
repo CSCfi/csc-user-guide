@@ -1,0 +1,17 @@
+.md-banner {
+    background-color: var(--csc-admonition--bg);
+}
+
+.md-banner__inner {
+    overflow: hidden;
+    max-width: unset;
+    height: auto;
+    margin: .3rem auto;
+}
+
+.md-banner__inner p {
+    margin: unset;
+    font-size: var(--csc-font-size--small);
+    color: var(--csc-admonition--fg);
+    line-height: 2.0;
+}

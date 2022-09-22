@@ -45,4 +45,11 @@ For example, let's say you create a pod with the following specs:
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
 
-0.2*0.5 + (512/1024)*1 + (10/1024)*3 = 0,6293 BUs
+![BU calculation](img/BU-calculation.drawio.svg)
+
+## Billing unit calculator
+
+For an estimate of the billing units the services you plan on using will consume, please refer to the
+billing unit calculator below. The [billing unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
+
+<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
