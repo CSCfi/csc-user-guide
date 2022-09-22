@@ -12,12 +12,12 @@ for *drug design* and *Materials Science*. It can be used to build, edit, run an
 
 Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4, 2022.1
 
-Mahti: 2021.4, 2022.1
+Mahti: 2021.4, 2022.1, 2022.2
 
 !!! info "Incompatibility issue with latest versions"
     
-    Versions 2022.2 and later are incompatible with the RHEL8 operating system on Puhti and Mahti. If you intend
-    to run jobs at CSC, don't upgrade your local installation beyond 2022.1! We're looking for a workaround.
+    Versions 2022.3 and later are incompatible with the RHEL8 operating system on Puhti and Mahti. If you intend
+    to run jobs at CSC, don't upgrade your local installation beyond 2022.2! We're looking for a workaround.
 
 ## License
 
