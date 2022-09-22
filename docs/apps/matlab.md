@@ -27,7 +27,7 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
+There are five interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
 available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
 for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
 and specifying your resource requirements.
@@ -43,7 +43,7 @@ To use MPS, you need to have an user account at CSC, one of the supported MATLAB
 To configure MPS, follow the instructions on below.
 
 1. Make sure, you have a home directory on Puhti by logging in to the cluster with your CSC username and password by using some ssh client.
-2. [Download](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) MPS tool scripts corresponding to the operating system on your computer.
+2. [Download](https://wiki.eduuni.fi/display/cscjemma/MATLAB+Parallel+Server+configuration) MPS tool scripts corresponding to the operating system on your computer.
 3. Unzip or untar the downloaded file and place the contents into some directory on your computer, where you have read and write permissions. Make sure, this directory is set to the MATLAB's path. This can be done, for example, with a `pathtool` command.
 4. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` and giving your CSC username.
 
@@ -67,19 +67,19 @@ Optionally, we can configure also
 - Working directory with a 'CurrentFolder' attribute
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.WallTime = '0:10:0'
->> c.AdditionalProperties.MemUsage = '2g'
->> c.AdditionalProperties.QueueName = 'small'
->> c.AdditionalProperties.AccountName = 'project_<id>'
+>> c = parcluster;
+>> c.AdditionalProperties.WallTime = '0:10:0';
+>> c.AdditionalProperties.MemUsage = '2g';
+>> c.AdditionalProperties.QueueName = 'small';
+>> c.AdditionalProperties.AccountName = 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
->> c.saveProfile
+>> c.saveProfile;
 ```
 
 To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values. For example, to turn off email notifications
 ```bash
->> c.AdditionalProperties.EmailAddress = ''
+>> c.AdditionalProperties.EmailAddress = '';
 ```
 
 #### Submitting a Simple Serial Job
@@ -87,33 +87,28 @@ To clear a value of a property, assign an empty value ('', [], or false), or exe
 We start by defining a handle to the cluster on your MATLAB's command window
 
 ```bash
->> c = parcluster
+>> c = parcluster;
 ```
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
 
 Use the `batch` command to submit a batch jobs to Puhti. The command will return a job object which is used to access the output of the submitted job. See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`. You can, for example, submit a simple job to test the functionality of the MPS.
 
 ```bash
->> j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+>> j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
 
 additionalSubmitArgs =
 
     '--ntasks=1 --licenses=mdcs:1'
 
->> % Wait for the job to finish before fetching the results.
->> j.wait
->>
->> % Now that the job has completed, fetch the results.
+>> When the job has completed, fetch the results.
 >> j.fetchOutputs
 ```
-
-**NB** In the example above, `j.wait` has been used to ensure that the job has completed before requesting results. In regular use, you would not need to use `wait`, since a job might take an elongated period of time, and the MATLAB session can be used for other work while the submitted job executes.
 
 To retrieve a list of currently running or completed jobs, use
 ```bash
 >> jobs = c.Jobs
 >> % Get a handle to the job with sequence number 2
->> j2 = c.Jobs(2)
+>> j2 = c.Jobs(2);
 >> % Fetch results
 >> fetchOutputs(j2)
 ```
@@ -137,7 +132,7 @@ function t = parallel_example
 t0 = tic;
 parfor idx = 1:16
 	A(idx) = idx;
-	pause(2)
+	pause(2);
 end
 t = toc(t0);
 ```
@@ -163,9 +158,9 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 
 ```bash
 >> c = parcluster
->> c.AdditionalProperties.QueueName = 'gpu'
->> c.AdditionalProperties.GpuCard = 'v100'
->> c.AdditionalProperties.GpusPerNode = 1
+>> c.AdditionalProperties.QueueName = 'gpu';
+>> c.AdditionalProperties.GpuCard = 'v100';
+>> c.AdditionalProperties.GpusPerNode = 1;
 >> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
@@ -188,6 +183,3 @@ Documentation and manuals for MATLAB and related products is available via the D
 - [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 - [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
 - [Puhti User Guide](/computing/overview/)
-
-
-
