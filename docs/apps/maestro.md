@@ -14,10 +14,10 @@ Puhti: 2020.2, 2020.4, 2021.1, 2021.2, 2021.3, 2021.4, 2022.1
 
 Mahti: 2021.4, 2022.1
 
-!!! info
+!!! info "Incompatibility issue with latest versions"
     
     Versions 2022.2 and later are incompatible with the RHEL8 operating system on Puhti and Mahti. If you intend
-    to run jobs at CSC, don't upgrade your local installation! We're looking for a workaround.
+    to run jobs at CSC, don't upgrade your local installation beyond 2022.1! We're looking for a workaround.
 
 ## License
 
