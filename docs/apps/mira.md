@@ -14,11 +14,11 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-*   Puhti-rhel7: MIRA 4.9.6
+*   Puhti-rhel8: 5rc1
 
 ## Usage
 
-MIRA is included in the biokit environment, that is activated with command:
+MIRA is activated with command:
 ```text
 module load biokit
 ```

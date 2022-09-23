@@ -24,14 +24,14 @@ Software is free to use and open source, but no license specified.
 
 ## Version
 
-*   xhmm 1.0 is available in Puhti-rhel7
+*   Puhti-rhel8: 0.0.0.2016_01_04.cc14e52 
 
 ## Usage
 
-To use XHMM, load the biokit module:
+To use XHMM, load the module:
 
 ```text
-module load biokit
+module load xhmm
 ```
 
 After that XHMM starts with command:

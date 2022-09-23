@@ -19,14 +19,20 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 Version on CSC's Servers
 
-*   Puhti-rhel7: HMMER 3.3.2
+*   Puhti-rhel8: 3.2.1, 3.3.2
 
 ## Usage
 
-To use HMMER in Puhti-rhel7, load the biokit module:
+To use default version HMMER in Puhti-rhel8, load the biokit module:
 ```text
 module load biokit
 ```
+
+If you want to use a some other version, load the HMMER module, e.g.
+```text
+module load hmmr/3.2.1
+```
+
 After this the command line options of each hmmer command can be checked with option `-h`. For example:
 ```text
 hmmsearch -h
@@ -34,7 +40,7 @@ hmmsearch -h
 
 ### Pfam database
 
-In Puhti-rhel7 you can use Pfam_A database with HMMER commands. You can also create your own HMM databases.
+In Puhti-rhel8 you can use Pfam_A database with HMMER commands. You can also create your own HMM databases.
 For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with following commands.
 
 First, open an interactive batch job session and load biokit:
@@ -52,7 +58,7 @@ but the number is better replaced with an environment variable which already has
 hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
-In Puhti-rhel7, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
+In Puhti-rhel, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
 
 ```text
 #!/bin/bash 
