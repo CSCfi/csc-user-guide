@@ -176,7 +176,7 @@ Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
 
 ### Using the `Docker` strategy
 
-This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti will then detect that there is a Dockerfile in the repository and build the image automatically. This is usefull when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti3 does not support node16 by default.
+This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti will then detect that there is a Dockerfile in the repository and build the image automatically. This is useful when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti3 does not support node16 by default.
 
 ```sh
 $ oc new-app https://github.com/IBM/nodejs-express-app.git
