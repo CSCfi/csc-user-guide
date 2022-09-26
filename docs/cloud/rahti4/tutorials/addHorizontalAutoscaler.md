@@ -20,7 +20,6 @@ echo "apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: example
-  namespace: test-deleteme
 spec:
   selector:
     matchLabels:
