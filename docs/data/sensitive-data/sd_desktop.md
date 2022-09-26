@@ -39,19 +39,19 @@ In the following user guide, you can learn how to:
 
 ### Authentication
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+After entering your username and passworod, you need to  **verify your identity** with a second verification step , also called Multi factor Authentication, MFA. Enter the verification **code** provided via mobile application and press on *Continue*.
 
 !!! Note:
-    After entering the temporaty code, **please press the Continue button**. Pressing Enter on your keybord is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
+    **Please press the *Continue* button** using your mouse. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
 
 
-For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 ![Authentication](images/desktop/authentication.png)
 
