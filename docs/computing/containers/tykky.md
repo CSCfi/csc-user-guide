@@ -22,7 +22,7 @@ it's possible to wrap installation using e.g mpi4py relying on the host provided
 mpi installation. 
 
 This documentation covers a subset of the functionality and focuses on
-conda and Pythony, a large part of the advanced use-cases
+conda and Python, a large part of the advanced use-cases
 are not covered here yet.
 
 !!! Warning
