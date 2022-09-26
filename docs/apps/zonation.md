@@ -85,7 +85,7 @@ which will create the example1_out file in your $HOME folder.
 
 module load zonation
 cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun apptainer_wrapper exec z5 -w --mode=ABF --gui minimal_settings.z5 example1_out
+srun z5 -w --mode=ABF --gui minimal_settings.z5 example1_out
 ```
 
 ## License and acknowledgement
