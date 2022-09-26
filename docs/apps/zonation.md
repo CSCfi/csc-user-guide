@@ -69,9 +69,9 @@ Download the [zonation4-tutorial data]([https://github.com/cbig/zonation-tutoria
 
 ```
 cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-z5 -w --mode=ABF --gui minimal_settings.z5 example1_out
+srun --ntasks=1 --time=00:15:00 --mem=1G --account=project_<your_project_number> --partition=rhel8-cpu --pty z5 -w --mode=ABF minimal_settings.z5 $HOME/example1_out
 ```
-which will create the example1_out file in your $HOME folder.
+which will show you the process in the terminal and create the example1_out file in your $HOME folder.
 
 **Example batch job script**
 
@@ -79,13 +79,13 @@ which will create the example1_out file in your $HOME folder.
 #!/bin/bash
 #SBATCH --account=<YOUR-PROJECT>
 #SBATCH --cpus-per-task=1
-#SBATCH --partition=test
-#SBATCH --time=00:10:00
-#SBATCH --mem=2G
+#SBATCH --partition=rhel8-cpu
+#SBATCH --time=00:15:00
+#SBATCH --mem=1G
 
 module load zonation
 cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun z5 -w --mode=ABF --gui minimal_settings.z5 example1_out
+srun z5 -w --mode=ABF minimal_settings.z5 <path_to_where_you_want_to_store_the_result>/example1_out
 ```
 
 ## License and acknowledgement
