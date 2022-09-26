@@ -30,6 +30,8 @@
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
+* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
+* [Using Allas from LUMI supercomputer](../../data/Allas/allas_lumi.md)
 
 ## Bioinformatics
 * [Singularity applications on Puhti](bioapplications-puhti.md)
