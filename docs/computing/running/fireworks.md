@@ -18,7 +18,7 @@
 
 ## Installing FireWorks and setting up MongoDB in Rahti
 
-FireWorks is easy to install. We recommend using [Tykky](../containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../containers/tykky.md#plain-pip-installations). 
+FireWorks is easy to install. We recommend using [Tykky](../containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../containers/tykky.md#pip-installations). 
 
 Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loading modules. FireWorks requires at least Python 3.7, so make sure you're using at least this version. To this end, you can use the `--slim` flag of `pip-containerize` to utilize a pre-built minimal Python container with a much newer version of Python than the system default 3.6.8.
 
