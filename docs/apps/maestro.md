@@ -11,8 +11,14 @@ model systems.
 
 ## Available
 
+
 * Puhti-rhel8: 2021.3, 2021.4, 2022.1, 2022.2
 * Mahti: 2021.4, 2022.1, 2022.2
+
+!!! info "Incompatibility issue with latest versions"
+
+    Versions 2022.3 and later are incompatible with the RHEL8 operating system on Puhti and Mahti. If you intend
+    to run jobs at CSC, don't upgrade your local installation beyond 2022.2! We're looking for a workaround.
 
 ## License
 
@@ -21,7 +27,7 @@ for academic purposes. Please consult the [EULA](https://www.schrodinger.com/mae
 for the exact definition. 
 Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens.
-If licenses run out, contact Atte via [ServiceDesk](/support/contact/)
+If licenses run out, contact us via [ServiceDesk](/support/contact/)
 
 ## Usage
 
