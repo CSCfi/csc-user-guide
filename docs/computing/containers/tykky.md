@@ -6,9 +6,9 @@ Tykky is a set of tools for easy installation of tools to HPC.
 
 Tykky use cases:
 
-    * Conda installations, based on conda environment.yml 
-    * Pip installations, based on pip requirements.txt
-    * Container installations, based on existing Docker or Apptainer/Singularity images.
+* Conda installations, based on conda environment.yml
+* Pip installations, based on pip requirements.txt
+* Container installations, based on existing Docker or Apptainer/Singularity images.
 
 Tykky wraps installations inside 
 an Apptainer/Singularity container to improve startup times, 
@@ -162,9 +162,9 @@ coming from within container.
 
 Tykky also provides an option to: 
 	
-	* Generate wrappers for tools in existing Apptainer/Singularity containers, so that they can be used 
+* Generate wrappers for tools in existing Apptainer/Singularity containers, so that they can be used 
 transparently (no need to prepend `singularity exec ...`, or modify scripts if switching between containerized versions and "normal" installation).
-	* Install tools available in Docker images, including generating wrappers.
+* Install tools available in Docker images, including generating wrappers.
 
 ```
 wrap-container -w </path/inside/container> <container> --prefix <install_dir> 
@@ -175,8 +175,8 @@ created for the executables in the target directories / for the target path.
 
 If you do not know the path of executables in the container:
 
-	* In case of existing local Apptainer/Singularity file, check the path with opening terminal inside the container: `singularity shell xxx.sif`
-	* In case of Docker or non-local Apptainer/Singularity file, create first the installation with some path and then check with created `_debug_shell` where the executables are installed.
+* In case of existing local Apptainer/Singularity file, check the path with opening terminal inside the container: `singularity shell xxx.sif`
+* In case of Docker or non-local Apptainer/Singularity file, create first the installation with some path and then check with created `_debug_shell` where the executables are installed.
 
 ## More complicated example
 
