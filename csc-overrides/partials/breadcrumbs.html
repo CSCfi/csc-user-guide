@@ -1,10 +1,10 @@
 {%- if page %}
     {% set parent_url = "/" + "/".join(page.url.split("/")[:-2]) + "/" %}
-    <!-- Redirect some breadcrumb urls (at least for now): -->
+    {# Redirect some breadcrumb urls (at least for now): #}
     {% set parent_url = parent_url.replace("/wn/", "/whats-new/", -1) %}
     {% set parent_url = parent_url.replace("env-guide/", "", -1) %}
     {% set parent_url = parent_url.replace("gis/", "", -1) %}
-    <!-- Some pages don't have ancestor sections in nav... -->
+    {# Some pages don't have ancestor sections in nav... #}
     {% set sections = {
         "/apps/": "Applications",
         "/support/tutorials/": "Tutorials",
@@ -17,7 +17,7 @@
         {% if not page.is_homepage %}
             <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
         {% endif %}
-        <!-- ...so breadcrumbs must be defined literally: -->
+        {# ...so breadcrumbs must be defined literally: #}
         {% if not page.ancestors and parent_url in sections %}
             <a class="csc-breadcrumbs__link" href="{{ parent_url }}">{{ sections[parent_url] }}</a>
         {% endif %}

@@ -29,7 +29,9 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**projappl**|50 GiB  |100 000 files  |
 |**scratch** |1 TiB   |1 000 000 files|
 
-See [Increasing quotas](#increasing-quotas) for instructions on how to apply for increased quota.
+See [Increasing quotas](#increasing-quotas) for instructions on how to apply for increased
+quota. A general tutorial on [managing and cleaning data on Puhti and Mahti `scratch`
+disks](../support/tutorials/clean-up-data.md) is also available.
 
 ## Home directory
 
@@ -52,7 +54,8 @@ Each project has by default 1 TB of scratch disk space in the directory `/scratc
 This fast parallel scratch space is intended as temporary storage space for the data that is
 used in the supercomputer. The scratch directory is not intended for long-term data storage. In
 the future, any files that have not been used for 90 days will be automatically removed, but
-this is not yet enabled.
+this is not yet enabled. Make sure to consult our tutorial for [tips and guidelines on how to
+manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 ## Projappl directory
 
@@ -154,6 +157,11 @@ active computing should be stored in the Allas storage service.
 Remember also that you can increase these values only to some extent. Especially regarding
 the number of files, you should reconsider your data workflow if it requires that tens
 of millions of files are stored in the `scratch` area.
+
+!!! info
+    To find out how much data/files you have on the disk, please use our [LUE
+    tool](../support/tutorials/lue.md) which is much more performant than standard
+    tools such as `stat` or `du`.
 
 ## Temporary local disk areas
 

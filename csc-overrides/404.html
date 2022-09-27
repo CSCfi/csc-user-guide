@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% block extrahead %}
+    {{ super () }}
+    {% if config.extra.mkdocs_env == "production" %}
+        {% include "partials/matomo.html" %}
+    {% endif %}
+{% endblock extrahead %}
 {% block content %}
   <nav class="csc-breadcrumbs">
     <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
