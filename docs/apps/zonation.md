@@ -69,7 +69,7 @@ Download the [zonation4-tutorial data]([https://github.com/cbig/zonation-tutoria
 
 ```
 cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun --ntasks=1 --time=00:15:00 --mem=1G --account=project_<your_project_number> --partition=rhel8-cpu --pty z5 -w --mode=ABF minimal_settings.z5 $HOME/example1_out
+srun --ntasks=1 --time=00:15:00 --mem=1G --account=project_<your_project_number> --partition=test --pty z5 -w --mode=ABF minimal_settings.z5 $HOME/example1_out
 ```
 which will show you the process in the terminal and create the example1_out file in your $HOME folder.
 
@@ -79,7 +79,7 @@ which will show you the process in the terminal and create the example1_out file
 #!/bin/bash
 #SBATCH --account=<YOUR-PROJECT>
 #SBATCH --cpus-per-task=1
-#SBATCH --partition=rhel8-cpu
+#SBATCH --partition=test
 #SBATCH --time=00:15:00
 #SBATCH --mem=1G
 
