@@ -94,15 +94,15 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
 
    3. Create or join a CSC project and add project members.
 
-   4. Fill in the Description of processing activities form and agree with CSC Data Processing Agreement.
+   4. Fill in the Description of processing activities form and accepct CSC's Data processing agreement.
     
    5. Each project member needs to **add service access to Allas and  SD Desktop**.
 
-   6. Activate the additional security verification (or Multi-factor Authentication) on your account by **scanning the QR code with a specific application** (e.g. Google Authenticator).
+   6. Activate the additional security verification (or Multi-factor Authentication) on your account by **scanning the QR code with an application** (e.g. Google Authenticator).
 
    7. Apply for billing units or disk quota.
 
-For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+For video tutorials and guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
 
 !!! Note
@@ -116,5 +116,5 @@ Once you have completed these steps, you can log in to SD services with identity
 with any modern web-browser.
 
 !!! Note
-    LSLogin (LifeScience login, before known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
+    LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
   
