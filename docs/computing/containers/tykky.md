@@ -13,7 +13,6 @@ Tykky use cases:
 Tykky wraps installations inside 
 an Apptainer/Singularity container to improve startup times, 
 reduce IO load, and lessen the number of files on large parallel filesystems. 
-
 Additionally, Tykky will generate wrappers so that installed
 software can be used (almost) as if it was not containerized. Depending
 on tool selection and settings, either the whole host filesystem or
@@ -30,19 +29,21 @@ are not covered here yet.
 
 ## Tykky module
 
-It is usually also good to unload other modules first: 
+To access Tykky tools: 
+
+1) Usually it is best to first unload all other modules: 
 
 ```
 module purge
 ```
 
-To access Tykky tools, load its module. 
+2) Load Tykky module. 
 
 ```bash
 module load tykky
 ```
 
-## Conda installation
+## Conda based installation
 
 Make sure that you have read and understood the license terms for miniconda and any used channels
 before using the command. 
@@ -52,12 +53,13 @@ before using the command.
 - [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq)
 
 1) Create **conda environment file** env.yml: 
-	* [Create manually a new file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) or 
-	* [Create the file from existing conda installation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). 
-		* Windows and MacOS might need the [`--from-history` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms), to get a .yml file suitable for Linux.
-		* If the existing environment is on a Linux machine with x86 CPU architecture, it is possible also to use [`--explicit` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments)
 
-2) Create new directory for installation <install_dir>. Likely /projappl/<your_project>/.. is a good place.
+* [Create manually a new file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) or 
+* [Create the file from existing conda installation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). 
+	* Windows and MacOS might need the [`--from-history` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms), to get a .yml file suitable for Linux.
+	* If the existing environment is on a Linux machine with x86 CPU architecture, it is possible also to use [`--explicit` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments)
+
+2) Create new directory for installation <install_dir>. Likely `/projappl/<your_project>/..` is a good place.
 
 3) Create installation
 
@@ -83,7 +85,7 @@ conda-containerize new -r req.txt --prefix <install_dir> env.yml
 
 ### mamba 
 The tool also supports using [mamba](https://github.com/mamba-org/mamba) 
-for installing packages. Enable this feature by adding the `--mamba` flag. 
+for installing packages. Mamba often findes suitable packages much faster than conda, so it is a good option when required package list is long. Enable this feature by adding the `--mamba` flag. 
 
 ```
 conda-containerize new --mamba --prefix <install_dir> env.yml
@@ -92,13 +94,13 @@ conda-containerize new --mamba --prefix <install_dir> env.yml
 
 ### End-to-end example 
 
-
+Create new conda based installation.
 ```
 mkdir MyEnv
 conda-containerize new --prefix MyEnv env.yml 
 ```
 After the installation finishes we can add the installation directory to our PATH
-and use it like normal
+and use it like normal.
 
 ```
 $ export PATH="$PWD/MyEnv/bin:$PATH"
@@ -116,7 +118,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ### Modifying a conda installation
 
 Tykky installed software resides in a container, so it can not be directly modified.
-Small python packages can be added normally using `pip`, but then the python packages are
+Small Python packages can be added normally using `pip`, but then the Python packages are
 sitting on the parallel filesystem so this is not recommended for any larger installations.  
 
 To actually modify the installation we can use the `update` keyword
@@ -138,7 +140,7 @@ pip install requests
 
 In this mode the whole host system is available including all software and modules. 
 
-## Pip installations
+## Pip based installations
 
 Sometimes you don't need a full blown conda environment or you might prefer pip
 to manage Python installations. For this case we can use: 
@@ -149,7 +151,7 @@ pip-containerize new --prefix <install_dir> req.txt
 Where `req.txt` is a standard pip requirements file. 
 The notes and options for modifying a conda installation apply here as well.
 
-Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loading modules. 
+Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loaded modules. 
 
 **Important:** This python can not be itself container-based as nesting is not possible.  
 
@@ -158,7 +160,7 @@ container with a much newer version of python as a base. Without the `--slim` fl
 and with the flag the system installations (i.e /usr, /lib64 ...) are no longer taken from the host, instead
 coming from within container. 
 
-## Container installations
+## Container based installations
 
 Tykky also provides an option to: 
 	
