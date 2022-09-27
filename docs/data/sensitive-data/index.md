@@ -30,16 +30,16 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
   * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) (Default data import)
+ * [**Data encryption and upload (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) (Default analysis)
  
  * [**Data encryption and upload with multiple encryption keys (less than 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) (Data storage and transfer)
  
 
- * [**Data sharing**](./sd_connect.md#data-sharing)
+ * [**Data sharing**](./sd_connect.md#data-sharing) 
  
- * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption)
+ * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
  
- * [**Command Line Interface: data encryption and upload:**](./sd_connect.md#command-line-interface-data-encryption-and-upload) 
+ * [**Command Line Interface: data encryption and upload:**](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
  
  
  * [**Command Line Interface: data encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
@@ -61,13 +61,13 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
   * [**Authentication**](./sd_desktop.md#authentication) 
 
-  * [**Setting up a virtual Desktop**](./sd_desktop.md#setting-up-a-virtual-desktop) 
+  * [**Setting up a virtual Desktop**](./sd_desktop.md#setting-up-a-virtual-desktop) (Default analysis)
 
-  * [**Working with Desktop**](./sd_desktop.md#working-with-your-virtual-desktop)
+  * [**Working with Desktop**](./sd_desktop.md#working-with-your-virtual-desktop)(Defualt analysis)
 
-  * [**Accessing encrypted sensitive data within SD Desktop**](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop)
+  * [**Accessing encrypted sensitive data within SD Desktop**](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop) (Default analysis)
 
-  * [**Default programs available on SD Desktop**](./sd_desktop.md#default-programs-available-on-sd-desktop)
+  * [**Default programs available on SD Desktop**](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
   
   * [**Software customization**](./sd_desktop.md#software-customisation) (Advanced)
 
