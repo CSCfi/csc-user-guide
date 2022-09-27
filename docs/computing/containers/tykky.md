@@ -174,12 +174,9 @@ wrap-container -w </path/inside/container> <container> --prefix <install_dir>
 
 * `<container>` can be a local filepath or any [URL accepted by singularity](https://docs.sylabs.io/guides/3.7/user-guide/cli/singularity_pull.html) (e.g `docker://` `oras://` )
 * `-w` needs to be an absolute path (or comma separated list) inside the container. Wrappers will then be automatically
-created for the executables in the target directories / for the target path.
-
-If you do not know the path of executables in the container:
-
-* In case of existing local Apptainer/Singularity file, check the path with opening terminal inside the container: `singularity shell xxx.sif`
-* In case of Docker or non-local Apptainer/Singularity file, create first the installation with some path and then check with created `_debug_shell` where the executables are installed.
+created for the executables in the target directories / for the target path. If you do not know the path of executables in the container, open a shell inside the container and use [which command](https://linuxize.com/post/linux-which-command/). To open shell:
+	* In case of existing local Apptainer/Singularity file: `singularity shell xxx.sif`.
+	* In case of Docker or non-local Apptainer/Singularity file, create first the installation with some path and then start with created `_debug_shell`.
 
 ## More complicated example
 
