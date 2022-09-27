@@ -13,11 +13,11 @@ For a quick introduction and tutorial, see https://github.com/csc-training/julia
 
 ## Available
 
-### Puhti-rhel7
--   1.3.1, 1.1.1 compiled with Intel Math Kernel Library (MKL)
--   1.3.1, 1.1.1 from pre-compiled binaries
+-   Puhti-rhel8: 1.8.1 compiled with Intel Math Kernel Library (MKL)
+-   Mahti: 1.7.2 compiled with OpenBLAS
 
 ## License
+
 Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
 
 ## Usage
@@ -30,11 +30,11 @@ To load a module for a stable version of Julia, use the following command
 $ module load julia
 ```
 
-If you need to install and use ARPACK package, it is recommended to use pre-compiled binaries instead.
+<!-- If you need to install and use ARPACK package, it is recommended to use pre-compiled binaries instead.
 
 ```bash
 $ module load julia/1.1.1-pre-compiled
-```
+``` -->
 
 ### Interactive use
 
@@ -46,7 +46,7 @@ $ julia
 ```
 
 If more resources are required, one can request an interactive node
-directly on Puhti-rhel7 with
+directly on Puhti-rhel8 with
 
 ```bash
 $ srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=small julia
@@ -58,8 +58,8 @@ You can access to the package manager by pressing "]" during the interactive ses
 
 ```bash
 julia> ]
-(v1.1) pkg>
-(v1.1) pkg> add Example
+(v1.8) pkg>
+(v1.8) pkg> add Example
 ```
 
 After adding a package, it can be loaded in Julia:
@@ -80,7 +80,7 @@ More information about Julia's package manager you can found from its [documenta
 
 ### Serial batch job
 
-Sample single-processor Julia batch job on Puhti-rhel7
+Sample single-processor Julia batch job on Puhti-rhel8
 
 ```bash
 #!/bin/bash 
@@ -95,7 +95,7 @@ module load julia
 srun julia my_script.jl
 ```
 
-This runs the script <var>my\_script.jl</var> one time using one cpu-core. You can find more information about batch jobs on Puhti-rhel7 from the [user guide](../computing/running/getting-started.md).
+This runs the script `my_script.jl` one time using one cpu-core. You can find more information about batch jobs on Puhti-rhel8 from the [user guide](../computing/running/getting-started.md).
 
 ## More information
 
