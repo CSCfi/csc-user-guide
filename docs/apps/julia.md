@@ -7,14 +7,14 @@ numerical computing. It provides a sophisticated compiler, distributed
 parallel execution, numerical accuracy, and an extensive mathematical
 function library.
 
-For a quick introduction and tutorial, see https://github.com/csc-training/julia-introduction 
+See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).
 
 [TOC]
 
 ## Available
 
--   Puhti-rhel8: 1.8.1 compiled with Intel Math Kernel Library (MKL)
--   Mahti: 1.7.2 compiled with OpenBLAS
+- Puhti-rhel8: 1.8.1 compiled with Intel Math Kernel Library (MKL)
+- Mahti: 1.7.2 compiled with OpenBLAS
 
 ## License
 
@@ -27,14 +27,8 @@ Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob
 To load a module for a stable version of Julia, use the following command
 
 ```bash
-$ module load julia
+module load julia
 ```
-
-<!-- If you need to install and use ARPACK package, it is recommended to use pre-compiled binaries instead.
-
-```bash
-$ module load julia/1.1.1-pre-compiled
-``` -->
 
 ### Interactive use
 
@@ -42,14 +36,14 @@ After loading the Julia module, it can be run interactively simply by
 typing
 
 ```bash
-$ julia
+julia
 ```
 
 If more resources are required, one can request an interactive node
 directly on Puhti-rhel8 with
 
 ```bash
-$ srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=small julia
+srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=small julia
 ```
 
 ### Installing packages
@@ -71,7 +65,7 @@ julia> using Example
 Packages are by default installed in the directory '~/.julia/', but the target can be changed with an environmental variable 'JULIA_PKGDIR'.
 
 ```bash
-$ export JULIA_PKGDIR=/your/directory
+export JULIA_PKGDIR=/your/directory
 ```
 
 **NOTE:** Packages that work for one version of Julia might not work at all for another. Check the required version number.
@@ -99,5 +93,5 @@ This runs the script `my_script.jl` one time using one cpu-core. You can find mo
 
 ## More information
 
-* [Julia home page](https://julialang.org )
-* [Documentation](https://docs.julialang.org)
+- [Julia home page](https://julialang.org )
+- [Documentation](https://docs.julialang.org)
