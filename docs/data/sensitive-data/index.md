@@ -63,7 +63,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
   * [**Setting up a virtual Desktop**](./sd_desktop.md#setting-up-a-virtual-desktop) (Default analysis)
 
-  * [**Working with Desktop**](./sd_desktop.md#working-with-your-virtual-desktop)(Defualt analysis)
+  * [**Working with Desktop**](./sd_desktop.md#working-with-your-virtual-desktop)(Default analysis)
 
   * [**Accessing encrypted sensitive data within SD Desktop**](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop) (Default analysis)
 
