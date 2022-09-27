@@ -21,13 +21,13 @@ Zonation is available in the __zonation__ module and can be loaded with
 
 `module load zonation`
 
-Zonation usage in Puhti-rhel8 happens through a container system called [Singularity/Apptainer](https://sylabs.io/docs/) which is very similar to Docker. CSC provides a [__apptainer_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
-
-After loading the Zonation module you can run normal zonation commands in the following way:
+After loading the Zonation module you can run zonation commands in the following way:
 
 ```
-srun apptainer_wrapper exec <zonation command>
+z5 <command arguments>
 ```
+
+> Note that Zonation 4 needs `apptainer_wrapper exec` before the Zonation command to be run in Puhti-rhel8.
 
 ### Example
 
@@ -69,9 +69,9 @@ Download the [zonation4-tutorial data]([https://github.com/cbig/zonation-tutoria
 
 ```
 cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun apptainer_wrapper exec z5 -w --mode=ABF --gui minimal_settings.z5 example1_out
+srun --ntasks=1 --time=00:15:00 --mem=1G --account=project_<your_project_number> --partition=rhel8-cpu --pty z5 -w --mode=ABF minimal_settings.z5 $HOME/example1_out
 ```
-which will create the example1_out file in your $HOME folder.
+which will show you the process in the terminal and create the example1_out file in your $HOME folder.
 
 **Example batch job script**
 
@@ -79,18 +79,20 @@ which will create the example1_out file in your $HOME folder.
 #!/bin/bash
 #SBATCH --account=<YOUR-PROJECT>
 #SBATCH --cpus-per-task=1
-#SBATCH --partition=test
-#SBATCH --time=00:10:00
-#SBATCH --mem=2G
+#SBATCH --partition=rhel8-cpu
+#SBATCH --time=00:15:00
+#SBATCH --mem=1G
 
 module load zonation
 cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun apptainer_wrapper exec z5 -w --mode=ABF --gui minimal_settings.z5 example1_out
+srun z5 -w --mode=ABF minimal_settings.z5 <path_to_where_you_want_to_store_the_result>/example1_out
 ```
 
 ## License and acknowledgement
 
 Zonation computational core (zig4) is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/cbig/zonation-core/blob/master/LICENSE)
+
+Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) version 3 (#GNUGPL) (#GNUGPLv3) license.](https://www.gnu.org/licenses/gpl-3.0.html)
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
