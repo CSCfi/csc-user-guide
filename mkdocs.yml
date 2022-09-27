@@ -198,7 +198,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
-            - API Access to Pouta: cloud/pouta/api-access.md  
+            - API Access to Pouta: cloud/pouta/api-access.md 
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md
@@ -214,6 +214,19 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
+     - DBaaS:
+        - Contents: cloud/dbaas/index.md
+        - What is DBaaS: cloud/dbaas/what-is-dbaas.md
+        - Security Guides: cloud/dbaas/security-guides.md
+        - Getting started with DBaaS:
+             - Web interface: cloud/dbaas/web-interface.md
+             - Command Line tools: cloud/dbaas/cli.md
+             - Available features: cloud/dbaas/features.md
+        - Database sizes: cloud/dbaas/flavors.md
+        - Lifeycycle and prices:
+        - Backups: cloud/dbaas/backups.md
+        - Databases:
+             - Postgresql: cloud/dbaas/postgresql.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
@@ -224,7 +237,6 @@ nav:
        - Data persistence: cloud/csc_notebooks/data_persistence.md
        - Migration to beta: cloud/csc_notebooks/migration_to_beta.md
   - Data:
-#    - Datasets: data/datasets.md
      - Working with data:
         - Contents: data/datasets/dataset-sources.md
         - Tips for data management: data/datasets/datamanagement.md
@@ -254,9 +266,6 @@ nav:
         - Store with SD Connect: data/sensitive-data/sd_connect.md
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
-#       - Federated EGA: data/sensitive-data/federatedega.md
-#       - SD Apply: data/sensitive-data/sd-apply.md
-#       - Containers: data/sensitive-data/creating_containers.md
 
      - Kaivos database service:
         - Kaivos overview: data/kaivos/overview.md
@@ -266,7 +275,6 @@ nav:
         - Using MySQL client through batch job system: data/kaivos/kaivos_batch_job.md
         - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
-        # Python MySQL API at CSC:
   - Applications:
      - In alphabetical order: apps/alpha.md
      - By discipline: apps/index.md

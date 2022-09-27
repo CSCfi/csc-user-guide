@@ -1,0 +1,17 @@
+<h1>DBaaS (interanl beta)</h1>
+
+* [What is DBaaS](what-is-dbaas.md)
+
+<h2>Getting access to DBaaS</h2>
+* [Applying for DBaaS access](../../accounts/how-to-add-service-access-for-project.md)
+* [Security guide for DBaaS](security-guides.md)
+* [What does DBaaS cost](price.md)
+
+<h2>Using DBaaS</h2>
+* [Web interface](web-interface.md)
+* [Command Line tools](cli.md)
+* [Available features](features.md)
+* [Using backups](backups.md)
+
+<h2>Database types</h2>
+* [Postgresql](postgresql.md)
