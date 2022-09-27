@@ -45,7 +45,7 @@ module load tykky
 
 ## Conda based installation
 
-Make sure that you have read and understood the license terms for miniconda and any used channels
+First make sure that you have read and understood the license terms for miniconda and any used channels
 before using the command. 
 
 - [Miniconda end user license agreement](https://www.anaconda.com/end-user-license-agreement-miniconda)
@@ -56,7 +56,7 @@ before using the command.
 
 * [Create manually a new file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) or 
 * [Create the file from existing conda installation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). 
-	* Windows and MacOS might need the [`--from-history` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms), to get a .yml file suitable for Linux.
+	* If the existing environment is on a Windows and MacOS machine, it might need the [`--from-history` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms), to get a .yml file suitable for Linux.
 	* If the existing environment is on a Linux machine with x86 CPU architecture, it is possible also to use [`--explicit` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments)
 
 2) Create new directory for installation <install_dir>. Likely `/projappl/<your_project>/..` is a good place.
@@ -171,8 +171,9 @@ transparently (no need to prepend `singularity exec ...`, or modify scripts if s
 ```
 wrap-container -w </path/inside/container> <container> --prefix <install_dir> 
 ```
-where `<container>` can be a filepath or any [URL accepted by singularity](https://docs.sylabs.io/guides/3.7/user-guide/cli/singularity_pull.html) (e.g `docker://` `oras://` )
-`-w` needs to be an absolute path (or comma separated list) inside the container. Wrappers will then be automatically
+
+* `<container>` can be a local filepath or any [URL accepted by singularity](https://docs.sylabs.io/guides/3.7/user-guide/cli/singularity_pull.html) (e.g `docker://` `oras://` )
+* `-w` needs to be an absolute path (or comma separated list) inside the container. Wrappers will then be automatically
 created for the executables in the target directories / for the target path.
 
 If you do not know the path of executables in the container:
