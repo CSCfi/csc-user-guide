@@ -21,12 +21,12 @@ module load idl
 
 ## Documentation
 
-* **Manuals on Puhti-rhel8 (pdf)**
+* **Manuals on Puhti-rhel8 (pdf):**
 
 ```text
+/appl/soft/math/idl/idl/help/pdf
 /appl/soft/math/idl/idl85/help/pdf
-/appl/soft/math/idl/idl87/help/pdf
+/appl/soft/math/idl/idl882/idl88/help/pdf
 ```
 
-* **Manuals on Web:**
-* [http://www.harrisgeospatial.com/docs/using_idl_home.html](http://www.harrisgeospatial.com/docs/using_idl_home.html)
+* [**Manuals in the Web:**](http://www.harrisgeospatial.com/docs/using_idl_home.html)
