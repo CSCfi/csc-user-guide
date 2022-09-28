@@ -28,18 +28,18 @@ This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
-### Using SNAP with Graphical User Interface (GUI) in Puhti-rhel7 web interface
+### Using SNAP with Graphical User Interface (GUI) in Puhti-rhel8 web interface
 
-The easiest option for using SNAP is to open it in [Puhti-rhel7 web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using SNAP is to open it in [Puhti-rhel8 web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi). [Puhti-rhel7 web interface documentation](../computing/webinterface/desktop.md).
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi). [Puhti-rhel8 web interface documentation](../computing/webinterface/desktop.md).
 2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SNAP'
 3. The SNAP GUI is started automatically when the Desktop is launched. 
  
 
-Alternatively, especially if you want to use SNAP together with some other GUI tool, want to user older version of SNAP or want to increase the default Java memory allocaiton, SNAP can be started in Puhti-rhel7 web interface with remote desktop:
+Alternatively, especially if you want to use SNAP together with some other GUI tool, want to user older version of SNAP or want to increase the default Java memory allocaiton, SNAP can be started in Puhti-rhel8 web interface with remote desktop:
 
-1. Log in to [Puhti-rhel7 web interface](https://puhti.csc.fi).
+1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop, double-click SNAP icon OR open `Host Terminal` (Desktop icon) and start SNAP:
 
