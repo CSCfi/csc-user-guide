@@ -16,20 +16,20 @@ CSC's supercomputers: [PyTorch DDP](#pytorch-ddp),
 
 ### GPU Nodes
 
-Each separate GPU computer, or GPU **node**, has a small number of
-GPUs. Puhti and Mahti have 4 GPUs per node, and LUMI has 8 GPUs per
-node.  (Technically a LUMI node has 4 GPUs cards, but 8 GPU dies.) The
-entire supercomputer (or cluster) may have tens or even thousands of
+Each separate GPU node (i.e., a single computer in the cluster), has a
+fixed number of GPUs. Puhti and Mahti have 4 GPUs per node, and LUMI
+has 8 GPUs per node.  (Technically a LUMI node has 4 GPUs cards, but 8
+GPU dies.) The entire supercomputer may have tens or even thousands of
 GPU nodes. See [GPU-accelerated machine learning](gpu-ml.md) for more
-details, in particular the table of GPUs in CSC's different
-supercomputers might be of interest.
+details, in particular the table describing the different GPUs in
+CSC's various supercomputers might be of interest.
 
 If you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
 **single node job**. If you need more than 4 GPUs (or 8 in LUMI) you
-need to reserve a **multi-node job**. It is technically possible to
-reserve, e.g., two GPUs in one node and two in another, but as the
-communication across nodes is always slower than inside a node, this
-isn't recommended except for testing purposes.
+need to reserve a **multi-node job**. While it is technically possible
+to reserve, e.g., two GPUs in one node and two in another, this is not
+recommended except for testing purposes, as the communication across
+nodes is always slower than inside a node.
 
 
 ### MPI tasks
@@ -39,24 +39,25 @@ separate CPU process for handling the communication to each GPU. This
 per GPU task division may be handled by the program itself, for
 example using [Python's multiprocessing
 library](https://docs.python.org/3/library/multiprocessing.html) to
-launch separate processes, or one can use Slurm's MPI facility to
-launch **multiple MPI tasks**. Whether MPI tasks are used or not
-depends on the software framework used.
+launch separate processes. Another method is to use Slurm's MPI
+facility to launch **multiple MPI tasks**. Whether MPI tasks are used
+or not often depends on the software framework used.
 
 ### Slurm examples
 
-Below are Slurm batch script examples for launching single- or multi-node jobs, with or without MPI.
+In this section we provide Slurm batch script examples for launching
+single- or multi-node jobs, with or without MPI.
 
 !!! warning "Note"
     
     Please make sure that your code can actually take advantage of multiple GPUs as
     this typically requires some changes to the program. **Simply reserving more GPUs
-    isn't enough!**
+    is not enough!**
     
-You can [monitor that your program is using all the reserved GPUs
-efficiently](gpu-ml.md#gpu-utilization) with the same mechanisms described in
-our GPU-accelerated machine learning guide. The only difference is that you
-should now see statistics for more than one GPU.
+You can [monitor that your program is using all the reserved
+GPUs](gpu-ml.md#gpu-utilization) with the same mechanisms described in
+our GPU-accelerated machine learning guide. The only difference is
+that you should now see statistics for more than one GPU.
 
 
 #### Single node run using 2 GPUs, no MPI
@@ -111,15 +112,16 @@ should now see statistics for more than one GPU.
 The example above can be easily changed to more than 2 GPUs by
 changing the number specified in the `--gres` option (Puhti and Mahti)
 or `--gpus-per-task` option (LUMI). The maximum for a single node job
-is 4 GPUs or 8 (LUMI). 
+is 4 GPUs (Puhti and Mahti) or 8 GPUs (LUMI). 
 
 If you increase the number of GPUs you may also wish to increase the
-number of CPU cores and memory. In our examples, we have used **as a
-rule of thumb to reserve CPU cores and memory in the same proportion
-as the number of GPUs**. For example in Puhti there are 4 GPUs, 40 CPU
-cores, and 384 GB memory. For each GPU we would then reserve 10 CPU
-cores, and roughly 95G of memory (for memory we round down a bit as
-the units are not so exact).
+number of CPU cores and the amount of memory reserved. In our
+examples, we have used **as a rule of thumb to reserve CPU cores and
+memory in the same proportion as the number of GPUs**. For example in
+Puhti there are 4 GPUs, 40 CPU cores, and 384 GBs of memory per
+node. For each GPU we would then reserve 10 CPU cores, and roughly 95G
+of memory (for memory we round down a bit as the units are not so
+exact).
 
 #### Single node using all GPUs, using MPI
 
@@ -220,9 +222,9 @@ The option `--mem=0` means to reserve all memory in that node.
     srun python3 myprog.py <options>
     ```
 
-Note that the `--gres` option always specifies the number of GPUs of a
+Note that the `--gres` option always specifies the number of GPUs on a
 *single-node*, even in the multi-node case. So if we are reserving 8
-GPUs across 2 nodes in Puhti, that's 4 GPUs each node, i.e,
+GPUs across 2 nodes in Puhti, that is 4 GPUs on each node, i.e,
 `--gres=gpu:v100:4`.
 
 
@@ -277,17 +279,17 @@ GPUs across 2 nodes in Puhti, that's 4 GPUs each node, i.e,
 
 ## Available frameworks
 
-There are many frameworks for doing multi-GPU and multi-node
-computing. Some frameworks are tightly coupled to a specific machine
-learning framework, such as PyTorch `DistributedDataParallel`,
-DeepSpeed or TensorFlow's `tf.distribute.Strategy`, while others are
-more general like Horovod.
+There are many frameworks for doing multi-GPU and multi-node machine
+learning. Some frameworks are tightly coupled to a specific framework,
+such as PyTorch `DistributedDataParallel`, DeepSpeed or TensorFlow's
+`tf.distribute.Strategy`, while others are more general, for example
+Horovod.
 
-Independent of which framework you pick, pay attention to what
-approach is used to launch the jobs. For example Horovod always uses
-MPI, while DeepSpeed can be configured to use MPI or its own parallel
+Independent of which framework you pick, pay attention to the approach
+used to launch jobs. For example with Horovod it is common to use MPI,
+while DeepSpeed can be configured to use MPI or its own parallel
 launcher. In some frameworks, the launching mechanism may also vary
-depending on if you are running a single- or multi-node job. 
+depending on if you are running a single- or multi-node job.
 
 All frameworks should use
 [NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
@@ -309,7 +311,7 @@ examples on how to run simple DDP jobs in the
 cluster](https://github.com/CSCfi/pytorch-ddp-examples). In the
 examples we use the
 [rendezvous](https://pytorch.org/docs/stable/elastic/rendezvous.html)
-mechanism to communcate across nodes, not MPI.
+mechanism to set up communcations across nodes, not MPI.
 
 Example Slurm batch job for running PyTorch DDP on a single full node:
 
@@ -502,11 +504,10 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
 ### DeepSpeed
 
 [DeepSpeed](https://www.deepspeed.ai/) is an optimization software
-suite for PyTorch that helps with scaling training and inference for
-large deep learning models. DeepSpeed is supported in the [PyTorch
+suite for PyTorch that helps in scaling both training and inference
+for large deep learning models. DeepSpeed is supported in the [PyTorch
 modules in Puhti and Mahti](../../apps/pytorch.md) since version
-1.10. DeepSpeed isn't yet fully supported on LUMI (although it might
-work to some extent).
+1.10. DeepSpeed is not yet fully supported on LUMI.
 
 Example of running DeepSpeed on a single full node using the
 `deepspeed` launcher:
@@ -553,7 +554,7 @@ Example of running DeepSpeed on a single full node using the
 <br/>
 
 Example of running DeepSpeed on 2 full nodes using MPI for launching a
-task for each GPU:
+separate task for each GPU:
 
 === "Puhti"
 
@@ -599,7 +600,7 @@ task for each GPU:
 If you are converting an old PyTorch script there are a few steps that
 you need to do:
 
-1. Make sure it handles DeepSpeed command line arguments, for example:
+1. Make sure it handles the DeepSpeed command line arguments, for example:
 
     ```python
     import argparse
@@ -611,7 +612,7 @@ you need to do:
     args = parser.parse_args()
     ```
 
-2. Initialize distributed environment, for example:
+2. Initialize the distributed environment, for example:
 
     ```python
     import deepspeed
@@ -619,7 +620,7 @@ you need to do:
     deepspeed.init_distributed()
     ```
     
-3. Initialize DeepSpeed engine:
+3. Initialize the DeepSpeed engine:
 
     ```python
     model = # defined in normal way
@@ -630,7 +631,7 @@ you need to do:
         training_data=train_dataset)
     ```
     
-4. Modify training loop to use the DeepSpeed engine:
+4. Modify the training loop to use the DeepSpeed engine:
 
     ```python
     for batch in train_loader:
@@ -663,14 +664,14 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
 - [run-deepspeed-gpu8.sh](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-deepspeed-gpu8.sh)
   shows the same for two full nodes, with a total of 8 GPUs
 - [ds_config.json](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/ds_config.json)
-  shows the DeepSpeed configuration file used for the example
+  shows the DeepSpeed configuration file used for this example
 
 
 ### Horovod
 
-[Horovod](https://horovod.ai/) is a general framework that supports
-PyTorch and TensorFlow among other frameworks. Horovod always uses MPI
-for launching jobs.  Horovod can be used both with single- and
+[Horovod](https://horovod.ai/) is a general library that supports
+PyTorch and TensorFlow among other frameworks. With Horovod you should
+use MPI for launching jobs.  Horovod can be used both with single- and
 multi-node jobs.
 
 In CSC's supercomputers Horovod is supported only for some specific
