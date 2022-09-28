@@ -1,6 +1,6 @@
 # DBaaS flavors and prices
 
-The database instances are hosted on top of cPouta. The billing is based on the Flavor (datasbase instances size), how big volume for the database and how much backup you are using.
+The database instances are hosted on top of cPouta. The billing is based on the Flavor (database instances size), how big volume for the database and how much backup you are using.
 
 TODO the prices have not been decided on, in internal beta the services is free.
 
@@ -20,6 +20,6 @@ TODO the prices have not been decided on, in internal beta the services is free.
 
 |Resource type| Unit | Price |
 |--- |:---:|:---:|
-| Volumes | GiB reserverd | 0.1 BU/GiB |
+| Volumes | GiB reserved | 0.1 BU/GiB |
 | Backups | GiB usage | 0.1 BU/GiB |
 
