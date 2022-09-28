@@ -22,12 +22,14 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for 
 	[Getting started with Helmi](../helmi_quick/). 
 
 
-As access to Helmi during the Pilot Phase is limited it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process CSC offers a `FakeHelmi()` backend.
+As access to Helmi during the Pilot Phase is limited it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process CSC offers a `FakeHelmi()` backend. The `FakeHelmi()` backend uses Qiskit's Aer simulator to mimic the backend properties of Helmi, allowing you to run using a simulator and recieve a noise model similar to what Helmi would produce. To use it simply import it with `from csc_qu_tools.qiskit.mock import FakeHelmi()` and set the backend as `backend = FakeHelmi()`. This backend supports the same workflow as using real Helmi in Qiskit, therefore, you can set the same mapping as with Helmi and add it to the run commands. For example: `job = backend.run(circuit, shots=1000, qubit_mapping=qubit_mapping)`.
 
 
-Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s). For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`. 
+Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s), using local simulators. For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`.
 
 When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi_quick/), which covers the prerequisites for submitting your first job. 
+
+A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/helmi-examples). 
 
 
 ## Pilot Phase Software
@@ -35,11 +37,10 @@ When you are ready to run your circuits on Helmi it is recommended that you read
 To submit and run jobs on Helmi you need to use the correct environment on LUMI.
 
 * First, run `module use /appl/local/quantum/modulefiles`
-* Second, depending on if you want to use the Qiskit or Circ environment, run
+* Second, depending on if you want to use the Qiskit or Cirq environment, run
 	* `module load helmi_qiskit` or 
 	* `module load helmi_cirq`
 
-A set of Qiskit examples and scripts for guidance in using the LUMI-Helmi partition are available. [You can find these here](https://github.com/FiQCI/helmi-examples). 
 
 <!--
 ## FAQ
