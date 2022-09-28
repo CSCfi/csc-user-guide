@@ -75,11 +75,14 @@ It is a good idea to check out what the command options are by `openstack databa
 
 More information about how to connect to database can be found in the `Databases` section on the left hand side.
 
+### Restoring from backups 
+
+You can use the same command as when creating an backup but you need to use the flag and the backup id you want to use for restoring the backup `--backup $BACKUP_ID` 
 
 ##  Additional useful commands
 
 ##### Create additional database in database instance
-This is similar to do a CREATE DATABASE db_name;
+This is similar to do a `CREATE DATABASE db_name;`
 
     openstack database db create $INSTANCE_ID $DB_NAME 
 

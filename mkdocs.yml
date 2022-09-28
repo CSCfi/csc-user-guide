@@ -221,9 +221,7 @@ nav:
         - Getting started with DBaaS:
              - Web interface: cloud/dbaas/web-interface.md
              - Command Line tools: cloud/dbaas/cli.md
-             - Available features: cloud/dbaas/features.md
-        - Database sizes: cloud/dbaas/flavors.md
-        - Lifeycycle and prices:
+        - Database sizes and prices: cloud/dbaas/flavors.md
         - Backups: cloud/dbaas/backups.md
         - Databases:
              - Postgresql: cloud/dbaas/postgresql.md
