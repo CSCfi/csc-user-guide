@@ -1,6 +1,6 @@
-<h1>DBaaS (interanl beta)</h1>
+<h1>Pukki - Database as a Service (interanl beta)</h1>
 
-* [What is DBaaS](what-is-dbaas.md)
+* [What is Database as a Service](what-is-dbaas.md)
 
 <h2>Getting access to DBaaS</h2>
 * [Applying for DBaaS access](../../accounts/how-to-add-service-access-for-project.md)
