@@ -1,4 +1,4 @@
-<h1>Pukki - Database as a Service (interanl beta)</h1>
+<h1>Pukki - Database as a Service (internal beta)</h1>
 
 * [What is Database as a Service](what-is-dbaas.md)
 

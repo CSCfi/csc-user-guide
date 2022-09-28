@@ -1,6 +1,6 @@
-# Using DBaaS with CLi
+# Using DBaaS with CLI
 
-The DBaaS is using openstack on the backend this means that you can use the openstack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta. This is especially important if you are automating stuff in both Pouta and DBaaS since you need to connect to different Keystone endpoings.
+The DBaaS is using openstack on the backend this means that you can use the openstack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta. This is especially important if you are automating stuff in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
 
 ## Getting started
 
@@ -21,7 +21,7 @@ The DBaaS is using openstack on the backend this means that you can use the open
 Remember that you can use the help command like: `openstack help database` and the flag `--help` to find out more about the different commands.
 
 ## Creating a  database instances
-1. Make sure that you have sourced the openrc file that you donwloaded from https://pukki.dbaas.csc.fi
+1. Make sure that you have sourced the openrc file that you downloaded from https://pukki.dbaas.csc.fi
 
 2. Before creating a database it is a good idea to know what kind of setting you want to use. These are the main things that you want to collect:
 
@@ -29,11 +29,11 @@ The `name` of your new database instance. (In this example we will use `my_datab
 
 What `databases` you want to create (in this example we will just use `my_first_database`)
 
-`IP addresses` form where you would like to access your database. You can usally find out your IP by googling what is my IP or using a homepage like this from CLI
+`IP addresses` form where you would like to access your database. You can usually find out your IP by googling what is my IP or using a homepage like this from CLI
 
     curl ifconfig.me
 
-`Flavor` for example `standard.small` . You can list avialble flavors by:
+`Flavor` for example `standard.small` . You can list available flavors by:
 
      openstack database flavor list
 
@@ -41,7 +41,7 @@ What `databases` you want to create (in this example we will just use `my_first_
 
     openstack datastore list
 
-`datastore version` This depends on the datstore you have choosen and you should usally choose the latest. If you use postgresql you can proabably use `14.2`. You can find out the avialable datastore versions by:
+`datastore version` This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `14.2`. You can find out the available datastore versions by:
 
     openstack datastore version list postgresql
 
@@ -63,7 +63,7 @@ What `username` and `password` you want to use. (In this example we will use `da
 
 If you have any issues don't hesitate using the `openstack database instance create --help` command.
 
-8. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have recivced an `HEALTHY` state the public IP should be visible. (note that it will show you a private and public IP you are only interested in the public IP). The following command will show you info about the instance: 
+8. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have received an `HEALTHY` state the public IP should be visible. (note that it will show you a private and public IP you are only interested in the public IP). The following command will show you info about the instance: 
 
     openstack database instance show $INSTANCE_ID
 
@@ -111,9 +111,9 @@ Delete the instances
 
     openstack database instance delete $INSTANCE_ID
 
-##### Supported functionallity
+##### Supported functionality
 
-These are the avilable commands at the moment
+These are the available commands at the moment
 
 | Openstack command | supported | Comments |
 |--- |:---:|:---|
