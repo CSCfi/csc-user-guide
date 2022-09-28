@@ -352,23 +352,6 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
         myprog.py <options>
     ```
 
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=eap
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=64
-    #SBATCH --gpus-per-task=8
-    #SBATCH --time=1:00:00
-
-    module use /projappl/project_462000007/ai/modulefiles/
-    module load pytorch
-
-    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 \
-        myprog.py <options>
-    ```
 
 Example of running PyTorch DDP on 2 full nodes:
 
@@ -427,35 +410,6 @@ Example of running PyTorch DDP on 2 full nodes:
         myprog.py <options>
     ```
 
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=eap
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=64
-    #SBATCH --gpus-per-task=8
-    #SBATCH --time=1:00:00
-    
-    export RDZV_HOST=$(hostname)
-    export RDZV_PORT=29400
-    
-    # Seems to solve issue: https://github.com/ROCmSoftwarePlatform/MIOpen/issues/114
-    export MIOPEN_USER_DB_PATH=~/.config/miopen_$SLURM_PROCID/
-
-    module use /projappl/project_462000007/ai/modulefiles/
-    module load pytorch
- 
-    srun python3 -m torch.distributed.run \
-        --nnodes=$SLURM_JOB_NUM_NODES \
-        --nproc_per_node=8 \
-        --rdzv_id=$SLURM_JOB_ID \
-        --rdzv_backend=c10d \
-        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
-        myprog.py <options>
-    ```
 
 If you are converting an old PyTorch script there are a few steps that you need to do:
 
