@@ -20,7 +20,7 @@ Before running jobs users will need to use `module use /appl/local/quantum/modul
 #SBATCH --time=00:30:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_<id>  # Project for billing
 
-module use /scratch/project_462000055/modules
+module use /appl/local/quantum/modulefiles
 
 # uncomment correct line:
 # module load helmi_qiskit
@@ -100,6 +100,9 @@ The `csc_qu_tools` python file contains all the necessary functions and classes 
 
 A python package to help interfacing with Helmi via LUMI is provided. The `csc_qu_tools` python package provides everything necessary to connect and submit jobs to Helmi via LUMI. Users can use the tool set for both Qiskit and Cirq. 
 
-The package can be accessed after loading one of the `helmi` modules, by `import csc_qu_tools`.
+The package can be accessed after loading one of the `helmi` modules, by `import csc_qu_tools`. 
+
+* For Qiskit `import csc_qu_tools.qiskit`
+* For Cirq `import csc_qu_tools.cirq`
 
 
