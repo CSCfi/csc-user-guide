@@ -214,7 +214,7 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
-     - DBaaS:
+     - Pukki (DBaaS):
         - Contents: cloud/dbaas/index.md
         - What is DBaaS: cloud/dbaas/what-is-dbaas.md
         - Security Guides: cloud/dbaas/security-guides.md
@@ -225,6 +225,7 @@ nav:
         - Backups: cloud/dbaas/backups.md
         - Databases:
              - Postgresql: cloud/dbaas/postgresql.md
+        - More advanced features: cloud/dbaas/advanced.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:

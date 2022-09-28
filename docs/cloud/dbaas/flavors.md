@@ -2,6 +2,8 @@
 
 The database instances are hosted on top of cPouta. The billing is based on the Flavor (datasbase instances size), how big volume for the database and how much backup you are using.
 
+TODO the prices have not been decided on, in internal beta the services is free.
+
 ## Flavor types
 |Flavor|Cores|Memory<br/>(GiB)|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|

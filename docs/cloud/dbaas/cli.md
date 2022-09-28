@@ -1,7 +1,8 @@
 # Using DBaaS with CLi
 
+The DBaaS is using openstack on the backend this means that you can use the openstack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta. This is especially important if you are automating stuff in both Pouta and DBaaS since you need to connect to different Keystone endpoings.
+
 ## Getting started
-The DBaaS is using openstack on the background this means that you can use the openstack CLI in a similar way as Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta.
 
 1. First make sure that you have `python3` installed.
 2. Then install the command line tools 
@@ -62,7 +63,7 @@ What `username` and `password` you want to use. (In this example we will use `da
 
 If you have any issues don't hesitate using the `openstack database instance create --help` command.
 
-8. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have recivced an `HEALTHY` state the public IP should be visible. The following command will show you info about the instance: 
+8. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have recivced an `HEALTHY` state the public IP should be visible. (note that it will show you a private and public IP you are only interested in the public IP). The following command will show you info about the instance: 
 
     openstack database instance show $INSTANCE_ID
 
@@ -94,7 +95,7 @@ List existing users in the database
 
 Create user (--databases is not necessary)
 
-    openstack database $INSTANCE_ID $USER_NAME $PASSWORD --databases $DB_NAME
+    openstack database $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
 
 Add access to database (you can add multiple databases or remove)
 
@@ -112,40 +113,42 @@ Delete the instances
 
 ##### Supported functionallity
 
+These are the avilable commands at the moment
+
 | Openstack command | supported | Comments |
 |--- |:---:|:---|
 | openstack database backup create 			| DONE		|	All flags are not tested |
 | openstack database backup delete 			| DONE 	 	|                           |
-| openstack database backup execution delete 		| Not avialable | 	Not investigated yet|
+| openstack database backup execution delete 		| Not available | 	Not investigated yet|
 | openstack database backup list 			| DONE 		|                           |
 | openstack database backup list instance 		| DONE 	 	|                           |
 | openstack database backup show 			| DONE 		|                           |
 | openstack database backup strategy create 		| DONE 	 	|                           |
 | openstack database backup strategy delete 		| DONE 	 	|                           |
 | openstack database backup strategy list 		| DONE 	 	|                           |
-| openstack database cluster create 			| Not avialable | 	Not investigated yet|
-| openstack database cluster delete 			| Not avialable | 	Not investigated yet|
-| openstack database cluster force delete 		| Not avialable | 	Not investigated yet|
-| openstack database cluster grow 			| Not avialable | 	Not investigated yet|
-| openstack database cluster list 			| Not avialable | 	Not investigated yet|
-| openstack database cluster list instances 		| Not avialable | 	Not investigated yet|
-| openstack database cluster modules 			| Not avialable | 	Not investigated yet|
-| openstack database cluster reset status 		| Not avialable | 	Not investigated yet|
-| openstack database cluster show 			| Not avialable | 	Not investigated yet|
-| openstack database cluster shrink 			| Not avialable | 	Not investigated yet|
-| openstack database cluster upgrade 			| Not avialable | 	Not investigated yet|
-| openstack database configuration attach 		| Not avialable | 	Not investigated yet|
-| openstack database configuration create 		| Not avialable | 	Not investigated yet|
-| openstack database configuration default 		| Not avialable | 	Not investigated yet|
-| openstack database configuration delete 		| Not avialable | 	Not investigated yet|
-| openstack database configuration detach 		| Not avialable | 	Not investigated yet|
-| openstack database configuration instances 		| Not avialable | 	Not investigated yet|
-| openstack database configuration list 		| Not avialable | 	Not investigated yet|
-| openstack database configuration parameter list	| Not avialable | 	Not investigated yet|
-| openstack database configuration parameter set 	| Not avialable | 	Not investigated yet|
-| openstack database configuration parameter show 	| Not avialable | 	Not investigated yet|
-| openstack database configuration set 			| Not avialable | 	Not investigated yet|
-| openstack database configuration show 		| Not avialable | 	Not investigated yet|
+| openstack database cluster create 			| Not available | 	Not investigated yet|
+| openstack database cluster delete 			| Not available | 	Not investigated yet|
+| openstack database cluster force delete 		| Not available | 	Not investigated yet|
+| openstack database cluster grow 			| Not available | 	Not investigated yet|
+| openstack database cluster list 			| Not available | 	Not investigated yet|
+| openstack database cluster list instances 		| Not available | 	Not investigated yet|
+| openstack database cluster modules 			| Not available | 	Not investigated yet|
+| openstack database cluster reset status 		| Not available | 	Not investigated yet|
+| openstack database cluster show 			| Not available | 	Not investigated yet|
+| openstack database cluster shrink 			| Not available | 	Not investigated yet|
+| openstack database cluster upgrade 			| Not available | 	Not investigated yet|
+| openstack database configuration attach 		| Not available | 	Not investigated yet|
+| openstack database configuration create 		| Not available | 	Not investigated yet|
+| openstack database configuration default 		| Not available | 	Not investigated yet|
+| openstack database configuration delete 		| Not available | 	Not investigated yet|
+| openstack database configuration detach 		| Not available | 	Not investigated yet|
+| openstack database configuration instances 		| Not available | 	Not investigated yet|
+| openstack database configuration list 		| Not available | 	Not investigated yet|
+| openstack database configuration parameter list	| Not available | 	Not investigated yet|
+| openstack database configuration parameter set 	| Not available | 	Not investigated yet|
+| openstack database configuration parameter show 	| Not available | 	Not investigated yet|
+| openstack database configuration set 			| Not available | 	Not investigated yet|
+| openstack database configuration show 		| Not available | 	Not investigated yet|
 | openstack database db create 				| DONE ||
 | openstack database db delete 				| DONE | |
 | openstack database db list 				| DONE || 
@@ -153,28 +156,28 @@ Delete the instances
 | openstack database flavor show 			| DONE 	 ||
 | openstack database instance create 			| DONE 	 ||
 | openstack database instance delete 			| DONE 	 ||
-| openstack database instance detach 			| Not avialable | 	 |
-| openstack database instance eject 			| Not avialable | 	 |
-| openstack database instance force delete 		| Not avialable | 	Only admins can force delete|
+| openstack database instance detach 			| Not available | 	 |
+| openstack database instance eject 			| Not available | 	 |
+| openstack database instance force delete 		| Not available | 	Only admins can force delete|
 | openstack database instance list 			| DONE 	 ||
-| openstack database instance promote 			| Not avialable | 	 |
-| openstack database instance reboot 			| Not avialable | 	Only admins can reboot DB instances|
-| openstack database instance rebuild 			| Not avialable | 	Only admins can rebuild DB instances|
-| openstack database instance reset status 		| Not avialable | 	Only admins modify the status|
-| openstack database instance resize flavor 		| Not avialable | 	Works but not recommended by DBaaS team|
-| openstack database instance resize volume 		| Not avialable | 	Does not work without admin intervention, require hard reboot.|
+| openstack database instance promote 			| Not available | 	 |
+| openstack database instance reboot 			| Not available | 	Only admins can reboot DB instances|
+| openstack database instance rebuild 			| Not available | 	Only admins can rebuild DB instances|
+| openstack database instance reset status 		| Not available | 	Only admins modify the status|
+| openstack database instance resize flavor 		| Not available | 	Works but not recommended by DBaaS team|
+| openstack database instance resize volume 		| Not available | 	Does not work without admin intervention, require hard reboot.|
 | openstack database instance restart 			| DONE 	 ||
 | openstack database instance show 			| DONE 	 ||
 | openstack database instance update 			| DONE 		| 	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
-| openstack database instance upgrade 			| Not avialable | 	 
-| openstack database limit list 			| Not avialable | 	Command works but unclear how it should be used|
-| openstack database log list 				| Not avialable | 	 |
-| openstack database log save 				| Not avialable | 	 |
-| openstack database log set 				| Not avialable | 	 |
-| openstack database log show 				| Not avialable | 	 |
-| openstack database log tail 				| Not avialable | 	 |
-| openstack database quota show 			| Not avialable | 	Only admins can see this|
-| openstack database quota update 			| Not avialable | 	Only admins can see this|
+| openstack database instance upgrade 			| Not available | 	 
+| openstack database limit list 			| Not available | 	Command works but unclear how it should be used|
+| openstack database log list 				| Not available | 	 |
+| openstack database log save 				| Not available | 	 |
+| openstack database log set 				| Not available | 	 |
+| openstack database log show 				| Not available | 	 |
+| openstack database log tail 				| Not available | 	 |
+| openstack database quota show 			| Not available | 	Only admins can see this|
+| openstack database quota update 			| Not available | 	Only admins can see this|
 | openstack database root disable 			| DONE 	||
 | openstack database root enable 			| DONE 		| 	It is not recommended to enable root you might break the DBaaS integration|
 | openstack database root show 				| DONE 	 ||
@@ -186,11 +189,11 @@ Delete the instances
 | openstack database user show 				| DONE 	 ||
 | openstack database user show access 			| DONE 	 ||
 | openstack database user update attributes 		| DONE 	 ||
-| openstack datastore delete  				| Not avialable |	Only admins|
+| openstack datastore delete  				| Not available |	Only admins|
 | openstack datastore list 				| DONE 	 	||
 | openstack datastore show 				| DONE 	 	||
-| openstack datastore version create 			| Not avialable | 	Only admins|
-| openstack datastore version delete 			| Not avialable | 	Only admins|
+| openstack datastore version create 			| Not available | 	Only admins|
+| openstack datastore version delete 			| Not available | 	Only admins|
 | openstack datastore version list 			| DONE 		||
-| openstack datastore version set 			| Not avialable	| 	Only admins |
+| openstack datastore version set 			| Not available	| 	Only admins |
 | openstack datastore version show 			| DONE		||
