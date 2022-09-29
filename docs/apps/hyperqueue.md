@@ -110,11 +110,11 @@ hq submit --array 1-10 --cpus <n> <COMMAND>
 `<COMMAND>` then has access to the environment variable `HQ_TASK_ID` which is used
 to enumerate all the tasks.
 
-!!! info "sbatch-hq (not yet available)"
-    For very simple submissions where you only want to run each line within a file with identical
-    resources (task farming) you can soon just use the CSC utility tool `sbatch-hq`. This way you
-    do not have to care about HyperQueue. Once available, run `module load sbatch-hq` to load the
-    wrapper.
+!!! info "sbatch-hq"
+    For very simple submissions where you only want to run each line within a file with
+    identical resources (task farming) you can just use the CSC utility tool `sbatch-hq`.
+    This way you do not have to care about HyperQueue. Run `module load sbatch-hq` to load
+    the wrapper (only available on Mahti).
 
 When we have submitted everything we want, we need to wait for the jobs to finish.
 This can be done e.g. with:
