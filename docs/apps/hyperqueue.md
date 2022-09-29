@@ -35,9 +35,9 @@ resembles a Slurm within a Slurm, but you have to start the server and workers y
     The following instructions apply for Slurm job scripts where only full nodes
     are allocated. [A full example](#full-example) (for Mahti) can be found at the bottom.
 
-Specify where the HyperQueue server should be placed. All `hq` commands respect this variable
-so make sure it's set before you call any `hq` commands. The server location can also be placed
-using the command line flag `--server-dir /server/location`.
+Specify where the HyperQueue server should be placed (on the file system). All `hq` commands
+respect this variable so make sure it's set before you call any `hq` commands. The server
+location can also be placed using the command line flag `--server-dir /server/location/on/lustre`.
 
 ```bash
 export HQ_SERVER_DIR=/server/location
@@ -76,17 +76,11 @@ the workers early.
 Loop until all workers are online (note no timeout):
 
 ```bash
-while true; do
-
-    num_up=$(hq worker list | grep -c RUNNING)
+until [[ $num_up -eq $SLURM_NNODES ]]; do
     echo "Checking if workers have started"
-    if [[ $num_up -eq $SLURM_NNODES ]]; then
-        echo "Workers started"
-        break
-    fi
+    num_up=$(hq worker list | grep -c RUNNING)
     echo "$num_up/$SLURM_NNODES workers have started"
     sleep 1
-
 done
 ```
 
@@ -125,15 +119,9 @@ When we have submitted everything we want, we need to wait for the jobs to finis
 This can be done e.g. with:
 
 ```bash
-echo "WAITING FOR JOBS TO FINISH"
-while true; do
-    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
-    echo "WAITING FOR JOBS TO FINISH "
-    if [[ -z "$NOT_DONE" ]]; then
-        break
-    fi
+while hq job list --all | grep -q "RUNNING\|PENDING"; do
+    echo "WAITING FOR JOBS TO FINISH"
     sleep 30
-    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
 done
 ```
 
@@ -169,29 +157,23 @@ echo "STARTING HQ SERVER, log in $HQ_SERVER_DIR/HQ.log"
 echo "===================="
 hq server start &>> "$HQ_SERVER_DIR/HQ.log" &
 until hq job list &>/dev/null ; do sleep 1 ; done
+
 echo "STARTING HQ WORKERS ON $SLURM_NNODES nodes"
 echo "===================="
 srun --cpu-bind=none --mpi=none hq worker start --cpus=$SLURM_CPUS_PER_TASK &>> "$HQ_SERVER_DIR/HQ.log" &
 
-while true; do
+until [[ $num_up -eq $SLURM_NNODES ]]; do
     num_up=$(hq worker list 2>/dev/null | grep -c RUNNING )
     echo "WAITING FOR WORKERS TO START ( $num_up / $SLURM_NNODES )"
-    if [[ $num_up -eq $SLURM_NNODES ]]; then
-        break
-    fi
-    sleep 2
+    sleep 1
 done
 
 ## Here you run your submit commands, workflow managers etc...
 ## hq submit <hq submit args> --cpus <n> <COMMAND/executable> <args to program>
 ## ...
 
-while true; do
-    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
+while hq job list --all | grep -q "RUNNING\|PENDING"; do
     echo "WAITING FOR JOBS TO FINISH"
-    if [[ -z "$NOT_DONE" ]]; then
-        break
-    fi
     # Adjust the timing here if you get to much output in the Slurm log file
     # Now set to 30 seconds
     sleep 30
