@@ -24,6 +24,7 @@ You can also learn more from example cases for:
 
 * [sensitive data reuse](https://research.csc.fi/example-case-7-sensitive-data-reuse).
 
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Introduction to the services
 
@@ -39,6 +40,9 @@ Sensitive Data services for research consist of five components:
 * Sensitive Data Submit and Federated EGA ([service description](https://research.csc.fi/-/fega)) (pilot phase): allow publishing of sensitive and biomedical data under controlled access. 
 
 * Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ## Legal agreements
