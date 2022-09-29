@@ -40,6 +40,7 @@
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
+* [Megahit](megahit.md) Metagenomics assembly
 * [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
