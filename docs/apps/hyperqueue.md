@@ -16,8 +16,8 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Available
 
-* Puhti: 0.9.0
-* Mahti: 0.11.0
+* Puhti: 0.4.0, 0.9.0
+* Mahti: 0.11-dev
 
 ## Usage
 
@@ -218,7 +218,7 @@ the system batch scheduler.
 Using Snakemake's `--cluster` flag we can use `hq submit` instead of `sbatch`:
 
 ```bash
-snakemake --cluster "hq submit --cpus {threads} .."
+snakemake --cluster "hq submit --cpus <threads> ..."
 ```
 
 If you are porting a more complicated workflow from Slurm, you can do
@@ -233,8 +233,10 @@ how to use HyperQueue as an executor for Nextflow workflows.
 ## More information
 
 !!!info "MPI"
-    Although HyperQueue does not do MPI execution out of the box, it's possible using a
-    combination of the HQ feature "Multinode Tasks" and `orterun`, `hydra` or `prrte`.
-    This way one can schedule MPI tasks at a node-level granularity.
+    Although HyperQueue does not do MPI execution out of the box, it's possible
+    using a combination of the HQ feature [Multinode
+    Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/multinode/)
+    and `orterun`, `hydra` or `prrte`. This way one can schedule MPI tasks at a
+    node-level granularity.
 
 * [Full documentation for HQ](https://it4innovations.github.io/hyperqueue/v0.11.0/)
