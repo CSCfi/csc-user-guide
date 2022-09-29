@@ -76,9 +76,9 @@ the workers early.
 Loop until all workers are online (note no timeout):
 
 ```bash
-num_up=$(hq worker list | grep -c RUNNING)
 while true; do
 
+    num_up=$(hq worker list | grep -c RUNNING)
     echo "Checking if workers have started"
     if [[ $num_up -eq $SLURM_NNODES ]]; then
         echo "Workers started"
@@ -86,7 +86,6 @@ while true; do
     fi
     echo "$num_up/$SLURM_NNODES workers have started"
     sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
 
 done
 ```
