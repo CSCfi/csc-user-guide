@@ -16,7 +16,7 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Available
 
-* Puhti-rhel8: 0.11.0?
+* Puhti: 0.9.0
 * Mahti: 0.11.0
 
 ## Usage
@@ -101,15 +101,21 @@ done
 
 See `hq submit --help` for the full list of options.
 
-`hq submit <hq submit args> --cpus <n> <COMMAND/executable> <args to program>`
+```bash
+hq submit <hq submit args> --cpus <n> <COMMAND/executable> <args to program>
+```
 
 This is a non-blocking command similar to `sbatch`.
 
 HyperQueue is not limited to running a single execution per submission. Using the
 `--array 1-N` flag we can start a program *N* times similar to how slurm array jobs work.
 
-`hq submit --array 1-10 --cpus <n> <COMMAND>`. `<COMMAND>` then has access to the environment
-variable `HQ_TASK_ID` which is used to enumerate all the tasks.
+```bash
+hq submit --array 1-10 --cpus <n> <COMMAND>
+```
+
+`<COMMAND>` then has access to the environment variable `HQ_TASK_ID` which is used
+to enumerate all the tasks.
 
 !!! info "sbatch-hq"
     For very simple submissions where you only want to run each line within a file with identical
@@ -124,7 +130,7 @@ echo "WAITING FOR JOBS TO FINISH"
 while true; do
     NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
     echo "WAITING FOR JOBS TO FINISH "
-    if [[ -z "$NOT_DONE" ]];then
+    if [[ -z "$NOT_DONE" ]]; then
         break
     fi
     sleep 30
@@ -156,7 +162,7 @@ export SLURM_EXACT=1
 # Load the required modules
 module load hyperqueue
 
-# Set the directory which hyperqueue will use 
+# Set the directory which hyperqueue will use
 export HQ_SERVER_DIR=$PWD/hq-server-$SLURM_JOB_ID
 mkdir -p "$HQ_SERVER_DIR"
 
@@ -171,24 +177,26 @@ srun --cpu-bind=none --mpi=none hq worker start --cpus=$SLURM_CPUS_PER_TASK &>> 
 while true; do
     num_up=$(hq worker list 2>/dev/null | grep -c RUNNING )
     echo "WAITING FOR WORKERS TO START ( $num_up / $SLURM_NNODES )"
-    if [[ $num_up -eq $SLURM_NNODES ]];then
+    if [[ $num_up -eq $SLURM_NNODES ]]; then
         break
     fi
     sleep 2
 done
 
 ## Here you run your submit commands, workflow managers etc...
+## hq submit <hq submit args> --cpus <n> <COMMAND/executable> <args to program>
+## ...
 
-while true; do                                                   
-    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")          
-    echo "WAITING FOR JOBS TO FINISH "                           
-    if [[ -z "$NOT_DONE" ]];then                                 
+while true; do
+    NOT_DONE=$(hq job list --all | grep "RUNNING\|PENDING")
+    echo "WAITING FOR JOBS TO FINISH"
+    if [[ -z "$NOT_DONE" ]]; then
         break
-    fi                                                           
+    fi
     # Adjust the timing here if you get to much output in the Slurm log file
     # Now set to 30 seconds
     sleep 30
-done                                                             
+done
 
 echo "===================="
 echo "DONE"
