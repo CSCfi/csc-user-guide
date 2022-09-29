@@ -76,8 +76,8 @@ the workers early.
 Loop until all workers are online (note no timeout):
 
 ```bash
+echo "Checking if workers have started"
 until [[ $num_up -eq $SLURM_NNODES ]]; do
-    echo "Checking if workers have started"
     num_up=$(hq worker list | grep -c RUNNING)
     echo "$num_up/$SLURM_NNODES workers have started"
     sleep 1
@@ -101,7 +101,7 @@ hq submit <hq submit args> --cpus <n> <COMMAND/executable> <args to program>
 This is a non-blocking command similar to `sbatch`.
 
 HyperQueue is not limited to running a single execution per submission. Using the
-`--array 1-N` flag we can start a program *N* times similar to how slurm array jobs work.
+`--array 1-N` flag we can start a program *N* times similar to how Slurm array jobs work.
 
 ```bash
 hq submit --array 1-10 --cpus <n> <COMMAND>
@@ -110,10 +110,11 @@ hq submit --array 1-10 --cpus <n> <COMMAND>
 `<COMMAND>` then has access to the environment variable `HQ_TASK_ID` which is used
 to enumerate all the tasks.
 
-!!! info "sbatch-hq"
+!!! info "sbatch-hq (not yet available)"
     For very simple submissions where you only want to run each line within a file with identical
-    resources (task farming) you can just use the CSC utility tool `sbatch-hq`. This way you
-    do not have to care about HyperQueue. Run `module load sbatch-hq` to load the wrapper.
+    resources (task farming) you can soon just use the CSC utility tool `sbatch-hq`. This way you
+    do not have to care about HyperQueue. Once available, run `module load sbatch-hq` to load the
+    wrapper.
 
 When we have submitted everything we want, we need to wait for the jobs to finish.
 This can be done e.g. with:
