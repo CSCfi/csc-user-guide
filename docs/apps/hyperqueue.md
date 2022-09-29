@@ -21,9 +21,9 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Usage
 
-``
+```bash
 module load hyperqueue
-``
+```
 
 HyperQueue works on a worker-server-client basis. Here, the server manages connections, workers are
 started on compute nodes and execute commands which the client submitted to the server. This
