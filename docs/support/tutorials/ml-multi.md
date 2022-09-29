@@ -97,21 +97,12 @@ that you should now see statistics for more than one GPU.
 
 === "LUMI"
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=eap
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=16
-    #SBATCH --gpus-per-task=2
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
+    LUMI example coming soon!
+
 
 The example above can be easily changed to more than 2 GPUs by
 changing the number specified in the `--gres` option (Puhti and Mahti)
-or `--gpus-per-task` option (LUMI). The maximum for a single node job
+or `--gpus-per-node` option (LUMI). The maximum for a single node job
 is 4 GPUs (Puhti and Mahti) or 8 GPUs (LUMI). 
 
 If you increase the number of GPUs you may also wish to increase the
@@ -158,18 +149,8 @@ exact).
 
 === "LUMI"
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=eap
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=8
-    #SBATCH --cpus-per-task=8
-    #SBATCH --gpus-per-task=1
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
+    LUMI example coming soon!
+
 
 The option `--mem=0` means to reserve all memory in that node.
 
@@ -209,18 +190,8 @@ The option `--mem=0` means to reserve all memory in that node.
 
 === "LUMI"
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=eap
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=64
-    #SBATCH --gpus-per-task=8
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
+    LUMI example coming soon!
+
 
 Note that the `--gres` option always specifies the number of GPUs on a
 *single-node*, even in the multi-node case. So if we are reserving 8
@@ -263,18 +234,7 @@ GPUs across 2 nodes in Puhti, that is 4 GPUs on each node, i.e,
 
 === "LUMI"
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=eap
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=8
-    #SBATCH --cpus-per-task=8
-    #SBATCH --gpus-per-task=1
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
+    LUMI example coming soon!
 
 
 ## Available frameworks
