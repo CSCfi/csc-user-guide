@@ -4,17 +4,34 @@ This guide explains the basics of using GPUs in CSC's supercomputers. It is part
 of our [Machine learning guide](ml-guide.md).
 
 
-## Puhti or Mahti?
+## Puhti, Mahti or LUMI?
 
-Puhti and Mahti are CSC's two supercomputers. Puhti has the largest number of
-GPUs (V100) and offers the widest selection of installed software, while Mahti
-has a smaller number of faster newer generation A100 GPUs. The main GPU-related
-statistics are summarized in the table below.
+Puhti and Mahti are CSC's two national supercomputers. Puhti has the
+largest number of GPUs (V100) and offers the widest selection of
+installed software, while Mahti has a smaller number of faster newer
+generation A100 GPUs.
 
-|       | GPU type           | GPU memory | GPU nodes | GPUs/node | Total GPUs |
-|-------|--------------------|------------|-----------|-----------|------------|
-| Puhti | NVIDIA Volta V100  | 32 GB      | 80        | 4         | 320        |
-| Mahti | NVIDIA Ampere A100 | 40 GB      | 24        | 4         | 96         |
+The CSC-hosted European supercomputer
+[LUMI](https://docs.lumi-supercomputer.eu/generic/overview/) will
+provide a massive GPU resource once it's up and running. Currently,
+only a [small early access
+platform](https://docs.lumi-supercomputer.eu/eap/) is available for
+testing code compatibility.
+
+The main GPU-related statistics are summarized in the table below.
+
+|       | GPU type           | GPU memory  | GPU nodes | GPUs/node | Total GPUs    |
+|-------|--------------------|-------------|-----------|-----------|---------------|
+| Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
+| Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
+| LUMI  | AMD MI250x         | 64 (128) GB | 2560      | 8 (4)     | 20480 (10240) |
+
+!!! info "Note"
+
+    Each LUMI node has 4 MI250x GPUs, however 8 GPUs will be available
+    through Slurm as the MI250x card features 2 GPU dies (GCDs). The table
+    above shows the GPU die specific numbers, MI250x card specific numbers
+    are shown in parenthesis.
 
 Please read our [usage policy for the GPU
 nodes](../../computing/overview.md#gpu-nodes). Also consider that the Slurm
@@ -23,6 +40,7 @@ note that Puhti and Mahti have distinct file systems, so you need to manually
 copy your files if you wish to change the system. **In case you are unsure which
 supercomputer to use, Puhti is a good default** as it has a wider set of
 software supported.
+
 
 
 ## Available machine learning software
