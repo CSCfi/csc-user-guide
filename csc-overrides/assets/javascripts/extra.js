@@ -42,6 +42,12 @@ function fix_youtube() {
     frames[idx].scrolling = "no"
     s_url = frames[idx].srcdoc.split('/');
 
+    if (!s_url[2].includes('youtube')) {
+      frames[idx].src = frames[idx].srcdoc;
+      frames[idx].removeAttribute("srcdoc");
+      return true;
+    }
+
     if (s_url.length == 1) {
       youtube_id = frames[idx].srcdoc;
     }

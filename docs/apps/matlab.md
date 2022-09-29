@@ -14,7 +14,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2021b, R2021a, R2020b,R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
+- Puhti: R2021b, R2021a, R2020b, R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
 
 ## License
 
@@ -27,16 +27,10 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for the sessions. After logging in to the web interface, MATLAB can be launched as follows:
-
-* Select "Desktop" from the "Apps"-view and specify your resource requirements
-* To only run the MATLAB app, select the `Desktop > single application` and `App > MATLAB` settings. 
-* To launch the full desktop, select either `mate` or `xfce` and run MATLAB from the host terminal or by clicking the desktop icon. If using the host terminal, open MATLAB with:
-
-```bash
-module load matlab/r2021b
-matlab
-```
+There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
+available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
+for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
+and specifying your resource requirements.
 
 ### Getting Started with MATLAB Parallel Server on Puhti
 
@@ -73,19 +67,19 @@ Optionally, we can configure also
 - Working directory with a 'CurrentFolder' attribute
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.WallTime = '0:10:0'
->> c.AdditionalProperties.MemUsage = '2g'
->> c.AdditionalProperties.QueueName = 'small'
->> c.AdditionalProperties.AccountName = 'project_<id>'
+>> c = parcluster;
+>> c.AdditionalProperties.WallTime = '0:10:0';
+>> c.AdditionalProperties.MemUsage = '2g';
+>> c.AdditionalProperties.QueueName = 'small';
+>> c.AdditionalProperties.AccountName = 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
->> c.saveProfile
+>> c.saveProfile;
 ```
 
 To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values. For example, to turn off email notifications
 ```bash
->> c.AdditionalProperties.EmailAddress = ''
+>> c.AdditionalProperties.EmailAddress = '';
 ```
 
 #### Submitting a Simple Serial Job
@@ -117,9 +111,9 @@ additionalSubmitArgs =
 
 To retrieve a list of currently running or completed jobs, use
 ```bash
->> jobs = c.Jobs
+>> jobs = c.Jobs;
 >> % Get a handle to the job with sequence number 2
->> j2 = c.Jobs(2)
+>> j2 = c.Jobs(2);
 >> % Fetch results
 >> fetchOutputs(j2)
 ```
@@ -168,10 +162,10 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 #### Using GPUs
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.QueueName = 'gpu'
->> c.AdditionalProperties.GpuCard = 'v100'
->> c.AdditionalProperties.GpusPerNode = 1
+>> c = parcluster;
+>> c.AdditionalProperties.QueueName = 'gpu';
+>> c.AdditionalProperties.GpuCard = 'v100';
+>> c.AdditionalProperties.GpusPerNode = 1;
 >> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
@@ -194,6 +188,3 @@ Documentation and manuals for MATLAB and related products is available via the D
 - [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 - [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
 - [Puhti User Guide](/computing/overview/)
-
-
-

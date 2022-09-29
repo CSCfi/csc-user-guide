@@ -16,6 +16,8 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
   - [How do I add an entry to the "What's new" section](#how-do-i-add-an-entry-to-the-whats-new-section)
   - [Which Markdown features/extensions are available?](#which-markdown-featuresextensions-are-available)
+  - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
+  - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
 
 
 ## How to include my new page in the navigation panel?
@@ -172,3 +174,14 @@ A good way to highlight a new update is to add an entry to the What's new -secti
 ## Which Markdown features/extensions are available?
 
 Have a look at [the reference card](https://docs.csc.fi/ref).
+
+## How do I add definitions to the glossary / display definitions as tooltips?
+
+There is a file that contains acronym-definition pairs at [csc-overrides/assets/glossaries/hpc.md](csc-overrides/assets/glossaries/hpc.md). The pairs are in the format `*[Acronym]: Definition`. New pairs may be added to the file, or a new file may be created within the same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is found in [the reference card](https://docs.csc.fi/ref#glossary).
+
+## How do I use the announcement bar?
+
+The content inside the yellow announcement bar at the top of the page is controlled by editing the file
+[csc-overrides/partials/announcement.html](csc-overrides/partials/announcement.html). The bar's
+visibility, in turn, is controlled by changing the value `true|false` of `extra: announcement_visible` in
+[mkdocs.yml](mkdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
