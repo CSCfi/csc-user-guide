@@ -12,7 +12,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Usage
 
-All components of Lazypipe pipeline are available in Puhti-rhel7. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti-rhel7, but this is not needed if you use the Lazypipe module that is loaded with commands:
+All components of Lazypipe pipeline are available in Puhti-rhel8. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti-rhel8, but this is not needed if you use the Lazypipe module that is loaded with commands:
 
 ```text
 module load r-env-singularity
@@ -29,12 +29,12 @@ lazypipe.pl
 Normally you need to use the _lazypipe.pl_ command only for testing. For real analysis tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
 
 _sbatch-lazypipe_ is a help tool that automatically generates a configuration file and a batch job file for a Lazypipe run 
-and submits the job to batch job system of Puhti-rhel7. The command uses the same command line options 
+and submits the job to batch job system of Puhti-rhel8. The command uses the same command line options 
 as the _lazypipe.pl_ command. In addition _sbatch-lazypipe_ asks user to define batch job resources
 (account, run time, memory, number of cores).
 
 For example to execute the [Example 1]( https://www.helsinki.fi/en/projects/lazypipe/examples) from the
-Lazypipe home page, you would first need to download the reads and reference genome to your scratch directory in Puhti-rhel7
+Lazypipe home page, you would first need to download the reads and reference genome to your scratch directory in Puhti-rhel8
 (in real cases you will get these input files from your own sources):
 
 ```text

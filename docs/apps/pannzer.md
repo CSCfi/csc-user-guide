@@ -37,9 +37,9 @@ a-flip annotations.html
 ```
 You can use the link provided by _a-flip_ to study the results with your browser.
 
-Note, that in Puhti-rhel7 you should always use `runsanspanz.py` with option `-R` that sends the
+Note, that in Puhti-rhel8 you should always use `runsanspanz.py` with option `-R` that sends the
 analysis jobs to the annotation sever maintained by the Holm group. Thus, the job does not use 
-the resources of Puhti-rhel7 and it can be run as an intercative job in a login node.
+the resources of Puhti-rhel8 and it can be run as an intercative job in a login node.
 
 ## More information
 

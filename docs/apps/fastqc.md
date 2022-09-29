@@ -15,26 +15,24 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ###Version on CSC's Servers
 
--   Puhti-rhel7: 0:11.8 
+-   Puhti-rhel8: 0.11.8 
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ##Usage
 
 
-To initialize in Puhti-rhel7 use:
+To initialize in Puhti-rhel8 use:
 ```text
 module load biokit
 ```
-You can then start FastQC:
+
+You can then run FastQC:
 ```text
-fastqc
+fastqc --help
 ```
 
-FastQC is a graphical software so if you use it in Puhti-rhel7 you will need a working X-term connection (FreeNX remote desktop is not yet available in Puhti-rhel7). 
-
+If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Puhti-rhel8 is to use the [Puhti-rhel8 web interface desktop](../computing/webinterface/desktop.md).
 
 ## Manual
 
 *   [FastQC Homepage](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-
-* [CD-HIT home page](http://weizhongli-lab.org/cd-hit/)
