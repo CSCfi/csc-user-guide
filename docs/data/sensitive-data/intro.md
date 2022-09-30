@@ -24,6 +24,7 @@ You can also learn more from example cases for:
 
 * [sensitive data reuse](https://research.csc.fi/example-case-7-sensitive-data-reuse).
 
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Introduction to the services
 
@@ -39,6 +40,9 @@ Sensitive Data services for research consist of five components:
 * Sensitive Data Submit and Federated EGA ([service description](https://research.csc.fi/-/fega)) (pilot phase): allow publishing of sensitive and biomedical data under controlled access. 
 
 * Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 ## Legal agreements
@@ -94,15 +98,15 @@ Sensitive Data Services are available for all CSC customers. To access CSC's ser
 
    3. Create or join a CSC project and add project members.
 
-   4. Fill in the Description of processing activities form and agree with CSC Data Processing Agreement.
+   4. Fill in the Description of processing activities form and accepct CSC's Data processing agreement.
     
    5. Each project member needs to **add service access to Allas and  SD Desktop**.
 
-   6. Activate the additional security verification (or Multi-factor Authentication) on your account by **scanning the QR code with a specific application** (e.g. Google Authenticator).
+   6. Activate the additional security verification (or Multi-factor Authentication) on your account by **scanning the QR code with an application** (e.g. Google Authenticator).
 
    7. Apply for billing units or disk quota.
 
-For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+For video tutorials and guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
 
 !!! Note
@@ -116,5 +120,5 @@ Once you have completed these steps, you can log in to SD services with identity
 with any modern web-browser.
 
 !!! Note
-    LSLogin (LifeScience login, before known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
+    LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
   

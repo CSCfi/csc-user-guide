@@ -67,19 +67,19 @@ Optionally, we can configure also
 - Working directory with a 'CurrentFolder' attribute
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.WallTime = '0:10:0'
->> c.AdditionalProperties.MemUsage = '2g'
->> c.AdditionalProperties.QueueName = 'small'
->> c.AdditionalProperties.AccountName = 'project_<id>'
+>> c = parcluster;
+>> c.AdditionalProperties.WallTime = '0:10:0';
+>> c.AdditionalProperties.MemUsage = '2g';
+>> c.AdditionalProperties.QueueName = 'small';
+>> c.AdditionalProperties.AccountName = 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
->> c.saveProfile
+>> c.saveProfile;
 ```
 
 To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values. For example, to turn off email notifications
 ```bash
->> c.AdditionalProperties.EmailAddress = ''
+>> c.AdditionalProperties.EmailAddress = '';
 ```
 
 #### Submitting a Simple Serial Job
@@ -111,9 +111,9 @@ additionalSubmitArgs =
 
 To retrieve a list of currently running or completed jobs, use
 ```bash
->> jobs = c.Jobs
+>> jobs = c.Jobs;
 >> % Get a handle to the job with sequence number 2
->> j2 = c.Jobs(2)
+>> j2 = c.Jobs(2);
 >> % Fetch results
 >> fetchOutputs(j2)
 ```
@@ -162,10 +162,10 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 #### Using GPUs
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.QueueName = 'gpu'
->> c.AdditionalProperties.GpuCard = 'v100'
->> c.AdditionalProperties.GpusPerNode = 1
+>> c = parcluster;
+>> c.AdditionalProperties.QueueName = 'gpu';
+>> c.AdditionalProperties.GpuCard = 'v100';
+>> c.AdditionalProperties.GpusPerNode = 1;
 >> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
@@ -188,6 +188,3 @@ Documentation and manuals for MATLAB and related products is available via the D
 - [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 - [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
 - [Puhti User Guide](/computing/overview/)
-
-
-
