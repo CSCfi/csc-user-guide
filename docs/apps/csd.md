@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # CSD
 
 The Cambridge Structural Database is a collection of small-molecule

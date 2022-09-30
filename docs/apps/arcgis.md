@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # ArcGIS
 
 [ArcGIS software] covers a wide range of sophisticated GIS

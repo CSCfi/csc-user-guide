@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Bioconda
 
 Conda is a package management tool that is used to distribute and install software tools together with their dependencies. In Puhti, the __bioconda module__

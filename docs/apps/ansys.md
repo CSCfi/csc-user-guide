@@ -1,9 +1,14 @@
-## ANSYS
+---
+tags:
+  - Academic
+---
+
+# ANSYS
 ANSYS offers a comprehensive software suite that spans the entire range of physics, providing access to virtually any field of engineering simulation that a design process requires ([ANSYS - Products](https://www.ansys.com/products)). *ANSYS Academic engineering simulation software*  (hereinafter **AAESS**) is used by thousands of universities globally for undergraduate students to learn physics principles, for researchers to solve complex engineering problems and for postgraduate students to produce data for their master’s theses or doctoral dissertations ([ANSYS - Academic](https://www.ansys.com/academic)).
 
 ## License
 
-AAESS products are proprietary software. CSC - IT Center for Science Ltd. has these licences available on CSC's server platforms. The licenses are only for academic use.  See about use limitations from link given below (Ansys Academic - Terms and Conditions), and there, LICENSING AND TERM OF USE.
+AAESS products are proprietary software. CSC - IT Center for Science Ltd. has these licences available on CSC's server platforms. The licenses are only for academic use. See about use limitations from link given below (Ansys Academic - Terms and Conditions), and there, LICENSING AND TERM OF USE.
 
 ## Available
 

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 ## CFDEM
 
 [CFDEM®coupling-PUBLIC](https://www.cfdem.com/cfdemrcoupling-open-source-cfd-dem-framework) provides an open source parallel coupled CFD-DEM framework combining the strengths of [LIGGGHTS®](https://www.cfdem.com/liggghts-open-source-discrete-element-method-particle-simulation-code) DEM code and the Open Source CFD package [OpenFOAM®](https://openfoam.org/). The CFDEM®coupling toolbox allows to expand standard CFD solvers of OpenFOAM® to include a coupling to the DEM code LIGGGHTS®.

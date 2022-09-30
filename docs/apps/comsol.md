@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # COMSOL Multiphysics
 
 The COMSOL Multiphysics simulation environment facilitates

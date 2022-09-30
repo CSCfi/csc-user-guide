@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # chipster_genomes
 
 ## Description
