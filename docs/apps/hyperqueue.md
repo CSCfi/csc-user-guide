@@ -35,12 +35,12 @@ resembles a Slurm within a Slurm, but you have to start the server and workers y
     The following instructions apply for Slurm job scripts where only full nodes
     are allocated. [A full example](#full-example) (for Mahti) can be found at the bottom.
 
-Specify where the HyperQueue server should be placed (on the file system). All `hq` commands
+Specify where on the file system the HyperQueue server should be placed. All `hq` commands
 respect this variable so make sure it's set before you call any `hq` commands. The server
 location can also be placed using the command line flag `--server-dir /server/location/on/lustre`.
 
 ```bash
-export HQ_SERVER_DIR=/server/location
+export HQ_SERVER_DIR=/server/location/on/lustre
 ```
 
 If the server directory is not specified it will default to the user home directory. In this case
