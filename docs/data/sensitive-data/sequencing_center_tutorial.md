@@ -148,16 +148,20 @@ Keys are used with crypt4gh encryption tool.
 Public key:   animine_crypt4gh.pub
 Secret key:   animine_crypt4gh.key
 The password of the secret key is:  H8koGN3lzkke
-Note that the secret key and password should never be given or shown to users that are not members of this project.
+Note that the secret key and password should never be given or shown to 
+users that are not members of this project.
 
 You can find a readable copy of the public key in SD Connect in location
     animine_pub/animine_crypt4gh.pub
 
-You can freely download and send this public key to persons and organizations that provide data for AniMINE project. 
-If you want to use data, that has been protected using this key pair, locally, please contact project manager 
-Tiina Tutkija to get your own copy of the secret key and instructions for local decryption.
-Please use this document, that is readable only in the SD Desktop environment of this project, 
-as the only written reference for the password. 
+You can freely download and send this public key to persons and organizations 
+that provide data for AniMINE project. If you want to use data, that has 
+been protected using this key pair, locally, please contact project manager 
+Tiina Tutkija to get your own copy of the secret key and instructions for 
+local decryption. Please use this document, that is readable only in the 
+SD Desktop environment of this project, as the only written reference 
+for the password. 
+
 Delete the local copy of the secret key when it is no longer actively used. 
 ------------------------------------------------
 ```

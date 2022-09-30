@@ -110,13 +110,13 @@ The upload process above works only for files that are smaller than 5 GB.
 In the case of larger files, you should use _SwiftService_.
 
 ```python
-object_name='my_snake.txt'
+object_list = [ 'my_snake.txt' ]
 # limit upload threads to 4
 opts = {'object_uu_threads': 4}
 
 with SwiftService(options=opts) as swift:
     try:
-        for r in swift.upload(bucket_name, object_name, { 'segment_size': 5000000000, }):
+        for r in swift.upload(bucket_name, object_list, { 'segment_size': 5000000000, }):
             if r['success']:
                 if 'object' in r:
                     print(r['object'])
