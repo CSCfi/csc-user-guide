@@ -58,7 +58,7 @@ but the number is better replaced with an environment variable which already has
 hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
-In Puhti-rhel, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
+In Puhti-rhel8, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
 
 ```text
 #!/bin/bash 

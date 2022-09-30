@@ -12,33 +12,17 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti-rhel7:  0.9.81
+-   Puhti-rhel8:  0.9.84
 
 
 ## Usage
 
-In Puhti-rhel7, iPyrad can be taken in use as a _bioconda_ environment.
-To use software environments that are installed to Puhti-rhel7 using Conda (either by CSC or yourself), 
-first define environment variable PROJAPPL to point to a directory of the project that 
-you wish to use for your own conda environments.
-
-Typically this is your _/projappl/project_name_ directory, but you can use scratch too. 
-This definition is made with command _export_. For example for project_012345 the command would be:
+In Puhti-rhel8, iPyrad can be taken in use by loading the ipyrad module
 
 ```text
-export PROJAPPL=/projappl/project_12345
+module load ipyrad
 ```
-After that you can activate bioconda environment and check the available conda environments:
 
-```text
-module load bioconda
-conda env list
-```
-Now you can activate iPyrad enroment:
-
-```text
-source activate ipyrad-0.9.81
-```
 !!! Note
     The actual _ipyrad_ command should always be executed in a batch job environment.
 
@@ -70,16 +54,18 @@ nano params-run1.txt
 Once the parameter file is ready, you can start the actual iPyrad analysis. In interactive batch
 jobs you can run small tasks that use just one computing core. Thus, you should add
 definition `-c 1` to the ipyrad command:
+
 ```text
 ipyrad -p params-run1.txt -s 1234567 -c 1
 ```
 
-## Running heavy ipyrad jobs in Puhti-rhel7
+## Running heavy ipyrad jobs in Puhti-rhel8
 
 If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing you could run these analysis steps as normal batch jobs.
 
 The first two steps are typically executed rather quickly and you can run them in an interactive batch job environment (see above). 
 For example in the case of job _run1_:
+
 ```text
 ipyrad -p params-run1.txt -s 12 -c 1
 ```
@@ -92,6 +78,7 @@ cd run1_edits
 ls -l
 wc -l s2_rawedit_stats.txt
 ```
+
 The number of samples is the maximum number of parallel processes you should use in the parallel batch jobs. In practice you should use a value that is about half of the number of samples. For example, if you have 24 samples in the _edits directory, then you could consider using 12-16 cores.
 
 The parallelization implementation of ipyrad requires that you always have only one ipyrad "task" running in one node. This means that you should always have parameter batch job parameter `--ntasks-per-node` set to one. However, you can define that this task uses several cores with `--cpus-per-task`. For example, if you would assign the number of batch job tasks to 2 (`-n 2`) and number of cores used by one task to 8( `--cpus-per-task=8`) your job would use 2*8=16 cores. 
@@ -99,10 +86,11 @@ The parallelization implementation of ipyrad requires that you always have only 
 This number of cores is then given to the iPyrad command with option `-c`. This is critical, as otherwise iPyrad will only use one core, even if it is requested from SLURM with `--cpus-per-task=8`. Further, if you are using more than one node you should define that MPI is in use (--MPI) and that the commands of the pipeline are executed using only one computing core (`-t`).
 
 In the sample case here we will use 20 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to longrun partition (#SBATCH --partition=longrun). In this case we reserve 72 hours ( 3 days). Further, in step 3 the clustering commands are executed using 20 cores (-c 20) each running one thread (-t 1 ).
+
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=ipyrad_s3
---error=ipyrad_err_%j
+#SBATCH --error=ipyrad_err_%j
 #SBATCH --output=put=ipyrad_output_%j
 #SBATCH --mem=128G
 #SBATCH --account=<project>
@@ -112,16 +100,16 @@ In the sample case here we will use 20 cores in one node. If the run time is exp
 #SBATCH --cpus-per-task=20
 #SBATCH --partition=small
 
-module load bioconda
-source activate ipyrad
+module load ipyrad
 ipyrad -p params-run1.txt -s 3 -c 20 -t 1 
 ```
 
-
 The batch job is launched with command
+
 ```
 sbatch ipyrad_batch_job_file.sh
 ```
+
 Once the job has finished you could run the next step by replacing `-s 3` with `-s 4` etc.
 
 For the setps 4-7 a maximum of 8 cores is recommended. Thread assigning option should not be set so that iPyrad can't use the default settings.
@@ -139,17 +127,15 @@ For the setps 4-7 a maximum of 8 cores is recommended. Thread assigning option s
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=small
 
-module load bioconda
-source activate ipyrad
+module load ipyrad
 ipyrad -p ipyrad-run1.txt -s 4567 -c 8 -t 1 
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti-rhel7 user guide](../computing/running/getting-started.md).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti-rhel8 user guide](../computing/running/getting-started.md).
 
 ## Using cPouta for very long ipyrad jobs
 
-The maximum run time in Puhti-rhel7 is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check [using-cpouta-for-biosciences](https://research.csc.fi/using-cpouta-for-biosciences) for more details.
-
+The maximum run time in Puhti-rhel8 is 14 days. In some cases running the ipyrad analysis step 3 may take even longer time. In those cases you can use the cPouta cloud service to set up your own virtual machine. Check [using-cpouta-for-biosciences](https://research.csc.fi/using-cpouta-for-biosciences) for more details.
 
 
 ## Manual
