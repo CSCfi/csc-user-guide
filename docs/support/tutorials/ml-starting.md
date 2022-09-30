@@ -151,7 +151,7 @@ In the Files browser you can edit a file by clicking on the file-specific menu
 
 **It is recommended to keep your training data in the `scratch` directory of the
 project**, for example `/scratch/project_2001234/`. **Remember that the scratch
-may be regularly cleaned, so don't keep anything important there.** Datasets
+will be regularly cleaned, so don't keep anything important there.** Datasets
 should typically have another more permanent location, such as in
 [Allas](../../data/Allas/index.md) for storing during the project's life-time.
 

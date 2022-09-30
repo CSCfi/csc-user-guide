@@ -3,13 +3,16 @@
 This guide aims to help users who wish to do machine learning using CSC's
 computing resources.
 
+
+## Machine learning guide subsections
+
 In addition to this page, this guide contains the following subsections:
 
-* [Getting started with machine learning at CSC](ml-starting.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
-* [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning](ml-multi.md)
-* [Hyperparameter search](hyperparameter_search.md)
+- [**Getting started with machine learning at CSC**](ml-starting.md)
+- [**GPU-accelerated machine learning**](gpu-ml.md)
+- [**Data storage for machine learning**](ml-data.md)
+- [**Multi-GPU and multi-node machine learning**](ml-multi.md)
+- [**Hyperparameter search**](hyperparameter_search.md)
 
 
 ## What CSC service to use?
@@ -102,3 +105,10 @@ Below are a few examples of how Rahti can be used for machine learning tasks:
   [how-to video](https://video.csc.fi/media/t/0_2frjyzz9) and 
   [GitHub repository](https://github.com/CSCfi/mlflow-openshift)
 * [How to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples)
+
+
+## Further reading in Docs CSC
+
+* [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+* [Dask tutorial](dask-python.md)
+* [High-throughput computing and workflows](../../computing/running/throughput.md)
