@@ -1,6 +1,6 @@
 # ParaView
 
-ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses VTK library, in python wrapping. ParaView is available on Puhti-rhel7 and we recommend [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for interactive use. [NoMachine](nomachine.md) can be used as a fallback option.
+ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses VTK library, in python wrapping. ParaView is available on Puhti and we recommend [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for interactive use. [NoMachine](nomachine.md) can be used as a fallback option.
 
 !!! Note
     You can now also enable [interactive visualization with GPU
