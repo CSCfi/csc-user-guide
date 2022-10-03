@@ -40,7 +40,8 @@
 
     !!! warning-label
 
-        If you encounter any issues, please don't hesitate to contact support! [Link to Contact page](support/contact.md)
+        If you encounter any issues, please don't hesitate to [contact Service
+        Desk](support/contact.md)!
 
 
 <!--- Placeholder for a possible banner in the future

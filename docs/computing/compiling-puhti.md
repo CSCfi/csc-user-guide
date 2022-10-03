@@ -73,6 +73,11 @@ module spider gcc
 
 ## Building GPU applications
 
+!!! warning
+    Notes concerning OpenACC in this section are outdated as OpenACC does not currently
+    work on Puhti RHEL8. We're working on a fix and will update this section once we
+    have found a solution.
+
 Both the CUDA and OpenACC programming models are supported on Puhti.
 Specific modules have to be loaded in order to use them.
 
@@ -150,7 +155,6 @@ that differ depending on the compiler suite and the MPI environment:
 | :------------- | :--------------------- | :------------------------ |
 | Intel          | mpifort, mpicc, mpicxx | mpiifort, mpiicc, mpiicpc |
 | GNU            | mpif90, mpicc, mpicxx  | incompatible    |
-
 
 ## Building OpenMP and hybrid applications
 
