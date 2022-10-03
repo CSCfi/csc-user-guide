@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # FORCE 
 
 FORCE (Framework for Operational Radiometric Correction for Environmental monitoring) is an all-in-one solution for mass-processing medium-resolution satellite images
