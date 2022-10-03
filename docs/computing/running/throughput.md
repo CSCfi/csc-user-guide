@@ -45,23 +45,22 @@ You can use the flowchart below to narrow down the most appropriate technologies
 for your high-throughput computing workflow. Please note that this is not a complete
 list and other tools might also work for your use case. These tools usually work fine
 in HTC use cases with around 100 subtasks (or even more if subtasks utilize max. one
-node each, see [HyperQueue](https://it4innovations.github.io/hyperqueue/stable/)).
-If your workflow contains hundreds or thousands of *multi-node* subtasks, please
-[contact CSC Service Desk] as this may require special solutions. However, don't
-hesitate to contact us also if you have any other concerns regarding how to implement
-your workflow.
+node each, see [HyperQueue]). If your workflow contains hundreds or thousands of
+*multi-node* subtasks, please [contact CSC Service Desk] as this may require special
+solutions. However, don't hesitate to contact us also if you have any other concerns
+regarding how to implement your workflow.
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
     C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>, Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
-    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
+    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
     E -->|Parallel| G(Single- or multinode subtasks?)
     G -->|Single| H(Dependencies between subtasks?)
     G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
     H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
-    H -->|No| K(<a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
+    H -->|No| K(<a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
 A qualitative overview of the features and capabilities of some of the workflow
@@ -193,7 +192,7 @@ workflows.
 [gmx]: ../../apps/gromacs.md#high-throughput-computing-with-gromacs
 [cp2k]: ../../apps/cp2k.md#high-throughput-computing-with-cp2k
 [lmp]: ../../apps/lammps.md#high-throughput-computing-with-lammps
-[HyperQueue]: https://it4innovations.github.io/hyperqueue/stable/
+[HyperQueue]: ../../apps/hyperqueue.md
 [GNU Parallel]: ../../support/tutorials/many.md
 [FireWorks]: fireworks.md
 [contact CSC Service Desk]: ../../support/contact.md
