@@ -13,20 +13,18 @@ Free to use and open source under [MIT License](https://github.com/biobakery/Met
 
 ## Availability
 
-*   MetaPhlAn 3.0 is available in Puhti-rhel7
+*   Puhti-rhel8: 4.0.2 
 
 ## Usage
 
-In Puhti-rhel7, MetaPhlAn is installed as part of gcc 9.1.0 compatible _biopythontools_ module.
-To activate it, run commands:
+To activate MetaPhlAn Puhti-rhel8, run command:
 
 ```text
-module load biokit
-module load biopythontools
-metaphlan
+module load metaphlan
+metaphlan --help
 ```
 MetaPhlAn can automatically retrieve the MetaPhlAn database and create the Bowtie2 indexes it needs on-the-fly 
-when it the command is executed. By default MetaPhlAn saves these index files to the MetaPhlAn installation directory, but in Puhti-rhel7,
+when it the command is executed. By default MetaPhlAn saves these index files to the MetaPhlAn installation directory, but in Puhti-rhel8,
 this is not possible. Because of that, the users should use option `--bowtie2db` 
 to define a directory that will be used to store the database and index files. 
  
@@ -43,11 +41,10 @@ In the MetaPhlAn command `--bowtie2db` is used to define the database directory.
 
 ```text
 sinteractive -m 4G -c 4
-module load biokit
-module load biopythontools
+module load metaphlan
 metaphlan --bowtie2db metaphlan_databases  SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt
 ```
 
 # More information
-*   [MetaPhlAn 3.0 home page](https://github.com/biobakery/MetaPhlAn/tree/3.0)
+*   [MetaPhlAn 4 documentation](https://github.com/biobakery/MetaPhlAn/wiki/MetaPhlAn-4)
 *   [MetaPhlAn 3.0 tutorial](https://github.com/biobakery/biobakery/wiki/metaphlan3)

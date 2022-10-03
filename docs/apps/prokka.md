@@ -10,32 +10,30 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-Prokka 1.14.6 is Available in Puhti-rhel7.
+*   Puhti-rhel8: 1.14.6
 
 ## Usage
 
-In Puhti-rhel7, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
+In Puhti-rhel8, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
 with command:
 
 ```text
 sinteractive -i -m 8G
 ```
 
-Prokka is installed to Puhti-rhel7 as a bioconda environment called `prokka`. In addition to Prokka, this environment 
-contains also [Roary](./roary.md) pan genome pipeline.
-To use it, you should activate Prokka environment with commands:
+To activate Prokka environment run command:
 
 ```text
-export PROJAPPL=/projappl/your_project_name
-module load bioconda
-source activate prokka
+module load prokka
 ```
+
 After that you can launch Prokka with command `prokka`. By default Prokka tries to use 8 coputing cores, but in 
 this interactive batch job case, you have just one core available. Because of that you should always define the number
 of cores that Prokka will use with option `-cpus`.
 
 For example:
-```
+
+```text
 prokka  --cpus 1 contigs.fasta
 ```
 
@@ -56,9 +54,7 @@ Sample batch job script (batch_job_file.bash) below.
 #
 
 #set up prokka
-export PROJAPPL=/projappl/your_project_name
-module load bioconda
-source activate prokka
+module load prokka
 
 #Run prokka
 prokka --cpus $SLURM_CPUS_PER_TASK --outdir results_case1 --prefix mygenome contigs_case1.fa
@@ -69,7 +65,7 @@ The job reserves 8 core (--cpus-per-task=8 ) with total of 16 GB of memory (--me
 The maximum duration of the job is twelve hours (--time 24:00:00 ). All the cores are assigned from 
 one computing node (--nodes=1 ). In addition to the resource reservations, you have to define 
 the billing project for your batch job. This is done by replacing the _your_project_name_ with 
-the name of your project. (You can use command csc-workspaces to see what projects you have in Puhti-rhel7).
+the name of your project. (You can use command csc-workspaces to see what projects you have in Puhti-rhel8).
 
 You can submit the batch job file to the batch job system with command:
 
@@ -77,7 +73,7 @@ You can submit the batch job file to the batch job system with command:
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti-rhel7 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti-rhel8 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 ## More information
 
