@@ -38,6 +38,10 @@
     The operating system of Puhti has been upgraded to Red Hat Enterprise Linux (RHEL) 8.
     [Click here for more information.](./support/wn/comp-new.md#puhti-operating-system-updated-to-rhel8-5102022)
 
+    !!! warning-label
+
+        If you encounter any issues, please don't hesitate to contact support! [Link to Contact page](support/contact.md)
+
 
 <!--- Placeholder for a possible banner in the future
 
