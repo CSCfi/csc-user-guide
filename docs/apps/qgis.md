@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # QGIS
 
 [QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.

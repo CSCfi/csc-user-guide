@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Python Data
 
 Collection of Python libraries for data analytics and machine learning.

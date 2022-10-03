@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # RAPIDS
 
 Suite of libraries for data analytics and machine learning on GPUs.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # r-env-singularity
 
 `r-env-singularity` is a [Singularity container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 

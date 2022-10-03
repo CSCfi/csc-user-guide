@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # R for GIS
 
 This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md). Spatial libraries are included in all R versions in Puhti.
