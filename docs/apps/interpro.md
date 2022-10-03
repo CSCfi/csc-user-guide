@@ -31,20 +31,20 @@ Free to use and open source under [Apache License 2.0](https://www.apache.org/li
 
 ## Version
 
-*   InterProScan version 5.55-88.0 is available in Puhti-rhel7
+*   Puhti-rhel8: 5.55-88.0 
 
 ## Usage 
 
-In Puhti-rhel7, first load interproscan module with commands:
+In Puhti-rhel8, first load interproscan module with commands:
 ```text
 module load biokit
 module load interproscan
 ```
 
 After that you can submit  InterProScan jobs using command `cluster_interproscan`. Cluster_interproscan 
-is a help tool that automatically runs your InterProScan task using the batch job system of Puhti-rhel7. 
+is a help tool that automatically runs your InterProScan task using the batch job system of Puhti-rhel8. 
 If your query file contains several sequences the cluster_interproscan tool also automatically splits 
-the InterProScan tasks to several subtasks that are run simultaneously in Puhti-rhel7. 
+the InterProScan tasks to several subtasks that are run simultaneously in Puhti-rhel8. 
 
 cluster_interproscan accepts all the normal InterProScan options. To check the available options, give command:
 
@@ -60,7 +60,7 @@ Results are reported in XML format.
 cluster_interproscan -i nucleotides.fasta -o results.xml -f XML -t n
 ```
 
-2. Running InterProScan search for protein sequence set against PfamA databases. Results are reported in GFF3 format. GFF3 conversion needs more memory that what is available in the login nodes of Puhti-rhel7. Because of that you should submit the interporosacn task from an interactive batch job with least 4 GiB of memory reserved. 
+2. Running InterProScan search for protein sequence set against PfamA databases. Results are reported in GFF3 format. GFF3 conversion needs more memory that what is available in the login nodes of Puhti-rhel8. Because of that you should submit the interporosacn task from an interactive batch job with least 4 GiB of memory reserved. 
 ```text
 sinteractive -m 4000
 cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
