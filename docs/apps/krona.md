@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Krona visualization tool
 
 ## Description

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Grace
 
 Grace is foremost a plotting tool, and e.g. Gromacs produces tailored input for it, but Grace can also be used for some numerical analyses. 

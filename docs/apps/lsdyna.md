@@ -1,4 +1,9 @@
-## LS-DYNA
+---
+tags:
+  - Academic
+---
+
+# LS-DYNA
 
 LS-DY­NA is a gen­er­al-pur­pose fi­nite el­e­ment pro­gram ca­pa­ble of sim­u­lat­ing com­plex re­al world prob­lems. It is used by the au­to­mo­bile, aero­space, con­struc­tion, mil­i­tary, man­u­fac­tur­ing, and bio­engi­neer­ing in­dus­tries. LS-DY­NA is op­ti­mized for shared and dis­trib­uted mem­o­ry Unix, Lin­ux, and Win­dows based, plat­forms.
 

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Geoconda
 
 Geoconda is a collection of python packages that facilitate the

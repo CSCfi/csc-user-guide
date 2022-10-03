@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # LAMMPS
 
 LAMMPS is a "Molecular Dynamics Simulator" which supports
