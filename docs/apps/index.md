@@ -170,3 +170,4 @@
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
+* [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks 
