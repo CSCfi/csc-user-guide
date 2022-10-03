@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # OpenDroneMap (ODM)
 
 [OpenDroneMap](https://www.opendronemap.org/) (ODM) is an open source command line toolkit for processing aerial images. It is used for instance in making DEMs, DSMs, point clouds and orthophotos photogrammetrically.

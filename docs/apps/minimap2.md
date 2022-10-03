@@ -1,5 +1,9 @@
-# minimap2
+---
+tags:
+  - Free
+---
 
+# minimap2
 
 ## Description
 

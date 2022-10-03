@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Open Babel
 
 Open Babel is a chemical toolbox designed to speak the many languages of chemical data. It is an open, collaborative project allowing anyone to search, convert, analyze, or store data from molecular modeling, chemistry, solid-state materials, biochemistry, or related areas. 
@@ -10,7 +15,7 @@ Open Babel is a chemical toolbox designed to speak the many languages of chemica
 
 ## License
 
-Open Babel is free software available under  GNU GPL .
+Open Babel is free software available under GNU GPL.
 
 ## Usage
 

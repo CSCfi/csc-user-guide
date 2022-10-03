@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Orfeo ToolBox (Open Source processing of remote sensing images) 
 
 [Orfeo ToolBox](https://www.orfeo-toolbox.org/) or OTB is an open source application for processing high resolution optical, multispectral and radar images at the terabyte scale.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # MATLAB
 
 MATLAB is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
@@ -18,7 +23,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## License
 
-Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please contact CSC servicedesk for further instructions.
+Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
 ## Usage
 

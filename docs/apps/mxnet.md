@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # MXNet
 
 Deep learning framework for Python.
@@ -12,7 +17,7 @@ Includes [MXNet](https://mxnet.apache.org/) for Python with GPU support via CUDA
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 
-If you think that some important MXNet-related package should be included in the module provided by CSC, you can send an email to <servicedesk@csc.fi>.
+If you think that some important MXNet-related package should be included in the module provided by CSC, you can send an email to [CSC Service Desk](../support/contact.md).
 
 ## License
 

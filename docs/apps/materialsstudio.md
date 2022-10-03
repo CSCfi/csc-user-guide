@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # Materials Studio
 
 Materials Studio is a versatile modelling suite for building and 

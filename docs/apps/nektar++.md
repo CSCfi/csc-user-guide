@@ -1,9 +1,13 @@
-## Nektar++
+---
+tags:
+  - Free
+---
+
+# Nektar++
 
 [Nektar++](https://www.nektar.info/) is a tensor product based finite element package designed to allow one to construct efficient classical low polynomial order h-type solvers (where h is the size of the finite element) as well as higher p-order piecewise polynomial order solvers.
 
 The framework comes with a number of solvers and also allows one to construct a variety of new solvers.
-
 
 The framework currently has the following capabilities:
 

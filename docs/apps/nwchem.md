@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # NWChem
 
 NWChem provides many different methods to compute the properties of molecular and periodic systems using standard quantum mechanical descriptions of the electronic wavefunction or density. In addition, NWChem has the capability to perform classical molecular dynamics and free energy simulations. These approaches may be combined to perform mixed quantum-mechanics and molecular-mechanics simulations.

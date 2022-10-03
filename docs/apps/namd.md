@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # NAMD
 
 NAMD is a parallel molecular dynamics code designed for high-performance
@@ -13,8 +18,8 @@ Beckman Institute of the University of Illinois.
 ## License
 
 CSC has obtained a Computing Centre [license](https://www.ks.uiuc.edu/Research/namd/license.html),
-which allows usage for non-commercial research. For commercial use, contact 
-(namd@ks.uiuc.edu) See also acknowledging usage below.
+which allows usage for non-commercial research. For commercial use, contact
+`namd@ks.uiuc.edu`. See also acknowledging usage below.
 
 ## Usage
 
