@@ -195,5 +195,5 @@ python post-proc.py output
 
 ## Executing large amounts of small non-MPI jobs
 
-In Mahti, [HyperQueue](https://it4innovations.github.io/hyperqueue/stable/) meta-scheduler
+In Mahti, [HyperQueue](../../apps/hyperqueue.md) meta-scheduler
 can be used to process large amounts of small non-MPI jobs.
