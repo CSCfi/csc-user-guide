@@ -9,7 +9,7 @@ The operating system of Puhti has been updated from Red Hat Enterprise Linux (RH
 * Some older versions of applications are not available anymore.
 
 Please note that old login nodes (`puhti-login1` and `puhti-login2`) are no longer available.
-The new login nodes have been renamed as, `puhti-login11` and `puhti-login12`. Also, the ssh
+The new login nodes have been renamed as `puhti-login11` and `puhti-login12`. Also, the ssh
 keys of the login nodes have changed and the checksums of the new keys are:
 
 | SHA256 checksum                             | Key                                |
