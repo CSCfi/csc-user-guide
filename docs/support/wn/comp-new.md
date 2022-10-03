@@ -14,9 +14,9 @@ Also the ssh keys of login nodes have changed and check sums of new keys are:
 
 | SHA256 checksum                             | Key                                |
 |---------------------------------------------|------------------------------------|
-| ? | ssh_host_ecdsa_key.pub (ECDSA)     |
-| ? | ssh_host_ed25519_key.pub (ED25519) |
-| ? | ssh_host_rsa_key.pub (RSA)         |
+| kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c | ssh_host_ecdsa_key.pub (ECDSA)     |
+| Q2lpykI43ffs4PrRODZ/qncjUo3eyrRHc5T9yjJEwWY | ssh_host_ed25519_key.pub (ED25519) |
+| WH1Ag2OQtMPZb+hj3YeH9uVMMetXpCvyNUbsdk0Qcpk | ssh_host_rsa_key.pub (RSA)         |
 
 When logging into puhti.csc.fi for the first time after the RHEL8 upgrade, you will
 encounter a warning saying "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!".
