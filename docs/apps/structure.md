@@ -21,11 +21,11 @@ It can be applied to most of the commonly-used genetic markers, including SNPS, 
 
 ## Version
 
-*    Structre 2.3.4 is available in Puhti-rhel7
+*    Puhti-rhel8: 2.3.4 
 
 ## Usage
 
-To use Structure in Puhti-rhel7, run first following setup commands:
+To use Structure in Puhti-rhel8, run first following setup commands:
 
 ```text
 module load biokit
@@ -34,7 +34,7 @@ module load strcture
 
 In addition to `structure` command the structure module makes available commands [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for postprocessing structure results.
 
-In Puhti-rhel7, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
+In Puhti-rhel8, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
 This tool is a modified version of [strauto](http://dx.doi.org/10.1186/s12859-017-1593-0) structure
 job sumbission tool. Note that many details in the strauto manual do not apply to `strauto-puhti`.   
 
@@ -66,14 +66,14 @@ When the input file has been prepared, the strcture job can be launched with com
 strauto-puhti
 ```
 Strauto, first asks you to check and accept Structure parameters and after that
-submits the structure job to to the batch job system of Puhti-rhel7. After that
+submits the structure job to to the batch job system of Puhti-rhel8. After that
 it starts monitoring the progress of your job.
 
 You can leave the monitor process running, but if you want to stop it, press:
 `Ctrl-c`
 
 The structure jobs will still continue their execution in the batch job system
-of  Puhti-rhel7. If you run the command:
+of  Puhti-rhel8. If you run the command:
 
 ```text
 strauto-puhti
