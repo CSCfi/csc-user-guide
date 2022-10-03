@@ -1,12 +1,18 @@
 # Bioconda
 
-Conda is a package management tool that is used to distribute and install software tools together with their dependencies. In Puhti-rhel7, the __bioconda module__
+!!! error "Bioconda has been deprecated"
+    This page is out of date as Bioconda is no longer available on Puhti.
+    Please use [Tykky](../computing/containers/tykky.md) installations instead.
+    Note that some packages that were previously provided through Bioconda are
+    now available as separate modules.
+
+Conda is a package management tool that is used to distribute and install software tools together with their dependencies. In Puhti-rhel8, the __bioconda module__
 takes in use a CSC maintained Conda environment (Python3 based miniconda3) together with channel settings that enable easy usage of the Bioconda repository.
 
-The Bioconda environment is used for two purposes in Puhti-rhel7:
+The Bioconda environment is used for two purposes in Puhti-rhel8:
 
 -    Some software tools, maintained by CSC, are installed and used as Conda environments.
--    Puhti-rhel7 users can use bioconda module to install tools, available in Bioconda repository, to their own personal Conda environments.
+-    Puhti-rhel8 users can use bioconda module to install tools, available in Bioconda repository, to their own personal Conda environments.
 
 [TOC]
 
@@ -16,7 +22,7 @@ Bioconda is free to and open source under [MIT License](https://raw.githubuserco
 
 ## Available
 
--   Puhti-rhel7: miniconda3 and miniconda2
+-   Puhti-rhel8: miniconda3 and miniconda2
 
 
 
@@ -24,7 +30,7 @@ Bioconda is free to and open source under [MIT License](https://raw.githubuserco
 
 ### 1. Using tools installed with bioconda
 
-To use software environments that are installed to Puhti-rhel7 using Conda (either by CSC or yourself),  first 
+To use software environments that are installed to Puhti-rhel8 using Conda (either by CSC or yourself),  first 
 define environment variable PROJAPPL to point to a directry of the project that you wish to use for your own 
 conda environments. 
 
@@ -90,7 +96,7 @@ vcf2bed
 
 !!! Note
 
-    You should **not** use _conda init_ in Puhti-rhel7. This applies to both
+    You should **not** use _conda init_ in Puhti-rhel8. This applies to both
     Bioconda and your own Conda installations.
     
     _conda init_ modifyes your account so that it takes the Conda environment automatically in use. 
