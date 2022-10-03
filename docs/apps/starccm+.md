@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # Star-CCM+
 
 Simcenter STAR-CCM+ is a commercial Computational Fluid Dynamics (CFD) based simulation software developed by Siemens Digital Industries Software. [Simcenter STAR-CCM+](https://www.plm.automation.siemens.com/global/en/products/simcenter/STAR-CCM.html) allows the modeling and analysis of a range of engineering problems involving fluid flow, heat transfer, stress, particulate flow, electromagnetics and related phenomena. Formerly known as STAR-CCM+, the software was first developed by CD-adapco and was acquired by Siemens Digital Industries Software as part of the purchase of CD-adapco in 2016. It is now a part of the Simcenter Portfolio of software tools (Wikipedia).

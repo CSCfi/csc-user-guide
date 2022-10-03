@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # SPLITS
 
 SPLITS (Spline Analysis of Time Series) is a software package to analyze time series of remotely sensed parameters such as vegetation indices.

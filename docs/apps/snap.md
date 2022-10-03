@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # SNAP
 
 [SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common remote sensing satellites.

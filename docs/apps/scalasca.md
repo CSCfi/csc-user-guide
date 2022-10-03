@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Scalasca
 
 [Scalasca](https://www.scalasca.org/) is an open-source software tool

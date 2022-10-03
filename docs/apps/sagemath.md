@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # SageMath
 
 SageMath is a free open-source mathematics software system licensed

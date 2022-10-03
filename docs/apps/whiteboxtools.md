@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # WhiteboxTools
 
 [WhiteboxTools](https://jblindsay.github.io/ghrg/WhiteboxTools/index.html) is an advanced geospatial data analysis platform which includes more than 420 tools. 

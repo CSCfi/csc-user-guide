@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Sen2Cor
 
 [Sen2Cor](http://step.esa.int/main/snap-supported-plugins/sen2cor/sen2cor-v2-9/) is a stand-alone processor for Sentinel-2 Level 2A product generation and formatting.

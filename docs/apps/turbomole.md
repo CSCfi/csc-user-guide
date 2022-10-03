@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # Turbomole
 
 TURBOMOLE is a modular program suite for *ab initio* quantum-chemical and condensed-matter simulations. 
