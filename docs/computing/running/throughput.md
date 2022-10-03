@@ -32,51 +32,51 @@ applies for applications such as [CP2K][cp2k], [Gromacs][gmx],  [LAMMPS][lmp], P
 
 If integrated support for farming-type workloads is unavailable in your software,
 another option is to use external tools such as [HyperQueue] or [GNU Parallel].
-Be aware that some tools, for example [GREASY] and [FireWorks], still create a lot
+Be aware that some tools, for example [FireWorks], still create a lot
 of job steps although they may allow you to conveniently pack your, possibly
 interdependent, subtasks to be executed as a single batch job.
 
-!!! Note
+!!!info "Note"
     You do not need to issue `srun` if you intend to run *serial* jobs as a part
     of your HTC workflow. A lot of job steps can be avoided just by dropping
     unnecessary calls of `srun`.
 
 You can use the flowchart below to narrow down the most appropriate technologies
 for your high-throughput computing workflow. Please note that this is not a complete
-list and other tools might also work for your use case. The limit of 100 subtasks
-is a guideline. In case you're uncertain how to implement your workflow, please
-[contact CSC Service Desk]
+list and other tools might also work for your use case. These tools usually work fine
+in HTC use cases with around 100 subtasks (or even more if subtasks utilize max. one
+node each, see [HyperQueue](https://it4innovations.github.io/hyperqueue/stable/)).
+If your workflow contains hundreds or thousands of *multi-node* subtasks, please
+[contact CSC Service Desk] as this may require special solutions. However, don't
+hesitate to contact us also if you have any other concerns regarding how to implement
+your workflow.
 
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
     C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>, Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
-    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a>)
-    E -->|Parallel| G(Dependencies between subtasks?)
-    G -->|Yes| H(Single- or multinode subtasks?)
-    G -->|No| I(<a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
-    H -->|Single| J(Number of subtasks)
-    H -->|Multi| K(Number of subtasks)
-    J -->|<100| M(<a href='/computing/running/greasy/'>GREASY</a><br><a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
-    K -->|<100| O(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    J -->|>100| L(<a href='http://flux-framework.org/'>Flux</a>)
-    K -->|>100| L
+    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
+    E -->|Parallel| G(Single- or multinode subtasks?)
+    G -->|Single| H(Dependencies between subtasks?)
+    G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
+    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
+    H -->|No| K(<a href='https://it4innovations.github.io/hyperqueue/stable/'>HyperQueue</a>)
 ```
 
 A qualitative overview of the features and capabilities of some of the workflow
 tools recommended by CSC is presented below.
 
-||[Nextflow]|[Snakemake]|[Flux]|[GREASY]|[HyperQueue]|[FireWorks]|[Array jobs]|[GNU Parallel]|
-||:------:|:-------:|:--:|:----:|:--------:|:-------:|:--------:|:----------:|
-|No excessive IO|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
-|Packs jobs/job steps|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
-|Easy to setup|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
-|Dependency support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
-|Container support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|
-|Error recovery|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|
-|Parallelization support|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
-|Slurm integration |![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
+||[Nextflow]|[Snakemake]|[HyperQueue]|[FireWorks]|[Array jobs]|[GNU Parallel]|
+||:------:|:-------:|:--:|:-------:|:--------:|:----------:|
+|No excessive IO|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
+|Packs jobs/job steps|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
+|Easy to setup|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
+|Dependency support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
+|Container support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|
+|Error recovery|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|
+|Parallelization support|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
+|Slurm integration |![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
 
 *[No excessive IO]: The workflow tool does not produce a lot of extra files/directories
 *[Packs jobs/job steps]: The workflow tool is able to pack multiple jobs (job steps) to be executed as a single job (job step)
@@ -141,7 +141,7 @@ graph TD
     H -->|No, I have to use Lustre| J
 ```
 
-!!! Note
+!!!warning "Note"
     Please do not reserve GPU nodes just to utilize the node's NVMe disk. To run
     on GPUs, your code must be GPU-enabled and benefit from using the resources,
     [see usage policy]. Remember that the CPU nodes of Puhti also have NVMe disks.
@@ -153,8 +153,6 @@ graph TD
 
 * [Array jobs] are a native Slurm tool to submit several independent
   jobs with one command
-* [GREASY] runs multiple job steps in a larger allocation, and allows
-  simple dependencies
 * [GNU Parallel] tutorial shows how to efficiently run a very large number of
   serial jobs without bloating the Slurm log. You can also replace GNU Parallel
   with `xargs`, see [xargsjob.sh] for example.
@@ -168,7 +166,6 @@ graph TD
 * [Nextflow] singularity container-based bioinformatics pipelines on Puhti
 * [Data storage guide for machine learning] explains where to work with ML data
   and how to use the shared file system efficiently
-* [Using GREASY to run multiple Gaussian jobs on Puhti]
 
 ### Workflow tools integrated into common simulation software
 
@@ -198,12 +195,10 @@ workflows.
 [lmp]: ../../apps/lammps.md#high-throughput-computing-with-lammps
 [HyperQueue]: https://it4innovations.github.io/hyperqueue/stable/
 [GNU Parallel]: ../../support/tutorials/many.md
-[GREASY]: greasy.md
 [FireWorks]: fireworks.md
 [contact CSC Service Desk]: ../../support/contact.md
 [Nextflow]: ../../support/tutorials/nextflow-puhti.md
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
-[Flux]: http://flux-framework.org/
 [Array jobs]: array-jobs.md
 [Lustre]: ../lustre.md
 [Fast local NVMe disk]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
@@ -215,7 +210,6 @@ workflows.
 [container wrapper tool Tykky]: ../containers/tykky.md
 [how to work efficiently with Lustre are documented here]: ../lustre.md#best-practices
 [Data storage guide for machine learning]: ../../support/tutorials/ml-data.md
-[Using GREASY to run multiple Gaussian jobs on Puhti]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../overview.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html

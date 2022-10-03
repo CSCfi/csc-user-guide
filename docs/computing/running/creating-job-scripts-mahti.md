@@ -195,5 +195,5 @@ python post-proc.py output
 
 ## Executing large amounts of small non-MPI jobs
 
-In Mahti, GREASY meta-scheduler can be used to process large amounts of small non-MPI jobs.
-Please check the [GREASY instructions](greasy.md) for more details.
+In Mahti, [HyperQueue](https://it4innovations.github.io/hyperqueue/stable/) meta-scheduler
+can be used to process large amounts of small non-MPI jobs.
