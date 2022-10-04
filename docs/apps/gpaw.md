@@ -19,7 +19,7 @@ Some features of the software:
 
 ## Available
 
--   Puhti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
+-   Puhti-rhel8: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
 -   Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
@@ -55,7 +55,7 @@ see [GPAW documentation](https://wiki.fysik.dtu.dk/gpaw/documentation/lcao/lcao.
 
 ### Batch script examples
 
-**Example parallel batch script for Puhti-rhel7**
+**Example parallel batch script for Puhti-rhel8**
 
 ```
 #!/bin/bash -l
