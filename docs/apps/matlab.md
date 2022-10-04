@@ -58,7 +58,7 @@ Prior to submitting the batch job, we have to specify at least
 
 - Wall time (WallTime)
 - Memory reservation (MemUsage)
-- Billing project (AccountName)
+- Billing project (ComputingProjec)
 - [Partition on Puhti-rhel8](/computing/running/batch-job-partitions/) (QueueName)
 
 Optionally, we can configure also
@@ -71,7 +71,7 @@ Optionally, we can configure also
 >> c.AdditionalProperties.WallTime = '0:10:0';
 >> c.AdditionalProperties.MemUsage = '2g';
 >> c.AdditionalProperties.QueueName = 'small';
->> c.AdditionalProperties.AccountName = 'project_<id>';
+>> c.AdditionalProperties.ComputingProjec= 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
 >> c.saveProfile;
@@ -143,7 +143,7 @@ We'll use the batch command again, but since we're running a parallel job, we'll
 
 ```bash
 >> % Submitting a parallel job to 8 cores.
->> j = batch(c, @parallel_example, 1, {}, 'pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
+>> j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
 ```
 
 At first, a parallel pool with eight cores will be constructed. Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores. For example, a job that needs eight cores will consume nine CPU cores in total.
