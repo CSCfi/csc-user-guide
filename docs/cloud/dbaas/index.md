@@ -11,6 +11,7 @@
 * [Web interface](web-interface.md)
 * [Command Line tools](cli.md)
 * [Using backups](backups.md)
+* [Database operations](operations.md)
 
 <h2>Database types</h2>
 * [Postgresql](postgresql.md)
