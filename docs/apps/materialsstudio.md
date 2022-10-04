@@ -18,7 +18,7 @@ quantum and classical simulation of molecules, materials and nanostructures.
 
 Materials Studio is a commercial program by [Biovia Inc.](https://3dsbiovia.com/)
 CSC has purchased a national academic license for the year 2020 that allows non-profit
-usage in Finnish institutes proviging higher education (for example
+usage in Finnish institutes providing higher education (for example
 universities). If you're new to Materials Studio, consider also [Maestro](maestro.md),
 and [AMS](ams.md).
 

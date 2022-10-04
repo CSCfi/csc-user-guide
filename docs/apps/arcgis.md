@@ -1,6 +1,6 @@
 ---
 tags:
-  - Academic
+  - Other
 ---
 
 # ArcGIS

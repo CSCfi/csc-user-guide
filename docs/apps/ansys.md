@@ -8,7 +8,7 @@ ANSYS offers a comprehensive software suite that spans the entire range of physi
 
 ## License
 
-AAESS products are proprietary software. CSC - IT Center for Science Ltd. has these licences available on CSC's server platforms. The licenses are only for academic use. See about use limitations from link given below (Ansys Academic - Terms and Conditions), and there, LICENSING AND TERM OF USE.
+AAESS products are proprietary software. CSC - IT Center for Science Ltd. has these licenses available on CSC's server platforms. The licenses are only for academic use. See about use limitations from link given below (Ansys Academic - Terms and Conditions), and there, LICENSING AND TERM OF USE.
 
 ## Available
 

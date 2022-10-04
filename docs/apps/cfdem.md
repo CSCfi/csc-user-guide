@@ -9,7 +9,7 @@ tags:
 
 ## License
 
-CFDEM®coupling-PUBLIC in open source, under Gnu General Public Licensing ([GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)).
+CFDEM®coupling-PUBLIC in open source, under GNU General Public Licensing ([GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)).
 
 ## Available
 

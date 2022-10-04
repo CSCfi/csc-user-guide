@@ -1,6 +1,6 @@
 ---
 tags:
-  - Non-commercial
+  - Academic
 ---
 
 # CSD
