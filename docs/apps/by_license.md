@@ -34,6 +34,4 @@
 
         [Scroll to applications with 'Other' licensing](#other){ .md-button .md-button--primary }
 
-## Applications
-
 [TAGS]
