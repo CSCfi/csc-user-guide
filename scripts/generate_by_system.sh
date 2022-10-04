@@ -13,7 +13,6 @@ system_name=("Mahti" "Puhti")
 system_key=("mahti" "puhti")
 
 system_desc=("CSC supercomputer for massively parallel jobs"\
-    "CSC supercomputer for small and medium jobs"\
     "CSC supercomputer for small and medium jobs")
 
 
