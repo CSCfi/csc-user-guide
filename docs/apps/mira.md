@@ -14,7 +14,7 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-*   Puhti-rhel8: 5rc1
+*   Puhti: 5rc1
 
 ## Usage
 

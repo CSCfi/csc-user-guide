@@ -16,9 +16,9 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 
 ## Available
 
--   Puhti-rhel8: Python 3.10.6 with Biopython 1.79
+-   Puhti: Python 3.10.6 with Biopython 1.79
 
-In Puhti-rhel8, Biopython libraries, as well as many other bioinformatics related Python libraries are available.
+In Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available.
 
 ```text
 module load biopythontools

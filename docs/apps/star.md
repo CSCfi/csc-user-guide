@@ -13,7 +13,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
-Puhti-rhel8: 2.7.10a
+Puhti: 2.7.10a
 
 ## Usage
 
@@ -23,7 +23,7 @@ The _STAR_ commands listed abowe are activated by loading _biokit_ module.
 module load biokit
 ```
 
-Before you can run the actual alignment job, you must index your fasta formatted reference genome. In Puhti-rhel8 the working copies of
+Before you can run the actual alignment job, you must index your fasta formatted reference genome. In Puhti the working copies of
  reference genome indexes, as well as any large files, should be stored to the scatch directory ($SCRATCH). In this example we store the indexes to the directory $SCRATCH/star-genomes.
 
 First the reference genome index directory is generated with command:
@@ -35,7 +35,7 @@ After that, the indexing can be done with command:
 STAR --runMode genomeGenerate --genomeDir $SCRATCH/star-genome --genomeFastaFiles /path/to/genome/genome.fasta --runThreadN 2
 ```
 Once the indexing is done the actual mapping task can be launched. STAR will generate the mapping output using fixed file names.
-Because of that it is recommended that each STAR job is run in a new, empty directory. In Puhti-rhel8 you should create this new job directory 
+Because of that it is recommended that each STAR job is run in a new, empty directory. In Puhti you should create this new job directory 
 to scratch directory ($SCRATCH) of your project. New directory called _starjob1_ can be created with command:
 ```text
 mkdir $SCRATCH/starjob1
@@ -45,11 +45,11 @@ after that the actual mapping job can be launched with commands:
 cd $SCRATCH/starjob1
 STAR --genomeDir $SCRATCH/star-genomes --readFilesIn my_reads.fastq
 ```
-The default parameters, that STAR uses, are typical for mapping 2x76 or 2x101 Illumina reads to the human genome. In Puhti-rhel8 the default parameter settings are available in file:
+The default parameters, that STAR uses, are typical for mapping 2x76 or 2x101 Illumina reads to the human genome. In Puhti the default parameter settings are available in file:
 ```text
 /appl/soft/bio/star/STAR-2.7.2a/source/parametersDefault
 ```
-In Puhti-rhel8, all heavier computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based 
+In Puhti, all heavier computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based 
 parallelization. Bellow is a sample batch job file for STAR. The job uses six computing cores from a single computing node. 
 The memory reservation is 24 GB (4GB/core * 6 cores). Note that you must change the _--account_ setting to match you poject.
 ```text

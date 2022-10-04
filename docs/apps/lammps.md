@@ -9,7 +9,7 @@ little bit customised version. Please read below how to create yours.
 
 ## Available
 
-- Puhti-rhel8: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
+- Puhti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 - Mahti: Instructions and Makefile available for building in `/appl/soft/chem/lammps/`
 
 ## License
@@ -19,9 +19,9 @@ LAMMPS is an open-source code, distributed freely under the terms of the GNU Pub
 ## Usage
 
 Don't use prebuilt binaries, but take a look at the instructions for configuring and compiling
-LAMMPS on Puhti-rhel8 or Mahti for optimal performance.
+LAMMPS on Puhti or Mahti for optimal performance.
 
-- Navigate to `/appl/soft/chem/lammps/` on Puhti-rhel8 or Mahti
+- Navigate to `/appl/soft/chem/lammps/` on Puhti or Mahti
 - If you can't find a pre-downloaded source code (e.g. `lammps-stable.tar.gz`) or a suitable LAMMPS
   version, download it yourself from the [LAMMPS home page](https://lammps.sandia.gov/download.html).
 - Read the compilation instructions, e.g. `lammps-puhti-instruction.txt`
@@ -30,7 +30,7 @@ LAMMPS on Puhti-rhel8 or Mahti for optimal performance.
 Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After
 compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently).
 Consult these pages on [how to create batch jobs on
-Puhti-rhel8](../computing/running/creating-job-scripts-puhti.md) and [on
+Puhti](../computing/running/creating-job-scripts-puhti.md) and [on
 Mahti](../computing/running/creating-job-scripts-mahti.md).
 
 If you encounter problems compiling LAMMPS, don't hesitate to [contact CSC Service
@@ -63,9 +63,9 @@ accordance with [this LAMMPS tutorial](https://lammpstutorials.github.io/tutoria
 The simulation consists of 24 iterations where the ethanol molecule is gradually pulled closer to
 the surface. These 24 iterations are all run concurrently using 5 MPI tasks each, which is specified
 in the batch script as `-partition 24x5`. The number of processors must add up to the amount
-requested, in this case 3 full Puhti-rhel8 nodes (120 cores). In general, the partitions do not have
+requested, in this case 3 full Puhti nodes (120 cores). In general, the partitions do not have
 to be of equal size, but one could for example specify `-partition 3x30 20 10` for 3 partitions of
-30 cores, one of 20 cores and one of 10 cores (3 Puhti-rhel8 nodes). This does of course not make
+30 cores, one of 20 cores and one of 10 cores (3 Puhti nodes). This does of course not make
 sense for jobs where the subtasks are virtually identical such as here.
 
 If the `-partition` switch is used one needs to replace the usual `index` and `loop` variable styles

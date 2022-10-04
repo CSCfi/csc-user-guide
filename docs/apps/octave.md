@@ -6,7 +6,7 @@ GNU Octave is a high-level interpreted language, primarily intended for numerica
 
 ## Available
 
-- Puhti-rhel7: 5.1.0
+- Puhti: 5.1.0
 
 ## License
 
@@ -14,7 +14,7 @@ GNU General Public License (GPL)
 
 ## Usage
 
-### Interactive use on Puhti-rhel7
+### Interactive use on Puhti
 
 ```bash
 $ ssh puhti.csc.fi
@@ -31,7 +31,7 @@ Packages ['Structure Handling'](https://octave.sourceforge.io/struct/index.html)
 
 ### Octave batch jobs
 
-Example about a serial batch script job on Puhti-rhel7
+Example about a serial batch script job on Puhti
 
 ```bash
 #!/bin/bash

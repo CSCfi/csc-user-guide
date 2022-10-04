@@ -10,11 +10,11 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-*   Puhti-rhel8: 1.14.6
+*   Puhti: 1.14.6
 
 ## Usage
 
-In Puhti-rhel8, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
+In Puhti, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
 with command:
 
 ```text
@@ -65,7 +65,7 @@ The job reserves 8 core (--cpus-per-task=8 ) with total of 16 GB of memory (--me
 The maximum duration of the job is twelve hours (--time 24:00:00 ). All the cores are assigned from 
 one computing node (--nodes=1 ). In addition to the resource reservations, you have to define 
 the billing project for your batch job. This is done by replacing the _your_project_name_ with 
-the name of your project. (You can use command csc-workspaces to see what projects you have in Puhti-rhel8).
+the name of your project. (You can use command csc-workspaces to see what projects you have in Puhti).
 
 You can submit the batch job file to the batch job system with command:
 
@@ -73,7 +73,7 @@ You can submit the batch job file to the batch job system with command:
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti-rhel8 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 ## More information
 

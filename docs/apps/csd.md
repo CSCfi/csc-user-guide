@@ -20,7 +20,7 @@ Using the CSD components requires adhering [to these conditions](../img/CSDLicen
 
 ## Available
 
-- Puhti-rhel8: 2022
+- Puhti: 2022
 - Download and install locally
 
 ## Usage
@@ -39,20 +39,20 @@ Software to access and analyse CSD entries:
 -   [Hermes] Main graphical interface to analysis tools
 -   [PreQuest] In-house database creation tools
 -   [IsoStar] A Knowledge Base of Intermolecular Interactions (not
-    available on Puhti-rhel8, please install locally, or use from CCDC)
+    available on Puhti, please install locally, or use from CCDC)
 -   [Mogul] A Knowledge Base of Molecular Geometry
 -   [SuperStar]
     Predicting Protein-Ligand interactions using experimental
     knowledge-base data
 -   [WebCSD] browser access to the CSD database
--   [CrossMiner] interactive versatile pharmacophore query tool (not available on Puhti-rhel8)
+-   [CrossMiner] interactive versatile pharmacophore query tool (not available on Puhti)
 -   [DASH] Solving crystal structures from powder diffraction data
     interactively (only for Windows)
 
 There are three ways to access the CSD System:
 
 -   Local installation (Windows or Linux, takes up a lot of disk space)
--   Using the CSD System via the [Puhti-rhel8 web interface](../computing/webinterface/index.md)
+-   Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
 -   WebCSD (limited functionality), point your browser to [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
 ### Using CSD as a local installation
@@ -64,15 +64,15 @@ codes, contact either [CSC Service Desk](../support/contact.md)
 or the local CSD administrator at your university. This is the
 recommended way for power users. The full installation requires ~18 GB of disk space.
 
-### Using CSD on Puhti-rhel8
+### Using CSD on Puhti
 
-[Open the Puhti-rhel8 web interface](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
+[Open the Puhti web interface](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
 
 1. From there, [launch a Desktop](../computing/webinterface/desktop.md#launching).
 2. Open a `Host Terminal` and  move to a suitable working directory.
 3. Load the CSD module with `module load ccdc/2021`.
 
-Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that the GUI performance can be somewhat slow as the Puhti-rhel8 web interface does not yet provide accelerated graphics.
+Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
 
 [GOLD](gold.md) has its own entry in Docs CSC.
 

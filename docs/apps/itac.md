@@ -3,12 +3,12 @@
 Intel Trace Analyzer and Collector (ITAC) is a MPI profiling and tracing tool
 that can be used to understand and visualize the behavior of a MPI code and to
 identify hotspots and reasons for poor parallel scaling and MPI performance. 
-The tool is available only on Puhti-rhel7 and at the moment it supports only the applications 
+The tool is available only on Puhti and at the moment it supports only the applications 
 compiled with the Intel MPI library.
 
 ## Available
 
-Puhti-rhel7
+Puhti
 
 ## License
 
@@ -45,7 +45,7 @@ The collected data are saved in a series of `<executable>.stf` files in the runn
 ## Analyzing the traces
 
 In order to improve the performance of the graphical user interface, 
-we recommend to use the [Puhti-rhel7 web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
+we recommend to use the [Puhti web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
 The analyzer is started in the host terminal with the command (note that the `intel-itac` module needs to be loaded):
 
 ```

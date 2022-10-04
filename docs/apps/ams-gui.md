@@ -1,7 +1,7 @@
 # AMS-GUI
 
 [AMS](../apps/ams.md) comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti-rhel7 web interface, [www.puhti.csc.fi](../computing/webinterface/index.md), but for more extensive use we recommend to install the GUI on your own laptop/workstation.
+You can test the GUI via the Puhti web interface, [www.puhti.csc.fi](../computing/webinterface/index.md), but for more extensive use we recommend to install the GUI on your own laptop/workstation.
 
 ## License
 
@@ -75,7 +75,7 @@ The license should be automatically fetched from the net.
 
 ** 5. Control batch jobs**
 
-In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti-rhel7 (Mahti), see [Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
+In order to manage remote jobs you need to set up an ssh key pair between your workstation and Puhti (Mahti), see [Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
 
 All saved jobs, both calculated and uncalculated, can be found in the GUI under ```SCM-> Jobs```.
 Before you submit a job to the batch queue you have to define what resources it needs (time, memory, number of cores etc.)

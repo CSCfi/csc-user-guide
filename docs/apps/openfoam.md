@@ -10,7 +10,7 @@ OpenFOAM is freely available and open source, and is licensed under the [GNU Gen
 
 ## Available
 
-Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti-rhel8 and Mahti](../computing/available-systems.md) servers.
+Different versions of OpenFOAM by OpenFOAM Foundation and OpenCFD are installed on [Puhti and Mahti](../computing/available-systems.md) servers.
 
 ## Usage
 
@@ -41,7 +41,7 @@ where \<server\> is either _puhti_ or _mahti_.  Copy that into your working dire
 -   on CSC's computing servers, use OpenFOAM's [collated IO method](https://openfoam.org/news/parallel-io/) when ever possible
 -   use of collated method absolutely necessary when the model size is large and lot of disk IO is necessary
 
-The file system used in CSC's computing platforms Puhti-rhel8 and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become heavily overloaded, and the whole computing platform can get jammed.
+The file system used in CSC's computing platforms Puhti and Mahti is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files.  The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and of field variables all are written on the disk, even on every time step. Using this sort IO operation simultaneously by only a few OpenFOAM heavy users, the file system become heavily overloaded, and the whole computing platform can get jammed.
 
 Above described, OpenFOAM's traditional parallel IO method can in the latest versions of OpenFOAM be replaced with collated parallel IO method, where the output data is written only in few files.  Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
 

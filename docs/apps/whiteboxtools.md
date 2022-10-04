@@ -4,9 +4,9 @@
 
 ## Available
 
-WhiteboxTools is available in Puhti-rhel8 with following versions:
+WhiteboxTools is available in Puhti with following versions:
 
-* 2.1.0. Only WhiteboxTools Open Core tools are available on Puhti-rhel8.
+* 2.1.0. Only WhiteboxTools Open Core tools are available on Puhti.
 
 ## Usage
 

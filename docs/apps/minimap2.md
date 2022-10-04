@@ -19,18 +19,18 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
--   Puhti-rhel8: 2.24
+-   Puhti: 2.24
 -   Chipster graphical user interface
 
 
 ## Usage
 
-In Puhti-rhel8, minimap2 can be taken in use as part of the _biokit_ module collection:
+In Puhti, minimap2 can be taken in use as part of the _biokit_ module collection:
 
 ```text
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools, including MInimap2. (Note however that there are bioinformatics tools in Puhti-rhel8, that have a separate setup commands.).
+The biokit modules sets up a set of commonly used bioinformatics tools, including MInimap2. (Note however that there are bioinformatics tools in Puhti, that have a separate setup commands.).
 Once biopkit is loaded, Minimap2 starts in with command:
 
 ```text
@@ -111,10 +111,10 @@ assembly to assembly
 minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 ```
 
-## Example batch script for Puhti-rhel8
+## Example batch script for Puhti
 
-In Puhti-rhel8, minimap2 jobs should be run as batch jobs. Below is a sample batch job file, 
-for running a minimap2 paired end alignment in Puhti-rhel8.
+In Puhti, minimap2 jobs should be run as batch jobs. Below is a sample batch job file, 
+for running a minimap2 paired end alignment in Puhti.
 
 
 ```text
@@ -142,14 +142,14 @@ The maximum duration of the job is four hours (-t 04:00:00 ). All the cores
 are assigned from one computing node (--nodes=1 ). In addition to the resource
 reservations, you have to define the billing project for your batch job. This
 is done by replacing the _<project>_ with the name of your project. (You can
-use command `csc-workspaces` to see what projects you have in Puhti-rhel8).
+use command `csc-workspaces` to see what projects you have in Puhti).
 
 You can submit the batch job file to the batch job system with command:
 
 ```
 sbatch batch_job_file.bash
 ```
-See the [Puhti-rhel8 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 ## Support
 

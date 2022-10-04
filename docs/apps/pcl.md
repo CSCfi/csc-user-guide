@@ -6,7 +6,7 @@
 
 ## Available
 
-__PCL__ is available in Puhti-rhel8 with following versions:
+__PCL__ is available in Puhti with following versions:
 
 * 1.12.1 without PCLpy
 * 1.9.1 with PCLpy version 0.12.0 with Python 3.8.

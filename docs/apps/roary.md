@@ -13,10 +13,10 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-*   Puhti-rhel8: 3.13.0 
+*   Puhti: 3.13.0 
 ## Usage
 
-In Puhti-rhel8, Roary should be executed as a batch job. An interactive batch job for running Roary can be started with command:
+In Puhti, Roary should be executed as a batch job. An interactive batch job for running Roary can be started with command:
 
 ```text
 sinteractive -i 

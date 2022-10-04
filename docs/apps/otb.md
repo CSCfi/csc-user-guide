@@ -74,7 +74,7 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 ```
 
 !!! note
-    It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Puhti-rhel8
+    It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Puhti
 
 ## License and acknowledgement
 

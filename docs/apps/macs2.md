@@ -21,7 +21,7 @@ Free to use and open source under [BSD 3-Clause License](https://raw.githubuserc
 
 Version on CSC's Servers
 
--  Puhti-rhel8: 2.2.7.1, 3.0.0a7
+-  Puhti: 2.2.7.1, 3.0.0a7
 -  Chipster graphical user interface
 
 ## Usage
@@ -40,7 +40,7 @@ macs2 -h
 macs3 -h
 ```
 
-Short MACS jobs can be executed as [interactive batch jobs](../computing/running/interactive-usage.md) in Puhti-rhel8. Longer jobs should be run as [batch jobs](../computing/running/getting-started.md).
+Short MACS jobs can be executed as [interactive batch jobs](../computing/running/interactive-usage.md) in Puhti. Longer jobs should be run as [batch jobs](../computing/running/getting-started.md).
 
 
 ## More information

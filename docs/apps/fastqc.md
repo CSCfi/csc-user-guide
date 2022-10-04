@@ -15,13 +15,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ###Version on CSC's Servers
 
--   Puhti-rhel8: 0.11.8 
+-   Puhti: 0.11.8 
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ##Usage
 
 
-To initialize in Puhti-rhel8 use:
+To initialize in Puhti use:
 ```text
 module load biokit
 ```
@@ -31,7 +31,7 @@ You can then run FastQC:
 fastqc --help
 ```
 
-If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Puhti-rhel8 is to use the [Puhti-rhel8 web interface desktop](../computing/webinterface/desktop.md).
+If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Puhti is to use the [Puhti web interface desktop](../computing/webinterface/desktop.md).
 
 ## Manual
 

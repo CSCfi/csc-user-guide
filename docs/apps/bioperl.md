@@ -26,11 +26,11 @@ BioPerl is licensed under the same terms as Perl itself which is dually-licensed
 
 ## Available
 
--   Puhti-rhel8: Perl 5.30.0 with Bioperl 1.007002 
+-   Puhti: Perl 5.30.0 with Bioperl 1.007002 
 
 
 ## Usage
-In Puhti-rhel8, bioperl can be taken in use with command:
+In Puhti, bioperl can be taken in use with command:
 ```text
 module load biokit
 ```

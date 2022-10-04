@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti-rhel8: 2020-2022 releases with regularly updated minor versions, one with plumed, two with cuda
+-   Puhti: 2020-2022 releases with regularly updated minor versions, one with plumed, two with cuda
 -   Mahti: 2020-2022 releases with regularly updated minor versions, two with plumed, two with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
 -   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
@@ -31,7 +31,7 @@ Gromacs is a free software available under LGPL, version 2.1.
 
 ## Usage
 
-Initialize recommended version of Gromacs on Puhti-rhel8 like this:
+Initialize recommended version of Gromacs on Puhti like this:
 
 ```bash
 module purge
@@ -56,7 +56,7 @@ The most important aspects to consider are:
 -   Use a recent version - there has been significant speedup over the years
 -   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag)
     for mdrun
--   For large jobs, use full nodes (multiples of 40 cores on Puhti-rhel8 or multiples
+-   For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
     of 128 cores on Mahti), see example below.
 
 For a more complete description, consult the [mdrun performance checklist] on the
@@ -71,7 +71,7 @@ load balance optimally. Rather than running very long scaling tests in advance,
 it is better to increase the number of nodes in your production simulation **IF**
 you see better performance than in the scaling test at the scaling limit.
 
-### Example parallel batch script for Puhti-rhel8
+### Example parallel batch script for Puhti
 
 ```bash
 #!/bin/bash
@@ -98,7 +98,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     overhead and fragmentation of node reservations. Don't use the large
     partition for jobs with less than 40 cores.
 
-### Example serial batch script for Puhti-rhel8
+### Example serial batch script for Puhti
 
 ```bash
 #!/bin/bash
@@ -117,7 +117,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2
 ```
 
-### Example GPU script for Puhti-rhel8
+### Example GPU script for Puhti
 
 ```bash
 #!/bin/bash

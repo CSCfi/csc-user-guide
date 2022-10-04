@@ -4,7 +4,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti-rhel7: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
+-   Puhti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
 -   Mahti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
 
 ## License
@@ -22,7 +22,7 @@ module load ams/2022.101
 ```
 
 
-**Example batch script for Puhti-rhel7 **
+**Example batch script for Puhti **
 
 ```
 #!/bin/bash
@@ -44,11 +44,11 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 ```
 
 !!! note
-    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the [fast local storage (NVME)](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti-rhel7. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the [fast local storage (NVME)](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
    
-**Example batch script for Puhti-rhel7 using local disk**
+**Example batch script for Puhti using local disk**
 
 ```
 #!/bin/bash
@@ -90,7 +90,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 ### [The AMS-GUI](../apps/ams-gui.md)
 
 AMS comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti-rhel7 web interface, but for more extensive use we recommend to install
+You can test the GUI via the Puhti web interface, but for more extensive use we recommend to install
 the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-GUI documentation.](../apps/ams-gui.md)
 
 ## References

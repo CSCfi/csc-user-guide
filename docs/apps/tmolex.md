@@ -20,7 +20,7 @@ TBD
 
 Install the TmoleX client on your local workstation. For details, [see the
 documentation](http://www.cosmologic.de/turbomole/tmolex.html). You can build your actual
-job locally and then submit the job to Puhti-rhel8. With the client you can monitor how
+job locally and then submit the job to Puhti. With the client you can monitor how
 the job proceeds. When the job has completed you can retrieve the output and use your local
 client to analyze the results.
 

@@ -8,7 +8,7 @@ in molecular dynamics. It can be used with several MD codes.
 
 ## Available
 
--   Puhti-rhel8: 2.7.4, 2.8.0
+-   Puhti: 2.7.4, 2.8.0
 -   Mahti: 2.6.3, 2.7.2
 
 ## License

@@ -5,7 +5,7 @@
 
 ## Available
 
-__Zonation__ is available in Puhti-rhel8 with following versions:
+__Zonation__ is available in Puhti with following versions:
 
 * 5.0.0 (including Graphical User Interface)
 

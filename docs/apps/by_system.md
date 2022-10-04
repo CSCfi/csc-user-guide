@@ -6,4 +6,4 @@ after deployment, something has gone wrong.
 
 ## Mahti
 
-## Puhti-rhel7
+## Puhti

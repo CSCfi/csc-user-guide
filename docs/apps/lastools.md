@@ -20,7 +20,7 @@ You can test LAStools loaded successfully with
 
 ### LAStools commands
 
-Puhti-rhel8 installation includes only the open source tools of LAStools.
+Puhti installation includes only the open source tools of LAStools.
 
 * las2las - extracts last returns, clips, subsamples, translates, etc ...
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII

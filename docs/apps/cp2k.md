@@ -7,7 +7,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
 
 ## Available
 
-* Puhti-rhel8: 9.1
+* Puhti: 9.1
 * Mahti: 8.2, 9.1
 
 ## License
@@ -32,7 +32,7 @@ With each new project make sure that your job can efficiently utilize all the
 cores you request in the batch script. The rule of thumb is that when you double
 the number of cores the calculation should be at least 1.5 times faster.
 
-### Example batch script for Puhti-rhel8 using MPI-only parallelization
+### Example batch script for Puhti using MPI-only parallelization
 
 ```bash
 #!/bin/bash

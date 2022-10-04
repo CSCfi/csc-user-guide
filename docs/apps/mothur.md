@@ -14,13 +14,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ### Version on CSC's Servers
 
--   Puhti-rhel8: 1.48.0
+-   Puhti: 1.48.0
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
 
-To initialize the default version of Mothur in Puhti-rhel8 use:
+To initialize the default version of Mothur in Puhti use:
 ```text
 module load mothur
 ```
@@ -63,14 +63,14 @@ mothur my_mothur_task.txt
 
 If you want to use multiple cores, adjust parameter **--cpus_per_task**. You must also adjust the **processors** parameter for each command in the Mothur command file accordingly. Note that only some Mothur commands can use multiple cores. Please check the documentation.
 
-Mothur jobs need to run inside a single node, so the maximum number of cores you can use in Puhti-rhel8 is 40. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many core may even make you job run slower.
+Mothur jobs need to run inside a single node, so the maximum number of cores you can use in Puhti is 40. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many core may even make you job run slower.
 
 The batch job script described above (in this case named as: mothur_batch_job.sh) can be submitted to the batch job system
 with command:
 ```text
 sbatch mothur_batch_job.sh
 ```
-See the [Puhti-rhel8 user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## Support

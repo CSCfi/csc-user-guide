@@ -2,28 +2,28 @@
 
 [CloudCompare](http://cloudcompare.org/) is an open source tool for editing and processing dense 3D point clouds (such as those acquired with laser scanners).
 
-The main purpose of CloudCompare on Puhti-rhel8 is to serve as a tool for visualizing point cloud data.
+The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing point cloud data.
 
 ## Availability
 
-The following versions of CloudCompare are available in **Puhti-rhel8**:
+The following versions of CloudCompare are available in **Puhti**:
 
 - Cloudcompare 2.10.3
 
 ## Usage
 
-### Puhti-rhel8 web interface
+### Puhti web interface
 
-The easiest option for using CloudCompare is to open it in [Puhti-rhel8 web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using CloudCompare is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi). 
+1. Log in to [Puhti web interface](https://puhti.csc.fi). 
 2. Start CloudCompare: Apps -> Desktop, choose Desktop: 'single application' and App: 'CloudCompare'
 3. CloudCompare is started automatically when the Desktop is launched. 
 
 
-Alternatively, especially if you want to use CloudCompare together with some other Graphical User Interface (GUI) tool or want to use data from Allas, CloudCompare can be started in Puhti-rhel8 web interface with remote desktop:
+Alternatively, especially if you want to use CloudCompare together with some other Graphical User Interface (GUI) tool or want to use data from Allas, CloudCompare can be started in Puhti web interface with remote desktop:
 
-1. Log in to [Puhti-rhel8 web interface](https://puhti.csc.fi).
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
 3. After launcing the remote desktop, double-click CloudCompare icon OR open `Host Terminal` (Desktop icon) and start CloudCompare:
 

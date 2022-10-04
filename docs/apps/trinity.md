@@ -19,13 +19,13 @@ Free to use and open source under [Broad Institute License]https://github.com/ge
 ## Available
 Version on CSC's Servers
 
-Puhti-rhel8: 2.14.0, 2.13.2, 2.11.0, 2.8.5
+Puhti: 2.14.0, 2.13.2, 2.11.0, 2.8.5
 
 
 ## Using Trinity 
 
 
-In Puhti-rhel8, Trinity is set up with command:
+In Puhti, Trinity is set up with command:
 ```text
 module load biokit
 ```
@@ -60,14 +60,14 @@ reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
 The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. 
-About 4 GB of memory is reserved for each core so the total memory reservation is `6 * 4 GB = 24 GB`. In Puhti-rhel8, you must use batch job option
+About 4 GB of memory is reserved for each core so the total memory reservation is `6 * 4 GB = 24 GB`. In Puhti, you must use batch job option
 `--account=` to define the project to be used. You should replace _project_1234567_ used in the example,  with your own project. You can check your 
 projects with command: `csc-workspaces`.
 
 In the actual Trinity command the number, of computing cores to be used (--CPU) is set using environment variable: `$SLURM_CPUS_PER_TASK`. 
 This variable contains the value set the `--cpus-per-task` SLURM option.
 
-In Puhti-rhel8 you can also use distributed computing to speed up the trinity job. When definition:
+In Puhti you can also use distributed computing to speed up the trinity job. When definition:
 ```text
 --grid_exec sbatch_commandlist
 ```
@@ -79,7 +79,7 @@ replace _sbatch_commandlist_ with _sbatch_commandlist_trinity_.
 ```
 When Trinity is executed with _--grid_exec_ option in generates large amount of temporary files and it 
 is very likely, that you will exceed the default limit of 100 000 files. Thus it is advisable to apply for 
-a larger file number quota for Puhti-rhel8 scratch before submitting large Trinity jobs. You can send the request
+a larger file number quota for Puhti scratch before submitting large Trinity jobs. You can send the request
 to servicedesk@csc.fi.
 
 

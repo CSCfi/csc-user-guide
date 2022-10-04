@@ -3,7 +3,7 @@
 
 ## Description
 
-llumina BaseSpace command line client,`bs`, can be used to retrievie data from the Illumina BaseSpace environment to Puhti-rhel8.
+llumina BaseSpace command line client,`bs`, can be used to retrievie data from the Illumina BaseSpace environment to Puhti.
 
 [TOC]
 
@@ -13,7 +13,7 @@ Software is free to use.
 
 ## Available
 
-*    Puhti-rhel8: 1.0.0 
+*    Puhti: 1.0.0 
 
 ## Usage
 First load the biokit module
@@ -34,7 +34,7 @@ This is done by running command:
 bs auth
 ```
 
-The authentication information is stored to your home directory in Puhti-rhel8
+The authentication information is stored to your home directory in Puhti
 ($HOME/.basespace/default.cfg). Thus the authentication needs to be done only
 once.
 

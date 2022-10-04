@@ -6,7 +6,7 @@ scripting.
 
 ## Available
 
--   Puhti-rhel8: 1.9.3
+-   Puhti: 1.9.3
 -   Mahti: 1.9.3
 
 ## License

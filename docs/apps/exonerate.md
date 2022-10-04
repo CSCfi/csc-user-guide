@@ -20,16 +20,16 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 Version on CSC's Servers
 
-Puhti-rhel8: 2.4.0
+Puhti: 2.4.0
 
 ## Usage
 
-In Puhti-rhel8 you can use initialize Exonerate with command:
+In Puhti you can use initialize Exonerate with command:
 ```text
 module load biokit
 ```
 The biokit module sets up a set of commonly used bioinformatics tools, including Exonerate 
-(Note however that there are also bioinformatics tools in Puhti-rhel8, that have a separate setup commands.)
+(Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.)
 
 After the setup command the Exonerate commands are recognized.
 
@@ -42,8 +42,8 @@ You can see the command line options for exonerate with command:
 exonerate -h
 ```
  
-In Puhti-rhel8, large Exronerate tasks should be executed as a batch jobs. Below is a sample batch job file, for running a 
-Exonerate batch job in Puhti-rhel8:
+In Puhti, large Exronerate tasks should be executed as a batch jobs. Below is a sample batch job file, for running a 
+Exonerate batch job in Puhti:
 
 ```text
 #!/bin/bash

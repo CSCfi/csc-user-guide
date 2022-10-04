@@ -8,7 +8,7 @@ structure refinement.
 
 ## Available
 
-* Puhti-rhel8: 20, 20-cuda
+* Puhti: 20, 20-cuda
 * Mahti: 20, 20-cuda
 
 ## License
@@ -40,7 +40,7 @@ module, `amber/20-cuda`, but it does not have all the AmberTools available.
     was significantly faster than without GPUs.
 
 Our tests show that for moderate sized systems the most efficient setup
-is one V100 GPGPU card and one CPU core. An example batch script for Puhti-rhel8
+is one V100 GPGPU card and one CPU core. An example batch script for Puhti
 would be:
 
 ```bash
@@ -79,7 +79,7 @@ ls $AMBERHOME/test
 ```
 
 The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. in
-the following way (on Puhti-rhel8):
+the following way (on Puhti):
 
 ```bash
 #!/bin/bash -l

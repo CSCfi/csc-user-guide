@@ -11,18 +11,18 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
--   Puhti-rhel8: 2.5.1
+-   Puhti: 2.5.1
 -   Chipster graphical user interface
 
 
 ## Usage
 
-In Puhti-rhel8, Bamtools can be taken in use as a part of biokit module collection:
+In Puhti, Bamtools can be taken in use as a part of biokit module collection:
 
 ```bash
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools in Puhti-rhel8,
+The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools in Puhti,
  that have a separate setup commands.
 
 The syntax of bamtools is:

@@ -14,7 +14,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti-rhel8: R2021b
+- Puhti: R2021b
 
 ## License
 
@@ -22,9 +22,9 @@ Proprietary software. The terms of use of this software allow its use for only t
 
 ## Usage
 
-At CSC, MATLAB is available both interactive and batch jobs. The interactive sessions are intended for light pre- and postprocessing of data, whereas larger parallel jobs should be run via batch job system of Puhti-rhel8 using MATLAB Parallel Server (MPS) tool.
+At CSC, MATLAB is available both interactive and batch jobs. The interactive sessions are intended for light pre- and postprocessing of data, whereas larger parallel jobs should be run via batch job system of Puhti using MATLAB Parallel Server (MPS) tool.
 
-### Interactive MATLAB Sessions on Puhti-rhel8
+### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
 There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
@@ -32,9 +32,9 @@ available for temporary interactive academic use. We recommend using [the Puhti 
 for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
 and specifying your resource requirements.
 
-### Getting Started with MATLAB Parallel Server on Puhti-rhel8
+### Getting Started with MATLAB Parallel Server on Puhti
 
-The use of MATLAB on Puhti-rhel8 is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti-rhel8. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti-rhel8 User Guide](/computing/overview).
+The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](/computing/overview).
 
 #### Installing the Tool Scripts
 
@@ -42,14 +42,14 @@ To use MPS, you need to have an user account at CSC, one of the supported MATLAB
 
 To configure MPS, follow the instructions on below.
 
-1. Make sure, you have a home directory on Puhti-rhel8 by logging in to the cluster with your CSC username and password by using some ssh client.
+1. Make sure, you have a home directory on Puhti by logging in to the cluster with your CSC username and password by using some ssh client.
 2. [Download](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) MPS tool scripts corresponding to the operating system on your computer.
 3. Unzip or untar the downloaded file and place the contents into some directory on your computer, where you have read and write permissions. Make sure, this directory is set to the MATLAB's path. This can be done, for example, with a `pathtool` command.
-4. Configure your MATLAB to submit jobs to Puhti-rhel8 by calling `configCluster` and giving your CSC username.
+4. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` and giving your CSC username.
 
 ```bash
 >> configCluster
-Username on Puhti-rhel8 (e.g. joe):
+Username on Puhti (e.g. joe):
 ```
 
 #### Configuring Jobs
@@ -59,7 +59,7 @@ Prior to submitting the batch job, we have to specify at least
 - Wall time (WallTime)
 - Memory reservation (MemUsage)
 - Billing project (ComputingProject)
-- [Partition on Puhti-rhel8](/computing/running/batch-job-partitions/) (QueueName)
+- [Partition on Puhti](/computing/running/batch-job-partitions/) (QueueName)
 
 Optionally, we can configure also
 - Email Notification (when the job is running, exiting, or aborting)
@@ -89,9 +89,9 @@ We start by defining a handle to the cluster on your MATLAB's command window
 ```bash
 >> c = parcluster;
 ```
-The first time you submit a job to Puhti-rhel8, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
+The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
 
-Use the `batch` command to submit a batch jobs to Puhti-rhel8. The command will return a job object which is used to access the output of the submitted job. See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`. You can, for example, submit a simple job to test the functionality of the MPS.
+Use the `batch` command to submit a batch jobs to Puhti. The command will return a job object which is used to access the output of the submitted job. See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`. You can, for example, submit a simple job to test the functionality of the MPS.
 
 ```bash
 >> j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
@@ -166,9 +166,9 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 >> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
-#### Checking the Status of MPS Licenses on Puhti-rhel8
+#### Checking the Status of MPS Licenses on Puhti
 
-You can check the status of MPS licenses on Puhti-rhel8 after logging in with `scontrol` command.
+You can check the status of MPS licenses on Puhti after logging in with `scontrol` command.
 
 ```bash
 $ scontrol show lic=mdcs
@@ -184,4 +184,4 @@ Documentation and manuals for MATLAB and related products is available via the D
 - [Parallel Computing Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
 - [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 - [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
-- [Puhti-rhel8 User Guide](/computing/overview/)
+- [Puhti User Guide](/computing/overview/)

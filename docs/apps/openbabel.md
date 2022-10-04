@@ -7,7 +7,7 @@ biochemistry, or related areas.
 
 ## Available
 
--   Puhti-rhel8: 3.1.1
+-   Puhti: 3.1.1
 -   Mahti: 3.1.1
 
 ## License
@@ -16,7 +16,7 @@ Open Babel is a free software available under GNU GPL.
 
 ## Usage
 
-Initialize Open Babel on Puhti-rhel8 like this:
+Initialize Open Babel on Puhti like this:
 
 ```bash
 module load openbabel/3.1.1

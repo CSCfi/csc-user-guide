@@ -24,7 +24,7 @@ Software is free to use and open source, but no license specified.
 
 ## Version
 
-*   Puhti-rhel8: 0.0.0.2016_01_04.cc14e52 
+*   Puhti: 0.0.0.2016_01_04.cc14e52 
 
 ## Usage
 

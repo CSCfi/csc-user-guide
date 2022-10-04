@@ -20,7 +20,7 @@ You can test if pdal loaded successfully with following
 
 `pdal --help`
 
-[Examples for using PDAL in Puhti-rhel8](https://github.com/csc-training/geocomputing/tree/master/pdal).
+[Examples for using PDAL in Puhti](https://github.com/csc-training/geocomputing/tree/master/pdal).
 
 ## License and acknowledgement
 

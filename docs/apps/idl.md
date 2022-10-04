@@ -4,7 +4,7 @@ Programming Language, Numeric Analysis, Manipulation and Visualization of Scient
 
 ## Available
 
-Puhti-rhel8: 8.5.1, 8.8.2
+Puhti: 8.5.1, 8.8.2
 
 ## License
 
@@ -21,7 +21,7 @@ module load idl
 
 ## Documentation
 
-* **Manuals on Puhti-rhel8 (pdf):**
+* **Manuals on Puhti (pdf):**
 
 ```text
 /appl/soft/math/idl/idl/help/pdf

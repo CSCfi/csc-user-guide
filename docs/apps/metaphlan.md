@@ -13,18 +13,18 @@ Free to use and open source under [MIT License](https://github.com/biobakery/Met
 
 ## Availability
 
-*   Puhti-rhel8: 4.0.2 
+*   Puhti: 4.0.2 
 
 ## Usage
 
-To activate MetaPhlAn Puhti-rhel8, run command:
+To activate MetaPhlAn Puhti, run command:
 
 ```text
 module load metaphlan
 metaphlan --help
 ```
 MetaPhlAn can automatically retrieve the MetaPhlAn database and create the Bowtie2 indexes it needs on-the-fly 
-when it the command is executed. By default MetaPhlAn saves these index files to the MetaPhlAn installation directory, but in Puhti-rhel8,
+when it the command is executed. By default MetaPhlAn saves these index files to the MetaPhlAn installation directory, but in Puhti,
 this is not possible. Because of that, the users should use option `--bowtie2db` 
 to define a directory that will be used to store the database and index files. 
  

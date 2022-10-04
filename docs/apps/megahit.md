@@ -14,7 +14,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
--   Puhti-rhel8: 1.2.8
+-   Puhti: 1.2.8
 
 ## Usage
 

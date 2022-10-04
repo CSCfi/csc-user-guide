@@ -12,7 +12,7 @@ for academic use at academic institutions.
 
 ## Available
 
--   Puhti-rhel8: 5.0.3
+-   Puhti: 5.0.3
 -   Mahti: 5.0.3
 
 Note that due to licensing issues every user has to install their own copy of the program.
@@ -26,7 +26,7 @@ The free version is available only for academic use at academic institutions.
 ## Usage
 
 - Download the ORCA 5.0.3, Linux, x86-64, shared-version, `orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
-- Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti-rhel8
+- Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti
 - Unpack the package, `tar xf orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
 
 !!! note
@@ -34,7 +34,7 @@ The free version is available only for academic use at academic institutions.
     substantial amount of disk I/O. In order to achieve maximal performance for the job and to
     avoid excess load on the Lustre parallel file system it is advisable to use the local disk.  
 
-- Example batch script for Puhti-rhel8 using local disk
+- Example batch script for Puhti using local disk
 
 ```bash
 #!/bin/bash
@@ -68,7 +68,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 ```
 
-- Example batch script for Puhti-rhel8 (using parallel disk and hence suitable for "standard"
+- Example batch script for Puhti (using parallel disk and hence suitable for "standard"
   DFT calculations)
 
 ```bash

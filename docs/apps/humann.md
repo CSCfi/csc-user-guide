@@ -15,11 +15,11 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Availability
 
-Versions available in Puhti-rhel8: 3.0.1
+Versions available in Puhti: 3.0.1
 
 ## Usage
 
-In Puhti-rhel8, HUMAnN is installed as containerized application. To activate it, run command:
+In Puhti, HUMAnN is installed as containerized application. To activate it, run command:
 ```text
 module load humann
 humann

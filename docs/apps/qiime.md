@@ -20,12 +20,12 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
--   Puhti-rhel8: 1.9.1, 2022.8
+-   Puhti: 1.9.1, 2022.8
 
 
 ## Usage
 
-In Puhti-rhel8 To use QIIME1 do:
+In Puhti To use QIIME1 do:
 
 ```text
 module load qiime1
@@ -45,7 +45,7 @@ Please check Qiime2 home page for more instructions.
 
 Note that many Qiime tasks involve heavy computing. Thus, these tasks should be executed as
 batch jobs. Qiime needs to have access to a local node specific file system for handling temporary data.
-This kind of directory is available on the NVME nodes of Puhti-rhel8. Therefore, you must include a request for NVME space
+This kind of directory is available on the NVME nodes of Puhti. Therefore, you must include a request for NVME space
 in your batch job file.
 
 The easiest way to start using Qiime is to use command `sinteractive` to launch an interactive batch job:
@@ -122,7 +122,7 @@ file is named as _qiime_job.sh_ then the submission command is:
 ```text
 sbatch qiime_job.sh 
 ```
-More information about running batch jobs can be found from the [batch job section of the Puhti-rhel8 user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 ## Manual

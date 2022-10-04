@@ -23,13 +23,13 @@ a specific license.
 ## Available
 
 
-*   Puhti-rhel8: 1.7
+*   Puhti: 1.7
 *   Chipster graphical user interface
 
 
 ### Usage
 
-To use VirusDetect in Puhti-rhel8 you first need to load _biokit_ and _virusdetect_ modules.
+To use VirusDetect in Puhti you first need to load _biokit_ and _virusdetect_ modules.
 ```text
 module load biokit
 module load virusdetect
@@ -42,7 +42,7 @@ virus_detect.pl --reference vrl_plant reads.fastq
 The developers of VirusDetect recommend to remove ribosomal RNA (rRNA)
 sequences from the input sequences before running VirusDetect. This can
 be done by aligning the sRNA reads against Silva rRNA database using
-Bowtie. In Puhti-rhel8 the Silva database is available in path:
+Bowtie. In Puhti the Silva database is available in path:
 
 ```text
 /appl/data/bio/biodb/production/silva/Silva_rRNA_database
@@ -56,7 +56,7 @@ bowtie -v 1 -k 1 --un cleaned_reads.fastq  -f -q /appl/data/bio/biodb/production
 If possible, it is recommended that you use _--host_reference_ option
 to filter out the sRNA originating from the host organism. This
 filtering is done by running a BWA mapping against the genome of the
-host organism. CSC is not maintaining BWA indexes in Puhti-rhel8 environment,
+host organism. CSC is not maintaining BWA indexes in Puhti environment,
 but you can use `chipster_genomes` to retrieve bwa indexes used by the 
 Chipster service.
 
@@ -126,7 +126,7 @@ command:
 ```text
 sbatch batch_job_file.sh
 ```
-More information about running batch jobs in Puhti-rhel8 can be found from
+More information about running batch jobs in Puhti can be found from
 [batch job instruction pages](../computing/running/getting-started.md).
 
 VirusDetect wites the analysys results to a new directory, named after the query dataset: result_<i>queryfile</i>. VirusDetect produces a large number of result files. The most essential files are:
@@ -138,7 +138,7 @@ VirusDetect wites the analysys results to a new directory, named after the query
 *   **undetermined.html** Table listing the length, siRNA size distribution and 21-22nt percentage of undetermined contigs. Potential virus contigs (21-22 nt > 50%) are indicated in green.
 *   **undetermined_blast.html** Table listing contigs having hits in the virus reference database but not assigned to any reference viruses because they did not meet the coverage or depth criteria.
 
-As many of the output files are in html format, it may be difficult to study them in Puhti-rhel8.
+As many of the output files are in html format, it may be difficult to study them in Puhti.
 One option to study the results is to move them to a public bucket in Allas. For example
 (replace _projnum_ with your own project number):
 ```text

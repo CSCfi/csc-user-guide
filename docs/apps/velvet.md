@@ -12,13 +12,13 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
--   Puhti-rhel8: 1.2.10
+-   Puhti: 1.2.10
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 
 ## Usage
 
-In Puhti-rhel8 the Velvet commands are initialized with command:
+In Puhti the Velvet commands are initialized with command:
 ```text
 module load biokit
 ```
@@ -43,10 +43,10 @@ A velvetg command could look like:
 velvetg assebly_dir -cov_cutoff 5 -read_trkg yes -amos_file yes
 ```
  
-When velvet was compiled in puhti, the maximum allowed kmer length was defined. The longer the maximum kmer is the more memory velvet will need (regardless of the kmer length that is actually used). Because of that we provide several versions of velvet, listed in the table below. In Puhti-rhel8 the default the maximum k-mer length, that can be used in the hash table, is 100 bases. However, it is recommended to use the version that has the shortest possible max kmer length. For example for kmer length 40 you should use velveth_maxk50 and velvetg_maxk50.
+When velvet was compiled in puhti, the maximum allowed kmer length was defined. The longer the maximum kmer is the more memory velvet will need (regardless of the kmer length that is actually used). Because of that we provide several versions of velvet, listed in the table below. In Puhti the default the maximum k-mer length, that can be used in the hash table, is 100 bases. However, it is recommended to use the version that has the shortest possible max kmer length. For example for kmer length 40 you should use velveth_maxk50 and velvetg_maxk50.
 
 
-**Velvet programs available in Puhti-rhel8**
+**Velvet programs available in Puhti**
 
 | Program 	   | max. k-mer length | type |
 |------------------|-------------------|------|
@@ -70,7 +70,7 @@ When velvet was compiled in puhti, the maximum allowed kmer length was defined. 
  
 
 
-In Puhti-rhel8, the velvet jobs should be executed through the batch job system. Below is sample batch job file for velvet.
+In Puhti, the velvet jobs should be executed through the batch job system. Below is sample batch job file for velvet.
 
 ```text
 #!/bin/bash
@@ -102,7 +102,7 @@ The batch job can be launched with command
 sbatch script_file_name
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti-rhel8 user guide](../computing/running/getting-started.md).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 

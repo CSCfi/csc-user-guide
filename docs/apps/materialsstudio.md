@@ -18,7 +18,7 @@ and [AMS](ams.md).
 
 ## Available
 
-Puhti-rhel8: Version 2020
+Puhti: Version 2020
 
 Materials Studio version 2020 can be downloaded and installed on your local
 computer. The graphical user interface runs only on Windows, but the
@@ -34,13 +34,13 @@ The way to use Materials Studio is to install it locally and:
 
 1. Prepare jobs (build systems, set simulation parameters) locally
 2. Either run them locally or write the input files on disk
-3. Copy them to Puhti-rhel8, prepare a batch script to run the files
+3. Copy them to Puhti, prepare a batch script to run the files
 4. Copy the results back for analysis
 
 See above for instructions for download, local installation and license configuration.
-Usage on Puhti-rhel8 does not require any installation steps.
+Usage on Puhti does not require any installation steps.
 
-### Detailed workflow and tips for running standalone jobs on Puhti-rhel8
+### Detailed workflow and tips for running standalone jobs on Puhti
 
 * Once you've set up your simulation, instead of running it, click the "Files" button
 next to the "Run" button, and save the files on your local disk. You can find the
@@ -50,9 +50,9 @@ Note, that by default Windows file manager does not show all files, so you may n
 to edit the preferences.
 
 * Use some graphical file transfer tool to copy all files in the subdirectory created
-by the Materials Studio GUI to a subdirectory in Puhti-rhel8 in your /scratch area.
+by the Materials Studio GUI to a subdirectory in Puhti in your /scratch area.
 
-* Open an ssh-connection to Puhti-rhel8, and copy/paste the template batch script from
+* Open an ssh-connection to Puhti, and copy/paste the template batch script from
 below to that directory.
 
 * Change the "seedname" to match yours (name of the local folder and preceded by `.param`
@@ -67,7 +67,7 @@ computer (you can overwrite all existing files).
 * Refresh the "project" view in the Materials Studio GUI.
 
 Different Materials Studio "modules" require a little bit different batch scripts to run
-as standalone jobs on Puhti-rhel8. A simple example for DMol3:
+as standalone jobs on Puhti. A simple example for DMol3:
 
 ```bash
 #!/bin/bash
@@ -121,7 +121,7 @@ $RunMS -np $SLURM_NTASKS $seedname
 
 ```
 
-Some modules, like Forcite, require a different way (MaterialsScript) to run them on Puhti-rhel8.
+Some modules, like Forcite, require a different way (MaterialsScript) to run them on Puhti.
 Instructions on using this will provided later. You can find the details
 from the Materials Studio help under "Running MaterialsScript in standalone mode".
 

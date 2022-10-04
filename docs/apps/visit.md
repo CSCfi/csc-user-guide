@@ -1,7 +1,7 @@
 # VisIt
 
 VisIt is an open source, versatile software for scientific visualization.
-VisIt is available on Puhti-rhel8 and we recommend [the Puhti-rhel8 web interface remote
+VisIt is available on Puhti and we recommend [the Puhti web interface remote
 desktop](../computing/webinterface/desktop.md) for running the GUI.
 [NoMachine](nomachine.md) can be used as a fallback option.
 
@@ -9,7 +9,7 @@ desktop](../computing/webinterface/desktop.md) for running the GUI.
     You can now also enable [interactive visualization with GPU
     acceleration](../computing/webinterface/accelerated-visualization.md) for
     better performance. In this case, select `Accelerated visualization` instead
-    of `Desktop` in the Puhti-rhel8 web interface.
+    of `Desktop` in the Puhti web interface.
 
 ## License
 
@@ -19,7 +19,7 @@ License](https://github.com/visit-dav/visit/blob/develop/LICENSE)
 ## Parallel use
 
 VisIt can be run interactively in parallel configuration using several processors.
-Login to Puhti-rhel8 and submit the following to launch VisIt on a compute node
+Login to Puhti and submit the following to launch VisIt on a compute node
 
 ```bash
 module load visit/3.1.3
@@ -42,19 +42,19 @@ be distributed between the processors.
 
 The VisIt client can be run on your local desktop computer while having VisIt components
 that process the data remotely on Puhti. Local VisIt host profiles can be used to
-launch jobs on Puhti-rhel8 compute nodes. Local and remote VisIt versions have to match.
+launch jobs on Puhti compute nodes. Local and remote VisIt versions have to match.
 
 An example of a working host profile is screen captured below. Note that job reservation
 parameters that are not directly available as profile options should be given as
 *Advanced/Launcher arguments*, see the last screen capture.
 
-![Puhti-rhel8 screen capture 1](../img/host_profile_1.png)
+![Puhti screen capture 1](../img/host_profile_1.png)
 
-![Puhti-rhel8 screen capture 2](../img/host_profile_2.png)
+![Puhti screen capture 2](../img/host_profile_2.png)
 
-![Puhti-rhel8 screen capture 3](../img/host_profile_3.png)
+![Puhti screen capture 3](../img/host_profile_3.png)
 
-![Puhti-rhel8 screen capture 4](../img/host_profile_4.png)
+![Puhti screen capture 4](../img/host_profile_4.png)
 
 ## More Information
 

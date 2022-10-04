@@ -4,7 +4,7 @@
 
 ## Available
 
-GDAL is available in Puhti-rhel8 with following versions:
+GDAL is available in Puhti with following versions:
 
 * 3.5.0 - [geoconda-3.10.6](geoconda.md)
 * 3.4.3 stand-alone: `gdal`
@@ -40,13 +40,13 @@ With `r-env` gdal commands can be used as:
 
 ### Using files directly from Allas
 
-It is possible to __read__ files from Allas directly with GDAL, but not to write. For results, write them first to Puhti-rhel8 scratch and move later to Allas. The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
+It is possible to __read__ files from Allas directly with GDAL, but not to write. For results, write them first to Puhti scratch and move later to Allas. The below mentioned virtual drivers are supported also in many GDAL-based tools. The set up is the same as below, but instead of the example gdalinfo command open the file from Python or R script. In R and Python it is possible also to write to Allas directly from script. We have tested successfully: 
 
  * [Python](geoconda.md): gdal, geopandas, fiona and rasterio. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
  * [R](r-env-for-gis.md): sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
  * [QGIS](qgis.md)
 
-Reading data directly from Allas is slower than reading from scratch or other Puhti-rhel8 lustre disks, for example reading a ~500 Mb files from scratch takes ~1 second, but from Allas ~10 seconds. In most cases still comapered to full duration of an analysis in Puhti-rhel8, these seconds are not important.
+Reading data directly from Allas is slower than reading from scratch or other Puhti lustre disks, for example reading a ~500 Mb files from scratch takes ~1 second, but from Allas ~10 seconds. In most cases still comapered to full duration of an analysis in Puhti, these seconds are not important.
 
 __Public files__ in Allas can be read with [`vsicurl`](https://gdal.org/user/virtual_file_systems.html#vsicurl):  
 ```
@@ -55,7 +55,7 @@ gdalinfo /vsicurl/https://a3s.fi/<name_of_your_bucket>/<name_of_your_file>
 
 __Private files__ can be read by SWIFT or S3 API. SWIFT is more secure, but the credetials need to be updated after 8 hours. S3 has permanent keys, is therefore little bit easier to use, but less secure. Both of these have a random reading and streaming API.
 
-__SWIFT.__ Set up the connection in Puhti-rhel8 and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
+__SWIFT.__ Set up the connection in Puhti and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
 
 ```
 module load allas
@@ -65,10 +65,10 @@ export SWIFT_STORAGE_URL=$OS_STORAGE_URL
 gdalinfo /vsiswift/<name_of_your_bucket>/<name_of_your_file>
 ```
 
-The export commands are needed because GDAL is looking for different environment variables than what allas-conf is writing. These commands need to be given each time you start working with Puhti-rhel8, because the token is valid for 8 hours. Inside batchjobs use [allas-conf -k](../data/Allas/allas_batchjobs.md).
+The export commands are needed because GDAL is looking for different environment variables than what allas-conf is writing. These commands need to be given each time you start working with Puhti, because the token is valid for 8 hours. Inside batchjobs use [allas-conf -k](../data/Allas/allas_batchjobs.md).
 
 __S3.__ 
-Set up the connection in Puhti-rhel8 and then read the files with [vsis3-driver](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files-random-reading):
+Set up the connection in Puhti and then read the files with [vsis3-driver](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files-random-reading):
 ```
 module load allas
 allas-conf --mode s3cmd

@@ -8,7 +8,7 @@ perform mixed quantum-mechanics and molecular-mechanics simulations.
 
 ## Available
 
--   Puhti-rhel8: 7.0.0
+-   Puhti: 7.0.0
 -   Mahti: 7.0.0
 
 ## License
@@ -24,7 +24,7 @@ Check which versions are recommended:
 module avail nwchem
 ```
 
-### Batch script example for Puhti-rhel8
+### Batch script example for Puhti
 
 ```bash
 #!/bin/bash
@@ -45,10 +45,10 @@ seff $SLURM_JOBID
 !!! note
     Particularly some of the more advanced electron correlation calculations can
     be very disk I/O intensive. Such jobs benefit from using the fast local storage
-    on Puhti-rhel8. Using local disk for such jobs will also reduce the load on the
+    on Puhti. Using local disk for such jobs will also reduce the load on the
     Lustre parallel file system.
 
-### Batch script example for Puhti-rhel8 using local disk
+### Batch script example for Puhti using local disk
 
 ```bash
 #!/bin/bash

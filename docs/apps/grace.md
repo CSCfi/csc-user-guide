@@ -5,7 +5,7 @@ it, but Grace can also be used for some numerical analyses.
 
 ## Available
 
-* Puhti-rhel8: 5.1.25
+* Puhti: 5.1.25
 
 ## License
 
@@ -22,7 +22,7 @@ module load grace
 And start with `xmgrace` or show a plot directly with `xmgrace input.xvg`.
 
 Note, that you need remote graphics to work with Grace. An easy way is through the
-[Puhti-rhel8 web interface remote desktop](../computing/webinterface/desktop.md).
+[Puhti web interface remote desktop](../computing/webinterface/desktop.md).
 
 ## More information
 

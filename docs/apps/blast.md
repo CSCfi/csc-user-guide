@@ -4,7 +4,7 @@ BLAST (Basic Local Alignment Search Tool) is the most frequently used sequence h
 
 The command line version of NCBI-BLAST allows a user to modify all parameters of BLAST, to use special methods like PSI-BLAST and PHI-BLAST, and to analyze large data sets.
 
-In Puhti-rhel8 you can use `pb`(Parallel Blast) command for large sets of query sequences. The pb program splits a large search jobs into several subjobs, that are executed simultaneously (more below).
+In Puhti you can use `pb`(Parallel Blast) command for large sets of query sequences. The pb program splits a large search jobs into several subjobs, that are executed simultaneously (more below).
 
 
 The most commonly used BLAST commands are:
@@ -31,7 +31,7 @@ Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/ol
 
 ## Available
 
--   Puhti-rhel8: 2.12.0
+-   Puhti: 2.12.0
 -   FGCI: 2.6.0
 -   Chipster graphical user interface
 
@@ -41,11 +41,11 @@ At CSC, BLAST searches can be executed in several ways:
 
 -    using the Chipster platform
 -    with normal BLAST commands in interctive batch jobs (`sinteractive -i`)
--    as batch jobs with `pb` command in Puhti-rhel8
+-    as batch jobs with `pb` command in Puhti
 
-## Interactive usage in Puhti-rhel8
+## Interactive usage in Puhti
 
-To use the latest BLAST version in Puhti-rhel8 first give set up command :
+To use the latest BLAST version in Puhti first give set up command :
 ```text
 module load biokit
 ```
@@ -72,7 +72,7 @@ Would run the same search as described above, except that the  e-value threshold
 
 ## Usage of pb (Parallel BLAST) at CSC
 
-If your query sequence set contains less than 20 sequences then interactive batch job is probably the most effective way top do the search. However, if your query set contains hundreds or thousands of sequences then utilizing the parallel computing capacity of Puhti-rhel8 is more effective. For this kind of massive blast searches you can utilize the `pb` command.
+If your query sequence set contains less than 20 sequences then interactive batch job is probably the most effective way top do the search. However, if your query set contains hundreds or thousands of sequences then utilizing the parallel computing capacity of Puhti is more effective. For this kind of massive blast searches you can utilize the `pb` command.
 
 _pb_ (Parallel BLAST) is designed for situations, where the query file includes large amount of sequences. It splits the query task into several subjobs, that can be run simultaneously using the resources of the server very effectively. For large sets of query sequences, _pb_ can speed up the search up to 50 fold. Two sample _pb_ commands for puhti.csc.fi:
 ```text
@@ -84,7 +84,7 @@ pb psiblast -db swiss -query protseqs.fasta -num_iterations 3 -out results.out
 ```
 
 
-_pb blast_ commands can be executed interactively in the login nodes of Puhti-rhel8. You don't need to create  any batch job file yourself. In stead _pb_ command creates and submits a batch job automatically. Once BLAST job is started _pb_ starts a process that monitor the progress of the blast job. As running a large BLAST jobs may take a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti-rhel8. The BLAST jobs will still continue running in the batch job system. 
+_pb blast_ commands can be executed interactively in the login nodes of Puhti. You don't need to create  any batch job file yourself. In stead _pb_ command creates and submits a batch job automatically. Once BLAST job is started _pb_ starts a process that monitor the progress of the blast job. As running a large BLAST jobs may take a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
 
 To reconnect to your pb blast job, go to your scratch directory and run command:
 
@@ -103,7 +103,7 @@ The pb program also allows users to do BLAST searches against their own fasta fo
 ```text
 pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 ```
-If your database is big, building the BLAST indexes may require more that 1 GB of memory ( that is the job specific memory limit in Puhti-rhel8 login nodes). In those cases you can subhmit the job from an interactive batch job (with e.g. 8 GB of memory).
+If your database is big, building the BLAST indexes may require more that 1 GB of memory ( that is the job specific memory limit in Puhti login nodes). In those cases you can subhmit the job from an interactive batch job (with e.g. 8 GB of memory).
 
 ## Using taxonomy lists to focus the search
 

@@ -13,7 +13,7 @@ Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blo
 
 ## Available
 
-*  Puhti-rhel8: 1.3-r106
+*  Puhti: 1.3-r106
 
 ## Usage
 
