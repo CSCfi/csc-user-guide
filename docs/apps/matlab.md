@@ -58,7 +58,7 @@ Prior to submitting the batch job, we have to specify at least
 
 - Wall time (WallTime)
 - Memory reservation (MemUsage)
-- Billing project (ComputingProjec)
+- Billing project (ComputingProject)
 - [Partition on Puhti-rhel8](/computing/running/batch-job-partitions/) (QueueName)
 
 Optionally, we can configure also
@@ -71,7 +71,7 @@ Optionally, we can configure also
 >> c.AdditionalProperties.WallTime = '0:10:0';
 >> c.AdditionalProperties.MemUsage = '2g';
 >> c.AdditionalProperties.QueueName = 'small';
->> c.AdditionalProperties.ComputingProjec= 'project_<id>';
+>> c.AdditionalProperties.ComputingProject = 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
 >> c.saveProfile;
