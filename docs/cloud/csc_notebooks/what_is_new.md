@@ -1,6 +1,6 @@
-# Summary of changes and improvements in beta
+# Summary of changes and improvements in R5
 
-The new beta version can be found at [CSC Notebooks](https://notebooks-beta.rahtiapp.fi){target="_blank"}.
+As of 2022, CSC Notebooks runs version R5 of Pebbles software. Compared to R4: 
 
 * User interface has similar functionality but is greatly improved.
 * Environments/blueprints are now called applications.
