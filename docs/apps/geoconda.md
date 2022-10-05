@@ -70,7 +70,7 @@ The `geoconda` module is available in Puhti:
 
 * 3.10.6
 
-Version number is the same as Python version.
+Version number is the same as the Python version.
 
 ## Usage
 
