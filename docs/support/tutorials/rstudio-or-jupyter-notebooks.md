@@ -39,12 +39,12 @@ In the interactive session run:
 
 **RStudio**
 ```text
-module load r-env-singularity
+module load r-env
 start-rstudio-server
 ```
-This set up works with any [r-env-singularity module](../../apps/r-env-singularity.md).
+This set up works with any [r-env module](../../apps/r-env.md).
 It is also possible to launch a multi-threaded RStudio session using `start-rstudio-server-multithread`, if you have specified multiple cores when starting an interactive session. 
-Details on using threading with R can be found on the [r-env-singularity main page](../../apps/r-env-singularity.md#improving-performance-using-threading).
+Details on using threading with R can be found on the [r-env main page](../../apps/r-env.md#improving-performance-using-threading).
 
 **Jupyter**
 

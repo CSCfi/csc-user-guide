@@ -15,7 +15,7 @@ Free to use and open source under [MIT/Expat License](https://github.com/samtool
 
 Version on CSC's Servers
 
-Puhti: 1.9, 1.14
+Puhti: 1.9, 1.16
 
 
 ## Usage
@@ -32,17 +32,19 @@ After this you can launch samtools
 ```
 samtools
 ```
-Biokit loads samtools version 1.10. If you wish to use newer versions, you can check the
-available samtools versions with command:
+
+You can check the available samtools versions with command:
 
 ```
 module spider samtools
 ```
+
 And the activate the version you want to use. For example:
 ```
-module load samtools/1.14
+module load samtools/0.1.19
 ```
 
+Loading SAMtools 1.x also loads BDFtools and HTSlib.
 
 Heavier SAMtool jobs should be executed as batch jobs. Below is a sample batch job file, 
 for running a SAMtools job in Puhti:

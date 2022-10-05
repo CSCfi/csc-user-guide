@@ -20,7 +20,7 @@ Using the CSD components requires adhering [to these conditions](../img/CSDLicen
 
 ## Available
 
-- Puhti: 2021
+- Puhti: 2022
 - Download and install locally
 
 ## Usage

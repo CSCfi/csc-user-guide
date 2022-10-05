@@ -22,24 +22,27 @@ To be able to use CSC's supercomputers, you need to have a CSC user account that
 
 Connect using a ssh client:
 
-```
+```bash
 ssh yourcscusername@puhti.csc.fi
 ```
+
 or
-```
+
+```bash
 ssh yourcscusername@mahti.csc.fi
 ```
-
 
 This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
+```bash
+ssh yourcscusername@puhti-login<number 11-12>.csc.fi
 ```
-ssh yourcscusername@puhti-login<number 1-2>.csc.fi
-```
+
 or
-```
-ssh yourcscusername@mahti-login<number 1-2>.csc.fi
+
+```bash
+ssh yourcscusername@mahti-login<number 11-12>.csc.fi
 ```
 
 Where **yourcscusername** is the username you get from CSC.

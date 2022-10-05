@@ -8,26 +8,29 @@ includes following python packages:
 -   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
 -   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
+-   [copc-lib](https://pypi.org/project/copclib/) - reader and writer interface for COPC point clouds. NEW 2022
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension)
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install). NEW 2022
 -   [fiona] - reads and writes spatial data files.
--   [gdal] - reads and writes spatial data files, and GDAL/OGR data manipulation tools.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [igraph](https://igraph.org/python/) - for fast routing.
 -   **[jupyter]**(https://jupyter.org/) - Jupyter Notebooks and JupyterLab, [CSC RStudio and Jupyter Notebooks tutorial](../support/tutorials/rstudio-or-jupyter-notebooks.md) describes how to use these with Puhti
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
 -   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
+-   [metpy](https://unidata.github.io/MetPy/latest/index.html) - reading, visualizing, and performing calculations with weather data. NEW 2022
 -   [movingpandas](http://movingpandas.org) - for trajectory data
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.
 -   [pyproj] - performs cartographic transformations and geodetic computations.
+-   [pyogrio](https://pyogrio.readthedocs.io/en/latest/index.html) - vectorized spatial vector file format I/O using GDAL/OGR. NEW 2022
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs.
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data
--   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds.
--   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs.
+-   [pyntcloud](https://pyntcloud.readthedocs.io/) - for working with 3D point clouds. NEW 2022
+-   [pystac-client](https://pystac-client.readthedocs.io/) -  for working with STAC Catalogs and APIs. NEW 2022
 -   [python-cdo](https://pypi.org/project/cdo/) - scripting interface to CDO (Climate Data Operators).
 -   **[rasterio]** - access to geospatial raster data.
 -   [rasterstats] - for summarizing geospatial raster datasets based on
@@ -41,6 +44,7 @@ includes following python packages:
 -   [skimage] -  algorithms for image processing.
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). 
+-   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray. NEW 2022
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
     
@@ -65,7 +69,6 @@ Python has multiple packages for parallel computing, for example
 The `geoconda` module is available in Puhti:
 
 * 3.9.13
-* 3.8.8 
 
 Version number is the same as Python version.
 
