@@ -61,7 +61,7 @@ Additionally geoconda includes:
 Python has multiple packages for parallel computing, for example
 **multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
 
-(If you think that some important GIS package for Python is missing from here, you can ask for installation from servicedesk@csc.fi.)
+If you think that some important GIS package for Python is missing from here, you can ask for installation from servicedesk@csc.fi.
 
 
 ## Available
