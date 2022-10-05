@@ -80,7 +80,7 @@ source activate nextflow
 ```
 
 In case you need any custom installations with specific version of Nextflow in your 
-workspace, please follow instructions [here](../../apps/bioconda.md#2-installing-software-for-your-own-use-with-bioconda). 
+workspace, please follow instructions [here](../../computing/containers/tykky.md). 
 
 For the installation of Nextflow, you can use the following conda approach: 
 
