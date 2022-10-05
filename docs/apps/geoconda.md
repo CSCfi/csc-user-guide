@@ -4,11 +4,9 @@ Geoconda is a collection of python packages that facilitate the
 development of python scripts for geoinformatics applications. It
 includes following python packages:
 
--   [ArcGIS Python API](https://developers.arcgis.com/python/) - provides simple and efficient tools for sophisticated vector and raster analysis, geocoding, map making, routing and directions. 
 -   [boto3](https://boto3.readthedocs.io) - for working files in S3 storage, for example Allas. [Allas S3 example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py).
 -   [cartopy] - for map plotting.
 -   [cfgrib](https://pypi.org/project/cfgrib/) - map GRIB files to the NetCDF Common Data Model
--   [copc-lib](https://pypi.org/project/copclib/) - reader and writer interface for COPC point clouds. NEW 2022
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
     -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
@@ -70,7 +68,7 @@ Python has multiple packages for parallel computing, for example
 
 The `geoconda` module is available in Puhti:
 
-* 3.9.13
+* 3.10.6
 
 Version number is the same as Python version.
 
