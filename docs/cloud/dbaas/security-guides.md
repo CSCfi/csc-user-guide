@@ -6,7 +6,7 @@ All database instances have their own firewalls. Users are responsible for makin
 ## Authentication
 
 Internal Beta: You can authenticate to DBaaS with your CSC-customer account and password. 
-Production: You can log in to the DBaaS service with a lot of different authentication methods as long as you have a CSC-account [Create user a new user account](../../../accounts/how-to-create-new-user-account.md) and belong to project that have applied for DBaaS access.
+Production: You can log in to the DBaaS service with a lot of different authentication methods as long as you have a CSC-account [Create user a new user account](../../../accounts/how-to-create-new-user-account/) and belong to project that have applied for DBaaS access.
 
 From the web interface you can create application credentials if you like to automate your database manage from another application.
 
