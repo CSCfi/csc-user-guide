@@ -39,19 +39,19 @@ In the following user guide, you can learn how to:
 
 ### Authentication
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+After entering your username and passworod, you need to  **verify your identity** with a second verification step , also called Multi factor Authentication, MFA. Enter the verification **code** provided via mobile application and press on *Continue*.
 
 !!! Note:
-    After entering the temporaty code, **please press the Continue button**. Pressing Enter on your keybord is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
+    **Please press the *Continue* button** using your mouse. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
 
 
-For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 ![Authentication](images/desktop/authentication.png)
 
@@ -115,7 +115,9 @@ In the following paragraphs, we will discuss how to work with a virtual Desktop,
 ### Working with your virtual Desktop
 
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
 
@@ -207,6 +209,9 @@ Encrypted files will be **visible in read-only mode (similarly to opening a pdf 
    
 ### Accessing encrypted data stored in SD Connect using Data Gateway
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/7iGQ7gWb-Pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
 
 * Open **Data Gateway** (you can find the application on your Desktop);
@@ -253,6 +258,8 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
     Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
 
 ###  Accessing published data for re-use via SD Apply
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/1cF_NQV6vyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 Data Gateway can also be used to access data published under controlled access via other CSC services for sensitive data. To access a specific dataset in your virtual Desktop, you need first to apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you will be able to access the dataset in SD Desktop for a limited time.
