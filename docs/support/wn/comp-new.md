@@ -1,5 +1,36 @@
-# Computing environment 
+# Computing environment
 
+## Puhti operating system updated to RHEL8, 5.10.2022
+
+The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.
+
+* Pre-installed software and libraries as well as the documentation have been updated
+* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../../computing/compiling-puhti.md)
+* Note that `hpcx-mpi` has been removed and replaced by `openmpi`
+* Users should recompile their own codes for the new OS
+* Some older versions of applications are not available anymore
+
+Please note that old login nodes (`puhti-login1` and `puhti-login2`) are no longer available.
+The new login nodes have been renamed as `puhti-login11` and `puhti-login12`. Also, the ssh
+keys of the login nodes have changed and the checksums of the new keys are:
+
+| SHA256 checksum                             | Key                                |
+|---------------------------------------------|------------------------------------|
+| kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c | ssh_host_ecdsa_key.pub (ECDSA)     |
+| Q2lpykI43ffs4PrRODZ/qncjUo3eyrRHc5T9yjJEwWY | ssh_host_ed25519_key.pub (ED25519) |
+| WH1Ag2OQtMPZb+hj3YeH9uVMMetXpCvyNUbsdk0Qcpk | ssh_host_rsa_key.pub (RSA)         |
+
+When logging into `puhti.csc.fi` for the first time after the RHEL8 upgrade, you will
+encounter a warning saying "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!".
+**This is completely expected, and you do not need to worry about it.**
+The warning will disappear if you remove `puhti.csc.fi` from your `known_hosts` file.
+You can run the following command: `ssh-keygen -R puhti.csc.fi` or you can remove the
+offending line with your favorite text editor. The warning message will print which
+line number is the problematic one.
+
+After removing the offending line, login again as normal, check that the fingerprint that
+is offered by the server matches one of the above checksums, and type "yes" to continue
+connecting. After this you should be able to connect to `puhti.csc.fi` normally.
 
 ## Puhti web interface beta updated to release 10 24.8.2022
 
@@ -49,8 +80,6 @@ your data](../../tutorials/clean-up-data/).
 ## Puhti has been updated with additional local disks, 13.5.2022
 
 Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes.
-
-
 
 ## Mahti operating system updated to RHEL8, 4.5.2022
 

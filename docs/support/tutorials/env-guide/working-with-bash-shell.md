@@ -125,7 +125,7 @@ identification number* (PID) of the command you want to terminate. You
 can check your active processes, meaning the commands that you are
 currently executing, with command **ps**. For example:
 
-    kkayttaj@puhti-login1:~>ps
+    kkayttaj@puhti-login11:~>ps
     PID TTY          TIME CMD
     385 pts/12   00:00:00 tcsh
     2001 pts/12   00:00:00 eog

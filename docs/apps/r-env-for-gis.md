@@ -1,6 +1,6 @@
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env-singularity` page](r-env-singularity.md). Spatial libraries are included in all R versions in Puhti.
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env` page](r-env.md). Spatial libraries are included in all R versions in Puhti.
 
 ## Usage
 
@@ -9,7 +9,7 @@ This page is for the spatial R libraries and tools installed in the R environmen
 Load the general R module with
 
 ```
-module load r-env-singularity
+module load r-env
 ```
 
 ### Installed spatial R libraries
@@ -38,8 +38,10 @@ module load r-env-singularity
 * [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html) - bindings to GDAL and PROJ libraries, for basic data reading and writing
 * [rgeos](https://cran.r-project.org/web/packages/rgeos/index.html) - binding to GEOS library, for topology operations on geometries
 * [rlas](https://cran.r-project.org/web/packages/rlas/index.html) - read and write 'las' and 'laz' file formats
+* [rstac](https://cran.r-project.org/web/packages/rstac/index.html) - client library for Spatio-Temporal Asset Catalog (STAC)
 * [rTLS](https://cran.r-project.org/web/packages/rTLS/index.html) - process terrestrial laser scanning (TLS) point clouds 
 * [Rsagacmd](https://cran.r-project.org/web/packages/Rsagacmd/index.html) - for using SAGA GIS commands from R
+* [sen2r](https://sen2r.ranghetti.info/) - find, download and process Sentinel-2 data
 * [sf](https://cran.r-project.org/web/packages/sf/index.html) - main package for vector data, bindings to GDAL, GEOS and PROJ libraries. Works with tidyverse packages. Similar functionality, but newer and better than sp
 * [sp](https://cran.r-project.org/web/packages/sp/index.html) - older main package for vector data
 * [spacetime](https://cran.r-project.org/web/packages/spacetime/index.html) - for working with spatio-temporal data
@@ -50,27 +52,22 @@ module load r-env-singularity
 * [terra](https://cran.r-project.org/web/packages/terra/index.html) - diverse methods for spatial data analysis, particularly raster data
 * [viridis](https://cran.r-project.org/web/packages/viridis/index.html) - color maps for map plotting
 
-You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env-singularity.md).
+You can also install your own additional libraries. Just follow the instructions in the [main R page](r-env.md).
 
 ### GDAL and SAGA GIS support
 
-The `r-env-singularity` module includes the following GDAL and SAGA GIS installations.
+The `r-env` module includes the following GDAL and SAGA GIS installations.
 
 | Module name (R version) | GDAL version | SAGA GIS version | 
-| ----------------------- | ------------------- | -------------------- | 
-| r-env-singularity/3.6.3 |2.4.2         | 7.3.0                 | 
-| r-env-singularity/4.0.2 | 3.2.0         | 7.9.0                 | 
-| r-env-singularity/4.0.3 | 3.2.0         | 7.9.0                 |   
-| r-env-singularity/4.0.4 | 3.2.0		| 7.10.0		       | 
-| r-env-singularity/4.0.5 | 3.2.0		| 7.9.0		       | 
-| r-env-singularity/4.1.1 | 3.2.2		| 7.9.0		       | 
+| ----------------------- | ------------ | ---------------- | 
+| r-env/4.2.1             | 3.5.1        | 8.2.2            | 
 
 
 ### Parallel computing
 
 Some R packages like __raster__ and __spatial.tools__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R/raster_predict). 
 
-Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env-singularity module](r-env-singularity.md)).
+Other than those, you have to parallelize your own R code which can be done with libraries including __snow__ (see the documentation for the [r-env module](r-env.md)).
 
 ## Interactive usage
 

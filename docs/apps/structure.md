@@ -21,7 +21,7 @@ It can be applied to most of the commonly-used genetic markers, including SNPS, 
 
 ## Version
 
-*    Structre 2.3.4 is available in Puhti
+*    Puhti: 2.3.4 
 
 ## Usage
 

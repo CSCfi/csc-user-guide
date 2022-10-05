@@ -9,7 +9,7 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2018-2022 releases with regularly updated minor versions, several with plumed or cuda
+-   Puhti: 2020-2022 releases with regularly updated minor versions, one with plumed, two with cuda
 -   Mahti: 2020-2022 releases with regularly updated minor versions, two with plumed, two with CP2K
 -   Check recommended version(s) with `module avail gromacs-env`
 -   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
@@ -17,25 +17,30 @@ systems. It also comes with plenty of analysis scripts.
 !!! Note
     We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
-    Instead of `gmx grompp` ... give `gmx_mpi grompp`
+    Instead of `gmx grompp ...` give `gmx_mpi grompp`
 
 !!! Note
-    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
+    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k`
+    on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`,
+    which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations
+    from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
-Gromacs is free software available under LGPL, version 2.1.
+
+Gromacs is a free software available under LGPL, version 2.1.
 
 ## Usage
 
-Initialise recommended version of Gromacs on Puhti like this:
+Initialize recommended version of Gromacs on Puhti like this:
 
 ```bash
 module purge
 module load gromacs-env
 ```
+
 Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
-`module spider gromacs/version`.
+`module spider gromacs/<version>`.
 
 <!-- The module will set `OMP_NUM_THREADS=1`
 as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
@@ -43,27 +48,31 @@ as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
 ### Notes about performance
 
 It is important to set up the simulations properly to use resources efficiently.
-The most important are:
+The most important aspects to consider are:
 
--   If you run in parallel, make a scaling test for each system - don't use more cores than is efficient. 
-    Scaling depends on many aspects of your system and used algorithms, not just size.
+-   If you run in parallel, make a scaling test for each system - don't use more cores
+    than is efficient. Scaling depends on many aspects of your system and used algorithms,
+    not just size.
 -   Use a recent version - there has been significant speedup over the years
--   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag) for mdrun
--   For large jobs, use full nodes (multiples of 40 cores, on Puhti) see example below.
+-   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag)
+    for mdrun
+-   For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
+    of 128 cores on Mahti), see example below.
 
-For a more complete description, consult the 
-[mdrun performance checklist] on the Gromacs page.
+For a more complete description, consult the [mdrun performance checklist] on the
+Gromacs page.
 
 We recommend using the latest versions as they have most bugs fixed and
 tend to be faster. If you switch the major version, check that the
 results are comparable.
 
-A scaling test with a very large system (1M+ particles) may take a while to 
-load balance optimally. It's better to increase the number of nodes in your 
-production simulation, **IF** you see better performance than in the scaling 
-test at the scaling limit, rather than run very long scaling tests in advance.
+A scaling test with a very large system (1M+ particles) may take a while to
+load balance optimally. Rather than running very long scaling tests in advance,
+it is better to increase the number of nodes in your production simulation **IF**
+you see better performance than in the scaling test at the scaling limit.
 
 ### Example parallel batch script for Puhti
+
 ```bash
 #!/bin/bash
 #SBATCH --time=00:15:00
@@ -84,12 +93,13 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 !!! Note
     To avoid multi node parallel jobs to spread over more nodes
-    than necessary, don't use the --ntasks flag, but specify --nodes and
-    --ntasks-per-node=40 to get full nodes. This minimizes communication
+    than necessary, don't use the `--ntasks` flag, but specify `--nodes` and
+    `--ntasks-per-node=40` to get full nodes. This minimizes communication
     overhead and fragmentation of node reservations. Don't use the large
     partition for jobs with less than 40 cores.
 
 ### Example serial batch script for Puhti
+
 ```bash
 #!/bin/bash
 #SBATCH --time=00:15:00
@@ -106,8 +116,9 @@ export OMP_NUM_THREADS=1
 
 srun gmx_mpi mdrun -s topol -maxh 0.2
 ```
-    
+
 ### Example GPU script for Puhti
+
 ```bash
 #!/bin/bash
 #SBATCH --ntasks=1
@@ -118,20 +129,22 @@ srun gmx_mpi mdrun -s topol -maxh 0.2
 #SBATCH --account=<project>
 ##SBATCH --mail-type=END #uncomment to get mail
 
-module load gromacs-env/2020-gpu
+module purge
+module load gromacs-env/2022-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun gmx_mpi mdrun -s verlet -dlb yes
-# additional flags, like these, may be useful - test!
-# srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu \
-    -nstlist 200 -s verlet -pin on -dlb yes
 
+# additional flags, like these, may be useful - test!
+# srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu -nstlist 200 -s verlet -dlb yes
 ```
+
 !!! Note
-    Please make sure that using one GPU (and upto 10 cores) is at least twice as fast
-    as using one full node of CPU cores according to the [usage policy](../../computing/overview/#gpu-nodes).
-    Otherwise, don't use GPUs.
+    Please make sure that using one GPU (and up to 10 cores) is at least
+    twice as fast as using one full node of CPU cores according to the
+    [usage policy](../../computing/overview/#gpu-nodes). Otherwise, don't
+    use GPUs.
 
 Submit the script with `sbatch script_name.sh`
 
@@ -146,7 +159,8 @@ Submit the script with `sbatch script_name.sh`
 #SBATCH --account=<project>
 ##SBATCH --mail-type=END #uncomment to get mail
 
-# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
+# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job,
+# requesting 15 minutes time
 
 module purge
 module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
@@ -168,8 +182,8 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --account=<project>
 ##SBATCH --mail-type=END #uncomment to get mail
 
-# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job, requesting 15 minutes time
-# 64 tasks per node, each with 2 OpenMP threads
+# this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job,
+# requesting 15 minutes time and 64 tasks per node, each with 2 OpenMP threads
 
 module purge
 module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
@@ -181,9 +195,21 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 ### High-throughput computing with Gromacs
 
-Gromacs comes with a built-in `multidir` functionality, which allows users to run multiple concurrent simulations within one Slurm allocation. This is an excellent option for high-throughput use cases, where the aim is to run several similar, but independent, jobs. Notably, multiple calls of `sbatch` or `srun` are not needed, which decreases the load on the batch queue system. Please consider this option if you're running high-throughput workflows or jobs such as replica exchange, umbrella sampling or adaptive weight histogram (AWH) free energy simulations using Gromacs.
+Gromacs comes with a built-in `multidir` functionality, which allows users to run
+multiple concurrent simulations within one Slurm allocation. This is an excellent
+option for high-throughput use cases, where the aim is to run several similar, but
+independent, jobs. Notably, multiple calls of `sbatch` or `srun` are not needed,
+which decreases the load on the batch queue system. Please consider this option if
+you're running high-throughput workflows or jobs such as replica exchange, umbrella
+sampling or adaptive weight histogram (AWH) free energy simulations using Gromacs.
 
-An example `multidir.sh` batch script for running a `multidir` Gromacs job is provided below. This example adapts the production part of the [lysozyme tutorial](http://www.mdtutorials.com/gmx/lysozyme/) by considering 8 similar copies of the system that have been equilibrated with different velocity initializations. Inputs corresponding to each copy are named identically `md_0_1.tpr` and placed in subdirectories `run*` as illustrated below by the output of the `tree` command.
+An example `multidir.sh` batch script for running a `multidir` Gromacs job is
+provided below. This example adapts the production part of the
+[lysozyme tutorial](http://www.mdtutorials.com/gmx/lysozyme/) by considering 8
+similar copies of the system that have been equilibrated with different velocity
+initializations. Inputs corresponding to each copy are named identically `md_0_1.tpr`
+and placed in subdirectories `run*` as illustrated below by the output of the `tree`
+command.
 
 ```console
 $ tree
@@ -222,36 +248,34 @@ module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
 
 export OMP_NUM_THREADS=1
 
-# Create a list of the directories, convenient if there are many
-list=()
-for i in `seq 8`
-do
-    list+=(run${i})
-done
-
-srun gmx_mpi mdrun -multidir ${list[@]} -deffnm md_0_1 -dlb yes
+srun gmx_mpi mdrun -multidir run* -s md_0_1.tpr -dlb yes
 ```
 
-By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently using one full Mahti node without hyperthreading so that each system is allocated 16 cores. As the systems were initialized with different velocities, we obtain 8 distinct trajectories and an improved sampling of the phase space (see RMSD analysis below). This is a great option for enhanced sampling when your system does not scale beyond a certain core count.
+By issuing `sbatch multidir.sh` in the parent directory, all simulations are run concurrently
+using one full Mahti node without hyperthreading so that each system is allocated 16 cores.
+As the systems were initialized with different velocities, we obtain 8 distinct trajectories
+and an improved sampling of the phase space (see RMSD analysis below). This is a great option
+for enhanced sampling when your system does not scale beyond a certain core count.
 
 ![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
 
-For further details on running Gromacs multi-simulations, see the [official Gromacs documentation](https://manual.gromacs.org/documentation/current/user-guide/mdrun-features.html#running-multi-simulations).
+For further details on running Gromacs multi-simulations, see the [official Gromacs documentation].
 
 ### Visualizing trajectories and graphs
 
-In addition to `view` (not available at CSC, though) tool of Gromacs,
+In addition to the `view` tool of Gromacs (not available at CSC),
 trajectory files can be visualized with the following programs:
 
--   [PyMOL] molecular modeling system (not available at CSC)
 -   [VMD](vmd.md) visualizing program for large biomolecular systems
 -   [Grace](grace.md) plotting graphs produced with Gromacs tools
+-   [PyMOL] molecular modeling system (not available at CSC)
 
 !!! Note
-    Please don't run visualization or heavy Gromacs tool scripts in
-    the login node (see [usage policy for details](../../computing/overview/#usage-policy)).
-    You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
-    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
+    Please don't run visualization or heavy Gromacs tool scripts in the login node (see
+    [usage policy for details](../../computing/overview/#usage-policy)). You can run the
+    tools in the [interactive partition](../computing/running/interactive-usage.md) by
+    prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd
+    -n index -s topol -f traj`).
 
 ## References
 
@@ -295,3 +319,4 @@ for methods applied in your setup.
   [The PRODRG Server]: https://www.sites.google.com/site/vanaaltenlab/prodrg
   [Lots of material at BioExcel EU project]: http://bioexcel.eu/software/gromacs/
   [Hands-on tutorials]: http://www.mdtutorials.com/gmx/
+  [official Gromacs documentation]: https://manual.gromacs.org/documentation/current/user-guide/mdrun-features.html#running-multi-simulations
