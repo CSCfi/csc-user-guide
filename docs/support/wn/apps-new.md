@@ -1,5 +1,11 @@
 # Applications
 
+## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
+
+Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to [`r-env`](../../apps/r-env.md).
+The R version has been updated to 4.2.1, along with several other version updates for installations included in the module. 
+Due to the RHEL8 update requiring modifications to the `r-env` module setup, older R versions are currently unavailable.
+
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
 CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discovery-studio.md)

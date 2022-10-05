@@ -15,6 +15,7 @@
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [Building Singularity containers from scratch](singularity-scratch.md)
 * [Getting disk usage using Lue](lue.md)
+* [Puhti RHEL8 test system usage](puhti-rhel8-test.md)
 
 ## Performance and high-throughput workflows
 * [Optimising parallel I/O](lustre_performance.md)
@@ -22,7 +23,6 @@
 * [General high-throughput guidelines](../../computing/running/throughput.md)
 * [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
-* [How to run many short jobs with GREASY](../../computing/running/greasy.md)
 * [How to run many short jobs with GNU Parallel](many.md)
 
 ## Allas
@@ -44,7 +44,6 @@
 
 ## Chemistry
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
-* [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
 ## Data analysis and machine learning
 

@@ -14,7 +14,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2021b, R2021a, R2020b, R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
+- Puhti: R2021b
 
 ## License
 
@@ -58,7 +58,7 @@ Prior to submitting the batch job, we have to specify at least
 
 - Wall time (WallTime)
 - Memory reservation (MemUsage)
-- Billing project (AccountName)
+- Billing project (ComputingProject)
 - [Partition on Puhti](/computing/running/batch-job-partitions/) (QueueName)
 
 Optionally, we can configure also
@@ -71,7 +71,7 @@ Optionally, we can configure also
 >> c.AdditionalProperties.WallTime = '0:10:0';
 >> c.AdditionalProperties.MemUsage = '2g';
 >> c.AdditionalProperties.QueueName = 'small';
->> c.AdditionalProperties.AccountName = 'project_<id>';
+>> c.AdditionalProperties.ComputingProject = 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
 >> c.saveProfile;
@@ -87,7 +87,7 @@ To clear a value of a property, assign an empty value ('', [], or false), or exe
 We start by defining a handle to the cluster on your MATLAB's command window
 
 ```bash
->> c = parcluster
+>> c = parcluster;
 ```
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
 
@@ -100,10 +100,7 @@ additionalSubmitArgs =
 
     '--ntasks=1 --licenses=mdcs:1'
 
->> % Wait for the job to finish before fetching the results.
->> j.wait
->>
->> % Now that the job has completed, fetch the results.
+>> %When the job has completed, fetch the results.
 >> j.fetchOutputs
 ```
 
@@ -146,7 +143,7 @@ We'll use the batch command again, but since we're running a parallel job, we'll
 
 ```bash
 >> % Submitting a parallel job to 8 cores.
->> j = batch(c, @parallel_example, 1, {}, 'pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
+>> j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
 ```
 
 At first, a parallel pool with eight cores will be constructed. Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores. For example, a job that needs eight cores will consume nine CPU cores in total.

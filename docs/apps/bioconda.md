@@ -1,5 +1,11 @@
 # Bioconda
 
+!!! error "Bioconda has been deprecated"
+    This page is out of date as Bioconda is no longer available on Puhti.
+    Please use [Tykky](../computing/containers/tykky.md) installations instead.
+    Note that some packages that were previously provided through Bioconda are
+    now available as separate modules.
+
 Conda is a package management tool that is used to distribute and install software tools together with their dependencies. In Puhti, the __bioconda module__
 takes in use a CSC maintained Conda environment (Python3 based miniconda3) together with channel settings that enable easy usage of the Bioconda repository.
 
