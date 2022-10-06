@@ -1,7 +1,7 @@
 # Overview
 
 !!! Note
-    For an overview of the LUMI supercomputer, see [the LUMI documentation](https://docs.lumi-supercomputer.eu/computing/).
+    For an overview of the LUMI supercomputer, see [the LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is the one of the pan-European pre-exascale supercomputers, located in CSC's data center in Kajaani. The CPU-partition of LUMI (LUMI-C) has been available since early 2022, and general availability of the GPU-partition (LUMI-G) is projected for September 2022.
 
