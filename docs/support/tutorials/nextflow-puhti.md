@@ -38,7 +38,7 @@ Here is a generic recipe for running your Nextflow pipeline on Puhti :
 
 1. Prepare your singularity images on your local environment
 2. Login to Puhti supercomputer
-3. Activate the conda environment for Nextflow on Puhti
+3. Load Nextflow as module on Puhti
 4. Set-up your Nextflow pipeline environment
 5. Run your Nextflow pipeline as a batch job
 6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline on Puhti
@@ -70,27 +70,16 @@ ssh yourcscusername@puhti.csc.fi
 ```
 Where **yourcscusername** is the username you get from CSC.
 
-## 3. Activate the conda environment for Nextflow on Puhti
+## 3. Load  Nextflow module on Puhti
 
-Nextflow on Puhti is available *via* a conda environment and is activated as below:
+Nextflow on Puhti is available as a module and can be load as below:
 
 ```
-module load bioconda
-source activate nextflow
+module load nextflow/21.10.6
 ```
 
 In case you need any custom installations with specific version of Nextflow in your 
 workspace, please follow instructions [here](../../computing/containers/tykky.md). 
-
-For the installation of Nextflow, you can use the following conda approach: 
-
-```
-export PROJAPPL=/projappl/project_xxx     # Edit the project name
-module load bioconda
-conda create -n next_flow -c bioconda nextflow=0.30.1  # See note below
-source activate next_flow  
-```
-Above, `next_flow` is the name for your `env` and you can choose which version(s) of nextflow to install
 
 ## 4. Set-up your Nextflow pipeline environment
 
@@ -125,8 +114,7 @@ Here is a minimal script to get started with your Nextflow pipeline on Puhti:
 #SBATCH --cpus-per-task=xx # change as you need
 #SBATCH --mem-per-cpu=1G   # increase as needed
 
-module load bioconda
-source activate nextflow
+module load nextflow/21.10.6 
 
 # Actual Nextflow command here
 nextflow run  <workflow.nf> [options]
@@ -138,7 +126,7 @@ WtP is a scalable and easy-to-use workflow for phage identification
 and analysis. More details about the pipeline can be found 
 [here](https://github.com/replikation/What_the_Phage).
 
-Login to Puhti and install Nextflow using the conda environment as instructed above.
+Login to Puhti and load  Nextflow module as instructed above.
 
 ## Set-up WtP pipeline on Puhti
 
@@ -190,8 +178,8 @@ Submit the following batch script to run nextflow pipeline:
 export TMPDIR=$PWD
 
 # Activate  Nextflow on Puhti
-module load bioconda
-source activate nextflow
+
+module load nextflow/21.10.6 
 
 # Nextflow command here
 nextflow run /scratch/project_xxx/What_the_Phage/phage.nf --fasta /scratch/project_xxx/What_the_Phage/test-data/OX2_draft.fa --cores 4 --output results -profile local,singularity --cachedir /scratch/project_xxx/What_the_Phage/singularity --databases /scratch/project_xxx/What_the_Phage/databases/WtP_databases --workdir /scratch/project_xxx/What_the_Phage/workflow-phages-username 
