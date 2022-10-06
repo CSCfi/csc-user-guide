@@ -65,10 +65,8 @@ More information about [building](../../computing/compiling-puhti.md#building-mp
 
 More information about specific applications can be found [here](../../apps/alpha.md)
 
-!!! warning "Default python"
-    Python is available e.g. through the `python-data` module. This will replace the system
-    python call with python 3.10. This environment has a lot of regularly used packages
-    installed by default.
+!!! Python
+    Python is available only through different [Python](../../apps/python.md) modules. [python-data](../../apps/python-data.md) is a good first choice, it includes a lot of regularly used packages. 
 
 ## Running jobs
 
