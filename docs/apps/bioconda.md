@@ -7,8 +7,3 @@
     [Tykky](../computing/containers/tykky.md) installations instead to wrap your
     Conda environment within a container. Note that some packages that were
     previously provided through Bioconda are now available as separate modules.
-
-## License
-
-Bioconda is free to and open source under
-[MIT License](https://raw.githubusercontent.com/bioconda/bioconda-common/master/LICENSE).
