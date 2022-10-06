@@ -1,7 +1,7 @@
 # Connecting to CSC supercomputers
 
 !!! Note
-    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/computing/connecting/)
+    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
 
 Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
