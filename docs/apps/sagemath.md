@@ -15,7 +15,7 @@ directly via interfaces or wrappers.
 
 ## Available
 
-- Puhti: 8.8
+- Puhti: 9.6
 
 ## License
 

@@ -23,7 +23,7 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 
 ## Available
 
-*   Diamond 2.0.14 is available in Puhti
+*   Puhti: 2.0.15
 
 ## Usage
 

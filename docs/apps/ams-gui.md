@@ -20,7 +20,7 @@ Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using 
 
 1. From there [launch a Desktop](../../computing/webinterface/desktop/#launching ). 
 2. Open a ```Host Terminal``` and  move to a suitable working directory.
-3. Load the AMS module ```module load ams/2022.101```.
+3. Load the AMS module ```module load ams/2022.103```.
 4. Start the input builder ```amsinput``` and construct your job.
 5. Save the job (```File-> Save As ...```).
 
@@ -36,7 +36,7 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. ```Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" ```   
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.
 7. ```Use Local Batch: yes```  
-8. ```Prolog command: module load ams/2022.101; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR```
+8. ```Prolog command: module load ams/2022.103; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR```
    This initiates the AMS environment .  
 
 Select the job you want to submit (`SCM-> Jobs`), the queue you want to use (`Queue`) and submit the job `Job-> Run`.  
@@ -93,4 +93,4 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. ```Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" ```  
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.  
 7. ```Use Local Batch: no```
-8. ```Prolog command: source /appl/soft/chem/adf/ams2022.101/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR```
+8. ```Prolog command: source /appl/soft/chem/adf/ams2022.103/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR```

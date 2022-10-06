@@ -25,24 +25,29 @@ Free to use and open source under [BSD 3-Clause License](https://raw.githubuserc
 
 Version on CSC's Servers
 
-Puhti: 2.2.6
-Chipster graphical user interface
+-  Puhti: 2.2.7.1, 3.0.0a7
+-  Chipster graphical user interface
 
 ## Usage
 
-To set up MACS2 commands in puhti, give command:
+To set up MACS2 and MACS3 commands in puhti, give command:
 
 ```text
-module load bioconda
+module load macs
 ```
 
-After that you can start MACS2 with command:
+Module macs/2.2.7.1 also loads MACS 3.0.0a7.
+
+After that you can start MACS with command:
 ```text
 macs2 -h
+macs3 -h
 ```
 
-Larger MACS jobs should be executed as a batch job in Puhti. Puhti User Guide for more information on running batch jobs.
+Short MACS jobs can be executed as [interactive batch jobs](../computing/running/interactive-usage.md) in Puhti. Longer jobs should be run as [batch jobs](../computing/running/getting-started.md).
+
 
 ## More information
 
    *   [MACS2 in GitHub](https://github.com/taoliu/MACS/)
+   *   [MACS3 in GitHub](https://github.com/macs3-project/MACS/)

@@ -28,7 +28,8 @@ a specific license.
 ## Available
 
 
-*   Version 1.7  is available in Puhti and in Chipster
+*   Puhti: 1.7
+*   Chipster graphical user interface
 
 
 ### Usage

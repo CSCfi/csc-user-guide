@@ -3,7 +3,7 @@ tags:
   - Free
 ---
 
-# HUMAnN2
+# HUMAnN
 
 ## Description
 
@@ -20,24 +20,18 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Availability
 
-Versions available in Puhti
-*   HUMAnN 2.8.8
-*   MetaPhlAn 3.0.7
-*   PhyloPhlAn 3.0.60
-*   StrainPhlAn 3.0
+Versions available in Puhti: 3.0.1
 
 ## Usage
 
-In Puhti, HUMAnN2 is installed as part of gcc 9.1.0 compatible _biopythontools_ module. To activate it, run commands:
+In Puhti, HUMAnN is installed as containerized application. To activate it, run command:
 ```text
-module load biokit
-module load biopythontools/3.9.1-gcc_9.1.0
-
-humann2
+module load humann
+humann
 ```
 
 ## More information
 
-*   [HUMAnN2 home page](https://huttenhower.sph.harvard.edu/humann)
-*   [HUMAnN2 user guide](https://github.com/biobakery/humann)
-*   [HUMAnN2 tutorial](https://github.com/biobakery/biobakery/wiki/humann2)
+*   [HUMAnN home page](https://huttenhower.sph.harvard.edu/humann)
+*   [HUMAnN user guide](https://github.com/biobakery/humann)
+*   [HUMAnN tutorial](https://github.com/biobakery/biobakery/wiki/humann3)

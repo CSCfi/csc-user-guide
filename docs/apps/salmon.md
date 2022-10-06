@@ -21,7 +21,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
--   Puhti: v0.14.1, 0.99.0b2, 1.1.0, 1.4.0
+-   Puhti: v0.14.1, 0.99.0b2, 1.1.0, 1.4.0, 1.19.0
 
 ## Usage
 

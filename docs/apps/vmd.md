@@ -11,8 +11,8 @@ scripting.
 
 ## Available
 
-- Puhti: 1.9.3
-- Mahti: 1.9.3
+-   Puhti: 1.9.3
+-   Mahti: 1.9.3
 
 ## License
 

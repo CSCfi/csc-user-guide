@@ -18,7 +18,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
-Puhti: 2.7.2
+Puhti: 2.7.10a
 
 ## Usage
 

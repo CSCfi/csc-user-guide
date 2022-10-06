@@ -5,26 +5,23 @@ tags:
 
 # SNAP
 
-[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common remote sensing satellites.
+[SNAP](https://step.esa.int/main/toolboxes/snap/) (Sentinel Application Platform) is a remote sensing toolbox architecture developed by the European Space Agency. It includes tools for all common satellite platforms.
 
 ## Available
 
 __SNAP__ is available in Puhti with following versions:
 
+* 9.0 (without Python interfaces)
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
-* 7.0 (with snappy 6.0 and python 2.7.5)
 
-### Installed plugins 
+### Installed toolboxes
 
 * Sentinel toolboxes (1,2,3) 
-* All Idepix processors (only in 7.0)
 * SMOS toolbox 
-* SNAPHU (only in 7.0)
 * Radarsat toolbox 
 * PROBA-V toolbox
-* [Sen2Cor](sen2cor.md) (external tool) (only in 7.0)
 
-You can install more plugins to your user directory from the SNAP Graphical user interface
+You can install more plugins to your own user directory from the SNAP Graphical user interface.
 
 ## Usage
 

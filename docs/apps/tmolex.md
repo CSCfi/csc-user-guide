@@ -51,7 +51,7 @@ export MPI_USESRUN=1
 export SLURM_MPI_TYPE=pmi2
 export SLURM_CPU_BIND=none
 export I_MPI_PIN_DOMAIN=auto,compact
-module load turbomole/7.4.1
+module load turbomole/7.6
 export PARNODES=$SLURM_NTASKS # for MPI
 export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
 ```

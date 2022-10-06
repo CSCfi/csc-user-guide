@@ -45,7 +45,7 @@ csc_user@puhti $ csc-env test
 Info
 ---------------------
 User: csc_user
-Host: puhti-login1
+Host: puhti-login11
 Home: /users/csc_user
 Home quota
     capacity: 23%

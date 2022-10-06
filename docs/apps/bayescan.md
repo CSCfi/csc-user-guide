@@ -18,7 +18,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Version
 
-*   Bayescan 2.1 is available in Puhti
+*   Puhti: 2.1 
 
 ## Usage
 

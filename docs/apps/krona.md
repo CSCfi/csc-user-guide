@@ -23,7 +23,7 @@ Krona is free to use and open source. It is provided under it's own [license](ht
 
 ## Version
 
-*  Krona 2.7.1 is available in Puhti 
+*   Puhti: 2.8.1
 
 ## Usage
 
@@ -55,9 +55,9 @@ For example an output file from [Kraken2](./kraken.md) can be visualized with co
 ```text
 ktImportTaxonomy -q 2 -t 3 KrakenOutput -o KronaReport.html
 ```
-The Krona visualizations are based on HTML5 and thus it is not straight forward to study them in Puhti.
-However if you copy these files to a publicly accessible data bucket in Allas, you can study the results with
-your local web browser. You can use commands [a-flip](../../data/Allas/using_allas/a_commands/#a-flip) or [a-publish](../data/Allas/using_allas/a_commands.md#a\
+The Krona visualizations are based on HTML5. To study them you can open a virtual desktop in [Puhti web interface](../computing/webinterface/desktop.md) and open a browser there.  
+
+Alternatively you can copy these files to a publicly accessible data bucket in Allas, and study the results with your local web browser. You can use commands [a-flip](../../data/Allas/using_allas/a_commands/#a-flip) or [a-publish](../data/Allas/using_allas/a_commands.md#a\
 -publish) to do the copying:
 
 For example command:

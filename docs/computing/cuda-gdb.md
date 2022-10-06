@@ -22,5 +22,5 @@ specific to CUDA debugging:
 * Configuration Commands: Commands to configure the CUDA-specific commands
 
 Memory leaks of device code can be checked inside the debugger by activating
-the memory checker with `set cuda memcheck`. Alternatively the `cuda-memcheck`
+the memory checker with `set cuda memcheck on`. Alternatively the `cuda-memcheck`
 tool can be used outside of the debugger (`cuda-memcheck ./cuda_program`).

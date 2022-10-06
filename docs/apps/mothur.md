@@ -19,7 +19,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ### Version on CSC's Servers
 
--   Puhti: 1.39.5, 1.42.3, 1.43.0, 1.44.0, 1.44.1, 1.44.3
+-   Puhti: 1.48.0
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
@@ -35,7 +35,7 @@ module spider mothur
 ```
 To load a specific version:
 ```text
-module load mothur/1.42.3
+module load mothur/1.48.0
 ```
 To tun Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md).
 ```text

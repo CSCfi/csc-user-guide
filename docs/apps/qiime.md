@@ -14,8 +14,8 @@ raw sequencing output through initial analyses such as OTU picking, taxonomic as
 phylogenetic trees from representative sequences of OTUs, and through downstream statistical analysis, visualization, 
 and production of publication-quality graphics.
 
-On 2017 a totally rewritten version of Qiime: Qiime2 was released. The development of the original Qiime version has stopped. 
-At the moment only Qiime2 is available in Puhti.
+On 2017 a totally rewritten version QIIME2 was released. The development of the original QIIME version has stopped. QIIME2 is strongly suggested for most uses. 
+
 
 [TOC]
 
@@ -25,19 +25,20 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
--   Puhti: qiime2-2022.2, qiime2-2021.2, qiime2-2020.8, qiime2-2020.6, qiime2-2020.2, qiime2-2019.10  
+-   Puhti: 1.9.1, 2022.8
 
 
 ## Usage
 
-In Puhti, QIIME2 can be taken in use as a _bioconda_ environment:
+In Puhti To use QIIME1 do:
 
 ```text
-export PROJAPPL=/projappl/<project>  #replace <project> with your project name (typically project_some-number)
-module load bioconda
-conda env list
-source activate qiime2-2022.2
-source tab-qiime 
+module load qiime1
+```
+
+To use QIIME2
+```text
+module load qiime2
 ```
 
 After that you can start Qiime2 with command:
@@ -98,9 +99,7 @@ as a batch job using eight cores.
 #SBATCH --gres=nvme:100
 
 #set up qiime
-export PROJAPPL=/projappl/<project>
-module load bioconda
-source activate qiime2-2022.2
+module load qiime2
 export TMPDIR="$LOCAL_SCRATCH"
 
 # run task. Don't use srun in submission as it resets TMPDIR
@@ -114,7 +113,7 @@ qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
 
-In the example above `<project>` must be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
+
 Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization,
 the job is requested to use one task (`--ntasks=1`)  where all cores need to be in the same node (`--nodes=1`).
 This one task will use eight cores as parallel threads `--cpus-per-task=8` that 

@@ -11,15 +11,12 @@ tags:
 
 GDAL is available in Puhti with following versions:
 
-* 3.4.3 - [geoconda-3.9.13](geoconda.md)
-* 3.2.1 - [geoconda-3.8.8](geoconda.md)
-* 3.0.1 stand-alone: gdal module,
-* 2.4.2 stand-alone: gdal module
-* 2.4.1 - [Orfeo ToolBox](otb.md)
-* Several versions in : [r-env-singularity](r-env-for-gis.md#gdal-and-saga-gis-support)
+* 3.5.0 - [geoconda-3.10.6](geoconda.md)
+* 3.4.3 stand-alone: `gdal`
+* Also in: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note
-    The stand-alone versions don't have python bindings installed so e.g __gdal_calc__ works only in the conda installations. Also, the supported file formats vary slightly between the GDAL installations. For instance, the PostGIS driver is not available in gdal/3.0.1 but is included in the geoconda versions.
+    The stand-alone version doesn't have python bindings installed so e.g __gdal_calc__ works only in the geoconda installations. Also, the supported file formats vary slightly between the GDAL installations. For instance, the PostGIS driver is not available in stand-alone gdal but is included in the geoconda versions.
 
 ## Usage
 
@@ -31,19 +28,19 @@ GDAL is included in the modules listed above, so it can be used when any of thes
 
 If you need to use a stand-alone version of GDAL or plan to build software on top of GDAL, you can load GDAL with
 
-`module load gcc/9.1.0 gdal`
+`module load gdal`
 
 By default the latest gdal module is loaded. If you want a specific version you can specify the version number
 
-`module load gcc/9.1.0 gdal/<VERSION>-omp`
+`module load gdal/<VERSION>`
 
 You can test if GDAL loaded successfully with following
 
 `gdalinfo --version`
 
-With `r-env-singularity` gdal commands can be used as:
+With `r-env` gdal commands can be used as:
 
-`singularity_wrapper exec gdalinfo --version`
+`apptainer_wrapper exec gdalinfo --version`
 
 
 ### Using files directly from Allas

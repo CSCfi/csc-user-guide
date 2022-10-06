@@ -7,7 +7,13 @@ tags:
 
 Machine learning framework for Python.
 
-!!! News
+!!! info "News"
+
+    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
+    (RHEL8), **the number of fully supported PyTorch versions has been
+    reduced. Previously deprecated conda-based versions have been
+    removed.** Please [contact our servicedesk](../support/contact.md) if
+    you really need access to older versions.
 
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
     the number of fully supported PyTorch versions has been reduced. Please [contact our
@@ -22,32 +28,23 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module              | Puhti | Mahti | Environ. | Horovod | Notes           |
-|:-------:|---------------------|:-----:|:-----:|----------|:-------:|-----------------|
-| 1.12.0  | `pytorch/1.12`      | X     | X     | Sing.    | X       |                 |
-| 1.11.0  | `pytorch/1.11`      | X     | X     | Sing.    | X       | default version |
-| 1.10.0  | `pytorch/1.10`      | X     | (X)   | Sing.    | X       |                 |
-| 1.9.0   | `pytorch/1.9`       | X     | (X)   | Sing.    | X       |                 |
-| 1.8.1   | `pytorch/1.8`       | X     | (X)   | Sing.    | X       |                 |
-| 1.7.1   | `pytorch/1.7`       | X     | -     | Sing.    | X       |                 |
-| 1.6.0   | `pytorch/1.6`       | X     | -     | Conda    | -       | *deprecated*    |
-| 1.4.0   | `pytorch/1.4`       | X     | -     | Conda    | -       | *deprecated*    |
-| 1.3.1   | `pytorch/1.3.1`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.3.1   | `pytorch/1.3.1-hvd` | X     | -     | Conda    | X       | *deprecated*    |
-| 1.3.0   | `pytorch/1.3.0`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.2.0   | `pytorch/1.2.0`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.1.0   | `pytorch/1.1.0`     | X     | -     | Conda    | -       | *deprecated*    |
-| 1.0.1   | `pytorch/1.0.1`     | X     | -     | Conda    | -       | *deprecated*    |
-| 0.4.1   | `pytorch/0.4.1`     | X     | -     | Conda    | -       | *deprecated*    |
+| Version | Module         | Puhti | Mahti | Notes           |
+|:--------|----------------|:-----:|:-----:|:----------------|
+| 1.12.0  | `pytorch/1.12` | X     | X     | default version |
+| 1.11.0  | `pytorch/1.11` | X     | X     |                 |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   |                 |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   |                 |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   |                 |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     |                 |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
 
-Versions marked with "(X)" on Mahti are based on old Red Hat Enterprise Linux 7
-(RHEL7) images, and are no longer fully supported. In particular MPI and Horovod
-do not work anymore on Mahti with these modules. If you still wish to access
-these versions, you need to enable old RHEL7 modules by `module use
-/appl/soft/ai/rhel7/modulefiles/`.
+Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
+(RHEL7) images, and are no longer fully supported. In particular MPI
+and Horovod are not expected to work anymore with these modules. If
+you still wish to access these versions, you need to enable old RHEL7
+modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See [our Python
@@ -56,35 +53,22 @@ more information on how to install packages yourself. If you think that some
 important PyTorch-related package should be included in the module provided by
 CSC, please [contact our servicedesk](../support/contact.md).
 
-Some modules are Singularity-based (indicated in the "Environ." column in the
-table above). Wrapper scripts have been provided so that common commands such as
-`python`, `python3`, `pip` and `pip3` should work as normal. For more
-information, see [CSC's general instructions on how to run Singularity
+All modules are based on containers using Apptainer (previously known
+as Singularity). Wrapper scripts have been provided so that common
+commands such as `python`, `python3`, `pip` and `pip3` should work as
+normal. For other commands, you need to prefix them with
+`apptainer_wrapper exec`, for example `apptainer_wrapper exec
+huggingface-cli`. For more information, see [CSC's general
+instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md).
 
-Some modules support [Horovod](https://horovod.ai/) for multi-node
-jobs, i.e., jobs needing more than 4 GPUs. For more information, read
-the [Multi-GPU section in our machine learning
-guide](../support/tutorials/ml-multi.md).
 
+!!! info "New users"
 
-### NVIDIA's containers
-
-For convenience, we also offer modules based on NVIDIA's optimized container
-images from [NGC](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch) with
-some CSC specific additions. For these, the included PyTorch versions are
-typically not the release versions, but the newest git commit at the time of
-creation. See [NVIDIA's PyTorch container release
-notes](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/index.html)
-for more information on provided software versions. Currently, these are
-available on **Puhti only**.
-
-- 1.8.0a0 using Singularity: `pytorch/nvidia-20.11-py3`
-- 1.7.0a0 with *experimental* [Horovod](../support/tutorials/ml-multi.md) support using Singularity: `pytorch/nvidia-20.08-py3`
-- 1.6.0a0 using Singularity: `pytorch/nvidia-20.07-py3`
-- 1.5.0a0 using Singularity: `pytorch/nvidia-20.03-py3`
-- 1.5.0a0 using Singularity: `pytorch/nvidia-20.02-py3`
-- 1.4.0a0 using Singularity: `pytorch/nvidia-19.11-py3`
+    If you are new to using machine learning on CSC's supercomputers,
+    please read our new tutorial [Getting started with machine learning
+    at CSC](../support/tutorials/ml-starting.md), which covers how to run
+    a simple PyTorch project on Puhti using the web user interface.
 
 
 ## License
@@ -104,11 +88,11 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load pytorch/1.11
+module load pytorch/1.12
 ```
 
-Please note that the module already includes CUDA and cuDNN libraries, so
-**there is no need to load cuda and cudnn modules separately!**
+Please note that the module already includes CUDA and cuDNN libraries,
+so **there is no need to load cuda and cudnn modules separately!**
 
 This command will also show all available versions:
 
@@ -124,7 +108,7 @@ list-packages
 ```
 
 
-!!! note 
+!!! warning 
 
     Note that login nodes are not intended for heavy computing, please use slurm
     batch jobs instead. See our [instructions on how to use the batch job
@@ -140,14 +124,13 @@ a single node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=10
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/1.11
+    module load pytorch/1.12
     srun python3 myprog.py <options>
     ```
 
@@ -156,7 +139,6 @@ a single node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
-    #SBATCH --nodes=1
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=32
     #SBATCH --time=1:00:00
@@ -166,25 +148,27 @@ a single node:
     srun python3 myprog.py <options>
     ```
 
+Please read the section on [Efficient GPU utilization in our Machine
+learning guide](../support/tutorials/gpu-ml.md) to learn how to use
+the GPU efficiently.
 
-!!! note
-
-    Please **do not read a huge number of files from the shared file system**, use
-    fast local disk or package your data into larger files instead! See the [Data
-    storage section in our machine learning
-    guide](../support/tutorials/ml-data.md) for more details.
 
 ### Big datasets, multi-GPU and multi-node jobs
 
-Please see our [Machine learning guide](../support/tutorials/ml-guide.md), which
-covers more advanced topics, including [efficient GPU
-utilization](../support/tutorials/gpu-ml.md), [how to work with big data
-sets](../support/tutorials/ml-data.md), [multi-GPU and multi-node
-jobs](../support/tutorials/ml-multi.md).
+If you are working with big datasets, or datasets that contain a lot
+of files, please read [the data section of our Machine learning
+guide](../support/tutorials/ml-data.md). In particular, please **do
+not read a huge number of files from the shared file system**, use
+fast local disk or package your data into larger files instead!
+
+For multi-GPU and multi-node jobs we recommend using the PyTorch
+Distributed Data-Parallel framework. You can read more about this and
+find examples of how to use PyTorch DDP on CSC's supercomputers in the
+[Multi-GPU and multi-node section of our Machine learning
+guide](../support/tutorials/ml-multi.md)
 
 
 ## More information
 
 - [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
-- [Horovod with PyTorch example](https://github.com/horovod/horovod/blob/master/docs/pytorch.rst)

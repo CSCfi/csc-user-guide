@@ -9,6 +9,11 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 !!! News
 
+    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
+    (RHEL8), **the number of supported RAPIDS versions has been reduced.**
+    Please [contact our servicedesk](../support/contact.md) if you really
+    need access to older versions.
+
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
     older versions of RAPIDS are no longer fully supported. Please [contact our
     servicedesk](../support/contact.md) if you really need access to older versions.
@@ -20,24 +25,16 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 ## Available
 
-Rapids is available on Puhti and Mahti. Some older versions are available on
-Puhti only. Currently supported RAPIDS versions:
+RAPIDS is available on both Puhti and Mahti.  Currently supported
+RAPIDS versions:
 
-- 22.04 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
-- 21.12 using Singularity, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `21.12` (Puhti only)
-- 0.16 using Singularity: `0.16-sng` (Puhti only)
-- 0.15 using Singularity: `0.15-sng` (Puhti only)
-- 0.14 using Singularity: `0.14-sng` (Puhti only)
-- _(deprecated)_ 0.11  (Puhti only)
+- 22.04, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
 
 Contains the [RAPIDS](https://rapids.ai/) suite (including
 [cuDF](https://github.com/rapidsai/cudf),
 [cuML](https://github.com/rapidsai/cuml),
 [cuGraph](https://github.com/rapidsai/cugraph), and
 [XGBoost](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
-
-Modules ending with `-sng` are based on NVIDIA's optimized container images from
-[NGC](https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai).
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See [our Python
@@ -46,11 +43,13 @@ more information on how to install packages yourself. If you think that some
 important RAPIDS-related package should be included in the module provided by
 CSC, please [contact our servicedesk](../support/contact.md).
 
-Some modules are Singularity-based. Wrapper scripts have been provided so that
-common commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For more information, see [CSC's general instructions on how to run
-Singularity containers](../computing/containers/run-existing.md).
-
+All modules are based on containers using Apptainer (previously known
+as Singularity). Wrapper scripts have been provided so that common
+commands such as `python`, `python3`, `pip` and `pip3` should work as
+normal. For other commands, you need to prefix them with
+`apptainer_wrapper exec`. For more information, see [CSC's general
+instructions on how to run Apptainer
+containers](../computing/containers/run-existing.md).
 
 ## License
 
