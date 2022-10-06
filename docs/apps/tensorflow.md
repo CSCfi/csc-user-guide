@@ -30,7 +30,8 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | Horovod | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:-------:|-----------------|
-| 2.9.0   | `tensorflow/2.9`     | X     | X     | X       | default version |
+| 2.10.0  | `tensorflow/2.10`    | X     | X     | X       | default version |
+| 2.9.0   | `tensorflow/2.9`     | X     | X     | X       |                 |
 | 2.8.0   | `tensorflow/2.8`     | X     | X     | X       |                 |
 | 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -       |                 |
 | 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -       |                 |
@@ -39,7 +40,7 @@ Currently supported TensorFlow versions:
 | 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -       |                 |
 | 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -       |                 |
 | 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -       |                 |
-| 1.15.5  | `tensorflow/1.15`    | -     | -     | X       |                 |
+| 1.15.5  | `tensorflow/1.15`    | (x)   | -     | -       |                 |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and
 [Keras](https://keras.io/) with GPU support via CUDA.
