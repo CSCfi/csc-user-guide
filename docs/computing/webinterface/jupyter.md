@@ -8,7 +8,6 @@ For more information about the Python environments in Puhti see the [documentati
 ### Currently supported Python environments
  - geoconda
  - python-data
- - python-env (Notebook only)
  - pytorch
  - tensorflow
 
