@@ -17,23 +17,24 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-*    FreeBayes version 1.3.1 is available in Puhti
+*    Puhti: 1.3.6 
 
 ## Usage
 First load the bioconda module and activate FreeBayes environment
 ```text
-module load bioconda
-source activate freebayes
+module load freebayes
 ```
 
 After this you can launch Freebayes. For example:
 ```text
 freebayes -f reference.fa input.bam > results.vcf
 ```
+
 Note that freebayes requires that bam file is indexed. Un-indexed bam file can be indexed with command:
 ```text
 samtools index input.bam
 ```
+
 FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs in Puhti.
 
 In Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.

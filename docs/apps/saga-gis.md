@@ -4,24 +4,24 @@
 
 ## Available
 
-__SAGA GIS__ is available in Puhti in [r-env-singularity module  with different versions](r-env-for-gis.md).
+__SAGA GIS__ is available in Puhti in [r-env module  with different versions](r-env-for-gis.md).
 
 ## Usage 
 
 ### SAGA GIS command line interface
 
-`r-env-singularity` is a Singularity container, which means the commands are slightly different compared normal installations, basically all commands need to have `singularity_wrapper exec` before the usual command.
+`r-env` is an Apptainer container, which means the commands are slightly different compared normal installations, basically all commands need to have `apptainer_wrapper exec` before the usual command.
 
 SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md).
 
 You can test that SAGA GIS loaded successfully and print the command line tools help information with
 
 ```
-module load r-env-singularity 
-singularity_wrapper exec saga_cmd -h
+module load r-env
+apptainer_wrapper exec saga_cmd -h
 ```
 
-For more information on running R jobs on Puhti, please see the [`r-env-singularity` documentation](r-env-singularity.md).
+For more information on running R jobs on Puhti, please see the [`r-env` documentation](r-env.md).
 
 ### SAGA GIS Graphical User Interface
 
@@ -39,8 +39,8 @@ Alternatively, especially if you want to use SAGA GIS together with some other G
 3. After launcing the remote desktop, double-click SAGA GIS icon OR open `Host Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
-module load r-env-singularity 
-singularity_wrapper exec saga_gui
+module load r-env
+apptainer_wrapper exec saga_gui
 ```
 
 ## License and acknowledgement

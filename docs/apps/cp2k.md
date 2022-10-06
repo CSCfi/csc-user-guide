@@ -7,7 +7,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
 
 ## Available
 
-* Puhti: 6.1
+* Puhti: 9.1
 * Mahti: 8.2, 9.1
 
 ## License
@@ -18,14 +18,19 @@ CP2K is freely available under the GPL license.
 
 Check which versions can be loaded directly:
 
-    module avail cp2k
+```bash
+module avail cp2k
+```
 
 You can find all installed versions with:
 
-    module spider cp2k
+```bash
+module spider cp2k
+```
 
-With each new project make sure that your job can efficiently
-utilize all the cores you request in the batch script.
+With each new project make sure that your job can efficiently utilize all the
+cores you request in the batch script. The rule of thumb is that when you double
+the number of cores the calculation should be at least 1.5 times faster.
 
 ### Example batch script for Puhti using MPI-only parallelization
 
@@ -38,9 +43,11 @@ utilize all the cores you request in the batch script.
 #SBATCH --partition=large
 #SBATCH --account=<project>
 
-module load cp2k
+module purge
+module load intel-oneapi-compilers-classic/2021.6.0 intel-oneapi-mpi/2021.6.0
+module load cp2k/9.1
 
-srun cp2k.popt H2O-32.inp > H2O-32.out
+srun cp2k.popt H2O-64.inp > H2O-64.out
 ```
 
 ### Example batch script for Mahti using mixed MPI-OpenMP parallelization
@@ -88,7 +95,7 @@ Nodes|d1|d2|d4|d8
 * Selecting the ELPA diagonalization library instead of ScaLAPACK may significantly
   accelerate calculations that require large matrix diagonalizations (even up to
   50% depending on the system). A good example are metallic systems that may
-  converge poorly with the orbital transformation method and thus demand a standard
+  converge poorly with the orbital transformation (OT) method and thus demand a standard
   diagonalization of the Kohn-Sham matrix.
 
 ### High-throughput computing with CP2K
@@ -105,7 +112,7 @@ the workflow, such as the input directories and number of parallel task groups,
 are specified. Example `farming.inp` and `farming.sh` input and batch script files
 are provided below. Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
 
-```
+```text
 &GLOBAL
   PROJECT my-farming-job
   PROGRAM FARMING

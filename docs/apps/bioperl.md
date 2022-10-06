@@ -26,7 +26,7 @@ BioPerl is licensed under the same terms as Perl itself which is dually-licensed
 
 ## Available
 
--   Perl 5.30.0 with Bioperl 1.007002 is available in Puhti
+-   Puhti: Perl 5.30.0 with Bioperl 1.007002 
 
 
 ## Usage

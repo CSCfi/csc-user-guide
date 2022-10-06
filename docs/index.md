@@ -33,9 +33,15 @@
       the left hand side of the navigation bar
     * Or use the search functionality
 
-!!! info "New look!"
+!!! info "Puhti upgraded to RHEL 8"
 
-    The visual appearance of Docs CSC has been refreshed. 
+    The operating system of Puhti has been upgraded to Red Hat Enterprise Linux (RHEL) 8.
+    [Click here for more information.](./support/wn/comp-new.md#puhti-operating-system-updated-to-rhel8-5102022)
+
+    !!! warning-label
+
+        If you encounter any issues, please don't hesitate to [contact Service
+        Desk](support/contact.md)!
 
 
 <!--- Placeholder for a possible banner in the future
