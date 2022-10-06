@@ -38,7 +38,7 @@ Here is a generic recipe for running your Nextflow pipeline on Puhti :
 
 1. Prepare your singularity images on your local environment
 2. Login to Puhti supercomputer
-3. Load Nextflow as module on Puhti
+3. Load Nextflow as a module on Puhti
 4. Set-up your Nextflow pipeline environment
 5. Run your Nextflow pipeline as a batch job
 6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline on Puhti
