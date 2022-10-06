@@ -66,7 +66,11 @@ More information about [building](../../computing/compiling-puhti.md#building-mp
 More information about specific applications can be found [here](../../apps/alpha.md)
 
 !!! Python
-    System Python is available by default both in Puhti and Mahti without loading any module. Python 3 (= 3.6.8) is available as `python3`. The default system Python does not include any optional Python packages. Several other [Python](../../apps/python.md) installations are via module system. [python-data](../../apps/python-data.md) is a good first choice, it includes a lot of regularly used packages. 
+    System Python is available by default both in Puhti and Mahti without loading any module. Python 3
+    (= 3.6.8) is available as `python3`. The default system Python does not include any optional Python
+    packages. Several other [Python](../../apps/python.md) installations are available via the module system.
+    [python-data](../../apps/python-data.md) is a good first choice, it includes a lot of regularly used
+    packages. 
 
 ## Running jobs
 
