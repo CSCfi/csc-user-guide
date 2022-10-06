@@ -1,6 +1,6 @@
 # How does LUMI-C differ from Mahti?
 
-[LUMI-C](https://docs.lumi-supercomputer.eu/computing/systems/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a theoretical performance of 7.7 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a theoretical performance of 7.5 Petaflops. Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
+[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/compute/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a theoretical performance of 7.7 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a theoretical performance of 7.5 Petaflops. Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
 
 ## GPUs and memory
 
@@ -35,22 +35,22 @@ If you have problems installing your software on LUMI-C, please [send a ticket t
 
 ## Programming environment and software stacks
 
-The programming environment of LUMI-C is quite different compared to CSC supercomputers. LUMI comes with three alternative programming environments, namely Cray, GNU and AOCC. Each of the environments have their own compiler suites that become available upon loading the corresponding programming environment module. Moreover, two types of software stacks are offered, the CrayEnv and LUMI stacks. Please refer to the LUMI documentation for a detailed description of the [available collection of compiler suites](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/) and [software stacks](https://docs.lumi-supercomputer.eu/computing/softwarestacks/) and how to swap between these.
+The programming environment of LUMI-C is quite different compared to CSC supercomputers. LUMI comes with three alternative programming environments, namely Cray, GNU and AOCC. Each of the environments have their own compiler suites that become available upon loading the corresponding programming environment module. Moreover, two types of software stacks are offered, the CrayEnv and LUMI stacks. Please refer to the LUMI documentation for a detailed description of the [available collection of compiler suites](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/) and [software stacks](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/softwarestacks/) and how to swap between these.
 
 !!! Note
     Irrespective of the loaded compiler suite, one noticeable difference concerning the LUMI-C programming environment is that it comes with compiler wrappers that replace commands commonly found on HPC systems such as Mahti. For example, commands for compiling MPI code like `mpicc`, `mpic++` and `mpif90` are unavailable as such. Instead, you should use the wrappers `cc`, `CC` and `ftn`, respectively. See the LUMI documentation for [more details on the available MPI wrappers](https://docs.lumi-supercomputer.eu/development/compiling/prgenv/#compile-an-mpi-program).
 
 ## Disk areas
 
-Similar to CSC supercomputers, LUMI uses a Lustre parallel filesystem. However, there's no fast local disk on LUMI similar to the local scratch on Puhti and Mahti-AI. Instead, a fast flash-based Lustre scratch space (LUMI-F) will be made available once the installation of LUMI-G is completed. Also, the LUMI-O object storage is not available yet. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/storage/).
+Similar to CSC supercomputers, LUMI uses a Lustre parallel filesystem. However, there's no fast local disk on LUMI similar to the local scratch on Puhti and Mahti-AI. Instead, a fast flash-based Lustre scratch space (LUMI-F) will be made available once the installation of LUMI-G is completed. Also, the LUMI-O object storage is not available yet. [See the LUMI documentation for more details](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/storing-data/).
 
 ## Available partitions
 
-LUMI-C has two types of partitions (queues): two that are allocatable by node (only full nodes can be requested, similar to Mahti) and three that are allocatable by resources (partial nodes can be requested, similar to Puhti). [See more details in the LUMI documentation](https://docs.lumi-supercomputer.eu/computing/jobs/partitions/), e.g. maximum wall-time/node count and naming of the partitions.
+LUMI-C has two types of partitions (queues): two that are allocatable by node (only full nodes can be requested, similar to Mahti) and three that are allocatable by resources (partial nodes can be requested, similar to Puhti). [See more details in the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/), e.g. maximum wall-time/node count and naming of the partitions.
 
 ## Billing
 
-Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/computing/jobs/billing/).
+Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
 
 ## Sensitive data
 
