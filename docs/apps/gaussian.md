@@ -13,7 +13,7 @@ structure modeling.
 ## License
 
 CSC has acquired a full commercial license for Gaussian. Gaussian is available for use by
-all approved account holders, subject to some license restrictions.To be able to use
+all approved account holders, subject to some license restrictions. To be able to use
 Gaussian at CSC **your user-id has to be added to Gaussian users group. Send a request to
 [CSC Service Desk](../support/contact.md).**
 
