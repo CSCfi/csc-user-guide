@@ -17,9 +17,9 @@ For to find out which versions of ANSYS are installed on the server, give comman
 
     module available
 
-and check lines *ansys/(version number)*. For example to load Ansys version 2022R1, give command
+and check lines *ansys/(version number)*. For example to load Ansys version 2022R2, give command
 
-    module load ansys/2022R1
+    module load ansys/2022R2
 
 There are examples of **batch job files** available on Puhti and Mahti servers.  On Mahti, only for CFD computations:
 

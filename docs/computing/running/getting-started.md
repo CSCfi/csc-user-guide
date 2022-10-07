@@ -37,4 +37,4 @@ If you are already familiar with SLURM, check out our
 [example batch job scripts for Mahti](example-job-scripts-mahti.md).
 
 !!! Note
-    Please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/computing/jobs/slurm-quickstart/) for how to get started with running jobs on the LUMI supercomputer. LUMI uses also the SLURM batch queue system, so the differences between running on CSC supercomputers and LUMI are minor.
+    Please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/) for how to get started with running jobs on the LUMI supercomputer. LUMI uses also the SLURM batch queue system, so the differences between running on CSC supercomputers and LUMI are minor.

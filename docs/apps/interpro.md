@@ -31,7 +31,7 @@ Free to use and open source under [Apache License 2.0](https://www.apache.org/li
 
 ## Version
 
-*   InterProScan version 5.55-88.0 is available in Puhti
+*   Puhti: 5.55-88.0 
 
 ## Usage 
 

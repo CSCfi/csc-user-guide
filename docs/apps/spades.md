@@ -32,7 +32,7 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 Version on CSC's Servers
 
--   Puhti: 3.15.0
+-   Puhti: 3.15.5
 
 ## Usage
 

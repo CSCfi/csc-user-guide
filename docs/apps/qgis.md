@@ -8,8 +8,7 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.22 in a singularity container: qgis(/3.22 = default) module
-* 3.16 in a singularity container: qgis/3.16 module
+* 3.22
 
 ## Usage
 
