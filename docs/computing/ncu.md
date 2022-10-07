@@ -1,8 +1,8 @@
 # ncu: GPU CUDA Kernel Profiler
 
 ## Available
-    Puhti: 2020.2.0.18
-    Mahti: 2020.3.1.0
+    Puhti: 2022.2.0.0
+    Mahti: 2021.3.0.0
 ## Usage    
 
 NVIDIA Nsight Compute is a CUDA kernel profiler that provides detailed performance data and offers guidance for optimizing your CUDA kernels.
@@ -16,16 +16,15 @@ collected, and may also be saved for later viewing by *ncu-ui* tool.
 To use `ncu`, one needs to first load a CUDA environment. First load the appropriate `gcc` module 
 
 ```
-module load gcc/9.1.0
+module load gcc/11.3.0
 ```
 on Puhti, or 
 ```
-module load gcc/10.3.0
+module load gcc/11.2.0
 ```
-on Mahti and then the CUDA and `nsight-compute` modules
+on Mahti and then the CUDA module
 ```bash
 module load cuda
-module load nsight-compute
 ```
 
 To profile a CUDA code, one then adds the command `ncu` before the normal
