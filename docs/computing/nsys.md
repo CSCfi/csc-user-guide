@@ -1,8 +1,8 @@
 # nsys: Nvidia GPU and CPU profiler
 
 ## Available
-    Puhti: 2020.4.1.144
-    Mahti: 2021.1.1.66 
+    Puhti: 2022.1.3.3
+    Mahti: 2021.3.3.2 
 ## Usage    
 
 The *nsys* profiling tool collects and views profiling data from the
@@ -15,16 +15,15 @@ collected, and may also be saved for later viewing by *nsys-ui* tool.
 To use `nsys`, one needs to first load a CUDA environment. First load the appropriate `gcc` module 
 
 ```
-module load gcc/9.1.0
+module load gcc/11.3.0
 ```
 on Puhti, or 
 ```
-module load gcc/10.3.0
+module load gcc/11.2.0
 ```
-on Mahti and then the  CUDA and `nsight-systems` modules
+on Mahti and then the  CUDA and module
 ```bash
 module load cuda
-module load nsight-systems
 ```
 
 To profile a CUDA code, one then adds the command `nsys` before the normal
