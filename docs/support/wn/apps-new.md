@@ -1,5 +1,12 @@
 # Applications
 
+## Available applications can now be viewed as grouped by license type, 7.10.2022
+
+In addition to alphabetical ordering, grouped by discipline or by availability, applications can now be
+viewed as grouped by license type. Some information about each of the license categories is
+provided. See [Applications by license](../../apps/by_license.md). (The page can also be reached from
+the side navigation: Applications > By license)
+
 ## Python Data 3.10-22.09, 7.10.2022
 
 Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data.md) module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have been removed, and the naming of modules has changed. Modules are now named according to the Python version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the module will include the newest versions of libraries at installation time, to the extent software dependencies allow. Modules can also be loaded simply with the Python version, and you will get the most recent installation with that version of Python, for example: `module load python-data/3.9`.
