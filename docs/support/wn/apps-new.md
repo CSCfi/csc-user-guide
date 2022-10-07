@@ -1,5 +1,9 @@
 # Applications
 
+## Python Data 3.10-22.09, 7.10.2022
+
+Coinciding with the Red Hat 8 update of Puhti, a new [Python Data]](../../apps/python-data.md) module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have been removed from Puhti, and the naming of modules has changed. Modules are now named according to the Python version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the module will include the newest versions of libraries at installation time, to the extent software dependencies allow. Modules can also be loaded simply with the Python version, and you will get the most recent installation with that version of Python, for example: `module load python-data/3.9`.
+
 ## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
 
 Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to [`r-env`](../../apps/r-env.md).
