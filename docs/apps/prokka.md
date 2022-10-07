@@ -10,7 +10,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-Prokka 1.14.6 is Available in Puhti.
+*   Puhti: 1.14.6
 
 ## Usage
 
@@ -21,21 +21,19 @@ with command:
 sinteractive -i -m 8G
 ```
 
-Prokka is installed to Puhti as a bioconda environment called `prokka`. In addition to Prokka, this environment 
-contains also [Roary](./roary.md) pan genome pipeline.
-To use it, you should activate Prokka environment with commands:
+To activate Prokka environment run command:
 
 ```text
-export PROJAPPL=/projappl/your_project_name
-module load bioconda
-source activate prokka
+module load prokka
 ```
+
 After that you can launch Prokka with command `prokka`. By default Prokka tries to use 8 coputing cores, but in 
 this interactive batch job case, you have just one core available. Because of that you should always define the number
 of cores that Prokka will use with option `-cpus`.
 
 For example:
-```
+
+```text
 prokka  --cpus 1 contigs.fasta
 ```
 
@@ -56,9 +54,7 @@ Sample batch job script (batch_job_file.bash) below.
 #
 
 #set up prokka
-export PROJAPPL=/projappl/your_project_name
-module load bioconda
-source activate prokka
+module load prokka
 
 #Run prokka
 prokka --cpus $SLURM_CPUS_PER_TASK --outdir results_case1 --prefix mygenome contigs_case1.fa

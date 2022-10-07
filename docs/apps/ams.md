@@ -4,8 +4,8 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
--   Mahti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.101
+-   Puhti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.103
+-   Mahti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.103
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -18,7 +18,7 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 Initialise AMS:
 
 ```bash
-module load ams/2022.101
+module load ams/2022.103
 ```
 
 
@@ -33,7 +33,7 @@ module load ams/2022.101
 #SBATCH --time=00:10:00           # time as `hh:mm:ss`
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 module purge
-module load ams/2022.101
+module load ams/2022.103
 export SCM_USE_LOCAL_IMPI=yes
 export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
 mkdir -p $SCM_TMPDIR
@@ -59,7 +59,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 #SBATCH --time=00:10:00           # time as `hh:mm:ss`
 #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
 #SBATCH --gres=nvme:100           # requested local disk space in GB
-module load ams/2022.101
+module load ams/2022.103
 export SCM_USE_LOCAL_IMPI=yes
 export SCM_TMPDIR=$LOCAL_SCRATCH
 
@@ -78,7 +78,7 @@ cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
 #SBATCH --account=yourproject # insert here the project to be billed
 #SBATCH --time=00:20:00       # time as `hh:mm:ss`
 module purge
-module load ams/2022.101
+module load ams/2022.103
 export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
 mkdir -p $SCM_TMPDIR
 

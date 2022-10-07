@@ -19,8 +19,8 @@ Some features of the software:
 
 ## Available
 
--   Puhti: 20.1.0, 20.10.0, 21.1.0
--   Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0
+-   Puhti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
+-   Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
 -   Check all available versions (and default version) with
     `module avail gpaw`
 -   Modules ending with `-omp` have the optional OpenMP parallelization enabled,

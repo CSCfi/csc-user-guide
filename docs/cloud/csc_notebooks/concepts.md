@@ -32,7 +32,8 @@ CSC Notebooks is a CSC cloud service for interactive web based applications
 - May have Co-owners
 - Has a lifetime
 - May contain persistent folders (Workspace `shared`, Users' `my-work`). See [Storage in CSC Notebooks](data_persistence.md)
-- Has a maximum number of Applications (10 by default) 
+- Has a maximum number of Applications (10 by default)
+- Has a limit for total memory for concurrent sessions
 
 ## My Work folder
 

@@ -75,7 +75,7 @@ The configuration process will ask for a name for the new rclone _remote_.
 In this case, the new remote is named as named as _allas-crypt_.
 
 <pre>
-[kkayttaj@puhti-login1 ~]$ <b>rclone config</b>
+[kkayttaj@puhti-login11 ~]$ <b>rclone config</b>
 Current remotes:
 
 Name                 Type
@@ -131,7 +131,7 @@ e/n/d/r/c/s/q><b>q</b>
  
 Now the repository is ready to be used. Say, you have a directory called _job_6_ containing some files and directories:
 <pre>
-[kkayttaj@puhti-login1 ~]$ <b>ls job_6</b>
+[kkayttaj@puhti-login11 ~]$ <b>ls job_6</b>
 hello.xrsl  results  results.1601291937.71  runhello.sh
 </pre>
 
