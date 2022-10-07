@@ -68,3 +68,4 @@ nvprof supports several very useful running options:
 
 For more details please check the
 [nvidia documentation](https://docs.nvidia.com/cuda/profiler-users-guide/).
+**NOTE!** `nvprof` does not support architectures `>SM70`. [ `nsys`](nsys.md) tool should be used.
