@@ -62,10 +62,7 @@ In the interactive session, you can set up Qiime with commands:
 ```text
 csc-workspaces
 cd /scratch/<project>
-export PROJAPPL=/projappl/<project>
-module load bioconda
-conda env list
-source activate qiime2-2021.2
+module load qiime2
 ```
 
 Interactive batch jobs include local temporary disk that is mandatory for running Qiime. 

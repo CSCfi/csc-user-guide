@@ -24,7 +24,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 *    Puhti: 1.3.6 
 
 ## Usage
-First load the bioconda module and activate FreeBayes environment
+First load the freebayes module.
 ```text
 module load freebayes
 ```
