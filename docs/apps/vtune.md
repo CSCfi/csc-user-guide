@@ -9,7 +9,7 @@ Intel VTune Profiler is a performance analysis tool for single core and threadin
 
 ## Available
 
-Puhti
+Puhti:
 
 ## License
 
