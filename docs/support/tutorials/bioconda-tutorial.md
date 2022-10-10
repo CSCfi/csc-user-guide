@@ -1,21 +1,25 @@
 # Installing packages from Bioconda using Tykky
 
 [Bioconda](https://bioconda.github.io/index.html) is a popular
-Conda channel for bioinformatics software. It provides an easy 
-method to install thousands of software packages related to biomedical 
+Conda channel for bioinformatics software. It provides an easy
+method to install thousands of software packages related to biomedical
 research.
 
-CSC has deprecated the direct usage of Conda installations on our 
-supercomputers' (Puhti and Mahti) shared file systems due to performance 
-issues, but you can easily install packages from Bioconda using the [Tykky](../../computing/containers/tykky.md) tool.
+CSC has deprecated the direct usage of Conda installations on our
+supercomputers' (Puhti and Mahti) shared file systems due to performance
+issues, but you can easily install packages from Bioconda using the
+[Tykky](../../computing/containers/tykky.md) tool.
 
-All packages in Bioconda have a ready-made Docker container image available. While those images could be pulled and used directly, Tykky provides an easy method to install them in a way that they are usable without any special container commands.
+All packages in Bioconda have a ready-made Docker container image available. While
+those images could be pulled and used directly, Tykky provides an easy method to
+install them in a way that they are usable without any special container commands.
 
 ## Example: Installing MetaBAT2 from Bioconda
 
 In this example we install MetaBAT2 package from Bioconda.
 
-To find a softare in Bioconda you can [browse them alpabetically](https://bioconda.github.io/conda-package_index.html) or use the search. 
+To find a software in Bioconda you can [browse them
+alphabetically](https://bioconda.github.io/conda-package_index.html) or use the search.
 
 For our example we choose [MetaBAT2 package](https://bioconda.github.io/recipes/metabat2/README.html).
 
@@ -31,7 +35,8 @@ From the command we need the Docker address:
 quay.io/biocontainers/metabat2
 ```
 
-From the Tags page select the desired version. In this case we choose the latest (the topmost) version.
+From the Tags page select the desired version. In this case we choose the latest
+(the topmost) version.
 
 ```text
 2.15--h986a166_1
@@ -49,12 +54,13 @@ Load Tykky module
 module load tykky
 ```
 
-We will use the Tykky [wrap-container](../../computing/containers/tykky.md#existing-containers) command. 
+We will use the Tykky [wrap-container](../../computing/containers/tykky.md#existing-containers) command.
 
-The `-w` parameter needs to specify installation directory inside the container. For containers from Bioconda this is always `/usr/local/bin`. For containers from other sources, please see below.
+The `-w` parameter needs to specify installation directory inside the container. For containers
+from Bioconda this is always `/usr/local/bin`. For containers from other sources, please see below.
 
-The `--prefix` parameter indicates the directory where we want to install the software. The directory needs to exist, so we we need to create it first:
-
+The `--prefix` parameter indicates the directory where we want to install the software. The
+directory needs to exist, so we we need to create it first:
 
 ```text
 mkdir metabat-2.15
@@ -66,7 +72,10 @@ We can now install the software:
 wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.15--h986a166_1 --prefix metabat-2.15
 ```
 
-After the installations finishes, the executables for the program will be in directory `metabat-2.15/bin`. It should be noted that these are not the actual commands, but rather wrapper scripts for the commands inside the container. You can, however, use them as if they were the actual commands.
+After the installations finishes, the executables for the program will be in directory
+`metabat-2.15/bin`. It should be noted that these are not the actual commands, but rather
+wrapper scripts for the commands inside the container. You can, however, use them as if
+they were the actual commands.
 
 E.g:
 
@@ -74,9 +83,12 @@ E.g:
 ./metabat-2.15/bin/metabat --help
 ```
 
-Adding the `bin` directory to your `$PATH` will work the same as activating the conda environment in case of direct Conda installation.
+Adding the `bin` directory to your `$PATH` will work the same as activating the Conda
+environment in case of direct Conda installation.
 
-When the `wrap-container` command finishes, it will show you the `export` command to do this. The actual command will depend on the installation directory, but will be something like:
+When the `wrap-container` command finishes, it will show you the `export` command
+to do this. The actual command will depend on the installation directory, but will
+be something like:
 
 ```text
 export PATH=/projappl_12345/metabat-2.15/bin:$PATH
@@ -89,14 +101,20 @@ metabat --help
 ```
 
 !!! note
-    It is generally a bad idea to add Tykky installations permanently to you `$PATH` by e.g. editing your `.bashrc` file. The installation directories often contain common commands like `python` or `perl`. These are specific for each installation, and having them in your default `$PATH` will cause problems with running other software. It's best to add the installation directory to your `$PATH` only when you are using the program. You can e.g. add the `export` command to your [batch job script](../../computing/running/creating-job-scripts-puhti.md).
-
+    It is generally a bad idea to add Tykky installations permanently to you `$PATH` by e.g.
+    editing your `.bashrc` file. The installation directories often contain common commands
+    like `python` or `perl`. These are specific for each installation, and having them in your
+    default `$PATH` will cause problems with running other software. It's best to add the
+    installation directory to your `$PATH` only when you are using the program. You can e.g. add the
+    `export` command to your [batch job script](../../computing/running/creating-job-scripts-puhti.md).
 
 ## Containers from other source
 
-You can use similar steps to create wrappers for containers from other sources, such as the [BioContainer registry](https://biocontainers.pro/) or local image files. 
+You can use similar steps to create wrappers for containers from other sources, such as the
+[BioContainer registry](https://biocontainers.pro/) or local image files.
 
-The software installation location inside the container may vary, so it should be checked in order to set `-w` parameter correctly.
+The software installation location inside the container may vary, so it should be checked in
+order to set `-w` parameter correctly.
 
 In this example we'll use a container for `mono`.
 
@@ -108,21 +126,23 @@ apptainer build mono.sif docker://mono:6.12.0.182-slim
 
 You can now run command `which` inside the container to find out the installation location.
 
-
 ```text
 apptainer exec mono.sif which mono
 ```
 
-In this case the directory is `/usr/bin`. To install you could use the Docker address above or specify the local image file just created (`mono.sif`).
+In this case the directory is `/usr/bin`. To install you could use the Docker address above
+or specify the local image file just created (`mono.sif`).
 
 ```text
 wrap-container -w /usr/bin mono.sif --prefix mono
 ```
 
-In some cases the installation location is not in `$PATH` inside the container, so `which` won't work. In those cases you could try running `find` inside the container instead:
+In some cases the installation location is not in `$PATH` inside the container, so `which`
+won't work. In those cases you could try running `find` inside the container instead:
 
 ```text
 apptainer exec mono.sif find / \( -type f -o -type l \) -name mono 2> /dev/null
 ```
 
-In this case we search starting from the root directory(`/`) for either a fìle (`-type f`) or (`-o`) a symbolic link (`-type l`) named "mono" (`-name mono`).
+In this case we search starting from the root directory(`/`) for either a file (`-type f`)
+or (`-o`) a symbolic link (`-type l`) named "mono" (`-name mono`).
