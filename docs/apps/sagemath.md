@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # SageMath
 
 SageMath is a free open-source mathematics software system licensed
@@ -21,15 +26,15 @@ GNU General Public License (GPL)
 On Puhti, load the SageMath module
 
 ```bash
-$ module load sagemath
+module load sagemath
 ```
 
 and then
+
 ```bash
-$ sage
+sage
 ```
 
 ## More information
 
 - SageMath documentation [http://doc.sagemath.org](http://doc.sagemath.org)
-

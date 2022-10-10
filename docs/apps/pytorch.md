@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # PyTorch
 
 Machine learning framework for Python.
