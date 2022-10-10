@@ -25,7 +25,7 @@ In the page find the command to use Docker. In this case:
 docker pull quay.io/biocontainers/metabat2:<tag>
 ```
 
-From the command we need the Docker adress:
+From the command we need the Docker address:
 
 ```text
 quay.io/biocontainers/metabat2
@@ -49,7 +49,7 @@ Load Tykky module
 module load tykky
 ```
 
-We will use the Tykky [wrap-container](../../computing/containers/tykky/#existing-containers) command. 
+We will use the Tykky [wrap-container](../../computing/containers/tykky.md#existing-containers) command. 
 
 The `-w` parameter needs to specify installation directory inside the container. For containers from Bioconda this is always `/usr/local/bin`. For containers from other sources, please see below.
 
