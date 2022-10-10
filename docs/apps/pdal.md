@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # PDAL
 
 [PDAL](https://www.pdal.io/) is an open source command line application for point cloud translations and processing.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # NAMD
 
 NAMD is a parallel molecular dynamics code designed for high-performance

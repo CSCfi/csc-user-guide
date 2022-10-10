@@ -1,5 +1,9 @@
-# MACS2
+---
+tags:
+  - Free
+---
 
+# MACS2
 
 ## Description
 

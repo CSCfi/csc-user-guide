@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # WhiteboxTools
 
 [WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html) is an advanced geospatial data analysis platform which includes more than 480 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # GRASS GIS
 
 [GRASS](https://grass.osgeo.org/) (Geographic Resources Analysis Support System) is a free Geographic Information System (GIS) software used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.

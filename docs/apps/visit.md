@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # VisIt
 
 VisIt is an open source, versatile software for scientific visualization.

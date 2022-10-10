@@ -18,6 +18,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [Which Markdown features/extensions are available?](#which-markdown-featuresextensions-are-available)
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
+  - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
 
 
 ## How to include my new page in the navigation panel?
@@ -185,3 +186,20 @@ The content inside the yellow announcement bar at the top of the page is control
 [csc-overrides/partials/announcement.html](csc-overrides/partials/announcement.html). The bar's
 visibility, in turn, is controlled by changing the value `true|false` of `extra: announcement_visible` in
 [mkdocs.yml](mkdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
+
+## How do I add a license tag to an application page?
+
+The license tag is added inside a YAML front matter. The first lines in the Markdown file should be
+the front matter. Please note the enclosing dashes. A template for the front matter is
+
+```yaml
+---
+tags:
+  - <license>
+---
+```
+
+where `<license>` is one of the predefined license categories: `Academic`, `Free`, `Non-commercial` or
+`Other`; case sensitive, without the angle brackets.
+
+The application will then be included on the Applications by license page automatically.

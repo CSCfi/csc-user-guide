@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Bowtie2
 
 Bowtie2 is an ultrafast, memory-efficient short read aligner. It aligns short DNA sequences (reads) 

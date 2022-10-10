@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # HyperQueue
 
 !!!warning "Autoallocation"

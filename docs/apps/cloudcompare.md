@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # CloudCompare
 
 [CloudCompare](http://cloudcompare.org/) is an open source tool for editing and processing dense 3D point clouds (such as those acquired with laser scanners).

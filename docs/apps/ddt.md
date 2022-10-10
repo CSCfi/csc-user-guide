@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # DDT
 
 Arm DDT is a parallel debugger with a graphical user interface (GUI).

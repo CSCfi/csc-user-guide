@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Python
 
 [Python](https://www.python.org/) programming language in CSC's Supercomputers

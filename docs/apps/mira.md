@@ -1,5 +1,9 @@
-# MIRA
+---
+tags:
+  - Free
+---
 
+# MIRA
 
 ## Description
 
