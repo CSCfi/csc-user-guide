@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # FORCE 
 
 FORCE (Framework for Operational Radiometric Correction for Environmental monitoring) is an all-in-one solution for mass-processing medium-resolution satellite images
@@ -6,11 +11,11 @@ FORCE (Framework for Operational Radiometric Correction for Environmental monito
 
 __FORCE__ is available in Puhti with the following versions:
 
-* 3.6.5 (Singularity container)
+* 3.7.8
 
 ## Usage 
 
-FORCE is included in the __force__ module. You can load it with 
+FORCE is included in the __force__ module. You can load it with:
 
 `module load force`
 

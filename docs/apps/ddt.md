@@ -1,10 +1,15 @@
+---
+tags:
+  - Free
+---
+
 # DDT
 
 Arm DDT is a parallel debugger with a graphical user interface (GUI).
 
 ## Available
 
-* Puhti: 19.1.2, 20.1.1, 21.1.3
+* Puhti: 22.0.4
 * Mahti: 22.0.1
 
 ## License
@@ -14,7 +19,8 @@ Usage is possible for both academic and commercial purposes.
 ## Usage
 
 Set up the debugger environment
-```
+
+```bash
 module load ddt
 ```
 
@@ -26,16 +32,17 @@ Here are a few examples of debug sessions (MPI debug sessions). The first
 `salloc` command requests 40 processes in a single node and the second 40 processes divided
 into two nodes:
 
-```
+```bash
 export SLURM_OVERLAP=1
 
 salloc --nodes=1 --ntasks-per-node=40 --time=00:30:00 --partition=small --account=<project_id> ddt srun ./debug_enabled_code
 salloc --nodes=2 --ntasks-per-node=20 --time=00:30:00 --partition=large --account=<project_id> ddt srun ./debug_enabled_code
 ```
 
-By default, DDT sets the initial breakpoint at `MPI_Init`. For debugging scalar or plain OpenMP programs, set the following environment variables before starting the debugger:
+By default, DDT sets the initial breakpoint at `MPI_Init`. For debugging scalar or plain OpenMP
+programs, set the following environment variables before starting the debugger:
 
-```
+```bash
 export ALLINEA_MPI_INIT=main
 export ALLINEA_HOLD_MPI_INIT=1
 ```

@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # Amber
 
 Amber is a molecular dynamics package which has as number of additional
@@ -8,7 +13,7 @@ structure refinement.
 
 ## Available
 
-* Puhti: 18, 18-cuda, 20, 20-cuda, 20-quick-cuda (for QM/MM with QUICK)
+* Puhti: 20, 20-cuda
 * Mahti: 20, 20-cuda
 
 ## License
@@ -19,30 +24,31 @@ the [academic license text here](http://ambermd.org/LicenseAmber20.pdf).
 
 ## Usage
 
-Start using the AmberTools with the default version:
+See available versions and how to load Amber by running:
   
-```
-module load amber
+```bash
+module spider amber
 ```
 
-Use `module spider amber` to see all available versions.
-The `module load` command will set `$AMBERHOME` and put the AmberTools binaries in the path. Run Amber
-production jobs in the batch queues, see below. Lightweight system preparation
-can be done on the login node as well (short serial AmberTools jobs).
+The `module load` command will set `$AMBERHOME` and put the AmberTools binaries
+in the path. Run Amber production jobs in the batch queues, see below. Lightweight
+system preparation can be done on the login node as well (short serial AmberTools
+jobs).
 
 Molecular dynamics jobs are best run with `pmemd.CUDA`. They are much faster
-on GPGPUs than on CPUs. Please note, that using `pmemd.CUDA` requires
-a different module `amber/20-cuda`, but it does not have all the AmberTools available.
+on GPGPUs than on CPUs. Please note that using `pmemd.CUDA` requires a different
+module, `amber/20-cuda`, but it does not have all the AmberTools available.
 
 !!! note
     Run only GPU aware binaries in the gpu partition. If you're unsure,
-    check with seff <slurm_obid> that GPU has been used, and the job
+    check with `seff <slurm_jobid>` that GPU has been used, and the job
     was significantly faster than without GPUs.
-    
-Our tests show that for moderate sized systems the most efficient setup
-is one V100 GPGPU card and one CPU core. An example batch script would be:
 
-```
+Our tests show that for moderate sized systems the most efficient setup
+is one V100 GPGPU card and one CPU core. An example batch script for Puhti
+would be:
+
+```bash
 #!/bin/bash -l
 #SBATCH --time=00:10:00
 #SBATCH --partition=gputest
@@ -53,26 +59,34 @@ is one V100 GPGPU card and one CPU core. An example batch script would be:
 
 # 1 task, 1 thread, 1 GPGPU
 
+module purge
+module load gcc/9.4.0 openmpi/4.1.4
 module load amber/20-cuda
 
 srun --gres=gpu:v100:1 pmemd.cuda -O -i mdin -r restrt -x mdcrd -o mdout
 ```
 
 !!! note
-    If you want to use more than one GPGPU, perform scaling tests to verify that
-    the jobs really become faster. The rule of thumb is that when you double the resources,
-    the job duration should shrink at least 1.5 fold.
-    For overall performance info, consult [Amber benchmark scaling info](http://ambermd.org/GPUPerformance.php).
+    If you want to use more than one GPU, perform scaling tests to verify that
+    the jobs really become faster. The rule of thumb is that when you double the
+    resources, the job duration should decrease at least 1.5 fold. For overall
+    performance info, consult [Amber benchmark scaling details](http://ambermd.org/GPUPerformance.php). Typically, best efficiency is achieved with 1 GPU.
+    For example, the Cellulose NPT benchmark does not scale to multiple GPUs, but
+    it is still massively faster on a single GPU than the CPU version (see below).
 
-You can find example inputs from the amber tests directory:
+![Amber scaling on GPUs and CPUs on Mahti](../img/cellulose-amber.png 'Amber
+scaling on GPUs and CPUs on Mahti')
 
-```
+You can find example inputs from the Amber tests directory:
+
+```bash
 ls $AMBERHOME/test
 ```
 
-The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. with the following way:
+The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. in
+the following way (on Puhti):
 
-```
+```bash
 #!/bin/bash -l
 #SBATCH --time=00:10:00
 #SBATCH --partition=test
@@ -81,32 +95,33 @@ The non-CUDA aware binaries, e.g. AmberTools can be run as batch jobs e.g. with 
 
 # 1 task
 
+module purge
+module load gcc/9.4.0 openmpi/4.1.4
 module load amber/20
 
 srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
 
 !!! note
-    `pmemd.CUDA` is way faster than `pmemd.MPI`, so use a CPU-only 
-    version only in case you cannot use the CUDA version. If Amber performance
-    is not fast enough, consider using [Gromacs](gromacs.md), which can make use
-    of more CPU cores (i.e. scales further) can be (while using more resources)
-    an order of magnitude faster. In particular, for large scale or very long MD
-    simulations consider using a better scaling MD engine.
+    `pmemd.CUDA` is way faster than `pmemd.MPI`, so use a CPU-only version only
+    in case you cannot use the CUDA version. If Amber performance is not fast
+    enough, consider using [Gromacs](gromacs.md), which can make use
+    of more CPU cores (i.e. scales further). In particular, for large scale or
+    very long MD simulations consider using a better scaling MD engine.
 
 ### Interactive jobs
 
-Sometimes it is more convenient to run small jobs, like system
-preparations, interactively. To prevent excessive load on the login node, these
-kinds of jobs should be run as interactive batch jobs. You can request
-a shell on a compute node with 
-[sinteractive](../computing/running/interactive-usage.md) or manually access to a single core with:
+Sometimes it is more convenient to run small jobs, like system preparations,
+interactively. To prevent excessive load on the login node, these kinds of jobs
+should be run as interactive batch jobs. You can request a shell on a compute
+node with [sinteractive](../computing/running/interactive-usage.md) or manually
+access to a single core with:
 
-```
+```bash
 srun -n 1 -p test -t 00:05:00 --account=<project> --pty /bin/bash
 ```
 
-Then, once you have the resources (you might need to wait), 
+Then, once you have the resources (you might need to wait),
 you can run the `paramfit` task directly with:
 
 ```
@@ -115,7 +130,7 @@ paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 
 ## References
 
-When citing Amber20 or AmberTools20 please use the following:
+When citing Amber or AmberTools please use the following:
 
 D.A. Case, K. Belfon, I.Y. Ben-Shalom, S.R. Brozell, D.S. Cerutti, 
 T.E. Cheatham, III, V.W.D. Cruzeiro, T.A. Darden, R.E. Duke, 
@@ -128,19 +143,6 @@ D.R. Roe, A. Roitberg, C. Sagui, S. Schott-Verdugo, J. Shen,
 C.L. Simmerling, N.R.Skrynnikov, J. Smith, J. Swails, R.C. Walker, 
 J. Wang, L. Wilson, R.M. Wolf, X. Wu, Y. Xiong, Y. Xue, D.M. York 
 and P.A. Kollman (2020), AMBER 2020, University of California, San Francisco.
-
-For Amber 2018:
-  
-D.A. Case, I.Y. Ben-Shalom, S.R. Brozell, D.S. Cerutti, T.E. Cheatham,
-III, V.W.D. Cruzeiro, T.A. Darden, R.E. Duke, D. Ghoreishi, M.K. Gilson,
-H. Gohlke, A.W. Goetz, D. Greene, R Harris, N. Homeyer, S. Izadi, A.
-Kovalenko, T. Kurtzman, T.S. Lee, S. LeGrand, P. Li, C. Lin, J. Liu, T.
-Luchko, R. Luo, D.J. Mermelstein, K.M. Merz, Y. Miao, G. Monard, C.
-Nguyen, H. Nguyen, I. Omelyan, A. Onufriev, F. Pan, R. Qi, D.R. Roe, A.
-Roitberg, C. Sagui, S. Schott-Verdugo, J. Shen, C.L. Simmerling, J.
-Smith, R. Salomon-Ferrer, J. Swails, R.C. Walker, J. Wang, H. Wei, R.M.
-Wolf, X. Wu, L. Xiao, D.M. York and P.A. Kollman (2018), AMBER 2018,
-University of California, San Francisco.
 
 * [More on citations](http://ambermd.org/CiteAmber.php)
 

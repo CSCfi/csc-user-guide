@@ -14,7 +14,7 @@ running and queueing jobs used all the time they have requested) can be shown
 for JOBID 20424242 with:
 
 ```bash
-[username@puhti-login2 ~]$ squeue -j 20424242 --start
+[username@puhti-login12 ~]$ squeue -j 20424242 --start
     JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES    NODELIST(REASON)
   20424242   small cool_stuff  username PD 2020-05-09T03:55:15      1 r06c64       (Priority)
 ```

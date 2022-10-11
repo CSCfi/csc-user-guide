@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # ParaView
 
 ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses VTK library, in python wrapping. ParaView is available on Puhti and we recommend [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for interactive use. [NoMachine](nomachine.md) can be used as a fallback option.
@@ -21,7 +26,7 @@ The most straightforward way to use ParaView is to run it in standalone mode. Th
 Standalone ParaView needs no pvserver reservation. **Note that ParaView should not be run on the login node.** You can use `sinteractive -i` command to reserve one CPU and up to 16 GB memory for your interactive session. When resources become available, the session is directed to a compute node. Load module and start ParaView  
 ```
 module purge
-module load paraview/5.8.1-paraview
+module load paraview/5.10.1-paraview
 paraview
 ```
 If you need more resources, use `srun` and give session parameters as a one-liner. The following reserves 32 GB memory for one CPU, for one hour
@@ -43,15 +48,15 @@ For demanding jobs, ParaView can be run in parallel mode: one client and many pv
 
 Note that if most of the work is done by only one pvserver, using parallel setup can actually make ParaView run slower, due to extra time taken to parse data from different CPUs. You can check how much each pvserver is being used by opening *Memory Inspector* window in ParaView (file menu: *View/Memory Inspector*). ParaView's *D3*-filter can be used to distribute work more evenly between the cores.  
 
-The example script *para581-multi.sh*, below, starts several pvservers and one client (front-end), and connects them. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. *Ntasks* is the number of pvservers plus one client, and *cpus-per-task* is the number of threads for each of these tasks, so the number of CPUs reserved is *ntasks x cpus-per-task*. *Mem* is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.  
+The example script *para5101-multi.sh*, below, starts several pvservers and one client (front-end), and connects them. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. *Ntasks* is the number of pvservers plus one client, and *cpus-per-task* is the number of threads for each of these tasks, so the number of CPUs reserved is *ntasks x cpus-per-task*. *Mem* is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.  
 
 The `salloc` example below allocates resources for one client and nine pvservers, each with two threads, so 20 CPUs are reserved. Nine GB memory in total is allocated for the pvservers, and one GB for the client. (ParaView's OSPRay renderer uses threads, while most of the other ParaView's functions benefit more of pvservers.) **Note that all these `salloc` parameters need to be explicitly given,** otherwise the script *para581-multi.sh* will not work  
 ```
-salloc --nodes=1 --ntasks=10 --cpus-per-task=2 --mem=10G --time=01:00:00 --partition=small --account=<project> para581-multi.sh
+salloc --nodes=1 --ntasks=10 --cpus-per-task=2 --mem=10G --time=01:00:00 --partition=small --account=<project> para5101-multi.sh
 ```
 While the client connects to the servers, you may get a few warnings *connect failed, retrying*, which you can ignore. However, if the last message was *Creating default builtin connection*, connection did eventually fail, and the client is operating without any pvservers. If this happens, check that you have included all the necessary job parameters in your `salloc` command.  
 
-#### Script *para581-multi.sh*:  
+#### Script *para5101-multi.sh*:  
 ```
 #!/bin/bash
 ######################################################
@@ -61,9 +66,10 @@ While the client connects to the servers, you may get a few warnings *connect fa
 ### are copied from the salloc command, no editing ###
 ### of this script is needed.                      ###
 ######################################################
-
+export SLURM_EXACT=1
 export XDG_RUNTIME_DIR=$HOME
 export KNOB_MAX_WORKER_THREADS=$SLURM_CPUS_PER_TASK
+export LP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 MACHINEFILE="nodes.${SLURM_JOB_ID}"
 scontrol show hostnames ${SLURM_JOB_NODELIST} > $MACHINEFILE
 FIRSTNODE=$(head -n 1 ${MACHINEFILE})
@@ -71,12 +77,12 @@ MYPORT=`comm -23 <(seq 22200 22299 | sort) <(ss -Htan | awk '{print $4}' | cut -
 SERVER_NTASKS=$(( ${SLURM_NTASKS}-1 ))
 SERVER_MEMORY=$(( ${SLURM_MEM_PER_NODE}-1000 ))
 module purge
-module load paraview/5.8.1-pvserverosmesa2
+module load paraview/5.10.1-pvserverosmesa
 srun --nodes=1 --ntasks=$SERVER_NTASKS --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY pvserver --server-port=$MYPORT &
-srun --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraView-5.8.1-client-builddir/bin/paraview --server-url=cs://$FIRSTNODE.bullx:$MYPORT &
+srun --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraview-5.10.1-mesa-client/bin/paraview --server-url=cs://$FIRSTNODE.bullx:$MYPORT &
 wait
 ```
-
+<!--
 ## ParaView using one graphics card, one pvserver, and many threads  
 In cases where OSPRay does not work well enough, run ParaView on a GPU node, and reserve a graphics card for it.  
 
@@ -222,7 +228,7 @@ module purge
 module load paraview/5.8.1-paraview
 srun --x11=first /appl/opt/vis/paraview/paraView-5.8.1-client-builddir/bin/paraview --server-url=cs://${NODENAME}:${PORT}
 ```
-
+-->
 ## More Information
 
 * [ParaView homepage](http://www.paraview.org/)

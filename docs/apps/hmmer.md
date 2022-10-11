@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # HMMER
 
 ## Description
@@ -19,14 +24,20 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 Version on CSC's Servers
 
-*   Puhti: HMMER 3.3.2
+*   Puhti: 3.2.1, 3.3.2
 
 ## Usage
 
-To use HMMER in Puhti, load the biokit module:
+To use default version HMMER in Puhti, load the biokit module:
 ```text
 module load biokit
 ```
+
+If you want to use a some other version, load the HMMER module, e.g.
+```text
+module load hmmr/3.2.1
+```
+
 After this the command line options of each hmmer command can be checked with option `-h`. For example:
 ```text
 hmmsearch -h

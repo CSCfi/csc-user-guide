@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # wtdbg2
 
 ## Description

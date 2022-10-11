@@ -161,9 +161,9 @@ cd kkayttaj/
 ```
 With the command `a-list`,we can now see the objects that were just uploaded from Mahti to Allas:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list</b> 
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>a-list</b> 
 2001659-mahti-SCRATCH
-[kkayttaj@puhti-login2 kkayttaj]$ <b>a-list 2001659-mahti-SCRATCH</b>
+[kkayttaj@puhti-login12 kkayttaj]$ <b>a-list 2001659-mahti-SCRATCH</b>
 2001659-mahti-SCRATCH/genomes/zebrafish.tar
 2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
 </pre>
@@ -173,7 +173,7 @@ locating a specific file among dozens of buckets containing hundreds of objects 
 In that case, you can search for a specific file with the command `a-find`. In this example, I can check if 
 an object contains the file Danio_rerio.GRCz10.fa:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-find -a Danio_rerio.GRCz10.fa</b> 
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>a-find -a Danio_rerio.GRCz10.fa</b> 
 ----------------------------------------------
 Checking bucket: 2001659-mahti-SCRATCH
 Object: 2001659-mahti-SCRATCH/genomes/zebrafish.tar 
@@ -192,7 +192,7 @@ matches only among objects that were uploaded with `a-put`.
 
 Next we download the data to Puhti using the `a-get` command:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar</b>
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>a-get 2001659-mahti-SCRATCH/genomes/zebrafish.tar</b>
 Starting to copy data from allas...
 Object:
   2001659-mahti-SCRATCH/genomes/zebrafish.tar
@@ -202,7 +202,7 @@ copied and uncompressed from allas into:
 After this, the current working directory in Puhti has a new directory, _zebrafish_, that contains the files that 
 were previously uploaded from Mahti to Allas.
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>ls zebrafish/</b>
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>ls zebrafish/</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa
@@ -298,7 +298,7 @@ cd kkayttaj/
 ```
 we can now use the command `rclone lsd` to check the available buckets in Allas:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone lsd allas:</b>
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>rclone lsd allas:</b>
   3268222761 2020-10-03 10:01:42         8 2001659-genomes
   2576778428 2020-10-03 10:01:42         4 2001659-mahti-SCRATCH
 </pre>
@@ -307,7 +307,7 @@ Now we see two buckets. _2001659-genomes_ is the one that was just created in th
 example, while _2001659-mahti-SCRATCH_ originates from the previous a-command example.  
 Next, we list the objects in the _2001659-genomes_ bucket:
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone ls allas:2001659-genomes</b>
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>rclone ls allas:2001659-genomes</b>
 450646234 zebrafish/Danio_rerio.GRCz10.91.1.bt2
 334651392 zebrafish/Danio_rerio.GRCz10.91.2.bt2
    187325 zebrafish/Danio_rerio.GRCz10.91.3.bt2
@@ -320,14 +320,14 @@ Next, we list the objects in the _2001659-genomes_ bucket:
 
 Finally, we use the `rclone copyto` command to copy the data from Allas to Puhti in a new directory _zebrafish2_. 
 
-<pre>[kkayttaj@puhti-login2 kkayttaj]$ <b>rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
+<pre>[kkayttaj@puhti-login12 kkayttaj]$ <b>rclone -P copyto allas:2001659-genomes/zebrafish zebrafish2</b>
 Transferred:        3.044G / 3.044 GBytes, 100%, 323.600 MBytes/s, ETA 0s
 Errors:                 0
 Checks:                 0 / 0, -
 Transferred:            8 / 8, 100%
 Elapsed time:        9.6s
 
-[kkayttaj@puhti-login2 kkayttaj]$ <b>ls zebrafish2</b>
+[kkayttaj@puhti-login12 kkayttaj]$ <b>ls zebrafish2</b>
 Danio_rerio.GRCz10.91.1.bt2  Danio_rerio.GRCz10.91.3.bt2  
 Danio_rerio.GRCz10.91.2.bt2  Danio_rerio.GRCz10.91.4.bt2
 Danio_rerio.GRCz10.91.rev.1.bt2  Danio_rerio.GRCz10.fa

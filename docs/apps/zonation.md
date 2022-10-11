@@ -1,18 +1,19 @@
+---
+tags:
+  - Free
+---
+
 # Zonation
 
-[Zonation](https://www.syke.fi/zonation) is a spatial conservation prioritization framework for large-scale conservation planning. It identifies areas, or landscapes, important for retaining high habitat quality and connectivity for multiple biodiversity features (eg. species), providing a quantitative method for enhancing species' long term persistence.
+[Zonation](https://zonationteam.github.io/Zonation5/) is a spatial conservation prioritization framework for large-scale conservation planning. It identifies areas, or landscapes, important for retaining high habitat quality and connectivity for multiple biodiversity features (eg. species), providing a quantitative method for enhancing species' long term persistence.
 
-[TOC]
-
-## License
-
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
 
 __Zonation__ is available in Puhti with following versions:
 
-* 4.0.0
+* 5.0.0 (including Graphical User Interface)
+
 
 ## Usage
 
@@ -20,60 +21,56 @@ Zonation is available in the __zonation__ module and can be loaded with
 
 `module load zonation`
 
-Zonation usage in Puhti happens through a container system called [Singularity](https://sylabs.io/docs/) which is very similar as Docker. CSC provides a [__singularity_wrapper__](../computing/containers/run-existing.md) command that makes running these containers simpler for the user. 
-
-After loading the Zonation module you can run normal zonation commands in the following way:
+After loading the Zonation module you can run zonation commands in the following way:
 
 ```
-srun singularity_wrapper exec <zonation command>
+z5 <command arguments>
 ```
 
-Here is an example with the [zonation-tutorial data](https://github.com/cbig/zonation-tutorial). With the Singularity wrapper, you need to have the data in your project's __projappl__ or __scratch__ folder.
+### Example
+
+Here is an example with the Zonation tutorial data .
+
+
+    
+#### Zonation 5
+
+Download the [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) to your project's __projappl__ or __scratch__ folder, unzip it; then
 
 ```
-srun singularity_wrapper exec \
-    zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
-    basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
+cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
+srun --ntasks=1 --time=00:15:00 --mem=1G --account=project_<your_project_number> --partition=test --pty z5 -w --mode=ABF minimal_settings.z5 $HOME/example1_out
 ```
+which will show you the process in the terminal and create the example1_out file in your $HOME folder.
 
-!!! note
-    The installation of Zonation in Puhti does not include the graphical user interface
-
-## Example batch job script
+**Example batch job script**
 
 ```
 #!/bin/bash
 #SBATCH --account=<YOUR-PROJECT>
 #SBATCH --cpus-per-task=1
 #SBATCH --partition=test
-#SBATCH --time=00:10:00
-#SBATCH --mem=2G
+#SBATCH --time=00:15:00
+#SBATCH --mem=1G
 
 module load zonation
-cd /scratch/<your_project>
-srun singularity_wrapper exec \
-    zig4 -r 01_core_area_zonation/01_core_area_zonation.dat 01_core_area_zonation/01_core_area_zonation.spp \
-    basic_output/01_core_area_zonation/01_core_area_zonation.txt 0.0 0 1.0 1
+cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
+srun z5 -w --mode=ABF minimal_settings.z5 <path_to_where_you_want_to_store_the_result>/example1_out
 ```
-
-
-!!! note
-    Please note that Zonation can use only one CPU core so reserving more won't speed up the processing
-
 
 ## License and acknowledgement
 
-Zonation computational core (zig4) is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/cbig/zonation-core/blob/master/LICENSE)
+Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) version 3 (#GNUGPL) (#GNUGPLv3) license.](https://www.gnu.org/licenses/gpl-3.0.html)
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ### References
 
-* [Zonation homepage](https://www.syke.fi/zonation)
-* [Zonation Github](https://github.com/cbig/zonation-core)
-* [Zonation tutorials](https://github.com/cbig/zonation-tutorial)
-* [Singularity containers in CSC](../computing/containers/run-existing.md)
+* [Zonation homepage](https://zonationteam.github.io/Zonation5/)
+* [Zonation Github](https://github.com/zonationteam/Zonation5)
+* [Zonation 5 manual and tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip)
+
 
 
 

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Biopython
 
 Biopython is a collection of python modules that facilitate the development of python scripts for 
@@ -16,30 +21,15 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 
 ## Available
 
-In Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available
-in the Python installations that are used by the [bioconda](./bioconda.md) environments. These environment also include 
-python virtual environments that allow users to create their own project specific Python environment with `pip` installation tool.
+-   Puhti: Python 3.10.6 with Biopython 1.79
 
-These virtual environments use the PROJAPPL directory for installing the user specific libraries.
-Because of that, you must first set PROJAPPL environment variable to point to the PROJAPPL directory of the
-project you want to use.
-```text
-export PROJAPPL=/projappl/project_your_proj_num
-```
-After that, a virtual Python environment using Python 3.7.3 and biopython can be set up with commands:
-```text
-module load bioconda
-biopython-env
-```
-If you want to use old Python 2.7.5 with biopython in stead, use setup commands:
+In Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available.
 
 ```text
-module load bioconda/2
-biopython-env
+module load biopythontools
 ```
-However, we strongly recommend using Python 3 versions in stead of Python 2.
 
-When the virtual environment is activated, you can launch a biopython program with command:
+When the module is loaded, you can launch a biopython program with command:
 ```text
 python my_biopython_code.py
 ```
@@ -47,6 +37,7 @@ Alternatively you can change the python definition in the first line of your cod
 ```text
 #!/bin/env python
 ```
+
 and execute the python program
 
 ```text
@@ -57,10 +48,11 @@ New python libraries can be installed with `pip install` command.
 For example, Python library called OBITools3 could be installed with command:
 
 ```text
-pip install OBITools3
+pip install --user OBITools3
 ```
 
-
+Further instructions on how to set the installation location etc can be found in the general
+[Python](python.md) page.
 
 ## Manual
 

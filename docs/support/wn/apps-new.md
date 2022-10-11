@@ -1,5 +1,22 @@
 # Applications
 
+## Available applications can now be viewed as grouped by license type, 7.10.2022
+
+In addition to alphabetical ordering, grouped by discipline or by availability, applications can now be
+viewed as grouped by license type. Some information about each of the license categories is
+provided. See [Applications by license](../../apps/by_license.md). (The page can also be reached from
+the side navigation: Applications > By license)
+
+## Python Data 3.10-22.09, 7.10.2022
+
+Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data.md) module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have been removed, and the naming of modules has changed. Modules are now named according to the Python version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the module will include the newest versions of libraries at installation time, to the extent software dependencies allow. Modules can also be loaded simply with the Python version, and you will get the most recent installation with that version of Python, for example: `module load python-data/3.9`.
+
+## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
+
+Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to [`r-env`](../../apps/r-env.md).
+The R version has been updated to 4.2.1, along with several other version updates for installations included in the module. 
+Due to the RHEL8 update requiring modifications to the `r-env` module setup, older R versions are currently unavailable.
+
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
 CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discovery-studio.md)

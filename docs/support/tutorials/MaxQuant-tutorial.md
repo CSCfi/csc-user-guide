@@ -3,6 +3,8 @@
 
 [MaxQuant](https://maxquant.org/) is a quantitative proteomics software package designed for analyzing large mass-spectrometric data sets. More information about the software can be found [here](http://coxdocs.org/doku.php?id=maxquant:start). High-performance computing environment like Puhti is a suitable place for running compute-intensive jobs using MaxQuant software in proteomics research. 
 
+MaxQuant is free to use, but each user needs to register and download MaxQuant from the [developer site](https://maxquant.org/download_asset/maxquant/latest) themselves.
+
 This tutorial provides instructions for running MaxQuant software on Puhti.
 
 ## Configure parameter file
@@ -35,18 +37,20 @@ These modifications include changes in :
 
 MaxQuant software actually also needs mono software to be able to run. 
 With mono software, you can choose your *version* of MaxQuant. 
-CSC provides a conda environment for working with MaxQuant.
+CSC provides a module for mono.
 
+```text
+module load mono
 ```
-module load bioconda
-source activate maxquant
-```
-and then download your linux-compatible version of MaxQuant (e.g., v1.6.3.4) to your 
+
+Download your linux-compatible version of MaxQuant (e.g., v2.0.3.0) to your 
 scratch directory on Puhti and run the following to verify that MaxQuant is installed properly:
 
+```text
+mono MaxQuant\ 2.0.3.0/bin/MaxQuantCmd.exe --help
 ```
-mono MaxQuant_1.6.3.4/MaxQuant/bin/MaxQuantCmd.exe --help
-```
+
+Note that the directory name contains a space, so you need to either escape it using backslash (\) or enclose the path in quotes. For ease of use, you may wish to rename the directory so it has e.g underscore instead of space. 
 
 !!! Note 
     Please note that the MaxQuant version you used to create .xml parameter 
@@ -77,14 +81,14 @@ minimal example script (calles say, e.g., `maxquant.sh`), to start with:
 
 # load maxquant environment
 
-module load bioconda
-source activate maxquant
+module load mono
 
 # adjust file paths here
 
 mono /path_of_MaxQuant/bin/MaxQuantCmd.exe /path/MaxQuant/mqpar.xml
 
 ```
+
 and then modify resource allocations depending on the number samples. Submit your script as below:
 
 ```bash
@@ -100,6 +104,7 @@ You can download example tutorial data for running MaxQuant as below:
 ```bash
 wget https://a3s.fi/proteomics/MaxQuant_tutorial.tar.gz
 ```
+
 and then untar the downloaded archive file as below:
 ```bash
 tar -xavf  MaxQuant_tutorial.tar.gz

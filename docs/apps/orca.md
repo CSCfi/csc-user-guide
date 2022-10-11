@@ -1,6 +1,17 @@
+---
+tags:
+  - Other
+---
+
 # ORCA
 
-[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal ) is an ab initio quantum chemistry program package that contains modern electronic structure methods including density functional theory, many-body perturbation, coupled cluster, multireference methods, and semi-empirical quantum chemistry methods. Its main field of application is larger molecules, transition metal complexes, and their spectroscopic properties. ORCA is developed in the research group of [Frank Neese](https://en.wikipedia.org/wiki/Frank_Neese). The free version is available only for academic use at academic institutions. 
+[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal ) is an ab initio quantum chemistry
+program package that contains modern electronic structure methods including density functional
+theory, many-body perturbation, coupled cluster, multireference methods, and semi-empirical
+quantum chemistry methods. Its main field of application is larger molecules, transition metal
+complexes, and their spectroscopic properties. ORCA is developed in the research group of
+[Frank Neese](https://en.wikipedia.org/wiki/Frank_Neese). The free version is available only
+for academic use at academic institutions.
 
 [TOC]
 
@@ -9,24 +20,28 @@
 -   Puhti: 5.0.3
 -   Mahti: 5.0.3
 
-Note that due to licensing issues every user has to install their own copy of the program 
+Note that due to licensing issues every user has to install their own copy of the program.
 
 ## License
  
-ORCA users should register, agree to the EULA , download and install a private copy of the program (via [https://orcaforum.kofo.mpg.de/app.php/portal](https://orcaforum.kofo.mpg.de/app.php/portal))
+ORCA users should register, agree to the EULA , download and install a private copy of the program
+(via [https://orcaforum.kofo.mpg.de/app.php/portal](https://orcaforum.kofo.mpg.de/app.php/portal))
 The free version is available only for academic use at academic institutions.
 
 ## Usage
 
-- Download the ORCA 5.0.3, Linux, x86-64, shared-version, ` orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
+- Download the ORCA 5.0.3, Linux, x86-64, shared-version, `orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
 - Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti
 - Unpack the package, `tar xf orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
 
 !!! note
-    Wave function-based correlations methods, both single and multireference, often create a substantial amount of disk I/O. In order to achieve maximal performance for the job and to avoid excess load on the Lustre parallel file system it is advisable to use the local disk.  
- - Example batch script for Puhti using local disk
+    Wave function-based correlations methods, both single and multireference, often create a
+    substantial amount of disk I/O. In order to achieve maximal performance for the job and to
+    avoid excess load on the Lustre parallel file system it is advisable to use the local disk.  
 
-```
+- Example batch script for Puhti using local disk
+
+```bash
 #!/bin/bash
 #SBATCH --partition=small
 #SBATCH --nodes=1
@@ -35,7 +50,7 @@ The free version is available only for academic use at academic institutions.
 #SBATCH --time=0:30:00 # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100  # requested local disk space in GB
 module purge
-module load gcc/9.1.0 openmpi/4.1.1-cuda intel-mkl/2019.0.4
+module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
@@ -58,9 +73,10 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 ```
 
-- Example batch script for Puhti (using parallel disk and hence suitable for "standard" DFT calculations)
+- Example batch script for Puhti (using parallel disk and hence suitable for "standard"
+  DFT calculations)
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=small
 #SBATCH --nodes=1
@@ -68,7 +84,7 @@ cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 #SBATCH --account=<your billing project>
 #SBATCH --time=0:30:00 # time as `hh:mm:ss`
 module purge
-module load gcc/9.1.0 openmpi/4.1.1-cuda intel-mkl/2019.0.4
+module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
@@ -80,11 +96,9 @@ $ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
-
-
 - Example batch script for Mahti
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=1
@@ -108,12 +122,12 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
 !!! note
-    Please remember to adjust %pal nproc in your input file according to the total number of requested MPI tasks (nodes * ntasks-per-node) 
-
+    Please remember to adjust %pal nproc in your input file according to the total number of
+    requested MPI tasks (nodes * ntasks-per-node).
 
 - You can find a few additional example jobs in the directory:
 
-``` 
+```console
 /appl/soft/chem/orca
 ```
 
@@ -122,6 +136,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 Cite your work with the following references:
 
 The generic reference for ORCA is:
+
 - Neese, F. (2012) The ORCA program system, Wiley Interdiscip. Rev.: Comput. Mol. Sci., 2, 73-78.
 
 Please do not only cite the above generic reference, but also cite in addition the original
@@ -132,7 +147,5 @@ given in the manual.
 ## More information
 -   [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
 -   [ORCA Tutorials](https://www.orcasoftware.de/tutorials_orca/)
--   [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home) 
+-   [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home)
 -   [Release notes](https://orcaforum.kofo.mpg.de/viewforum.php?f=56)
-
-

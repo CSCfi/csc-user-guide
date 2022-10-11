@@ -19,7 +19,7 @@ used (CPU Efficiency) and how much of the allocated memory was actually used
 
 Example output for a single node job:
 ```bash
-puhti-login2:~$ seff 366910
+puhti-login12:~$ seff 366910
 Job ID: 366910
 Cluster: puhti
 User/Group: louhivuo/louhivuo

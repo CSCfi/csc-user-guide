@@ -5,7 +5,7 @@ is not suitable for large workflows involving tens of thousands of processes on 
 systems. This is due to the usage of individual jobs/job steps that bloat the Slurm log
 and degrade the performance of the batch job scheduler. To maximize throughput and
 performance, we recommend the Nextflow workflow tasks to be run using the
-[HyperQueue](https://it4innovations.github.io/hyperqueue/stable/) meta-scheduler as the
+[HyperQueue](../../apps/hyperqueue.md) meta-scheduler as the
 executor. This page provides an example batch script for this purpose.
 
 !!! Note
