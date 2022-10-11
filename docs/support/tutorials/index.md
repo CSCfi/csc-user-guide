@@ -15,6 +15,7 @@
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [Building Singularity containers from scratch](singularity-scratch.md)
 * [Getting disk usage using Lue](lue.md)
+* [Using Spack](user-spack.md)
 
 ## Performance and high-throughput workflows
 * [Optimising parallel I/O](lustre_performance.md)
