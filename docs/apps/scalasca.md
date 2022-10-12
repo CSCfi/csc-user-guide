@@ -74,7 +74,7 @@ with the `scan` command in the batch job script:
 module load scalasca
 scan srun ./my_app
 ```
-Due to a bug in `spack`, on Puhti one needs to add the path to `otf2` and `cubew` libraries to the `LD_LIBRARY_PATH`.
+Due to a bug in `spack`, on Puhti one needs to add the paths to `otf2` and `cubew` libraries to the `LD_LIBRARY_PATH`.
 ```
 export  LD_LIBRARY_PATH=/appl/spack/v018/install-tree/gcc-11.3.0/cubew-4.6-veofhw/lib/:/appl/spack/v018/install-tree/gcc-11.3.0/otf2-2.3-7bqfgi/lib/:$LD_LIBRARY_PATH
 ``` 
