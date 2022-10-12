@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Bioconda
 
 !!! error "Bioconda has been deprecated!"

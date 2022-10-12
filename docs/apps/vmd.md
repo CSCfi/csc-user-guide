@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # VMD
 
 VMD (Visual Molecular Dynamics) is a molecular visualization program for displaying,

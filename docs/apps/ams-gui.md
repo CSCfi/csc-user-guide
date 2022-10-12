@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # AMS-GUI
 
 [AMS](../apps/ams.md) comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.

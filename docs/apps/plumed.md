@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Plumed
 
 PLUMED (PLUgin for MolEcular Dynamics) is an open-source, community-developed

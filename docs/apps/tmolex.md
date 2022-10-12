@@ -1,11 +1,16 @@
+---
+tags:
+  - Academic
+---
+
 # TmoleX
 
-The free TmoleX Client version is designed to run TURBOMOLE on remote Linux/Unix
-systems from your local Windows, Linux, or MacOS desktop.
+The free TmoleX Client version is designed to run [TURBOMOLE](turbomole.md) on
+remote Linux/Unix systems from your local Windows, Linux, or MacOS desktop.
 
-Import or build/modify structures on your local desktop. Run TURBOMOLE jobs on external
-systems or submit them to a queuing system on remote Linux servers. Let TmoleX Client
-copy results back to your local machine to analyze and visualize.
+Import or build/modify structures on your local desktop. Run TURBOMOLE jobs on
+external systems or submit them to a queuing system on remote Linux servers. Let
+TmoleX Client copy results back to your local machine to analyze and visualize.
 
 ## Available
 
@@ -14,21 +19,23 @@ copy results back to your local machine to analyze and visualize.
 
 ## License
 
-TBD
+TmoleX can be downloaded freely, but the use of [Turbomole](turbomole.md) itself
+is restricted to non-profit research purposes by users affiliated with academic
+(i.e. degree-granting) institutes.
 
 ## Usage
 
-Install the TmoleX client on your local workstation. For details, [see the
-documentation](http://www.cosmologic.de/turbomole/tmolex.html). You can build your actual
-job locally and then submit the job to Puhti. With the client you can monitor how
-the job proceeds. When the job has completed you can retrieve the output and use your local
+Install the TmoleX client on your local workstation. For details, see the [Cosmologic
+website](http://www.cosmologic.de/turbomole/tmolex.html). You can build your actual
+job locally and then submit the job to Puhti. With the client you can monitor how the
+job proceeds. When the job has completed you can retrieve the output and use your local
 client to analyze the results.
 
-Below are some example queue settings that can be used in TmoleX:
+ Below some example queue settings that can be used in TmoleX:
 
 ![Slurm settings](/img/tmolex_submit.png)
 
-where the complete script to be inserted in the field "Script before job execution" looks
+Where the complete script to be inserted in  the field "Script before job execution" looks
 like (modify according to your actual needs):
 
 ```bash

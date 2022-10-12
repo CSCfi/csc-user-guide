@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # VASP
 
 [VASP](https://www.vasp.at/) is an ab initio DFT program for computing

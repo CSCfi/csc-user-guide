@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # Molden
 
 Molden is a general molecular and electronic structure processing program. It can be used to analyze various results obtained from electronic structure calculations.

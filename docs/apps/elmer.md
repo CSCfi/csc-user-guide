@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Elmer
 
 Elmer is CSC's open source Finite Element multi-physics simulation package.  It covers modules for fluid and solid mechanics,

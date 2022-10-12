@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # CP2K
 
 Versatile ab initio and classical molecular dynamics. CP2K is suited for large
