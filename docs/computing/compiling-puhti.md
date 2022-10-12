@@ -171,12 +171,12 @@ MPI/OpenMP hybrid applications:
 [Spack](https://spack.io) is a flexible package manager that can be
 used to install sofware on supercomputers and Linux and macOS
 systems. The basic module tree including compilers, MPI libraries and
-many of the available libraries on Puhti and Mahti has been installed
+many of the available libraries on Puhti and Mahti have been installed
 using Spack.
 
 CSC provides a module that can be used to build sofware on top of the
-available compilers and libraries using spack. It's also possible to
+available compilers and libraries using Spack. It's also possible to
 install different customized versions of packages available in the
 module tree for special use cases. A short tutorial on how to install
-software to CSC systems using spack can be found
-[here](../support/tutorials/user-spack.md)
+software to CSC systems using Spack can be found
+[here](../support/tutorials/user-spack.md).

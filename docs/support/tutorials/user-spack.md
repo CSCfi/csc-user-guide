@@ -37,11 +37,11 @@ Run user-spack-init to initialize user installation in /projappl/project_2001234
 
 !!! note
     You have to purge all default environment compiler and
-    library modules as they may interfere with Spack builds
+    library modules as they may interfere with Spack builds.
 !!! note
     You can have several Spack instances under same project. The
     instance is selected by the USER_SPACK_ROOT environment variable
-    that points to the root directory of the instance
+    that points to the root directory of the instance.
 !!! note When
     the Spack instance is accessed for the first time, you have to
     initialize it with `user-spack-init` command.
