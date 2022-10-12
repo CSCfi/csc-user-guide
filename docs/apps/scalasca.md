@@ -15,7 +15,7 @@ OpenMP, POSIX threads, or MPI+OpenMP/Pthreads parallelization.
 
 ## Available
 
-* Puhti: 2.5
+* Puhti: 2.6
 * Mahti: 2.6
 
 ## License
@@ -50,7 +50,11 @@ or setting in a Makefile
 ```
 CC=scorep mpicc
 ```
-or similarly.
+for `C/C++` codes or similarly
+```
+F90=scorep mpif90
+```
+for fotran codes. 
 
 ### Measurement collection and analysis
 
