@@ -74,7 +74,7 @@ with the `scan` command in the batch job script:
 module load scalasca
 scan srun ./my_app
 ```
-Due to a bug in `spack`, on Puhti one needs to add the paths to `otf2` and `cubew` libraries to the `LD_LIBRARY_PATH`.
+Due to a bug in `spack`, on Puhti one needs to add the paths to `otf2` and `cubew` libraries to the `LD_LIBRARY_PATH`. On Puhti the following line has to be added before running the measurements.
 ```
 export  LD_LIBRARY_PATH=/appl/spack/v018/install-tree/gcc-11.3.0/cubew-4.6-veofhw/lib/:/appl/spack/v018/install-tree/gcc-11.3.0/otf2-2.3-7bqfgi/lib/:$LD_LIBRARY_PATH
 ``` 
@@ -129,7 +129,7 @@ SCOREP_REGION_NAMES_END
 and check the effect of filtering with `-f` option:
 
 ```bash
-scorep-score -r scorep_my_app_40_sum/profile.cubex -f scorep.filter
+scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex 
 
 Estimated aggregate size of event trace:                   835kB
 Estimated requirements for largest trace buffer (max_buf): 105kB
