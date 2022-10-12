@@ -174,7 +174,7 @@ systems. The basic module tree including compilers, MPI libraries and
 many of the available libraries on Puhti and Mahti have been installed
 using Spack.
 
-CSC provides a module that can be used to build sofware on top of the
+CSC provides a module that can be used to build software on top of the
 available compilers and libraries using Spack. It's also possible to
 install different customized versions of packages available in the
 module tree for special use cases. A short tutorial on how to install
