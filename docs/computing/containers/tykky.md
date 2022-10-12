@@ -6,8 +6,8 @@ Tykky is a set of tools for easy installation of tools to HPC.
 
 Tykky use cases:
 
-* Conda installations, based on conda environment.yml
-* Pip installations, based on pip requirements.txt
+* Conda installations, based on conda environment.yml.
+* Pip installations, based on pip requirements.txt.
 * Container installations, based on existing Docker or Apptainer/Singularity images.
 
 Tykky wraps installations inside 
@@ -48,9 +48,9 @@ module load tykky
 First make sure that you have read and understood the license terms for miniconda and any used channels
 before using the command. 
 
-- [Miniconda end user license agreement](https://www.anaconda.com/end-user-license-agreement-miniconda)
-- [Anaconda terms of service](https://www.anaconda.com/terms-of-service)
-- [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq)
+- [Miniconda end user license agreement](https://www.anaconda.com/end-user-license-agreement-miniconda).
+- [Anaconda terms of service](https://www.anaconda.com/terms-of-service).
+- [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq).
 
 1) Create **conda environment file** env.yml: 
 
@@ -85,7 +85,7 @@ conda-containerize new -r req.txt --prefix <install_dir> env.yml
 
 ### mamba 
 The tool also supports using [mamba](https://github.com/mamba-org/mamba) 
-for installing packages. Mamba often findes suitable packages much faster than conda, so it is a good option when required package list is long. Enable this feature by adding the `--mamba` flag. 
+for installing packages. Mamba often finds suitable packages much faster than conda, so it is a good option when required package list is long. Enable this feature by adding the `--mamba` flag. 
 
 ```
 conda-containerize new --mamba --prefix <install_dir> env.yml
@@ -102,7 +102,7 @@ conda-containerize new --prefix MyEnv env.yml
 After the installation finishes we can add the installation directory to our PATH
 and use it like normal.
 
-```
+```bash
 $ export PATH="$PWD/MyEnv/bin:$PATH"
 $ python --version
 3.8.8
@@ -180,9 +180,9 @@ created for the executables in the target directories / for the target path. If 
 
 ## More complicated example
 
-[Example in tool repository](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md)
+[Example in tool repository](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md).
 
 ## How it works
 
 See the README in the source code repository. 
-The source code can be found in the [GitHub repository](https://github.com/CSCfi/hpc-container-wrapper)
+The source code can be found in the [GitHub repository](https://github.com/CSCfi/hpc-container-wrapper).
