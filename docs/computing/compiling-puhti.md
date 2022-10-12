@@ -169,7 +169,7 @@ MPI/OpenMP hybrid applications:
 ## Building software using Spack
 
 [Spack](https://spack.io) is a flexible package manager that can be
-used to install sofware on supercomputers and Linux and macOS
+used to install software on supercomputers and Linux and macOS
 systems. The basic module tree including compilers, MPI libraries and
 many of the available libraries on Puhti and Mahti have been installed
 using Spack.
