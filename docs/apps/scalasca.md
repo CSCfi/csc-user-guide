@@ -54,7 +54,7 @@ for `C/C++` codes or similarly
 ```
 F90=scorep mpif90
 ```
-for fotran codes. 
+for Fortran codes.
 
 ### Measurement collection and analysis
 
@@ -88,7 +88,7 @@ trace, and possibly filter out some functions from the measurement.
 Estimate can be obtained with `scorep-score` command:
 
 ```bash
-scorep-score -r scorep_my_app_40_sum/profile.cubex 
+scorep-score -r scorep_my_app_40_sum/profile.cubex
 
 Estimated aggregate size of event trace:                   1022kB
 Estimated requirements for largest trace buffer (max_buf): 129kB
@@ -125,7 +125,7 @@ SCOREP_REGION_NAMES_END
 and check the effect of filtering with `-f` option:
 
 ```bash
-scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex 
+scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex
 
 Estimated aggregate size of event trace:                   835kB
 Estimated requirements for largest trace buffer (max_buf): 105kB
