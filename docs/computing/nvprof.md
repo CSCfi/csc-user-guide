@@ -3,7 +3,9 @@
 ## Available
     Puhti: 11.7.50
     Mahti: 11.5.50
-## Usage    
+
+## Usage
+
 The *nvprof* profiling tool collects and views profiling data from the
 command-line. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
@@ -12,15 +14,8 @@ Profiling results are displayed in the console after the profiling data is
 collected, and may also be saved for later viewing by either *nvprof* or the
 *Visual Profiler*.
 
-To use nvprof,  one needs to first load a CUDA environment. First load the appropriate `gcc` module 
-```
-module load gcc/11.3.0
-```
-on Puhti, or 
-```
-module load gcc/11.2.0
-```
-on Mahti and then the CUDA module
+To use nvprof, one needs to first load the CUDA module:
+
 ```bash
 module load cuda
 ```
