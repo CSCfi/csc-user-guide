@@ -2,7 +2,7 @@
 
 ## Intro
 
-Tykky is a set of tools for easy installation of tools to HPC. 
+Tykky is a set of tools for easy installation of tools to HPC using Apptainer containers. 
 
 Tykky use cases:
 
