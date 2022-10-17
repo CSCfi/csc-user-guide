@@ -1,3 +1,7 @@
+---
+tags:
+  - Free
+---
 
 # Diamond
 
@@ -18,6 +22,7 @@ The key features of Diamond are:
 Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
 ## Available
+
 *   Puhti: 2.0.15
 
 ## Usage

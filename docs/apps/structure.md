@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Structure
 
 ## Description
@@ -5,7 +10,7 @@
 The program _structure_ is a software package for using multi-locus genotype data to investigate population structure. 
 Its uses include inferring the presence of distinct populations, assigning individuals to populations, studying hybrid zones, 
 identifying migrants and admixed individuals, and estimating population allele frequencies in situations where many 
-individuals are migrants or admixed. 
+individuals are migrants or admixed.
 
 It can be applied to most of the commonly-used genetic markers, including SNPS, microsatellites, RFLPs and AFLPs. 
 
@@ -21,7 +26,7 @@ It can be applied to most of the commonly-used genetic markers, including SNPS, 
 
 ## Version
 
-*    Puhti: 2.3.4 
+*    Puhti: 2.3.4
 
 ## Usage
 
@@ -29,7 +34,7 @@ To use Structure in Puhti, run first following setup commands:
 
 ```text
 module load biokit
-module load strcture
+module load structure
 ```
 
 In addition to `structure` command the structure module makes available commands [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for postprocessing structure results.

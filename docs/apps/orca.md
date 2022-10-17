@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # ORCA
 
 [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal ) is an ab initio quantum chemistry

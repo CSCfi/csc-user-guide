@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # NWChem
 
 NWChem provides many different methods to compute the properties of molecular and

@@ -9,6 +9,8 @@ extra:
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
 
 plugins:
+  - tags:
+      tags_file: apps/by_license.md
   - search
   - git-revision-date-localized:
       type: date
@@ -19,6 +21,7 @@ plugins:
         - support/whats-new.md
         - apps/by_system.md
         - apps/alpha.md
+        - apps/by_license.md
 
 markdown_extensions:
   - admonition
@@ -65,6 +68,7 @@ extra_css:
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
   - assets/stylesheets/table.css
+  - assets/stylesheets/tags.css
   - assets/stylesheets/video.css
   - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
 
@@ -271,6 +275,7 @@ nav:
      - In alphabetical order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md
+     - By license: apps/by_license.md
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material.md

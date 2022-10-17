@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # GOLD
 
 GOLD is a docking program for predicting how flexible molecules will

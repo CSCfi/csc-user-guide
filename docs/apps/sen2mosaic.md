@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Sen2mosaic
 
 [Sen2mosaic](https://sen2mosaic.readthedocs.io/en/latest/) is a tool to download, preprocess and mosaic [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) data.

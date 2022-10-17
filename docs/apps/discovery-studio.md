@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # Discovery Studio
 
 Discovery Studio is a protein modeling program that contains tools to

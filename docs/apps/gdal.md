@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # GDAL
 
 [GDAL](https://gdal.org/) (Geospatial Data Abstraction Library) is a GIS translator library for accessing and transforming geospatial data. Most commonly it is used in file format or coordinate system changes. 

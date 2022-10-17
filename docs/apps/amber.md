@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # Amber
 
 Amber is a molecular dynamics package which has as number of additional

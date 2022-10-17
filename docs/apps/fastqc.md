@@ -1,3 +1,7 @@
+---
+tags:
+  - Free
+---
 
 # FastQC
 

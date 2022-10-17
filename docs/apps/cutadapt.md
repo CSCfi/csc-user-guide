@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Cutadapt
 
 Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of 

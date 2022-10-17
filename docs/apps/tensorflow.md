@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # TensorFlow
 
 Deep learning framework for Python.

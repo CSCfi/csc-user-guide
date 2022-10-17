@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # r-env
 
 `r-env` is an [Apptainer container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 

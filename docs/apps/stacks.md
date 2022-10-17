@@ -1,4 +1,10 @@
+---
+tags:
+  - Free
+---
+
 # Stacks
+
 ## Description
 
 Stacks is a software pipeline for building loci from short-read sequences, such as those generated on the 

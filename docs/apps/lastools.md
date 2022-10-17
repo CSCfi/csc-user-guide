@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # LAStools
 
 [LAStools](https://rapidlasso.com/lastools) is a collection of tools for LiDAR data processing. 

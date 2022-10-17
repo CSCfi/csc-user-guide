@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # Gaussian
 
 Gaussian is a versatile program package providing various capabilities for electronic
