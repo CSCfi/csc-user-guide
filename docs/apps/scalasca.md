@@ -15,7 +15,7 @@ OpenMP, POSIX threads, or MPI+OpenMP/Pthreads parallelization.
 
 ## Available
 
-* Puhti: 2.5
+* Puhti: 2.6
 * Mahti: 2.6
 
 ## License
@@ -50,7 +50,11 @@ or setting in a Makefile
 ```
 CC=scorep mpicc
 ```
-or similarly.
+for `C/C++` codes or similarly
+```
+F90=scorep mpif90
+```
+for Fortran codes.
 
 ### Measurement collection and analysis
 
@@ -70,7 +74,6 @@ with the `scan` command in the batch job script:
 module load scalasca
 scan srun ./my_app
 ```
-
 By default, a flat profile is collected. Upon completion, measurement
 results are stored in the experiment directory, which by default is
 composed of the prefix "scorep_", the target application executable
@@ -85,7 +88,7 @@ trace, and possibly filter out some functions from the measurement.
 Estimate can be obtained with `scorep-score` command:
 
 ```bash
-scorep-score -r scorep_my_app_40_sum/profile.cubex 
+scorep-score -r scorep_my_app_40_sum/profile.cubex
 
 Estimated aggregate size of event trace:                   1022kB
 Estimated requirements for largest trace buffer (max_buf): 129kB
@@ -122,7 +125,7 @@ SCOREP_REGION_NAMES_END
 and check the effect of filtering with `-f` option:
 
 ```bash
-scorep-score -r scorep_my_app_40_sum/profile.cubex -f scorep.filter
+scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex
 
 Estimated aggregate size of event trace:                   835kB
 Estimated requirements for largest trace buffer (max_buf): 105kB
