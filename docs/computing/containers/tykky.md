@@ -55,9 +55,21 @@ before using the command.
 1) Create **conda environment file** env.yml: 
 
 * [Create manually a new file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) or 
-* [Create the file from existing conda installation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). 
+* [Create the file from existing conda installation](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#sharing-an-environment). For example: `conda env export -n <target_env_name> > env.yml`.
 	* If the existing environment is on a Windows and MacOS machine, it might need the [`--from-history` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms), to get a .yml file suitable for Linux.
 	* If the existing environment is on a Linux machine with x86 CPU architecture, it is possible also to use [`--explicit` flag](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments)
+
+An example of a suitable `env.yml` file would be:
+
+```yaml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8.8
+  - scipy
+  - nglview
+```
+
 
 2) Create new directory for installation <install_dir>. Likely `/projappl/<your_project>/..` is a good place.
 
@@ -134,7 +146,7 @@ Where `<file>` could e.g contain:
 
 ```
 conda  install -y numpy
-conda  remove -y pyyaml
+conda  remove -y nglview
 pip install requests
 ```
 
