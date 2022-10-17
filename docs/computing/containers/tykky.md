@@ -106,7 +106,7 @@ conda-containerize new --mamba --prefix <install_dir> env.yml
 
 ### End-to-end example 
 
-Create new conda based installation.
+Create new conda based installation using the previous `env.yml` file.
 ```
 mkdir MyEnv
 conda-containerize new --prefix MyEnv env.yml 
