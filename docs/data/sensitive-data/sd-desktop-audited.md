@@ -183,7 +183,7 @@ You can close your connection to your virtual Desktop in two ways:
    
 
 
-## Accessing sensitive registry data within SD Desktop
+## Accessing sensitive register data within SD Desktop
 
 As the virtual Desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_. This application will allow you to access the dataset for which you have received a permit from Findata. Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop.
 
@@ -199,21 +199,16 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 * **Click on Continue**;
 
-
-![Data-Gateway-LE-1](images/desktop/data-gateway-le-1.png)
-
-
 * In the new window, under the second step, click on **Create**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
-
-![Data-Gateway-LE-2](images/desktop/data-gateway-le-2.png)
-
-![Data-Gateway-LE-3](images/desktop/data-gateway-le-3.png)
 
 *   The files have been encrypted using the **sensitive data public encryption key**, and you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s.
 
 
 !!! Note 
     The Projects folder is **available only when the Data Gateway application is open**. If you close or disconnect the application, you will not be able to access the data stored in the data service unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open and connected during data processing in streaming mode.
+
+
+[![Desktop-register-access](images/desktop/desktop-register-gateway.png)](images/desktop/desktop-register-gateway.png)
 
 
 ### Importing data inside the Desktop
@@ -297,7 +292,9 @@ In order to export the result at the end of your analysis, you need to:
 
 * send a request to servicedesk@csc.fi to export your results.
 
-![Data-Export-LE-1](images/desktop/data-export-le-1.png )
+
+
+[![Desktop-register-export](images/desktop/desktop-register-exp.png)](images/desktop/desktop-register-exp.png)
 
 All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing.
 
