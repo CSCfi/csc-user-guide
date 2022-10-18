@@ -187,7 +187,8 @@ Next:
     Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
-![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
+[![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
+
 
 
 
