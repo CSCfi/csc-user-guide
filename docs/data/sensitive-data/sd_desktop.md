@@ -34,7 +34,7 @@ In the following user guide, you can learn how to:
 
 ## Overview
 
-![Desktop-overview](images/desktop/desktop-overview.png)
+[![Desktop-overview](images/desktop/desktop-overview.png)](images/desktop/desktop-overview.png)
 
 
 ### Authentication
@@ -53,7 +53,7 @@ After entering your username and passworod, you need to  **verify your identity*
 
 For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
-[![Authentication(images/desktop/desktop-login.png)](images/desktop/authentication.png)
+[![Authentication](images/desktop/desktop-login.png)](images/desktop/desktop-login.png)
 
 
 
