@@ -2,7 +2,7 @@
 
 If you are familiar with [Docker containers](https://en.wikipedia.org/wiki/Docker_(software)), [Apptainer containers](https://apptainer.org/) (formerly known as Singularity) are essentially the same thing, but are better suited for multi-user systems such as CSC's supercomputers. Containers provide an isolated software environment for each application, which makes it easier to install complex applications. On shared file systems, such as those used on CSC's supercomputers, launch times can also be much shorter for containers compared to alternatives such as conda.
 
-For more information, read our [overview page on containers](overview.md) or [the Apptainer user guide](https://apptainer.org/docs/user/main/)
+For more information, read our [overview page on containers](overview.md) or [the Apptainer user guide](https://apptainer.org/docs/user/main/).
 
 ## Running Apptainer
 
