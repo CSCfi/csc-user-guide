@@ -83,8 +83,7 @@ Here you can specify several parametes:
 
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
-
-![Launch-virtual-Desktop](images/desktop/desktop-2.png)
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
 
 You can choose between **four different pre-built virtual Desktop options **:
@@ -97,10 +96,6 @@ You can choose between **four different pre-built virtual Desktop options **:
 * **Medium computation**. Techincal specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
 * **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
-
-
-![Launch-virtual-Desktop](images/desktop/desktop-3.png)
-
 
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
