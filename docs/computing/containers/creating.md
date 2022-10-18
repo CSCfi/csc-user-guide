@@ -12,11 +12,11 @@ GPU-optimized containers can also be found in [NVIDIA's GPU cloud (NGC)](https:/
 
 Further [information about converting Docker containers can be found in the Apptainer documentation](https://apptainer.org/docs/user/main/docker_and_oci.html).
 
-Here is an example of how to build an Apptainer image from [NVIDIA's PyTorch Docker image](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
+Here is an example of how to build an Apptainer image on Puhti from [NVIDIA's PyTorch Docker image](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
 
 ```bash
-# Let's start a 1 hour interactive job with 16G of memory
-sinteractive --account <project> --time 1:00:00 -m 16G
+# Let's start a 1 hour interactive job with enough memory and local scratch space
+sinteractive --account <project> --time 1:00:00 -m 16G --tmp 64
 
 # Let's use the fast local drive for temporary storage
 export APPTAINER_TMPDIR=$LOCAL_SCRATCH
