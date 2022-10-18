@@ -27,14 +27,13 @@ instead of the user themselves having to script something based on raw `du` outp
 The sources of inaccuracy are:
 
 1. Old files which have not been accessed are missing size data
-	- There is a specific date (2020-11-18) before which data is not available
-	- Files created/accessed after this are OK
+	- There is a specific date (2020-11-18) before which data is not available on **Puhti**. Mahti does not have a such a limitation. 
+	- Files created/accessed after this should be ok
     - It's not always possible to fully accurately determine affected files in a sufficiently efficient manner.
 2. We can't get the actual layout of the files on the disk, so we might slightly overestimate the actual disk usage.
 	- So a file which is 95 MB large might only consume 68 MB of disk space if it contains large parts of only zeros.
 3. Files which are currently in use might not be reported correctly
-
-
+4. 
 ## Basic usage
 
 Load the module with:
@@ -127,7 +126,7 @@ options or the cache is to old) use `--refresh`. The cache is saved under `$TMPD
 Using the `--yaml file.yaml` and `--json file.json` you can save the output to a more parseable format instead of printing it to the screen.
 
 ## Updating size
-As we mentioned, files which have not been accessed since _2020-11-18_ are not reported correctly. Next follows the steps to correct this,
+As we mentioned, files which have not been accessed since _2020-11-18_ are not reported correctly. Case on **Puhti** Mahti does not have this limitation. Next follows the steps to correct this,
 this only needs to be done once, after which the size should be reported correctly:
 
 1. run `lue <target_dir>`
